@@ -1351,6 +1351,24 @@ export function initUI() {
             comparePanel?.classList.remove('scale-95', 'opacity-0');
             comparePanel?.classList.add('scale-100', 'opacity-100');
         }, 10);
+
+        // Compare share button wiring
+        const cShareBtn = document.getElementById('compare-share-btn');
+        const cShareMenu = document.getElementById('compare-share-menu');
+        const cShareTextBtn = document.getElementById('compare-share-text-btn');
+        if (cShareBtn && cShareMenu) {
+            cShareBtn.onclick = (e) => {
+                e.stopPropagation();
+                cShareMenu.classList.toggle('hidden');
+            };
+            document.addEventListener('click', function hideCShareMenu(e) {
+                if (!e.target.closest('#compare-share-menu-wrapper')) {
+                    cShareMenu.classList.add('hidden');
+                    document.removeEventListener('click', hideCShareMenu);
+                }
+            });
+        }
+        if (cShareTextBtn) cShareTextBtn.onclick = () => { cShareMenu?.classList.add('hidden'); shareComparisonText(item1, item2); };
     }
 
     function closeCompareModal() {
@@ -1363,6 +1381,130 @@ export function initUI() {
             compareModal?.classList.remove('flex');
         }, 300);
     }
+
+    // ── WhatsApp Share ──────────────────────────────────────────────────────
+    async function generateArticleImage(item) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 800;
+        canvas.height = 500;
+        const ctx = canvas.getContext('2d');
+
+        // Background gradient
+        const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        grad.addColorStop(0, '#9B2247');
+        grad.addColorStop(1, '#6b1532');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Decorative circle
+        ctx.beginPath();
+        ctx.arc(canvas.width - 60, 60, 120, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.06)';
+        ctx.fill();
+
+        // Law badge
+        ctx.fillStyle = 'rgba(255,255,255,0.15)';
+        ctx.beginPath();
+        ctx.roundRect(40, 40, 20 + ctx.measureText(item.ley_origen).width + 16, 28, 14);
+        ctx.fill();
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 13px system-ui, sans-serif';
+        ctx.fillText(item.ley_origen, 56, 59);
+
+        // Article title
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 28px system-ui, sans-serif';
+        const titleLines = wrapText(ctx, item.articulo_label, canvas.width - 80, 28);
+        titleLines.forEach((line, i) => ctx.fillText(line, 40, 110 + i * 38));
+
+        // Divider
+        const dividerY = 110 + titleLines.length * 38 + 16;
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(40, dividerY);
+        ctx.lineTo(canvas.width - 40, dividerY);
+        ctx.stroke();
+
+        // Article text snippet
+        const snippetStart = dividerY + 24;
+        const maxTextHeight = canvas.height - snippetStart - 60;
+        ctx.fillStyle = 'rgba(255,255,255,0.88)';
+        ctx.font = '16px Georgia, serif';
+        const snippet = item.texto.replace(/\s+/g, ' ').trim().substring(0, 500);
+        const textLines = wrapText(ctx, snippet, canvas.width - 80, 16);
+        let linesDone = 0;
+        for (const line of textLines) {
+            if (linesDone * 24 > maxTextHeight) {
+                ctx.fillStyle = 'rgba(255,255,255,0.5)';
+                ctx.font = '13px system-ui, sans-serif';
+                ctx.fillText('...', 40, snippetStart + linesDone * 24);
+                break;
+            }
+            ctx.fillText(line, 40, snippetStart + linesDone * 24);
+            linesDone++;
+        }
+
+        // Footer
+        ctx.fillStyle = 'rgba(255,255,255,0.35)';
+        ctx.fillRect(0, canvas.height - 44, canvas.width, 44);
+        ctx.fillStyle = 'rgba(255,255,255,0.8)';
+        ctx.font = '12px system-ui, sans-serif';
+        ctx.fillText('Buscador de Leyes Energéticas · SENER', 40, canvas.height - 16);
+
+        return canvas.toDataURL('image/png');
+    }
+
+    function wrapText(ctx, text, maxWidth, fontSize) {
+        const words = text.split(' ');
+        const lines = [];
+        let current = '';
+        for (const word of words) {
+            const test = current ? current + ' ' + word : word;
+            if (ctx.measureText(test).width > maxWidth && current) {
+                lines.push(current);
+                current = word;
+            } else {
+                current = test;
+            }
+        }
+        if (current) lines.push(current);
+        return lines;
+    }
+
+    function shareArticleText(item) {
+        const text = `📋 *${item.articulo_label}*\n🏛️ ${item.ley_origen}\n\n${item.texto.substring(0, 800)}${item.texto.length > 800 ? '...' : ''}`;
+        const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+    }
+
+    async function shareArticleImage(item) {
+        const dataUrl = await generateArticleImage(item);
+        // Try Web Share API first (mobile), else download
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], 'articulo.png', { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+                title: item.articulo_label,
+                text: `${item.articulo_label} · ${item.ley_origen}`,
+                files: [file]
+            });
+        } else {
+            const a = document.createElement('a');
+            a.href = dataUrl;
+            a.download = `${item.articulo_label.replace(/\s+/g, '_')}.png`;
+            a.click();
+        }
+    }
+
+    function shareComparisonText(item1, item2) {
+        const text = `⚖️ *Comparación de Artículos*\n\n` +
+            `📋 *${item1.articulo_label}* – ${item1.ley_origen}\n${item1.texto.substring(0, 400)}${item1.texto.length > 400 ? '...' : ''}\n\n` +
+            `📋 *${item2.articulo_label}* – ${item2.ley_origen}\n${item2.texto.substring(0, 400)}${item2.texto.length > 400 ? '...' : ''}`;
+        const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+    }
+    // ── End WhatsApp Share ───────────────────────────────────────────────────
 
     function showStatsView() {
         heroSection.classList.add('hidden');
@@ -1670,6 +1812,26 @@ export function initUI() {
                 });
             };
         }
+
+        // Share button wiring
+        const shareBtn = document.getElementById('share-btn');
+        const shareMenu = document.getElementById('share-menu');
+        const shareTextBtn = document.getElementById('share-text-btn');
+        const shareImageBtn = document.getElementById('share-image-btn');
+        if (shareBtn && shareMenu) {
+            shareBtn.onclick = (e) => {
+                e.stopPropagation();
+                shareMenu.classList.toggle('hidden');
+            };
+            document.addEventListener('click', function hideShareMenu(e) {
+                if (!e.target.closest('#share-menu-wrapper')) {
+                    shareMenu.classList.add('hidden');
+                    document.removeEventListener('click', hideShareMenu);
+                }
+            });
+        }
+        if (shareTextBtn) shareTextBtn.onclick = () => { shareMenu?.classList.add('hidden'); shareArticleText(item); };
+        if (shareImageBtn) shareImageBtn.onclick = () => { shareMenu?.classList.add('hidden'); shareArticleImage(item); };
 
         detailModal.classList.remove('hidden');
         detailModal.classList.add('flex');
