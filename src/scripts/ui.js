@@ -171,23 +171,11 @@ export function initUI() {
                 <h2 class="text-2xl font-head font-bold text-gray-800 mb-2">Marco Jurídico Disponible</h2>
                 <p class="text-sm text-gray-400 font-light">Explora las leyes y reglamentos indexados en el sistema.</p>
             </div>
-
-            <!-- Timeline Section -->
-            <div class="w-full bg-white border border-gray-100 rounded-xl p-6 mb-10 shadow-sm">
-                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Línea del Tiempo
-                </h3>
-                <div id="laws-timeline" class="w-full h-48"></div>
-            </div>
             
             ${renderCarouselSection('Leyes Federales', leyes)}
             ${renderCarouselSection('Reglamentos', reglamentos)}
             ${renderCarouselSection('Acuerdos y Otros Instrumentos', otros)}
         `;
-
-        // Render Timeline
-        setTimeout(() => renderTimeline(cachedSummaries), 100);
 
         // Add listeners to law cards
         document.querySelectorAll('.law-card').forEach(card => {
