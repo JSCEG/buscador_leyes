@@ -77,16 +77,35 @@ export function initUI() {
     // Stats Listener
     window.addEventListener('search-ready', (e) => {
         const { totalLeyes, totalArticulos, summaries } = e.detail;
-        cachedSummaries = summaries; // Store for "Leyes" view
+        cachedSummaries = summaries;
 
         if (statsMinimal) {
             statsMinimal.innerHTML = `
-                <span class="opacity-60">Índice activo:</span> 
-                <span class="font-semibold text-guinda">${totalLeyes} leyes</span> 
-                <span class="mx-1 opacity-30">|</span> 
+                <span class="opacity-60">Índice activo:</span>
+                <span class="font-semibold text-guinda">${totalLeyes} leyes</span>
+                <span class="mx-1 opacity-30">|</span>
                 <span class="font-semibold text-guinda">${totalArticulos} artículos</span>
             `;
         }
+        updateFavoritesBtn();
+    });
+
+    // Favorites nav buttons
+    const navFavBtn = document.getElementById('nav-favorites');
+    const mobileFavBtn = document.getElementById('mobile-nav-favorites');
+    if (navFavBtn) navFavBtn.addEventListener('click', () => showFavoritesView());
+    if (mobileFavBtn) mobileFavBtn.addEventListener('click', () => { showFavoritesView(); toggleMobileMenu(false); });
+
+    // Stats nav buttons
+    const navStatsBtn = document.getElementById('nav-stats');
+    const mobileNavStats = document.getElementById('mobile-nav-stats');
+    if (navStatsBtn) navStatsBtn.addEventListener('click', (e) => { e.preventDefault(); showStatsView(); });
+    if (mobileNavStats) mobileNavStats.addEventListener('click', (e) => { e.preventDefault(); showStatsView(); toggleMobileMenu(false); });
+
+    // Compare modal close
+    document.getElementById('close-compare-modal')?.addEventListener('click', closeCompareModal);
+    document.getElementById('compare-modal')?.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('compare-modal')) closeCompareModal();
     });
 
     let currentSearchQuery = '';
@@ -187,7 +206,7 @@ export function initUI() {
 
         // Reset state
         currentPage = 1;
-        currentFilters = { type: 'all' };
+        currentFilters = { type: 'all', law: 'all' };
     }
 
     function showLawsView() {
@@ -361,13 +380,31 @@ export function initUI() {
     function renderCarouselSection(title, items) {
         if (items.length === 0) return '';
 
+        const isLey = title.toLowerCase().includes('ley');
+        const isReglamento = title.toLowerCase().includes('reglamento');
+
+        // Category color config
+        const cat = isLey
+            ? { accent: '#9B2247', gradFrom: '#6b1532', gradTo: '#9B2247', label: 'Ley Federal', dotClass: 'bg-guinda' }
+            : isReglamento
+            ? { accent: '#1E5B4F', gradFrom: '#14403a', gradTo: '#1E5B4F', label: 'Reglamento', dotClass: 'bg-emerald-700' }
+            : { accent: '#A57F2C', gradFrom: '#7a5c1e', gradTo: '#A57F2C', label: 'Instrumento', dotClass: 'bg-amber-700' };
+
+        // Category icons (SVG paths)
+        const iconPath = isLey
+            ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>`
+            : isReglamento
+            ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`
+            : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`;
+
         return `
             <div class="mb-10 carousel-container group/section">
                 <h3 class="text-lg font-bold text-gray-800 mb-4 px-1 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full ${cat.dotClass} flex-shrink-0"></span>
                     ${title}
                     <span class="text-xs font-normal text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">${items.length}</span>
                 </h3>
-                
+
                 <div class="relative">
                     <!-- Left Arrow -->
                     <button class="scroll-left absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 bg-white/90 backdrop-blur border border-gray-100 shadow-lg rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-opacity disabled:opacity-0 hover:text-guinda hover:scale-110 hidden md:block">
@@ -375,26 +412,45 @@ export function initUI() {
                     </button>
 
                     <!-- Carousel Track -->
-                    <div class="carousel-scroll flex gap-4 overflow-x-auto pb-6 -mx-4 px-4 snap-x scrollbar-hide scroll-smooth">
-                        ${items.map(law => `
-                            <div class="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] snap-start bg-white border border-gray-100 rounded-xl p-6 hover:shadow-xl hover:border-guinda/20 hover:-translate-y-1 transition-all duration-300 group cursor-pointer law-card flex flex-col justify-between h-[200px]" data-title="${law.titulo}">
-                                <div>
-                                    <span class="text-[9px] font-bold text-guinda uppercase tracking-wider mb-2 bg-guinda/5 w-fit px-2 py-0.5 rounded-full block truncate">${title.split(' ')[0]}</span>
-                                    <h3 class="text-base font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors leading-snug line-clamp-2" title="${law.titulo}">${law.titulo}</h3>
-                                </div>
-                                
-                                <div class="mt-4 pt-3 border-t border-gray-50 flex justify-between items-end text-xs text-gray-500">
-                                    <div class="flex flex-col gap-1">
-                                        <span class="flex items-center gap-1">
-                                            <svg class="w-3 h-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                            ${law.articulos} arts.
-                                        </span>
-                                        <span class="text-[10px] text-gray-400">${law.fecha || 'N/D'}</span>
+                    <div class="carousel-scroll flex gap-5 overflow-x-auto pb-6 -mx-4 px-4 snap-x scrollbar-hide scroll-smooth">
+                        ${items.map(law => {
+                            const snippet = law.resumen
+                                ? law.resumen.replace(/\n/g, ' ').slice(0, 110) + (law.resumen.length > 110 ? '…' : '')
+                                : (law.temas_clave && law.temas_clave.length > 0
+                                    ? law.temas_clave.slice(0, 3).join(' · ')
+                                    : 'Ver artículos');
+                            return `
+                            <div class="min-w-[300px] w-[300px] md:min-w-[340px] md:w-[340px] snap-start rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer law-card group flex flex-col h-[280px]"
+                                data-title="${law.titulo.replace(/"/g, '&quot;')}"
+                                style="background: linear-gradient(160deg, ${cat.gradFrom} 0%, ${cat.gradTo} 100%);">
+
+                                <!-- Top: icon + label -->
+                                <div class="flex items-start justify-between px-5 pt-5 pb-3">
+                                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(4px);">
+                                        <svg class="w-6 h-6 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">${iconPath}</svg>
                                     </div>
-                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-guinda transition-colors transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    <span class="text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white/80" style="background: rgba(255,255,255,0.15);">${cat.label}</span>
                                 </div>
-                            </div>
-                        `).join('')}
+
+                                <!-- Middle: title + description -->
+                                <div class="flex-1 px-5 pb-2 flex flex-col justify-center">
+                                    <h3 class="text-sm font-bold text-white leading-snug line-clamp-2 mb-2 group-hover:text-white/90 transition-colors" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</h3>
+                                    <p class="text-[11px] text-white/65 leading-relaxed line-clamp-3">${snippet}</p>
+                                </div>
+
+                                <!-- Footer: metadata bar -->
+                                <div class="flex items-center justify-between px-5 py-3" style="background: rgba(0,0,0,0.25); backdrop-filter: blur(4px);">
+                                    <div class="flex items-center gap-1.5 text-white/70 text-[10px]">
+                                        <svg class="w-3 h-3 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                        <span>${law.articulos} artículos</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-white/50 text-[10px]">${law.fecha || 'N/D'}</span>
+                                        <svg class="w-4 h-4 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </div>
+                                </div>
+                            </div>`;
+                        }).join('')}
                     </div>
 
                     <!-- Right Arrow -->
@@ -432,11 +488,9 @@ export function initUI() {
         let currentTheme = localStorage.getItem('reader-theme') || 'light'; // light, sepia, dark
 
         lawDetailContainer.innerHTML = `
-            <!-- Sticky Reading Controls (Kindle Style) -->
-            <div id="reading-controls" class="fixed bottom-6 right-6 z-40 flex flex-col gap-2 animate-fade-in-up">
+            <!-- Desktop Reading Controls (hidden on mobile) -->
+            <div id="reading-controls" class="hidden md:flex fixed bottom-6 right-6 z-40 flex-col gap-2 animate-fade-in-up">
                  <div class="bg-white/95 backdrop-blur border border-gray-200 shadow-2xl rounded-2xl p-2 flex flex-col gap-2 items-center transition-colors duration-300" id="reading-panel">
-                    
-                    <!-- Font Size -->
                     <div class="flex items-center gap-1 bg-gray-50 rounded-full p-1">
                         <button id="btn-font-decrease" class="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-full transition-colors" title="Letra más pequeña">
                             <span class="font-serif text-sm">A</span>
@@ -446,17 +500,43 @@ export function initUI() {
                             <span class="font-serif text-lg font-bold">A</span>
                         </button>
                     </div>
-
                     <div class="w-full h-px bg-gray-100"></div>
-
-                    <!-- Themes -->
                     <div class="flex gap-1">
                         <button class="theme-btn w-6 h-6 rounded-full border-2 border-transparent bg-white shadow-sm hover:scale-110 transition-transform ${currentTheme === 'light' ? 'ring-2 ring-guinda ring-offset-1' : ''}" data-theme="light" title="Modo Claro"></button>
                         <button class="theme-btn w-6 h-6 rounded-full border-2 border-transparent bg-[#f4ecd8] shadow-sm hover:scale-110 transition-transform ${currentTheme === 'sepia' ? 'ring-2 ring-guinda ring-offset-1' : ''}" data-theme="sepia" title="Modo Sepia"></button>
                         <button class="theme-btn w-6 h-6 rounded-full border-2 border-transparent bg-[#1a1a1a] shadow-sm hover:scale-110 transition-transform ${currentTheme === 'dark' ? 'ring-2 ring-guinda ring-offset-1' : ''}" data-theme="dark" title="Modo Oscuro"></button>
                     </div>
-
                  </div>
+            </div>
+
+            <!-- Mobile: floating settings toggle -->
+            <button id="mobile-reading-toggle" class="md:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-white border border-gray-200 shadow-xl rounded-full flex items-center justify-center text-gray-500 hover:text-guinda transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+            </button>
+            <!-- Mobile reading overlay -->
+            <div id="mobile-reading-overlay" class="md:hidden fixed inset-0 bg-black/30 z-40 hidden"></div>
+            <!-- Mobile reading bottom sheet -->
+            <div id="mobile-reading-sheet" class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white rounded-t-3xl shadow-2xl border-t border-gray-100 transform translate-y-full transition-transform duration-300">
+                <div class="flex justify-center pt-3 pb-1"><div class="w-10 h-1 bg-gray-200 rounded-full"></div></div>
+                <div class="px-6 pb-10 pt-2">
+                    <p class="text-sm font-bold text-gray-800 mb-5">Opciones de lectura</p>
+                    <div class="mb-6">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Tamaño de texto</p>
+                        <div class="flex items-center gap-4">
+                            <button id="mob-font-decrease" class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center font-serif text-xl text-gray-600 active:bg-guinda active:text-white transition-colors">A</button>
+                            <span id="mob-font-display" class="flex-1 text-center text-sm font-bold text-gray-500">${currentFontSize}%</span>
+                            <button id="mob-font-increase" class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center font-serif text-3xl font-bold text-gray-600 active:bg-guinda active:text-white transition-colors">A</button>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Fondo</p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button class="mob-theme-btn h-14 rounded-2xl border-2 flex items-center justify-center text-xs font-bold transition-all bg-white ${currentTheme === 'light' ? 'border-guinda text-guinda' : 'border-gray-100 text-gray-700'}" data-theme="light">Blanco</button>
+                            <button class="mob-theme-btn h-14 rounded-2xl border-2 flex items-center justify-center text-xs font-bold transition-all bg-[#f4ecd8] ${currentTheme === 'sepia' ? 'border-guinda text-guinda' : 'border-transparent text-[#5b4636]'}" data-theme="sepia">Sepia</button>
+                            <button class="mob-theme-btn h-14 rounded-2xl border-2 flex items-center justify-center text-xs font-bold transition-all bg-[#1a1a1a] ${currentTheme === 'dark' ? 'border-guinda' : 'border-transparent'} text-white" data-theme="dark">Oscuro</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="mb-8 animate-fade-in-up transition-colors duration-300" id="law-header-area">
@@ -471,10 +551,14 @@ export function initUI() {
                         <p class="text-sm text-gray-500">Publicado: ${law.fecha} · Última reforma: ${law.fecha}</p>
                         ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 flex-wrap">
                         <button id="export-csv-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-guinda hover:text-guinda transition-all flex items-center gap-2 shadow-sm">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                            Exportar Excel (CSV)
+                            Exportar CSV
+                        </button>
+                        <button id="print-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-guinda hover:text-guinda transition-all flex items-center gap-2 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                            Imprimir / PDF
                         </button>
                     </div>
                 </div>
@@ -561,11 +645,21 @@ export function initUI() {
 
             document.body.className = `bg-${theme} text-gray-900 font-body min-h-screen flex flex-col antialiased transition-colors duration-300`;
 
-            // Update buttons active state
+            // Update desktop buttons active state
             themeBtns.forEach(btn => {
                 btn.classList.remove('ring-2', 'ring-guinda', 'ring-offset-1');
                 if (btn.dataset.theme === theme) {
                     btn.classList.add('ring-2', 'ring-guinda', 'ring-offset-1');
+                }
+            });
+            // Update mobile sheet buttons active state
+            document.querySelectorAll('.mob-theme-btn').forEach(btn => {
+                btn.classList.remove('border-guinda', 'text-guinda');
+                btn.classList.add('border-transparent');
+                if (btn.dataset.theme === theme) {
+                    btn.classList.remove('border-transparent');
+                    btn.classList.add('border-guinda');
+                    if (theme !== 'dark') btn.classList.add('text-guinda');
                 }
             });
 
@@ -607,7 +701,9 @@ export function initUI() {
 
         const updateFontSize = () => {
             if (articlesList) articlesList.style.fontSize = `${currentFontSize}%`;
-            if (fontDisplay) fontDisplay.innerText = `${currentFontSize}%`;
+            document.querySelectorAll('#font-size-display, #mob-font-display').forEach(el => {
+                el.innerText = `${currentFontSize}%`;
+            });
         };
 
         if (increaseBtn) {
@@ -642,6 +738,35 @@ export function initUI() {
                 applyTheme(e.target.dataset.theme);
             });
         });
+
+        // Mobile reading sheet
+        const mobileReadingToggle = document.getElementById('mobile-reading-toggle');
+        const mobileReadingSheet = document.getElementById('mobile-reading-sheet');
+        const mobileReadingOverlay = document.getElementById('mobile-reading-overlay');
+
+        const toggleMobileReadingSheet = (show) => {
+            mobileReadingSheet?.classList.toggle('translate-y-full', !show);
+            mobileReadingOverlay?.classList.toggle('hidden', !show);
+        };
+
+        mobileReadingToggle?.addEventListener('click', () => toggleMobileReadingSheet(true));
+        mobileReadingOverlay?.addEventListener('click', () => toggleMobileReadingSheet(false));
+
+        document.getElementById('mob-font-decrease')?.addEventListener('click', () => {
+            if (currentFontSize > 80) { currentFontSize -= 10; updateFontSize(); }
+        });
+        document.getElementById('mob-font-increase')?.addEventListener('click', () => {
+            if (currentFontSize < 250) { currentFontSize += 10; updateFontSize(); }
+        });
+        document.querySelectorAll('.mob-theme-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyTheme(btn.dataset.theme);
+                toggleMobileReadingSheet(false);
+            });
+        });
+
+        // Print / PDF
+        document.getElementById('print-btn')?.addEventListener('click', () => window.print());
 
         // Listeners
         document.getElementById('back-to-laws').addEventListener('click', () => {
@@ -821,33 +946,79 @@ export function initUI() {
             return;
         }
 
+        currentModalList = articles;
+
         list.innerHTML = articles.map(item => {
             const highlightedText = highlightQuery ? highlightText(item.texto, highlightQuery) : item.texto.substring(0, 300) + '...';
+            const bookmarkIcon = isFavorite(item.id)
+                ? `<svg class="w-3.5 h-3.5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
+                : `<svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
+            const isSelected = compareSelection.includes(item.id);
+            const compareColor = isSelected ? 'text-guinda' : (compareSelection.length >= 2 ? 'text-gray-100' : 'text-gray-300 hover:text-guinda');
+            const compareBg = isSelected ? 'bg-guinda/10' : '';
 
             return `
-            <div class="bg-white border border-gray-100 rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item" data-id="${item.id}">
-                <div class="flex items-center justify-between mb-2">
+            <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item" data-id="${item.id}">
+                <div class="flex items-center justify-between mb-2 pr-14">
                     <span class="text-xs font-bold text-gray-700">${item.articulo_label}</span>
                     <span class="text-[10px] text-gray-400">${item.titulo_nombre || ''}</span>
                 </div>
                 <p class="text-sm text-gray-600 font-light leading-relaxed line-clamp-3">${highlightedText}</p>
+                <button class="bookmark-card-btn absolute top-3 right-9 p-1 text-gray-300 hover:text-guinda transition-colors" data-id="${item.id}">${bookmarkIcon}</button>
+                <button class="compare-card-btn absolute top-3 right-3 p-1 ${compareColor} ${compareBg} rounded transition-colors" data-id="${item.id}" title="Comparar artículo">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
+                </button>
             </div>
             `;
         }).join('');
 
-        // Re-add click listeners for modal
         document.querySelectorAll('#law-articles-list .result-item').forEach(el => {
-            el.addEventListener('click', () => {
+            el.addEventListener('click', (e) => {
+                if (e.target.closest('.bookmark-card-btn') || e.target.closest('.compare-card-btn')) return;
                 openDetail(el.dataset.id);
+            });
+        });
+        document.querySelectorAll('#law-articles-list .bookmark-card-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lawSearchInput = document.getElementById('law-search-input');
+                toggleFavorite(btn.dataset.id);
+                const q = lawSearchInput ? lawSearchInput.value.toLowerCase().trim() : '';
+                renderLawArticles(currentLawArticles.slice(0, 50), q);
+            });
+        });
+        document.querySelectorAll('#law-articles-list .compare-card-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = btn.dataset.id;
+                const idx = compareSelection.indexOf(id);
+                if (idx >= 0) {
+                    compareSelection.splice(idx, 1);
+                } else if (compareSelection.length < 2) {
+                    compareSelection.push(id);
+                }
+                updateCompareBar();
+                const q = document.getElementById('law-search-input')?.value.toLowerCase().trim() || '';
+                renderLawArticles(currentLawArticles.slice(0, 50), q);
             });
         });
     }
 
+    function escapeRegex(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
     function highlightText(text, query) {
-        if (!query) return text;
-        const regex = new RegExp(`(${query})`, 'gi');
-        // Simple highlight, but need to be careful with HTML injection if text had HTML (it doesn't seem to)
+        if (!query || !text) return text || '';
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
         return text.replace(regex, '<mark class="bg-yellow-200 text-gray-900 rounded-sm px-0.5">$1</mark>');
+    }
+
+    function getRelevanceBadge(score, maxScore) {
+        const ratio = maxScore > 0 ? score / maxScore : 0;
+        if (ratio >= 0.6) return `<span class="text-[9px] font-bold text-guinda bg-guinda/10 px-1.5 py-0.5 rounded-full">Alta</span>`;
+        if (ratio >= 0.25) return `<span class="text-[9px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full">Media</span>`;
+        return `<span class="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded-full">Baja</span>`;
     }
 
     function exportToCSV(data, filename) {
@@ -876,6 +1047,17 @@ export function initUI() {
         }
     }
 
+    // Search History Helpers
+    function saveToHistory(query) {
+        const history = getHistory().filter(q => q !== query);
+        history.unshift(query);
+        localStorage.setItem('search-history', JSON.stringify(history.slice(0, 10)));
+    }
+
+    function getHistory() {
+        return JSON.parse(localStorage.getItem('search-history') || '[]');
+    }
+
     // Quick Filters
     if (quickFilters) {
         quickFilters.addEventListener('click', (e) => {
@@ -899,6 +1081,53 @@ export function initUI() {
             if (!searchInput.contains(e.target) && !autocompleteContainer.contains(e.target)) {
                 autocompleteContainer.classList.add('hidden');
             }
+        });
+
+        // Show search history on focus when input is empty
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim().length > 0) return;
+            const history = getHistory();
+            if (history.length === 0) return;
+
+            autocompleteContainer.innerHTML = `
+                <div class="px-4 py-2 text-[10px] uppercase tracking-widest text-gray-400 font-bold bg-gray-50 border-b border-gray-100 flex items-center justify-between">
+                    <span>Búsquedas recientes</span>
+                    <button id="clear-all-history" class="text-gray-300 hover:text-guinda transition-colors text-[9px] normal-case tracking-normal">Borrar todo</button>
+                </div>
+                ${history.slice(0, 7).map(q => `
+                    <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors history-item" data-query="${q}">
+                        <svg class="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm text-gray-600 truncate flex-1">${q}</span>
+                        <button class="remove-history-item text-gray-200 hover:text-gray-500 transition-colors text-base leading-none flex-shrink-0" data-query="${q}">×</button>
+                    </div>
+                `).join('')}
+            `;
+            autocompleteContainer.classList.remove('hidden');
+
+            document.getElementById('clear-all-history')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                localStorage.removeItem('search-history');
+                autocompleteContainer.classList.add('hidden');
+            });
+
+            autocompleteContainer.querySelectorAll('.history-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('remove-history-item')) {
+                        e.stopPropagation();
+                        const q = e.target.dataset.query;
+                        const updated = getHistory().filter(h => h !== q);
+                        localStorage.setItem('search-history', JSON.stringify(updated));
+                        item.remove();
+                        if (autocompleteContainer.querySelectorAll('.history-item').length === 0) {
+                            autocompleteContainer.classList.add('hidden');
+                        }
+                        return;
+                    }
+                    searchInput.value = item.dataset.query;
+                    searchInput.dispatchEvent(new Event('input'));
+                    autocompleteContainer.classList.add('hidden');
+                });
+            });
         });
 
         searchInput.addEventListener('input', (e) => {
@@ -958,6 +1187,8 @@ export function initUI() {
                     currentSearchResults = results;
                     currentSearchQuery = query;
                     currentPage = 1;
+                    currentFilters = { type: 'all', law: 'all' };
+                    saveToHistory(query);
                     renderResults();
                     if (loadingIndicator) loadingIndicator.classList.add('hidden');
                 }, 100);
@@ -977,7 +1208,263 @@ export function initUI() {
         });
     }
 
-    let currentFilters = { type: 'all' };
+    let currentFilters = { type: 'all', law: 'all' };
+    let currentModalList = [];
+    let compareSelection = [];
+
+    // Favorites helpers
+    function getFavorites() {
+        return JSON.parse(localStorage.getItem('article-favorites') || '[]');
+    }
+    function isFavorite(id) {
+        return getFavorites().includes(id);
+    }
+    function toggleFavorite(id) {
+        const favs = getFavorites();
+        const idx = favs.indexOf(id);
+        if (idx >= 0) favs.splice(idx, 1);
+        else favs.unshift(id);
+        localStorage.setItem('article-favorites', JSON.stringify(favs));
+        updateFavoritesBtn();
+    }
+    function updateFavoritesBtn() {
+        const count = getFavorites().length;
+        document.querySelectorAll('#nav-favorites, #mobile-nav-favorites').forEach(btn => {
+            if (!btn) return;
+            btn.classList.toggle('hidden', count === 0);
+            btn.querySelectorAll('.fav-count').forEach(el => el.textContent = count);
+        });
+    }
+    function showFavoritesView() {
+        const favIds = getFavorites();
+        heroSection.classList.add('hidden');
+        quickFilters.classList.add('hidden');
+        statsMinimal.classList.add('hidden');
+        if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden');
+        setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
+
+        const existingFilters = document.getElementById('search-filters');
+        if (existingFilters) existingFilters.remove();
+
+        if (favIds.length === 0) {
+            resultsContainer.innerHTML = `<div class="text-center py-16 text-gray-400 text-sm">No tienes artículos guardados aún.</div>`;
+            return;
+        }
+        const items = favIds.map(id => getArticleById(id)).filter(Boolean);
+
+        currentModalList = items;
+
+        resultsContainer.innerHTML = `
+            <div class="w-full mb-6">
+                <h2 class="text-xl font-head font-bold text-gray-800 mb-1 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                    Mis Favoritos
+                </h2>
+                <p class="text-xs text-gray-400">${items.length} artículo${items.length !== 1 ? 's' : ''} guardado${items.length !== 1 ? 's' : ''}</p>
+            </div>
+            ${items.map(item => `
+            <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg transition-all duration-300 cursor-pointer result-item" data-id="${item.id}">
+                <div class="flex items-center gap-2 mb-2 flex-wrap">
+                    <span class="text-[10px] font-bold text-guinda uppercase tracking-wider bg-guinda/5 px-2 py-0.5 rounded-full">${item.ley_origen}</span>
+                    <span class="text-[10px] text-gray-400 truncate max-w-[200px]">${item.titulo_nombre || ''}</span>
+                </div>
+                <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors">${item.articulo_label}</h3>
+                <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${item.texto.substring(0, 300)}...</p>
+            </div>
+            `).join('')}
+        `;
+        document.querySelectorAll('#results-container .result-item').forEach(el => {
+            el.addEventListener('click', () => openDetail(el.dataset.id));
+        });
+    }
+
+    // Compare helpers
+    function updateCompareBar() {
+        const rc = document.getElementById('reading-controls');
+        let bar = document.getElementById('compare-bar');
+        if (compareSelection.length === 0) {
+            bar?.remove();
+            // Restore reading controls position
+            if (rc) { rc.classList.remove('bottom-16'); rc.classList.add('bottom-6'); }
+            return;
+        }
+        if (!bar) {
+            bar = document.createElement('div');
+            bar.id = 'compare-bar';
+            document.body.appendChild(bar);
+        }
+        // Push desktop reading controls up so they don't overlap the bar
+        if (rc) { rc.classList.remove('bottom-6'); rc.classList.add('bottom-16'); }
+        bar.className = 'fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 shadow-2xl py-3 px-6 flex items-center justify-between';
+        bar.innerHTML = `
+            <div class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
+                <span class="text-xs font-bold text-gray-700">${compareSelection.length} de 2 seleccionados</span>
+                ${compareSelection.length < 2 ? '<span class="text-xs text-gray-400">Selecciona un artículo más para comparar</span>' : ''}
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="compare-clear-btn" class="text-xs text-gray-400 hover:text-guinda transition-colors px-3 py-1.5">Limpiar</button>
+                ${compareSelection.length === 2
+                    ? `<button id="compare-go-btn" class="px-4 py-2 bg-guinda text-white text-xs font-bold rounded-full hover:bg-guinda/90 transition-colors">Comparar →</button>`
+                    : ''}
+            </div>
+        `;
+        document.getElementById('compare-clear-btn')?.addEventListener('click', () => {
+            compareSelection = [];
+            updateCompareBar();
+            const q = document.getElementById('law-search-input')?.value.toLowerCase().trim() || '';
+            renderLawArticles(currentLawArticles.slice(0, 50), q);
+        });
+        document.getElementById('compare-go-btn')?.addEventListener('click', () => {
+            openCompare(compareSelection[0], compareSelection[1]);
+        });
+    }
+
+    function openCompare(id1, id2) {
+        const item1 = getArticleById(id1);
+        const item2 = getArticleById(id2);
+        if (!item1 || !item2) return;
+        const compareModal = document.getElementById('compare-modal');
+        const compareContent = document.getElementById('compare-content');
+        const comparePanel = document.getElementById('compare-panel');
+        if (!compareModal || !compareContent) return;
+
+        const renderItem = (item) => `
+            <div class="flex flex-col">
+                <div class="mb-4 p-3 bg-guinda/5 rounded-xl border border-guinda/10">
+                    <span class="text-[10px] font-bold text-guinda uppercase tracking-wider block mb-1">${item.ley_origen}</span>
+                    <h4 class="font-bold text-gray-800 text-sm mb-0.5">${item.articulo_label}</h4>
+                    <span class="text-xs text-gray-400">${item.titulo_nombre || ''} ${item.capitulo_nombre ? '· ' + item.capitulo_nombre : ''}</span>
+                </div>
+                <div class="text-sm text-gray-700 font-serif leading-relaxed">
+                    ${item.texto.split('\n\n').map(p => `<p class="mb-3">${p}</p>`).join('')}
+                </div>
+            </div>`;
+
+        compareContent.innerHTML = renderItem(item1) + renderItem(item2);
+        compareModal.classList.remove('hidden');
+        compareModal.classList.add('flex');
+        setTimeout(() => {
+            comparePanel?.classList.remove('scale-95', 'opacity-0');
+            comparePanel?.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+
+    function closeCompareModal() {
+        const compareModal = document.getElementById('compare-modal');
+        const comparePanel = document.getElementById('compare-panel');
+        comparePanel?.classList.remove('scale-100', 'opacity-100');
+        comparePanel?.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            compareModal?.classList.add('hidden');
+            compareModal?.classList.remove('flex');
+        }, 300);
+    }
+
+    function showStatsView() {
+        heroSection.classList.add('hidden');
+        quickFilters.classList.add('hidden');
+        statsMinimal.classList.add('hidden');
+        if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden');
+        setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
+
+        const existingFilters = document.getElementById('search-filters');
+        if (existingFilters) existingFilters.remove();
+
+        if (cachedSummaries.length === 0) {
+            resultsContainer.innerHTML = `<div class="text-center py-16 text-gray-400">Cargando datos...</div>`;
+            return;
+        }
+
+        const total = cachedSummaries.reduce((sum, l) => sum + l.articulos, 0);
+        const leyes = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('ley'));
+        const reglamentos = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('reglamento'));
+        const otros = cachedSummaries.filter(l => !l.titulo.toLowerCase().startsWith('ley') && !l.titulo.toLowerCase().startsWith('reglamento'));
+        const sorted = [...cachedSummaries].sort((a, b) => b.articulos - a.articulos);
+        const maxArticulos = sorted[0]?.articulos || 1;
+
+        resultsContainer.innerHTML = `
+            <div class="w-full mb-8">
+                <h2 class="text-2xl font-head font-bold text-gray-800 mb-2">Estadísticas del Marco Jurídico</h2>
+                <p class="text-sm text-gray-400 font-light">Resumen del corpus legal indexado en el sistema.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
+                    <span class="text-3xl font-head font-bold text-guinda block">${cachedSummaries.length}</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Total Leyes</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
+                    <span class="text-3xl font-head font-bold text-guinda block">${total.toLocaleString('es-MX')}</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Artículos</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
+                    <span class="text-3xl font-head font-bold text-emerald-700 block">${leyes.length}</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Leyes Fed.</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
+                    <span class="text-3xl font-head font-bold text-amber-700 block">${reglamentos.length + otros.length}</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Regl./Otros</span>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-6">
+                <h3 class="font-bold text-gray-800 text-sm mb-5 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Artículos por Ley
+                </h3>
+                <div class="space-y-3">
+                    ${sorted.map(law => {
+                        const isLey = law.titulo.toLowerCase().startsWith('ley');
+                        const isReg = law.titulo.toLowerCase().startsWith('reglamento');
+                        const barColor = isLey ? '#9B2247' : isReg ? '#1E5B4F' : '#A57F2C';
+                        const pct = Math.round((law.articulos / maxArticulos) * 100);
+                        return `
+                        <div class="flex items-center gap-3 cursor-pointer group stat-law-row" data-titulo="${law.titulo.replace(/"/g, '&quot;')}">
+                            <div class="text-xs text-gray-500 w-44 truncate flex-shrink-0 group-hover:text-guinda transition-colors" title="${law.titulo}">${law.titulo}</div>
+                            <div class="flex-1 h-5 bg-gray-50 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full transition-all duration-500" style="width:${pct}%; background:${barColor};"></div>
+                            </div>
+                            <span class="text-xs font-bold text-gray-500 w-8 text-right flex-shrink-0">${law.articulos}</span>
+                        </div>`;
+                    }).join('')}
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                ${[
+                    { label: 'Leyes Federales', items: leyes, textClass: 'text-guinda', bgClass: 'bg-guinda/5' },
+                    { label: 'Reglamentos', items: reglamentos, textClass: 'text-emerald-700', bgClass: 'bg-emerald-50' },
+                    { label: 'Acuerdos y Otros', items: otros, textClass: 'text-amber-700', bgClass: 'bg-amber-50' }
+                ].map(cat => `
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold ${cat.textClass} uppercase tracking-widest">${cat.label}</span>
+                            <span class="text-xs ${cat.bgClass} ${cat.textClass} font-bold px-2 py-0.5 rounded-full">${cat.items.length}</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            ${cat.items.map(l => `
+                                <div class="text-xs text-gray-500 truncate hover:text-guinda cursor-pointer transition-colors stat-law-row" data-titulo="${l.titulo.replace(/"/g, '&quot;')}" title="${l.titulo}">${l.titulo}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        document.querySelectorAll('.stat-law-row').forEach(row => {
+            row.addEventListener('click', () => {
+                const law = cachedSummaries.find(l => l.titulo === row.dataset.titulo);
+                if (law) openLawDetail(law);
+            });
+        });
+    }
 
     // ...
 
@@ -987,46 +1474,62 @@ export function initUI() {
         // Filter results first
         let filteredResults = currentSearchResults;
         if (currentFilters.type !== 'all') {
-            filteredResults = currentSearchResults.filter(item => {
+            filteredResults = filteredResults.filter(item => {
                 if (currentFilters.type === 'ley') return item.ley_origen.toLowerCase().includes('ley');
                 if (currentFilters.type === 'reglamento') return item.ley_origen.toLowerCase().includes('reglamento');
                 return !item.ley_origen.toLowerCase().includes('ley') && !item.ley_origen.toLowerCase().includes('reglamento');
             });
         }
+        if (currentFilters.law !== 'all') {
+            filteredResults = filteredResults.filter(item => item.ley_origen === currentFilters.law);
+        }
 
         const results = filteredResults;
         const query = currentSearchQuery;
 
-        // Render Filter Controls (if not already present)
-        let filterControls = document.getElementById('search-filters');
-        if (!filterControls && currentSearchResults.length > 0) {
-            filterControls = document.createElement('div');
+        // Render Filter Controls — recreate on each render to reflect current state
+        const existingFilters = document.getElementById('search-filters');
+        if (existingFilters) existingFilters.remove();
+
+        if (currentSearchResults.length > 0) {
+            const filterControls = document.createElement('div');
             filterControls.id = 'search-filters';
-            filterControls.className = 'flex justify-center gap-2 mb-6 animate-fade-in-up';
+            filterControls.className = 'flex flex-col items-center gap-2 mb-6 animate-fade-in-up';
+
+            const uniqueLaws = [...new Set(currentSearchResults.map(r => r.ley_origen))].sort();
+
             filterControls.innerHTML = `
-                <button class="filter-btn px-3 py-1 text-xs rounded-full border border-gray-200 ${currentFilters.type === 'all' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 hover:border-guinda hover:text-guinda'}" data-type="all">Todos</button>
-                <button class="filter-btn px-3 py-1 text-xs rounded-full border border-gray-200 ${currentFilters.type === 'ley' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 hover:border-guinda hover:text-guinda'}" data-type="ley">Leyes</button>
-                <button class="filter-btn px-3 py-1 text-xs rounded-full border border-gray-200 ${currentFilters.type === 'reglamento' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 hover:border-guinda hover:text-guinda'}" data-type="reglamento">Reglamentos</button>
-                <button class="filter-btn px-3 py-1 text-xs rounded-full border border-gray-200 ${currentFilters.type === 'otros' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 hover:border-guinda hover:text-guinda'}" data-type="otros">Otros</button>
-             `;
+                <div class="flex flex-wrap justify-center gap-2">
+                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'all' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="all">Todos</button>
+                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'ley' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="ley">Leyes</button>
+                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'reglamento' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="reglamento">Reglamentos</button>
+                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'otros' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="otros">Otros</button>
+                </div>
+                ${uniqueLaws.length > 1 ? `
+                <select id="law-filter-select" class="text-xs border rounded-full px-4 py-1.5 focus:outline-none bg-white cursor-pointer transition-colors ${currentFilters.law !== 'all' ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500 hover:border-guinda'}">
+                    <option value="all">Todas las leyes</option>
+                    ${uniqueLaws.map(l => `<option value="${l}" ${currentFilters.law === l ? 'selected' : ''}>${l}</option>`).join('')}
+                </select>
+                ` : ''}
+            `;
             resultsContainer.parentNode.insertBefore(filterControls, resultsContainer);
 
-            // Bind events
             filterControls.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     currentFilters.type = e.target.dataset.type;
                     currentPage = 1;
-                    // Update active state visual
-                    filterControls.querySelectorAll('.filter-btn').forEach(b => {
-                        b.className = `filter-btn px-3 py-1 text-xs rounded-full border border-gray-200 bg-white text-gray-500 hover:border-guinda hover:text-guinda transition-colors`;
-                    });
-                    e.target.className = `filter-btn px-3 py-1 text-xs rounded-full border border-guinda bg-guinda text-white transition-colors`;
-
                     renderResults();
                 });
             });
-        } else if (currentSearchResults.length === 0 && filterControls) {
-            filterControls.remove();
+
+            const lawSelect = document.getElementById('law-filter-select');
+            if (lawSelect) {
+                lawSelect.addEventListener('change', (e) => {
+                    currentFilters.law = e.target.value;
+                    currentPage = 1;
+                    renderResults();
+                });
+            }
         }
 
         if (results.length === 0) {
@@ -1043,17 +1546,26 @@ export function initUI() {
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
         const paginatedResults = results.slice(start, end);
+        const maxScore = results[0]?.score || 1;
+        currentModalList = results; // full filtered list for modal prev/next nav
 
         resultsContainer.innerHTML = paginatedResults.map(item => {
             const highlightedText = highlightText(item.texto.substring(0, 300) + '...', query);
+            const highlightedLabel = highlightText(item.articulo_label, query);
+            const relevanceBadge = getRelevanceBadge(item.score, maxScore);
+            const bookmarkIcon = isFavorite(item.id)
+                ? `<svg class="w-4 h-4 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
+                : `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
 
             return `
-            <div class="group bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg hover:shadow-gray-100/50 transition-all duration-300 cursor-pointer result-item" data-id="${item.id}">
-                <div class="flex items-center gap-2 mb-2">
+            <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg hover:shadow-gray-100/50 transition-all duration-300 cursor-pointer result-item" data-id="${item.id}">
+                <button class="bookmark-card-btn absolute top-3 right-3 p-1.5 text-gray-300 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5 z-10" data-id="${item.id}" title="Guardar en favoritos">${bookmarkIcon}</button>
+                <div class="flex items-center gap-2 mb-2 flex-wrap pr-8">
                     <span class="text-[10px] font-bold text-guinda uppercase tracking-wider bg-guinda/5 px-2 py-0.5 rounded-full">${item.ley_origen}</span>
-                    <span class="text-[10px] text-gray-400 font-medium tracking-wide truncate max-w-[200px]">${item.titulo_nombre}</span>
+                    <span class="text-[10px] text-gray-400 font-medium tracking-wide truncate max-w-[200px]">${item.titulo_nombre || ''}</span>
+                    <span class="ml-auto">${relevanceBadge}</span>
                 </div>
-                <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors">${item.articulo_label}</h3>
+                <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors">${highlightedLabel}</h3>
                 <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${highlightedText}</p>
             </div>
             `;
@@ -1062,11 +1574,18 @@ export function initUI() {
         // Add pagination controls
         renderPaginationControls(results.length, 'results-container', renderResults);
 
-        // Add click listeners
+        // Add click listeners (open modal or toggle bookmark)
         document.querySelectorAll('.result-item').forEach(el => {
-            el.addEventListener('click', () => {
-                const id = el.dataset.id;
-                openDetail(id);
+            el.addEventListener('click', (e) => {
+                if (e.target.closest('.bookmark-card-btn')) return;
+                openDetail(el.dataset.id);
+            });
+        });
+        document.querySelectorAll('.bookmark-card-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleFavorite(btn.dataset.id);
+                renderResults(); // re-render to reflect new state
             });
         });
     }
@@ -1103,47 +1622,53 @@ export function initUI() {
             </div>
         `;
 
-        // Update footer actions in modal
-        const modalFooter = modalPanel.querySelector('.bg-gray-50\\/50');
-        if (modalFooter) {
-            // Re-create footer content to ensure buttons are there
-            modalFooter.innerHTML = `
-                <div class="flex gap-3">
-                    <button class="text-xs font-semibold text-gray-500 hover:text-green-600 transition-colors flex items-center gap-1" id="whatsapp-share-btn">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                        Compartir
-                    </button>
-                    <button class="text-xs font-semibold text-gray-500 hover:text-guinda transition-colors flex items-center gap-1" id="copy-btn">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-                        Copiar Texto
-                    </button>
-                </div>
-             `;
+        // Prev/Next navigation
+        const currentIndex = currentModalList.findIndex(a => a.id === id);
+        const total = currentModalList.length;
 
-            // Re-bind Copy Listener
-            const newCopyBtn = document.getElementById('copy-btn');
-            if (newCopyBtn) {
-                newCopyBtn.addEventListener('click', () => {
-                    const text = modalContent.innerText;
-                    navigator.clipboard.writeText(text).then(() => {
-                        const originalText = newCopyBtn.innerHTML;
-                        newCopyBtn.innerHTML = `<span class="text-verde font-bold">¡Copiado!</span>`;
-                        setTimeout(() => {
-                            newCopyBtn.innerHTML = originalText;
-                        }, 2000);
-                    });
-                });
-            }
+        const prevBtn = document.getElementById('modal-prev-btn');
+        const nextBtn = document.getElementById('modal-next-btn');
+        const navCounter = document.getElementById('modal-nav-counter');
 
-            // Bind WhatsApp Listener
-            const whatsappBtn = document.getElementById('whatsapp-share-btn');
-            if (whatsappBtn) {
-                whatsappBtn.addEventListener('click', () => {
-                    const text = `*${item.ley_origen}*\n*${item.articulo_label}*\n\n${item.texto.substring(0, 500)}...`;
-                    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-                    window.open(url, '_blank');
+        if (prevBtn) {
+            prevBtn.disabled = currentIndex <= 0;
+            prevBtn.onclick = () => {
+                if (currentIndex > 0) openDetail(currentModalList[currentIndex - 1].id);
+            };
+        }
+        if (nextBtn) {
+            nextBtn.disabled = currentIndex < 0 || currentIndex >= total - 1;
+            nextBtn.onclick = () => {
+                if (currentIndex < total - 1) openDetail(currentModalList[currentIndex + 1].id);
+            };
+        }
+        if (navCounter) {
+            navCounter.textContent = currentIndex >= 0 ? `${currentIndex + 1}/${total}` : '';
+        }
+
+        // Bookmark button in modal header
+        const bookmarkBtn = document.getElementById('modal-bookmark-btn');
+        if (bookmarkBtn) {
+            const fav = isFavorite(id);
+            bookmarkBtn.innerHTML = fav
+                ? `<svg class="w-5 h-5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
+                : `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
+            bookmarkBtn.onclick = () => {
+                toggleFavorite(id);
+                openDetail(id); // re-render to update icon
+            };
+        }
+
+        // Copy button (static in HTML)
+        const copyBtnEl = document.getElementById('copy-btn');
+        if (copyBtnEl) {
+            copyBtnEl.onclick = () => {
+                navigator.clipboard.writeText(modalContent.innerText).then(() => {
+                    const orig = copyBtnEl.innerHTML;
+                    copyBtnEl.innerHTML = `<span class="text-verde font-bold">¡Copiado!</span>`;
+                    setTimeout(() => { copyBtnEl.innerHTML = orig; }, 2000);
                 });
-            }
+            };
         }
 
         detailModal.classList.remove('hidden');
