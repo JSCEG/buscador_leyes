@@ -21,6 +21,56 @@ export function initUI() {
     const navInicio = document.getElementById('nav-inicio');
     const navLeyes = document.getElementById('nav-leyes');
 
+    // Mobile Menu Elements
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+    const mobileNavInicio = document.getElementById('mobile-nav-inicio');
+    const mobileNavLeyes = document.getElementById('mobile-nav-leyes');
+
+    // Mobile Menu Logic
+    function toggleMobileMenu(show) {
+        if (!mobileMenuDrawer || !mobileMenuOverlay) return;
+        
+        if (show) {
+            mobileMenuOverlay.classList.remove('hidden');
+            // Force reflow
+            void mobileMenuOverlay.offsetWidth;
+            mobileMenuOverlay.classList.remove('opacity-0');
+            mobileMenuDrawer.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            mobileMenuOverlay.classList.add('opacity-0');
+            mobileMenuDrawer.classList.add('translate-x-full');
+            document.body.style.overflow = ''; // Restore scrolling
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+    }
+
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => toggleMobileMenu(true));
+    if (closeMobileMenu) closeMobileMenu.addEventListener('click', () => toggleMobileMenu(false));
+    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMobileMenu(false));
+
+    // Mobile Nav Links
+    if (mobileNavInicio) {
+        mobileNavInicio.addEventListener('click', (e) => {
+            e.preventDefault();
+            resetToHero();
+            toggleMobileMenu(false);
+        });
+    }
+
+    if (mobileNavLeyes) {
+        mobileNavLeyes.addEventListener('click', (e) => {
+            e.preventDefault();
+            showLawsView();
+            toggleMobileMenu(false);
+        });
+    }
+
     let cachedSummaries = [];
     let currentLawArticles = [];
 
@@ -532,15 +582,21 @@ export function initUI() {
                     .bg-sepia #reading-panel { background-color: rgba(253, 246, 227, 0.95) !important; border-color: #e6dcb1 !important; }
                     
                     /* Dark Mode */
-                    .bg-dark { background-color: #121212 !important; color: #e0e0e0 !important; }
-                    .bg-dark .bg-white { background-color: #1e1e1e !important; border-color: #333 !important; }
+                    .bg-dark { background-color: #121212 !important; color: #e5e5e5 !important; }
+                    .bg-dark .bg-white { background-color: #1e1e1e !important; border-color: #2d2d2d !important; }
                     .bg-dark .text-gray-900, .bg-dark .text-gray-800 { color: #ffffff !important; }
-                    .bg-dark .text-gray-600, .bg-dark .text-gray-500 { color: #b0b0b0 !important; }
-                    .bg-dark .text-gray-400 { color: #888 !important; }
-                    .bg-dark .border-gray-100, .bg-dark .border-gray-200 { border-color: #333 !important; }
+                    .bg-dark .text-gray-700 { color: #d4d4d4 !important; }
+                    .bg-dark .text-gray-600, .bg-dark .text-gray-500 { color: #a3a3a3 !important; }
+                    .bg-dark .text-gray-400 { color: #737373 !important; }
+                    .bg-dark .border-gray-100, .bg-dark .border-gray-200 { border-color: #2d2d2d !important; }
                     .bg-dark .bg-gray-50 { background-color: #252525 !important; }
-                    .bg-dark #reading-panel { background-color: rgba(30, 30, 30, 0.95) !important; border-color: #333 !important; }
-                    .bg-dark .text-guinda { color: #ef4444 !important; } /* Lighter red for dark mode */
+                    .bg-dark .bg-guinda\/5 { background-color: rgba(239, 68, 68, 0.1) !important; }
+                    .bg-dark #reading-panel { background-color: rgba(30, 30, 30, 0.95) !important; border-color: #404040 !important; }
+                    .bg-dark .text-guinda { color: #f87171 !important; } /* Soft red for dark mode */
+                    .bg-dark #search-input { background-color: #1e1e1e !important; border-color: #404040 !important; color: #ffffff !important; }
+                    .bg-dark #search-input::placeholder { color: #737373 !important; }
+                    .bg-dark .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; }
+                    .bg-dark .hover\:bg-gray-50:hover { background-color: #2d2d2d !important; }
                 `;
                 document.head.appendChild(style);
             }
@@ -1021,18 +1077,29 @@ export function initUI() {
 
         modalLey.textContent = item.ley_origen;
         modalTitle.textContent = item.articulo_label;
+        
+        // Clean text: replace multiple newlines with single paragraph breaks, but preserve structure
+        let cleanText = item.texto
+            .replace(/\r\n/g, '\n') // Normalize newlines
+            .replace(/\n\s*\n/g, '\n\n') // Normalize multiple newlines to double
+            .replace(/([a-z,;])\n([a-z])/g, '$1 $2'); // Join lines that shouldn't be broken (lowercase end -> lowercase start)
+
         modalContent.innerHTML = `
-            <div class="mb-6 pb-6 border-b border-gray-50">
-                <div class="text-xs text-gray-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+            <div class="mb-6 pb-6 border-b border-gray-100">
+                <div class="text-[10px] font-bold text-guinda uppercase tracking-widest mb-2 flex items-center gap-1.5 bg-guinda/5 w-fit px-2 py-1 rounded-full">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    Ubicación
+                    Ubicación en el documento
                 </div>
-                <div class="text-sm font-medium text-gray-600">
-                    ${item.titulo_nombre} <span class="text-gray-300 mx-1">/</span> ${item.capitulo_nombre}
+                <div class="text-sm text-gray-700 font-medium">
+                    <span class="block mb-1 text-gray-500 text-xs uppercase tracking-wide">Título / Capítulo</span>
+                    ${item.titulo_nombre} 
+                    <span class="text-gray-300 mx-2">|</span> 
+                    ${item.capitulo_nombre}
                 </div>
             </div>
-            <div class="text-gray-700 leading-8 font-light text-base text-justify">
-                ${item.texto.replace(/\n/g, '<br><br>')}
+            
+            <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed font-serif text-justify">
+                ${cleanText.split('\n\n').map(p => `<p class="mb-4">${p}</p>`).join('')}
             </div>
         `;
 
