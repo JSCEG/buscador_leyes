@@ -29,6 +29,66 @@ export function initUI() {
     const mobileNavInicio = document.getElementById('mobile-nav-inicio');
     const mobileNavLeyes = document.getElementById('mobile-nav-leyes');
 
+    // ── Modo oscuro global ─────────────────────────────────────────────────────
+    const DARK_KEY = 'app-dark-mode';
+    let isDark = localStorage.getItem(DARK_KEY) === 'true';
+
+    function applyGlobalDark(dark) {
+        isDark = dark;
+        localStorage.setItem(DARK_KEY, dark);
+        document.documentElement.classList.toggle('dark-mode', dark);
+
+        // Ensure global dark styles exist
+        if (!document.getElementById('global-dark-style')) {
+            const s = document.createElement('style');
+            s.id = 'global-dark-style';
+            s.innerHTML = `
+                .dark-mode { background-color: #111 !important; color: #e5e5e5 !important; }
+                .dark-mode header { background-color: #111 !important; border-color: #222 !important; }
+                .dark-mode footer { border-color: #222 !important; background-color: #111 !important; }
+                .dark-mode .bg-white { background-color: #1e1e1e !important; }
+                .dark-mode .bg-gray-50 { background-color: #1a1a1a !important; }
+                .dark-mode .border-gray-100, .dark-mode .border-gray-200 { border-color: #2d2d2d !important; }
+                .dark-mode .text-gray-900, .dark-mode .text-gray-800 { color: #f5f5f5 !important; }
+                .dark-mode .text-gray-700, .dark-mode .text-gray-600 { color: #d4d4d4 !important; }
+                .dark-mode .text-gray-500 { color: #a3a3a3 !important; }
+                .dark-mode .text-gray-400, .dark-mode .text-gray-300 { color: #737373 !important; }
+                .dark-mode .shadow-lg, .dark-mode .shadow-xl, .dark-mode .shadow-2xl { box-shadow: 0 4px 24px rgba(0,0,0,0.5) !important; }
+                .dark-mode #search-input { background-color: #1e1e1e !important; border-color: #333 !important; color: #f5f5f5 !important; }
+                .dark-mode #search-input::placeholder { color: #555 !important; }
+                .dark-mode #search-input:focus { border-color: #9B2247 !important; }
+                .dark-mode .hover\\:bg-gray-50:hover { background-color: #252525 !important; }
+                .dark-mode .bg-guinda\\/5 { background-color: rgba(155,34,71,0.15) !important; }
+                .dark-mode .text-guinda { color: #f87171 !important; }
+                .dark-mode #detail-modal { background-color: rgba(0,0,0,0.85) !important; }
+                .dark-mode #modal-panel { background-color: #1a1a1a !important; }
+                .dark-mode #modal-content { background-color: #1a1a1a !important; }
+                .dark-mode mark { background-color: #7c5e10 !important; color: #fef3c7 !important; }
+                .dark-mode #autocomplete-results { background-color: #1e1e1e !important; border-color: #333 !important; }
+                .dark-mode #toc-panel { background-color: #1a1a1a !important; }
+                .dark-mode .toc-art-btn { background-color: #252525 !important; border-color: #333 !important; color: #d4d4d4 !important; }
+                .dark-mode #compare-modal { background-color: rgba(0,0,0,0.85) !important; }
+                .dark-mode #compare-panel { background-color: #1a1a1a !important; }
+            `;
+            document.head.appendChild(s);
+        }
+
+        // Update icons
+        const moonIcons = document.querySelectorAll('#darkmode-icon-moon, #mobile-darkmode-moon');
+        const sunIcons = document.querySelectorAll('#darkmode-icon-sun, #mobile-darkmode-sun');
+        const label = document.getElementById('mobile-darkmode-label');
+        moonIcons.forEach(el => el.classList.toggle('hidden', dark));
+        sunIcons.forEach(el => el.classList.toggle('hidden', !dark));
+        if (label) label.textContent = dark ? 'Modo claro' : 'Modo oscuro';
+    }
+
+    // Initialize dark mode from saved preference
+    if (isDark) applyGlobalDark(true);
+
+    document.getElementById('darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
+    document.getElementById('mobile-darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
+    // ── Fin Modo Oscuro ────────────────────────────────────────────────────────
+
     // Mobile Menu Logic
     function toggleMobileMenu(show) {
         if (!mobileMenuDrawer || !mobileMenuOverlay) return;
@@ -268,7 +328,7 @@ export function initUI() {
 
         // Reset state
         currentPage = 1;
-        currentFilters = { type: 'all', law: 'all' };
+        currentFilters = { type: 'all', law: 'all', artNum: '' };
     }
 
     function showLawsView() {
@@ -732,6 +792,86 @@ export function initUI() {
                 </div>
             </div>
         `;
+
+        // ── Tabla de contenidos (índice flotante) ──────────────────────────────
+        const tocBtn = document.createElement('button');
+        tocBtn.id = 'toc-toggle-btn';
+        tocBtn.className = 'fixed bottom-24 left-4 z-40 bg-white border border-gray-200 shadow-xl rounded-2xl px-4 py-2.5 text-xs font-bold text-gray-600 flex items-center gap-2 hover:text-guinda hover:border-guinda transition-all duration-300 group animate-fade-in-up';
+        tocBtn.innerHTML = `
+            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg>
+            Índice
+            <span class="bg-guinda/10 text-guinda px-1.5 py-0.5 rounded-full text-[9px] font-bold">${currentLawArticles.length}</span>
+        `;
+        document.body.appendChild(tocBtn);
+
+        const tocPanel = document.createElement('div');
+        tocPanel.id = 'toc-panel';
+        tocPanel.className = 'fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl shadow-2xl border-t border-gray-100 transform translate-y-full transition-transform duration-300 flex flex-col';
+        tocPanel.style.maxHeight = '70vh';
+        tocPanel.innerHTML = `
+            <div class="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-50 flex-shrink-0">
+                <div>
+                    <p class="text-sm font-bold text-gray-800">Índice de Artículos</p>
+                    <p class="text-[10px] text-gray-400 mt-0.5">${currentLawArticles.length} artículos · clic para abrir</p>
+                </div>
+                <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="overflow-y-auto flex-1 px-4 py-3">
+                <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 gap-1.5">
+                    ${currentLawArticles.map((art, i) => {
+                        const num = art.articulo_label.match(/\d+/);
+                        const label = num ? num[0] : (i + 1);
+                        const hasNote = !!getNote(art.id);
+                        const isFav = isFavorite(art.id);
+                        return `<button class="toc-art-btn text-[11px] font-medium rounded-lg py-2 px-1 border transition-all text-center relative
+                            ${isFav ? 'border-guinda/30 bg-guinda/5 text-guinda' : 'border-gray-100 bg-white text-gray-600 hover:border-guinda hover:text-guinda hover:bg-guinda/5'}"
+                            data-id="${art.id}" title="${art.articulo_label}">
+                            Art.${label}
+                            ${hasNote ? '<span class="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-amber-400 rounded-full"></span>' : ''}
+                        </button>`;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+        document.body.appendChild(tocPanel);
+
+        let tocOpen = false;
+        const toggleToc = (show) => {
+            tocOpen = show;
+            if (show) {
+                tocPanel.classList.remove('translate-y-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                tocPanel.classList.add('translate-y-full');
+                document.body.style.overflow = '';
+            }
+        };
+
+        tocBtn.addEventListener('click', () => toggleToc(!tocOpen));
+        document.getElementById('toc-close-btn')?.addEventListener('click', () => toggleToc(false));
+
+        tocPanel.querySelectorAll('.toc-art-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                toggleToc(false);
+                openDetail(btn.dataset.id);
+            });
+        });
+
+        // Clean up TOC when leaving law view
+        const originalLawCleanup = () => {
+            tocBtn.remove();
+            tocPanel.remove();
+            document.body.style.overflow = '';
+        };
+        // Attach cleanup to crumb-inicio and crumb-categoria
+        document.getElementById('crumb-inicio')?.addEventListener('click', originalLawCleanup, { once: true });
+        document.getElementById('crumb-categoria')?.addEventListener('click', originalLawCleanup, { once: true });
+        // Also clean on search
+        const cleanTocOnSearch = () => { if (document.getElementById('toc-toggle-btn')) originalLawCleanup(); };
+        searchInput?.addEventListener('input', cleanTocOnSearch, { once: true });
+        // ── Fin Tabla de contenidos ────────────────────────────────────────────
 
         // Render initial articles (first 20 to avoid lag)
         renderLawArticles(currentLawArticles.slice(0, 20), '');
@@ -1337,7 +1477,7 @@ export function initUI() {
                     currentSearchResults = results;
                     currentSearchQuery = query;
                     currentPage = 1;
-                    currentFilters = { type: 'all', law: 'all' };
+                    currentFilters = { type: 'all', law: 'all', artNum: '' };
                     saveToHistory(query);
                     renderResults();
                     if (loadingIndicator) loadingIndicator.classList.add('hidden');
@@ -1358,7 +1498,7 @@ export function initUI() {
         });
     }
 
-    let currentFilters = { type: 'all', law: 'all' };
+    let currentFilters = { type: 'all', law: 'all', artNum: '' };
     let currentModalList = [];
     let compareSelection = [];
 
@@ -1379,9 +1519,10 @@ export function initUI() {
     }
     function updateFavoritesBtn() {
         const count = getFavorites().length;
+        const notesCount = Object.keys(getAllNotes()).length;
         document.querySelectorAll('#nav-favorites, #mobile-nav-favorites').forEach(btn => {
             if (!btn) return;
-            btn.classList.toggle('hidden', count === 0);
+            btn.classList.toggle('hidden', count === 0 && notesCount === 0);
             btn.querySelectorAll('.fav-count').forEach(el => el.textContent = count);
         });
     }
@@ -1400,6 +1541,66 @@ export function initUI() {
         localStorage.setItem('article-notes', JSON.stringify(notes));
     }
     // ── End Notes helpers ─────────────────────────────────────────────────────
+
+    // ── Exportar notas y favoritos ─────────────────────────────────────────────
+    function exportItemsAsHTML(items, title, includeNotes = false) {
+        const today = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+        const rows = items.map(item => {
+            const note = includeNotes ? getNote(item.id) : '';
+            return `
+            <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #f0f0f0;page-break-inside:avoid;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                    <span style="font-size:10px;font-weight:700;color:#9B2247;background:#fdf2f5;padding:2px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:0.08em;">${item.ley_origen}</span>
+                    ${item.titulo_nombre ? `<span style="font-size:10px;color:#6b7280;">${item.titulo_nombre}</span>` : ''}
+                </div>
+                <h3 style="font-size:15px;font-weight:700;color:#111;margin:0 0 8px;">${item.articulo_label}</h3>
+                <p style="font-size:13px;color:#374151;line-height:1.7;margin:0 0 ${note ? '10px' : '0'};">${item.texto.substring(0, 800)}${item.texto.length > 800 ? '…' : ''}</p>
+                ${note ? `<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;margin-top:8px;">
+                    <span style="font-size:10px;font-weight:700;color:#92400e;display:block;margin-bottom:4px;">📝 Mi nota</span>
+                    <p style="font-size:12px;color:#78350f;margin:0;line-height:1.6;">${note}</p>
+                </div>` : ''}
+            </div>`;
+        }).join('');
+
+        const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+        <title>${title} — SENER</title>
+        <style>
+            body{font-family:'Noto Sans',Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 24px;color:#1f2937;}
+            h1{font-size:22px;font-weight:700;color:#9B2247;margin-bottom:4px;}
+            .meta{font-size:11px;color:#9ca3af;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid #f3f4f6;}
+            @media print{body{margin:16px;}h1{font-size:18px;}}
+        </style></head><body>
+        <h1>${title}</h1>
+        <div class="meta">Secretaría de Energía · Gobierno de México · Exportado el ${today} · ${items.length} artículo${items.length !== 1 ? 's' : ''}</div>
+        ${rows}
+        </body></html>`;
+
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8;' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${title.replace(/\s+/g, '_')}_${today.replace(/\s/g, '-')}.html`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+
+    function exportItemsAsCSV(items, filename, includeNotes = false) {
+        const headers = ['Ley', 'Artículo', 'Título', 'Texto', ...(includeNotes ? ['Nota personal'] : [])];
+        const rows = items.map(item => [
+            `"${(item.ley_origen || '').replace(/"/g, '""')}"`,
+            `"${(item.articulo_label || '').replace(/"/g, '""')}"`,
+            `"${(item.titulo_nombre || '').replace(/"/g, '""')}"`,
+            `"${(item.texto || '').replace(/"/g, '""')}"`,
+            ...(includeNotes ? [`"${getNote(item.id).replace(/"/g, '""')}"`] : [])
+        ]);
+        const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+        const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+    // ── Fin Exportar ───────────────────────────────────────────────────────────
 
     function showFavoritesView() {
         setHash(null);
@@ -1425,12 +1626,36 @@ export function initUI() {
         currentModalList = items;
 
         resultsContainer.innerHTML = `
-            <div class="w-full mb-6">
-                <h2 class="text-xl font-head font-bold text-gray-800 mb-1 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
-                    Mis Favoritos
-                </h2>
-                <p class="text-xs text-gray-400">${items.length} artículo${items.length !== 1 ? 's' : ''} guardado${items.length !== 1 ? 's' : ''}</p>
+            <div class="w-full mb-6 flex items-start justify-between gap-4 flex-wrap">
+                <div>
+                    <h2 class="text-xl font-head font-bold text-gray-800 mb-1 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                        Mis Favoritos
+                    </h2>
+                    <p class="text-xs text-gray-400">${items.length} artículo${items.length !== 1 ? 's' : ''} guardado${items.length !== 1 ? 's' : ''}</p>
+                </div>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="relative group/export">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-500 border border-gray-200 rounded-lg hover:border-guinda hover:text-guinda transition-all shadow-sm" id="export-favs-btn">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            Exportar
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="export-favs-menu" class="hidden absolute right-0 top-full mt-1 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden w-52 z-20">
+                            <div class="px-4 py-2 bg-gray-50/80 border-b border-gray-50">
+                                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Exportar favoritos</span>
+                            </div>
+                            <button id="export-favs-html" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-xs text-gray-700 hover:bg-gray-50 transition-colors">
+                                <span class="w-6 h-6 rounded-lg flex items-center justify-center bg-blue-50"><svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></span>
+                                Descargar HTML (imprimible)
+                            </button>
+                            <button id="export-favs-csv" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-xs text-gray-700 hover:bg-gray-50 transition-colors">
+                                <span class="w-6 h-6 rounded-lg flex items-center justify-center bg-green-50"><svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 3v18M14 3v18"/></svg></span>
+                                Descargar CSV (Excel)
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             ${items.map(item => `
             <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg transition-all duration-300 cursor-pointer result-item" data-id="${item.id}">
@@ -1445,6 +1670,32 @@ export function initUI() {
         `;
         document.querySelectorAll('#results-container .result-item').forEach(el => {
             el.addEventListener('click', () => openDetail(el.dataset.id));
+        });
+
+        // Wire export buttons
+        const exportFavsBtn = document.getElementById('export-favs-btn');
+        const exportFavsMenu = document.getElementById('export-favs-menu');
+        if (exportFavsBtn && exportFavsMenu) {
+            exportFavsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                exportFavsMenu.classList.toggle('hidden');
+            });
+            document.addEventListener('click', function hideExportMenu(e) {
+                if (!e.target.closest('#export-favs-btn') && !e.target.closest('#export-favs-menu')) {
+                    exportFavsMenu.classList.add('hidden');
+                    document.removeEventListener('click', hideExportMenu);
+                }
+            });
+        }
+        document.getElementById('export-favs-html')?.addEventListener('click', () => {
+            exportFavsMenu?.classList.add('hidden');
+            exportItemsAsHTML(items, 'Mis Favoritos SENER', false);
+            showToast('¡Exportando HTML!', '📄', 'bg-blue-600');
+        });
+        document.getElementById('export-favs-csv')?.addEventListener('click', () => {
+            exportFavsMenu?.classList.add('hidden');
+            exportItemsAsCSV(items, 'favoritos_SENER.csv', false);
+            showToast('¡Exportando CSV!', '📊', 'bg-green-700');
         });
     }
 
@@ -1821,6 +2072,13 @@ export function initUI() {
         if (currentFilters.law !== 'all') {
             filteredResults = filteredResults.filter(item => item.ley_origen === currentFilters.law);
         }
+        if (currentFilters.artNum) {
+            const num = parseInt(currentFilters.artNum);
+            filteredResults = filteredResults.filter(item => {
+                const match = item.articulo_label.match(/\d+/);
+                return match && parseInt(match[0]) === num;
+            });
+        }
 
         const results = filteredResults;
         const query = currentSearchQuery;
@@ -1843,12 +2101,25 @@ export function initUI() {
                     <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'reglamento' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="reglamento">Reglamentos</button>
                     <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'otros' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="otros">Otros</button>
                 </div>
-                ${uniqueLaws.length > 1 ? `
-                <select id="law-filter-select" class="text-xs border rounded-full px-4 py-1.5 focus:outline-none bg-white cursor-pointer transition-colors ${currentFilters.law !== 'all' ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500 hover:border-guinda'}">
-                    <option value="all">Todas las leyes</option>
-                    ${uniqueLaws.map(l => `<option value="${l}" ${currentFilters.law === l ? 'selected' : ''}>${l}</option>`).join('')}
-                </select>
-                ` : ''}
+                <div class="flex items-center gap-2 flex-wrap justify-center">
+                    ${uniqueLaws.length > 1 ? `
+                    <select id="law-filter-select" class="text-xs border rounded-full px-4 py-1.5 focus:outline-none bg-white cursor-pointer transition-colors ${currentFilters.law !== 'all' ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500 hover:border-guinda'}">
+                        <option value="all">Todas las leyes</option>
+                        ${uniqueLaws.map(l => `<option value="${l}" ${currentFilters.law === l ? 'selected' : ''}>${l}</option>`).join('')}
+                    </select>
+                    ` : ''}
+                    <div class="relative flex items-center">
+                        <svg class="absolute left-3 w-3 h-3 text-gray-300 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+                        <input type="number" id="art-number-filter" min="1" placeholder="Nº artículo"
+                            value="${currentFilters.artNum}"
+                            class="text-xs border rounded-full pl-8 pr-3 py-1.5 w-28 focus:outline-none bg-white transition-colors ${currentFilters.artNum ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500 hover:border-guinda'} [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                    </div>
+                    ${(currentFilters.type !== 'all' || currentFilters.law !== 'all' || currentFilters.artNum) ? `
+                    <button id="clear-all-filters" class="text-[10px] font-bold text-red-400 hover:text-red-600 transition-colors px-2 py-1 rounded-full border border-red-100 hover:border-red-200 flex items-center gap-1">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Limpiar filtros
+                    </button>` : ''}
+                </div>
             `;
             resultsContainer.parentNode.insertBefore(filterControls, resultsContainer);
 
@@ -1868,6 +2139,25 @@ export function initUI() {
                     renderResults();
                 });
             }
+
+            const artNumInput = document.getElementById('art-number-filter');
+            if (artNumInput) {
+                let artNumTimer;
+                artNumInput.addEventListener('input', (e) => {
+                    clearTimeout(artNumTimer);
+                    artNumTimer = setTimeout(() => {
+                        currentFilters.artNum = e.target.value.trim();
+                        currentPage = 1;
+                        renderResults();
+                    }, 400);
+                });
+            }
+
+            document.getElementById('clear-all-filters')?.addEventListener('click', () => {
+                currentFilters = { type: 'all', law: 'all', artNum: '' };
+                currentPage = 1;
+                renderResults();
+            });
         }
 
         if (results.length === 0) {
@@ -1975,6 +2265,9 @@ export function initUI() {
             .replace(/\n\s*\n/g, '\n\n') // Normalize multiple newlines to double
             .replace(/([a-z,;])\n([a-z])/g, '$1 $2'); // Join lines that shouldn't be broken (lowercase end -> lowercase start)
 
+        // Highlight search terms in modal content
+        const hl = (text) => currentSearchQuery ? highlightText(text, currentSearchQuery) : text;
+
         modalContent.innerHTML = `
             <div class="mb-6 pb-6 border-b border-gray-100">
                 <div class="text-[10px] font-bold text-guinda uppercase tracking-widest mb-2 flex items-center gap-1.5 bg-guinda/5 w-fit px-2 py-1 rounded-full">
@@ -1983,14 +2276,18 @@ export function initUI() {
                 </div>
                 <div class="text-sm text-gray-700 font-medium">
                     <span class="block mb-1 text-gray-500 text-xs uppercase tracking-wide">Título / Capítulo</span>
-                    ${item.titulo_nombre} 
-                    <span class="text-gray-300 mx-2">|</span> 
+                    ${item.titulo_nombre}
+                    <span class="text-gray-300 mx-2">|</span>
                     ${item.capitulo_nombre}
                 </div>
             </div>
-            
+            ${currentSearchQuery ? `
+            <div class="mb-4 flex items-center gap-2 text-[11px] text-amber-700 bg-amber-50 border border-amber-100 px-3 py-2 rounded-lg">
+                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                Término resaltado: <mark class="bg-yellow-200 text-gray-900 rounded-sm px-1 font-semibold">${currentSearchQuery}</mark>
+            </div>` : ''}
             <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed font-serif text-justify">
-                ${cleanText.split('\n\n').map(p => `<p class="mb-4">${p}</p>`).join('')}
+                ${cleanText.split('\n\n').map(p => `<p class="mb-4">${hl(p)}</p>`).join('')}
             </div>
         `;
 
@@ -2164,6 +2461,127 @@ export function initUI() {
             detailModal.classList.remove('flex');
         }, 300);
     }
+
+    // ── Atajos de teclado ─────────────────────────────────────────────────────
+    function showKeyboardHelp() {
+        let helpModal = document.getElementById('keyboard-help-modal');
+        if (helpModal) { helpModal.remove(); return; }
+        helpModal = document.createElement('div');
+        helpModal.id = 'keyboard-help-modal';
+        helpModal.className = 'fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4';
+        helpModal.innerHTML = `
+            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 animate-fade-in-up">
+                <div class="flex items-center justify-between mb-5">
+                    <h3 class="font-bold text-gray-800 text-sm flex items-center gap-2">
+                        <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        Atajos de Teclado
+                    </h3>
+                    <button id="kbd-help-close" class="text-gray-400 hover:text-guinda transition-colors text-lg leading-none">×</button>
+                </div>
+                <div class="space-y-2.5 text-xs">
+                    ${[
+                        ['/','Enfocar el buscador'],
+                        ['Esc','Cerrar modal / panel'],
+                        ['← →','Artículo anterior / siguiente'],
+                        ['?','Mostrar esta ayuda'],
+                        ['f','Agregar/quitar de favoritos'],
+                        ['c','Copiar texto del artículo'],
+                    ].map(([key, desc]) => `
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-500">${desc}</span>
+                            <kbd class="bg-gray-100 border border-gray-200 rounded px-2 py-0.5 font-mono text-[11px] text-gray-700 shadow-sm">${key}</kbd>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="mt-5 pt-4 border-t border-gray-50 text-[10px] text-gray-400 text-center">
+                    Presiona <kbd class="bg-gray-100 border border-gray-200 rounded px-1.5 py-0.5 font-mono text-[10px]">?</kbd> para abrir esta ayuda
+                </div>
+            </div>
+        `;
+        document.body.appendChild(helpModal);
+        helpModal.addEventListener('click', (e) => { if (e.target === helpModal) helpModal.remove(); });
+        document.getElementById('kbd-help-close')?.addEventListener('click', () => helpModal.remove());
+    }
+
+    document.getElementById('keyboard-help-btn')?.addEventListener('click', showKeyboardHelp);
+
+    document.addEventListener('keydown', (e) => {
+        const tag = e.target.tagName;
+        const inInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target.isContentEditable;
+        const modalOpen = !detailModal.classList.contains('hidden');
+
+        // ? — keyboard help (anywhere except inputs)
+        if (e.key === '?' && !inInput) {
+            e.preventDefault();
+            showKeyboardHelp();
+            return;
+        }
+
+        // Esc — close things
+        if (e.key === 'Escape') {
+            // Close keyboard help
+            const khm = document.getElementById('keyboard-help-modal');
+            if (khm) { khm.remove(); return; }
+            // Close TOC panel
+            const tocPanel = document.getElementById('toc-panel');
+            if (tocPanel && !tocPanel.classList.contains('translate-y-full')) {
+                tocPanel.classList.add('translate-y-full');
+                document.body.style.overflow = '';
+                return;
+            }
+            // Close detail modal
+            if (modalOpen) { closeModalFunc(); return; }
+            // Close compare modal
+            const compareModalEl = document.getElementById('compare-modal');
+            if (compareModalEl && !compareModalEl.classList.contains('hidden')) { closeCompareModal(); return; }
+            return;
+        }
+
+        // / — focus search (not in input)
+        if (e.key === '/' && !inInput) {
+            e.preventDefault();
+            if (searchInput) {
+                searchInput.focus();
+                searchInput.select();
+            }
+            return;
+        }
+
+        // Arrow navigation (only when modal is open and not in input)
+        if (modalOpen && !inInput) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                document.getElementById('modal-next-btn')?.click();
+                return;
+            }
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                document.getElementById('modal-prev-btn')?.click();
+                return;
+            }
+            // f — toggle favorite
+            if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                document.getElementById('modal-bookmark-btn')?.click();
+                return;
+            }
+            // c — copy text
+            if ((e.key === 'c' || e.key === 'C') && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                document.getElementById('copy-btn')?.click();
+                return;
+            }
+        }
+    });
+    // ── Fin Atajos ────────────────────────────────────────────────────────────
+
+    // ── Service Worker Registration (PWA) ─────────────────────────────────────
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+    }
+    // ── Fin PWA ───────────────────────────────────────────────────────────────
 
     if (closeModal) closeModal.addEventListener('click', closeModalFunc);
 

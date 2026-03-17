@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#FFFFFF">
+    <meta name="theme-color" content="#9B2247">
+    <meta name="description" content="Buscador jurídico del Marco Legal Energético de la Secretaría de Energía de México">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Leyes SENER">
+    <link rel="manifest" href="/manifest.json">
     <title>Buscador de Leyes · SENER</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -29,6 +34,12 @@
             <a href="#" id="nav-leyes" class="hover:text-guinda transition-colors">Leyes</a>
             <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
             <a href="#" id="nav-ayuda" class="hover:text-guinda transition-colors">Ayuda</a>
+            <button id="keyboard-help-btn" class="p-1.5 text-gray-300 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5 font-mono text-xs" title="Atajos de teclado (?)" aria-label="Mostrar atajos de teclado">?</button>
+            <!-- Dark mode toggle -->
+            <button id="darkmode-toggle" class="p-1.5 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5" title="Alternar modo oscuro" aria-label="Alternar modo oscuro">
+                <svg id="darkmode-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                <svg id="darkmode-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </button>
             <button id="nav-favorites" class="hidden relative hover:text-guinda transition-colors flex items-center gap-1.5" title="Mis favoritos">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
                 <span class="fav-count text-[9px] font-bold bg-guinda text-white rounded-full w-4 h-4 flex items-center justify-center">0</span>
@@ -76,6 +87,11 @@
             </button>
         </nav>
         <div class="p-6 border-t border-gray-100 bg-gray-50">
+            <button id="mobile-darkmode-toggle" class="flex items-center gap-3 w-full text-left text-sm text-gray-600 hover:text-guinda font-medium transition-colors mb-4">
+                <svg id="mobile-darkmode-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                <svg id="mobile-darkmode-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <span id="mobile-darkmode-label">Modo oscuro</span>
+            </button>
             <div class="flex items-center gap-2 opacity-75 mb-2">
                 <img src="/img/logo_sener.png" alt="SENER" class="h-6 w-auto grayscale">
             </div>
@@ -304,14 +320,77 @@
 
     <style>
         @media print {
-            header, footer, nav, #reading-controls, #mobile-reading-toggle,
-            #mobile-reading-sheet, #mobile-reading-overlay, #back-to-laws,
-            #export-csv-btn, #print-btn, #law-structure-chart, .bookmark-card-btn,
-            #reading-controls, .compare-card-btn { display: none !important; }
-            body, #law-detail-container { background: white !important; color: black !important; }
-            .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl { box-shadow: none !important; }
-            .border { border-color: #e5e7eb !important; }
-            #law-articles-list .result-item { break-inside: avoid; page-break-inside: avoid; }
+            /* Hide all navigation and interactive chrome */
+            header, footer, nav,
+            #reading-controls, #mobile-reading-toggle, #mobile-reading-sheet, #mobile-reading-overlay,
+            #back-to-laws, #export-csv-btn, #print-btn, #law-structure-chart,
+            .bookmark-card-btn, .compare-card-btn,
+            #share-btn, #share-menu, #cite-btn, #copy-btn,
+            #modal-nav-controls, #modal-bookmark-btn, #close-modal,
+            #toc-toggle-btn, #toc-panel, #compare-bar, #app-toast,
+            #quick-filters, #stats-minimal, #search-input,
+            #keyboard-help-btn, #darkmode-toggle,
+            #law-share-wrapper, #search-filters, .pagination-nav,
+            #notes-section { display: none !important; }
+
+            /* Reset page chrome */
+            body {
+                background: white !important;
+                color: black !important;
+                font-family: 'Noto Sans', Arial, sans-serif !important;
+                font-size: 11pt !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* Remove shadows and decorative borders */
+            * { box-shadow: none !important; text-shadow: none !important; }
+
+            /* Law detail view — show full content */
+            #law-detail-container { background: white !important; padding: 0 !important; }
+            #law-header-area { border-bottom: 2pt solid #9B2247 !important; margin-bottom: 16pt !important; padding-bottom: 8pt !important; }
+            #law-articles-list .result-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 4pt !important;
+                margin-bottom: 8pt !important;
+                padding: 8pt !important;
+                background: white !important;
+            }
+
+            /* Article modal — print-ready */
+            #detail-modal {
+                display: block !important;
+                position: static !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
+            }
+            #modal-panel {
+                max-height: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            #modal-panel .p-6.border-b { border-bottom: 2pt solid #9B2247 !important; }
+            #modal-content { overflow: visible !important; padding: 12pt !important; }
+            #modal-content .prose { font-size: 11pt !important; line-height: 1.8 !important; }
+            mark { background: none !important; font-weight: bold !important; text-decoration: underline !important; }
+
+            /* Print header */
+            @page {
+                margin: 15mm 20mm;
+                size: A4 portrait;
+            }
+
+            /* Colored accents in print */
+            .text-guinda { color: #9B2247 !important; }
+            .bg-guinda\/5 { background: #fdf2f5 !important; print-color-adjust: exact; }
         }
         @keyframes fadeInUp {
             from {

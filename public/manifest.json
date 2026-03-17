@@ -1,0 +1,42 @@
+{
+  "name": "Buscador de Leyes Energéticas SENER",
+  "short_name": "Leyes SENER",
+  "description": "Buscador jurídico del Marco Legal Energético de la Secretaría de Energía de México",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#9B2247",
+  "orientation": "portrait-primary",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["government", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Buscar artículos",
+      "short_name": "Buscar",
+      "description": "Ir al buscador de artículos",
+      "url": "/",
+      "icons": [{ "src": "/img/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Ver leyes",
+      "short_name": "Leyes",
+      "description": "Explorar todas las leyes",
+      "url": "/#leyes",
+      "icons": [{ "src": "/img/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
