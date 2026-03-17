@@ -1530,6 +1530,8 @@ export function initUI() {
 
             if (query.length > 2) {
                 // UI Transition to "Search Mode"
+                destroyTOC();
+                if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
                 heroSection.classList.add('hidden');
                 heroSection.classList.remove('block');
                 quickFilters.classList.add('hidden');
@@ -1591,6 +1593,8 @@ export function initUI() {
 
             } else if (query.length === 0) {
                 // Reset to "Hero Mode"
+                destroyTOC();
+                if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
                 heroSection.classList.remove('hidden');
                 quickFilters.classList.remove('hidden');
                 statsMinimal.classList.remove('hidden');
