@@ -804,38 +804,137 @@ export function initUI() {
         `;
         document.body.appendChild(tocBtn);
 
+        // Build grid buttons HTML
+        const gridHTML = currentLawArticles.map((art, i) => {
+            const num = art.articulo_label.match(/\d+/);
+            const label = num ? num[0] : (i + 1);
+            const hasNote = !!getNote(art.id);
+            const isFav = isFavorite(art.id);
+            return `<button class="toc-art-btn text-[11px] font-medium rounded-lg py-2 px-1 border transition-all text-center relative
+                ${isFav ? 'border-guinda/30 bg-guinda/5 text-guinda' : 'border-gray-100 bg-white text-gray-600 hover:border-guinda hover:text-guinda hover:bg-guinda/5'}"
+                data-id="${art.id}" title="${art.articulo_label}">
+                Art.${label}
+                ${hasNote ? '<span class="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-amber-400 rounded-full"></span>' : ''}
+            </button>`;
+        }).join('');
+
+        // Build list items HTML
+        const listHTML = currentLawArticles.map((art) => {
+            const hasNote = !!getNote(art.id);
+            const isFav = isFavorite(art.id);
+            const tituloExtra = art.titulo_nombre ? `<span class="text-gray-400 ml-1 font-normal">· ${art.titulo_nombre}</span>` : '';
+            return `<button class="toc-art-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all hover:bg-guinda/5 group/item
+                ${isFav ? 'text-guinda' : 'text-gray-700 hover:text-guinda'}"
+                data-id="${art.id}">
+                <span class="flex-shrink-0 text-[10px] font-bold min-w-[36px] text-center py-1 rounded-md
+                    ${isFav ? 'bg-guinda/10 text-guinda' : 'bg-gray-100 text-gray-500 group-hover/item:bg-guinda/10 group-hover/item:text-guinda'}">
+                    ${art.articulo_label.replace(/Artículo\s*/i, 'Art.').split(' ')[0] + (art.articulo_label.match(/\d+/) ? ' ' + art.articulo_label.match(/\d+/)[0] : '')}
+                </span>
+                <span class="text-xs font-medium truncate flex-1 leading-snug">
+                    ${art.articulo_label}${tituloExtra}
+                </span>
+                <span class="flex-shrink-0 flex items-center gap-1">
+                    ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full" title="Tiene nota"></span>' : ''}
+                    ${isFav ? '<svg class="w-3 h-3 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>' : ''}
+                </span>
+            </button>`;
+        }).join('');
+
         const tocPanel = document.createElement('div');
         tocPanel.id = 'toc-panel';
         tocPanel.className = 'fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl shadow-2xl border-t border-gray-100 transform translate-y-full transition-transform duration-300 flex flex-col';
-        tocPanel.style.maxHeight = '70vh';
+        tocPanel.style.maxHeight = '75vh';
         tocPanel.innerHTML = `
-            <div class="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-50 flex-shrink-0">
+            <!-- Handle bar -->
+            <div class="flex justify-center pt-3 pb-1 flex-shrink-0">
+                <div class="w-10 h-1 bg-gray-200 rounded-full"></div>
+            </div>
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0">
                 <div>
                     <p class="text-sm font-bold text-gray-800">Índice de Artículos</p>
                     <p class="text-[10px] text-gray-400 mt-0.5">${currentLawArticles.length} artículos · clic para abrir</p>
                 </div>
-                <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5">
+                <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5" aria-label="Cerrar índice">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
-            <div class="overflow-y-auto flex-1 px-4 py-3">
-                <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 gap-1.5">
-                    ${currentLawArticles.map((art, i) => {
-                        const num = art.articulo_label.match(/\d+/);
-                        const label = num ? num[0] : (i + 1);
-                        const hasNote = !!getNote(art.id);
-                        const isFav = isFavorite(art.id);
-                        return `<button class="toc-art-btn text-[11px] font-medium rounded-lg py-2 px-1 border transition-all text-center relative
-                            ${isFav ? 'border-guinda/30 bg-guinda/5 text-guinda' : 'border-gray-100 bg-white text-gray-600 hover:border-guinda hover:text-guinda hover:bg-guinda/5'}"
-                            data-id="${art.id}" title="${art.articulo_label}">
-                            Art.${label}
-                            ${hasNote ? '<span class="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-amber-400 rounded-full"></span>' : ''}
-                        </button>`;
-                    }).join('')}
+            <!-- Tabs -->
+            <div class="flex gap-1 px-5 pb-3 flex-shrink-0 border-b border-gray-50">
+                <button id="toc-tab-grid" class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all bg-guinda text-white shadow-sm">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    Números
+                </button>
+                <button id="toc-tab-list" class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-guinda hover:bg-guinda/5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg>
+                    Artículos
+                </button>
+                <!-- Quick search inside TOC -->
+                <div class="ml-auto relative flex items-center">
+                    <svg class="absolute left-2.5 w-3 h-3 text-gray-300 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input id="toc-search" type="text" placeholder="Filtrar…"
+                        class="text-xs border border-gray-200 rounded-full pl-7 pr-3 py-1.5 w-32 focus:outline-none focus:border-guinda focus:ring-1 focus:ring-guinda/20 transition-all bg-white placeholder-gray-300">
                 </div>
+            </div>
+            <!-- Content: Grid view (default) -->
+            <div id="toc-content-grid" class="overflow-y-auto flex-1 px-4 py-3">
+                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-10 gap-1.5">
+                    ${gridHTML}
+                </div>
+            </div>
+            <!-- Content: List view (hidden by default) -->
+            <div id="toc-content-list" class="hidden overflow-y-auto flex-1 px-3 py-2 space-y-0.5">
+                ${listHTML}
             </div>
         `;
         document.body.appendChild(tocPanel);
+
+        // Tab switching logic
+        const tabGrid = tocPanel.querySelector('#toc-tab-grid');
+        const tabList = tocPanel.querySelector('#toc-tab-list');
+        const contentGrid = tocPanel.querySelector('#toc-content-grid');
+        const contentList = tocPanel.querySelector('#toc-content-list');
+        const tocSearch = tocPanel.querySelector('#toc-search');
+
+        const activeTabCls = ['bg-guinda', 'text-white', 'shadow-sm'];
+        const inactiveTabCls = ['text-gray-500', 'hover:text-guinda', 'hover:bg-guinda/5'];
+
+        tabGrid.addEventListener('click', () => {
+            tabGrid.classList.add(...activeTabCls);
+            tabGrid.classList.remove(...inactiveTabCls);
+            tabList.classList.remove(...activeTabCls);
+            tabList.classList.add(...inactiveTabCls);
+            contentGrid.classList.remove('hidden');
+            contentList.classList.add('hidden');
+            if (tocSearch) tocSearch.value = '';
+            // Reset filter
+            contentGrid.querySelectorAll('.toc-art-btn').forEach(b => b.style.display = '');
+        });
+
+        tabList.addEventListener('click', () => {
+            tabList.classList.add(...activeTabCls);
+            tabList.classList.remove(...inactiveTabCls);
+            tabGrid.classList.remove(...activeTabCls);
+            tabGrid.classList.add(...inactiveTabCls);
+            contentList.classList.remove('hidden');
+            contentGrid.classList.add('hidden');
+            if (tocSearch) tocSearch.value = '';
+            // Reset filter
+            contentList.querySelectorAll('.toc-art-btn').forEach(b => b.style.display = '');
+        });
+
+        // TOC search filter
+        if (tocSearch) {
+            tocSearch.addEventListener('input', (e) => {
+                const q = e.target.value.toLowerCase().trim();
+                const activeContent = contentList.classList.contains('hidden') ? contentGrid : contentList;
+                activeContent.querySelectorAll('.toc-art-btn').forEach(btn => {
+                    const matches = !q || btn.title?.toLowerCase().includes(q) || btn.textContent.toLowerCase().includes(q);
+                    btn.style.display = matches ? '' : 'none';
+                });
+            });
+            tocSearch.addEventListener('click', (e) => e.stopPropagation());
+        }
 
         let tocOpen = false;
         const toggleToc = (show) => {
@@ -850,7 +949,7 @@ export function initUI() {
         };
 
         tocBtn.addEventListener('click', () => toggleToc(!tocOpen));
-        document.getElementById('toc-close-btn')?.addEventListener('click', () => toggleToc(false));
+        tocPanel.querySelector('#toc-close-btn')?.addEventListener('click', () => toggleToc(false));
 
         tocPanel.querySelectorAll('.toc-art-btn').forEach(btn => {
             btn.addEventListener('click', () => {
