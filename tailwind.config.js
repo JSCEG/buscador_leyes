@@ -41,5 +41,12 @@ module.exports = {
       }
     },
   },
+  safelist: [
+    // Clases del resaltado de búsqueda (generadas dinámicamente en JS)
+    'bg-yellow-200', 'bg-yellow-300',
+    'text-gray-900', 'rounded-sm', 'px-0.5',
+    // Dark mode mark
+    'bg-yellow-900', 'text-yellow-100',
+  ],
   plugins: [],
 }

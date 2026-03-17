@@ -392,6 +392,22 @@
             .text-guinda { color: #9B2247 !important; }
             .bg-guinda\/5 { background: #fdf2f5 !important; print-color-adjust: exact; }
         }
+        /* Resaltado de búsqueda — siempre visible independientemente del purge */
+        mark.hl {
+            background-color: #fef08a; /* yellow-200 */
+            color: #111827;
+            border-radius: 2px;
+            padding: 0 3px;
+            font-weight: 600;
+        }
+        .dark-mode mark.hl {
+            background-color: #713f12; /* amber-900 */
+            color: #fef3c7;
+        }
+        @media print {
+            mark.hl { background: none !important; font-weight: 700 !important; text-decoration: underline !important; }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;

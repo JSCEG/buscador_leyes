@@ -1398,8 +1398,12 @@ export function initUI() {
 
     function highlightText(text, query) {
         if (!query || !text) return text || '';
-        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
-        return text.replace(regex, '<mark class="bg-yellow-200 text-gray-900 rounded-sm px-0.5">$1</mark>');
+        // Support multi-word queries: highlight each word independently
+        const words = query.trim().split(/\s+/).filter(w => w.length > 1);
+        if (words.length === 0) return text;
+        const pattern = words.map(w => escapeRegex(w)).join('|');
+        const regex = new RegExp(`(${pattern})`, 'gi');
+        return text.replace(regex, '<mark class="hl">$1</mark>');
     }
 
     function getRelevanceBadge(score, maxScore) {
@@ -2383,7 +2387,7 @@ export function initUI() {
             ${currentSearchQuery ? `
             <div class="mb-4 flex items-center gap-2 text-[11px] text-amber-700 bg-amber-50 border border-amber-100 px-3 py-2 rounded-lg">
                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                Término resaltado: <mark class="bg-yellow-200 text-gray-900 rounded-sm px-1 font-semibold">${currentSearchQuery}</mark>
+                Término resaltado: <mark class="hl">${currentSearchQuery}</mark>
             </div>` : ''}
             <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed font-serif text-justify">
                 ${cleanText.split('\n\n').map(p => `<p class="mb-4">${hl(p)}</p>`).join('')}
