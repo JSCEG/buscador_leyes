@@ -8,3 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initUI();
   initSearch();
 });
+
+// En desarrollo: recarga la página completa cuando cambie ui.js o search-engine.js
+// para que los event listeners siempre usen la versión más reciente del código.
+if (import.meta.hot) {
+  import.meta.hot.accept(['./scripts/ui.js', './scripts/search-engine.js'], () => {
+    import.meta.hot.invalidate();
+  });
+}
