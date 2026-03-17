@@ -304,8 +304,21 @@ export function initUI() {
         });
     }
 
+    // ── Limpieza global del TOC ────────────────────────────────────────────────
+    function destroyTOC() {
+        document.getElementById('toc-toggle-btn')?.remove();
+        const panel = document.getElementById('toc-panel');
+        if (panel) {
+            panel.classList.add('translate-y-full');
+            setTimeout(() => panel.remove(), 310);
+        }
+        document.body.style.overflow = '';
+    }
+    // ── Fin limpieza TOC ───────────────────────────────────────────────────────
+
     function resetToHero() {
         setHash(null);
+        destroyTOC();
         if (searchInput) searchInput.value = '';
         heroSection.classList.remove('hidden');
         quickFilters.classList.remove('hidden');
@@ -333,6 +346,7 @@ export function initUI() {
 
     function showLawsView() {
         setHash(null);
+        destroyTOC();
         // Transition UI
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -587,6 +601,7 @@ export function initUI() {
 
     function openLawDetail(law) {
         if (!lawDetailContainer) return;
+        destroyTOC(); // Remove any previous TOC before building a new one
 
         // Fetch all articles for this law
         currentLawArticles = getArticlesByLaw(law.titulo);
@@ -958,18 +973,6 @@ export function initUI() {
             });
         });
 
-        // Clean up TOC when leaving law view
-        const originalLawCleanup = () => {
-            tocBtn.remove();
-            tocPanel.remove();
-            document.body.style.overflow = '';
-        };
-        // Attach cleanup to crumb-inicio and crumb-categoria
-        document.getElementById('crumb-inicio')?.addEventListener('click', originalLawCleanup, { once: true });
-        document.getElementById('crumb-categoria')?.addEventListener('click', originalLawCleanup, { once: true });
-        // Also clean on search
-        const cleanTocOnSearch = () => { if (document.getElementById('toc-toggle-btn')) originalLawCleanup(); };
-        searchInput?.addEventListener('input', cleanTocOnSearch, { once: true });
         // ── Fin Tabla de contenidos ────────────────────────────────────────────
 
         // Render initial articles (first 20 to avoid lag)
@@ -1707,6 +1710,7 @@ export function initUI() {
 
     function showFavoritesView() {
         setHash(null);
+        destroyTOC();
         const favIds = getFavorites();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -2057,6 +2061,7 @@ export function initUI() {
 
     function showStatsView() {
         setHash(null);
+        destroyTOC();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
