@@ -11,8 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script type="module" crossorigin src="/assets/index-Yf9qc10q.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DDHWV1YC.css">
+  <script type="module" crossorigin src="/assets/index-CLneBxyA.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DQXWMcMu.css">
 </head>
 
 <body class="bg-white text-gray-900 font-body min-h-screen flex flex-col antialiased">
@@ -169,21 +169,20 @@
             id="modal-panel">
             <div class="flex items-center justify-between p-6 border-b border-gray-50">
                 <div class="flex flex-col">
-                    <span id="modal-ley" class="text-[10px] font-bold tracking-widest text-guinda uppercase mb-1">Ley de
-                        Origen</span>
+                    <button id="modal-ley" class="text-[10px] font-bold tracking-widest text-guinda uppercase mb-1 hover:text-guinda/70 hover:underline underline-offset-2 transition-colors text-left" title="Ver ley completa" aria-label="Abrir ley completa">Ley de Origen</button>
                     <h3 id="modal-title" class="font-head text-xl font-bold text-gray-900">Artículo 00</h3>
                 </div>
                 <div class="flex items-center gap-1">
                     <button id="modal-bookmark-btn"
                         class="p-2 text-gray-300 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors"
-                        title="Guardar en favoritos">
+                        title="Guardar en favoritos" aria-label="Guardar en favoritos">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
                         </svg>
                     </button>
                     <button id="close-modal"
-                        class="p-2 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors">
+                        class="p-2 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors" aria-label="Cerrar artículo">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M6 18L18 6M6 6l12 12"></path>
@@ -262,7 +261,11 @@
                             </button>
                         </div>
                     </div>
-                    <button class="text-xs font-semibold text-gray-500 hover:text-guinda transition-colors flex items-center gap-1" id="copy-btn">
+                    <button id="cite-btn" class="text-xs font-semibold text-gray-500 hover:text-guinda transition-colors flex items-center gap-1" title="Copiar cita formal del artículo" aria-label="Copiar cita formal">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                        Citar
+                    </button>
+                    <button class="text-xs font-semibold text-gray-500 hover:text-guinda transition-colors flex items-center gap-1" id="copy-btn" title="Copiar texto del artículo" aria-label="Copiar texto del artículo">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
                         Copiar
                     </button>
@@ -279,7 +282,7 @@
                     <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
                     Comparador de Artículos
                 </h3>
-                <button id="close-compare-modal" class="p-2 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors">
+                <button id="close-compare-modal" class="p-2 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors" aria-label="Cerrar comparador">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
