@@ -316,9 +316,19 @@ export function initUI() {
     }
     // ── Fin limpieza TOC ───────────────────────────────────────────────────────
 
+    function showGlobalSearch() {
+        document.getElementById('global-search-wrapper')?.classList.remove('hidden');
+    }
+    function hideGlobalSearch() {
+        document.getElementById('global-search-wrapper')?.classList.add('hidden');
+        // Clear value so no stale query lingers
+        if (searchInput) searchInput.value = '';
+    }
+
     function resetToHero() {
         setHash(null);
         destroyTOC();
+        showGlobalSearch();
         if (searchInput) searchInput.value = '';
         heroSection.classList.remove('hidden');
         quickFilters.classList.remove('hidden');
@@ -347,6 +357,7 @@ export function initUI() {
     function showLawsView() {
         setHash(null);
         destroyTOC();
+        showGlobalSearch();
         // Transition UI
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -602,6 +613,7 @@ export function initUI() {
     function openLawDetail(law) {
         if (!lawDetailContainer) return;
         destroyTOC(); // Remove any previous TOC before building a new one
+        hideGlobalSearch(); // Single search bar: use the scoped one inside the law view
 
         // Fetch all articles for this law
         currentLawArticles = getArticlesByLaw(law.titulo);
@@ -1715,6 +1727,7 @@ export function initUI() {
     function showFavoritesView() {
         setHash(null);
         destroyTOC();
+        showGlobalSearch();
         const favIds = getFavorites();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -2066,6 +2079,7 @@ export function initUI() {
     function showStatsView() {
         setHash(null);
         destroyTOC();
+        showGlobalSearch();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
