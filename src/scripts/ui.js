@@ -88,6 +88,8 @@ export function initUI() {
             `;
         }
         updateFavoritesBtn();
+        // Handle URL hash (deep link) once data is ready
+        setTimeout(handleInitialHash, 0);
     });
 
     // Favorites nav buttons
@@ -107,6 +109,65 @@ export function initUI() {
     document.getElementById('compare-modal')?.addEventListener('click', (e) => {
         if (e.target === document.getElementById('compare-modal')) closeCompareModal();
     });
+
+    // ── Deep Linking, Toast & Skeleton Loaders ────────────────────────────────
+    function setHash(hash) {
+        history.replaceState(null, '', hash ? `${location.pathname}${hash}` : location.pathname);
+    }
+
+    function handleInitialHash() {
+        const hash = location.hash;
+        if (!hash) return;
+        if (hash.startsWith('#art-')) {
+            const id = decodeURIComponent(hash.slice(5));
+            const item = getArticleById(id);
+            if (!item) return;
+            currentModalList = [item];
+            openDetail(id);
+        } else if (hash.startsWith('#ley-')) {
+            const leyId = decodeURIComponent(hash.slice(5));
+            const law = cachedSummaries.find(l => l.id === leyId);
+            if (law) openLawDetail(law);
+        }
+    }
+
+    function showToast(message, icon = '✓', color = 'bg-gray-900') {
+        const existing = document.getElementById('app-toast');
+        if (existing) existing.remove();
+        const toast = document.createElement('div');
+        toast.id = 'app-toast';
+        toast.className = `fixed bottom-24 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 px-5 py-3 ${color} text-white text-xs font-semibold rounded-full shadow-2xl transition-all duration-300 opacity-0 scale-90 pointer-events-none`;
+        toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => {
+            toast.classList.replace('opacity-0', 'opacity-100');
+            toast.classList.replace('scale-90', 'scale-100');
+        });
+        setTimeout(() => {
+            toast.classList.replace('opacity-100', 'opacity-0');
+            toast.classList.replace('scale-100', 'scale-90');
+            setTimeout(() => toast.remove(), 300);
+        }, 2500);
+    }
+
+    function showSkeletons(count = 5) {
+        resultsContainer.innerHTML = Array(count).fill('').map(() => `
+            <div class="animate-pulse rounded-xl p-5 border border-gray-50 bg-white">
+                <div class="flex gap-2 mb-3">
+                    <div class="h-4 bg-gray-100 rounded-full w-24"></div>
+                    <div class="h-4 bg-gray-100 rounded-full w-36"></div>
+                    <div class="h-4 bg-gray-100 rounded-full w-10 ml-auto"></div>
+                </div>
+                <div class="h-6 bg-gray-100 rounded-lg w-48 mb-3"></div>
+                <div class="space-y-2">
+                    <div class="h-3 bg-gray-100 rounded w-full"></div>
+                    <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+                    <div class="h-3 bg-gray-100 rounded w-4/6"></div>
+                </div>
+            </div>
+        `).join('');
+    }
+    // ── End Utilities ──────────────────────────────────────────────────────────
 
     let currentSearchQuery = '';
     let currentSearchResults = [];
@@ -184,6 +245,7 @@ export function initUI() {
     }
 
     function resetToHero() {
+        setHash(null);
         if (searchInput) searchInput.value = '';
         heroSection.classList.remove('hidden');
         quickFilters.classList.remove('hidden');
@@ -210,6 +272,7 @@ export function initUI() {
     }
 
     function showLawsView() {
+        setHash(null);
         // Transition UI
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -482,6 +545,7 @@ export function initUI() {
         // Show Law Detail
         lawDetailContainer.classList.remove('hidden');
         setTimeout(() => lawDetailContainer.classList.remove('opacity-0'), 50);
+        setHash(`#ley-${encodeURIComponent(law.id)}`);
 
         // Reading Controls State
         let currentFontSize = 100; // Percentage
@@ -1147,6 +1211,7 @@ export function initUI() {
                 setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
 
                 if (loadingIndicator) loadingIndicator.classList.remove('hidden');
+                showSkeletons();
 
                 // Autocomplete Logic
                 if (cachedSummaries.length > 0) {
@@ -1236,6 +1301,7 @@ export function initUI() {
         });
     }
     function showFavoritesView() {
+        setHash(null);
         const favIds = getFavorites();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -1507,6 +1573,7 @@ export function initUI() {
     // ── End WhatsApp Share ───────────────────────────────────────────────────
 
     function showStatsView() {
+        setHash(null);
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
@@ -1675,11 +1742,40 @@ export function initUI() {
         }
 
         if (results.length === 0) {
+            const isFiltered = currentFilters.type !== 'all' || currentFilters.law !== 'all';
             resultsContainer.innerHTML = `
-                <div class="text-center py-12">
-                    <p class="text-gray-400 font-light text-sm">No encontramos coincidencias con los filtros actuales.</p>
+                <div class="text-center py-16 px-4">
+                    <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-10 h-10 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-head text-lg font-bold text-gray-700 mb-2">
+                        ${isFiltered ? 'Sin resultados con los filtros actuales' : `Sin resultados para "<span class="text-guinda">${query}</span>"`}
+                    </h3>
+                    <p class="text-sm text-gray-400 mb-6 max-w-xs mx-auto">
+                        ${isFiltered ? 'Prueba cambiando o eliminando los filtros aplicados.' : 'Intenta con otras palabras, un artículo específico o explora directamente las leyes.'}
+                    </p>
+                    ${!isFiltered ? `
+                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+                        ${['Transmisión', 'Generación', 'CENACE', 'Distribución', 'Tarifas', 'Permisos'].map(s =>
+                            `<button class="empty-suggestion px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-guinda/5 hover:border-guinda/30 hover:text-guinda transition-all">${s}</button>`
+                        ).join('')}
+                    </div>
+                    <button id="empty-browse-laws" class="text-xs font-semibold text-guinda hover:text-guinda/70 transition-colors underline underline-offset-2">Explorar todas las leyes →</button>
+                    ` : ''}
                 </div>`;
-            // Ensure pagination controls are removed if no results
+            // Wire suggestion chips
+            resultsContainer.querySelectorAll('.empty-suggestion').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (searchInput) {
+                        searchInput.value = btn.textContent;
+                        searchInput.dispatchEvent(new Event('input'));
+                    }
+                });
+            });
+            document.getElementById('empty-browse-laws')?.addEventListener('click', () => showLawsView());
+            // Remove pagination
             const existingNav = document.getElementById('results-container').nextElementSibling;
             if (existingNav && existingNav.classList.contains('pagination-nav')) existingNav.remove();
             return;
@@ -1806,9 +1902,7 @@ export function initUI() {
         if (copyBtnEl) {
             copyBtnEl.onclick = () => {
                 navigator.clipboard.writeText(modalContent.innerText).then(() => {
-                    const orig = copyBtnEl.innerHTML;
-                    copyBtnEl.innerHTML = `<span class="text-verde font-bold">¡Copiado!</span>`;
-                    setTimeout(() => { copyBtnEl.innerHTML = orig; }, 2000);
+                    showToast('¡Texto copiado!', '📋');
                 });
             };
         }
@@ -1833,8 +1927,21 @@ export function initUI() {
         if (shareTextBtn) shareTextBtn.onclick = () => { shareMenu?.classList.add('hidden'); shareArticleText(item); };
         if (shareImageBtn) shareImageBtn.onclick = () => { shareMenu?.classList.add('hidden'); shareArticleImage(item); };
 
+        // Update URL for sharing
+        setHash(`#art-${encodeURIComponent(id)}`);
+
         detailModal.classList.remove('hidden');
         detailModal.classList.add('flex');
+
+        // Wire share-link-btn if present
+        const shareLinkBtn = document.getElementById('share-link-btn');
+        if (shareLinkBtn) {
+            shareLinkBtn.onclick = () => {
+                shareMenu?.classList.add('hidden');
+                const url = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
+                navigator.clipboard.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
+            };
+        }
 
         // Animation
         setTimeout(() => {
@@ -1844,6 +1951,7 @@ export function initUI() {
     }
 
     function closeModalFunc() {
+        setHash(null);
         modalPanel.classList.remove('scale-100', 'opacity-100');
         modalPanel.classList.add('scale-95', 'opacity-0');
 
