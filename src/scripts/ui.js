@@ -1,4 +1,4 @@
-import { performSearch, getArticleById, getArticlesByLaw } from './search-engine.js';
+import { performSearch, getArticleById, getArticlesByLaw, getAllData } from './search-engine.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -1475,48 +1475,172 @@ export function initUI() {
         });
     }
 
-    // Search Input Listener
+    // ── Autocomplete helpers ───────────────────────────────────────────────────
+    function normalizeText(str) {
+        return str.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function highlightMatch(text, query) {
+        const normText = normalizeText(text);
+        const normQuery = normalizeText(query);
+        const idx = normText.indexOf(normQuery);
+        if (idx === -1) return escapeHtml(text);
+        return escapeHtml(text.slice(0, idx))
+            + `<mark class="bg-guinda/10 text-guinda font-semibold not-italic">${escapeHtml(text.slice(idx, idx + query.length))}</mark>`
+            + escapeHtml(text.slice(idx + query.length));
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // ── Search Input Listener ─────────────────────────────────────────────────
     if (searchInput) {
         // Autocomplete Container
         const autocompleteContainer = document.createElement('div');
         autocompleteContainer.id = 'autocomplete-results';
-        autocompleteContainer.className = 'absolute w-full bg-white border border-gray-100 rounded-2xl shadow-xl mt-2 hidden z-50 overflow-hidden';
+        autocompleteContainer.className = 'absolute w-full bg-white border border-gray-100 rounded-2xl shadow-xl mt-2 hidden z-50 overflow-hidden max-h-96 overflow-y-auto';
         searchInput.parentNode.appendChild(autocompleteContainer);
 
-        // Hide autocomplete on click outside
+        // Keyboard navigation state
+        let activeIndex = -1;
+
+        function getNavigableItems() {
+            return Array.from(autocompleteContainer.querySelectorAll('[data-navigable]'));
+        }
+
+        function setActiveItem(index) {
+            const items = getNavigableItems();
+            items.forEach((el, i) => {
+                el.classList.toggle('bg-gray-50', i === index);
+                el.setAttribute('aria-selected', i === index ? 'true' : 'false');
+            });
+            activeIndex = index;
+            if (items[index]) items[index].scrollIntoView({ block: 'nearest' });
+        }
+
+        function closeAutocomplete() {
+            autocompleteContainer.classList.add('hidden');
+            activeIndex = -1;
+        }
+
+        // Hide on click outside
         document.addEventListener('click', (e) => {
             if (!searchInput.contains(e.target) && !autocompleteContainer.contains(e.target)) {
-                autocompleteContainer.classList.add('hidden');
+                closeAutocomplete();
             }
         });
 
-        // Show search history on focus when input is empty
-        searchInput.addEventListener('focus', () => {
-            if (searchInput.value.trim().length > 0) return;
-            const history = getHistory();
-            if (history.length === 0) return;
+        // Keyboard navigation
+        searchInput.addEventListener('keydown', (e) => {
+            if (autocompleteContainer.classList.contains('hidden')) return;
+            const items = getNavigableItems();
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setActiveItem(Math.min(activeIndex + 1, items.length - 1));
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setActiveItem(Math.max(activeIndex - 1, -1));
+                if (activeIndex === -1) items.forEach(el => el.classList.remove('bg-gray-50'));
+            } else if (e.key === 'Enter' && activeIndex >= 0) {
+                e.preventDefault();
+                items[activeIndex]?.click();
+            } else if (e.key === 'Escape') {
+                closeAutocomplete();
+            }
+        });
 
-            autocompleteContainer.innerHTML = `
+        // Render autocomplete dropdown
+        function renderAutocomplete(query) {
+            activeIndex = -1;
+            const sections = [];
+
+            if (!query) {
+                // Show recent history
+                const history = getHistory();
+                if (history.length === 0) { closeAutocomplete(); return; }
+                sections.push({
+                    label: 'Búsquedas recientes',
+                    extra: `<button id="clear-all-history" class="text-gray-300 hover:text-guinda transition-colors text-[9px] normal-case tracking-normal">Borrar todo</button>`,
+                    items: history.slice(0, 7).map(q => ({
+                        html: `
+                            <svg class="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-sm text-gray-600 truncate flex-1">${escapeHtml(q)}</span>
+                            <button class="remove-history-item text-gray-200 hover:text-gray-500 transition-colors text-base leading-none flex-shrink-0" data-query="${escapeHtml(q)}">×</button>`,
+                        attrs: `data-navigable data-query="${escapeHtml(q)}" class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors history-item"`,
+                    }))
+                });
+            } else {
+                // Law-level suggestions
+                const lawMatches = cachedSummaries
+                    .filter(s => normalizeText(s.titulo).includes(normalizeText(query)))
+                    .slice(0, 4);
+
+                if (lawMatches.length > 0) {
+                    sections.push({
+                        label: 'Leyes',
+                        items: lawMatches.map(s => ({
+                            html: `
+                                <svg class="w-4 h-4 text-guinda opacity-50 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                <span class="text-sm text-gray-700 font-medium truncate">${highlightMatch(s.titulo, query)}</span>`,
+                            attrs: `data-navigable data-law-title="${escapeHtml(s.titulo)}" class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors suggestion-law"`,
+                        }))
+                    });
+                }
+
+                // Article-level suggestions: match against articulo_label, titulo_nombre, capitulo_nombre
+                const allArticles = getAllData();
+                const normQ = normalizeText(query);
+                const artMatches = [];
+                for (const art of allArticles) {
+                    if (artMatches.length >= 4) break;
+                    const label = art.articulo_label || '';
+                    const titulo = art.titulo_nombre || '';
+                    const capitulo = art.capitulo_nombre || '';
+                    const matchField = [label, titulo, capitulo].find(f => f && normalizeText(f).includes(normQ));
+                    if (matchField) {
+                        artMatches.push({ art, matchField });
+                    }
+                }
+
+                if (artMatches.length > 0) {
+                    sections.push({
+                        label: 'Artículos',
+                        items: artMatches.map(({ art, matchField }) => ({
+                            html: `
+                                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                <div class="flex flex-col min-w-0">
+                                    <span class="text-sm text-gray-700 font-medium truncate">${highlightMatch(matchField, query)}</span>
+                                    <span class="text-[11px] text-gray-400 truncate">${escapeHtml(art.ley_origen)}</span>
+                                </div>`,
+                            attrs: `data-navigable data-article-id="${escapeHtml(art.id)}" class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors suggestion-article"`,
+                        }))
+                    });
+                }
+            }
+
+            if (sections.length === 0) { closeAutocomplete(); return; }
+
+            autocompleteContainer.innerHTML = sections.map(sec => `
                 <div class="px-4 py-2 text-[10px] uppercase tracking-widest text-gray-400 font-bold bg-gray-50 border-b border-gray-100 flex items-center justify-between">
-                    <span>Búsquedas recientes</span>
-                    <button id="clear-all-history" class="text-gray-300 hover:text-guinda transition-colors text-[9px] normal-case tracking-normal">Borrar todo</button>
+                    <span>${sec.label}</span>
+                    ${sec.extra || ''}
                 </div>
-                ${history.slice(0, 7).map(q => `
-                    <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors history-item" data-query="${q}">
-                        <svg class="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-sm text-gray-600 truncate flex-1">${q}</span>
-                        <button class="remove-history-item text-gray-200 hover:text-gray-500 transition-colors text-base leading-none flex-shrink-0" data-query="${q}">×</button>
-                    </div>
-                `).join('')}
-            `;
+                ${sec.items.map(it => `<div ${it.attrs}>${it.html}</div>`).join('')}
+            `).join('');
+
             autocompleteContainer.classList.remove('hidden');
 
+            // Bind: clear all history
             document.getElementById('clear-all-history')?.addEventListener('click', (e) => {
                 e.stopPropagation();
                 localStorage.removeItem('search-history');
-                autocompleteContainer.classList.add('hidden');
+                closeAutocomplete();
             });
 
+            // Bind: history items
             autocompleteContainer.querySelectorAll('.history-item').forEach(item => {
                 item.addEventListener('click', (e) => {
                     if (e.target.classList.contains('remove-history-item')) {
@@ -1525,17 +1649,49 @@ export function initUI() {
                         const updated = getHistory().filter(h => h !== q);
                         localStorage.setItem('search-history', JSON.stringify(updated));
                         item.remove();
-                        if (autocompleteContainer.querySelectorAll('.history-item').length === 0) {
-                            autocompleteContainer.classList.add('hidden');
-                        }
+                        if (autocompleteContainer.querySelectorAll('.history-item').length === 0) closeAutocomplete();
                         return;
                     }
                     searchInput.value = item.dataset.query;
                     searchInput.dispatchEvent(new Event('input'));
-                    autocompleteContainer.classList.add('hidden');
+                    closeAutocomplete();
                 });
             });
+
+            // Bind: law suggestions
+            autocompleteContainer.querySelectorAll('.suggestion-law').forEach(item => {
+                item.addEventListener('click', () => {
+                    const title = item.dataset.lawTitle;
+                    const law = cachedSummaries.find(l => l.titulo === title);
+                    if (law) {
+                        openLawDetail(law);
+                        closeAutocomplete();
+                        searchInput.value = '';
+                    }
+                });
+            });
+
+            // Bind: article suggestions
+            autocompleteContainer.querySelectorAll('.suggestion-article').forEach(item => {
+                item.addEventListener('click', () => {
+                    const articleId = item.dataset.articleId;
+                    if (articleId) {
+                        openDetail(articleId);
+                        closeAutocomplete();
+                        searchInput.value = '';
+                    }
+                });
+            });
+        }
+
+        // Show history on focus (empty input)
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim().length > 0) return;
+            renderAutocomplete('');
         });
+
+        // Debounce timer
+        let searchDebounceTimer = null;
 
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.trim();
@@ -1558,41 +1714,12 @@ export function initUI() {
                 if (loadingIndicator) loadingIndicator.classList.remove('hidden');
                 showSkeletons();
 
-                // Autocomplete Logic
-                if (cachedSummaries.length > 0) {
-                    const suggestions = cachedSummaries.filter(s => s.titulo.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
+                // Autocomplete suggestions
+                renderAutocomplete(query);
 
-                    if (suggestions.length > 0) {
-                        autocompleteContainer.innerHTML = `
-                            <div class="px-4 py-2 text-[10px] uppercase tracking-widest text-gray-400 font-bold bg-gray-50 border-b border-gray-100">Sugerencias Directas</div>
-                            ${suggestions.map(s => `
-                                <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors suggestion-item" data-title="${s.titulo}">
-                                    <svg class="w-4 h-4 text-guinda opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                    <span class="text-sm text-gray-700 font-medium truncate">${s.titulo}</span>
-                                </div>
-                            `).join('')}
-                         `;
-                        autocompleteContainer.classList.remove('hidden');
-
-                        // Bind suggestion clicks
-                        autocompleteContainer.querySelectorAll('.suggestion-item').forEach(item => {
-                            item.addEventListener('click', () => {
-                                const title = item.dataset.title;
-                                const law = cachedSummaries.find(l => l.titulo === title);
-                                if (law) {
-                                    openLawDetail(law);
-                                    autocompleteContainer.classList.add('hidden');
-                                    searchInput.value = ''; // Clear search
-                                }
-                            });
-                        });
-                    } else {
-                        autocompleteContainer.classList.add('hidden');
-                    }
-                }
-
-                // Debounce search slightly for performance
-                setTimeout(() => {
+                // Debounced search
+                clearTimeout(searchDebounceTimer);
+                searchDebounceTimer = setTimeout(() => {
                     const results = performSearch(query);
                     currentSearchResults = results;
                     currentSearchQuery = query;
@@ -1601,7 +1728,7 @@ export function initUI() {
                     saveToHistory(query);
                     renderResults();
                     if (loadingIndicator) loadingIndicator.classList.add('hidden');
-                }, 100);
+                }, 250);
 
             } else if (query.length === 0) {
                 // Reset to "Hero Mode"
@@ -1616,6 +1743,7 @@ export function initUI() {
 
                 resultsContainer.classList.add('hidden', 'opacity-0');
                 resultsContainer.innerHTML = '';
+                closeAutocomplete();
             }
         });
     }
