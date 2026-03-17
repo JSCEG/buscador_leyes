@@ -12,18 +12,17 @@
     <link rel="manifest" href="/manifest.json">
     <title>Buscador de Leyes · SENER</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Merriweather:wght@300;400;700&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script type="module" crossorigin src="/assets/index-DgUOXTEK.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DuaRRNfh.css">
+  <script type="module" crossorigin src="/assets/index-BrS4aNjw.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CBmVoXYZ.css">
 </head>
 
-<body class="bg-white text-gray-900 font-body min-h-screen flex flex-col antialiased">
+<body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
 
     <!-- Minimal Header -->
-    <header class="w-full max-w-5xl mx-auto px-6 py-8 flex items-center justify-between">
+    <header class="bg-white border-b border-black/[0.06] shadow-[0_1px_0_rgba(0,0,0,0.04)]">
+    <div class="w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <div class="flex items-center gap-3 opacity-90 hover:opacity-100 transition-opacity">
             <img src="/img/logo_sener.png" alt="SENER"
                 class="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-500">
@@ -56,6 +55,7 @@
                 </path>
             </svg>
         </button>
+    </div>
     </header>
 
     <!-- Mobile Menu Drawer -->
@@ -106,59 +106,64 @@
         id="main-container">
 
         <!-- Hero Section (Collapses on search) -->
-        <div id="hero-section" class="text-center mb-10 transition-all duration-500 ease-in-out">
-            <h1 class="font-head text-3xl sm:text-5xl font-light text-gray-800 mb-4 tracking-tight">
-                Marco Legal <span class="text-guinda font-normal">Energético</span>
-            </h1>
-            <p class="text-gray-400 text-sm sm:text-base font-light max-w-md mx-auto">
-                Explora leyes, reglamentos y artículos con búsqueda inteligente y resúmenes automáticos.
-            </p>
+        <div id="hero-section" class="text-center mb-10 transition-all duration-500 ease-in-out relative">
+            <!-- Decorative section symbol watermark -->
+            <div aria-hidden="true" class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" style="z-index:0">
+                <span style="font-family:'Cormorant Garamond',serif; font-size:16rem; color:#9B2247; opacity:0.04; line-height:1; user-select:none;">§</span>
+            </div>
+            <div class="relative" style="z-index:1">
+                <!-- Thin decorative rule -->
+                <div class="flex items-center justify-center gap-3 mb-5">
+                    <div class="h-px w-8 bg-guinda/30"></div>
+                    <span class="text-[10px] font-semibold tracking-[0.25em] text-guinda/60 uppercase">Secretaría de Energía · México</span>
+                    <div class="h-px w-8 bg-guinda/30"></div>
+                </div>
+                <h1 class="mb-5 tracking-tight" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,6vw,4.2rem); font-weight:600; line-height:1.1; color:#1a1a1a;">
+                    Marco Legal <em style="color:#9B2247; font-style:italic;">Energético</em>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base font-light max-w-sm mx-auto leading-relaxed" style="font-family:'Noto Sans',sans-serif; letter-spacing:0.01em;">
+                    Explora leyes, reglamentos y artículos del sector energético con búsqueda jurídica inteligente.
+                </p>
+            </div>
         </div>
 
         <!-- Search Bar -->
         <div id="global-search-wrapper" class="w-full max-w-2xl relative group z-30">
             <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                <svg class="h-5 w-5 text-gray-400 group-focus-within:text-guinda transition-colors duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                <svg class="h-4 w-4 text-gray-300 group-focus-within:text-guinda transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
             <input type="text" id="search-input"
-                class="block w-full pl-12 pr-6 py-4 bg-white border border-gray-200 rounded-full text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-guinda/10 focus:border-guinda shadow-lg shadow-gray-100/50 transition-all duration-300 text-base"
-                placeholder="¿Qué estás buscando hoy?">
+                class="block w-full pl-12 pr-6 py-4 bg-white border border-gray-200/80 rounded-2xl text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-guinda/8 focus:border-guinda/60 transition-all duration-300 text-base"
+                style="font-family:'Merriweather',serif; font-size:0.95rem; letter-spacing:-0.01em; box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);"
+                placeholder="¿Qué artículo o término buscas?">
             <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
                 <div id="loading-indicator" class="hidden">
-                    <svg class="animate-spin h-5 w-5 text-guinda" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                        </path>
+                    <svg class="animate-spin h-4 w-4 text-guinda" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                 </div>
             </div>
         </div>
 
         <!-- Quick Filters / Suggestions -->
-        <div id="quick-filters" class="mt-6 flex flex-wrap justify-center gap-3 opacity-0 animate-fade-in-up"
-            style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-            <button
-                class="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-300">Transmisión</button>
-            <button
-                class="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-300">CENACE</button>
-            <button
-                class="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-300">Distribución</button>
-            <button
-                class="px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-300">Energías
-                Limpias</button>
+        <div id="quick-filters" class="mt-7 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+            <p class="text-center text-[10px] font-semibold tracking-[0.18em] text-gray-300 uppercase mb-3">Búsquedas frecuentes</p>
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="px-4 py-1.5 bg-white/80 border border-gray-200/60 rounded-full text-[11px] font-medium text-gray-400 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-200 tracking-wide">Transmisión</button>
+                <button class="px-4 py-1.5 bg-white/80 border border-gray-200/60 rounded-full text-[11px] font-medium text-gray-400 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-200 tracking-wide">CENACE</button>
+                <button class="px-4 py-1.5 bg-white/80 border border-gray-200/60 rounded-full text-[11px] font-medium text-gray-400 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-200 tracking-wide">Distribución</button>
+                <button class="px-4 py-1.5 bg-white/80 border border-gray-200/60 rounded-full text-[11px] font-medium text-gray-400 hover:bg-white hover:border-guinda/30 hover:text-guinda hover:shadow-sm transition-all duration-200 tracking-wide">Energías Limpias</button>
+            </div>
         </div>
 
         <!-- Stats (Minimal) -->
-        <div id="stats-minimal" class="mt-12 text-center opacity-0 animate-fade-in-up text-xs text-gray-300 font-light"
-            style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-            Cargando índice...
+        <div id="stats-minimal" class="mt-14 text-center opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+            <div class="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.15em] text-gray-300 uppercase" style="font-family:'Noto Sans',sans-serif;">
+                Cargando índice…
+            </div>
         </div>
 
         <!-- Results Area -->
@@ -174,8 +179,20 @@
     </main>
 
     <!-- Minimal Footer -->
-    <footer class="py-8 text-center text-[10px] text-gray-300 border-t border-gray-50 mt-auto">
-        <p>© 2026 Secretaría de Energía · Gobierno de México</p>
+    <footer class="bg-white border-t border-black/[0.05] mt-auto">
+        <div class="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 opacity-60">
+                <img src="/img/logo_sener.png" alt="SENER" class="h-6 w-auto grayscale">
+                <div class="h-5 w-px bg-gray-300"></div>
+                <img src="/img/logo_gob.png" alt="Gobierno de México" class="h-5 w-auto grayscale" onerror="this.style.display='none'">
+            </div>
+            <p class="text-[10px] text-gray-300 font-light tracking-wide">© 2026 Secretaría de Energía · Gobierno de México</p>
+            <div class="flex items-center gap-1" aria-hidden="true">
+                <span class="w-3 h-1 rounded-full bg-guinda/40"></span>
+                <span class="w-3 h-1 rounded-full bg-verde/40"></span>
+                <span class="w-3 h-1 rounded-full bg-dorado/40"></span>
+            </div>
+        </div>
     </footer>
 
     <!-- Detail Modal (Clean & Centered) -->
@@ -320,6 +337,91 @@
     </div>
 
     <style>
+        /* ══════════════════════════════════════════════════════════════
+           DISEÑO — Archivo Jurídico · Buscador SENER
+           ══════════════════════════════════════════════════════════════ */
+
+        /* Franja tricolor institucional fija en la cima */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(
+                to right,
+                #9B2247 0%   33.33%,
+                #1E5B4F 33.33% 66.66%,
+                #A57F2C 66.66% 100%
+            );
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        /* Compensar la franja en el header */
+        header { padding-top: calc(1.5rem + 3px) !important; }
+
+        /* Focus mejorado para el buscador */
+        #search-input:focus {
+            border-color: rgba(155,34,71,0.45) !important;
+            box-shadow:
+                0 0 0 4px rgba(155,34,71,0.07),
+                0 8px 32px rgba(0,0,0,0.08) !important;
+        }
+
+        /* Scrollbar refinado */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #F7F5F2; }
+        ::-webkit-scrollbar-thumb { background: #d4cfc9; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9B2247; }
+
+        /* Selección de texto con color institucional */
+        ::-moz-selection { background: rgba(155,34,71,0.15); color: #9B2247; }
+        ::selection { background: rgba(155,34,71,0.15); color: #9B2247; }
+
+        /* Links del navbar con underline animado */
+        header nav a {
+            position: relative;
+            padding-bottom: 2px;
+            transition: color 0.2s;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; right: 0;
+            height: 1.5px;
+            background: #9B2247;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+        }
+        header nav a:hover::after { transform: scaleX(1); }
+
+        /* Mobile drawer — fondo cremoso */
+        #mobile-menu-drawer { background: #FDFCFA !important; }
+
+        /* Doom-scroll smooth en contenedores de artículos */
+        #law-articles-list, #modal-content, #toc-panel { scroll-behavior: smooth; }
+
+        /* Cards de resultados inyectadas por JS */
+        #results-container .result-item,
+        #law-articles-list .result-item {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        #results-container .result-item:hover,
+        #law-articles-list .result-item:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            transform: translateY(-1px);
+        }
+
+        /* TOC panel con fondo cremoso */
+        #toc-panel { background: #FDFCFA !important; }
+
+        /* Detail modal con fondo cremoso */
+        #modal-panel { background: #FEFEFE !important; }
+
         @media print {
             /* Hide all navigation and interactive chrome */
             header, footer, nav,
