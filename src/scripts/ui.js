@@ -1411,10 +1411,27 @@ export function initUI() {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
+    // Palabras vacías del español que no deben resaltarse en búsquedas multi-palabra
+    const STOP_WORDS_ES = new Set([
+        'de','la','el','los','las','en','a','con','por','para','del','al',
+        'se','su','sus','que','no','un','una','o','y','e','ni','u','lo',
+        'le','les','me','te','nos','mi','si','es','son','fue','ser','ha',
+        'han','hay','más','ya','pero','como','este','esta','ese','esa',
+        'ante','bajo','cada','cual','donde','entre','hacia','hasta',
+        'muy','poco','sin','sobre','solo','tan','todo','tras','otros'
+    ]);
+
     function highlightText(text, query) {
         if (!query || !text) return text || '';
-        // Support multi-word queries: highlight each word independently
-        const words = query.trim().split(/\s+/).filter(w => w.length > 1);
+        const terms = query.trim().split(/\s+/);
+        const isMultiWord = terms.length > 1;
+        // Multi-palabra: excluir stopwords y palabras < 4 chars para no resaltar "de","la","el"…
+        // Palabra sola: permitir desde 2 chars (p.ej. "IA", "GW")
+        const words = terms.filter(w =>
+            isMultiWord
+                ? w.length > 3 && !STOP_WORDS_ES.has(w.toLowerCase())
+                : w.length > 1
+        );
         if (words.length === 0) return text;
         const pattern = words.map(w => escapeRegex(w)).join('|');
         const regex = new RegExp(`(${pattern})`, 'gi');
@@ -2522,25 +2539,32 @@ export function initUI() {
         // Highlight search terms in modal content
         const hl = (text) => currentSearchQuery ? highlightText(text, currentSearchQuery) : text;
 
+        // Sanitizar título y capítulo
+        const sanitize = v => (v && v !== 'null' && v !== 'undefined' && v.trim()) ? v.trim() : null;
+        const tituloStr  = sanitize(item.titulo_nombre);
+        const capituloStr = sanitize(item.capitulo_nombre);
+        const locationParts = [tituloStr, capituloStr].filter(Boolean);
+
         modalContent.innerHTML = `
-            <div class="mb-6 pb-6 border-b border-gray-100">
-                <div class="text-[10px] font-bold text-guinda uppercase tracking-widest mb-2 flex items-center gap-1.5 bg-guinda/5 w-fit px-2 py-1 rounded-full">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            ${locationParts.length ? `
+            <div class="mb-5 pb-5 border-b border-gray-50">
+                <div class="flex items-center gap-1.5 text-[9px] font-bold text-guinda/60 uppercase tracking-[0.2em] mb-2">
+                    <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
                     Ubicación en el documento
                 </div>
-                <div class="text-sm text-gray-700 font-medium">
-                    <span class="block mb-1 text-gray-500 text-xs uppercase tracking-wide">Título / Capítulo</span>
-                    ${item.titulo_nombre}
-                    <span class="text-gray-300 mx-2">|</span>
-                    ${item.capitulo_nombre}
+                <div class="flex flex-wrap gap-x-2 gap-y-1">
+                    ${locationParts.map((p, i) => `
+                        <span class="text-xs text-gray-600 font-medium">${p}</span>
+                        ${i < locationParts.length - 1 ? '<span class="text-gray-200">›</span>' : ''}
+                    `).join('')}
                 </div>
-            </div>
-            ${currentSearchQuery ? `
-            <div class="mb-4 flex items-center gap-2 text-[11px] text-amber-700 bg-amber-50 border border-amber-100 px-3 py-2 rounded-lg">
-                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                Término resaltado: <mark class="hl">${currentSearchQuery}</mark>
             </div>` : ''}
-            <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed font-serif text-justify">
+            ${currentSearchQuery ? `
+            <div class="mb-5 flex items-center gap-2 text-[11px] text-guinda/70 bg-guinda/5 border border-guinda/10 px-3 py-2 rounded-lg">
+                <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <span class="font-medium">Búsqueda:</span> <mark class="hl">${currentSearchQuery}</mark>
+            </div>` : ''}
+            <div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Merriweather',serif; text-align:justify; hyphens:auto;">
                 ${cleanText.split('\n\n').map(p => `<p class="mb-4">${hl(p)}</p>`).join('')}
             </div>
         `;
