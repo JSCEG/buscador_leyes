@@ -604,10 +604,13 @@ export function initUI() {
             </div>
 
             <div class="mb-8 animate-fade-in-up transition-colors duration-300" id="law-header-area">
-                <button id="back-to-laws" class="text-xs font-semibold text-gray-400 hover:text-guinda mb-4 flex items-center gap-1 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    Regresar al índice
-                </button>
+                <nav aria-label="Ruta de navegación" class="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
+                    <button id="crumb-inicio" class="hover:text-guinda transition-colors font-medium" aria-label="Ir al inicio">Inicio</button>
+                    <svg class="w-3 h-3 text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <button id="crumb-categoria" class="hover:text-guinda transition-colors font-medium" aria-label="Ver todas las leyes">${law.titulo.toLowerCase().startsWith('ley') ? 'Leyes Federales' : law.titulo.toLowerCase().startsWith('reglamento') ? 'Reglamentos' : 'Acuerdos y Otros'}</button>
+                    <svg class="w-3 h-3 text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="text-gray-600 font-semibold truncate max-w-[180px] sm:max-w-xs" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</span>
+                </nav>
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-100 pb-6">
                     <div>
                         <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Marco Legal Vigente</span>
@@ -913,12 +916,9 @@ export function initUI() {
         // Print / PDF
         document.getElementById('print-btn')?.addEventListener('click', () => window.print());
 
-        // Listeners
-        document.getElementById('back-to-laws').addEventListener('click', () => {
-            // Reset to light mode globally when leaving reading view if you want
-            // applyTheme('light'); 
-            showLawsView();
-        });
+        // Breadcrumb listeners
+        document.getElementById('crumb-inicio')?.addEventListener('click', () => resetToHero());
+        document.getElementById('crumb-categoria')?.addEventListener('click', () => showLawsView());
 
         // Theme Filter Listeners
         document.querySelectorAll('.theme-filter-btn').forEach(btn => {
@@ -1095,6 +1095,7 @@ export function initUI() {
 
         list.innerHTML = articles.map(item => {
             const highlightedText = highlightQuery ? highlightText(item.texto, highlightQuery) : item.texto.substring(0, 300) + '...';
+            const hasNote = !!getNote(item.id);
             const bookmarkIcon = isFavorite(item.id)
                 ? `<svg class="w-3.5 h-3.5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
                 : `<svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
@@ -1105,7 +1106,10 @@ export function initUI() {
             return `
             <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item" data-id="${item.id}">
                 <div class="flex items-center justify-between mb-2 pr-14">
-                    <span class="text-xs font-bold text-gray-700">${item.articulo_label}</span>
+                    <span class="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+                        ${item.articulo_label}
+                        ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
+                    </span>
                     <span class="text-[10px] text-gray-400">${item.titulo_nombre || ''}</span>
                 </div>
                 <p class="text-sm text-gray-600 font-light leading-relaxed line-clamp-3">${highlightedText}</p>
@@ -1381,6 +1385,22 @@ export function initUI() {
             btn.querySelectorAll('.fav-count').forEach(el => el.textContent = count);
         });
     }
+
+    // ── Notes helpers ─────────────────────────────────────────────────────────
+    function getAllNotes() {
+        return JSON.parse(localStorage.getItem('article-notes') || '{}');
+    }
+    function getNote(id) {
+        return getAllNotes()[id] || '';
+    }
+    function saveNote(id, text) {
+        const notes = getAllNotes();
+        if (text.trim()) notes[id] = text.trim();
+        else delete notes[id];
+        localStorage.setItem('article-notes', JSON.stringify(notes));
+    }
+    // ── End Notes helpers ─────────────────────────────────────────────────────
+
     function showFavoritesView() {
         setHash(null);
         const favIds = getFavorites();
@@ -1943,7 +1963,12 @@ export function initUI() {
 
         modalLey.textContent = item.ley_origen;
         modalTitle.textContent = item.articulo_label;
-        
+        // Make law label clickable — goes to that law's detail
+        modalLey.onclick = () => {
+            const law = cachedSummaries.find(l => l.titulo === item.ley_origen);
+            if (law) { closeModalFunc(); setTimeout(() => openLawDetail(law), 310); }
+        };
+
         // Clean text: replace multiple newlines with single paragraph breaks, but preserve structure
         let cleanText = item.texto
             .replace(/\r\n/g, '\n') // Normalize newlines
@@ -2033,6 +2058,66 @@ export function initUI() {
                 }
             });
         }
+        // Notes panel — append after article content
+        const existingNote = getNote(id);
+        modalContent.innerHTML += `
+            <div class="mt-8 pt-6 border-t border-gray-100" id="notes-section">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-xs font-bold text-gray-500 flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        Mis notas
+                    </span>
+                    <button id="delete-note-btn" class="text-[10px] text-red-300 hover:text-red-500 transition-colors ${existingNote ? '' : 'hidden'}" aria-label="Borrar nota">Borrar</button>
+                </div>
+                <textarea id="article-note-input"
+                    placeholder="Escribe tus anotaciones sobre este artículo..."
+                    class="w-full text-xs text-gray-700 border border-amber-100 rounded-xl p-3 resize-none focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-300 transition-all bg-amber-50/40 leading-relaxed font-light"
+                    rows="3" aria-label="Notas del artículo">${existingNote}</textarea>
+                <div class="flex items-center justify-between mt-2">
+                    <span id="note-saved-indicator" class="text-[10px] text-amber-500 flex items-center gap-1 ${existingNote ? '' : 'invisible'}">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        Guardada
+                    </span>
+                    <button id="save-note-btn" class="text-xs font-semibold text-guinda hover:text-guinda/70 transition-colors px-3 py-1.5 bg-guinda/5 rounded-lg hover:bg-guinda/10" aria-label="Guardar nota">Guardar</button>
+                </div>
+            </div>
+        `;
+
+        // Wire notes buttons
+        const noteInput = document.getElementById('article-note-input');
+        const saveNoteBtn = document.getElementById('save-note-btn');
+        const deleteNoteBtn = document.getElementById('delete-note-btn');
+        const noteSavedIndicator = document.getElementById('note-saved-indicator');
+
+        if (saveNoteBtn && noteInput) {
+            saveNoteBtn.addEventListener('click', () => {
+                saveNote(id, noteInput.value);
+                showToast('¡Nota guardada!', '📝', 'bg-amber-600');
+                noteSavedIndicator?.classList.remove('invisible');
+                if (deleteNoteBtn) deleteNoteBtn.classList.toggle('hidden', !noteInput.value.trim());
+            });
+        }
+        if (deleteNoteBtn && noteInput) {
+            deleteNoteBtn.addEventListener('click', () => {
+                saveNote(id, '');
+                noteInput.value = '';
+                noteSavedIndicator?.classList.add('invisible');
+                deleteNoteBtn.classList.add('hidden');
+                showToast('Nota eliminada', '🗑️', 'bg-gray-600');
+            });
+        }
+
+        // Cite button — formal citation
+        const citeBtn = document.getElementById('cite-btn');
+        if (citeBtn) {
+            citeBtn.onclick = () => {
+                const today = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+                const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
+                const citation = `${item.articulo_label} de la ${item.ley_origen}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Secretaría de Energía, Gobierno de México. Consultado el ${today}. Disponible en: ${artUrl}`;
+                navigator.clipboard.writeText(citation).then(() => showToast('¡Cita copiada!', '📖', 'bg-guinda'));
+            };
+        }
+
         // Wire all share platform buttons
         const shareActions = {
             'share-text-btn':     () => shareArticleText(item),
