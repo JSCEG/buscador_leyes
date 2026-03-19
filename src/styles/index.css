@@ -1,5 +1,5 @@
 @import './base-theme.css';
-/* @import './mobile-responsive.css'; - Removed for minimalist redesign */
+@import './mobile-responsive.css';
 
 @tailwind base;
 @tailwind components;

@@ -1629,6 +1629,15 @@ export function initUI() {
             renderAutocomplete('');
         });
 
+        // Prevent document click handler from closing autocomplete when user
+        // taps/clicks directly on the search input (covers both desktop and mobile).
+        searchInput.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!searchInput.value.trim()) {
+                renderAutocomplete('');
+            }
+        });
+
         // Debounce timer
         let searchDebounceTimer = null;
 
@@ -1682,6 +1691,16 @@ export function initUI() {
 
                 resultsContainer.classList.add('hidden', 'opacity-0');
                 resultsContainer.innerHTML = '';
+
+                // Remove sibling pagination/filters (not children of resultsContainer)
+                document.querySelector('.pagination-nav')?.remove();
+                document.getElementById('search-filters')?.remove();
+
+                // Reset search state
+                currentPage = 1;
+                currentSearchResults = [];
+                currentSearchQuery = '';
+
                 // Mostrar historial si existe, en lugar de cerrar el autocomplete
                 renderAutocomplete('');
             }
