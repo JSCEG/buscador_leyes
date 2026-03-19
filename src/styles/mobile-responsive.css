@@ -150,6 +150,34 @@
         padding: 1rem !important;
     }
 
+    /* ── Article modal footer — share/cite/copy buttons ─── */
+
+    /* Ocultar etiquetas de texto; dejar solo iconos para que quepan en una fila */
+    #share-btn .btn-label,
+    #cite-btn .btn-label,
+    #copy-btn .btn-label {
+        display: none;
+    }
+
+    /* Quitar el flex-shrink-0 forzado del contenedor de acciones */
+    #detail-panel > div:last-child > div.flex-shrink-0 {
+        flex-shrink: 1 !important;
+    }
+
+    /* Dropdown share: anclar a la izquierda si se sale del viewport */
+    #share-menu {
+        right: 0 !important;
+        left: auto !important;
+        /* No exceder el ancho del viewport menos los márgenes del modal */
+        max-width: calc(100vw - 2.5rem) !important;
+        width: 13rem !important;           /* 208 px — cabe en 343 px */
+    }
+
+    /* Asegurar que el wrapper sea punto de referencia para el absolute */
+    #share-menu-wrapper {
+        position: relative;
+    }
+
     /* ── Article detail modal ────────────────────────────── */
 
     #detail-modal,
