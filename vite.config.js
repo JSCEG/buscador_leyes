@@ -35,7 +35,15 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
   },
+  // Reemplaza __BUILD_TIME__ en el bundle con el timestamp del build actual.
+  // El Service Worker usa este valor como versión de caché, garantizando que
+  // cada deploy limpie automáticamente el caché obsoleto del browser.
+  define: {
+    __BUILD_TIME__: JSON.stringify(Date.now().toString()),
+  },
   build: {
     outDir: 'dist',
+    // Limpia dist/ antes de cada build para evitar acumulación de assets viejos
+    emptyOutDir: true,
   },
 });
