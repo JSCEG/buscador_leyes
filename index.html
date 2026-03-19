@@ -13,9 +13,9 @@
     <title>Buscador de Leyes · SENER</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Merriweather:wght@300;400;700&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script type="module" crossorigin src="/assets/index-C8yC1xQ3.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-C7EvO1va.css">
+    <script src="https://d3js.org/d3.v7.min.js" defer></script>
+  <script type="module" crossorigin src="/assets/index-BhyFXaPD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B2Szl5Ep.css">
 </head>
 
 <body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
@@ -40,7 +40,7 @@
                 <svg id="darkmode-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                 <svg id="darkmode-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             </button>
-            <button id="nav-favorites" class="hidden relative hover:text-guinda transition-colors flex items-center gap-1.5" title="Mis favoritos">
+            <button id="nav-favorites" class="relative hover:text-guinda transition-colors flex items-center gap-1.5 text-gray-500" title="Mis favoritos">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
                 <span class="fav-count text-[9px] font-bold bg-guinda text-white rounded-full w-4 h-4 flex items-center justify-center">0</span>
             </button>
@@ -82,7 +82,7 @@
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Estadísticas</a>
             <a href="#" id="mobile-nav-ayuda"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Ayuda</a>
-            <button id="mobile-nav-favorites" class="hidden w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">
+            <button id="mobile-nav-favorites" class="w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
                 Favoritos <span class="fav-count text-[9px] font-bold bg-guinda text-white rounded-full px-1.5 py-0.5 ml-1">0</span>
             </button>
