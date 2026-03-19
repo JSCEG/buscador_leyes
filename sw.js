@@ -1,71 +1,123 @@
+// ─────────────────────────────────────────────────────────────────────────────
 // Service Worker — Buscador Leyes SENER
-const CACHE_NAME = 'leyes-sener-v1';
-const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/img/logo_sener.png',
-];
+//
+// Estrategias de caché:
+//   • index.html / navegación  → network-first (siempre obtiene el HTML fresco)
+//   • /assets/* (hashed)       → cache-first   (el hash garantiza unicidad)
+//   • /data/*.json             → network-first (datos siempre frescos)
+//   • resto (img, fuentes…)    → stale-while-revalidate
+//
+// La versión se deriva del query param ?v=BUILD_TIMESTAMP que inyecta Vite en
+// cada build, lo que garantiza que un nuevo deploy activa un nuevo SW y limpia
+// el caché obsoleto automáticamente.
+// ─────────────────────────────────────────────────────────────────────────────
 
-// Install: cache static shell
+const urlParams = new URLSearchParams(self.location.search);
+const buildVersion = urlParams.get('v') || 'v1';
+const CACHE_NAME = `leyes-sener-${buildVersion}`;
+
+// ── Install ───────────────────────────────────────────────────────────────────
 self.addEventListener('install', (event) => {
+  // Activa inmediatamente sin esperar a que se cierren las pestañas anteriores
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)).catch(() => {})
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll(['/img/logo_sener.png']).catch(() => {})
+    )
   );
 });
 
-// Activate: clean old caches
+// ── Activate ──────────────────────────────────────────────────────────────────
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+      Promise.all(
+        keys
+          .filter((k) => k !== CACHE_NAME)
+          .map((k) => {
+            console.log(`[SW] Eliminando caché obsoleto: ${k}`);
+            return caches.delete(k);
+          })
+      )
     ).then(() => self.clients.claim())
   );
 });
 
-// Fetch: network-first for data files, cache-first for static
+// ── Fetch ─────────────────────────────────────────────────────────────────────
 self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
+  const req = event.request;
+  const url = new URL(req.url);
 
-  // Skip non-GET requests and cross-origin requests
-  if (event.request.method !== 'GET') return;
+  // Solo maneja GET del mismo origen
+  if (req.method !== 'GET') return;
   if (url.origin !== self.location.origin) return;
 
-  // Network-first for JSON data chunks (always fresh)
-  if (url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+  // ── 1. Navegación (index.html) — NETWORK FIRST ───────────────────────────
+  // Siempre obtiene el HTML más reciente del servidor; cae al caché sólo si
+  // no hay red (modo offline).
+  if (req.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
+      fetch(req, { cache: 'no-cache' })
         .then((response) => {
           if (response.ok) {
             const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, clone));
           }
           return response;
         })
-        .catch(() => caches.match(event.request))
+        .catch(() => caches.match(req).then((cached) => cached || caches.match('/index.html')))
     );
     return;
   }
 
-  // Cache-first for static assets (JS, CSS, fonts, images)
+  // ── 2. Assets hasheados de Vite (/assets/*) — CACHE FIRST ───────────────
+  // El hash del nombre de archivo garantiza que cualquier cambio genera un
+  // nombre diferente, por lo que es completamente seguro cachearlos para siempre.
+  if (url.pathname.startsWith('/assets/')) {
+    event.respondWith(
+      caches.match(req).then((cached) => {
+        if (cached) return cached;
+        return fetch(req).then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, clone));
+          }
+          return response;
+        });
+      })
+    );
+    return;
+  }
+
+  // ── 3. Datos JSON (/data/*.json) — NETWORK FIRST ────────────────────────
+  // Los archivos de ley deben estar siempre frescos.
+  if (url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+    event.respondWith(
+      fetch(req)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // ── 4. Resto (imágenes, fuentes, etc.) — STALE-WHILE-REVALIDATE ─────────
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).then((response) => {
-        if (response.ok && (
-          url.pathname.endsWith('.js') ||
-          url.pathname.endsWith('.css') ||
-          url.pathname.endsWith('.png') ||
-          url.pathname.endsWith('.jpg') ||
-          url.pathname.endsWith('.svg') ||
-          url.pathname === '/' ||
-          url.pathname.endsWith('.html')
-        )) {
+    caches.match(req).then((cached) => {
+      const networkFetch = fetch(req).then((response) => {
+        if (response.ok) {
           const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          caches.open(CACHE_NAME).then((cache) => cache.put(req, clone));
         }
         return response;
-      }).catch(() => caches.match('/index.html'));
+      }).catch(() => cached);
+
+      return cached || networkFetch;
     })
   );
 });
