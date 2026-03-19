@@ -1,4 +1,10 @@
 import lunr from 'lunr';
+import lunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js';
+import lunrEs from 'lunr-languages/lunr.es.js';
+
+// Registrar el plugin de español en la instancia de lunr
+lunrStemmerSupport(lunr);
+lunrEs(lunr);
 
 let searchIndex;
 let allData = [];
@@ -21,10 +27,11 @@ export async function initSearch() {
       }));
     });
 
-    // Simple tokenizer for Spanish (removing accents/lowercase) could be added here
-    // For now using default English pipeline which is okay for basic matching but not optimal for stemming
-
+    // Pipeline en español: stemming (distribuir→distribuc-), stop words y
+    // normalización de tildes/ñ para el corpus legal mexicano.
     searchIndex = lunr(function () {
+      this.use(lunr.es);
+
       this.ref('id');
       this.field('texto');
       this.field('titulo_nombre', { boost: 5 });
@@ -37,7 +44,7 @@ export async function initSearch() {
       });
     });
 
-    console.log(`Search Index Ready. ${allData.length} articles indexed.`);
+    console.log(`Search Index Ready (ES pipeline). ${allData.length} articles indexed.`);
 
     // Dispatch event with stats
     const uniqueLeyes = new Set(allData.map(d => d.ley_origen));
@@ -93,9 +100,11 @@ export function performSearch(query) {
     const isSimpleQuery = !/[~*^:+]/.test(query);
 
     if (isSimpleQuery) {
-      // Split by space and add fuzzy/wildcard to each term
+      // Divide por espacios y agrega fuzzy/wildcard a cada término.
+      // Excepción: los tokens numéricos (ej. "25", "6°") pasan siempre
+      // para que búsquedas como "artículo 25" o "art 6" funcionen.
       processedQuery = query.split(/\s+/)
-        .filter(t => t.length > 2)
+        .filter(t => t.length > 2 || /^\d+°?$/.test(t))
         .map(t => `${t}~1 ${t}*`)
         .join(' ');
     }

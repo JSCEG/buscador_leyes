@@ -172,7 +172,9 @@ export function initUI() {
 
     // ── Deep Linking, Toast & Skeleton Loaders ────────────────────────────────
     function setHash(hash) {
-        history.replaceState(null, '', hash ? `${location.pathname}${hash}` : location.pathname);
+        // pushState en lugar de replaceState para que el botón Atrás del navegador
+        // pueda retroceder entre artículos, leyes y la vista de inicio.
+        history.pushState(null, '', hash ? `${location.pathname}${hash}` : location.pathname);
     }
 
     function handleInitialHash() {
@@ -190,6 +192,26 @@ export function initUI() {
             if (law) openLawDetail(law);
         }
     }
+
+    // Maneja el botón Atrás / Adelante del navegador.
+    // Restaura la vista correcta según el hash de la URL.
+    window.addEventListener('popstate', () => {
+        const hash = location.hash;
+        if (!hash) {
+            // Sin hash → regresar a la pantalla de inicio
+            resetToHero();
+        } else if (hash.startsWith('#art-')) {
+            const id = decodeURIComponent(hash.slice(5));
+            const item = getArticleById(id);
+            if (!item) return;
+            currentModalList = [item];
+            openDetail(id);
+        } else if (hash.startsWith('#ley-')) {
+            const leyId = decodeURIComponent(hash.slice(5));
+            const law = cachedSummaries.find(l => l.id === leyId);
+            if (law) openLawDetail(law);
+        }
+    });
 
     function showToast(message, icon = '✓', color = 'bg-gray-900') {
         const existing = document.getElementById('app-toast');
@@ -421,109 +443,9 @@ export function initUI() {
         });
     }
 
-    function renderTimeline(laws) {
-        const container = document.getElementById('laws-timeline');
-        if (!container || !window.vis) return;
-
-        container.innerHTML = '';
-
-        // Parse dates
-        const parseDate = (dateStr) => {
-            if (!dateStr) return null;
-            // Handle DD/MM/YYYY
-            const parts = dateStr.split('/');
-            if (parts.length === 3) return new Date(parts[2], parts[1] - 1, parts[0]);
-            return new Date(dateStr); // Fallback
-        };
-
-        const data = laws.map(l => ({
-            id: l.id,
-            content: l.titulo,
-            start: parseDate(l.fecha),
-            type: 'point',
-            group: l.titulo.toLowerCase().startsWith('ley') ? 1 :
-                l.titulo.toLowerCase().startsWith('reglamento') ? 2 : 3,
-            className: l.titulo.toLowerCase().startsWith('ley') ? 'vis-item-ley' :
-                l.titulo.toLowerCase().startsWith('reglamento') ? 'vis-item-reglamento' : 'vis-item-otro'
-        })).filter(d => d.start && !isNaN(d.start));
-
-        if (data.length === 0) {
-            container.innerHTML = '<div class="text-xs text-gray-400 text-center py-10">No hay fechas disponibles para la línea de tiempo.</div>';
-            return;
-        }
-
-        const groups = new vis.DataSet([
-            { id: 1, content: 'Leyes', className: 'vis-group-ley' },
-            { id: 2, content: 'Reglamentos', className: 'vis-group-reglamento' },
-            { id: 3, content: 'Otros', className: 'vis-group-otro' }
-        ]);
-
-        const items = new vis.DataSet(data);
-
-        const options = {
-            height: '350px', // Increased height
-            minHeight: '350px',
-            start: new Date(2010, 0, 1),
-            end: new Date(),
-            zoomMin: 1000 * 60 * 60 * 24 * 30, // Min zoom: 1 month
-            zoomMax: 1000 * 60 * 60 * 24 * 365 * 50, // Max zoom: 50 years
-            horizontalScroll: true,
-            verticalScroll: true,
-            zoomKey: 'ctrlKey',
-            orientation: 'top',
-            stack: true,
-            tooltip: {
-                followMouse: true,
-                overflowMethod: 'cap'
-            },
-            format: {
-                minorLabels: {
-                    minute: 'h:mma',
-                    hour: 'h:mma',
-                    weekday: 'ddd D',
-                    day: 'D',
-                    week: 'w',
-                    month: 'MMM', // Month abbreviation (Ene, Feb...)
-                    year: 'YYYY'
-                },
-                majorLabels: {
-                    minute: 'dddd D MMMM',
-                    hour: 'dddd D MMMM',
-                    weekday: 'MMMM YYYY',
-                    day: 'MMMM YYYY',
-                    week: 'MMMM YYYY',
-                    month: 'YYYY', // Year shown above months
-                    year: ''
-                }
-            },
-            locale: 'es' // Ensure Spanish locale if available or default
-        };
-
-        const timeline = new vis.Timeline(container, items, groups, options);
-
-        // Add custom styles for Vis.js
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .vis-item { border-color: transparent; background-color: transparent; font-size: 10px; }
-            .vis-item-ley .vis-item-content { background-color: #9B2247; color: white; border-radius: 4px; padding: 4px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .vis-item-reglamento .vis-item-content { background-color: #D4C19C; color: #1F2937; border-radius: 4px; padding: 4px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .vis-item-otro .vis-item-content { background-color: #6B7280; color: white; border-radius: 4px; padding: 4px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .vis-label { font-family: 'Noto Sans', sans-serif; font-weight: 600; color: #4B5563; }
-            .vis-time-axis .vis-text { color: #9CA3AF; font-size: 10px; }
-            .vis-timeline { border: none; }
-            .vis-panel.vis-center, .vis-panel.vis-left, .vis-panel.vis-right, .vis-panel.vis-top, .vis-panel.vis-bottom { border-color: #F3F4F6; }
-        `;
-        document.head.appendChild(style);
-
-        // Event Listeners
-        timeline.on('select', function (properties) {
-            if (properties.items.length > 0) {
-                const selectedId = properties.items[0];
-                const selectedLaw = laws.find(l => l.id === selectedId);
-                if (selectedLaw) openLawDetail(selectedLaw);
-            }
-        });
-    }
+    // renderTimeline eliminado — vis.js no está instalado como dependencia.
+    // Si se quiere restaurar la línea de tiempo, instalar "vis-timeline" via npm
+    // y volver a integrar la función aquí.
 
     function renderCarouselSection(title, items) {
         if (items.length === 0) return '';
@@ -1760,7 +1682,8 @@ export function initUI() {
 
                 resultsContainer.classList.add('hidden', 'opacity-0');
                 resultsContainer.innerHTML = '';
-                closeAutocomplete();
+                // Mostrar historial si existe, en lugar de cerrar el autocomplete
+                renderAutocomplete('');
             }
         });
     }
