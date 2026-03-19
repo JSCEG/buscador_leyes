@@ -137,6 +137,42 @@
         padding: 0.35rem 0.5rem !important;
     }
 
+    /* ── Law filter select: no al ancho completo en móvil ── */
+
+    /* El <select> de leyes dentro del filtro de resultados */
+    #law-filter-select {
+        /* Limitar ancho: que no tome toda la fila */
+        max-width: calc(100vw - 2rem) !important;
+        width: auto !important;
+        /* Truncar nombre de ley si es demasiado largo */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ── Carrusel de leyes en vista "Leyes" ──────────────── */
+
+    /* El track del carrusel ya usa -mx-4 px-4; compensamos
+       el padding lateral del main-container en móvil */
+    .carousel-scroll {
+        /* Añadir padding-right para que la última card no quede
+           pegada al borde, y padding-left para que la primera
+           respete el margen de la pantalla */
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        /* Negativo izquierdo/derecho menor para que el primer/último
+           card tengan margen visible */
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+    }
+
+    /* Cards del carrusel: reducir ancho mínimo para que en 375px
+       se vea >50% de la siguiente card (efecto "peek") */
+    .law-card {
+        min-width: 260px !important;
+        width: 260px !important;
+    }
+
     /* ── Law detail container ────────────────────────────── */
 
     #law-detail-container {

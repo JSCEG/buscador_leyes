@@ -2631,7 +2631,68 @@ export function initUI() {
                 const today = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
                 const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
                 const citation = `${item.articulo_label} de la ${item.ley_origen}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Secretaría de Energía, Gobierno de México. Consultado el ${today}. Disponible en: ${artUrl}`;
-                navigator.clipboard.writeText(citation).then(() => showToast('¡Cita copiada!', '📖', 'bg-guinda'));
+
+                // Try clipboard API; fall back to a selectable popover (required on mobile/HTTP)
+                const tryClipboard = navigator.clipboard && typeof navigator.clipboard.writeText === 'function'
+                    ? navigator.clipboard.writeText(citation)
+                    : Promise.reject(new Error('Clipboard API not available'));
+
+                tryClipboard
+                    .then(() => showToast('¡Cita copiada!', '📖', 'bg-guinda'))
+                    .catch(() => {
+                        // Fallback: show citation in a selectable popover
+                        const existingPopover = document.getElementById('citation-popover');
+                        if (existingPopover) { existingPopover.remove(); return; }
+
+                        const popover = document.createElement('div');
+                        popover.id = 'citation-popover';
+                        popover.className = 'fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-4';
+                        popover.innerHTML = `
+                            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
+                                <div class="flex items-center justify-between px-5 py-3 border-b border-gray-100 bg-guinda/5">
+                                    <span class="text-xs font-bold text-guinda uppercase tracking-widest flex items-center gap-2">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                                        Cita formal
+                                    </span>
+                                    <button id="citation-popover-close" class="text-gray-400 hover:text-guinda transition-colors text-lg leading-none">×</button>
+                                </div>
+                                <div class="p-5">
+                                    <p class="text-[11px] text-gray-400 mb-2">Mantén pulsado el texto para seleccionar y copiar:</p>
+                                    <textarea id="citation-text-area" readonly
+                                        class="w-full text-xs text-gray-700 border border-gray-100 rounded-xl p-3 resize-none focus:outline-none bg-gray-50 leading-relaxed font-light select-all"
+                                        rows="4">${citation}</textarea>
+                                    <button id="citation-copy-btn" class="mt-3 w-full py-2.5 bg-guinda text-white text-xs font-semibold rounded-xl hover:bg-guinda/90 transition-colors">
+                                        Copiar cita
+                                    </button>
+                                </div>
+                            </div>`;
+
+                        document.body.appendChild(popover);
+
+                        // Auto-select text for easy copying
+                        setTimeout(() => {
+                            const ta = document.getElementById('citation-text-area');
+                            if (ta) { ta.focus(); ta.select(); }
+                        }, 100);
+
+                        // Copy button inside popover (second attempt, now with user gesture)
+                        document.getElementById('citation-copy-btn')?.addEventListener('click', () => {
+                            const ta = document.getElementById('citation-text-area');
+                            if (ta) {
+                                ta.select();
+                                try { document.execCommand('copy'); } catch (_) {}
+                                if (navigator.clipboard) {
+                                    navigator.clipboard.writeText(citation).catch(() => {});
+                                }
+                                showToast('¡Cita copiada!', '📖', 'bg-guinda');
+                                popover.remove();
+                            }
+                        });
+
+                        // Close handlers
+                        document.getElementById('citation-popover-close')?.addEventListener('click', () => popover.remove());
+                        popover.addEventListener('click', (e) => { if (e.target === popover) popover.remove(); });
+                    });
             };
         }
 
