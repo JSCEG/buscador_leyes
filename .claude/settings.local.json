@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(js|jsx|ts|tsx\\)$\")",
+      "Bash(git -C \"C:\\\\Proyectos\\\\65.-Buscador de Leyes Energía\" log --oneline -10)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where npm:*)"
+    ]
+  }
+}

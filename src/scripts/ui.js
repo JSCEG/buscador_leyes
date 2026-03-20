@@ -92,7 +92,7 @@ export function initUI() {
     // Mobile Menu Logic
     function toggleMobileMenu(show) {
         if (!mobileMenuDrawer || !mobileMenuOverlay) return;
-        
+
         if (show) {
             mobileMenuOverlay.classList.remove('hidden');
             // Force reflow
@@ -457,15 +457,15 @@ export function initUI() {
         const cat = isLey
             ? { accent: '#9B2247', gradFrom: '#6b1532', gradTo: '#9B2247', label: 'Ley Federal', dotClass: 'bg-guinda' }
             : isReglamento
-            ? { accent: '#1E5B4F', gradFrom: '#14403a', gradTo: '#1E5B4F', label: 'Reglamento', dotClass: 'bg-emerald-700' }
-            : { accent: '#A57F2C', gradFrom: '#7a5c1e', gradTo: '#A57F2C', label: 'Instrumento', dotClass: 'bg-amber-700' };
+                ? { accent: '#1E5B4F', gradFrom: '#14403a', gradTo: '#1E5B4F', label: 'Reglamento', dotClass: 'bg-emerald-700' }
+                : { accent: '#A57F2C', gradFrom: '#7a5c1e', gradTo: '#A57F2C', label: 'Instrumento', dotClass: 'bg-amber-700' };
 
         // Category icons (SVG paths)
         const iconPath = isLey
             ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>`
             : isReglamento
-            ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`
-            : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`;
+                ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`
+                : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`;
 
         return `
             <div class="mb-10 carousel-container group/section">
@@ -484,12 +484,12 @@ export function initUI() {
                     <!-- Carousel Track -->
                     <div class="carousel-scroll flex gap-5 overflow-x-auto pb-6 -mx-4 px-4 snap-x scrollbar-hide scroll-smooth">
                         ${items.map(law => {
-                            const snippet = law.resumen
-                                ? law.resumen.replace(/\n/g, ' ').slice(0, 110) + (law.resumen.length > 110 ? '…' : '')
-                                : (law.temas_clave && law.temas_clave.length > 0
-                                    ? law.temas_clave.slice(0, 3).join(' · ')
-                                    : 'Ver artículos');
-                            return `
+            const snippet = law.resumen
+                ? law.resumen.replace(/\n/g, ' ').slice(0, 110) + (law.resumen.length > 110 ? '…' : '')
+                : (law.temas_clave && law.temas_clave.length > 0
+                    ? law.temas_clave.slice(0, 3).join(' · ')
+                    : 'Ver artículos');
+            return `
                             <div class="min-w-[300px] w-[300px] md:min-w-[340px] md:w-[340px] snap-start rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer law-card group flex flex-col h-[280px]"
                                 data-title="${law.titulo.replace(/"/g, '&quot;')}"
                                 style="background: linear-gradient(160deg, ${cat.gradFrom} 0%, ${cat.gradTo} 100%);">
@@ -520,7 +520,7 @@ export function initUI() {
                                     </div>
                                 </div>
                             </div>`;
-                        }).join('')}
+        }).join('')}
                     </div>
 
                     <!-- Right Arrow -->
@@ -772,20 +772,27 @@ export function initUI() {
             const hasNote = !!getNote(art.id);
             const isFav = isFavorite(art.id);
             const tituloExtra = art.titulo_nombre ? `<span class="text-gray-400 ml-1 font-normal">· ${art.titulo_nombre}</span>` : '';
-            return `<button class="toc-art-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all hover:bg-guinda/5 group/item
+            // Extract preview: first ~120 chars of texto, clean up line breaks
+            const preview = art.texto
+                ? art.texto.replace(/\s+/g, ' ').substring(0, 120).trim() + (art.texto.length > 120 ? '...' : '')
+                : '';
+            return `<button class="toc-art-btn w-full flex flex-col gap-2 px-3 py-2.5 rounded-xl text-left transition-all hover:bg-guinda/5 group/item
                 ${isFav ? 'text-guinda' : 'text-gray-700 hover:text-guinda'}"
                 data-id="${art.id}">
-                <span class="flex-shrink-0 text-[10px] font-bold min-w-[36px] text-center py-1 rounded-md
-                    ${isFav ? 'bg-guinda/10 text-guinda' : 'bg-gray-100 text-gray-500 group-hover/item:bg-guinda/10 group-hover/item:text-guinda'}">
-                    ${art.articulo_label.replace(/Artículo\s*/i, 'Art.').split(' ')[0] + (art.articulo_label.match(/\d+/) ? ' ' + art.articulo_label.match(/\d+/)[0] : '')}
-                </span>
-                <span class="text-xs font-medium truncate flex-1 leading-snug">
-                    ${art.articulo_label}${tituloExtra}
-                </span>
-                <span class="flex-shrink-0 flex items-center gap-1">
-                    ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full" title="Tiene nota"></span>' : ''}
-                    ${isFav ? '<svg class="w-3 h-3 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>' : ''}
-                </span>
+                <div class="flex items-center gap-3">
+                    <span class="flex-shrink-0 text-[10px] font-bold min-w-[36px] text-center py-1 rounded-md
+                        ${isFav ? 'bg-guinda/10 text-guinda' : 'bg-gray-100 text-gray-500 group-hover/item:bg-guinda/10 group-hover/item:text-guinda'}">
+                        ${art.articulo_label.replace(/Artículo\s*/i, 'Art.').split(' ')[0] + (art.articulo_label.match(/\d+/) ? ' ' + art.articulo_label.match(/\d+/)[0] : '')}
+                    </span>
+                    <span class="text-xs font-medium flex-1 leading-snug">
+                        ${art.articulo_label}${tituloExtra}
+                    </span>
+                    <span class="flex-shrink-0 flex items-center gap-1">
+                        ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full" title="Tiene nota"></span>' : ''}
+                        ${isFav ? '<svg class="w-3 h-3 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>' : ''}
+                    </span>
+                </div>
+                ${preview ? `<span class="text-[11px] text-gray-500 leading-tight line-clamp-2">${preview}</span>` : ''}
             </button>`;
         }).join('');
 
@@ -1075,9 +1082,9 @@ export function initUI() {
         const lawShareActions = {
             'law-share-whatsapp-btn': () => shareLawVia(law, 'whatsapp'),
             'law-share-telegram-btn': () => shareLawVia(law, 'telegram'),
-            'law-share-twitter-btn':  () => shareLawVia(law, 'twitter'),
-            'law-share-email-btn':    () => shareLawVia(law, 'email'),
-            'law-share-link-btn':     () => {
+            'law-share-twitter-btn': () => shareLawVia(law, 'twitter'),
+            'law-share-email-btn': () => shareLawVia(law, 'email'),
+            'law-share-link-btn': () => {
                 const url = `${location.origin}${location.pathname}#ley-${encodeURIComponent(law.id)}`;
                 navigator.clipboard.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
             }
@@ -1335,12 +1342,12 @@ export function initUI() {
 
     // Palabras vacías del español que no deben resaltarse en búsquedas multi-palabra
     const STOP_WORDS_ES = new Set([
-        'de','la','el','los','las','en','a','con','por','para','del','al',
-        'se','su','sus','que','no','un','una','o','y','e','ni','u','lo',
-        'le','les','me','te','nos','mi','si','es','son','fue','ser','ha',
-        'han','hay','más','ya','pero','como','este','esta','ese','esa',
-        'ante','bajo','cada','cual','donde','entre','hacia','hasta',
-        'muy','poco','sin','sobre','solo','tan','todo','tras','otros'
+        'de', 'la', 'el', 'los', 'las', 'en', 'a', 'con', 'por', 'para', 'del', 'al',
+        'se', 'su', 'sus', 'que', 'no', 'un', 'una', 'o', 'y', 'e', 'ni', 'u', 'lo',
+        'le', 'les', 'me', 'te', 'nos', 'mi', 'si', 'es', 'son', 'fue', 'ser', 'ha',
+        'han', 'hay', 'más', 'ya', 'pero', 'como', 'este', 'esta', 'ese', 'esa',
+        'ante', 'bajo', 'cada', 'cual', 'donde', 'entre', 'hacia', 'hasta',
+        'muy', 'poco', 'sin', 'sobre', 'solo', 'tan', 'todo', 'tras', 'otros'
     ]);
 
     function highlightText(text, query) {
@@ -1937,8 +1944,8 @@ export function initUI() {
             <div class="flex items-center gap-2">
                 <button id="compare-clear-btn" class="text-xs text-gray-400 hover:text-guinda transition-colors px-3 py-1.5">Limpiar</button>
                 ${compareSelection.length === 2
-                    ? `<button id="compare-go-btn" class="px-4 py-2 bg-guinda text-white text-xs font-bold rounded-full hover:bg-guinda/90 transition-colors">Comparar →</button>`
-                    : ''}
+                ? `<button id="compare-go-btn" class="px-4 py-2 bg-guinda text-white text-xs font-bold rounded-full hover:bg-guinda/90 transition-colors">Comparar →</button>`
+                : ''}
             </div>
         `;
         document.getElementById('compare-clear-btn')?.addEventListener('click', () => {
@@ -2141,8 +2148,8 @@ export function initUI() {
         const shortText = `${item.articulo_label} · ${item.ley_origen} — Marco Legal Energético SENER`;
         const map = {
             telegram: `https://t.me/share/url?url=${encodeURIComponent(artUrl)}&text=${encodeURIComponent(title)}`,
-            twitter:  `https://twitter.com/intent/tweet?text=${encodeURIComponent(shortText)}&url=${encodeURIComponent(artUrl)}`,
-            email:    `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
+            twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shortText)}&url=${encodeURIComponent(artUrl)}`,
+            email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
         };
         if (map[platform]) window.open(map[platform], '_blank');
     }
@@ -2156,8 +2163,8 @@ export function initUI() {
         const map = {
             whatsapp: `https://wa.me/?text=${encodeURIComponent(body)}`,
             telegram: `https://t.me/share/url?url=${encodeURIComponent(lawUrl)}&text=${encodeURIComponent(title)}`,
-            twitter:  `https://twitter.com/intent/tweet?text=${encodeURIComponent(shortText)}&url=${encodeURIComponent(lawUrl)}`,
-            email:    `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
+            twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shortText)}&url=${encodeURIComponent(lawUrl)}`,
+            email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
         };
         if (map[platform]) window.open(map[platform], '_blank');
     }
@@ -2223,11 +2230,11 @@ export function initUI() {
                 </h3>
                 <div class="space-y-3">
                     ${sorted.map(law => {
-                        const isLey = law.titulo.toLowerCase().startsWith('ley');
-                        const isReg = law.titulo.toLowerCase().startsWith('reglamento');
-                        const barColor = isLey ? '#9B2247' : isReg ? '#1E5B4F' : '#A57F2C';
-                        const pct = Math.round((law.articulos / maxArticulos) * 100);
-                        return `
+            const isLey = law.titulo.toLowerCase().startsWith('ley');
+            const isReg = law.titulo.toLowerCase().startsWith('reglamento');
+            const barColor = isLey ? '#9B2247' : isReg ? '#1E5B4F' : '#A57F2C';
+            const pct = Math.round((law.articulos / maxArticulos) * 100);
+            return `
                         <div class="flex items-center gap-3 cursor-pointer group stat-law-row" data-titulo="${law.titulo.replace(/"/g, '&quot;')}">
                             <div class="text-xs text-gray-500 w-44 truncate flex-shrink-0 group-hover:text-guinda transition-colors" title="${law.titulo}">${law.titulo}</div>
                             <div class="flex-1 h-5 bg-gray-50 rounded-full overflow-hidden">
@@ -2235,16 +2242,16 @@ export function initUI() {
                             </div>
                             <span class="text-xs font-bold text-gray-500 w-8 text-right flex-shrink-0">${law.articulos}</span>
                         </div>`;
-                    }).join('')}
+        }).join('')}
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 ${[
-                    { label: 'Leyes Federales', items: leyes, textClass: 'text-guinda', bgClass: 'bg-guinda/5' },
-                    { label: 'Reglamentos', items: reglamentos, textClass: 'text-emerald-700', bgClass: 'bg-emerald-50' },
-                    { label: 'Acuerdos y Otros', items: otros, textClass: 'text-amber-700', bgClass: 'bg-amber-50' }
-                ].map(cat => `
+                { label: 'Leyes Federales', items: leyes, textClass: 'text-guinda', bgClass: 'bg-guinda/5' },
+                { label: 'Reglamentos', items: reglamentos, textClass: 'text-emerald-700', bgClass: 'bg-emerald-50' },
+                { label: 'Acuerdos y Otros', items: otros, textClass: 'text-amber-700', bgClass: 'bg-amber-50' }
+            ].map(cat => `
                     <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold ${cat.textClass} uppercase tracking-widest">${cat.label}</span>
@@ -2391,8 +2398,8 @@ export function initUI() {
                     ${!isFiltered ? `
                     <div class="flex flex-wrap gap-2 justify-center mb-4">
                         ${['Transmisión', 'Generación', 'CENACE', 'Distribución', 'Tarifas', 'Permisos'].map(s =>
-                            `<button class="empty-suggestion px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-guinda/5 hover:border-guinda/30 hover:text-guinda transition-all">${s}</button>`
-                        ).join('')}
+                `<button class="empty-suggestion px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-guinda/5 hover:border-guinda/30 hover:text-guinda transition-all">${s}</button>`
+            ).join('')}
                     </div>
                     <button id="empty-browse-laws" class="text-xs font-semibold text-guinda hover:text-guinda/70 transition-colors underline underline-offset-2">Explorar todas las leyes →</button>
                     ` : ''}
@@ -2483,7 +2490,7 @@ export function initUI() {
 
         // Sanitizar título y capítulo
         const sanitize = v => (v && v !== 'null' && v !== 'undefined' && v.trim()) ? v.trim() : null;
-        const tituloStr  = sanitize(item.titulo_nombre);
+        const tituloStr = sanitize(item.titulo_nombre);
         const capituloStr = sanitize(item.capitulo_nombre);
         const locationParts = [tituloStr, capituloStr].filter(Boolean);
 
@@ -2698,11 +2705,11 @@ export function initUI() {
 
         // Wire all share platform buttons
         const shareActions = {
-            'share-text-btn':     () => shareArticleText(item),
-            'share-image-btn':    () => shareArticleImage(item),
+            'share-text-btn': () => shareArticleText(item),
+            'share-image-btn': () => shareArticleImage(item),
             'share-telegram-btn': () => shareArticleVia(item, 'telegram'),
-            'share-twitter-btn':  () => shareArticleVia(item, 'twitter'),
-            'share-email-btn':    () => shareArticleVia(item, 'email'),
+            'share-twitter-btn': () => shareArticleVia(item, 'twitter'),
+            'share-email-btn': () => shareArticleVia(item, 'email'),
         };
         Object.entries(shareActions).forEach(([btnId, action]) => {
             const btn = document.getElementById(btnId);
@@ -2761,13 +2768,13 @@ export function initUI() {
                 </div>
                 <div class="space-y-2.5 text-xs">
                     ${[
-                        ['/','Enfocar el buscador'],
-                        ['Esc','Cerrar modal / panel'],
-                        ['← →','Artículo anterior / siguiente'],
-                        ['?','Mostrar esta ayuda'],
-                        ['f','Agregar/quitar de favoritos'],
-                        ['c','Copiar texto del artículo'],
-                    ].map(([key, desc]) => `
+                ['/', 'Enfocar el buscador'],
+                ['Esc', 'Cerrar modal / panel'],
+                ['← →', 'Artículo anterior / siguiente'],
+                ['?', 'Mostrar esta ayuda'],
+                ['f', 'Agregar/quitar de favoritos'],
+                ['c', 'Copiar texto del artículo'],
+            ].map(([key, desc]) => `
                         <div class="flex items-center justify-between">
                             <span class="text-gray-500">${desc}</span>
                             <kbd class="bg-gray-100 border border-gray-200 rounded px-2 py-0.5 font-mono text-[11px] text-gray-700 shadow-sm">${key}</kbd>
@@ -2859,7 +2866,7 @@ export function initUI() {
     // ── Service Worker Registration (PWA) ─────────────────────────────────────
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').catch(() => {});
+            navigator.serviceWorker.register('/sw.js').catch(() => { });
         });
     }
     // ── Fin PWA ───────────────────────────────────────────────────────────────
