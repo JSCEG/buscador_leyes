@@ -35,47 +35,47 @@ const TEMAS = [
         cadena: [
             {
                 nivel: 1,
-                rol: 'LA GRAN META DEL PAÍS',
+                rol: 'VISIÓN DE LARGO PLAZO',
                 nodos: [
-                    { id: 'estrategia', titulo: 'Estrategia de Transición', descripcion: 'El horizonte a largo plazo para dejar atrás tecnologías contaminantes.', color: '#25D366', articulos: ['LB-Art-011'], refs: 'LB Art. 11 · LPTE' },
-                    { id: 'pse', titulo: 'Programa del Sector', descripcion: 'Las metas sexenales derivadas del desarrollo del país.', color: '#9B2247', articulos: ['LCNE-Art-007'], refs: 'LCNE Art. 7' },
+                    { id: 'estrategia', titulo: 'Estrategia Nacional', descripcion: 'El horizonte maestro a largo plazo (20-30 años) para dejar atrás tecnologías contaminantes.', color: '#25D366', articulos: ['LB-Art-011', 'LPTE-Art-008'], refs: 'Transición' },
                 ],
-                conector: 'guían a la',
+                conector: 'que guía al',
             },
             {
                 nivel: 2,
-                rol: 'QUIÉN DISEÑA LA RUTA',
+                rol: 'VISIÓN DEL SEXENIO (ANCLA)',
                 nodos: [
-                    { id: 'sener', titulo: 'SENER', descripcion: 'Secretaría de Energía', color: '#9B2247', articulos: ['LPTE-Art-002', 'LSE-Art-012', 'LSH-Art-008'], refs: 'LPTE Art. 2 · LSE Art. 12 · LSH Art. 8' },
+                    { id: 'pnd', titulo: 'Plan Nacional de Des.', descripcion: 'El mandato del Presidente con visión a 6 años.', color: '#9B2247', articulos: ['LCNE-Art-007'], refs: 'Plan de Desarrollo' },
+                    { id: 'pse', titulo: 'Programa Sectorial', descripcion: 'La traducción del PND al lenguaje de energía para un sexenio.', color: '#9B2247', articulos: ['LCNE-Art-007'], refs: 'PROSENER' },
                 ],
-                conector: 'que emite los',
+                conector: 'ejecutados estrictamente por',
             },
             {
                 nivel: 3,
-                rol: 'PLANES ESPECIALIZADOS',
+                rol: 'EL RECTOR Y ALCANCE EXTERNO',
                 nodos: [
-                    { id: 'platease', titulo: 'PLATEASE', descripcion: 'Cómo lograr la transición y la eficiencia en el uso de la energía.', color: '#7a1b38', articulos: ['LPTE-Art-008'], refs: 'LPTE Art. 8' },
-                    { id: 'pladese', titulo: 'Plan Eléctrico (PLADESE)', descripcion: 'Dónde instalar nuevas plantas de luz o nuevas torres de transmisión.', color: '#1E5B4F', articulos: ['LSE-Art-012'], refs: 'LSE Art. 12' },
-                    { id: 'pladeshi', titulo: 'Plan Petrolero (PLADESHi)', descripcion: 'Decide cómo cuidaremos y extraeremos mejor nuestras reservas de crudo y gas.', color: '#A57F2C', articulos: ['LSH-Art-008'], refs: 'LSH Art. 8' },
+                    { id: 'sener', titulo: 'SENER (Rector)', descripcion: 'Secretaría de Energía, dicta reglas apoyada en la Ley Nacional.', color: '#9B2247', articulos: ['LPTE-Art-002'], refs: 'LPTE Art. 2' },
+                    { id: 'geobio', titulo: 'Geotermia y Biocomb.', descripcion: 'La obligatoriedad llega hasta reglamentos secundarios muy específicos.', color: '#25D366', articulos: ['RLB-Art-010'], refs: 'Reglamentos Bio/Geo' },
                 ],
-                conector: 'que son vigilados por',
+                conector: 'diseñando los',
             },
             {
                 nivel: 4,
-                rol: 'ORGANISMOS DE VIGILANCIA Y APOYO',
+                rol: 'PLANES ESPECIALIZADOS',
                 nodos: [
-                    { id: 'cne', titulo: 'Comisión N. E.', descripcion: 'Revisa tarifas y da permisos siempre respetando los planes.', color: '#444', articulos: ['RLPTE-Art-004', 'LSH-Art-009'], refs: 'RLPTE Art. 4 · LSH Art. 9' },
-                    { id: 'cpe', titulo: 'Consejo de Planeación', descripcion: 'Grupo de expertos que evalúa que la planeación vaya por buen camino.', color: '#555', articulos: ['RLPTE-Art-002', 'LCPE-Art-002'], refs: 'RLPTE Art. 2 · LCPE Art. 2' },
+                    { id: 'platease', titulo: 'PLATEASE', descripcion: 'Trata sobre eficiencia y sustentabilidad medioambiental.', color: '#7a1b38', articulos: ['LPTE-Art-008'], refs: 'Eficiencia' },
+                    { id: 'pladese', titulo: 'PLADESE (Luz)', descripcion: 'Plan maestro de expansión del Sistema Eléctrico.', color: '#1E5B4F', articulos: ['LSE-Art-012'], refs: 'Eléctrico' },
+                    { id: 'pladeshi', titulo: 'PLADESHi (Crudo)', descripcion: 'Plan rector del Sector Hidrocarburos.', color: '#A57F2C', articulos: ['LSH-Art-008'], refs: 'Hidrocarburos' },
                 ],
-                conector: 'donde participan los',
+                conector: 'de cumplimiento obligatorio para',
             },
             {
                 nivel: 5,
-                rol: 'OPERADORES DEL DÍA A DÍA',
+                rol: 'EJECUTORES Y VIGILANTES',
                 nodos: [
-                    { id: 'cfe', titulo: 'CFE y su Programa', descripcion: 'CFE diseña su plan de 5 años alineado al Plan Eléctrico Nacional.', color: '#1E5B4F', articulos: ['LCFE-Art-016', 'LPTE-Art-002'], refs: 'Ley de la CFE Art. 16' },
-                    { id: 'pemex', titulo: 'Pemex y su Programa', descripcion: 'Pemex alinea su trabajo al Plan Petrolero Nacional.', color: '#A57F2C', articulos: ['LPEMEX-Art-017', 'LSH-Art-009'], refs: 'Ley de Pemex Art. 17' },
-                    { id: 'particulares', titulo: 'Empresas Privadas', descripcion: 'Solo operan si cumplen con las metas ordenadas por la SENER.', color: '#666', articulos: ['RLPTE-Art-004'], refs: 'RLPTE Art. 4' },
+                    { id: 'cfe', titulo: 'CFE y Privados (Luz)', descripcion: 'Solo operan bajo las metas impuestas en la planeación.', color: '#1E5B4F', articulos: ['LCFE-Art-016'], refs: 'Operación Luz' },
+                    { id: 'pemex', titulo: 'Pemex y Privados (Gas)', descripcion: 'Trabajan anclados al Plan Petrolero Nacional.', color: '#A57F2C', articulos: ['LPEMEX-Art-017'], refs: 'Operación Crudo' },
+                    { id: 'cne', titulo: 'Regulador (CNE)', descripcion: 'La Comisión vigila y que todos respeten las reglas y el plan.', color: '#444', articulos: ['LCNE-Art-002'], refs: 'Vigilancia' },
                 ],
                 conector: null,
             },
@@ -84,20 +84,20 @@ const TEMAS = [
             {
                 id: 'LPTE-Art-002',
                 siglas: 'LPTE', color: '#9B2247', label: 'Art. 2', rol: 'Norma Fundamental',
-                descripcion: 'Se asegura que el Estado planifique hacia dónde vamos en energía, siendo obligatorio y cuidando de que tengamos soberanía sin descuidar la justicia para la gente común.',
-                extracto: '"La Secretaría de Energía está a cargo de la planeación vinculante en el Sector Energético, que incluye, como parte esencial, el desarrollo de las áreas estratégicas para preservar la soberanía, la seguridad, la autosuficiencia y la Justicia Energética de la Nación…"',
+                descripcion: 'Se asegura que el Estado planifique hacia dónde vamos en energía, siendo obligatorio y cuidando de que tengamos soberanía.',
+                extracto: '"La Secretaría de Energía está a cargo de la planeación vinculante en el Sector Energético, que incluye, como parte esencial, el desarrollo de las áreas estratégicas para preservar la soberanía…"',
             },
             {
                 id: 'LPTE-Art-008',
-                siglas: 'LPTE', color: '#9B2247', label: 'Art. 8', rol: 'Los Tres Grandes Planes',
+                siglas: 'LPTE', color: '#9B2247', label: 'Art. 8', rol: 'Los Planes Rectores',
                 descripcion: 'La ley manda explícitamente a la Secretaría de Energía a escribir tres grandes Planes obligatorios (PLATEASE, PLADESE y PLADESHi).',
-                extracto: '"Corresponde a la Secretaría: I. Elaborar y publicar la Estrategia, el Programa Sectorial de Energía, el PLATEASE, el PLADESE, el PLADESHi y coordinar su ejecución, así como vigilar el cumplimiento…"',
+                extracto: '"Corresponde a la Secretaría: I. Elaborar y publicar la Estrategia, el Programa Sectorial de Energía, el PLATEASE, el PLADESE, el PLADESHi y coordinar su ejecución…"',
             },
             {
-                id: 'LB-Art-011',
-                siglas: 'Ley', color: '#25D366', label: 'Estrategia', rol: 'La Meta Superior',
-                descripcion: 'Muestra que todos los demás planes se rigen por las metas superiores de lograr usar energías que dañen menos nuestro planeta.',
-                extracto: '"La Estrategia Nacional de Transición Energética debe de incluir las metas para Producción de Biocombustibles y energías limpias…"',
+                id: 'RLB-Art-010',
+                siglas: 'Bio', color: '#25D366', label: 'Art. 10', rol: 'Biocombustibles',
+                descripcion: 'Incluso para dar un permiso para producir etanol o biodiésel, el gobierno debe asegurarse que cuadre con la Planeación Vinculante superior.',
+                extracto: '"La SENER, para el otorgamiento de permisos y Autorizaciones, debe considerar lo establecido en los instrumentos de planeación... y el cumplimiento de las disposiciones administrativas de carácter general para la planeación vinculante…"',
             },
             {
                 id: 'LCFE-Art-016',
@@ -108,46 +108,40 @@ const TEMAS = [
             {
                 id: 'LPEMEX-Art-017',
                 siglas: 'Pemex', color: '#A57F2C', label: 'Art. 17', rol: 'Programa de Pemex',
-                descripcion: 'La petrolera estatal debe organizar sus inversiones a cinco y quince años, siguiendo lo que ordene la política energética de la Secretaría.',
-                extracto: '"El Programa de Desarrollo de Petróleos Mexicanos se debe elaborar con un horizonte de cinco años... para preservar la soberanía, seguridad, sostenibilidad, autosuficiencia y justicia energética de la Nación…"',
-            },
-            {
-                id: 'RLPTE-Art-004',
-                siglas: 'RLPTE', color: '#7a1b38', label: 'Art. 4', rol: 'Actos Administrativos',
-                descripcion: 'A nivel práctico, cualquier permiso privado que se quiera dar para vender gasolina o poner una planta eólica, será rechazado si no coincide con los Planes Mayores.',
-                extracto: '"La planeación vinculante… debe ser considerada por la Secretaría de Energía y la Comisión Nacional de Energía para el otorgamiento de asignaciones, contratos, permisos, concesiones y autorizaciones…"',
+                descripcion: 'La petrolera estatal debe organizar sus inversiones a cinco años siguiendo la política energética de la Secretaría.',
+                extracto: '"El Programa de Desarrollo de Petróleos Mexicanos se debe elaborar con un horizonte de cinco años... para preservar la soberanía, seguridad, sostenibilidad, autosuficiencia y justicia energética…"',
             },
             {
                 id: 'LSE-Art-012',
                 siglas: 'LSE', color: '#1E5B4F', label: 'Art. 12', rol: 'Sector Eléctrico',
-                descripcion: 'A nivel eléctrico, ordena que el Estado sea la fuente del 54% de la luz del país, garantizando seguridad y que mande por encima de intereses privados.',
+                descripcion: 'A nivel eléctrico, ordena que el Estado sea la fuente del 54% de la luz del país, garantizando seguridad por encima de intereses privados.',
                 extracto: '"La planeación del sector eléctrico tiene carácter vinculante… El Estado debe mantener al menos el cincuenta y cuatro por ciento del promedio de la energía inyectada a la red…"',
             },
             {
                 id: 'LSH-Art-008',
                 siglas: 'LSH', color: '#A57F2C', label: 'Art. 8', rol: 'Sector Hidrocarburos',
-                descripcion: 'Mismo criterio obligatorio, pero para pozos y refinerías. No se hace lo que una empresa quiera, se hace lo que necesite el país.',
+                descripcion: 'Obliga a las refinerías y pozos petroleros a seguir el plan principal y no solo sus prioridades de negocio individual.',
                 extracto: '"La planeación del sector hidrocarburos tiene carácter vinculante y está a cargo de la Secretaría de Energía, autoridad que debe emitir el Plan de Desarrollo del Sector Hidrocarburos…"',
             },
             {
                 id: 'LCNE-Art-007',
-                siglas: 'LCNE', color: '#444', label: 'Art. 7', rol: 'Programa Sectorial',
-                descripcion: 'Establece que incluso los reguladores están obligados a usar todos sus estudios científicos y económicos apoyando el Programa Sectorial, que es parte del Plan Nacional de Desarrollo de México.',
+                siglas: 'LCNE', color: '#444', label: 'Art. 7', rol: 'Programa Sectorial y PND',
+                descripcion: 'Establece que los reguladores usan sus estudios para apoyar el Programa Sectorial, que resulta indispensable dentro del gran Plan Nacional de Desarrollo de México.',
                 extracto: '"Aportar elementos técnicos a la Secretaría para la formulación y seguimiento del Programa Sectorial de Energía y demás instrumentos de política pública en la materia…"',
             },
             {
-                id: 'LCPE-Art-002',
-                siglas: 'Regla', color: '#555', label: 'Consejo', rol: 'Órgano de Apoyo',
-                descripcion: 'Define el Consejo de Planeación Energética como un grupo de especialistas que acompaña constantemente a la Secretaría en el análisis de que se cumplan las metas.',
-                extracto: '"El Consejo de Planeación Energética es el órgano colegiado de carácter permanente que apoya a la Secretaría de Energía en la coordinación y seguimiento de la planeación energética nacional…"',
+                id: 'LCNE-Art-002',
+                siglas: 'LCNE', color: '#444', label: 'Art. 2', rol: 'El Vigilante',
+                descripcion: 'La Comisión Nacional de Energía revisa y sanciona las desviaciones, asegurando que la Planeación no sea sólo un simple papel, sino reglas rígidas.',
+                extracto: '"Tiene por objeto regular, supervisar e imponer sanciones... promover su desarrollo ordenado, continuo y seguro... de conformidad con la planeación vinculante en el ámbito de su competencia."',
             },
         ],
         menciones: [
-            { siglas: 'LSH', nombre: 'Legislación Petrolera', valor: 67, color: '#A57F2C' },
-            { siglas: 'LSE', nombre: 'Legislación Eléctrica', valor: 50, color: '#1E5B4F' },
-            { siglas: 'RLPTE', nombre: 'Reglamentos Complementarios', valor: 47, color: '#7a1b38' },
-            { siglas: 'LPTE', nombre: 'Ley General de Planeación (Pilar)', valor: 27, color: '#9B2247' },
-            { siglas: 'LCPE', nombre: 'Normativas de la Comisión/Consejos', valor: 13, color: '#555' },
+            { siglas: 'LSH', nombre: 'Ley Petrolera', valor: 67, color: '#A57F2C' },
+            { siglas: 'LSE', nombre: 'Ley Eléctrica', valor: 50, color: '#1E5B4F' },
+            { siglas: 'RLPTE', nombre: 'Reglamentos', valor: 47, color: '#7a1b38' },
+            { siglas: 'LPTE', nombre: 'Ley General (LPTE)', valor: 27, color: '#9B2247' },
+            { siglas: 'LB/LG', nombre: 'Geo y Biocombustibles', valor: 19, color: '#25D366' },
         ],
     },
     {
@@ -611,9 +605,43 @@ function injectStyles() {
     .aflujo-node-title { font-size: 0.9rem; }
     .atema-metricas { gap: 1.25rem; }
 }
+}
 @media (max-width: 400px) {
     .atema-atributos { grid-template-columns: 1fr; }
 }
+
+/* ── Main Nav Tabs ── */
+.atema-main-nav {
+    display: flex; gap: 0.75rem; margin-bottom: 2rem; overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+.atema-nav-btn {
+    display: flex; flex-direction: column; gap: 0.2rem;
+    padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #e5e7eb;
+    background: #fff; cursor: pointer; transition: all 0.2s;
+    min-width: 170px; text-align: left;
+}
+.atema-nav-btn:hover { background: #fafaf9; border-color: #d1d5db; }
+.atema-nav-btn.active {
+    background: #9B2247; border-color: #9B2247; color: white;
+    box-shadow: 0 4px 12px rgba(155, 34, 71, 0.2);
+}
+.atema-nav-num {
+    font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em;
+    color: #9ca3af; font-family: 'Noto Sans', sans-serif;
+}
+.atema-nav-btn.active .atema-nav-num { color: rgba(255,255,255,0.7); text-shadow: none; }
+.atema-nav-label {
+    font-size: 0.8rem; font-weight: 600; color: #374151;
+    font-family: 'Noto Sans', sans-serif;
+}
+.atema-nav-btn.active .atema-nav-label { color: white; text-shadow: none; }
+
+.dark-mode .atema-nav-btn { background: #1a1a1a; border-color: #2d2d2d; }
+.dark-mode .atema-nav-btn:hover { background: #252525; }
+.dark-mode .atema-nav-btn .atema-nav-label { color: #d4d4d4; }
+.dark-mode .atema-nav-btn.active { background: #4a1525; border-color: #9B2247; }
+.dark-mode .atema-nav-btn.active .atema-nav-label { color: #f5f5f5; }
     `;
     document.head.appendChild(s);
 }
@@ -895,12 +923,28 @@ function setupTemaEvents(container, tema) {
     }
 }
 
-// ─── Export principal ─────────────────────────────────────────────────────────
 export function renderAnalisisView(container) {
     injectStyles();
 
+    const navHTML = `
+        <div class="atema-main-nav">
+            ${TEMAS.map((tema, idx) => `
+                <button class="atema-nav-btn ${idx === 0 ? 'active' : ''}" data-tema-id="${tema.id}">
+                    <span class="atema-nav-num">TEMA ${tema.numero}</span>
+                    <span class="atema-nav-label">${tema.titulo}</span>
+                </button>
+            `).join('')}
+        </div>
+    `;
+
+    const cardsHTML = TEMAS.map((tema, idx) => `
+        <div class="atema-card-wrapper ${idx === 0 ? '' : 'hidden'}" id="wrapper-${tema.id}">
+            ${renderTemaCard(tema)}
+        </div>
+    `).join('');
+
     container.innerHTML = `
-        <div style="max-width:720px;margin:0 auto;padding-bottom:3rem">
+        <div style="max-width:800px;margin:0 auto;padding-bottom:3rem">
             <button class="aview-back" id="analisis-back-btn">
                 <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -916,11 +960,33 @@ export function renderAnalisisView(container) {
                 <div class="aview-divider-dot"></div>
                 <div class="aview-divider-line"></div>
             </div>
-            ${TEMAS.map(renderTemaCard).join('')}
+            
+            ${navHTML}
+            ${cardsHTML}
         </div>`;
 
     container.querySelector('#analisis-back-btn')?.addEventListener('click', () => {
         document.dispatchEvent(new CustomEvent('analisis:goHome'));
+    });
+
+    const navBtns = container.querySelectorAll('.atema-nav-btn');
+    const wrappers = container.querySelectorAll('.atema-card-wrapper');
+    
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            navBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const targetId = btn.dataset.temaId;
+            wrappers.forEach(w => {
+                w.classList.toggle('hidden', w.id !== 'wrapper-' + targetId);
+            });
+            
+            const activeTemaEl = container.querySelector('#wrapper-' + targetId);
+            if (activeTemaEl) {
+                animateBars(activeTemaEl);
+            }
+        });
     });
 
     TEMAS.forEach(tema => setupTemaEvents(container, tema));
