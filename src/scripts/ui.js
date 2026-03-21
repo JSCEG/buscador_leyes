@@ -1,4 +1,5 @@
 import { performSearch, getArticleById, getArticlesByLaw, getAllData } from './search-engine.js';
+import { renderAnalisisView } from './analisis.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -158,11 +159,27 @@ export function initUI() {
     if (navFavBtn) navFavBtn.addEventListener('click', () => showFavoritesView());
     if (mobileFavBtn) mobileFavBtn.addEventListener('click', () => { showFavoritesView(); toggleMobileMenu(false); });
 
+    // Análisis nav buttons
+    const navAnalisis = document.getElementById('nav-analisis');
+    const mobileNavAnalisis = document.getElementById('mobile-nav-analisis');
+    if (navAnalisis) navAnalisis.addEventListener('click', (e) => { e.preventDefault(); showAnalisisView(); });
+    if (mobileNavAnalisis) mobileNavAnalisis.addEventListener('click', (e) => { e.preventDefault(); showAnalisisView(); toggleMobileMenu(false); });
+
     // Stats nav buttons
     const navStatsBtn = document.getElementById('nav-stats');
     const mobileNavStats = document.getElementById('mobile-nav-stats');
     if (navStatsBtn) navStatsBtn.addEventListener('click', (e) => { e.preventDefault(); showStatsView(); });
     if (mobileNavStats) mobileNavStats.addEventListener('click', (e) => { e.preventDefault(); showStatsView(); toggleMobileMenu(false); });
+
+    // Custom events from análisis module
+    document.addEventListener('analisis:openArticle', (e) => {
+        const { id, list } = e.detail;
+        if (list && list.length) {
+            currentModalList = list.map(lid => getArticleById(lid)).filter(Boolean);
+        }
+        openDetail(id);
+    });
+    document.addEventListener('analisis:goHome', () => resetToHero());
 
     // Compare modal close
     document.getElementById('close-compare-modal')?.addEventListener('click', closeCompareModal);
@@ -363,6 +380,7 @@ export function initUI() {
         resultsContainer.innerHTML = '';
 
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
 
         // Clean up external controls (Filters & Pagination)
         const filters = document.getElementById('search-filters');
@@ -385,6 +403,7 @@ export function initUI() {
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
 
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
@@ -550,6 +569,7 @@ export function initUI() {
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
+        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
 
         // Show Law Detail
         lawDetailContainer.classList.remove('hidden');
@@ -1827,6 +1847,7 @@ export function initUI() {
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         resultsContainer.classList.remove('hidden');
@@ -2178,6 +2199,7 @@ export function initUI() {
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         resultsContainer.classList.remove('hidden');
@@ -2790,6 +2812,32 @@ export function initUI() {
         helpModal.addEventListener('click', (e) => { if (e.target === helpModal) helpModal.remove(); });
         document.getElementById('kbd-help-close')?.addEventListener('click', () => helpModal.remove());
     }
+
+    // ── Análisis de Temas Transversales ──────────────────────────────────────────
+    function showAnalisisView() {
+        setHash(null);
+        destroyTOC();
+        hideGlobalSearch();
+        heroSection.classList.add('hidden');
+        quickFilters.classList.add('hidden');
+        statsMinimal.classList.add('hidden');
+        resultsContainer.classList.add('hidden', 'opacity-0');
+        resultsContainer.innerHTML = '';
+        if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+
+        const analisisContainer = document.getElementById('analisis-container');
+        if (!analisisContainer) return;
+        analisisContainer.classList.remove('hidden');
+        setTimeout(() => analisisContainer.classList.remove('opacity-0'), 50);
+
+        if (analisisContainer.children.length === 0) {
+            renderAnalisisView(analisisContainer);
+        }
+    }
+    // ── Fin Análisis ─────────────────────────────────────────────────────────────
 
     document.getElementById('keyboard-help-btn')?.addEventListener('click', showKeyboardHelp);
 

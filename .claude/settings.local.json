@@ -5,7 +5,9 @@
       "Bash(git -C \"C:\\\\Proyectos\\\\65.-Buscador de Leyes Energía\" log --oneline -10)",
       "Bash(npm run:*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(where npm:*)"
+      "Bash(where npm:*)",
+      "Bash(node -e \":*)",
+      "Bash(node node_modules/vite/bin/vite.js build)"
     ]
   }
 }
