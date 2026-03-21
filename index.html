@@ -20,8 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Merriweather:wght@300;400;700&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
-  <script type="module" crossorigin src="/assets/index-tIk8KgFX.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DMNX9y4O.css">
+  <script type="module" crossorigin src="/assets/index-CoT0nthL.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BMcni-TP.css">
 </head>
 
 <body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
@@ -38,6 +38,7 @@
         <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-500 font-medium">
             <a href="#" id="nav-inicio" class="hover:text-guinda transition-colors">Inicio</a>
             <a href="#" id="nav-leyes" class="hover:text-guinda transition-colors">Leyes</a>
+            <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors">Análisis</a>
             <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
             <a href="#" id="nav-ayuda" class="hover:text-guinda transition-colors">Ayuda</a>
             <button id="keyboard-help-btn" class="p-1.5 text-gray-300 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5 font-mono text-xs" title="Atajos de teclado (?)" aria-label="Mostrar atajos de teclado">?</button>
@@ -84,6 +85,8 @@
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Inicio</a>
             <a href="#" id="mobile-nav-leyes"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Leyes</a>
+            <a href="#" id="mobile-nav-analisis"
+                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Análisis</a>
             <a href="#" id="mobile-nav-stats"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Estadísticas</a>
             <a href="#" id="mobile-nav-ayuda"
@@ -179,6 +182,11 @@
 
         <!-- Law Detail View (Hidden by default) -->
         <div id="law-detail-container" class="w-full mt-8 hidden opacity-0 transition-opacity duration-500">
+            <!-- Injected by JS -->
+        </div>
+
+        <!-- Análisis de Temas Transversales (Hidden by default) -->
+        <div id="analisis-container" class="w-full mt-8 hidden opacity-0 transition-opacity duration-500">
             <!-- Injected by JS -->
         </div>
 
