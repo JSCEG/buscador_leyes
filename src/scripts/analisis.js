@@ -150,6 +150,103 @@ const TEMAS = [
             { siglas: 'LCPE', nombre: 'Normativas de la Comisión/Consejos', valor: 13, color: '#555' },
         ],
     },
+    {
+        id: 'consejos-comites',
+        numero: '02',
+        titulo: 'Participación y Especialistas',
+        subtitulo: 'Consejo de Planeación y Comités Técnicos',
+        objetivo: 'Asegurar que las decisiones del gobierno no se tomen en solitario. La ley crea foros permanentes donde expertos científicos, académicos, la industria y la sociedad civil analizan, vigilan y recomiendan mejoras a la Secretaría de Energía.',
+        color: '#1E5B4F',
+        metricas: [
+            { valor: '4', label: 'leyes y reglamentos' },
+            { valor: '5', label: 'tipos de comités' },
+            { valor: '35+', label: 'menciones obligatorias' },
+        ],
+        atributos: [
+            { nombre: 'Naturaleza', valor: 'Órgano de consulta y evaluación', tipo: 'chain' },
+            { nombre: '¿Quién preside?', valor: 'Secretaría de Energía', tipo: 'gov' },
+            { nombre: '¿Quién participa?', valor: 'Academia, Industria, Sociedad Civil', tipo: 'council' },
+            { nombre: 'Misión Principal', valor: 'Guiar el rescate y la transición energética', 	tipo: 'doc' },
+            { nombre: 'Nivel Técnico', valor: 'Científico y de factibilidad', tipo: 'plan' },
+            { nombre: 'Carácter', valor: 'Permanente (no temporal)', 	tipo: 'scope' },
+        ],
+        cadena: [
+            {
+                nivel: 1,
+                rol: 'EL FORO CENTRAL',
+                nodos: [
+                    { id: 'cpe-central', titulo: 'Consejo de Planeación', descripcion: 'Mesa principal donde la sociedad y los expertos dialogan con el gobierno sobre el rumbo energético.', color: '#1E5B4F', articulos: ['LPTE-Art-008', 'LCPE-Art-002'], refs: 'LPTE Art. 8 · LCPE' },
+                ],
+                conector: 'que es apoyado por',
+            },
+            {
+                nivel: 2,
+                rol: 'LOS GRUPOS ESPECIALIZADOS',
+                nodos: [
+                    { id: 'comite-cientifico', titulo: 'Comité Científico', descripcion: 'Académicos e investigadores asegurando que las decisiones tengan base en la ciencia.', color: '#25D366', articulos: ['RCPE-Art-012'], refs: 'Reglas Consejo Art. 12' },
+                    { id: 'comite-transicion', titulo: 'Comité de Transición', descripcion: 'Expertos dedicados exclusivamente a buscar energías limpias y eficientes.', color: '#25D366', articulos: ['RCPE-Art-015'], refs: 'Reglas Consejo Art. 15' },
+                ],
+                conector: 'para analizar',
+            },
+            {
+                nivel: 3,
+                rol: 'LO QUE VIGILAN',
+                nodos: [
+                    { id: 'politicas-eval', titulo: 'Los Planes Sectoriales', descripcion: 'Revisan si los grandes planes del gobierno realmente están funcionando.', color: '#9B2247', articulos: ['LCPE-Art-002'], refs: 'Funciones del Consejo' },
+                    { id: 'investigacion', titulo: 'Innovación Tecnológica', descripcion: 'Fomentan el desarrollo de tecnología hecha en México y patentes nacionales.', color: '#444', articulos: ['LPTE-Art-110'], refs: 'Fomento a Universidades' },
+                ],
+                conector: 'entregando',
+            },
+            {
+                nivel: 4,
+                rol: 'EL RESULTADO PRÁCTICO',
+                nodos: [
+                    { id: 'recomendaciones', titulo: 'Recomendaciones', descripcion: 'Sugerencias para corregir el rumbo o mejorar los planes.', color: '#555', articulos: ['LCPE-Art-008'], refs: 'Acuerdos del Consejo' },
+                    { id: 'informes', titulo: 'Informes Públicos', descripcion: 'Reportes abiertos y transparentes sobre nuestros éxitos o fracasos en energía.', color: '#666', articulos: ['LPTE-Art-012'], refs: 'Transparencia Obligatoria' },
+                ],
+                conector: null,
+            },
+        ],
+        articulosClave: [
+            {
+                id: 'LPTE-Art-008',
+                siglas: 'LPTE', color: '#9B2247', label: 'Art. 8', rol: 'Creación del Consejo',
+                descripcion: 'La Ley ordena expresamente instalar este Consejo para involucrar a quienes saben del aspecto técnico y social.',
+                extracto: '"Corresponde a la Secretaría: Instalar y presidir el Consejo de Planeación Energética y sus respectivos órganos auxiliares, para el mejor desempeño de la planeación…"',
+            },
+            {
+                id: 'LCPE-Art-002',
+                siglas: 'Reglas', color: '#1E5B4F', label: 'LCPE 2', rol: 'El Papel del Consejo',
+                descripcion: 'Reafirma que es un grupo independiente para "coordinar y seguir" de forma permanente cómo vamos en materia energética nacional.',
+                extracto: '"El Consejo de Planeación Energética es el órgano colegiado de carácter permanente que apoya a la Secretaría de Energía en la coordinación y seguimiento…"',
+            },
+            {
+                id: 'RCPE-Art-012',
+                siglas: 'Reglas', color: '#25D366', label: 'Comité Científico', rol: 'El Rol de la Ciencia',
+                descripcion: 'Garantiza un espacio exclusivo para que las universidades y centros de investigación den su opinión técnica para nuevos proyectos de energía.',
+                extracto: '"Para apoyar sus funciones, el Consejo contará con un Comité Científico integrado por investigadores del más alto nivel de las instituciones académicas nacionales…"',
+            },
+            {
+                id: 'RCPE-Art-015',
+                siglas: 'Reglas', color: '#25D366', label: 'Comité Transición', rol: 'Expertos Ambientales',
+                descripcion: 'El Consejo se apoya directamente en un grupo dedicado solo a vigilar la eficiencia y el avance del país hacia un futuro menos contaminante.',
+                extracto: '"El Comité Consultivo para la Transición Energética emitirá recomendaciones sobre las políticas públicas en materia de sustentabilidad y tecnología limpia…"',
+            },
+            {
+                id: 'LPTE-Art-110',
+                siglas: 'LPTE', color: '#9B2247', label: 'Art. 110', rol: 'Impulso Nacional',
+                descripcion: 'Estos comités pueden sugerir hacia dónde dirigir el dinero público para apoyar inventos e investigación en las universidades.',
+                extracto: '"El Consejo podrá proponer lineamientos para el financiamiento de proyectos de innovación científica y tecnológica en las Universidades Públicas…"',
+            },
+        ],
+        menciones: [
+            { siglas: 'LCPE', nombre: 'Lineamientos de Operación', valor: 35, color: '#1E5B4F' },
+            { siglas: 'LPTE', nombre: 'Ley General de Planeación', valor: 22, color: '#9B2247' },
+            { siglas: 'LB', nombre: 'Ley de Biocombustibles', valor: 4, color: '#25D366' },
+            { siglas: 'LSH', nombre: 'Legislación Petrolera', valor: 3, color: '#A57F2C' },
+            { siglas: 'LSE', nombre: 'Legislación Eléctrica', valor: 2, color: '#444' },
+        ],
+    },
 ];
 
 // ─── Estilos ──────────────────────────────────────────────────────────────────
