@@ -403,6 +403,86 @@ const TEMAS = [
             { siglas: 'LPTE', nombre: 'Ley General', valor: 6, color: '#9B2247' },
         ],
     },
+    {
+        id: 'justicia-energetica',
+        numero: '05',
+        titulo: 'Justicia Energética',
+        subtitulo: 'Beneficio Social y Utilidad Pública',
+        objetivo: 'Establece el cambio de paradigma donde el acceso a la energía no es un simple producto comercial, sino un asunto de interés y utilidad pública. Obliga a todo el sector a procurar que los beneficios lleguen al pueblo de México sin afán de lucro excesivo.',
+        color: '#7a1b38',
+        metricas: [
+            { valor: '9', label: 'leyes y reglamentos' },
+            { valor: '84', label: 'menciones halladas' },
+            { valor: '1', label: 'nuevo mandato social' },
+        ],
+        atributos: [
+            { nombre: '¿Qué prioriza?', valor: 'El bienestar de la población', tipo: 'chain' },
+            { nombre: 'Naturaleza legal', valor: 'Utilidad Pública Preferente', tipo: 'doc' },
+            { nombre: 'Mandato principal', valor: 'Dar servicio sin afán de lucro', tipo: 'gov' },
+            { nombre: 'Condición', valor: 'Obligación del Estado', 	tipo: 'council' },
+        ],
+        cadena: [
+            {
+                nivel: 1,
+                rol: 'EL IDEAL Y DERECHO SOCIAL',
+                nodos: [
+                    { id: 'justicia-base', titulo: 'Justicia Energética', descripcion: 'Garantizar que todos los mexicanos tengan acceso a energía segura, a precios justos y constante.', color: '#9B2247', articulos: ['LSE-Art-001'], refs: 'LSE Art. 1' },
+                ],
+                conector: 'elevada por la ley a',
+            },
+            {
+                nivel: 2,
+                rol: 'SUPERIORIDAD LEGAL',
+                nodos: [
+                    { id: 'utilidad-publica', titulo: 'Utilidad Pública', descripcion: 'Cualquier obra de energía es más importante que intereses privados por el bien del país.', color: '#444', articulos: ['LG-Art-004'], refs: 'Interés General' },
+                ],
+                conector: 'delegada a',
+            },
+            {
+                nivel: 3,
+                rol: 'EMPRESAS AL SERVICIO DEL PUEBLO',
+                nodos: [
+                    { id: 'cfe-social', titulo: 'CFE sin lucro', descripcion: 'El nuevo mandato legal para que la CFE no busque maximizar ganancias sino el bienestar.', color: '#1E5B4F', articulos: ['LCFE-Art-003'], refs: 'Ley CFE' },
+                    { id: 'pemex-social', titulo: 'Pemex para el Pueblo', descripcion: 'Pemex trabajando para mantener combustibles accesibles e impulsar el campo.', color: '#A57F2C', articulos: ['LPEMEX-Art-003'], refs: 'Ley Pemex' },
+                ],
+                conector: 'para lograr',
+            },
+            {
+                nivel: 4,
+                rol: 'EL IMPACTO EN LAS COMUNIDADES',
+                nodos: [
+                    { id: 'tarifas-justas', titulo: 'Tarifas y Electrificación', descripcion: 'Que el Estado mantenga tarifas protegidas y lleve luz a donde las empresas privadas no verían negocio.', color: '#25D366', articulos: ['LCNE-Art-001'], refs: 'Desarrollo Nacional' },
+                ],
+                conector: null,
+            },
+        ],
+        articulosClave: [
+            {
+                id: 'LCFE-Art-003',
+                siglas: 'CFE', color: '#1E5B4F', label: 'Sin Lucro', rol: 'Objeto de CFE',
+                descripcion: 'Cambia radicalmente a la CFE: ya no es una empresa productiva para ganar dinero, es una empresa del Estado para llevar justicia al pueblo.',
+                extracto: '"La Comisión Federal de Electricidad tiene como objeto procurar la justicia energética para el pueblo... y el desarrollo regional sustentable sin afán de lucro..."',
+            },
+            {
+                id: 'LSE-Art-001',
+                siglas: 'LSE', color: '#9B2247', label: 'LSE Art 1', rol: 'Sector Eléctrico',
+                descripcion: 'Incrusta en toda la Ley Eléctrica este principio: si un particular opera en el mercado, debe alinearse a este objetivo superior de justicia.',
+                extracto: '"La presente Ley... tiene por finalidad promover el desarrollo sustentable de la industria eléctrica y garantizar su operación... para que cuadyuve en la justicia energética..."',
+            },
+            {
+                id: 'LG-Art-004',
+                siglas: 'Geo', color: '#444', label: 'Utilidad P.', rol: 'Superioridad Civil',
+                descripcion: 'Enlista que todas las obras dedicadas a generar energía (geotérmica, eléctrica o ductos) son lo más importante para la nación.',
+                extracto: '"Las actividades a que se refiere la presente Ley son de utilidad pública preferente sobre cualquier otro uso o aprovechamiento del subsuelo..."',
+            },
+        ],
+        menciones: [
+            { siglas: 'LSE/RLSE', nombre: 'Legislación Eléctrica', valor: 41, color: '#1E5B4F' },
+            { siglas: 'LPTE', nombre: 'Desarrollo y Transición', valor: 11, color: '#9B2247' },
+            { siglas: 'LSH/Geo', nombre: 'Recursos Naturales', valor: 17, color: '#A57F2C' },
+            { siglas: 'Otros', nombre: 'LCNE, CFE, Pemex', valor: 15, color: '#444' },
+        ],
+    },
 ];
 
 // ─── Estilos ──────────────────────────────────────────────────────────────────
@@ -710,11 +790,6 @@ function injectStyles() {
     font-size: 0.7rem; font-weight: 700; color: #374151;
     width: 28px; flex-shrink: 0; font-family: 'Noto Sans', sans-serif;
 }
-.achart-sub {
-    font-size: 0.62rem; color: #9ca3af;
-    margin-left: 44px; margin-top: -0.5rem;
-    font-family: 'Noto Sans', sans-serif;
-}
 .achart-note {
     margin-top: 0.75rem; padding: 0.75rem 1rem;
     background: #fafaf9; border: 1px solid #f3f4f6; border-radius: 0.5rem;
@@ -754,7 +829,6 @@ function injectStyles() {
 .dark-mode .achart-siglas { color: #d4d4d4; }
 .dark-mode .achart-val { color: #d4d4d4; }
 .dark-mode .achart-intro { color: #737373; }
-.dark-mode .achart-sub { color: #555; }
 .dark-mode .achart-note { background: #1a1a1a; border-color: #2d2d2d; color: #555; }
 .dark-mode .aview-header-title { color: #f5f5f5; }
 .dark-mode .aview-divider-line { background: #2d2d2d; }
@@ -925,7 +999,6 @@ function renderMenciones(tema) {
                         </div>
                         <div class="achart-val">${m.valor}</div>
                     </div>
-                    <div class="achart-sub">${m.nombre}</div>
                 </div>`).join('')}
         </div>
         <div class="achart-note">
