@@ -241,6 +241,168 @@ const TEMAS = [
             { siglas: 'LSE', nombre: 'Legislación Eléctrica', valor: 2, color: '#444' },
         ],
     },
+    {
+        id: 'transicion-sustentabilidad',
+        numero: '03',
+        titulo: 'Transición y Sustentabilidad',
+        subtitulo: 'Hacia un Futuro Limpio y Eficiente',
+        objetivo: 'La meta ineludible del Estado y los particulares para reducir emisiones contaminantes, generar más energías limpias, sustituir combustibles fósiles gradualmente y combatir el cambio climático de forma progresiva.',
+        color: '#25D366',
+        metricas: [
+            { valor: '15', label: 'leyes y reglamentos' },
+            { valor: '236', label: 'menciones obligatorias' },
+            { valor: '3', label: 'nuevas fuentes prioritarias' },
+        ],
+        atributos: [
+            { nombre: '¿Qué exige?', valor: 'Reducción de huella de carbono', tipo: 'chain' },
+            { nombre: 'Visión principal', valor: 'Sustentabilidad a largo plazo', tipo: 'doc' },
+            { nombre: 'Sectores Obligados', valor: 'Toda la cadena energética', tipo: 'scope' },
+            { nombre: 'Armas Clave', valor: 'Biocombustibles y Geotermia', 	tipo: 'plan' },
+            { nombre: 'Responsabilidad', valor: 'Gobierno y Mercado Privado', tipo: 'gov' },
+        ],
+        cadena: [
+            {
+                nivel: 1,
+                rol: 'LA POLÍTICA NACIONAL',
+                nodos: [
+                    { id: 'politica-sustentable', titulo: 'Meta Nacional', descripcion: 'Transicionar nuestra economía para dejar de depender exclusivamente de quemar carbón y petróleo.', color: '#25D366', articulos: ['LPTE-Art-002'], refs: 'LPTE Art. 2' },
+                ],
+                conector: 'impulsando las',
+            },
+            {
+                nivel: 2,
+                rol: 'FUENTES LIMPIAS Y RECURSOS',
+                nodos: [
+                    { id: 'biocombustibles', titulo: 'Biocombustibles', descripcion: 'Sustituir gasolinas usando etanol y biodiésel del campo mexicano.', color: '#25D366', articulos: ['LB-Art-001'], refs: 'Ley de Bio. Art. 1' },
+                    { id: 'geotermia', titulo: 'Geotermia', descripcion: 'Aprovechar el calor del subsuelo nacional para generar luz limpia 24/7.', color: '#1E5B4F', articulos: ['LG-Art-001'], refs: 'Ley Geo. Art. 1' },
+                ],
+                conector: 'reguladas por',
+            },
+            {
+                nivel: 3,
+                rol: 'EFICIENCIA Y DESPACHO',
+                nodos: [
+                    { id: 'mercado-limpio', titulo: 'Despacho CFE', descripcion: 'Priorizar o dar incentivos para que suba a la red eléctrica la energía que menos contamina.', color: '#444', articulos: ['LSE-Art-001'], refs: 'LSE Despacho' },
+                ],
+                conector: 'para lograr',
+            },
+            {
+                nivel: 4,
+                rol: 'EL BENEFICIO FINAL',
+                nodos: [
+                    { id: 'cero-emisiones', titulo: 'Reducción de Emisiones', descripcion: 'Mitigar el cambio climático y proteger la salud y el medio ambiente del pueblo de México.', color: '#25D366', articulos: ['RLPTE-Art-005'], refs: 'Sustentabilidad' },
+                ],
+                conector: null,
+            },
+        ],
+        articulosClave: [
+            {
+                id: 'LPTE-Art-002',
+                siglas: 'LPTE', color: '#9B2247', label: 'Eje Rector', rol: 'Transición',
+                descripcion: 'La Ley ordena que la política energética no solo busque luz barata, sino que integre la diversificación hacia energías limpias de manera obligatoria.',
+                extracto: '"...con el fin de coadyuvar con la soberanía, justicia y autosuficiencia energética, como parte de la diversificación y de la transición energética..."',
+            },
+            {
+                id: 'LB-Art-001',
+                siglas: 'Bio', color: '#25D366', label: 'Biocomb.', rol: 'Nueva Matriz',
+                descripcion: 'Reconoce que aprovechar los residuos y cultivos de forma sustentable ayudará a reducir gases contaminantes en el país.',
+                extracto: '"La presente Ley... tiene por objeto regular y promover el desarrollo sustentable de los Biocombustibles... Contribuir con la reducción de las emisiones contaminantes a la atmósfera..."',
+            },
+            {
+                id: 'LSE-Art-001',
+                siglas: 'LSE', color: '#1E5B4F', label: 'Luz Limpia', rol: 'Sector Eléctrico',
+                descripcion: 'La Ley Eléctrica subordina el mercado a que la energía generada sea sustentable y no contribuya al calentamiento global indiscriminado.',
+                extracto: '"...promover la generación de energía eléctrica a partir de energías limpias y la reducción de emisiones contaminantes de la industria eléctrica..."',
+            },
+        ],
+        menciones: [
+            { siglas: 'LPTE', nombre: 'Ley Transición', valor: 64, color: '#9B2247' },
+            { siglas: 'LSE', nombre: 'Legislación Eléctrica', valor: 49, color: '#1E5B4F' },
+            { siglas: 'BME/CENACE', nombre: 'Mercado Mayorista', valor: 37, color: '#444' },
+            { siglas: 'LB', nombre: 'Biocombustibles', valor: 26, color: '#25D366' },
+        ],
+    },
+    {
+        id: 'soberania-seguridad',
+        numero: '04',
+        titulo: 'Soberanía y Seguridad',
+        subtitulo: 'Autosuficiencia y Control Energético Nacional',
+        objetivo: 'Garantizar que México no dependa de factores externos para satisfacer sus necesidades básicas de energía, asegurando el abasto continuo, confiable y seguro de luz y combustibles para toda la población en cualquier momento, como un tema de seguridad nacional.',
+        color: '#A57F2C',
+        metricas: [
+            { valor: '13', label: 'leyes y reglamentos' },
+            { valor: '247', label: 'menciones halladas' },
+            { valor: '2', label: 'empresas del estado garantes' },
+        ],
+        atributos: [
+            { nombre: '¿Qué busca?', valor: 'Abasto continuo sin interrupciones', tipo: 'chain' },
+            { nombre: 'Independencia', valor: 'Reducir vulnerabilidad extranjera', tipo: 'doc' },
+            { nombre: 'Sectores Estratégicos', valor: 'Generación, Petróleo y Litio', tipo: 'scope' },
+            { nombre: 'Empresas Guardianes', valor: 'Pemex y CFE', 	tipo: 'gov' },
+            { nombre: 'Condición legal', valor: 'Área prioritaria de Seguridad Nacional', tipo: 'council' },
+        ],
+        cadena: [
+            {
+                nivel: 1,
+                rol: 'EL FIN ÚLTIMO Y DEBER DEL ESTADO',
+                nodos: [
+                    { id: 'seguridad-nacional', titulo: 'Soberanía Nacional', descripcion: 'El mandato de que el pueblo de México sea el dueño y rector exclusivo de su destino energético vital.', color: '#9B2247', articulos: ['LCNE-Art-001'], refs: 'LCNE Art. 1' },
+                ],
+                conector: 'protegida mediante',
+            },
+            {
+                nivel: 2,
+                rol: 'LOS GARANTES (EMPRESAS PRODUCTIVAS)',
+                nodos: [
+                    { id: 'cfe-garante', titulo: 'CFE (Electricidad)', descripcion: 'El Estado mantiene el 54% de la energía para evitar apagones por mercado.', color: '#1E5B4F', articulos: ['LCFE-Art-003'], refs: 'Confiabilidad Eléctrica' },
+                    { id: 'pemex-garante', titulo: 'Pemex (Combustibles)', descripcion: 'Extracción exclusiva de crudo para no importar gasolinas en crisis global.', color: '#A57F2C', articulos: ['LPEMEX-Art-003'], refs: 'Autosuficiencia' },
+                ],
+                conector: 'operando las',
+            },
+            {
+                nivel: 3,
+                rol: 'AREAS INTRANSFERIBLES',
+                nodos: [
+                    { id: 'redes-nacionales', titulo: 'Redes y Tuberías', descripcion: 'Las líneas de Alta Tensión y los ductos críticos como control absoluto del Estado.', color: '#555', articulos: ['LSE-Art-002'], refs: 'Transmisión Estratégica' },
+                ],
+                conector: 'asegurando',
+            },
+            {
+                nivel: 4,
+                rol: 'EL IMPACTO EN EL PUEBLO',
+                nodos: [
+                    { id: 'confiabilidad-final', titulo: 'Continuidad Garantizada', descripcion: 'Servicio 24 horas confiable en hospitales, hogares e industrias, pase lo que pase en el exterior.', color: '#A57F2C', articulos: ['BME-Art-1-2-6'], refs: 'Confiabilidad' },
+                ],
+                conector: null,
+            },
+        ],
+        articulosClave: [
+            {
+                id: 'LCFE-Art-003',
+                siglas: 'CFE', color: '#1E5B4F', label: 'Garante', rol: 'CFE Soberana',
+                descripcion: 'La principal misión de la CFE ya no es generar dinero, sino asegurar que siempre haya luz en el país como un derecho soberano.',
+                extracto: '"La Comisión Federal de Electricidad tiene como objeto procurar la justicia energética... y el desarrollo regional sustentable sin afán de lucro... velando por la continuidad y seguridad..."',
+            },
+            {
+                id: 'LPEMEX-Art-003',
+                siglas: 'Pemex', color: '#A57F2C', label: 'Independencia', rol: 'Pemex Soberano',
+                descripcion: 'Pemex fue reformado para ser la herramienta clave en evitar que México deba comprar todo su combustible a precio de oro de terceros países.',
+                extracto: '"Petróleos Mexicanos tiene como objeto... contribuir a la soberanía, la seguridad y la autosuficiencia energética, sin dejar de mejorar la productividad..."',
+            },
+            {
+                id: 'BME-Art-126',
+                siglas: 'Redes', color: '#444', label: 'Confiabilidad', rol: 'El Mercado',
+                descripcion: 'A nivel más técnico (Mercado Eléctrico Mayorista), todas las reglas operativas se doblegan ante una meta: que la red no se caiga jamás.',
+                extracto: '"El Mercado Eléctrico... deberá promover el desarrollo del Sistema en condiciones de eficiencia, Calidad, Confiabilidad, Continuidad y Seguridad..."',
+            },
+        ],
+        menciones: [
+            { siglas: 'LSE/BME', nombre: 'Sector Eléctrico y Mercado', valor: 114, color: '#1E5B4F' },
+            { siglas: 'LSH/LPEMEX', nombre: 'Sector Hidrocarburos', valor: 37, color: '#A57F2C' },
+            { siglas: 'LCNE', nombre: 'Comisión Nacional', valor: 6, color: '#444' },
+            { siglas: 'LPTE', nombre: 'Ley General', valor: 6, color: '#9B2247' },
+        ],
+    },
 ];
 
 // ─── Estilos ──────────────────────────────────────────────────────────────────
