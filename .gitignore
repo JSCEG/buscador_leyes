@@ -2,3 +2,20 @@ node_modules
 dist
 .DS_Store
 .env
+
+# Logs and temporary files
+*.log
+*_log.txt
+tmp_*
+url.txt
+
+# Agent and IDE specific
+.agents/
+.claude/
+.gemini/
+skills-lock.json
+
+# Local data chunks (often too large for git)
+chunks_*.json
+public/data/*.json
+!public/data/manifest.json

@@ -37,7 +37,7 @@ const TEMAS = [
                 nivel: 1,
                 rol: 'VISIÓN DE LARGO PLAZO',
                 nodos: [
-                    { id: 'estrategia', titulo: 'Estrategia Nacional', descripcion: 'El horizonte maestro a largo plazo (20-30 años) para dejar atrás tecnologías contaminantes.', color: '#25D366', articulos: ['LB-Art-011', 'LPTE-Art-008'], refs: 'Transición' },
+                    { id: 'estrategia', titulo: 'Estrategia Nacional', descripcion: 'El horizonte maestro a largo plazo (20-30 años) para dejar atrás tecnologías contaminantes.', color: '#1E5B4F', articulos: ['LB-Art-011', 'LPTE-Art-008'], refs: 'Transición' },
                 ],
                 conector: 'que guía al',
             },
@@ -63,7 +63,7 @@ const TEMAS = [
                 nivel: 4,
                 rol: 'PLANES ESPECIALIZADOS',
                 nodos: [
-                    { id: 'platease', titulo: 'PLATEASE', descripcion: 'Trata sobre eficiencia y sustentabilidad medioambiental.', color: '#7a1b38', articulos: ['LPTE-Art-008'], refs: 'Eficiencia' },
+                    { id: 'platease', titulo: 'PLATEASE', descripcion: 'Trata sobre eficiencia y sustentabilidad medioambiental.', color: '#9B2247', articulos: ['LPTE-Art-008'], refs: 'Eficiencia' },
                     { id: 'pladese', titulo: 'PLADESE (Luz)', descripcion: 'Plan maestro de expansión del Sistema Eléctrico.', color: '#1E5B4F', articulos: ['LSE-Art-012'], refs: 'Eléctrico' },
                     { id: 'pladeshi', titulo: 'PLADESHi (Crudo)', descripcion: 'Plan rector del Sector Hidrocarburos.', color: '#A57F2C', articulos: ['LSH-Art-008'], refs: 'Hidrocarburos' },
                 ],
@@ -95,7 +95,7 @@ const TEMAS = [
             },
             {
                 id: 'RLB-Art-010',
-                siglas: 'Bio', color: '#25D366', label: 'Art. 10', rol: 'Biocombustibles',
+                siglas: 'Bio', color: '#1E5B4F', label: 'Art. 10', rol: 'Biocombustibles',
                 descripcion: 'Incluso para dar un permiso para producir etanol o biodiésel, el gobierno debe asegurarse que cuadre con la Planeación Vinculante superior.',
                 extracto: '"La SENER, para el otorgamiento de permisos y Autorizaciones, debe considerar lo establecido en los instrumentos de planeación... y el cumplimiento de las disposiciones administrativas de carácter general para la planeación vinculante…"',
             },
@@ -141,7 +141,7 @@ const TEMAS = [
             { siglas: 'LSE', nombre: 'Ley Eléctrica', valor: 50, color: '#1E5B4F' },
             { siglas: 'RLPTE', nombre: 'Reglamentos', valor: 47, color: '#7a1b38' },
             { siglas: 'LPTE', nombre: 'Ley General (LPTE)', valor: 27, color: '#9B2247' },
-            { siglas: 'LB/LG', nombre: 'Geo y Biocombustibles', valor: 19, color: '#25D366' },
+            { siglas: 'LB/LG', nombre: 'Geo y Biocombustibles', valor: 19, color: '#1E5B4F' },
         ],
     },
     {
@@ -177,8 +177,8 @@ const TEMAS = [
                 nivel: 2,
                 rol: 'LOS GRUPOS ESPECIALIZADOS',
                 nodos: [
-                    { id: 'comite-cientifico', titulo: 'Comité Científico', descripcion: 'Académicos e investigadores asegurando que las decisiones tengan base en la ciencia.', color: '#25D366', articulos: ['RCPE-Art-012'], refs: 'Reglas Consejo Art. 12' },
-                    { id: 'comite-transicion', titulo: 'Comité de Transición', descripcion: 'Expertos dedicados exclusivamente a buscar energías limpias y eficientes.', color: '#25D366', articulos: ['RCPE-Art-015'], refs: 'Reglas Consejo Art. 15' },
+                    { id: 'comite-cientifico', titulo: 'Comité Científico', descripcion: 'Académicos e investigadores asegurando que las decisiones tengan base en la ciencia.', color: '#1E5B4F', articulos: ['RCPE-Art-012'], refs: 'Reglas Consejo Art. 12' },
+                    { id: 'comite-transicion', titulo: 'Comité de Transición', descripcion: 'Expertos dedicados exclusivamente a buscar energías limpias y eficientes.', color: '#1E5B4F', articulos: ['RCPE-Art-015'], refs: 'Reglas Consejo Art. 15' },
                 ],
                 conector: 'para analizar',
             },
@@ -216,13 +216,13 @@ const TEMAS = [
             },
             {
                 id: 'RCPE-Art-012',
-                siglas: 'Reglas', color: '#25D366', label: 'Comité Científico', rol: 'El Rol de la Ciencia',
+                siglas: 'Reglas', color: '#1E5B4F', label: 'Comité Científico', rol: 'El Rol de la Ciencia',
                 descripcion: 'Garantiza un espacio exclusivo para que las universidades y centros de investigación den su opinión técnica para nuevos proyectos de energía.',
                 extracto: '"Para apoyar sus funciones, el Consejo contará con un Comité Científico integrado por investigadores del más alto nivel de las instituciones académicas nacionales…"',
             },
             {
                 id: 'RCPE-Art-015',
-                siglas: 'Reglas', color: '#25D366', label: 'Comité Transición', rol: 'Expertos Ambientales',
+                siglas: 'Reglas', color: '#1E5B4F', label: 'Comité Transición', rol: 'Expertos Ambientales',
                 descripcion: 'El Consejo se apoya directamente en un grupo dedicado solo a vigilar la eficiencia y el avance del país hacia un futuro menos contaminante.',
                 extracto: '"El Comité Consultivo para la Transición Energética emitirá recomendaciones sobre las políticas públicas en materia de sustentabilidad y tecnología limpia…"',
             },
@@ -236,7 +236,7 @@ const TEMAS = [
         menciones: [
             { siglas: 'LCPE', nombre: 'Lineamientos de Operación', valor: 35, color: '#1E5B4F' },
             { siglas: 'LPTE', nombre: 'Ley General de Planeación', valor: 22, color: '#9B2247' },
-            { siglas: 'LB', nombre: 'Ley de Biocombustibles', valor: 4, color: '#25D366' },
+            { siglas: 'LB', nombre: 'Ley de Biocombustibles', valor: 4, color: '#1E5B4F' },
             { siglas: 'LSH', nombre: 'Legislación Petrolera', valor: 3, color: '#A57F2C' },
             { siglas: 'LSE', nombre: 'Legislación Eléctrica', valor: 2, color: '#444' },
         ],
@@ -247,7 +247,7 @@ const TEMAS = [
         titulo: 'Transición y Sustentabilidad',
         subtitulo: 'Hacia un Futuro Limpio y Eficiente',
         objetivo: 'La meta ineludible del Estado y los particulares para reducir emisiones contaminantes, generar más energías limpias, sustituir combustibles fósiles gradualmente y combatir el cambio climático de forma progresiva.',
-        color: '#25D366',
+        color: '#1E5B4F',
         metricas: [
             { valor: '15', label: 'leyes y reglamentos' },
             { valor: '236', label: 'menciones obligatorias' },
@@ -290,7 +290,7 @@ const TEMAS = [
                 nivel: 4,
                 rol: 'EL BENEFICIO FINAL',
                 nodos: [
-                    { id: 'cero-emisiones', titulo: 'Reducción de Emisiones', descripcion: 'Mitigar el cambio climático y proteger la salud y el medio ambiente del pueblo de México.', color: '#25D366', articulos: ['RLPTE-Art-005'], refs: 'Sustentabilidad' },
+                    { id: 'cero-emisiones', titulo: 'Reducción de Emisiones', descripcion: 'Mitigar el cambio climático y proteger la salud y el medio ambiente del pueblo de México.', color: '#1E5B4F', articulos: ['RLPTE-Art-005'], refs: 'Sustentabilidad' },
                 ],
                 conector: null,
             },
@@ -304,7 +304,7 @@ const TEMAS = [
             },
             {
                 id: 'LB-Art-001',
-                siglas: 'Bio', color: '#25D366', label: 'Biocomb.', rol: 'Nueva Matriz',
+                siglas: 'Bio', color: '#1E5B4F', label: 'Biocomb.', rol: 'Nueva Matriz',
                 descripcion: 'Reconoce que aprovechar los residuos y cultivos de forma sustentable ayudará a reducir gases contaminantes en el país.',
                 extracto: '"La presente Ley... tiene por objeto regular y promover el desarrollo sustentable de los Biocombustibles... Contribuir con la reducción de las emisiones contaminantes a la atmósfera..."',
             },
@@ -319,7 +319,7 @@ const TEMAS = [
             { siglas: 'LPTE', nombre: 'Ley Transición', valor: 64, color: '#9B2247' },
             { siglas: 'LSE', nombre: 'Legislación Eléctrica', valor: 49, color: '#1E5B4F' },
             { siglas: 'BME/CENACE', nombre: 'Mercado Mayorista', valor: 37, color: '#444' },
-            { siglas: 'LB', nombre: 'Biocombustibles', valor: 26, color: '#25D366' },
+            { siglas: 'LB', nombre: 'Biocombustibles', valor: 26, color: '#1E5B4F' },
         ],
     },
     {
@@ -409,7 +409,7 @@ const TEMAS = [
         titulo: 'Justicia Energética',
         subtitulo: 'Beneficio Social y Utilidad Pública',
         objetivo: 'Establece el cambio de paradigma donde el acceso a la energía no es un simple producto comercial, sino un asunto de interés y utilidad pública. Obliga a todo el sector a procurar que los beneficios lleguen al pueblo de México sin afán de lucro excesivo.',
-        color: '#7a1b38',
+        color: '#9B2247',
         metricas: [
             { valor: '9', label: 'leyes y reglamentos' },
             { valor: '84', label: 'menciones halladas' },
@@ -451,7 +451,7 @@ const TEMAS = [
                 nivel: 4,
                 rol: 'EL IMPACTO EN LAS COMUNIDADES',
                 nodos: [
-                    { id: 'tarifas-justas', titulo: 'Tarifas y Electrificación', descripcion: 'Que el Estado mantenga tarifas protegidas y lleve luz a donde las empresas privadas no verían negocio.', color: '#25D366', articulos: ['LCNE-Art-001'], refs: 'Desarrollo Nacional' },
+                    { id: 'tarifas-justas', titulo: 'Tarifas y Electrificación', descripcion: 'Que el Estado mantenga tarifas protegidas y lleve luz a donde las empresas privadas no verían negocio.', color: '#1E5B4F', articulos: ['LCNE-Art-001'], refs: 'Desarrollo Nacional' },
                 ],
                 conector: null,
             },
@@ -503,9 +503,14 @@ function injectStyles() {
 }
 .aview-back:hover { opacity: 0.65; }
 .aview-header-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 600;
-    color: #1a1a1a; line-height: 1.1; margin-bottom: 0.35rem;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 700;
+    line-height: 1.1; margin-bottom: 0.35rem;
+    color: #1a1a1a;
+}
+.aview-header-title span {
+    color: #9B2247;
+    font-style: italic;
 }
 .aview-header-sub {
     font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
@@ -554,8 +559,8 @@ function injectStyles() {
     font-family: 'Noto Sans', sans-serif;
 }
 .atema-titulo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 600;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700;
     color: #1a1a1a; line-height: 1.15; margin-bottom: 0.75rem;
 }
 .atema-objetivo {
@@ -1187,7 +1192,7 @@ export function renderAnalisisView(container) {
                 Inicio
             </button>
             <h1 class="aview-header-title">
-                Análisis de <em style="color:#9B2247;font-style:italic">Temas Transversales</em>
+                <span>Análisis</span> Transversal
             </h1>
             <p class="aview-header-sub">Marco Legal Energético · SENER · México</p>
             <div class="aview-divider">
@@ -1214,13 +1219,23 @@ export function renderAnalisisView(container) {
             
             const targetId = btn.dataset.temaId;
             wrappers.forEach(w => {
-                w.classList.toggle('hidden', w.id !== 'wrapper-' + targetId);
+                const isTarget = w.id === 'wrapper-' + targetId;
+                w.classList.toggle('hidden', !isTarget);
+                
+                if (isTarget && typeof anime !== 'undefined') {
+                    // Staggered entry for components
+                    anime({
+                        targets: w.querySelectorAll('.atema-hero, .atema-atributos, .atema-tabs'),
+                        translateY: [15, 0],
+                        opacity: [0, 1],
+                        delay: anime.stagger(100),
+                        duration: 600,
+                        easing: 'easeOutQuint'
+                    });
+                    
+                    animateBars(w);
+                }
             });
-            
-            const activeTemaEl = container.querySelector('#wrapper-' + targetId);
-            if (activeTemaEl) {
-                animateBars(activeTemaEl);
-            }
         });
     });
 

@@ -7,7 +7,12 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(where npm:*)",
       "Bash(node -e \":*)",
-      "Bash(node node_modules/vite/bin/vite.js build)"
+      "Bash(node node_modules/vite/bin/vite.js build)",
+      "Bash(head:*)",
+      "Bash(true:*)",
+      "Bash(echo:*)",
+      "Bash(curl:*)",
+      "Bash(ls public/data/*.json)"
     ]
   }
 }

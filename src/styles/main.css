@@ -124,6 +124,43 @@ button {
     background: var(--gradient-header);
 }
 
+/* TOC de articulos: usar clases propias porque parte del markup se inyecta por JS
+   y no siempre queda cubierto por las utilidades generadas de Tailwind. */
+#toc-content-grid,
+#toc-content-grid .toc-grid-scroll,
+#toc-content-grid .toc-grid-layout {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.toc-grid-scroll {
+    padding: 0 1.25rem 2.5rem;
+    box-sizing: border-box;
+}
+
+.toc-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(4.25rem, 1fr));
+    gap: 0.5rem;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.toc-art-grid-btn {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .toc-grid-layout {
+        grid-template-columns: repeat(6, minmax(4.5rem, 1fr));
+    }
+}
+
 .header-content {
     display: flex;
     align-items: center;

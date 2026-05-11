@@ -21,7 +21,7 @@ module.exports = {
         border: '#E2DEDD',
       },
       fontFamily: {
-        head: ['Merriweather', 'Georgia', 'serif'],
+        head: ['Merriweather', 'Patria', 'Georgia', 'serif'],
         body: ['Noto Sans', 'system-ui', 'sans-serif'],
       },
       keyframes: {

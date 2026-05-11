@@ -745,3 +745,123 @@ a:hover {
         padding: 0 1rem;
     }
 }
+/* ============================================================
+   CYBERPUNK SENER 2025 - ULTIMATE DARK MODE OVERRIDES
+   ============================================================ */
+
+/* Universal Deep Black Saturation */
+html.dark-mode, 
+html.dark-mode body,
+html.dark-mode header,
+html.dark-mode footer,
+html.dark-mode main,
+html.dark-mode section,
+html.dark-mode div[class*="bg-"],
+html.dark-mode #main-container,
+html.dark-mode #hero-section,
+html.dark-mode #results-container,
+html.dark-mode #law-detail-container,
+html.dark-mode #analisis-container,
+html.dark-mode #admin-ingest-container,
+html.dark-mode #help-view-container {
+    background-color: #050505 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
+
+/* Re-inject grid on body correctly */
+html.dark-mode body.app-polished::before {
+    content: "" !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: 
+        linear-gradient(rgba(255, 30, 86, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255, 30, 86, 0.08) 1.5px, transparent 1.5px) !important;
+    background-size: 50px 50px !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    opacity: 0.8 !important;
+}
+
+/* Eliminate all light surfaces */
+.dark-mode .bg-white,
+.dark-mode .bg-gray-50,
+.dark-mode .bg-gray-100,
+.dark-mode .bg-slate-50,
+.dark-mode .bg-slate-100,
+.dark-mode .bg-amber-50,
+.dark-mode .bg-emerald-50,
+.dark-mode .bg-blue-50,
+.dark-mode .bg-indigo-50,
+.dark-mode .bg-white\/70,
+.dark-mode .bg-white\/80,
+.dark-mode .bg-white\/95,
+.dark-mode .bg-gray-50\/50,
+.dark-mode .atema-card,
+.dark-mode .atema-hero,
+.dark-mode .atema-attr,
+.dark-mode .aart-card,
+.dark-mode .aflujo-panel,
+.dark-mode .achart-bar-wrap,
+.dark-mode #modal-panel,
+.dark-mode #auth-panel,
+.dark-mode #toc-panel,
+.dark-mode #compare-panel,
+.dark-mode .result-item,
+.dark-mode .law-card-bg-fix {
+    background-color: #0a0a0a !important;
+    border-color: rgba(255, 30, 86, 0.3) !important;
+    color: #ffffff !important;
+}
+
+/* Border Glows & Accents */
+.dark-mode .border-gray-100,
+.dark-mode .border-gray-200,
+.dark-mode .border-slate-100 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Specific Table Overrides */
+.dark-mode table, .dark-mode tr, .dark-mode td, .dark-mode th {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode thead tr {
+    background-color: #000000 !important;
+    border-bottom: 2px solid #FF1E56 !important;
+}
+
+.dark-mode th {
+    color: #FF1E56 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-weight: 800 !important;
+}
+
+/* Typography Neon Re-reinforcement */
+.dark-mode .text-guinda, .dark-mode .atema-titulo { color: #FF1E56 !important; }
+.dark-mode .text-verde { color: #00FF9D !important; }
+.dark-mode .text-dorado { color: #FFB800 !important; }
+.dark-mode .text-gray-900, .dark-mode .text-gray-800, .dark-mode .text-gray-700, .dark-mode .text-gray-600 {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Hero Watermark Fix */
+.dark-mode #watermark-symbol {
+    color: #FF1E56 !important;
+    opacity: 0.1 !important;
+}
+
+/* Scrollbars */
+.dark-mode ::-webkit-scrollbar-track {
+    background: #050505 !important;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: rgba(255, 30, 86, 0.3) !important;
+    border: 2px solid #050505 !important;
+}

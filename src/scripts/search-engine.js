@@ -1,296 +1,300 @@
-import lunr from 'lunr';
-import lunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js';
-import lunrEs from 'lunr-languages/lunr.es.js';
+import { supabase } from '../lib/supabase.js';
 
-// Registrar el plugin de español en la instancia de lunr
-lunrStemmerSupport(lunr);
-lunrEs(lunr);
-
-let searchIndex;
-let allData = [];
-
-// ── Hash de versión del manifest ───────────────────────────────────────────
-/**
- * Hash djb2 rápido para generar una clave de versión del manifest.
- * Si los archivos de datos cambian (agregar/quitar leyes), el hash cambia
- * y el caché en localStorage queda inválido automáticamente.
- */
-function computeManifestHash(fileList) {
-  const str = JSON.stringify(fileList);
-  let hash = 5381;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) + hash + str.charCodeAt(i)) >>> 0;
-  }
-  return hash.toString(36);
-}
-
-// ── LocalStorage cache ─────────────────────────────────────────────────────
-const CACHE_PREFIX = 'bl-cache-v';
-
-function getCacheKey(hash) {
-  return `${CACHE_PREFIX}${hash}`;
-}
-
-/** Limpia entradas de caché antiguas de versiones previas */
-function purgeOldCache(currentKey) {
-  const keys = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const k = localStorage.key(i);
-    if (k && k.startsWith(CACHE_PREFIX) && k !== currentKey) keys.push(k);
-  }
-  keys.forEach(k => localStorage.removeItem(k));
-}
-
-/**
- * Guarda índice + datos en localStorage.
- * Si hay QuotaExceededError, intenta guardar solo el índice.
- * Si falla de nuevo, omite el caché silenciosamente.
- */
-function saveToCache(hash, index, data) {
-  const key = getCacheKey(hash);
-  purgeOldCache(key);
-
-  const serializedIndex = JSON.stringify(index);
-
-  // Intento 1: guardar índice + datos completos
-  try {
-    const payload = JSON.stringify({ v: 2, index: serializedIndex, data });
-    localStorage.setItem(key, payload);
-    console.log(`[Cache] Guardado índice + datos (${(payload.length / 1024).toFixed(0)} KB)`);
-    return;
-  } catch (e) {
-    if (e.name !== 'QuotaExceededError') {
-      console.warn('[Cache] Error inesperado al guardar:', e.message);
-      return;
-    }
-  }
-
-  // Intento 2: guardar solo el índice (datos se recargan desde red)
-  try {
-    const payload = JSON.stringify({ v: 2, index: serializedIndex });
-    localStorage.setItem(key, payload);
-    console.log(`[Cache] Guardado solo índice (${(payload.length / 1024).toFixed(0)} KB) — quota insuficiente para datos`);
-  } catch (e) {
-    console.warn('[Cache] No se pudo guardar en localStorage (quota excedida):', e.message);
-  }
-}
-
-/**
- * Carga caché desde localStorage.
- * Retorna:
- *   { index, data }   → caché completo (sin necesidad de red)
- *   { index }         → solo índice (datos deben cargarse desde red)
- *   null              → sin caché válido
- */
-function loadFromCache(hash) {
-  try {
-    const raw = localStorage.getItem(getCacheKey(hash));
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (!parsed || parsed.v !== 2 || !parsed.index) return null;
-
-    const index = lunr.Index.load(JSON.parse(parsed.index));
-    const data = parsed.data || null;
-    return { index, data };
-  } catch (e) {
-    console.warn('[Cache] Error al cargar caché, se descartará:', e.message);
-    return null;
-  }
-}
-
-// ── Construcción del índice Lunr ───────────────────────────────────────────
-function buildIndex(docs) {
-  return lunr(function () {
-    this.use(lunr.es);
-    this.ref('id');
-    this.field('texto');
-    this.field('titulo_nombre', { boost: 5 });
-    this.field('capitulo_nombre', { boost: 3 });
-    this.field('articulo_label', { boost: 10 });
-    this.field('ley_origen', { boost: 5 });
-    docs.forEach(doc => this.add(doc));
-  });
-}
-
-/** Aplana los JSON de leyes a un array plano de artículos */
-function flattenJsons(jsonFiles) {
-  return jsonFiles.flatMap(json =>
-    json.articulos.map(art => ({
-      ...art,
-      ley_origen: json.metadata.ley,
-      fecha_publicacion: json.metadata.fecha_publicacion
-    }))
-  );
-}
-
-// ── Generación de summaries (sin cambios) ──────────────────────────────────
-function generateSummaries(jsonFiles) {
-  return jsonFiles.map(json => {
-    const meta = json.metadata;
-    const chapters = {};
-    json.articulos.forEach(a => {
-      if (!chapters[a.capitulo_nombre]) chapters[a.capitulo_nombre] = 0;
-      chapters[a.capitulo_nombre]++;
-    });
-
-    const sortedChapters = Object.entries(chapters)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 3)
-      .map(e => e[0]);
-
+function mapRowToLocalItem(row) {
     return {
-      titulo: meta.ley,
-      fecha: meta.fecha_publicacion,
-      articulos: meta.total_articulos,
-      temas_clave: sortedChapters,
-      id: meta.ley.replace(/\s+/g, '-').toLowerCase(),
-      resumen: meta.resumen || 'No hay resumen disponible para este documento.'
+        id: row.id,
+        ley_origen: row.leyes?.titulo || 'Desconocida',
+        fecha_publicacion: row.leyes?.fecha_publicacion || null,
+        articulo_label: row.identificador,
+        tipo_articulo: row.tipo_articulo || 'ordinario',
+        titulo_nombre: row.titulo_nombre || '',
+        capitulo_nombre: row.capitulo_nombre || '',
+        texto: row.contenido,
+        url_original: row.leyes?.url_original || null,
+        score: row.score || 1
     };
-  });
 }
 
-/** Despacha el evento search-ready con estadísticas actuales */
-function dispatchReady(jsonFiles) {
-  const uniqueLeyes = new Set(allData.map(d => d.ley_origen));
-  const summaries = generateSummaries(jsonFiles);
-  window.dispatchEvent(new CustomEvent('search-ready', {
-    detail: {
-      totalLeyes: uniqueLeyes.size,
-      totalArticulos: allData.length,
-      leyes: Array.from(uniqueLeyes),
-      summaries
-    }
-  }));
-}
-
-// ── Fetch de un archivo JSON de ley ────────────────────────────────────────
-function fetchLaw(filename) {
-  return fetch(`/data/${filename}`).then(r => {
-    if (!r.ok) throw new Error(`HTTP ${r.status} para ${filename}`);
-    return r.json();
-  });
-}
-
-// ── Inicialización principal ───────────────────────────────────────────────
 export async function initSearch() {
-  try {
-    console.log('[Search] Iniciando...');
+    try {
+        console.log('[Search] Conectando a Supabase...');
+        const { data: leyesData, error } = await supabase
+            .from('leyes')
+            .select('id, titulo, fecha_publicacion, temas_clave, url_original, articulos(count)');
 
-    // 1. Cargar manifest (pequeño, ~400 bytes)
-    const manifestRes = await fetch('/data/manifest.json');
-    if (!manifestRes.ok) throw new Error('Manifest no encontrado');
-    const files = await manifestRes.json();
-    const manifestHash = computeManifestHash(files);
+        if (error) throw error;
 
-    // 2. Intentar usar caché de localStorage
-    const cached = loadFromCache(manifestHash);
+        const totalArticulos = leyesData.reduce((acc, l) => acc + (l.articulos[0]?.count || 0), 0);
+        const uniqueLeyes = leyesData.map(l => l.titulo);
 
-    if (cached && cached.data) {
-      // ── Ruta rápida: caché completo (índice + datos) ───────────────────
-      console.log('[Search] ✓ Caché completo encontrado — sin necesidad de red');
-      searchIndex = cached.index;
-      allData = cached.data;
+        const summaries = leyesData.map(l => ({
+            titulo: l.titulo,
+            fecha: l.fecha_publicacion || 'N/D',
+            articulos: l.articulos[0]?.count || 0,
+            temas_clave: l.temas_clave || [],
+            id: l.id,
+            resumen: l.titulo,
+            url_original: l.url_original || null
+        }));
 
-      // Reconstruir summaries desde allData (agrupar por ley)
-      const lawGroups = {};
-      allData.forEach(art => {
-        if (!lawGroups[art.ley_origen]) lawGroups[art.ley_origen] = { metadata: { ley: art.ley_origen, fecha_publicacion: art.fecha_publicacion, total_articulos: 0, resumen: '' }, articulos: [] };
-        lawGroups[art.ley_origen].articulos.push(art);
-        lawGroups[art.ley_origen].metadata.total_articulos++;
-      });
-      dispatchReady(Object.values(lawGroups));
-      return;
+        window.dispatchEvent(new CustomEvent('search-ready', {
+            detail: {
+                totalLeyes: uniqueLeyes.length,
+                totalArticulos,
+                leyes: uniqueLeyes,
+                summaries
+            }
+        }));
+        console.log('[Search] Conectado a Supabase y metadatos listos.');
+    } catch (e) {
+        console.error('[Search] Error inicializando Supabase:', e);
     }
-
-    if (cached && !cached.data) {
-      // ── Ruta semi-rápida: solo índice cacheado, cargar datos en fondo ──
-      console.log('[Search] ✓ Índice encontrado en caché — cargando datos en background');
-      searchIndex = cached.index;
-      // allData sigue vacío; se llenará cuando lleguen los JSON
-      // Lanzar carga completa en background (sin await)
-      Promise.all(files.map(fetchLaw)).then(jsonFiles => {
-        allData = flattenJsons(jsonFiles);
-        searchIndex = buildIndex(allData); // Reconstruir para sincronizar con datos
-        dispatchReady(jsonFiles);
-        saveToCache(manifestHash, searchIndex, allData);
-        console.log(`[Search] ✓ Datos cargados tras caché parcial: ${allData.length} artículos`);
-      }).catch(e => console.error('[Search] Error cargando datos background:', e));
-
-      // No despachamos search-ready aquí porque allData está vacío.
-      // El evento se despacha cuando llegan los datos.
-      return;
-    }
-
-    // 3. Sin caché: carga lazy por lotes
-    // ─ Primer lote: primeros BATCH_SIZE archivos (más pequeños del manifest)
-    const BATCH_SIZE = 5;
-    const firstBatch = files.slice(0, BATCH_SIZE);
-    const restBatch = files.slice(BATCH_SIZE);
-
-    console.log(`[Search] Cargando primer lote (${firstBatch.length} leyes)...`);
-    const firstJsons = await Promise.all(firstBatch.map(fetchLaw));
-    allData = flattenJsons(firstJsons);
-    searchIndex = buildIndex(allData);
-    dispatchReady(firstJsons);
-    console.log(`[Search] ✓ Primer lote listo: ${allData.length} artículos indexados`);
-
-    // ─ Segundo lote: resto de archivos en background
-    if (restBatch.length > 0) {
-      console.log(`[Search] Cargando lote secundario (${restBatch.length} leyes) en background...`);
-      Promise.all(restBatch.map(fetchLaw)).then(restJsons => {
-        const allJsons = [...firstJsons, ...restJsons];
-        allData = flattenJsons(allJsons);
-        searchIndex = buildIndex(allData);
-        dispatchReady(allJsons);
-        console.log(`[Search] ✓ Índice completo: ${allData.length} artículos`);
-
-        // Guardar en caché para la siguiente carga
-        saveToCache(manifestHash, searchIndex, allData);
-      }).catch(e => console.error('[Search] Error en lote secundario:', e));
-    } else {
-      // Solo había un lote; guardar caché de todos modos
-      saveToCache(manifestHash, searchIndex, allData);
-    }
-
-  } catch (e) {
-    console.error('[Search] Error en inicialización:', e);
-  }
 }
 
-// ── API pública (sin cambios respecto a versión anterior) ──────────────────
-export function performSearch(query) {
-  if (!searchIndex) return [];
+// Helper: aplica filtros de ley/tipo/articulo a cualquier query base
+function applyFilters(q, filters) {
+    if (!filters) return q;
+    
+    if (filters.law && filters.law !== 'all') {
+        q = q.eq('leyes.titulo', filters.law);
+    }
+    if (filters.type && filters.type !== 'all') {
+        // Usamos % al inicio por si acaso hay espacios o caracteres invisibles, 
+        // aunque lo ideal es que coincida con el inicio.
+        if (filters.type === 'ley') q = q.ilike('leyes.titulo', 'ley%');
+        if (filters.type === 'reglamento') q = q.ilike('leyes.titulo', 'reglamento%');
+        if (filters.type === 'otros') q = q.not('leyes.titulo', 'ilike', 'ley%').not('leyes.titulo', 'ilike', 'reglamento%');
+    }
+    if (filters.artNum) {
+        q = q.ilike('identificador', '%' + filters.artNum + '%');
+    }
+    return q;
+}
 
-  try {
-    let processedQuery = query;
-    const isSimpleQuery = !/[~*^:+]/.test(query);
+export async function performSearch(query, page = 1, limit = 20, filters = {}) {
+    if (!query || query.trim().length < 3) return { data: [], total: 0 };
 
-    if (isSimpleQuery) {
-      processedQuery = query.split(/\s+/)
-        .filter(t => t.length > 2 || /^\d+°?$/.test(t))
-        .map(t => `${t}~1 ${t}*`)
-        .join(' ');
+    const from = (page - 1) * limit;
+    const to = from + limit - 1;
+    const queryTrim = query.trim();
+
+    // 1) Tiered Search Attempt
+    try {
+        // A) Intentar coincidencia de frase exacta primero (más relevante)
+        let qPhrase = applyFilters(
+            supabase.from('articulos')
+                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, fecha_publicacion, url_original )', { count: 'exact' }),
+            filters
+        ).textSearch('fts', queryTrim, { config: 'spanish', type: 'phrase' });
+        
+        const { data: dataP, error: errorP, count: countP } = await qPhrase.range(from, to);
+        
+        if (!errorP && (countP > 0 || (dataP && dataP.length > 0))) {
+            const total = (countP !== null && countP !== undefined) ? countP : dataP.length;
+            console.log('[Search] Coincidencia de frase exacta: ' + total + ' resultados');
+            return { 
+                data: dataP.map((row, i) => Object.assign({}, mapRowToLocalItem(row), { score: 1000 - i })), 
+                total: total 
+            };
+        }
+
+        // B) Fallback a WebSearch (soporta operadores implícitos y es más flexible que FTS puro)
+        let qWeb = applyFilters(
+            supabase.from('articulos')
+                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, fecha_publicacion, url_original )', { count: 'exact' }),
+            filters
+        ).textSearch('fts', queryTrim, { config: 'spanish', type: 'websearch' });
+        
+        const { data: dataW, error: errorW, count: countW } = await qWeb.range(from, to);
+
+        if (!errorW && (countW > 0 || (dataW && dataW.length > 0))) {
+            const total = (countW !== null && countW !== undefined) ? countW : dataW.length;
+            console.log('[Search] Coincidencia WebSearch: ' + total + ' resultados');
+            return { 
+                data: dataW.map((row, i) => Object.assign({}, mapRowToLocalItem(row), { score: 500 - i })), 
+                total: total 
+            };
+        }
+
+        if (errorP || errorW) console.warn('[Search] Errores en FTS, usando fallback ilike');
+    } catch (e) {
+        console.warn('[Search] Excepción en búsqueda optimizada:', e.message);
     }
 
-    const results = searchIndex.search(processedQuery);
-    return results.map(res => {
-      const item = allData.find(d => d.id === res.ref);
-      return { ...item, score: res.score, matchData: res.matchData };
-    }).filter(r => r.id); // Filtrar items aún no cargados
-  } catch (e) {
-    console.warn('[Search] Error en búsqueda:', e);
-    return [];
-  }
+    // 2) Fallback: ilike sobre contenido (siempre funciona)
+    try {
+        const words = queryTrim.split(/\s+/);
+        let q = applyFilters(
+            supabase.from('articulos')
+                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, fecha_publicacion, url_original )', { count: 'exact' }),
+            filters
+        );
+        // Aplica un ilike por cada palabra (AND implicito)
+        for (const word of words) {
+            if (word.length > 2) q = q.ilike('contenido', '%' + word + '%');
+        }
+        const { data, error, count } = await q.range(from, to);
+        if (error) throw error;
+        console.log('[Search] ilike fallback: ' + count + ' resultados');
+        return { data: (data || []).map(function(row, i) { return Object.assign({}, mapRowToLocalItem(row), { score: 100 - i }); }), total: count || 0 };
+    } catch (e) {
+        console.error('[Search] Error en busqueda:', e.message);
+        return { data: [], total: 0 };
+    }
 }
 
-export function getArticleById(id) {
-  return allData.find(d => d.id === id);
+export async function getSearchCountsByLaw(query, filters = {}) {
+    if (!query || query.trim().length < 3) return [];
+    try {
+        const queryTrim = query.trim();
+        
+        // REPLICAR LOGICA POR NIVELES PARA EL CONTEO
+        async function getCounts(type) {
+            let q = applyFilters(
+                supabase.from('articulos').select('ley_id, leyes!inner ( titulo )'),
+                filters
+            );
+            
+            if (type === 'phrase') q = q.textSearch('fts', queryTrim, { config: 'spanish', type: 'phrase' });
+            else if (type === 'websearch') q = q.textSearch('fts', queryTrim, { config: 'spanish', type: 'websearch' });
+            else {
+                for (const word of queryTrim.split(/\s+/)) {
+                    if (word.length > 2) q = q.ilike('contenido', '%' + word + '%');
+                }
+            }
+            
+            const { data, error } = await q;
+            if (error) throw error;
+            return data;
+        }
+
+        let data = [];
+        // Intentar niveles en orden
+        data = await getCounts('phrase');
+        if (data.length === 0) data = await getCounts('websearch');
+        if (data.length === 0) data = await getCounts('ilike');
+
+        if (!data || data.length === 0) return [];
+
+        // Count by ley
+        const counts = {};
+        for (const row of data) {
+            const titulo = row.leyes?.titulo || 'Desconocida';
+            counts[titulo] = (counts[titulo] || 0) + 1;
+        }
+        return Object.entries(counts)
+            .map(function([ley, count]) { return { ley: ley, count: count }; })
+            .sort(function(a, b) { return b.count - a.count; });
+    } catch (e) {
+        console.error('[Search] Error contando por ley:', e);
+        return [];
+    }
 }
 
-export function getArticlesByLaw(lawName) {
-  return allData.filter(d => d.ley_origen === lawName);
+export async function getArticleById(id) {
+    if (!id) return null;
+    try {
+        const { data, error } = await supabase
+            .from('articulos')
+            .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, leyes ( titulo, fecha_publicacion )')
+            .eq('id', id)
+            .single();
+
+        if (error || !data) return null;
+        return mapRowToLocalItem(data);
+    } catch (e) {
+        console.error('[Search] Error obteniendo articulo:', e);
+        return null;
+    }
 }
 
-export function getAllData() {
-  return allData;
+export async function getArticlesByLaw(lawName) {
+    if (!lawName) return [];
+    try {
+        const { data: lawData } = await supabase
+            .from('leyes')
+            .select('id')
+            .eq('titulo', lawName)
+            .single();
+
+        if (!lawData) return [];
+
+        const { data, error } = await supabase
+            .from('articulos')
+            .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, leyes ( titulo, fecha_publicacion )')
+            .eq('ley_id', lawData.id)
+            .order('orden', { ascending: true });
+
+        if (error) throw error;
+        return (data || []).map(mapRowToLocalItem);
+    } catch (e) {
+        console.error('[Search] Error obteniendo articulos de ley:', e);
+        return [];
+    }
+}
+
+export async function getLawMetadata(lawName) {
+    if (!lawName) return null;
+    try {
+        const { data, error } = await supabase
+            .from('leyes')
+            .select('id, titulo, fecha_publicacion, temas_clave, url_original, articulos(count)')
+            .eq('titulo', lawName)
+            .single();
+
+        if (error || !data) return null;
+        return {
+            id: data.id,
+            titulo: data.titulo,
+            fecha_publicacion: data.fecha_publicacion,
+            temas_clave: data.temas_clave || [],
+            url_original: data.url_original || null,
+            total_articulos: data.articulos[0]?.count || 0
+        };
+    } catch (e) {
+        console.error('[Search] Error obteniendo metadatos de ley:', e);
+        return null;
+    }
+}
+
+export async function getLawTemas(lawId) {
+    if (!lawId) return [];
+    try {
+        const { data, error } = await supabase
+            .from('temas')
+            .select('nivel, nombre, orden')
+            .eq('ley_id', lawId)
+            .order('orden', { ascending: true });
+
+        if (error) throw error;
+        return data || [];
+    } catch (e) {
+        console.error('[Search] Error obteniendo temas:', e);
+        return [];
+    }
+}
+
+export async function getThemesByLawName(lawName) {
+    if (!lawName) return [];
+    try {
+        const { data: lawData } = await supabase
+            .from('leyes')
+            .select('id')
+            .eq('titulo', lawName)
+            .single();
+
+        if (!lawData) return [];
+
+        const { data, error } = await supabase
+            .from('temas')
+            .select('nivel, nombre, orden')
+            .eq('ley_id', lawData.id)
+            .order('orden', { ascending: true });
+
+        if (error) throw error;
+        return data || [];
+    } catch (e) {
+        console.error('[Search] Error obteniendo temas por ley:', e);
+        return [];
+    }
 }

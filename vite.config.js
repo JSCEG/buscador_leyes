@@ -8,23 +8,33 @@ const manifestPlugin = () => {
   return {
     name: 'manifest-generator',
     configureServer(server) {
-      const handleFileChange = async (file) => {
-        if (file.includes('public') && file.includes('data') && file.endsWith('.json') && !file.endsWith('manifest.json')) {
-          console.log(`[Manifest Plugin] File changed: ${file}. Regenerating manifest...`);
-          try {
-            await execAsync('node generate-manifest.js');
-            console.log('[Manifest Plugin] Manifest regenerated.');
-          } catch (error) {
-            console.error('[Manifest Plugin] Error regenerating manifest:', error);
-          }
+      // isReady evita que los eventos 'add' del escaneo inicial de chokidar
+      // (uno por cada JSON existente en public/data/) disparen regeneraciones
+      // en cascada que causan full-reloads repetidos al arrancar.
+      let isReady = false;
+      let debounceTimer = null;
+
+      const regenerateManifest = async (file) => {
+        console.log(`[Manifest Plugin] File changed: ${file}. Regenerating manifest...`);
+        try {
+          await execAsync('node generate-manifest.js');
+          console.log('[Manifest Plugin] Manifest regenerated.');
+        } catch (error) {
+          console.error('[Manifest Plugin] Error regenerating manifest:', error);
         }
       };
 
+      const handleFileChange = (file) => {
+        if (!isReady) return;
+        if (file.includes('public') && file.includes('data') && file.endsWith('.json') && !file.endsWith('manifest.json')) {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => regenerateManifest(file), 300);
+        }
+      };
+
+      server.watcher.once('ready', () => { isReady = true; });
       server.watcher.on('add', handleFileChange);
       server.watcher.on('unlink', handleFileChange);
-      // We don't need to watch 'change' for manifest generation unless filenames change, but 'add'/'unlink' cover new/deleted files.
-      // If content changes, manifest doesn't change, but search index might need reload (which Vite HMR might not handle for raw JSON fetch).
-      // But for manifest, add/unlink is key.
     }
   }
 };
@@ -46,4 +56,10 @@ export default defineConfig({
     // Limpia dist/ antes de cada build para evitar acumulación de assets viejos
     emptyOutDir: true,
   },
+  server: {
+    port: 5173,
+    hmr: {
+      clientPort: 5173
+    }
+  }
 });

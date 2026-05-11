@@ -7,11 +7,15 @@
     "build": "node generate-manifest.js && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "install:pdf2md": "node install-pdf2md.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.99.3",
+    "dotenv": "^17.3.1",
     "lunr": "^2.3.9",
-    "lunr-languages": "^1.14.0"
+    "lunr-languages": "^1.14.0",
+    "pdf2json": "^4.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

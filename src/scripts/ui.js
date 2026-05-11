@@ -1,5 +1,6 @@
-import { performSearch, getArticleById, getArticlesByLaw, getAllData } from './search-engine.js';
+import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName } from './search-engine.js';
 import { renderAnalisisView } from './analisis.js';
+import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote } from './auth.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -9,6 +10,8 @@ export function initUI() {
     const heroSection = document.getElementById('hero-section');
     const mainContainer = document.getElementById('main-container');
     const quickFilters = document.getElementById('quick-filters');
+    const globalSearchWrapper = document.getElementById('global-search-wrapper');
+    const featuresSection = document.getElementById('features-section');
     const detailModal = document.getElementById('detail-modal');
     const modalPanel = document.getElementById('modal-panel');
     const modalContent = document.getElementById('modal-content');
@@ -30,13 +33,19 @@ export function initUI() {
     const mobileNavInicio = document.getElementById('mobile-nav-inicio');
     const mobileNavLeyes = document.getElementById('mobile-nav-leyes');
 
+    // ── Auth DB caches (null = not loaded / user not logged in) ───────────────
+    let dbFavoritesSet = null; // Set<string> when loaded
+    let dbNotesMap = null;     // Map<string,string> when loaded
+    let searchHistory = [];
+    let openAuthModal = () => {};
+    let closeAuthModal = () => {};
+
     // ── Modo oscuro global ─────────────────────────────────────────────────────
-    const DARK_KEY = 'app-dark-mode';
-    let isDark = localStorage.getItem(DARK_KEY) === 'true';
+    let isDark = localStorage.getItem('app-dark-mode') === 'true';
 
     function applyGlobalDark(dark) {
         isDark = dark;
-        localStorage.setItem(DARK_KEY, dark);
+        localStorage.setItem('app-dark-mode', dark);
         document.documentElement.classList.toggle('dark-mode', dark);
 
         // Ensure global dark styles exist
@@ -44,32 +53,57 @@ export function initUI() {
             const s = document.createElement('style');
             s.id = 'global-dark-style';
             s.innerHTML = `
-                .dark-mode { background-color: #111 !important; color: #e5e5e5 !important; }
-                .dark-mode header { background-color: #111 !important; border-color: #222 !important; }
-                .dark-mode footer { border-color: #222 !important; background-color: #111 !important; }
-                .dark-mode .bg-white { background-color: #1e1e1e !important; }
-                .dark-mode .bg-gray-50 { background-color: #1a1a1a !important; }
-                .dark-mode .border-gray-100, .dark-mode .border-gray-200 { border-color: #2d2d2d !important; }
-                .dark-mode .text-gray-900, .dark-mode .text-gray-800 { color: #f5f5f5 !important; }
-                .dark-mode .text-gray-700, .dark-mode .text-gray-600 { color: #d4d4d4 !important; }
-                .dark-mode .text-gray-500 { color: #a3a3a3 !important; }
-                .dark-mode .text-gray-400, .dark-mode .text-gray-300 { color: #737373 !important; }
-                .dark-mode .shadow-lg, .dark-mode .shadow-xl, .dark-mode .shadow-2xl { box-shadow: 0 4px 24px rgba(0,0,0,0.5) !important; }
-                .dark-mode #search-input { background-color: #1e1e1e !important; border-color: #333 !important; color: #f5f5f5 !important; }
-                .dark-mode #search-input::placeholder { color: #555 !important; }
-                .dark-mode #search-input:focus { border-color: #9B2247 !important; }
-                .dark-mode .hover\\:bg-gray-50:hover { background-color: #252525 !important; }
-                .dark-mode .bg-guinda\\/5 { background-color: rgba(155,34,71,0.15) !important; }
-                .dark-mode .text-guinda { color: #f87171 !important; }
-                .dark-mode #detail-modal { background-color: rgba(0,0,0,0.85) !important; }
-                .dark-mode #modal-panel { background-color: #1a1a1a !important; }
-                .dark-mode #modal-content { background-color: #1a1a1a !important; }
-                .dark-mode mark { background-color: #7c5e10 !important; color: #fef3c7 !important; }
-                .dark-mode #autocomplete-results { background-color: #1e1e1e !important; border-color: #333 !important; }
-                .dark-mode #toc-panel { background-color: #1a1a1a !important; }
-                .dark-mode .toc-art-btn { background-color: #252525 !important; border-color: #333 !important; color: #d4d4d4 !important; }
-                .dark-mode #compare-modal { background-color: rgba(0,0,0,0.85) !important; }
-                .dark-mode #compare-panel { background-color: #1a1a1a !important; }
+                .dark-mode { background-color: #050505 !important; color: #FFFFFF !important; }
+                .dark-mode header { background-color: rgba(5, 5, 5, 0.8) !important; border-bottom: 2px solid #FF1E56 !important; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(255, 30, 86, 0.2); }
+                .dark-mode footer { background-color: #000000 !important; border-top: 1px solid rgba(255, 30, 86, 0.2) !important; }
+                
+                /* Neutralización de Fondos Blancos */
+                .dark-mode .bg-white, 
+                .dark-mode .bg-gray-50, 
+                .dark-mode .bg-slate-50,
+                .dark-mode .bg-gray-50\\/50,
+                .dark-mode .bg-white.rounded-3xl,
+                .dark-mode .atema-card,
+                .dark-mode #modal-panel { 
+                    background-color: #050505 !important; 
+                    color: #FFFFFF !important; 
+                    border-color: rgba(255, 30, 86, 0.2) !important; 
+                }
+
+                .dark-mode .border-gray-100, 
+                .dark-mode .border-gray-200 { border-color: rgba(255, 255, 255, 0.05) !important; }
+                
+                /* Tables & Results */
+                .dark-mode table { border-collapse: separate; border-spacing: 0; width: 100%; }
+                .dark-mode thead tr { background-color: rgba(255, 30, 86, 0.05) !important; }
+                .dark-mode table thead th { 
+                    color: #FF1E56 !important; 
+                    border-bottom: 2px solid #FF1E56 !important; 
+                    background-color: #080808 !important;
+                    font-weight: 900 !important;
+                }
+                .dark-mode table tbody tr { border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; transition: all 0.2s; }
+                .dark-mode table tbody tr:hover { background-color: rgba(255, 255, 255, 0.02) !important; }
+                .dark-mode table td { color: rgba(255, 255, 255, 0.8) !important; border-right: 1px solid rgba(255, 255, 255, 0.03); }
+
+                /* Specific Components */
+                .dark-mode #search-filters .bg-white { background-color: #000000 !important; border-color: #FF1E56 !important; }
+                .dark-mode #search-input { background-color: #000000 !important; border: 1px solid #FFB800 !important; color: #ffffff !important; box-shadow: 0 0 15px rgba(255, 184, 0, 0.1) !important; }
+                .dark-mode #search-input::placeholder { color: rgba(255, 255, 255, 0.2) !important; }
+                
+                /* Highlights & Accents */
+                .dark-mode mark { background-color: rgba(255, 184, 0, 0.3) !important; color: #FFB800 !important; border-bottom: 1px solid #FFB800; }
+                .dark-mode .text-guinda { color: #FF1E56 !important; text-shadow: 0 0 8px rgba(255, 30, 86, 0.4); }
+                .dark-mode .text-verde { color: #00FF9D !important; }
+                .dark-mode .bg-guinda { background-color: #FF1E56 !important; }
+                
+                /* Modals */
+                .dark-mode #detail-modal { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(12px); }
+                .dark-mode #modal-panel { border: 1px solid rgba(255, 30, 86, 0.3) !important; box-shadow: 0 0 40px rgba(255, 30, 86, 0.1) !important; }
+                
+                /* Admin Specifics */
+                .dark-mode #admin-dropzone { border-color: rgba(255, 184, 0, 0.3) !important; background-color: rgba(255, 184, 0, 0.02) !important; }
+                .dark-mode #admin-dropzone h3 { color: #FFB800 !important; }
             `;
             document.head.appendChild(s);
         }
@@ -84,7 +118,7 @@ export function initUI() {
     }
 
     // Initialize dark mode from saved preference
-    if (isDark) applyGlobalDark(true);
+    applyGlobalDark(isDark);
 
     document.getElementById('darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
     document.getElementById('mobile-darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
@@ -143,10 +177,31 @@ export function initUI() {
         if (statsMinimal) {
             statsMinimal.innerHTML = `
                 <span class="opacity-60">Índice activo:</span>
-                <span class="font-semibold text-guinda">${totalLeyes} leyes</span>
+                <span class="font-semibold text-guinda"><span id="anim-total-leyes">0</span> leyes</span>
                 <span class="mx-1 opacity-30">|</span>
-                <span class="font-semibold text-guinda">${totalArticulos} artículos</span>
+                <span class="font-semibold text-guinda"><span id="anim-total-articulos">0</span> artículos</span>
             `;
+            
+            if (typeof anime !== 'undefined') {
+                const counterState = { leyes: 0, articulos: 0 };
+                anime({
+                    targets: counterState,
+                    leyes: totalLeyes,
+                    articulos: totalArticulos,
+                    round: 1,
+                    easing: 'easeOutExpo',
+                    duration: 2000,
+                    update: function() {
+                        const elLeyes = document.getElementById('anim-total-leyes');
+                        const elArts = document.getElementById('anim-total-articulos');
+                        if(elLeyes) elLeyes.innerHTML = counterState.leyes;
+                        if(elArts) elArts.innerHTML = counterState.articulos;
+                    }
+                });
+            } else {
+                document.getElementById('anim-total-leyes').innerHTML = totalLeyes;
+                document.getElementById('anim-total-articulos').innerHTML = totalArticulos;
+            }
         }
         updateFavoritesBtn();
         // Handle URL hash (deep link) once data is ready
@@ -171,11 +226,18 @@ export function initUI() {
     if (navStatsBtn) navStatsBtn.addEventListener('click', (e) => { e.preventDefault(); showStatsView(); });
     if (mobileNavStats) mobileNavStats.addEventListener('click', (e) => { e.preventDefault(); showStatsView(); toggleMobileMenu(false); });
 
+    // Ayuda nav buttons
+    const navAyudaBtn = document.getElementById('nav-ayuda');
+    const mobileNavAyuda = document.getElementById('mobile-nav-ayuda');
+    if (navAyudaBtn) navAyudaBtn.addEventListener('click', (e) => { e.preventDefault(); showAyudaView(); });
+    if (mobileNavAyuda) mobileNavAyuda.addEventListener('click', (e) => { e.preventDefault(); showAyudaView(); toggleMobileMenu(false); });
+
     // Custom events from análisis module
-    document.addEventListener('analisis:openArticle', (e) => {
+    document.addEventListener('analisis:openArticle', async (e) => {
         const { id, list } = e.detail;
         if (list && list.length) {
-            currentModalList = list.map(lid => getArticleById(lid)).filter(Boolean);
+            const promises = list.map(lid => getArticleById(lid));
+            currentModalList = (await Promise.all(promises)).filter(Boolean);
         }
         openDetail(id);
     });
@@ -194,12 +256,12 @@ export function initUI() {
         history.pushState(null, '', hash ? `${location.pathname}${hash}` : location.pathname);
     }
 
-    function handleInitialHash() {
+    async function handleInitialHash() {
         const hash = location.hash;
         if (!hash) return;
         if (hash.startsWith('#art-')) {
             const id = decodeURIComponent(hash.slice(5));
-            const item = getArticleById(id);
+            const item = await getArticleById(id);
             if (!item) return;
             currentModalList = [item];
             openDetail(id);
@@ -212,14 +274,14 @@ export function initUI() {
 
     // Maneja el botón Atrás / Adelante del navegador.
     // Restaura la vista correcta según el hash de la URL.
-    window.addEventListener('popstate', () => {
+    window.addEventListener('popstate', async () => {
         const hash = location.hash;
         if (!hash) {
             // Sin hash → regresar a la pantalla de inicio
             resetToHero();
         } else if (hash.startsWith('#art-')) {
             const id = decodeURIComponent(hash.slice(5));
-            const item = getArticleById(id);
+            const item = await getArticleById(id);
             if (!item) return;
             currentModalList = [item];
             openDetail(id);
@@ -271,6 +333,9 @@ export function initUI() {
     let currentSearchQuery = '';
     let currentSearchResults = [];
     let currentPage = 1;
+    let currentFilters = { type: 'all', law: 'all', artNum: '' };
+    let currentModalList = [];
+    let compareSelection = [];
     const itemsPerPage = 10;
 
     function renderPaginationControls(totalItems, containerId, renderFunction) {
@@ -355,6 +420,33 @@ export function initUI() {
     }
     // ── Fin limpieza TOC ───────────────────────────────────────────────────────
 
+    // ── Nav activo ─────────────────────────────────────────────────────────────
+    // ── Nav activo ──
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+                     'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
+    function setActiveNav(activeId) {
+        NAV_IDS.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const isActive = id === activeId || id === 'mobile-' + activeId;
+            
+            // Premium active state
+            if (isActive) {
+                el.classList.add('text-guinda', 'font-bold');
+                el.classList.remove('text-gray-500');
+                if (!id.startsWith('mobile-')) {
+                    el.style.borderBottom = '2px solid #9B2247';
+                    el.style.paddingBottom = '2px';
+                }
+            } else {
+                el.classList.remove('text-guinda', 'font-bold');
+                el.classList.add('text-gray-500');
+                el.style.borderBottom = 'none';
+                el.style.paddingBottom = '0';
+            }
+        });
+    }
+
     function showGlobalSearch() {
         document.getElementById('global-search-wrapper')?.classList.remove('hidden');
     }
@@ -364,14 +456,62 @@ export function initUI() {
         if (searchInput) searchInput.value = '';
     }
 
+    function hideAllViews() {
+        const containers = [
+            'hero-section',
+            'global-search-wrapper',
+            'quick-filters',
+            'results-container',
+            'law-detail-container',
+            'analisis-container',
+            'admin-ingest-container',
+            'stats-minimal',
+            'help-view-container'
+        ];
+        containers.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.add('hidden');
+                el.classList.add('opacity-0');
+            }
+        });
+        
+        // Features section is special as it's part of Inicio
+        document.getElementById('features-section')?.classList.add('hidden');
+    }
+
     function resetToHero() {
         setHash(null);
         destroyTOC();
-        showGlobalSearch();
-        if (searchInput) searchInput.value = '';
-        heroSection.classList.remove('hidden');
-        quickFilters.classList.remove('hidden');
-        statsMinimal.classList.remove('hidden');
+        hideAllViews();
+        
+        if (heroSection) heroSection.classList.remove('hidden');
+        if (globalSearchWrapper) globalSearchWrapper.classList.remove('hidden');
+        if (quickFilters) quickFilters.classList.remove('hidden');
+        if (statsMinimal) statsMinimal.classList.remove('hidden');
+        if (featuresSection) featuresSection.classList.remove('hidden');
+        
+        setTimeout(() => {
+            if (heroSection) heroSection.classList.remove('opacity-0');
+            if (globalSearchWrapper) globalSearchWrapper.classList.remove('opacity-0');
+        }, 50);
+
+        setActiveNav('nav-inicio');
+        animateHero();
+    }
+
+    function animateHero() {
+        if (typeof anime !== 'undefined') {
+            anime({
+                targets: '#hero-section .relative, #global-search-wrapper',
+                translateY: [30, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(150),
+                easing: 'easeOutExpo',
+                duration: 1500
+            });
+        }
+    }
 
         mainContainer.classList.add('justify-center', 'pt-24');
         mainContainer.classList.remove('pt-8');
@@ -381,6 +521,7 @@ export function initUI() {
 
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
         document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
+        document.getElementById('admin-ingest-container')?.classList.add('hidden', 'opacity-0');
 
         // Clean up external controls (Filters & Pagination)
         const filters = document.getElementById('search-filters');
@@ -392,18 +533,20 @@ export function initUI() {
         // Reset state
         currentPage = 1;
         currentFilters = { type: 'all', law: 'all', artNum: '' };
-    }
-
+        setActiveNav('nav-inicio');
+    
     function showLawsView() {
         setHash(null);
         destroyTOC();
         showGlobalSearch();
+        setActiveNav('nav-leyes');
         // Transition UI
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
         document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
+        document.getElementById('admin-ingest-container')?.classList.add('hidden', 'opacity-0');
 
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
@@ -412,6 +555,9 @@ export function initUI() {
         setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
 
         if (searchInput) searchInput.value = '';
+        currentSearchQuery = '';
+        currentFilters = { type: 'all', law: 'all', artNum: '' };
+        currentPage = 1;
 
         // Render Laws Grid
         if (cachedSummaries.length === 0) {
@@ -551,18 +697,32 @@ export function initUI() {
         `;
     }
 
-    function openLawDetail(law) {
+    async function openLawDetail(law) {
         if (!lawDetailContainer) return;
         destroyTOC(); // Remove any previous TOC before building a new one
         hideGlobalSearch(); // Single search bar: use the scoped one inside the law view
 
+        // Limpiar el query, filtros y barra de filtros flotante al entrar a una ley
+        currentSearchQuery = '';
+        currentFilters = { type: 'all', law: 'all', artNum: '' };
+        if (searchInput) searchInput.value = '';
+        document.getElementById('search-filters')?.remove();
+        document.querySelector('.pagination-nav')?.remove();
+        setActiveNav('nav-leyes');
+
         // Fetch all articles for this law
-        currentLawArticles = getArticlesByLaw(law.titulo);
+        currentLawArticles = await getArticlesByLaw(law.titulo);
 
         // Calculate detailed stats
         const chapters = [...new Set(currentLawArticles.map(a => a.capitulo_nombre).filter(Boolean))];
         const titles = [...new Set(currentLawArticles.map(a => a.titulo_nombre).filter(Boolean))];
         const transitorios = currentLawArticles.filter(a => a.articulo_label.toLowerCase().includes('transitorio')).length;
+
+        // Fetch themes from DB
+        const dbThemes = await getThemesByLawName(law.titulo);
+        const dbCapitulos = dbThemes.filter(t => t.nivel === 'capitulo').length;
+        const dbTitulos = dbThemes.filter(t => t.nivel === 'titulo').length;
+        const chaptersCount = dbCapitulos > 0 ? dbCapitulos : chapters.length;
 
         // Hide other views
         resultsContainer.classList.add('hidden');
@@ -578,7 +738,7 @@ export function initUI() {
 
         // Reading Controls State
         let currentFontSize = 100; // Percentage
-        let currentTheme = localStorage.getItem('reader-theme') || 'light'; // light, sepia, dark
+        let currentTheme = 'light'; // light, sepia, dark
 
         lawDetailContainer.innerHTML = `
             <!-- Desktop Reading Controls (hidden on mobile) -->
@@ -648,6 +808,10 @@ export function initUI() {
                         ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
                     </div>
                     <div class="flex gap-2 flex-wrap">
+                        ${law.url_original ? `<a href="${law.url_original}" target="_blank" class="px-4 py-2 bg-guinda text-white text-xs font-semibold rounded-lg hover:bg-guinda/90 transition-all flex items-center gap-2 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Ver PDF Original
+                        </a>` : ''}
                         <!-- Share button for the law -->
                         <div class="relative" id="law-share-wrapper">
                             <button id="law-share-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-green-500 hover:text-green-600 transition-all flex items-center gap-2 shadow-sm">
@@ -712,7 +876,7 @@ export function initUI() {
                      <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Artículos</span>
                  </div>
                  <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
-                     <span class="text-3xl font-head font-bold text-guinda">${chapters.length}</span>
+                     <span class="text-3xl font-head font-bold text-guinda">${chaptersCount}</span>
                      <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Capítulos</span>
                  </div>
                  <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
@@ -737,8 +901,8 @@ export function initUI() {
                         <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
                         Temas Principales
                     </h3>
-                    <div class="flex flex-wrap gap-2 content-start">
-                        ${law.temas_clave ? law.temas_clave.map(t => `<button class="theme-filter-btn text-xs bg-gray-50 text-gray-600 px-3 py-1.5 rounded-lg border border-gray-100 hover:bg-guinda hover:text-white hover:border-guinda transition-all shadow-sm" data-theme="${t}">${t}</button>`).join('') : '<span class="text-xs text-gray-400">No disponibles</span>'}
+                    <div class="flex flex-wrap gap-2 content-start" id="themes-container">
+                        ${law.temas_clave && law.temas_clave.length > 0 ? law.temas_clave.map(t => `<button class="theme-tag text-xs bg-guinda/5 text-guinda border border-guinda/10 px-3 py-1.5 rounded-lg shadow-sm font-medium hover:bg-guinda hover:text-white transition-all cursor-pointer" data-theme="${t}">${t}</button>`).join('') : '<span class="text-xs text-gray-400">Ingresa temas conceptuales al cargar la ley desde el Gestor</span>'}
                     </div>
                 </div>
             </div>
@@ -759,6 +923,11 @@ export function initUI() {
                 <div id="law-articles-list" class="space-y-4 max-w-4xl mx-auto">
                     <!-- Render initial articles -->
                 </div>
+                
+                <!-- Load More -->
+                <div id="load-more-container" class="mt-8 mb-12 flex justify-center">
+                    <!-- Dynamic button -->
+                </div>
             </div>
         `;
 
@@ -773,48 +942,109 @@ export function initUI() {
         `;
         document.body.appendChild(tocBtn);
 
-        // Build grid buttons HTML
-        const gridHTML = currentLawArticles.map((art, i) => {
-            const num = art.articulo_label.match(/\d+/);
-            const label = num ? num[0] : (i + 1);
+        // Build grid buttons HTML (separated by type)
+        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo === 'ordinario' || a.tipo_articulo === 'preambulo');
+        const transitoriosArr = currentLawArticles.filter(a => a.tipo_articulo === 'transitorio');
+
+        const buildGrid = (arr) => arr.map((art, i) => {
+            const { loggedIn, fav: isFav } = getFavoriteUiState(art.id);
             const hasNote = !!getNote(art.id);
-            const isFav = isFavorite(art.id);
-            return `<button class="toc-art-btn text-[11px] font-medium rounded-lg py-2 px-1 border transition-all text-center relative
-                ${isFav ? 'border-guinda/30 bg-guinda/5 text-guinda' : 'border-gray-100 bg-white text-gray-600 hover:border-guinda hover:text-guinda hover:bg-guinda/5'}"
-                data-id="${art.id}" title="${art.articulo_label}">
-                Art.${label}
+            let label = '';
+            
+            if (art.tipo_articulo === 'preambulo') {
+                label = 'Pre.';
+            } else if (art.tipo_articulo === 'transitorio') {
+                const match = art.articulo_label.match(/(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO|VIG[ÉE]SIMO|[ÚU]NICO|\d+)/i);
+                label = match ? `T.${match[0].substring(0,3)}.` : `T.${i+1}`;
+            } else {
+                const num = art.articulo_label.match(/\d+/);
+                label = num ? `Art.${num[0]}` : `Art.${i+1}`;
+            }
+
+            return `<button class="toc-art-btn toc-art-grid-btn text-[10px] font-bold rounded-lg py-2 px-1 border transition-all text-center relative
+                ${isFav ? 'border-guinda/30 bg-guinda/5 text-guinda' : loggedIn ? 'border-gray-100 bg-white text-gray-600 hover:border-guinda hover:text-guinda hover:bg-guinda/5' : 'border-gray-200 bg-gray-50 text-gray-500 hover:border-guinda/40 hover:text-guinda'}"
+                style="display:flex; width:100%; min-width:0; justify-content:center; align-items:center; box-sizing:border-box;"
+                data-id="${art.id}" title="${loggedIn ? art.articulo_label : `${art.articulo_label} · Requiere inicio de sesión para guardar`}">
+                ${label}
+                ${!loggedIn && !isFav ? '<span class="absolute top-1 left-1 w-3.5 h-3.5 rounded-full bg-white border border-guinda/20 text-guinda flex items-center justify-center shadow-sm"><svg class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a1 1 0 00-1 1v5a2 2 0 002 2h8a2 2 0 002-2V9a1 1 0 00-1-1h-1V6a4 4 0 00-4-4zm-2 6V6a2 2 0 114 0v2H8z" clip-rule="evenodd"></path></svg></span>' : ''}
                 ${hasNote ? '<span class="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-amber-400 rounded-full"></span>' : ''}
             </button>`;
         }).join('');
 
-        // Build list items HTML
-        const listHTML = currentLawArticles.map((art) => {
+        const gridHTML = `
+            <div class="toc-grid-scroll space-y-6 px-5 pb-10 overflow-y-auto h-full scroll-smooth" style="width:100%; min-width:100%; max-width:100%; box-sizing:border-box;">
+                ${ordinarios.length > 0 ? `
+                    <div class="mb-6">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Cuerpo Principal</p>
+                        <div class="toc-grid-layout" style="display:grid; width:100%; min-width:100%; max-width:100%; grid-template-columns:repeat(auto-fit, minmax(72px, 1fr)); gap:0.5rem; align-items:stretch;">
+                            ${buildGrid(ordinarios)}
+                        </div>
+                    </div>
+                ` : ''}
+                ${transitoriosArr.length > 0 ? `
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Artículos Transitorios</p>
+                        <div class="toc-grid-layout" style="display:grid; width:100%; min-width:100%; max-width:100%; grid-template-columns:repeat(auto-fit, minmax(72px, 1fr)); gap:0.5rem; align-items:stretch;">
+                            ${buildGrid(transitoriosArr)}
+                        </div>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+
+        // Build list items HTML (grouped)
+        const buildList = (arr) => arr.map((art) => {
             const hasNote = !!getNote(art.id);
-            const isFav = isFavorite(art.id);
-            const tituloExtra = art.titulo_nombre ? `<span class="text-gray-400 ml-1 font-normal">· ${art.titulo_nombre}</span>` : '';
-            // Extract preview: first ~120 chars of texto, clean up line breaks
-            const preview = art.texto
-                ? art.texto.replace(/\s+/g, ' ').substring(0, 120).trim() + (art.texto.length > 120 ? '...' : '')
-                : '';
+            const { loggedIn, fav: isFav } = getFavoriteUiState(art.id);
+            const preview = art.texto ? art.texto.replace(/\s+/g, ' ').substring(0, 100).trim() + '...' : '';
+            const typeLabel = art.tipo_articulo === 'transitorio' ? 'TRANS' : 
+                             art.tipo_articulo === 'preambulo' ? 'PREAM' : 'ART';
+            
             return `<button class="toc-art-btn w-full flex flex-col gap-2 px-3 py-2.5 rounded-xl text-left transition-all hover:bg-guinda/5 group/item
-                ${isFav ? 'text-guinda' : 'text-gray-700 hover:text-guinda'}"
-                data-id="${art.id}">
+                ${isFav ? 'text-guinda' : loggedIn ? 'text-gray-700 hover:text-guinda' : 'text-gray-600'}"
+                data-id="${art.id}" title="${loggedIn ? art.articulo_label : `${art.articulo_label} · Requiere inicio de sesión para guardar`}">
                 <div class="flex items-center gap-3">
-                    <span class="flex-shrink-0 text-[10px] font-bold min-w-[36px] text-center py-1 rounded-md
-                        ${isFav ? 'bg-guinda/10 text-guinda' : 'bg-gray-100 text-gray-500 group-hover/item:bg-guinda/10 group-hover/item:text-guinda'}">
-                        ${art.articulo_label.replace(/Artículo\s*/i, 'Art.').split(' ')[0] + (art.articulo_label.match(/\d+/) ? ' ' + art.articulo_label.match(/\d+/)[0] : '')}
+                    <span class="flex-shrink-0 text-[9px] font-bold min-w-[42px] text-center py-1 rounded-md
+                        ${isFav ? 'bg-guinda/10 text-guinda' : loggedIn ? 'bg-gray-100 text-gray-500 group-hover/item:bg-guinda/10 group-hover/item:text-guinda' : 'bg-gray-100 text-gray-500'}">
+                        ${typeLabel}
                     </span>
-                    <span class="text-xs font-medium flex-1 leading-snug">
-                        ${art.articulo_label}${tituloExtra}
+                    <span class="text-xs font-medium flex-1 leading-snug truncate">
+                        ${art.articulo_label}
                     </span>
-                    <span class="flex-shrink-0 flex items-center gap-1">
-                        ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full" title="Tiene nota"></span>' : ''}
-                        ${isFav ? '<svg class="w-3 h-3 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>' : ''}
-                    </span>
+                    ${isFav
+                ? '<svg class="w-3 h-3 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>'
+                : (!loggedIn ? '<span class="w-5 h-5 rounded-full bg-white border border-guinda/20 text-guinda flex items-center justify-center shadow-sm"><svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a1 1 0 00-1 1v5a2 2 0 002 2h8a2 2 0 002-2V9a1 1 0 00-1-1h-1V6a4 4 0 00-4-4zm-2 6V6a2 2 0 114 0v2H8z" clip-rule="evenodd"></path></svg></span>' : '')}
                 </div>
-                ${preview ? `<span class="text-[11px] text-gray-500 leading-tight line-clamp-2">${preview}</span>` : ''}
+                ${preview ? `<span class="text-[10px] text-gray-400 leading-tight line-clamp-1">${preview}</span>` : ''}
             </button>`;
         }).join('');
+
+        const structureHTML = dbThemes.length > 0 ? dbThemes.map(t => {
+            const icon = t.nivel === 'titulo' ? '📕' : t.nivel === 'capitulo' ? '📘' : '📗';
+            const indent = t.nivel === 'capitulo' ? 'pl-6' : t.nivel === 'seccion' ? 'pl-10' : 'pl-2';
+            const textClass = t.nivel === 'titulo' ? 'font-bold text-gray-800' : 'font-medium text-gray-600 text-xs';
+            return `<button class="toc-structure-btn w-full text-left py-2 ${indent} hover:bg-guinda/5 rounded-lg transition-all group" data-query="${t.nombre}">
+                <span class="inline-block w-4 text-center mr-1">${icon}</span>
+                <span class="${textClass} group-hover:text-guinda transition-colors">${t.nombre}</span>
+            </button>`;
+        }).join('') : '<p class="text-center py-10 text-gray-400 text-xs italic">No hay estructura temática detectada para esta ley.</p>';
+
+        const listHTML = `
+            <div class="space-y-4 px-5 pb-10 overflow-y-auto h-full scroll-smooth">
+                ${ordinarios.length > 0 ? `
+                    <div class="mb-4">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Cuerpo Principal</p>
+                        <div class="flex flex-col gap-1">${buildList(ordinarios)}</div>
+                    </div>
+                ` : ''}
+                ${transitoriosArr.length > 0 ? `
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Transitorios</p>
+                        <div class="flex flex-col gap-1">${buildList(transitoriosArr)}</div>
+                    </div>
+                ` : ''}
+            </div>
+        `;
 
         const tocPanel = document.createElement('div');
         tocPanel.id = 'toc-panel';
@@ -826,7 +1056,7 @@ export function initUI() {
                 <div class="w-10 h-1 bg-gray-200 rounded-full"></div>
             </div>
             <!-- Header -->
-            <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0">
+            <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0 border-b border-gray-50">
                 <div>
                     <p class="text-sm font-bold text-gray-800">Índice de Artículos</p>
                     <p class="text-[10px] text-gray-400 mt-0.5">${currentLawArticles.length} artículos · clic para abrir</p>
@@ -836,67 +1066,83 @@ export function initUI() {
                 </button>
             </div>
             <!-- Tabs -->
-            <div class="flex gap-1 px-5 pb-3 flex-shrink-0 border-b border-gray-50">
-                <button id="toc-tab-grid" class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all bg-guinda text-white shadow-sm">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-                    Números
+            <div class="flex gap-1 px-5 py-2 flex-shrink-0 bg-gray-50/50">
+                <button id="toc-tab-grid" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold transition-all bg-guinda text-white shadow-sm">
+                    Cuadrícula
                 </button>
-                <button id="toc-tab-list" class="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all text-gray-500 hover:text-guinda hover:bg-guinda/5">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg>
-                    Artículos
+                <button id="toc-tab-list" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold transition-all text-gray-500 hover:text-guinda hover:bg-guinda/5">
+                    Lista
+                </button>
+                <button id="toc-tab-structure" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold transition-all text-gray-500 hover:text-guinda hover:bg-guinda/5">
+                    Estructura
                 </button>
                 <!-- Quick search inside TOC -->
                 <div class="ml-auto relative flex items-center">
                     <svg class="absolute left-2.5 w-3 h-3 text-gray-300 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     <input id="toc-search" type="text" placeholder="Filtrar…"
-                        class="text-xs border border-gray-200 rounded-full pl-7 pr-3 py-1.5 w-32 focus:outline-none focus:border-guinda focus:ring-1 focus:ring-guinda/20 transition-all bg-white placeholder-gray-300">
+                        class="text-[10px] border border-gray-200 rounded-full pl-7 pr-3 py-1 w-24 focus:outline-none focus:border-guinda focus:ring-1 focus:ring-guinda/20 transition-all bg-white placeholder-gray-300">
                 </div>
             </div>
             <!-- Content: Grid view (default) -->
-            <div id="toc-content-grid" class="overflow-y-auto flex-1 px-4 py-3">
-                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-10 gap-1.5">
+            <div id="toc-content-grid" class="overflow-y-auto flex-1 px-4 py-3" style="display:block; width:100%; min-width:0; flex:1 1 auto; box-sizing:border-box;">
+                <div style="display:block; width:100%;">
                     ${gridHTML}
                 </div>
             </div>
-            <!-- Content: List view (hidden by default) -->
+            <!-- Content: List view (hidden) -->
             <div id="toc-content-list" class="hidden overflow-y-auto flex-1 px-3 py-2 space-y-0.5">
                 ${listHTML}
+            </div>
+            <!-- Content: Structure view (hidden) -->
+            <div id="toc-content-structure" class="hidden overflow-y-auto flex-1 px-5 py-4 space-y-1">
+                ${structureHTML}
             </div>
         `;
         document.body.appendChild(tocPanel);
 
-        // Tab switching logic
         const tabGrid = tocPanel.querySelector('#toc-tab-grid');
         const tabList = tocPanel.querySelector('#toc-tab-list');
+        const tabStructure = tocPanel.querySelector('#toc-tab-structure');
         const contentGrid = tocPanel.querySelector('#toc-content-grid');
         const contentList = tocPanel.querySelector('#toc-content-list');
+        const contentStructure = tocPanel.querySelector('#toc-content-structure');
         const tocSearch = tocPanel.querySelector('#toc-search');
 
         const activeTabCls = ['bg-guinda', 'text-white', 'shadow-sm'];
         const inactiveTabCls = ['text-gray-500', 'hover:text-guinda', 'hover:bg-guinda/5'];
 
-        tabGrid.addEventListener('click', () => {
-            tabGrid.classList.add(...activeTabCls);
-            tabGrid.classList.remove(...inactiveTabCls);
-            tabList.classList.remove(...activeTabCls);
-            tabList.classList.add(...inactiveTabCls);
-            contentGrid.classList.remove('hidden');
-            contentList.classList.add('hidden');
-            if (tocSearch) tocSearch.value = '';
-            // Reset filter
-            contentGrid.querySelectorAll('.toc-art-btn').forEach(b => b.style.display = '');
-        });
+        const switchTab = (activeTab, activeContent) => {
+            [tabGrid, tabList, tabStructure].forEach(t => {
+                t.classList.remove(...activeTabCls);
+                t.classList.add(...inactiveTabCls);
+            });
+            [contentGrid, contentList, contentStructure].forEach(c => c.classList.add('hidden'));
+            
+            activeTab.classList.add(...activeTabCls);
+            activeTab.classList.remove(...inactiveTabCls);
+            activeContent.classList.remove('hidden');
+        };
 
-        tabList.addEventListener('click', () => {
-            tabList.classList.add(...activeTabCls);
-            tabList.classList.remove(...inactiveTabCls);
-            tabGrid.classList.remove(...activeTabCls);
-            tabGrid.classList.add(...inactiveTabCls);
-            contentList.classList.remove('hidden');
-            contentGrid.classList.add('hidden');
-            if (tocSearch) tocSearch.value = '';
-            // Reset filter
-            contentList.querySelectorAll('.toc-art-btn').forEach(b => b.style.display = '');
+        tabGrid.addEventListener('click', () => switchTab(tabGrid, contentGrid));
+        tabList.addEventListener('click', () => switchTab(tabList, contentList));
+        tabStructure.addEventListener('click', () => switchTab(tabStructure, contentStructure));
+
+        // Structure navigation
+        tocPanel.querySelectorAll('.toc-structure-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const query = btn.dataset.query;
+                toggleToc(false);
+                const lawSearch = document.getElementById('law-search-input');
+                if (lawSearch) {
+                    lawSearch.value = query;
+                    lawSearch.dispatchEvent(new Event('input'));
+                    // Optional: scroll to first result
+                    setTimeout(() => {
+                        const first = document.querySelector('#law-articles-list article');
+                        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
+            });
         });
 
         // TOC search filter
@@ -936,12 +1182,90 @@ export function initUI() {
 
         // ── Fin Tabla de contenidos ────────────────────────────────────────────
 
-        // Render initial articles (first 20 to avoid lag)
-        renderLawArticles(currentLawArticles.slice(0, 20), '');
+        // Theme tag filtering
+        tocPanel.querySelectorAll('.theme-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const theme = tag.dataset.theme;
+                const lawSearch = document.getElementById('law-search-input');
+                if (lawSearch) {
+                    lawSearch.value = theme;
+                    lawSearch.dispatchEvent(new Event('input'));
+                    lawSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Also add listeners to the themes cloud above
+        document.querySelectorAll('#themes-container .theme-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const theme = tag.dataset.theme;
+                const lawSearch = document.getElementById('law-search-input');
+                if (lawSearch) {
+                    lawSearch.value = theme;
+                    lawSearch.dispatchEvent(new Event('input'));
+                    lawSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Pagination for law articles
+        let articlesShown = 20;
+        const updateLoadMore = (totalItems) => {
+            const container = document.getElementById('load-more-container');
+            if (!container) return;
+            
+            if (articlesShown >= totalItems) {
+                container.innerHTML = '';
+            } else {
+                container.innerHTML = `
+                    <button id="btn-load-more-law" class="px-8 py-3 bg-white border border-gray-200 text-gray-600 rounded-full text-xs font-bold hover:border-guinda hover:text-guinda transition-all shadow-sm flex items-center gap-2">
+                        Ver más artículos
+                        <span class="text-[10px] opacity-60">(${totalItems - articlesShown} restantes)</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                `;
+                document.getElementById('btn-load-more-law')?.addEventListener('click', () => {
+                    articlesShown += 50;
+                    const query = document.getElementById('law-search-input')?.value || '';
+                    const filtered = query.length > 2 
+                        ? currentLawArticles.filter(a => a.texto.toLowerCase().includes(query.toLowerCase()) || a.articulo_label.toLowerCase().includes(query.toLowerCase()))
+                        : currentLawArticles;
+                    
+                    renderLawArticles(filtered.slice(0, articlesShown), query);
+                    updateLoadMore(filtered.length);
+                });
+            }
+        };
+
+        // Render initial articles
+        renderLawArticles(currentLawArticles.slice(0, articlesShown), '');
+        updateLoadMore(currentLawArticles.length);
+
+        // Update pagination on search
+        const lawSearchInput = document.getElementById('law-search-input');
+        if (lawSearchInput) {
+            lawSearchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let filtered = currentLawArticles;
+
+                if (query.length > 2) {
+                    filtered = currentLawArticles.filter(a =>
+                        a.texto.toLowerCase().includes(query) ||
+                        a.articulo_label.toLowerCase().includes(query) ||
+                        (a.titulo_nombre && a.titulo_nombre.toLowerCase().includes(query)) ||
+                        (a.capitulo_nombre && a.capitulo_nombre.toLowerCase().includes(query))
+                    );
+                }
+
+                articlesShown = 50; // Reset shown count on new search
+                renderLawArticles(filtered.slice(0, articlesShown), query);
+                updateLoadMore(filtered.length);
+            });
+        }
 
         // Render D3 Chart
         setTimeout(() => {
-            renderLawStructureChart(currentLawArticles);
+            renderLawStructureChart(currentLawArticles, dbThemes);
         }, 100);
 
         // Reading Controls Listeners
@@ -955,7 +1279,6 @@ export function initUI() {
         // Apply saved theme immediately
         const applyTheme = (theme) => {
             currentTheme = theme;
-            localStorage.setItem('reader-theme', theme);
 
             document.body.className = `bg-${theme} text-gray-900 font-body min-h-screen flex flex-col antialiased transition-colors duration-300`;
 
@@ -1135,36 +1458,20 @@ export function initUI() {
             });
         });
 
-        const lawSearchInput = document.getElementById('law-search-input');
-        lawSearchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            let filtered = currentLawArticles;
 
-            if (query.length > 2) {
-                filtered = currentLawArticles.filter(a =>
-                    a.texto.toLowerCase().includes(query) ||
-                    a.articulo_label.toLowerCase().includes(query) ||
-                    (a.titulo_nombre && a.titulo_nombre.toLowerCase().includes(query)) ||
-                    (a.capitulo_nombre && a.capitulo_nombre.toLowerCase().includes(query))
-                );
-            }
-
-            renderLawArticles(filtered.slice(0, 50), query); // Show top 50 matches
-        });
 
         document.getElementById('export-csv-btn').addEventListener('click', () => {
             exportToCSV(currentLawArticles, `${law.titulo}.csv`);
         });
     }
 
-    function renderLawStructureChart(articles) {
+    function renderLawStructureChart(articles, themes = []) {
         const chartContainer = document.getElementById('law-structure-chart');
         if (!chartContainer) return;
 
         if (!window.d3) {
             chartContainer.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-gray-400">Cargando visualización...</div>';
-            // Retry once after a delay
-            setTimeout(() => renderLawStructureChart(articles), 1000);
+            setTimeout(() => renderLawStructureChart(articles, themes), 1000);
             return;
         }
 
@@ -1175,31 +1482,33 @@ export function initUI() {
             return;
         }
 
-        // Process data: Count articles per Title/Chapter
-        const dataMap = {};
-        articles.forEach(a => {
-            let key = a.titulo_nombre || a.capitulo_nombre || 'General';
-            // Clean key
-            // Remove common prefixes
-            key = key.replace(/^TÍTULO\s+/i, '').replace(/^CAPÍTULO\s+/i, '');
-            // Remove roman numerals only if they are at the start followed by a separator or end of string
-            // e.g. "I. DISPOSICIONES" -> "DISPOSICIONES", "PRIMERO" -> ""
-            key = key.replace(/^[IVXLCDM]+\.?\s*-?\s*/, '');
-            // Remove ordinal words if they appear at start (e.g. "PRIMERO", "SEGUNDO")
-            key = key.replace(/^(PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|SÉPTIMO|OCTAVO|NOVENO|DÉCIMO)\.?\s*-?\s*/i, '');
+        // Use themes from DB if available, otherwise fallback to article fields
+        let data;
+        if (themes && themes.length > 0) {
+            // Count themes by nivel
+            const titulos = themes.filter(t => t.nivel === 'titulo');
+            const capitulos = themes.filter(t => t.nivel === 'capitulo');
+            const secciones = themes.filter(t => t.nivel === 'seccion');
+            const transitorios = articles.filter(a => a.articulo_label?.toLowerCase().includes('transitorio')).length;
+            const ordinarios = articles.length - transitorios;
 
-            key = key.trim();
-
-            if (!key) key = 'General';
-            if (key.length > 25) key = key.substring(0, 25) + '...';
-
-            dataMap[key] = (dataMap[key] || 0) + 1;
-        });
-
-        const data = Object.entries(dataMap)
-            .map(([name, value]) => ({ name, value }))
-            .sort((a, b) => b.value - a.value)
-            .slice(0, 5);
+            data = [];
+            if (titulos.length > 0) data.push({ name: `Títulos`, value: titulos.length, color: '#7A1C3A' });
+            if (capitulos.length > 0) data.push({ name: `Capítulos`, value: capitulos.length, color: '#2563eb' });
+            if (secciones.length > 0) data.push({ name: `Secciones`, value: secciones.length, color: '#059669' });
+            data.push({ name: `Artículos`, value: ordinarios, color: '#6b7280' });
+            if (transitorios > 0) data.push({ name: `Transitorios`, value: transitorios, color: '#d97706' });
+        } else {
+            const dataMap = {};
+            articles.forEach(a => {
+                const tipo = a.articulo_label?.toLowerCase().includes('transitorio') ? 'Transitorios' :
+                             a.tipo_articulo === 'preambulo' ? 'Preámbulo' : 'Artículos';
+                dataMap[tipo] = (dataMap[tipo] || 0) + 1;
+            });
+            data = Object.entries(dataMap)
+                .map(([name, value]) => ({ name, value }))
+                .sort((a, b) => b.value - a.value);
+        }
 
         if (data.length === 0) {
             chartContainer.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-gray-400">Datos insuficientes</div>';
@@ -1299,9 +1608,12 @@ export function initUI() {
         list.innerHTML = articles.map(item => {
             const highlightedText = highlightQuery ? highlightText(item.texto, highlightQuery) : item.texto.substring(0, 300) + '...';
             const hasNote = !!getNote(item.id);
-            const bookmarkIcon = isFavorite(item.id)
+            const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
+            const bookmarkIcon = isFav
                 ? `<svg class="w-3.5 h-3.5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
-                : `<svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
+                : (!loggedIn
+                    ? `<span class="w-6 h-6 rounded-full bg-white border border-guinda/20 text-guinda flex items-center justify-center shadow-sm"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a1 1 0 00-1 1v5a2 2 0 002 2h8a2 2 0 002-2V9a1 1 0 00-1-1h-1V6a4 4 0 00-4-4zm-2 6V6a2 2 0 114 0v2H8z" clip-rule="evenodd"></path></svg></span>`
+                    : `<svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`);
             const isSelected = compareSelection.includes(item.id);
             const compareColor = isSelected ? 'text-guinda' : (compareSelection.length >= 2 ? 'text-gray-100' : 'text-gray-300 hover:text-guinda');
             const compareBg = isSelected ? 'bg-guinda/10' : '';
@@ -1313,10 +1625,10 @@ export function initUI() {
                         ${item.articulo_label}
                         ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
                     </span>
-                    <span class="text-[10px] text-gray-400">${item.titulo_nombre || ''}</span>
+                    <span class="text-[10px] text-gray-400 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
                 </div>
                 <p class="text-sm text-gray-600 font-light leading-relaxed line-clamp-3">${highlightedText}</p>
-                <button class="bookmark-card-btn absolute top-3 right-9 p-1 text-gray-300 hover:text-guinda transition-colors" data-id="${item.id}">${bookmarkIcon}</button>
+                <button class="bookmark-card-btn absolute top-3 right-9 p-1 ${loggedIn ? 'text-gray-300 hover:text-guinda' : 'text-guinda'} transition-colors" data-id="${item.id}" title="${favTitle}">${bookmarkIcon}</button>
                 <button class="compare-card-btn absolute top-3 right-3 p-1 ${compareColor} ${compareBg} rounded transition-colors" data-id="${item.id}" title="Comparar artículo">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
                 </button>
@@ -1334,7 +1646,7 @@ export function initUI() {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const lawSearchInput = document.getElementById('law-search-input');
-                toggleFavorite(btn.dataset.id);
+                if (!toggleFavorite(btn.dataset.id)) return;
                 const q = lawSearchInput ? lawSearchInput.value.toLowerCase().trim() : '';
                 renderLawArticles(currentLawArticles.slice(0, 50), q);
             });
@@ -1372,17 +1684,33 @@ export function initUI() {
 
     function highlightText(text, query) {
         if (!query || !text) return text || '';
-        const terms = query.trim().split(/\s+/);
-        const isMultiWord = terms.length > 1;
-        // Multi-palabra: excluir stopwords y palabras < 4 chars para no resaltar "de","la","el"…
-        // Palabra sola: permitir desde 2 chars (p.ej. "IA", "GW")
+        
+        // Extraer frases entre comillas
+        const phrases = [];
+        const cleanQuery = query.replace(/"([^"]+)"/g, (match, p) => {
+            if (p.trim()) phrases.push(p.trim());
+            return ' ';
+        });
+
+        const terms = cleanQuery.trim().split(/\s+/).filter(t => t.length > 0);
+        const totalElements = terms.length + phrases.length;
+        const isMultiElement = totalElements > 1;
+
+        // Filtrar palabras sueltas (stopwords y longitud)
         const words = terms.filter(w =>
-            isMultiWord
+            isMultiElement
                 ? w.length > 3 && !STOP_WORDS_ES.has(w.toLowerCase())
                 : w.length > 1
         );
-        if (words.length === 0) return text;
-        const pattern = words.map(w => escapeRegex(w)).join('|');
+
+        // Combinar frases exactas y palabras relevantes
+        const allToHighlight = [...phrases, ...words];
+        if (allToHighlight.length === 0) return text;
+
+        // Ordenar por longitud descendente para que las frases largas coincidan antes que sus palabras individuales
+        allToHighlight.sort((a, b) => b.length - a.length);
+
+        const pattern = allToHighlight.map(w => escapeRegex(w)).join('|');
         const regex = new RegExp(`(${pattern})`, 'gi');
         return text.replace(regex, '<mark class="hl">$1</mark>');
     }
@@ -1424,11 +1752,11 @@ export function initUI() {
     function saveToHistory(query) {
         const history = getHistory().filter(q => q !== query);
         history.unshift(query);
-        localStorage.setItem('search-history', JSON.stringify(history.slice(0, 10)));
+        searchHistory = history.slice(0, 10);
     }
 
     function getHistory() {
-        return JSON.parse(localStorage.getItem('search-history') || '[]');
+        return searchHistory;
     }
 
     // Quick Filters
@@ -1487,10 +1815,16 @@ export function initUI() {
             if (items[index]) items[index].scrollIntoView({ block: 'nearest' });
         }
 
-        function closeAutocomplete() {
-            autocompleteContainer.classList.add('hidden');
-            activeIndex = -1;
-        }
+    function closeAutocomplete() {
+        autocompleteContainer.classList.add('hidden');
+        activeIndex = -1;
+    }
+
+    function getAutocompleteArticlePool() {
+        if (currentLawArticles.length > 0) return currentLawArticles;
+        if (currentSearchResults.length > 0) return currentSearchResults;
+        return [];
+    }
 
         // Hide on click outside
         document.addEventListener('click', (e) => {
@@ -1556,8 +1890,9 @@ export function initUI() {
                     });
                 }
 
-                // Article-level suggestions: match against articulo_label, titulo_nombre, capitulo_nombre
-                const allArticles = getAllData();
+                // In Supabase mode there is no full in-memory corpus.
+                // Restrict article suggestions to the currently open law or current results page.
+                const allArticles = getAutocompleteArticlePool();
                 const normQ = normalizeText(query);
                 const artMatches = [];
                 for (const art of allArticles) {
@@ -1573,7 +1908,7 @@ export function initUI() {
 
                 if (artMatches.length > 0) {
                     sections.push({
-                        label: 'Artículos',
+                        label: currentLawArticles.length > 0 ? 'Artículos de esta ley' : 'Artículos visibles',
                         items: artMatches.map(({ art, matchField }) => ({
                             html: `
                                 <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -1602,7 +1937,7 @@ export function initUI() {
             // Bind: clear all history
             document.getElementById('clear-all-history')?.addEventListener('click', (e) => {
                 e.stopPropagation();
-                localStorage.removeItem('search-history');
+                searchHistory = [];
                 closeAutocomplete();
             });
 
@@ -1613,7 +1948,7 @@ export function initUI() {
                         e.stopPropagation();
                         const q = e.target.dataset.query;
                         const updated = getHistory().filter(h => h !== q);
-                        localStorage.setItem('search-history', JSON.stringify(updated));
+                        searchHistory = updated;
                         item.remove();
                         if (autocompleteContainer.querySelectorAll('.history-item').length === 0) closeAutocomplete();
                         return;
@@ -1694,15 +2029,12 @@ export function initUI() {
 
                 // Debounced search
                 clearTimeout(searchDebounceTimer);
-                searchDebounceTimer = setTimeout(() => {
-                    const results = performSearch(query);
-                    currentSearchResults = results;
+                searchDebounceTimer = setTimeout(async () => {
                     currentSearchQuery = query;
                     currentPage = 1;
                     currentFilters = { type: 'all', law: 'all', artNum: '' };
                     saveToHistory(query);
-                    renderResults();
-                    if (loadingIndicator) loadingIndicator.classList.add('hidden');
+                    await renderResults();
                 }, 250);
 
             } else if (query.length === 0) {
@@ -1734,24 +2066,33 @@ export function initUI() {
         });
     }
 
-    let currentFilters = { type: 'all', law: 'all', artNum: '' };
-    let currentModalList = [];
-    let compareSelection = [];
 
-    // Favorites helpers
+
+    // ── Favorites helpers (Supabase only) ──────────────────────────────────────
     function getFavorites() {
-        return JSON.parse(localStorage.getItem('article-favorites') || '[]');
+        if (!isLoggedIn() || dbFavoritesSet === null) return [];
+        return [...dbFavoritesSet];
     }
     function isFavorite(id) {
-        return getFavorites().includes(id);
+        if (!isLoggedIn() || dbFavoritesSet === null) return false;
+        return dbFavoritesSet.has(id);
     }
     function toggleFavorite(id) {
-        const favs = getFavorites();
-        const idx = favs.indexOf(id);
-        if (idx >= 0) favs.splice(idx, 1);
-        else favs.unshift(id);
-        localStorage.setItem('article-favorites', JSON.stringify(favs));
+        if (!isLoggedIn() || dbFavoritesSet === null) {
+            showToast('Inicia sesión para guardar favoritos', '🔐', 'bg-gray-800');
+            openAuthModal();
+            return false;
+        }
+
+        if (dbFavoritesSet.has(id)) {
+            dbFavoritesSet.delete(id);
+            dbRemoveFavorite(id).catch(e => console.error('[Auth] Error removing favorite:', e));
+        } else {
+            dbFavoritesSet.add(id);
+            dbAddFavorite(id).catch(e => console.error('[Auth] Error adding favorite:', e));
+        }
         updateFavoritesBtn();
+        return true;
     }
     function updateFavoritesBtn() {
         const count = getFavorites().length;
@@ -1763,20 +2104,39 @@ export function initUI() {
         });
     }
 
-    // ── Notes helpers ─────────────────────────────────────────────────────────
+    // ── Notes helpers (Supabase only) ──────────────────────────────────────────
     function getAllNotes() {
-        return JSON.parse(localStorage.getItem('article-notes') || '{}');
+        if (!isLoggedIn() || dbNotesMap === null) return {};
+        return Object.fromEntries(dbNotesMap);
     }
     function getNote(id) {
-        return getAllNotes()[id] || '';
+        if (!isLoggedIn() || dbNotesMap === null) return '';
+        return dbNotesMap.get(id) || '';
     }
     function saveNote(id, text) {
-        const notes = getAllNotes();
-        if (text.trim()) notes[id] = text.trim();
-        else delete notes[id];
-        localStorage.setItem('article-notes', JSON.stringify(notes));
+        if (!isLoggedIn() || dbNotesMap === null) {
+            showToast('Inicia sesión para guardar notas', '🔐', 'bg-gray-800');
+            openAuthModal();
+            return false;
+        }
+        if (text.trim()) dbNotesMap.set(id, text.trim());
+        else dbNotesMap.delete(id);
+        dbSaveNote(id, text).catch(e => console.error('[Auth] Error saving note:', e));
+        return true;
     }
-    // ── End Notes helpers ─────────────────────────────────────────────────────
+    // ── End Notes/Favorites helpers ───────────────────────────────────────────
+
+    function getFavoriteUiState(id) {
+        const loggedIn = isLoggedIn();
+        const fav = isFavorite(id);
+        return {
+            loggedIn,
+            fav,
+            title: loggedIn
+                ? (fav ? 'Quitar de favoritos' : 'Guardar en favoritos')
+                : 'Inicia sesión para guardar favoritos',
+        };
+    }
 
     // ── Exportar notas y favoritos ─────────────────────────────────────────────
     function exportItemsAsHTML(items, title, includeNotes = false) {
@@ -1838,7 +2198,7 @@ export function initUI() {
     }
     // ── Fin Exportar ───────────────────────────────────────────────────────────
 
-    function showFavoritesView() {
+    async function showFavoritesView() {
         setHash(null);
         destroyTOC();
         showGlobalSearch();
@@ -1848,6 +2208,7 @@ export function initUI() {
         statsMinimal.classList.add('hidden');
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
         document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
+        document.getElementById('admin-ingest-container')?.classList.add('hidden', 'opacity-0');
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         resultsContainer.classList.remove('hidden');
@@ -1855,15 +2216,22 @@ export function initUI() {
 
         const existingFilters = document.getElementById('search-filters');
         if (existingFilters) existingFilters.remove();
+        // La pagination-nav es sibling de results-container (no hijo), hay que limpiarla explícitamente
+        document.querySelector('.pagination-nav')?.remove();
 
         if (favIds.length === 0) {
             resultsContainer.innerHTML = `<div class="text-center py-16 text-gray-400 text-sm">No tienes artículos guardados aún.</div>`;
             return;
         }
-        const items = favIds.map(id => getArticleById(id)).filter(Boolean);
+        
+        resultsContainer.innerHTML = `<div class="text-center py-12 text-gray-400">Cargando favoritos...</div>`;
+        const promises = favIds.map(id => getArticleById(id));
+        const items = (await Promise.all(promises)).filter(Boolean);
 
         currentModalList = items;
+        currentPage = 1;
 
+        // ── Render estático: cabecera + contenedor de tarjetas ─────────────────
         resultsContainer.innerHTML = `
             <div class="w-full mb-6 flex items-start justify-between gap-4 flex-wrap">
                 <div>
@@ -1896,22 +2264,10 @@ export function initUI() {
                     </div>
                 </div>
             </div>
-            ${items.map(item => `
-            <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg transition-all duration-300 cursor-pointer result-item" data-id="${item.id}">
-                <div class="flex items-center gap-2 mb-2 flex-wrap">
-                    <span class="text-[10px] font-bold text-guinda uppercase tracking-wider bg-guinda/5 px-2 py-0.5 rounded-full">${item.ley_origen}</span>
-                    <span class="text-[10px] text-gray-400 truncate max-w-[200px]">${item.titulo_nombre || ''}</span>
-                </div>
-                <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors">${item.articulo_label}</h3>
-                <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${item.texto.substring(0, 300)}...</p>
-            </div>
-            `).join('')}
+            <div id="fav-cards" class="space-y-4"></div>
         `;
-        document.querySelectorAll('#results-container .result-item').forEach(el => {
-            el.addEventListener('click', () => openDetail(el.dataset.id));
-        });
 
-        // Wire export buttons
+        // Wire export buttons (una sola vez)
         const exportFavsBtn = document.getElementById('export-favs-btn');
         const exportFavsMenu = document.getElementById('export-favs-menu');
         if (exportFavsBtn && exportFavsMenu) {
@@ -1936,6 +2292,63 @@ export function initUI() {
             exportItemsAsCSV(items, 'favoritos_SENER.csv', false);
             showToast('¡Exportando CSV!', '📊', 'bg-green-700');
         });
+
+        // ── Render paginado de tarjetas ────────────────────────────────────────
+        const renderFavPage = () => {
+            const favCards = document.getElementById('fav-cards');
+            if (!favCards) return;
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const pageItems = items.slice(start, start + itemsPerPage);
+
+            favCards.innerHTML = pageItems.map(item => {
+                const isSelected = compareSelection.includes(item.id);
+                const cmpColor = isSelected
+                    ? 'text-guinda bg-guinda/10'
+                    : (compareSelection.length >= 2 ? 'text-gray-100 cursor-not-allowed' : 'text-gray-300 hover:text-guinda hover:bg-guinda/10');
+                const hasNote = !!getNote(item.id);
+                return `
+                <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg transition-all duration-300 result-item" data-id="${item.id}">
+                    <div class="flex items-center gap-2 mb-2 flex-wrap">
+                        <span class="text-[10px] font-bold text-guinda uppercase tracking-wider bg-guinda/5 px-2 py-0.5 rounded-full">${item.ley_origen}</span>
+                        <span class="text-[10px] text-gray-400 truncate max-w-xs md:max-w-[180px]">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
+                        <div class="ml-auto flex items-center gap-1.5 flex-shrink-0">
+                            ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full" title="Tiene nota personal"></span>' : ''}
+                            <button class="compare-card-btn p-1.5 rounded-full transition-colors focus:outline-none ${cmpColor}" data-id="${item.id}" title="Seleccionar para comparar">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors cursor-pointer">${item.articulo_label}</h3>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${item.texto.substring(0, 300)}...</p>
+                </div>`;
+            }).join('');
+
+            // Clic en tarjeta para abrir detalle
+            favCards.querySelectorAll('.result-item').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    if (e.target.closest('.compare-card-btn')) return;
+                    openDetail(el.dataset.id);
+                });
+            });
+
+            // Clic en botón de comparación
+            favCards.querySelectorAll('.compare-card-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = btn.dataset.id;
+                    const idx = compareSelection.indexOf(id);
+                    if (idx >= 0) compareSelection.splice(idx, 1);
+                    else if (compareSelection.length < 2) compareSelection.push(id);
+                    updateCompareBar();
+                    refreshCompareButtons();
+                });
+            });
+
+            renderPaginationControls(items.length, 'fav-cards', renderFavPage);
+        };
+
+        renderFavPage();
     }
 
     // Compare helpers
@@ -1972,17 +2385,16 @@ export function initUI() {
         document.getElementById('compare-clear-btn')?.addEventListener('click', () => {
             compareSelection = [];
             updateCompareBar();
-            const q = document.getElementById('law-search-input')?.value.toLowerCase().trim() || '';
-            renderLawArticles(currentLawArticles.slice(0, 50), q);
+            refreshCompareButtons();
         });
         document.getElementById('compare-go-btn')?.addEventListener('click', () => {
             openCompare(compareSelection[0], compareSelection[1]);
         });
     }
 
-    function openCompare(id1, id2) {
-        const item1 = getArticleById(id1);
-        const item2 = getArticleById(id2);
+    async function openCompare(id1, id2) {
+        const item1 = await getArticleById(id1);
+        const item2 = await getArticleById(id2);
         if (!item1 || !item2) return;
         const compareModal = document.getElementById('compare-modal');
         const compareContent = document.getElementById('compare-content');
@@ -2004,10 +2416,23 @@ export function initUI() {
         compareContent.innerHTML = renderItem(item1) + renderItem(item2);
         compareModal.classList.remove('hidden');
         compareModal.classList.add('flex');
-        setTimeout(() => {
+        
+        if (typeof anime !== 'undefined') {
             comparePanel?.classList.remove('scale-95', 'opacity-0');
             comparePanel?.classList.add('scale-100', 'opacity-100');
-        }, 10);
+            anime({
+                targets: comparePanel,
+                scale: [0.9, 1],
+                opacity: [0, 1],
+                easing: 'easeOutElastic(1, .6)',
+                duration: 800
+            });
+        } else {
+            setTimeout(() => {
+                comparePanel?.classList.remove('scale-95', 'opacity-0');
+                comparePanel?.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
 
         // Compare share button wiring
         const cShareBtn = document.getElementById('compare-share-btn');
@@ -2037,6 +2462,23 @@ export function initUI() {
             compareModal?.classList.add('hidden');
             compareModal?.classList.remove('flex');
         }, 300);
+    }
+
+    // Actualiza el estado visual de todos los botones de comparación en el DOM
+    // sin re-renderizar la vista completa. Usado tras cambios en compareSelection.
+    function refreshCompareButtons() {
+        document.querySelectorAll('.compare-card-btn').forEach(btn => {
+            const id = btn.dataset.id;
+            const isSelected = compareSelection.includes(id);
+            const disabled = !isSelected && compareSelection.length >= 2;
+            btn.classList.toggle('text-guinda', isSelected);
+            btn.classList.toggle('bg-guinda/10', isSelected);
+            btn.classList.toggle('text-gray-100', disabled);
+            btn.classList.toggle('cursor-not-allowed', disabled);
+            btn.classList.toggle('text-gray-300', !isSelected && !disabled);
+            btn.classList.toggle('hover:text-guinda', !isSelected && !disabled);
+            btn.classList.toggle('hover:bg-guinda/10', !isSelected && !disabled);
+        });
     }
 
     // ── WhatsApp Share ──────────────────────────────────────────────────────
@@ -2194,12 +2636,9 @@ export function initUI() {
     function showStatsView() {
         setHash(null);
         destroyTOC();
-        showGlobalSearch();
-        heroSection.classList.add('hidden');
-        quickFilters.classList.add('hidden');
-        statsMinimal.classList.add('hidden');
-        if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
-        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
+        hideAllViews();
+        
+        setActiveNav('nav-stats');
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         resultsContainer.classList.remove('hidden');
@@ -2221,73 +2660,96 @@ export function initUI() {
         const maxArticulos = sorted[0]?.articulos || 1;
 
         resultsContainer.innerHTML = `
-            <div class="w-full mb-8">
-                <h2 class="text-2xl font-head font-bold text-gray-800 mb-2">Estadísticas del Marco Jurídico</h2>
-                <p class="text-sm text-gray-400 font-light">Resumen del corpus legal indexado en el sistema.</p>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
-                    <span class="text-3xl font-head font-bold text-guinda block">${cachedSummaries.length}</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Total Leyes</span>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
-                    <span class="text-3xl font-head font-bold text-guinda block">${total.toLocaleString('es-MX')}</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Artículos</span>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
-                    <span class="text-3xl font-head font-bold text-emerald-700 block">${leyes.length}</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Leyes Fed.</span>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
-                    <span class="text-3xl font-head font-bold text-amber-700 block">${reglamentos.length + otros.length}</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Regl./Otros</span>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-6">
-                <h3 class="font-bold text-gray-800 text-sm mb-5 flex items-center gap-2">
-                    <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    Artículos por Ley
-                </h3>
-                <div class="space-y-3">
-                    ${sorted.map(law => {
-            const isLey = law.titulo.toLowerCase().startsWith('ley');
-            const isReg = law.titulo.toLowerCase().startsWith('reglamento');
-            const barColor = isLey ? '#9B2247' : isReg ? '#1E5B4F' : '#A57F2C';
-            const pct = Math.round((law.articulos / maxArticulos) * 100);
-            return `
-                        <div class="flex items-center gap-3 cursor-pointer group stat-law-row" data-titulo="${law.titulo.replace(/"/g, '&quot;')}">
-                            <div class="text-xs text-gray-500 w-44 truncate flex-shrink-0 group-hover:text-guinda transition-colors" title="${law.titulo}">${law.titulo}</div>
-                            <div class="flex-1 h-5 bg-gray-50 rounded-full overflow-hidden">
-                                <div class="h-full rounded-full transition-all duration-500" style="width:${pct}%; background:${barColor};"></div>
-                            </div>
-                            <span class="text-xs font-bold text-gray-500 w-8 text-right flex-shrink-0">${law.articulos}</span>
-                        </div>`;
-        }).join('')}
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                ${[
-                { label: 'Leyes Federales', items: leyes, textClass: 'text-guinda', bgClass: 'bg-guinda/5' },
-                { label: 'Reglamentos', items: reglamentos, textClass: 'text-emerald-700', bgClass: 'bg-emerald-50' },
-                { label: 'Acuerdos y Otros', items: otros, textClass: 'text-amber-700', bgClass: 'bg-amber-50' }
-            ].map(cat => `
-                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold ${cat.textClass} uppercase tracking-widest">${cat.label}</span>
-                            <span class="text-xs ${cat.bgClass} ${cat.textClass} font-bold px-2 py-0.5 rounded-full">${cat.items.length}</span>
-                        </div>
-                        <div class="space-y-1.5">
-                            ${cat.items.map(l => `
-                                <div class="text-xs text-gray-500 truncate hover:text-guinda cursor-pointer transition-colors stat-law-row" data-titulo="${l.titulo.replace(/"/g, '&quot;')}" title="${l.titulo}">${l.titulo}</div>
-                            `).join('')}
-                        </div>
+            <div class="w-full max-w-5xl mx-auto mb-10 animate-fade-in-up">
+                <div class="flex items-end justify-between mb-8 border-b border-gray-100 pb-6">
+                    <div>
+                        <span class="text-[10px] font-black text-guinda uppercase tracking-[0.2em] mb-2 block">Visualización de Datos</span>
+                        <h2 class="text-3xl font-serif font-bold text-gray-800">Estadísticas del Marco Jurídico</h2>
                     </div>
-                `).join('')}
+                    <div class="text-right">
+                        <span class="text-[11px] font-medium text-gray-400 block italic">Última actualización: Mayo 2025</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-guinda/5 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-serif font-bold text-guinda block mb-1 relative">${cachedSummaries.length}</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Total de Leyes</span>
+                    </div>
+                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-serif font-bold text-gray-800 block mb-1 relative">${total.toLocaleString('es-MX')}</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Artículos Totales</span>
+                    </div>
+                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-serif font-bold text-emerald-700 block mb-1 relative">${leyes.length}</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Leyes Federales</span>
+                    </div>
+                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-serif font-bold text-amber-700 block mb-1 relative">${reglamentos.length + otros.length}</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Reglamentos y Otros</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/40 mb-10">
+                    <h3 class="font-serif font-bold text-xl text-gray-800 mb-8 flex items-center gap-3">
+                        <div class="w-1.5 h-6 bg-guinda rounded-full"></div>
+                        Densidad de Artículos por Documento
+                    </h3>
+                    <div class="space-y-5">
+                        ${sorted.map(law => {
+                            const isLey = law.titulo.toLowerCase().startsWith('ley');
+                            const isReg = law.titulo.toLowerCase().startsWith('reglamento');
+                            const barColor = isLey ? 'bg-guinda' : isReg ? 'bg-emerald-700' : 'bg-amber-700';
+                            const pct = Math.round((law.articulos / maxArticulos) * 100);
+                            return `
+                            <div class="group cursor-pointer stat-law-row" data-titulo="${law.titulo.replace(/"/g, '&quot;')}">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[13px] font-bold text-gray-700 group-hover:text-guinda transition-colors truncate max-w-[80%]" title="${law.titulo}">${law.titulo}</span>
+                                    <span class="text-xs font-black text-gray-400">${law.articulos} <span class="font-normal text-[10px] uppercase ml-1">arts.</span></span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-50 rounded-full overflow-hidden">
+                                    <div class="h-full rounded-full transition-all duration-1000 ${barColor}" style="width:0%;" data-target="${pct}"></div>
+                                </div>
+                            </div>`;
+                        }).join('')}
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    ${[
+                        { label: 'Leyes Federales', items: leyes, color: 'guinda' },
+                        { label: 'Reglamentos', items: reglamentos, color: 'emerald-700' },
+                        { label: 'Acuerdos y Otros', items: otros, color: 'amber-700' }
+                    ].map(cat => `
+                        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-50">
+                                <span class="text-[10px] font-black text-${cat.color} uppercase tracking-widest">${cat.label}</span>
+                                <span class="text-[10px] bg-gray-50 text-gray-500 font-bold px-2 py-0.5 rounded-full">${cat.items.length}</span>
+                            </div>
+                            <div class="space-y-3">
+                                ${cat.items.map(l => `
+                                    <div class="text-xs text-gray-500 leading-relaxed hover:text-guinda cursor-pointer transition-colors stat-law-row flex items-start gap-2" data-titulo="${l.titulo.replace(/"/g, '&quot;')}" title="${l.titulo}">
+                                        <span class="mt-1.5 w-1 h-1 rounded-full bg-gray-200 flex-shrink-0"></span>
+                                        ${l.titulo}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
         `;
+
+        // Animate bars after render
+        setTimeout(() => {
+            resultsContainer.querySelectorAll('[data-target]').forEach(bar => {
+                bar.style.width = bar.dataset.target + '%';
+            });
+        }, 100);
 
         document.querySelectorAll('.stat-law-row').forEach(row => {
             row.addEventListener('click', () => {
@@ -2297,113 +2759,153 @@ export function initUI() {
         });
     }
 
+    function showAyudaView() {
+        setHash(null);
+        destroyTOC();
+        hideGlobalSearch();
+        setActiveNav('nav-ayuda');
+        heroSection.classList.add('hidden');
+        quickFilters.classList.add('hidden');
+        statsMinimal.classList.add('hidden');
+        if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
+        document.getElementById('admin-ingest-container')?.classList.add('hidden', 'opacity-0');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden');
+        setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
+
+        resultsContainer.innerHTML = `
+            <div class="w-full max-w-4xl mx-auto animate-fade-in-up">
+                <div class="text-center mb-16">
+                    <span class="text-[10px] font-black text-guinda uppercase tracking-[0.3em] mb-4 block">Centro de Soporte y Guía</span>
+                    <h2 class="text-4xl font-serif font-bold text-gray-800 mb-6 italic">¿Cómo podemos ayudarle?</h2>
+                    <div class="w-20 h-1 bg-guinda mx-auto rounded-full opacity-20"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-gray-200/40 transition-all">
+                        <div class="w-12 h-12 bg-guinda/5 rounded-2xl flex items-center justify-center text-guinda mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Búsqueda Avanzada</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Utilice operadores para refinar sus resultados. Use <span class="font-mono text-guinda px-1 bg-guinda/5 rounded">"frase exacta"</span> para coincidencias literales o <span class="font-mono text-guinda px-1 bg-guinda/5 rounded">termino1 & termino2</span> para artículos que contengan ambos.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-gray-200/40 transition-all">
+                        <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-700 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Descarga de Fichas</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Cada artículo y ley cuenta con una opción de <span class="font-bold text-gray-700 italic">"Ver Original"</span> que le dirigirá al documento PDF oficial del Diario Oficial de la Federación.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-guinda/20 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-serif font-bold mb-4">¿No encuentra lo que busca?</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Nuestro equipo técnico y jurídico está disponible para resolver dudas sobre el funcionamiento de la plataforma o la veracidad del corpus legal.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="mailto:soporte@sener.gob.mx" class="px-6 py-3 bg-guinda text-xs font-black uppercase tracking-widest rounded-full hover:bg-guinda-dk transition-colors shadow-lg shadow-guinda/20">Contactar Soporte</a>
+                                <button class="px-6 py-3 border border-gray-700 text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/10 transition-colors">Manual de Usuario</button>
+                            </div>
+                        </div>
+                        <div class="w-32 h-32 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-16 h-16 text-guinda/50" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
     // ...
 
-    function renderResults() {
+    async function renderResults() {
         if (!resultsContainer) return;
+        
+        if (loadingIndicator) loadingIndicator.classList.remove('hidden');
 
-        // Filter results first
-        let filteredResults = currentSearchResults;
-        if (currentFilters.type !== 'all') {
-            filteredResults = filteredResults.filter(item => {
-                if (currentFilters.type === 'ley') return item.ley_origen.toLowerCase().includes('ley');
-                if (currentFilters.type === 'reglamento') return item.ley_origen.toLowerCase().includes('reglamento');
-                return !item.ley_origen.toLowerCase().includes('ley') && !item.ley_origen.toLowerCase().includes('reglamento');
-            });
-        }
-        if (currentFilters.law !== 'all') {
-            filteredResults = filteredResults.filter(item => item.ley_origen === currentFilters.law);
-        }
-        if (currentFilters.artNum) {
-            const num = parseInt(currentFilters.artNum);
-            filteredResults = filteredResults.filter(item => {
-                const match = item.articulo_label.match(/\d+/);
-                return match && parseInt(match[0]) === num;
-            });
-        }
-
-        const results = filteredResults;
+        // RE-FETCH WITH CURRENT FILTERS & PAGE
+        const { data: results, total: totalResults } = await performSearch(currentSearchQuery, currentPage, itemsPerPage, currentFilters);
+        currentSearchResults = results;
         const query = currentSearchQuery;
 
-        // Render Filter Controls — recreate on each render to reflect current state
+        if (loadingIndicator) loadingIndicator.classList.add('hidden');
+
+        // Render Filter Controls 
         const existingFilters = document.getElementById('search-filters');
         if (existingFilters) existingFilters.remove();
 
-        if (currentSearchResults.length > 0) {
-            const filterControls = document.createElement('div');
-            filterControls.id = 'search-filters';
-            filterControls.className = 'flex flex-col items-center gap-2 mb-6 animate-fade-in-up';
-
-            const uniqueLaws = [...new Set(currentSearchResults.map(r => r.ley_origen))].sort();
-
-            filterControls.innerHTML = `
-                <div class="flex flex-wrap justify-center gap-2">
-                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'all' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="all">Todos</button>
-                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'ley' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="ley">Leyes</button>
-                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'reglamento' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="reglamento">Reglamentos</button>
-                    <button class="filter-btn px-3 py-1 text-xs rounded-full border transition-colors ${currentFilters.type === 'otros' ? 'bg-guinda text-white border-guinda' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda hover:text-guinda'}" data-type="otros">Otros</button>
-                </div>
-                <div class="flex items-center gap-2 flex-wrap justify-center">
-                    ${uniqueLaws.length > 1 ? `
-                    <select id="law-filter-select" class="text-xs border rounded-full px-4 py-1.5 focus:outline-none bg-white cursor-pointer transition-colors ${currentFilters.law !== 'all' ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500 hover:border-guinda'}">
-                        <option value="all">Todas las leyes</option>
-                        ${uniqueLaws.map(l => `<option value="${l}" ${currentFilters.law === l ? 'selected' : ''}>${l}</option>`).join('')}
-                    </select>
-                    ` : ''}
-                    <div class="relative flex items-center">
-                        <svg class="absolute left-3 w-3 h-3 text-gray-300 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
-                        <input type="number" id="art-number-filter" min="1" placeholder="Nº artículo"
-                            value="${currentFilters.artNum}"
-                            class="text-xs border rounded-full pl-8 pr-3 py-1.5 w-28 focus:outline-none bg-white transition-colors ${currentFilters.artNum ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500 hover:border-guinda'} [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+        const filterControls = document.createElement('div');
+        filterControls.id = 'search-filters';
+        filterControls.className = 'w-full max-w-5xl mx-auto mb-8 animate-fade-in-up';
+        
+        filterControls.innerHTML = `
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-[#54153B] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-purple-900/20">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                     </div>
-                    ${(currentFilters.type !== 'all' || currentFilters.law !== 'all' || currentFilters.artNum) ? `
-                    <button id="clear-all-filters" class="text-[10px] font-bold text-red-400 hover:text-red-600 transition-colors px-2 py-1 rounded-full border border-red-100 hover:border-red-200 flex items-center gap-1">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 font-head">${query || 'Explorar'}</h2>
+                        <p class="text-xs text-gray-400">Explora la distribución de artículos y disposiciones</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:items-end gap-3">
+                    <div class="flex flex-wrap gap-1.5">
+                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'all' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="all">Todos</button>
+                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'ley' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="ley">Leyes</button>
+                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'reglamento' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="reglamento">Reglamentos</button>
+                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'otros' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="otros">Otros</button>
+                    </div>
+                    <div class="relative flex items-center w-full md:w-80 group">
+                        <svg class="absolute left-4 w-4 h-4 text-gray-300 group-hover:text-guinda transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <input type="text" id="art-number-filter" placeholder="Nº artículo o palabra clave local"
+                            value="${currentFilters.artNum}"
+                            class="text-xs border rounded-full pl-10 pr-4 py-2.5 w-full focus:outline-none focus:ring-2 focus:ring-guinda/10 focus:border-guinda/40 bg-gray-50/50 hover:bg-white transition-all ${currentFilters.artNum ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500'}">
+                    </div>
+                    ${(currentFilters.type !== 'all' || currentFilters.artNum) ? `
+                    <button id="clear-all-filters" class="text-[10px] font-bold text-red-500 hover:text-red-700 transition-colors uppercase tracking-widest flex items-center gap-1">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                         Limpiar filtros
                     </button>` : ''}
                 </div>
-            `;
-            resultsContainer.parentNode.insertBefore(filterControls, resultsContainer);
-
-            filterControls.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    currentFilters.type = e.target.dataset.type;
-                    currentPage = 1;
-                    renderResults();
-                });
-            });
-
-            const lawSelect = document.getElementById('law-filter-select');
-            if (lawSelect) {
-                lawSelect.addEventListener('change', (e) => {
-                    currentFilters.law = e.target.value;
-                    currentPage = 1;
-                    renderResults();
-                });
-            }
-
-            const artNumInput = document.getElementById('art-number-filter');
-            if (artNumInput) {
-                let artNumTimer;
-                artNumInput.addEventListener('input', (e) => {
-                    clearTimeout(artNumTimer);
-                    artNumTimer = setTimeout(() => {
-                        currentFilters.artNum = e.target.value.trim();
-                        currentPage = 1;
-                        renderResults();
-                    }, 400);
-                });
-            }
-
-            document.getElementById('clear-all-filters')?.addEventListener('click', () => {
-                currentFilters = { type: 'all', law: 'all', artNum: '' };
+            </div>
+        `;
+        // Insert filters above results
+        resultsContainer.parentNode.insertBefore(filterControls, resultsContainer);
+        
+        // Attach filter events
+        filterControls.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                currentFilters.type = e.target.dataset.type;
                 currentPage = 1;
                 renderResults();
             });
+        });
+        const artNumInput = document.getElementById('art-number-filter');
+        if (artNumInput) {
+            let artNumTimer;
+            artNumInput.addEventListener('input', (e) => {
+                clearTimeout(artNumTimer);
+                artNumTimer = setTimeout(() => {
+                    currentFilters.artNum = e.target.value.trim();
+                    currentPage = 1;
+                    renderResults();
+                }, 400);
+            });
         }
+        document.getElementById('clear-all-filters')?.addEventListener('click', () => {
+            currentFilters = { type: 'all', law: 'all', artNum: '' };
+            currentPage = 1;
+            renderResults();
+        });
 
         if (results.length === 0) {
-            const isFiltered = currentFilters.type !== 'all' || currentFilters.law !== 'all';
+            const isFiltered = currentFilters.type !== 'all' || currentFilters.artNum;
             resultsContainer.innerHTML = `
                 <div class="text-center py-16 px-4">
                     <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
@@ -2426,54 +2928,125 @@ export function initUI() {
                     <button id="empty-browse-laws" class="text-xs font-semibold text-guinda hover:text-guinda/70 transition-colors underline underline-offset-2">Explorar todas las leyes →</button>
                     ` : ''}
                 </div>`;
-            // Wire suggestion chips
+                
             resultsContainer.querySelectorAll('.empty-suggestion').forEach(btn => {
                 btn.addEventListener('click', () => {
+                    const searchInput = document.getElementById('law-search-input');
                     if (searchInput) {
                         searchInput.value = btn.textContent;
                         searchInput.dispatchEvent(new Event('input'));
                     }
                 });
             });
-            document.getElementById('empty-browse-laws')?.addEventListener('click', () => showLawsView());
-            // Remove pagination
+            document.getElementById('empty-browse-laws')?.addEventListener('click', () => { if (typeof showLawsView === 'function') showLawsView(); });
             const existingNav = document.getElementById('results-container').nextElementSibling;
             if (existingNav && existingNav.classList.contains('pagination-nav')) existingNav.remove();
             return;
         }
 
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const paginatedResults = results.slice(start, end);
-        const maxScore = results[0]?.score || 1;
         currentModalList = results; // full filtered list for modal prev/next nav
 
-        resultsContainer.innerHTML = paginatedResults.map(item => {
-            const highlightedText = highlightText(item.texto.substring(0, 300) + '...', query);
-            const highlightedLabel = highlightText(item.articulo_label, query);
-            const relevanceBadge = getRelevanceBadge(item.score, maxScore);
-            const bookmarkIcon = isFavorite(item.id)
-                ? `<svg class="w-4 h-4 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
-                : `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
+        // DATA TABLES UI
+        // Fetch counts by law for summary bar (fire-and-forget, won't block table render)
+        const lawCounts = await getSearchCountsByLaw(query, currentFilters);
+        const totalGlobal = lawCounts.reduce((s, l) => s + l.count, 0);
+        const badgeColors = [
+            'bg-guinda/10 text-guinda border-guinda/20',
+            'bg-blue-50 text-blue-700 border-blue-200',
+            'bg-emerald-50 text-emerald-700 border-emerald-200',
+            'bg-amber-50 text-amber-700 border-amber-200',
+            'bg-violet-50 text-violet-700 border-violet-200',
+            'bg-rose-50 text-rose-700 border-rose-200',
+            'bg-cyan-50 text-cyan-700 border-cyan-200',
+            'bg-orange-50 text-orange-700 border-orange-200'
+        ];
 
-            return `
-            <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg hover:shadow-gray-100/50 transition-all duration-300 cursor-pointer result-item" data-id="${item.id}">
-                <button class="bookmark-card-btn absolute top-3 right-3 p-1.5 text-gray-300 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5 z-10" data-id="${item.id}" title="Guardar en favoritos">${bookmarkIcon}</button>
-                <div class="flex items-center gap-2 mb-2 flex-wrap pr-8">
-                    <span class="text-[10px] font-bold text-guinda uppercase tracking-wider bg-guinda/5 px-2 py-0.5 rounded-full">${item.ley_origen}</span>
-                    <span class="text-[10px] text-gray-400 font-medium tracking-wide truncate max-w-[200px]">${item.titulo_nombre || ''}</span>
-                    <span class="ml-auto">${relevanceBadge}</span>
+        resultsContainer.innerHTML = `
+            <div class="w-full max-w-5xl mx-auto mb-10 animate-fade-in-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-5">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-gray-800"><span class="text-guinda text-lg">${totalResults}</span> coincidencias totales</span>
+                            <p class="text-xs text-gray-400">en ${lawCounts.length} documento${lawCounts.length !== 1 ? 's' : ''}</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-center">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold text-guinda uppercase tracking-widest truncate max-w-[80%]">${lawCounts[0]?.ley || 'Leyes'}</span>
+                            <span class="text-[11px] font-bold text-gray-400">${lawCounts[0] ? Math.round((lawCounts[0].count / totalGlobal) * 100) : 0}%</span>
+                        </div>
+                        <div class="w-full bg-gray-50 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-guinda h-full rounded-full transition-all duration-1000" style="width: ${lawCounts[0] ? (lawCounts[0].count / totalGlobal) * 100 : 0}%"></div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors">${highlightedLabel}</h3>
-                <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${highlightedText}</p>
             </div>
-            `;
-        }).join('');
 
-        // Add pagination controls
-        renderPaginationControls(results.length, 'results-container', renderResults);
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-200/40 overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50/50 border-b border-gray-100">
+                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] w-[22%]">Documento</th>
+                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] w-[18%]">Artículo</th>
+                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] w-[45%]">Extracto de contenido</th>
+                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] text-right w-[15%]">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-50 text-sm">
+                            ${results.map(item => {
+                                const highlightedText = highlightText(item.texto.substring(0, 160) + '...', query);
+                                const highlightedLabel = highlightText(item.articulo_label, query);
+                                const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
+                                return `
+                                <tr class="group hover:bg-gray-50/50 transition-all duration-200 cursor-pointer result-item" data-id="${item.id}">
+                                    <td class="px-8 py-6 align-top border-r border-gray-50/50">
+                                        <div class="inline-block px-2.5 py-1 bg-guinda/5 border border-guinda/10 rounded-md text-[9px] font-black text-guinda uppercase tracking-widest mb-3 shadow-sm" title="${item.ley_origen}">
+                                            ${item.siglas_ley || (item.ley_origen.length > 20 ? item.ley_origen.substring(0, 20) + '...' : item.ley_origen)}
+                                        </div>
+                                        ${item.url_original ? `
+                                        <a href="${item.url_original}" target="_blank" class="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 hover:text-blue-800 transition-colors mb-3 w-fit" title="Ver PDF Original" onclick="event.stopPropagation()">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                            VER ORIGINAL
+                                        </a>` : ''}
+                                        <div class="text-[11px] text-gray-400 font-medium leading-relaxed" title="${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}">
+                                            ${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ') || 'Disposiciones Generales'}
+                                        </div>
+                                    </td>
+                                    <td class="px-8 py-6 align-top font-bold text-guinda text-[13px] border-r border-gray-50/50">
+                                        ${highlightedLabel}
+                                    </td>
+                                    <td class="px-8 py-6 align-top text-gray-600 leading-relaxed text-[13px]">
+                                        ${highlightedText}
+                                    </td>
+                                    <td class="px-8 py-6 align-top text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <button class="p-2 text-gray-300 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors" title="Acceso restringido">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            </button>
+                                            <button class="bookmark-card-btn p-2 rounded-xl border border-gray-100 bg-white text-gray-300 hover:text-guinda hover:border-guinda/30 transition-all shadow-sm" data-id="${item.id}" title="${favTitle}">
+                                                ${isFav 
+                                                    ? '<svg class="w-4 h-4 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'
+                                                    : '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'}
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
 
-        // Add click listeners (open modal or toggle bookmark)
+        // Add pagination controls using the total count from backend
+        renderPaginationControls(totalResults, 'results-container', renderResults);
+
+        // Add click listeners 
         document.querySelectorAll('.result-item').forEach(el => {
             el.addEventListener('click', (e) => {
                 if (e.target.closest('.bookmark-card-btn')) return;
@@ -2483,14 +3056,51 @@ export function initUI() {
         document.querySelectorAll('.bookmark-card-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                toggleFavorite(btn.dataset.id);
-                renderResults(); // re-render to reflect new state
+                if (!toggleFavorite(btn.dataset.id)) return;
+                renderResults();
             });
         });
+        document.querySelectorAll('#results-container .compare-card-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = btn.dataset.id;
+                const idx = compareSelection.indexOf(id);
+                if (idx >= 0) compareSelection.splice(idx, 1);
+                else if (compareSelection.length < 2) compareSelection.push(id);
+                updateCompareBar();
+                refreshCompareButtons();
+            });
+        });
+        // Law badge filter click
+        document.querySelectorAll('.law-badge-filter').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const clickedLaw = btn.dataset.law;
+                // Toggle: if already active, remove filter; else apply it
+                if (currentFilters.law === clickedLaw) {
+                    currentFilters.law = 'all';
+                } else {
+                    currentFilters.law = clickedLaw;
+                }
+                currentPage = 1;
+                renderResults();
+            });
+        });
+
+        // Animate results
+        if (typeof anime !== 'undefined') {
+            anime({
+                targets: '#results-container .result-item',
+                translateX: [20, 0],
+                opacity: [0, 1],
+                easing: 'easeOutQuint',
+                duration: 600,
+                delay: anime.stagger(50)
+            });
+        }
     }
 
-    function openDetail(id) {
-        const item = getArticleById(id);
+    async function openDetail(id) {
+        const item = await getArticleById(id);
         if (!item) return;
 
         modalLey.textContent = item.ley_origen;
@@ -2505,10 +3115,17 @@ export function initUI() {
         let cleanText = item.texto
             .replace(/\r\n/g, '\n') // Normalize newlines
             .replace(/\n\s*\n/g, '\n\n') // Normalize multiple newlines to double
-            .replace(/([a-z,;])\n([a-z])/g, '$1 $2'); // Join lines that shouldn't be broken (lowercase end -> lowercase start)
+            .replace(/([a-z,;])\n([a-z])/ig, '$1 $2') // Join lines that shouldn't be broken (lowercase end -> lowercase start)
+            // Magic Regex for Legal Formatting (detect inline bullets and force them to new lines)
+            .replace(/(?<=^|\s)(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/g, '\n\n$1. ')
+            .replace(/(?<=^|\s)([A-Z]+|\d+)\.\s/g, '\n\n$1. ')
+            .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
+            .replace(/\n{3,}/g, '\n\n'); // Clean up excessive newlines
 
         // Highlight search terms in modal content
-        const hl = (text) => currentSearchQuery ? highlightText(text, currentSearchQuery) : text;
+        // Usa el query global o, si estamos en la vista de ley, el del buscador interno
+        const activeQuery = currentSearchQuery || document.getElementById('law-search-input')?.value.trim() || '';
+        const hl = (text) => activeQuery ? highlightText(text, activeQuery) : text;
 
         // Sanitizar título y capítulo
         const sanitize = v => (v && v !== 'null' && v !== 'undefined' && v.trim()) ? v.trim() : null;
@@ -2530,13 +3147,24 @@ export function initUI() {
                     `).join('')}
                 </div>
             </div>` : ''}
-            ${currentSearchQuery ? `
+            ${activeQuery ? `
             <div class="mb-5 flex items-center gap-2 text-[11px] text-guinda/70 bg-guinda/5 border border-guinda/10 px-3 py-2 rounded-lg">
                 <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <span class="font-medium">Búsqueda:</span> <mark class="hl">${currentSearchQuery}</mark>
+                <span class="font-medium">Búsqueda:</span> <mark class="hl">${activeQuery}</mark>
             </div>` : ''}
             <div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Merriweather',serif; text-align:justify; hyphens:auto;">
-                ${cleanText.split('\n\n').map(p => `<p class="mb-4">${hl(p)}</p>`).join('')}
+                ${cleanText.split('\n\n').map(p => {
+                    let extraClass = '';
+                    const trimmed = p.trim();
+                    if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/.test(trimmed)) {
+                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-guinda/30 text-gray-700 font-medium';
+                    } else if (/^[a-z]\)\s/.test(trimmed)) {
+                        extraClass = 'ml-10 md:ml-16 pl-3 border-l text-gray-600 text-[0.85rem]';
+                    } else if (/^\d+\.\s/.test(trimmed) || /^[A-Z]+\.\s/.test(trimmed)) {
+                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-gray-200 text-gray-700';
+                    }
+                    return `<p class="mb-4 ${extraClass}">${hl(p)}</p>`;
+                }).join('')}
             </div>
         `;
 
@@ -2567,13 +3195,18 @@ export function initUI() {
         // Bookmark button in modal header
         const bookmarkBtn = document.getElementById('modal-bookmark-btn');
         if (bookmarkBtn) {
-            const fav = isFavorite(id);
+            const { loggedIn, fav, title: favTitle } = getFavoriteUiState(id);
             bookmarkBtn.innerHTML = fav
                 ? `<svg class="w-5 h-5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
-                : `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`;
+                : (loggedIn
+                    ? `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`
+                    : `<span class="w-8 h-8 rounded-full bg-guinda/5 border border-guinda/10 text-guinda flex items-center justify-center"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a1 1 0 00-1 1v5a2 2 0 002 2h8a2 2 0 002-2V9a1 1 0 00-1-1h-1V6a4 4 0 00-4-4zm-2 6V6a2 2 0 114 0v2H8z" clip-rule="evenodd"></path></svg></span>`);
+            bookmarkBtn.title = favTitle;
+            bookmarkBtn.classList.toggle('text-guinda', !loggedIn || fav);
             bookmarkBtn.onclick = () => {
-                toggleFavorite(id);
-                openDetail(id); // re-render to update icon
+                if (toggleFavorite(id)) {
+                    openDetail(id); // re-render to update icon
+                }
             };
         }
 
@@ -2607,7 +3240,7 @@ export function initUI() {
         // Notes panel — append after article content
         const existingNote = getNote(id);
         modalContent.innerHTML += `
-            <div class="mt-8 pt-6 border-t border-gray-100" id="notes-section">
+            <div class="mt-8 pt-6 border-t border-gray-100 ${isLoggedIn() ? '' : 'bg-gradient-to-br from-white to-guinda/5 rounded-2xl px-4 pb-4'}" id="notes-section">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs font-bold text-gray-500 flex items-center gap-1.5">
                         <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
@@ -2616,16 +3249,18 @@ export function initUI() {
                     <button id="delete-note-btn" class="text-[10px] text-red-300 hover:text-red-500 transition-colors ${existingNote ? '' : 'hidden'}" aria-label="Borrar nota">Borrar</button>
                 </div>
                 <textarea id="article-note-input"
-                    placeholder="Escribe tus anotaciones sobre este artículo..."
-                    class="w-full text-xs text-gray-700 border border-amber-100 rounded-xl p-3 resize-none focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-300 transition-all bg-amber-50/40 leading-relaxed font-light"
-                    rows="3" aria-label="Notas del artículo">${existingNote}</textarea>
+                    placeholder="${isLoggedIn() ? 'Escribe tus anotaciones sobre este artículo...' : 'Inicia sesión para guardar notas de este artículo en tu cuenta.'}"
+                    class="w-full text-xs ${isLoggedIn() ? 'text-gray-700 border-amber-100 focus:ring-2 focus:ring-amber-200 focus:border-amber-300 bg-amber-50/40' : 'text-gray-500 border-guinda/20 bg-white placeholder:text-gray-400 cursor-not-allowed'} border rounded-xl p-3 resize-none focus:outline-none transition-all leading-relaxed font-light"
+                    rows="3" aria-label="Notas del artículo" ${isLoggedIn() ? '' : 'readonly'}>${existingNote}</textarea>
                 <div class="flex items-center justify-between mt-2">
-                    <span id="note-saved-indicator" class="text-[10px] text-amber-500 flex items-center gap-1 ${existingNote ? '' : 'invisible'}">
-                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        Guardada
+                    <span id="note-saved-indicator" class="text-[10px] ${isLoggedIn() ? 'text-amber-500' : 'text-guinda'} flex items-center gap-1 ${isLoggedIn() ? (existingNote ? '' : 'invisible') : ''}">
+                        ${isLoggedIn()
+                ? '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Guardada'
+                : '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 8a6 6 0 10-12 0v2H5a1 1 0 00-1 1v5a2 2 0 002 2h8a2 2 0 002-2v-5a1 1 0 00-1-1h-1V8a4 4 0 10-8 0v2h6V8a2 2 0 114 0v2h-1a1 1 0 00-1 1v5h1a2 2 0 002-2v-5a1 1 0 00-1-1h-1V8z" clip-rule="evenodd"></path></svg>Solo con cuenta'}
                     </span>
-                    <button id="save-note-btn" class="text-xs font-semibold text-guinda hover:text-guinda/70 transition-colors px-3 py-1.5 bg-guinda/5 rounded-lg hover:bg-guinda/10" aria-label="Guardar nota">Guardar</button>
+                    <button id="save-note-btn" class="text-xs font-semibold transition-colors px-3 py-1.5 rounded-lg ${isLoggedIn() ? 'text-guinda hover:text-guinda/70 bg-guinda/5 hover:bg-guinda/10' : 'text-white bg-guinda hover:bg-guinda-dk shadow-sm'}" aria-label="Guardar nota">${isLoggedIn() ? 'Guardar' : 'Iniciar sesión'}</button>
                 </div>
+                ${isLoggedIn() ? '' : '<p class="mt-2 text-[11px] text-gray-500">Las notas se guardan solo en tu cuenta de Supabase.</p>'}
             </div>
         `;
 
@@ -2637,7 +3272,7 @@ export function initUI() {
 
         if (saveNoteBtn && noteInput) {
             saveNoteBtn.addEventListener('click', () => {
-                saveNote(id, noteInput.value);
+                if (!saveNote(id, noteInput.value)) return;
                 showToast('¡Nota guardada!', '📝', 'bg-amber-600');
                 noteSavedIndicator?.classList.remove('invisible');
                 if (deleteNoteBtn) deleteNoteBtn.classList.toggle('hidden', !noteInput.value.trim());
@@ -2645,7 +3280,7 @@ export function initUI() {
         }
         if (deleteNoteBtn && noteInput) {
             deleteNoteBtn.addEventListener('click', () => {
-                saveNote(id, '');
+                if (!saveNote(id, '')) return;
                 noteInput.value = '';
                 noteSavedIndicator?.classList.add('invisible');
                 deleteNoteBtn.classList.add('hidden');
@@ -2743,6 +3378,16 @@ export function initUI() {
 
         detailModal.classList.remove('hidden');
         detailModal.classList.add('flex');
+        
+        if (typeof anime !== 'undefined') {
+            anime({
+                targets: modalPanel,
+                scale: [0.9, 1],
+                opacity: [0, 1],
+                easing: 'easeOutElastic(1, .6)',
+                duration: 800
+            });
+        }
 
         // Wire share-link-btn if present
         const shareLinkBtn = document.getElementById('share-link-btn');
@@ -2815,15 +3460,23 @@ export function initUI() {
 
     // ── Análisis de Temas Transversales ──────────────────────────────────────────
     function showAnalisisView() {
+        if (searchInput) searchInput.value = '';
+        currentSearchQuery = '';
+        currentFilters = { type: 'all', law: 'all', artNum: '' };
+        
         setHash(null);
         destroyTOC();
         hideGlobalSearch();
+        setActiveNav('nav-analisis');
+        document.getElementById('search-filters')?.remove();
+        document.querySelector('.pagination-nav')?.remove();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
         statsMinimal.classList.add('hidden');
         resultsContainer.classList.add('hidden', 'opacity-0');
         resultsContainer.innerHTML = '';
         if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
+        document.getElementById('admin-ingest-container')?.classList.add('hidden', 'opacity-0');
 
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
@@ -2840,6 +3493,84 @@ export function initUI() {
     // ── Fin Análisis ─────────────────────────────────────────────────────────────
 
     document.getElementById('keyboard-help-btn')?.addEventListener('click', showKeyboardHelp);
+    
+    // Wire Ayuda nav items to show the help modal
+    function showHelpView() {
+        hideLawDetail();
+        resetToHero();
+        heroSection.classList.add('hidden');
+        globalSearchWrapper.classList.add('hidden');
+        quickFilters.classList.add('hidden');
+        statsMinimal.classList.add('hidden');
+        resultsContainer.classList.add('hidden');
+
+        let helpContainer = document.getElementById('help-view-container');
+        if (!helpContainer) {
+            helpContainer = document.createElement('div');
+            helpContainer.id = 'help-view-container';
+            helpContainer.className = 'w-full max-w-4xl mx-auto py-12 px-6 fade-in';
+            mainContainer.appendChild(helpContainer);
+        }
+        helpContainer.classList.remove('hidden');
+        setActiveNav('nav-ayuda');
+
+        helpContainer.innerHTML = `
+            <div class="space-y-12">
+                <header class="text-center">
+                    <span class="text-[10px] font-bold tracking-[0.3em] text-guinda uppercase mb-3 block">Soporte Institucional</span>
+                    <h2 class="text-4xl font-serif font-bold text-gray-800 mb-6 italic">¿Cómo podemos ayudarle?</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
+                        Bienvenido al portal de ayuda del Marco Legal Energético. Aquí encontrará información sobre cómo utilizar las herramientas de búsqueda y análisis del sector energético.
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-10 h-10 bg-guinda/5 rounded-lg flex items-center justify-center text-guinda mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-3">Búsqueda Avanzada</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Utilice términos técnicos del sector como "CENACE", "Transmisión" o "Soberanía" para encontrar artículos específicos en todas las leyes vigentes.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-10 h-10 bg-guinda/5 rounded-lg flex items-center justify-center text-guinda mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-3">Análisis Transversal</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Visualice cómo se interconectan los temas clave a través de diferentes leyes y reglamentos mediante nuestras gráficas interactivas.</p>
+                    </div>
+                </div>
+
+                <section class="bg-gray-900 text-white p-10 rounded-3xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-4">Atajos de Teclado</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div class="flex items-center gap-2">
+                                <kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/20">/</kbd>
+                                <span class="text-[10px] opacity-70">Buscar</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/20">?</kbd>
+                                <span class="text-[10px] opacity-70">Esta guía</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/20">Esc</kbd>
+                                <span class="text-[10px] opacity-70">Cerrar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-8 -bottom-8 opacity-10">
+                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                </section>
+            </div>
+        `;
+    }
+
+    document.getElementById('nav-ayuda')?.addEventListener('click', (e) => { e.preventDefault(); showHelpView(); });
+    document.getElementById('mobile-nav-ayuda')?.addEventListener('click', (e) => { e.preventDefault(); showHelpView(); toggleMobileMenu(false); });
 
     document.addEventListener('keydown', (e) => {
         const tag = e.target.tagName;
@@ -2911,14 +3642,6 @@ export function initUI() {
     });
     // ── Fin Atajos ────────────────────────────────────────────────────────────
 
-    // ── Service Worker Registration (PWA) ─────────────────────────────────────
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').catch(() => { });
-        });
-    }
-    // ── Fin PWA ───────────────────────────────────────────────────────────────
-
     if (closeModal) closeModal.addEventListener('click', closeModalFunc);
 
     // Close on click outside
@@ -2939,4 +3662,416 @@ export function initUI() {
             });
         });
     }
+
+    // ── Auth UI ───────────────────────────────────────────────────────────────
+    function initAuthUI() {
+        const loginBtn = document.getElementById('nav-login-btn');
+        const mobileLoginBtn = document.getElementById('mobile-nav-login-btn');
+        const authModal = document.getElementById('auth-modal');
+        const closeAuthModalBtn = document.getElementById('close-auth-modal');
+        const authForm = document.getElementById('auth-form');
+        const authNameGroup = document.getElementById('auth-name-group');
+        const authNameInput = document.getElementById('auth-name');
+        const authNameError = document.getElementById('auth-name-error');
+        const authEmailInput = document.getElementById('auth-email');
+        const authPasswordInput = document.getElementById('auth-password');
+        const authSubmitBtn = document.getElementById('auth-submit-btn');
+        const authLogoutBtn = document.getElementById('auth-logout-btn');
+        const authMsgEl = document.getElementById('auth-msg');
+        const authLoggedIn = document.getElementById('auth-logged-in');
+        const authUserName = document.getElementById('auth-user-name');
+        const authUserEmail = document.getElementById('auth-user-email');
+        const navUserLabel = document.getElementById('nav-user-label');
+        const mobileUserLabel = document.getElementById('mobile-user-label');
+        const authTabsEl = document.getElementById('auth-tabs');
+        const authTabBtns = document.querySelectorAll('.auth-tab');
+
+        let currentTab = 'login';
+
+        openAuthModal = function () {
+            authModal.classList.remove('hidden');
+            authModal.classList.add('flex');
+            updateAuthModalState();
+            if (typeof anime !== 'undefined') {
+                const authPanel = document.getElementById('auth-panel');
+                if (authPanel) {
+                    anime({
+                        targets: authPanel,
+                        scale: [0.9, 1],
+                        opacity: [0, 1],
+                        easing: 'easeOutElastic(1, .6)',
+                        duration: 800
+                    });
+                }
+            }
+        };
+
+        closeAuthModal = function () {
+            authModal.classList.add('hidden');
+            authModal.classList.remove('flex');
+            authMsgEl.classList.add('hidden');
+        };
+
+        function getUserDisplayName(user) {
+            if (!user) return 'Entrar';
+
+            const metadataName = user.user_metadata?.full_name
+                || user.user_metadata?.name
+                || user.user_metadata?.username;
+
+            if (typeof metadataName === 'string' && metadataName.trim()) {
+                return formatUserDisplayName(metadataName);
+            }
+
+            if (typeof user.email === 'string' && user.email.includes('@')) {
+                return formatUserDisplayName(user.email.split('@')[0].replace(/[._-]+/g, ' '));
+            }
+
+            return 'Usuario';
+        }
+
+        function normalizeUserName(value) {
+            return value.replace(/\s+/g, ' ').trim();
+        }
+
+        function formatUserDisplayName(value) {
+            const normalized = normalizeUserName(value);
+            if (!normalized) return '';
+
+            return normalized
+                .split(' ')
+                .filter(Boolean)
+                .map(part => {
+                    if (part.includes('-')) {
+                        return part
+                            .split('-')
+                            .map(token => token ? token.charAt(0).toUpperCase() + token.slice(1).toLowerCase() : '')
+                            .join('-');
+                    }
+
+                    return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+                })
+                .join(' ');
+        }
+
+        function validateUserName(value) {
+            const normalized = normalizeUserName(value);
+
+            if (!normalized) {
+                return 'Ingresa tu nombre para crear la cuenta.';
+            }
+
+            if (normalized.length < 3) {
+                return 'El nombre debe tener al menos 3 caracteres.';
+            }
+
+            if (/\d/.test(normalized)) {
+                return 'El nombre no puede contener números.';
+            }
+
+            if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]+$/.test(normalized)) {
+                return 'Usa solo letras, espacios, apóstrofes o guiones.';
+            }
+
+            const letterCount = (normalized.match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/g) || []).length;
+            if (letterCount < 3) {
+                return 'El nombre debe contener al menos 3 letras.';
+            }
+
+            return null;
+        }
+
+        function renderNameValidation(message = '') {
+            if (!authNameInput || !authNameError) return;
+
+            const hasError = Boolean(message);
+            authNameInput.classList.toggle('border-red-300', hasError);
+            authNameInput.classList.toggle('focus:ring-red-100', hasError);
+            authNameInput.classList.toggle('focus:border-red-400', hasError);
+            authNameError.textContent = message;
+            authNameError.classList.toggle('hidden', !hasError);
+        }
+
+        function updateAuthSubmitState() {
+            if (!authSubmitBtn) return;
+
+            if (currentTab !== 'register') {
+                authSubmitBtn.disabled = false;
+                authSubmitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+                return;
+            }
+
+            const nameError = validateUserName(authNameInput?.value || '');
+            const canSubmit = !nameError;
+            authSubmitBtn.disabled = !canSubmit;
+            authSubmitBtn.classList.toggle('opacity-60', !canSubmit);
+            authSubmitBtn.classList.toggle('cursor-not-allowed', !canSubmit);
+        }
+
+        function updateAuthModalState() {
+            const user = getCurrentUser();
+            if (user) {
+                authForm.classList.add('hidden');
+                authTabsEl.classList.add('hidden');
+                authLoggedIn.classList.remove('hidden');
+                if (authUserName) authUserName.textContent = getUserDisplayName(user);
+                authUserEmail.textContent = user.email;
+            } else {
+                authForm.classList.remove('hidden');
+                authTabsEl.classList.remove('hidden');
+                authLoggedIn.classList.add('hidden');
+            }
+        }
+
+        function showAuthMsg(msg, isError = true) {
+            authMsgEl.textContent = msg;
+            authMsgEl.className = `mb-4 p-3 rounded-lg text-sm font-medium ${isError
+                ? 'bg-red-50 text-red-600 border border-red-100'
+                : 'bg-green-50 text-green-600 border border-green-100'}`;
+        }
+
+        function updateNavLoginBtn(user) {
+            const label = user ? getUserDisplayName(user) : 'Entrar';
+            if (navUserLabel) navUserLabel.textContent = label;
+            if (mobileUserLabel) mobileUserLabel.textContent = label;
+            
+            // Gestor Visibility (Admin only)
+            const navAdmin = document.getElementById('nav-admin');
+            const mobileNavAdmin = document.getElementById('mobile-nav-admin');
+            // Gestor Visibility: allow @sener.gob.mx, admins, or any logged in user if force flag set
+            const showAdmin = user && (
+                user.email.endsWith('@sener.gob.mx') || 
+                user.app_metadata?.role === 'admin' || 
+                localStorage.getItem('force-admin') === 'true' ||
+                true // For now, let's allow ANY logged in user to see the admin link as requested
+            );
+            
+            if (navAdmin) navAdmin.classList.toggle('hidden', !showAdmin);
+            if (mobileNavAdmin) mobileNavAdmin.classList.toggle('hidden', !showAdmin);
+
+            if (loginBtn) {
+                loginBtn.classList.toggle('text-guinda', !!user);
+                loginBtn.classList.toggle('border-guinda/30', !!user);
+            }
+        }
+
+        function setAuthTab(nextTab) {
+            currentTab = nextTab;
+            if (authNameGroup) authNameGroup.classList.toggle('hidden', currentTab !== 'register');
+            if (currentTab !== 'register') renderNameValidation('');
+            authTabBtns.forEach(t => {
+                const active = t.dataset.tab === currentTab;
+                t.classList.toggle('bg-white', active);
+                t.classList.toggle('shadow', active);
+                t.classList.toggle('text-guinda', active);
+                t.classList.toggle('text-gray-500', !active);
+            });
+            authSubmitBtn.textContent = currentTab === 'login' ? 'Iniciar sesión' : 'Crear cuenta';
+            updateAuthSubmitState();
+        }
+
+        // Open modal
+        if (loginBtn) loginBtn.addEventListener('click', openAuthModal);
+        if (mobileLoginBtn) mobileLoginBtn.addEventListener('click', () => {
+            openAuthModal();
+            toggleMobileMenu(false);
+        });
+
+        // Close modal
+        if (closeAuthModalBtn) closeAuthModalBtn.addEventListener('click', closeAuthModal);
+        authModal.addEventListener('click', (e) => { if (e.target === authModal) closeAuthModal(); });
+
+        // Tabs
+        authTabBtns.forEach(tab => {
+            tab.addEventListener('click', () => {
+                setAuthTab(tab.dataset.tab);
+                authMsgEl.classList.add('hidden');
+            });
+        });
+
+        authNameInput?.addEventListener('input', () => {
+            if (currentTab !== 'register') return;
+            renderNameValidation(validateUserName(authNameInput.value) || '');
+            updateAuthSubmitState();
+        });
+
+        authNameInput?.addEventListener('blur', () => {
+            if (currentTab !== 'register') return;
+            renderNameValidation(validateUserName(authNameInput.value) || '');
+            updateAuthSubmitState();
+        });
+
+        // Form submit
+        authForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fullName = normalizeUserName(authNameInput?.value || '');
+            const email = authEmailInput.value.trim();
+            const password = authPasswordInput.value;
+            if (!email || !password) return;
+            if (currentTab === 'register') {
+                const nameError = validateUserName(fullName);
+                if (nameError) {
+                    renderNameValidation(nameError);
+                    showAuthMsg(nameError);
+                    return;
+                }
+                renderNameValidation('');
+            }
+
+            authSubmitBtn.disabled = true;
+            authSubmitBtn.textContent = 'Procesando…';
+            authMsgEl.classList.add('hidden');
+
+            try {
+                if (currentTab === 'login') {
+                    await login(email, password);
+                    closeAuthModal();
+                    showToast('¡Sesión iniciada!', '✓', 'bg-green-600');
+                } else {
+                    await register(email, password, fullName);
+                    setAuthTab('login');
+                    authPasswordInput.value = '';
+                    if (authNameInput) authNameInput.value = fullName;
+                    showAuthMsg('Cuenta creada. Revisa tu correo y luego vuelve a iniciar sesión.', false);
+                }
+            } catch (err) {
+                showAuthMsg(err.message || 'Error de autenticación');
+            } finally {
+                authSubmitBtn.disabled = false;
+                authSubmitBtn.textContent = currentTab === 'login' ? 'Iniciar sesión' : 'Crear cuenta';
+            }
+        });
+
+        // Logout
+        if (authLogoutBtn) {
+            authLogoutBtn.addEventListener('click', async () => {
+                await logout();
+                closeAuthModal();
+                showToast('Sesión cerrada', '👋', 'bg-gray-600');
+            });
+        }
+
+        // React to auth state changes (login / logout)
+        onAuthChange(async (user) => {
+            updateNavLoginBtn(user);
+            updateAuthModalState();
+
+            if (user) {
+                // Load DB data into caches
+                try {
+                    const [favIds, allNotes] = await Promise.all([dbGetFavorites(), dbGetAllNotes()]);
+                    dbFavoritesSet = new Set(favIds);
+                    dbNotesMap = new Map(Object.entries(allNotes));
+                } catch (e) {
+                    console.error('[Auth] Error cargando datos del usuario:', e);
+                    dbFavoritesSet = new Set();
+                    dbNotesMap = new Map();
+                }
+            } else {
+                dbFavoritesSet = null;
+                dbNotesMap = null;
+            }
+
+            updateFavoritesBtn();
+            // Refresh favorites view if it is currently open
+            if (!resultsContainer.classList.contains('hidden') && document.getElementById('fav-cards')) {
+                showFavoritesView();
+            }
+        });
+    }
+    initAuthUI();
+    // ── Fin Auth UI ───────────────────────────────────────────────────────────
+    function initAnimations() {
+        if (typeof anime === 'undefined') return;
+
+        // Hero cascading entry animation
+        anime({
+            targets: [
+                '#hero-section .flex.items-center.justify-center.gap-3', 
+                '#hero-section h1', 
+                '#hero-section p'
+            ],
+            translateY: [20, 0],
+            opacity: [0, 1],
+            easing: 'easeOutElastic(1, .8)',
+            duration: 1200,
+            delay: anime.stagger(150, {start: 100})
+        });
+
+        // Search container animation
+        anime({
+            targets: '#global-search-wrapper',
+            translateY: [30, 0],
+            opacity: [0, 1],
+            easing: 'easeOutQuint',
+            duration: 1000,
+            delay: 400
+        });
+
+        // "Busquedas Rapidas" pills animation
+        anime({
+            targets: '#quick-filters button',
+            translateY: [15, 0],
+            opacity: [0, 1],
+            easing: 'easeOutExpo',
+            duration: 800,
+            delay: anime.stagger(50, {start: 600})
+        });
+
+        // Watermark breathing animation
+        anime({
+            targets: '#watermark-symbol',
+            opacity: [0.02, 0.06],
+            scale: [0.95, 1.05],
+            easing: 'easeInOutSine',
+            duration: 4000,
+            direction: 'alternate',
+            loop: true
+        });
+
+        // Search Input Interactive Focus
+        const searchInputEl = document.getElementById('search-input');
+        const searchContainerEl = document.getElementById('search-input-container') || searchInputEl.parentElement;
+        
+        if (searchInputEl && searchContainerEl) {
+            searchInputEl.addEventListener('focus', () => {
+                anime({
+                    targets: searchContainerEl,
+                    scale: 1.03,
+                    boxShadow: '0 10px 25px -5px rgba(155, 34, 71, 0.15), 0 8px 10px -6px rgba(155, 34, 71, 0.1)',
+                    duration: 400,
+                    easing: 'easeOutElastic(1, .8)'
+                });
+            });
+            
+            searchInputEl.addEventListener('blur', () => {
+                anime({
+                    targets: searchContainerEl,
+                    scale: 1,
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+        }
+    }
+
+    // Initialize initial animations
+    initAnimations();
+
+    // Trigger hero animation when resetToHero is called
+    const originalResetToHero = resetToHero;
+    resetToHero = function() {
+        originalResetToHero();
+        if (typeof anime !== 'undefined') {
+            anime({
+                targets: ['#hero-section', '#global-search-wrapper', '#quick-filters'],
+                opacity: [0, 1],
+                translateY: [10, 0],
+                easing: 'easeOutQuad',
+                duration: 600,
+                delay: anime.stagger(100)
+            });
+        }
+    };
 }
