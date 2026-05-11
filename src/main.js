@@ -4,6 +4,7 @@ import './styles/index.css';
 import { initSearch } from './scripts/search-engine.js';
 import { initUI } from './scripts/ui.js';
 import { initAdminIngest } from './scripts/admin-ingest.js';
+import { initAdminManagement } from './scripts/admin-management.js';
 import { initAuth } from './scripts/auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initUI();
   initSearch();
   initAdminIngest();
+  initAdminManagement();
 
   // Setup Admin Nav Clicks (injecting directly into UI's existing navigation flow)
   const navAdminBtn = document.getElementById('nav-admin');

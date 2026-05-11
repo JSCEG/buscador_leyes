@@ -1,6 +1,6 @@
 import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName } from './search-engine.js';
 import { renderAnalisisView } from './analisis.js';
-import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote } from './auth.js';
+import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -166,44 +166,232 @@ export function initUI() {
         });
     }
 
+    // Admin visibility logic
+    const updateAdminVisibility = () => {
+        const adminBtn = document.getElementById('nav-admin');
+        const mobileAdminBtn = document.getElementById('mobile-nav-admin');
+        const isUserAdmin = isAdmin();
+        
+        if (adminBtn) adminBtn.classList.toggle('hidden', !isUserAdmin);
+        if (mobileAdminBtn) mobileAdminBtn.classList.toggle('hidden', !isUserAdmin);
+    };
+
+    onAuthChange(() => {
+        updateAdminVisibility();
+    });
+
     let cachedSummaries = [];
     let currentLawArticles = [];
 
+    // Lógica de clasificación avanzada de instrumentos
+    function classifyInstrument(s) {
+        // Priorizar el campo 'tipo' si viene de la base de datos
+        if (s.tipo) {
+            const t = s.tipo.toLowerCase();
+            if (t === 'ley') return { id: 'ley', label: 'Leyes Federales', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
+            if (t === 'reglamento') return { id: 'reglamento', label: 'Reglamentos', color: 'emerald-700', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
+            if (t === 'acuerdo') return { id: 'acuerdo', label: 'Acuerdos', color: 'amber-600', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
+            if (t === 'dacg') return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
+            if (t === 'nom') return { id: 'nom', label: 'NOMs', color: 'purple-700', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
+            if (t === 'permiso') return { id: 'permiso', label: 'Permisos', color: 'cyan-700', icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z' };
+            if (t === 'manual') return { id: 'manual', label: 'Manuales', color: 'slate-600', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
+        }
+
+        // Fallback a detección por texto en título
+        const t = (s.titulo || '').toLowerCase();
+        if (t.startsWith('ley ')) return { id: 'ley', label: 'Leyes', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
+        if (t.startsWith('reglamento ')) return { id: 'reglamento', label: 'Reglamentos', color: 'emerald-700', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
+        if (t.includes('acuerdo')) return { id: 'acuerdo', label: 'Acuerdos', color: 'amber-600', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
+        if (t.includes('disposiciones administrativas') || t.includes('dacg')) return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
+        if (t.includes('norma oficial') || t.includes('nom-')) return { id: 'nom', label: 'NOMs', color: 'purple-700', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
+        if (t.includes('permiso')) return { id: 'permiso', label: 'Permisos', color: 'cyan-700', icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z' };
+        if (t.includes('manual') || t.includes('lineamientos')) return { id: 'manual', label: 'Manuales', color: 'slate-600', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
+        return { id: 'otros', label: 'Otros', color: 'gray-500', icon: 'M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z' };
+    }
+
+    function renderAcervoAnalytics(summaries) {
+        const dashboard = document.getElementById('acervo-visual-dashboard');
+        if (!dashboard) return;
+        
+        dashboard.classList.remove('hidden');
+        dashboard.style.display = 'block'; // Keep block for D3 measurements if needed, or rely on flex
+
+        // 1. Data Processing
+        const counts = summaries.reduce((acc, s) => {
+            const type = classifyInstrument(s).id;
+            acc[type] = (acc[type] || 0) + 1;
+            return acc;
+        }, {});
+
+        const total = summaries.length;
+        const categories = [
+            { id: 'ley', label: 'Leyes Federales', color: '#9B2247', count: counts['ley'] || 0 },
+            { id: 'reglamento', label: 'Reglamentos', color: '#1E5B4F', count: counts['reglamento'] || 0 },
+            { id: 'acuerdo', label: 'Acuerdos', color: '#A57F2C', count: counts['acuerdo'] || 0 },
+            { id: 'dacg', label: 'DACG\'s', color: '#2563eb', count: counts['dacg'] || 0 },
+            { id: 'nom', label: 'NOMs', color: '#7c3aed', count: counts['nom'] || 0 },
+            { id: 'otros', label: 'Otros', color: '#64748b', count: (counts['permiso'] || 0) + (counts['manual'] || 0) + (counts['otros'] || 0) }
+        ].filter(c => c.count > 0);
+
+        // Update Total Display
+        const totalDisplay = document.getElementById('total-count-display');
+        if (totalDisplay) {
+            let start = 0;
+            const duration = 2000;
+            const startTime = performance.now();
+            const animateTotal = (now) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const value = Math.floor(total * progress);
+                totalDisplay.textContent = value;
+                if (progress < 1) requestAnimationFrame(animateTotal);
+            };
+            requestAnimationFrame(animateTotal);
+        }
+
+        // 2. Render Legend
+        const legendContainer = document.getElementById('analytics-legend');
+        if (legendContainer) {
+            legendContainer.innerHTML = categories.map(cat => `
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-white transition-colors cursor-default">
+                    <div class="w-2.5 h-2.5 rounded-full shadow-sm" style="background-color: ${cat.color}"></div>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">${cat.label}</span>
+                </div>
+            `).join('');
+        }
+
+        // 3. D3 Donut Chart
+        renderDonutChart(categories, total);
+
+        // 4. D3 Bar Chart (Simplified rows with D3 logic)
+        renderBarCharts(categories, total);
+    }
+
+    function renderDonutChart(data, total) {
+        const container = document.getElementById('donut-chart-container');
+        if (!container) return;
+        container.innerHTML = '';
+
+        const width = container.clientWidth || 360;
+        const height = width;
+        const margin = 20;
+        const radius = Math.min(width, height) / 2 - margin;
+
+        const svg = d3.select('#donut-chart-container')
+            .append('svg')
+            .attr('width', '100%')
+            .attr('height', '100%')
+            .attr('viewBox', `0 0 ${width} ${height}`)
+            .append('g')
+            .attr('transform', `translate(${width / 2},${height / 2})`);
+
+        const pie = d3.pie()
+            .sort(null)
+            .value(d => d.count)
+            .padAngle(0.04);
+
+        const arc = d3.arc()
+            .innerRadius(radius * 0.75)
+            .outerRadius(radius)
+            .cornerRadius(8);
+
+        const arcHover = d3.arc()
+            .innerRadius(radius * 0.72)
+            .outerRadius(radius * 1.05)
+            .cornerRadius(12);
+
+        const path = svg.selectAll('path')
+            .data(pie(data))
+            .enter()
+            .append('path')
+            .attr('fill', d => d.data.color)
+            .attr('d', arc)
+            .attr('stroke', 'white')
+            .attr('stroke-width', '2')
+            .each(function(d) { this._current = d; });
+
+        // Entry Animation
+        path.transition()
+            .duration(1500)
+            .attrTween('d', function(d) {
+                const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return (t) => arc(interpolate(t));
+            })
+            .ease(d3.easeElasticOut.amplitude(1).period(0.6));
+
+        // Interactivity
+        path.on('mouseenter', function(event, d) {
+            d3.select(this)
+                .transition()
+                .duration(400)
+                .attr('d', arcHover)
+                .style('filter', 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))');
+            
+            // Subtle pulse to total display
+            const totalDisplay = d3.select('#total-count-display');
+            totalDisplay.transition()
+                .duration(200)
+                .style('transform', 'scale(1.1)')
+                .style('color', d.data.color);
+        })
+        .on('mouseleave', function(event, d) {
+            d3.select(this)
+                .transition()
+                .duration(400)
+                .attr('d', arc)
+                .style('filter', 'none');
+            
+            const totalDisplay = d3.select('#total-count-display');
+            totalDisplay.transition()
+                .duration(300)
+                .style('transform', 'scale(1)')
+                .style('color', '#9B2247');
+        });
+    }
+
+    function renderBarCharts(data, total) {
+        const container = document.getElementById('bar-chart-container');
+        if (!container) return;
+        container.innerHTML = '';
+
+        data.sort((a, b) => b.count - a.count).forEach((cat, i) => {
+            const percentage = ((cat.count / total) * 100).toFixed(1);
+            const row = document.createElement('div');
+            row.className = 'group';
+            row.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white shadow-sm" style="background-color: ${cat.color}">
+                            <span class="text-[10px] font-black">${cat.count}</span>
+                        </div>
+                        <span class="text-xs font-bold text-gray-700 uppercase tracking-widest">${cat.label}</span>
+                    </div>
+                    <span class="text-[11px] font-black text-gray-400 group-hover:text-guinda transition-colors">${percentage}%</span>
+                </div>
+                <div class="w-full bg-gray-50 h-2.5 rounded-full overflow-hidden border border-gray-100/50">
+                    <div class="bar-fill h-full rounded-full transition-all duration-[1500ms] ease-out-expo" 
+                         style="width: 0%; background-color: ${cat.color}; box-shadow: 0 0 15px ${cat.color}33">
+                    </div>
+                </div>
+            `;
+            container.appendChild(row);
+
+            // Animate width
+            setTimeout(() => {
+                const fill = row.querySelector('.bar-fill');
+                if (fill) fill.style.width = `${percentage}%`;
+            }, 100 + (i * 100));
+        });
+    }
+
+
     // Stats Listener
     window.addEventListener('search-ready', (e) => {
-        const { totalLeyes, totalArticulos, summaries } = e.detail;
+        const { summaries } = e.detail;
         cachedSummaries = summaries;
 
-        if (statsMinimal) {
-            statsMinimal.innerHTML = `
-                <span class="opacity-60">Índice activo:</span>
-                <span class="font-semibold text-guinda"><span id="anim-total-leyes">0</span> leyes</span>
-                <span class="mx-1 opacity-30">|</span>
-                <span class="font-semibold text-guinda"><span id="anim-total-articulos">0</span> artículos</span>
-            `;
-            
-            if (typeof anime !== 'undefined') {
-                const counterState = { leyes: 0, articulos: 0 };
-                anime({
-                    targets: counterState,
-                    leyes: totalLeyes,
-                    articulos: totalArticulos,
-                    round: 1,
-                    easing: 'easeOutExpo',
-                    duration: 2000,
-                    update: function() {
-                        const elLeyes = document.getElementById('anim-total-leyes');
-                        const elArts = document.getElementById('anim-total-articulos');
-                        if(elLeyes) elLeyes.innerHTML = counterState.leyes;
-                        if(elArts) elArts.innerHTML = counterState.articulos;
-                    }
-                });
-            } else {
-                document.getElementById('anim-total-leyes').innerHTML = totalLeyes;
-                document.getElementById('anim-total-articulos').innerHTML = totalArticulos;
-            }
-        }
-        updateFavoritesBtn();
+        // No longer auto-rendering on home, user wants it only in stats
+        // renderAcervoAnalytics(summaries); 
+
         // Handle URL hash (deep link) once data is ready
         setTimeout(handleInitialHash, 0);
     });
@@ -466,7 +654,9 @@ export function initUI() {
             'analisis-container',
             'admin-ingest-container',
             'stats-minimal',
-            'help-view-container'
+            'help-view-container',
+            'features-section',
+            'acervo-visual-dashboard'
         ];
         containers.forEach(id => {
             const el = document.getElementById(id);
@@ -475,9 +665,6 @@ export function initUI() {
                 el.classList.add('opacity-0');
             }
         });
-        
-        // Features section is special as it's part of Inicio
-        document.getElementById('features-section')?.classList.add('hidden');
     }
 
     function resetToHero() {
@@ -494,6 +681,7 @@ export function initUI() {
         setTimeout(() => {
             if (heroSection) heroSection.classList.remove('opacity-0');
             if (globalSearchWrapper) globalSearchWrapper.classList.remove('opacity-0');
+            if (featuresSection) featuresSection.classList.remove('opacity-0');
         }, 50);
 
         setActiveNav('nav-inicio');
@@ -559,36 +747,82 @@ export function initUI() {
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         currentPage = 1;
 
-        // Render Laws Grid
+        // Render Laws Table
         if (cachedSummaries.length === 0) {
-            resultsContainer.innerHTML = `<div class="text-center py-12 text-gray-400">Cargando leyes...</div>`;
+            resultsContainer.innerHTML = `<div class="w-full flex justify-center py-12"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
             return;
         }
 
-        // Categorize Documents
-        const leyes = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('ley'));
-        const reglamentos = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('reglamento'));
-        const otros = cachedSummaries.filter(l => !l.titulo.toLowerCase().startsWith('ley') && !l.titulo.toLowerCase().startsWith('reglamento'));
-
         resultsContainer.innerHTML = `
-            <div class="w-full mb-8">
-                <h2 class="text-2xl font-head font-bold text-gray-800 mb-2">Marco Jurídico Disponible</h2>
-                <p class="text-sm text-gray-400 font-light">Explora las leyes y reglamentos indexados en el sistema.</p>
+            <div class="w-full mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-gray-800 mb-1">Acervo Energético</h2>
+                    <p class="text-xs text-gray-400 font-medium italic">Listado completo de instrumentos jurídicos vigentes.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-black text-guinda bg-guinda/5 px-2.5 py-1 rounded-full border border-guinda/10 uppercase tracking-widest">${cachedSummaries.length} Instrumentos</span>
+                </div>
             </div>
-            
-            ${renderCarouselSection('Leyes Federales', leyes)}
-            ${renderCarouselSection('Reglamentos', reglamentos)}
-            ${renderCarouselSection('Acuerdos y Otros Instrumentos', otros)}
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-xl shadow-gray-200/40 overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-100">
+                                <th class="px-6 py-4 font-bold text-gray-400 uppercase tracking-widest">Título del Instrumento</th>
+                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest w-[10%]">Siglas</th>
+                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest text-center w-[15%]">Tipo</th>
+                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest w-[15%]">Publicación</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-50">
+                            ${cachedSummaries.sort((a,b) => a.titulo.localeCompare(b.titulo)).map(ley => {
+                                const typeInfo = classifyInstrument(ley.titulo);
+                                const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }) : '---';
+                                
+                                const typeStyle = {
+                                    ley: 'bg-guinda/5 text-guinda border-guinda/10',
+                                    reglamento: 'bg-emerald-50 text-emerald-700 border-emerald-100',
+                                    acuerdo: 'bg-blue-50 text-blue-700 border-blue-100',
+                                    dacg: 'bg-blue-50 text-blue-700 border-blue-100',
+                                    nom: 'bg-amber-50 text-amber-700 border-amber-100',
+                                    otros: 'bg-gray-50 text-gray-500 border-gray-100'
+                                }[typeInfo.id] || 'bg-gray-50 text-gray-500 border-gray-100';
+
+                                return `
+                                    <tr class="hover:bg-gray-50/80 transition-colors group cursor-pointer law-row-item" data-title="${ley.titulo}">
+                                        <td class="px-6 py-4">
+                                            <div class="font-bold text-gray-800 group-hover:text-guinda transition-colors" title="${ley.titulo}">${ley.titulo}</div>
+                                            ${ley.url_original ? `<a href="${ley.url_original}" target="_blank" class="text-[9px] text-guinda hover:underline flex items-center gap-1 mt-1 opacity-60 hover:opacity-100">
+                                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> Ver en DOF
+                                            </a>` : ''}
+                                        </td>
+                                        <td class="px-4 py-4 font-mono text-[11px] font-bold text-gray-400">${ley.siglas || '---'}</td>
+                                        <td class="px-4 py-4 text-center">
+                                            <span class="px-2 py-0.5 rounded border text-[9px] font-black uppercase tracking-widest ${typeStyle}">
+                                                ${typeInfo.id}
+                                            </span>
+                                        </td>
+                                        <td class="px-4 py-4 text-gray-400 font-medium">${date}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         `;
 
-        // Add listeners to law cards
-        document.querySelectorAll('.law-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const title = card.dataset.title;
+        // Add listeners to law rows
+        document.querySelectorAll('.law-row-item').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (e.target.closest('a')) return;
+                const title = row.dataset.title;
                 const law = cachedSummaries.find(l => l.titulo === title);
                 if (law) openLawDetail(law);
             });
         });
+
 
         // Add Scroll Listeners
         document.querySelectorAll('.carousel-container').forEach(container => {
@@ -615,86 +849,108 @@ export function initUI() {
     function renderCarouselSection(title, items) {
         if (items.length === 0) return '';
 
-        const isLey = title.toLowerCase().includes('ley');
-        const isReglamento = title.toLowerCase().includes('reglamento');
+        // Usamos el primer item para determinar el estilo base del carrusel si es necesario,
+        // pero cada tarjeta se clasificará individualmente.
+        const firstType = classifyInstrument(items[0].titulo);
+        
+        const catConfig = {
+            ley: { accent: '#9B2247', label: 'Ley Federal', textColor: 'text-guinda', bgTag: 'bg-guinda/5', img: '/assets/categories/leyes.png' },
+            reglamento: { accent: '#1E5B4F', label: 'Reglamento', textColor: 'text-emerald-800', bgTag: 'bg-emerald-50', img: '/assets/categories/reglamentos.png' },
+            acuerdo: { accent: '#A57F2C', label: 'Acuerdo', textColor: 'text-amber-800', bgTag: 'bg-amber-50', img: '/assets/categories/otros.png' },
+            dacg: { accent: '#1e40af', label: 'DACG', textColor: 'text-blue-800', bgTag: 'bg-blue-50', img: '/assets/categories/otros.png' },
+            nom: { accent: '#7e22ce', label: 'NOM', textColor: 'text-purple-800', bgTag: 'bg-purple-50', img: '/assets/categories/otros.png' },
+            permiso: { accent: '#0891b2', label: 'Permiso', textColor: 'text-cyan-800', bgTag: 'bg-cyan-50', img: '/assets/categories/otros.png' },
+            manual: { accent: '#475569', label: 'Manual', textColor: 'text-slate-800', bgTag: 'bg-slate-50', img: '/assets/categories/otros.png' },
+            otros: { accent: '#64748b', label: 'Instrumento', textColor: 'text-gray-800', bgTag: 'bg-gray-50', img: '/assets/categories/otros.png' }
+        };
 
-        // Category color config
-        const cat = isLey
-            ? { accent: '#9B2247', gradFrom: '#6b1532', gradTo: '#9B2247', label: 'Ley Federal', dotClass: 'bg-guinda' }
-            : isReglamento
-                ? { accent: '#1E5B4F', gradFrom: '#14403a', gradTo: '#1E5B4F', label: 'Reglamento', dotClass: 'bg-emerald-700' }
-                : { accent: '#A57F2C', gradFrom: '#7a5c1e', gradTo: '#A57F2C', label: 'Instrumento', dotClass: 'bg-amber-700' };
+        const baseCat = catConfig[firstType.id] || catConfig.otros;
 
         // Category icons (SVG paths)
-        const iconPath = isLey
+        const iconPath = firstType.id === 'ley'
             ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>`
-            : isReglamento
+            : firstType.id === 'reglamento'
                 ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`
                 : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`;
 
         return `
-            <div class="mb-10 carousel-container group/section">
-                <h3 class="text-lg font-bold text-gray-800 mb-4 px-1 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full ${cat.dotClass} flex-shrink-0"></span>
-                    ${title}
-                    <span class="text-xs font-normal text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">${items.length}</span>
-                </h3>
+            <div class="mb-8 carousel-container group/section">
+                <div class="flex items-center justify-between mb-4 px-1">
+                    <h3 class="text-lg font-serif font-bold text-gray-800 flex items-center gap-3">
+                        <div class="w-1.5 h-6 rounded-full" style="background-color: ${baseCat.accent}"></div>
+                        ${title}
+                        <span class="text-xs font-normal text-gray-400 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">${items.length}</span>
+                    </h3>
+                </div>
 
                 <div class="relative">
                     <!-- Left Arrow -->
-                    <button class="scroll-left absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 bg-white/90 backdrop-blur border border-gray-100 shadow-lg rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-opacity disabled:opacity-0 hover:text-guinda hover:scale-110 hidden md:block">
+                    <button class="scroll-left absolute left-0 top-1/2 -translate-y-1/2 -ml-3 z-10 bg-white shadow-xl border border-gray-100 rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-all disabled:opacity-0 hover:text-guinda hover:scale-110 hidden md:block">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
-
-                    <!-- Carousel Track -->
-                    <div class="carousel-scroll flex gap-5 overflow-x-auto pb-6 -mx-4 px-4 snap-x scrollbar-hide scroll-smooth">
+                    <div class="carousel-scroll flex gap-6 overflow-x-auto pb-6 -mx-4 px-4 snap-x scrollbar-hide scroll-smooth">
                         ${items.map(law => {
-            const snippet = law.resumen
-                ? law.resumen.replace(/\n/g, ' ').slice(0, 110) + (law.resumen.length > 110 ? '…' : '')
-                : (law.temas_clave && law.temas_clave.length > 0
-                    ? law.temas_clave.slice(0, 3).join(' · ')
-                    : 'Ver artículos');
-            return `
-                            <div class="min-w-[300px] w-[300px] md:min-w-[340px] md:w-[340px] snap-start rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer law-card group flex flex-col h-[280px]"
-                                data-title="${law.titulo.replace(/"/g, '&quot;')}"
-                                style="background: linear-gradient(160deg, ${cat.gradFrom} 0%, ${cat.gradTo} 100%);">
+                            const snippet = law.resumen
+                                ? law.resumen.replace(/\n/g, ' ').slice(0, 75) + (law.resumen.length > 75 ? '…' : '')
+                                : 'Consulta los artículos y disposiciones vigentes.';
+                            
+                            const typeInfo = classifyInstrument(law.titulo);
+                            const cat = catConfig[typeInfo.id] || catConfig.otros;
 
-                                <!-- Top: icon + label -->
-                                <div class="flex items-start justify-between px-5 pt-5 pb-3">
-                                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(4px);">
-                                        <svg class="w-6 h-6 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">${iconPath}</svg>
+                            return `
+                            <div class="min-w-[260px] w-[260px] md:min-w-[300px] md:w-[300px] snap-start rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer law-card group flex flex-col"
+                                data-title="${law.titulo.replace(/"/g, '&quot;')}">
+                                
+                                <!-- Card Image -->
+                                <div class="relative h-44 overflow-hidden">
+                                    <img src="${cat.img}" alt="${law.titulo}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    
+                                    <!-- Siglas Badge -->
+                                    ${law.siglas ? `
+                                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg shadow-sm border border-white/20">
+                                        <span class="text-[10px] font-black ${cat.textColor}">${law.siglas}</span>
                                     </div>
-                                    <span class="text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white/80" style="background: rgba(255,255,255,0.15);">${cat.label}</span>
+                                    ` : ''}
                                 </div>
 
-                                <!-- Middle: title + description -->
-                                <div class="flex-1 px-5 pb-2 flex flex-col justify-center">
-                                    <h3 class="text-sm font-bold text-white leading-snug line-clamp-2 mb-2 group-hover:text-white/90 transition-colors" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</h3>
-                                    <p class="text-[11px] text-white/65 leading-relaxed line-clamp-3">${snippet}</p>
-                                </div>
-
-                                <!-- Footer: metadata bar -->
-                                <div class="flex items-center justify-between px-5 py-3" style="background: rgba(0,0,0,0.25); backdrop-filter: blur(4px);">
-                                    <div class="flex items-center gap-1.5 text-white/70 text-[10px]">
-                                        <svg class="w-3 h-3 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                        <span>${law.articulos} artículos</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-white/50 text-[10px]">${law.fecha || 'N/D'}</span>
-                                        <svg class="w-4 h-4 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                <!-- Card Content -->
+                                <div class="p-6 flex flex-col flex-1">
+                                    <span class="text-[10px] font-black uppercase tracking-widest ${cat.textColor} ${cat.bgTag} px-2.5 py-1 rounded-md w-fit mb-4 border border-current opacity-80">${cat.label}</span>
+                                    
+                                    <h3 class="text-base md:text-lg font-serif font-bold text-gray-800 leading-tight line-clamp-2 mb-3 group-hover:text-guinda transition-colors" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</h3>
+                                    
+                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4 font-light">${snippet}</p>
+                                    
+                                    <div class="mt-auto pt-4 flex items-center justify-between border-t border-gray-50">
+                                        <div class="flex flex-col gap-1">
+                                            <div class="flex items-center gap-2 text-gray-400 text-[11px] font-medium">
+                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                <span>${law.fecha_publicacion || 'Mayo 2025'}</span>
+                                            </div>
+                                            ${law.url_original ? `
+                                            <a href="${law.url_original}" target="_blank" class="view-original-link flex items-center gap-1 text-guinda font-bold text-[10px] hover:underline mt-1" onclick="event.stopPropagation()">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                                VER ORIGINAL
+                                            </a>
+                                            ` : ''}
+                                        </div>
+                                        
+                                        <div class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-guinda group-hover:text-white group-hover:border-guinda group-hover:shadow-lg group-hover:shadow-guinda/20 transition-all">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>`;
-        }).join('')}
-                    </div>
-
+                        }).join('')}
                     <!-- Right Arrow -->
-                    <button class="scroll-right absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 bg-white/90 backdrop-blur border border-gray-100 shadow-lg rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-opacity hover:text-guinda hover:scale-110 hidden md:block">
+                    <button class="scroll-right absolute right-0 top-1/2 -translate-y-1/2 -mr-3 z-10 bg-white shadow-xl border border-gray-100 rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-all hover:text-guinda hover:scale-110 hidden md:block">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 </div>
             </div>
         `;
+
     }
 
     async function openLawDetail(law) {
@@ -802,15 +1058,15 @@ export function initUI() {
                 </nav>
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-100 pb-6">
                     <div>
-                        <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Marco Legal Vigente</span>
-                        <h1 class="text-3xl sm:text-4xl font-head font-bold text-gray-900 mt-3 mb-2">${law.titulo}</h1>
-                        <p class="text-sm text-gray-500">Publicado: ${law.fecha} · Última reforma: ${law.fecha}</p>
+                        <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Marco Legal Vigente ${law.siglas ? `· ${law.siglas}` : ''}</span>
+                        <h1 class="text-2xl sm:text-3xl font-head font-bold text-gray-900 mt-2 mb-2">${law.titulo}</h1>
+                        <p class="text-sm text-gray-500 font-light">Publicado: <span class="font-bold text-gray-700">${law.fecha_publicacion || 'N/D'}</span> · Última reforma: <span class="font-bold text-gray-700">${law.fecha_ultima_reforma || 'N/D'}</span></p>
                         ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
                     </div>
                     <div class="flex gap-2 flex-wrap">
                         ${law.url_original ? `<a href="${law.url_original}" target="_blank" class="px-4 py-2 bg-guinda text-white text-xs font-semibold rounded-lg hover:bg-guinda/90 transition-all flex items-center gap-2 shadow-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            Ver PDF Original
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Ver en DOF
                         </a>` : ''}
                         <!-- Share button for the law -->
                         <div class="relative" id="law-share-wrapper">
@@ -1470,7 +1726,7 @@ export function initUI() {
         if (!chartContainer) return;
 
         if (!window.d3) {
-            chartContainer.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-gray-400">Cargando visualización...</div>';
+            chartContainer.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-gray-400">&nbsp;</div>';
             setTimeout(() => renderLawStructureChart(articles, themes), 1000);
             return;
         }
@@ -2224,7 +2480,7 @@ export function initUI() {
             return;
         }
         
-        resultsContainer.innerHTML = `<div class="text-center py-12 text-gray-400">Cargando favoritos...</div>`;
+        resultsContainer.innerHTML = `<div class="w-full flex justify-center py-12"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
         const promises = favIds.map(id => getArticleById(id));
         const items = (await Promise.all(promises)).filter(Boolean);
 
@@ -2641,16 +2897,22 @@ export function initUI() {
         setActiveNav('nav-stats');
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
+        
+        if (cachedSummaries.length === 0) {
+            resultsContainer.classList.remove('hidden');
+            resultsContainer.innerHTML = `<div class="w-full flex justify-center py-16"><div class="animate-spin h-8 w-8 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
+            return;
+        }
+
+        // Show the D3 Dashboard
+        renderAcervoAnalytics(cachedSummaries);
+        
+        // Also show the detailed stats below
         resultsContainer.classList.remove('hidden');
         setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
 
         const existingFilters = document.getElementById('search-filters');
         if (existingFilters) existingFilters.remove();
-
-        if (cachedSummaries.length === 0) {
-            resultsContainer.innerHTML = `<div class="text-center py-16 text-gray-400">Cargando datos...</div>`;
-            return;
-        }
 
         const total = cachedSummaries.reduce((sum, l) => sum + l.articulos, 0);
         const leyes = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('ley'));
@@ -2855,11 +3117,11 @@ export function initUI() {
                     </div>
                 </div>
                 <div class="flex flex-col md:items-end gap-3">
-                    <div class="flex flex-wrap gap-1.5">
-                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'all' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="all">Todos</button>
-                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'ley' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="ley">Leyes</button>
-                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'reglamento' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="reglamento">Reglamentos</button>
-                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'otros' ? 'bg-[#54153B] text-white border-[#54153B] shadow-md shadow-purple-900/10' : 'bg-white text-gray-500 border-gray-200 hover:border-guinda/30 hover:text-guinda'}" data-type="otros">Otros</button>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'all' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="all">TODOS</button>
+                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'ley' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="ley">LEYES</button>
+                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'reglamento' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="reglamento">REGLAMENTOS</button>
+                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'otros' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="otros">INSTITUCIONAL</button>
                     </div>
                     <div class="relative flex items-center w-full md:w-80 group">
                         <svg class="absolute left-4 w-4 h-4 text-gray-300 group-hover:text-guinda transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -2985,52 +3247,56 @@ export function initUI() {
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-200/40 overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-xl shadow-gray-200/40 overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
+                    <table class="w-full text-left text-xs border-collapse">
                         <thead>
-                            <tr class="bg-gray-50/50 border-b border-gray-100">
-                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] w-[22%]">Documento</th>
-                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] w-[18%]">Artículo</th>
-                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] w-[45%]">Extracto de contenido</th>
-                                <th class="px-8 py-5 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] text-right w-[15%]">Acción</th>
+                            <tr class="bg-gray-50 border-b border-gray-100">
+                                <th class="px-5 py-3 font-bold text-gray-400 uppercase tracking-widest w-[20%]">Instrumento</th>
+                                <th class="px-4 py-3 font-bold text-gray-400 uppercase tracking-widest w-[15%]">Artículo</th>
+                                <th class="px-5 py-3 font-bold text-gray-400 uppercase tracking-widest w-[50%]">Extracto</th>
+                                <th class="px-5 py-3 font-bold text-gray-400 uppercase tracking-widest text-right w-[15%]">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-50 text-sm">
+                        <tbody class="divide-y divide-gray-50">
                             ${results.map(item => {
-                                const highlightedText = highlightText(item.texto.substring(0, 160) + '...', query);
+                                const highlightedText = highlightText(item.texto.substring(0, 140) + '...', query);
                                 const highlightedLabel = highlightText(item.articulo_label, query);
                                 const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
                                 return `
                                 <tr class="group hover:bg-gray-50/50 transition-all duration-200 cursor-pointer result-item" data-id="${item.id}">
-                                    <td class="px-8 py-6 align-top border-r border-gray-50/50">
-                                        <div class="inline-block px-2.5 py-1 bg-guinda/5 border border-guinda/10 rounded-md text-[9px] font-black text-guinda uppercase tracking-widest mb-3 shadow-sm" title="${item.ley_origen}">
-                                            ${item.siglas_ley || (item.ley_origen.length > 20 ? item.ley_origen.substring(0, 20) + '...' : item.ley_origen)}
-                                        </div>
-                                        ${item.url_original ? `
-                                        <a href="${item.url_original}" target="_blank" class="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 hover:text-blue-800 transition-colors mb-3 w-fit" title="Ver PDF Original" onclick="event.stopPropagation()">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                            VER ORIGINAL
-                                        </a>` : ''}
-                                        <div class="text-[11px] text-gray-400 font-medium leading-relaxed" title="${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}">
-                                            ${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ') || 'Disposiciones Generales'}
+                                    <td class="px-5 py-3 align-top">
+                                        <div class="flex flex-col gap-1">
+                                            <div class="flex items-center gap-2">
+                                                <div class="inline-block px-2 py-0.5 bg-guinda/5 border border-guinda/10 rounded text-[9px] font-black text-guinda uppercase tracking-widest shadow-sm" title="${item.ley_origen}">
+                                                    ${item.siglas_ley || (item.ley_origen.length > 15 ? item.ley_origen.substring(0, 15) + '...' : item.ley_origen)}
+                                                </div>
+                                                ${item.url_original ? `
+                                                <a href="${item.url_original}" target="_blank" class="text-gray-300 hover:text-guinda transition-colors" title="Ver en DOF">
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                                </a>` : ''}
+                                            </div>
+                                            <div class="text-[9px] text-gray-400 font-medium flex items-center gap-1">
+                                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                ${item.fecha_publicacion ? new Date(item.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Fecha N/A'}
+                                            </div>
+                                            <div class="text-[10px] text-gray-400 font-medium truncate max-w-[120px] italic" title="${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}">
+                                                ${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ') || 'Disposiciones Generales'}
+                                            </div>
                                         </div>
                                     </td>
-                                    <td class="px-8 py-6 align-top font-bold text-guinda text-[13px] border-r border-gray-50/50">
+                                    <td class="px-4 py-3 align-top font-bold text-guinda text-[12px]">
                                         ${highlightedLabel}
                                     </td>
-                                    <td class="px-8 py-6 align-top text-gray-600 leading-relaxed text-[13px]">
+                                    <td class="px-5 py-3 align-top text-gray-600 leading-relaxed text-[12px]">
                                         ${highlightedText}
                                     </td>
-                                    <td class="px-8 py-6 align-top text-right">
-                                        <div class="flex items-center justify-end gap-3">
-                                            <button class="p-2 text-gray-300 hover:text-guinda hover:bg-guinda/5 rounded-full transition-colors" title="Acceso restringido">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                                            </button>
-                                            <button class="bookmark-card-btn p-2 rounded-xl border border-gray-100 bg-white text-gray-300 hover:text-guinda hover:border-guinda/30 transition-all shadow-sm" data-id="${item.id}" title="${favTitle}">
+                                    <td class="px-5 py-3 align-top text-right">
+                                        <div class="flex items-center justify-end gap-2">
+                                            <button class="bookmark-card-btn p-1.5 rounded-lg border border-gray-100 bg-white text-gray-300 hover:text-guinda hover:border-guinda/30 transition-all shadow-sm" data-id="${item.id}" title="${favTitle}">
                                                 ${isFav 
-                                                    ? '<svg class="w-4 h-4 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'
-                                                    : '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'}
+                                                    ? '<svg class="w-3.5 h-3.5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'
+                                                    : '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'}
                                             </button>
                                         </div>
                                     </td>

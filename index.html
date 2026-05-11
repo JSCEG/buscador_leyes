@@ -41,12 +41,12 @@
                 <span class="text-[10px] font-bold tracking-[0.2em] text-guinda uppercase">Buscador Jurídico</span>
             </div>
             <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-500 font-medium">
-                <a href="#" id="nav-inicio" class="hover:text-guinda transition-colors">Inicio</a>
-                <a href="#" id="nav-leyes" class="hover:text-guinda transition-colors">Leyes</a>
-                <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors">Análisis</a>
+                <a href="#" id="nav-inicio" class="hover:text-guinda transition-colors font-medium">Inicio</a>
+                <a href="#" id="nav-leyes" class="hover:text-guinda transition-colors font-medium">Acervo</a>
+                <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors font-medium">Análisis</a>
                 <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
                 <a href="#" id="nav-admin"
-                    class="hover:text-guinda transition-colors text-amber-600 font-semibold flex items-center gap-1"><svg
+                    class="hidden hover:text-guinda transition-colors text-amber-600 font-semibold flex items-center gap-1"><svg
                         class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
@@ -124,13 +124,13 @@
             <a href="#" id="mobile-nav-inicio"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Inicio</a>
             <a href="#" id="mobile-nav-leyes"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Leyes</a>
+                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Acervo</a>
             <a href="#" id="mobile-nav-analisis"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Análisis</a>
             <a href="#" id="mobile-nav-stats"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Estadísticas</a>
             <a href="#" id="mobile-nav-admin"
-                class="block px-6 py-3 text-sm text-amber-600 hover:bg-amber-50 hover:text-amber-700 font-bold transition-colors border-l-4 border-transparent hover:border-amber-600">⚙️
+                class="hidden block px-6 py-3 text-sm text-amber-600 hover:bg-amber-50 hover:text-amber-700 font-bold transition-colors border-l-4 border-transparent hover:border-amber-600">⚙️
                 Gestor Admin</a>
             <a href="#" id="mobile-nav-ayuda"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Ayuda</a>
@@ -329,7 +329,7 @@
             style="animation-delay: 0.4s; animation-fill-mode: forwards;">
             <div class="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.15em] text-gray-300 uppercase"
                 style="font-family:'Noto Sans',sans-serif;">
-                Cargando índice…
+                &nbsp;
             </div>
         </div>
 
@@ -350,9 +350,20 @@
 
         <!-- Panel Gestor Admin (Hidden by default) -->
         <div id="admin-ingest-container"
-            class="w-full mt-8 hidden opacity-0 transition-opacity duration-500 max-w-4xl mx-auto">
-            <div
-                class="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-gray-200/40 p-8 sm:p-10 relative overflow-hidden">
+            class="w-full mt-8 hidden opacity-0 transition-opacity duration-500 max-w-5xl mx-auto">
+            
+            <!-- Admin Navigation Tabs -->
+            <div class="flex gap-2 mb-6 bg-gray-100 p-1.5 rounded-2xl w-fit mx-auto shadow-inner">
+                <button id="admin-tab-ingest" class="px-6 py-2.5 text-xs font-bold rounded-xl transition-all bg-white shadow-sm text-guinda">
+                    Nueva Ingesta PDF
+                </button>
+                <button id="admin-tab-manage" class="px-6 py-2.5 text-xs font-bold rounded-xl transition-all text-gray-500 hover:text-guinda">
+                    Gestión de Acervo
+                </button>
+            </div>
+
+            <!-- Ingest View -->
+            <div id="admin-ingest-view" class="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-gray-200/40 p-8 sm:p-10 relative overflow-hidden">
 
                 <h2 class="text-2xl font-bold text-gray-800 mb-2 font-head flex items-center gap-2">
                     <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -407,6 +418,21 @@
                         placeholder="Ej. Generación Eléctrica, Planeación Vinculante, Transición Energética, Obligaciones">
                     <p class="text-[10px] text-gray-400 mt-1.5">De qué trata la ley: conceptos clave que aborda. Se
                         mostrarán en la vista de detalle.</p>
+                </div>
+
+                <div class="mb-8">
+                    <label for="admin-input-tipo" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Tipo de Instrumento Jurídico</label>
+                    <select id="admin-input-tipo"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors">
+                        <option value="ley">Ley</option>
+                        <option value="reglamento">Reglamento</option>
+                        <option value="acuerdo">Acuerdo</option>
+                        <option value="dacg">DACG (Disposición Administrativa)</option>
+                        <option value="nom">NOM (Norma Oficial Mexicana)</option>
+                        <option value="permiso">Permiso</option>
+                        <option value="manual">Manual / Lineamiento</option>
+                        <option value="otros">Otros / No clasificado</option>
+                    </select>
                 </div>
                 <!-- Dropzone -->
                 <div id="admin-dropzone"
@@ -478,41 +504,91 @@
                     </div>
                 </div>
 
-            </div>
+            </div> <!-- End admin-ingest-view -->
+
+            <!-- Management View (CRUD) -->
+            <div id="admin-manage-view" class="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-gray-200/40 p-8 sm:p-10 relative overflow-hidden hidden">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2 font-head flex items-center gap-2">
+                            <svg class="w-6 h-6 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                            Gestión de Acervo Jurídico
+                        </h2>
+                        <p class="text-sm text-gray-500">Edita metadatos, actualiza enlaces o elimina leyes cargadas del sistema.</p>
+                    </div>
+                    <button id="admin-refresh-laws" class="p-2 text-gray-400 hover:text-guinda transition-colors" title="Actualizar lista">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto -mx-8 sm:mx-0">
+                    <table class="w-full text-left text-xs">
+                        <thead>
+                            <tr class="bg-gray-50 border-y border-gray-100">
+                                <th class="px-6 py-4 font-bold text-gray-400 uppercase tracking-widest">Instrumento</th>
+                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest">Siglas</th>
+                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest text-center">Tipo</th>
+                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest">Publicación</th>
+                                <th class="px-6 py-4 font-bold text-gray-400 uppercase tracking-widest text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-laws-list" class="divide-y divide-gray-50">
+                            <!-- Laws rows injected here -->
+                            <tr><td colspan="5" class="py-12 text-center text-gray-400 opacity-0"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!-- End admin-manage-view -->
+
+            <!-- Acervo Visual Dashboard (D3.js) - Moved inside main -->
+            <section id="acervo-visual-dashboard" class="w-full max-w-7xl mx-auto px-6 py-20 animate-fade-in-up hidden" style="display: none;">
+                <div class="bg-white rounded-[2.5rem] border border-gray-100 shadow-2xl shadow-gray-200/40 overflow-hidden">
+                    <div class="p-8 md:p-16">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
+                            <div class="max-w-2xl">
+                                <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-4 tracking-tight">Análisis del Acervo Digital</h3>
+                                <p class="text-sm text-gray-400 font-medium uppercase tracking-[0.2em] italic">Distribución estratégica por tipo de instrumento jurídico</p>
+                            </div>
+                            <div id="analytics-legend" class="flex flex-wrap gap-4 items-center bg-gray-50/50 p-2 rounded-2xl border border-gray-100/50">
+                                <!-- Legend populated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 xl:grid-cols-12 gap-16 items-center">
+                            <!-- Donut Chart -->
+                            <div class="xl:col-span-5 flex justify-center relative">
+                                <div id="donut-chart-container" class="w-full max-w-[360px] aspect-square relative">
+                                    <!-- D3 Donut -->
+                                </div>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                    <span id="total-count-display" class="text-5xl font-serif font-bold text-guinda">0</span>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mt-1">Instrumentos</span>
+                                </div>
+                            </div>
+
+                            <!-- Bar Chart -->
+                            <div class="xl:col-span-7">
+                                <div id="bar-chart-container" class="space-y-8">
+                                    <!-- D3 Bars -->
+                                </div>
+                                
+                                <div class="mt-16 p-8 bg-guinda/5 rounded-3xl border border-guinda/10 relative overflow-hidden group">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-guinda/5 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150"></div>
+                                    <p class="text-xs text-guinda/70 font-medium leading-relaxed italic relative z-10">
+                                        "Este análisis visual representa la composición porcentual del marco jurídico energético nacional. La jerarquía normativa se actualiza en tiempo real mediante la indexación dinámica del repositorio institucional de la Secretaría de Energía."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
-    <!-- Features Section (Always visible at bottom of home) -->
-    <section id="features-section" class="w-full max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-guinda/5 rounded-xl flex items-center justify-center mb-4 text-guinda">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-800 text-sm mb-2">Búsqueda inteligente</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">Encuentra información legal rápida y precisa.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-guinda/5 rounded-xl flex items-center justify-center mb-4 text-guinda">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-800 text-sm mb-2">Filtros avanzados</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">Refina tus resultados por tipo de documento.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-guinda/5 rounded-xl flex items-center justify-center mb-4 text-guinda">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-800 text-sm mb-2">Vista personalizada</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">Guarda y organiza tu información favorita.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-guinda/5 rounded-xl flex items-center justify-center mb-4 text-guinda">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-            <h3 class="font-bold text-gray-800 text-sm mb-2">Seguridad y confianza</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">Información oficial y actualizada del marco jurídico.</p>
-        </div>
-    </section>
+
 
     <!-- Footer Institutional -->
     <footer class="w-full bg-[#54153B] text-white py-12 px-6 mt-auto">
@@ -711,6 +787,67 @@
         </div>
     </div>
 
+    <!-- Edit Law Modal -->
+    <div id="edit-law-modal" class="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl flex flex-col transform scale-95 opacity-0 transition-all duration-300">
+            <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+                <h3 class="font-bold text-gray-800">Editar Instrumento Jurídico</h3>
+                <button id="close-edit-law-modal" class="text-gray-400 hover:text-guinda">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <form id="edit-law-form" class="p-6 space-y-4">
+                <input type="hidden" id="edit-law-id">
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Título Completo</label>
+                    <textarea id="edit-law-title" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none" rows="3"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Siglas / Acrónimo</label>
+                        <input type="text" id="edit-law-siglas" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Tipo de Instrumento</label>
+                        <select id="edit-law-tipo" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                            <option value="ley">Ley</option>
+                            <option value="reglamento">Reglamento</option>
+                            <option value="acuerdo">Acuerdo</option>
+                            <option value="nom">NOM</option>
+                            <option value="dacg">DACG</option>
+                            <option value="permiso">Permiso</option>
+                            <option value="manual">Manual / Lineamientos</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Enlace DOF / Original</label>
+                    <input type="url" id="edit-law-url" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Temas Clave (separados por coma)</label>
+                    <input type="text" id="edit-law-temas" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Fecha Publicación</label>
+                        <input type="date" id="edit-law-fecha-pub" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Última Reforma</label>
+                        <input type="date" id="edit-law-fecha-ref" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                    </div>
+                </div>
+                <div class="pt-4 flex gap-3">
+                    <button type="button" id="cancel-edit-law" class="flex-1 py-2.5 border border-gray-200 rounded-xl text-sm font-bold text-gray-500 hover:bg-gray-50 transition-colors">Cancelar</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-guinda text-white rounded-xl text-sm font-bold hover:bg-guinda-dk transition-colors shadow-lg shadow-guinda/20">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <!-- Comparador Modal -->
     <div id="compare-modal"
         class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -732,6 +869,9 @@
                             d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+                <!-- Se eliminó el índice activo de leyes/artículos -->
             </div>
             <div id="compare-content" class="flex-1 overflow-y-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 min-h-0">
                 <!-- Injected by JS -->

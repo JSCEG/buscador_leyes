@@ -4,6 +4,7 @@ function mapRowToLocalItem(row) {
     return {
         id: row.id,
         ley_origen: row.leyes?.titulo || 'Desconocida',
+        siglas_ley: row.leyes?.siglas || null,
         fecha_publicacion: row.leyes?.fecha_publicacion || null,
         articulo_label: row.identificador,
         tipo_articulo: row.tipo_articulo || 'ordinario',
@@ -20,7 +21,7 @@ export async function initSearch() {
         console.log('[Search] Conectando a Supabase...');
         const { data: leyesData, error } = await supabase
             .from('leyes')
-            .select('id, titulo, fecha_publicacion, temas_clave, url_original, articulos(count)');
+            .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)');
 
         if (error) throw error;
 
@@ -28,13 +29,16 @@ export async function initSearch() {
         const uniqueLeyes = leyesData.map(l => l.titulo);
 
         const summaries = leyesData.map(l => ({
+            id: l.id,
             titulo: l.titulo,
-            fecha: l.fecha_publicacion || 'N/D',
+            siglas: l.siglas || null,
+            fecha_publicacion: l.fecha_publicacion,
+            fecha_ultima_reforma: l.fecha_ultima_reforma,
             articulos: l.articulos[0]?.count || 0,
             temas_clave: l.temas_clave || [],
-            id: l.id,
             resumen: l.titulo,
-            url_original: l.url_original || null
+            url_original: l.url_original || null,
+            tipo: l.tipo || null
         }));
 
         window.dispatchEvent(new CustomEvent('search-ready', {
@@ -83,7 +87,7 @@ export async function performSearch(query, page = 1, limit = 20, filters = {}) {
         // A) Intentar coincidencia de frase exacta primero (más relevante)
         let qPhrase = applyFilters(
             supabase.from('articulos')
-                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, fecha_publicacion, url_original )', { count: 'exact' }),
+                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, siglas, fecha_publicacion, url_original )', { count: 'exact' }),
             filters
         ).textSearch('fts', queryTrim, { config: 'spanish', type: 'phrase' });
         
@@ -101,7 +105,7 @@ export async function performSearch(query, page = 1, limit = 20, filters = {}) {
         // B) Fallback a WebSearch (soporta operadores implícitos y es más flexible que FTS puro)
         let qWeb = applyFilters(
             supabase.from('articulos')
-                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, fecha_publicacion, url_original )', { count: 'exact' }),
+                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, siglas, fecha_publicacion, url_original )', { count: 'exact' }),
             filters
         ).textSearch('fts', queryTrim, { config: 'spanish', type: 'websearch' });
         
@@ -126,7 +130,7 @@ export async function performSearch(query, page = 1, limit = 20, filters = {}) {
         const words = queryTrim.split(/\s+/);
         let q = applyFilters(
             supabase.from('articulos')
-                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, fecha_publicacion, url_original )', { count: 'exact' }),
+                .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes!inner ( titulo, siglas, fecha_publicacion, url_original )', { count: 'exact' }),
             filters
         );
         // Aplica un ilike por cada palabra (AND implicito)
@@ -238,7 +242,7 @@ export async function getLawMetadata(lawName) {
     try {
         const { data, error } = await supabase
             .from('leyes')
-            .select('id, titulo, fecha_publicacion, temas_clave, url_original, articulos(count)')
+            .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, url_original, temas_clave, articulos(count)')
             .eq('titulo', lawName)
             .single();
 
@@ -246,9 +250,11 @@ export async function getLawMetadata(lawName) {
         return {
             id: data.id,
             titulo: data.titulo,
+            siglas: data.siglas || null,
             fecha_publicacion: data.fecha_publicacion,
-            temas_clave: data.temas_clave || [],
+            fecha_ultima_reforma: data.fecha_ultima_reforma || null,
             url_original: data.url_original || null,
+            temas_clave: data.temas_clave || [],
             total_articulos: data.articulos[0]?.count || 0
         };
     } catch (e) {
@@ -296,5 +302,51 @@ export async function getThemesByLawName(lawName) {
     } catch (e) {
         console.error('[Search] Error obteniendo temas por ley:', e);
         return [];
+    }
+}
+
+export async function getAllLeyesAdmin() {
+    try {
+        const { data, error } = await supabase
+            .from('leyes')
+            .select('*')
+            .order('titulo', { ascending: true });
+        if (error) throw error;
+        return data || [];
+    } catch (e) {
+        console.error('[Search] Error obteniendo todas las leyes:', e);
+        return [];
+    }
+}
+
+export async function updateLaw(id, payload) {
+    try {
+        const { data, error } = await supabase
+            .from('leyes')
+            .update(payload)
+            .eq('id', id)
+            .select()
+            .single();
+        if (error) throw error;
+        return data;
+    } catch (e) {
+        console.error('[Search] Error actualizando ley:', e);
+        throw e;
+    }
+}
+
+export async function deleteLaw(id) {
+    try {
+        // Al ser una tabla con FKs, hay que tener cuidado. 
+        // Si no hay ON DELETE CASCADE en la DB, fallará si tiene artículos.
+        const { error } = await supabase
+            .from('leyes')
+            .delete()
+            .eq('id', id);
+        if (error) throw error;
+        return true;
+    } catch (e) {
+        console.error('[Search] Error eliminando ley:', e);
+        throw e;
     }
 }
