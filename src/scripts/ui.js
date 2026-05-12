@@ -1,4 +1,4 @@
-import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName } from './search-engine.js';
+import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { renderAnalisisView } from './analisis.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
@@ -20,6 +20,7 @@ export function initUI() {
     const closeModal = document.getElementById('close-modal');
     const copyBtn = document.getElementById('copy-btn');
     const loadingIndicator = document.getElementById('loading-indicator');
+    const modalEditBtn = document.getElementById('modal-edit-btn');
 
     // Nav elements
     const navInicio = document.getElementById('nav-inicio');
@@ -777,7 +778,7 @@ export function initUI() {
                         </thead>
                         <tbody class="divide-y divide-gray-50">
                             ${cachedSummaries.sort((a,b) => a.titulo.localeCompare(b.titulo)).map(ley => {
-                                const typeInfo = classifyInstrument(ley.titulo);
+                                const typeInfo = classifyInstrument(ley);
                                 const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }) : '---';
                                 
                                 const typeStyle = {
@@ -851,7 +852,7 @@ export function initUI() {
 
         // Usamos el primer item para determinar el estilo base del carrusel si es necesario,
         // pero cada tarjeta se clasificará individualmente.
-        const firstType = classifyInstrument(items[0].titulo);
+        const firstType = classifyInstrument(items[0]);
         
         const catConfig = {
             ley: { accent: '#9B2247', label: 'Ley Federal', textColor: 'text-guinda', bgTag: 'bg-guinda/5', img: '/assets/categories/leyes.png' },
@@ -894,7 +895,7 @@ export function initUI() {
                                 ? law.resumen.replace(/\n/g, ' ').slice(0, 75) + (law.resumen.length > 75 ? '…' : '')
                                 : 'Consulta los artículos y disposiciones vigentes.';
                             
-                            const typeInfo = classifyInstrument(law.titulo);
+                            const typeInfo = classifyInstrument(law);
                             const cat = catConfig[typeInfo.id] || catConfig.otros;
 
                             return `
@@ -3119,9 +3120,28 @@ export function initUI() {
                 <div class="flex flex-col md:items-end gap-3">
                     <div class="flex flex-wrap gap-2">
                         <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'all' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="all">TODOS</button>
-                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'ley' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="ley">LEYES</button>
-                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'reglamento' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="reglamento">REGLAMENTOS</button>
-                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'otros' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="otros">INSTITUCIONAL</button>
+                        ${(() => {
+                            const typeLabels = {
+                                ley: 'LEYES',
+                                reglamento: 'REGLAMENTOS',
+                                acuerdo: 'ACUERDOS',
+                                dacg: "DACG's",
+                                nom: 'NOMs',
+                                permiso: 'PERMISOS',
+                                manual: 'MANUALES',
+                                otros: 'INSTITUCIONAL'
+                            };
+                            // Obtener tipos únicos presentes en el acervo
+                            const availableTypes = [...new Set(cachedSummaries.map(s => s.tipo).filter(Boolean))].sort();
+                            
+                            return availableTypes.map(t => {
+                                const label = typeLabels[t] || t.toUpperCase();
+                                const isActive = currentFilters.type === t;
+                                const activeClass = 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10';
+                                const inactiveClass = 'bg-white text-gray-500 border-gray-100 hover:border-gray-300';
+                                return `<button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${isActive ? activeClass : inactiveClass}" data-type="${t}">${label}</button>`;
+                            }).join('');
+                        })()}
                     </div>
                     <div class="relative flex items-center w-full md:w-80 group">
                         <svg class="absolute left-4 w-4 h-4 text-gray-300 group-hover:text-guinda transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -3377,16 +3397,43 @@ export function initUI() {
             if (law) { closeModalFunc(); setTimeout(() => openLawDetail(law), 310); }
         };
 
-        // Clean text: replace multiple newlines with single paragraph breaks, but preserve structure
-        let cleanText = item.texto
-            .replace(/\r\n/g, '\n') // Normalize newlines
-            .replace(/\n\s*\n/g, '\n\n') // Normalize multiple newlines to double
-            .replace(/([a-z,;])\n([a-z])/ig, '$1 $2') // Join lines that shouldn't be broken (lowercase end -> lowercase start)
-            // Magic Regex for Legal Formatting (detect inline bullets and force them to new lines)
-            .replace(/(?<=^|\s)(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/g, '\n\n$1. ')
-            .replace(/(?<=^|\s)([A-Z]+|\d+)\.\s/g, '\n\n$1. ')
-            .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
-            .replace(/\n{3,}/g, '\n\n'); // Clean up excessive newlines
+        // 1. Detectar si el contenido es Markdown (especialmente si tiene tablas)
+        const hasMarkdown = item.texto.includes('|') || item.texto.includes('**') || item.texto.includes('###');
+        
+        let finalHtml = '';
+        if (hasMarkdown) {
+            // Usar marked para el renderizado (especialmente para tablas)
+            finalHtml = `<div class="prose-container">
+                <div class="prose prose-sm max-w-none prose-p:leading-relaxed">
+                    ${marked.parse(item.texto)}
+                </div>
+            </div>`;
+        } else {
+            // Lógica de formateo legal tradicional (Legacy)
+            let cleanText = item.texto
+                .replace(/\r\n/g, '\n')
+                .replace(/\n\s*\n/g, '\n\n')
+                .replace(/([a-z,;])\n([a-z])/ig, '$1 $2')
+                .replace(/(?<=^|\s)(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/g, '\n\n$1. ')
+                .replace(/(?<=^|\s)([A-Z]+|\d+)\.\s/g, '\n\n$1. ')
+                .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
+                .replace(/\n{3,}/g, '\n\n');
+
+            finalHtml = `<div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Merriweather',serif; text-align:justify; hyphens:auto;">
+                ${cleanText.split('\n\n').map(p => {
+                    let extraClass = '';
+                    const trimmed = p.trim();
+                    if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/.test(trimmed)) {
+                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-guinda/30 text-gray-700 font-medium';
+                    } else if (/^[a-z]\)\s/.test(trimmed)) {
+                        extraClass = 'ml-10 md:ml-16 pl-3 border-l text-gray-600 text-[0.85rem]';
+                    } else if (/^\d+\.\s/.test(trimmed) || /^[A-Z]+\.\s/.test(trimmed)) {
+                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-gray-200 text-gray-700';
+                    }
+                    return `<p class="mb-4 ${extraClass}">${p}</p>`;
+                }).join('')}
+            </div>`;
+        }
 
         // Highlight search terms in modal content
         // Usa el query global o, si estamos en la vista de ley, el del buscador interno
@@ -3418,20 +3465,7 @@ export function initUI() {
                 <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 <span class="font-medium">Búsqueda:</span> <mark class="hl">${activeQuery}</mark>
             </div>` : ''}
-            <div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Merriweather',serif; text-align:justify; hyphens:auto;">
-                ${cleanText.split('\n\n').map(p => {
-                    let extraClass = '';
-                    const trimmed = p.trim();
-                    if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/.test(trimmed)) {
-                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-guinda/30 text-gray-700 font-medium';
-                    } else if (/^[a-z]\)\s/.test(trimmed)) {
-                        extraClass = 'ml-10 md:ml-16 pl-3 border-l text-gray-600 text-[0.85rem]';
-                    } else if (/^\d+\.\s/.test(trimmed) || /^[A-Z]+\.\s/.test(trimmed)) {
-                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-gray-200 text-gray-700';
-                    }
-                    return `<p class="mb-4 ${extraClass}">${hl(p)}</p>`;
-                }).join('')}
-            </div>
+            ${hl(finalHtml)}
         `;
 
         // Prev/Next navigation
@@ -3474,6 +3508,103 @@ export function initUI() {
                     openDetail(id); // re-render to update icon
                 }
             };
+        }
+
+        // Admin Edit Button
+        if (modalEditBtn) {
+            const userIsAdmin = isAdmin();
+            modalEditBtn.classList.toggle('hidden', !userIsAdmin);
+            
+            if (userIsAdmin) {
+                modalEditBtn.onclick = () => {
+                    const chunkModal = document.getElementById('edit-chunk-modal');
+                    const chunkModalPanel = document.getElementById('chunk-modal-panel');
+                    const chunkContentInput = document.getElementById('edit-chunk-content');
+                    const chunkTitleLabel = document.getElementById('chunk-modal-identificador');
+                    const saveBtn = document.getElementById('save-chunk-edit');
+                    const cancelBtn = document.getElementById('cancel-chunk-edit');
+                    const closeBtn = document.getElementById('close-chunk-modal');
+
+                    chunkTitleLabel.textContent = `Editar: ${item.articulo_label}`;
+                    chunkContentInput.value = item.texto;
+
+                    // Toolbar logic
+                    const addTableBtn = document.getElementById('editor-add-table');
+                    const addBoldBtn = document.getElementById('editor-add-bold');
+
+                    const insertAtCursor = (text) => {
+                        const start = chunkContentInput.selectionStart;
+                        const end = chunkContentInput.selectionEnd;
+                        const val = chunkContentInput.value;
+                        chunkContentInput.value = val.substring(0, start) + text + val.substring(end);
+                        chunkContentInput.focus();
+                        chunkContentInput.selectionStart = chunkContentInput.selectionEnd = start + text.length;
+                    };
+
+                    if (addTableBtn) {
+                        addTableBtn.onclick = () => {
+                            const tableTemplate = "\n| Columna 1 | Columna 2 | Columna 3 |\n|-----------|-----------|-----------|\n| Dato 1    | Dato 2    | Dato 3    |\n| Dato 4    | Dato 5    | Dato 6    |\n";
+                            insertAtCursor(tableTemplate);
+                        };
+                    }
+
+                    if (addBoldBtn) {
+                        addBoldBtn.onclick = () => {
+                            const start = chunkContentInput.selectionStart;
+                            const end = chunkContentInput.selectionEnd;
+                            const selected = chunkContentInput.value.substring(start, end);
+                            if (selected) {
+                                insertAtCursor(`**${selected}**`);
+                            } else {
+                                insertAtCursor("**Negrita**");
+                            }
+                        };
+                    }
+
+                    // Mostrar modal
+                    chunkModal.classList.remove('hidden');
+                    chunkModal.classList.add('flex');
+                    setTimeout(() => {
+                        chunkModalPanel.classList.remove('scale-95', 'opacity-0');
+                        chunkModalPanel.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+
+                    // Funciones de cierre
+                    const closeEdit = () => {
+                        chunkModalPanel.classList.remove('scale-100', 'opacity-100');
+                        chunkModalPanel.classList.add('scale-95', 'opacity-0');
+                        setTimeout(() => {
+                            chunkModal.classList.add('hidden');
+                            chunkModal.classList.remove('flex');
+                        }, 300);
+                    };
+
+                    cancelBtn.onclick = closeEdit;
+                    closeBtn.onclick = closeEdit;
+
+                    // Función de guardado real en DB
+                    saveBtn.onclick = async () => {
+                        const newText = chunkContentInput.value;
+                        try {
+                            saveBtn.disabled = true;
+                            saveBtn.textContent = 'Guardando...';
+                            
+                            // IMPORTANTE: El nombre de la columna en la DB es 'contenido'
+                            await updateArticle(item.id, { contenido: newText });
+                            
+                            item.texto = newText; // Actualizar objeto local para la UI
+                            closeEdit();
+                            // Refrescar la vista de detalle
+                            openDetail(item.id);
+                        } catch (err) {
+                            alert('Error al guardar: ' + err.message);
+                        } finally {
+                            saveBtn.disabled = false;
+                            saveBtn.textContent = 'Guardar Cambios';
+                        }
+                    };
+                };
+            }
         }
 
         // Copy button (static in HTML)

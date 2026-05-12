@@ -39,7 +39,8 @@ export function isAdmin() {
     // Si el usuario tiene un metadato is_admin o role: admin, o un email específico
     if (!currentUser) return false;
     const metadata = currentUser.user_metadata || {};
-    return metadata.role === 'admin' || metadata.is_admin === true || currentUser.email === 'admin@sener.gob.mx';
+    const adminEmails = ['admin@sener.gob.mx', 'javiereg3@gmail.com'];
+    return metadata.role === 'admin' || metadata.is_admin === true || adminEmails.includes(currentUser.email);
 }
 
 export function onAuthChange(cb) {

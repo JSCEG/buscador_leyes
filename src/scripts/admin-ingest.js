@@ -363,7 +363,8 @@ function executeChunkingAlg(text, themes = []) {
     const regularText = mainParts[0];
     const transitoriosText = mainParts.length > 1 ? mainParts.slice(1).join('\n') : '';
     const chunks = [];
-    const articleRegex = /(?:\n|^)\s*((?:ART[ÍI]CULO|Art[íi]culo)\s+(?:\d+[A-Z]?|[ÚU]NICO)\b[\.-]?)/g;
+    // Regex robusta para capturar tanto "ARTÍCULO 1" como numeraciones decimales tipo "1.1." comunes en DACGs
+    const articleRegex = /(?:\n|^)\s*((?:(?:ART[ÍI]CULO|Art[íi]culo)\s+(?:\d+[A-Z\d]*|[\d\.]+|[ÚU]NICO)|\d+\.(?:\d+\.?)+)\b[\s\.º°-]*)/g;
     const parts = regularText.split(articleRegex);
     if (parts[0] && parts[0].trim().length > 0) {
         chunks.push({ identificador: "Preámbulo", contenido: parts[0].trim().replace(/\s+/g, ' '), tipo: 'preambulo' });
@@ -371,9 +372,17 @@ function executeChunkingAlg(text, themes = []) {
     for (let i = 1; i < parts.length; i += 2) {
         const title = parts[i].trim();
         let originalContent = parts[i + 1] ? parts[i + 1].trim() : "";
-        let content = originalContent.replace(/\s+/g, ' '); 
+        // Colapsamos espacios horizontales pero mantenemos saltos de línea para tablas
+        let content = originalContent.replace(/[^\S\r\n]+/g, ' '); 
         if (content.length > 5) {
-            chunks.push({ identificador: title, contenido: content, tipo: 'ordinario', original_snippet: originalContent.substring(0, 50) });
+            // Snippet LITERAL para asegurar que indexOf lo encuentre en cleanText (que no está colapsado)
+            const mappingSnippet = originalContent.substring(0, 60); 
+            chunks.push({ 
+                identificador: title, 
+                contenido: content, 
+                tipo: 'ordinario', 
+                mapping_snippet: mappingSnippet 
+            });
         }
     }
     if (transitoriosText.trim().length > 0) {
@@ -381,19 +390,31 @@ function executeChunkingAlg(text, themes = []) {
         const tParts = transitoriosText.split(transitRegex);
         for (let i = 1; i < tParts.length; i += 2) { 
             const title = `Transitorio ${tParts[i].toUpperCase()}`;
-            let content = (tParts[i + 1] || "").trim().replace(/\s+/g, ' ');
-            if (content.length > 5) chunks.push({ identificador: title, contenido: content, tipo: 'transitorio', original_snippet: (tParts[i+1] || "").substring(0, 50) });
+            let content = (tParts[i + 1] || "").trim().replace(/[^\S\r\n]+/g, ' ');
+            if (content.length > 5) {
+                // Snippet literal para transitorios
+                const mappingSnippet = (tParts[i + 1] || "").substring(0, 60);
+                chunks.push({ 
+                    identificador: title, 
+                    contenido: content, 
+                    tipo: 'transitorio', 
+                    mapping_snippet: mappingSnippet 
+                });
+            }
         }
     }
     themes = extractThemes(cleanText);
     if (themes.length > 0) {
         chunks.forEach(chunk => {
-            const pos = cleanText.indexOf(chunk.original_snippet);
+            // Buscamos el snippet pero colapsando espacios en cleanText para el match si es necesario
+            // O mejor, buscamos el snippet limpio que guardamos
+            const pos = cleanText.indexOf(chunk.mapping_snippet);
             if (pos !== -1) {
                 for (const t of themes) {
                     if (t.pos < pos) {
                         if (t.nivel === 'titulo') chunk.titulo_nombre = t.nombre;
                         if (t.nivel === 'capitulo') chunk.capitulo_nombre = t.nombre;
+                        if (t.nivel === 'seccion') chunk.seccion_nombre = t.nombre;
                     }
                 }
             }
@@ -405,11 +426,23 @@ function executeChunkingAlg(text, themes = []) {
 function extractThemes(text) {
     const themes = [];
     let orden = 0;
-    const tituloRegex = /(?:^|\n)\s*(?:T[ÍI]TULO|T[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+))\b[.\-–—]*\s*(?:[\n\r]+\s*)?(.{0,120})/g;
+    
+    // Improved Regex: Case insensitive, supports digits, roman numerals and names (PRIMERO, etc.)
+    // Regex mejoradas: \s* permite cualquier cantidad de espacios o saltos de línea entre el prefijo y el nombre
+    // Regex mejoradas para capturar títulos que pueden estar en líneas separadas (común en PDFs del DOF)
+    const tituloRegex = /(?:^|\n)\s*(?:T[ÍI]TULO|T[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
+    const capituloRegex = /(?:^|\n)\s*(?:CAP[ÍI]TULO|Cap[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
+    const seccionRegex = /(?:^|\n)\s*(?:SECCI[ÓO]N|Secci[óo]n)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
+
+    const cleanStr = (s => (s || '').replace(/\s+/g, ' ').trim());
+    const subtituloRegex = /(?:^|\n)\s*(?:SUBT[ÍI]TULO|Subt[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SUBT[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
+
     let m;
-    while ((m = tituloRegex.exec(text)) !== null) themes.push({ nivel: 'titulo', nombre: (m[1] || '').trim(), orden: ++orden, pos: m.index });
-    const capituloRegex = /(?:^|\n)\s*(?:CAP[ÍI]TULO|Cap[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO|[ÚU]NICO)|(?:[IVXLCDM]+))\b[.\-–—]*\s*(?:[\n\r]+\s*)?(.{0,120})/g;
-    while ((m = capituloRegex.exec(text)) !== null) themes.push({ nivel: 'capitulo', nombre: (m[1] || '').trim(), orden: ++orden, pos: m.index });
+    while ((m = tituloRegex.exec(text)) !== null) themes.push({ nivel: 'titulo', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
+    while ((m = capituloRegex.exec(text)) !== null) themes.push({ nivel: 'capitulo', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
+    while ((m = subtituloRegex.exec(text)) !== null) themes.push({ nivel: 'subtitulo', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
+    while ((m = seccionRegex.exec(text)) !== null) themes.push({ nivel: 'seccion', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
+
     themes.sort((a, b) => a.pos - b.pos);
     return themes;
 }
@@ -417,16 +450,83 @@ function extractThemes(text) {
 function renderPrevision(chunks, themes = []) {
     document.getElementById('admin-preview-area').classList.remove('hidden');
     document.getElementById('admin-preview-count').textContent = chunks.length;
-    const cardsHtml = chunks.slice(0, 50).map(c => `
-        <div class="p-3 border border-gray-100 rounded-lg bg-white shadow-sm">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest bg-slate-100 text-slate-800">${c.tipo}</span>
-                <span class="text-sm font-bold text-gray-800 font-serif">${c.identificador}</span>
+    
+    const cardsHtml = chunks.slice(0, 150).map((c, idx) => {
+        let hierarchyHtml = '';
+        if (c.titulo_nombre || c.capitulo_nombre || c.seccion_nombre) {
+            hierarchyHtml = `
+                <div class="flex flex-wrap gap-1 mb-2">
+                    ${c.titulo_nombre ? `<span class="text-[8px] px-1.5 py-0.5 bg-guinda/5 text-guinda font-bold rounded border border-guinda/10">T: ${c.titulo_nombre}</span>` : ''}
+                    ${c.capitulo_nombre ? `<span class="text-[8px] px-1.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded border border-emerald-100">C: ${c.capitulo_nombre}</span>` : ''}
+                    ${c.seccion_nombre ? `<span class="text-[8px] px-1.5 py-0.5 bg-blue-50 text-blue-700 font-bold rounded border border-blue-100">S: ${c.seccion_nombre}</span>` : ''}
+                </div>
+            `;
+        }
+
+        return `
+            <div class="chunk-card group relative p-4 border border-gray-100 rounded-xl bg-white shadow-sm hover:border-guinda/40 hover:shadow-md transition-all cursor-pointer" data-index="${idx}">
+                <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-1.5 bg-guinda/10 text-guinda rounded-lg hover:bg-guinda hover:text-white transition-colors" title="Editar contenido">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                    </button>
+                </div>
+                ${hierarchyHtml}
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter bg-slate-100 text-slate-500 border border-slate-200">${c.tipo}</span>
+                    <span class="text-xs font-bold text-gray-900 font-serif">${c.identificador}</span>
+                </div>
+                <div class="text-[10px] text-gray-500 leading-relaxed whitespace-pre-wrap line-clamp-4 font-light">${c.contenido}</div>
             </div>
-            <p class="text-xs text-gray-500 line-clamp-2">${c.contenido}</p>
-        </div>
-    `).join('');
-    document.getElementById('admin-preview-cards').innerHTML = cardsHtml;
+        `;
+    }).join('');
+    
+    const container = document.getElementById('admin-preview-cards');
+    container.innerHTML = cardsHtml;
+
+    // Listener para edición rápida mediante modal
+    let editingChunkIdx = null;
+    const chunkModal = document.getElementById('edit-chunk-modal');
+    const chunkModalPanel = document.getElementById('chunk-modal-panel');
+    const chunkContentInput = document.getElementById('edit-chunk-content');
+    const chunkTitleLabel = document.getElementById('chunk-modal-identificador');
+
+    container.querySelectorAll('.chunk-card').forEach(card => {
+        card.addEventListener('click', () => {
+            editingChunkIdx = card.dataset.index;
+            const chunk = parsedChunks[editingChunkIdx];
+            
+            chunkTitleLabel.textContent = `Editar: ${chunk.identificador}`;
+            chunkContentInput.value = chunk.contenido;
+            
+            // Mostrar modal con animación
+            chunkModal.classList.remove('hidden');
+            chunkModal.classList.add('flex');
+            setTimeout(() => {
+                chunkModalPanel.classList.remove('scale-95', 'opacity-0');
+                chunkModalPanel.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        });
+    });
+
+    // Cerrar modal
+    const closeChunkModal = () => {
+        chunkModalPanel.classList.remove('scale-100', 'opacity-100');
+        chunkModalPanel.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            chunkModal.classList.add('hidden');
+            chunkModal.classList.remove('flex');
+        }, 300);
+    };
+
+    document.getElementById('close-chunk-modal').onclick = closeChunkModal;
+    document.getElementById('cancel-chunk-edit').onclick = closeChunkModal;
+    document.getElementById('save-chunk-edit').onclick = () => {
+        if (editingChunkIdx !== null) {
+            parsedChunks[editingChunkIdx].contenido = chunkContentInput.value;
+            closeChunkModal();
+            renderPrevision(parsedChunks, parsedThemes);
+        }
+    };
 }
 
 async function handleIngestToSupabase() {
@@ -452,6 +552,7 @@ async function handleIngestToSupabase() {
                 tipo_articulo: chunk.tipo,
                 titulo_nombre: chunk.titulo_nombre || null,
                 capitulo_nombre: chunk.capitulo_nombre || null,
+                seccion_nombre: chunk.seccion_nombre || null,
                 orden: i + index
             }));
             await supabase.from('articulos').insert(batch);

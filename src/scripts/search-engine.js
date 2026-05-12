@@ -63,11 +63,7 @@ function applyFilters(q, filters) {
         q = q.eq('leyes.titulo', filters.law);
     }
     if (filters.type && filters.type !== 'all') {
-        // Usamos % al inicio por si acaso hay espacios o caracteres invisibles, 
-        // aunque lo ideal es que coincida con el inicio.
-        if (filters.type === 'ley') q = q.ilike('leyes.titulo', 'ley%');
-        if (filters.type === 'reglamento') q = q.ilike('leyes.titulo', 'reglamento%');
-        if (filters.type === 'otros') q = q.not('leyes.titulo', 'ilike', 'ley%').not('leyes.titulo', 'ilike', 'reglamento%');
+        q = q.eq('leyes.tipo', filters.type);
     }
     if (filters.artNum) {
         q = q.ilike('identificador', '%' + filters.artNum + '%');
@@ -347,6 +343,27 @@ export async function deleteLaw(id) {
         return true;
     } catch (e) {
         console.error('[Search] Error eliminando ley:', e);
+        throw e;
+    }
+}
+
+/**
+ * Actualiza el contenido de un artículo específico en la base de datos.
+ * @param {string} id - UUID del artículo.
+ * @param {Object} payload - Objeto con los campos a actualizar (ej. { texto: 'nuevo contenido' }).
+ */
+export async function updateArticle(id, payload) {
+    try {
+        const { data, error } = await supabase
+            .from('articulos')
+            .update(payload)
+            .eq('id', id)
+            .select()
+            .single();
+        if (error) throw error;
+        return data;
+    } catch (e) {
+        console.error('[Search] Error actualizando artículo:', e);
         throw e;
     }
 }
