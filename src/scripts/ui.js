@@ -3064,19 +3064,19 @@ export function initUI() {
                     </div>
                 </div>
 
-                <div class="bg-gray-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-guinda/20 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+                <div class="bg-white rounded-[2.5rem] p-10 text-gray-800 border border-gray-100 shadow-xl shadow-gray-200/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-guinda/5 rounded-full -mr-32 -mt-32 blur-2xl"></div>
                     <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
                         <div class="flex-1">
                             <h3 class="text-2xl font-serif font-bold mb-4">¿No encuentra lo que busca?</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Nuestro equipo técnico y jurídico está disponible para resolver dudas sobre el funcionamiento de la plataforma o la veracidad del corpus legal.</p>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Nuestro equipo técnico y jurídico está disponible para resolver dudas sobre el funcionamiento de la plataforma o la veracidad del corpus legal.</p>
                             <div class="flex flex-wrap gap-4">
-                                <a href="mailto:soporte@sener.gob.mx" class="px-6 py-3 bg-guinda text-xs font-black uppercase tracking-widest rounded-full hover:bg-guinda-dk transition-colors shadow-lg shadow-guinda/20">Contactar Soporte</a>
-                                <button class="px-6 py-3 border border-gray-700 text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/10 transition-colors">Manual de Usuario</button>
+                                <a href="mailto:soporte@sener.gob.mx" class="px-6 py-3 bg-guinda text-xs font-black uppercase tracking-widest rounded-full hover:bg-guinda-dk transition-colors shadow-lg shadow-guinda/20 text-white">Contactar Soporte</a>
+                                <button class="px-6 py-3 border border-gray-200 text-xs font-black uppercase tracking-widest rounded-full hover:bg-gray-50 transition-colors text-gray-600">Manual de Usuario</button>
                             </div>
                         </div>
-                        <div class="w-32 h-32 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0">
-                            <svg class="w-16 h-16 text-guinda/50" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path></svg>
+                        <div class="w-32 h-32 bg-guinda/5 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-16 h-16 text-guinda/40" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path></svg>
                         </div>
                     </div>
                 </div>
