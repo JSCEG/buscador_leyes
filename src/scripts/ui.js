@@ -486,18 +486,27 @@ export function initUI() {
         if (existing) existing.remove();
         const toast = document.createElement('div');
         toast.id = 'app-toast';
-        toast.className = `fixed bottom-24 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 px-5 py-3 ${color} text-white text-xs font-semibold rounded-full shadow-2xl transition-all duration-300 opacity-0 scale-90 pointer-events-none`;
-        toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+        // Improved mobile positioning and premium styling
+        toast.className = `fixed bottom-12 md:bottom-24 left-1/2 z-[10000] flex items-center gap-3 px-6 py-3.5 ${color} text-white text-xs font-bold rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.25)] border border-white/10 backdrop-blur-md transition-all duration-500 opacity-0 pointer-events-none whitespace-nowrap`;
+        toast.style.transform = 'translateX(-50%) scale(0.95)';
+        toast.style.left = '50%';
+        
+        toast.innerHTML = `<span class="flex-shrink-0 text-base">${icon}</span><span>${message}</span>`;
         document.body.appendChild(toast);
-        requestAnimationFrame(() => {
-            toast.classList.replace('opacity-0', 'opacity-100');
-            toast.classList.replace('scale-90', 'scale-100');
-        });
+        
+        // Use timeout to ensure DOM insertion before animation
         setTimeout(() => {
-            toast.classList.replace('opacity-100', 'opacity-0');
-            toast.classList.replace('scale-100', 'scale-90');
-            setTimeout(() => toast.remove(), 300);
-        }, 2500);
+            toast.style.transform = 'translateX(-50%) scale(1)';
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+        }, 10);
+
+        setTimeout(() => {
+            toast.style.transform = 'translateX(-50%) scale(0.95)';
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0');
+            setTimeout(() => toast.remove(), 500);
+        }, 3000);
     }
 
     function showSkeletons(count = 5) {
@@ -1988,11 +1997,11 @@ export function initUI() {
         ]);
 
         const csvContent = [
-            headers.join(','),
-            ...rows.map(r => r.join(','))
+            headers.join(';'),
+            ...rows.map(r => r.join(';'))
         ].join('\n');
 
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         if (link.download !== undefined) {
             const url = URL.createObjectURL(blob);
@@ -2445,7 +2454,7 @@ export function initUI() {
             `"${(item.texto || '').replace(/"/g, '""')}"`,
             ...(includeNotes ? [`"${getNote(item.id).replace(/"/g, '""')}"`] : [])
         ]);
-        const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+        const csvContent = [headers.join(';'), ...rows.map(r => r.join(';'))].join('\n');
         const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
@@ -2828,10 +2837,24 @@ export function initUI() {
         return lines;
     }
 
-    function shareArticleText(item) {
-        const text = `📋 *${item.articulo_label}*\n🏛️ ${item.ley_origen}\n\n${item.texto.substring(0, 800)}${item.texto.length > 800 ? '...' : ''}`;
-        const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+    async function shareArticleText(item) {
+        const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(item.id)}`;
+        const text = `📋 *${item.articulo_label}*\n🏛️ ${item.ley_origen}\n\n${item.texto.substring(0, 800)}${item.texto.length > 800 ? '...' : ''}\n\nVer artículo: ${artUrl}`;
+        
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: item.articulo_label,
+                    text: text,
+                    url: artUrl
+                });
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        } else {
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
     }
 
     async function shareArticleImage(item) {
@@ -2853,12 +2876,24 @@ export function initUI() {
         }
     }
 
-    function shareComparisonText(item1, item2) {
+    async function shareComparisonText(item1, item2) {
         const text = `⚖️ *Comparación de Artículos*\n\n` +
             `📋 *${item1.articulo_label}* – ${item1.ley_origen}\n${item1.texto.substring(0, 400)}${item1.texto.length > 400 ? '...' : ''}\n\n` +
             `📋 *${item2.articulo_label}* – ${item2.ley_origen}\n${item2.texto.substring(0, 400)}${item2.texto.length > 400 ? '...' : ''}`;
-        const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+        
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Comparación de Artículos SENER',
+                    text: text
+                });
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        } else {
+            const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
     }
 
     function shareArticleVia(item, platform) {
@@ -2874,12 +2909,26 @@ export function initUI() {
         if (map[platform]) window.open(map[platform], '_blank');
     }
 
-    function shareLawVia(law, platform) {
+    async function shareLawVia(law, platform) {
         const lawUrl = `${location.origin}${location.pathname}#ley-${encodeURIComponent(law.id)}`;
         const title = law.titulo;
         const resumen = law.resumen ? law.resumen.split('\n\n')[0].substring(0, 400) : `${law.articulos} artículos`;
         const body = `🏛️ *${law.titulo}*\n📅 Publicado: ${law.fecha}\n📖 ${law.articulos} artículos\n\n${resumen}\n\n${lawUrl}`;
         const shortText = `${law.titulo} — Marco Legal Energético SENER`;
+
+        if (platform === 'whatsapp' && navigator.share) {
+            try {
+                await navigator.share({
+                    title: title,
+                    text: body,
+                    url: lawUrl
+                });
+                return;
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        }
+
         const map = {
             whatsapp: `https://wa.me/?text=${encodeURIComponent(body)}`,
             telegram: `https://t.me/share/url?url=${encodeURIComponent(lawUrl)}&text=${encodeURIComponent(title)}`,
@@ -3625,6 +3674,12 @@ export function initUI() {
         if (shareBtn && shareMenu) {
             shareBtn.onclick = (e) => {
                 e.stopPropagation();
+                // En móviles, si existe navigator.share, lo usamos directamente para el texto
+                // evitando el menú desplegable que puede verse mal
+                if (window.innerWidth < 640 && navigator.share) {
+                    shareArticleText(item);
+                    return;
+                }
                 shareMenu.classList.toggle('hidden');
             };
             document.addEventListener('click', function hideShareMenu(e) {

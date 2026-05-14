@@ -260,13 +260,10 @@
     }
 
     /* ── Toast notifications ─────────────────────────────── */
-
-    #toast-container,
     [id*="toast"] {
-        bottom: 1rem !important;
-        left: 1rem !important;
-        right: 1rem !important;
-        max-width: none !important;
+        max-width: 90vw !important;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* ── Dark mode overrides (mobile) ────────────────────── */
