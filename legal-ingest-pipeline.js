@@ -215,7 +215,7 @@ function normalizeLegalText(rawText) {
 function ensureHeadingBoundaries(text) {
     return text
         .replace(/(^|\s)(\d{1,3})A,\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
-        .replace(/([.;:])\s+(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
+        .replace(/([.;:\s]|^)\s*(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
         .replace(ARTICLE_HEADING_GLOBAL_PATTERN, '\n$1')
         .replace(/([.;:!?])\s+(TRANSITORIOS?)(?=\s|$)/giu, '$1\n$2')
         .replace(/([.;:!?])\s+((?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N)\s+[A-ZÁÉÍÓÚÑIVXLCDM]+)/giu, '$1\n$2');
