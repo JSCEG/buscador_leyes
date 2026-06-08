@@ -1,5 +1,6 @@
 import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { renderAnalisisView } from './analisis.js';
+import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-presentation.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
 export function initUI() {
@@ -54,57 +55,58 @@ export function initUI() {
             const s = document.createElement('style');
             s.id = 'global-dark-style';
             s.innerHTML = `
-                .dark-mode { background-color: #050505 !important; color: #FFFFFF !important; }
-                .dark-mode header { background-color: rgba(5, 5, 5, 0.8) !important; border-bottom: 2px solid #FF1E56 !important; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(255, 30, 86, 0.2); }
-                .dark-mode footer { background-color: #000000 !important; border-top: 1px solid rgba(255, 30, 86, 0.2) !important; }
+                .dark-mode { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
+                .dark-mode body { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
+                .dark-mode header { background-color: rgba(30, 30, 30, 0.96) !important; border-bottom: 0 !important; backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(214, 180, 106, 0.22) !important; }
+                .dark-mode header::after { background: linear-gradient(90deg, #9B2247 0 58%, #A57F2C 58% 100%) !important; }
+                .dark-mode footer { background-color: #171717 !important; border-top: 1px solid rgba(214, 180, 106, 0.25) !important; }
                 
-                /* Neutralización de Fondos Blancos */
                 .dark-mode .bg-white, 
                 .dark-mode .bg-gray-50, 
+                .dark-mode .bg-gray-100, 
                 .dark-mode .bg-slate-50,
+                .dark-mode .bg-white\\/70,
+                .dark-mode .bg-white\\/80,
+                .dark-mode .bg-white\\/95,
                 .dark-mode .bg-gray-50\\/50,
                 .dark-mode .bg-white.rounded-3xl,
                 .dark-mode .atema-card,
                 .dark-mode #modal-panel { 
-                    background-color: #050505 !important; 
-                    color: #FFFFFF !important; 
-                    border-color: rgba(255, 30, 86, 0.2) !important; 
+                    background-color: #242424 !important; 
+                    color: #F4F6F8 !important; 
+                    border-color: rgba(229, 229, 229, 0.14) !important; 
                 }
 
                 .dark-mode .border-gray-100, 
-                .dark-mode .border-gray-200 { border-color: rgba(255, 255, 255, 0.05) !important; }
+                .dark-mode .border-gray-200 { border-color: rgba(229, 229, 229, 0.14) !important; }
                 
-                /* Tables & Results */
                 .dark-mode table { border-collapse: separate; border-spacing: 0; width: 100%; }
-                .dark-mode thead tr { background-color: rgba(255, 30, 86, 0.05) !important; }
+                .dark-mode thead tr { background-color: #7A1A38 !important; }
                 .dark-mode table thead th { 
-                    color: #FF1E56 !important; 
-                    border-bottom: 2px solid #FF1E56 !important; 
-                    background-color: #080808 !important;
-                    font-weight: 900 !important;
+                    color: #FFFFFF !important; 
+                    border-bottom: 2px solid #A57F2C !important; 
+                    background-color: #7A1A38 !important;
+                    font-weight: 800 !important;
                 }
-                .dark-mode table tbody tr { border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; transition: all 0.2s; }
-                .dark-mode table tbody tr:hover { background-color: rgba(255, 255, 255, 0.02) !important; }
-                .dark-mode table td { color: rgba(255, 255, 255, 0.8) !important; border-right: 1px solid rgba(255, 255, 255, 0.03); }
+                .dark-mode table tbody tr { border-bottom: 1px solid rgba(229, 229, 229, 0.10) !important; transition: all 0.2s; }
+                .dark-mode table tbody tr:hover { background-color: rgba(214, 180, 106, 0.06) !important; }
+                .dark-mode table td { color: rgba(244, 246, 248, 0.86) !important; border-right: 1px solid rgba(229, 229, 229, 0.06); }
 
-                /* Specific Components */
-                .dark-mode #search-filters .bg-white { background-color: #000000 !important; border-color: #FF1E56 !important; }
-                .dark-mode #search-input { background-color: #000000 !important; border: 1px solid #FFB800 !important; color: #ffffff !important; box-shadow: 0 0 15px rgba(255, 184, 0, 0.1) !important; }
-                .dark-mode #search-input::placeholder { color: rgba(255, 255, 255, 0.2) !important; }
+                .dark-mode #search-filters .bg-white { background-color: #242424 !important; border-color: rgba(214, 180, 106, 0.35) !important; }
+                .dark-mode #search-input { background-color: #242424 !important; border: 1px solid rgba(214, 180, 106, 0.5) !important; color: #F4F6F8 !important; box-shadow: 0 0 0 4px rgba(165, 127, 44, 0.08) !important; }
+                .dark-mode #search-input::placeholder { color: rgba(244, 246, 248, 0.45) !important; }
                 
-                /* Highlights & Accents */
-                .dark-mode mark { background-color: rgba(255, 184, 0, 0.3) !important; color: #FFB800 !important; border-bottom: 1px solid #FFB800; }
-                .dark-mode .text-guinda { color: #FF1E56 !important; text-shadow: 0 0 8px rgba(255, 30, 86, 0.4); }
-                .dark-mode .text-verde { color: #00FF9D !important; }
-                .dark-mode .bg-guinda { background-color: #FF1E56 !important; }
+                .dark-mode mark { background-color: rgba(214, 180, 106, 0.24) !important; color: #F4F6F8 !important; border-bottom: 1px solid #D6B46A; }
+                .dark-mode .text-guinda { color: #D6B46A !important; text-shadow: none !important; }
+                .dark-mode .text-verde { color: #7FB1A6 !important; }
+                .dark-mode .text-dorado { color: #D6B46A !important; }
+                .dark-mode .bg-guinda { background-color: #9B2247 !important; }
                 
-                /* Modals */
                 .dark-mode #detail-modal { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(12px); }
-                .dark-mode #modal-panel { border: 1px solid rgba(255, 30, 86, 0.3) !important; box-shadow: 0 0 40px rgba(255, 30, 86, 0.1) !important; }
+                .dark-mode #modal-panel { border: 1px solid rgba(214, 180, 106, 0.22) !important; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38) !important; }
                 
-                /* Admin Specifics */
-                .dark-mode #admin-dropzone { border-color: rgba(255, 184, 0, 0.3) !important; background-color: rgba(255, 184, 0, 0.02) !important; }
-                .dark-mode #admin-dropzone h3 { color: #FFB800 !important; }
+                .dark-mode #admin-dropzone { border-color: rgba(214, 180, 106, 0.35) !important; background-color: rgba(165, 127, 44, 0.08) !important; }
+                .dark-mode #admin-dropzone h3 { color: #D6B46A !important; }
             `;
             document.head.appendChild(s);
         }
@@ -190,10 +192,10 @@ export function initUI() {
         if (s.tipo) {
             const t = s.tipo.toLowerCase();
             if (t === 'ley') return { id: 'ley', label: 'Leyes Federales', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
-            if (t === 'reglamento') return { id: 'reglamento', label: 'Reglamentos', color: 'emerald-700', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
-            if (t === 'acuerdo') return { id: 'acuerdo', label: 'Acuerdos', color: 'amber-600', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
+            if (t === 'reglamento') return { id: 'reglamento', label: 'Reglamentos', color: 'verde', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
+            if (t === 'acuerdo') return { id: 'acuerdo', label: 'Acuerdos', color: 'dorado', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
             if (t === 'dacg') return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
-            if (t === 'nom') return { id: 'nom', label: 'NOMs', color: 'purple-700', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
+            if (t === 'nom') return { id: 'nom', label: 'NOMs', color: 'gris', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
             if (t === 'permiso') return { id: 'permiso', label: 'Permisos', color: 'cyan-700', icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z' };
             if (t === 'manual') return { id: 'manual', label: 'Manuales', color: 'slate-600', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
         }
@@ -201,10 +203,10 @@ export function initUI() {
         // Fallback a detección por texto en título
         const t = (s.titulo || '').toLowerCase();
         if (t.startsWith('ley ')) return { id: 'ley', label: 'Leyes', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
-        if (t.startsWith('reglamento ')) return { id: 'reglamento', label: 'Reglamentos', color: 'emerald-700', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
-        if (t.includes('acuerdo')) return { id: 'acuerdo', label: 'Acuerdos', color: 'amber-600', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
+        if (t.startsWith('reglamento ')) return { id: 'reglamento', label: 'Reglamentos', color: 'verde', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
+        if (t.includes('acuerdo')) return { id: 'acuerdo', label: 'Acuerdos', color: 'dorado', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
         if (t.includes('disposiciones administrativas') || t.includes('dacg')) return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
-        if (t.includes('norma oficial') || t.includes('nom-')) return { id: 'nom', label: 'NOMs', color: 'purple-700', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
+        if (t.includes('norma oficial') || t.includes('nom-')) return { id: 'nom', label: 'NOMs', color: 'gris', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
         if (t.includes('permiso')) return { id: 'permiso', label: 'Permisos', color: 'cyan-700', icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z' };
         if (t.includes('manual') || t.includes('lineamientos')) return { id: 'manual', label: 'Manuales', color: 'slate-600', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
         return { id: 'otros', label: 'Otros', color: 'gray-500', icon: 'M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z' };
@@ -1126,6 +1128,10 @@ export function initUI() {
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                             Exportar CSV
                         </button>
+                        <button id="present-law-btn" class="px-4 py-2 bg-dorado text-white text-xs font-semibold rounded-lg hover:bg-dorado/90 transition-all flex items-center gap-2 shadow-sm disabled:opacity-60 disabled:cursor-not-allowed">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4h10a2 2 0 012 2v10M7 4a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2M7 4v16m4-11h5m-5 4h5m-5 4h3"></path></svg>
+                            <span class="present-label">Presentar</span>
+                        </button>
                         <button id="print-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-guinda hover:text-guinda transition-all flex items-center gap-2 shadow-sm">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                             Imprimir / PDF
@@ -1133,6 +1139,17 @@ export function initUI() {
                     </div>
                 </div>
             </div>
+
+            <section class="mb-8 animate-fade-in-up" style="animation-delay: 0.08s;">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4">
+                    <div>
+                        <span class="text-[10px] font-bold text-guinda uppercase tracking-[0.22em]">Presentación interactiva</span>
+                        <h2 class="text-xl font-head font-bold text-gray-900 mt-1">Explorar este instrumento</h2>
+                    </div>
+                    <p class="text-xs text-gray-500 max-w-lg">Use las flechas, haga click en tarjetas o bloques, y active pantalla completa cuando necesite presentar.</p>
+                </div>
+                <div id="law-presentation-embed" class="w-full"></div>
+            </section>
 
             <!-- Stats & Structure Dashboard -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
@@ -1196,6 +1213,13 @@ export function initUI() {
                 </div>
             </div>
         `;
+
+        renderLawPresentationEmbed(
+            document.getElementById('law-presentation-embed'),
+            law,
+            currentLawArticles,
+            dbThemes
+        );
 
         // ── Tabla de contenidos (índice flotante) ──────────────────────────────
         const tocBtn = document.createElement('button');
@@ -1546,7 +1570,8 @@ export function initUI() {
         const applyTheme = (theme) => {
             currentTheme = theme;
 
-            document.body.className = `bg-${theme} text-gray-900 font-body min-h-screen flex flex-col antialiased transition-colors duration-300`;
+            document.body.classList.remove('bg-light', 'bg-sepia', 'bg-dark');
+            document.body.classList.add(`bg-${theme}`);
 
             // Update desktop buttons active state
             themeBtns.forEach(btn => {
@@ -1579,18 +1604,18 @@ export function initUI() {
                     .bg-sepia #reading-panel { background-color: rgba(253, 246, 227, 0.95) !important; border-color: #e6dcb1 !important; }
                     
                     /* Dark Mode */
-                    .bg-dark { background-color: #121212 !important; color: #e5e5e5 !important; }
-                    .bg-dark .bg-white { background-color: #1e1e1e !important; border-color: #2d2d2d !important; }
+                    .bg-dark { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
+                    .bg-dark .bg-white { background-color: #242424 !important; border-color: rgba(229,229,229,0.14) !important; }
                     .bg-dark .text-gray-900, .bg-dark .text-gray-800 { color: #ffffff !important; }
                     .bg-dark .text-gray-700 { color: #d4d4d4 !important; }
                     .bg-dark .text-gray-600, .bg-dark .text-gray-500 { color: #a3a3a3 !important; }
                     .bg-dark .text-gray-400 { color: #737373 !important; }
-                    .bg-dark .border-gray-100, .bg-dark .border-gray-200 { border-color: #2d2d2d !important; }
+                    .bg-dark .border-gray-100, .bg-dark .border-gray-200 { border-color: rgba(229,229,229,0.14) !important; }
                     .bg-dark .bg-gray-50 { background-color: #252525 !important; }
-                    .bg-dark .bg-guinda\/5 { background-color: rgba(239, 68, 68, 0.1) !important; }
+                    .bg-dark .bg-guinda\/5 { background-color: rgba(155, 34, 71, 0.16) !important; }
                     .bg-dark #reading-panel { background-color: rgba(30, 30, 30, 0.95) !important; border-color: #404040 !important; }
-                    .bg-dark .text-guinda { color: #f87171 !important; } /* Soft red for dark mode */
-                    .bg-dark #search-input { background-color: #1e1e1e !important; border-color: #404040 !important; color: #ffffff !important; }
+                    .bg-dark .text-guinda { color: #D6B46A !important; }
+                    .bg-dark #search-input { background-color: #242424 !important; border-color: rgba(214,180,106,0.45) !important; color: #ffffff !important; }
                     .bg-dark #search-input::placeholder { color: #737373 !important; }
                     .bg-dark .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; }
                     .bg-dark .hover\:bg-gray-50:hover { background-color: #2d2d2d !important; }
@@ -1707,6 +1732,23 @@ export function initUI() {
 
         // Print / PDF
         document.getElementById('print-btn')?.addEventListener('click', () => window.print());
+
+        const presentBtn = document.getElementById('present-law-btn');
+        presentBtn?.addEventListener('click', () => {
+            const label = presentBtn.querySelector('.present-label');
+            const originalLabel = label?.textContent || 'Presentar';
+            try {
+                presentBtn.disabled = true;
+                if (label) label.textContent = 'Abriendo...';
+                openLawPresentationDeck(law, currentLawArticles, dbThemes);
+            } catch (error) {
+                console.error('[Presentation] Error:', error);
+                showToast(error.message || 'No se pudo generar la presentación', '!', 'bg-gray-800');
+            } finally {
+                presentBtn.disabled = false;
+                if (label) label.textContent = originalLabel;
+            }
+        });
 
         // Breadcrumb listeners
         document.getElementById('crumb-inicio')?.addEventListener('click', () => resetToHero());
@@ -2976,7 +3018,7 @@ export function initUI() {
                 <div class="flex items-end justify-between mb-8 border-b border-gray-100 pb-6">
                     <div>
                         <span class="text-[10px] font-black text-guinda uppercase tracking-[0.2em] mb-2 block">Visualización de Datos</span>
-                        <h2 class="text-3xl font-serif font-bold text-gray-800">Estadísticas del Marco Jurídico</h2>
+                        <h2 class="text-3xl font-head font-bold text-gray-800">Estadísticas del Marco Jurídico</h2>
                     </div>
                     <div class="text-right">
                         <span class="text-[11px] font-medium text-gray-400 block italic">Última actualización: Mayo 2025</span>
@@ -2984,30 +3026,30 @@ export function initUI() {
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-12">
-                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-guinda/5 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-serif font-bold text-guinda block mb-1 relative">${cachedSummaries.length}</span>
+                        <span class="text-4xl font-head font-bold text-guinda block mb-1 relative">${cachedSummaries.length}</span>
                         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Total de Leyes</span>
                     </div>
-                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-serif font-bold text-gray-800 block mb-1 relative">${total.toLocaleString('es-MX')}</span>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gris-claro/40 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-head font-bold text-gray-800 block mb-1 relative">${total.toLocaleString('es-MX')}</span>
                         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Artículos Totales</span>
                     </div>
-                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-serif font-bold text-emerald-700 block mb-1 relative">${leyes.length}</span>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-verde/10 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-head font-bold text-verde block mb-1 relative">${leyes.length}</span>
                         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Leyes Federales</span>
                     </div>
-                    <div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-serif font-bold text-amber-700 block mb-1 relative">${reglamentos.length + otros.length}</span>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-dorado/10 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                        <span class="text-4xl font-head font-bold text-dorado block mb-1 relative">${reglamentos.length + otros.length}</span>
                         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Reglamentos y Otros</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/40 mb-10">
-                    <h3 class="font-serif font-bold text-xl text-gray-800 mb-8 flex items-center gap-3">
+                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm mb-10">
+                    <h3 class="font-head font-bold text-xl text-gray-800 mb-8 flex items-center gap-3">
                         <div class="w-1.5 h-6 bg-guinda rounded-full"></div>
                         Densidad de Artículos por Documento
                     </h3>
@@ -3015,7 +3057,7 @@ export function initUI() {
                         ${sorted.map(law => {
                             const isLey = law.titulo.toLowerCase().startsWith('ley');
                             const isReg = law.titulo.toLowerCase().startsWith('reglamento');
-                            const barColor = isLey ? 'bg-guinda' : isReg ? 'bg-emerald-700' : 'bg-amber-700';
+                            const barColor = isLey ? 'bg-guinda' : isReg ? 'bg-verde' : 'bg-dorado';
                             const pct = Math.round((law.articulos / maxArticulos) * 100);
                             return `
                             <div class="group cursor-pointer stat-law-row" data-titulo="${law.titulo.replace(/"/g, '&quot;')}">
@@ -3033,13 +3075,13 @@ export function initUI() {
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     ${[
-                        { label: 'Leyes Federales', items: leyes, color: 'guinda' },
-                        { label: 'Reglamentos', items: reglamentos, color: 'emerald-700' },
-                        { label: 'Acuerdos y Otros', items: otros, color: 'amber-700' }
+                        { label: 'Leyes Federales', items: leyes, colorClass: 'text-guinda' },
+                        { label: 'Reglamentos', items: reglamentos, colorClass: 'text-verde' },
+                        { label: 'Acuerdos y Otros', items: otros, colorClass: 'text-dorado' }
                     ].map(cat => `
-                        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="bg-white p-7 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-50">
-                                <span class="text-[10px] font-black text-${cat.color} uppercase tracking-widest">${cat.label}</span>
+                                <span class="text-[10px] font-black ${cat.colorClass} uppercase tracking-widest">${cat.label}</span>
                                 <span class="text-[10px] bg-gray-50 text-gray-500 font-bold px-2 py-0.5 rounded-full">${cat.items.length}</span>
                             </div>
                             <div class="space-y-3">
@@ -3091,21 +3133,21 @@ export function initUI() {
             <div class="w-full max-w-4xl mx-auto animate-fade-in-up">
                 <div class="text-center mb-16">
                     <span class="text-[10px] font-black text-guinda uppercase tracking-[0.3em] mb-4 block">Centro de Soporte y Guía</span>
-                    <h2 class="text-4xl font-serif font-bold text-gray-800 mb-6 italic">¿Cómo podemos ayudarle?</h2>
+                    <h2 class="text-4xl font-head font-bold text-gray-800 mb-6">¿Cómo podemos ayudarle?</h2>
                     <div class="w-20 h-1 bg-guinda mx-auto rounded-full opacity-20"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-gray-200/40 transition-all">
-                        <div class="w-12 h-12 bg-guinda/5 rounded-2xl flex items-center justify-center text-guinda mb-6">
+                    <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 bg-guinda/5 rounded-lg flex items-center justify-center text-guinda mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-3">Búsqueda Avanzada</h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Utilice operadores para refinar sus resultados. Use <span class="font-mono text-guinda px-1 bg-guinda/5 rounded">"frase exacta"</span> para coincidencias literales o <span class="font-mono text-guinda px-1 bg-guinda/5 rounded">termino1 & termino2</span> para artículos que contengan ambos.</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-gray-200/40 transition-all">
-                        <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-700 mb-6">
+                    <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 bg-verde/10 rounded-lg flex items-center justify-center text-verde mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         </div>
                         <h3 class="text-lg font-bold text-gray-800 mb-3">Descarga de Fichas</h3>
@@ -3113,11 +3155,11 @@ export function initUI() {
                     </div>
                 </div>
 
-                <div class="bg-white rounded-[2.5rem] p-10 text-gray-800 border border-gray-100 shadow-xl shadow-gray-200/30 relative overflow-hidden">
+                <div class="bg-white rounded-lg p-10 text-gray-800 border border-gray-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-guinda/5 rounded-full -mr-32 -mt-32 blur-2xl"></div>
                     <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
                         <div class="flex-1">
-                            <h3 class="text-2xl font-serif font-bold mb-4">¿No encuentra lo que busca?</h3>
+                            <h3 class="text-2xl font-head font-bold mb-4">¿No encuentra lo que busca?</h3>
                             <p class="text-gray-500 text-sm leading-relaxed mb-6">Nuestro equipo técnico y jurídico está disponible para resolver dudas sobre el funcionamiento de la plataforma o la veracidad del corpus legal.</p>
                             <div class="flex flex-wrap gap-4">
                                 <a href="mailto:soporte@sener.gob.mx" class="px-6 py-3 bg-guinda text-xs font-black uppercase tracking-widest rounded-full hover:bg-guinda-dk transition-colors shadow-lg shadow-guinda/20 text-white">Contactar Soporte</a>
@@ -3158,7 +3200,7 @@ export function initUI() {
         filterControls.innerHTML = `
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-[#54153B] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-purple-900/20">
+                    <div class="w-14 h-14 bg-guinda rounded-lg flex items-center justify-center text-white shadow-sm">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                     </div>
                     <div>
@@ -3168,7 +3210,7 @@ export function initUI() {
                 </div>
                 <div class="flex flex-col md:items-end gap-3">
                     <div class="flex flex-wrap gap-2">
-                        <button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${currentFilters.type === 'all' ? 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10' : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'}" data-type="all">TODOS</button>
+                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'all' ? 'bg-verde text-white border-verde shadow-sm' : 'bg-white text-gray-500 border-gray-200 hover:border-dorado hover:text-guinda'}" data-type="all">TODOS</button>
                         ${(() => {
                             const typeLabels = {
                                 ley: 'LEYES',
@@ -3186,9 +3228,9 @@ export function initUI() {
                             return availableTypes.map(t => {
                                 const label = typeLabels[t] || t.toUpperCase();
                                 const isActive = currentFilters.type === t;
-                                const activeClass = 'bg-[#1E5B4F] text-white border-[#1E5B4F] shadow-lg shadow-green-900/10';
-                                const inactiveClass = 'bg-white text-gray-500 border-gray-100 hover:border-gray-300';
-                                return `<button class="filter-btn px-6 py-2 text-xs font-bold rounded-full border-2 transition-all ${isActive ? activeClass : inactiveClass}" data-type="${t}">${label}</button>`;
+                                const activeClass = 'bg-verde text-white border-verde shadow-sm';
+                                const inactiveClass = 'bg-white text-gray-500 border-gray-200 hover:border-dorado hover:text-guinda';
+                                return `<button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${isActive ? activeClass : inactiveClass}" data-type="${t}">${label}</button>`;
                             }).join('');
                         })()}
                     </div>
@@ -3283,20 +3325,20 @@ export function initUI() {
         const totalGlobal = lawCounts.reduce((s, l) => s + l.count, 0);
         const badgeColors = [
             'bg-guinda/10 text-guinda border-guinda/20',
-            'bg-blue-50 text-blue-700 border-blue-200',
-            'bg-emerald-50 text-emerald-700 border-emerald-200',
-            'bg-amber-50 text-amber-700 border-amber-200',
-            'bg-violet-50 text-violet-700 border-violet-200',
-            'bg-rose-50 text-rose-700 border-rose-200',
-            'bg-cyan-50 text-cyan-700 border-cyan-200',
-            'bg-orange-50 text-orange-700 border-orange-200'
+            'bg-verde/10 text-verde border-verde/20',
+            'bg-dorado/10 text-dorado border-dorado/20',
+            'bg-gris-claro/40 text-gray-700 border-gris-claro',
+            'bg-guinda/10 text-guinda border-guinda/20',
+            'bg-verde/10 text-verde border-verde/20',
+            'bg-dorado/10 text-dorado border-dorado/20',
+            'bg-gris-claro/40 text-gray-700 border-gris-claro'
         ];
 
         resultsContainer.innerHTML = `
             <div class="w-full max-w-5xl mx-auto mb-10 animate-fade-in-up">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-5">
-                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-5">
+                        <div class="w-11 h-11 bg-dorado/10 rounded-lg flex items-center justify-center text-dorado">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         </div>
                         <div>
@@ -3304,7 +3346,7 @@ export function initUI() {
                             <p class="text-xs text-gray-400">en ${lawCounts.length} documento${lawCounts.length !== 1 ? 's' : ''}</p>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-center">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-center">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-[11px] font-bold text-guinda uppercase tracking-widest truncate max-w-[80%]">${lawCounts[0]?.ley || 'Leyes'}</span>
                             <span class="text-[11px] font-bold text-gray-400">${lawCounts[0] ? Math.round((lawCounts[0].count / totalGlobal) * 100) : 0}%</span>
@@ -3316,15 +3358,15 @@ export function initUI() {
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl border border-gray-100 shadow-xl shadow-gray-200/40 overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
+            <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-xs border-collapse">
                         <thead>
-                            <tr class="bg-gray-50 border-b border-gray-100">
-                                <th class="px-5 py-3 font-bold text-gray-400 uppercase tracking-widest w-[20%]">Instrumento</th>
-                                <th class="px-4 py-3 font-bold text-gray-400 uppercase tracking-widest w-[15%]">Artículo</th>
-                                <th class="px-5 py-3 font-bold text-gray-400 uppercase tracking-widest w-[50%]">Extracto</th>
-                                <th class="px-5 py-3 font-bold text-gray-400 uppercase tracking-widest text-right w-[15%]">Acciones</th>
+                            <tr class="bg-guinda border-b border-guinda">
+                                <th class="px-5 py-3 font-bold text-white uppercase tracking-widest w-[20%]">Instrumento</th>
+                                <th class="px-4 py-3 font-bold text-white uppercase tracking-widest w-[15%]">Artículo</th>
+                                <th class="px-5 py-3 font-bold text-white uppercase tracking-widest w-[50%]">Extracto</th>
+                                <th class="px-5 py-3 font-bold text-white uppercase tracking-widest text-right w-[15%]">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-50">
@@ -3468,7 +3510,7 @@ export function initUI() {
                 .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
                 .replace(/\n{3,}/g, '\n\n');
 
-            finalHtml = `<div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Merriweather',serif; text-align:justify; hyphens:auto;">
+            finalHtml = `<div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Noto Sans',system-ui,sans-serif; text-align:justify; hyphens:auto;">
                 ${cleanText.split('\n\n').map(p => {
                     let extraClass = '';
                     const trimmed = p.trim();
@@ -3970,7 +4012,7 @@ export function initUI() {
             <div class="space-y-12">
                 <header class="text-center">
                     <span class="text-[10px] font-bold tracking-[0.3em] text-guinda uppercase mb-3 block">Soporte Institucional</span>
-                    <h2 class="text-4xl font-serif font-bold text-gray-800 mb-6 italic">¿Cómo podemos ayudarle?</h2>
+                    <h2 class="text-4xl font-head font-bold text-gray-800 mb-6">¿Cómo podemos ayudarle?</h2>
                     <p class="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
                         Bienvenido al portal de ayuda del Marco Legal Energético. Aquí encontrará información sobre cómo utilizar las herramientas de búsqueda y análisis del sector energético.
                     </p>
@@ -3995,7 +4037,7 @@ export function initUI() {
                     </div>
                 </div>
 
-                <section class="bg-gray-900 text-white p-10 rounded-3xl relative overflow-hidden">
+                <section class="bg-[#1E1E1E] text-white p-10 rounded-lg relative overflow-hidden border border-dorado/30">
                     <div class="relative z-10">
                         <h3 class="text-xl font-bold mb-4">Atajos de Teclado</h3>
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">

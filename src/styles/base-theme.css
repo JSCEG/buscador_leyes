@@ -27,8 +27,8 @@
     
     /* Tipografía */
     --font-sans: 'Noto Sans', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Merriweather', serif;
-    --font-heading: 'Merriweather', serif;
+    --font-serif: 'Patria', 'Merriweather', serif;
+    --font-heading: 'Patria', 'Merriweather', serif;
     
     /* Espaciado */
     --spacing-xs: 0.5rem;
@@ -778,8 +778,8 @@ html.dark-mode body.app-polished::before {
     width: 100% !important;
     height: 100% !important;
     background-image: 
-        linear-gradient(rgba(255, 30, 86, 0.08) 1.5px, transparent 1.5px),
-        linear-gradient(90deg, rgba(255, 30, 86, 0.08) 1.5px, transparent 1.5px) !important;
+        linear-gradient(rgba(214, 180, 106, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(214, 180, 106, 0.08) 1.5px, transparent 1.5px) !important;
     background-size: 50px 50px !important;
     pointer-events: none !important;
     z-index: -1 !important;
@@ -813,7 +813,7 @@ html.dark-mode body.app-polished::before {
 .dark-mode .result-item,
 .dark-mode .law-card-bg-fix {
     background-color: #0a0a0a !important;
-    border-color: rgba(255, 30, 86, 0.3) !important;
+    border-color: rgba(214, 180, 106, 0.22) !important;
     color: #ffffff !important;
 }
 
@@ -832,27 +832,27 @@ html.dark-mode body.app-polished::before {
 
 .dark-mode thead tr {
     background-color: #000000 !important;
-    border-bottom: 2px solid #FF1E56 !important;
+    border-bottom: 2px solid #A57F2C !important;
 }
 
 .dark-mode th {
-    color: #FF1E56 !important;
+    color: #FFFFFF !important;
     text-transform: uppercase !important;
     letter-spacing: 0.1em !important;
     font-weight: 800 !important;
 }
 
 /* Typography Neon Re-reinforcement */
-.dark-mode .text-guinda, .dark-mode .atema-titulo { color: #FF1E56 !important; }
-.dark-mode .text-verde { color: #00FF9D !important; }
-.dark-mode .text-dorado { color: #FFB800 !important; }
+.dark-mode .text-guinda, .dark-mode .atema-titulo { color: #D6B46A !important; }
+.dark-mode .text-verde { color: #7FB1A6 !important; }
+.dark-mode .text-dorado { color: #D6B46A !important; }
 .dark-mode .text-gray-900, .dark-mode .text-gray-800, .dark-mode .text-gray-700, .dark-mode .text-gray-600 {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* Hero Watermark Fix */
 .dark-mode #watermark-symbol {
-    color: #FF1E56 !important;
+    color: #D6B46A !important;
     opacity: 0.1 !important;
 }
 

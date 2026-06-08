@@ -503,7 +503,7 @@ function injectStyles() {
 }
 .aview-back:hover { opacity: 0.65; }
 .aview-header-title {
-    font-family: 'Merriweather', serif;
+    font-family: 'Patria', 'Merriweather', serif;
     font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 700;
     line-height: 1.1; margin-bottom: 0.35rem;
     color: #1a1a1a;
@@ -526,8 +526,8 @@ function injectStyles() {
 /* ── Topic card ── */
 .atema-card {
     background: #fff; border: 1px solid rgba(0,0,0,0.07);
-    border-radius: 1.25rem; overflow: hidden;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.04);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 10px 28px rgba(31,41,55,0.08);
     margin-bottom: 2rem;
 }
 
@@ -535,11 +535,11 @@ function injectStyles() {
 .atema-hero {
     padding: 2rem 2rem 1.75rem; position: relative; overflow: hidden;
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    background: linear-gradient(135deg, #fff 60%, #fdf5f7 100%);
+    background: linear-gradient(135deg, #fff 62%, #f7f1f3 100%);
 }
 .atema-hero-bg {
     position: absolute; top: -0.5rem; right: 1rem;
-    font-family: 'Cormorant Garamond', serif; font-size: 11rem;
+    font-family: 'Patria', 'Merriweather', serif; font-size: 10rem;
     font-weight: 700; color: #9B2247; opacity: 0.04;
     line-height: 1; user-select: none; pointer-events: none;
 }
@@ -559,7 +559,7 @@ function injectStyles() {
     font-family: 'Noto Sans', sans-serif;
 }
 .atema-titulo {
-    font-family: 'Merriweather', serif;
+    font-family: 'Patria', 'Merriweather', serif;
     font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700;
     color: #1a1a1a; line-height: 1.15; margin-bottom: 0.75rem;
 }
@@ -570,7 +570,7 @@ function injectStyles() {
 .atema-metricas { display: flex; gap: 2rem; flex-wrap: wrap; }
 .atema-metrica { display: flex; flex-direction: column; }
 .atema-metrica-val {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Patria', 'Merriweather', serif;
     font-size: 1.6rem; font-weight: 600; color: #9B2247; line-height: 1;
 }
 .atema-metrica-lbl {
@@ -633,7 +633,7 @@ function injectStyles() {
 .aflujo-nodes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; width: 100%; }
 .aflujo-node {
     display: flex; flex-direction: column; align-items: center; text-align: center;
-    padding: 0.875rem 1rem; border: 1.5px solid; border-radius: 0.875rem;
+    padding: 0.875rem 1rem; border: 1.5px solid; border-radius: 10px;
     cursor: pointer; transition: transform 0.18s, box-shadow 0.18s;
     min-width: 90px; max-width: 155px; flex: 1; background: white;
 }
@@ -642,7 +642,7 @@ function injectStyles() {
     transform: translateY(-2px);
 }
 .aflujo-node-title {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
+    font-family: 'Patria', 'Merriweather', serif; font-size: 1.05rem;
     font-weight: 600; line-height: 1.1; margin-bottom: 0.25rem;
 }
 .aflujo-node-sub {
@@ -706,7 +706,7 @@ function injectStyles() {
     padding: 0.15rem 0.45rem; border-radius: 4px; color: white;
 }
 .aflujo-panel-art-label {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Patria', 'Merriweather', serif;
     font-size: 0.95rem; font-weight: 600; color: #374151;
 }
 .aflujo-panel-art-rol {
@@ -744,7 +744,7 @@ function injectStyles() {
     padding: 0.2rem 0.55rem; border-radius: 5px; color: white;
 }
 .aart-label {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Patria', 'Merriweather', serif;
     font-size: 1.05rem; font-weight: 600; color: #1a1a1a;
 }
 .aart-rol {
@@ -755,7 +755,7 @@ function injectStyles() {
 .aart-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
 .aart-desc { font-size: 0.8rem; color: #374151; line-height: 1.65; font-family: 'Noto Sans', sans-serif; }
 .aart-extracto {
-    font-family: 'Merriweather', serif; font-size: 0.75rem; color: #6b7280;
+    font-family: 'Noto Sans', system-ui, sans-serif; font-size: 0.75rem; color: #6b7280;
     line-height: 1.75; border-left: 2.5px solid; padding-left: 0.875rem;
     margin: 0; font-style: italic;
 }

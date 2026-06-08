@@ -144,7 +144,7 @@ function getTypeStyle(tipo) {
         case 'reglamento': return 'bg-emerald-50 text-emerald-700 border border-emerald-200';
         case 'acuerdo': return 'bg-amber-50 text-amber-700 border border-amber-200';
         case 'dacg': return 'bg-blue-50 text-blue-700 border border-blue-200';
-        case 'nom': return 'bg-purple-50 text-purple-700 border border-purple-200';
+        case 'nom': return 'bg-gray-50 text-gray-700 border border-gray-200';
         default: return 'bg-gray-50 text-gray-500 border border-gray-200';
     }
 }

@@ -1,5 +1,6 @@
 @import './base-theme.css';
 @import './mobile-responsive.css';
+@import './sener-institutional.css';
 
 @tailwind base;
 @tailwind components;

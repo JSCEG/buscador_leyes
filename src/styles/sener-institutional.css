@@ -1,0 +1,353 @@
+@font-face {
+    font-family: 'Patria';
+    src: url('../../Estilos Institucionales/tipografias/Patria_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Patria';
+    src: url('../../Estilos Institucionales/tipografias/Patria_Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../../Estilos Institucionales/tipografias/NotoSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../../Estilos Institucionales/tipografias/NotoSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --sener-guinda: #9B2247;
+    --sener-guinda-dark: #7A1A38;
+    --sener-guinda-light: #B24C6C;
+    --sener-verde: #1E5B4F;
+    --sener-dorado: #A57F2C;
+    --sener-dorado-light: #D6B46A;
+    --sener-gris: #98989A;
+    --sener-border: #E5E5E5;
+    --sener-bg: #F4F6F8;
+    --sener-text: #2B2B2B;
+    --sener-muted: #666666;
+    --sener-radius: 10px;
+    --sener-shadow: 0 10px 28px rgba(31, 41, 55, 0.08);
+    --sener-shadow-soft: 0 3px 12px rgba(31, 41, 55, 0.06);
+}
+
+html,
+body {
+    font-family: 'Noto Sans', system-ui, sans-serif;
+    color: var(--sener-text);
+    background: var(--sener-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-head,
+.font-serif {
+    font-family: 'Patria', 'Merriweather', Georgia, serif !important;
+    letter-spacing: 0;
+}
+
+.font-body {
+    font-family: 'Noto Sans', system-ui, sans-serif !important;
+}
+
+body > header {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%) !important;
+    border-bottom: 0 !important;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+body > header::after,
+footer::before {
+    content: "";
+    display: block;
+    height: 8px;
+    background: linear-gradient(90deg, var(--sener-guinda) 0 58%, var(--sener-dorado) 58% 100%);
+}
+
+body > header::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+body > header nav a,
+body > header nav button {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#main-container {
+    max-width: 1180px;
+}
+
+#hero-section {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero-section h1 {
+    color: var(--sener-guinda) !important;
+}
+
+#hero-section em {
+    color: var(--sener-guinda) !important;
+    font-style: normal !important;
+}
+
+#hero-section p {
+    color: var(--sener-muted) !important;
+    font-weight: 400 !important;
+}
+
+#watermark-symbol {
+    font-family: 'Patria', serif !important;
+    color: var(--sener-guinda) !important;
+    opacity: 0.035 !important;
+}
+
+#search-input,
+#art-number-filter,
+input,
+select,
+textarea {
+    font-family: 'Noto Sans', system-ui, sans-serif !important;
+}
+
+#search-input {
+    border-radius: var(--sener-radius) !important;
+    border-color: rgba(155, 34, 71, 0.22) !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: var(--sener-shadow-soft) !important;
+}
+
+#search-input:focus {
+    border-color: var(--sener-guinda) !important;
+    box-shadow: 0 0 0 4px rgba(155, 34, 71, 0.12), var(--sener-shadow-soft) !important;
+}
+
+#quick-filters button,
+.filter-btn,
+.empty-suggestion,
+.pagination-nav button,
+#nav-login-btn {
+    border-radius: 999px !important;
+}
+
+.bg-white,
+#auth-panel,
+#modal-panel,
+#admin-ingest-view,
+#admin-manage-view,
+#results-container > div,
+#law-detail-container > div,
+.atema-card {
+    border-color: var(--sener-border) !important;
+}
+
+.rounded-3xl,
+.rounded-\[2\.5rem\],
+.rounded-2xl {
+    border-radius: var(--sener-radius) !important;
+}
+
+.shadow-2xl,
+.shadow-xl,
+.shadow-lg {
+    box-shadow: var(--sener-shadow) !important;
+}
+
+.prose table,
+#results-container table,
+#admin-manage-view table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Noto Sans', system-ui, sans-serif;
+}
+
+.prose th,
+#results-container thead tr,
+#admin-manage-view thead tr {
+    background: var(--sener-guinda) !important;
+    color: #fff !important;
+}
+
+.prose th,
+#results-container th,
+#admin-manage-view th {
+    color: #fff !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.12em !important;
+}
+
+#results-container tbody tr:hover,
+#admin-manage-view tbody tr:hover {
+    background: rgba(155, 34, 71, 0.035) !important;
+}
+
+mark,
+.hl {
+    background: rgba(214, 180, 106, 0.35) !important;
+    color: var(--sener-guinda-dark) !important;
+    border-bottom: 1px solid rgba(165, 127, 44, 0.55);
+}
+
+footer {
+    background: #1E1E1E !important;
+    color: #fff;
+}
+
+footer::before {
+    margin: -3rem -1.5rem 2.5rem;
+}
+
+.text-emerald-700,
+.text-green-600,
+.text-green-700 {
+    color: var(--sener-verde) !important;
+}
+
+.text-amber-500,
+.text-amber-600,
+.text-amber-700 {
+    color: var(--sener-dorado) !important;
+}
+
+.bg-emerald-50,
+.bg-green-50 {
+    background-color: rgba(30, 91, 79, 0.08) !important;
+}
+
+.bg-amber-50 {
+    background-color: rgba(165, 127, 44, 0.1) !important;
+}
+
+.bg-blue-50,
+.bg-purple-50,
+.bg-violet-50 {
+    background-color: rgba(152, 152, 154, 0.12) !important;
+}
+
+.text-blue-700,
+.text-purple-700,
+.text-violet-700 {
+    color: var(--sener-gris) !important;
+}
+
+html.dark-mode,
+html.dark-mode body {
+    background: #1E1E1E !important;
+    color: #F4F6F8 !important;
+}
+
+html.dark-mode body > header {
+    background: rgba(30, 30, 30, 0.96) !important;
+    border-color: rgba(214, 180, 106, 0.4) !important;
+}
+
+html.dark-mode footer {
+    background: #171717 !important;
+}
+
+html.dark-mode .bg-white,
+html.dark-mode .bg-gray-50,
+html.dark-mode .bg-gray-100,
+html.dark-mode .bg-white\/70,
+html.dark-mode .bg-white\/80,
+html.dark-mode .bg-white\/95,
+html.dark-mode #modal-panel,
+html.dark-mode #auth-panel,
+html.dark-mode #toc-panel,
+html.dark-mode .atema-card,
+html.dark-mode .atema-hero,
+html.dark-mode .atema-attr,
+html.dark-mode .aart-card,
+html.dark-mode .aflujo-panel {
+    background-color: #242424 !important;
+    border-color: rgba(229, 229, 229, 0.14) !important;
+    color: #F4F6F8 !important;
+}
+
+html.dark-mode .text-gray-900,
+html.dark-mode .text-gray-800,
+html.dark-mode .text-gray-700,
+html.dark-mode .text-gray-600 {
+    color: #F4F6F8 !important;
+}
+
+html.dark-mode .text-gray-500,
+html.dark-mode .text-gray-400,
+html.dark-mode .text-gray-300 {
+    color: #B6B6B8 !important;
+}
+
+html.dark-mode .text-guinda,
+html.dark-mode .atema-titulo {
+    color: #D6B46A !important;
+    text-shadow: none !important;
+}
+
+html.dark-mode .text-verde {
+    color: #7FB1A6 !important;
+}
+
+html.dark-mode .bg-guinda {
+    background-color: var(--sener-guinda) !important;
+}
+
+html.dark-mode #search-input,
+html.dark-mode input,
+html.dark-mode select,
+html.dark-mode textarea {
+    background: #1E1E1E !important;
+    border-color: rgba(214, 180, 106, 0.45) !important;
+    color: #F4F6F8 !important;
+}
+
+html.dark-mode #results-container thead tr,
+html.dark-mode #admin-manage-view thead tr,
+html.dark-mode .prose th {
+    background: var(--sener-guinda-dark) !important;
+    color: #fff !important;
+}
+
+html.dark-mode mark,
+html.dark-mode .hl {
+    background: rgba(214, 180, 106, 0.22) !important;
+    color: #F4F6F8 !important;
+    border-color: var(--sener-dorado-light);
+}
+
+@media (max-width: 640px) {
+    body > header nav a,
+    body > header nav button {
+        letter-spacing: 0.04em;
+    }
+
+    #hero-section h1 {
+        font-size: clamp(2.1rem, 11vw, 3rem) !important;
+    }
+}
