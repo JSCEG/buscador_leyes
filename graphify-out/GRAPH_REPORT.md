@@ -1,18 +1,13 @@
 # Graph Report - 65.-Buscador de Leyes Energía  (2026-06-08)
 
 ## Corpus Check
-- 64 files · ~430,197 words
+- 64 files · ~431,619 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 865 nodes · 1336 edges · 63 communities (44 shown, 19 thin omitted)
+- 886 nodes · 1377 edges · 68 communities (49 shown, 19 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
-
-## Graph Freshness
-- Built from commit: `abbd44a7`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]
@@ -71,6 +66,11 @@
 - [[_COMMUNITY_Community 54|Community 54]]
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 62|Community 62]]
+- [[_COMMUNITY_Community 63|Community 63]]
+- [[_COMMUNITY_Community 64|Community 64]]
+- [[_COMMUNITY_Community 65|Community 65]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `MobileInterface` - 31 edges
@@ -99,18 +99,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (63 total, 19 thin omitted)
+## Communities (68 total, 19 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (46): supabase, calculateSimilarity(), closeEditModal(), displayAlert(), executeChunkingAlg(), extractTextFromPDF(), extractThemes(), fetchAndRenderManageLaws() (+38 more)
+Nodes (52): supabase, calculateSimilarity(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), closeEditModal(), displayAlert(), executeChunkingAlg(), extractTextFromPDF() (+44 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.06
-Nodes (45): { createClient }, { extractThemesFromText }, supabase, { createClient }, {
-    extractLegalStructureFromText,
-    rebuildTextFromChunks
-}, fix(), supabase, { createClient } (+37 more)
+Cohesion: 0.12
+Nodes (22): ARTICLE_HEADING_GLOBAL_PATTERN, ARTICLE_HEADING_PATTERN, ARTICLE_LABEL, chunkLegalText(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), { execFileSync }, { execFileSync, spawnSync } (+14 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
@@ -252,8 +249,39 @@ Nodes (3): comites, consejo_planeacion, planeacion_vinculante
 Cohesion: 0.07
 Nodes (52): addArticleCard(), addClosingSlide(), addContentShell(), addCoverFooter(), addCoverSlide(), addInfoRow(), addKeyArticlesSlides(), addLogoPair() (+44 more)
 
+### Community 63 - "Community 63"
+Cohesion: 0.24
+Nodes (10): { createClient }, {
+    extractLegalStructureFromText,
+    rebuildTextFromChunks
+}, fix(), supabase, extractLegalStructureFromText(), rebuildTextFromChunks(), { createClient }, {
+    extractLegalStructureFromText,
+    rebuildTextFromChunks
+} (+2 more)
+
+### Community 64 - "Community 64"
+Cohesion: 0.22
+Nodes (10): { createClient }, {
+    extractLegalStructureFromPdf
+}, fs, main(), path, supabase, convertPdfToMarkdown(), extractLegalStructureFromPdf() (+2 more)
+
+### Community 65 - "Community 65"
+Cohesion: 0.22
+Nodes (7): { createClient }, { extractThemesFromText }, supabase, extractThemesFromText(), getFollowingHeadingName(), isArticleLine(), isThemeLine()
+
+### Community 66 - "Community 66"
+Cohesion: 0.25
+Nodes (7): ensureHeadingBoundaries(), extractLegalStructureFromMarkdown(), normalizeLegalText(), normalizeMarkdownToText(), { describe, expect, test }, {
+    extractLegalStructureFromMarkdown,
+    extractLegalStructureFromText
+}, require
+
+### Community 67 - "Community 67"
+Cohesion: 0.67
+Nodes (4): commandWorks(), resolveMarkitdownBinary(), resolvePythonBinary(), runMarkitdownToMarkdown()
+
 ## Knowledge Gaps
-- **251 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+246 more)
+- **255 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+250 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -261,7 +289,7 @@ Nodes (52): addArticleCard(), addClosingSlide(), addContentShell(), addCoverFoot
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Temas Transversales en Leyes del Sector Energía` connect `Community 37` to `Community 13`, `Community 17`, `Community 21`, `Community 29`, `Community 30`, `Community 31`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **Why does `loadGeoJSON()` connect `Community 11` to `Community 2`, `Community 44`, `Community 6`?**
   _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **Why does `loadTotalCapacityAdditionsMap()` connect `Community 11` to `Community 2`, `Community 6`?**
@@ -269,8 +297,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 2 inferred relationships involving `loadGeoJSON()` (e.g. with `.showNotification()` and `createStandardPopup()`) actually correct?**
   _`loadGeoJSON()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _251 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _255 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07380520266182698 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06646825396825397 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.05805515239477504 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11594202898550725 - nodes in this community are weakly interconnected._

@@ -18,7 +18,7 @@
       "source_file": "backfill_temas.js",
       "source_location": "L1",
       "id": "backfill_temas_js",
-      "community": 1,
+      "community": 65,
       "norm_label": "backfill_temas.js"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "backfill_temas.js",
       "source_location": "L2",
       "id": "65_buscador_de_leyes_energ\u00eda_backfill_temas_createclient",
-      "community": 1,
+      "community": 65,
       "norm_label": "{ createclient }"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "backfill_temas.js",
       "source_location": "L3",
       "id": "65_buscador_de_leyes_energ\u00eda_backfill_temas_extractthemesfromtext",
-      "community": 1,
+      "community": 65,
       "norm_label": "{ extractthemesfromtext }"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "backfill_temas.js",
       "source_location": "L5",
       "id": "65_buscador_de_leyes_energ\u00eda_backfill_temas_supabase",
-      "community": 1,
+      "community": 65,
       "norm_label": "supabase"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "backfill_temas.js",
       "source_location": "L10",
       "id": "65_buscador_de_leyes_energ\u00eda_backfill_temas_backfill",
-      "community": 1,
+      "community": 65,
       "norm_label": "backfill()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "fix_rechunk.js",
       "source_location": "L1",
       "id": "fix_rechunk_js",
-      "community": 1,
+      "community": 63,
       "norm_label": "fix_rechunk.js"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "fix_rechunk.js",
       "source_location": "L7",
       "id": "65_buscador_de_leyes_energ\u00eda_fix_rechunk_createclient",
-      "community": 1,
+      "community": 63,
       "norm_label": "{ createclient }"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "fix_rechunk.js",
       "source_location": "L8",
       "id": "65_buscador_de_leyes_energ\u00eda_fix_rechunk_extractlegalstructurefromtext_rebuildtextfromchunks",
-      "community": 1,
+      "community": 63,
       "norm_label": "{\r\n    extractlegalstructurefromtext,\r\n    rebuildtextfromchunks\r\n}"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "fix_rechunk.js",
       "source_location": "L13",
       "id": "65_buscador_de_leyes_energ\u00eda_fix_rechunk_supabase",
-      "community": 1,
+      "community": 63,
       "norm_label": "supabase"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "fix_rechunk.js",
       "source_location": "L18",
       "id": "65_buscador_de_leyes_energ\u00eda_fix_rechunk_fix",
-      "community": 1,
+      "community": 63,
       "norm_label": "fix()"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L1",
       "id": "ingestar_pdf_js",
-      "community": 1,
+      "community": 64,
       "norm_label": "ingestar_pdf.js"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L2",
       "id": "65_buscador_de_leyes_energ\u00eda_ingestar_pdf_createclient",
-      "community": 1,
+      "community": 64,
       "norm_label": "{ createclient }"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L3",
       "id": "65_buscador_de_leyes_energ\u00eda_ingestar_pdf_fs",
-      "community": 1,
+      "community": 64,
       "norm_label": "fs"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L4",
       "id": "65_buscador_de_leyes_energ\u00eda_ingestar_pdf_path",
-      "community": 1,
+      "community": 64,
       "norm_label": "path"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L5",
       "id": "65_buscador_de_leyes_energ\u00eda_ingestar_pdf_extractlegalstructurefrompdf",
-      "community": 1,
+      "community": 64,
       "norm_label": "{\r\n    extractlegalstructurefrompdf\r\n}"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L17",
       "id": "65_buscador_de_leyes_energ\u00eda_ingestar_pdf_supabase",
-      "community": 1,
+      "community": 64,
       "norm_label": "supabase"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "ingestar_pdf.js",
       "source_location": "L19",
       "id": "65_buscador_de_leyes_energ\u00eda_ingestar_pdf_main",
-      "community": 1,
+      "community": 64,
       "norm_label": "main()"
     },
     {
@@ -355,13 +355,13 @@
       "norm_label": "path"
     },
     {
-      "label": "{ execFileSync }",
+      "label": "{ execFileSync, spawnSync }",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L4",
-      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_execfilesync",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_execfilesync_spawnsync",
       "community": 1,
-      "norm_label": "{ execfilesync }"
+      "norm_label": "{ execfilesync, spawnsync }"
     },
     {
       "label": "PDF2MD_INSTALL_HINT",
@@ -373,10 +373,28 @@
       "norm_label": "pdf2md_install_hint"
     },
     {
-      "label": "ARTICLE_LABEL",
+      "label": "MARKITDOWN_INSTALL_HINT",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L13",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_markitdown_install_hint",
+      "community": 1,
+      "norm_label": "markitdown_install_hint"
+    },
+    {
+      "label": "MARKITDOWN_PYTHON_SCRIPT",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L20",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_markitdown_python_script",
+      "community": 1,
+      "norm_label": "markitdown_python_script"
+    },
+    {
+      "label": "ARTICLE_LABEL",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L28",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_article_label",
       "community": 1,
       "norm_label": "article_label"
@@ -385,7 +403,7 @@
       "label": "ARTICLE_HEADING_PATTERN",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L14",
+      "source_location": "L29",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_article_heading_pattern",
       "community": 1,
       "norm_label": "article_heading_pattern"
@@ -394,7 +412,7 @@
       "label": "ARTICLE_HEADING_GLOBAL_PATTERN",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L18",
+      "source_location": "L33",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_article_heading_global_pattern",
       "community": 1,
       "norm_label": "article_heading_global_pattern"
@@ -403,7 +421,7 @@
       "label": "TRANSITORY_LABELS",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L22",
+      "source_location": "L37",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_transitory_labels",
       "community": 1,
       "norm_label": "transitory_labels"
@@ -412,7 +430,7 @@
       "label": "TRANSITORY_HEADING_PATTERN",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L46",
+      "source_location": "L61",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_transitory_heading_pattern",
       "community": 1,
       "norm_label": "transitory_heading_pattern"
@@ -421,25 +439,52 @@
       "label": "resolvePdf2mdBinary()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L55",
+      "source_location": "L71",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepdf2mdbinary",
-      "community": 1,
+      "community": 64,
       "norm_label": "resolvepdf2mdbinary()"
+    },
+    {
+      "label": "commandWorks()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L84",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_commandworks",
+      "community": 67,
+      "norm_label": "commandworks()"
+    },
+    {
+      "label": "resolvePythonBinary()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L94",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepythonbinary",
+      "community": 67,
+      "norm_label": "resolvepythonbinary()"
+    },
+    {
+      "label": "resolveMarkitdownBinary()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L109",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvemarkitdownbinary",
+      "community": 67,
+      "norm_label": "resolvemarkitdownbinary()"
     },
     {
       "label": "runPdfToMarkdown()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L68",
+      "source_location": "L117",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runpdftomarkdown",
-      "community": 1,
+      "community": 64,
       "norm_label": "runpdftomarkdown()"
     },
     {
       "label": "stripMarkdownLine()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L93",
+      "source_location": "L143",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_stripmarkdownline",
       "community": 1,
       "norm_label": "stripmarkdownline()"
@@ -448,34 +493,52 @@
       "label": "normalizeMarkdownToText()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L130",
+      "source_location": "L180",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizemarkdowntotext",
-      "community": 1,
+      "community": 66,
       "norm_label": "normalizemarkdowntotext()"
     },
     {
       "label": "normalizeLegalText()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L139",
+      "source_location": "L189",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizelegaltext",
-      "community": 1,
+      "community": 66,
       "norm_label": "normalizelegaltext()"
     },
     {
       "label": "ensureHeadingBoundaries()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L165",
+      "source_location": "L215",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_ensureheadingboundaries",
-      "community": 1,
+      "community": 66,
       "norm_label": "ensureheadingboundaries()"
+    },
+    {
+      "label": "runMarkitdownToMarkdown()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L224",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runmarkitdowntomarkdown",
+      "community": 67,
+      "norm_label": "runmarkitdowntomarkdown()"
+    },
+    {
+      "label": "convertPdfToMarkdown()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L269",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_convertpdftomarkdown",
+      "community": 64,
+      "norm_label": "convertpdftomarkdown()"
     },
     {
       "label": "parseHeading()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L172",
+      "source_location": "L287",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parseheading",
       "community": 1,
       "norm_label": "parseheading()"
@@ -484,7 +547,7 @@
       "label": "normalizeChunkContent()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L185",
+      "source_location": "L300",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizechunkcontent",
       "community": 1,
       "norm_label": "normalizechunkcontent()"
@@ -493,43 +556,97 @@
       "label": "isThemeLine()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L193",
+      "source_location": "L308",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_isthemeline",
-      "community": 1,
+      "community": 65,
       "norm_label": "isthemeline()"
     },
     {
       "label": "isArticleLine()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L197",
+      "source_location": "L312",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_isarticleline",
-      "community": 1,
+      "community": 65,
       "norm_label": "isarticleline()"
     },
     {
       "label": "getFollowingHeadingName()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L201",
+      "source_location": "L316",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_getfollowingheadingname",
-      "community": 1,
+      "community": 65,
       "norm_label": "getfollowingheadingname()"
     },
     {
       "label": "extractThemesFromText()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L220",
+      "source_location": "L335",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractthemesfromtext",
-      "community": 1,
+      "community": 65,
       "norm_label": "extractthemesfromtext()"
+    },
+    {
+      "label": "stripThemeOrdinal()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L389",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_stripthemeordinal",
+      "community": 1,
+      "norm_label": "stripthemeordinal()"
+    },
+    {
+      "label": "parseStructuralHeading()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L396",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parsestructuralheading",
+      "community": 1,
+      "norm_label": "parsestructuralheading()"
+    },
+    {
+      "label": "hasNumberedLineamientoStructure()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L415",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_hasnumberedlineamientostructure",
+      "community": 1,
+      "norm_label": "hasnumberedlineamientostructure()"
+    },
+    {
+      "label": "cleanTransitoryRemainder()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L431",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_cleantransitoryremainder",
+      "community": 1,
+      "norm_label": "cleantransitoryremainder()"
+    },
+    {
+      "label": "chunkNumberedLineamientos()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L438",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos",
+      "community": 1,
+      "norm_label": "chunknumberedlineamientos()"
+    },
+    {
+      "label": "normalizePodecobiLineamientoHierarchy()",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L534",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizepodecobilineamientohierarchy",
+      "community": 1,
+      "norm_label": "normalizepodecobilineamientohierarchy()"
     },
     {
       "label": "chunkLegalText()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L274",
+      "source_location": "L561",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
       "community": 1,
       "norm_label": "chunklegaltext()"
@@ -538,36 +655,36 @@
       "label": "extractLegalStructureFromMarkdown()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L385",
+      "source_location": "L677",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefrommarkdown",
-      "community": 1,
+      "community": 66,
       "norm_label": "extractlegalstructurefrommarkdown()"
     },
     {
       "label": "extractLegalStructureFromText()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L395",
+      "source_location": "L687",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefromtext",
-      "community": 1,
+      "community": 63,
       "norm_label": "extractlegalstructurefromtext()"
     },
     {
       "label": "extractLegalStructureFromPdf()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L399",
+      "source_location": "L691",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefrompdf",
-      "community": 1,
+      "community": 64,
       "norm_label": "extractlegalstructurefrompdf()"
     },
     {
       "label": "rebuildTextFromChunks()",
       "file_type": "code",
       "source_file": "legal-ingest-pipeline.js",
-      "source_location": "L418",
+      "source_location": "L712",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_rebuildtextfromchunks",
-      "community": 1,
+      "community": 63,
       "norm_label": "rebuildtextfromchunks()"
     },
     {
@@ -819,7 +936,7 @@
       "source_file": "rechunk_leyes.js",
       "source_location": "L1",
       "id": "rechunk_leyes_js",
-      "community": 1,
+      "community": 63,
       "norm_label": "rechunk_leyes.js"
     },
     {
@@ -828,7 +945,7 @@
       "source_file": "rechunk_leyes.js",
       "source_location": "L7",
       "id": "65_buscador_de_leyes_energ\u00eda_rechunk_leyes_createclient",
-      "community": 1,
+      "community": 63,
       "norm_label": "{ createclient }"
     },
     {
@@ -837,7 +954,7 @@
       "source_file": "rechunk_leyes.js",
       "source_location": "L8",
       "id": "65_buscador_de_leyes_energ\u00eda_rechunk_leyes_extractlegalstructurefromtext_rebuildtextfromchunks",
-      "community": 1,
+      "community": 63,
       "norm_label": "{\r\n    extractlegalstructurefromtext,\r\n    rebuildtextfromchunks\r\n}"
     },
     {
@@ -846,7 +963,7 @@
       "source_file": "rechunk_leyes.js",
       "source_location": "L13",
       "id": "65_buscador_de_leyes_energ\u00eda_rechunk_leyes_supabase",
-      "community": 1,
+      "community": 63,
       "norm_label": "supabase"
     },
     {
@@ -855,7 +972,7 @@
       "source_file": "rechunk_leyes.js",
       "source_location": "L18",
       "id": "65_buscador_de_leyes_energ\u00eda_rechunk_leyes_rechunk",
-      "community": 1,
+      "community": 63,
       "norm_label": "rechunk()"
     },
     {
@@ -5179,10 +5296,64 @@
       "norm_label": "executechunkingalg()"
     },
     {
+      "label": "hasNumberedLineamientoStructure()",
+      "file_type": "code",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L433",
+      "id": "scripts_admin_ingest_hasnumberedlineamientostructure",
+      "community": 0,
+      "norm_label": "hasnumberedlineamientostructure()"
+    },
+    {
+      "label": "chunkNumberedLineamientos()",
+      "file_type": "code",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L443",
+      "id": "scripts_admin_ingest_chunknumberedlineamientos",
+      "community": 0,
+      "norm_label": "chunknumberedlineamientos()"
+    },
+    {
+      "label": "stripThemeOrdinal()",
+      "file_type": "code",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L535",
+      "id": "scripts_admin_ingest_stripthemeordinal",
+      "community": 0,
+      "norm_label": "stripthemeordinal()"
+    },
+    {
+      "label": "parseStructuralHeading()",
+      "file_type": "code",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L542",
+      "id": "scripts_admin_ingest_parsestructuralheading",
+      "community": 0,
+      "norm_label": "parsestructuralheading()"
+    },
+    {
+      "label": "normalizePodecobiLineamientoHierarchy()",
+      "file_type": "code",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L558",
+      "id": "scripts_admin_ingest_normalizepodecobilineamientohierarchy",
+      "community": 0,
+      "norm_label": "normalizepodecobilineamientohierarchy()"
+    },
+    {
+      "label": "cleanTransitoryRemainder()",
+      "file_type": "code",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L585",
+      "id": "scripts_admin_ingest_cleantransitoryremainder",
+      "community": 0,
+      "norm_label": "cleantransitoryremainder()"
+    },
+    {
       "label": "extractThemes()",
       "file_type": "code",
       "source_file": "src/scripts/admin-ingest.js",
-      "source_location": "L426",
+      "source_location": "L592",
       "id": "scripts_admin_ingest_extractthemes",
       "community": 0,
       "norm_label": "extractthemes()"
@@ -5191,7 +5362,7 @@
       "label": "renderPrevision()",
       "file_type": "code",
       "source_file": "src/scripts/admin-ingest.js",
-      "source_location": "L450",
+      "source_location": "L616",
       "id": "scripts_admin_ingest_renderprevision",
       "community": 0,
       "norm_label": "renderprevision()"
@@ -5200,7 +5371,7 @@
       "label": "handleIngestToSupabase()",
       "file_type": "code",
       "source_file": "src/scripts/admin-ingest.js",
-      "source_location": "L532",
+      "source_location": "L698",
       "id": "scripts_admin_ingest_handleingesttosupabase",
       "community": 0,
       "norm_label": "handleingesttosupabase()"
@@ -6219,26 +6390,26 @@
       "source_file": "tests/legal-ingest-pipeline.test.js",
       "source_location": "L1",
       "id": "tests_legal_ingest_pipeline_test_js",
-      "community": 1,
+      "community": 66,
       "norm_label": "legal-ingest-pipeline.test.js"
     },
     {
-      "label": "{ describe, expect, test }",
+      "label": "require",
       "file_type": "code",
       "source_file": "tests/legal-ingest-pipeline.test.js",
-      "source_location": "L1",
-      "id": "tests_legal_ingest_pipeline_test_describe_expect_test",
-      "community": 1,
-      "norm_label": "{ describe, expect, test }"
+      "source_location": "L4",
+      "id": "tests_legal_ingest_pipeline_test_require",
+      "community": 66,
+      "norm_label": "require"
     },
     {
-      "label": "{\r\n    extractLegalStructureFromMarkdown,\r\n    extractLegalStructureFromText\r\n}",
+      "label": "{\n    extractLegalStructureFromMarkdown,\n    extractLegalStructureFromText\n}",
       "file_type": "code",
       "source_file": "tests/legal-ingest-pipeline.test.js",
-      "source_location": "L2",
+      "source_location": "L5",
       "id": "tests_legal_ingest_pipeline_test_extractlegalstructurefrommarkdown_extractlegalstructurefromtext",
-      "community": 1,
-      "norm_label": "{\r\n    extractlegalstructurefrommarkdown,\r\n    extractlegalstructurefromtext\r\n}"
+      "community": 66,
+      "norm_label": "{\n    extractlegalstructurefrommarkdown,\n    extractlegalstructurefromtext\n}"
     },
     {
       "label": "search.test.js",
@@ -7787,6 +7958,24 @@
       "id": "estilos_institucionales_guia_estilos_web_6_layout_general",
       "community": 28,
       "norm_label": "6. layout general"
+    },
+    {
+      "label": "{ execFileSync }",
+      "file_type": "code",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L4",
+      "community": 1,
+      "norm_label": "{ execfilesync }",
+      "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_execfilesync"
+    },
+    {
+      "label": "{ describe, expect, test }",
+      "file_type": "code",
+      "source_file": "tests/legal-ingest-pipeline.test.js",
+      "source_location": "L1",
+      "community": 66,
+      "norm_label": "{ describe, expect, test }",
+      "id": "tests_legal_ingest_pipeline_test_describe_expect_test"
     }
   ],
   "links": [
@@ -8214,6 +8403,46 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L300",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L293",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_cleantransitoryremainder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_commandworks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_convertpdftomarkdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
       "source_location": "L165",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8229,6 +8458,16 @@
       "confidence_score": 1.0,
       "source": "legal_ingest_pipeline_js",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_execfilesync"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_execfilesync_spawnsync",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8294,6 +8533,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_hasnumberedlineamientostructure"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
       "source_location": "L197",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8309,6 +8558,26 @@
       "confidence_score": 1.0,
       "source": "legal_ingest_pipeline_js",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_isthemeline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_markitdown_install_hint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_markitdown_python_script",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8344,6 +8613,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L422",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizepodecobilineamientohierarchy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8359,6 +8638,16 @@
       "confidence_score": 1.0,
       "source": "legal_ingest_pipeline_js",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parseheading"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L284",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parsestructuralheading"
     },
     {
       "relation": "contains",
@@ -8394,11 +8683,41 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvemarkitdownbinary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
       "source_location": "L55",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "legal_ingest_pipeline_js",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepdf2mdbinary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepythonbinary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runmarkitdowntomarkdown",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8419,6 +8738,16 @@
       "confidence_score": 1.0,
       "source": "legal_ingest_pipeline_js",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_stripmarkdownline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "legal_ingest_pipeline_js",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_stripthemeordinal"
     },
     {
       "relation": "contains",
@@ -8472,6 +8801,61 @@
       "confidence_score": 1.0,
       "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runpdftomarkdown",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepdf2mdbinary"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvemarkitdownbinary",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_commandworks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepythonbinary",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_commandworks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runmarkitdowntomarkdown",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvepythonbinary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runmarkitdowntomarkdown",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_resolvemarkitdownbinary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L273",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_convertpdftomarkdown",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runpdftomarkdown",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -8533,6 +8917,28 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L272",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_convertpdftomarkdown",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_runmarkitdowntomarkdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L692",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefrompdf",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_convertpdftomarkdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
       "source_location": "L306",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8548,6 +8954,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizechunkcontent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L358",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizechunkcontent"
     },
     {
@@ -8593,6 +9010,72 @@
       "confidence_score": 1.0,
       "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractthemesfromtext"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L289",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parsestructuralheading",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_stripthemeordinal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L356",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parsestructuralheading"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L453",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_hasnumberedlineamientostructure"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L331",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_cleantransitoryremainder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L454",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legal-ingest-pipeline.js",
+      "source_location": "L417",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos",
+      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizepodecobilineamientohierarchy"
     },
     {
       "relation": "calls",
@@ -17225,6 +17708,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L442",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_scripts_admin_ingest_js",
+      "target": "scripts_admin_ingest_chunknumberedlineamientos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L513",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_scripts_admin_ingest_js",
+      "target": "scripts_admin_ingest_cleantransitoryremainder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L178",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -17345,6 +17848,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L432",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_scripts_admin_ingest_js",
+      "target": "scripts_admin_ingest_hasnumberedlineamientostructure"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -17360,6 +17873,16 @@
       "confidence_score": 1.0,
       "source": "src_scripts_admin_ingest_js",
       "target": "scripts_admin_ingest_levenshteindistance"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L558",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_scripts_admin_ingest_js",
+      "target": "scripts_admin_ingest_normalizepodecobilineamientohierarchy"
     },
     {
       "relation": "contains",
@@ -17395,11 +17918,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L542",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_scripts_admin_ingest_js",
+      "target": "scripts_admin_ingest_parsestructuralheading"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L450",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_scripts_admin_ingest_js",
       "target": "scripts_admin_ingest_renderprevision"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L535",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_scripts_admin_ingest_js",
+      "target": "scripts_admin_ingest_stripthemeordinal"
     },
     {
       "relation": "imports",
@@ -17626,11 +18169,77 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L410",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_admin_ingest_executechunkingalg",
+      "target": "scripts_admin_ingest_chunknumberedlineamientos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L406",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "scripts_admin_ingest_executechunkingalg",
       "target": "scripts_admin_ingest_extractthemes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L409",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_admin_ingest_executechunkingalg",
+      "target": "scripts_admin_ingest_hasnumberedlineamientostructure"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L468",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_admin_ingest_chunknumberedlineamientos",
+      "target": "scripts_admin_ingest_cleantransitoryremainder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L530",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_admin_ingest_chunknumberedlineamientos",
+      "target": "scripts_admin_ingest_normalizepodecobilineamientohierarchy"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L470",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_admin_ingest_chunknumberedlineamientos",
+      "target": "scripts_admin_ingest_parsestructuralheading"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/admin-ingest.js",
+      "source_location": "L547",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_admin_ingest_parsestructuralheading",
+      "target": "scripts_admin_ingest_stripthemeordinal"
     },
     {
       "relation": "contains",
@@ -18683,9 +19292,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_law_presentation_js",
-      "target": "scripts_law_presentation_initializepresentationruntime",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_initializepresentationruntime"
     },
     {
       "relation": "contains",
@@ -18793,9 +19402,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_law_presentation_js",
-      "target": "scripts_law_presentation_renderlawpresentationembed",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_renderlawpresentationembed"
     },
     {
       "relation": "contains",
@@ -19066,9 +19675,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_openlawpresentationdeck",
-      "target": "scripts_law_presentation_initializepresentationruntime",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_initializepresentationruntime"
     },
     {
       "relation": "calls",
@@ -19121,9 +19730,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_renderlawpresentationembed",
-      "target": "scripts_law_presentation_buildpresentationmodel",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_buildpresentationmodel"
     },
     {
       "relation": "calls",
@@ -19132,9 +19741,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_renderlawpresentationembed",
-      "target": "scripts_law_presentation_ensurewebdeckstyles",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_ensurewebdeckstyles"
     },
     {
       "relation": "calls",
@@ -19143,9 +19752,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_renderlawpresentationembed",
-      "target": "scripts_law_presentation_initializepresentationruntime",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_initializepresentationruntime"
     },
     {
       "relation": "calls",
@@ -19154,9 +19763,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_renderlawpresentationembed",
-      "target": "scripts_law_presentation_loadanimejs",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_loadanimejs"
     },
     {
       "relation": "calls",
@@ -19165,9 +19774,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_renderlawpresentationembed",
-      "target": "scripts_law_presentation_loadhighchartstreemap",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_loadhighchartstreemap"
     },
     {
       "relation": "calls",
@@ -19176,9 +19785,9 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_law_presentation_renderlawpresentationembed",
-      "target": "scripts_law_presentation_renderwebdeck",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_renderwebdeck"
     },
     {
       "relation": "imports",
@@ -19187,9 +19796,9 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
-      "target": "scripts_law_presentation_renderlawpresentationembed",
-      "confidence_score": 1.0
+      "target": "scripts_law_presentation_renderlawpresentationembed"
     },
     {
       "relation": "calls",
@@ -20053,6 +20662,16 @@
       "confidence_score": 1.0,
       "source": "tests_legal_ingest_pipeline_test_js",
       "target": "tests_legal_ingest_pipeline_test_extractlegalstructurefrommarkdown_extractlegalstructurefromtext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/legal-ingest-pipeline.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_legal_ingest_pipeline_test_js",
+      "target": "tests_legal_ingest_pipeline_test_require",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -21685,6 +22304,5 @@
       "target": "estilos_institucionales_guia_estilos_web_tarjetas_y_recuadros_inspirado_en_latex"
     }
   ],
-  "hyperedges": [],
-  "built_at_commit": "abbd44a7c4d7f99ae5dc343d318e5b9fc15f7e70"
+  "hyperedges": []
 }

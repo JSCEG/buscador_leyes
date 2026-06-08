@@ -42,7 +42,7 @@ async function main() {
     console.log(`\nProcesando: ${tituloLey} desde ${pdfPath}...`);
 
     try {
-        console.log("=> Convirtiendo PDF a Markdown con pdf2md...");
+        console.log("=> Convirtiendo PDF a Markdown...");
         const { markdown, chunks, themes, pdfMeta } = extractLegalStructureFromPdf(pdfPath);
 
         if (markdownOut) {
@@ -50,7 +50,8 @@ async function main() {
             console.log(`=> Markdown guardado en: ${markdownOut}`);
         }
 
-        console.log(`=> Tipo detectado: ${pdfMeta.pdfType}; páginas: ${pdfMeta.pageCount}; OCR sugerido en: ${pdfMeta.pagesNeedingOcr.length}`);
+        console.log(`=> Conversor: ${pdfMeta.converter}; tipo detectado: ${pdfMeta.pdfType || 'n/d'}; páginas: ${pdfMeta.pageCount || 'n/d'}; OCR sugerido en: ${pdfMeta.pagesNeedingOcr.length}`);
+        if (pdfMeta.fallbackReason) console.log(`=> Fallback aplicado: ${pdfMeta.fallbackReason}`);
         console.log(`=> Obtenidos ${chunks.length} fragmentos.`);
 
         if (dryRun) {
@@ -103,6 +104,7 @@ async function main() {
                 tipo_articulo: chunk.tipo,
                 titulo_nombre: chunk.titulo_nombre || null,
                 capitulo_nombre: chunk.capitulo_nombre || null,
+                seccion_nombre: chunk.seccion_nombre || null,
                 orden: i + index
             }));
             const { error: insertError } = await supabase.from('articulos').insert(batch);

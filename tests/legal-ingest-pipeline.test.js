@@ -1,4 +1,7 @@
-const { describe, expect, test } = require('vitest');
+import { createRequire } from 'node:module';
+import { describe, expect, test } from 'vitest';
+
+const require = createRequire(import.meta.url);
 const {
     extractLegalStructureFromMarkdown,
     extractLegalStructureFromText

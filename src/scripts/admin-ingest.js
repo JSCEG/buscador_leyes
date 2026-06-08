@@ -359,6 +359,9 @@ async function extractTextFromPDF(file) {
 function executeChunkingAlg(text, themes = []) {
     let cleanText = text.replace(/----------------Page \(\d+\) Break----------------/g, '\n');
     cleanText = cleanText.replace(/(\w+)-\n\s*(\w+)/g, "$1$2");
+    cleanText = cleanText.replace(/(^|\s)(\d{1,3})A,\s+(?=[A-ZÁÉÍÓÚÑ])/gm, '$1\n$2. ');
+    cleanText = cleanText.replace(/([.;:])\s+(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gm, '$1\n$2. ');
+    cleanText = cleanText.replace(/([.;:!?])\s+(TRANSITORIOS?)(?=\s|$)/gi, '$1\n$2');
     const mainParts = cleanText.split(/\n\s*TRANSITORIOS\b/i);
     const regularText = mainParts[0];
     const transitoriosText = mainParts.length > 1 ? mainParts.slice(1).join('\n') : '';
@@ -403,9 +406,13 @@ function executeChunkingAlg(text, themes = []) {
             }
         }
     }
+    if (chunks.length <= 1 && hasNumberedLineamientoStructure(cleanText)) {
+        chunks.splice(0, chunks.length, ...chunkNumberedLineamientos(cleanText));
+    }
     themes = extractThemes(cleanText);
     if (themes.length > 0) {
         chunks.forEach(chunk => {
+            if (chunk.titulo_nombre || chunk.capitulo_nombre || chunk.seccion_nombre) return;
             // Buscamos el snippet pero colapsando espacios en cleanText para el match si es necesario
             // O mejor, buscamos el snippet limpio que guardamos
             const pos = cleanText.indexOf(chunk.mapping_snippet);
@@ -421,6 +428,165 @@ function executeChunkingAlg(text, themes = []) {
         });
     }
     return chunks;
+}
+
+function hasNumberedLineamientoStructure(text) {
+    const headings = text
+        .split('\n')
+        .map(line => line.trim().match(/^(\d{1,3})\.(?:\s+|$)/))
+        .filter(Boolean)
+        .map(match => Number(match[1]));
+
+    return headings.length >= 3 && headings.includes(1) && headings.includes(2) && headings.includes(3);
+}
+
+function chunkNumberedLineamientos(text) {
+    const chunks = [];
+    const preambleLines = [];
+    let currentChunk = null;
+    let currentCapitulo = null;
+    let currentSeccion = null;
+
+    const flushCurrentChunk = () => {
+        if (!currentChunk) return;
+        const content = currentChunk.lines.join(' ').replace(/\s+/g, ' ').trim();
+        if (content.length > 5) {
+            chunks.push({
+                identificador: currentChunk.identificador,
+                contenido: content,
+                tipo: currentChunk.tipo,
+                capitulo_nombre: currentChunk.capitulo_nombre || null,
+                seccion_nombre: currentChunk.seccion_nombre || null,
+                mapping_snippet: currentChunk.mappingSnippet || content.substring(0, 60)
+            });
+        }
+        currentChunk = null;
+    };
+
+    for (const line of text.split('\n')) {
+        const currentLine = line.trim();
+        if (!currentLine) continue;
+
+        const structuralHeading = parseStructuralHeading(currentLine);
+        if (structuralHeading) {
+            flushCurrentChunk();
+            if (structuralHeading.capitulo) {
+                currentCapitulo = structuralHeading.capitulo;
+                currentSeccion = null;
+            }
+            if (structuralHeading.seccion) currentSeccion = structuralHeading.seccion;
+            continue;
+        }
+
+        const transitoryMatch = currentLine.match(/^TRANSITORIOS?\b(?:[\s.:-]+(.*))?$/i);
+        if (transitoryMatch) {
+            flushCurrentChunk();
+            const content = cleanTransitoryRemainder(transitoryMatch[1] || '');
+            currentChunk = {
+                identificador: 'Transitorio Único',
+                tipo: 'transitorio',
+                capitulo_nombre: currentCapitulo,
+                seccion_nombre: currentSeccion,
+                lines: content ? [content] : [],
+                mappingSnippet: content.substring(0, 60)
+            };
+            continue;
+        }
+
+        const numberedMatch = currentLine.match(/^(\d{1,3})\.(?:\s+(.*))?$/);
+        if (numberedMatch) {
+            flushCurrentChunk();
+            const content = numberedMatch[2] ? numberedMatch[2].trim() : '';
+            currentChunk = {
+                identificador: `Lineamiento ${numberedMatch[1]}`,
+                tipo: 'ordinario',
+                capitulo_nombre: currentCapitulo,
+                seccion_nombre: currentSeccion,
+                lines: content ? [content] : [],
+                mappingSnippet: content.substring(0, 60)
+            };
+            continue;
+        }
+
+        if (currentChunk) {
+            currentChunk.lines.push(currentLine);
+        } else {
+            preambleLines.push(currentLine);
+        }
+    }
+
+    flushCurrentChunk();
+
+    const preamble = preambleLines.join(' ').replace(/\s+/g, ' ').trim();
+    if (preamble) {
+        chunks.unshift({
+            identificador: 'Preámbulo',
+            contenido: preamble,
+            tipo: 'preambulo',
+            mapping_snippet: preamble.substring(0, 60)
+        });
+    }
+
+    normalizePodecobiLineamientoHierarchy(chunks, text);
+
+    return chunks;
+}
+
+function stripThemeOrdinal(value) {
+    return (value || '')
+        .replace(/^(?:[IVXLCDM]+|PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)\b[\s.:-]*/i, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function parseStructuralHeading(line) {
+    const normalized = (line || '').replace(/\s+/g, ' ').trim();
+    const capMatch = normalized.match(/^CAP[ÍI]TULO\s+(.+)$/i);
+    if (capMatch) {
+        const [chapterPart, sectionPart] = capMatch[1].split(/\s+SECCI[ÓO]N\s+/i);
+        const result = { capitulo: stripThemeOrdinal(chapterPart) };
+        if (sectionPart) result.seccion = stripThemeOrdinal(sectionPart);
+        return result;
+    }
+
+    const sectionMatch = normalized.match(/^SECCI[ÓO]N\s+(.+)$/i);
+    if (sectionMatch) return { seccion: stripThemeOrdinal(sectionMatch[1]) };
+
+    return null;
+}
+
+function normalizePodecobiLineamientoHierarchy(chunks, text) {
+    if (!/DE LOS VEH[ÍI]CULOS DE PROP[ÓO]SITO ESPECIAL/i.test(text)) return;
+    if (!/CAP[ÍI]TULO\s+SEXTO\s+DE LOS DESARROLLADORES/i.test(text)) return;
+
+    chunks.forEach(chunk => {
+        const match = (chunk.identificador || '').match(/^Lineamiento\s+(\d+)$/);
+        if (!match) return;
+        const number = Number(match[1]);
+
+        if (number >= 16 && number <= 17) {
+            chunk.capitulo_nombre = 'DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL';
+            chunk.seccion_nombre = null;
+        } else if (number >= 18 && number <= 32) {
+            chunk.capitulo_nombre = 'DE LOS DESARROLLADORES';
+            if (number <= 19) chunk.seccion_nombre = 'DE LOS REQUISITOS PARA EL OTORGAMIENTO DE LAS AUTORIZACIONES A LOS DESARROLLADORES';
+            else if (number <= 23) chunk.seccion_nombre = 'DE LA CONVOCATORIA';
+            else chunk.seccion_nombre = 'DEL CONCURSO PÚBLICO';
+        } else if (number >= 33 && number <= 38) {
+            chunk.capitulo_nombre = 'DE LAS ASIGNACIONES DIRECTAS';
+            chunk.seccion_nombre = null;
+        } else if (number === 39) {
+            chunk.capitulo_nombre = 'DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN';
+            chunk.seccion_nombre = null;
+        }
+    });
+}
+
+function cleanTransitoryRemainder(text) {
+    return (text || '')
+        .replace(/^(?:[A-Za-z]{3,8}A\s+)+/u, '')
+        .replace(/\s+/g, ' ')
+        .trim();
 }
 
 function extractThemes(text) {

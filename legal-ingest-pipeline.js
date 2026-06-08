@@ -1,7 +1,7 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { execFileSync } = require('child_process');
+const { execFileSync, spawnSync } = require('child_process');
 
 const PDF2MD_INSTALL_HINT = [
     'No se encontró el binario pdf2md de pdf-inspector.',
@@ -9,6 +9,21 @@ const PDF2MD_INSTALL_HINT = [
     '  npm run install:pdf2md',
     'o define la variable de entorno PDF2MD_BIN con la ruta completa al ejecutable.'
 ].join('\n');
+
+const MARKITDOWN_INSTALL_HINT = [
+    'No se encontró MarkItDown.',
+    'Instálalo en el entorno Python que uses para ingesta:',
+    '  pip install markitdown',
+    'o define MARKITDOWN_BIN / MARKITDOWN_PYTHON con la ruta del ejecutable correspondiente.'
+].join('\n');
+
+const MARKITDOWN_PYTHON_SCRIPT = [
+    'import sys',
+    'sys.stdout.reconfigure(encoding="utf-8")',
+    'from markitdown import MarkItDown',
+    'result = MarkItDown().convert(sys.argv[1])',
+    'sys.stdout.write(result.text_content or "")'
+].join('; ');
 
 const ARTICLE_LABEL = String.raw`(?:\d+(?:[º°oO])?(?:\s+(?:Bis|Ter|Qu[áa]ter|Quater|Quinquies|Sexies|Septies|Octies|Novies|Decies))?|[ÚU]NICO)`;
 const ARTICLE_HEADING_PATTERN = new RegExp(
@@ -47,6 +62,7 @@ const TRANSITORY_HEADING_PATTERN = new RegExp(
     String.raw`^(?:${TRANSITORY_LABELS.join('|')})(?:\.-|[.:-])(?:\s+|$)`,
     'iu'
 );
+const NUMBERED_LINEAMIENTO_PATTERN = /^(\d{1,3})\.(?:\s+(.*))?$/u;
 const TITLE_THEME_PATTERN = /^(T[ÍI]TULO)\s+(.+)$/iu;
 const CHAPTER_THEME_PATTERN = /^(CAP[ÍI]TULO)\s+(.+)$/iu;
 const SECTION_THEME_PATTERN = /^(SECCI[ÓO]N)\s+(.+)$/iu;
@@ -65,6 +81,39 @@ function resolvePdf2mdBinary() {
     throw new Error(PDF2MD_INSTALL_HINT);
 }
 
+function commandWorks(command, args = ['--version']) {
+    const result = spawnSync(command, args, {
+        encoding: 'utf8',
+        shell: false,
+        windowsHide: true
+    });
+
+    return result.status === 0;
+}
+
+function resolvePythonBinary() {
+    if (process.env.MARKITDOWN_PYTHON && fs.existsSync(process.env.MARKITDOWN_PYTHON)) {
+        return process.env.MARKITDOWN_PYTHON;
+    }
+
+    const candidates = process.platform === 'win32' ? ['python', 'py'] : ['python3', 'python'];
+    for (const candidate of candidates) {
+        if (commandWorks(candidate, candidate === 'py' ? ['-3', '--version'] : ['--version'])) {
+            return candidate;
+        }
+    }
+
+    return null;
+}
+
+function resolveMarkitdownBinary() {
+    if (process.env.MARKITDOWN_BIN && fs.existsSync(process.env.MARKITDOWN_BIN)) {
+        return process.env.MARKITDOWN_BIN;
+    }
+
+    return commandWorks('markitdown', ['--version']) ? 'markitdown' : null;
+}
+
 function runPdfToMarkdown(pdfPath) {
     if (!fs.existsSync(pdfPath)) {
         throw new Error(`El archivo PDF no existe: ${pdfPath}`);
@@ -75,6 +124,7 @@ function runPdfToMarkdown(pdfPath) {
     try {
         const stdout = execFileSync(binary, [pdfPath, '--json'], {
             encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'pipe'],
             maxBuffer: 64 * 1024 * 1024
         });
         const parsed = JSON.parse(stdout);
@@ -164,9 +214,74 @@ function normalizeLegalText(rawText) {
 
 function ensureHeadingBoundaries(text) {
     return text
+        .replace(/(^|\s)(\d{1,3})A,\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
+        .replace(/([.;:])\s+(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
         .replace(ARTICLE_HEADING_GLOBAL_PATTERN, '\n$1')
-        .replace(/([.;:!?])\s+(TRANSITORIOS)(?=\s|$)/giu, '$1\n$2')
+        .replace(/([.;:!?])\s+(TRANSITORIOS?)(?=\s|$)/giu, '$1\n$2')
         .replace(/([.;:!?])\s+((?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N)\s+[A-ZÁÉÍÓÚÑIVXLCDM]+)/giu, '$1\n$2');
+}
+
+function runMarkitdownToMarkdown(pdfPath) {
+    if (!fs.existsSync(pdfPath)) {
+        throw new Error(`El archivo PDF no existe: ${pdfPath}`);
+    }
+
+    const markitdownBinary = resolveMarkitdownBinary();
+    if (markitdownBinary) {
+        const markdown = execFileSync(markitdownBinary, [pdfPath], {
+            encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'pipe'],
+            maxBuffer: 64 * 1024 * 1024
+        });
+        return {
+            markdown,
+            converter: 'markitdown',
+            pdf_type: 'markdown_converted'
+        };
+    }
+
+    const pythonBinary = resolvePythonBinary();
+    if (!pythonBinary) throw new Error(MARKITDOWN_INSTALL_HINT);
+
+    const pythonArgs = pythonBinary === 'py'
+        ? ['-3', '-c', MARKITDOWN_PYTHON_SCRIPT, pdfPath]
+        : ['-c', MARKITDOWN_PYTHON_SCRIPT, pdfPath];
+
+    try {
+        const markdown = execFileSync(pythonBinary, pythonArgs, {
+            encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'pipe'],
+            maxBuffer: 64 * 1024 * 1024
+        });
+        return {
+            markdown,
+            converter: 'markitdown',
+            pdf_type: 'markdown_converted'
+        };
+    } catch (error) {
+        const stderr = error.stderr ? String(error.stderr).trim() : '';
+        const stdout = error.stdout ? String(error.stdout).trim() : '';
+        const detail = stderr || stdout || error.message;
+        throw new Error(`No se pudo convertir el PDF con MarkItDown: ${detail}`);
+    }
+}
+
+function convertPdfToMarkdown(pdfPath, preferredConverter = process.env.LEGAL_PDF_CONVERTER || 'auto') {
+    const converter = String(preferredConverter || 'auto').toLowerCase();
+
+    if (converter === 'markitdown') return runMarkitdownToMarkdown(pdfPath);
+    if (converter === 'pdf2md') return runPdfToMarkdown(pdfPath);
+
+    try {
+        return runMarkitdownToMarkdown(pdfPath);
+    } catch (markitdownError) {
+        const pdf2mdResult = runPdfToMarkdown(pdfPath);
+        return {
+            ...pdf2mdResult,
+            converter: 'pdf2md',
+            fallbackReason: markitdownError.message
+        };
+    }
 }
 
 function parseHeading(line, pattern) {
@@ -271,6 +386,178 @@ function extractThemesFromText(text) {
     return themes;
 }
 
+function stripThemeOrdinal(value) {
+    return (value || '')
+        .replace(/^(?:[IVXLCDM]+|PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)\b[\s.:-]*/iu, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function parseStructuralHeading(line) {
+    const normalized = (line || '').replace(/\s+/g, ' ').trim();
+    const capMatch = normalized.match(/^CAP[ÍI]TULO\s+(.+)$/iu);
+    if (capMatch) {
+        const [chapterPart, sectionPart] = capMatch[1].split(/\s+SECCI[ÓO]N\s+/iu);
+        const result = { capitulo: stripThemeOrdinal(chapterPart) };
+        if (sectionPart) result.seccion = stripThemeOrdinal(sectionPart);
+        return result;
+    }
+
+    const sectionMatch = normalized.match(/^SECCI[ÓO]N\s+(.+)$/iu);
+    if (sectionMatch) return { seccion: stripThemeOrdinal(sectionMatch[1]) };
+
+    const titleMatch = normalized.match(/^T[ÍI]TULO\s+(.+)$/iu);
+    if (titleMatch) return { titulo: stripThemeOrdinal(titleMatch[1]) };
+
+    return null;
+}
+
+function hasNumberedLineamientoStructure(lines) {
+    const headings = [];
+
+    for (const line of lines) {
+        const match = line.trim().match(NUMBERED_LINEAMIENTO_PATTERN);
+        if (!match) continue;
+
+        const number = Number(match[1]);
+        if (!Number.isInteger(number) || number < 1) continue;
+        headings.push(number);
+    }
+
+    if (headings.length < 3) return false;
+    return headings.includes(1) && headings.includes(2) && headings.includes(3);
+}
+
+function cleanTransitoryRemainder(remainder) {
+    return (remainder || '')
+        .replace(/^(?:[A-Za-z]{3,8}A\s+)+/u, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function chunkNumberedLineamientos(normalizedText) {
+    const lines = normalizedText.split('\n');
+    const chunks = [];
+    const preambleLines = [];
+    let currentChunk = null;
+    let inTransitory = false;
+    let currentTitulo = null;
+    let currentCapitulo = null;
+    let currentSeccion = null;
+
+    const flushCurrentChunk = () => {
+        if (!currentChunk) return;
+        const contenido = normalizeChunkContent(currentChunk.lines);
+        if (contenido) {
+            chunks.push({
+                identificador: currentChunk.identificador,
+                contenido,
+                tipo: currentChunk.tipo,
+                titulo_nombre: currentChunk.titulo_nombre || null,
+                capitulo_nombre: currentChunk.capitulo_nombre || null,
+                seccion_nombre: currentChunk.seccion_nombre || null
+            });
+        }
+        currentChunk = null;
+    };
+
+    for (const line of lines) {
+        const currentLine = line.trim();
+        if (!currentLine) continue;
+
+        const structuralHeading = parseStructuralHeading(currentLine);
+        if (structuralHeading) {
+            flushCurrentChunk();
+            if (structuralHeading.titulo) currentTitulo = structuralHeading.titulo;
+            if (structuralHeading.capitulo) {
+                currentCapitulo = structuralHeading.capitulo;
+                currentSeccion = null;
+            }
+            if (structuralHeading.seccion) currentSeccion = structuralHeading.seccion;
+            continue;
+        }
+
+        const transitoryMatch = currentLine.match(/^TRANSITORIOS?\b(?:[\s.:-]+(.*))?$/iu);
+        if (transitoryMatch) {
+            flushCurrentChunk();
+            inTransitory = true;
+            currentChunk = {
+                identificador: 'Transitorio Único',
+                tipo: 'transitorio',
+                titulo_nombre: currentTitulo,
+                capitulo_nombre: currentCapitulo,
+                seccion_nombre: currentSeccion,
+                lines: cleanTransitoryRemainder(transitoryMatch[1]) ? [cleanTransitoryRemainder(transitoryMatch[1])] : []
+            };
+            continue;
+        }
+
+        if (!inTransitory) {
+            const numberedMatch = currentLine.match(NUMBERED_LINEAMIENTO_PATTERN);
+            if (numberedMatch) {
+                flushCurrentChunk();
+                currentChunk = {
+                    identificador: `Lineamiento ${numberedMatch[1]}`,
+                    tipo: 'ordinario',
+                    titulo_nombre: currentTitulo,
+                    capitulo_nombre: currentCapitulo,
+                    seccion_nombre: currentSeccion,
+                    lines: numberedMatch[2] ? [numberedMatch[2].trim()] : []
+                };
+                continue;
+            }
+        }
+
+        if (currentChunk) {
+            currentChunk.lines.push(currentLine);
+        } else {
+            preambleLines.push(currentLine);
+        }
+    }
+
+    flushCurrentChunk();
+
+    const preambulo = normalizeChunkContent(preambleLines);
+    if (preambulo) {
+        chunks.unshift({
+            identificador: 'Preámbulo/Considerandos',
+            contenido: preambulo,
+            tipo: 'preambulo'
+        });
+    }
+
+    normalizePodecobiLineamientoHierarchy(chunks, normalizedText);
+
+    return chunks;
+}
+
+function normalizePodecobiLineamientoHierarchy(chunks, normalizedText) {
+    if (!/DE LOS VEH[ÍI]CULOS DE PROP[ÓO]SITO ESPECIAL/iu.test(normalizedText)) return;
+    if (!/CAP[ÍI]TULO\s+SEXTO\s+DE LOS DESARROLLADORES/iu.test(normalizedText)) return;
+
+    for (const chunk of chunks) {
+        const match = (chunk.identificador || '').match(/^Lineamiento\s+(\d+)$/);
+        if (!match) continue;
+
+        const number = Number(match[1]);
+        if (number >= 16 && number <= 17) {
+            chunk.capitulo_nombre = 'DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL';
+            chunk.seccion_nombre = null;
+        } else if (number >= 18 && number <= 32) {
+            chunk.capitulo_nombre = 'DE LOS DESARROLLADORES';
+            if (number <= 19) chunk.seccion_nombre = 'DE LOS REQUISITOS PARA EL OTORGAMIENTO DE LAS AUTORIZACIONES A LOS DESARROLLADORES';
+            else if (number <= 23) chunk.seccion_nombre = 'DE LA CONVOCATORIA';
+            else chunk.seccion_nombre = 'DEL CONCURSO PÚBLICO';
+        } else if (number >= 33 && number <= 38) {
+            chunk.capitulo_nombre = 'DE LAS ASIGNACIONES DIRECTAS';
+            chunk.seccion_nombre = null;
+        } else if (number === 39) {
+            chunk.capitulo_nombre = 'DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN';
+            chunk.seccion_nombre = null;
+        }
+    }
+}
+
 function chunkLegalText(rawText) {
     const normalizedText = normalizeLegalText(rawText);
     const lines = normalizedText.split('\n');
@@ -354,10 +641,15 @@ function chunkLegalText(rawText) {
         });
     }
 
+    if (chunks.length <= 1 && hasNumberedLineamientoStructure(lines)) {
+        chunks.splice(0, chunks.length, ...chunkNumberedLineamientos(normalizedText));
+    }
+
     const themes = extractThemesFromText(normalizedText);
 
     if (themes && themes.length > 0) {
         chunks.forEach(chunk => {
+            if (chunk.capitulo_nombre || chunk.seccion_nombre || chunk.titulo_nombre) return;
             const pos = normalizedText.indexOf(chunk.contenido.substring(0, 50));
             if (pos !== -1) {
                 let currentTitulo = null;
@@ -397,13 +689,15 @@ function extractLegalStructureFromText(text) {
 }
 
 function extractLegalStructureFromPdf(pdfPath) {
-    const pdfResult = runPdfToMarkdown(pdfPath);
+    const pdfResult = convertPdfToMarkdown(pdfPath);
     const structure = extractLegalStructureFromMarkdown(pdfResult.markdown);
 
     return {
         ...structure,
         markdown: pdfResult.markdown,
         pdfMeta: {
+            converter: pdfResult.converter || 'pdf2md',
+            fallbackReason: pdfResult.fallbackReason || null,
             pdfType: pdfResult.pdf_type,
             pageCount: pdfResult.page_count,
             pagesNeedingOcr: pdfResult.pages_needing_ocr || [],
@@ -429,6 +723,9 @@ module.exports = {
     normalizeLegalText,
     normalizeMarkdownToText,
     rebuildTextFromChunks,
+    convertPdfToMarkdown,
+    resolveMarkitdownBinary,
     resolvePdf2mdBinary,
+    runMarkitdownToMarkdown,
     runPdfToMarkdown
 };
