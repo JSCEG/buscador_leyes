@@ -250,9 +250,135 @@ function handleFileSelection(file) {
     document.getElementById('admin-file-name').textContent = `📄 ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
     document.getElementById('admin-file-name').classList.remove('hidden');
     document.getElementById('admin-btn-parse').disabled = false;
-    
+
     document.getElementById('admin-preview-area').classList.add('hidden');
     parsedChunks = [];
+
+    // Auto-detección de metadatos (no bloquea, no sobreescribe lo ya ingresado)
+    autoDetectMetadata(file).catch(err => console.warn('[Autodetect] fallo:', err));
+}
+
+// === AUTO-DETECCIÓN DE METADATOS ===
+
+const TIPO_KEYWORDS = [
+    { tipo: 'nom',        re: /\bNORMA\s+OFICIAL\s+MEXICANA\b/i },
+    { tipo: 'dacg',       re: /\bDISPOSICIONES\s+ADMINISTRATIVAS\s+DE\s+CAR[ÁA]CTER\s+GENERAL\b/i },
+    { tipo: 'reglamento', re: /\bREGLAMENTO\s+(?:DE|INTERIOR|DEL)\b/i },
+    { tipo: 'ley',        re: /\bLEY\s+(?:DE|DEL|GENERAL|FEDERAL|ORG[ÁA]NICA)\b/i },
+    { tipo: 'decreto',    re: /\bDECRETO\s+(?:POR\s+EL\s+QUE|QUE)\b/i },
+    { tipo: 'acuerdo',    re: /\bACUERDO\s+(?:POR\s+EL\s+QUE|QUE|DE\s+LA)\b/i },
+    { tipo: 'manual',     re: /\bLINEAMIENTOS?\s+(?:PARA|DE)\b/i },
+];
+
+const MESES_ES = {
+    enero: '01', febrero: '02', marzo: '03', abril: '04', mayo: '05', junio: '06',
+    julio: '07', agosto: '08', septiembre: '09', octubre: '10', noviembre: '11', diciembre: '12'
+};
+
+async function extractFirstPagesText(file, maxPages = 2) {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    const pages = Math.min(pdf.numPages, maxPages);
+    let text = '';
+    for (let i = 1; i <= pages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        let lastY = -1, line = '';
+        const lines = [];
+        for (const item of content.items) {
+            if (lastY !== item.transform[5] && line.length > 0) { lines.push(line); line = ''; }
+            line += item.str + ' ';
+            lastY = item.transform[5];
+        }
+        if (line) lines.push(line);
+        text += lines.join('\n') + '\n';
+    }
+    return text;
+}
+
+function detectTipo(text) {
+    for (const { tipo, re } of TIPO_KEYWORDS) {
+        if (re.test(text)) return tipo;
+    }
+    return null;
+}
+
+function detectFecha(text) {
+    // DOF: dd/mm/yyyy
+    const dof = text.match(/DOF:\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/i);
+    if (dof) {
+        const [, d, m, y] = dof;
+        return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+    }
+    // "Ciudad de México, a X de mes de YYYY"
+    const ciudad = text.match(/Ciudad de M[ée]xico[,\s]+a\s+(\d{1,2}|[a-zñáéíóú]+)\s+de\s+([a-zñáéíóú]+)\s+de\s+(\d{4})/i);
+    if (ciudad) {
+        const [, dRaw, mesRaw, y] = ciudad;
+        const dia = /^\d+$/.test(dRaw) ? dRaw : palabrasANumero(dRaw);
+        const mes = MESES_ES[mesRaw.toLowerCase()];
+        if (dia && mes) return `${y}-${mes}-${String(dia).padStart(2, '0')}`;
+    }
+    return null;
+}
+
+function palabrasANumero(palabra) {
+    const map = {
+        uno: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10,
+        once: 11, doce: 12, trece: 13, catorce: 14, quince: 15, dieciséis: 16, dieciseis: 16,
+        diecisiete: 17, dieciocho: 18, diecinueve: 19, veinte: 20, veintiuno: 21, veintidós: 22,
+        veintidos: 22, veintitrés: 23, veintitres: 23, veinticuatro: 24, veinticinco: 25,
+        veintiséis: 26, veintiseis: 26, veintisiete: 27, veintiocho: 28, veintinueve: 29, treinta: 30,
+        treintayuno: 31, 'treinta y uno': 31
+    };
+    return map[palabra.toLowerCase()] || null;
+}
+
+function detectTitulo(text) {
+    // Busca primer encabezado: línea que arranque con tipo keyword + "por el que" / "que ..."
+    const re = /\b((?:ACUERDO|DECRETO|REGLAMENTO|LEY|RESOLUCI[ÓO]N|NORMA\s+OFICIAL\s+MEXICANA|DISPOSICIONES\s+ADMINISTRATIVAS\s+DE\s+CAR[ÁA]CTER\s+GENERAL|LINEAMIENTOS?)\b[^.]{20,400}\.)/i;
+    const m = text.match(re);
+    if (!m) return null;
+    return m[1].replace(/\s+/g, ' ').trim();
+}
+
+function detectUrl(text) {
+    const m = text.match(/https?:\/\/(?:www\.)?dof\.gob\.mx\/nota_detalle\.php\?codigo=\d+[^\s)\]"']*/i);
+    return m ? m[0] : null;
+}
+
+async function autoDetectMetadata(file) {
+    const text = await extractFirstPagesText(file, 2);
+    const tipo = detectTipo(text);
+    const fecha = detectFecha(text);
+    const titulo = detectTitulo(text);
+    const url = detectUrl(text);
+
+    const fillIfEmpty = (id, value) => {
+        if (!value) return false;
+        const el = document.getElementById(id);
+        if (!el) return false;
+        if (el.value && el.value.trim()) return false;
+        if (el.tagName === 'SELECT') {
+            const opt = Array.from(el.options).find(o => o.value === value);
+            if (opt) { el.value = value; return true; }
+            return false;
+        }
+        el.value = value;
+        return true;
+    };
+
+    const filled = [];
+    if (fillIfEmpty('admin-input-title', titulo)) filled.push('título');
+    if (fillIfEmpty('admin-input-tipo', tipo)) filled.push('tipo');
+    if (fillIfEmpty('admin-input-fecha', fecha)) filled.push('fecha');
+    if (fillIfEmpty('admin-input-url', url)) filled.push('URL');
+
+    if (filled.length > 0) {
+        displayAlert('success', 'Metadatos detectados',
+            `Se autocompletó: ${filled.join(', ')}. Revisa y ajusta antes de parsear.`);
+    } else {
+        console.log('[Autodetect] sin campos auto-rellenables. Detectado:', { tipo, fecha, titulo, url });
+    }
 }
 
 function levenshteinDistance(a, b) {
@@ -794,11 +920,13 @@ async function handleIngestToSupabase() {
         if (pctEl) pctEl.textContent = '0%';
         if (textEl) textEl.textContent = 'Iniciando ingesta del instrumento...';
 
-        const { data: leyData, error: leyError } = await supabase.from('leyes').insert([{ 
-            titulo: titleInput, 
-            siglas: document.getElementById('admin-input-siglas').value.trim() || null, 
+        const fechaInput = document.getElementById('admin-input-fecha')?.value.trim() || null;
+        const { data: leyData, error: leyError } = await supabase.from('leyes').insert([{
+            titulo: titleInput,
+            siglas: document.getElementById('admin-input-siglas').value.trim() || null,
             tipo: document.getElementById('admin-input-tipo').value,
-            url_original: document.getElementById('admin-input-url')?.value.trim() || null
+            url_original: document.getElementById('admin-input-url')?.value.trim() || null,
+            fecha_publicacion: fechaInput
         }]).select();
         if (leyError) throw leyError;
         const newLeyId = leyData[0].id;
