@@ -1353,6 +1353,7 @@ function getTypeLabel(law) {
     const raw = (law.tipo || law.titulo || '').toLowerCase();
     if (raw.includes('reglamento')) return 'Reglamento';
     if (raw.includes('acuerdo')) return 'Acuerdo';
+    if (raw.includes('decreto')) return 'Decreto';
     if (raw.includes('nom') || raw.includes('norma')) return 'Norma Oficial Mexicana';
     if (raw.includes('manual')) return 'Manual / Lineamiento';
     if (raw.includes('dacg')) return 'Disposición administrativa';

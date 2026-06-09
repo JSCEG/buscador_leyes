@@ -101,6 +101,7 @@ export function initAdminManagement() {
             case 'ley': return 'bg-guinda/10 text-guinda';
             case 'reglamento': return 'bg-emerald-50 text-emerald-700';
             case 'acuerdo': return 'bg-amber-50 text-amber-700';
+            case 'decreto': return 'bg-purple-50 text-purple-700';
             case 'dacg': return 'bg-blue-50 text-blue-700';
             case 'nom': return 'bg-gray-50 text-gray-700';
             default: return 'bg-gray-100 text-gray-500';

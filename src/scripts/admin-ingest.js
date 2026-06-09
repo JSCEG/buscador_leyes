@@ -2,6 +2,25 @@ import { supabase } from '../lib/supabase.js';
 import { getAllLeyesAdmin, updateLaw, deleteLaw } from './search-engine.js';
 import { isAdmin } from './auth.js';
 
+const TRANSITORY_LABELS = [
+    'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 'SEXTO', 'SÉPTIMO', 'SEPTIMO',
+    'OCTAVO', 'NOVENO', 'DÉCIMO', 'DECIMO', 'UNDÉCIMO', 'UNDECIMO', 'DUODÉCIMO', 'DUODECIMO',
+    'VIGÉSIMO', 'VIGESIMO', 'ÚNICO', 'UNICO', 'ARTÍCULO TRANSITORIO', 'ARTICULO TRANSITORIO'
+];
+const TRANSITORY_HEADING_PATTERN = new RegExp(
+    String.raw`^(?:${TRANSITORY_LABELS.join('|')})(?:\.-|[.:-])(?:\s+|$)`,
+    'iu'
+);
+
+function parseHeading(line, pattern) {
+    const match = line.match(pattern);
+    if (!match) return null;
+    return {
+        identifier: match[0].trim(),
+        remainder: line.slice(match[0].length).trim()
+    };
+}
+
 let importedFile = null;
 let parsedChunks = [];
 let parsedThemes = [];
@@ -143,6 +162,7 @@ function getTypeStyle(tipo) {
         case 'ley': return 'bg-guinda/10 text-guinda border border-guinda/20';
         case 'reglamento': return 'bg-emerald-50 text-emerald-700 border border-emerald-200';
         case 'acuerdo': return 'bg-amber-50 text-amber-700 border border-amber-200';
+        case 'decreto': return 'bg-purple-50 text-purple-700 border border-purple-200';
         case 'dacg': return 'bg-blue-50 text-blue-700 border border-blue-200';
         case 'nom': return 'bg-gray-50 text-gray-700 border border-gray-200';
         default: return 'bg-gray-50 text-gray-500 border border-gray-200';
@@ -356,18 +376,34 @@ async function extractTextFromPDF(file) {
     return fullText;
 }
 
+// Ordinales españoles usados en decretos federales (Artículo Primero, Décimo Tercero, Vigésimo, etc.)
+const ORDINAL_ARTICLE_LABEL = String.raw`(?:(?:VIG[ÉE]SIMO|TRIG[ÉE]SIMO|CUADRAG[ÉE]SIMO|QUINQUAG[ÉE]SIMO|SEXAG[ÉE]SIMO|SEPTUAG[ÉE]SIMO|OCTOG[ÉE]SIMO|NONAG[ÉE]SIMO)(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO))?|D[ÉE]CIMO(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO))?|NOVENO|OCTAVO|S[ÉE]PTIMO|SEPTIMO|SEXTO|QUINTO|CUARTO|TERCERO|SEGUNDO|PRIMERO|[ÚU]NIC[OA])`;
+const BIS_MODIFIER = String.raw`(?:\s+(?:Bis|Ter|Qu[áa]ter|Quater|Quinquies|Sexies|Septies|Octies|Novies|Decies))?`;
+const ARTICLE_LABEL_SRC = String.raw`(?:\d+(?:[º°oO])?${BIS_MODIFIER}|${ORDINAL_ARTICLE_LABEL})`;
+// Normaliza encabezados "Artículo X." en mitad de línea para forzarlos a línea propia (pdf.js los concatena)
+const ARTICLE_HEADING_INLINE_PATTERN = new RegExp(
+    String.raw`(?<!\n)(?<=[.;:!?])\s+((?:ART[ÍI]CULO|Art[íi]culo)\s+${ARTICLE_LABEL_SRC}(?:\.-|[.:-]))(?=\s+)`,
+    'giu'
+);
+
 function executeChunkingAlg(text, themes = []) {
     let cleanText = text.replace(/----------------Page \(\d+\) Break----------------/g, '\n');
     cleanText = cleanText.replace(/(\w+)-\n\s*(\w+)/g, "$1$2");
     cleanText = cleanText.replace(/(^|\s)(\d{1,3})A,\s+(?=[A-ZÁÉÍÓÚÑ])/gm, '$1\n$2. ');
-    cleanText = cleanText.replace(/([.;:])\s+(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gm, '$1\n$2. ');
+    cleanText = cleanText.replace(/(?<!\b(?:art[íi]culo|lineamiento|fracci[óo]n|inciso|numeral|punto|secci[óo]n|cap[íi]tulo|t[íi]tulo|p[áa]rrafo|apartado|decreto|anexo)\s+)(?<![\d.])\b(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gi, '\n$1. ');
+    cleanText = cleanText.replace(/(?<!\b(?:art[íi]culo|lineamiento|fracci[óo]n|inciso|numeral|punto|secci[óo]n|cap[íi]tulo|t[íi]tulo|p[áa]rrafo|apartado|decreto|anexo)\s+)\b(\d+\.(?:\d+\.)+)\s+(?=[A-ZÁÉÍÓÚÑ])/gi, '\n$1 ');
+    // Inserta salto antes de "Artículo Primero/Segundo/...Décimo Tercero/Bis" inline (decretos federales)
+    cleanText = cleanText.replace(ARTICLE_HEADING_INLINE_PATTERN, '\n$1');
     cleanText = cleanText.replace(/([.;:!?])\s+(TRANSITORIOS?)(?=\s|$)/gi, '$1\n$2');
     const mainParts = cleanText.split(/\n\s*TRANSITORIOS\b/i);
     const regularText = mainParts[0];
     const transitoriosText = mainParts.length > 1 ? mainParts.slice(1).join('\n') : '';
     const chunks = [];
-    // Regex robusta para capturar tanto "ARTÍCULO 1" como numeraciones decimales tipo "1.1." comunes en DACGs
-    const articleRegex = /(?:\n|^)\s*((?:(?:ART[ÍI]CULO|Art[íi]culo)\s+(?:\d+[A-Z\d]*|[\d\.]+|[ÚU]NICO)|\d+\.(?:\d+\.?)+)\b[\s\.º°-]*)/g;
+    // Regex robusta: "ARTÍCULO 1", "Artículo 5 Bis", numeraciones decimales "1.1.", y ordinales españoles "Artículo Décimo Tercero"
+    const articleRegex = new RegExp(
+        String.raw`(?:\n|^)\s*((?:(?:ART[ÍI]CULO|Art[íi]culo)\s+${ARTICLE_LABEL_SRC}|\d+\.(?:\d+\.?)+)\b[\s\.º°-]*)`,
+        'gi'
+    );
     const parts = regularText.split(articleRegex);
     if (parts[0] && parts[0].trim().length > 0) {
         chunks.push({ identificador: "Preámbulo", contenido: parts[0].trim().replace(/\s+/g, ' '), tipo: 'preambulo' });
@@ -444,6 +480,8 @@ function chunkNumberedLineamientos(text) {
     const chunks = [];
     const preambleLines = [];
     let currentChunk = null;
+    let inTransitory = false;
+    let currentTitulo = null;
     let currentCapitulo = null;
     let currentSeccion = null;
 
@@ -455,6 +493,7 @@ function chunkNumberedLineamientos(text) {
                 identificador: currentChunk.identificador,
                 contenido: content,
                 tipo: currentChunk.tipo,
+                titulo_nombre: currentChunk.titulo_nombre || null,
                 capitulo_nombre: currentChunk.capitulo_nombre || null,
                 seccion_nombre: currentChunk.seccion_nombre || null,
                 mapping_snippet: currentChunk.mappingSnippet || content.substring(0, 60)
@@ -470,6 +509,7 @@ function chunkNumberedLineamientos(text) {
         const structuralHeading = parseStructuralHeading(currentLine);
         if (structuralHeading) {
             flushCurrentChunk();
+            if (structuralHeading.titulo) currentTitulo = structuralHeading.titulo;
             if (structuralHeading.capitulo) {
                 currentCapitulo = structuralHeading.capitulo;
                 currentSeccion = null;
@@ -481,10 +521,12 @@ function chunkNumberedLineamientos(text) {
         const transitoryMatch = currentLine.match(/^TRANSITORIOS?\b(?:[\s.:-]+(.*))?$/i);
         if (transitoryMatch) {
             flushCurrentChunk();
+            inTransitory = true;
             const content = cleanTransitoryRemainder(transitoryMatch[1] || '');
             currentChunk = {
                 identificador: 'Transitorio Único',
                 tipo: 'transitorio',
+                titulo_nombre: currentTitulo,
                 capitulo_nombre: currentCapitulo,
                 seccion_nombre: currentSeccion,
                 lines: content ? [content] : [],
@@ -493,19 +535,39 @@ function chunkNumberedLineamientos(text) {
             continue;
         }
 
-        const numberedMatch = currentLine.match(/^(\d{1,3})\.(?:\s+(.*))?$/);
-        if (numberedMatch) {
-            flushCurrentChunk();
-            const content = numberedMatch[2] ? numberedMatch[2].trim() : '';
-            currentChunk = {
-                identificador: `Lineamiento ${numberedMatch[1]}`,
-                tipo: 'ordinario',
-                capitulo_nombre: currentCapitulo,
-                seccion_nombre: currentSeccion,
-                lines: content ? [content] : [],
-                mappingSnippet: content.substring(0, 60)
-            };
-            continue;
+        if (inTransitory) {
+            const transitoryHeading = parseHeading(currentLine, TRANSITORY_HEADING_PATTERN);
+            if (transitoryHeading) {
+                flushCurrentChunk();
+                currentChunk = {
+                    identificador: `Transitorio ${transitoryHeading.identifier}`.replace(/\s+/g, ' ').trim(),
+                    tipo: 'transitorio',
+                    titulo_nombre: currentTitulo,
+                    capitulo_nombre: currentCapitulo,
+                    seccion_nombre: currentSeccion,
+                    lines: transitoryHeading.remainder ? [transitoryHeading.remainder] : [],
+                    mappingSnippet: transitoryHeading.remainder ? transitoryHeading.remainder.substring(0, 60) : ''
+                };
+                continue;
+            }
+        }
+
+        if (!inTransitory) {
+            const numberedMatch = currentLine.match(/^(\d{1,3})\.(?:\s+(.*))?$/);
+            if (numberedMatch) {
+                flushCurrentChunk();
+                const content = numberedMatch[2] ? numberedMatch[2].trim() : '';
+                currentChunk = {
+                    identificador: `Lineamiento ${numberedMatch[1]}`,
+                    tipo: 'ordinario',
+                    titulo_nombre: currentTitulo,
+                    capitulo_nombre: currentCapitulo,
+                    seccion_nombre: currentSeccion,
+                    lines: content ? [content] : [],
+                    mappingSnippet: content.substring(0, 60)
+                };
+                continue;
+            }
         }
 
         if (currentChunk) {
@@ -552,19 +614,38 @@ function parseStructuralHeading(line) {
     const sectionMatch = normalized.match(/^SECCI[ÓO]N\s+(.+)$/i);
     if (sectionMatch) return { seccion: stripThemeOrdinal(sectionMatch[1]) };
 
+    const subtitleMatch = normalized.match(/^SUBT[ÍI]TULO\s+(.+)$/i);
+    if (subtitleMatch) return { seccion: stripThemeOrdinal(subtitleMatch[1]) };
+
+    const titleMatch = normalized.match(/^T[ÍI]TULO\s+(.+)$/i);
+    if (titleMatch) return { titulo: stripThemeOrdinal(titleMatch[1]) };
+
     return null;
 }
 
 function normalizePodecobiLineamientoHierarchy(chunks, text) {
     if (!/DE LOS VEH[ÍI]CULOS DE PROP[ÓO]SITO ESPECIAL/i.test(text)) return;
-    if (!/CAP[ÍI]TULO\s+SEXTO\s+DE LOS DESARROLLADORES/i.test(text)) return;
 
     chunks.forEach(chunk => {
         const match = (chunk.identificador || '').match(/^Lineamiento\s+(\d+)$/);
         if (!match) return;
         const number = Number(match[1]);
 
-        if (number >= 16 && number <= 17) {
+        if (number >= 1 && number <= 2) {
+            chunk.capitulo_nombre = 'GENERALIDADES';
+            chunk.seccion_nombre = null;
+        } else if (number >= 3 && number <= 7) {
+            chunk.capitulo_nombre = 'DEL COMITÉ INTERSECRETARIAL DE PROMOCIÓN';
+            chunk.seccion_nombre = null;
+        } else if (number >= 8 && number <= 10) {
+            chunk.capitulo_nombre = 'DE LOS CRITERIOS DE SELECCIÓN PARA LA DETERMINACIÓN DE LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR';
+            if (number >= 9) chunk.seccion_nombre = 'DEL PROCEDIMIENTO PARA DETERMINAR LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR';
+            else chunk.seccion_nombre = null;
+        } else if (number >= 11 && number <= 15) {
+            chunk.capitulo_nombre = 'DE LA PARTICIPACIÓN DE LAS ENTIDADES FEDERATIVAS';
+            if (number <= 14) chunk.seccion_nombre = 'DE LOS CONVENIOS DE COORDINACIÓN CELEBRADOS ENTRE EL GOBIERNO FEDERAL Y LAS ENTIDADES FEDERATIVAS';
+            else chunk.seccion_nombre = 'DE LAS ATRIBUCIONES DE LAS ENTIDADES FEDERATIVAS';
+        } else if (number >= 16 && number <= 17) {
             chunk.capitulo_nombre = 'DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL';
             chunk.seccion_nombre = null;
         } else if (number >= 18 && number <= 32) {
@@ -574,7 +655,8 @@ function normalizePodecobiLineamientoHierarchy(chunks, text) {
             else chunk.seccion_nombre = 'DEL CONCURSO PÚBLICO';
         } else if (number >= 33 && number <= 38) {
             chunk.capitulo_nombre = 'DE LAS ASIGNACIONES DIRECTAS';
-            chunk.seccion_nombre = null;
+            if (number >= 36) chunk.seccion_nombre = 'DEL PROCEDIMIENTO DE ASIGNACIÓN DIRECTA';
+            else chunk.seccion_nombre = null;
         } else if (number === 39) {
             chunk.capitulo_nombre = 'DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN';
             chunk.seccion_nombre = null;
@@ -700,7 +782,18 @@ async function handleIngestToSupabase() {
     const titleInput = document.getElementById('admin-input-title').value.trim();
     const btn = document.getElementById('admin-btn-ingest');
     btn.disabled = true;
+
+    const wrapper = document.getElementById('admin-progress-wrapper');
+    const textEl = document.getElementById('admin-progress-text');
+    const pctEl = document.getElementById('admin-progress-pct');
+    const barEl = document.getElementById('admin-progress-bar');
+
     try {
+        if (wrapper) wrapper.classList.remove('hidden');
+        if (barEl) barEl.style.width = '0%';
+        if (pctEl) pctEl.textContent = '0%';
+        if (textEl) textEl.textContent = 'Iniciando ingesta del instrumento...';
+
         const { data: leyData, error: leyError } = await supabase.from('leyes').insert([{ 
             titulo: titleInput, 
             siglas: document.getElementById('admin-input-siglas').value.trim() || null, 
@@ -709,8 +802,30 @@ async function handleIngestToSupabase() {
         }]).select();
         if (leyError) throw leyError;
         const newLeyId = leyData[0].id;
+
+        if (barEl) barEl.style.width = '10%';
+        if (pctEl) pctEl.textContent = '10%';
+        if (textEl) textEl.textContent = 'Instrumento registrado, indexando estructura de temas...';
+
+        // Inserción de temas extraídos
+        if (parsedThemes && parsedThemes.length > 0) {
+            const themeRows = parsedThemes.map(t => ({
+                ley_id: newLeyId,
+                nivel: t.nivel === 'subtitulo' ? 'seccion' : t.nivel, // Map subtitulo to seccion in DB
+                nombre: t.nombre,
+                orden: t.orden
+            }));
+            const { error: themeError } = await supabase.from('temas').insert(themeRows);
+            if (themeError) throw themeError;
+        }
+
+        if (barEl) barEl.style.width = '20%';
+        if (pctEl) pctEl.textContent = '20%';
+        if (textEl) textEl.textContent = 'Temas indexados, subiendo artículos...';
+
+        const totalChunks = parsedChunks.length;
         const batchSize = 50;
-        for (let i = 0; i < parsedChunks.length; i += batchSize) {
+        for (let i = 0; i < totalChunks; i += batchSize) {
              const batch = parsedChunks.slice(i, i + batchSize).map((chunk, index) => ({
                 ley_id: newLeyId,
                 identificador: chunk.identificador,
@@ -721,12 +836,25 @@ async function handleIngestToSupabase() {
                 seccion_nombre: chunk.seccion_nombre || null,
                 orden: i + index
             }));
-            await supabase.from('articulos').insert(batch);
+            const { error: batchError } = await supabase.from('articulos').insert(batch);
+            if (batchError) throw batchError;
+
+            const uploadedCount = Math.min(i + batchSize, totalChunks);
+            const progressPct = Math.round(20 + (uploadedCount / totalChunks) * 80);
+            if (barEl) barEl.style.width = `${progressPct}%`;
+            if (pctEl) pctEl.textContent = `${progressPct}%`;
+            if (textEl) textEl.textContent = `Subiendo artículos: ${uploadedCount} de ${totalChunks}...`;
         }
-        displayAlert('success', 'Ingesta Exitosa', 'El instrumento ha sido cargado.');
+
+        if (barEl) barEl.style.width = '100%';
+        if (pctEl) pctEl.textContent = '100%';
+        if (textEl) textEl.textContent = '¡Ingesta completada con éxito!';
+
+        displayAlert('success', 'Ingesta Exitosa', 'El instrumento ha sido cargado con su estructura de temas.');
         setTimeout(() => location.reload(), 2000);
     } catch(e) {
         displayAlert('error', 'Error', e.message);
+        if (wrapper) wrapper.classList.add('hidden');
         btn.disabled = false;
     }
 }

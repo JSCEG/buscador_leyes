@@ -25,15 +25,19 @@ const MARKITDOWN_PYTHON_SCRIPT = [
     'sys.stdout.write(result.text_content or "")'
 ].join('; ');
 
-const ARTICLE_LABEL = String.raw`(?:\d+(?:[º°oO])?(?:\s+(?:Bis|Ter|Qu[áa]ter|Quater|Quinquies|Sexies|Septies|Octies|Novies|Decies))?|[ÚU]NICO)`;
+// Ordinales usados en decretos mexicanos: "Artículo Primero.", "Artículo Décimo Tercero.", etc.
+// Se lista compuestos antes que simples para que el motor regex los intente primero (greedy).
+const ORDINAL_ARTICLE_LABEL = String.raw`(?:(?:VIG[ÉE]SIMO|TRIG[ÉE]SIMO|CUADRAG[ÉE]SIMO|QUINQUAG[ÉE]SIMO|SEXAG[ÉE]SIMO|SEPTUAG[ÉE]SIMO|OCTOG[ÉE]SIMO|NONAG[ÉE]SIMO)(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO))?|D[ÉE]CIMO(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO))?|NOVENO|OCTAVO|S[ÉE]PTIMO|SEPTIMO|SEXTO|QUINTO|CUARTO|TERCERO|SEGUNDO|PRIMERO|[ÚU]NIC[OA])`;
+const ARTICLE_LABEL = String.raw`(?:\d+(?:[º°oO])?(?:\s+(?:Bis|Ter|Qu[áa]ter|Quater|Quinquies|Sexies|Septies|Octies|Novies|Decies))?|[ÚU]NICO|${ORDINAL_ARTICLE_LABEL})`;
 const ARTICLE_HEADING_PATTERN = new RegExp(
     String.raw`^(?:ART[ÍI]CULO|Artículo)\s+${ARTICLE_LABEL}(?:\.-|[.:-])(?:\s+|$)`,
-    'u'
+    'iu'
 );
 const ARTICLE_HEADING_GLOBAL_PATTERN = new RegExp(
     String.raw`(?<!\n)(?<=^|[.;:!?])\s+((?:ART[ÍI]CULO|Artículo)\s+${ARTICLE_LABEL}(?:\.-|[.:-]))(?=\s+|$)`,
-    'gu'
+    'giu'
 );
+const DECIMAL_SECTION_PATTERN = /^(\d+\.(?:\d+\.?)+)(?:\s+|$)/u;
 const TRANSITORY_LABELS = [
     'PRIMERO',
     'SEGUNDO',
@@ -64,6 +68,7 @@ const TRANSITORY_HEADING_PATTERN = new RegExp(
 );
 const NUMBERED_LINEAMIENTO_PATTERN = /^(\d{1,3})\.(?:\s+(.*))?$/u;
 const TITLE_THEME_PATTERN = /^(T[ÍI]TULO)\s+(.+)$/iu;
+const SUBTITLE_THEME_PATTERN = /^(SUBT[ÍI]TULO)\s+(.+)$/iu;
 const CHAPTER_THEME_PATTERN = /^(CAP[ÍI]TULO)\s+(.+)$/iu;
 const SECTION_THEME_PATTERN = /^(SECCI[ÓO]N)\s+(.+)$/iu;
 const ORDINAL_ONLY_PATTERN = /^(?:[IVXLCDM]+|PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO))?|UND[ÉE]CIMO|DUOD[ÉE]CIMO|[ÚU]NICO|PRIMERA|SEGUNDA|TERCERA|CUARTA|QUINTA|SEXTA|S[ÉE]PTIMA|OCTAVA|NOVENA|D[ÉE]CIMA|UND[ÉE]CIMA|DUOD[ÉE]CIMA|[ÚU]NICA)$/iu;
@@ -215,7 +220,8 @@ function normalizeLegalText(rawText) {
 function ensureHeadingBoundaries(text) {
     return text
         .replace(/(^|\s)(\d{1,3})A,\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
-        .replace(/([.;:\s]|^)\s*(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gmu, '$1\n$2. ')
+        .replace(/(?<!\b(?:art[íi]culo|lineamiento|fracci[óo]n|inciso|numeral|punto|secci[óo]n|cap[íi]tulo|t[íi]tulo|p[áa]rrafo|apartado|decreto|anexo)\s+)(?<![\d.])\b(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/giu, '\n$1. ')
+        .replace(/(?<!\b(?:art[íi]culo|lineamiento|fracci[óo]n|inciso|numeral|punto|secci[óo]n|cap[íi]tulo|t[íi]tulo|p[áa]rrafo|apartado|decreto|anexo)\s+)\b(\d+\.(?:\d+\.)+)\s+(?=[A-ZÁÉÍÓÚÑ])/giu, '\n$1 ')
         .replace(ARTICLE_HEADING_GLOBAL_PATTERN, '\n$1')
         .replace(/([.;:!?])\s+(TRANSITORIOS?)(?=\s|$)/giu, '$1\n$2')
         .replace(/([.;:!?])\s+((?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N)\s+[A-ZÁÉÍÓÚÑIVXLCDM]+)/giu, '$1\n$2');
@@ -306,7 +312,7 @@ function normalizeChunkContent(lines) {
 }
 
 function isThemeLine(line) {
-    return TITLE_THEME_PATTERN.test(line) || CHAPTER_THEME_PATTERN.test(line) || SECTION_THEME_PATTERN.test(line);
+    return TITLE_THEME_PATTERN.test(line) || SUBTITLE_THEME_PATTERN.test(line) || CHAPTER_THEME_PATTERN.test(line) || SECTION_THEME_PATTERN.test(line);
 }
 
 function isArticleLine(line) {
@@ -348,6 +354,20 @@ function extractThemesFromText(text) {
             const nombre = (following || inline).replace(/\s+/g, ' ').trim();
             themes.push({
                 nivel: 'titulo',
+                nombre,
+                identificador_completo: following ? `${line} ${following}` : line,
+                orden: order++
+            });
+            continue;
+        }
+
+        const subtitleMatch = line.match(SUBTITLE_THEME_PATTERN);
+        if (subtitleMatch) {
+            const inline = subtitleMatch[2].trim();
+            const following = ORDINAL_ONLY_PATTERN.test(inline) ? getFollowingHeadingName(lines, index) : '';
+            const nombre = (following || inline).replace(/\s+/g, ' ').trim();
+            themes.push({
+                nivel: 'seccion',
                 nombre,
                 identificador_completo: following ? `${line} ${following}` : line,
                 orden: order++
@@ -405,6 +425,9 @@ function parseStructuralHeading(line) {
 
     const sectionMatch = normalized.match(/^SECCI[ÓO]N\s+(.+)$/iu);
     if (sectionMatch) return { seccion: stripThemeOrdinal(sectionMatch[1]) };
+
+    const subtitleMatch = normalized.match(/^SUBT[ÍI]TULO\s+(.+)$/iu);
+    if (subtitleMatch) return { seccion: stripThemeOrdinal(subtitleMatch[1]) };
 
     const titleMatch = normalized.match(/^T[ÍI]TULO\s+(.+)$/iu);
     if (titleMatch) return { titulo: stripThemeOrdinal(titleMatch[1]) };
@@ -492,6 +515,22 @@ function chunkNumberedLineamientos(normalizedText) {
             continue;
         }
 
+        if (inTransitory) {
+            const transitoryHeading = parseHeading(currentLine, TRANSITORY_HEADING_PATTERN);
+            if (transitoryHeading) {
+                flushCurrentChunk();
+                currentChunk = {
+                    identificador: `Transitorio ${transitoryHeading.identifier}`.replace(/\s+/g, ' ').trim(),
+                    tipo: 'transitorio',
+                    titulo_nombre: currentTitulo,
+                    capitulo_nombre: currentCapitulo,
+                    seccion_nombre: currentSeccion,
+                    lines: transitoryHeading.remainder ? [transitoryHeading.remainder] : []
+                };
+                continue;
+            }
+        }
+
         if (!inTransitory) {
             const numberedMatch = currentLine.match(NUMBERED_LINEAMIENTO_PATTERN);
             if (numberedMatch) {
@@ -533,14 +572,27 @@ function chunkNumberedLineamientos(normalizedText) {
 
 function normalizePodecobiLineamientoHierarchy(chunks, normalizedText) {
     if (!/DE LOS VEH[ÍI]CULOS DE PROP[ÓO]SITO ESPECIAL/iu.test(normalizedText)) return;
-    if (!/CAP[ÍI]TULO\s+SEXTO\s+DE LOS DESARROLLADORES/iu.test(normalizedText)) return;
 
     for (const chunk of chunks) {
         const match = (chunk.identificador || '').match(/^Lineamiento\s+(\d+)$/);
         if (!match) continue;
 
         const number = Number(match[1]);
-        if (number >= 16 && number <= 17) {
+        if (number >= 1 && number <= 2) {
+            chunk.capitulo_nombre = 'GENERALIDADES';
+            chunk.seccion_nombre = null;
+        } else if (number >= 3 && number <= 7) {
+            chunk.capitulo_nombre = 'DEL COMITÉ INTERSECRETARIAL DE PROMOCIÓN';
+            chunk.seccion_nombre = null;
+        } else if (number >= 8 && number <= 10) {
+            chunk.capitulo_nombre = 'DE LOS CRITERIOS DE SELECCIÓN PARA LA DETERMINACIÓN DE LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR';
+            if (number >= 9) chunk.seccion_nombre = 'DEL PROCEDIMIENTO PARA DETERMINAR LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR';
+            else chunk.seccion_nombre = null;
+        } else if (number >= 11 && number <= 15) {
+            chunk.capitulo_nombre = 'DE LA PARTICIPACIÓN DE LAS ENTIDADES FEDERATIVAS';
+            if (number <= 14) chunk.seccion_nombre = 'DE LOS CONVENIOS DE COORDINACIÓN CELEBRADOS ENTRE EL GOBIERNO FEDERAL Y LAS ENTIDADES FEDERATIVAS';
+            else chunk.seccion_nombre = 'DE LAS ATRIBUCIONES DE LAS ENTIDADES FEDERATIVAS';
+        } else if (number >= 16 && number <= 17) {
             chunk.capitulo_nombre = 'DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL';
             chunk.seccion_nombre = null;
         } else if (number >= 18 && number <= 32) {
@@ -550,7 +602,8 @@ function normalizePodecobiLineamientoHierarchy(chunks, normalizedText) {
             else chunk.seccion_nombre = 'DEL CONCURSO PÚBLICO';
         } else if (number >= 33 && number <= 38) {
             chunk.capitulo_nombre = 'DE LAS ASIGNACIONES DIRECTAS';
-            chunk.seccion_nombre = null;
+            if (number >= 36) chunk.seccion_nombre = 'DEL PROCEDIMIENTO DE ASIGNACIÓN DIRECTA';
+            else chunk.seccion_nombre = null;
         } else if (number === 39) {
             chunk.capitulo_nombre = 'DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN';
             chunk.seccion_nombre = null;
@@ -590,7 +643,7 @@ function chunkLegalText(rawText) {
             continue;
         }
 
-        const ordinaryHeading = !inTransitories ? parseHeading(currentLine, ARTICLE_HEADING_PATTERN) : null;
+        const ordinaryHeading = !inTransitories ? (parseHeading(currentLine, ARTICLE_HEADING_PATTERN) || parseHeading(currentLine, DECIMAL_SECTION_PATTERN)) : null;
         if (ordinaryHeading) {
             flushCurrentChunk();
             currentChunk = {
@@ -654,15 +707,21 @@ function chunkLegalText(rawText) {
             if (pos !== -1) {
                 let currentTitulo = null;
                 let currentCapitulo = null;
+                let currentSeccion = null;
                 for (const t of themes) {
                     const tPos = normalizedText.indexOf(t.identificador_completo.substring(0, 30));
                     if (tPos !== -1 && tPos < pos) {
                         if (t.nivel === 'titulo') currentTitulo = t.nombre;
-                        if (t.nivel === 'capitulo') currentCapitulo = t.nombre;
+                        if (t.nivel === 'capitulo') {
+                            currentCapitulo = t.nombre;
+                            currentSeccion = null;
+                        }
+                        if (t.nivel === 'seccion') currentSeccion = t.nombre;
                     }
                 }
                 chunk.titulo_nombre = currentTitulo;
                 chunk.capitulo_nombre = currentCapitulo;
+                chunk.seccion_nombre = currentSeccion;
             }
         });
     }

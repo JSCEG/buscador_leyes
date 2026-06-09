@@ -76,4 +76,101 @@ SEGUNDO. Se derogan las disposiciones contrarias.
             'Transitorio SEGUNDO.'
         ]);
     });
+
+    test('chunks decreto with ordinal article headings (Artículo Primero, Segundo...)', () => {
+        const text = `
+DECRETO por el que se otorgan estímulos fiscales.
+
+CONSIDERANDO
+Que, en términos del artículo 25, primer párrafo, corresponde al Estado la rectoría del desarrollo nacional.
+
+DECRETO
+Artículo Primero. Se otorgan estímulos fiscales a los contribuyentes que realicen actividades económicas.
+Artículo Segundo. Los contribuyentes deben cumplir con los siguientes requisitos:
+I. Estar al corriente en el cumplimiento de sus obligaciones fiscales.
+Artículo Tercero. Los contribuyentes podrán efectuar la deducción inmediata del 100%.
+TRANSITORIOS
+PRIMERO. El presente decreto entra en vigor el día de su publicación.
+SEGUNDO. El Comité deberá emitir lineamientos en un plazo no mayor a 30 días.
+TERCERO. Las erogaciones deben cubrirse con cargo al presupuesto aprobado.
+`;
+
+        const { chunks } = extractLegalStructureFromText(text);
+
+        expect(chunks.map((c) => c.identificador)).toEqual([
+            'Preámbulo/Considerandos',
+            'Artículo Primero.',
+            'Artículo Segundo.',
+            'Artículo Tercero.',
+            'Transitorio PRIMERO.',
+            'Transitorio SEGUNDO.',
+            'Transitorio TERCERO.'
+        ]);
+        expect(chunks[0].contenido).toContain('artículo 25');
+        expect(chunks[1].contenido).toContain('estímulos fiscales');
+        expect(chunks[2].tipo).toBe('ordinario');
+        expect(chunks[4].tipo).toBe('transitorio');
+    });
+
+    test('chunks decreto with compound ordinals (Artículo Décimo Primero, Décimo Tercero...)', () => {
+        const text = `
+Artículo Décimo. Para el establecimiento se crea un Comité Intersecretarial.
+Artículo Décimo Primero. Se entenderá por desarrolladores a las personas morales.
+Artículo Décimo Segundo. Las entidades federativas podrán crear vehículos.
+Artículo Décimo Tercero. El Servicio de Administración Tributaria debe emitir reglas.
+TRANSITORIOS
+PRIMERO. El presente decreto entra en vigor.
+`;
+
+        const { chunks } = extractLegalStructureFromText(text);
+
+        expect(chunks.map((c) => c.identificador)).toEqual([
+            'Artículo Décimo.',
+            'Artículo Décimo Primero.',
+            'Artículo Décimo Segundo.',
+            'Artículo Décimo Tercero.',
+            'Transitorio PRIMERO.'
+        ]);
+    });
+
+    test('does not split inline references to ordinal articles (e.g. "el artículo Tercero de este decreto")', () => {
+        const text = `
+Artículo Primero. Se otorgan estímulos conforme al artículo Tercero de este decreto y al artículo Cuarto.
+Artículo Segundo. Para los efectos de los artículos Tercero y Cuarto de este decreto los contribuyentes deben cumplir lo siguiente.
+Artículo Tercero. Los contribuyentes podrán efectuar la deducción del 100%.
+Artículo Cuarto. Se otorga una deducción adicional del 25%.
+`;
+
+        const { chunks } = extractLegalStructureFromText(text);
+
+        // Solo 4 chunks de artículo, sin falsos positivos de referencias inline
+        expect(chunks.map((c) => c.identificador)).toEqual([
+            'Artículo Primero.',
+            'Artículo Segundo.',
+            'Artículo Tercero.',
+            'Artículo Cuarto.'
+        ]);
+        expect(chunks[0].contenido).toContain('artículo Tercero de este decreto');
+        expect(chunks[1].contenido).toContain('artículos Tercero y Cuarto');
+    });
+
+    test('chunks decimal section numbers like 1.1., 1.2., etc.', () => {
+        const text = `
+Artículo Único. La Comisión emite las Disposiciones para quedar como sigue:
+Capítulo I. Disposiciones Generales
+1.1. Objetivo. Las presentes disposiciones tienen por objeto...
+1.2. Alcance. Las presentes disposiciones son...
+2.1. Los SAEE pueden integrarse...
+`;
+
+        const { chunks } = extractLegalStructureFromText(text);
+
+        expect(chunks.map((chunk) => chunk.identificador)).toEqual([
+            'Artículo Único.',
+            '1.1.',
+            '1.2.',
+            '2.1.'
+        ]);
+        expect(chunks[1].contenido).toBe('Objetivo. Las presentes disposiciones tienen por objeto...');
+    });
 });

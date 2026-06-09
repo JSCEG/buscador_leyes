@@ -21,17 +21,32 @@ async function main() {
     const dryRun = args.includes('--dry-run');
     const markdownOutIndex = args.indexOf('--markdown-out');
     const markdownOut = markdownOutIndex >= 0 ? args[markdownOutIndex + 1] : null;
+    const tipoIndex = args.indexOf('--tipo');
+    let tipo = tipoIndex >= 0 ? args[tipoIndex + 1] : null;
+
     const positional = args.filter((arg, index) => {
-        if (arg === '--dry-run' || arg === '--markdown-out') return false;
+        if (arg === '--dry-run' || arg === '--markdown-out' || arg === '--tipo') return false;
         if (markdownOutIndex >= 0 && index === markdownOutIndex + 1) return false;
+        if (tipoIndex >= 0 && index === tipoIndex + 1) return false;
         return true;
     });
     const [pdfPath, tituloLey, siglasArg] = positional;
     const siglas = siglasArg || null;
 
     if (!pdfPath || !tituloLey) {
-        console.error("Uso: node ingestar_pdf.js <ruta_al_pdf> \"<titulo_de_la_ley>\" [siglas] [--dry-run] [--markdown-out ruta.md]");
+        console.error("Uso: node ingestar_pdf.js <ruta_al_pdf> \"<titulo_de_la_ley>\" [siglas] [--dry-run] [--markdown-out ruta.md] [--tipo tipo]");
         process.exit(1);
+    }
+
+    if (!tipo && tituloLey) {
+        const t = tituloLey.toLowerCase();
+        if (t.startsWith('ley ')) tipo = 'ley';
+        else if (t.startsWith('reglamento ')) tipo = 'reglamento';
+        else if (t.includes('acuerdo')) tipo = 'acuerdo';
+        else if (t.includes('decreto')) tipo = 'decreto';
+        else if (t.includes('disposiciones administrativas') || t.includes('dacg')) tipo = 'dacg';
+        else if (t.includes('norma oficial') || t.includes('nom-')) tipo = 'nom';
+        else tipo = 'otros';
     }
 
     if (!fs.existsSync(pdfPath)) {
@@ -83,6 +98,7 @@ async function main() {
             .insert([{
                 titulo: tituloLey,
                 siglas,
+                tipo,
                 temas_clave: themes.length > 0 ? Array.from(new Set(themes.map((theme) => theme.nombre))).slice(0, 10) : null,
                 url_original: urlOriginal
             }])

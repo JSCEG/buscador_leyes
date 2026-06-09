@@ -54,27 +54,40 @@ describe('Search Engine', () => {
       leyes: ['Ley Test', 'Reglamento Test'],
       summaries: [
         {
+          id: 'ley-1',
           titulo: 'Ley Test',
-          fecha: '2024-01-01',
+          siglas: null,
+          fecha_publicacion: '2024-01-01',
+          fecha_ultima_reforma: undefined,
           articulos: 2,
           temas_clave: ['mercado'],
-          id: 'ley-1',
           resumen: 'Ley Test',
+          url_original: null,
+          tipo: null,
         },
         {
+          id: 'ley-2',
           titulo: 'Reglamento Test',
-          fecha: 'N/D',
+          siglas: null,
+          fecha_publicacion: null,
+          fecha_ultima_reforma: undefined,
           articulos: 3,
           temas_clave: [],
-          id: 'ley-2',
           resumen: 'Reglamento Test',
+          url_original: null,
+          tipo: null,
         },
       ],
     });
   });
 
   it('returns mapped paginated search results from Supabase', async () => {
-    const rangeMock = vi.fn().mockResolvedValue({
+    const queryMock = {};
+    queryMock.select = vi.fn(() => queryMock);
+    queryMock.eq = vi.fn(() => queryMock);
+    queryMock.ilike = vi.fn(() => queryMock);
+    queryMock.textSearch = vi.fn(() => queryMock);
+    queryMock.range = vi.fn().mockResolvedValue({
       data: [
         {
           id: 'art-1',
@@ -91,19 +104,7 @@ describe('Search Engine', () => {
       count: 1,
     });
 
-    const ilikeMock = vi.fn(() => ({ range: rangeMock }));
-    const eqMock = vi.fn(() => ({
-      ilike: ilikeMock,
-    }));
-    const textSearchMock = vi.fn(() => ({
-      eq: eqMock,
-    }));
-
-    fromMock.mockReturnValueOnce({
-      select: vi.fn(() => ({
-        textSearch: textSearchMock,
-      })),
-    });
+    fromMock.mockReturnValue(queryMock);
 
     const { performSearch } = await import('../src/scripts/search-engine.js');
     const result = await performSearch('texto prueba', 2, 10, {
@@ -112,22 +113,24 @@ describe('Search Engine', () => {
     });
 
     expect(fromMock).toHaveBeenCalledWith('articulos');
-    expect(textSearchMock).toHaveBeenCalledWith('fts', 'texto & prueba');
-    expect(eqMock).toHaveBeenCalledWith('leyes.titulo', 'Ley Test');
-    expect(ilikeMock).toHaveBeenCalledWith('identificador', '%1%');
-    expect(rangeMock).toHaveBeenCalledWith(10, 19);
+    expect(queryMock.textSearch).toHaveBeenCalledWith('fts', 'texto prueba', { config: 'spanish', type: 'phrase' });
+    expect(queryMock.eq).toHaveBeenCalledWith('leyes.titulo', 'Ley Test');
+    expect(queryMock.ilike).toHaveBeenCalledWith('identificador', '%1%');
+    expect(queryMock.range).toHaveBeenCalledWith(10, 19);
     expect(result).toEqual({
       data: [
         {
           id: 'art-1',
           ley_origen: 'Ley Test',
+          siglas_ley: null,
           fecha_publicacion: '2024-01-01',
           articulo_label: 'Artículo 1',
           tipo_articulo: 'ordinario',
           titulo_nombre: '',
           capitulo_nombre: '',
           texto: 'Texto de prueba',
-          score: 100,
+          url_original: null,
+          score: 1000,
         },
       ],
       total: 1,
