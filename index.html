@@ -488,6 +488,29 @@
                         <option value="otros">Otros / No clasificado</option>
                     </select>
                 </div>
+                <!-- Relación con instrumento existente -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="md:col-span-2">
+                        <label for="admin-input-modifica" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">¿Modifica un Instrumento Existente? (Opcional)</label>
+                        <select id="admin-input-modifica"
+                            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors">
+                            <option value="">— No, es un instrumento independiente —</option>
+                        </select>
+                        <p class="text-[10px] text-gray-400 mt-1.5">El instrumento afectado mostrará un aviso de "modificación más reciente" en búsquedas y detalle.</p>
+                    </div>
+                    <div>
+                        <label for="admin-input-modifica-tipo" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Tipo de Relación</label>
+                        <select id="admin-input-modifica-tipo"
+                            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors">
+                            <option value="modifica">Modifica</option>
+                            <option value="reforma">Reforma</option>
+                            <option value="adiciona">Adiciona</option>
+                            <option value="abroga">Abroga</option>
+                            <option value="sustituye">Sustituye</option>
+                        </select>
+                    </div>
+                </div>
+
                 <!-- Importar desde URL del DOF -->
                 <div class="mb-6">
                     <label for="admin-input-dof-url" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Importar desde URL del DOF</label>
@@ -921,6 +944,24 @@
                     <div>
                         <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Última Reforma</label>
                         <input type="date" id="edit-law-fecha-ref" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="col-span-2">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Modifica a (Instrumento Existente)</label>
+                        <select id="edit-law-modifica" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                            <option value="">— Ninguno —</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Tipo Relación</label>
+                        <select id="edit-law-modifica-tipo" class="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-guinda/20 focus:border-guinda outline-none">
+                            <option value="modifica">Modifica</option>
+                            <option value="reforma">Reforma</option>
+                            <option value="adiciona">Adiciona</option>
+                            <option value="abroga">Abroga</option>
+                            <option value="sustituye">Sustituye</option>
+                        </select>
                     </div>
                 </div>
                 <div class="pt-4 flex gap-3">

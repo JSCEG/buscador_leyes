@@ -236,6 +236,99 @@ export function initUI() {
 
     let cachedSummaries = [];
     let currentLawArticles = [];
+    let cachedRelaciones = [];           // filas de ley_relaciones
+    let relacionesPorAfectada = {};      // ley_id afectada -> [relaciones]
+    let relacionesPorNueva = {};         // ley_id nueva -> [relaciones]
+
+    const REL_TIPO_LABELS = {
+        modifica: 'Modificado por',
+        reforma: 'Reformado por',
+        adiciona: 'Adicionado por',
+        abroga: 'Abrogado por',
+        sustituye: 'Sustituido por'
+    };
+
+    function indexRelaciones(relaciones) {
+        cachedRelaciones = relaciones || [];
+        relacionesPorAfectada = {};
+        relacionesPorNueva = {};
+        for (const rel of cachedRelaciones) {
+            (relacionesPorAfectada[rel.ley_afectada_id] ||= []).push(rel);
+            (relacionesPorNueva[rel.ley_nueva_id] ||= []).push(rel);
+        }
+    }
+
+    function summaryById(leyId) {
+        return cachedSummaries.find(s => s.id === leyId) || null;
+    }
+
+    // Badge compacto para tarjetas de resultados: la ley de este artículo
+    // tiene una modificación posterior cargada en el acervo.
+    function buildRelacionBadge(leyId) {
+        const rels = relacionesPorAfectada[leyId] || [];
+        if (!rels.length) return '';
+        const rel = rels[0];
+        const nueva = summaryById(rel.ley_nueva_id);
+        if (!nueva) return '';
+        const label = REL_TIPO_LABELS[rel.tipo] || 'Modificado por';
+        const fecha = rel.fecha || nueva.fecha_publicacion;
+        const fechaTxt = fecha ? ` (${new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'short' })})` : '';
+        const ref = nueva.siglas || (nueva.titulo.length > 28 ? nueva.titulo.substring(0, 28) + '...' : nueva.titulo);
+        return `
+            <button class="rel-open-law inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-200 rounded text-[9px] font-bold text-amber-700 hover:bg-amber-100 transition-colors uppercase tracking-wide w-fit"
+                data-ley-id="${nueva.id}" title="${label}: ${nueva.titulo.replace(/"/g, '&quot;')}">
+                <svg class="w-2.5 h-2.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                ${label}: ${ref}${fechaTxt}
+            </button>`;
+    }
+
+    // Banners para el encabezado del detalle de ley: avisa si el instrumento
+    // tiene una modificación posterior cargada, o si él mismo modifica a otro.
+    function buildLawDetailBanners(law) {
+        let html = '';
+        for (const rel of (relacionesPorAfectada[law.id] || [])) {
+            const nueva = summaryById(rel.ley_nueva_id);
+            if (!nueva) continue;
+            const label = REL_TIPO_LABELS[rel.tipo] || 'Modificado por';
+            const fecha = rel.fecha || nueva.fecha_publicacion;
+            const fechaTxt = fecha ? new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
+            html += `
+                <div class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-start gap-3 max-w-4xl">
+                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    <div class="text-sm">
+                        <span class="font-bold text-amber-800">${label} un instrumento más reciente${fechaTxt ? ` (${fechaTxt})` : ''}.</span>
+                        <button class="rel-open-law block mt-1 text-amber-700 hover:text-amber-900 underline underline-offset-2 text-left font-medium" data-ley-id="${nueva.id}">
+                            Ver: ${nueva.titulo}
+                        </button>
+                    </div>
+                </div>`;
+        }
+        for (const rel of (relacionesPorNueva[law.id] || [])) {
+            const afectada = summaryById(rel.ley_afectada_id);
+            if (!afectada) continue;
+            const verbo = { modifica: 'Modifica a', reforma: 'Reforma a', adiciona: 'Adiciona a', abroga: 'Abroga a', sustituye: 'Sustituye a' }[rel.tipo] || 'Modifica a';
+            html += `
+                <div class="mt-4 p-4 bg-verde/5 border border-verde/20 rounded-lg flex items-start gap-3 max-w-4xl">
+                    <svg class="w-5 h-5 text-verde flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="text-sm">
+                        <span class="font-bold text-verde">${verbo}:</span>
+                        <button class="rel-open-law block mt-1 text-verde hover:text-verde/70 underline underline-offset-2 text-left font-medium" data-ley-id="${afectada.id}">
+                            ${afectada.titulo}
+                        </button>
+                    </div>
+                </div>`;
+        }
+        return html;
+    }
+
+    // Listener delegado único para todos los badges/banners de relaciones
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.rel-open-law');
+        if (!btn) return;
+        e.stopPropagation();
+        const summary = summaryById(btn.dataset.leyId);
+        if (summary) openLawDetail(summary);
+    });
 
     // Lógica de clasificación avanzada de instrumentos
     function classifyInstrument(s) {
@@ -435,8 +528,9 @@ export function initUI() {
 
     // Stats Listener
     window.addEventListener('search-ready', (e) => {
-        const { summaries } = e.detail;
+        const { summaries, relaciones } = e.detail;
         cachedSummaries = summaries;
+        indexRelaciones(relaciones);
 
         // No longer auto-rendering on home, user wants it only in stats
         // renderAcervoAnalytics(summaries); 
@@ -1119,6 +1213,7 @@ export function initUI() {
                         <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Marco Legal Vigente ${law.siglas ? `· ${law.siglas}` : ''}</span>
                         <h1 class="text-2xl sm:text-3xl font-head font-bold text-gray-900 mt-2 mb-2">${law.titulo}</h1>
                         <p class="text-sm text-gray-500 font-light">Publicado: <span class="font-bold text-gray-700">${law.fecha_publicacion || 'N/D'}</span> · Última reforma: <span class="font-bold text-gray-700">${law.fecha_ultima_reforma || 'N/D'}</span></p>
+                        ${buildLawDetailBanners(law)}
                         ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
                     </div>
                     <div class="flex gap-2 flex-wrap">
@@ -3440,6 +3535,7 @@ export function initUI() {
                                             <div class="text-[10px] text-gray-400 font-medium truncate max-w-[120px] italic" title="${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}">
                                                 ${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ') || 'Disposiciones Generales'}
                                             </div>
+                                            ${buildRelacionBadge(item.ley_id)}
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 align-top font-bold text-guinda text-[12px]">
@@ -3469,10 +3565,11 @@ export function initUI() {
         // Add pagination controls using the total count from backend
         renderPaginationControls(totalResults, 'results-container', renderResults);
 
-        // Add click listeners 
+        // Add click listeners
         document.querySelectorAll('.result-item').forEach(el => {
             el.addEventListener('click', (e) => {
                 if (e.target.closest('.bookmark-card-btn')) return;
+                if (e.target.closest('.rel-open-law')) return;
                 openDetail(el.dataset.id);
             });
         });

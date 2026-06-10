@@ -95,3 +95,27 @@ create index if not exists idx_user_notes_articulo on public.user_notes(articulo
 --    VITE_SUPABASE_URL=
 --    VITE_SUPABASE_ANON_KEY=
 -- ═══════════════════════════════════════════════════════════════════════════
+
+-- ═══════════════════════════════════════════════════════════════════════════
+-- Relaciones entre instrumentos (modificaciones / reformas / abrogaciones)
+-- Ejecutar en: Supabase Dashboard → SQL Editor
+-- ═══════════════════════════════════════════════════════════════════════════
+
+create table if not exists public.ley_relaciones (
+  id              uuid primary key default gen_random_uuid(),
+  ley_afectada_id uuid not null references public.leyes(id) on delete cascade,
+  ley_nueva_id    uuid not null references public.leyes(id) on delete cascade,
+  tipo            text not null default 'modifica'
+                  check (tipo in ('modifica','reforma','adiciona','abroga','sustituye')),
+  fecha           date,
+  created_at      timestamptz default now() not null,
+  unique (ley_afectada_id, ley_nueva_id),
+  check (ley_afectada_id <> ley_nueva_id)
+);
+
+-- Mismo patrón de acceso que leyes/articulos: lectura pública, escritura
+-- desde el Gestor con el rol anon (sin RLS).
+grant select, insert, update, delete on public.ley_relaciones to anon, authenticated;
+
+create index if not exists idx_ley_relaciones_afectada on public.ley_relaciones(ley_afectada_id);
+create index if not exists idx_ley_relaciones_nueva on public.ley_relaciones(ley_nueva_id);

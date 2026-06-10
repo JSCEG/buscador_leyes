@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabase.js';
 function mapRowToLocalItem(row) {
     return {
         id: row.id,
+        ley_id: row.ley_id || null,
         ley_origen: row.leyes?.titulo || 'Desconocida',
         siglas_ley: row.leyes?.siglas || null,
         fecha_publicacion: row.leyes?.fecha_publicacion || null,
@@ -16,12 +17,30 @@ function mapRowToLocalItem(row) {
     };
 }
 
+// Relaciones entre instrumentos: qué ley fue modificada/reformada/abrogada por cuál.
+// Tolerante a que la tabla aún no exista en el proyecto Supabase.
+export async function getLeyRelaciones() {
+    try {
+        const { data, error } = await supabase
+            .from('ley_relaciones')
+            .select('id, ley_afectada_id, ley_nueva_id, tipo, fecha');
+        if (error) throw error;
+        return data || [];
+    } catch (e) {
+        console.warn('[Search] ley_relaciones no disponible:', e.message);
+        return [];
+    }
+}
+
 export async function initSearch() {
     try {
         console.log('[Search] Conectando a Supabase...');
-        const { data: leyesData, error } = await supabase
-            .from('leyes')
-            .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)');
+        const [{ data: leyesData, error }, relaciones] = await Promise.all([
+            supabase
+                .from('leyes')
+                .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)'),
+            getLeyRelaciones()
+        ]);
 
         if (error) throw error;
 
@@ -46,7 +65,8 @@ export async function initSearch() {
                 totalLeyes: uniqueLeyes.length,
                 totalArticulos,
                 leyes: uniqueLeyes,
-                summaries
+                summaries,
+                relaciones
             }
         }));
         console.log('[Search] Conectado a Supabase y metadatos listos.');

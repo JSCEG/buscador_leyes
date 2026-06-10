@@ -104,6 +104,30 @@ export function initAdminIngest() {
             handleDofUrlImport();
         }
     });
+
+    // Pobla los selects "modifica a" con el acervo ya cargado (sin query extra)
+    window.addEventListener('search-ready', (e) => populateRelacionSelects(e.detail?.summaries || []));
+}
+
+function populateRelacionSelects(summaries) {
+    if (!summaries.length) return;
+    const opts = summaries
+        .slice()
+        .sort((a, b) => a.titulo.localeCompare(b.titulo))
+        .map(s => {
+            const label = `${s.siglas ? s.siglas + ' — ' : ''}${s.titulo}`;
+            const short = label.length > 95 ? label.slice(0, 95) + '…' : label;
+            return `<option value="${s.id}" title="${s.titulo.replace(/"/g, '&quot;')}">${short}</option>`;
+        })
+        .join('');
+    for (const id of ['admin-input-modifica', 'edit-law-modifica']) {
+        const sel = document.getElementById(id);
+        if (!sel) continue;
+        const placeholder = sel.options[0]?.outerHTML || '<option value="">— Ninguno —</option>';
+        const prev = sel.value;
+        sel.innerHTML = placeholder + opts;
+        if (prev) sel.value = prev;
+    }
 }
 
 // === GESTIÓN DE ACERVO (CRUD) ===
@@ -193,6 +217,22 @@ async function openEditModal(id) {
         document.getElementById('edit-law-temas').value = (ley.temas_clave || []).join(', ');
         document.getElementById('edit-law-url').value = ley.url_original || '';
 
+        // Relación "modifica a" existente (tolerante a tabla ausente)
+        try {
+            const { data: rels } = await supabase
+                .from('ley_relaciones')
+                .select('ley_afectada_id, tipo')
+                .eq('ley_nueva_id', id)
+                .limit(1);
+            const rel = rels?.[0];
+            const selMod = document.getElementById('edit-law-modifica');
+            const selTipo = document.getElementById('edit-law-modifica-tipo');
+            if (selMod) selMod.value = rel?.ley_afectada_id || '';
+            if (selTipo) selTipo.value = rel?.tipo || 'modifica';
+        } catch (relErr) {
+            console.warn('[Admin] ley_relaciones no disponible:', relErr.message);
+        }
+
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         setTimeout(() => {
@@ -229,6 +269,23 @@ async function handleUpdateLaw(e) {
 
     try {
         await updateLaw(id, payload);
+
+        // Sincroniza la relación "modifica a" (una por instrumento desde este modal)
+        try {
+            const modificaId = document.getElementById('edit-law-modifica')?.value || '';
+            const tipoRel = document.getElementById('edit-law-modifica-tipo')?.value || 'modifica';
+            await supabase.from('ley_relaciones').delete().eq('ley_nueva_id', id);
+            if (modificaId) {
+                const { error: relError } = await supabase
+                    .from('ley_relaciones')
+                    .insert([{ ley_afectada_id: modificaId, ley_nueva_id: id, tipo: tipoRel }]);
+                if (relError) throw relError;
+            }
+        } catch (relErr) {
+            console.warn('[Admin] No se pudo guardar la relación:', relErr.message);
+            alert('La ley se actualizó, pero la relación "modifica a" no se pudo guardar: ' + relErr.message);
+        }
+
         closeEditModal();
         fetchAndRenderManageLaws();
     } catch (err) {
@@ -1058,6 +1115,20 @@ async function handleIngestToSupabase() {
         }]).select();
         if (leyError) throw leyError;
         const newLeyId = leyData[0].id;
+
+        // Relación "modifica a" si el usuario vinculó un instrumento existente.
+        // No aborta la ingesta si falla (p. ej. tabla aún no creada).
+        const modificaId = document.getElementById('admin-input-modifica')?.value || '';
+        if (modificaId) {
+            const tipoRel = document.getElementById('admin-input-modifica-tipo')?.value || 'modifica';
+            const { error: relError } = await supabase.from('ley_relaciones').insert([{
+                ley_afectada_id: modificaId,
+                ley_nueva_id: newLeyId,
+                tipo: tipoRel,
+                fecha: fechaInput
+            }]);
+            if (relError) console.warn('[Admin] No se pudo registrar la relación:', relError.message);
+        }
 
         if (barEl) barEl.style.width = '10%';
         if (pctEl) pctEl.textContent = '10%';

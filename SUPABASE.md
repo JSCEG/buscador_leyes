@@ -93,6 +93,25 @@ UNIQUE (user_id, articulo_id)
 - Trigger `trg_user_notes_updated_at` actualiza `updated_at` automáticamente en cada UPDATE.
 - La lógica de guardado usa `upsert`: si ya existe una nota para ese artículo/usuario, la actualiza; si el texto queda vacío, la borra.
 
+### 2.6 `ley_relaciones` — modificaciones entre instrumentos
+
+```sql
+id              uuid  PK  default gen_random_uuid()
+ley_afectada_id uuid  FK → leyes(id) ON DELETE CASCADE  NOT NULL  -- el instrumento viejo
+ley_nueva_id    uuid  FK → leyes(id) ON DELETE CASCADE  NOT NULL  -- la modificación
+tipo            text  NOT NULL default 'modifica'  -- 'modifica'|'reforma'|'adiciona'|'abroga'|'sustituye'
+fecha           date  NULL
+created_at      timestamptz default now()
+UNIQUE (ley_afectada_id, ley_nueva_id)
+CHECK (ley_afectada_id <> ley_nueva_id)
+```
+
+- Registra que un instrumento cargado modifica/reforma/abroga a otro del acervo.
+- Se vincula desde el Gestor: al ingestar (select "¿Modifica un instrumento existente?") o a posteriori en el modal de edición.
+- El frontend la carga completa en `initSearch()` (`getLeyRelaciones()` en `search-engine.js`) y la pasa en el evento `search-ready`; `ui.js` muestra badge ámbar en resultados de búsqueda y banners en el detalle de ley (ambas direcciones).
+- Sin RLS (mismo patrón que `leyes`/`articulos`). Grant `SELECT, INSERT, UPDATE, DELETE` a `anon` y `authenticated`.
+- El código es tolerante a que la tabla no exista (degrada a "sin relaciones").
+
 ---
 
 ## 3. Autenticación

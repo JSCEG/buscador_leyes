@@ -51,6 +51,7 @@ describe('Search Engine', () => {
     expect(event.detail).toEqual({
       totalLeyes: 2,
       totalArticulos: 5,
+      relaciones: [],
       leyes: ['Ley Test', 'Reglamento Test'],
       summaries: [
         {
@@ -121,6 +122,7 @@ describe('Search Engine', () => {
       data: [
         {
           id: 'art-1',
+          ley_id: null,
           ley_origen: 'Ley Test',
           siglas_ley: null,
           fecha_publicacion: '2024-01-01',
