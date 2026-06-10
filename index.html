@@ -488,6 +488,26 @@
                         <option value="otros">Otros / No clasificado</option>
                     </select>
                 </div>
+                <!-- Importar desde URL del DOF -->
+                <div class="mb-6">
+                    <label for="admin-input-dof-url" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Importar desde URL del DOF</label>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="text" id="admin-input-dof-url"
+                            class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors"
+                            placeholder="https://www.dof.gob.mx/nota_detalle.php?codigo=5751234... o solo el código">
+                        <button id="admin-btn-dof-import"
+                            class="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-medium transition-colors shadow-lg shadow-amber-600/20 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap">
+                            Importar nota
+                        </button>
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-1.5">El texto se descarga directo del API oficial del DOF (SIDOF), sin necesidad de bajar y subir el PDF. Metadatos se autocompletan.</p>
+                </div>
+
+                <div class="relative mb-6 text-center">
+                    <span class="relative z-10 px-4 bg-white text-xs font-bold text-gray-400 uppercase tracking-widest">o sube el PDF</span>
+                    <div class="absolute inset-x-0 top-1/2 h-px bg-gray-200"></div>
+                </div>
+
                 <!-- Dropzone -->
                 <div id="admin-dropzone"
                     class="border-2 border-dashed border-gray-300 rounded-2xl p-12 text-center hover:border-amber-500 hover:bg-amber-50/30 transition-all duration-300 cursor-pointer group flex flex-col items-center justify-center">

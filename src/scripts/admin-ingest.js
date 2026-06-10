@@ -22,6 +22,7 @@ function parseHeading(line, pattern) {
 }
 
 let importedFile = null;
+let importedDofText = null;
 let parsedChunks = [];
 let parsedThemes = [];
 
@@ -95,6 +96,14 @@ export function initAdminIngest() {
 
     btnParse.addEventListener('click', handleParseFile);
     btnIngest.addEventListener('click', handleIngestToSupabase);
+
+    document.getElementById('admin-btn-dof-import')?.addEventListener('click', handleDofUrlImport);
+    document.getElementById('admin-input-dof-url')?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleDofUrlImport();
+        }
+    });
 }
 
 // === GESTIÓN DE ACERVO (CRUD) ===
@@ -247,6 +256,7 @@ function handleFileSelection(file) {
         return;
     }
     importedFile = file;
+    importedDofText = null;
     document.getElementById('admin-file-name').textContent = `📄 ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
     document.getElementById('admin-file-name').classList.remove('hidden');
     document.getElementById('admin-btn-parse').disabled = false;
@@ -346,6 +356,20 @@ function detectUrl(text) {
     return m ? m[0] : null;
 }
 
+function fillFieldIfEmpty(id, value) {
+    if (!value) return false;
+    const el = document.getElementById(id);
+    if (!el) return false;
+    if (el.value && el.value.trim()) return false;
+    if (el.tagName === 'SELECT') {
+        const opt = Array.from(el.options).find(o => o.value === value);
+        if (opt) { el.value = value; return true; }
+        return false;
+    }
+    el.value = value;
+    return true;
+}
+
 async function autoDetectMetadata(file) {
     const text = await extractFirstPagesText(file, 2);
     const tipo = detectTipo(text);
@@ -353,31 +377,133 @@ async function autoDetectMetadata(file) {
     const titulo = detectTitulo(text);
     const url = detectUrl(text);
 
-    const fillIfEmpty = (id, value) => {
-        if (!value) return false;
-        const el = document.getElementById(id);
-        if (!el) return false;
-        if (el.value && el.value.trim()) return false;
-        if (el.tagName === 'SELECT') {
-            const opt = Array.from(el.options).find(o => o.value === value);
-            if (opt) { el.value = value; return true; }
-            return false;
-        }
-        el.value = value;
-        return true;
-    };
-
     const filled = [];
-    if (fillIfEmpty('admin-input-title', titulo)) filled.push('título');
-    if (fillIfEmpty('admin-input-tipo', tipo)) filled.push('tipo');
-    if (fillIfEmpty('admin-input-fecha', fecha)) filled.push('fecha');
-    if (fillIfEmpty('admin-input-url', url)) filled.push('URL');
+    if (fillFieldIfEmpty('admin-input-title', titulo)) filled.push('título');
+    if (fillFieldIfEmpty('admin-input-tipo', tipo)) filled.push('tipo');
+    if (fillFieldIfEmpty('admin-input-fecha', fecha)) filled.push('fecha');
+    if (fillFieldIfEmpty('admin-input-url', url)) filled.push('URL');
 
     if (filled.length > 0) {
         displayAlert('success', 'Metadatos detectados',
             `Se autocompletó: ${filled.join(', ')}. Revisa y ajusta antes de parsear.`);
     } else {
         console.log('[Autodetect] sin campos auto-rellenables. Detectado:', { tipo, fecha, titulo, url });
+    }
+}
+
+// === IMPORTACIÓN DESDE URL DEL DOF (API SIDOF) ===
+
+// El API oficial del DOF (SIDOF) expone las notas con CORS abierto; el host de
+// producción y el de QA sirven los mismos datos, se intentan en orden.
+const DOF_API_HOSTS = ['https://sidof.segob.gob.mx', 'https://sidofqa.segob.gob.mx'];
+
+function parseCodNotaFromInput(value) {
+    const v = (value || '').trim();
+    if (!v) return null;
+    const m = v.match(/[?&]codigo=(\d+)/i) || v.match(/\/notas?\/(\d{5,})/i) || v.match(/^(\d{5,})$/);
+    return m ? m[1] : null;
+}
+
+async function fetchDofNota(codNota) {
+    let lastErr = null;
+    for (const host of DOF_API_HOSTS) {
+        try {
+            // Sin header Accept explícito: el endpoint responde 406 ante
+            // "Accept: application/json"; con el default del navegador (*/*) sirve JSON.
+            const res = await fetch(`${host}/dof/sidof/notas/nota/${codNota}`);
+            if (!res.ok) { lastErr = new Error(`HTTP ${res.status} en ${host}`); continue; }
+            const json = await res.json();
+            if (json?.messageCode === 200 && json.Nota) return json.Nota;
+            lastErr = new Error(json?.response || 'Respuesta inesperada del API del DOF');
+        } catch (e) {
+            lastErr = e;
+        }
+    }
+    throw lastErr || new Error('No se pudo consultar el API del DOF');
+}
+
+const HTML_BLOCK_TAGS = new Set([
+    'P', 'DIV', 'TABLE', 'TR', 'LI', 'UL', 'OL', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6',
+    'SECTION', 'ARTICLE', 'BLOCKQUOTE', 'CENTER', 'HR', 'TBODY', 'THEAD'
+]);
+
+function htmlToPlainText(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    doc.querySelectorAll('script, style').forEach(el => el.remove());
+    const walk = (node) => {
+        if (node.nodeType === Node.TEXT_NODE) return node.textContent;
+        if (node.nodeType !== Node.ELEMENT_NODE) return '';
+        const tag = node.tagName;
+        if (tag === 'BR') return '\n';
+        let out = '';
+        for (const child of node.childNodes) out += walk(child);
+        if (tag === 'TD' || tag === 'TH') return out + ' ';
+        if (HTML_BLOCK_TAGS.has(tag)) return out + '\n';
+        return out;
+    };
+    return walk(doc.body)
+        .replace(/\u00a0/g, ' ')
+        .split('\n')
+        .map(line => line.replace(/\s+/g, ' ').trim())
+        .join('\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+}
+
+async function handleDofUrlImport() {
+    const input = document.getElementById('admin-input-dof-url');
+    const btn = document.getElementById('admin-btn-dof-import');
+    const spinner = document.getElementById('admin-loading-spinner');
+    const codNota = parseCodNotaFromInput(input?.value);
+    if (!codNota) {
+        displayAlert('error', 'URL no reconocida',
+            'Pega un enlace tipo dof.gob.mx/nota_detalle.php?codigo=... o directamente el código numérico de la nota.');
+        return;
+    }
+    if (btn) btn.disabled = true;
+    spinner?.classList.remove('hidden');
+    try {
+        const nota = await fetchDofNota(codNota);
+        const html = nota.cadenaContenido;
+        if (!html || !html.trim()) {
+            throw new Error('Esta nota no tiene versión HTML en el DOF (frecuente en publicaciones antiguas o anexos escaneados). Descarga el PDF y súbelo manualmente.');
+        }
+        importedDofText = htmlToPlainText(html);
+        importedFile = null;
+        parsedChunks = [];
+        document.getElementById('admin-preview-area')?.classList.add('hidden');
+
+        let fechaISO = null, fechaDof = null;
+        const fm = (nota.fecha || '').match(/^(\d{2})-(\d{2})-(\d{4})$/);
+        if (fm) {
+            fechaISO = `${fm[3]}-${fm[2]}-${fm[1]}`;
+            fechaDof = `${fm[1]}/${fm[2]}/${fm[3]}`;
+        }
+        const urlCanonica = `https://www.dof.gob.mx/nota_detalle.php?codigo=${codNota}` + (fechaDof ? `&fecha=${fechaDof}` : '');
+        const tipo = detectTipo(`${nota.titulo || ''}\n${importedDofText.slice(0, 4000)}`);
+
+        const filled = [];
+        if (fillFieldIfEmpty('admin-input-title', (nota.titulo || '').trim())) filled.push('título');
+        if (fillFieldIfEmpty('admin-input-tipo', tipo)) filled.push('tipo');
+        if (fillFieldIfEmpty('admin-input-fecha', fechaISO)) filled.push('fecha');
+        if (fillFieldIfEmpty('admin-input-url', urlCanonica)) filled.push('URL');
+
+        const fileNameEl = document.getElementById('admin-file-name');
+        if (fileNameEl) {
+            fileNameEl.textContent = `🌐 Nota DOF ${codNota}${nota.fecha ? ` (${nota.fecha})` : ''} — texto descargado del API`;
+            fileNameEl.classList.remove('hidden');
+        }
+        document.getElementById('admin-btn-parse').disabled = false;
+
+        displayAlert('success', 'Nota importada del DOF',
+            `Texto descargado (${importedDofText.length.toLocaleString()} caracteres).` +
+            (filled.length ? ` Se autocompletó: ${filled.join(', ')}.` : '') +
+            ' Revisa los metadatos y presiona "Verificar y Preprocesar".');
+    } catch (e) {
+        displayAlert('error', 'Error al importar desde el DOF', e.message);
+    } finally {
+        if (btn) btn.disabled = false;
+        spinner?.classList.add('hidden');
     }
 }
 
@@ -437,7 +563,7 @@ async function handleParseFile() {
         displayAlert('error', 'Falta el título', 'Por favor ingresa el título normativo.');
         return;
     }
-    if (!importedFile) return;
+    if (!importedFile && !importedDofText) return;
     try {
         const { data: leyes } = await supabase.from('leyes').select('titulo, siglas');
         let possibleDuplicate = false;
@@ -465,7 +591,9 @@ async function handleParseFile() {
     document.getElementById('admin-btn-parse').disabled = true;
     document.getElementById('admin-loading-spinner').classList.remove('hidden');
     try {
-        const textContent = await extractTextFromPDF(importedFile);
+        const textContent = importedDofText !== null
+            ? importedDofText
+            : await extractTextFromPDF(importedFile);
         parsedThemes = extractThemes(textContent);
         parsedChunks = executeChunkingAlg(textContent, parsedThemes);
         renderPrevision(parsedChunks, parsedThemes);
