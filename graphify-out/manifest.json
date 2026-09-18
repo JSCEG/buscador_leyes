@@ -215,7 +215,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\data\\manifest.json": {
-    "mtime": 1789741004.1935356,
+    "mtime": 1789775760.1717792,
     "ast_hash": "ebb3e943f1ca6d628a3f264d3d397484",
     "semantic_hash": ""
   },
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\scripts\\ui.js": {
-    "mtime": 1789740944.9595444,
-    "ast_hash": "3563559ae8d9cde9a65dda403946258a",
+    "mtime": 1789775689.9154127,
+    "ast_hash": "5fbed6b1d5203e216b1e95f0f672c7c3",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\legal-ingest-pipeline.test.js": {
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\README.md": {
-    "mtime": 1773690382.7972095,
-    "ast_hash": "3aabed4e6426dc58c8ef9117d308b6ce",
+    "mtime": 1789775092.0953028,
+    "ast_hash": "c5d8406309dac2080d429874da81c66f",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\SUPABASE.md": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\scripts\\law-presentation.js": {
-    "mtime": 1780964450.6280758,
-    "ast_hash": "2fe3d3088eae31b02b4d124ba49ccdd0",
+    "mtime": 1789775605.423288,
+    "ast_hash": "f57c14ecea20c1576231d67f882275db",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\img\\portada_ppt.png": {
@@ -3327,6 +3327,31 @@
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-convocatorias-2026-09-17\\revision-visual\\informe.png": {
     "mtime": 1789711440.7250683,
     "ast_hash": "9bcfb69b352e61b3563e7172562fc3c0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\lib\\article-preview.js": {
+    "mtime": 1789775597.7694936,
+    "ast_hash": "0f6c753642f40fade01355008858def8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\article-preview.test.js": {
+    "mtime": 1789775661.2237895,
+    "ast_hash": "f17c7b01b35e37af83b273a1e91c2e2e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\ui-agreements.test.js": {
+    "mtime": 1789775663.6456974,
+    "ast_hash": "242a015f7d1ac9786ab4e9c3ce5cda9e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\README.md": {
+    "mtime": 1789774711.533772,
+    "ast_hash": "9797246e69a1c42106302200c9aeaa05",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-visual\\acuerdo-portada-corregida.png": {
+    "mtime": 1789775694.5433729,
+    "ast_hash": "4f0af63abc9a78455fc26df91fa2144d",
     "semantic_hash": ""
   }
 }

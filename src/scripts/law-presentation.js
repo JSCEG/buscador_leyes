@@ -118,11 +118,13 @@ function initializePresentationRuntime(root, model, law, articles, themes, opts 
         const availableHeight = opts.embedded ? Math.max(420, bounds.height || 620) : window.innerHeight;
         const scale = Math.min((bounds.width || window.innerWidth) / 1333, availableHeight / 750, 1);
         root.style.setProperty('--lp-scale', String(Math.max(scale, 0.24)));
+        fitSlideTitles(slides[activeIndex]);
     };
 
     const showSlide = (index) => {
         activeIndex = Math.max(0, Math.min(index, slides.length - 1));
         slides.forEach((slide, i) => slide.classList.toggle('active', i === activeIndex));
+        fitSlideTitles(slides[activeIndex]);
         if (current) current.textContent = String(activeIndex + 1);
         if (progress) progress.style.width = `${((activeIndex + 1) / slides.length) * 100}%`;
         if (prev) prev.disabled = activeIndex === 0;
@@ -199,6 +201,22 @@ function initializePresentationRuntime(root, model, law, articles, themes, opts 
     document.addEventListener('keydown', keyHandler);
     updateScale();
     showSlide(0);
+    document.fonts?.ready.then(() => {
+        if (root.isConnected) fitSlideTitles(slides[activeIndex]);
+    });
+}
+
+function fitSlideTitles(slide) {
+    slide?.querySelectorAll('[data-lp-fit-height]').forEach(title => {
+        if (!title.clientWidth) return;
+        title.style.fontSize = '';
+        let size = parseFloat(getComputedStyle(title).fontSize);
+        const height = Number(title.dataset.lpFitHeight);
+        // Medir el título completo deja espacio para metadatos y controles.
+        while (size > 16 && (title.scrollHeight > height || title.scrollWidth > title.clientWidth)) {
+            title.style.fontSize = `${--size}px`;
+        }
+    });
 }
 
 function loadAnimeJs() {
@@ -489,7 +507,7 @@ function renderWebDeck(model) {
                 </div>
                 <div class="lp-cover-body">
                     <p class="lp-eyebrow" data-animate>Marco Legal Energético</p>
-                    <h1 data-animate>${escapeHtml(model.law.titulo)}</h1>
+                    <h1 data-animate data-lp-fit-height="300">${escapeHtml(model.law.titulo)}</h1>
                     <div class="lp-cover-rule" data-animate></div>
                     <p class="lp-cover-meta" data-animate>${escapeHtml(model.typeLabel)} · ${escapeHtml(model.law.siglas || 'Sin siglas')}</p>
                     <p class="lp-cover-date" data-animate>Publicación: ${escapeHtml(model.law.fecha_publicacion || 'N/D')} · Última reforma: ${escapeHtml(model.law.fecha_ultima_reforma || 'N/D')}</p>
@@ -500,7 +518,7 @@ function renderWebDeck(model) {
             <section class="lp-slide">
                 ${renderSlideShell('RESUMEN GENERAL', `
                     <p class="lp-eyebrow" data-animate>${escapeHtml(model.law.siglas || model.typeLabel)}</p>
-                    <h2 data-animate>${escapeHtml(model.law.titulo)}</h2>
+                    <h2 data-animate data-lp-fit-height="104">${escapeHtml(model.law.titulo)}</h2>
                     <div class="lp-summary-layout">
                         <div class="lp-summary-text" data-animate data-lp-title="Resumen general" data-lp-detail="${escapeAttr(model.summary || 'No hay resumen cargado para este instrumento. La presentación se construye con metadatos, estructura y artículos disponibles en el acervo.')}">${escapeHtml(model.summary || 'No hay resumen cargado para este instrumento. La presentación se construye con metadatos, estructura y artículos disponibles en el acervo.')}</div>
                         <div class="lp-kpis" data-animate>
@@ -573,7 +591,7 @@ function renderWebDeck(model) {
                         <img src="/img/logo_sener.png" alt="SENER">
                     </div>
                     <p class="lp-eyebrow" data-animate>Cierre</p>
-                    <h2 data-animate>${escapeHtml(model.law.titulo)}</h2>
+                    <h2 data-animate data-lp-fit-height="190">${escapeHtml(model.law.titulo)}</h2>
                     <p data-animate>Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.</p>
                     ${renderOfficialSourceLink(model.law.url_original)}
                 </div>
@@ -839,6 +857,7 @@ function ensureWebDeckStyles() {
         .lp-slide{position:absolute;inset:0;display:none;width:1333px;height:750px;background:#fff;opacity:0;transition:opacity .25s ease}
         .lp-slide.active{display:block;opacity:1}
         .lp-slide.lp-animate-ready [data-animate]{animation:lpFadeUp .48s ease both}
+        [data-lp-fit-height]{overflow-wrap:anywhere}
         .lp-shell{width:100%;height:100%;display:flex;flex-direction:column;background:#fff;overflow:hidden}
         .lp-header{height:74px;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;padding:14px 34px;background:linear-gradient(180deg,#fafafa 0%,#fff 100%);border-bottom:2px solid #9B2247}
         .lp-brand{font-family:'Patria','Noto Sans',sans-serif;font-weight:700;font-size:21px;color:#9B2247;display:flex;gap:10px;align-items:center}

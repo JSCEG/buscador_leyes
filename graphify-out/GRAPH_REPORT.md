@@ -1,16 +1,16 @@
 # Graph Report - 65.-Buscador de Leyes Energía  (2026-09-18)
 
 ## Corpus Check
-- 411 files · ~14,736,845 words
+- 399 files · ~14,110,203 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 10387 nodes · 10698 edges · 359 communities (327 shown, 32 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.8)
+- 10321 nodes · 10631 edges · 352 communities (320 shown, 32 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `53bd1603`
+- Built from commit: `4235e839`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -82,13 +82,9 @@
 - [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
 - [[_COMMUNITY_Community 72|Community 72]]
-- [[_COMMUNITY_Community 73|Community 73]]
 - [[_COMMUNITY_Community 74|Community 74]]
-- [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 79|Community 79]]
 - [[_COMMUNITY_Community 80|Community 80]]
 - [[_COMMUNITY_Community 81|Community 81]]
-- [[_COMMUNITY_Community 82|Community 82]]
 - [[_COMMUNITY_Community 83|Community 83]]
 - [[_COMMUNITY_Community 84|Community 84]]
 - [[_COMMUNITY_Community 85|Community 85]]
@@ -333,29 +329,29 @@
 10. `asignacion` - 418 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `backfill()` --calls--> `extractThemes()`  [INFERRED]
-  backfill_temas.js → scratch/test_regex.js
 - `main()` --calls--> `extractLegalStructureFromPdf()`  [EXTRACTED]
   ingestar_pdf.js → legal-ingest-pipeline.js
-- `testChunkLegalText()` --calls--> `extractThemesFromText()`  [EXTRACTED]
-  scratch/test_full_parse_dof.js → legal-ingest-pipeline.js
-- `main()` --calls--> `extractLegalStructureFromText()`  [EXTRACTED]
-  scratch/test_dof_parse.js → legal-ingest-pipeline.js
-- `extractTextFromPDF()` --calls--> `require`  [INFERRED]
-  scratch/test_decreto_browser.js → tests/legal-ingest-pipeline.test.js
+- `fix()` --calls--> `extractLegalStructureFromText()`  [EXTRACTED]
+  fix_rechunk.js → legal-ingest-pipeline.js
+- `fix()` --calls--> `rebuildTextFromChunks()`  [EXTRACTED]
+  fix_rechunk.js → legal-ingest-pipeline.js
+- `rechunk()` --calls--> `extractLegalStructureFromText()`  [EXTRACTED]
+  rechunk_leyes.js → legal-ingest-pipeline.js
+- `rechunk()` --calls--> `rebuildTextFromChunks()`  [EXTRACTED]
+  rechunk_leyes.js → legal-ingest-pipeline.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (359 total, 32 thin omitted)
+## Communities (352 total, 32 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (51): ARTICLE_HEADING_INLINE_PATTERN, ARTICLE_LABEL_SRC, autoDetectMetadata(), BIS_MODIFIER, calculateSimilarity(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), closeEditModal() (+43 more)
+Cohesion: 0.07
+Nodes (44): ARTICLE_HEADING_INLINE_PATTERN, ARTICLE_LABEL_SRC, autoDetectMetadata(), BIS_MODIFIER, calculateSimilarity(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), detectFecha() (+36 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.10
-Nodes (31): ARTICLE_HEADING_GLOBAL_PATTERN, ARTICLE_HEADING_PATTERN, ARTICLE_LABEL, chunkLegalText(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), ensureHeadingBoundaries(), { execFileSync } (+23 more)
+Cohesion: 0.12
+Nodes (18): ARTICLE_HEADING_GLOBAL_PATTERN, ARTICLE_HEADING_PATTERN, ARTICLE_LABEL, { execFileSync }, { execFileSync, spawnSync }, extractThemesFromText(), fs, getFollowingHeadingName() (+10 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
@@ -493,29 +489,27 @@ Nodes (63): 2.13. Consideraciones Generales para la operación en el MEM, 3.5. C
 Cohesion: 0.50
 Nodes (3): comites, consejo_planeacion, planeacion_vinculante
 
-### Community 55 - "Community 55"
+### Community 50 - "Community 50"
 Cohesion: 0.29
-Nodes (5): backfill(), { createClient }, { extractThemesFromText }, supabase, extractThemes()
+Nodes (6): Archivos locales, Buscador de Leyes Energía, buscador_leyes, Desarrollo local, Estado del acervo, Publicación
+
+### Community 55 - "Community 55"
+Cohesion: 0.40
+Nodes (3): { createClient }, { extractThemesFromText }, supabase
 
 ### Community 62 - "Community 62"
-Cohesion: 0.10
-Nodes (36): addArticleCard(), addKeyArticlesSlides(), buildArticleDetailText(), buildLocation(), buildPresentationModel(), buildStructureRows(), buildTreemapData(), chunk() (+28 more)
+Cohesion: 0.07
+Nodes (52): addArticleCard(), addClosingSlide(), addContentShell(), addCoverFooter(), addCoverSlide(), addInfoRow(), addKeyArticlesSlides(), addLogoPair() (+44 more)
 
 ### Community 63 - "Community 63"
-Cohesion: 0.15
-Nodes (15): { createClient }, {
-    extractLegalStructureFromText,
-    rebuildTextFromChunks
-}, fix(), supabase, extractLegalStructureFromText(), rebuildTextFromChunks(), { createClient }, {
-    extractLegalStructureFromText,
-    rebuildTextFromChunks
-} (+7 more)
+Cohesion: 0.24
+Nodes (10): { createClient }, {
+    extractLegalStructureFromText,    rebuildTextFromChunks}, fix(), supabase, extractLegalStructureFromText(), rebuildTextFromChunks(), { createClient }, {    extractLegalStructureFromText,    rebuildTextFromChunks} (+2 more)
 
 ### Community 64 - "Community 64"
-Cohesion: 0.12
-Nodes (16): { createClient }, {
-    extractLegalStructureFromPdf
-}, fs, main(), path, supabase, convertPdfToMarkdown(), extractLegalStructureFromPdf() (+8 more)
+Cohesion: 0.22
+Nodes (10): { createClient }, {
+    extractLegalStructureFromPdf}, fs, main(), path, supabase, convertPdfToMarkdown(), extractLegalStructureFromPdf() (+2 more)
 
 ### Community 65 - "Community 65"
 Cohesion: 0.00
@@ -530,52 +524,35 @@ Cohesion: 0.05
 Nodes (42): Artículo 1, Artículo 10, Artículo 11, Artículo 12, Artículo 13, Artículo 14, Artículo 15, Artículo 16 (+34 more)
 
 ### Community 68 - "Community 68"
-Cohesion: 0.15
-Nodes (20): ARTICLE_HEADING_GLOBAL_PATTERN, ARTICLE_HEADING_PATTERN, ARTICLE_LABEL, chunkNumberedLineamientos(), cleanTransitoryRemainder(), { extractThemesFromText }, fs, hasNumberedLineamientoStructure() (+12 more)
+Cohesion: 0.24
+Nodes (16): authListeners, dbAddFavorite(), dbGetAllNotes(), dbGetFavorites(), dbRemoveFavorite(), dbSaveNote(), getCurrentUser(), initAuth() (+8 more)
 
 ### Community 69 - "Community 69"
-Cohesion: 0.15
-Nodes (10): ARTICLE_HEADING_INLINE_PATTERN, ARTICLE_LABEL_SRC, BIS_MODIFIER, extractTextFromPDF(), fs, ORDINAL_ARTICLE_LABEL, path, { describe, expect, test } (+2 more)
+Cohesion: 0.25
+Nodes (7): ensureHeadingBoundaries(), extractLegalStructureFromMarkdown(), normalizeLegalText(), normalizeMarkdownToText(), { describe, expect, test }, {
+    extractLegalStructureFromMarkdown,
+    extractLegalStructureFromText
+}, require
 
 ### Community 70 - "Community 70"
-Cohesion: 0.33
-Nodes (5): content, filePath, fs, hasCRLF, path
+Cohesion: 0.38
+Nodes (8): escapeHtml(), getHighlightPattern(), getTextPreview(), highlightHtml(), highlightText(), highlightWithPattern(), STOP_WORDS_ES, publication
 
 ### Community 71 - "Community 71"
-Cohesion: 0.33
-Nodes (5): content, filePath, fs, hasCRLF, path
-
-### Community 72 - "Community 72"
-Cohesion: 0.40
-Nodes (5): { extractLegalStructureFromText, normalizeLegalText }, fs, main(), path, testNormalizeLegalText()
-
-### Community 73 - "Community 73"
-Cohesion: 0.50
-Nodes (3): content, fs, lines
+Cohesion: 0.28
+Nodes (9): chunkLegalText(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), hasNumberedLineamientoStructure(), normalizeChunkContent(), normalizePodecobiLineamientoHierarchy(), parseHeading(), parseStructuralHeading() (+1 more)
 
 ### Community 74 - "Community 74"
 Cohesion: 0.09
 Nodes (21): articulos, estructura, incidencias_corregidas, material_complementario, metadata, articulos_ordinarios, estado_preparacion, fecha_consulta (+13 more)
 
-### Community 75 - "Community 75"
-Cohesion: 0.50
-Nodes (3): files, fs, path
-
-### Community 79 - "Community 79"
-Cohesion: 0.20
-Nodes (16): addClosingSlide(), addContentShell(), addCoverFooter(), addCoverSlide(), addInfoRow(), addLogoPair(), addMiniTable(), addSectionTitle() (+8 more)
-
 ### Community 80 - "Community 80"
-Cohesion: 0.11
-Nodes (29): supabase, initAdminIngest(), initAdminManagement(), authListeners, dbAddFavorite(), dbGetAllNotes(), dbGetFavorites(), dbRemoveFavorite() (+21 more)
+Cohesion: 0.12
+Nodes (20): supabase, closeEditModal(), fetchAndRenderManageLaws(), handleDeleteLaw(), handleUpdateLaw(), initAdminIngest(), initAdminManagement(), applyFilters() (+12 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.13
 Nodes (14): cobertura_lineas_sin_huecos, cotejo_textual, documentos_scjn, lineas_asignadas, lineas_cuerpo_pdf, lineas_excluidas_encabezados_folios, no_escrituras_supabase, nota_invalidez_preservada (+6 more)
-
-### Community 82 - "Community 82"
-Cohesion: 0.22
-Nodes (5): ARTICLE_LABEL_SRC, BIS_MODIFIER, HTML_BLOCK_TAGS, { JSDOM }, ORDINAL_ARTICLE_LABEL
 
 ### Community 83 - "Community 83"
 Cohesion: 0.13
@@ -1446,7 +1423,7 @@ Cohesion: 0.15
 Nodes (12): enlaces_locales_correctos, fallos, inventory, cargadas, catalogo, cobertura, familias, pendientes (+4 more)
 
 ## Knowledge Gaps
-- **9174 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+9169 more)
+- **9133 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+9128 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1460,10 +1437,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `asignacion` connect `Community 159` to `Community 193`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _9198 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _9157 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.0632996632996633 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07180851063829788 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.09659090909090909 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11578947368421053 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.06387921022067364 - nodes in this community are weakly interconnected._

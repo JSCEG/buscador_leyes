@@ -1,4 +1,5 @@
 import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
+import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 import { renderAnalisisView } from './analisis.js';
 import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-presentation.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
@@ -1445,7 +1446,7 @@ export function initUI() {
         const buildList = (arr) => arr.map((art) => {
             const hasNote = !!getNote(art.id);
             const { loggedIn, fav: isFav } = getFavoriteUiState(art.id);
-            const preview = art.texto ? art.texto.replace(/\s+/g, ' ').substring(0, 100).trim() + '...' : '';
+            const preview = escapeHtml(getTextPreview(art.texto, 100));
             const typeLabel = art.tipo_articulo === 'transitorio' ? 'TRANS' : 
                              art.tipo_articulo === 'preambulo' ? 'PREAM' :
                              art.tipo_articulo === 'anexo' ? 'ANEXO' :
@@ -2075,7 +2076,7 @@ export function initUI() {
         currentModalList = articles;
 
         list.innerHTML = articles.map(item => {
-            const highlightedText = highlightQuery ? highlightText(item.texto, highlightQuery) : item.texto.substring(0, 300) + '...';
+            const highlightedText = highlightText(getTextPreview(item.texto), highlightQuery);
             const hasNote = !!getNote(item.id);
             const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
             const bookmarkIcon = isFav
@@ -2135,53 +2136,6 @@ export function initUI() {
                 renderLawArticles(currentLawArticles.slice(0, 50), q);
             });
         });
-    }
-
-    function escapeRegex(str) {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
-
-    // Palabras vacías del español que no deben resaltarse en búsquedas multi-palabra
-    const STOP_WORDS_ES = new Set([
-        'de', 'la', 'el', 'los', 'las', 'en', 'a', 'con', 'por', 'para', 'del', 'al',
-        'se', 'su', 'sus', 'que', 'no', 'un', 'una', 'o', 'y', 'e', 'ni', 'u', 'lo',
-        'le', 'les', 'me', 'te', 'nos', 'mi', 'si', 'es', 'son', 'fue', 'ser', 'ha',
-        'han', 'hay', 'más', 'ya', 'pero', 'como', 'este', 'esta', 'ese', 'esa',
-        'ante', 'bajo', 'cada', 'cual', 'donde', 'entre', 'hacia', 'hasta',
-        'muy', 'poco', 'sin', 'sobre', 'solo', 'tan', 'todo', 'tras', 'otros'
-    ]);
-
-    function highlightText(text, query) {
-        if (!query || !text) return text || '';
-        
-        // Extraer frases entre comillas
-        const phrases = [];
-        const cleanQuery = query.replace(/"([^"]+)"/g, (match, p) => {
-            if (p.trim()) phrases.push(p.trim());
-            return ' ';
-        });
-
-        const terms = cleanQuery.trim().split(/\s+/).filter(t => t.length > 0);
-        const totalElements = terms.length + phrases.length;
-        const isMultiElement = totalElements > 1;
-
-        // Filtrar palabras sueltas (stopwords y longitud)
-        const words = terms.filter(w =>
-            isMultiElement
-                ? w.length > 3 && !STOP_WORDS_ES.has(w.toLowerCase())
-                : w.length > 1
-        );
-
-        // Combinar frases exactas y palabras relevantes
-        const allToHighlight = [...phrases, ...words];
-        if (allToHighlight.length === 0) return text;
-
-        // Ordenar por longitud descendente para que las frases largas coincidan antes que sus palabras individuales
-        allToHighlight.sort((a, b) => b.length - a.length);
-
-        const pattern = allToHighlight.map(w => escapeRegex(w)).join('|');
-        const regex = new RegExp(`(${pattern})`, 'gi');
-        return text.replace(regex, '<mark class="hl">$1</mark>');
     }
 
     function getRelevanceBadge(score, maxScore) {
@@ -2619,7 +2573,7 @@ export function initUI() {
                     ${item.titulo_nombre ? `<span style="font-size:10px;color:#6b7280;">${item.titulo_nombre}</span>` : ''}
                 </div>
                 <h3 style="font-size:15px;font-weight:700;color:#111;margin:0 0 8px;">${item.articulo_label}</h3>
-                <p style="font-size:13px;color:#374151;line-height:1.7;margin:0 0 ${note ? '10px' : '0'};">${item.texto.substring(0, 800)}${item.texto.length > 800 ? '…' : ''}</p>
+                <p style="font-size:13px;color:#374151;line-height:1.7;margin:0 0 ${note ? '10px' : '0'};">${escapeHtml(getTextPreview(item.texto, 800))}</p>
                 ${note ? `<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;margin-top:8px;">
                     <span style="font-size:10px;font-weight:700;color:#92400e;display:block;margin-bottom:4px;">📝 Mi nota</span>
                     <p style="font-size:12px;color:#78350f;margin:0;line-height:1.6;">${note}</p>
@@ -2789,7 +2743,7 @@ export function initUI() {
                         </div>
                     </div>
                     <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors cursor-pointer">${item.articulo_label}</h3>
-                    <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${item.texto.substring(0, 300)}...</p>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${escapeHtml(getTextPreview(item.texto))}</p>
                 </div>`;
             }).join('');
 
@@ -3532,7 +3486,7 @@ export function initUI() {
                         </thead>
                         <tbody class="divide-y divide-gray-50">
                             ${results.map(item => {
-                                const highlightedText = highlightText(item.texto.substring(0, 140) + '...', query);
+                                const highlightedText = highlightText(getTextPreview(item.texto, 140), query);
                                 const highlightedLabel = highlightText(item.articulo_label, query);
                                 const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
                                 return `
@@ -3692,7 +3646,7 @@ export function initUI() {
         // Highlight search terms in modal content
         // Usa el query global o, si estamos en la vista de ley, el del buscador interno
         const activeQuery = currentSearchQuery || document.getElementById('law-search-input')?.value.trim() || '';
-        const hl = (text) => activeQuery ? highlightText(text, activeQuery) : text;
+        const hl = (html) => highlightHtml(html, activeQuery);
 
         // Sanitizar título y capítulo
         const sanitize = v => (v && v !== 'null' && v !== 'undefined' && v.trim()) ? v.trim() : null;
@@ -3717,7 +3671,7 @@ export function initUI() {
             ${activeQuery ? `
             <div class="mb-5 flex items-center gap-2 text-[11px] text-guinda/70 bg-guinda/5 border border-guinda/10 px-3 py-2 rounded-lg">
                 <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <span class="font-medium">Búsqueda:</span> <mark class="hl">${activeQuery}</mark>
+                <span class="font-medium">Búsqueda:</span> <mark class="hl">${escapeHtml(activeQuery)}</mark>
             </div>` : ''}
             ${hl(finalHtml)}
         `;

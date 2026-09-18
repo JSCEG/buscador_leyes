@@ -513,7 +513,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L185",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizemarkdowntotext",
-      "community": 1,
+      "community": 69,
       "norm_label": "normalizemarkdowntotext()"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L194",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizelegaltext",
-      "community": 1,
+      "community": 69,
       "norm_label": "normalizelegaltext()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L220",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_ensureheadingboundaries",
-      "community": 1,
+      "community": 69,
       "norm_label": "ensureheadingboundaries()"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L293",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parseheading",
-      "community": 1,
+      "community": 71,
       "norm_label": "parseheading()"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L306",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizechunkcontent",
-      "community": 1,
+      "community": 71,
       "norm_label": "normalizechunkcontent()"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L409",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_stripthemeordinal",
-      "community": 1,
+      "community": 71,
       "norm_label": "stripthemeordinal()"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L416",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_parsestructuralheading",
-      "community": 1,
+      "community": 71,
       "norm_label": "parsestructuralheading()"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L438",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_hasnumberedlineamientostructure",
-      "community": 1,
+      "community": 71,
       "norm_label": "hasnumberedlineamientostructure()"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L454",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_cleantransitoryremainder",
-      "community": 1,
+      "community": 71,
       "norm_label": "cleantransitoryremainder()"
     },
     {
@@ -648,7 +648,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L461",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunknumberedlineamientos",
-      "community": 1,
+      "community": 71,
       "norm_label": "chunknumberedlineamientos()"
     },
     {
@@ -657,7 +657,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L573",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizepodecobilineamientohierarchy",
-      "community": 1,
+      "community": 71,
       "norm_label": "normalizepodecobilineamientohierarchy()"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L614",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
-      "community": 1,
+      "community": 71,
       "norm_label": "chunklegaltext()"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "legal-ingest-pipeline.js",
       "source_location": "L736",
       "id": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefrommarkdown",
-      "community": 1,
+      "community": 69,
       "norm_label": "extractlegalstructurefrommarkdown()"
     },
     {
@@ -86881,771 +86881,6 @@
       "norm_label": "temas.json"
     },
     {
-      "label": "check_ui_lines.js",
-      "file_type": "code",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L1",
-      "id": "scratch_check_ui_lines_js",
-      "community": 73,
-      "norm_label": "check_ui_lines.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L1",
-      "id": "scratch_check_ui_lines_fs",
-      "community": 73,
-      "norm_label": "fs"
-    },
-    {
-      "label": "content",
-      "file_type": "code",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L2",
-      "id": "scratch_check_ui_lines_content",
-      "community": 73,
-      "norm_label": "content"
-    },
-    {
-      "label": "lines",
-      "file_type": "code",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L3",
-      "id": "scratch_check_ui_lines_lines",
-      "community": 73,
-      "norm_label": "lines"
-    },
-    {
-      "label": "convert_decreto.js",
-      "file_type": "code",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L1",
-      "id": "scratch_convert_decreto_js",
-      "community": 64,
-      "norm_label": "convert_decreto.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L1",
-      "id": "scratch_convert_decreto_fs",
-      "community": 64,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L2",
-      "id": "scratch_convert_decreto_path",
-      "community": 64,
-      "norm_label": "path"
-    },
-    {
-      "label": "{ extractLegalStructureFromPdf }",
-      "file_type": "code",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L3",
-      "id": "scratch_convert_decreto_extractlegalstructurefrompdf",
-      "community": 64,
-      "norm_label": "{ extractlegalstructurefrompdf }"
-    },
-    {
-      "label": "decreto_chunks.json",
-      "file_type": "code",
-      "source_file": "scratch/decreto_chunks.json",
-      "source_location": "L1",
-      "id": "scratch_decreto_chunks_json",
-      "community": 77,
-      "norm_label": "decreto_chunks.json"
-    },
-    {
-      "label": "decreto_themes.json",
-      "file_type": "code",
-      "source_file": "scratch/decreto_themes.json",
-      "source_location": "L1",
-      "id": "scratch_decreto_themes_json",
-      "community": 78,
-      "norm_label": "decreto_themes.json"
-    },
-    {
-      "label": "inspect_chunks.js",
-      "file_type": "code",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L1",
-      "id": "scratch_inspect_chunks_js",
-      "community": 64,
-      "norm_label": "inspect_chunks.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L1",
-      "id": "scratch_inspect_chunks_fs",
-      "community": 64,
-      "norm_label": "fs"
-    },
-    {
-      "label": "{ extractLegalStructureFromPdf }",
-      "file_type": "code",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L2",
-      "id": "scratch_inspect_chunks_extractlegalstructurefrompdf",
-      "community": 64,
-      "norm_label": "{ extractlegalstructurefrompdf }"
-    },
-    {
-      "label": "{ chunks, themes }",
-      "file_type": "code",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L5",
-      "id": "scratch_inspect_chunks_chunks_themes",
-      "community": 64,
-      "norm_label": "{ chunks, themes }"
-    },
-    {
-      "label": "patch_index_html.js",
-      "file_type": "code",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L1",
-      "id": "scratch_patch_index_html_js",
-      "community": 70,
-      "norm_label": "patch_index_html.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L1",
-      "id": "scratch_patch_index_html_fs",
-      "community": 70,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L2",
-      "id": "scratch_patch_index_html_path",
-      "community": 70,
-      "norm_label": "path"
-    },
-    {
-      "label": "filePath",
-      "file_type": "code",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L4",
-      "id": "scratch_patch_index_html_filepath",
-      "community": 70,
-      "norm_label": "filepath"
-    },
-    {
-      "label": "content",
-      "file_type": "code",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L5",
-      "id": "scratch_patch_index_html_content",
-      "community": 70,
-      "norm_label": "content"
-    },
-    {
-      "label": "hasCRLF",
-      "file_type": "code",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L8",
-      "id": "scratch_patch_index_html_hascrlf",
-      "community": 70,
-      "norm_label": "hascrlf"
-    },
-    {
-      "label": "patch_ingestar_pdf.js",
-      "file_type": "code",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L1",
-      "id": "scratch_patch_ingestar_pdf_js",
-      "community": 71,
-      "norm_label": "patch_ingestar_pdf.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L1",
-      "id": "scratch_patch_ingestar_pdf_fs",
-      "community": 71,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L2",
-      "id": "scratch_patch_ingestar_pdf_path",
-      "community": 71,
-      "norm_label": "path"
-    },
-    {
-      "label": "filePath",
-      "file_type": "code",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L4",
-      "id": "scratch_patch_ingestar_pdf_filepath",
-      "community": 71,
-      "norm_label": "filepath"
-    },
-    {
-      "label": "content",
-      "file_type": "code",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L5",
-      "id": "scratch_patch_ingestar_pdf_content",
-      "community": 71,
-      "norm_label": "content"
-    },
-    {
-      "label": "hasCRLF",
-      "file_type": "code",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L8",
-      "id": "scratch_patch_ingestar_pdf_hascrlf",
-      "community": 71,
-      "norm_label": "hascrlf"
-    },
-    {
-      "label": "search_symbols.js",
-      "file_type": "code",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L1",
-      "id": "scratch_search_symbols_js",
-      "community": 75,
-      "norm_label": "search_symbols.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L1",
-      "id": "scratch_search_symbols_fs",
-      "community": 75,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L2",
-      "id": "scratch_search_symbols_path",
-      "community": 75,
-      "norm_label": "path"
-    },
-    {
-      "label": "files",
-      "file_type": "code",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L4",
-      "id": "scratch_search_symbols_files",
-      "community": 75,
-      "norm_label": "files"
-    },
-    {
-      "label": "test_decreto_browser.js",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L1",
-      "id": "scratch_test_decreto_browser_js",
-      "community": 69,
-      "norm_label": "test_decreto_browser.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L4",
-      "id": "scratch_test_decreto_browser_fs",
-      "community": 69,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L5",
-      "id": "scratch_test_decreto_browser_path",
-      "community": 69,
-      "norm_label": "path"
-    },
-    {
-      "label": "ORDINAL_ARTICLE_LABEL",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L8",
-      "id": "scratch_test_decreto_browser_ordinal_article_label",
-      "community": 69,
-      "norm_label": "ordinal_article_label"
-    },
-    {
-      "label": "BIS_MODIFIER",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L9",
-      "id": "scratch_test_decreto_browser_bis_modifier",
-      "community": 69,
-      "norm_label": "bis_modifier"
-    },
-    {
-      "label": "ARTICLE_LABEL_SRC",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L10",
-      "id": "scratch_test_decreto_browser_article_label_src",
-      "community": 69,
-      "norm_label": "article_label_src"
-    },
-    {
-      "label": "ARTICLE_HEADING_INLINE_PATTERN",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L11",
-      "id": "scratch_test_decreto_browser_article_heading_inline_pattern",
-      "community": 69,
-      "norm_label": "article_heading_inline_pattern"
-    },
-    {
-      "label": "extractTextFromPDF()",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L16",
-      "id": "scratch_test_decreto_browser_extracttextfrompdf",
-      "community": 69,
-      "norm_label": "extracttextfrompdf()"
-    },
-    {
-      "label": "executeChunkingAlg()",
-      "file_type": "code",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L42",
-      "id": "scratch_test_decreto_browser_executechunkingalg",
-      "community": 69,
-      "norm_label": "executechunkingalg()"
-    },
-    {
-      "label": "test_dof_parse.js",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L1",
-      "id": "scratch_test_dof_parse_js",
-      "community": 63,
-      "norm_label": "test_dof_parse.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L1",
-      "id": "scratch_test_dof_parse_fs",
-      "community": 63,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L2",
-      "id": "scratch_test_dof_parse_path",
-      "community": 63,
-      "norm_label": "path"
-    },
-    {
-      "label": "{ JSDOM }",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L3",
-      "id": "scratch_test_dof_parse_jsdom",
-      "community": 63,
-      "norm_label": "{ jsdom }"
-    },
-    {
-      "label": "{ extractLegalStructureFromText }",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L4",
-      "id": "scratch_test_dof_parse_extractlegalstructurefromtext",
-      "community": 63,
-      "norm_label": "{ extractlegalstructurefromtext }"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L6",
-      "id": "scratch_test_dof_parse_main",
-      "community": 63,
-      "norm_label": "main()"
-    },
-    {
-      "label": "test_dof_url_import.js",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L1",
-      "id": "scratch_test_dof_url_import_js",
-      "community": 82,
-      "norm_label": "test_dof_url_import.js"
-    },
-    {
-      "label": "{ JSDOM }",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L4",
-      "id": "scratch_test_dof_url_import_jsdom",
-      "community": 82,
-      "norm_label": "{ jsdom }"
-    },
-    {
-      "label": "HTML_BLOCK_TAGS",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L6",
-      "id": "scratch_test_dof_url_import_html_block_tags",
-      "community": 82,
-      "norm_label": "html_block_tags"
-    },
-    {
-      "label": "htmlToPlainText()",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L11",
-      "id": "scratch_test_dof_url_import_htmltoplaintext",
-      "community": 82,
-      "norm_label": "htmltoplaintext()"
-    },
-    {
-      "label": "ORDINAL_ARTICLE_LABEL",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L36",
-      "id": "scratch_test_dof_url_import_ordinal_article_label",
-      "community": 82,
-      "norm_label": "ordinal_article_label"
-    },
-    {
-      "label": "BIS_MODIFIER",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L37",
-      "id": "scratch_test_dof_url_import_bis_modifier",
-      "community": 82,
-      "norm_label": "bis_modifier"
-    },
-    {
-      "label": "ARTICLE_LABEL_SRC",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L38",
-      "id": "scratch_test_dof_url_import_article_label_src",
-      "community": 82,
-      "norm_label": "article_label_src"
-    },
-    {
-      "label": "chunkCount()",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L40",
-      "id": "scratch_test_dof_url_import_chunkcount",
-      "community": 82,
-      "norm_label": "chunkcount()"
-    },
-    {
-      "label": "fetchNota()",
-      "file_type": "code",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L64",
-      "id": "scratch_test_dof_url_import_fetchnota",
-      "community": 82,
-      "norm_label": "fetchnota()"
-    },
-    {
-      "label": "test_full_parse_dof.js",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L1",
-      "id": "scratch_test_full_parse_dof_js",
-      "community": 68,
-      "norm_label": "test_full_parse_dof.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L1",
-      "id": "scratch_test_full_parse_dof_fs",
-      "community": 68,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L2",
-      "id": "scratch_test_full_parse_dof_path",
-      "community": 68,
-      "norm_label": "path"
-    },
-    {
-      "label": "{ JSDOM }",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L3",
-      "id": "scratch_test_full_parse_dof_jsdom",
-      "community": 68,
-      "norm_label": "{ jsdom }"
-    },
-    {
-      "label": "{ extractThemesFromText }",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L4",
-      "id": "scratch_test_full_parse_dof_extractthemesfromtext",
-      "community": 68,
-      "norm_label": "{ extractthemesfromtext }"
-    },
-    {
-      "label": "ARTICLE_LABEL",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L7",
-      "id": "scratch_test_full_parse_dof_article_label",
-      "community": 68,
-      "norm_label": "article_label"
-    },
-    {
-      "label": "ARTICLE_HEADING_PATTERN",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L8",
-      "id": "scratch_test_full_parse_dof_article_heading_pattern",
-      "community": 68,
-      "norm_label": "article_heading_pattern"
-    },
-    {
-      "label": "ARTICLE_HEADING_GLOBAL_PATTERN",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L12",
-      "id": "scratch_test_full_parse_dof_article_heading_global_pattern",
-      "community": 68,
-      "norm_label": "article_heading_global_pattern"
-    },
-    {
-      "label": "TRANSITORY_LABELS",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L16",
-      "id": "scratch_test_full_parse_dof_transitory_labels",
-      "community": 68,
-      "norm_label": "transitory_labels"
-    },
-    {
-      "label": "TRANSITORY_HEADING_PATTERN",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L21",
-      "id": "scratch_test_full_parse_dof_transitory_heading_pattern",
-      "community": 68,
-      "norm_label": "transitory_heading_pattern"
-    },
-    {
-      "label": "testNormalizeLegalText()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L27",
-      "id": "scratch_test_full_parse_dof_testnormalizelegaltext",
-      "community": 68,
-      "norm_label": "testnormalizelegaltext()"
-    },
-    {
-      "label": "parseHeading()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L59",
-      "id": "scratch_test_full_parse_dof_parseheading",
-      "community": 68,
-      "norm_label": "parseheading()"
-    },
-    {
-      "label": "normalizeChunkContent()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L68",
-      "id": "scratch_test_full_parse_dof_normalizechunkcontent",
-      "community": 68,
-      "norm_label": "normalizechunkcontent()"
-    },
-    {
-      "label": "cleanTransitoryRemainder()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L72",
-      "id": "scratch_test_full_parse_dof_cleantransitoryremainder",
-      "community": 68,
-      "norm_label": "cleantransitoryremainder()"
-    },
-    {
-      "label": "hasNumberedLineamientoStructure()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L76",
-      "id": "scratch_test_full_parse_dof_hasnumberedlineamientostructure",
-      "community": 68,
-      "norm_label": "hasnumberedlineamientostructure()"
-    },
-    {
-      "label": "chunkNumberedLineamientos()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L89",
-      "id": "scratch_test_full_parse_dof_chunknumberedlineamientos",
-      "community": 68,
-      "norm_label": "chunknumberedlineamientos()"
-    },
-    {
-      "label": "stripThemeOrdinal()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L202",
-      "id": "scratch_test_full_parse_dof_stripthemeordinal",
-      "community": 68,
-      "norm_label": "stripthemeordinal()"
-    },
-    {
-      "label": "parseStructuralHeading()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L209",
-      "id": "scratch_test_full_parse_dof_parsestructuralheading",
-      "community": 68,
-      "norm_label": "parsestructuralheading()"
-    },
-    {
-      "label": "normalizePodecobiLineamientoHierarchy()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L228",
-      "id": "scratch_test_full_parse_dof_normalizepodecobilineamientohierarchy",
-      "community": 68,
-      "norm_label": "normalizepodecobilineamientohierarchy()"
-    },
-    {
-      "label": "testChunkLegalText()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L270",
-      "id": "scratch_test_full_parse_dof_testchunklegaltext",
-      "community": 68,
-      "norm_label": "testchunklegaltext()"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L392",
-      "id": "scratch_test_full_parse_dof_main",
-      "community": 68,
-      "norm_label": "main()"
-    },
-    {
-      "label": "test_heading_regex.js",
-      "file_type": "code",
-      "source_file": "scratch/test_heading_regex.js",
-      "source_location": "L1",
-      "id": "scratch_test_heading_regex_js",
-      "community": 76,
-      "norm_label": "test_heading_regex.js"
-    },
-    {
-      "label": "testRegex()",
-      "file_type": "code",
-      "source_file": "scratch/test_heading_regex.js",
-      "source_location": "L23",
-      "id": "scratch_test_heading_regex_testregex",
-      "community": 76,
-      "norm_label": "testregex()"
-    },
-    {
-      "label": "test_regex.js",
-      "file_type": "code",
-      "source_file": "scratch/test_regex.js",
-      "source_location": "L1",
-      "id": "scratch_test_regex_js",
-      "community": 55,
-      "norm_label": "test_regex.js"
-    },
-    {
-      "label": "extractThemes()",
-      "file_type": "code",
-      "source_file": "scratch/test_regex.js",
-      "source_location": "L19",
-      "id": "scratch_test_regex_extractthemes",
-      "community": 55,
-      "norm_label": "extractthemes()"
-    },
-    {
-      "label": "test_regex_dof.js",
-      "file_type": "code",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L1",
-      "id": "scratch_test_regex_dof_js",
-      "community": 72,
-      "norm_label": "test_regex_dof.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L1",
-      "id": "scratch_test_regex_dof_fs",
-      "community": 72,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L2",
-      "id": "scratch_test_regex_dof_path",
-      "community": 72,
-      "norm_label": "path"
-    },
-    {
-      "label": "{ extractLegalStructureFromText, normalizeLegalText }",
-      "file_type": "code",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L3",
-      "id": "scratch_test_regex_dof_extractlegalstructurefromtext_normalizelegaltext",
-      "community": 72,
-      "norm_label": "{ extractlegalstructurefromtext, normalizelegaltext }"
-    },
-    {
-      "label": "testNormalizeLegalText()",
-      "file_type": "code",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L6",
-      "id": "scratch_test_regex_dof_testnormalizelegaltext",
-      "community": 72,
-      "norm_label": "testnormalizelegaltext()"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L38",
-      "id": "scratch_test_regex_dof_main",
-      "community": 72,
-      "norm_label": "main()"
-    },
-    {
       "label": "main.js",
       "file_type": "code",
       "source_file": "src/main.js",
@@ -87653,6 +86888,78 @@
       "id": "src_main_js",
       "community": 80,
       "norm_label": "main.js"
+    },
+    {
+      "label": "article-preview.js",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L1",
+      "id": "src_lib_article_preview_js",
+      "community": 70,
+      "norm_label": "article-preview.js"
+    },
+    {
+      "label": "getTextPreview()",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L2",
+      "id": "lib_article_preview_gettextpreview",
+      "community": 70,
+      "norm_label": "gettextpreview()"
+    },
+    {
+      "label": "STOP_WORDS_ES",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L17",
+      "id": "lib_article_preview_stop_words_es",
+      "community": 70,
+      "norm_label": "stop_words_es"
+    },
+    {
+      "label": "getHighlightPattern()",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L26",
+      "id": "lib_article_preview_gethighlightpattern",
+      "community": 70,
+      "norm_label": "gethighlightpattern()"
+    },
+    {
+      "label": "escapeHtml()",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L42",
+      "id": "lib_article_preview_escapehtml",
+      "community": 70,
+      "norm_label": "escapehtml()"
+    },
+    {
+      "label": "highlightWithPattern()",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L46",
+      "id": "lib_article_preview_highlightwithpattern",
+      "community": 70,
+      "norm_label": "highlightwithpattern()"
+    },
+    {
+      "label": "highlightText()",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L52",
+      "id": "lib_article_preview_highlighttext",
+      "community": 70,
+      "norm_label": "highlighttext()"
+    },
+    {
+      "label": "highlightHtml()",
+      "file_type": "code",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L57",
+      "id": "lib_article_preview_highlighthtml",
+      "community": 70,
+      "norm_label": "highlighthtml()"
     },
     {
       "label": "article-redirects.json",
@@ -87867,7 +87174,7 @@
       "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L132",
       "id": "scripts_admin_ingest_fetchandrendermanagelaws",
-      "community": 0,
+      "community": 80,
       "norm_label": "fetchandrendermanagelaws()"
     },
     {
@@ -87894,7 +87201,7 @@
       "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L244",
       "id": "scripts_admin_ingest_closeeditmodal",
-      "community": 0,
+      "community": 80,
       "norm_label": "closeeditmodal()"
     },
     {
@@ -87903,7 +87210,7 @@
       "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L254",
       "id": "scripts_admin_ingest_handleupdatelaw",
-      "community": 0,
+      "community": 80,
       "norm_label": "handleupdatelaw()"
     },
     {
@@ -87912,7 +87219,7 @@
       "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L293",
       "id": "scripts_admin_ingest_handledeletelaw",
-      "community": 0,
+      "community": 80,
       "norm_label": "handledeletelaw()"
     },
     {
@@ -88317,7 +87624,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L1",
       "id": "src_scripts_auth_js",
-      "community": 80,
+      "community": 68,
       "norm_label": "auth.js"
     },
     {
@@ -88326,7 +87633,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L4",
       "id": "scripts_auth_authlisteners",
-      "community": 80,
+      "community": 68,
       "norm_label": "authlisteners"
     },
     {
@@ -88335,7 +87642,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L7",
       "id": "scripts_auth_notifyauthlisteners",
-      "community": 80,
+      "community": 68,
       "norm_label": "notifyauthlisteners()"
     },
     {
@@ -88344,7 +87651,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L11",
       "id": "scripts_auth_initauth",
-      "community": 80,
+      "community": 68,
       "norm_label": "initauth()"
     },
     {
@@ -88353,7 +87660,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L30",
       "id": "scripts_auth_getcurrentuser",
-      "community": 80,
+      "community": 68,
       "norm_label": "getcurrentuser()"
     },
     {
@@ -88362,7 +87669,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L34",
       "id": "scripts_auth_isloggedin",
-      "community": 80,
+      "community": 68,
       "norm_label": "isloggedin()"
     },
     {
@@ -88371,7 +87678,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L38",
       "id": "scripts_auth_isadmin",
-      "community": 80,
+      "community": 68,
       "norm_label": "isadmin()"
     },
     {
@@ -88380,7 +87687,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L46",
       "id": "scripts_auth_onauthchange",
-      "community": 80,
+      "community": 68,
       "norm_label": "onauthchange()"
     },
     {
@@ -88389,7 +87696,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L51",
       "id": "scripts_auth_login",
-      "community": 80,
+      "community": 68,
       "norm_label": "login()"
     },
     {
@@ -88398,7 +87705,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L57",
       "id": "scripts_auth_register",
-      "community": 80,
+      "community": 68,
       "norm_label": "register()"
     },
     {
@@ -88407,7 +87714,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L74",
       "id": "scripts_auth_logout",
-      "community": 80,
+      "community": 68,
       "norm_label": "logout()"
     },
     {
@@ -88416,7 +87723,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L81",
       "id": "scripts_auth_dbgetfavorites",
-      "community": 80,
+      "community": 68,
       "norm_label": "dbgetfavorites()"
     },
     {
@@ -88425,7 +87732,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L92",
       "id": "scripts_auth_dbaddfavorite",
-      "community": 80,
+      "community": 68,
       "norm_label": "dbaddfavorite()"
     },
     {
@@ -88434,7 +87741,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L101",
       "id": "scripts_auth_dbremovefavorite",
-      "community": 80,
+      "community": 68,
       "norm_label": "dbremovefavorite()"
     },
     {
@@ -88443,7 +87750,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L112",
       "id": "scripts_auth_dbgetallnotes",
-      "community": 80,
+      "community": 68,
       "norm_label": "dbgetallnotes()"
     },
     {
@@ -88452,7 +87759,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L125",
       "id": "scripts_auth_dbsavenote",
-      "community": 80,
+      "community": 68,
       "norm_label": "dbsavenote()"
     },
     {
@@ -88497,7 +87804,7 @@
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L33",
       "id": "scripts_law_presentation_generatelawpresentation",
-      "community": 79,
+      "community": 62,
       "norm_label": "generatelawpresentation()"
     },
     {
@@ -88528,10 +87835,19 @@
       "norm_label": "initializepresentationruntime()"
     },
     {
+      "label": "fitSlideTitles()",
+      "file_type": "code",
+      "source_file": "src/scripts/law-presentation.js",
+      "source_location": "L209",
+      "id": "scripts_law_presentation_fitslidetitles",
+      "community": 62,
+      "norm_label": "fitslidetitles()"
+    },
+    {
       "label": "loadAnimeJs()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L204",
+      "source_location": "L222",
       "id": "scripts_law_presentation_loadanimejs",
       "community": 62,
       "norm_label": "loadanimejs()"
@@ -88540,7 +87856,7 @@
       "label": "loadHighchartsTreemap()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L213",
+      "source_location": "L231",
       "id": "scripts_law_presentation_loadhighchartstreemap",
       "community": 62,
       "norm_label": "loadhighchartstreemap()"
@@ -88549,7 +87865,7 @@
       "label": "renderHighchartsTreemap()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L242",
+      "source_location": "L260",
       "id": "scripts_law_presentation_renderhighchartstreemap",
       "community": 62,
       "norm_label": "renderhighchartstreemap()"
@@ -88558,7 +87874,7 @@
       "label": "animateWebSlide()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L328",
+      "source_location": "L346",
       "id": "scripts_law_presentation_animatewebslide",
       "community": 62,
       "norm_label": "animatewebslide()"
@@ -88567,7 +87883,7 @@
       "label": "animateNumberCountUp()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L392",
+      "source_location": "L410",
       "id": "scripts_law_presentation_animatenumbercountup",
       "community": 62,
       "norm_label": "animatenumbercountup()"
@@ -88576,7 +87892,7 @@
       "label": "animateInteractionPanel()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L409",
+      "source_location": "L427",
       "id": "scripts_law_presentation_animateinteractionpanel",
       "community": 62,
       "norm_label": "animateinteractionpanel()"
@@ -88585,7 +87901,7 @@
       "label": "buildPresentationModel()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L420",
+      "source_location": "L438",
       "id": "scripts_law_presentation_buildpresentationmodel",
       "community": 62,
       "norm_label": "buildpresentationmodel()"
@@ -88594,7 +87910,7 @@
       "label": "renderWebDeck()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L456",
+      "source_location": "L474",
       "id": "scripts_law_presentation_renderwebdeck",
       "community": 62,
       "norm_label": "renderwebdeck()"
@@ -88603,7 +87919,7 @@
       "label": "renderSlideShell()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L602",
+      "source_location": "L620",
       "id": "scripts_law_presentation_renderslideshell",
       "community": 62,
       "norm_label": "renderslideshell()"
@@ -88612,7 +87928,7 @@
       "label": "renderKpi()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L616",
+      "source_location": "L634",
       "id": "scripts_law_presentation_renderkpi",
       "community": 62,
       "norm_label": "renderkpi()"
@@ -88621,7 +87937,7 @@
       "label": "renderStructureKpi()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L620",
+      "source_location": "L638",
       "id": "scripts_law_presentation_renderstructurekpi",
       "community": 62,
       "norm_label": "renderstructurekpi()"
@@ -88630,7 +87946,7 @@
       "label": "renderInfo()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L630",
+      "source_location": "L648",
       "id": "scripts_law_presentation_renderinfo",
       "community": 62,
       "norm_label": "renderinfo()"
@@ -88639,7 +87955,7 @@
       "label": "renderOfficialSourceLink()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L634",
+      "source_location": "L652",
       "id": "scripts_law_presentation_renderofficialsourcelink",
       "community": 62,
       "norm_label": "renderofficialsourcelink()"
@@ -88648,7 +87964,7 @@
       "label": "buildArticleDetailText()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L647",
+      "source_location": "L665",
       "id": "scripts_law_presentation_buildarticledetailtext",
       "community": 62,
       "norm_label": "buildarticledetailtext()"
@@ -88657,7 +87973,7 @@
       "label": "renderBars()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L656",
+      "source_location": "L674",
       "id": "scripts_law_presentation_renderbars",
       "community": 62,
       "norm_label": "renderbars()"
@@ -88666,7 +87982,7 @@
       "label": "renderNormativeFlow()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L676",
+      "source_location": "L694",
       "id": "scripts_law_presentation_rendernormativeflow",
       "community": 62,
       "norm_label": "rendernormativeflow()"
@@ -88675,7 +87991,7 @@
       "label": "renderTreemapFallback()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L706",
+      "source_location": "L724",
       "id": "scripts_law_presentation_rendertreemapfallback",
       "community": 62,
       "norm_label": "rendertreemapfallback()"
@@ -88684,7 +88000,7 @@
       "label": "renderStructureTable()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L720",
+      "source_location": "L738",
       "id": "scripts_law_presentation_renderstructuretable",
       "community": 62,
       "norm_label": "renderstructuretable()"
@@ -88693,7 +88009,7 @@
       "label": "buildTreemapData()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L730",
+      "source_location": "L748",
       "id": "scripts_law_presentation_buildtreemapdata",
       "community": 62,
       "norm_label": "buildtreemapdata()"
@@ -88702,7 +88018,7 @@
       "label": "inferArticleBucket()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L811",
+      "source_location": "L829",
       "id": "scripts_law_presentation_inferarticlebucket",
       "community": 62,
       "norm_label": "inferarticlebucket()"
@@ -88711,7 +88027,7 @@
       "label": "shadeHexColor()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L817",
+      "source_location": "L835",
       "id": "scripts_law_presentation_shadehexcolor",
       "community": 62,
       "norm_label": "shadehexcolor()"
@@ -88720,7 +88036,7 @@
       "label": "ensureWebDeckStyles()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L829",
+      "source_location": "L847",
       "id": "scripts_law_presentation_ensurewebdeckstyles",
       "community": 62,
       "norm_label": "ensurewebdeckstyles()"
@@ -88729,43 +88045,43 @@
       "label": "addCoverSlide()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L889",
+      "source_location": "L908",
       "id": "scripts_law_presentation_addcoverslide",
-      "community": 79,
+      "community": 62,
       "norm_label": "addcoverslide()"
     },
     {
       "label": "addSummarySlide()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L936",
+      "source_location": "L955",
       "id": "scripts_law_presentation_addsummaryslide",
-      "community": 79,
+      "community": 62,
       "norm_label": "addsummaryslide()"
     },
     {
       "label": "addStructureSlide()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L977",
+      "source_location": "L996",
       "id": "scripts_law_presentation_addstructureslide",
-      "community": 79,
+      "community": 62,
       "norm_label": "addstructureslide()"
     },
     {
       "label": "addThemesSlide()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1019",
+      "source_location": "L1038",
       "id": "scripts_law_presentation_addthemesslide",
-      "community": 79,
+      "community": 62,
       "norm_label": "addthemesslide()"
     },
     {
       "label": "addKeyArticlesSlides()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1056",
+      "source_location": "L1075",
       "id": "scripts_law_presentation_addkeyarticlesslides",
       "community": 62,
       "norm_label": "addkeyarticlesslides()"
@@ -88774,61 +88090,61 @@
       "label": "addClosingSlide()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1066",
+      "source_location": "L1085",
       "id": "scripts_law_presentation_addclosingslide",
-      "community": 79,
+      "community": 62,
       "norm_label": "addclosingslide()"
     },
     {
       "label": "addContentShell()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1093",
+      "source_location": "L1112",
       "id": "scripts_law_presentation_addcontentshell",
-      "community": 79,
+      "community": 62,
       "norm_label": "addcontentshell()"
     },
     {
       "label": "paintBase()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1113",
+      "source_location": "L1132",
       "id": "scripts_law_presentation_paintbase",
-      "community": 79,
+      "community": 62,
       "norm_label": "paintbase()"
     },
     {
       "label": "addCoverFooter()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1150",
+      "source_location": "L1169",
       "id": "scripts_law_presentation_addcoverfooter",
-      "community": 79,
+      "community": 62,
       "norm_label": "addcoverfooter()"
     },
     {
       "label": "addLogoPair()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1168",
+      "source_location": "L1187",
       "id": "scripts_law_presentation_addlogopair",
-      "community": 79,
+      "community": 62,
       "norm_label": "addlogopair()"
     },
     {
       "label": "addSectionTitle()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1174",
+      "source_location": "L1193",
       "id": "scripts_law_presentation_addsectiontitle",
-      "community": 79,
+      "community": 62,
       "norm_label": "addsectiontitle()"
     },
     {
       "label": "addKpiCard()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1187",
+      "source_location": "L1206",
       "id": "scripts_law_presentation_addkpicard",
       "community": 62,
       "norm_label": "addkpicard()"
@@ -88837,25 +88153,25 @@
       "label": "addInfoRow()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1206",
+      "source_location": "L1225",
       "id": "scripts_law_presentation_addinforow",
-      "community": 79,
+      "community": 62,
       "norm_label": "addinforow()"
     },
     {
       "label": "addMiniTable()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1219",
+      "source_location": "L1238",
       "id": "scripts_law_presentation_addminitable",
-      "community": 79,
+      "community": 62,
       "norm_label": "addminitable()"
     },
     {
       "label": "addArticleCard()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1249",
+      "source_location": "L1268",
       "id": "scripts_law_presentation_addarticlecard",
       "community": 62,
       "norm_label": "addarticlecard()"
@@ -88864,7 +88180,7 @@
       "label": "buildStructureRows()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1283",
+      "source_location": "L1302",
       "id": "scripts_law_presentation_buildstructurerows",
       "community": 62,
       "norm_label": "buildstructurerows()"
@@ -88873,7 +88189,7 @@
       "label": "selectKeyArticles()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1298",
+      "source_location": "L1317",
       "id": "scripts_law_presentation_selectkeyarticles",
       "community": 62,
       "norm_label": "selectkeyarticles()"
@@ -88882,25 +88198,25 @@
       "label": "loadAssets()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1327",
+      "source_location": "L1346",
       "id": "scripts_law_presentation_loadassets",
-      "community": 79,
+      "community": 62,
       "norm_label": "loadassets()"
     },
     {
       "label": "imageToDataUri()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1336",
+      "source_location": "L1355",
       "id": "scripts_law_presentation_imagetodatauri",
-      "community": 79,
+      "community": 62,
       "norm_label": "imagetodatauri()"
     },
     {
       "label": "getTypeLabel()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1352",
+      "source_location": "L1371",
       "id": "scripts_law_presentation_gettypelabel",
       "community": 62,
       "norm_label": "gettypelabel()"
@@ -88909,7 +88225,7 @@
       "label": "formatLevel()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1364",
+      "source_location": "L1383",
       "id": "scripts_law_presentation_formatlevel",
       "community": 62,
       "norm_label": "formatlevel()"
@@ -88918,7 +88234,7 @@
       "label": "normalizeText()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1371",
+      "source_location": "L1390",
       "id": "scripts_law_presentation_normalizetext",
       "community": 62,
       "norm_label": "normalizetext()"
@@ -88927,7 +88243,7 @@
       "label": "buildLocation()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1379",
+      "source_location": "L1398",
       "id": "scripts_law_presentation_buildlocation",
       "community": 62,
       "norm_label": "buildlocation()"
@@ -88936,7 +88252,7 @@
       "label": "excerpt()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1385",
+      "source_location": "L1404",
       "id": "scripts_law_presentation_excerpt",
       "community": 62,
       "norm_label": "excerpt()"
@@ -88945,7 +88261,7 @@
       "label": "escapeHtml()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1390",
+      "source_location": "L1409",
       "id": "scripts_law_presentation_escapehtml",
       "community": 62,
       "norm_label": "escapehtml()"
@@ -88954,7 +88270,7 @@
       "label": "escapeAttr()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1399",
+      "source_location": "L1418",
       "id": "scripts_law_presentation_escapeattr",
       "community": 62,
       "norm_label": "escapeattr()"
@@ -88963,16 +88279,16 @@
       "label": "fitTitleSize()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1403",
+      "source_location": "L1422",
       "id": "scripts_law_presentation_fittitlesize",
-      "community": 79,
+      "community": 62,
       "norm_label": "fittitlesize()"
     },
     {
       "label": "slugify()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1410",
+      "source_location": "L1429",
       "id": "scripts_law_presentation_slugify",
       "community": 62,
       "norm_label": "slugify()"
@@ -88981,7 +88297,7 @@
       "label": "unique()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1419",
+      "source_location": "L1438",
       "id": "scripts_law_presentation_unique",
       "community": 62,
       "norm_label": "unique()"
@@ -88990,7 +88306,7 @@
       "label": "chunk()",
       "file_type": "code",
       "source_file": "src/scripts/law-presentation.js",
-      "source_location": "L1423",
+      "source_location": "L1442",
       "id": "scripts_law_presentation_chunk",
       "community": 62,
       "norm_label": "chunk()"
@@ -89109,7 +88425,7 @@
       "source_file": "src/scripts/search-engine.js",
       "source_location": "L328",
       "id": "scripts_search_engine_getallleyesadmin",
-      "community": 0,
+      "community": 80,
       "norm_label": "getallleyesadmin()"
     },
     {
@@ -89118,7 +88434,7 @@
       "source_file": "src/scripts/search-engine.js",
       "source_location": "L342",
       "id": "scripts_search_engine_updatelaw",
-      "community": 0,
+      "community": 80,
       "norm_label": "updatelaw()"
     },
     {
@@ -89127,7 +88443,7 @@
       "source_file": "src/scripts/search-engine.js",
       "source_location": "L358",
       "id": "scripts_search_engine_deletelaw",
-      "community": 0,
+      "community": 80,
       "norm_label": "deletelaw()"
     },
     {
@@ -89145,17 +88461,35 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L1",
       "id": "src_scripts_ui_js",
-      "community": 80,
+      "community": 68,
       "norm_label": "ui.js"
     },
     {
       "label": "initUI()",
       "file_type": "code",
       "source_file": "src/scripts/ui.js",
-      "source_location": "L6",
+      "source_location": "L7",
       "id": "scripts_ui_initui",
-      "community": 80,
+      "community": 68,
       "norm_label": "initui()"
+    },
+    {
+      "label": "article-preview.test.js",
+      "file_type": "code",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L1",
+      "id": "tests_article_preview_test_js",
+      "community": 70,
+      "norm_label": "article-preview.test.js"
+    },
+    {
+      "label": "publication",
+      "file_type": "code",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L5",
+      "id": "tests_article_preview_test_publication",
+      "community": 70,
+      "norm_label": "publication"
     },
     {
       "label": "legal-ingest-pipeline.test.js",
@@ -89219,6 +88553,15 @@
       "id": "tests_ui_acervo_test_js",
       "community": 358,
       "norm_label": "ui-acervo.test.js"
+    },
+    {
+      "label": "ui-agreements.test.js",
+      "file_type": "code",
+      "source_file": "tests/ui-agreements.test.js",
+      "source_location": "L1",
+      "id": "tests_ui_agreements_test_js",
+      "community": 80,
+      "norm_label": "ui-agreements.test.js"
     },
     {
       "label": "AGENTS.md",
@@ -90589,13 +89932,49 @@
       "norm_label": "readme.md"
     },
     {
-      "label": "buscador_leyes",
+      "label": "Buscador de Leyes Energ\u00eda",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L1",
-      "id": "65_buscador_de_leyes_energ\u00eda_readme_buscador_leyes",
+      "id": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
       "community": 50,
-      "norm_label": "buscador_leyes"
+      "norm_label": "buscador de leyes energia"
+    },
+    {
+      "label": "Desarrollo local",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "id": "65_buscador_de_leyes_energ\u00eda_readme_desarrollo_local",
+      "community": 50,
+      "norm_label": "desarrollo local"
+    },
+    {
+      "label": "Estado del acervo",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L13",
+      "id": "65_buscador_de_leyes_energ\u00eda_readme_estado_del_acervo",
+      "community": 50,
+      "norm_label": "estado del acervo"
+    },
+    {
+      "label": "Publicaci\u00f3n",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "id": "65_buscador_de_leyes_energ\u00eda_readme_publicaci\u00f3n",
+      "community": 50,
+      "norm_label": "publicacion"
+    },
+    {
+      "label": "Archivos locales",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L32",
+      "id": "65_buscador_de_leyes_energ\u00eda_readme_archivos_locales",
+      "community": 50,
+      "norm_label": "archivos locales"
     },
     {
       "label": "SUPABASE.md",
@@ -91127,6 +90506,24 @@
       "id": "revision_acervo_matriz_radar_12_9_litiomx_ineel_imp_e_inin",
       "community": 88,
       "norm_label": "12.9 litiomx, ineel, imp e inin"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "revision-acervo/README.md",
+      "source_location": "L1",
+      "id": "revision_acervo_readme_md",
+      "community": 72,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Evidencia del acervo",
+      "file_type": "document",
+      "source_file": "revision-acervo/README.md",
+      "source_location": "L1",
+      "id": "revision_acervo_readme_evidencia_del_acervo",
+      "community": 72,
+      "norm_label": "evidencia del acervo"
     },
     {
       "label": "AUDITORIA.md",
@@ -92623,580 +92020,589 @@
       "norm_label": "archivos"
     },
     {
+      "label": "buscador_leyes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "community": 50,
+      "norm_label": "buscador_leyes",
+      "id": "65_buscador_de_leyes_energ\u00eda_readme_buscador_leyes"
+    },
+    {
       "label": "saee_out.md",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L1",
-      "id": "scratch_saee_out_md",
       "community": 44,
-      "norm_label": "saee_out.md"
+      "norm_label": "saee_out.md",
+      "id": "scratch_saee_out_md"
     },
     {
       "label": "DOF: 16/04/2026",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L3",
-      "id": "scratch_saee_out_dof_16_04_2026",
       "community": 44,
-      "norm_label": "dof: 16/04/2026"
+      "norm_label": "dof: 16/04/2026",
+      "id": "scratch_saee_out_dof_16_04_2026"
     },
     {
       "label": "DISPOSICIONES ADMINISTRATIVAS DE CAR\u00c1CTER GENERAL PARA LA INTEGRACI\u00d3N DE SISTEMAS DE",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L73",
-      "id": "scratch_saee_out_disposiciones_administrativas_de_car\u00e1cter_general_para_la_integraci\u00f3n_de_sistemas_de",
       "community": 44,
-      "norm_label": "disposiciones administrativas de caracter general para la integracion de sistemas de"
+      "norm_label": "disposiciones administrativas de caracter general para la integracion de sistemas de",
+      "id": "scratch_saee_out_disposiciones_administrativas_de_car\u00e1cter_general_para_la_integraci\u00f3n_de_sistemas_de"
     },
     {
       "label": "ALMACENAMIENTO DE ENERG\u00cdA EL\u00c9CTRICA AL SISTEMA EL\u00c9CTRICO NACIONAL",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L75",
-      "id": "scratch_saee_out_almacenamiento_de_energ\u00eda_el\u00e9ctrica_al_sistema_el\u00e9ctrico_nacional",
       "community": 44,
-      "norm_label": "almacenamiento de energia electrica al sistema electrico nacional"
+      "norm_label": "almacenamiento de energia electrica al sistema electrico nacional",
+      "id": "scratch_saee_out_almacenamiento_de_energ\u00eda_el\u00e9ctrica_al_sistema_el\u00e9ctrico_nacional"
     },
     {
       "label": "Cap\u00edtulo I. Disposiciones Generales",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L79",
-      "id": "scratch_saee_out_cap\u00edtulo_i_disposiciones_generales",
       "community": 44,
-      "norm_label": "capitulo i. disposiciones generales"
+      "norm_label": "capitulo i. disposiciones generales",
+      "id": "scratch_saee_out_cap\u00edtulo_i_disposiciones_generales"
     },
     {
       "label": "Cap\u00edtulo I",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L97",
-      "id": "scratch_saee_out_cap\u00edtulo_i",
       "community": 44,
-      "norm_label": "capitulo i"
+      "norm_label": "capitulo i",
+      "id": "scratch_saee_out_cap\u00edtulo_i"
     },
     {
       "label": "Disposiciones Generales",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L99",
-      "id": "scratch_saee_out_disposiciones_generales",
       "community": 44,
-      "norm_label": "disposiciones generales"
+      "norm_label": "disposiciones generales",
+      "id": "scratch_saee_out_disposiciones_generales"
     },
     {
       "label": "IV. CFE: Comisi\u00f3n Federal de Electricidad;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L108",
-      "id": "scratch_saee_out_iv_cfe_comisi\u00f3n_federal_de_electricidad",
       "community": 44,
-      "norm_label": "iv. cfe: comision federal de electricidad;"
+      "norm_label": "iv. cfe: comision federal de electricidad;",
+      "id": "scratch_saee_out_iv_cfe_comisi\u00f3n_federal_de_electricidad"
     },
     {
       "label": "VI. C\u00f3digo de Red: Disposiciones Administrativas de Car\u00e1cter General que contienen los criterios de eficiencia,",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L111",
-      "id": "scratch_saee_out_vi_c\u00f3digo_de_red_disposiciones_administrativas_de_car\u00e1cter_general_que_contienen_los_criterios_de_eficiencia",
       "community": 44,
-      "norm_label": "vi. codigo de red: disposiciones administrativas de caracter general que contienen los criterios de eficiencia,"
+      "norm_label": "vi. codigo de red: disposiciones administrativas de caracter general que contienen los criterios de eficiencia,",
+      "id": "scratch_saee_out_vi_c\u00f3digo_de_red_disposiciones_administrativas_de_car\u00e1cter_general_que_contienen_los_criterios_de_eficiencia"
     },
     {
       "label": "VIII. Degradaci\u00f3n del SAEE: Afectaci\u00f3n o disminuci\u00f3n de la Capacidad de Almacenamiento ocasionada por los",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L117",
-      "id": "scratch_saee_out_viii_degradaci\u00f3n_del_saee_afectaci\u00f3n_o_disminuci\u00f3n_de_la_capacidad_de_almacenamiento_ocasionada_por_los",
       "community": 44,
-      "norm_label": "viii. degradacion del saee: afectacion o disminucion de la capacidad de almacenamiento ocasionada por los"
+      "norm_label": "viii. degradacion del saee: afectacion o disminucion de la capacidad de almacenamiento ocasionada por los",
+      "id": "scratch_saee_out_viii_degradaci\u00f3n_del_saee_afectaci\u00f3n_o_disminuci\u00f3n_de_la_capacidad_de_almacenamiento_ocasionada_por_los"
     },
     {
       "label": "IX. Disposiciones: Las presentes Disposiciones Administrativas de Car\u00e1cter General para la Integraci\u00f3n de",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L121",
-      "id": "scratch_saee_out_ix_disposiciones_las_presentes_disposiciones_administrativas_de_car\u00e1cter_general_para_la_integraci\u00f3n_de",
       "community": 44,
-      "norm_label": "ix. disposiciones: las presentes disposiciones administrativas de caracter general para la integracion de"
+      "norm_label": "ix. disposiciones: las presentes disposiciones administrativas de caracter general para la integracion de",
+      "id": "scratch_saee_out_ix_disposiciones_las_presentes_disposiciones_administrativas_de_car\u00e1cter_general_para_la_integraci\u00f3n_de"
     },
     {
       "label": "X. Disposiciones de Autoconsumo: Disposiciones Administrativas de Car\u00e1cter General para regular la figura",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L125",
-      "id": "scratch_saee_out_x_disposiciones_de_autoconsumo_disposiciones_administrativas_de_car\u00e1cter_general_para_regular_la_figura",
       "community": 44,
-      "norm_label": "x. disposiciones de autoconsumo: disposiciones administrativas de caracter general para regular la figura"
+      "norm_label": "x. disposiciones de autoconsumo: disposiciones administrativas de caracter general para regular la figura",
+      "id": "scratch_saee_out_x_disposiciones_de_autoconsumo_disposiciones_administrativas_de_car\u00e1cter_general_para_regular_la_figura"
     },
     {
       "label": "XI. Disposiciones de Permisos: Disposiciones Administrativas de Car\u00e1cter General que establecen los t\u00e9rminos",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L129",
-      "id": "scratch_saee_out_xi_disposiciones_de_permisos_disposiciones_administrativas_de_car\u00e1cter_general_que_establecen_los_t\u00e9rminos",
       "community": 44,
-      "norm_label": "xi. disposiciones de permisos: disposiciones administrativas de caracter general que establecen los terminos"
+      "norm_label": "xi. disposiciones de permisos: disposiciones administrativas de caracter general que establecen los terminos",
+      "id": "scratch_saee_out_xi_disposiciones_de_permisos_disposiciones_administrativas_de_car\u00e1cter_general_que_establecen_los_t\u00e9rminos"
     },
     {
       "label": "XIV. LSE: Ley del Sector El\u00e9ctrico;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L137",
-      "id": "scratch_saee_out_xiv_lse_ley_del_sector_el\u00e9ctrico",
       "community": 44,
-      "norm_label": "xiv. lse: ley del sector electrico;"
+      "norm_label": "xiv. lse: ley del sector electrico;",
+      "id": "scratch_saee_out_xiv_lse_ley_del_sector_el\u00e9ctrico"
     },
     {
       "label": "XVI. MEM: Mercado El\u00e9ctrico Mayorista;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L141",
-      "id": "scratch_saee_out_xvi_mem_mercado_el\u00e9ctrico_mayorista",
       "community": 44,
-      "norm_label": "xvi. mem: mercado electrico mayorista;"
+      "norm_label": "xvi. mem: mercado electrico mayorista;",
+      "id": "scratch_saee_out_xvi_mem_mercado_el\u00e9ctrico_mayorista"
     },
     {
       "label": "XVII. Perfil de Potencia: Potencia instant\u00e1nea, expresada en MW (especificando seis d\u00edgitos despu\u00e9s del punto",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L143",
-      "id": "scratch_saee_out_xvii_perfil_de_potencia_potencia_instant\u00e1nea_expresada_en_mw_especificando_seis_d\u00edgitos_despu\u00e9s_del_punto",
       "community": 44,
-      "norm_label": "xvii. perfil de potencia: potencia instantanea, expresada en mw (especificando seis digitos despues del punto"
+      "norm_label": "xvii. perfil de potencia: potencia instantanea, expresada en mw (especificando seis digitos despues del punto",
+      "id": "scratch_saee_out_xvii_perfil_de_potencia_potencia_instant\u00e1nea_expresada_en_mw_especificando_seis_d\u00edgitos_despu\u00e9s_del_punto"
     },
     {
       "label": "XVIII. POC: Procedimiento de Operaci\u00f3n para la Declaraci\u00f3n de Entrada en Operaci\u00f3n Comercial de Centrales",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L147",
-      "id": "scratch_saee_out_xviii_poc_procedimiento_de_operaci\u00f3n_para_la_declaraci\u00f3n_de_entrada_en_operaci\u00f3n_comercial_de_centrales",
       "community": 44,
-      "norm_label": "xviii. poc: procedimiento de operacion para la declaracion de entrada en operacion comercial de centrales"
+      "norm_label": "xviii. poc: procedimiento de operacion para la declaracion de entrada en operacion comercial de centrales",
+      "id": "scratch_saee_out_xviii_poc_procedimiento_de_operaci\u00f3n_para_la_declaraci\u00f3n_de_entrada_en_operaci\u00f3n_comercial_de_centrales"
     },
     {
       "label": "XX. RGD: Redes Generales de Distribuci\u00f3n;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L153",
-      "id": "scratch_saee_out_xx_rgd_redes_generales_de_distribuci\u00f3n",
       "community": 44,
-      "norm_label": "xx. rgd: redes generales de distribucion;"
+      "norm_label": "xx. rgd: redes generales de distribucion;",
+      "id": "scratch_saee_out_xx_rgd_redes_generales_de_distribuci\u00f3n"
     },
     {
       "label": "XXI. RLSE: Reglamento de la Ley del Sector El\u00e9ctrico;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L155",
-      "id": "scratch_saee_out_xxi_rlse_reglamento_de_la_ley_del_sector_el\u00e9ctrico",
       "community": 44,
-      "norm_label": "xxi. rlse: reglamento de la ley del sector electrico;"
+      "norm_label": "xxi. rlse: reglamento de la ley del sector electrico;",
+      "id": "scratch_saee_out_xxi_rlse_reglamento_de_la_ley_del_sector_el\u00e9ctrico"
     },
     {
       "label": "XXII. RNT: Red Nacional de Transmisi\u00f3n;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L157",
-      "id": "scratch_saee_out_xxii_rnt_red_nacional_de_transmisi\u00f3n",
       "community": 44,
-      "norm_label": "xxii. rnt: red nacional de transmision;"
+      "norm_label": "xxii. rnt: red nacional de transmision;",
+      "id": "scratch_saee_out_xxii_rnt_red_nacional_de_transmisi\u00f3n"
     },
     {
       "label": "XXIII. SAEE: Sistema de Almacenamiento de Energ\u00eda El\u00e9ctrica;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L159",
-      "id": "scratch_saee_out_xxiii_saee_sistema_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica",
       "community": 44,
-      "norm_label": "xxiii. saee: sistema de almacenamiento de energia electrica;"
+      "norm_label": "xxiii. saee: sistema de almacenamiento de energia electrica;",
+      "id": "scratch_saee_out_xxiii_saee_sistema_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica"
     },
     {
       "label": "XXIV. SEN: Sistema El\u00e9ctrico Nacional;",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L163",
-      "id": "scratch_saee_out_xxiv_sen_sistema_el\u00e9ctrico_nacional",
       "community": 44,
-      "norm_label": "xxiv. sen: sistema electrico nacional;"
+      "norm_label": "xxiv. sen: sistema electrico nacional;",
+      "id": "scratch_saee_out_xxiv_sen_sistema_el\u00e9ctrico_nacional"
     },
     {
       "label": "XXV. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a la figura de Autoconsumo o SAEE-",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L165",
-      "id": "scratch_saee_out_xxv_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_figura_de_autoconsumo_o_saee",
       "community": 44,
-      "norm_label": "xxv. sistemas de almacenamiento de energia electrica asociados a la figura de autoconsumo o saee-"
+      "norm_label": "xxv. sistemas de almacenamiento de energia electrica asociados a la figura de autoconsumo o saee-",
+      "id": "scratch_saee_out_xxv_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_figura_de_autoconsumo_o_saee"
     },
     {
       "label": "XXVI. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a Centros de Carga o SAEE-CC:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L169",
-      "id": "scratch_saee_out_xxvi_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centros_de_carga_o_saee_cc",
       "community": 44,
-      "norm_label": "xxvi. sistemas de almacenamiento de energia electrica asociados a centros de carga o saee-cc:"
+      "norm_label": "xxvi. sistemas de almacenamiento de energia electrica asociados a centros de carga o saee-cc:",
+      "id": "scratch_saee_out_xxvi_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centros_de_carga_o_saee_cc"
     },
     {
       "label": "XXVII. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a Centrales El\u00e9ctricas o SAEE-CE:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L173",
-      "id": "scratch_saee_out_xxvii_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centrales_el\u00e9ctricas_o_saee_ce",
       "community": 44,
-      "norm_label": "xxvii. sistemas de almacenamiento de energia electrica asociados a centrales electricas o saee-ce:"
+      "norm_label": "xxvii. sistemas de almacenamiento de energia electrica asociados a centrales electricas o saee-ce:",
+      "id": "scratch_saee_out_xxvii_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centrales_el\u00e9ctricas_o_saee_ce"
     },
     {
       "label": "XXVIII. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica no Asociados o SAEE no Asociado: SAEE integrado",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L177",
-      "id": "scratch_saee_out_xxviii_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_no_asociados_o_saee_no_asociado_saee_integrado",
       "community": 44,
-      "norm_label": "xxviii. sistemas de almacenamiento de energia electrica no asociados o saee no asociado: saee integrado"
+      "norm_label": "xxviii. sistemas de almacenamiento de energia electrica no asociados o saee no asociado: saee integrado",
+      "id": "scratch_saee_out_xxviii_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_no_asociados_o_saee_no_asociado_saee_integrado"
     },
     {
       "label": "XXIX. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a la infraestructura destinada a la",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L181",
-      "id": "scratch_saee_out_xxix_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_infraestructura_destinada_a_la",
       "community": 44,
-      "norm_label": "xxix. sistemas de almacenamiento de energia electrica asociados a la infraestructura destinada a la"
+      "norm_label": "xxix. sistemas de almacenamiento de energia electrica asociados a la infraestructura destinada a la",
+      "id": "scratch_saee_out_xxix_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_infraestructura_destinada_a_la"
     },
     {
       "label": "prestaci\u00f3n del Servicio P\u00fablico de Transmisi\u00f3n y Distribuci\u00f3n de Energ\u00eda El\u00e9ctrica o SAEE-RNT/RGD:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L183",
-      "id": "scratch_saee_out_prestaci\u00f3n_del_servicio_p\u00fablico_de_transmisi\u00f3n_y_distribuci\u00f3n_de_energ\u00eda_el\u00e9ctrica_o_saee_rnt_rgd",
       "community": 44,
-      "norm_label": "prestacion del servicio publico de transmision y distribucion de energia electrica o saee-rnt/rgd:"
+      "norm_label": "prestacion del servicio publico de transmision y distribucion de energia electrica o saee-rnt/rgd:",
+      "id": "scratch_saee_out_prestaci\u00f3n_del_servicio_p\u00fablico_de_transmisi\u00f3n_y_distribuci\u00f3n_de_energ\u00eda_el\u00e9ctrica_o_saee_rnt_rgd"
     },
     {
       "label": "Cap\u00edtulo II",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L213",
-      "id": "scratch_saee_out_cap\u00edtulo_ii",
       "community": 44,
-      "norm_label": "capitulo ii"
+      "norm_label": "capitulo ii",
+      "id": "scratch_saee_out_cap\u00edtulo_ii"
     },
     {
       "label": "Integraci\u00f3n de Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica al Sistema El\u00e9ctrico Nacional",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L215",
-      "id": "scratch_saee_out_integraci\u00f3n_de_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_al_sistema_el\u00e9ctrico_nacional",
       "community": 44,
-      "norm_label": "integracion de sistemas de almacenamiento de energia electrica al sistema electrico nacional"
+      "norm_label": "integracion de sistemas de almacenamiento de energia electrica al sistema electrico nacional",
+      "id": "scratch_saee_out_integraci\u00f3n_de_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_al_sistema_el\u00e9ctrico_nacional"
     },
     {
       "label": "VI. DOD.",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L235",
-      "id": "scratch_saee_out_vi_dod",
       "community": 44,
-      "norm_label": "vi. dod."
+      "norm_label": "vi. dod.",
+      "id": "scratch_saee_out_vi_dod"
     },
     {
       "label": "Tabla 1. Normas Internacionales",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L244",
-      "id": "scratch_saee_out_tabla_1_normas_internacionales",
       "community": 44,
-      "norm_label": "tabla 1. normas internacionales"
+      "norm_label": "tabla 1. normas internacionales",
+      "id": "scratch_saee_out_tabla_1_normas_internacionales"
     },
     {
       "label": "Tabla 2. Normas Extranjeras",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L252",
-      "id": "scratch_saee_out_tabla_2_normas_extranjeras",
       "community": 44,
-      "norm_label": "tabla 2. normas extranjeras"
+      "norm_label": "tabla 2. normas extranjeras",
+      "id": "scratch_saee_out_tabla_2_normas_extranjeras"
     },
     {
       "label": "2.13. Consideraciones Generales para la operaci\u00f3n en el MEM",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L262",
-      "id": "scratch_saee_out_2_13_consideraciones_generales_para_la_operaci\u00f3n_en_el_mem",
       "community": 44,
-      "norm_label": "2.13. consideraciones generales para la operacion en el mem"
+      "norm_label": "2.13. consideraciones generales para la operacion en el mem",
+      "id": "scratch_saee_out_2_13_consideraciones_generales_para_la_operaci\u00f3n_en_el_mem"
     },
     {
       "label": "Cap\u00edtulo III",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L276",
-      "id": "scratch_saee_out_cap\u00edtulo_iii",
       "community": 44,
-      "norm_label": "capitulo iii"
+      "norm_label": "capitulo iii",
+      "id": "scratch_saee_out_cap\u00edtulo_iii"
     },
     {
       "label": "Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a Centrales El\u00e9ctricas",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L278",
-      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centrales_el\u00e9ctricas",
       "community": 44,
-      "norm_label": "sistemas de almacenamiento de energia electrica asociados a centrales electricas"
+      "norm_label": "sistemas de almacenamiento de energia electrica asociados a centrales electricas",
+      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centrales_el\u00e9ctricas"
     },
     {
       "label": "3.5. Consideraciones para la elaboraci\u00f3n de los Estudios de Interconexi\u00f3n",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L286",
-      "id": "scratch_saee_out_3_5_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_interconexi\u00f3n",
       "community": 44,
-      "norm_label": "3.5. consideraciones para la elaboracion de los estudios de interconexion"
+      "norm_label": "3.5. consideraciones para la elaboracion de los estudios de interconexion",
+      "id": "scratch_saee_out_3_5_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_interconexi\u00f3n"
     },
     {
       "label": "Cap\u00edtulo IV",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L315",
-      "id": "scratch_saee_out_cap\u00edtulo_iv",
       "community": 44,
-      "norm_label": "capitulo iv"
+      "norm_label": "capitulo iv",
+      "id": "scratch_saee_out_cap\u00edtulo_iv"
     },
     {
       "label": "Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a Centros de Carga",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L317",
-      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centros_de_carga",
       "community": 44,
-      "norm_label": "sistemas de almacenamiento de energia electrica asociados a centros de carga"
+      "norm_label": "sistemas de almacenamiento de energia electrica asociados a centros de carga",
+      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centros_de_carga"
     },
     {
       "label": "4.6. Consideraciones para la elaboraci\u00f3n de los Estudios de Conexi\u00f3n",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L328",
-      "id": "scratch_saee_out_4_6_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_conexi\u00f3n",
       "community": 44,
-      "norm_label": "4.6. consideraciones para la elaboracion de los estudios de conexion"
+      "norm_label": "4.6. consideraciones para la elaboracion de los estudios de conexion",
+      "id": "scratch_saee_out_4_6_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_conexi\u00f3n"
     },
     {
       "label": "Cap\u00edtulo V",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L336",
-      "id": "scratch_saee_out_cap\u00edtulo_v",
       "community": 44,
-      "norm_label": "capitulo v"
+      "norm_label": "capitulo v",
+      "id": "scratch_saee_out_cap\u00edtulo_v"
     },
     {
       "label": "Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a la figura de Autoconsumo",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L338",
-      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_figura_de_autoconsumo",
       "community": 44,
-      "norm_label": "sistemas de almacenamiento de energia electrica asociados a la figura de autoconsumo"
+      "norm_label": "sistemas de almacenamiento de energia electrica asociados a la figura de autoconsumo",
+      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_figura_de_autoconsumo"
     },
     {
       "label": "5.3. SAEE integrados por las Usuarias de Autoconsumo",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L342",
-      "id": "scratch_saee_out_5_3_saee_integrados_por_las_usuarias_de_autoconsumo",
       "community": 44,
-      "norm_label": "5.3. saee integrados por las usuarias de autoconsumo"
+      "norm_label": "5.3. saee integrados por las usuarias de autoconsumo",
+      "id": "scratch_saee_out_5_3_saee_integrados_por_las_usuarias_de_autoconsumo"
     },
     {
       "label": "5.5. SAEE integrados por Centrales El\u00e9ctricas, cuya fuente primaria de energ\u00eda presente condiciones de Variabilidad,",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L355",
-      "id": "scratch_saee_out_5_5_saee_integrados_por_centrales_el\u00e9ctricas_cuya_fuente_primaria_de_energ\u00eda_presente_condiciones_de_variabilidad",
       "community": 44,
-      "norm_label": "5.5. saee integrados por centrales electricas, cuya fuente primaria de energia presente condiciones de variabilidad,"
+      "norm_label": "5.5. saee integrados por centrales electricas, cuya fuente primaria de energia presente condiciones de variabilidad,",
+      "id": "scratch_saee_out_5_5_saee_integrados_por_centrales_el\u00e9ctricas_cuya_fuente_primaria_de_energ\u00eda_presente_condiciones_de_variabilidad"
     },
     {
       "label": "Autoconsumo interconectado sin venta de excedentes",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L366",
-      "id": "scratch_saee_out_autoconsumo_interconectado_sin_venta_de_excedentes",
       "community": 44,
-      "norm_label": "autoconsumo interconectado sin venta de excedentes"
+      "norm_label": "autoconsumo interconectado sin venta de excedentes",
+      "id": "scratch_saee_out_autoconsumo_interconectado_sin_venta_de_excedentes"
     },
     {
       "label": "5.7. Consideraciones para la elaboraci\u00f3n de los Estudios de Interconexi\u00f3n y los Estudios de Conexi\u00f3n",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L370",
-      "id": "scratch_saee_out_5_7_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_interconexi\u00f3n_y_los_estudios_de_conexi\u00f3n",
       "community": 44,
-      "norm_label": "5.7. consideraciones para la elaboracion de los estudios de interconexion y los estudios de conexion"
+      "norm_label": "5.7. consideraciones para la elaboracion de los estudios de interconexion y los estudios de conexion",
+      "id": "scratch_saee_out_5_7_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_interconexi\u00f3n_y_los_estudios_de_conexi\u00f3n"
     },
     {
       "label": "Cap\u00edtulo VI",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L387",
-      "id": "scratch_saee_out_cap\u00edtulo_vi",
       "community": 44,
-      "norm_label": "capitulo vi"
+      "norm_label": "capitulo vi",
+      "id": "scratch_saee_out_cap\u00edtulo_vi"
     },
     {
       "label": "Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a la infraestructura destinada a la prestaci\u00f3n del",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L389",
-      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_infraestructura_destinada_a_la_prestaci\u00f3n_del",
       "community": 44,
-      "norm_label": "sistemas de almacenamiento de energia electrica asociados a la infraestructura destinada a la prestacion del"
+      "norm_label": "sistemas de almacenamiento de energia electrica asociados a la infraestructura destinada a la prestacion del",
+      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_infraestructura_destinada_a_la_prestaci\u00f3n_del"
     },
     {
       "label": "Servicio P\u00fablico de Transmisi\u00f3n y Distribuci\u00f3n de Energ\u00eda El\u00e9ctrica",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L391",
-      "id": "scratch_saee_out_servicio_p\u00fablico_de_transmisi\u00f3n_y_distribuci\u00f3n_de_energ\u00eda_el\u00e9ctrica",
       "community": 44,
-      "norm_label": "servicio publico de transmision y distribucion de energia electrica"
+      "norm_label": "servicio publico de transmision y distribucion de energia electrica",
+      "id": "scratch_saee_out_servicio_p\u00fablico_de_transmisi\u00f3n_y_distribuci\u00f3n_de_energ\u00eda_el\u00e9ctrica"
     },
     {
       "label": "Cap\u00edtulo VII",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L399",
-      "id": "scratch_saee_out_cap\u00edtulo_vii",
       "community": 44,
-      "norm_label": "capitulo vii"
+      "norm_label": "capitulo vii",
+      "id": "scratch_saee_out_cap\u00edtulo_vii"
     },
     {
       "label": "Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica no Asociados",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L401",
-      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_no_asociados",
       "community": 44,
-      "norm_label": "sistemas de almacenamiento de energia electrica no asociados"
+      "norm_label": "sistemas de almacenamiento de energia electrica no asociados",
+      "id": "scratch_saee_out_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_no_asociados"
     },
     {
       "label": "7.10. Consideraciones para la elaboraci\u00f3n de los Estudios de Conexi\u00f3n y Estudios de Interconexi\u00f3n",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L435",
-      "id": "scratch_saee_out_7_10_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_conexi\u00f3n_y_estudios_de_interconexi\u00f3n",
       "community": 44,
-      "norm_label": "7.10. consideraciones para la elaboracion de los estudios de conexion y estudios de interconexion"
+      "norm_label": "7.10. consideraciones para la elaboracion de los estudios de conexion y estudios de interconexion",
+      "id": "scratch_saee_out_7_10_consideraciones_para_la_elaboraci\u00f3n_de_los_estudios_de_conexi\u00f3n_y_estudios_de_interconexi\u00f3n"
     },
     {
       "label": "Cap\u00edtulo VIII",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L441",
-      "id": "scratch_saee_out_cap\u00edtulo_viii",
       "community": 44,
-      "norm_label": "capitulo viii"
+      "norm_label": "capitulo viii",
+      "id": "scratch_saee_out_cap\u00edtulo_viii"
     },
     {
       "label": "Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica de manera",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L443",
-      "id": "scratch_saee_out_supuestos_bajo_los_cuales_se_pueden_integrar_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_de_manera",
       "community": 44,
-      "norm_label": "supuestos bajo los cuales se pueden integrar sistemas de almacenamiento de energia electrica de manera"
+      "norm_label": "supuestos bajo los cuales se pueden integrar sistemas de almacenamiento de energia electrica de manera",
+      "id": "scratch_saee_out_supuestos_bajo_los_cuales_se_pueden_integrar_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_de_manera"
     },
     {
       "label": "de la Infraestructura Requerida.",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L452",
-      "id": "scratch_saee_out_de_la_infraestructura_requerida",
       "community": 44,
-      "norm_label": "de la infraestructura requerida."
+      "norm_label": "de la infraestructura requerida.",
+      "id": "scratch_saee_out_de_la_infraestructura_requerida"
     },
     {
       "label": "Cap\u00edtulo IX",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L463",
-      "id": "scratch_saee_out_cap\u00edtulo_ix",
       "community": 44,
-      "norm_label": "capitulo ix"
+      "norm_label": "capitulo ix",
+      "id": "scratch_saee_out_cap\u00edtulo_ix"
     },
     {
       "label": "Criterios para la Contrataci\u00f3n de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L465",
-      "id": "scratch_saee_out_criterios_para_la_contrataci\u00f3n_de_respaldo_en_la_figura_de_autoconsumo_interconectado_mediante_sistemas_de",
       "community": 44,
-      "norm_label": "criterios para la contratacion de respaldo en la figura de autoconsumo interconectado mediante sistemas de"
+      "norm_label": "criterios para la contratacion de respaldo en la figura de autoconsumo interconectado mediante sistemas de",
+      "id": "scratch_saee_out_criterios_para_la_contrataci\u00f3n_de_respaldo_en_la_figura_de_autoconsumo_interconectado_mediante_sistemas_de"
     },
     {
       "label": "Almacenamiento de Energ\u00eda El\u00e9ctrica con la Comisi\u00f3n Federal de Electricidad o Terceros",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L467",
-      "id": "scratch_saee_out_almacenamiento_de_energ\u00eda_el\u00e9ctrica_con_la_comisi\u00f3n_federal_de_electricidad_o_terceros",
       "community": 44,
-      "norm_label": "almacenamiento de energia electrica con la comision federal de electricidad o terceros"
+      "norm_label": "almacenamiento de energia electrica con la comision federal de electricidad o terceros",
+      "id": "scratch_saee_out_almacenamiento_de_energ\u00eda_el\u00e9ctrica_con_la_comisi\u00f3n_federal_de_electricidad_o_terceros"
     },
     {
       "label": "I. Estudio Indicativo",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L498",
-      "id": "scratch_saee_out_i_estudio_indicativo",
       "community": 44,
-      "norm_label": "i. estudio indicativo"
+      "norm_label": "i. estudio indicativo",
+      "id": "scratch_saee_out_i_estudio_indicativo"
     },
     {
       "label": "III. Estudio de Instalaciones",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L513",
-      "id": "scratch_saee_out_iii_estudio_de_instalaciones",
       "community": 44,
-      "norm_label": "iii. estudio de instalaciones"
+      "norm_label": "iii. estudio de instalaciones",
+      "id": "scratch_saee_out_iii_estudio_de_instalaciones"
     },
     {
       "label": "I. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a Centrales El\u00e9ctricas:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L519",
-      "id": "scratch_saee_out_i_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centrales_el\u00e9ctricas",
       "community": 44,
-      "norm_label": "i. sistemas de almacenamiento de energia electrica asociados a centrales electricas:"
+      "norm_label": "i. sistemas de almacenamiento de energia electrica asociados a centrales electricas:",
+      "id": "scratch_saee_out_i_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centrales_el\u00e9ctricas"
     },
     {
       "label": "II. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a Centros de Carga:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L523",
-      "id": "scratch_saee_out_ii_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centros_de_carga",
       "community": 44,
-      "norm_label": "ii. sistemas de almacenamiento de energia electrica asociados a centros de carga:"
+      "norm_label": "ii. sistemas de almacenamiento de energia electrica asociados a centros de carga:",
+      "id": "scratch_saee_out_ii_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_centros_de_carga"
     },
     {
       "label": "IV. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica asociados a la figura de Autoconsumo:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L527",
-      "id": "scratch_saee_out_iv_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_figura_de_autoconsumo",
       "community": 44,
-      "norm_label": "iv. sistemas de almacenamiento de energia electrica asociados a la figura de autoconsumo:"
+      "norm_label": "iv. sistemas de almacenamiento de energia electrica asociados a la figura de autoconsumo:",
+      "id": "scratch_saee_out_iv_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_asociados_a_la_figura_de_autoconsumo"
     },
     {
       "label": "V. Sistemas de Almacenamiento de Energ\u00eda El\u00e9ctrica no Asociados:",
       "file_type": "document",
       "source_file": "scratch/saee_out.md",
       "source_location": "L531",
-      "id": "scratch_saee_out_v_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_no_asociados",
       "community": 44,
-      "norm_label": "v. sistemas de almacenamiento de energia electrica no asociados:"
+      "norm_label": "v. sistemas de almacenamiento de energia electrica no asociados:",
+      "id": "scratch_saee_out_v_sistemas_de_almacenamiento_de_energ\u00eda_el\u00e9ctrica_no_asociados"
     },
     {
       "label": "fecha",
@@ -93549,17 +92955,6 @@
       "confidence_score": 1.0,
       "source": "backfill_temas_js",
       "target": "legal_ingest_pipeline_js"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backfill_temas.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "65_buscador_de_leyes_energ\u00eda_backfill_temas_backfill",
-      "target": "scratch_test_regex_extractthemes"
     },
     {
       "relation": "contains",
@@ -94314,61 +93709,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_convert_decreto_js",
-      "target": "legal_ingest_pipeline_js"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_inspect_chunks_js",
-      "target": "legal_ingest_pipeline_js"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "legal_ingest_pipeline_js"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "legal_ingest_pipeline_js"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "legal_ingest_pipeline_js"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tests/legal-ingest-pipeline.test.js",
       "source_location": "L2",
       "weight": 1.0,
@@ -94498,17 +93838,6 @@
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_ensureheadingboundaries"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_normalizelegaltext"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -94616,28 +93945,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_chunklegaltext",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractthemesfromtext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractthemesfromtext"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L357",
-      "weight": 1.0,
-      "source": "scratch_test_full_parse_dof_testchunklegaltext",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractthemesfromtext"
     },
     {
@@ -94776,67 +94083,12 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefromtext"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L33",
-      "weight": 1.0,
-      "source": "scratch_test_dof_parse_main",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefromtext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefromtext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tests/legal-ingest-pipeline.test.js",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tests_legal_ingest_pipeline_test_js",
       "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefromtext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_convert_decreto_js",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefrompdf"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_inspect_chunks_js",
-      "target": "65_buscador_de_leyes_energ\u00eda_legal_ingest_pipeline_extractlegalstructurefrompdf"
     },
     {
       "relation": "calls",
@@ -184025,9 +183277,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "revision_acervo_inventario_radar_2026_09_17_verificacion_navegador_convocatorias_json",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_enlaces_locales_correctos",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_enlaces_locales_correctos"
     },
     {
       "relation": "contains",
@@ -184035,9 +183287,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "revision_acervo_inventario_radar_2026_09_17_verificacion_navegador_convocatorias_json",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_fallos",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_fallos"
     },
     {
       "relation": "contains",
@@ -184045,9 +183297,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "revision_acervo_inventario_radar_2026_09_17_verificacion_navegador_convocatorias_json",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory"
     },
     {
       "relation": "contains",
@@ -184055,9 +183307,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "revision_acervo_inventario_radar_2026_09_17_verificacion_navegador_convocatorias_json",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report"
     },
     {
       "relation": "contains",
@@ -184065,9 +183317,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_cargadas",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_cargadas"
     },
     {
       "relation": "contains",
@@ -184075,9 +183327,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_catalogo",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_catalogo"
     },
     {
       "relation": "contains",
@@ -184085,9 +183337,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_cobertura",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_cobertura"
     },
     {
       "relation": "contains",
@@ -184095,9 +183347,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_familias",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_familias"
     },
     {
       "relation": "contains",
@@ -184105,9 +183357,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_pendientes",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_inventory_pendientes"
     },
     {
       "relation": "contains",
@@ -184115,9 +183367,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report_publicaciones",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report_publicaciones"
     },
     {
       "relation": "contains",
@@ -184125,9 +183377,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report_sin_desbordamiento",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report_sin_desbordamiento"
     },
     {
       "relation": "contains",
@@ -184135,9 +183387,9 @@
       "source_file": "revision-acervo/inventario-radar-2026-09-17/VERIFICACION-NAVEGADOR-CONVOCATORIAS.json",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report",
-      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report_titulo",
-      "confidence_score": 1.0
+      "target": "inventario_radar_2026_09_17_verificacion_navegador_convocatorias_report_titulo"
     },
     {
       "relation": "contains",
@@ -191969,860 +191221,6 @@
       "target": "revision_acervo_reparacion_2026_09_17_despues_verificado_snapshot_json_despues_verificado_snapshot_tablas"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_check_ui_lines_js",
-      "target": "scratch_check_ui_lines_content"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_check_ui_lines_js",
-      "target": "scratch_check_ui_lines_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/check_ui_lines.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_check_ui_lines_js",
-      "target": "scratch_check_ui_lines_lines"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_convert_decreto_js",
-      "target": "scratch_convert_decreto_extractlegalstructurefrompdf"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_convert_decreto_js",
-      "target": "scratch_convert_decreto_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/convert_decreto.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_convert_decreto_js",
-      "target": "scratch_convert_decreto_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_inspect_chunks_js",
-      "target": "scratch_inspect_chunks_chunks_themes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_inspect_chunks_js",
-      "target": "scratch_inspect_chunks_extractlegalstructurefrompdf"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/inspect_chunks.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_inspect_chunks_js",
-      "target": "scratch_inspect_chunks_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_index_html_js",
-      "target": "scratch_patch_index_html_content"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_index_html_js",
-      "target": "scratch_patch_index_html_filepath"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_index_html_js",
-      "target": "scratch_patch_index_html_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_index_html_js",
-      "target": "scratch_patch_index_html_hascrlf"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_index_html.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_index_html_js",
-      "target": "scratch_patch_index_html_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_ingestar_pdf_js",
-      "target": "scratch_patch_ingestar_pdf_content"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_ingestar_pdf_js",
-      "target": "scratch_patch_ingestar_pdf_filepath"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_ingestar_pdf_js",
-      "target": "scratch_patch_ingestar_pdf_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_ingestar_pdf_js",
-      "target": "scratch_patch_ingestar_pdf_hascrlf"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/patch_ingestar_pdf.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_patch_ingestar_pdf_js",
-      "target": "scratch_patch_ingestar_pdf_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_search_symbols_js",
-      "target": "scratch_search_symbols_files"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_search_symbols_js",
-      "target": "scratch_search_symbols_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/search_symbols.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_search_symbols_js",
-      "target": "scratch_search_symbols_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_article_heading_inline_pattern"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_article_label_src"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_bis_modifier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L42",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_executechunkingalg"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_extracttextfrompdf"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_ordinal_article_label"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_decreto_browser_js",
-      "target": "scratch_test_decreto_browser_path"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "scratch/test_decreto_browser.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "scratch_test_decreto_browser_extracttextfrompdf",
-      "target": "tests_legal_ingest_pipeline_test_require"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "scratch_test_dof_parse_extractlegalstructurefromtext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "scratch_test_dof_parse_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "scratch_test_dof_parse_jsdom"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "scratch_test_dof_parse_main"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_parse.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_parse_js",
-      "target": "scratch_test_dof_parse_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_article_label_src"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_bis_modifier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_chunkcount"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_fetchnota"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_html_block_tags"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_htmltoplaintext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_jsdom"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_dof_url_import.js",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_dof_url_import_js",
-      "target": "scratch_test_dof_url_import_ordinal_article_label"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_article_heading_global_pattern"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_article_heading_pattern"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_article_label"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_chunknumberedlineamientos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_cleantransitoryremainder"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_extractthemesfromtext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L76",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_hasnumberedlineamientostructure"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_jsdom"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L392",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_main"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_normalizechunkcontent"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L228",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_normalizepodecobilineamientohierarchy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_parseheading"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L209",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_parsestructuralheading"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L202",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_stripthemeordinal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L270",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_testchunklegaltext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_testnormalizelegaltext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_transitory_heading_pattern"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_js",
-      "target": "scratch_test_full_parse_dof_transitory_labels"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L271",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_testchunklegaltext",
-      "target": "scratch_test_full_parse_dof_testnormalizelegaltext"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L148",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_chunknumberedlineamientos",
-      "target": "scratch_test_full_parse_dof_parseheading"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L302",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_testchunklegaltext",
-      "target": "scratch_test_full_parse_dof_parseheading"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L188",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_chunknumberedlineamientos",
-      "target": "scratch_test_full_parse_dof_normalizechunkcontent"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L335",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_testchunklegaltext",
-      "target": "scratch_test_full_parse_dof_normalizechunkcontent"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_chunknumberedlineamientos",
-      "target": "scratch_test_full_parse_dof_cleantransitoryremainder"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L353",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_testchunklegaltext",
-      "target": "scratch_test_full_parse_dof_hasnumberedlineamientostructure"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L197",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_chunknumberedlineamientos",
-      "target": "scratch_test_full_parse_dof_normalizepodecobilineamientohierarchy"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_chunknumberedlineamientos",
-      "target": "scratch_test_full_parse_dof_parsestructuralheading"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L354",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_testchunklegaltext",
-      "target": "scratch_test_full_parse_dof_chunknumberedlineamientos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L214",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_parsestructuralheading",
-      "target": "scratch_test_full_parse_dof_stripthemeordinal"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_full_parse_dof.js",
-      "source_location": "L402",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_full_parse_dof_main",
-      "target": "scratch_test_full_parse_dof_testchunklegaltext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_heading_regex.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_heading_regex_js",
-      "target": "scratch_test_heading_regex_testregex"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_js",
-      "target": "scratch_test_regex_extractthemes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "scratch_test_regex_dof_extractlegalstructurefromtext_normalizelegaltext"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "scratch_test_regex_dof_fs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "scratch_test_regex_dof_main"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "scratch_test_regex_dof_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_js",
-      "target": "scratch_test_regex_dof_testnormalizelegaltext"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/test_regex_dof.js",
-      "source_location": "L48",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scratch_test_regex_dof_main",
-      "target": "scratch_test_regex_dof_testnormalizelegaltext"
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -192931,6 +191329,219 @@
       "confidence_score": 1.0,
       "source": "src_main_js",
       "target": "src_scripts_ui_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_escapehtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_gethighlightpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_gettextpreview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_highlighthtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_highlighttext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_highlightwithpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_lib_article_preview_js",
+      "target": "lib_article_preview_stop_words_es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "src_lib_article_preview_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_article_preview_test_js",
+      "target": "src_lib_article_preview_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "lib_article_preview_gettextpreview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_article_preview_test_js",
+      "target": "lib_article_preview_gettextpreview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "lib_article_preview_highlighthtml",
+      "target": "lib_article_preview_gethighlightpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "lib_article_preview_highlighttext",
+      "target": "lib_article_preview_gethighlightpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "lib_article_preview_highlightwithpattern",
+      "target": "lib_article_preview_escapehtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "lib_article_preview_highlighthtml",
+      "target": "lib_article_preview_highlightwithpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/article-preview.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "lib_article_preview_highlighttext",
+      "target": "lib_article_preview_highlightwithpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "lib_article_preview_highlighttext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_article_preview_test_js",
+      "target": "lib_article_preview_highlighttext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "lib_article_preview_highlighthtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_article_preview_test_js",
+      "target": "lib_article_preview_highlighthtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -195242,6 +193853,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/scripts/law-presentation.js",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "src_scripts_law_presentation_js",
+      "target": "scripts_law_presentation_fitslidetitles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/law-presentation.js",
       "source_location": "L592",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -196557,6 +195178,17 @@
       "target": "src_scripts_search_engine_js"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-agreements.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_agreements_test_js",
+      "target": "src_scripts_search_engine_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -196648,12 +195280,34 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/ui-agreements.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_agreements_test_js",
+      "target": "scripts_search_engine_getarticlesbylaw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/scripts/ui.js",
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
       "target": "scripts_search_engine_getthemesbylawname"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-agreements.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_agreements_test_js",
+      "target": "scripts_search_engine_getthemesbylawname",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -196675,6 +195329,16 @@
       "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
       "target": "scripts_ui_initui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/article-preview.test.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_article_preview_test_js",
+      "target": "tests_article_preview_test_publication",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -198172,9 +196836,59 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "source": "readme_md",
+      "target": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "readme_md",
       "target": "65_buscador_de_leyes_energ\u00eda_readme_buscador_leyes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
+      "target": "65_buscador_de_leyes_energ\u00eda_readme_archivos_locales",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
+      "target": "65_buscador_de_leyes_energ\u00eda_readme_desarrollo_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
+      "target": "65_buscador_de_leyes_energ\u00eda_readme_estado_del_acervo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
+      "target": "65_buscador_de_leyes_energ\u00eda_readme_publicaci\u00f3n",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -198725,6 +197439,16 @@
       "confidence_score": 1.0,
       "source": "revision_acervo_matriz_radar_matriz_de_referencias_del_radar_frente_a_supabase",
       "target": "revision_acervo_matriz_radar_12_9_litiomx_ineel_imp_e_inin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "revision-acervo/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "revision_acervo_readme_md",
+      "target": "revision_acervo_readme_evidencia_del_acervo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -201116,5 +199840,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "53bd160351242f5ca479210d981ad123e73d0e28"
+  "built_at_commit": "4235e839bf9bea9198a85aaef2e906825c081c3a"
 }
