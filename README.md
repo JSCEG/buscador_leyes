@@ -23,7 +23,11 @@ El radar utilizado tiene corte del 14 de septiembre de 2026 (v4.17). Quedan 104 
 
 ## Publicación
 
-El workflow existente se activa con los pushes a `main` y publica el build en la rama `gh-pages`. La aplicación necesita `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` **durante la compilación**. El `.env` local no se sube a GitHub: el workflow debe recibir esas variables del entorno de publicación. Un workflow exitoso por sí solo no verifica que el acervo alojado se conecte a Supabase.
+La aplicación pública se despliega en [Cloudflare Pages](https://buscador-leyes-jav.pages.dev/), proyecto `buscador-leyes-jav`, desde `main`: directorio raíz del repositorio, comando `npm run build` y salida `dist`. Las vistas previas incluyen las ramas de código y excluyen `gh-pages`, que contiene archivos ya compilados y no tiene `package.json`.
+
+La aplicación necesita `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` **durante la compilación**. En Cloudflare, ambas se configuran en el entorno de producción y deben corresponder al mismo proyecto Supabase. El acervo actual pertenece a `carmfqhcfsqbzcwptqfz`. El `.env` local no se sube a GitHub; al cambiar variables de Cloudflare es necesario volver a compilar.
+
+Existe además un workflow de GitHub Actions que publica en la rama `gh-pages`. Ese flujo es independiente de Cloudflare y necesita sus propias variables de compilación si se desea utilizar su sitio generado. No debe usarse `gh-pages` como entrada de un nuevo build de Vite. Un build exitoso por sí solo no verifica la conexión al acervo: comprobar el listado y una búsqueda en la URL publicada.
 
 ## Archivos locales
 
