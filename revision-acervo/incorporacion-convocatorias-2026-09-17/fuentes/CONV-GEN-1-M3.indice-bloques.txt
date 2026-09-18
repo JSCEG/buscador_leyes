@@ -1,0 +1,26 @@
+0	parrafo	ACUERDO por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.
+1	parrafo	Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.
+2	parrafo	LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero, de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones IV, V, XXXI y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4, de la Ley Federal de Procedimiento Administrativo; 57 del Reglamento de la Ley de Planeación y Transición Energética; 3 y Transitorio Vigésimo Prime
+3	parrafo	CONSIDERANDO
+4	parrafo	Que el 17 de octubre de 2025 en el Diario Oficial de la Federación se publicó la "CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE" (Convocatoria), dirigida a las personas particulares, para la presentación de solicitudes de permisos de generación para el desarrollo de centrales eléctricas que son estratégicas y prioritarias en la planeación vinculante del sector eléctr
+5	parrafo	Que derivado del interés de las personas particulares respecto de la Convocatoria, el 24 de octubre de 2025, fue publicado en el Diario Oficial de la Federación el "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025", a efecto de realizar modificaciones a las fec
+6	parrafo	Que el 10 de noviembre de 2025 se publicó en el Diario Oficial de la Federación el "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante" con la finalidad de que las personas interesadas en participar en la Convocatoria cuenten con un periodo adicional para realizar el pago correspondiente de los estudios realizados por el Ce
+7	parrafo	Que en congruencia con lo anterior, se debe facilitar a quienes se otorguen los permisos de generación de energía eléctrica derivado de la Convocatoria, la presentación y acreditación ante el Centro Nacional de Control de Energía de las garantías necesarias para solicitar la suscripción del contrato de interconexión correspondiente.
+8	parrafo	Derivado de lo anterior, se considera oportuno realizar la modificación en los plazos para la presentación de las garantías, proporcionando un ajuste para que las personas interesadas exhiban las garantías que se requieren para solicitar la suscripción del contrato de interconexión y estableciendo dicha condición en el contenido del formato de aceptación de obras que se debe presentar, por lo que he tenido a bien emitir el siguiente:
+9	parrafo	ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN ↵ PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN ↵ AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE
+10	parrafo	PRIMERO. Se modifica el numeral ii, del apartado C, del numeral 8. Aprobación y emisión de permisos de generación de energía eléctrica, así como publicación de los resultados de la "CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE", para quedar en los siguientes términos:
+11	parrafo	8. Aprobación y emisión de permisos de generación de energía eléctrica, así como publicación de los resultados.
+12	parrafo	A. a la B. ...
+13	parrafo	C. Emisión de los títulos de permisos.
+14	parrafo	...
+15	parrafo	...
+16	parrafo	i. ...
+17	parrafo	ii. Acreditar, previo a la firma del contrato de interconexión correspondiente, la presentación de la garantía por las obras de refuerzo resultado del estudio de instalaciones que hayan aceptado ante el CENACE.
+18	parrafo	iii. a v.
+19	parrafo	D. ...
+20	parrafo	SEGUNDO. Se modifica el Anexo d. Formato Aceptación de Obras de la "CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE", para quedar como sigue:
+21	parrafo	d. Formato Aceptación de Obras:
+22	tabla	CARTA DE ACEPTACIÓN DE OBRAS ↵ Ciudad de México, a [fecha de presentación] ↵ A quien corresponda, ↵ El suscriptor de la presente, C. [_] en mi carácter de representante [legal / apoderado], de la pers
+23	parrafo	TRANSITORIO
+24	parrafo	ÚNICO. El presente Acuerdo entra en vigor el mismo día de su publicación en el Diario Oficial de la Federación.
+25	parrafo	Ciudad de México, a 28 de noviembre de 2025.- Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.

@@ -1,0 +1,1288 @@
+{
+  "instrumento": "CONV-GEN-2",
+  "sha256": "178274967aec871f35d62c42ccb3cb151fedc2e4f933f1a7238d315c084f1bc7",
+  "tablas": 7,
+  "casillas": 3,
+  "graficos": 2,
+  "bloques": [
+    {
+      "id": 0,
+      "tipo": "parrafo",
+      "texto": "SEGUNDA Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+      "html": " SEGUNDA Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante."
+    },
+    {
+      "id": 1,
+      "tipo": "parrafo",
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.",
+      "html": " Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía."
+    },
+    {
+      "id": 2,
+      "tipo": "parrafo",
+      "texto": "LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones IV, V, XXXI y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4, de la Ley Federal de Procedimiento Administrativo; 10, fracción II de la Ley del Sector Eléctrico; 57 del Reglamento de la Ley de Planeación y Transición Energética; 3 y 13 del Reglamento de la Ley del Sector Eléctrico, y",
+      "html": "<div> LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones IV, V, XXXI y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4, de la Ley Federal de Procedimiento Administrativo; 10, fracción II de la Ley del Sector Eléctrico; 57 del Reglamento de la Ley de Planeación y Transición Energética; 3 y 13 del Reglamento de la Ley del Sector Eléctrico, y</div>"
+    },
+    {
+      "id": 3,
+      "tipo": "parrafo",
+      "texto": "CONSIDERANDO",
+      "html": "<div> CONSIDERANDO<br> </div>"
+    },
+    {
+      "id": 4,
+      "tipo": "parrafo",
+      "texto": "Con la reforma a la Constitución Política de los Estados Unidos Mexicanos, publicada en el Diario Oficial de la Federación el 31 de octubre de 2024, particularmente en los artículos 25, párrafo quinto, 27, párrafos sexto y séptimo y 28, párrafo cuarto, se fortaleció el papel de la Nación en el sector eléctrico, quien en términos de los citados artículos tiene a su cargo de manera exclusiva las áreas estratégicas de la planeación y el control del Sistema Eléctrico Nacional, cuyos objetivos son preservar la seguridad y autosuficiencia energética de la Nación y proveer al pueblo de la electricidad al menor precio posible, evitando el lucro; asimismo, está a cargo del servicio público de transmisión y distribución de energía eléctrica.",
+      "html": "<div> Con la reforma a la Constitución Política de los Estados Unidos Mexicanos, publicada en el Diario Oficial de la Federación el 31 de octubre de 2024, particularmente en los artículos 25, párrafo quinto, 27, párrafos sexto y séptimo y 28, párrafo cuarto, se fortaleció el papel de la Nación en el sector eléctrico, quien en términos de los citados artículos tiene a su cargo de manera exclusiva las áreas estratégicas de la planeación y el control del Sistema Eléctrico Nacional, cuyos objetivos son preservar la seguridad y autosuficiencia energética de la Nación y proveer al pueblo de la electricidad al menor precio posible, evitando el lucro; asimismo, está a cargo del servicio público de transmisión y distribución de energía eléctrica.</div>"
+    },
+    {
+      "id": 5,
+      "tipo": "parrafo",
+      "texto": "Que a través de la reforma constitucional publicada en el Diario Oficial de la Federación el 20 de diciembre de 2024, se determinó que el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica, así como la facultad sancionadora en materia energética, en los términos que se determinen en las disposiciones aplicables.",
+      "html": "<div> Que a través de la reforma constitucional publicada en el Diario Oficial de la Federación el 20 de diciembre de 2024, se determinó que el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica, así como la facultad sancionadora en materia energética, en los términos que se determinen en las disposiciones aplicables.</div>"
+    },
+    {
+      "id": 6,
+      "tipo": "parrafo",
+      "texto": "Que derivado de la reforma a la Ley Orgánica de la Administración Pública Federal, publicada en el Diario Oficial de la Federación el 18 de marzo de 2025, la Secretaría de Energía ha retomado diversas atribuciones y facultades para dirigir la política energética del país.",
+      "html": "<div> Que derivado de la reforma a la Ley Orgánica de la Administración Pública Federal, publicada en el Diario Oficial de la Federación el 18 de marzo de 2025, la Secretaría de Energía ha retomado diversas atribuciones y facultades para dirigir la política energética del país.</div>"
+    },
+    {
+      "id": 7,
+      "tipo": "parrafo",
+      "texto": "Que conforme al artículo 33 de la Ley Orgánica de la Administración Pública Federal, corresponde a la Secretaría de Energía, entre otras atribuciones, establecer, conducir y coordinar la política energética nacional; promover que la participación de los particulares en las actividades del sector eléctrico sea en los términos de la legislación y de las disposiciones aplicables, así como otorgar permisos, autorizaciones y llevar a cabo los demás actos necesarios, para el desarrollo de las actividades reguladas en el sector eléctrico.",
+      "html": "<div> Que conforme al artículo 33 de la Ley Orgánica de la Administración Pública Federal, corresponde a la Secretaría de Energía, entre otras atribuciones, establecer, conducir y coordinar la política energética nacional; promover que la participación de los particulares en las actividades del sector eléctrico sea en los términos de la legislación y de las disposiciones aplicables, así como otorgar permisos, autorizaciones y llevar a cabo los demás actos necesarios, para el desarrollo de las actividades reguladas en el sector eléctrico.</div>"
+    },
+    {
+      "id": 8,
+      "tipo": "parrafo",
+      "texto": "Que conforme a lo establecido en los artículos 2, 4, 16, 17 y 18 de la Ley del Sector Eléctrico, la generación de energía eléctrica en centrales eléctricas puede ser realizada por las personas particulares mediante el permiso correspondiente, en los términos previstos en dicha Ley y su Reglamento.",
+      "html": "<div> Que conforme a lo establecido en los artículos 2, 4, 16, 17 y 18 de la Ley del Sector Eléctrico, la generación de energía eléctrica en centrales eléctricas puede ser realizada por las personas particulares mediante el permiso correspondiente, en los términos previstos en dicha Ley y su Reglamento.</div>"
+    },
+    {
+      "id": 9,
+      "tipo": "parrafo",
+      "texto": "Que en términos de lo establecido en el artículo 56, fracción X del Reglamento de la Ley de Planeación y Transición Energética publicado el 3 de octubre de 2025 en el Diario Oficial de la Federación, la Comisión Nacional de Energía en el ejercicio de sus atribuciones para otorgar permisos y autorizaciones debe considerar los proyectos incluidos en el Plan de Desarrollo del Sector Eléctrico, el cual fue publicado el 17 de octubre de 2025.",
+      "html": "<div> Que en términos de lo establecido en el artículo 56, fracción X del Reglamento de la Ley de Planeación y Transición Energética publicado el 3 de octubre de 2025 en el Diario Oficial de la Federación, la Comisión Nacional de Energía en el ejercicio de sus atribuciones para otorgar permisos y autorizaciones debe considerar los proyectos incluidos en el Plan de Desarrollo del Sector Eléctrico, el cual fue publicado el 17 de octubre de 2025.</div>"
+    },
+    {
+      "id": 10,
+      "tipo": "parrafo",
+      "texto": "Que el artículo 57 del propio Reglamento de la Ley de Planeación y Transición Energética establece que la Secretaría, en coordinación con la Comisión Nacional de Energía, puede emitir y publicar en el Diario Oficial de la Federación convocatorias para el otorgamiento de los permisos de generación que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional.",
+      "html": "<div> Que el artículo 57 del propio Reglamento de la Ley de Planeación y Transición Energética establece que la Secretaría, en coordinación con la Comisión Nacional de Energía, puede emitir y publicar en el Diario Oficial de la Federación convocatorias para el otorgamiento de los permisos de generación que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional.</div>"
+    },
+    {
+      "id": 11,
+      "tipo": "parrafo",
+      "texto": "Que en atención a lo establecido en el artículo Transitorio Vigésimo Primero del Reglamento de la Ley del Sector Eléctrico, el 17 de octubre de 2025, la Secretaría de Energía publicó en el Diario Oficial de la Federación la \"Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante\" (Primera Convocatoria).",
+      "html": "<div> Que en atención a lo establecido en el artículo Transitorio Vigésimo Primero del Reglamento de la Ley del Sector Eléctrico, el 17 de octubre de 2025, la Secretaría de Energía publicó en el Diario Oficial de la Federación la &quot;Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante&quot; (Primera Convocatoria).</div>"
+    },
+    {
+      "id": 12,
+      "tipo": "parrafo",
+      "texto": "Que a través de la citada Convocatoria, se estableció un proceso transparente y ágil para que las personas interesadas pudieran obtener un permiso de generación por parte de la Comisión Nacional de Energía, así como para que obtuvieran los estudios correspondientes por parte del Centro Nacional de Control de Energía y posteriormente firmaran los contratos de interconexión con la Comisión Federal de Electricidad con el objeto de lograr que las centrales de generación de energía eléctrica inicien su operación entre el 2027 y el 2030.",
+      "html": "<div> Que a través de la citada Convocatoria, se estableció un proceso transparente y ágil para que las personas interesadas pudieran obtener un permiso de generación por parte de la Comisión Nacional de Energía, así como para que obtuvieran los estudios correspondientes por parte del Centro Nacional de Control de Energía y posteriormente firmaran los contratos de interconexión con la Comisión Federal de Electricidad con el objeto de lograr que las centrales de generación de energía eléctrica inicien su operación entre el 2027 y el 2030.</div>"
+    },
+    {
+      "id": 13,
+      "tipo": "parrafo",
+      "texto": "Que con la citada convocatoria, se tuvo como resultado que la Comisión Nacional de Energía otorgara 18 permisos de generación de energía eléctrica que contribuirán a garantizar la continuidad, accesibilidad, calidad, seguridad y sostenibilidad del Sistema Eléctrico Nacional, además de impulsar el uso de energías renovables.",
+      "html": "<div> Que con la citada convocatoria, se tuvo como resultado que la Comisión Nacional de Energía otorgara 18 permisos de generación de energía eléctrica que contribuirán a garantizar la continuidad, accesibilidad, calidad, seguridad y sostenibilidad del Sistema Eléctrico Nacional, además de impulsar el uso de energías renovables.</div>"
+    },
+    {
+      "id": 14,
+      "tipo": "parrafo",
+      "texto": "Por lo que, derivado de los logros obtenidos a través de la Primera Convocatoria, se considera necesario publicar una nueva Convocatoria que, de acuerdo con la planeación vinculante, permita atender prioritariamente las solicitudes de permisos de generación de energía eléctrica respecto de aquellos proyectos que contribuyan a seguir fortaleciendo el Sistema Eléctrico Nacional para garantizar el suministro de energía eléctrica a todo el pueblo de México, por lo que he tenido a bien emitir la:",
+      "html": "<div> Por lo que, derivado de los logros obtenidos a través de la Primera Convocatoria, se considera necesario publicar una nueva Convocatoria que, de acuerdo con la planeación vinculante, permita atender prioritariamente las solicitudes de permisos de generación de energía eléctrica respecto de aquellos proyectos que contribuyan a seguir fortaleciendo el Sistema Eléctrico Nacional para garantizar el suministro de energía eléctrica a todo el pueblo de México, por lo que he tenido a bien emitir la:</div>"
+    },
+    {
+      "id": 15,
+      "tipo": "parrafo",
+      "texto": "SEGUNDA CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE\nGENERACIÓN DE ENERGÍA ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL,\nALINEADOS A LA PLANEACIÓN VINCULANTE",
+      "html": "<div> SEGUNDA CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE<br> GENERACIÓN DE ENERGÍA ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL,<br> ALINEADOS A LA PLANEACIÓN VINCULANTE<br> </div>"
+    },
+    {
+      "id": 16,
+      "tipo": "parrafo",
+      "texto": "CONTENIDO",
+      "html": "<div> CONTENIDO</div>"
+    },
+    {
+      "id": 17,
+      "tipo": "parrafo",
+      "texto": "1. Objetivos y alcance.",
+      "html": "<div> 1. Objetivos y alcance.</div>"
+    },
+    {
+      "id": 18,
+      "tipo": "parrafo",
+      "texto": "2. Fundamento legal.",
+      "html": "<div> 2. Fundamento legal.</div>"
+    },
+    {
+      "id": 19,
+      "tipo": "parrafo",
+      "texto": "3. Reglas generales y de interpretación.",
+      "html": "<div> 3. Reglas generales y de interpretación.</div>"
+    },
+    {
+      "id": 20,
+      "tipo": "parrafo",
+      "texto": "4. Ventanilla Única de Proyectos Estratégicos del Sector Energético.",
+      "html": "<div> 4. Ventanilla Única de Proyectos Estratégicos del Sector Energético.</div>"
+    },
+    {
+      "id": 21,
+      "tipo": "parrafo",
+      "texto": "5. Participación de las distintas autoridades en la Segunda Convocatoria y consideraciones sobre sus trámites.",
+      "html": "<div> 5. Participación de las distintas autoridades en la Segunda Convocatoria y consideraciones sobre sus trámites.</div>"
+    },
+    {
+      "id": 22,
+      "tipo": "parrafo",
+      "texto": "6. Requisitos y condiciones para obtener permisos de generación de energía eléctrica bajo la Segunda Convocatoria.",
+      "html": "<div> 6. Requisitos y condiciones para obtener permisos de generación de energía eléctrica bajo la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 23,
+      "tipo": "parrafo",
+      "texto": "7. Calendario para la determinación del otorgamiento de permisos de generación de energía eléctrica derivados de la Segunda Convocatoria.",
+      "html": "<div> 7. Calendario para la determinación del otorgamiento de permisos de generación de energía eléctrica derivados de la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 24,
+      "tipo": "parrafo",
+      "texto": "8. Evaluación de los proyectos asociados a las solicitudes de generación de energía eléctrica.",
+      "html": "<div> 8. Evaluación de los proyectos asociados a las solicitudes de generación de energía eléctrica.</div>"
+    },
+    {
+      "id": 25,
+      "tipo": "parrafo",
+      "texto": "9. Aprobación y emisión de permisos de generación de energía eléctrica y publicación de los resultados.",
+      "html": "<div> 9. Aprobación y emisión de permisos de generación de energía eléctrica y publicación de los resultados.</div>"
+    },
+    {
+      "id": 26,
+      "tipo": "parrafo",
+      "texto": "10. Presentación y devolución de las garantías financieras asociadas a contratos de interconexión derivados de los permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria.",
+      "html": "<div> 10. Presentación y devolución de las garantías financieras asociadas a contratos de interconexión derivados de los permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 27,
+      "tipo": "parrafo",
+      "texto": "11. Suscripción del contrato de interconexión asociado a los permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria.",
+      "html": "<div> 11. Suscripción del contrato de interconexión asociado a los permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 28,
+      "tipo": "parrafo",
+      "texto": "12. Seguimiento de permisos de generación de energía eléctrica hasta su Entrada en Operación Comercial.",
+      "html": "<div> 12. Seguimiento de permisos de generación de energía eléctrica hasta su Entrada en Operación Comercial.</div>"
+    },
+    {
+      "id": 29,
+      "tipo": "parrafo",
+      "texto": "13. Glosario.",
+      "html": "<div> 13. Glosario.</div>"
+    },
+    {
+      "id": 30,
+      "tipo": "parrafo",
+      "texto": "14. Anexos:",
+      "html": "<div> 14. Anexos:</div>"
+    },
+    {
+      "id": 31,
+      "tipo": "parrafo",
+      "texto": "14.1. Formato de Manifestación de Interés y Solicitud de estudios de interconexión del CENACE.",
+      "html": "<div> 14.1. Formato de Manifestación de Interés y Solicitud de estudios de interconexión del CENACE.</div>"
+    },
+    {
+      "id": 32,
+      "tipo": "parrafo",
+      "texto": "14.2. Formato Solicitud de Permiso con Trámite Previo.",
+      "html": "<div> 14.2. Formato Solicitud de Permiso con Trámite Previo.</div>"
+    },
+    {
+      "id": 33,
+      "tipo": "parrafo",
+      "texto": "14.3. Formato Aceptación de Obras.",
+      "html": "<div> 14.3. Formato Aceptación de Obras.</div>"
+    },
+    {
+      "id": 34,
+      "tipo": "parrafo",
+      "texto": "14.4. Funciones técnicas y operativas de los Sistemas de Almacenamiento de Energía Eléctrica con baterías",
+      "html": "<div> 14.4. Funciones técnicas y operativas de los Sistemas de Almacenamiento de Energía Eléctrica con baterías</div>"
+    },
+    {
+      "id": 35,
+      "tipo": "parrafo",
+      "texto": "1. Objetivos y alcance",
+      "html": "<div> 1. Objetivos y alcance</div>"
+    },
+    {
+      "id": 36,
+      "tipo": "parrafo",
+      "texto": "1.1. Objetivos. La Segunda Convocatoria tiene los siguientes objetivos:",
+      "html": "<div> 1.1. Objetivos. La Segunda Convocatoria tiene los siguientes objetivos:</div>"
+    },
+    {
+      "id": 37,
+      "tipo": "parrafo",
+      "texto": "I. Establecer el mecanismo para la atención prioritaria de las solicitudes para la obtención de los permisos de generación de energía eléctrica que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional, de acuerdo con los Instrumentos de Planeación del Sector Energético, lo previsto en la presente Convocatoria y conforme a lo previsto en el artículo 57 del Reglamento de la Ley de Planeación y Transición Energética.",
+      "html": "<div> I. Establecer el mecanismo para la atención prioritaria de las solicitudes para la obtención de los permisos de generación de energía eléctrica que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional, de acuerdo con los Instrumentos de Planeación del Sector Energético, lo previsto en la presente Convocatoria y conforme a lo previsto en el artículo 57 del Reglamento de la Ley de Planeación y Transición Energética.</div>"
+    },
+    {
+      "id": 38,
+      "tipo": "parrafo",
+      "texto": "Lo anterior, permitirá desarrollar nuevos proyectos estratégicos y prioritarios alineados a la planeación vinculante establecida por la SENER, con el propósito de asegurar una planeación ordenada y coherente con los requerimientos de capacidad de generación del SEN, en atención a las necesidades energéticas del país de acuerdo con la planeación vinculante;",
+      "html": "<div> Lo anterior, permitirá desarrollar nuevos proyectos estratégicos y prioritarios alineados a la planeación vinculante establecida por la SENER, con el propósito de asegurar una planeación ordenada y coherente con los requerimientos de capacidad de generación del SEN, en atención a las necesidades energéticas del país de acuerdo con la planeación vinculante;</div>"
+    },
+    {
+      "id": 39,
+      "tipo": "parrafo",
+      "texto": "II. Ordenar y agilizar los trámites de registro, evaluación y seguimiento de proyectos asociados a las solicitudes de permisos de generación de energía eléctrica que cumplan con los requisitos aplicables, se alineen con la planeación vinculante y se desarrollen conforme a los criterios técnicos y normativos definidos en la Segunda Convocatoria, a través de sus distintas etapas, entre las que se encuentran la evaluación y aprobación de las solicitudes por parte de la Comisión Nacional de Energía, así como la realización de los estudios correspondientes por parte del Centro Nacional de Control de Energía.",
+      "html": "<div> II. Ordenar y agilizar los trámites de registro, evaluación y seguimiento de proyectos asociados a las solicitudes de permisos de generación de energía eléctrica que cumplan con los requisitos aplicables, se alineen con la planeación vinculante y se desarrollen conforme a los criterios técnicos y normativos definidos en la Segunda Convocatoria, a través de sus distintas etapas, entre las que se encuentran la evaluación y aprobación de las solicitudes por parte de la Comisión Nacional de Energía, así como la realización de los estudios correspondientes por parte del Centro Nacional de Control de Energía.</div>"
+    },
+    {
+      "id": 40,
+      "tipo": "parrafo",
+      "texto": "En ese sentido, esta Segunda Convocatoria no establece requisitos adicionales a los previstos en la normatividad aplicable, sino que define un conjunto mínimo de elementos que permiten diferenciar solicitudes con base en su solidez técnica, su alineación con la planeación vinculante y su viabilidad técnico-operativa;",
+      "html": "<div> En ese sentido, esta Segunda Convocatoria no establece requisitos adicionales a los previstos en la normatividad aplicable, sino que define un conjunto mínimo de elementos que permiten diferenciar solicitudes con base en su solidez técnica, su alineación con la planeación vinculante y su viabilidad técnico-operativa;</div>"
+    },
+    {
+      "id": 41,
+      "tipo": "parrafo",
+      "texto": "III. Establecer los parámetros técnicos que los proyectos asociados a las solicitudes de permisos de generación de energía eléctrica que se presenten al amparo de la Segunda Convocatoria deben cumplir, para lo cual se consideraron las necesidades energéticas del país de acuerdo con lo establecido en la planeación vinculante, y",
+      "html": "<div> III. Establecer los parámetros técnicos que los proyectos asociados a las solicitudes de permisos de generación de energía eléctrica que se presenten al amparo de la Segunda Convocatoria deben cumplir, para lo cual se consideraron las necesidades energéticas del país de acuerdo con lo establecido en la planeación vinculante, y</div>"
+    },
+    {
+      "id": 42,
+      "tipo": "parrafo",
+      "texto": "IV. Establecer que la CNE es la responsable de recibir, tramitar y resolver las solicitudes de permisos de generación de energía eléctrica a través de su OPE, para lo cual debe dar seguimiento a la emisión de los resultados de los estudios de interconexión por parte del CENACE.",
+      "html": "<div> IV. Establecer que la CNE es la responsable de recibir, tramitar y resolver las solicitudes de permisos de generación de energía eléctrica a través de su OPE, para lo cual debe dar seguimiento a la emisión de los resultados de los estudios de interconexión por parte del CENACE.</div>"
+    },
+    {
+      "id": 43,
+      "tipo": "parrafo",
+      "texto": "1.2. Alcance. La Segunda Convocatoria está dirigida a todas las personas solicitantes interesadas en desarrollar nuevos proyectos de generación de energía eléctrica con capacidad igual o mayor a 0.7 MW, que pretendan interconectarse al SEN y que se encuentren alineados con los criterios previstos en el numeral 1.2.1, fracción II de esta Segunda Convocatoria y necesidades identificados en la planeación vinculante.",
+      "html": "<div> 1.2. Alcance. La Segunda Convocatoria está dirigida a todas las personas solicitantes interesadas en desarrollar nuevos proyectos de generación de energía eléctrica con capacidad igual o mayor a 0.7 MW, que pretendan interconectarse al SEN y que se encuentren alineados con los criterios previstos en el numeral 1.2.1, fracción II de esta Segunda Convocatoria y necesidades identificados en la planeación vinculante.</div>"
+    },
+    {
+      "id": 44,
+      "tipo": "parrafo",
+      "texto": "1.2.1. Los proyectos y solicitudes que sean presentados por las personas solicitantes para obtener un permiso de generación de energía eléctrica en los términos de esta Convocatoria, deben cumplir con las siguientes características:",
+      "html": "<div> 1.2.1. Los proyectos y solicitudes que sean presentados por las personas solicitantes para obtener un permiso de generación de energía eléctrica en los términos de esta Convocatoria, deben cumplir con las siguientes características:</div>"
+    },
+    {
+      "id": 45,
+      "tipo": "parrafo",
+      "texto": "I. Contribuir al cumplimiento de los objetivos de confiabilidad, eficiencia y sostenibilidad del SEN, y",
+      "html": "<div> I. Contribuir al cumplimiento de los objetivos de confiabilidad, eficiencia y sostenibilidad del SEN, y</div>"
+    },
+    {
+      "id": 46,
+      "tipo": "parrafo",
+      "texto": "II. Cumplir con la planeación vinculante, considerando, entre otros:",
+      "html": "<div> II. Cumplir con la planeación vinculante, considerando, entre otros:</div>"
+    },
+    {
+      "id": 47,
+      "tipo": "parrafo",
+      "texto": "i. Los criterios técnicos establecidos en la normatividad vigente;",
+      "html": "<div> i. Los criterios técnicos establecidos en la normatividad vigente;</div>"
+    },
+    {
+      "id": 48,
+      "tipo": "parrafo",
+      "texto": "ii. Que se trate de energías renovables;",
+      "html": "<div> ii. Que se trate de energías renovables;</div>"
+    },
+    {
+      "id": 49,
+      "tipo": "parrafo",
+      "texto": "iii. Que la capacidad de generación sea acorde para cubrir los requerimientos faltantes resultado de la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica y de interconexión al Sistema Eléctrico Nacional, alineada con la planeación vinculante y de la Convocatoria para Esquemas de Desarrollo Mixto de la Comisión Federal de Electricidad;",
+      "html": "<div> iii. Que la capacidad de generación sea acorde para cubrir los requerimientos faltantes resultado de la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica y de interconexión al Sistema Eléctrico Nacional, alineada con la planeación vinculante y de la Convocatoria para Esquemas de Desarrollo Mixto de la Comisión Federal de Electricidad;</div>"
+    },
+    {
+      "id": 50,
+      "tipo": "parrafo",
+      "texto": "iv. Que el dimensionamiento del Sistema de Almacenamiento de Energía Eléctrica sea al menos un 30% de la capacidad de la Central Eléctrica y con una duración de al menos, tres horas, y que cumpla con los establecido en el numeral 14.4 Funciones técnicas y operativas de los Sistemas de Almacenamiento de Energía Eléctrica con baterías de la presente Convocatoria, y",
+      "html": "<div> iv. Que el dimensionamiento del Sistema de Almacenamiento de Energía Eléctrica sea al menos un 30% de la capacidad de la Central Eléctrica y con una duración de al menos, tres horas, y que cumpla con los establecido en el numeral 14.4 Funciones técnicas y operativas de los Sistemas de Almacenamiento de Energía Eléctrica con baterías de la presente Convocatoria, y</div>"
+    },
+    {
+      "id": 51,
+      "tipo": "parrafo",
+      "texto": "v. Que la entrada en operación comercial sea la más temprana en el periodo comprendido entre 2027 y el primer semestre de 2030.",
+      "html": "<div> v. Que la entrada en operación comercial sea la más temprana en el periodo comprendido entre 2027 y el primer semestre de 2030.</div>"
+    },
+    {
+      "id": 52,
+      "tipo": "parrafo",
+      "texto": "III. Contar con evidencia documental de los trámites de viabilidad técnica, social y ambiental efectuados, en su caso, ante autoridades competentes, tales como la SENER, el CENACE y la Secretaría de Medio Ambiente y Recursos Naturales.",
+      "html": "<div> III. Contar con evidencia documental de los trámites de viabilidad técnica, social y ambiental efectuados, en su caso, ante autoridades competentes, tales como la SENER, el CENACE y la Secretaría de Medio Ambiente y Recursos Naturales.</div>"
+    },
+    {
+      "id": 53,
+      "tipo": "parrafo",
+      "texto": "1.2.2. Quedan excluidos de participar en la Segunda Convocatoria los siguientes proyectos:",
+      "html": "<div> 1.2.2. Quedan excluidos de participar en la Segunda Convocatoria los siguientes proyectos:</div>"
+    },
+    {
+      "id": 54,
+      "tipo": "parrafo",
+      "texto": "I. Generación distribuida;",
+      "html": "<div> I. Generación distribuida;</div>"
+    },
+    {
+      "id": 55,
+      "tipo": "parrafo",
+      "texto": "II. Autoconsumo en sus diferentes modalidades;",
+      "html": "<div> II. Autoconsumo en sus diferentes modalidades;</div>"
+    },
+    {
+      "id": 56,
+      "tipo": "parrafo",
+      "texto": "III. Cogeneración;",
+      "html": "<div> III. Cogeneración;</div>"
+    },
+    {
+      "id": 57,
+      "tipo": "parrafo",
+      "texto": "IV. Proyectos de generación de energía eléctrica que se desarrollen bajo Esquemas para el Desarrollo Mixto;",
+      "html": "<div> IV. Proyectos de generación de energía eléctrica que se desarrollen bajo Esquemas para el Desarrollo Mixto;</div>"
+    },
+    {
+      "id": 58,
+      "tipo": "parrafo",
+      "texto": "V. Aquellos que no requieran permiso conforme a la Ley del Sector Eléctrico y su reglamento, y",
+      "html": "<div> V. Aquellos que no requieran permiso conforme a la Ley del Sector Eléctrico y su reglamento, y</div>"
+    },
+    {
+      "id": 59,
+      "tipo": "parrafo",
+      "texto": "VI. Aquellos que se encuentren asociados a permisos de generación de energía eléctrica otorgados de manera previa a la publicación de la presente Convocatoria, que se encuentren vigentes a la fecha de presentación de la solicitud correspondiente.",
+      "html": "<div> VI. Aquellos que se encuentren asociados a permisos de generación de energía eléctrica otorgados de manera previa a la publicación de la presente Convocatoria, que se encuentren vigentes a la fecha de presentación de la solicitud correspondiente.</div>"
+    },
+    {
+      "id": 60,
+      "tipo": "parrafo",
+      "texto": "2. Fundamento legal",
+      "html": "<div> 2. Fundamento legal</div>"
+    },
+    {
+      "id": 61,
+      "tipo": "parrafo",
+      "texto": "La Segunda Convocatoria se fundamenta en lo establecido por los artículos 14 y 33, párrafo primero, fracciones I, IV y XXXIII y párrafo segundo, de la Ley Orgánica de la Administración Pública Federal; 1, fracciones I, II, IV y VII, 2, párrafo segundo, 4, 5, 6, fracciones II, III, V y VII, 10, fracciones I, III, XIV y XXXVII, 11, fracciones I y XI, 12, 14, 16, 17, 18, 88 y 151 de la Ley del Sector Eléctrico; 2, fracciones III, V y VI, 7 y 8, fracción IX de la Ley de Planeación y Transición Energética; 3 del Reglamento de la Ley del Sector Eléctrico; 56 y 57 del Reglamento de la Ley de Planeación y Transición Energética y, 3 y 4 de la Ley Federal de Procedimiento Administrativo.",
+      "html": "<div> La Segunda Convocatoria se fundamenta en lo establecido por los artículos 14 y 33, párrafo primero, fracciones I, IV y XXXIII y párrafo segundo, de la Ley Orgánica de la Administración Pública Federal; 1, fracciones I, II, IV y VII, 2, párrafo segundo, 4, 5, 6, fracciones II, III, V y VII, 10, fracciones I, III, XIV y XXXVII, 11, fracciones I y XI, 12, 14, 16, 17, 18, 88 y 151 de la Ley del Sector Eléctrico; 2, fracciones III, V y VI, 7 y 8, fracción IX de la Ley de Planeación y Transición Energética; 3 del Reglamento de la Ley del Sector Eléctrico; 56 y 57 del Reglamento de la Ley de Planeación y Transición Energética y, 3 y 4 de la Ley Federal de Procedimiento Administrativo.</div>"
+    },
+    {
+      "id": 62,
+      "tipo": "parrafo",
+      "texto": "La Segunda Convocatoria se sustenta en el marco jurídico vigente del sector eléctrico aplicable a la actividad de generación de energía eléctrica, el cual establece tanto las atribuciones de las autoridades como los derechos y obligaciones de las personas solicitantes y, en su caso, de las personas permisionarias.",
+      "html": "<div> La Segunda Convocatoria se sustenta en el marco jurídico vigente del sector eléctrico aplicable a la actividad de generación de energía eléctrica, el cual establece tanto las atribuciones de las autoridades como los derechos y obligaciones de las personas solicitantes y, en su caso, de las personas permisionarias.</div>"
+    },
+    {
+      "id": 63,
+      "tipo": "parrafo",
+      "texto": "3. Reglas generales y de interpretación",
+      "html": "<div> 3. Reglas generales y de interpretación</div>"
+    },
+    {
+      "id": 64,
+      "tipo": "parrafo",
+      "texto": "La Segunda Convocatoria está sujeta a las siguientes reglas generales y de interpretación:",
+      "html": "<div> La Segunda Convocatoria está sujeta a las siguientes reglas generales y de interpretación:</div>"
+    },
+    {
+      "id": 65,
+      "tipo": "parrafo",
+      "texto": "I. Para efectos de la Segunda Convocatoria, los términos definidos en el Glosario aplican en todos los casos y pueden utilizarse en singular o plural según el contexto;",
+      "html": "<div> I. Para efectos de la Segunda Convocatoria, los términos definidos en el Glosario aplican en todos los casos y pueden utilizarse en singular o plural según el contexto;</div>"
+    },
+    {
+      "id": 66,
+      "tipo": "parrafo",
+      "texto": "II. Las fechas previstas deben entenderse dentro del año de publicación de la Segunda Convocatoria y los días deben ser considerados como hábiles en términos de lo previsto en el artículo 28 de la Ley Federal de Procedimiento Administrativo, salvo que se indique expresamente que son naturales;",
+      "html": "<div> II. Las fechas previstas deben entenderse dentro del año de publicación de la Segunda Convocatoria y los días deben ser considerados como hábiles en términos de lo previsto en el artículo 28 de la Ley Federal de Procedimiento Administrativo, salvo que se indique expresamente que son naturales;</div>"
+    },
+    {
+      "id": 67,
+      "tipo": "parrafo",
+      "texto": "III. Para efectos administrativos, corresponde a la SENER interpretar y resolver lo relativo a la Segunda Convocatoria, con base en criterios de certeza y competencia técnica, con apoyo de la CNE para lo concerniente al otorgamiento de permisos de generación de energía eléctrica y del CENACE en lo que respecta a los estudios de interconexión, contratos de interconexión, presentación y aplicación de garantías, entre otros aspectos técnicos;",
+      "html": "<div> III. Para efectos administrativos, corresponde a la SENER interpretar y resolver lo relativo a la Segunda Convocatoria, con base en criterios de certeza y competencia técnica, con apoyo de la CNE para lo concerniente al otorgamiento de permisos de generación de energía eléctrica y del CENACE en lo que respecta a los estudios de interconexión, contratos de interconexión, presentación y aplicación de garantías, entre otros aspectos técnicos;</div>"
+    },
+    {
+      "id": 68,
+      "tipo": "parrafo",
+      "texto": "IV. Los documentos que se presenten deben estar en idioma español. En caso de documentos en un idioma distinto, se debe anexar la traducción simple al español;",
+      "html": "<div> IV. Los documentos que se presenten deben estar en idioma español. En caso de documentos en un idioma distinto, se debe anexar la traducción simple al español;</div>"
+    },
+    {
+      "id": 69,
+      "tipo": "parrafo",
+      "texto": "V. Las capacidades de generación de energía eléctrica se deben expresar en MW con dos decimales. Cuando exista diferencia entre número y letra, debe prevalecer la cifra numérica;",
+      "html": "<div> V. Las capacidades de generación de energía eléctrica se deben expresar en MW con dos decimales. Cuando exista diferencia entre número y letra, debe prevalecer la cifra numérica;</div>"
+    },
+    {
+      "id": 70,
+      "tipo": "parrafo",
+      "texto": "VI. La fecha de Entrada en Operación Comercial de los proyectos debe alinearse con los periodos establecidos por la Secretaría en la presente Convocatoria; sin embargo, los proyectos pueden iniciar su operación comercial de manera anticipada, previa opinión favorable del CENACE, siempre que cumplan con los requisitos establecidos en la normatividad aplicable;",
+      "html": "<div> VI. La fecha de Entrada en Operación Comercial de los proyectos debe alinearse con los periodos establecidos por la Secretaría en la presente Convocatoria; sin embargo, los proyectos pueden iniciar su operación comercial de manera anticipada, previa opinión favorable del CENACE, siempre que cumplan con los requisitos establecidos en la normatividad aplicable;</div>"
+    },
+    {
+      "id": 71,
+      "tipo": "parrafo",
+      "texto": "VII. Quedan a salvo los derechos de aquellas personas solicitantes cuya solicitud se deseche o no obtengan un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria, para iniciar los trámites correspondientes conforme a lo establecido en la LSE, el RLSE y demás normatividad aplicable. En cualquier caso, las personas interesadas deben cumplir con los requisitos aplicables y la planeación vinculante;",
+      "html": "<div> VII. Quedan a salvo los derechos de aquellas personas solicitantes cuya solicitud se deseche o no obtengan un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria, para iniciar los trámites correspondientes conforme a lo establecido en la LSE, el RLSE y demás normatividad aplicable. En cualquier caso, las personas interesadas deben cumplir con los requisitos aplicables y la planeación vinculante;</div>"
+    },
+    {
+      "id": 72,
+      "tipo": "parrafo",
+      "texto": "VIII. Los registros de manifestación de interés que se presenten después del fin del periodo previsto en esta Segunda Convocatoria, sin excepción alguna, no pueden continuar participando en las etapas subsecuentes de la misma;",
+      "html": "<div> VIII. Los registros de manifestación de interés que se presenten después del fin del periodo previsto en esta Segunda Convocatoria, sin excepción alguna, no pueden continuar participando en las etapas subsecuentes de la misma;</div>"
+    },
+    {
+      "id": 73,
+      "tipo": "parrafo",
+      "texto": "IX. La CNE no debe considerar para participar en las siguientes etapas aquellos proyectos que correspondan a regiones no previstas en la planeación vinculante;",
+      "html": "<div> IX. La CNE no debe considerar para participar en las siguientes etapas aquellos proyectos que correspondan a regiones no previstas en la planeación vinculante;</div>"
+    },
+    {
+      "id": 74,
+      "tipo": "parrafo",
+      "texto": "X. En el caso de que se haya ingresado una solicitud para la obtención de un permiso de generación de energía eléctrica ante la extinta Comisión Reguladora de Energía o la CNE, o una solicitud de estudios de interconexión ante el CENACE, previo a la emisión de la Segunda Convocatoria, se puede solicitar que dicha solicitud sea sujeta al procedimiento previsto en la misma. En este supuesto, la persona solicitante debe presentar el desistimiento de la o las solicitudes que se hayan presentado de manera previa en caso de obtener el permiso en términos de la Segunda Convocatoria, y",
+      "html": "<div> X. En el caso de que se haya ingresado una solicitud para la obtención de un permiso de generación de energía eléctrica ante la extinta Comisión Reguladora de Energía o la CNE, o una solicitud de estudios de interconexión ante el CENACE, previo a la emisión de la Segunda Convocatoria, se puede solicitar que dicha solicitud sea sujeta al procedimiento previsto en la misma. En este supuesto, la persona solicitante debe presentar el desistimiento de la o las solicitudes que se hayan presentado de manera previa en caso de obtener el permiso en términos de la Segunda Convocatoria, y</div>"
+    },
+    {
+      "id": 75,
+      "tipo": "parrafo",
+      "texto": "XI. Para todo lo no previsto en la Segunda Convocatoria, se aplica supletoriamente lo dispuesto en la Ley Federal de Procedimiento Administrativo y demás normatividad del sector eléctrico vigente y aplicable.",
+      "html": "<div> XI. Para todo lo no previsto en la Segunda Convocatoria, se aplica supletoriamente lo dispuesto en la Ley Federal de Procedimiento Administrativo y demás normatividad del sector eléctrico vigente y aplicable.</div>"
+    },
+    {
+      "id": 76,
+      "tipo": "parrafo",
+      "texto": "4. Ventanilla Única de Proyectos Estratégicos del Sector Energético",
+      "html": "<div> 4. Ventanilla Única de Proyectos Estratégicos del Sector Energético</div>"
+    },
+    {
+      "id": 77,
+      "tipo": "parrafo",
+      "texto": "A través de la VUPE se integran los expedientes de los proyectos que se deben revisar por el Grupo de Análisis Técnico y que, en su caso, se deben someter a revisión y aprobación del Comité Técnico de la CNE, siendo esta el medio principal para el desarrollo y seguimiento del procedimiento relativo a la Segunda Convocatoria.",
+      "html": "<div> A través de la VUPE se integran los expedientes de los proyectos que se deben revisar por el Grupo de Análisis Técnico y que, en su caso, se deben someter a revisión y aprobación del Comité Técnico de la CNE, siendo esta el medio principal para el desarrollo y seguimiento del procedimiento relativo a la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 78,
+      "tipo": "parrafo",
+      "texto": "4.1. La CNE debe utilizar la VUPE para dar seguimiento a las distintas etapas de la Segunda Convocatoria, conforme a lo siguiente:",
+      "html": "<div> 4.1. La CNE debe utilizar la VUPE para dar seguimiento a las distintas etapas de la Segunda Convocatoria, conforme a lo siguiente:</div>"
+    },
+    {
+      "id": 79,
+      "tipo": "parrafo",
+      "texto": "I. Las personas solicitantes interesadas en obtener un permiso de generación de energía eléctrica en términos de esta Segunda Convocatoria pueden presentar su registro de manifestación de interés en participar en la misma, registrar el proyecto asociado a dicha manifestación y solicitar la realización de los estudios de interconexión que correspondan;",
+      "html": "<div> I. Las personas solicitantes interesadas en obtener un permiso de generación de energía eléctrica en términos de esta Segunda Convocatoria pueden presentar su registro de manifestación de interés en participar en la misma, registrar el proyecto asociado a dicha manifestación y solicitar la realización de los estudios de interconexión que correspondan;</div>"
+    },
+    {
+      "id": 80,
+      "tipo": "parrafo",
+      "texto": "II. Las personas solicitantes pueden consultar información general sobre el avance de los trámites vinculados al proyecto respecto del cual solicitan un permiso de generación de energía eléctrica, a partir de la progresiva interoperabilidad de la VUPE con las plataformas electrónicas de las distintas autoridades del sector que participan en las diversas etapas de la Segunda Convocatoria, lo que permite fortalecer la coordinación, transparencia y trazabilidad en el seguimiento prioritario de los proyectos registrados. Lo anterior no impide que dichas autoridades continúen utilizando los sistemas electrónicos y plataformas digitales con los que cuentan para el ejercicio de sus atribuciones, y",
+      "html": "<div> II. Las personas solicitantes pueden consultar información general sobre el avance de los trámites vinculados al proyecto respecto del cual solicitan un permiso de generación de energía eléctrica, a partir de la progresiva interoperabilidad de la VUPE con las plataformas electrónicas de las distintas autoridades del sector que participan en las diversas etapas de la Segunda Convocatoria, lo que permite fortalecer la coordinación, transparencia y trazabilidad en el seguimiento prioritario de los proyectos registrados. Lo anterior no impide que dichas autoridades continúen utilizando los sistemas electrónicos y plataformas digitales con los que cuentan para el ejercicio de sus atribuciones, y</div>"
+    },
+    {
+      "id": 81,
+      "tipo": "parrafo",
+      "texto": "III. Las personas solicitantes pueden informar sobre el avance administrativo del proyecto, a partir del reporte del estado de los trámites asociados, que han presentado ante diversas autoridades federales, estatales y municipales.",
+      "html": "<div> III. Las personas solicitantes pueden informar sobre el avance administrativo del proyecto, a partir del reporte del estado de los trámites asociados, que han presentado ante diversas autoridades federales, estatales y municipales.</div>"
+    },
+    {
+      "id": 82,
+      "tipo": "parrafo",
+      "texto": "4.2. Las personas solicitantes que participen en las distintas etapas de la Segunda Convocatoria aceptan que a través de la VUPE puedan presentar promociones, así como oír y recibir notificaciones relacionadas con la misma. De igual forma, aceptan que la OPE de la CNE es el medio a través del cual deben presentar su solicitud de permiso de generación de energía eléctrica y demás trámites asociados al permiso que, en su caso, les sea otorgado por parte de la CNE.",
+      "html": "<div> 4.2. Las personas solicitantes que participen en las distintas etapas de la Segunda Convocatoria aceptan que a través de la VUPE puedan presentar promociones, así como oír y recibir notificaciones relacionadas con la misma. De igual forma, aceptan que la OPE de la CNE es el medio a través del cual deben presentar su solicitud de permiso de generación de energía eléctrica y demás trámites asociados al permiso que, en su caso, les sea otorgado por parte de la CNE.</div>"
+    },
+    {
+      "id": 83,
+      "tipo": "parrafo",
+      "texto": "La CNE debe resolver de manera prioritaria las solicitudes de registro en la OPE que le sean presentadas por las personas que pretendan presentar sus solicitudes bajo la Segunda Convocatoria.",
+      "html": "<div> La CNE debe resolver de manera prioritaria las solicitudes de registro en la OPE que le sean presentadas por las personas que pretendan presentar sus solicitudes bajo la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 84,
+      "tipo": "parrafo",
+      "texto": "5. Participación de las distintas autoridades en la Segunda Convocatoria y consideraciones sobre sus trámites",
+      "html": "<div> 5. Participación de las distintas autoridades en la Segunda Convocatoria y consideraciones sobre sus trámites</div>"
+    },
+    {
+      "id": 85,
+      "tipo": "parrafo",
+      "texto": "5.1. La CNE debe realizar las gestiones necesarias para atender las solicitudes de permisos de generación de energía eléctrica conforme a los plazos de la Segunda Convocatoria, incluyendo la priorización del registro en la OPE de las personas solicitantes interesadas en participar en esta.",
+      "html": "<div> 5.1. La CNE debe realizar las gestiones necesarias para atender las solicitudes de permisos de generación de energía eléctrica conforme a los plazos de la Segunda Convocatoria, incluyendo la priorización del registro en la OPE de las personas solicitantes interesadas en participar en esta.</div>"
+    },
+    {
+      "id": 86,
+      "tipo": "parrafo",
+      "texto": "5.2. Los trámites relacionados con los estudios de interconexión que se hayan iniciado previamente o se reciban durante las diversas etapas de la Segunda Convocatoria, continúan sujetos a los plazos y términos previstos en la normatividad aplicable y en los instrumentos de planeación vinculante correspondientes a la actividad de generación, sin que la Segunda Convocatoria suspenda su tramitación, ni la atención de los demás proyectos.",
+      "html": "<div> 5.2. Los trámites relacionados con los estudios de interconexión que se hayan iniciado previamente o se reciban durante las diversas etapas de la Segunda Convocatoria, continúan sujetos a los plazos y términos previstos en la normatividad aplicable y en los instrumentos de planeación vinculante correspondientes a la actividad de generación, sin que la Segunda Convocatoria suspenda su tramitación, ni la atención de los demás proyectos.</div>"
+    },
+    {
+      "id": 87,
+      "tipo": "parrafo",
+      "texto": "Los proyectos previamente integrados o en trámite ante el CENACE o la CNE pueden ser reconocidos para efectos de la Segunda Convocatoria cuando las personas interesadas ratifiquen su solicitud o proyecto conforme a los mecanismos previstos en esta Convocatoria, estos no conlleven modificaciones técnicas y se encuentren alineados con los Instrumentos de Planeación Vinculante aplicables a la generación de energía eléctrica. En esos casos, el CENACE puede priorizar la realización, actualización o revalidación de los estudios de interconexión correspondientes.",
+      "html": "<div> Los proyectos previamente integrados o en trámite ante el CENACE o la CNE pueden ser reconocidos para efectos de la Segunda Convocatoria cuando las personas interesadas ratifiquen su solicitud o proyecto conforme a los mecanismos previstos en esta Convocatoria, estos no conlleven modificaciones técnicas y se encuentren alineados con los Instrumentos de Planeación Vinculante aplicables a la generación de energía eléctrica. En esos casos, el CENACE puede priorizar la realización, actualización o revalidación de los estudios de interconexión correspondientes.</div>"
+    },
+    {
+      "id": 88,
+      "tipo": "parrafo",
+      "texto": "5.3. Los estudios realizados por el CENACE como parte del procedimiento previsto en esta Convocatoria únicamente son válidos para la misma, por lo que, en caso de que alguna persona solicitante pretenda utilizar, en la vía ordinaria, los estudios de interconexión realizados al amparo de dicho procedimiento respecto de proyectos a los que no se les otorgue un permiso de generación de energía eléctrica, deben presentar al CENACE los propios estudios, a efecto de que defina la vigencia de los mismos.",
+      "html": "<div> 5.3. Los estudios realizados por el CENACE como parte del procedimiento previsto en esta Convocatoria únicamente son válidos para la misma, por lo que, en caso de que alguna persona solicitante pretenda utilizar, en la vía ordinaria, los estudios de interconexión realizados al amparo de dicho procedimiento respecto de proyectos a los que no se les otorgue un permiso de generación de energía eléctrica, deben presentar al CENACE los propios estudios, a efecto de que defina la vigencia de los mismos.</div>"
+    },
+    {
+      "id": 89,
+      "tipo": "parrafo",
+      "texto": "A través de la VUPE, el CENACE debe notificar a las personas solicitantes, respecto de los proyectos a los que deba realizar los estudios correspondientes o, bien, de aquellos cuyos estudios hayan sido revalidados.",
+      "html": "<div> A través de la VUPE, el CENACE debe notificar a las personas solicitantes, respecto de los proyectos a los que deba realizar los estudios correspondientes o, bien, de aquellos cuyos estudios hayan sido revalidados.</div>"
+    },
+    {
+      "id": 90,
+      "tipo": "parrafo",
+      "texto": "6. Requisitos y condiciones para obtener permisos de generación de energía eléctrica bajo la Segunda Convocatoria",
+      "html": "<div> 6. Requisitos y condiciones para obtener permisos de generación de energía eléctrica bajo la Segunda Convocatoria</div>"
+    },
+    {
+      "id": 91,
+      "tipo": "parrafo",
+      "texto": "El otorgamiento de un permiso de generación de energía eléctrica en términos de la presente Convocatoria se encuentra sujeto al cumplimiento de los requisitos establecidos en la LSE, el RLSE y demás normatividad aplicable, mismos que deben acreditarse de forma documentada y verificable. En ese sentido, las personas solicitantes de un permiso de generación de energía eléctrica conforme a lo previsto en la Segunda Convocatoria deben cumplir con los requisitos que se señalan en el presente apartado.",
+      "html": "<div> El otorgamiento de un permiso de generación de energía eléctrica en términos de la presente Convocatoria se encuentra sujeto al cumplimiento de los requisitos establecidos en la LSE, el RLSE y demás normatividad aplicable, mismos que deben acreditarse de forma documentada y verificable. En ese sentido, las personas solicitantes de un permiso de generación de energía eléctrica conforme a lo previsto en la Segunda Convocatoria deben cumplir con los requisitos que se señalan en el presente apartado.</div>"
+    },
+    {
+      "id": 92,
+      "tipo": "parrafo",
+      "texto": "6.1. Requisitos generales",
+      "html": "<div> 6.1. Requisitos generales</div>"
+    },
+    {
+      "id": 93,
+      "tipo": "parrafo",
+      "texto": "Las personas solicitantes que pretendan obtener un permiso de generación de energía eléctrica en términos de la Segunda Convocatoria deben:",
+      "html": "<div> Las personas solicitantes que pretendan obtener un permiso de generación de energía eléctrica en términos de la Segunda Convocatoria deben:</div>"
+    },
+    {
+      "id": 94,
+      "tipo": "parrafo",
+      "texto": "I. Presentar, a través de la VUPE, la manifestación de interés, para lo cual, las personas interesadas deben presentar el registro de manifestación de interés y la solicitud de los estudios de interconexión correspondientes, en el formato habilitado en la VUPE a que se hace referencia en el numeral 14.1, el cual aporta a la CNE los datos generales de la persona solicitante y del proyecto de generación de energía eléctrica, así como de los trámites que se tengan iniciados ante las distintas autoridades relacionadas con dicho proyecto.",
+      "html": "<div> I. Presentar, a través de la VUPE, la manifestación de interés, para lo cual, las personas interesadas deben presentar el registro de manifestación de interés y la solicitud de los estudios de interconexión correspondientes, en el formato habilitado en la VUPE a que se hace referencia en el numeral 14.1, el cual aporta a la CNE los datos generales de la persona solicitante y del proyecto de generación de energía eléctrica, así como de los trámites que se tengan iniciados ante las distintas autoridades relacionadas con dicho proyecto.</div>"
+    },
+    {
+      "id": 95,
+      "tipo": "parrafo",
+      "texto": "El formato antes señalado, de igual forma, aporta los elementos para que el CENACE determine los estudios de interconexión y demás requisitos técnicos que el proyecto debe atender, para lo cual se requiere que las personas interesadas presenten la información técnica relacionada con el proyecto a desarrollar y, en su caso, el pago de los estudios que previamente se hubieran solicitado;",
+      "html": "<div> El formato antes señalado, de igual forma, aporta los elementos para que el CENACE determine los estudios de interconexión y demás requisitos técnicos que el proyecto debe atender, para lo cual se requiere que las personas interesadas presenten la información técnica relacionada con el proyecto a desarrollar y, en su caso, el pago de los estudios que previamente se hubieran solicitado;</div>"
+    },
+    {
+      "id": 96,
+      "tipo": "parrafo",
+      "texto": "II. Las personas solicitantes deben presentar la evidencia de pago de los estudios de interconexión ante el CENACE a través de la VUPE.",
+      "html": "<div> II. Las personas solicitantes deben presentar la evidencia de pago de los estudios de interconexión ante el CENACE a través de la VUPE.</div>"
+    },
+    {
+      "id": 97,
+      "tipo": "parrafo",
+      "texto": "Tratándose de proyectos de generación de energía eléctrica que cuenten con un pago por concepto de realización de estudios de interconexión, realizado de manera previa, y el solicitante no haya recibido los resultados de los estudios, el CENACE debe revalidar el pago correspondiente, siempre que no exista una modificación técnica conforme a lo establecido en el numeral 1.5.62 del MIC o bien, cambios en la configuración o condiciones de la red eléctrica asociada.",
+      "html": "<div> Tratándose de proyectos de generación de energía eléctrica que cuenten con un pago por concepto de realización de estudios de interconexión, realizado de manera previa, y el solicitante no haya recibido los resultados de los estudios, el CENACE debe revalidar el pago correspondiente, siempre que no exista una modificación técnica conforme a lo establecido en el numeral 1.5.62 del MIC o bien, cambios en la configuración o condiciones de la red eléctrica asociada.</div>"
+    },
+    {
+      "id": 98,
+      "tipo": "parrafo",
+      "texto": "Para los proyectos de generación de energía eléctrica respecto de los cuales no se cuente con un pago previo para uno o la totalidad de los estudios que requiere el CENACE, la persona particular debe realizar el pago correspondiente conforme a los siguientes supuestos:",
+      "html": "<div> Para los proyectos de generación de energía eléctrica respecto de los cuales no se cuente con un pago previo para uno o la totalidad de los estudios que requiere el CENACE, la persona particular debe realizar el pago correspondiente conforme a los siguientes supuestos:</div>"
+    },
+    {
+      "id": 99,
+      "tipo": "parrafo",
+      "texto": "a) Para proyectos de generación de energía eléctrica sin previa solicitud de estudios de interconexión, o con una solicitud vigente de estudio indicativo con el CENACE, se debe realizar un pago en una sola exhibición por el monto total de los estudios de impacto y de instalaciones;",
+      "html": "<div> a) Para proyectos de generación de energía eléctrica sin previa solicitud de estudios de interconexión, o con una solicitud vigente de estudio indicativo con el CENACE, se debe realizar un pago en una sola exhibición por el monto total de los estudios de impacto y de instalaciones;</div>"
+    },
+    {
+      "id": 100,
+      "tipo": "parrafo",
+      "texto": "b) Para los proyectos de generación de energía eléctrica que tengan una solicitud vigente del estudio de impacto con el CENACE, dicho organismo debe realizar la reevaluación de este y, en su caso, elaborar el estudio de instalaciones correspondiente, por lo que únicamente se debe cubrir el pago por el estudio de instalaciones, sin que esto implique algún costo adicional para la persona solicitante respecto del estudio de impacto, siempre que no exista una modificación técnica en relación con la información que se ingrese en la VUPE y la información del SIASIC. En caso de existir una modificación técnica, se debe pagar el nuevo estudio de impacto y el estudio de instalaciones;",
+      "html": "<div> b) Para los proyectos de generación de energía eléctrica que tengan una solicitud vigente del estudio de impacto con el CENACE, dicho organismo debe realizar la reevaluación de este y, en su caso, elaborar el estudio de instalaciones correspondiente, por lo que únicamente se debe cubrir el pago por el estudio de instalaciones, sin que esto implique algún costo adicional para la persona solicitante respecto del estudio de impacto, siempre que no exista una modificación técnica en relación con la información que se ingrese en la VUPE y la información del SIASIC. En caso de existir una modificación técnica, se debe pagar el nuevo estudio de impacto y el estudio de instalaciones;</div>"
+    },
+    {
+      "id": 101,
+      "tipo": "parrafo",
+      "texto": "c) Para los proyectos de generación de energía eléctrica que cuenten con una solicitud de estudio de instalaciones vigente ante el CENACE, se debe realizar una reevaluación del estudio de impacto y del estudio de instalaciones sin que se deba realizar algún pago adicional, siempre que no exista una modificación técnica en relación con la información que se ingrese en la VUPE y la información del SIASIC. En caso de existir una modificación técnica, se debe pagar el nuevo estudio de impacto y, posteriormente, el estudio de instalaciones, y",
+      "html": "<div> c) Para los proyectos de generación de energía eléctrica que cuenten con una solicitud de estudio de instalaciones vigente ante el CENACE, se debe realizar una reevaluación del estudio de impacto y del estudio de instalaciones sin que se deba realizar algún pago adicional, siempre que no exista una modificación técnica en relación con la información que se ingrese en la VUPE y la información del SIASIC. En caso de existir una modificación técnica, se debe pagar el nuevo estudio de impacto y, posteriormente, el estudio de instalaciones, y</div>"
+    },
+    {
+      "id": 102,
+      "tipo": "parrafo",
+      "texto": "d) Para aquellos proyectos de generación de energía eléctrica que cuenten con estudios de interconexión realizados por el CENACE, cuya vigencia haya concluido, se debe realizar el pago en una sola exhibición por el monto total de los estudios de impacto y el de instalaciones.",
+      "html": "<div> d) Para aquellos proyectos de generación de energía eléctrica que cuenten con estudios de interconexión realizados por el CENACE, cuya vigencia haya concluido, se debe realizar el pago en una sola exhibición por el monto total de los estudios de impacto y el de instalaciones.</div>"
+    },
+    {
+      "id": 103,
+      "tipo": "parrafo",
+      "texto": "Para efectos de la Segunda Convocatoria, una solicitud de estudios de interconexión vigente es aquella que se encuentra dentro de los plazos de atención definidos en el MIC. Cualquier solicitud que no haya requerido el siguiente estudio, contrato de interconexión, ampliación, aclaración o cualquier otro recurso dentro de los plazos del MIC, no se considera vigente.",
+      "html": "<div> Para efectos de la Segunda Convocatoria, una solicitud de estudios de interconexión vigente es aquella que se encuentra dentro de los plazos de atención definidos en el MIC. Cualquier solicitud que no haya requerido el siguiente estudio, contrato de interconexión, ampliación, aclaración o cualquier otro recurso dentro de los plazos del MIC, no se considera vigente.</div>"
+    },
+    {
+      "id": 104,
+      "tipo": "parrafo",
+      "texto": "Los pagos para los estudios de los proyectos de generación de energía eléctrica están sujetos a lo previsto en el MIC, como se estipula en su Anexo I, Tabla de Costos de los Estudios del CENACE, numeral I.1 Estudios de Interconexión, Tabla I.1.",
+      "html": "<div> Los pagos para los estudios de los proyectos de generación de energía eléctrica están sujetos a lo previsto en el MIC, como se estipula en su Anexo I, Tabla de Costos de los Estudios del CENACE, numeral I.1 Estudios de Interconexión, Tabla I.1.</div>"
+    },
+    {
+      "id": 105,
+      "tipo": "parrafo",
+      "texto": "",
+      "html": "<div> <img src=\"https://sidof.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_0.png\" alt=\"Tabla I.1. Costos y tiempos de estudios de interconexión de centrales eléctricas en modalidad individual\"><br> </div>"
+    },
+    {
+      "id": 106,
+      "tipo": "parrafo",
+      "texto": "III. Ingresar, a través de la OPE de la CNE, la solicitud de permiso de generación de energía eléctrica de conformidad con lo que establecen las Disposiciones de Permisos y atender, en su caso, la prevención que la CNE le realice a través de dicho medio.",
+      "html": "<div> III. Ingresar, a través de la OPE de la CNE, la solicitud de permiso de generación de energía eléctrica de conformidad con lo que establecen las Disposiciones de Permisos y atender, en su caso, la prevención que la CNE le realice a través de dicho medio.</div>"
+    },
+    {
+      "id": 107,
+      "tipo": "parrafo",
+      "texto": "La persona solicitante puede optar por alguna de las siguientes opciones, según sea el caso, para la presentación de la solicitud referida:",
+      "html": "<div> La persona solicitante puede optar por alguna de las siguientes opciones, según sea el caso, para la presentación de la solicitud referida:</div>"
+    },
+    {
+      "id": 108,
+      "tipo": "parrafo",
+      "texto": "a) Opción 1: Sin trámite previo. En el caso de que la persona solicitante no cuente con ninguna solicitud de permiso de generación de energía eléctrica en trámite, debe presentar el formato de solicitud de permiso de generación de energía eléctrica, requisitado en su totalidad y firmado por la persona solicitante, conforme a lo establecido en las Disposiciones de Permisos, y",
+      "html": "<div> a) Opción 1: Sin trámite previo. En el caso de que la persona solicitante no cuente con ninguna solicitud de permiso de generación de energía eléctrica en trámite, debe presentar el formato de solicitud de permiso de generación de energía eléctrica, requisitado en su totalidad y firmado por la persona solicitante, conforme a lo establecido en las Disposiciones de Permisos, y</div>"
+    },
+    {
+      "id": 109,
+      "tipo": "parrafo",
+      "texto": "b) Opción 2: Con trámite previo. En el caso de que la persona solicitante ya cuente con una solicitud de permiso en el momento que presente el registro de manifestación de interés en términos de la Segunda Convocatoria, incluidas aquellas que hayan sido ratificadas en términos del acuerdo cuarto del Acuerdo por el que se reanudan los plazos y términos para la recepción y tramitación de los asuntos competencia de la CNE, conforme a las atribuciones que le fueron conferidas y transferidas, publicado en el Diario Oficial de la Federación el 05 de junio de 2025, deben presentar a través de la OPE, el Formato Solicitud de Permiso con Trámite Previo, a través del cual se obtiene la información y documentación adicional necesaria para acreditar el cumplimiento de los requisitos previstos en las Disposiciones de Permisos.",
+      "html": "<div> b) Opción 2: Con trámite previo. En el caso de que la persona solicitante ya cuente con una solicitud de permiso en el momento que presente el registro de manifestación de interés en términos de la Segunda Convocatoria, incluidas aquellas que hayan sido ratificadas en términos del acuerdo cuarto del Acuerdo por el que se reanudan los plazos y términos para la recepción y tramitación de los asuntos competencia de la CNE, conforme a las atribuciones que le fueron conferidas y transferidas, publicado en el Diario Oficial de la Federación el 05 de junio de 2025, deben presentar a través de la OPE, el Formato Solicitud de Permiso con Trámite Previo, a través del cual se obtiene la información y documentación adicional necesaria para acreditar el cumplimiento de los requisitos previstos en las Disposiciones de Permisos.</div>"
+    },
+    {
+      "id": 110,
+      "tipo": "parrafo",
+      "texto": "6.2. Requisito de aceptación de Obras de Interconexión y Obras de Refuerzos",
+      "html": "<div> 6.2. Requisito de aceptación de Obras de Interconexión y Obras de Refuerzos</div>"
+    },
+    {
+      "id": 111,
+      "tipo": "parrafo",
+      "texto": "El CENACE, a través de la VUPE, debe hacer del conocimiento de cada persona solicitante por medio de un solo documento, los resultados de los estudios de impacto e instalaciones, el costo de las Obras de Refuerzo, así como las Obras de Interconexión que se deben cubrir en caso de que se le otorgue el permiso correspondiente al amparo de la Segunda Convocatoria.",
+      "html": "<div> El CENACE, a través de la VUPE, debe hacer del conocimiento de cada persona solicitante por medio de un solo documento, los resultados de los estudios de impacto e instalaciones, el costo de las Obras de Refuerzo, así como las Obras de Interconexión que se deben cubrir en caso de que se le otorgue el permiso correspondiente al amparo de la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 112,
+      "tipo": "parrafo",
+      "texto": "Los resultados de los estudios que realice y notifique el CENACE deben indicar al menos lo siguiente:",
+      "html": "<div> Los resultados de los estudios que realice y notifique el CENACE deben indicar al menos lo siguiente:</div>"
+    },
+    {
+      "id": 113,
+      "tipo": "parrafo",
+      "texto": "I. Descripción detallada de las Obras de Interconexión y Obras de Refuerzo necesarias en la Red Nacional de Transmisión o las Redes Generales de Distribución y el Nivel de Tensión en el Punto de Interconexión;",
+      "html": "<div> I. Descripción detallada de las Obras de Interconexión y Obras de Refuerzo necesarias en la Red Nacional de Transmisión o las Redes Generales de Distribución y el Nivel de Tensión en el Punto de Interconexión;</div>"
+    },
+    {
+      "id": 114,
+      "tipo": "parrafo",
+      "texto": "II. Costo estimado en pesos mexicanos de las Obras de Refuerzo. Cuando estas sean comunes a dos o más proyectos, los costos se asignan de manera proporcional a la capacidad de potencia activa en MW de cada proyecto, siempre que la persona solicitante acepte los términos y continúe en los términos previstos en la Segunda Convocatoria, y",
+      "html": "<div> II. Costo estimado en pesos mexicanos de las Obras de Refuerzo. Cuando estas sean comunes a dos o más proyectos, los costos se asignan de manera proporcional a la capacidad de potencia activa en MW de cada proyecto, siempre que la persona solicitante acepte los términos y continúe en los términos previstos en la Segunda Convocatoria, y</div>"
+    },
+    {
+      "id": 115,
+      "tipo": "parrafo",
+      "texto": "III. Observaciones técnicas, restricciones operativas y condiciones específicas de interconexión.",
+      "html": "<div> III. Observaciones técnicas, restricciones operativas y condiciones específicas de interconexión.</div>"
+    },
+    {
+      "id": 116,
+      "tipo": "parrafo",
+      "texto": "Sobre los estudios realizados por el CENACE al amparo de la Segunda Convocatoria, no proceden aclaraciones. Lo anterior, sin perjuicio de lo que prevea la normatividad aplicable respecto de su actualización o reevaluación.",
+      "html": "<div> Sobre los estudios realizados por el CENACE al amparo de la Segunda Convocatoria, no proceden aclaraciones. Lo anterior, sin perjuicio de lo que prevea la normatividad aplicable respecto de su actualización o reevaluación.</div>"
+    },
+    {
+      "id": 117,
+      "tipo": "parrafo",
+      "texto": "Si la persona solicitante decide continuar en el proceso, debe presentar en la VUPE, a más tardar en la fecha que se señale en el calendario de la Segunda Convocatoria, el Formato Aceptación de Obras, en el que acepte la ejecución de las Obras de Refuerzo y Obras de Interconexión necesarias. Lo anterior es una condición necesaria para continuar el proceso y obtener el permiso solicitado.",
+      "html": "<div> Si la persona solicitante decide continuar en el proceso, debe presentar en la VUPE, a más tardar en la fecha que se señale en el calendario de la Segunda Convocatoria, el Formato Aceptación de Obras, en el que acepte la ejecución de las Obras de Refuerzo y Obras de Interconexión necesarias. Lo anterior es una condición necesaria para continuar el proceso y obtener el permiso solicitado.</div>"
+    },
+    {
+      "id": 118,
+      "tipo": "parrafo",
+      "texto": "En caso de no recibirse la aceptación a través de la VUPE, en los términos previstos, se entiende que la persona solicitante se desiste de obtener un permiso al amparo de la Segunda Convocatoria, por lo que la CNE debe emitir el oficio correspondiente en el que se notifique a través de la OPE, lo conducente.",
+      "html": "<div> En caso de no recibirse la aceptación a través de la VUPE, en los términos previstos, se entiende que la persona solicitante se desiste de obtener un permiso al amparo de la Segunda Convocatoria, por lo que la CNE debe emitir el oficio correspondiente en el que se notifique a través de la OPE, lo conducente.</div>"
+    },
+    {
+      "id": 119,
+      "tipo": "parrafo",
+      "texto": "Vencido el plazo previsto en el calendario para la presentación del Formato Aceptación de Obras, por una sola ocasión, tratándose de los costos de Obras de Refuerzo comunes a que se refiere la fracción II del presente numeral, en los casos en que una o más de las personas solicitantes no presente el formato, el CENACE debe informar dicha situación a la persona solicitante que sí haya dado cumplimiento en tiempo y forma. En este supuesto, el CENACE debe reevaluar, dentro de los 5 días hábiles siguientes al vencimiento del plazo referido, los resultados de los estudios de interconexión, así como el costo de Obras de Refuerzo y las Obras de Interconexión considerando dicha situación y notificar los resultados dentro del mismo plazo, a efecto de que las personas solicitantes correspondientes puedan, en su caso, aceptar las nuevas características de las referidas obras y los nuevos costos y presentar a través de la VUPE, la aceptación expresa, a través del mismo Formato Aceptación de Obras, quedando sin efectos el previamente presentado. La persona solicitante cuenta con un plazo de 2 días hábiles siguientes a la notificación del CENACE, para dar cumplimiento a lo anterior.",
+      "html": "<div> Vencido el plazo previsto en el calendario para la presentación del Formato Aceptación de Obras, por una sola ocasión, tratándose de los costos de Obras de Refuerzo comunes a que se refiere la fracción II del presente numeral, en los casos en que una o más de las personas solicitantes no presente el formato, el CENACE debe informar dicha situación a la persona solicitante que sí haya dado cumplimiento en tiempo y forma. En este supuesto, el CENACE debe reevaluar, dentro de los 5 días hábiles siguientes al vencimiento del plazo referido, los resultados de los estudios de interconexión, así como el costo de Obras de Refuerzo y las Obras de Interconexión considerando dicha situación y notificar los resultados dentro del mismo plazo, a efecto de que las personas solicitantes correspondientes puedan, en su caso, aceptar las nuevas características de las referidas obras y los nuevos costos y presentar a través de la VUPE, la aceptación expresa, a través del mismo Formato Aceptación de Obras, quedando sin efectos el previamente presentado. La persona solicitante cuenta con un plazo de 2 días hábiles siguientes a la notificación del CENACE, para dar cumplimiento a lo anterior.</div>"
+    },
+    {
+      "id": 120,
+      "tipo": "parrafo",
+      "texto": "Una vez aceptadas las características y los costos asociados a las Obras de Refuerzo, es irrevocable su ejecución, por lo que cualquier negativa o incumplimiento posterior, implica el incumplimiento de los términos u obligaciones contenidos en el permiso de generación de energía eléctrica otorgado al amparo de la Segunda Convocatoria, del contrato de interconexión que se celebre, así como la liberación de la capacidad asignada.",
+      "html": "<div> Una vez aceptadas las características y los costos asociados a las Obras de Refuerzo, es irrevocable su ejecución, por lo que cualquier negativa o incumplimiento posterior, implica el incumplimiento de los términos u obligaciones contenidos en el permiso de generación de energía eléctrica otorgado al amparo de la Segunda Convocatoria, del contrato de interconexión que se celebre, así como la liberación de la capacidad asignada.</div>"
+    },
+    {
+      "id": 121,
+      "tipo": "parrafo",
+      "texto": "La persona solicitante debe considerar que, además de los costos asociados a las Obras de Refuerzo que resulten de los estudios de interconexión realizados por el CENACE, debe cubrir el costo relacionado con la infraestructura que interconecta su proyecto con la Red Nacional de Transmisión o las Redes Generales de Distribución, de conformidad con la normatividad aplicable.",
+      "html": "<div> La persona solicitante debe considerar que, además de los costos asociados a las Obras de Refuerzo que resulten de los estudios de interconexión realizados por el CENACE, debe cubrir el costo relacionado con la infraestructura que interconecta su proyecto con la Red Nacional de Transmisión o las Redes Generales de Distribución, de conformidad con la normatividad aplicable.</div>"
+    },
+    {
+      "id": 122,
+      "tipo": "parrafo",
+      "texto": "7. Calendario para la determinación del otorgamiento de permisos de generación de energía eléctrica derivados de la Segunda Convocatoria",
+      "html": "<div> 7. Calendario para la determinación del otorgamiento de permisos de generación de energía eléctrica derivados de la Segunda Convocatoria</div>"
+    },
+    {
+      "id": 123,
+      "tipo": "parrafo",
+      "texto": "La Segunda Convocatoria se desarrolla con base en lo establecido en el siguiente calendario:",
+      "html": "<div> La Segunda Convocatoria se desarrolla con base en lo establecido en el siguiente calendario:</div>"
+    },
+    {
+      "id": 124,
+      "tipo": "tabla",
+      "texto": "No.\nEtapa\nFechas en 2026\nConsideraciones sobre la etapa\nAcciones que las\npersonas solicitantes\ndeben realizar\n1\nPublicación de la\nSegunda Convocatoria.\n11 de mayo\nPublicación de la Segunda Convocatoria en el Diario Oficial de la Federación y habilitación de la VUPE.\nNinguna\n2\nPeriodo de registro de\nmanifestación de\ninterés y solicitud de\nestudios de\ninterconexión, a través\nde la VUPE.\n13 al 22 de mayo\nLas personas interesadas en participar en la Segunda Convocatoria deben ingresar a la VUPE para presentar su registro de manifestación de interés para participar en esta, así como para presentar la solicitud de estudios de interconexión del CENACE.\nRegistrar su manifestación\nde interés y solicitud de\nestudios de interconexión\ndel CENACE, para lo cual,\ndeben completar en la\nVUPE el Formato de\nManifestación de Interés y\nSolicitud de estudios de\ninterconexión del CENACE.\n3\nPrevención por parte\nde CENACE y atención\nde la persona\nsolicitante.\n25 al 28 de mayo\nEn el caso de que la solicitud de estudios de interconexión no contenga los datos o no cumplan con los requisitos aplicables, el CENACE debe prevenir a la persona solicitante para que subsanen la omisión dentro del plazo previsto en este calendario.\nSi la persona interesada no remite la información que le requiere el CENACE, el CENACE le debe notificar que no resulta procedente realizar un estudio al amparo de la Segunda Convocatoria.\nEn ningún caso se puede otorgar alguna prórroga para presentar la información que el CENACE le requiera.\nDar atención a la\nprevención\n4\nPeriodo para que el\nCENACE determine los\npagos que se le deben\nrealizar por concepto\nde los estudios de\ninterconexión, según\ncorresponda.\n29 de mayo al 01 de\njunio\nPor medio de la VUPE, el CENACE comunica a las personas solicitantes alguna de las siguientes opciones:\n1. El monto a pagar, para lo cual se le notifica a la persona solicitante la línea de captura de pago correspondiente;\n2. Que la información presentada resulta suficiente para la revalidación de los estudios que presentó, por lo que no debe realizar un pago adicional.\nPresentar en tiempo y\nforma la información que,\nen su caso, le requiera el\nCENACE.\n5\nPeriodo para el pago\nde los estudios\nrealizados por el\nCENACE.\n02 al 08 de junio\nLas personas solicitantes deben realizar el pago de la línea de captura enviada por el CENACE y presentar la evidencia de dicho pago en la VUPE, para los casos que resulten conducentes. Las personas que no acrediten realizar el pago correspondiente no pueden obtener un permiso de generación de energía eléctrica con base en la Segunda Convocatoria.\nPresentar el comprobante\ndel pago de la línea de\ncaptura que le notificó el\nCENACE a través de la\nVUPE.\n6\nPresentación de la\nsolicitud de permiso de\ngeneración de energía\neléctrica ante la CNE.\n09 de junio al 08 de\njulio\nSe presenta en la OPE de la CNE, para lo cual la persona solicitante debe acreditar el cumplimiento de las Disposiciones de Permisos.\nPresentar la solicitud de\npermiso de generación de\nenergía eléctrica a través\nde la OPE de la CNE.\n7\nRevisión de\ncumplimiento de\nrequisitos por parte de\nlas personas\nsolicitantes y\nnotificación de\nprevenciones.\n09 al 13 de julio\nLa CNE debe revisar el cumplimiento de los requisitos previstos en las Disposiciones de Permisos. En caso de que identifique que hace falta información para evaluar la solicitud o que esta presenta inconsistencias respecto de lo que la persona informó a través de la VUPE, la CNE debe realizar una única prevención que se debe notificar a través de su OPE a las personas solicitantes. Concluida esta revisión y, en su caso, desahogadas las prevenciones, la CNE debe integrar la relación de solicitudes que continúan en el proceso y remitirla al CENACE para la notificación de estudios, costos de Obras de Refuerzo y costos de Obras de Interconexión.\nRevisar las notificaciones\nque la CNE le realice a\ntravés de su OPE.\n8\nAtención de las\nprevenciones que, en\nsu caso, notifique la\nCNE.\n14 al 17 de julio\nLas personas solicitantes deben atender la única prevención que les realice la CNE mediante la presentación de la información y documentación que corresponda. Si la prevención es atendida en tiempo y forma y la información resulta suficiente, la CNE debe incluir la solicitud en la relación que remita al CENACE para la etapa de notificación de estudios y costos. En caso de que no se atienda la prevención o la información remitida resulte insuficiente, la CNE debe notificar el desechamiento correspondiente por medio de la OPE. En este supuesto, la notificación por parte de la CNE debe realizarse a más tardar en la fecha en que le sean notificados a la persona particular los resultados de los estudios realizados por el CENACE.\nPresentar la información y\ndocumentación que atienda\nla prevención a través de la\nOPE de CNE.\n9\nNotificación de costos\nde Obras de Refuerzo\ny de interconexión.\n20 de julio\nEl CENACE debe notificar, a través de la VUPE, los resultados de los estudios realizados y los costos de Obras de Refuerzo y de interconexión a las personas solicitantes que la CNE le informe, esto es, aquellas que hayan cumplido cuantitativamente con los requisitos establecidos en las Disposiciones de Permisos y, en su caso, hayan desahogado satisfactoriamente la prevención.\nRevisar las notificaciones\nque se realicen a través de\nla VUPE.\n10\nAceptación expresa del\ncosto de Obras de\nInterconexión y Obras\nde Refuerzo definidas\npor el CENACE.\n21 al 28 de julio\nLas personas solicitantes que se encuentren en el supuesto del numeral 9 anterior, deben presentar a través de la VUPE el Formato Aceptación de Obras.\nPresentar en la VUPE\n11\nReevaluación de\nresultados de Obras de\nRefuerzo y de\ninterconexión.\n29 de julio al 04 de\nagosto\nPor una sola ocasión, cuando sea necesario en términos del numeral 6.2, párrafo sexto, el CENACE debe reevaluar los resultados de estudios y el costo de Obras de Interconexión y Obras de Refuerzo, y notificar la información respectiva a las personas solicitantes correspondientes dentro de los 5 días hábiles siguientes a que se actualice dicho supuesto.\nNinguna\n12\nAceptación expresa del\nCosto de Obras de\nRefuerzo y de\ninterconexión\nredefinidas, resultado\nde la etapa anterior.\n05 al 06 de agosto\nLas personas solicitantes deben presentar a través de la VUPE el Formato Aceptación de Obras mediante el cual aceptan expresa e irrevocablemente las Obras de Interconexión y Obras de Refuerzo redefinidas por el CENACE. Esta aceptación se debe presentar dentro de los 2 días hábiles siguientes a la notificación de la reevaluación realizada por el CENACE.\nPresentar en la VUPE el\nFormato Aceptación de\nObras respecto de la\nreevaluación notificada por\nel CENACE.\n13\nEvaluación de los\nestudios técnicos y\ncriterios de la\nplaneación vinculante.\n07 al 12 de agosto\nLa CNE debe someter ante el Grupo de Análisis Técnico la información técnica integrada resultante del desarrollo de la Segunda Convocatoria, en términos de las Disposiciones para la Planeación Vinculante.\nNinguna\n14\nRevisión y aprobación\nde permisos por parte\ndel Comité Técnico de\nla CNE.\n13 al 14 de agosto\nEl Comité Técnico de la CNE, en sesión extraordinaria, debe determinar, en su caso, la aprobación de los permisos que cumplan con los requisitos establecidos en la LSE, su reglamento y demás disposiciones aplicables, incluyendo lo previsto en la Segunda Convocatoria.\nNinguna\n15\nPublicación de\nresultados de la\nConvocatoria.\n17 de agosto\nLa CNE debe publicar en la VUPE y en su página de internet los resultados de la Segunda Convocatoria, esto es, las solicitudes de proyectos que fueron aprobadas para obtener un permiso de generación de energía eléctrica.\nRevisar la publicación\nrealizada por la CNE\n16\nNotificación de los\npermisos aprobados\npor parte del Comité\nTécnico de la CNE al\namparo de la\nConvocatoria.\n18 de agosto\nLa CNE notifica a través de su OPE los permisos de generación de energía eléctrica que las personas solicitantes hayan obtenido al amparo de la Segunda Convocatoria.\nRevisar las notificaciones\nque la CNE le realice a\ntravés de su OPE.\n17\nPresentación del\ndesistimiento de\nsolicitudes de\notorgamiento de\npermisos anteriores a\nla Convocatoria.\n19 al 24 de agosto\nEn su caso, las personas solicitantes que hayan obtenido los permisos correspondientes al amparo de la Segunda Convocatoria deben presentar, a través de la OPE de la CNE, el desistimiento de las solicitudes de permisos de generación de energía eléctrica que tuvieran presentadas de manera previa a la publicación de esta convocatoria.\nPresentar desistimiento de\ntrámites previos a través de\nla OPE de la CNE.\n18\nEjecución y\nseguimiento a\nPrograma de Obras.\nA partir de la\nnotificación del título\nde permiso\ncorrespondiente\nLa CNE debe dar seguimiento y en su caso, verificar el cumplimiento a lo establecido en los títulos de permiso otorgados.\nCumplir con los plazos y\ntérminos establecidos en el\ntítulo de permiso que, en su\ncaso, les sea otorgado.\n19\nPresentación de\ngarantías.\nPrevio a la firma del\ncontrato de\ninterconexión\nLa persona permisionaria debe presentar al CENACE, a través de la VUPE, las garantías correspondientes para desarrollar el proyecto acorde con los resultados de los estudios que le fueron notificados, así como considerando las Obras de Interconexión y Obras de Refuerzo que aceptó.\nPresentar las garantías\ncorrespondientes.\n20\nSuscripción del\ncontrato de\ninterconexión\ncorrespondiente.\nConforme a la\nnormatividad vigente\nUna vez presentada la garantía correspondiente y cumplidos los requisitos aplicables, las entidades responsables y la persona solicitante, a través de la VUPE, deben realizar las gestiones necesarias para la suscripción del contrato de interconexión correspondiente en términos de la normatividad aplicable.\nPresentar la\ndocumentación e\ninformación que requiere el\nCENACE para la\nsuscripción del contrato.\n21\nInterconexión de la\nCentral Eléctrica.\nConforme a la\nnormatividad vigente\nLa SENER, a través del Consejo de Planeación Energética, así como la CNE y el CENACE, deben dar seguimiento al desarrollo del proyecto hasta su interconexión al SEN.\nRealizar las acciones\nnecesarias para lograr la\ninterconexión del proyecto\nal SEN.\n22\nEntrada en Operación\nComercial.\nSegún título de\npermiso\nLa SENER, a través del Consejo de Planeación Energética, así como la CNE y el CENACE, deben dar seguimiento al desarrollo de los proyectos hasta su Entrada en Operación Comercial.\nRealizar las acciones\nnecesarias para lograr la\nEntrada en Operación\nComercial de la Central\nEléctrica.",
+      "html": "<table> <tbody><tr> <td> <div> No.<br> </div> </td> <td> <div> Etapa<br> </div> </td> <td> <div> Fechas en 2026<br> </div> </td> <td> <div> Consideraciones sobre la etapa<br> </div> </td> <td> <div> Acciones que las<br> personas solicitantes<br> deben realizar<br> </div> </td> </tr> <tr> <td> <div> 1<br> </div> </td> <td> <div> Publicación de la<br> Segunda Convocatoria.<br> </div> </td> <td> <div> 11 de mayo<br> </div> </td> <td> <div> Publicación de la Segunda Convocatoria en el Diario Oficial de la Federación y habilitación de la VUPE.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 2<br> </div> </td> <td> <div> Periodo de registro de<br> manifestación de<br> interés y solicitud de<br> estudios de<br> interconexión, a través<br> de la VUPE.<br> </div> </td> <td> <div> 13 al 22 de mayo<br> </div> </td> <td> <div> Las personas interesadas en participar en la Segunda Convocatoria deben ingresar a la VUPE para presentar su registro de manifestación de interés para participar en esta, así como para presentar la solicitud de estudios de interconexión del CENACE.</div> </td> <td> <div> Registrar su manifestación<br> de interés y solicitud de<br> estudios de interconexión<br> del CENACE, para lo cual,<br> deben completar en la<br> VUPE el Formato de<br> Manifestación de Interés y<br> Solicitud de estudios de<br> interconexión del CENACE.<br> </div> </td> </tr> <tr> <td> <div> 3<br> </div> </td> <td> <div> Prevención por parte<br> de CENACE y atención<br> de la persona<br> solicitante.<br> </div> </td> <td> <div> 25 al 28 de mayo<br> </div> </td> <td> <div> En el caso de que la solicitud de estudios de interconexión no contenga los datos o no cumplan con los requisitos aplicables, el CENACE debe prevenir a la persona solicitante para que subsanen la omisión dentro del plazo previsto en este calendario.</div> <div> Si la persona interesada no remite la información que le requiere el CENACE, el CENACE le debe notificar que no resulta procedente realizar un estudio al amparo de la Segunda Convocatoria.</div> <div> En ningún caso se puede otorgar alguna prórroga para presentar la información que el CENACE le requiera.</div> </td> <td> <div> Dar atención a la<br> prevención<br> </div> </td> </tr> <tr> <td> <div> 4<br> </div> </td> <td> <div> Periodo para que el<br> CENACE determine los<br> pagos que se le deben<br> realizar por concepto<br> de los estudios de<br> interconexión, según<br> corresponda.<br> </div> </td> <td> <div> 29 de mayo al 01 de<br> junio<br> </div> </td> <td> <div> Por medio de la VUPE, el CENACE comunica a las personas solicitantes alguna de las siguientes opciones:</div> <div> 1. El monto a pagar, para lo cual se le notifica a la persona solicitante la línea de captura de pago correspondiente;</div> <div> 2. Que la información presentada resulta suficiente para la revalidación de los estudios que presentó, por lo que no debe realizar un pago adicional.</div> </td> <td> <div> Presentar en tiempo y<br> forma la información que,<br> en su caso, le requiera el<br> CENACE.<br> </div> </td> </tr> <tr> <td> <div> 5<br> </div> </td> <td> <div> Periodo para el pago<br> de los estudios<br> realizados por el<br> CENACE.<br> </div> </td> <td> <div> 02 al 08 de junio<br> </div> </td> <td> <div> Las personas solicitantes deben realizar el pago de la línea de captura enviada por el CENACE y presentar la evidencia de dicho pago en la VUPE, para los casos que resulten conducentes. Las personas que no acrediten realizar el pago correspondiente no pueden obtener un permiso de generación de energía eléctrica con base en la Segunda Convocatoria.</div> </td> <td> <div> Presentar el comprobante<br> del pago de la línea de<br> captura que le notificó el<br> CENACE a través de la<br> VUPE.<br> </div> </td> </tr> <tr> <td> <div> 6<br> </div> </td> <td> <div> Presentación de la<br> solicitud de permiso de<br> generación de energía<br> eléctrica ante la CNE.<br> </div> </td> <td> <div> 09 de junio al 08 de<br> julio<br> </div> </td> <td> <div> Se presenta en la OPE de la CNE, para lo cual la persona solicitante debe acreditar el cumplimiento de las Disposiciones de Permisos.</div> </td> <td> <div> Presentar la solicitud de<br> permiso de generación de<br> energía eléctrica a través<br> de la OPE de la CNE.<br> </div> </td> </tr> <tr> <td> <div> 7<br> </div> </td> <td> <div> Revisión de<br> cumplimiento de<br> requisitos por parte de<br> las personas<br> solicitantes y<br> notificación de<br> prevenciones.<br> </div> </td> <td> <div> 09 al 13 de julio<br> </div> </td> <td> <div> La CNE debe revisar el cumplimiento de los requisitos previstos en las Disposiciones de Permisos. En caso de que identifique que hace falta información para evaluar la solicitud o que esta presenta inconsistencias respecto de lo que la persona informó a través de la VUPE, la CNE debe realizar una única prevención que se debe notificar a través de su OPE a las personas solicitantes. Concluida esta revisión y, en su caso, desahogadas las prevenciones, la CNE debe integrar la relación de solicitudes que continúan en el proceso y remitirla al CENACE para la notificación de estudios, costos de Obras de Refuerzo y costos de Obras de Interconexión.</div> </td> <td> <div> Revisar las notificaciones<br> que la CNE le realice a<br> través de su OPE.<br> </div> </td> </tr> <tr> <td> <div> 8<br> </div> </td> <td> <div> Atención de las<br> prevenciones que, en<br> su caso, notifique la<br> CNE.<br> </div> </td> <td> <div> 14 al 17 de julio<br> </div> </td> <td> <div> Las personas solicitantes deben atender la única prevención que les realice la CNE mediante la presentación de la información y documentación que corresponda. Si la prevención es atendida en tiempo y forma y la información resulta suficiente, la CNE debe incluir la solicitud en la relación que remita al CENACE para la etapa de notificación de estudios y costos. En caso de que no se atienda la prevención o la información remitida resulte insuficiente, la CNE debe notificar el desechamiento correspondiente por medio de la OPE. En este supuesto, la notificación por parte de la CNE debe realizarse a más tardar en la fecha en que le sean notificados a la persona particular los resultados de los estudios realizados por el CENACE.</div> </td> <td> <div> Presentar la información y<br> documentación que atienda<br> la prevención a través de la<br> OPE de CNE.<br> </div> </td> </tr> <tr> <td> <div> 9<br> </div> </td> <td> <div> Notificación de costos<br> de Obras de Refuerzo<br> y de interconexión.<br> </div> </td> <td> <div> 20 de julio<br> </div> </td> <td> <div> El CENACE debe notificar, a través de la VUPE, los resultados de los estudios realizados y los costos de Obras de Refuerzo y de interconexión a las personas solicitantes que la CNE le informe, esto es, aquellas que hayan cumplido cuantitativamente con los requisitos establecidos en las Disposiciones de Permisos y, en su caso, hayan desahogado satisfactoriamente la prevención.</div> </td> <td> <div> Revisar las notificaciones<br> que se realicen a través de<br> la VUPE.<br> </div> </td> </tr> <tr> <td> <div> 10<br> </div> </td> <td> <div> Aceptación expresa del<br> costo de Obras de<br> Interconexión y Obras<br> de Refuerzo definidas<br> por el CENACE.<br> </div> </td> <td> <div> 21 al 28 de julio<br> </div> </td> <td> <div> Las personas solicitantes que se encuentren en el supuesto del numeral 9 anterior, deben presentar a través de la VUPE el Formato Aceptación de Obras.</div> </td> <td> <div> Presentar en la VUPE<br> </div> </td> </tr> <tr> <td> <div> 11<br> </div> </td> <td> <div> Reevaluación de<br> resultados de Obras de<br> Refuerzo y de<br> interconexión.<br> </div> </td> <td> <div> 29 de julio al 04 de<br> agosto<br> </div> </td> <td> <div> Por una sola ocasión, cuando sea necesario en términos del numeral 6.2, párrafo sexto, el CENACE debe reevaluar los resultados de estudios y el costo de Obras de Interconexión y Obras de Refuerzo, y notificar la información respectiva a las personas solicitantes correspondientes dentro de los 5 días hábiles siguientes a que se actualice dicho supuesto.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 12<br> </div> </td> <td> <div> Aceptación expresa del<br> Costo de Obras de<br> Refuerzo y de<br> interconexión<br> redefinidas, resultado<br> de la etapa anterior.<br> </div> </td> <td> <div> 05 al 06 de agosto<br> </div> </td> <td> <div> Las personas solicitantes deben presentar a través de la VUPE el Formato Aceptación de Obras mediante el cual aceptan expresa e irrevocablemente las Obras de Interconexión y Obras de Refuerzo redefinidas por el CENACE. Esta aceptación se debe presentar dentro de los 2 días hábiles siguientes a la notificación de la reevaluación realizada por el CENACE.</div> </td> <td> <div> Presentar en la VUPE el<br> Formato Aceptación de<br> Obras respecto de la<br> reevaluación notificada por<br> el CENACE.<br> </div> </td> </tr> <tr> <td> <div> 13<br> </div> </td> <td> <div> Evaluación de los<br> estudios técnicos y<br> criterios de la<br> planeación vinculante.<br> </div> </td> <td> <div> 07 al 12 de agosto<br> </div> </td> <td> <div> La CNE debe someter ante el Grupo de Análisis Técnico la información técnica integrada resultante del desarrollo de la Segunda Convocatoria, en términos de las Disposiciones para la Planeación Vinculante.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 14<br> </div> </td> <td> <div> Revisión y aprobación<br> de permisos por parte<br> del Comité Técnico de<br> la CNE.<br> </div> </td> <td> <div> 13 al 14 de agosto<br> </div> </td> <td> <div> El Comité Técnico de la CNE, en sesión extraordinaria, debe determinar, en su caso, la aprobación de los permisos que cumplan con los requisitos establecidos en la LSE, su reglamento y demás disposiciones aplicables, incluyendo lo previsto en la Segunda Convocatoria.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 15<br> </div> </td> <td> <div> Publicación de<br> resultados de la<br> Convocatoria.<br> </div> </td> <td> <div> 17 de agosto<br> </div> </td> <td> <div> La CNE debe publicar en la VUPE y en su página de internet los resultados de la Segunda Convocatoria, esto es, las solicitudes de proyectos que fueron aprobadas para obtener un permiso de generación de energía eléctrica.</div> </td> <td> <div> Revisar la publicación<br> realizada por la CNE<br> </div> </td> </tr> <tr> <td> <div> 16<br> </div> </td> <td> <div> Notificación de los<br> permisos aprobados<br> por parte del Comité<br> Técnico de la CNE al<br> amparo de la<br> Convocatoria.<br> </div> </td> <td> <div> 18 de agosto<br> </div> </td> <td> <div> La CNE notifica a través de su OPE los permisos de generación de energía eléctrica que las personas solicitantes hayan obtenido al amparo de la Segunda Convocatoria.</div> </td> <td> <div> Revisar las notificaciones<br> que la CNE le realice a<br> través de su OPE.<br> </div> </td> </tr> <tr> <td> <div> 17<br> </div> </td> <td> <div> Presentación del<br> desistimiento de<br> solicitudes de<br> otorgamiento de<br> permisos anteriores a<br> la Convocatoria.<br> </div> </td> <td> <div> 19 al 24 de agosto<br> </div> </td> <td> <div> En su caso, las personas solicitantes que hayan obtenido los permisos correspondientes al amparo de la Segunda Convocatoria deben presentar, a través de la OPE de la CNE, el desistimiento de las solicitudes de permisos de generación de energía eléctrica que tuvieran presentadas de manera previa a la publicación de esta convocatoria.</div> </td> <td> <div> Presentar desistimiento de<br> trámites previos a través de<br> la OPE de la CNE.<br> </div> </td> </tr> <tr> <td> <div> 18<br> </div> </td> <td> <div> Ejecución y<br> seguimiento a<br> Programa de Obras.<br> </div> </td> <td> <div> A partir de la<br> notificación del título<br> de permiso<br> correspondiente<br> </div> </td> <td> <div> La CNE debe dar seguimiento y en su caso, verificar el cumplimiento a lo establecido en los títulos de permiso otorgados.</div> </td> <td> <div> Cumplir con los plazos y<br> términos establecidos en el<br> título de permiso que, en su<br> caso, les sea otorgado.<br> </div> </td> </tr> <tr> <td> <div> 19<br> </div> </td> <td> <div> Presentación de<br> garantías.<br> </div> </td> <td> <div> Previo a la firma del<br> contrato de<br> interconexión<br> </div> </td> <td> <div> La persona permisionaria debe presentar al CENACE, a través de la VUPE, las garantías correspondientes para desarrollar el proyecto acorde con los resultados de los estudios que le fueron notificados, así como considerando las Obras de Interconexión y Obras de Refuerzo que aceptó.</div> </td> <td> <div> Presentar las garantías<br> correspondientes.<br> </div> </td> </tr> <tr> <td> <div> 20<br> </div> </td> <td> <div> Suscripción del<br> contrato de<br> interconexión<br> correspondiente.<br> </div> </td> <td> <div> Conforme a la<br> normatividad vigente<br> </div> </td> <td> <div> Una vez presentada la garantía correspondiente y cumplidos los requisitos aplicables, las entidades responsables y la persona solicitante, a través de la VUPE, deben realizar las gestiones necesarias para la suscripción del contrato de interconexión correspondiente en términos de la normatividad aplicable.</div> </td> <td> <div> Presentar la<br> documentación e<br> información que requiere el<br> CENACE para la<br> suscripción del contrato.<br> </div> </td> </tr> <tr> <td> <div> 21<br> </div> </td> <td> <div> Interconexión de la<br> Central Eléctrica.<br> </div> </td> <td> <div> Conforme a la<br> normatividad vigente<br> </div> </td> <td> <div> La SENER, a través del Consejo de Planeación Energética, así como la CNE y el CENACE, deben dar seguimiento al desarrollo del proyecto hasta su interconexión al SEN.</div> </td> <td> <div> Realizar las acciones<br> necesarias para lograr la<br> interconexión del proyecto<br> al SEN.<br> </div> </td> </tr> <tr> <td> <div> 22<br> </div> </td> <td> <div> Entrada en Operación<br> Comercial.<br> </div> </td> <td> <div> Según título de<br> permiso<br> </div> </td> <td> <div> La SENER, a través del Consejo de Planeación Energética, así como la CNE y el CENACE, deben dar seguimiento al desarrollo de los proyectos hasta su Entrada en Operación Comercial.</div> </td> <td> <div> Realizar las acciones<br> necesarias para lograr la<br> Entrada en Operación<br> Comercial de la Central<br> Eléctrica.<br> </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 125,
+      "tipo": "parrafo",
+      "texto": "Para efectos del procedimiento del otorgamiento de permisos de generación de energía eléctrica, en términos de la Segunda Convocatoria, los plazos y etapas para su atención corresponden a los señalados en la misma.",
+      "html": "<div> Para efectos del procedimiento del otorgamiento de permisos de generación de energía eléctrica, en términos de la Segunda Convocatoria, los plazos y etapas para su atención corresponden a los señalados en la misma.</div>"
+    },
+    {
+      "id": 126,
+      "tipo": "parrafo",
+      "texto": "8. Evaluación de los proyectos asociados a las solicitudes de generación de energía eléctrica",
+      "html": "<div> 8. Evaluación de los proyectos asociados a las solicitudes de generación de energía eléctrica</div>"
+    },
+    {
+      "id": 127,
+      "tipo": "parrafo",
+      "texto": "8.1. Verificación del cumplimiento de Requisitos",
+      "html": "<div> 8.1. Verificación del cumplimiento de Requisitos</div>"
+    },
+    {
+      "id": 128,
+      "tipo": "parrafo",
+      "texto": "La CNE y el CENACE, en el ámbito de sus respectivas atribuciones, deben revisar que las personas solicitantes cumplan con los requisitos establecidos en la LSE, el RLSE y las disposiciones aplicables, incluyendo la Segunda Convocatoria, conforme se describe en el cuadro siguiente. Concluida la revisión y, en su caso, desahogadas las prevenciones, la CNE debe integrar la relación de solicitudes que continúan en el proceso y remitirla al CENACE para la notificación de estudios, costos de Obras de Interconexión y Obras Refuerzo.",
+      "html": "<div> La CNE y el CENACE, en el ámbito de sus respectivas atribuciones, deben revisar que las personas solicitantes cumplan con los requisitos establecidos en la LSE, el RLSE y las disposiciones aplicables, incluyendo la Segunda Convocatoria, conforme se describe en el cuadro siguiente. Concluida la revisión y, en su caso, desahogadas las prevenciones, la CNE debe integrar la relación de solicitudes que continúan en el proceso y remitirla al CENACE para la notificación de estudios, costos de Obras de Interconexión y Obras Refuerzo.</div>"
+    },
+    {
+      "id": 129,
+      "tipo": "tabla",
+      "texto": "Listado de verificación de cumplimiento de requisitos\nNo.\nConcepto\nCumple\nSí/No\n1\nLa persona solicitante presentó su registro de manifiesto de interés en obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria.\n2\nLa persona solicitante cumple con los requisitos establecidos en las Disposiciones de Permisos.\n3\nLa persona solicitante presentó la evidencia del pago de los estudios del CENACE en términos de la Segunda Convocatoria según corresponda.\n4\nLa solicitud presentada corresponde a un proyecto determinado por la Secretaría de conformidad con la planeación vinculante y conforme a los criterios previstos en el numeral 1.2.1, fracción II de esta Segunda Convocatoria.\n5\nLa persona solicitante presentó la aceptación de las Obras de Interconexión y Obras de Refuerzo correspondientes conforme al Formato Aceptación de Obras.",
+      "html": "<table> <tbody><tr> <td colspan=\"3\"> <div> Listado de verificación de cumplimiento de requisitos<br> </div> </td> </tr> <tr> <td> <div> No.<br> </div> </td> <td> <div> Concepto<br> </div> </td> <td> <div> Cumple<br> </div> <div> Sí/No<br> </div> </td> </tr> <tr> <td> <div> 1<br> </div> </td> <td> <div> La persona solicitante presentó su registro de manifiesto de interés en obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria.</div> </td> <td> <div>  </div> </td> </tr> <tr> <td> <div> 2<br> </div> </td> <td> <div> La persona solicitante cumple con los requisitos establecidos en las Disposiciones de Permisos.</div> </td> <td> <div>  </div> </td> </tr> <tr> <td> <div> 3<br> </div> </td> <td> <div> La persona solicitante presentó la evidencia del pago de los estudios del CENACE en términos de la Segunda Convocatoria según corresponda.</div> </td> <td> <div>  </div> </td> </tr> <tr> <td> <div> 4<br> </div> </td> <td> <div> La solicitud presentada corresponde a un proyecto determinado por la Secretaría de conformidad con la planeación vinculante y conforme a los criterios previstos en el numeral 1.2.1, fracción II de esta Segunda Convocatoria.</div> </td> <td> <div>  </div> </td> </tr> <tr> <td> <div> 5<br> </div> </td> <td> <div> La persona solicitante presentó la aceptación de las Obras de Interconexión y Obras de Refuerzo correspondientes conforme al Formato Aceptación de Obras.</div> </td> <td> <div>  </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 130,
+      "tipo": "parrafo",
+      "texto": "El incumplimiento de cualquiera de los requisitos antes señalados tiene como consecuencia el no otorgamiento de un permiso de generación de energía eléctrica con base en la Segunda Convocatoria.",
+      "html": "<div> El incumplimiento de cualquiera de los requisitos antes señalados tiene como consecuencia el no otorgamiento de un permiso de generación de energía eléctrica con base en la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 131,
+      "tipo": "parrafo",
+      "texto": "8.2. Alineación a la planeación vinculante",
+      "html": "<div> 8.2. Alineación a la planeación vinculante</div>"
+    },
+    {
+      "id": 132,
+      "tipo": "parrafo",
+      "texto": "La CNE debe corroborar que se cuente con los elementos necesarios para determinar que los proyectos que pretendan obtener un permiso de generación de energía eléctrica bajo la Segunda Convocatoria se alinean a la planeación vinculante. Para ello, debe solicitar:",
+      "html": "<div> La CNE debe corroborar que se cuente con los elementos necesarios para determinar que los proyectos que pretendan obtener un permiso de generación de energía eléctrica bajo la Segunda Convocatoria se alinean a la planeación vinculante. Para ello, debe solicitar:</div>"
+    },
+    {
+      "id": 133,
+      "tipo": "parrafo",
+      "texto": "I. A la SENER, la información relacionada con el monto de inversión destinado al Plan de Gestión Social, así como lo referente a la prevalencia, innovación y la contribución a la mitigación de gases de efecto invernadero, y",
+      "html": "<div> I. A la SENER, la información relacionada con el monto de inversión destinado al Plan de Gestión Social, así como lo referente a la prevalencia, innovación y la contribución a la mitigación de gases de efecto invernadero, y</div>"
+    },
+    {
+      "id": 134,
+      "tipo": "parrafo",
+      "texto": "II. Al CENACE, los estudios técnicos referidos en la Segunda Convocatoria, incluyendo la información necesaria para verificar el cumplimiento de los criterios de planeación vinculante establecidos en las Disposiciones de la Planeación Vinculante. De manera particular, el CENACE debe proporcionar a la CNE la relación de los proyectos que proporcionen mayor beneficio al SEN conforme a la evaluación que realice aplicando los criterios de las Disposiciones de la Planeación Vinculante.",
+      "html": "<div> II. Al CENACE, los estudios técnicos referidos en la Segunda Convocatoria, incluyendo la información necesaria para verificar el cumplimiento de los criterios de planeación vinculante establecidos en las Disposiciones de la Planeación Vinculante. De manera particular, el CENACE debe proporcionar a la CNE la relación de los proyectos que proporcionen mayor beneficio al SEN conforme a la evaluación que realice aplicando los criterios de las Disposiciones de la Planeación Vinculante.</div>"
+    },
+    {
+      "id": 135,
+      "tipo": "parrafo",
+      "texto": "La SENER y el CENACE deben entregar a la CNE la información solicitada a más tardar el 06 de agosto de 2026.",
+      "html": "<div> La SENER y el CENACE deben entregar a la CNE la información solicitada a más tardar el 06 de agosto de 2026.</div>"
+    },
+    {
+      "id": 136,
+      "tipo": "parrafo",
+      "texto": "Las solicitudes que no cumplan con los criterios de planeación vinculante previstos en las Disposiciones de la Planeación Vinculante, no son elegibles para obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria.",
+      "html": "<div> Las solicitudes que no cumplan con los criterios de planeación vinculante previstos en las Disposiciones de la Planeación Vinculante, no son elegibles para obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria.</div>"
+    },
+    {
+      "id": 137,
+      "tipo": "parrafo",
+      "texto": "8.3. Evaluación de los proyectos por parte del Grupo de Análisis Técnico",
+      "html": "<div> 8.3. Evaluación de los proyectos por parte del Grupo de Análisis Técnico</div>"
+    },
+    {
+      "id": 138,
+      "tipo": "parrafo",
+      "texto": "La CNE debe remitir al Grupo de Análisis Técnico los expedientes administrativos de los proyectos que cumplan con los requisitos establecidos en la LSE, el RLSE, la Segunda Convocatoria y demás disposiciones aplicables, así como la evaluación de los criterios de planeación vinculante que realice.",
+      "html": "<div> La CNE debe remitir al Grupo de Análisis Técnico los expedientes administrativos de los proyectos que cumplan con los requisitos establecidos en la LSE, el RLSE, la Segunda Convocatoria y demás disposiciones aplicables, así como la evaluación de los criterios de planeación vinculante que realice.</div>"
+    },
+    {
+      "id": 139,
+      "tipo": "parrafo",
+      "texto": "El Grupo de Análisis Técnico debe:",
+      "html": "<div> El Grupo de Análisis Técnico debe:</div>"
+    },
+    {
+      "id": 140,
+      "tipo": "parrafo",
+      "texto": "I. Emitir opinión técnica respecto de la evaluación realizada por la CNE a los proyectos presentados al amparo de la Segunda Convocatoria, y",
+      "html": "<div> I. Emitir opinión técnica respecto de la evaluación realizada por la CNE a los proyectos presentados al amparo de la Segunda Convocatoria, y</div>"
+    },
+    {
+      "id": 141,
+      "tipo": "parrafo",
+      "texto": "II. Validar las capacidades de los proyectos que resulten elegibles para obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria conforme a la planeación vinculante.",
+      "html": "<div> II. Validar las capacidades de los proyectos que resulten elegibles para obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria conforme a la planeación vinculante.</div>"
+    },
+    {
+      "id": 142,
+      "tipo": "parrafo",
+      "texto": "9. Aprobación y emisión de permisos de generación de energía eléctrica y publicación de los resultados",
+      "html": "<div> 9. Aprobación y emisión de permisos de generación de energía eléctrica y publicación de los resultados</div>"
+    },
+    {
+      "id": 143,
+      "tipo": "parrafo",
+      "texto": "9.1. Aprobación de permisos",
+      "html": "<div> 9.1. Aprobación de permisos</div>"
+    },
+    {
+      "id": 144,
+      "tipo": "parrafo",
+      "texto": "El Comité Técnico de la CNE debe resolver sobre la aprobación de las solicitudes que se le sometan a consideración en la sesión extraordinaria que se celebre del 13 al 14 de agosto de 2026, conforme a lo previsto en la LCNE y las Reglas de Operación de dicho Comité, para lo cual les debe ser remitido el expediente administrativo que incluya toda la información presentada por la persona particular, así como, en su caso la proporcionada por la SENER, el CENACE y el Grupo de Análisis Técnico.",
+      "html": "<div> El Comité Técnico de la CNE debe resolver sobre la aprobación de las solicitudes que se le sometan a consideración en la sesión extraordinaria que se celebre del 13 al 14 de agosto de 2026, conforme a lo previsto en la LCNE y las Reglas de Operación de dicho Comité, para lo cual les debe ser remitido el expediente administrativo que incluya toda la información presentada por la persona particular, así como, en su caso la proporcionada por la SENER, el CENACE y el Grupo de Análisis Técnico.</div>"
+    },
+    {
+      "id": 145,
+      "tipo": "parrafo",
+      "texto": "9.2. Emisión de los títulos de permisos",
+      "html": "<div> 9.2. Emisión de los títulos de permisos</div>"
+    },
+    {
+      "id": 146,
+      "tipo": "parrafo",
+      "texto": "La CNE debe emitir y notificar los títulos de permisos aprobados por el Comité Técnico de la CNE, respecto de permisos de generación de energía eléctrica, el 18 de agosto de 2026.",
+      "html": "<div> La CNE debe emitir y notificar los títulos de permisos aprobados por el Comité Técnico de la CNE, respecto de permisos de generación de energía eléctrica, el 18 de agosto de 2026.</div>"
+    },
+    {
+      "id": 147,
+      "tipo": "parrafo",
+      "texto": "Los títulos de permisos de generación de energía eléctrica que se emitan al amparo de la Segunda Convocatoria deben contener al menos los siguientes plazos y términos que las personas permisionarias deben cumplir:",
+      "html": "<div> Los títulos de permisos de generación de energía eléctrica que se emitan al amparo de la Segunda Convocatoria deben contener al menos los siguientes plazos y términos que las personas permisionarias deben cumplir:</div>"
+    },
+    {
+      "id": 148,
+      "tipo": "parrafo",
+      "texto": "I. Presentar la documentación que acredite el esquema de financiamiento del proyecto en un plazo máximo de 8 meses contados a partir de la notificación del permiso correspondiente;",
+      "html": "<div> I. Presentar la documentación que acredite el esquema de financiamiento del proyecto en un plazo máximo de 8 meses contados a partir de la notificación del permiso correspondiente;</div>"
+    },
+    {
+      "id": 149,
+      "tipo": "parrafo",
+      "texto": "II. Acreditar, previo a la firma del contrato de interconexión, la presentación de la garantía por las Obras de Interconexión y Obras de Refuerzo que hayan aceptado ante el CENACE;",
+      "html": "<div> II. Acreditar, previo a la firma del contrato de interconexión, la presentación de la garantía por las Obras de Interconexión y Obras de Refuerzo que hayan aceptado ante el CENACE;</div>"
+    },
+    {
+      "id": 150,
+      "tipo": "parrafo",
+      "texto": "III. Obtener la autorización definitiva en materia de Manifestación de Impacto Social del Sector Energético o, en su caso, Evaluación del Impacto Social, así como la autorización en materia de impacto ambiental emitida por la autoridad competente, y cualquier documento que lo modifique o sustituya para iniciar las obras correspondientes, en un plazo máximo de 6 meses contados a partir de la notificación del permiso correspondiente, salvo en los casos en los que sea necesaria la realización de una consulta previa, libre e informada;",
+      "html": "<div> III. Obtener la autorización definitiva en materia de Manifestación de Impacto Social del Sector Energético o, en su caso, Evaluación del Impacto Social, así como la autorización en materia de impacto ambiental emitida por la autoridad competente, y cualquier documento que lo modifique o sustituya para iniciar las obras correspondientes, en un plazo máximo de 6 meses contados a partir de la notificación del permiso correspondiente, salvo en los casos en los que sea necesaria la realización de una consulta previa, libre e informada;</div>"
+    },
+    {
+      "id": 151,
+      "tipo": "parrafo",
+      "texto": "IV. Iniciar las obras correspondientes en el plazo previsto en el programa de obras del título del permiso que, en su caso, se haya otorgado, y",
+      "html": "<div> IV. Iniciar las obras correspondientes en el plazo previsto en el programa de obras del título del permiso que, en su caso, se haya otorgado, y</div>"
+    },
+    {
+      "id": 152,
+      "tipo": "parrafo",
+      "texto": "El incumplimiento de los plazos previstos en las fracciones III y IV del presente numeral puede dar lugar al inicio del procedimiento de terminación, revocación o a la medida que corresponda conforme a la normatividad aplicable.",
+      "html": "<div> El incumplimiento de los plazos previstos en las fracciones III y IV del presente numeral puede dar lugar al inicio del procedimiento de terminación, revocación o a la medida que corresponda conforme a la normatividad aplicable.</div>"
+    },
+    {
+      "id": 153,
+      "tipo": "parrafo",
+      "texto": "9.3. Publicación de los resultados de la Segunda Convocatoria",
+      "html": "<div> 9.3. Publicación de los resultados de la Segunda Convocatoria</div>"
+    },
+    {
+      "id": 154,
+      "tipo": "parrafo",
+      "texto": "La CNE debe publicar en su página de internet y en la VUPE la siguiente información:",
+      "html": "<div> La CNE debe publicar en su página de internet y en la VUPE la siguiente información:</div>"
+    },
+    {
+      "id": 155,
+      "tipo": "parrafo",
+      "texto": "I. El listado de proyectos que cumplieron con los requisitos correspondientes, así como con los criterios de planeación vinculante y que obtuvieron un permiso con base en lo establecido en la Segunda Convocatoria;",
+      "html": "<div> I. El listado de proyectos que cumplieron con los requisitos correspondientes, así como con los criterios de planeación vinculante y que obtuvieron un permiso con base en lo establecido en la Segunda Convocatoria;</div>"
+    },
+    {
+      "id": 156,
+      "tipo": "parrafo",
+      "texto": "II. La capacidad de generación de energía eléctrica cubierta por región de transmisión, y",
+      "html": "<div> II. La capacidad de generación de energía eléctrica cubierta por región de transmisión, y</div>"
+    },
+    {
+      "id": 157,
+      "tipo": "parrafo",
+      "texto": "III. La capacidad de generación de energía eléctrica que no logró cubrirse, en su caso.",
+      "html": "<div> III. La capacidad de generación de energía eléctrica que no logró cubrirse, en su caso.</div>"
+    },
+    {
+      "id": 158,
+      "tipo": "parrafo",
+      "texto": "Lo anterior, con la finalidad de asegurar la trazabilidad del proceso, acceso equitativo a la información y confianza en la asignación de capacidades.",
+      "html": "<div> Lo anterior, con la finalidad de asegurar la trazabilidad del proceso, acceso equitativo a la información y confianza en la asignación de capacidades.</div>"
+    },
+    {
+      "id": 159,
+      "tipo": "parrafo",
+      "texto": "10. Presentación y devolución de las garantías financieras asociadas a los contratos de interconexión derivados de permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria",
+      "html": "<div> 10. Presentación y devolución de las garantías financieras asociadas a los contratos de interconexión derivados de permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria</div>"
+    },
+    {
+      "id": 160,
+      "tipo": "parrafo",
+      "texto": "10.1. Aquellas personas que hayan obtenido un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria deben presentar, conforme a lo establecido en el Calendario para la determinación del otorgamiento de permisos de generación de energía eléctrica derivados de la Segunda Convocatoria, la garantía financiera correspondiente ante el CENACE, lo cual deben llevar a cabo a través del módulo específico de presentación de garantías financieras que se encuentra disponible en la VUPE.",
+      "html": "<div> 10.1. Aquellas personas que hayan obtenido un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria deben presentar, conforme a lo establecido en el Calendario para la determinación del otorgamiento de permisos de generación de energía eléctrica derivados de la Segunda Convocatoria, la garantía financiera correspondiente ante el CENACE, lo cual deben llevar a cabo a través del módulo específico de presentación de garantías financieras que se encuentra disponible en la VUPE.</div>"
+    },
+    {
+      "id": 161,
+      "tipo": "parrafo",
+      "texto": "En los estudios de interconexión que realice el CENACE, en términos de la Segunda Convocatoria, se debe precisar el monto de la garantía financiera que cada persona solicitante debe respaldar a través de los medios previstos en el Formato Aceptación de Obras. La garantía financiera que se presente debe corresponder al monto señalado en el estudio de interconexión respectivo o, en su caso, en el Formato Aceptación de Obras, así como cumplir con el formato, vigencia y demás características previstas en el MIC.",
+      "html": "<div> En los estudios de interconexión que realice el CENACE, en términos de la Segunda Convocatoria, se debe precisar el monto de la garantía financiera que cada persona solicitante debe respaldar a través de los medios previstos en el Formato Aceptación de Obras. La garantía financiera que se presente debe corresponder al monto señalado en el estudio de interconexión respectivo o, en su caso, en el Formato Aceptación de Obras, así como cumplir con el formato, vigencia y demás características previstas en el MIC.</div>"
+    },
+    {
+      "id": 162,
+      "tipo": "parrafo",
+      "texto": "10.2. Además de los supuestos previstos en las disposiciones aplicables, las garantías financieras presentadas por las personas solicitantes que hayan obtenido un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria pueden ser devueltas cuando se acredite ante el CENACE, que:",
+      "html": "<div> 10.2. Además de los supuestos previstos en las disposiciones aplicables, las garantías financieras presentadas por las personas solicitantes que hayan obtenido un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria pueden ser devueltas cuando se acredite ante el CENACE, que:</div>"
+    },
+    {
+      "id": 163,
+      "tipo": "parrafo",
+      "texto": "I. La ejecución y terminación de las Obras de Interconexión y Obras de Refuerzo a las que se obliga el garante, no se puedan llevar a cabo por una explosión, fuego, inundación, huracán u otros fenómenos meteorológicos, epidemias, disturbios civiles, huelgas que sean declaradas legalmente procedentes por las autoridades competentes o cualquier hecho igualmente grave que afecte directamente la materialización del proyecto;",
+      "html": "<div> I. La ejecución y terminación de las Obras de Interconexión y Obras de Refuerzo a las que se obliga el garante, no se puedan llevar a cabo por una explosión, fuego, inundación, huracán u otros fenómenos meteorológicos, epidemias, disturbios civiles, huelgas que sean declaradas legalmente procedentes por las autoridades competentes o cualquier hecho igualmente grave que afecte directamente la materialización del proyecto;</div>"
+    },
+    {
+      "id": 164,
+      "tipo": "parrafo",
+      "texto": "II. Una acción u omisión de cualquier autoridad gubernamental que impida o retrase el cumplimiento de las obligaciones a las que se compromete el garante, siempre que ello no le sea imputable, y",
+      "html": "<div> II. Una acción u omisión de cualquier autoridad gubernamental que impida o retrase el cumplimiento de las obligaciones a las que se compromete el garante, siempre que ello no le sea imputable, y</div>"
+    },
+    {
+      "id": 165,
+      "tipo": "parrafo",
+      "texto": "III. Exista un fenómeno social que imposibilite llevar a cabo la ejecución y terminación de las Obras de Interconexión y Obras de Refuerzo a las que se obliga el garante.",
+      "html": "<div> III. Exista un fenómeno social que imposibilite llevar a cabo la ejecución y terminación de las Obras de Interconexión y Obras de Refuerzo a las que se obliga el garante.</div>"
+    },
+    {
+      "id": 166,
+      "tipo": "parrafo",
+      "texto": "Para efecto de lo anterior, el garante se encuentra obligado a llevar a cabo todas las acciones establecidas en el Capítulo 15 del MIC, relacionadas con los supuestos de caso fortuito o fuerza mayor.",
+      "html": "<div> Para efecto de lo anterior, el garante se encuentra obligado a llevar a cabo todas las acciones establecidas en el Capítulo 15 del MIC, relacionadas con los supuestos de caso fortuito o fuerza mayor.</div>"
+    },
+    {
+      "id": 167,
+      "tipo": "parrafo",
+      "texto": "11. Suscripción del contrato de interconexión asociado a los permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria",
+      "html": "<div> 11. Suscripción del contrato de interconexión asociado a los permisos de generación de energía eléctrica otorgados bajo la Segunda Convocatoria</div>"
+    },
+    {
+      "id": 168,
+      "tipo": "parrafo",
+      "texto": "Conforme a lo previsto en la Segunda Convocatoria, una vez presentada la garantía correspondiente y cumplidos los requisitos aplicables, el CENACE, a través de la VUPE, cuenta con un plazo de 10 días hábiles para realizar las gestiones necesarias e instruir a la Transportista la suscripción del contrato de interconexión correspondiente.",
+      "html": "<div> Conforme a lo previsto en la Segunda Convocatoria, una vez presentada la garantía correspondiente y cumplidos los requisitos aplicables, el CENACE, a través de la VUPE, cuenta con un plazo de 10 días hábiles para realizar las gestiones necesarias e instruir a la Transportista la suscripción del contrato de interconexión correspondiente.</div>"
+    },
+    {
+      "id": 169,
+      "tipo": "parrafo",
+      "texto": "La Transportista cuenta con el mismo plazo referido en el párrafo anterior para formalizar el contrato de interconexión con la persona permisionaria. La persona permisionaria debe presentar los requisitos técnicos, financieros y corporativos aplicables para la suscripción del contrato correspondiente.",
+      "html": "<div> La Transportista cuenta con el mismo plazo referido en el párrafo anterior para formalizar el contrato de interconexión con la persona permisionaria. La persona permisionaria debe presentar los requisitos técnicos, financieros y corporativos aplicables para la suscripción del contrato correspondiente.</div>"
+    },
+    {
+      "id": 170,
+      "tipo": "parrafo",
+      "texto": "12. Seguimiento de permisos de generación de energía eléctrica hasta su Entrada en Operación Comercial",
+      "html": "<div> 12. Seguimiento de permisos de generación de energía eléctrica hasta su Entrada en Operación Comercial</div>"
+    },
+    {
+      "id": 171,
+      "tipo": "parrafo",
+      "texto": "12.1. La SENER, a través del Consejo de Planeación Energética, así como la CNE y el CENACE deben dar seguimiento y pueden solicitar evidencia del cumplimiento progresivo y total de los requisitos relacionados con el avance en estudios, permisos, autorizaciones, trámites, gestiones prediales y cierre financiero hasta la interconexión de la Central al SEN y su Declaración de Entrada en Operación Comercial, conforme a lo establecido en la normatividad aplicable.",
+      "html": "<div> 12.1. La SENER, a través del Consejo de Planeación Energética, así como la CNE y el CENACE deben dar seguimiento y pueden solicitar evidencia del cumplimiento progresivo y total de los requisitos relacionados con el avance en estudios, permisos, autorizaciones, trámites, gestiones prediales y cierre financiero hasta la interconexión de la Central al SEN y su Declaración de Entrada en Operación Comercial, conforme a lo establecido en la normatividad aplicable.</div>"
+    },
+    {
+      "id": 172,
+      "tipo": "parrafo",
+      "texto": "12.2. Ante el incumplimiento de alguno de los términos y plazos establecidos en los títulos de permisos de generación de energía eléctrica que se otorguen bajo la Segunda Convocatoria, de conformidad con la normatividad aplicable, la CNE puede iniciar el procedimiento administrativo correspondiente respecto de dichos permisos. En particular, el incumplimiento del plazo de 6 meses previsto para obtener las autorizaciones señaladas en la fracción III del numeral 9.2 y para iniciar las obras conforme a la fracción IV del mismo numeral constituye causal potencial de terminación, revocación o de la medida que corresponda conforme a la normatividad aplicable.",
+      "html": "<div> 12.2. Ante el incumplimiento de alguno de los términos y plazos establecidos en los títulos de permisos de generación de energía eléctrica que se otorguen bajo la Segunda Convocatoria, de conformidad con la normatividad aplicable, la CNE puede iniciar el procedimiento administrativo correspondiente respecto de dichos permisos. En particular, el incumplimiento del plazo de 6 meses previsto para obtener las autorizaciones señaladas en la fracción III del numeral 9.2 y para iniciar las obras conforme a la fracción IV del mismo numeral constituye causal potencial de terminación, revocación o de la medida que corresponda conforme a la normatividad aplicable.</div>"
+    },
+    {
+      "id": 173,
+      "tipo": "parrafo",
+      "texto": "13. Glosario",
+      "html": "<div> 13. Glosario</div>"
+    },
+    {
+      "id": 174,
+      "tipo": "parrafo",
+      "texto": "I. CENACE: Centro Nacional de Control de Energía;",
+      "html": "<div> I. CENACE: Centro Nacional de Control de Energía;</div>"
+    },
+    {
+      "id": 175,
+      "tipo": "parrafo",
+      "texto": "II. CNE: Comisión Nacional de Energía;",
+      "html": "<div> II. CNE: Comisión Nacional de Energía;</div>"
+    },
+    {
+      "id": 176,
+      "tipo": "parrafo",
+      "texto": "III. Disposiciones de la Planeación Vinculante: Disposiciones administrativas de carácter general para la planeación vinculante en la actividad de generación de energía eléctrica que para tal efecto emita la SENER;",
+      "html": "<div> III. Disposiciones de la Planeación Vinculante: Disposiciones administrativas de carácter general para la planeación vinculante en la actividad de generación de energía eléctrica que para tal efecto emita la SENER;</div>"
+    },
+    {
+      "id": 177,
+      "tipo": "parrafo",
+      "texto": "IV. Disposiciones de Permisos: Disposiciones administrativas de carácter general que establecen los términos legales, técnicos y financieros para solicitar el otorgamiento y la modificación de permisos de generación de energía eléctrica, así como su vigencia, que para tal efecto emita la CNE;",
+      "html": "<div> IV. Disposiciones de Permisos: Disposiciones administrativas de carácter general que establecen los términos legales, técnicos y financieros para solicitar el otorgamiento y la modificación de permisos de generación de energía eléctrica, así como su vigencia, que para tal efecto emita la CNE;</div>"
+    },
+    {
+      "id": 178,
+      "tipo": "parrafo",
+      "texto": "V. Entrada en Operación Comercial: Fecha determinada en la planeación vinculante en la que un proyecto debe iniciar operaciones comerciales y que constituye el parámetro temporal obligatorio para validar criterios de firmeza para el desarrollo de los proyectos presentados en las solicitudes correspondientes;",
+      "html": "<div> V. Entrada en Operación Comercial: Fecha determinada en la planeación vinculante en la que un proyecto debe iniciar operaciones comerciales y que constituye el parámetro temporal obligatorio para validar criterios de firmeza para el desarrollo de los proyectos presentados en las solicitudes correspondientes;</div>"
+    },
+    {
+      "id": 179,
+      "tipo": "parrafo",
+      "texto": "VI. Grupo de Análisis Técnico: Grupo integrado en términos de las Disposiciones de la Planeación Vinculante;",
+      "html": "<div> VI. Grupo de Análisis Técnico: Grupo integrado en términos de las Disposiciones de la Planeación Vinculante;</div>"
+    },
+    {
+      "id": 180,
+      "tipo": "parrafo",
+      "texto": "VII. LCNE: Ley de la Comisión Nacional de Energía;",
+      "html": "<div> VII. LCNE: Ley de la Comisión Nacional de Energía;</div>"
+    },
+    {
+      "id": 181,
+      "tipo": "parrafo",
+      "texto": "VIII. LSE: Ley del Sector Eléctrico;",
+      "html": "<div> VIII. LSE: Ley del Sector Eléctrico;</div>"
+    },
+    {
+      "id": 182,
+      "tipo": "parrafo",
+      "texto": "IX. MW: Megawatt;",
+      "html": "<div> IX. MW: Megawatt;</div>"
+    },
+    {
+      "id": 183,
+      "tipo": "parrafo",
+      "texto": "X. MIC: Manual de Interconexión de Centrales Eléctricas y Conexión de Centros de Carga publicado en el Diario Oficial de la Federación el 9 de febrero de 2018 o aquel que lo sustituya;",
+      "html": "<div> X. MIC: Manual de Interconexión de Centrales Eléctricas y Conexión de Centros de Carga publicado en el Diario Oficial de la Federación el 9 de febrero de 2018 o aquel que lo sustituya;</div>"
+    },
+    {
+      "id": 184,
+      "tipo": "parrafo",
+      "texto": "XI. Nivel de Tensión: Voltaje en el que la central eléctrica se conecta al Sistema Eléctrico Nacional, expresado en kilovoltios;",
+      "html": "<div> XI. Nivel de Tensión: Voltaje en el que la central eléctrica se conecta al Sistema Eléctrico Nacional, expresado en kilovoltios;</div>"
+    },
+    {
+      "id": 185,
+      "tipo": "parrafo",
+      "texto": "XII. OPE: Oficialía de Partes Electrónica, herramienta tecnológica con la que cuenta la CNE, para recibir y dar seguimiento a las solicitudes de permisos de generación de energía eléctrica presentadas al amparo de la Segunda Convocatoria, así como para dar seguimiento a los permisos de generación de energía eléctrica otorgados, entre otros. Dicha herramienta se regula con base en lo establecido en las reglas generales para su funcionamiento publicadas en el Diario Oficial de la Federación, y se encuentra disponible en el portal https://ope.cne.gob.mx/;",
+      "html": "<div> XII. OPE: Oficialía de Partes Electrónica, herramienta tecnológica con la que cuenta la CNE, para recibir y dar seguimiento a las solicitudes de permisos de generación de energía eléctrica presentadas al amparo de la Segunda Convocatoria, así como para dar seguimiento a los permisos de generación de energía eléctrica otorgados, entre otros. Dicha herramienta se regula con base en lo establecido en las reglas generales para su funcionamiento publicadas en el Diario Oficial de la Federación, y se encuentra disponible en el portal https://ope.cne.gob.mx/;</div>"
+    },
+    {
+      "id": 186,
+      "tipo": "parrafo",
+      "texto": "XIII. Punto de Interconexión: Punto donde la Central Eléctrica se conecta físicamente al SEN;",
+      "html": "<div> XIII. Punto de Interconexión: Punto donde la Central Eléctrica se conecta físicamente al SEN;</div>"
+    },
+    {
+      "id": 187,
+      "tipo": "parrafo",
+      "texto": "XIV. RLSE: Reglamento de la Ley del Sector Eléctrico;",
+      "html": "<div> XIV. RLSE: Reglamento de la Ley del Sector Eléctrico;</div>"
+    },
+    {
+      "id": 188,
+      "tipo": "parrafo",
+      "texto": "XV. Segunda Convocatoria: La Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante;",
+      "html": "<div> XV. Segunda Convocatoria: La Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante;</div>"
+    },
+    {
+      "id": 189,
+      "tipo": "parrafo",
+      "texto": "XVI. SENER: Secretaría de Energía;",
+      "html": "<div> XVI. SENER: Secretaría de Energía;</div>"
+    },
+    {
+      "id": 190,
+      "tipo": "parrafo",
+      "texto": "XVII. SEN: Sistema Eléctrico Nacional;",
+      "html": "<div> XVII. SEN: Sistema Eléctrico Nacional;</div>"
+    },
+    {
+      "id": 191,
+      "tipo": "parrafo",
+      "texto": "XVIII. SIASIC: Sistema de Atención a Solicitudes de Interconexión y Conexión del CENACE, y",
+      "html": "<div> XVIII. SIASIC: Sistema de Atención a Solicitudes de Interconexión y Conexión del CENACE, y</div>"
+    },
+    {
+      "id": 192,
+      "tipo": "parrafo",
+      "texto": "XIX. VUPE: Ventanilla Única de Proyectos Estratégicos del Sector Energético disponible en el portal https://ventanillaunica.energia.gob.mx, habilitada como un módulo para el seguimiento de proyectos del sector.",
+      "html": "<div> XIX. VUPE: Ventanilla Única de Proyectos Estratégicos del Sector Energético disponible en el portal https://ventanillaunica.energia.gob.mx, habilitada como un módulo para el seguimiento de proyectos del sector.</div>"
+    },
+    {
+      "id": 193,
+      "tipo": "parrafo",
+      "texto": "14. Anexos",
+      "html": "<div> 14. Anexos</div>"
+    },
+    {
+      "id": 194,
+      "tipo": "parrafo",
+      "texto": "14.1. Formato de Manifestación de Interés y Solicitud de estudios de interconexión del CENACE",
+      "html": "<div> 14.1. Formato de Manifestación de Interés y Solicitud de estudios de interconexión del CENACE</div>"
+    },
+    {
+      "id": 195,
+      "tipo": "parrafo",
+      "texto": "Disponible en la VUPE, mediante la liga electrónica: https:/ventanillaunica.energia.gob.mx",
+      "html": "<div> Disponible en la VUPE, mediante la liga electrónica: https:/ventanillaunica.energia.gob.mx</div>"
+    },
+    {
+      "id": 196,
+      "tipo": "parrafo",
+      "texto": "14.2. Formato Solicitudes de Permiso con Trámite Previo:",
+      "html": "<div> 14.2. Formato Solicitudes de Permiso con Trámite Previo:</div>"
+    },
+    {
+      "id": 197,
+      "tipo": "parrafo",
+      "texto": "I. NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA",
+      "html": "<div> I. NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA</div>"
+    },
+    {
+      "id": 198,
+      "tipo": "tabla",
+      "texto": "Número de turno(s) o folio(s) presentados ante la extinta Comisión Reguladora de Energía o la Comisión Nacional de Energía relacionados con el proyecto de generación de energía eléctrica cuyo permiso solicita obtener al amparo de la Segunda Convocatoria. Asimismo, debe señalar la fecha de presentación de dichos turnos o folios.\nNúmero de turno / folio /\nidentificación\nFecha de presentación\ndel número de turno /\nfolio / identificación",
+      "html": "<table> <tbody><tr> <td rowspan=\"2\"> <div> Número de turno(s) o folio(s) presentados ante la extinta Comisión Reguladora de Energía o la Comisión Nacional de Energía relacionados con el proyecto de generación de energía eléctrica cuyo permiso solicita obtener al amparo de la Segunda Convocatoria. Asimismo, debe señalar la fecha de presentación de dichos turnos o folios.</div> </td> <td> <div> Número de turno / folio /<br> identificación<br> </div> </td> <td> <div> Fecha de presentación<br> del número de turno /<br> folio / identificación<br> </div> </td> </tr> <tr> <td> <div>  </div> </td> <td> <div>  </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 199,
+      "tipo": "parrafo",
+      "texto": "II. MANIFESTACIONES",
+      "html": "<div> II. MANIFESTACIONES</div>"
+    },
+    {
+      "id": 200,
+      "tipo": "tabla",
+      "texto": "Seleccione las casillas correspondientes para aceptar las siguientes manifestaciones bajo protesta de decir verdad:\n1. Declaro de manera expresa mi intención para que se considere el formato de solicitud e información anexada a este, para participar en la Segunda Convocatoria.\n□ Acepto\n2. Acepto que se valore toda la documentación e información que presenté mediante los turnos o folios señalados en el apartado identificado como NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA.\nAsimismo, en caso de que la documentación e información antes señalada se haya modificado, debo adjuntar las actualizaciones correspondientes a la presente solicitud.\n□ Acepto\n3. Declaro de manera expresa que, si mi solicitud resulta aprobada para obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria, debo presentar el desistimiento de los turnos o folios señalados en el apartado identificado como NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA dentro del plazo establecido para tal efecto.\n□ Acepto",
+      "html": "<table> <tbody><tr> <td colspan=\"2\"> <div> Seleccione las casillas correspondientes para aceptar las siguientes manifestaciones bajo protesta de decir verdad:</div> </td> </tr> <tr> <td> <div> 1. Declaro de manera expresa mi intención para que se considere el formato de solicitud e información anexada a este, para participar en la Segunda Convocatoria.</div> </td> <td> <div> □ Acepto<br> </div> </td> </tr> <tr> <td> <div> 2. Acepto que se valore toda la documentación e información que presenté mediante los turnos o folios señalados en el apartado identificado como NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA.</div> <div> Asimismo, en caso de que la documentación e información antes señalada se haya modificado, debo adjuntar las actualizaciones correspondientes a la presente solicitud.</div> </td> <td> <div> □ Acepto<br> </div> </td> </tr> <tr> <td> <div> 3. Declaro de manera expresa que, si mi solicitud resulta aprobada para obtener un permiso de generación de energía eléctrica al amparo de la Segunda Convocatoria, debo presentar el desistimiento de los turnos o folios señalados en el apartado identificado como NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA dentro del plazo establecido para tal efecto.</div> </td> <td> <div> □ Acepto<br> </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 201,
+      "tipo": "parrafo",
+      "texto": "III. INFORMACIÓN Y DOCUMENTACIÓN COMPLEMENTARIA",
+      "html": "<div> III. INFORMACIÓN Y DOCUMENTACIÓN COMPLEMENTARIA</div>"
+    },
+    {
+      "id": 202,
+      "tipo": "tabla",
+      "texto": "A. Cronograma calendarizado del desarrollo financiero del proyecto.\nAdjuntar PDF\nB. Acuse de recepción o en su caso, autorización en materia de impacto ambiental emitida por la autoridad competente, así como el estatus de dicho trámite y cualquier documento que lo modifique o sustituya.\nAdjuntar PDF\nC. Acreditación de la propiedad, posesión legítima, uso o goce del predio, mediante la remisión de alguno de los siguientes documentos: título de propiedad, contrato de arrendamiento, contrato de usufructo, acta de asamblea u otra figura jurídica equivalente que garantice la tenencia durante toda la vida útil del proyecto.\nAdjuntar PDF\nD. En su caso, la documentación e información que actualice la originalmente presentada mediante los turnos o folios señalados en el apartado identificado como NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA.\nAdjuntar PDF\nE-firma\nNombre y firma del solicitante o de su apoderado o representante legal.",
+      "html": "<table> <tbody><tr> <td> <div> A. Cronograma calendarizado del desarrollo financiero del proyecto.</div> </td> <td> <div> Adjuntar PDF<br> </div> </td> </tr> <tr> <td> <div> B. Acuse de recepción o en su caso, autorización en materia de impacto ambiental emitida por la autoridad competente, así como el estatus de dicho trámite y cualquier documento que lo modifique o sustituya.</div> </td> <td> <div> Adjuntar PDF<br> </div> </td> </tr> <tr> <td> <div> C. Acreditación de la propiedad, posesión legítima, uso o goce del predio, mediante la remisión de alguno de los siguientes documentos: título de propiedad, contrato de arrendamiento, contrato de usufructo, acta de asamblea u otra figura jurídica equivalente que garantice la tenencia durante toda la vida útil del proyecto.</div> </td> <td> <div> Adjuntar PDF<br> </div> </td> </tr> <tr> <td> <div> D. En su caso, la documentación e información que actualice la originalmente presentada mediante los turnos o folios señalados en el apartado identificado como NÚMERO DE TURNO O FOLIO DE LA SOLICITUD PREVIAMENTE PRESENTADA.</div> </td> <td> <div> Adjuntar PDF<br> </div> </td> </tr> <tr> <td colspan=\"2\"> <div> E-firma<br> </div> <div> Nombre y firma del solicitante o de su apoderado o representante legal.<br> </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 203,
+      "tipo": "parrafo",
+      "texto": "14.3. Formato Aceptación de Obras",
+      "html": "<div> 14.3. Formato Aceptación de Obras</div>"
+    },
+    {
+      "id": 204,
+      "tipo": "tabla",
+      "texto": "CARTA DE ACEPTACIÓN DE OBRAS\nCiudad de México, a [fecha de presentación]\nA quien corresponda,\nEl suscriptor de la presente, C. [ ] en mi carácter de representante [legal / apoderado], de la persona moral denominada [ ], señalando para oír y recibir todo tipo de notificaciones y documentos el domicilio ubicado en: [ ], y autorizando para los mismos efectos a los señores: [ ]; en este acto comparezco para exponer:\nQue en nombre de mi representada y en ejercicio de las facultades que me fueron conferidas, manifiesto de manera expresa y libre de vicios del consentimiento, la voluntad para aceptar los resultados del o los estudios correspondientes a la Solicitud de Interconexión N° [ ] de fecha [ ] notificada a mi representada mediante oficio número [ ], en el que se establece la necesidad de realizar las inversiones e infraestructura estimada por el Centro Nacional de Control de Energía (CENACE), por la cantidad de [ ].\nEn virtud de lo anterior, con la suscripción de este formato, mi representada se obliga unilateralmente y de manera incondicional a pagar al CENACE la cantidad de [ ], en caso de incumplimiento de las obligaciones relacionadas con: (i) posteriormente a la suscripción del contrato de interconexión correspondiente, ejecutar y terminar la construcción de las Obras de Interconexión y Obras de Refuerzo de conformidad con las Características Específicas de la Infraestructura Requerida para la Interconexión de la central eléctrica determinadas en el o los estudios; (ii) iniciar las operaciones de interconexión en la fecha de entrada en operación; (iii) realizar los actos que el CENACE indique de conformidad con los estudios previamente realizados, y (iv) cumplir con la normatividad aplicable a la Red Nacional de Transmisión y las Redes Generales de Distribución, así como con las Disposiciones Administrativas de Carácter General que contienen los criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad del Sistema Eléctrico Nacional: Código de Red.\nDe conformidad con lo señalado en la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante (la \"Segunda Convocatoria\") publicada en el Diario Oficial de la Federación el día [ ], así como en el Capítulo 15 Garantías Financieras del Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga y para efectos de asegurar el cumplimiento concurrente de las obligaciones antes referidas, mi representada en este acto se compromete, en caso de que el Comité Técnico de la Comisión Nacional de Energía determine la aprobación del permiso de generación de energía eléctrica por haber cumplido con los requisitos establecidos en la Segunda Convocatoria, a otorgar una garantía [ (a) dinero en efectivo, mediante depósito bancario de dinero a la vista en la cuenta bancaria número [ ] a nombre del fideicomiso N° [ ]; (b) Certificados de Tesorería de la Federación por la cantidad de [ ] o (c) Carta de Crédito Stand By por la cantidad de [ ], que cumple con el formato referido en el numeral 15.2.6 del Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga [ ], y presentarla previo a la firma del contrato de interconexión correspondiente.\nPor lo expuesto atentamente solicito:\nPRIMERO. Se tenga por acreditada la personalidad con que me ostento, representando legalmente a la persona moral denominada [ ].\nSEGUNDO. Se me tenga por presentado en nombre de mi representada el presente formato de aceptación de obras, para responder por el debido cumplimiento de todas y cada una de las obligaciones aquí consignadas y relacionadas con el o los estudios elaborados con motivo de la Solicitud No. [ ], los cuales me fueron notificados mediante oficio No. [ ] de fecha [ ].\nTERCERO. Se me tenga por presentado en nombre de mi representada aceptando todos y cada uno de los términos, condiciones y plazos establecidos en la Segunda Convocatoria.\nCUARTO. Se acuerde la aceptación de promesa de la garantía por el monto requerido, misma que se presentará formalmente por parte de mi representada previo a la firma del contrato de interconexión correspondiente.\nQUINTO. Se me devuelva la garantía una vez que se haya terminado la construcción de las Obras de Interconexión y Obras de Refuerzo de conformidad con las Características Específicas de la Infraestructura Requerida para la Interconexión de la central eléctrica o, en su defecto, si se acredita alguno de los supuestos previstos en la normatividad aplicable.\nAtentamente\nNOMBRE Y FIRMA DE LA PERSONA QUE SUSCRIBE LA CARTA",
+      "html": "<table> <tbody><tr> <td> <div> CARTA DE ACEPTACIÓN DE OBRAS<br> </div> <div> Ciudad de México, a [fecha de presentación]</div> <div> A quien corresponda,</div> <div>  </div> <div> El suscriptor de la presente, C. [ ] en mi carácter de representante [legal / apoderado], de la persona moral denominada [ ], señalando para oír y recibir todo tipo de notificaciones y documentos el domicilio ubicado en: [ ], y autorizando para los mismos efectos a los señores: [ ]; en este acto comparezco para exponer:</div> <div> Que en nombre de mi representada y en ejercicio de las facultades que me fueron conferidas, manifiesto de manera expresa y libre de vicios del consentimiento, la voluntad para aceptar los resultados del o los estudios correspondientes a la Solicitud de Interconexión N° [ ] de fecha [ ] notificada a mi representada mediante oficio número [ ], en el que se establece la necesidad de realizar las inversiones e infraestructura estimada por el Centro Nacional de Control de Energía (CENACE), por la cantidad de [ ].</div> <div> En virtud de lo anterior, con la suscripción de este formato, mi representada se obliga unilateralmente y de manera incondicional a pagar al CENACE la cantidad de [ ], en caso de incumplimiento de las obligaciones relacionadas con: (i) posteriormente a la suscripción del contrato de interconexión correspondiente, ejecutar y terminar la construcción de las Obras de Interconexión y Obras de Refuerzo de conformidad con las Características Específicas de la Infraestructura Requerida para la Interconexión de la central eléctrica determinadas en el o los estudios; (ii) iniciar las operaciones de interconexión en la fecha de entrada en operación; (iii) realizar los actos que el CENACE indique de conformidad con los estudios previamente realizados, y (iv) cumplir con la normatividad aplicable a la Red Nacional de Transmisión y las Redes Generales de Distribución, así como con las Disposiciones Administrativas de Carácter General que contienen los criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad del Sistema Eléctrico Nacional: Código de Red.</div> <div> De conformidad con lo señalado en la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante (la &quot;Segunda Convocatoria&quot;) publicada en el Diario Oficial de la Federación el día [ ], así como en el Capítulo 15 Garantías Financieras del Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga y para efectos de asegurar el cumplimiento concurrente de las obligaciones antes referidas, mi representada en este acto se compromete, en caso de que el Comité Técnico de la Comisión Nacional de Energía determine la aprobación del permiso de generación de energía eléctrica por haber cumplido con los requisitos establecidos en la Segunda Convocatoria, a otorgar una garantía [ (a) dinero en efectivo, mediante depósito bancario de dinero a la vista en la cuenta bancaria número [ ] a nombre del fideicomiso N° [ ]; (b) Certificados de Tesorería de la Federación por la cantidad de [ ] o (c) Carta de Crédito Stand By por la cantidad de [ ], que cumple con el formato referido en el numeral 15.2.6 del Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga [ ], y presentarla previo a la firma del contrato de interconexión correspondiente.</div> <div> Por lo expuesto atentamente solicito:</div> <div> PRIMERO. Se tenga por acreditada la personalidad con que me ostento, representando legalmente a la persona moral denominada [ ].</div> <div> SEGUNDO. Se me tenga por presentado en nombre de mi representada el presente formato de aceptación de obras, para responder por el debido cumplimiento de todas y cada una de las obligaciones aquí consignadas y relacionadas con el o los estudios elaborados con motivo de la Solicitud No. [ ], los cuales me fueron notificados mediante oficio No. [ ] de fecha [ ].</div> <div> TERCERO. Se me tenga por presentado en nombre de mi representada aceptando todos y cada uno de los términos, condiciones y plazos establecidos en la Segunda Convocatoria.</div> <div> CUARTO. Se acuerde la aceptación de promesa de la garantía por el monto requerido, misma que se presentará formalmente por parte de mi representada previo a la firma del contrato de interconexión correspondiente.</div> <div> QUINTO. Se me devuelva la garantía una vez que se haya terminado la construcción de las Obras de Interconexión y Obras de Refuerzo de conformidad con las Características Específicas de la Infraestructura Requerida para la Interconexión de la central eléctrica o, en su defecto, si se acredita alguno de los supuestos previstos en la normatividad aplicable.</div> <div> Atentamente</div> <div>  </div> <div> NOMBRE Y FIRMA DE LA PERSONA QUE SUSCRIBE LA CARTA</div> <div>  </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 205,
+      "tipo": "parrafo",
+      "texto": "14.4. Funciones técnicas y operativas de los Sistemas de Almacenamiento de Energía Eléctrica con baterías",
+      "html": "<div> 14.4. Funciones técnicas y operativas de los Sistemas de Almacenamiento de Energía Eléctrica con baterías</div>"
+    },
+    {
+      "id": 206,
+      "tipo": "tabla",
+      "texto": "Función\nDescripción\nModo de gestión de señales por niveles\nEl sistema debe ser capaz de administrar señales a nivel de paquete de batería, rack y contenedor (mínimo 3 niveles), donde el sistema sea capaz de administrar estas señales y emitir una respuesta acorde, discriminando las señales que se envían al sistema de control distribuido.\nModo de gestión de carga/descarga\ndirecta\nUn sistema remoto instruye al Sistema de Almacenamiento de Energía Eléctrica este modo se puede utilizar para admitir el arbitraje general de energía, la limitación de carga máxima, el seguimiento de carga, la reserva rodante y la regulación de frecuencia.\nModo de gestión de carga/descarga\nprogramada\nUn sistema remoto proporciona al Sistema de Almacenamiento de Energía Eléctrica un horario específico para la carga y descarga. Este modo se puede utilizar para apoyar el arbitraje general de energía y otros usos en los que la carga y descarga se conocen de antemano.\nModo Q-V autónomo\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo administrar su propia salida de potencia reactiva en relación con la tensión de la red.\nModo de factor de potencia constante\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo variar su propia salida de potencia aparente en relación con su potencia real, debiendo de abarcar desde F.P. 1 en adelanto y en atraso.\nModo autónomo de Frecuencia-P\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo limitar su propio nivel de potencia en relación con la frecuencia de la red.\nModo autónomo de P-Q\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo limitar su propio nivel de potencia en relación con la potencia reactiva generada.\nModo de limitación de pico\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo administrar su propia salida de potencia para evitar que exceda un umbral determinado.\nModo de seguimiento de carga/\ngeneración\nInstruye al Sistema de Almacenamiento de Energía Eléctrica sobre cómo administrar su propia entrada/salida de potencia para seguir (o seguir parcialmente) el nivel de potencia en un punto de referencia determinado.\nModo de suavizado de potencia\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo modificar dinámicamente su entrada/salida de potencia en respuesta a cambios rápidos en el nivel de potencia en un punto de referencia determinado.\nModo de soporte de corriente reactiva\ndinámica\nIndica al Sistema de Almacenamiento de Energía Eléctrica cómo proporcionar soporte de corriente reactiva adicional dinámica en respuesta a cambios rápidos en la tensión de la red.\nModo dinámico P-V\nInstruye al Sistema de Almacenamiento de Energía Eléctrica sobre cómo proporcionar soporte dinámico de energía real en respuesta a cambios rápidos en la tensión de la red.\nModo dinámico P-Q\nInstruye al Sistema de Almacenamiento de Energía Eléctrica sobre cómo proporcionar soporte dinámico de energía real en respuesta a cambios rápidos en la potencia reactiva generada.\nFunción de conexión/desconexión\nadministrada\nIndica de forma remota al Sistema de Almacenamiento de Energía Eléctrica para que se conecte/desconecte a/desde la red.\nRespuesta de frecuencia rápida\nIndica al Sistema de Almacenamiento de Energía Eléctrica que proporcione una potencia de salida real basada en un control autónomo, cuando la frecuencia de la red cae por debajo de un umbral especificado.\nRespuesta secundaria de frecuencia\nIndica al Sistema de Almacenamiento de Energía Eléctrica que siga las señales de control centralizado de la Central Eléctrica para ajustar la carga y la descarga con el fin de estabilizar la frecuencia de la red.\nFormación de Red (Grid Forming)\nEl Sistema de Almacenamiento de Energía Eléctrica proporciona características de máquina síncrona virtual de forma automática, creando y regulando, tensión y frecuencia de la red, proporcionando desde 0 hasta 20 segundos de inercia y soportando al menos 2 p.u. de corriente máxima transitoria, en el rango mínimo del SOC desde 5% hasta el 95%).\nCuenta con capacidad de Operación en Isla, de acuerdo con lo indicado en el Manual de Servicios Conexos No Incluidos en el Mercado Eléctrico Mayorista.\nModo Q at night (potencia reactiva de\nnocturna)\nIndica al Sistema de Almacenamiento de Energía Eléctrica que proporcione potencia reactiva durante la noche, con capacidad de hasta un 60% de su potencia nominal.\nMagnitud de la corriente de falla\n2 p.u.\nTiempo mínimo de permanencia de la\ncorriente de falla\n700 ms\nRecuperación mínima del voltaje\nposterior al despeje de la falla\n0.7 p.u en 1.71 s\nPrimer intervalo respuesta a la falla. t0-\nt1: respuesta inicial y colapso de voltaje\nT0\nCorriente: Tiempo 0.0, Magnitud 1 p.u\nVoltaje: Tiempo 0.0, Magnitud 1 p.u\nT1\nCorriente: Tiempo 0.01, Magnitud 2 p.u\nVoltaje: Tiempo 0.0, Magnitud 0 p.u\nSegundo intervalo respuesta a la falla.\nt1-t2: régimen de falla\nT1\nCorriente: Tiempo 0.01, Magnitud 2 p.u\nVoltaje: Tiempo 0.0, Magnitud 0 p.u\nT2\nCorriente: Tiempo 0.71, Magnitud 2 p.u\nVoltaje: Tiempo 0.71, Magnitud 0 p.u\nTercer intervalo respuesta a la falla. t2-\nt3: recuperación parcial (primer escalón)\nT2\nCorriente: Tiempo 0.71, Magnitud 2 p.u\nVoltaje: Tiempo 0.71, Magnitud 0 p.u\nT3\nCorriente: Tiempo 1.71, Magnitud 1.2 p.u\nVoltaje: Tiempo 1.71, Magnitud 0.7 p.u\nCuarto intervalo respuesta a la falla. t3-\nt4: estabilización intermedia\nT3\nCorriente: Tiempo 1.71, Magnitud 1.2 p.u\nVoltaje: Tiempo 1.71, Magnitud 0.7 p.u\nT4\nCorriente: Tiempo 6.71, Magnitud 1.4 p.u\nVoltaje: Tiempo 6.71, Magnitud 0.9 p.u\nQuinto intervalo respuesta a la falla. t4-\nt5: recuperación final\nT4\nCorriente: Tiempo 6.71, Magnitud 1.4 p.u\nVoltaje: Tiempo 6.71, Magnitud 0.9 p.u a 1.0 p.u\nT5\nCorriente: Tiempo 16.71, Magnitud 1.2 p.u\nVoltaje: Tiempo 16.71, Magnitud 0.97 p.u a 1.0 p.u\nModelo de Usuario\nLos modelos de usuario que representen al Sistema de Almacenamiento de Energía Eléctrica en las herramientas de simulación PSS®E y EMTP-RV, y que sean entregados al CENACE para la elaboración de los Estudios de Interconexión o Conexión, deben reproducir de manera fiel, consistente y verificable el desempeño del Sistema de Almacenamiento de Energía Eléctrica en estado estable y ante contingencias, fallas eléctricas y eventos dinámicos del SEN.",
+      "html": "<table> <tbody><tr> <td> <div> Función<br> </div> </td> <td> <div> Descripción<br> </div> </td> </tr> <tr> <td> <div> Modo de gestión de señales por niveles<br> </div> </td> <td> <div> El sistema debe ser capaz de administrar señales a nivel de paquete de batería, rack y contenedor (mínimo 3 niveles), donde el sistema sea capaz de administrar estas señales y emitir una respuesta acorde, discriminando las señales que se envían al sistema de control distribuido.</div> </td> </tr> <tr> <td> <div> Modo de gestión de carga/descarga<br> directa<br> </div> </td> <td> <div> Un sistema remoto instruye al Sistema de Almacenamiento de Energía Eléctrica este modo se puede utilizar para admitir el arbitraje general de energía, la limitación de carga máxima, el seguimiento de carga, la reserva rodante y la regulación de frecuencia.</div> </td> </tr> <tr> <td> <div> Modo de gestión de carga/descarga<br> programada<br> </div> </td> <td> <div> Un sistema remoto proporciona al Sistema de Almacenamiento de Energía Eléctrica un horario específico para la carga y descarga. Este modo se puede utilizar para apoyar el arbitraje general de energía y otros usos en los que la carga y descarga se conocen de antemano.</div> </td> </tr> <tr> <td> <div> Modo Q-V autónomo<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo administrar su propia salida de potencia reactiva en relación con la tensión de la red.</div> </td> </tr> <tr> <td> <div> Modo de factor de potencia constante<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo variar su propia salida de potencia aparente en relación con su potencia real, debiendo de abarcar desde F.P. 1 en adelanto y en atraso.</div> </td> </tr> <tr> <td> <div> Modo autónomo de Frecuencia-P<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo limitar su propio nivel de potencia en relación con la frecuencia de la red.</div> </td> </tr> <tr> <td> <div> Modo autónomo de P-Q<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo limitar su propio nivel de potencia en relación con la potencia reactiva generada.</div> </td> </tr> <tr> <td> <div> Modo de limitación de pico<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo administrar su propia salida de potencia para evitar que exceda un umbral determinado.</div> </td> </tr> <tr> <td> <div> Modo de seguimiento de carga/<br> generación<br> </div> </td> <td> <div> Instruye al Sistema de Almacenamiento de Energía Eléctrica sobre cómo administrar su propia entrada/salida de potencia para seguir (o seguir parcialmente) el nivel de potencia en un punto de referencia determinado.</div> </td> </tr> <tr> <td> <div> Modo de suavizado de potencia<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo modificar dinámicamente su entrada/salida de potencia en respuesta a cambios rápidos en el nivel de potencia en un punto de referencia determinado.</div> </td> </tr> <tr> <td> <div> Modo de soporte de corriente reactiva<br> dinámica<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica cómo proporcionar soporte de corriente reactiva adicional dinámica en respuesta a cambios rápidos en la tensión de la red.</div> </td> </tr> <tr> <td> <div> Modo dinámico P-V<br> </div> </td> <td> <div> Instruye al Sistema de Almacenamiento de Energía Eléctrica sobre cómo proporcionar soporte dinámico de energía real en respuesta a cambios rápidos en la tensión de la red.</div> </td> </tr> <tr> <td> <div> Modo dinámico P-Q<br> </div> </td> <td> <div> Instruye al Sistema de Almacenamiento de Energía Eléctrica sobre cómo proporcionar soporte dinámico de energía real en respuesta a cambios rápidos en la potencia reactiva generada.</div> </td> </tr> <tr> <td> <div> Función de conexión/desconexión<br> administrada<br> </div> </td> <td> <div> Indica de forma remota al Sistema de Almacenamiento de Energía Eléctrica para que se conecte/desconecte a/desde la red.</div> </td> </tr> <tr> <td> <div> Respuesta de frecuencia rápida<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica que proporcione una potencia de salida real basada en un control autónomo, cuando la frecuencia de la red cae por debajo de un umbral especificado.</div> </td> </tr> <tr> <td> <div> Respuesta secundaria de frecuencia<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica que siga las señales de control centralizado de la Central Eléctrica para ajustar la carga y la descarga con el fin de estabilizar la frecuencia de la red.</div> </td> </tr> <tr> <td> <div> Formación de Red (Grid Forming)<br> </div> </td> <td> <div> El Sistema de Almacenamiento de Energía Eléctrica proporciona características de máquina síncrona virtual de forma automática, creando y regulando, tensión y frecuencia de la red, proporcionando desde 0 hasta 20 segundos de inercia y soportando al menos 2 p.u. de corriente máxima transitoria, en el rango mínimo del SOC desde 5% hasta el 95%).</div> <div> Cuenta con capacidad de Operación en Isla, de acuerdo con lo indicado en el Manual de Servicios Conexos No Incluidos en el Mercado Eléctrico Mayorista. </div> </td> </tr> <tr> <td> <div> Modo Q at night (potencia reactiva de<br> nocturna)<br> </div> </td> <td> <div> Indica al Sistema de Almacenamiento de Energía Eléctrica que proporcione potencia reactiva durante la noche, con capacidad de hasta un 60% de su potencia nominal.</div> </td> </tr> <tr> <td> <div> Magnitud de la corriente de falla<br> </div> </td> <td> <div> 2 p.u.</div> </td> </tr> <tr> <td> <div> Tiempo mínimo de permanencia de la<br> corriente de falla<br> </div> </td> <td> <div> 700 ms</div> </td> </tr> <tr> <td> <div> Recuperación mínima del voltaje<br> posterior al despeje de la falla<br> </div> </td> <td> <div> 0.7 p.u en 1.71 s</div> </td> </tr> <tr> <td> <div> Primer intervalo respuesta a la falla. t0-<br> t1: respuesta inicial y colapso de voltaje<br> </div> </td> <td> <div> T0</div> <div> Corriente: Tiempo 0.0, Magnitud 1 p.u</div> <div> Voltaje: Tiempo 0.0, Magnitud 1 p.u</div> <div> T1</div> <div> Corriente: Tiempo 0.01, Magnitud 2 p.u</div> <div> Voltaje: Tiempo 0.0, Magnitud 0 p.u</div> </td> </tr> <tr> <td> <div> Segundo intervalo respuesta a la falla.<br> t1-t2: régimen de falla<br> </div> </td> <td> <div> T1</div> <div> Corriente: Tiempo 0.01, Magnitud 2 p.u</div> <div> Voltaje: Tiempo 0.0, Magnitud 0 p.u</div> <div> T2</div> <div> Corriente: Tiempo 0.71, Magnitud 2 p.u</div> <div> Voltaje: Tiempo 0.71, Magnitud 0 p.u</div> </td> </tr> <tr> <td> <div> Tercer intervalo respuesta a la falla. t2-<br> t3: recuperación parcial (primer escalón)<br> </div> </td> <td> <div> T2</div> <div> Corriente: Tiempo 0.71, Magnitud 2 p.u</div> <div> Voltaje: Tiempo 0.71, Magnitud 0 p.u</div> <div> T3</div> <div> Corriente: Tiempo 1.71, Magnitud 1.2 p.u</div> <div> Voltaje: Tiempo 1.71, Magnitud 0.7 p.u</div> </td> </tr> <tr> <td> <div> Cuarto intervalo respuesta a la falla. t3-<br> t4: estabilización intermedia<br> </div> </td> <td> <div> T3</div> <div> Corriente: Tiempo 1.71, Magnitud 1.2 p.u</div> <div> Voltaje: Tiempo 1.71, Magnitud 0.7 p.u</div> <div> T4</div> <div> Corriente: Tiempo 6.71, Magnitud 1.4 p.u</div> <div> Voltaje: Tiempo 6.71, Magnitud 0.9 p.u</div> </td> </tr> <tr> <td> <div> Quinto intervalo respuesta a la falla.  t4-<br> t5: recuperación final<br> </div> </td> <td> <div> T4</div> <div> Corriente: Tiempo 6.71, Magnitud 1.4 p.u</div> <div> Voltaje: Tiempo 6.71, Magnitud 0.9 p.u a 1.0 p.u</div> <div> T5</div> <div> Corriente: Tiempo 16.71, Magnitud 1.2 p.u</div> <div> Voltaje: Tiempo 16.71, Magnitud 0.97 p.u a 1.0 p.u</div> </td> </tr> <tr> <td> <div> Modelo de Usuario<br> </div> </td> <td> <div> Los modelos de usuario que representen al Sistema de Almacenamiento de Energía Eléctrica en las herramientas de simulación PSS®E y EMTP-RV, y que sean entregados al CENACE para la elaboración de los Estudios de Interconexión o Conexión, deben reproducir de manera fiel, consistente y verificable el desempeño del Sistema de Almacenamiento de Energía Eléctrica en estado estable y ante contingencias, fallas eléctricas y eventos dinámicos del SEN.</div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 207,
+      "tipo": "parrafo",
+      "texto": "",
+      "html": "<div> <img src=\"https://sidof.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_442417.png\" alt=\"Gráfica de corriente, tensión y tiempo del anexo técnico\"><br> </div>"
+    },
+    {
+      "id": 208,
+      "tipo": "parrafo",
+      "texto": "Figura 1. Comportamiento gráfico de la corriente de falla y voltaje de falla que deben cumplir los\nSistemas de Almacenamiento de Energía Eléctrica",
+      "html": "<div> Figura 1. Comportamiento gráfico de la corriente de falla y voltaje de falla que deben cumplir los<br> Sistemas de Almacenamiento de Energía Eléctrica<br> </div>"
+    },
+    {
+      "id": 209,
+      "tipo": "parrafo",
+      "texto": "Nota de cumplimiento de los Modelos de Usuario:",
+      "html": "<div> Nota de cumplimiento de los Modelos de Usuario:</div>"
+    },
+    {
+      "id": 210,
+      "tipo": "parrafo",
+      "texto": "La validez de dichos estudios queda estrictamente condicionada a la correspondencia técnica entre los resultados de simulación, los modelos utilizados y el desempeño real del Sistema de Almacenamiento de Energía Eléctrica, por lo que estos son vinculantes con las pruebas de desempeño del equipo. En consecuencia, los parámetros, controles y respuestas dinámicas representadas en los modelos deben estar sustentados mediante pruebas de laboratorio, mismas que deben ser verificadas por una Unidad de Inspección acreditada.",
+      "html": "<div> La validez de dichos estudios queda estrictamente condicionada a la correspondencia técnica entre los resultados de simulación, los modelos utilizados y el desempeño real del Sistema de Almacenamiento de Energía Eléctrica, por lo que estos son vinculantes con las pruebas de desempeño del equipo. En consecuencia, los parámetros, controles y respuestas dinámicas representadas en los modelos deben estar sustentados mediante pruebas de laboratorio, mismas que deben ser verificadas por una Unidad de Inspección acreditada.</div>"
+    },
+    {
+      "id": 211,
+      "tipo": "parrafo",
+      "texto": "Asimismo, el comportamiento observado durante las pruebas operativas establecidas en el Procedimiento de Operación para la Declaración de Entrada en Operación Comercial de Centrales Eléctricas y Centros de Carga debe ser congruente con lo previsto en los estudios aprobados por el CENACE. Cualquier discrepancia entre el desempeño medido y el representado en los modelos o estudios son causa de actualización de los modelos, repetición de estudios y, en su caso, condicionamiento o limitación de la operación del Sistema de Almacenamiento de Energía Eléctrica, conforme a la normativa aplicable y a los criterios operativos del SEN.",
+      "html": "<div> Asimismo, el comportamiento observado durante las pruebas operativas establecidas en el Procedimiento de Operación para la Declaración de Entrada en Operación Comercial de Centrales Eléctricas y Centros de Carga debe ser congruente con lo previsto en los estudios aprobados por el CENACE. Cualquier discrepancia entre el desempeño medido y el representado en los modelos o estudios son causa de actualización de los modelos, repetición de estudios y, en su caso, condicionamiento o limitación de la operación del Sistema de Almacenamiento de Energía Eléctrica, conforme a la normativa aplicable y a los criterios operativos del SEN.</div>"
+    },
+    {
+      "id": 212,
+      "tipo": "parrafo",
+      "texto": "Ciudad de México, a 07 de mayo de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.",
+      "html": "<div> Ciudad de México, a 07 de mayo de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.</div>"
+    }
+  ],
+  "cotejo_textual_sin_perdida": true
+}

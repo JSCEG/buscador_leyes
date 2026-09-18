@@ -1,0 +1,6195 @@
+{
+  "lineas": [
+    {
+      "pagina": 1,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA"
+    },
+    {
+      "pagina": 1,
+      "texto": "TEXTO VIGENTE"
+    },
+    {
+      "pagina": 1,
+      "texto": "Nuevo Reglamento publicado en el Diario Oficial de la Federación el 3 de octubre de 2025"
+    },
+    {
+      "pagina": 1,
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Presidencia de la República."
+    },
+    {
+      "pagina": 1,
+      "texto": "CLAUDIA SHEINBAUM PARDO, Presidenta de los Estados Unidos Mexicanos, en ejercicio de la facultad que"
+    },
+    {
+      "pagina": 1,
+      "texto": "me confiere el artículo 89, fracción I, de la Constitución Política de los Estados Unidos Mexicanos, y con fundamento"
+    },
+    {
+      "pagina": 1,
+      "texto": "en los artículos 32 Bis y 33 de la Ley Orgánica de la Administración Pública Federal, y 7 fracción VII, VIII, XVI y XXV,"
+    },
+    {
+      "pagina": 1,
+      "texto": "8, 12, 16, 17, 18, 20, 22, 23, 24, 25, 31, 33, 34, 42, 43, 48, 49, 54, 55, 58 y Quinto Transitorio y demás aplicables de"
+    },
+    {
+      "pagina": 1,
+      "texto": "la Ley de Geotermia, he tenido a bien expedir el siguiente:"
+    },
+    {
+      "pagina": 1,
+      "texto": "DECRETO POR EL QUE SE EXPIDE EL REGLAMENTO DE LA LEY DE GEOTERMIA"
+    },
+    {
+      "pagina": 1,
+      "texto": "ARTÍCULO ÚNICO. Se expide el Reglamento de la Ley de Geotermia, para quedar como sigue:"
+    },
+    {
+      "pagina": 1,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA"
+    },
+    {
+      "pagina": 1,
+      "texto": "TÍTULO PRIMERO"
+    },
+    {
+      "pagina": 1,
+      "texto": "DISPOSICIONES GENERALES"
+    },
+    {
+      "pagina": 1,
+      "texto": "CAPÍTULO I"
+    },
+    {
+      "pagina": 1,
+      "texto": "Artículo 1. El presente Reglamento es de observancia general en los Estados Unidos Mexicanos y tiene por"
+    },
+    {
+      "pagina": 1,
+      "texto": "objeto establecer las disposiciones en las materias que regula la Ley de Geotermia, así como regular las actividades"
+    },
+    {
+      "pagina": 1,
+      "texto": "de Exploración, Explotación y Usos Diversos para el aprovechamiento geotérmico."
+    },
+    {
+      "pagina": 1,
+      "texto": "Artículo 2. La aplicación de este Reglamento corresponde a la Secretaría, en el ámbito de su competencia, sin"
+    },
+    {
+      "pagina": 1,
+      "texto": "perjuicio de las atribuciones que correspondan a otras dependencias y entidades de la Administración Pública"
+    },
+    {
+      "pagina": 1,
+      "texto": "Federal."
+    },
+    {
+      "pagina": 1,
+      "texto": "Artículo 3. Para efectos de la interpretación y aplicación de este Reglamento, se deben entender los conceptos y"
+    },
+    {
+      "pagina": 1,
+      "texto": "las definiciones, en singular o plural, previstas en la Ley de Geotermia, la Ley de Planeación y Transición Energética,"
+    },
+    {
+      "pagina": 1,
+      "texto": "la Ley del Sector Eléctrico y sus respectivos reglamentos, así como las siguientes:"
+    },
+    {
+      "pagina": 1,
+      "texto": "I. CONAGUA: Comisión Nacional del Agua;"
+    },
+    {
+      "pagina": 1,
+      "texto": "II. Coordenadas Geodésicas: Sistema tridimensional de georreferenciación, el cual debe contener la"
+    },
+    {
+      "pagina": 1,
+      "texto": "latitud, la longitud a cinco decimales y la elevación de la superficie, con sistema de referencia"
+    },
+    {
+      "pagina": 1,
+      "texto": "ITRF2008 o el que la Secretaría determine en los lineamientos aplicables;"
+    },
+    {
+      "pagina": 1,
+      "texto": "III. Ley: Ley de Geotermia;"
+    },
+    {
+      "pagina": 1,
+      "texto": "IV. Punto de Partida: Marca fija en el terreno plenamente identificada, a partir del cual se debe definir el"
+    },
+    {
+      "pagina": 1,
+      "texto": "polígono de un Área Geotérmica en Coordenadas Geodésicas;"
+    },
+    {
+      "pagina": 1,
+      "texto": "V. Reglamento: Reglamento de la Ley de Geotermia;"
+    },
+    {
+      "pagina": 1,
+      "texto": "VI. Registro de Geotermia: Sistema de asientos y anotaciones registrales a cargo de la Secretaría en"
+    },
+    {
+      "pagina": 1,
+      "texto": "términos del artículo 58 de la Ley;"
+    },
+    {
+      "pagina": 1,
+      "texto": "VII. Secretaría: Secretaría de Energía, y"
+    },
+    {
+      "pagina": 1,
+      "texto": "VIII. Usos Diversos de Pequeña Escala: Toda actividad de aprovechamiento por medio del calor del"
+    },
+    {
+      "pagina": 1,
+      "texto": "subsuelo para aplicaciones del Recurso Geotérmico destinados a Usos Diversos, con una temperatura"
+    },
+    {
+      "pagina": 1,
+      "texto": "menor o igual a los 100 grados centígrados en superficie y entalpía baja, que se desarrolle en un"
+    },
+    {
+      "pagina": 1,
+      "texto": "polígono menor o igual a 30,000 metros cuadrados, y conforme a los lineamientos que emita la"
+    },
+    {
+      "pagina": 1,
+      "texto": "Secretaría."
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 4. La interpretación de este Reglamento, para efectos administrativos, corresponde a la Secretaría, en el"
+    },
+    {
+      "pagina": 2,
+      "texto": "ámbito de su competencia, de conformidad con la normativa aplicable en la materia."
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 5. Corresponde a la Secretaría, en el ámbito de su competencia, la emisión o actualización de los actos"
+    },
+    {
+      "pagina": 2,
+      "texto": "administrativos de carácter general, tales como decretos, acuerdos, normas, Normas Oficiales Mexicanas, circulares"
+    },
+    {
+      "pagina": 2,
+      "texto": "y formatos, así como los lineamientos, criterios, metodologías, guías, directivas, reglas, manuales, disposiciones que"
+    },
+    {
+      "pagina": 2,
+      "texto": "tengan por objeto establecer obligaciones generales, específicas o de cualesquier naturaleza análoga a los actos"
+    },
+    {
+      "pagina": 2,
+      "texto": "anteriores, respecto de las actividades reguladas en la Ley y en el Reglamento, sin perjuicio de las facultades que, de"
+    },
+    {
+      "pagina": 2,
+      "texto": "ser el caso, correspondan a otras dependencias y entidades de la Administración Pública Federal."
+    },
+    {
+      "pagina": 2,
+      "texto": "CAPÍTULO II"
+    },
+    {
+      "pagina": 2,
+      "texto": "De la Planeación Vinculante"
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 6. La Secretaría, para el otorgamiento de permisos y Concesiones, en el ámbito de su competencia,"
+    },
+    {
+      "pagina": 2,
+      "texto": "debe considerar lo establecido en los instrumentos de planeación del Sector Energético aplicables, así como el"
+    },
+    {
+      "pagina": 2,
+      "texto": "cumplimiento de las disposiciones administrativas de carácter general para la planeación vinculante que expida la"
+    },
+    {
+      "pagina": 2,
+      "texto": "Secretaría."
+    },
+    {
+      "pagina": 2,
+      "texto": "De igual forma, la Secretaría de Medio Ambiente y Recursos Naturales, sus órganos administrativos"
+    },
+    {
+      "pagina": 2,
+      "texto": "desconcentrados y entidades paraestatales sectorizadas deben facilitar la implementación de la planeación"
+    },
+    {
+      "pagina": 2,
+      "texto": "vinculante."
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 7. Las disposiciones administrativas de carácter general referidas en el artículo anterior deben"
+    },
+    {
+      "pagina": 2,
+      "texto": "establecer, al menos, los criterios para evaluar el cumplimiento de la planeación vinculante para el otorgamiento de"
+    },
+    {
+      "pagina": 2,
+      "texto": "permisos y Concesiones del Sector Energético en materia de geotermia."
+    },
+    {
+      "pagina": 2,
+      "texto": "Los criterios deben estar alineados a lo establecido en los artículos 2 de la Ley de Planeación y Transición"
+    },
+    {
+      "pagina": 2,
+      "texto": "Energética, 12 de la Ley del Sector Eléctrico y en los instrumentos de planeación del Sector Energético aplicables."
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 8. La Comisión Federal de Electricidad, por conducto de la Secretaría, debe establecer de manera anual"
+    },
+    {
+      "pagina": 2,
+      "texto": "una cartera de proyectos geotérmicos destinados a la generación de electricidad. Dichos proyectos deben ser"
+    },
+    {
+      "pagina": 2,
+      "texto": "considerados conforme a sus condiciones técnicas, económicas, así como a las necesidades del Sistema Eléctrico"
+    },
+    {
+      "pagina": 2,
+      "texto": "Nacional, para la elaboración de la planeación vinculante del Sector Energético."
+    },
+    {
+      "pagina": 2,
+      "texto": "Para el desarrollo de la cartera de proyectos geotérmicos, la Secretaría, en el ámbito de su competencia, debe"
+    },
+    {
+      "pagina": 2,
+      "texto": "impulsar el establecimiento de condiciones que fortalezcan la Exploración de Recursos Geotérmicos a través de"
+    },
+    {
+      "pagina": 2,
+      "texto": "esquemas de colaboración entre la Comisión Federal de Electricidad y privados con el objetivo de incrementar las"
+    },
+    {
+      "pagina": 2,
+      "texto": "inversiones."
+    },
+    {
+      "pagina": 2,
+      "texto": "CAPÍTULO III"
+    },
+    {
+      "pagina": 2,
+      "texto": "De la Innovación, Desarrollo Tecnológico y Formación de Recursos Humanos"
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 9. Para fortalecer el aprovechamiento y seguimiento a los Usos Diversos, la reconversión y utilización de"
+    },
+    {
+      "pagina": 2,
+      "texto": "pozos petroleros con fines de aprovechamiento geotérmico, así como la geotermia no convencional, en los distintos"
+    },
+    {
+      "pagina": 2,
+      "texto": "sectores productivos del país, la Secretaría debe promover la investigación, el desarrollo tecnológico, la transferencia"
+    },
+    {
+      "pagina": 2,
+      "texto": "de tecnología, la formación de recursos humanos especializados y el desarrollo de proyectos a partir de Recursos"
+    },
+    {
+      "pagina": 2,
+      "texto": "Geotérmicos, a fin de coadyuvar con la soberanía, la Justicia Energética y la autosuficiencia energética, como parte"
+    },
+    {
+      "pagina": 2,
+      "texto": "de la diversificación y la Transición Energética."
+    },
+    {
+      "pagina": 2,
+      "texto": "Artículo 10. Para promover proyectos de Usos Diversos a partir de Recursos Geotérmicos, la Secretaría puede:"
+    },
+    {
+      "pagina": 2,
+      "texto": "I. Establecer programas para promover proyectos de demostración tecnológica y su escalamiento;"
+    },
+    {
+      "pagina": 2,
+      "texto": "II. Establecer grupos de coordinación con representantes de los usuarios finales de Recursos"
+    },
+    {
+      "pagina": 2,
+      "texto": "Geotérmicos, incluidas instituciones públicas, Empresas Públicas del Estado, el sector privado y la"
+    },
+    {
+      "pagina": 2,
+      "texto": "academia;"
+    },
+    {
+      "pagina": 2,
+      "texto": "III. Celebrar acuerdos de concertación con los sectores público, social y privado, y"
+    },
+    {
+      "pagina": 3,
+      "texto": "IV. Establecer mecanismos de colaboración con organismos internacionales, Empresas Públicas del"
+    },
+    {
+      "pagina": 3,
+      "texto": "Estado y países líderes en producción y aprovechamiento de Recursos Geotérmicos para adoptar e"
+    },
+    {
+      "pagina": 3,
+      "texto": "implementar las mejores prácticas internacionales."
+    },
+    {
+      "pagina": 3,
+      "texto": "Artículo 11. La Secretaría, con el apoyo del Instituto Mexicano del Petróleo, el Instituto Nacional de Electricidad y"
+    },
+    {
+      "pagina": 3,
+      "texto": "Energías Limpias, las universidades y los organismos certificadores en el marco del Sistema Nacional de"
+    },
+    {
+      "pagina": 3,
+      "texto": "Competencias, puede suscribir convenios y acuerdos para asegurar la participación de la comunidad académica"
+    },
+    {
+      "pagina": 3,
+      "texto": "nacional e internacional, desarrollar estándares de competencia y fomentar acciones en la industria geotérmica que"
+    },
+    {
+      "pagina": 3,
+      "texto": "coadyuven a los objetivos y metas del Sector Energético, la Justicia Energética y la reducción de la Pobreza"
+    },
+    {
+      "pagina": 3,
+      "texto": "Energética."
+    },
+    {
+      "pagina": 3,
+      "texto": "Artículo 12. La Secretaría debe promover la implementación de las mejores prácticas, nuevas tecnologías,"
+    },
+    {
+      "pagina": 3,
+      "texto": "innovación y eficiencia energética en materia de geotermia, para lo cual debe revisar y, en su caso, actualizar la"
+    },
+    {
+      "pagina": 3,
+      "texto": "regulación que emita, al menos cada cinco años."
+    },
+    {
+      "pagina": 3,
+      "texto": "TÍTULO SEGUNDO"
+    },
+    {
+      "pagina": 3,
+      "texto": "DE LAS MODALIDADES PARA EL APROVECHAMIENTO DE RECURSOS GEOTÉRMICOS"
+    },
+    {
+      "pagina": 3,
+      "texto": "CAPÍTULO I"
+    },
+    {
+      "pagina": 3,
+      "texto": "De las Solicitudes"
+    },
+    {
+      "pagina": 3,
+      "texto": "Artículo 13. Las solicitudes de Permisos de Exploración, Permisos para Usos Diversos y Concesiones se deben"
+    },
+    {
+      "pagina": 3,
+      "texto": "presentar en los formatos autorizados por la Secretaría y deben detallar para cada caso, al menos, la siguiente"
+    },
+    {
+      "pagina": 3,
+      "texto": "información además de lo previsto en la Ley, el Reglamento y demás normativa aplicable:"
+    },
+    {
+      "pagina": 3,
+      "texto": "I. Formato debidamente requisitado con las manifestaciones e información siguientes:"
+    },
+    {
+      "pagina": 3,
+      "texto": "a. Nombre, denominación o razón social de la persona solicitante;"
+    },
+    {
+      "pagina": 3,
+      "texto": "b. Domicilio para oír y recibir notificaciones, debe incluir una dirección de correo electrónico;"
+    },
+    {
+      "pagina": 3,
+      "texto": "c. Nombre, domicilio y dirección de correo electrónico de las personas autorizadas para oír y recibir"
+    },
+    {
+      "pagina": 3,
+      "texto": "notificaciones;"
+    },
+    {
+      "pagina": 3,
+      "texto": "d. Indicar el grupo de interés al que pertenece la persona solicitante;"
+    },
+    {
+      "pagina": 3,
+      "texto": "e. La persona solicitante debe manifestar bajo protesta de decir verdad que:"
+    },
+    {
+      "pagina": 3,
+      "texto": "i. No se encuentra en el directorio de licitantes, proveedores o contratistas sancionados"
+    },
+    {
+      "pagina": 3,
+      "texto": "por autoridad competente;"
+    },
+    {
+      "pagina": 3,
+      "texto": "ii. No se encuentra incluido en la relación de contribuyentes con operaciones"
+    },
+    {
+      "pagina": 3,
+      "texto": "presuntamente inexistentes al que se refiere el artículo 69-B del Código Fiscal de la"
+    },
+    {
+      "pagina": 3,
+      "texto": "Federación;"
+    },
+    {
+      "pagina": 3,
+      "texto": "iii. No participa ni ejerce actividades ilícitas, y que no realiza ni ha sido sancionada por"
+    },
+    {
+      "pagina": 3,
+      "texto": "actos de corrupción, y"
+    },
+    {
+      "pagina": 3,
+      "texto": "iv. Tiene conocimiento del marco regulatorio aplicable a la actividad a desarrollar, y se"
+    },
+    {
+      "pagina": 3,
+      "texto": "compromete a cumplirlo."
+    },
+    {
+      "pagina": 3,
+      "texto": "f. Otorgar el consentimiento para recibir notificaciones, requerimientos, y las comunicaciones"
+    },
+    {
+      "pagina": 3,
+      "texto": "derivadas del trámite por medios electrónicos;"
+    },
+    {
+      "pagina": 3,
+      "texto": "g. La información técnica y operativa del proyecto:"
+    },
+    {
+      "pagina": 3,
+      "texto": "i. Ubicación del Área Geotérmica solicitada o domicilio en el que se van a llevar a cabo las"
+    },
+    {
+      "pagina": 3,
+      "texto": "actividades de Usos Diversos, así como las Coordenadas Geodésicas en un plano"
+    },
+    {
+      "pagina": 3,
+      "texto": "georreferenciado;"
+    },
+    {
+      "pagina": 3,
+      "texto": "ii. Monto estimado de inversión;"
+    },
+    {
+      "pagina": 3,
+      "texto": "iii. Uso, aplicaciones y destino que se le va a dar al producto o servicio, en su caso;"
+    },
+    {
+      "pagina": 4,
+      "texto": "iv. Procesos y fases operativas que se llevan a cabo para el desarrollo de la actividad"
+    },
+    {
+      "pagina": 4,
+      "texto": "regulada, según corresponda;"
+    },
+    {
+      "pagina": 4,
+      "texto": "v. Tipo de tecnología que se va a utilizar;"
+    },
+    {
+      "pagina": 4,
+      "texto": "vi. Detalle del sistema, equipos, instalaciones e infraestructura asociada;"
+    },
+    {
+      "pagina": 4,
+      "texto": "vii. En el caso de actividades de Exploración debido a sus dimensiones y características, si"
+    },
+    {
+      "pagina": 4,
+      "texto": "el proyecto está sujeto a la presentación de una Manifestación de Impacto Social del"
+    },
+    {
+      "pagina": 4,
+      "texto": "Sector Energético conforme a lo dispuesto en la normatividad aplicable, debe"
+    },
+    {
+      "pagina": 4,
+      "texto": "proporcionar el número de acuse de recepción o, en su caso, el resolutivo definitivo en"
+    },
+    {
+      "pagina": 4,
+      "texto": "sentido positivo de dicha autorización, y"
+    },
+    {
+      "pagina": 4,
+      "texto": "viii. Descripción del impacto estimado del proyecto en el desarrollo eficiente del mercado"
+    },
+    {
+      "pagina": 4,
+      "texto": "energético correspondiente."
+    },
+    {
+      "pagina": 4,
+      "texto": "II. Acreditar la personalidad jurídica:"
+    },
+    {
+      "pagina": 4,
+      "texto": "a. Para personas morales:"
+    },
+    {
+      "pagina": 4,
+      "texto": "i. Acta constitutiva y, en su caso, las modificaciones con las que acredite su existencia"
+    },
+    {
+      "pagina": 4,
+      "texto": "legal y que el objeto social de la persona solicitante incluya la actividad regulada a"
+    },
+    {
+      "pagina": 4,
+      "texto": "desarrollar y se encuentre directamente vinculado con su actividad económica conforme"
+    },
+    {
+      "pagina": 4,
+      "texto": "a su régimen fiscal."
+    },
+    {
+      "pagina": 4,
+      "texto": "b. Para personas físicas:"
+    },
+    {
+      "pagina": 4,
+      "texto": "i. Identificación oficial, y"
+    },
+    {
+      "pagina": 4,
+      "texto": "ii. Acreditar que la actividad regulada a desarrollar se encuentre directamente vinculada"
+    },
+    {
+      "pagina": 4,
+      "texto": "con la actividad económica de la persona solicitante conforme a su régimen fiscal."
+    },
+    {
+      "pagina": 4,
+      "texto": "c. Para el representante legal o apoderado de la persona solicitante:"
+    },
+    {
+      "pagina": 4,
+      "texto": "i. Identificación oficial, y"
+    },
+    {
+      "pagina": 4,
+      "texto": "ii. Instrumento notarial para acreditar la personalidad del representante legal o apoderado,"
+    },
+    {
+      "pagina": 4,
+      "texto": "así como sus facultades."
+    },
+    {
+      "pagina": 4,
+      "texto": "En el caso de las entidades públicas, estas deben acreditar su personalidad jurídica con el documento"
+    },
+    {
+      "pagina": 4,
+      "texto": "oficial de su creación o aquel que corresponda según su naturaleza."
+    },
+    {
+      "pagina": 4,
+      "texto": "III. Constancia de Situación Fiscal que acredite la inscripción de la persona solicitante en el Registro"
+    },
+    {
+      "pagina": 4,
+      "texto": "Federal de Contribuyentes, su domicilio fiscal, así como las actividades económicas vinculadas a la"
+    },
+    {
+      "pagina": 4,
+      "texto": "actividad regulada;"
+    },
+    {
+      "pagina": 4,
+      "texto": "IV. Acreditar la propiedad, posesión legítima, derechos de uso, goce o disfrute del Área Geotérmica que"
+    },
+    {
+      "pagina": 4,
+      "texto": "solicita, que se debe mantener durante la vigencia del permiso o Concesión otorgada por la Secretaría;"
+    },
+    {
+      "pagina": 4,
+      "texto": "V. Acuse de recepción, o en su caso, autorización en materia de impacto ambiental, emitida por la"
+    },
+    {
+      "pagina": 4,
+      "texto": "autoridad competente, así como cualquier documento que lo modifique o sustituya;"
+    },
+    {
+      "pagina": 4,
+      "texto": "VI. Acreditar el pago de derechos o aprovechamientos correspondientes, y"
+    },
+    {
+      "pagina": 4,
+      "texto": "VII. La demás información y documentación que, de acuerdo con el objeto del permiso o Concesión, se"
+    },
+    {
+      "pagina": 4,
+      "texto": "señalen en el capítulo respectivo y la que la Secretaría determine en las disposiciones normativas que"
+    },
+    {
+      "pagina": 4,
+      "texto": "para tal efecto emita."
+    },
+    {
+      "pagina": 4,
+      "texto": "En ningún caso puede iniciarse la construcción, desarrollo o ejecución de la infraestructura asociada a los"
+    },
+    {
+      "pagina": 4,
+      "texto": "Permisos de Exploración, Permisos para Usos Diversos o Concesiones, hasta contar con los resolutivos definitivos"
+    },
+    {
+      "pagina": 4,
+      "texto": "en sentido positivo en materia de impacto social y ambiental emitidos por las autoridades competentes, y se haya"
+    },
+    {
+      "pagina": 4,
+      "texto": "notificado formalmente su obtención a la Secretaría, según corresponda."
+    },
+    {
+      "pagina": 4,
+      "texto": "La Secretaría puede implementar plataformas y herramientas tecnológicas para la recepción y gestión de"
+    },
+    {
+      "pagina": 4,
+      "texto": "notificaciones, seguimiento de proyectos, avisos, informes, solicitudes de permisos o Concesiones, autorizaciones u"
+    },
+    {
+      "pagina": 4,
+      "texto": "otros actos administrativos, con el propósito de garantizar accesibilidad, eficiencia y transparencia."
+    },
+    {
+      "pagina": 5,
+      "texto": "El cotejo de la documentación solo se debe realizar cuando la Secretaría lo considere necesario, lo que debe"
+    },
+    {
+      "pagina": 5,
+      "texto": "notificar a la persona solicitante de forma previa. Los documentos deben ser devueltos al concluir el cotejo."
+    },
+    {
+      "pagina": 5,
+      "texto": "Artículo 14. Las personas interesadas en obtener un Permiso de Exploración o Concesión, deben acreditar lo"
+    },
+    {
+      "pagina": 5,
+      "texto": "siguiente:"
+    },
+    {
+      "pagina": 5,
+      "texto": "I. Capacidad administrativa: Comprobar la experiencia y habilidades de su personal para planificar,"
+    },
+    {
+      "pagina": 5,
+      "texto": "organizar, dirigir y canalizar sus recursos al logro de los cronogramas de trabajo, técnico y financieros,"
+    },
+    {
+      "pagina": 5,
+      "texto": "lo que se puede demostrar con las constancias de diplomados, certificaciones, incluyendo las que"
+    },
+    {
+      "pagina": 5,
+      "texto": "forman parte del Sistema Nacional de Competencias, entre otros;"
+    },
+    {
+      "pagina": 5,
+      "texto": "II. Capacidad técnica: Detallar y probar su experiencia en materia de Exploración, Explotación, o ambas;"
+    },
+    {
+      "pagina": 5,
+      "texto": "participación en los proyectos; así como los trabajos ejecutados y los resultados obtenidos en los"
+    },
+    {
+      "pagina": 5,
+      "texto": "mismos, en un rango de los últimos diez años y, de ser el caso, su participación en asociaciones o"
+    },
+    {
+      "pagina": 5,
+      "texto": "empresas con experiencia. En esta capacidad se debe precisar la experiencia del personal de acuerdo"
+    },
+    {
+      "pagina": 5,
+      "texto": "con el nivel de mando, e incluir los documentos que la acrediten, y"
+    },
+    {
+      "pagina": 5,
+      "texto": "III. Capacidad financiera: Para llevar a cabo las actividades de Exploración, Explotación, o ambas, es"
+    },
+    {
+      "pagina": 5,
+      "texto": "necesario presentar la información que acredite su condición financiera, e incluir sus estados"
+    },
+    {
+      "pagina": 5,
+      "texto": "financieros correspondientes a los tres ejercicios fiscales anteriores."
+    },
+    {
+      "pagina": 5,
+      "texto": "A los Permisos para Usos Diversos son aplicables las fracciones I y II del presente artículo."
+    },
+    {
+      "pagina": 5,
+      "texto": "La Secretaría debe evaluar de manera motivada la acreditación de las capacidades antes descritas."
+    },
+    {
+      "pagina": 5,
+      "texto": "Artículo 15. Quienes pretendan realizar actividades de Exploración que requieran la instalación de infraestructura"
+    },
+    {
+      "pagina": 5,
+      "texto": "o perforación de pozos, deben elaborar y presentar a la Secretaría una Manifestación de Impacto Social del Sector"
+    },
+    {
+      "pagina": 5,
+      "texto": "Energético en términos de la normatividad y disposiciones que resulten aplicables, incluidas aquellas relativas a la"
+    },
+    {
+      "pagina": 5,
+      "texto": "consulta indígena, previa, libre e informada a un pueblo o comunidad indígena o afromexicana conforme al artículo 4"
+    },
+    {
+      "pagina": 5,
+      "texto": "de la Ley."
+    },
+    {
+      "pagina": 5,
+      "texto": "El procedimiento para el trámite de la Manifestación de Impacto Social del Sector Energético, así como el"
+    },
+    {
+      "pagina": 5,
+      "texto": "procedimiento de autorización debe substanciarse previo al otorgamiento del Permiso de Exploración."
+    },
+    {
+      "pagina": 5,
+      "texto": "Artículo 16. El otorgamiento de Permisos de Exploración, Permisos para Usos Diversos o Concesiones por parte"
+    },
+    {
+      "pagina": 5,
+      "texto": "de la Secretaría se debe ajustar a los criterios establecidos en la Ley, el Reglamento y la normativa aplicable en"
+    },
+    {
+      "pagina": 5,
+      "texto": "materia de geotermia."
+    },
+    {
+      "pagina": 5,
+      "texto": "Artículo 17. En cumplimiento al artículo 30 de la Ley, el procedimiento de evaluación de las solicitudes de"
+    },
+    {
+      "pagina": 5,
+      "texto": "Permisos de Exploración, Permisos para Usos Diversos o Concesiones y, en su caso, el otorgamiento o"
+    },
+    {
+      "pagina": 5,
+      "texto": "desechamiento se debe de realizar de la forma siguiente:"
+    },
+    {
+      "pagina": 5,
+      "texto": "I. Para estar en posibilidad de determinar la admisión de la solicitud y si su contenido se ajusta a los"
+    },
+    {
+      "pagina": 5,
+      "texto": "requisitos y disposiciones previstos en la Ley, el Reglamento, los lineamientos y demás disposiciones"
+    },
+    {
+      "pagina": 5,
+      "texto": "aplicables, la Secretaría debe integrar el expediente correspondiente y analizar su contenido, incluidos"
+    },
+    {
+      "pagina": 5,
+      "texto": "sus anexos;"
+    },
+    {
+      "pagina": 5,
+      "texto": "II. La Secretaría cuenta con un plazo de veinte días hábiles a partir de la recepción de la solicitud para"
+    },
+    {
+      "pagina": 5,
+      "texto": "resolver sobre su admisión, cuando la solicitud o sus anexos presenten insuficiencias o no cumplan"
+    },
+    {
+      "pagina": 5,
+      "texto": "con los requisitos y formalidades exigidos en la Ley, el Reglamento, los lineamientos y demás"
+    },
+    {
+      "pagina": 5,
+      "texto": "disposiciones aplicables, debe prevenir a la persona solicitante y por única ocasión;"
+    },
+    {
+      "pagina": 5,
+      "texto": "III. Una vez notificada la prevención, la persona solicitante cuenta con el término de diez días hábiles,"
+    },
+    {
+      "pagina": 5,
+      "texto": "para subsanar la omisión, aclarar o rectificar su solicitud. Durante este periodo el plazo para que la"
+    },
+    {
+      "pagina": 5,
+      "texto": "Secretaría resuelva sobre la admisión se suspende, y se reanuda a partir del día hábil inmediato"
+    },
+    {
+      "pagina": 5,
+      "texto": "siguiente a la recepción de la respuesta que brinde la persona solicitante."
+    },
+    {
+      "pagina": 5,
+      "texto": "Cuando la persona solicitante omita desahogar la prevención en el término señalado, o en su caso, a"
+    },
+    {
+      "pagina": 5,
+      "texto": "pesar de haber atendido el requerimiento no se subsane la omisión, aclaración o rectificación"
+    },
+    {
+      "pagina": 5,
+      "texto": "correspondiente, la Secretaría debe desechar el trámite en términos de la Ley Federal de"
+    },
+    {
+      "pagina": 5,
+      "texto": "Procedimiento Administrativo;"
+    },
+    {
+      "pagina": 6,
+      "texto": "IV. Cuando de la evaluación de la solicitud se desprenda que esta cumple con los requisitos de la Ley, el"
+    },
+    {
+      "pagina": 6,
+      "texto": "Reglamento, los lineamientos y demás disposiciones aplicables, la Secretaría debe atender al plazo"
+    },
+    {
+      "pagina": 6,
+      "texto": "señalado en la fracción II de este artículo, para pronunciarse sobre la admisión y emitir el acuerdo"
+    },
+    {
+      "pagina": 6,
+      "texto": "correspondiente;"
+    },
+    {
+      "pagina": 6,
+      "texto": "V. Si la autorización de la Manifestación de Impacto Social del Sector Energético está condicionada a la"
+    },
+    {
+      "pagina": 6,
+      "texto": "celebración de un procedimiento de consulta previa, libre e informada a un pueblo o comunidad"
+    },
+    {
+      "pagina": 6,
+      "texto": "indígena o afromexicana conforme al artículo 4 de la Ley, se debe suspender el cómputo de los plazos"
+    },
+    {
+      "pagina": 6,
+      "texto": "para resolver lo conducente respecto de la solicitud respectiva;"
+    },
+    {
+      "pagina": 6,
+      "texto": "VI. La Secretaría dentro de los primeros diez días hábiles posteriores a la determinación de la admisión de"
+    },
+    {
+      "pagina": 6,
+      "texto": "la solicitud de Permisos de Exploración, Permisos para Usos Diversos o Concesiones, debe remitir a la"
+    },
+    {
+      "pagina": 6,
+      "texto": "CONAGUA la información y documentación referente a la evidencia documental y de campo que le"
+    },
+    {
+      "pagina": 6,
+      "texto": "permita emitir un posicionamiento en relación con la no interferencia con acuíferos adyacentes al"
+    },
+    {
+      "pagina": 6,
+      "texto": "Yacimiento Geotérmico."
+    },
+    {
+      "pagina": 6,
+      "texto": "La CONAGUA, en términos de su competencia debe emitir el pronunciamiento correspondiente. Para"
+    },
+    {
+      "pagina": 6,
+      "texto": "efectos de lo anterior se debe suspender el cómputo de los plazos para resolver lo conducente"
+    },
+    {
+      "pagina": 6,
+      "texto": "respecto la solicitud de los Permisos de Exploración, los Permisos para Usos Diversos o las"
+    },
+    {
+      "pagina": 6,
+      "texto": "Concesiones;"
+    },
+    {
+      "pagina": 6,
+      "texto": "VII. Por lo que hace a las solicitudes de Concesión, cuando sus actividades estén asociadas a la"
+    },
+    {
+      "pagina": 6,
+      "texto": "Explotación, uso o aprovechamiento de las aguas nacionales y de sus bienes públicos inherentes,"
+    },
+    {
+      "pagina": 6,
+      "texto": "dentro del término de diez días hábiles, contados a partir de la admisión de la solicitud, la Secretaría"
+    },
+    {
+      "pagina": 6,
+      "texto": "debe remitir a la CONAGUA la información y documentación a que se refiere la fracción IV del artículo"
+    },
+    {
+      "pagina": 6,
+      "texto": "26 del presente Reglamento con la finalidad de que lleve a cabo los trámites necesarios para el"
+    },
+    {
+      "pagina": 6,
+      "texto": "otorgamiento de la concesión de agua que corresponda. Para efectos de lo anterior se debe suspender"
+    },
+    {
+      "pagina": 6,
+      "texto": "el cómputo de los plazos para resolver lo conducente respecto a la solicitud de Concesión, y"
+    },
+    {
+      "pagina": 6,
+      "texto": "VIII. La Secretaría cuenta con un plazo de treinta días hábiles contados a partir de la admisión de la"
+    },
+    {
+      "pagina": 6,
+      "texto": "solicitud de Permiso de Exploración, Permiso para Usos Diversos o Concesión correspondiente para"
+    },
+    {
+      "pagina": 6,
+      "texto": "emitir de forma fundada y motivada la resolución que en derecho corresponda, en la que se puede:"
+    },
+    {
+      "pagina": 6,
+      "texto": "a. Otorgar el Permiso de Exploración, Permisos para Usos Diversos o Concesión en los"
+    },
+    {
+      "pagina": 6,
+      "texto": "términos solicitados;"
+    },
+    {
+      "pagina": 6,
+      "texto": "b. Otorgar el Permiso de Exploración, Permisos para Usos Diversos o Concesión de manera"
+    },
+    {
+      "pagina": 6,
+      "texto": "condicionada, en función de la planeación establecida en los artículos 1; 2, fracción II; 3,"
+    },
+    {
+      "pagina": 6,
+      "texto": "fracción X, inciso e); y 8, fracción IX de la Ley de Planeación y Transición Energética, sus"
+    },
+    {
+      "pagina": 6,
+      "texto": "disposiciones reglamentarias y de los términos y condiciones que deban observarse en la"
+    },
+    {
+      "pagina": 6,
+      "texto": "realización de dicha actividad, o"
+    },
+    {
+      "pagina": 6,
+      "texto": "c. Negar el Permiso de Exploración, Permisos para Usos Diversos o Concesión solicitada,"
+    },
+    {
+      "pagina": 6,
+      "texto": "cuando:"
+    },
+    {
+      "pagina": 6,
+      "texto": "1. Se contravenga o no se cumpla con lo establecido en la Ley y el Reglamento, los"
+    },
+    {
+      "pagina": 6,
+      "texto": "instrumentos de planeación que se emitan para tal efecto, así como los lineamientos y"
+    },
+    {
+      "pagina": 6,
+      "texto": "demás disposiciones aplicables, y"
+    },
+    {
+      "pagina": 6,
+      "texto": "2. Se advierta falsedad en la información proporcionada por las personas interesadas."
+    },
+    {
+      "pagina": 6,
+      "texto": "Transcurrido el plazo señalado en el presente artículo sin que la Secretaría haya emitido respuesta alguna, debe"
+    },
+    {
+      "pagina": 6,
+      "texto": "entenderse que el permiso fue negado en términos del artículo 17 de la Ley Federal de Procedimiento Administrativo."
+    },
+    {
+      "pagina": 6,
+      "texto": "Artículo 18. La Secretaría debe abstenerse de otorgar Permisos de Exploración, Permisos para Usos Diversos o"
+    },
+    {
+      "pagina": 6,
+      "texto": "Concesiones en las materias objeto de esta Ley, a las personas particulares que se ubiquen en los supuestos"
+    },
+    {
+      "pagina": 6,
+      "texto": "siguientes:"
+    },
+    {
+      "pagina": 6,
+      "texto": "I. No se hayan constituido conforme a las leyes mexicanas;"
+    },
+    {
+      "pagina": 6,
+      "texto": "II. Proporcionen información falsa o alterada;"
+    },
+    {
+      "pagina": 6,
+      "texto": "III. Tengan un empleo, cargo o comisión en cualquier otro ente público o privado, y se desprenda un"
+    },
+    {
+      "pagina": 6,
+      "texto": "conflicto de interés;"
+    },
+    {
+      "pagina": 7,
+      "texto": "IV. A quienes se les haya declarado la extinción de un Permiso de Exploración, Permisos para Usos"
+    },
+    {
+      "pagina": 7,
+      "texto": "Diversos o Concesión para obtener otro sobre la misma zona;"
+    },
+    {
+      "pagina": 7,
+      "texto": "V. Cuenten con otro Permiso de Exploración, Permisos para Usos Diversos o Concesión en materia de"
+    },
+    {
+      "pagina": 7,
+      "texto": "geotermia, en las que presenten incumplimientos a las obligaciones asumidas, así como a los términos"
+    },
+    {
+      "pagina": 7,
+      "texto": "y condiciones establecidos en los respectivos títulos, y"
+    },
+    {
+      "pagina": 7,
+      "texto": "VI. Las demás que por cualquier causa se encuentren impedidas por disposición de la Ley y el"
+    },
+    {
+      "pagina": 7,
+      "texto": "Reglamento u otras disposiciones jurídicas aplicables."
+    },
+    {
+      "pagina": 7,
+      "texto": "Artículo 19. La Secretaría debe abstenerse de otorgar Permisos de Exploración, Permisos para Usos Diversos o"
+    },
+    {
+      "pagina": 7,
+      "texto": "Concesiones en áreas naturales protegidas, zonas de amortiguamiento, áreas marinas protegidas, zonas marinas y"
+    },
+    {
+      "pagina": 7,
+      "texto": "costeras frágiles, sitios Ramsar y zonas críticas para la biodiversidad determinadas conforme a la normativa"
+    },
+    {
+      "pagina": 7,
+      "texto": "aplicable."
+    },
+    {
+      "pagina": 7,
+      "texto": "CAPÍTULO II"
+    },
+    {
+      "pagina": 7,
+      "texto": "De los Permisos de Exploración"
+    },
+    {
+      "pagina": 7,
+      "texto": "Artículo 20. Para obtener el Permiso de Exploración, la persona solicitante debe presentar una solicitud en el"
+    },
+    {
+      "pagina": 7,
+      "texto": "formato autorizado por la Secretaría en términos de lo estipulado en los artículos 9 y 16 de la Ley, 13 y 14 del"
+    },
+    {
+      "pagina": 7,
+      "texto": "Reglamento, y los requisitos siguientes:"
+    },
+    {
+      "pagina": 7,
+      "texto": "I. Definir el Área Geotérmica solicitada en kilómetros cuadrados, debe señalar el punto de partida y las"
+    },
+    {
+      "pagina": 7,
+      "texto": "Coordenadas Geodésicas que conformen un polígono cerrado en un plano georreferenciado a escala"
+    },
+    {
+      "pagina": 7,
+      "texto": "1:100,000, y adjuntar los archivos en formatos digitales como PDF, Shapefile, KMZ, o cualquier otro"
+    },
+    {
+      "pagina": 7,
+      "texto": "que determine la Secretaría;"
+    },
+    {
+      "pagina": 7,
+      "texto": "II. Un Programa de Exploración, en términos de lo estipulado en el artículo 22 y 23 del Reglamento. En"
+    },
+    {
+      "pagina": 7,
+      "texto": "este caso, la persona solicitante debe adjuntar la documentación que acredite el cumplimiento a los"
+    },
+    {
+      "pagina": 7,
+      "texto": "incisos a, b, c, y d previstos en la fracción II del artículo 23 del presente Reglamento, y"
+    },
+    {
+      "pagina": 7,
+      "texto": "III. La información y documentación que, en su caso, establezcan los lineamientos que emita la"
+    },
+    {
+      "pagina": 7,
+      "texto": "Secretaría."
+    },
+    {
+      "pagina": 7,
+      "texto": "Artículo 21. Para efectos de lo estipulado en el artículo 10 de la Ley, relativo al establecimiento del número de"
+    },
+    {
+      "pagina": 7,
+      "texto": "Pozos Exploratorios Geotérmicos que deben perforar las personas titulares de un Permiso de Exploración, la"
+    },
+    {
+      "pagina": 7,
+      "texto": "Secretaría debe tomar en cuenta el número de pozos propuestos por la persona solicitante, así como los elementos"
+    },
+    {
+      "pagina": 7,
+      "texto": "técnicos expuestos para ello y debe contemplar que se perfore, al menos un Pozo Exploratorio Geotérmico por cada"
+    },
+    {
+      "pagina": 7,
+      "texto": "treinta kilómetros cuadrados permisionados, y cuando el área permisionada sea menor a treinta kilómetros"
+    },
+    {
+      "pagina": 7,
+      "texto": "cuadrados, se perfore al menos un Pozo Exploratorio Geotérmico."
+    },
+    {
+      "pagina": 7,
+      "texto": "La construcción de los Pozos Exploratorios Geotérmicos debe atender a las Normas Oficiales Mexicanas y"
+    },
+    {
+      "pagina": 7,
+      "texto": "disposiciones administrativas que emita la Secretaría y demás normativa aplicable, así como las mejores prácticas de"
+    },
+    {
+      "pagina": 7,
+      "texto": "la industria."
+    },
+    {
+      "pagina": 7,
+      "texto": "Los Pozos Exploratorios Geotérmicos se deben sujetar a la obligación de obtener los permisos de obra"
+    },
+    {
+      "pagina": 7,
+      "texto": "correspondientes, en caso de reinyección a la competencia de la CONAGUA, y en materia ambiental para el inicio de"
+    },
+    {
+      "pagina": 7,
+      "texto": "las operaciones ante las autoridades que resulten competentes."
+    },
+    {
+      "pagina": 7,
+      "texto": "La persona titular de un Permiso de Exploración puede determinar el tipo de uso que puede dar a los Pozos"
+    },
+    {
+      "pagina": 7,
+      "texto": "Exploratorios Geotérmicos perforados, los que pueden ser de observación, producción, reinyección u otros de"
+    },
+    {
+      "pagina": 7,
+      "texto": "acuerdo con los lineamientos que emita la Secretaría, por lo que debe realizar la preparación y el tratamiento que"
+    },
+    {
+      "pagina": 7,
+      "texto": "corresponda de acuerdo con el tipo de pozo y las medidas para garantizar la protección al ambiente de conformidad"
+    },
+    {
+      "pagina": 7,
+      "texto": "con la normativa aplicable."
+    },
+    {
+      "pagina": 7,
+      "texto": "Artículo 22. El Programa de Exploración debe contemplar los aspectos geológicos, geofísicos, geoquímicos,"
+    },
+    {
+      "pagina": 7,
+      "texto": "geohidrológicos y perforaciones a efectuar, así como las fechas en que se deben realizar. De igual forma debe"
+    },
+    {
+      "pagina": 7,
+      "texto": "evaluar e integrar todos los datos que se consideren necesarios relacionados al Área Geotérmica solicitada, de"
+    },
+    {
+      "pagina": 7,
+      "texto": "acuerdo con las mejores prácticas de la industria."
+    },
+    {
+      "pagina": 7,
+      "texto": "Artículo 23. El Programa de Exploración, además de prever lo establecido en el artículo anterior, debe contener"
+    },
+    {
+      "pagina": 7,
+      "texto": "al menos lo siguiente:"
+    },
+    {
+      "pagina": 8,
+      "texto": "I. Un cronograma técnico de trabajo para la Exploración a realizar, con metas calendarizadas y"
+    },
+    {
+      "pagina": 8,
+      "texto": "actividades detalladas, que debe incluir el número de Pozos Exploratorios Geotérmicos que se"
+    },
+    {
+      "pagina": 8,
+      "texto": "pretenden perforar."
+    },
+    {
+      "pagina": 8,
+      "texto": "Este cronograma debe contener una descripción de los trabajos que las personas titulares del Permiso"
+    },
+    {
+      "pagina": 8,
+      "texto": "de Exploración deben ejecutar cada año durante la vigencia de este, desglosado en trimestres y por"
+    },
+    {
+      "pagina": 8,
+      "texto": "toda la vigencia de este;"
+    },
+    {
+      "pagina": 8,
+      "texto": "II. Un cronograma financiero que debe cumplir al menos con lo siguiente:"
+    },
+    {
+      "pagina": 8,
+      "texto": "a. Ser congruente con las actividades de Exploración que se pretenden realizar;"
+    },
+    {
+      "pagina": 8,
+      "texto": "b. Incluir el presupuesto de gastos e inversiones por toda la vigencia del Permiso de"
+    },
+    {
+      "pagina": 8,
+      "texto": "Exploración;"
+    },
+    {
+      "pagina": 8,
+      "texto": "c. Incluir la proyección de balance general y estado de resultados a cuatro años;"
+    },
+    {
+      "pagina": 8,
+      "texto": "d. Incluir la proyección de flujo de efectivo y plan de liquidez a cuatro años, y"
+    },
+    {
+      "pagina": 8,
+      "texto": "e. Incluir la descripción de fuentes de financiamiento."
+    },
+    {
+      "pagina": 8,
+      "texto": "Este cronograma debe incluir el presupuesto de gastos e inversiones por toda la vigencia del Permiso"
+    },
+    {
+      "pagina": 8,
+      "texto": "de Exploración, y"
+    },
+    {
+      "pagina": 8,
+      "texto": "III. La evidencia documental y de campo que permita a la CONAGUA correlacionar con sus datos,"
+    },
+    {
+      "pagina": 8,
+      "texto": "analizar, constatar, dictaminar o emitir un pronunciamiento respecto a si los trabajos que se pretenden"
+    },
+    {
+      "pagina": 8,
+      "texto": "realizar no van a ocasionar afectaciones a los acuíferos adyacentes al Yacimiento Geotérmico, en"
+    },
+    {
+      "pagina": 8,
+      "texto": "términos de las Normas Oficiales Mexicanas, lineamientos y demás disposiciones aplicables."
+    },
+    {
+      "pagina": 8,
+      "texto": "Artículo 24. El cronograma técnico puede modificarse, siempre y cuando dicha modificación se notifique a la"
+    },
+    {
+      "pagina": 8,
+      "texto": "Secretaría dentro de los diez días hábiles posteriores a que se haya realizado la modificación."
+    },
+    {
+      "pagina": 8,
+      "texto": "Cualquier modificación al cronograma financiero debe notificarse a la Secretaría dentro de los veinte días hábiles"
+    },
+    {
+      "pagina": 8,
+      "texto": "previos a su modificación, siempre que no se reduzca el monto total de inversión, a no ser que se compruebe de"
+    },
+    {
+      "pagina": 8,
+      "texto": "manera indubitable que derivado de la eficiencia del proyecto, se redujeron los montos de inversión."
+    },
+    {
+      "pagina": 8,
+      "texto": "Por otra parte, la Secretaría, de manera fundada y motivada, debe resolver los casos en que derivado de la"
+    },
+    {
+      "pagina": 8,
+      "texto": "eficiencia del proyecto se puedan reducir los montos de inversión."
+    },
+    {
+      "pagina": 8,
+      "texto": "Artículo 25. El título de Permiso de Exploración debe contener, además de los elementos previstos en el artículo"
+    },
+    {
+      "pagina": 8,
+      "texto": "28 de la Ley, los siguientes:"
+    },
+    {
+      "pagina": 8,
+      "texto": "I. La vigencia en términos del artículo 12 de la Ley;"
+    },
+    {
+      "pagina": 8,
+      "texto": "II. La indicación del Área Geotérmica permisionada en kilómetros cuadrados, se debe señalar el Punto de"
+    },
+    {
+      "pagina": 8,
+      "texto": "Partida y las Coordenadas Geodésicas en un plano georreferenciado;"
+    },
+    {
+      "pagina": 8,
+      "texto": "III. El plazo para el inicio de las labores de Exploración;"
+    },
+    {
+      "pagina": 8,
+      "texto": "IV. El Programa de Exploración a que se refieren los artículos 22 y 23 del Reglamento;"
+    },
+    {
+      "pagina": 8,
+      "texto": "V. La mención de las autorizaciones necesarias para el desarrollo del proyecto;"
+    },
+    {
+      "pagina": 8,
+      "texto": "VI. Los supuestos de terminación anticipada del Permiso de Exploración, sus efectos, así como los"
+    },
+    {
+      "pagina": 8,
+      "texto": "términos y condiciones para llevarlas a cabo;"
+    },
+    {
+      "pagina": 8,
+      "texto": "VII. La obligación de realizar la perforación y terminación de los Pozos Exploratorios Geotérmicos que la"
+    },
+    {
+      "pagina": 8,
+      "texto": "Secretaría determine conforme al artículo 10 de la Ley y lo estipulado en el artículo 21 del Reglamento;"
+    },
+    {
+      "pagina": 8,
+      "texto": "VIII. La mención de las facultades de inspección, verificación y seguimiento de la Secretaría;"
+    },
+    {
+      "pagina": 8,
+      "texto": "IX. Los casos en que procede la ejecución de las garantías que la persona titular del Permiso de"
+    },
+    {
+      "pagina": 8,
+      "texto": "Exploración otorgue;"
+    },
+    {
+      "pagina": 8,
+      "texto": "X. La obligación de atender oportunamente los informes técnico y financiero de conformidad con lo"
+    },
+    {
+      "pagina": 8,
+      "texto": "estipulado en los artículos 13, 18 fracción VIII de la Ley, 73 y 74 del presente Reglamento;"
+    },
+    {
+      "pagina": 9,
+      "texto": "XI. Las facultades para la imposición de sanciones por parte de la Secretaría, por el incumplimiento de las"
+    },
+    {
+      "pagina": 9,
+      "texto": "obligaciones de la persona titular del Permiso de Exploración, y"
+    },
+    {
+      "pagina": 9,
+      "texto": "XII. Los demás que la Secretaría determine."
+    },
+    {
+      "pagina": 9,
+      "texto": "CAPÍTULO III"
+    },
+    {
+      "pagina": 9,
+      "texto": "De las Concesiones"
+    },
+    {
+      "pagina": 9,
+      "texto": "Sección I"
+    },
+    {
+      "pagina": 9,
+      "texto": "De las Concesiones de Explotación"
+    },
+    {
+      "pagina": 9,
+      "texto": "Artículo 26. Para obtener la Concesión, la persona solicitante debe presentar una solicitud en el formato"
+    },
+    {
+      "pagina": 9,
+      "texto": "autorizado por la Secretaría en términos de lo estipulado en los artículos 20 y 23 de la Ley, 13 y 14 del Reglamento, y"
+    },
+    {
+      "pagina": 9,
+      "texto": "los requisitos siguientes:"
+    },
+    {
+      "pagina": 9,
+      "texto": "I. El Área Geotérmica solicitada en kilómetros cuadrados, se debe señalar el punto de partida y las"
+    },
+    {
+      "pagina": 9,
+      "texto": "Coordenadas Geodésicas que conformen un polígono cerrado en un plano georreferenciado a escala"
+    },
+    {
+      "pagina": 9,
+      "texto": "1:100,000, y adjuntar los archivos en formatos digitales como PDF, Shapefile, KMZ, o los que"
+    },
+    {
+      "pagina": 9,
+      "texto": "determine la Secretaría;"
+    },
+    {
+      "pagina": 9,
+      "texto": "II. La vigencia en términos del artículo 20 de la Ley;"
+    },
+    {
+      "pagina": 9,
+      "texto": "III. Número de expediente del Permiso de Exploración;"
+    },
+    {
+      "pagina": 9,
+      "texto": "IV. La evidencia documental y de campo que permita a la CONAGUA constatar, dictaminar o emitir"
+    },
+    {
+      "pagina": 9,
+      "texto": "pronunciamiento de que los trabajos que se pretenden realizar no van a interferir con acuíferos"
+    },
+    {
+      "pagina": 9,
+      "texto": "adyacentes al Yacimiento Geotérmico;"
+    },
+    {
+      "pagina": 9,
+      "texto": "La evidencia documental debe incluir estudios técnicos específicos y de campo, en el que se incluyan"
+    },
+    {
+      "pagina": 9,
+      "texto": "todos los estudios geofísicos realizados, así como un programa de monitoreo de cantidad y calidad del"
+    },
+    {
+      "pagina": 9,
+      "texto": "agua subterránea."
+    },
+    {
+      "pagina": 9,
+      "texto": "V. Solicitud de concesión de agua, en términos del artículo 30 de este Reglamento, así como el proyecto"
+    },
+    {
+      "pagina": 9,
+      "texto": "de inyección de agua de retorno al Yacimiento Geotérmico;"
+    },
+    {
+      "pagina": 9,
+      "texto": "VI. La propuesta del Programa de Desarrollo de Explotación a que se refiere el artículo 27 del"
+    },
+    {
+      "pagina": 9,
+      "texto": "Reglamento, y"
+    },
+    {
+      "pagina": 9,
+      "texto": "VII. La información y documentación que, en su caso, establezcan las disposiciones administrativas que"
+    },
+    {
+      "pagina": 9,
+      "texto": "emita la Secretaría."
+    },
+    {
+      "pagina": 9,
+      "texto": "Artículo 27. El Programa de Desarrollo de Explotación debe contener como mínimo lo siguiente:"
+    },
+    {
+      "pagina": 9,
+      "texto": "I. Descripción y tipo de los pozos que se pretenden perforar, así como los métodos, técnicas y el equipo"
+    },
+    {
+      "pagina": 9,
+      "texto": "con el que se propone desarrollar el Área Geotérmica solicitada;"
+    },
+    {
+      "pagina": 9,
+      "texto": "II. Informe de los estudios realizados en la etapa de Exploración que determine la existencia del Recurso"
+    },
+    {
+      "pagina": 9,
+      "texto": "Geotérmico, y de los resultados prácticos y teóricos de la evaluación del potencial del Área Geotérmica"
+    },
+    {
+      "pagina": 9,
+      "texto": "solicitada, así como la predicción del comportamiento del Yacimiento Geotérmico;"
+    },
+    {
+      "pagina": 9,
+      "texto": "III. Pruebas de producción del o los Pozos Exploratorios perforados durante la vigencia del Permiso de"
+    },
+    {
+      "pagina": 9,
+      "texto": "Exploración, las cuales deben contener los resultados obtenidos de las mismas, así como incluir las"
+    },
+    {
+      "pagina": 9,
+      "texto": "temperaturas y entalpías estimadas en el Área Geotérmica;"
+    },
+    {
+      "pagina": 9,
+      "texto": "IV. Un cronograma técnico de trabajo de las actividades detalladas a realizar durante la vigencia de la"
+    },
+    {
+      "pagina": 9,
+      "texto": "Concesión, con metas calendarizadas trimestrales y actividades detalladas, las cuales deben ser"
+    },
+    {
+      "pagina": 9,
+      "texto": "congruentes con el cronograma financiero que se proponga;"
+    },
+    {
+      "pagina": 9,
+      "texto": "V. Un cronograma financiero que debe cumplir al menos con lo siguiente:"
+    },
+    {
+      "pagina": 9,
+      "texto": "a. Ser congruente con las actividades de Explotación que se pretenden realizar;"
+    },
+    {
+      "pagina": 10,
+      "texto": "b. Incluir la proyección de balance general y estado de resultados a cinco años;"
+    },
+    {
+      "pagina": 10,
+      "texto": "c. Incluir la proyección de flujo de efectivo y plan de liquidez a cinco años, y"
+    },
+    {
+      "pagina": 10,
+      "texto": "d. Incluir la descripción de fuentes de financiamiento."
+    },
+    {
+      "pagina": 10,
+      "texto": "VI. La información de la tecnología utilizada para el aprovechamiento del Recurso Geotérmico y, en su"
+    },
+    {
+      "pagina": 10,
+      "texto": "caso, la estimación de la capacidad instalada para la generación de energía eléctrica."
+    },
+    {
+      "pagina": 10,
+      "texto": "Artículo 28. El título de Concesión debe contener, además de lo previsto en el artículo 28 de la Ley, lo siguiente:"
+    },
+    {
+      "pagina": 10,
+      "texto": "I. La precisión si el aprovechamiento del Recurso Geotérmico va a ser destinado a la generación de"
+    },
+    {
+      "pagina": 10,
+      "texto": "energía eléctrica, a Usos Diversos o ambos;"
+    },
+    {
+      "pagina": 10,
+      "texto": "II. La indicación del Área Geotérmica concesionada en kilómetros cuadrados, indicando el Punto de"
+    },
+    {
+      "pagina": 10,
+      "texto": "Partida y las Coordenadas Geodésicas en un plano georreferenciado;"
+    },
+    {
+      "pagina": 10,
+      "texto": "III. El plazo para el inicio de las actividades de Explotación;"
+    },
+    {
+      "pagina": 10,
+      "texto": "IV. Los supuestos de terminación anticipada de la Concesión, de sus efectos, así como los términos y"
+    },
+    {
+      "pagina": 10,
+      "texto": "condiciones para llevarlas a cabo;"
+    },
+    {
+      "pagina": 10,
+      "texto": "V. Los supuestos y atribuciones de la Secretaría para realizar el rescate de la Concesión;"
+    },
+    {
+      "pagina": 10,
+      "texto": "VI. La mención de las facultades de inspección, verificación y seguimiento de la Secretaría;"
+    },
+    {
+      "pagina": 10,
+      "texto": "VII. Los casos en que procede la ejecución de las garantías que la persona titular de la Concesión otorgue;"
+    },
+    {
+      "pagina": 10,
+      "texto": "VIII. La mención de las facultades para la imposición de sanciones por parte de la Secretaría, por el"
+    },
+    {
+      "pagina": 10,
+      "texto": "incumplimiento de las obligaciones de la persona titular de una Concesión;"
+    },
+    {
+      "pagina": 10,
+      "texto": "IX. La obligación de atender oportunamente los informes técnico y financiero de conformidad con lo"
+    },
+    {
+      "pagina": 10,
+      "texto": "estipulado en los artículos 25, fracción X de la Ley, 73 y 74 del presente Reglamento;"
+    },
+    {
+      "pagina": 10,
+      "texto": "X. La información de la tecnología utilizada para el aprovechamiento del Recurso Geotérmico, y"
+    },
+    {
+      "pagina": 10,
+      "texto": "XI. Los demás datos que la Secretaría determine."
+    },
+    {
+      "pagina": 10,
+      "texto": "Sección II"
+    },
+    {
+      "pagina": 10,
+      "texto": "De las Concesiones de Agua"
+    },
+    {
+      "pagina": 10,
+      "texto": "Artículo 29. Dado el carácter público del recurso hídrico, la explotación, uso o aprovechamiento de las Aguas"
+    },
+    {
+      "pagina": 10,
+      "texto": "Geotérmicas debe realizarse mediante concesión de agua otorgada por la CONAGUA, de conformidad con lo"
+    },
+    {
+      "pagina": 10,
+      "texto": "establecido en las disposiciones previstas en la legislación y normatividad aplicable en materia ambiental e hídrica y,"
+    },
+    {
+      "pagina": 10,
+      "texto": "Normas Oficiales Mexicanas aplicables."
+    },
+    {
+      "pagina": 10,
+      "texto": "Artículo 30. La solicitud de concesión de agua, debe formularse de conformidad con las disposiciones previstas"
+    },
+    {
+      "pagina": 10,
+      "texto": "en la legislación y normatividad aplicable en materia hídrica."
+    },
+    {
+      "pagina": 10,
+      "texto": "Artículo 31. Los Pozos Exploratorios Geotérmicos, de producción o de inyección u otros que queden inactivos"
+    },
+    {
+      "pagina": 10,
+      "texto": "por cualquier causa, deben cerrarse conforme a las disposiciones aplicables, a las Normas Oficiales Mexicanas y a"
+    },
+    {
+      "pagina": 10,
+      "texto": "las especificaciones particulares que se establezcan en los títulos de concesión correspondientes, y dar aviso a la"
+    },
+    {
+      "pagina": 10,
+      "texto": "CONAGUA."
+    },
+    {
+      "pagina": 10,
+      "texto": "Artículo 32. Para efectos del presente Reglamento, debe entenderse por acuíferos adyacentes al Yacimiento"
+    },
+    {
+      "pagina": 10,
+      "texto": "Geotérmico, los subyacentes, suprayacentes y todos aquellos que se encuentren cercanos, no sólo al Yacimiento"
+    },
+    {
+      "pagina": 10,
+      "texto": "Geotérmico, sino también los cercanos a pozos exploratorios, de producción, de reinyección, observación u otros."
+    },
+    {
+      "pagina": 10,
+      "texto": "Artículo 33. Para asegurar el mantenimiento y la integridad de los acuíferos adyacentes, las personas titulares de"
+    },
+    {
+      "pagina": 10,
+      "texto": "un Permiso de Exploración o de una Concesión deben presentar a la CONAGUA los informes que se soliciten en los"
+    },
+    {
+      "pagina": 10,
+      "texto": "términos de las disposiciones previstas en la legislación y normatividad aplicable en materia hídrica y de los"
+    },
+    {
+      "pagina": 10,
+      "texto": "lineamientos que, en su caso, se emitan para tal efecto. Lo mismo aplica en los Permisos para Usos Diversos, en"
+    },
+    {
+      "pagina": 10,
+      "texto": "caso de que las actividades estén asociadas al aprovechamiento de un recurso hidrotermal o que requieran la"
+    },
+    {
+      "pagina": 10,
+      "texto": "inyección de recurso hídrico."
+    },
+    {
+      "pagina": 10,
+      "texto": "Sección III"
+    },
+    {
+      "pagina": 11,
+      "texto": "De la Cesión de Derechos"
+    },
+    {
+      "pagina": 11,
+      "texto": "Artículo 34. De acuerdo con lo establecido en el artículo 26 de la Ley, la Secretaría puede otorgar las"
+    },
+    {
+      "pagina": 11,
+      "texto": "autorizaciones para la cesión de derechos y obligaciones, cuando la persona titular de la Concesión realice la"
+    },
+    {
+      "pagina": 11,
+      "texto": "solicitud de autorización de cesión de derechos y acredite lo siguiente:"
+    },
+    {
+      "pagina": 11,
+      "texto": "I. El cumplimiento de todas las obligaciones a su cargo derivadas de la Concesión a la fecha de"
+    },
+    {
+      "pagina": 11,
+      "texto": "presentación de la solicitud de autorización de cesión de derechos;"
+    },
+    {
+      "pagina": 11,
+      "texto": "II. Que haya transcurrido un lapso no menor a tres años, contados a partir de la fecha de inicio de"
+    },
+    {
+      "pagina": 11,
+      "texto": "vigencia de la Concesión, salvo que se compruebe que dicha autorización se requiere para el"
+    },
+    {
+      "pagina": 11,
+      "texto": "otorgamiento de un financiamiento;"
+    },
+    {
+      "pagina": 11,
+      "texto": "III. Se presente íntegramente el proyecto de contrato de cesión;"
+    },
+    {
+      "pagina": 11,
+      "texto": "IV. Que la persona cesionaria acredite su capacidad jurídica, administrativa, técnica y financiera, en los"
+    },
+    {
+      "pagina": 11,
+      "texto": "términos previstos en el Reglamento, y"
+    },
+    {
+      "pagina": 11,
+      "texto": "V. Que la persona cesionaria no se encuentre en los supuestos previstos en el artículo 18 de este"
+    },
+    {
+      "pagina": 11,
+      "texto": "Reglamento."
+    },
+    {
+      "pagina": 11,
+      "texto": "La Secretaría debe determinar, dentro del plazo de cuarenta días hábiles siguientes a la presentación de la"
+    },
+    {
+      "pagina": 11,
+      "texto": "solicitud, sobre la procedencia de la cesión de derechos y obligaciones respectiva."
+    },
+    {
+      "pagina": 11,
+      "texto": "En lo no previsto en el presente artículo, se debe estar a lo dispuesto en el procedimiento de evaluación referido"
+    },
+    {
+      "pagina": 11,
+      "texto": "en el artículo 17 de este Reglamento."
+    },
+    {
+      "pagina": 11,
+      "texto": "Artículo 35. De resultar procedente la autorización de cesión de derechos, el contrato de cesión al que se refiere"
+    },
+    {
+      "pagina": 11,
+      "texto": "la fracción III del artículo anterior debe contener al menos lo siguiente:"
+    },
+    {
+      "pagina": 11,
+      "texto": "I. Una cláusula en la que, la persona cedente consienta la cesión de todos los derechos y obligaciones"
+    },
+    {
+      "pagina": 11,
+      "texto": "derivadas de la Concesión en favor de la persona cesionaria, para que este acepte y asuma dichos"
+    },
+    {
+      "pagina": 11,
+      "texto": "derechos y obligaciones;"
+    },
+    {
+      "pagina": 11,
+      "texto": "II. Una cláusula en la que la persona cesionaria asuma todos los derechos y obligaciones de la"
+    },
+    {
+      "pagina": 11,
+      "texto": "Concesión, entre los cuales se señalan de manera enunciativa mas no limitativa, la obligación de"
+    },
+    {
+      "pagina": 11,
+      "texto": "otorgar la garantía de cumplimiento y las obligaciones derivadas del proyecto técnico y de la estructura"
+    },
+    {
+      "pagina": 11,
+      "texto": "financiera;"
+    },
+    {
+      "pagina": 11,
+      "texto": "III. Domicilios, teléfonos y correos electrónicos para oír y recibir notificaciones de ambas partes del"
+    },
+    {
+      "pagina": 11,
+      "texto": "contrato, y"
+    },
+    {
+      "pagina": 11,
+      "texto": "IV. Establecer que, para la interpretación y cumplimiento del contrato de cesión, las partes expresamente"
+    },
+    {
+      "pagina": 11,
+      "texto": "se someten a la legislación Federal de los Estados Unidos Mexicanos, a la jurisdicción de los"
+    },
+    {
+      "pagina": 11,
+      "texto": "tribunales competentes en la Ciudad de México, y renunciar a cualquier otra jurisdicción que por razón"
+    },
+    {
+      "pagina": 11,
+      "texto": "de sus domicilios presentes o futuros pudiere corresponderles."
+    },
+    {
+      "pagina": 11,
+      "texto": "Artículo 36. Una vez autorizada la celebración de la cesión de derechos, el contrato de cesión debe presentarse"
+    },
+    {
+      "pagina": 11,
+      "texto": "en original, por duplicado y debidamente firmado ante la Secretaría."
+    },
+    {
+      "pagina": 11,
+      "texto": "Artículo 37. Además de las gestiones ante la Secretaría, las personas solicitantes de la cesión de derechos"
+    },
+    {
+      "pagina": 11,
+      "texto": "también deben cumplir con lo previsto en las disposiciones previstas en la legislación y normatividad aplicable en"
+    },
+    {
+      "pagina": 11,
+      "texto": "materia hídrica."
+    },
+    {
+      "pagina": 11,
+      "texto": "CAPÍTULO IV"
+    },
+    {
+      "pagina": 11,
+      "texto": "De los Permisos para Usos Diversos"
+    },
+    {
+      "pagina": 11,
+      "texto": "Artículo 38. Para obtener el Permiso para Usos Diversos, la persona solicitante debe presentar una solicitud en"
+    },
+    {
+      "pagina": 11,
+      "texto": "el formato autorizado por la Secretaría en términos de lo estipulado en el artículo 43 de la Ley, y 13 y 14 del"
+    },
+    {
+      "pagina": 11,
+      "texto": "Reglamento, y los requisitos siguientes:"
+    },
+    {
+      "pagina": 11,
+      "texto": "I. Constancias con las cuales se demuestre la existencia del Recurso Geotérmico y la viabilidad para su"
+    },
+    {
+      "pagina": 11,
+      "texto": "aprovechamiento en Usos Diversos, se puede incluir evidencia mediante imágenes termográficas,"
+    },
+    {
+      "pagina": 11,
+      "texto": "medición directa en superficie del Recurso Geotérmico, estudios geológicos, geoquímicos o geofísicos"
+    },
+    {
+      "pagina": 11,
+      "texto": "y demás existentes;"
+    },
+    {
+      "pagina": 12,
+      "texto": "II. Descripción general del área en la cual se pretenden ejecutar los trabajos objeto del permiso que se"
+    },
+    {
+      "pagina": 12,
+      "texto": "solicita, y adjuntar la evidencia fotográfica clara y visible de la misma;"
+    },
+    {
+      "pagina": 12,
+      "texto": "III. Plan de proyecto, que debe contener al menos:"
+    },
+    {
+      "pagina": 12,
+      "texto": "a. Objetivos y alcances del proyecto;"
+    },
+    {
+      "pagina": 12,
+      "texto": "b. Localización del Área Geotérmica objeto de la solicitud, donde se especifique la superficie,"
+    },
+    {
+      "pagina": 12,
+      "texto": "medidas y colindancias con Coordenadas Geodésicas, y adjuntar los archivos en formatos"
+    },
+    {
+      "pagina": 12,
+      "texto": "digitales como PDF, Shapefile, KMZ, o los que determine la Secretaría;"
+    },
+    {
+      "pagina": 12,
+      "texto": "c. Tipo de tecnologías e infraestructura a utilizar en el proyecto, se deben adjuntar los diagramas y"
+    },
+    {
+      "pagina": 12,
+      "texto": "descripción de procesos que correspondan;"
+    },
+    {
+      "pagina": 12,
+      "texto": "d. Descripción de actividades a desarrollar;"
+    },
+    {
+      "pagina": 12,
+      "texto": "e. Periodo estimado de aprovechamiento del recurso;"
+    },
+    {
+      "pagina": 12,
+      "texto": "f. Identificación de posibles riesgos geológicos, ambientales y sociales, y"
+    },
+    {
+      "pagina": 12,
+      "texto": "g. Plan de prevención, mantenimiento y atención de contingencias."
+    },
+    {
+      "pagina": 12,
+      "texto": "IV. Detallar el aprovechamiento de los Usos Diversos y, de ser el caso, los resultados o beneficios que se"
+    },
+    {
+      "pagina": 12,
+      "texto": "pretenden obtener de los mismos;"
+    },
+    {
+      "pagina": 12,
+      "texto": "V. Presupuesto estimado de inversión del proyecto;"
+    },
+    {
+      "pagina": 12,
+      "texto": "VI. De ser el caso, proyección financiera aproximada por la vigencia del permiso;"
+    },
+    {
+      "pagina": 12,
+      "texto": "VII. Procesos y fases operativas que se van a llevar a cabo para el desarrollo de la actividad regulada,"
+    },
+    {
+      "pagina": 12,
+      "texto": "según corresponda, y"
+    },
+    {
+      "pagina": 12,
+      "texto": "VIII. Cuando las actividades estén asociadas al aprovechamiento de un recurso hidrotermal o que requieran"
+    },
+    {
+      "pagina": 12,
+      "texto": "la inyección de recurso hídrico, la solicitud de concesión de agua, en términos de las disposiciones"
+    },
+    {
+      "pagina": 12,
+      "texto": "previstas en la legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 12,
+      "texto": "Artículo 39. Los Permisos para Usos Diversos, tienen una vigencia de quince años, y son otorgados por una"
+    },
+    {
+      "pagina": 12,
+      "texto": "extensión máxima de 300,000 metros cuadrados, lo cual debe determinarse por la Secretaría conforme a los"
+    },
+    {
+      "pagina": 12,
+      "texto": "elementos que aporte la persona solicitante y pueden ser prorrogados a juicio de la Secretaría, por periodos menores"
+    },
+    {
+      "pagina": 12,
+      "texto": "o iguales, siempre y cuando se acredite el cumplimiento de las obligaciones y requisitos establecidos en la Ley, el"
+    },
+    {
+      "pagina": 12,
+      "texto": "Reglamento, los términos y condiciones del permiso y demás normativa aplicable."
+    },
+    {
+      "pagina": 12,
+      "texto": "La solicitud de prórroga debe presentarse ante la Secretaría, dentro del año inmediato anterior al término de la"
+    },
+    {
+      "pagina": 12,
+      "texto": "vigencia del Permiso para Usos Diversos y hasta un mes antes de la conclusión de este."
+    },
+    {
+      "pagina": 12,
+      "texto": "Artículo 40. En la solicitud de prórroga de un Permiso para Usos Diversos debe acreditarse que la capacidad"
+    },
+    {
+      "pagina": 12,
+      "texto": "jurídica, administrativa y técnica de la persona titular continúa vigente, así como el cumplimiento de todas y cada una"
+    },
+    {
+      "pagina": 12,
+      "texto": "de las obligaciones a su cargo, y adjuntar un informe detallado de cumplimiento que incluya las evidencias"
+    },
+    {
+      "pagina": 12,
+      "texto": "correspondientes."
+    },
+    {
+      "pagina": 12,
+      "texto": "Artículo 41. Las personas titulares de los Permisos para Usos Diversos tienen los siguientes derechos:"
+    },
+    {
+      "pagina": 12,
+      "texto": "I. Realizar obras y trabajos dentro del área permisionada conforme a los términos establecidos en el"
+    },
+    {
+      "pagina": 12,
+      "texto": "Permiso para Usos Diversos correspondiente;"
+    },
+    {
+      "pagina": 12,
+      "texto": "II. Disponer del Recurso Geotérmico que se obtenga para destinarlo a los Usos Diversos que resulten"
+    },
+    {
+      "pagina": 12,
+      "texto": "aplicables;"
+    },
+    {
+      "pagina": 12,
+      "texto": "III. Obtener, en caso de ser procedente, las prórrogas que solicite;"
+    },
+    {
+      "pagina": 12,
+      "texto": "IV. Solicitar duplicados de su Permiso;"
+    },
+    {
+      "pagina": 12,
+      "texto": "V. Renunciar al Permiso para Usos Diversos y a los derechos que deriven de este, y"
+    },
+    {
+      "pagina": 12,
+      "texto": "VI. Los demás que de manera expresa señale el Permiso para Usos Diversos o se encuentren regulados"
+    },
+    {
+      "pagina": 12,
+      "texto": "por la Ley y el Reglamento."
+    },
+    {
+      "pagina": 13,
+      "texto": "Artículo 42. Las personas titulares de los Permisos para Usos Diversos tienen las siguientes obligaciones:"
+    },
+    {
+      "pagina": 13,
+      "texto": "I. Llevar a cabo el aprovechamiento del Recurso Geotérmico en la forma, términos y fines establecidos"
+    },
+    {
+      "pagina": 13,
+      "texto": "en el título de Permiso para Usos Diversos correspondiente;"
+    },
+    {
+      "pagina": 13,
+      "texto": "II. Cumplir con las obligaciones establecidas en el título de Permiso para Usos Diversos otorgado a su"
+    },
+    {
+      "pagina": 13,
+      "texto": "favor, la Ley y el Reglamento, así como la demás normativa aplicable;"
+    },
+    {
+      "pagina": 13,
+      "texto": "III. Obtener de las autoridades competentes, los permisos o autorizaciones que sean necesarios para el"
+    },
+    {
+      "pagina": 13,
+      "texto": "desarrollo de sus actividades de Explotación, e incluir las obligaciones en materia de monitoreo de"
+    },
+    {
+      "pagina": 13,
+      "texto": "impacto al agua subterránea que determine CONAGUA en caso de la procedencia de reinyección de"
+    },
+    {
+      "pagina": 13,
+      "texto": "agua, así como lo que resulte procedente en materia ambiental;"
+    },
+    {
+      "pagina": 13,
+      "texto": "IV. Garantizar el cumplimiento de las obligaciones derivadas del Permiso para Usos Diversos, así como la"
+    },
+    {
+      "pagina": 13,
+      "texto": "debida atención de los daños y perjuicios que pudieran causar la realización de las actividades objeto"
+    },
+    {
+      "pagina": 13,
+      "texto": "de este;"
+    },
+    {
+      "pagina": 13,
+      "texto": "V. De acuerdo con lo establecido en el artículo 57 de la Ley, presentar, en tiempo y forma, los informes"
+    },
+    {
+      "pagina": 13,
+      "texto": "establecidos en el Permiso para Usos Diversos y requerimientos derivados de los mismos, la Ley, el"
+    },
+    {
+      "pagina": 13,
+      "texto": "Reglamento, y la normativa aplicable;"
+    },
+    {
+      "pagina": 13,
+      "texto": "VI. Sujetarse a las Normas Oficiales Mexicanas, a las disposiciones generales y a la normativa aplicable;"
+    },
+    {
+      "pagina": 13,
+      "texto": "VII. Permitir al personal facultado por la Secretaría y otras dependencias o entidades, en el ámbito de sus"
+    },
+    {
+      "pagina": 13,
+      "texto": "atribuciones, en términos de las disposiciones legales aplicables, la práctica de verificación y"
+    },
+    {
+      "pagina": 13,
+      "texto": "seguimiento, y"
+    },
+    {
+      "pagina": 13,
+      "texto": "VIII. Las demás que señale la Ley, el Reglamento y la normativa aplicable."
+    },
+    {
+      "pagina": 13,
+      "texto": "Artículo 43. En términos de la fracción XXV del artículo 7 de la Ley, y de conformidad con lo dispuesto en el"
+    },
+    {
+      "pagina": 13,
+      "texto": "Reglamento, la Secretaría en el ámbito de su competencia, puede suscribir convenios de coordinación con"
+    },
+    {
+      "pagina": 13,
+      "texto": "autoridades estatales o municipales con el fin de asegurar la soberanía energética, garantizar la Justicia Energética y"
+    },
+    {
+      "pagina": 13,
+      "texto": "combatir la Pobreza Energética, a través de los cuales se coordine la realización de actos relativos a la inspección,"
+    },
+    {
+      "pagina": 13,
+      "texto": "verificación, seguimiento, imposición de medidas de seguridad, determinación de infracciones administrativas e"
+    },
+    {
+      "pagina": 13,
+      "texto": "imposición de sanciones de Permisos para Usos Diversos."
+    },
+    {
+      "pagina": 13,
+      "texto": "CAPÍTULO V"
+    },
+    {
+      "pagina": 13,
+      "texto": "De los Aprovechamientos Geotérmicos Exentos"
+    },
+    {
+      "pagina": 13,
+      "texto": "Artículo 44. De acuerdo con lo establecido en los artículos 7 fracción VII y 48 de la Ley, y 3 fracción V del"
+    },
+    {
+      "pagina": 13,
+      "texto": "Reglamento, las personas que estén interesadas en realizar actividades de Aprovechamientos Geotérmicos Exentos"
+    },
+    {
+      "pagina": 13,
+      "texto": "deben presentar a la Secretaría un aviso previo al inicio de operaciones, o en su caso, a través de los medios"
+    },
+    {
+      "pagina": 13,
+      "texto": "electrónicos conforme a lo previsto en la Ley de Firma Electrónica Avanzada y su reglamento, en el cual, además de"
+    },
+    {
+      "pagina": 13,
+      "texto": "los requisitos establecidos en el artículo 47 de la Ley, deben presentar lo siguiente:"
+    },
+    {
+      "pagina": 13,
+      "texto": "I. El domicilio, en el que se indique la dirección completa, código postal y las Coordenadas Geodésicas"
+    },
+    {
+      "pagina": 13,
+      "texto": "del área en donde se pretenda llevar a cabo las actividades de aprovechamiento del Recurso"
+    },
+    {
+      "pagina": 13,
+      "texto": "Geotérmico, y"
+    },
+    {
+      "pagina": 13,
+      "texto": "II. La descripción de los beneficios que se pretenden obtener."
+    },
+    {
+      "pagina": 13,
+      "texto": "Artículo 45. En términos del artículo que antecede, la Secretaría puede requerir a la persona promovente la"
+    },
+    {
+      "pagina": 13,
+      "texto": "información o aclaraciones que estime necesarias."
+    },
+    {
+      "pagina": 13,
+      "texto": "Artículo 46. Para efectos estadísticos con relación al Sistema Nacional de Información Energética y de"
+    },
+    {
+      "pagina": 13,
+      "texto": "planeación del Sector Energético, la Secretaría puede solicitar información relativa a las actividades de"
+    },
+    {
+      "pagina": 13,
+      "texto": "Aprovechamientos Geotérmicos Exentos, por lo que, la persona que presente el aviso de inicio de operaciones en"
+    },
+    {
+      "pagina": 13,
+      "texto": "cumplimiento al artículo 46 de la Ley, también debe proporcionar la información que le sea requerida por la"
+    },
+    {
+      "pagina": 13,
+      "texto": "Secretaría en un plazo que no debe exceder de diez días hábiles."
+    },
+    {
+      "pagina": 14,
+      "texto": "Artículo 47. La Secretaría puede autorizar el uso de recursos geotérmicos, bajo la figura de Aprovechamiento"
+    },
+    {
+      "pagina": 14,
+      "texto": "Geotérmico Exento, para la generación de energía eléctrica menor a 0.7 mega watts, en términos de lo establecido"
+    },
+    {
+      "pagina": 14,
+      "texto": "en Ley del Sector Eléctrico, su reglamento y los lineamientos que al efecto expida la Secretaría."
+    },
+    {
+      "pagina": 14,
+      "texto": "El Aprovechamiento Geotérmico Exento que tenga como propósito la generación de energía eléctrica debe"
+    },
+    {
+      "pagina": 14,
+      "texto": "coadyuvar a la Justicia Energética y reducir la Pobreza Energética en beneficio de los pueblos y comunidades"
+    },
+    {
+      "pagina": 14,
+      "texto": "indígenas y afromexicanas."
+    },
+    {
+      "pagina": 14,
+      "texto": "TÍTULO TERCERO"
+    },
+    {
+      "pagina": 14,
+      "texto": "DE LOS TRÁMITES RELACIONADOS A LOS PERMISOS Y CONCESIONES"
+    },
+    {
+      "pagina": 14,
+      "texto": "CAPÍTULO I"
+    },
+    {
+      "pagina": 14,
+      "texto": "De la Prórroga"
+    },
+    {
+      "pagina": 14,
+      "texto": "Artículo 48. De acuerdo con lo establecido en los artículos 7 fracción VIII, 12 y 20 de la Ley, así como 39 y 40 del"
+    },
+    {
+      "pagina": 14,
+      "texto": "presente Reglamento, las solicitudes para prorrogar la vigencia de los Permisos de Exploración, Permisos para Usos"
+    },
+    {
+      "pagina": 14,
+      "texto": "Diversos y Concesiones deben contener los datos del Permiso o Concesión del que derivan."
+    },
+    {
+      "pagina": 14,
+      "texto": "Las personas titulares de Permisos de Exploración, Permisos para Usos Diversos o Concesiones deben exponer"
+    },
+    {
+      "pagina": 14,
+      "texto": "y acreditar en su solicitud las razones y argumentos que justifiquen la necesidad de extender la vigencia del permiso"
+    },
+    {
+      "pagina": 14,
+      "texto": "o Concesión correspondiente, comprobar que las capacidades jurídicas, administrativas, técnicas y financieras de la"
+    },
+    {
+      "pagina": 14,
+      "texto": "persona titular del Permiso de Exploración, Permisos para Usos Diversos o Concesión siguen vigentes, de la misma"
+    },
+    {
+      "pagina": 14,
+      "texto": "forma deben acreditar haber atendido cabalmente todas y cada una de las obligaciones a su cargo, adjuntando un"
+    },
+    {
+      "pagina": 14,
+      "texto": "informe detallado del cumplimiento que incluya las evidencias correspondientes, asimismo, deben manifestar si la"
+    },
+    {
+      "pagina": 14,
+      "texto": "información presentada a la Secretaría en términos del formato previsto en el artículo 13 del presente Reglamento"
+    },
+    {
+      "pagina": 14,
+      "texto": "sigue vigente o, en su caso, realizar la actualización correspondiente."
+    },
+    {
+      "pagina": 14,
+      "texto": "La Secretaría cuenta con un plazo de treinta días hábiles con relación a los Permisos de Exploración o Permisos"
+    },
+    {
+      "pagina": 14,
+      "texto": "para Usos Diversos, y cuarenta días hábiles para Concesiones, contados a partir de la recepción de la solicitud, para"
+    },
+    {
+      "pagina": 14,
+      "texto": "aprobar o negar la prórroga solicitada."
+    },
+    {
+      "pagina": 14,
+      "texto": "La Secretaría debe negar la solicitud de prórroga, si las personas titulares de los Permisos de Exploración,"
+    },
+    {
+      "pagina": 14,
+      "texto": "Permisos para Usos Diversos o Concesión incumplieron con los términos y condiciones del título respectivo, así"
+    },
+    {
+      "pagina": 14,
+      "texto": "como las obligaciones establecidas en el cronograma financiero o en el cronograma de trabajo técnico, según sea el"
+    },
+    {
+      "pagina": 14,
+      "texto": "caso, en un porcentaje mayor al cincuenta por ciento, o bien, si las actividades fueron modificadas sin la aprobación"
+    },
+    {
+      "pagina": 14,
+      "texto": "previa de la Secretaría."
+    },
+    {
+      "pagina": 14,
+      "texto": "En caso de haber concluido la vigencia del Permiso de Exploración, Permisos para Usos Diversos o Concesión"
+    },
+    {
+      "pagina": 14,
+      "texto": "sin haberse presentado la solicitud de prórroga, o bien, si se presentó fuera de los plazos previstos en los artículos"
+    },
+    {
+      "pagina": 14,
+      "texto": "12 y 20 de la Ley, y 39 del presente Reglamento la vigencia del Permiso de Exploración, Permisos para Usos"
+    },
+    {
+      "pagina": 14,
+      "texto": "Diversos o Concesión se debe concluir conforme al artículo 31, fracción I de la Ley."
+    },
+    {
+      "pagina": 14,
+      "texto": "Artículo 49. Además de las gestiones ante la Secretaría, las personas titulares de Permisos de Exploración,"
+    },
+    {
+      "pagina": 14,
+      "texto": "Permisos para Usos Diversos o Concesiones que pretendan obtener la prórroga también deben cumplir con las"
+    },
+    {
+      "pagina": 14,
+      "texto": "disposiciones previstas en la legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 14,
+      "texto": "CAPÍTULO II"
+    },
+    {
+      "pagina": 14,
+      "texto": "De las Garantías"
+    },
+    {
+      "pagina": 14,
+      "texto": "Artículo 50. La persona titular de un Permiso de Exploración debe otorgar una garantía de cumplimiento amplia"
+    },
+    {
+      "pagina": 14,
+      "texto": "durante toda la vigencia de éste, equivalente al uno por ciento del cronograma financiero estipulado en el título"
+    },
+    {
+      "pagina": 14,
+      "texto": "respectivo."
+    },
+    {
+      "pagina": 15,
+      "texto": "La persona titular de una Concesión debe otorgar una garantía de cumplimiento equivalente a medio punto"
+    },
+    {
+      "pagina": 15,
+      "texto": "porcentual de la inversión requerida hasta el inicio de la operación comercial, la cual debe de identificarse con"
+    },
+    {
+      "pagina": 15,
+      "texto": "claridad en el cronograma financiero y el cronograma técnico de trabajo."
+    },
+    {
+      "pagina": 15,
+      "texto": "Iniciada la operación comercial la persona titular de la Concesión debe entregar a la Secretaría una garantía de"
+    },
+    {
+      "pagina": 15,
+      "texto": "cumplimiento amplia de las obligaciones derivadas de la Concesión, así como por los daños y perjuicios ambientales,"
+    },
+    {
+      "pagina": 15,
+      "texto": "sociales o de otra índole que pudiera causar con la ejecución de las actividades objeto de esta."
+    },
+    {
+      "pagina": 15,
+      "texto": "Estas garantías deben ser emitidas por instituciones de crédito o fianzas legalmente constituidas bajo las leyes"
+    },
+    {
+      "pagina": 15,
+      "texto": "mexicanas, ser incondicionales e irrevocables, y a favor de la Tesorería de la Federación, mismas que deben"
+    },
+    {
+      "pagina": 15,
+      "texto": "presentarse a la Secretaría dentro del término máximo de diez días hábiles contados a partir de la actualización de"
+    },
+    {
+      "pagina": 15,
+      "texto": "los siguientes supuestos:"
+    },
+    {
+      "pagina": 15,
+      "texto": "I. Inicio de vigencia del Permiso de Exploración o Concesión;"
+    },
+    {
+      "pagina": 15,
+      "texto": "II. Inicio de la operación comercial de la Concesión, o"
+    },
+    {
+      "pagina": 15,
+      "texto": "III. En su caso, a la conclusión de la vigencia de la garantía exhibida para el Permiso de Exploración o"
+    },
+    {
+      "pagina": 15,
+      "texto": "Concesión correspondiente."
+    },
+    {
+      "pagina": 15,
+      "texto": "Artículo 51. Las garantías de cumplimiento establecidas en el artículo anterior deben ser devueltas, siempre y"
+    },
+    {
+      "pagina": 15,
+      "texto": "cuando las personas titulares de un Permiso de Exploración o Concesión hayan dado cumplimiento a todas las"
+    },
+    {
+      "pagina": 15,
+      "texto": "obligaciones adquiridas en el Permiso de Exploración o la Concesión, la Ley y el Reglamento y demás disposiciones"
+    },
+    {
+      "pagina": 15,
+      "texto": "aplicables."
+    },
+    {
+      "pagina": 15,
+      "texto": "En caso contrario, dichas garantías pueden ser ejecutadas completa o parcialmente según el grado de"
+    },
+    {
+      "pagina": 15,
+      "texto": "cumplimiento de las obligaciones establecidas en la Ley, el presente Reglamento y los términos y condiciones del"
+    },
+    {
+      "pagina": 15,
+      "texto": "título de Permiso de Exploración o Concesión respectivo, y de conformidad con los términos establecidos en el"
+    },
+    {
+      "pagina": 15,
+      "texto": "Reglamento del Artículo 95 de la Ley Federal de Instituciones de Fianzas, para el Cobro de Fianzas Otorgadas a"
+    },
+    {
+      "pagina": 15,
+      "texto": "Favor de la Federación, del Distrito Federal, de los Estados y de los Municipios, Distintas de las que Garantizan"
+    },
+    {
+      "pagina": 15,
+      "texto": "Obligaciones Fiscales Federales a cargo de Terceros, así como las demás disposiciones aplicables."
+    },
+    {
+      "pagina": 15,
+      "texto": "CAPÍTULO III"
+    },
+    {
+      "pagina": 15,
+      "texto": "De la Marca del Punto de Partida"
+    },
+    {
+      "pagina": 15,
+      "texto": "Artículo 52. Las personas titulares de Permisos de Exploración o Concesiones están obligadas a mantener en"
+    },
+    {
+      "pagina": 15,
+      "texto": "buen estado y conservar en el mismo lugar una marca que precise la ubicación del Punto de Partida, obligación que"
+    },
+    {
+      "pagina": 15,
+      "texto": "subsiste aun cuando dicho Punto de Partida se sustituya con motivo de la presentación de solicitudes de reducción o"
+    },
+    {
+      "pagina": 15,
+      "texto": "unificación de la superficie del Área Geotérmica u otra que lo justifique."
+    },
+    {
+      "pagina": 15,
+      "texto": "Artículo 53. Las Coordenadas Geodésicas que aparezcan en los Permisos de Exploración o Concesión,"
+    },
+    {
+      "pagina": 15,
+      "texto": "prevalecen sobre cualquier testimonial, descripción, dato u obra."
+    },
+    {
+      "pagina": 15,
+      "texto": "Artículo 54. Cuando derivado de las condiciones de trabajo se requiera destruir la marca que indica la posición"
+    },
+    {
+      "pagina": 15,
+      "texto": "del Punto de Partida de un Área Geotérmica, la persona solicitante debe solicitar y obtener previamente la"
+    },
+    {
+      "pagina": 15,
+      "texto": "autorización correspondiente de la Secretaría, para lo cual debe señalar lo siguiente:"
+    },
+    {
+      "pagina": 15,
+      "texto": "I. Denominación del Área Geotérmica y número de expediente del Permiso de Exploración o Concesión"
+    },
+    {
+      "pagina": 15,
+      "texto": "que corresponda;"
+    },
+    {
+      "pagina": 15,
+      "texto": "II. Motivo por el que se pretende destruir la marca original;"
+    },
+    {
+      "pagina": 15,
+      "texto": "III. Datos de ubicación de la marca, en donde se señalen las Coordenadas Geodésicas previas a su"
+    },
+    {
+      "pagina": 15,
+      "texto": "destrucción;"
+    },
+    {
+      "pagina": 15,
+      "texto": "IV. Coordenadas Geodésicas correspondientes a la nueva marca, y"
+    },
+    {
+      "pagina": 15,
+      "texto": "V. Constancias fotográficas de la ubicación exacta de la marca original previo a su destrucción y aquellas"
+    },
+    {
+      "pagina": 15,
+      "texto": "que muestren la ubicación exacta de la nueva marca."
+    },
+    {
+      "pagina": 16,
+      "texto": "La Secretaría dentro de un plazo no mayor a quince días hábiles debe resolver sobre la procedencia de la"
+    },
+    {
+      "pagina": 16,
+      "texto": "solicitud de autorización de modificación de la marca del Punto de Partida. Transcurrido el plazo señalado en el"
+    },
+    {
+      "pagina": 16,
+      "texto": "presente artículo sin que la Secretaría haya emitido respuesta alguna, debe entenderse que la autorización fue"
+    },
+    {
+      "pagina": 16,
+      "texto": "negada en términos del artículo 17 de la Ley Federal de Procedimiento Administrativo."
+    },
+    {
+      "pagina": 16,
+      "texto": "Obtenida la autorización de la Secretaría, se puede proceder a la destrucción de la marca que indica la posición"
+    },
+    {
+      "pagina": 16,
+      "texto": "del Punto de Partida, previa construcción de una nueva marca, para lo cual se debe presentar a la Secretaría,"
+    },
+    {
+      "pagina": 16,
+      "texto": "evidencia de la sustitución en el término de diez días hábiles posteriores a la terminación de esta."
+    },
+    {
+      "pagina": 16,
+      "texto": "CAPÍTULO IV"
+    },
+    {
+      "pagina": 16,
+      "texto": "De la Renuncia"
+    },
+    {
+      "pagina": 16,
+      "texto": "Artículo 55. Las personas titulares de Permisos de Exploración, Permisos para Usos Diversos o Concesiones"
+    },
+    {
+      "pagina": 16,
+      "texto": "pueden solicitar a la Secretaría la renuncia a la titularidad respectiva, para lo cual se debe anexar la fianza que"
+    },
+    {
+      "pagina": 16,
+      "texto": "acredite el pago de daños y perjuicios a terceros a que se refiere el artículo 31, fracción II de la Ley, por el monto que"
+    },
+    {
+      "pagina": 16,
+      "texto": "señale el título de Permiso de Exploración, Permiso para Usos Diversos o Concesión correspondiente."
+    },
+    {
+      "pagina": 16,
+      "texto": "La Secretaría cuenta con un término de treinta días hábiles para emitir la resolución correspondiente, y puede"
+    },
+    {
+      "pagina": 16,
+      "texto": "requerir a la persona solicitante la información o aclaraciones que estime necesarias para lo cual cuenta con quince"
+    },
+    {
+      "pagina": 16,
+      "texto": "días hábiles a partir de la notificación del requerimiento para dar respuesta, lo que suspende el término para emitir la"
+    },
+    {
+      "pagina": 16,
+      "texto": "resolución y se reanuda a partir del día hábil siguiente a aquél en que la persona solicitante de respuesta o transcurra"
+    },
+    {
+      "pagina": 16,
+      "texto": "el término otorgado para hacerlo."
+    },
+    {
+      "pagina": 16,
+      "texto": "Transcurrido el plazo señalado en el presente artículo sin que la Secretaría haya emitido respuesta alguna, debe"
+    },
+    {
+      "pagina": 16,
+      "texto": "entenderse que la renuncia fue negada en términos del artículo 17 de la Ley Federal de Procedimiento"
+    },
+    {
+      "pagina": 16,
+      "texto": "Administrativo."
+    },
+    {
+      "pagina": 16,
+      "texto": "En lo no previsto en el presente artículo, se debe estar a lo dispuesto en el procedimiento de evaluación referido"
+    },
+    {
+      "pagina": 16,
+      "texto": "en el artículo 17 de este Reglamento."
+    },
+    {
+      "pagina": 16,
+      "texto": "Artículo 56. Además de las gestiones ante la Secretaría, las personas titulares de Permisos de Exploración,"
+    },
+    {
+      "pagina": 16,
+      "texto": "Permisos para Usos Diversos o Concesiones que pretendan renunciar a estas también deben cumplir con las"
+    },
+    {
+      "pagina": 16,
+      "texto": "disposiciones previstas en la legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 16,
+      "texto": "CAPÍTULO V"
+    },
+    {
+      "pagina": 16,
+      "texto": "De la Corrección Administrativa"
+    },
+    {
+      "pagina": 16,
+      "texto": "Artículo 57. Las personas titulares de Permisos de Exploración, Permisos para Usos Diversos o Concesiones"
+    },
+    {
+      "pagina": 16,
+      "texto": "pueden solicitar a la Secretaría la corrección administrativa de los títulos de permisos o Concesiones con el objeto de"
+    },
+    {
+      "pagina": 16,
+      "texto": "rectificar errores u omisiones dentro de los títulos correspondientes."
+    },
+    {
+      "pagina": 16,
+      "texto": "La solicitud debe acompañarse con el original del Permiso de Exploración, Permiso para Usos Diversos o"
+    },
+    {
+      "pagina": 16,
+      "texto": "Concesión objeto de la corrección administrativa y precisar los datos que, presumiblemente se omitieron o se"
+    },
+    {
+      "pagina": 16,
+      "texto": "encuentran erróneos y que son susceptibles de corregirse, así como adjuntar las pruebas que estime necesarias"
+    },
+    {
+      "pagina": 16,
+      "texto": "para acreditar su solicitud."
+    },
+    {
+      "pagina": 16,
+      "texto": "Artículo 58. La Secretaría debe resolver las solicitudes de corrección administrativa de los Permisos de"
+    },
+    {
+      "pagina": 16,
+      "texto": "Exploración, Permisos para Usos Diversos o Concesiones, conforme al siguiente procedimiento:"
+    },
+    {
+      "pagina": 16,
+      "texto": "I. Dentro de los quince días hábiles siguientes a la recepción de la solicitud de corrección y de las"
+    },
+    {
+      "pagina": 16,
+      "texto": "pruebas ofrecidas, debe determinar si es necesario realizar una visita de campo, y en su caso, notificar"
+    },
+    {
+      "pagina": 16,
+      "texto": "tal situación a la persona solicitante dentro del mismo plazo, asimismo, se debe informar el costo de la"
+    },
+    {
+      "pagina": 16,
+      "texto": "visita, de conformidad con la Ley Federal de Derechos, para lo cual debe otorgar un plazo de cinco"
+    },
+    {
+      "pagina": 16,
+      "texto": "días hábiles contados a partir de la fecha de la notificación, para que acredite el pago de ésta. Si no se"
+    },
+    {
+      "pagina": 16,
+      "texto": "acredita el pago dentro del plazo mencionado, la Secretaría debe tener a la persona solicitante por"
+    },
+    {
+      "pagina": 16,
+      "texto": "desistida de su solicitud;"
+    },
+    {
+      "pagina": 16,
+      "texto": "II. Dentro de los quince días hábiles siguientes a la acreditación del pago a que se refiere la fracción"
+    },
+    {
+      "pagina": 16,
+      "texto": "anterior, la Secretaría debe efectuar la visita de campo;"
+    },
+    {
+      "pagina": 17,
+      "texto": "III. Una vez realizada la visita de campo, la Secretaría debe proceder al análisis y desahogo de las"
+    },
+    {
+      "pagina": 17,
+      "texto": "pruebas ofrecidas dentro de los quince días hábiles siguientes, prorrogables por un plazo igual, debido"
+    },
+    {
+      "pagina": 17,
+      "texto": "a la naturaleza y contenido de estas, y"
+    },
+    {
+      "pagina": 17,
+      "texto": "IV. Desahogadas las pruebas, la Secretaría cuenta con un plazo de quince días hábiles para aprobar o"
+    },
+    {
+      "pagina": 17,
+      "texto": "negar, fundada y motivadamente, la solicitud de corrección administrativa del título de Permiso de"
+    },
+    {
+      "pagina": 17,
+      "texto": "Exploración, Permiso para Usos Diversos o Concesión de que se trate."
+    },
+    {
+      "pagina": 17,
+      "texto": "Artículo 59. Cuando la Secretaría advierta, con base en la información geográfica, o bien, del resultado de las"
+    },
+    {
+      "pagina": 17,
+      "texto": "visitas de verificación que obren en las constancias de los expedientes respectivos, así como del Registro de"
+    },
+    {
+      "pagina": 17,
+      "texto": "Geotermia, que los datos consignados en los títulos de Permiso de Exploración, Permiso para Usos Diversos o"
+    },
+    {
+      "pagina": 17,
+      "texto": "Concesión son erróneos o no corresponden al Área Geotérmica respectiva, debe iniciarse de oficio el procedimiento"
+    },
+    {
+      "pagina": 17,
+      "texto": "para corregir el permiso o Concesión correspondiente, conforme a lo siguiente:"
+    },
+    {
+      "pagina": 17,
+      "texto": "I. La Secretaría debe notificar a la persona titular del Permiso de Exploración, Permiso para Usos"
+    },
+    {
+      "pagina": 17,
+      "texto": "Diversos o Concesión de que se trate, las razones que dan lugar a la corrección correspondiente, para"
+    },
+    {
+      "pagina": 17,
+      "texto": "que, en un plazo de quince días hábiles contados a partir de la fecha de notificación, manifieste lo que"
+    },
+    {
+      "pagina": 17,
+      "texto": "a su derecho convenga, proporcione los datos o documentos que le sean requeridos y ofrezca las"
+    },
+    {
+      "pagina": 17,
+      "texto": "pruebas que estimen pertinentes;"
+    },
+    {
+      "pagina": 17,
+      "texto": "II. Recibida la respuesta o concluido el plazo señalado en la fracción anterior, la Secretaría debe"
+    },
+    {
+      "pagina": 17,
+      "texto": "proceder al desahogo de las pruebas ofrecidas dentro de los siguientes quince días hábiles,"
+    },
+    {
+      "pagina": 17,
+      "texto": "prorrogables por un plazo igual debido a la naturaleza y contenido de estas, y"
+    },
+    {
+      "pagina": 17,
+      "texto": "III. La Secretaría, con base en las constancias existentes dentro de los treinta días hábiles siguientes al"
+    },
+    {
+      "pagina": 17,
+      "texto": "desahogo de pruebas debe emitir la resolución que corresponda y ordenar, en su caso, la corrección"
+    },
+    {
+      "pagina": 17,
+      "texto": "del título de Permiso de Exploración, Permiso para Usos Diversos o Concesión de que se trate. Dicha"
+    },
+    {
+      "pagina": 17,
+      "texto": "resolución debe notificarse de manera personal a la persona titular del Permiso de Exploración,"
+    },
+    {
+      "pagina": 17,
+      "texto": "Permiso para Usos Diversos o Concesión."
+    },
+    {
+      "pagina": 17,
+      "texto": "Artículo 60. Además de las gestiones ante la Secretaría, las personas titulares de un Permiso de Exploración,"
+    },
+    {
+      "pagina": 17,
+      "texto": "Permiso para Usos Diversos o Concesiones interesadas en la corrección administrativa también deben cumplir con"
+    },
+    {
+      "pagina": 17,
+      "texto": "las disposiciones previstas en la legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 17,
+      "texto": "CAPÍTULO VI"
+    },
+    {
+      "pagina": 17,
+      "texto": "De la Reducción o Unificación"
+    },
+    {
+      "pagina": 17,
+      "texto": "Artículo 61. Para la reducción o unificación de superficies de Áreas Geotérmicas amparadas por títulos de"
+    },
+    {
+      "pagina": 17,
+      "texto": "Concesiones, las personas solicitantes deben presentar lo siguiente, según sea el caso:"
+    },
+    {
+      "pagina": 17,
+      "texto": "I. Coordenadas Geodésicas correspondientes al Punto de Partida de la nueva Área Geotérmica;"
+    },
+    {
+      "pagina": 17,
+      "texto": "II. Vértices y colindancias del perímetro de la nueva Área Geotérmica, así como la información en"
+    },
+    {
+      "pagina": 17,
+      "texto": "formatos digitales como PDF, Shapefile, KMZ, o los que determine la Secretaría;"
+    },
+    {
+      "pagina": 17,
+      "texto": "III. Indicar el Punto o Puntos de Partida que, en su caso, se sustituyen, y"
+    },
+    {
+      "pagina": 17,
+      "texto": "IV. Presentar el acuerdo por virtud del cual se determina la reducción o unificación de las Áreas"
+    },
+    {
+      "pagina": 17,
+      "texto": "Geotérmicas, el cual señale los parámetros en los que se va a realizar la Explotación."
+    },
+    {
+      "pagina": 17,
+      "texto": "Sin perjuicio de lo anterior, la Secretaría puede negar las solicitudes de reducción o unificación, si las personas"
+    },
+    {
+      "pagina": 17,
+      "texto": "titulares de Concesiones incumplieron con las obligaciones establecidas en el artículo 25 de la Ley, en el presente"
+    },
+    {
+      "pagina": 17,
+      "texto": "Reglamento, o en los títulos de Concesión y las demás disposiciones normativas aplicables."
+    },
+    {
+      "pagina": 17,
+      "texto": "Las solicitudes a que se refiere este artículo relativas a la unificación se entienden respecto a Concesiones de"
+    },
+    {
+      "pagina": 17,
+      "texto": "Áreas Geotérmicas colindantes."
+    },
+    {
+      "pagina": 17,
+      "texto": "A la solicitud se deben acompañar el original del título de Concesión, según corresponda, los dos últimos"
+    },
+    {
+      "pagina": 17,
+      "texto": "informes técnicos y financieros relativos a la ejecución de los trabajos de Exploración, Explotación, o ambas, así"
+    },
+    {
+      "pagina": 18,
+      "texto": "como el cronograma de trabajo técnico y el cronograma financiero correspondientes al Área Geotérmica objeto de la"
+    },
+    {
+      "pagina": 18,
+      "texto": "solicitud."
+    },
+    {
+      "pagina": 18,
+      "texto": "En caso de que las vigencias de las Áreas Geotérmicas objeto de la solicitud sean diferentes, se debe tomar"
+    },
+    {
+      "pagina": 18,
+      "texto": "como plazo de vigencia del Área Geotérmica la última en vencer con relación a las demás."
+    },
+    {
+      "pagina": 18,
+      "texto": "El Área Geotérmica objeto de la solicitud de unificación no debe exceder de 150 kilómetros cuadrados, de ser el"
+    },
+    {
+      "pagina": 18,
+      "texto": "caso, se debe realizar una reducción, la cual será propuesta por las personas solicitantes y autorizada por la"
+    },
+    {
+      "pagina": 18,
+      "texto": "Secretaría."
+    },
+    {
+      "pagina": 18,
+      "texto": "La Secretaría debe resolver dentro de un plazo de treinta días hábiles contados a partir de la recepción de la"
+    },
+    {
+      "pagina": 18,
+      "texto": "solicitud para autorizar o negar la reducción o unificación de la superficie del Área Geotérmica de la Concesión."
+    },
+    {
+      "pagina": 18,
+      "texto": "Posteriormente, y dentro de los treinta días hábiles siguientes a la autorización de la reducción o unificación"
+    },
+    {
+      "pagina": 18,
+      "texto": "respectiva, la Secretaría debe emitir el nuevo título de Concesión."
+    },
+    {
+      "pagina": 18,
+      "texto": "Artículo 62. El convenio mediante el cual se formaliza el acuerdo para el desarrollo de actividades de Explotación"
+    },
+    {
+      "pagina": 18,
+      "texto": "de Recursos Geotérmicos conjuntas al que se refiere el artículo 51 de la Ley, debe contener los procedimientos"
+    },
+    {
+      "pagina": 18,
+      "texto": "técnicos, el Programa de Desarrollo de Explotación conjunta, la inversión estimada para la Explotación conjunta, los"
+    },
+    {
+      "pagina": 18,
+      "texto": "mecanismos de solución de controversias y la jurisdicción aplicable."
+    },
+    {
+      "pagina": 18,
+      "texto": "Artículo 63. Para los efectos del último párrafo del artículo 51 de la Ley, la Secretaría, a solicitud de cualquiera"
+    },
+    {
+      "pagina": 18,
+      "texto": "de las personas titulares de las Concesiones o de oficio, debe establecer, en un plazo no mayor a noventa días"
+    },
+    {
+      "pagina": 18,
+      "texto": "hábiles posteriores a la fecha de recepción de la solicitud, o bien, cuando se haya determinado llevar a cabo el"
+    },
+    {
+      "pagina": 18,
+      "texto": "procedimiento de oficio, los procedimientos técnicos y el Programa de Desarrollo de Explotación conjunta. Los costos"
+    },
+    {
+      "pagina": 18,
+      "texto": "en que incurra para ello deben ser pagados por las personas titulares de las Concesiones en partes iguales."
+    },
+    {
+      "pagina": 18,
+      "texto": "Artículo 64. Además de las gestiones ante la Secretaría, las personas titulares de Concesiones interesadas en la"
+    },
+    {
+      "pagina": 18,
+      "texto": "reducción o unificación de superficies de Áreas Geotérmicas también deben cumplir con las disposiciones previstas"
+    },
+    {
+      "pagina": 18,
+      "texto": "en la legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 18,
+      "texto": "CAPÍTULO VII"
+    },
+    {
+      "pagina": 18,
+      "texto": "De los Avisos"
+    },
+    {
+      "pagina": 18,
+      "texto": "Artículo 65. Para efectos de los artículos 5 y 18 fracción XI de la Ley, las personas titulares de Permisos de"
+    },
+    {
+      "pagina": 18,
+      "texto": "Exploración, Permisos para Usos Diversos, Concesiones o quienes realicen Aprovechamiento Geotérmico Exento"
+    },
+    {
+      "pagina": 18,
+      "texto": "deben dar formal aviso a la Secretaría, en un plazo máximo de diez días hábiles contados a partir del descubrimiento"
+    },
+    {
+      "pagina": 18,
+      "texto": "de subproductos tales como litio, hidrocarburos, minerales, gases u otras sustancias relevantes por sus"
+    },
+    {
+      "pagina": 18,
+      "texto": "características físicas o químicas."
+    },
+    {
+      "pagina": 18,
+      "texto": "Además de los datos establecidos en el segundo párrafo del artículo 5 de la Ley, se debe informar a la Secretaría"
+    },
+    {
+      "pagina": 18,
+      "texto": "lo siguiente:"
+    },
+    {
+      "pagina": 18,
+      "texto": "I. Indicar si las actividades del Permiso de Exploración, Permiso para Usos Diversos, Concesión o"
+    },
+    {
+      "pagina": 18,
+      "texto": "Aprovechamiento Geotérmico Exento tuvieron afectación o interrupción por el descubrimiento de los"
+    },
+    {
+      "pagina": 18,
+      "texto": "subproductos;"
+    },
+    {
+      "pagina": 18,
+      "texto": "II. Las medidas de contención y mitigación implementadas para poder continuar con el desarrollo de las"
+    },
+    {
+      "pagina": 18,
+      "texto": "actividades objeto del Permiso de Exploración, Permiso para Usos Diversos, Concesión o"
+    },
+    {
+      "pagina": 18,
+      "texto": "Aprovechamiento Geotérmico Exento;"
+    },
+    {
+      "pagina": 18,
+      "texto": "III. Las medidas implementadas para la conservación de los subproductos descubiertos, y"
+    },
+    {
+      "pagina": 18,
+      "texto": "IV. Evidencia documental, fotográfica, técnica o aquella que estime idónea y suficiente para acreditar lo"
+    },
+    {
+      "pagina": 18,
+      "texto": "informado a la Secretaría."
+    },
+    {
+      "pagina": 18,
+      "texto": "Artículo 66. En un plazo de cinco días hábiles contados a partir de la presentación del aviso a que se refiere el"
+    },
+    {
+      "pagina": 18,
+      "texto": "artículo anterior, la Secretaría debe hacer de conocimiento a las instancias, dependencias u organismos competentes"
+    },
+    {
+      "pagina": 18,
+      "texto": "los subproductos descubiertos, a efecto de que determinen lo que corresponda."
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 67. Para efectos de lo dispuesto en el artículo 54 de la Ley, el aviso por la existencia de un evento de"
+    },
+    {
+      "pagina": 19,
+      "texto": "fuerza mayor o caso fortuito debe contener al menos lo siguiente:"
+    },
+    {
+      "pagina": 19,
+      "texto": "I. Descripción detallada de los hechos o acontecimientos que puedan configurar el evento de fuerza"
+    },
+    {
+      "pagina": 19,
+      "texto": "mayor o caso fortuito que se reporta;"
+    },
+    {
+      "pagina": 19,
+      "texto": "II. Exposición de la afectación en el desarrollo de las actividades objeto del Permiso de Exploración,"
+    },
+    {
+      "pagina": 19,
+      "texto": "Permiso para Usos Diversos, Concesión o Aprovechamiento Geotérmico Exento;"
+    },
+    {
+      "pagina": 19,
+      "texto": "III. Medidas de control y mitigación implementadas con motivo de los hechos o acontecimientos que"
+    },
+    {
+      "pagina": 19,
+      "texto": "puedan configurar el evento de fuerza mayor o caso fortuito;"
+    },
+    {
+      "pagina": 19,
+      "texto": "IV. Evidencia documental, fotográfica, técnica o aquella que estime idónea y suficiente para acreditar el"
+    },
+    {
+      "pagina": 19,
+      "texto": "evento de caso fortuito o fuerza mayor, y"
+    },
+    {
+      "pagina": 19,
+      "texto": "V. La pretensión de la persona titular del Permiso de Exploración, Permiso para Usos Diversos,"
+    },
+    {
+      "pagina": 19,
+      "texto": "Concesión o Aprovechamiento Geotérmico Exento, de hacer del conocimiento de la Secretaría lo que"
+    },
+    {
+      "pagina": 19,
+      "texto": "corresponda."
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 68. Una vez que la Secretaría reciba el aviso por la existencia de un evento de fuerza mayor o caso"
+    },
+    {
+      "pagina": 19,
+      "texto": "fortuito, cuenta con un término de diez días hábiles para resolver lo conducente, en su caso, puede requerir a la"
+    },
+    {
+      "pagina": 19,
+      "texto": "persona titular del Permiso de Exploración, Permiso para Usos Diversos, Concesión o Aprovechamiento Geotérmico"
+    },
+    {
+      "pagina": 19,
+      "texto": "Exento, la información o aclaraciones que estime necesarias para ello, dicho requerimiento suspende el término"
+    },
+    {
+      "pagina": 19,
+      "texto": "señalado hasta la atención de la información o aclaración, y se reanuda a partir del día siguiente a aquél en que la"
+    },
+    {
+      "pagina": 19,
+      "texto": "persona titular del permiso, Concesión o Aprovechamiento respectivo conteste o una vez que transcurra el término"
+    },
+    {
+      "pagina": 19,
+      "texto": "otorgado para tal efecto."
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 69. En los casos y en los términos en que la Secretaría determine procedente un evento de fuerza"
+    },
+    {
+      "pagina": 19,
+      "texto": "mayor o caso fortuito, se debe entender que durante ese periodo es imposible la realización de las obras o trabajos"
+    },
+    {
+      "pagina": 19,
+      "texto": "objeto del Permiso de Exploración, Permiso para Usos Diversos, Concesión o Aprovechamiento Geotérmico Exento."
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 70. Las personas titulares de Permisos de Exploración, Permisos para Usos Diversos, Concesiones o"
+    },
+    {
+      "pagina": 19,
+      "texto": "quienes realicen Aprovechamiento Geotérmico Exento no pueden hacer valer en más de una ocasión el mismo"
+    },
+    {
+      "pagina": 19,
+      "texto": "evento de fuerza mayor o caso fortuito respecto de los mismos hechos y periodos resueltos por la Secretaría, sin"
+    },
+    {
+      "pagina": 19,
+      "texto": "perjuicio de que, ante hechos nuevos o eventos distintos, puedan presentar nuevo aviso en los términos de los"
+    },
+    {
+      "pagina": 19,
+      "texto": "artículos 67 y 68 del presente Reglamento."
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 71. Además de las gestiones ante la Secretaría, la persona titular del Permiso de Exploración, Permiso"
+    },
+    {
+      "pagina": 19,
+      "texto": "para Usos Diversos, Concesión o Aprovechamiento Geotérmico Exento, que cuente con una concesión de agua para"
+    },
+    {
+      "pagina": 19,
+      "texto": "el desarrollo de las actividades de su Permiso, Concesión o aviso también deben informar a la CONAGUA sobre la"
+    },
+    {
+      "pagina": 19,
+      "texto": "existencia de un evento de fuerza mayor o caso fortuito."
+    },
+    {
+      "pagina": 19,
+      "texto": "CAPÍTULO VIII"
+    },
+    {
+      "pagina": 19,
+      "texto": "De los informes"
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 72. De acuerdo con lo establecido en el artículo 57 de la Ley, las personas titulares de Permisos de"
+    },
+    {
+      "pagina": 19,
+      "texto": "Exploración, Permisos para Usos Diversos o Concesiones deben entregar anualmente a la Secretaría, un informe"
+    },
+    {
+      "pagina": 19,
+      "texto": "técnico de actividades, el cual debe comprobar la ejecución de las obras y trabajos realizados en el periodo que se"
+    },
+    {
+      "pagina": 19,
+      "texto": "reporta, así como un informe financiero, en el que detalle y acredite la inversión erogada. Lo anterior, además del"
+    },
+    {
+      "pagina": 19,
+      "texto": "informe técnico y financiero que de manera semestral deben entregar las personas titulares de las Concesiones."
+    },
+    {
+      "pagina": 19,
+      "texto": "El informe al que hace referencia el párrafo anterior es distinto y o exime del cumplimiento al informe final y"
+    },
+    {
+      "pagina": 19,
+      "texto": "detallado a que se refiere el artículo 15 de la Ley."
+    },
+    {
+      "pagina": 19,
+      "texto": "Los informes deben presentarse en los términos y condiciones que señalen los Permisos de Exploración,"
+    },
+    {
+      "pagina": 19,
+      "texto": "Permisos para Usos Diversos o Concesiones."
+    },
+    {
+      "pagina": 19,
+      "texto": "Artículo 73. Los informes financieros deben entregarse a la Secretaría dentro de los primeros treinta días hábiles"
+    },
+    {
+      "pagina": 19,
+      "texto": "del año calendario inmediato siguiente, y deben contener lo siguiente:"
+    },
+    {
+      "pagina": 19,
+      "texto": "I. Periodo por comprobar, y"
+    },
+    {
+      "pagina": 20,
+      "texto": "II. El importe desglosado de la inversión efectuada o importe del valor de facturación o liquidación de la"
+    },
+    {
+      "pagina": 20,
+      "texto": "producción obtenida, o bien, indicar la causa que motivó la suspensión temporal de las obras o"
+    },
+    {
+      "pagina": 20,
+      "texto": "trabajos. Para tal efecto se debe adjuntar evidencia fotográfica y documental, debidamente relacionada"
+    },
+    {
+      "pagina": 20,
+      "texto": "con el cronograma financiero presentado en la solicitud de Permiso o Concesión correspondiente."
+    },
+    {
+      "pagina": 20,
+      "texto": "Artículo 74. Los informes técnicos de actividades a que se refieren los artículos 13 y 25, fracción X de la Ley, así"
+    },
+    {
+      "pagina": 20,
+      "texto": "como los informes financieros previstos en el artículo 73 del presente Reglamento deben entregarse a la Secretaría"
+    },
+    {
+      "pagina": 20,
+      "texto": "dentro de los primeros treinta días hábiles del año calendario inmediato siguiente, los cuales deben detallar las obras"
+    },
+    {
+      "pagina": 20,
+      "texto": "y trabajos desarrollados para la Exploración o Explotación. Dichos informes deben contener, en lo que resulte"
+    },
+    {
+      "pagina": 20,
+      "texto": "aplicable y conforme a lo contemplado en las actividades programadas, lo siguiente:"
+    },
+    {
+      "pagina": 20,
+      "texto": "I. Período por comprobar;"
+    },
+    {
+      "pagina": 20,
+      "texto": "II. La información geológica obtenida de las actividades de Exploración;"
+    },
+    {
+      "pagina": 20,
+      "texto": "III. Los datos de producción anual o, en su caso semestral, que deben incluir el vapor extraído en"
+    },
+    {
+      "pagina": 20,
+      "texto": "toneladas, la cantidad de calor extraída reportada en joules, y de energía eléctrica generada en mega"
+    },
+    {
+      "pagina": 20,
+      "texto": "watts – hora, según corresponda;"
+    },
+    {
+      "pagina": 20,
+      "texto": "IV. Levantamiento y resultados de los estudios realizados a partir de las obras y trabajos en materia de"
+    },
+    {
+      "pagina": 20,
+      "texto": "geología, geohidrología, geofísica y geoquímica a detalle del Área Geotérmica permisionada o"
+    },
+    {
+      "pagina": 20,
+      "texto": "concesionada, la cual debe estar debidamente soportada con la siguiente información:"
+    },
+    {
+      "pagina": 20,
+      "texto": "a. Geológica, a través de planos geológicos, secciones geológicas, bloques diagramáticos,"
+    },
+    {
+      "pagina": 20,
+      "texto": "columna estratigráfica, análisis petrográficos y de alteración hidrotermal de las diferentes"
+    },
+    {
+      "pagina": 20,
+      "texto": "formaciones que afloran en el Área Geotérmica y demás existentes;"
+    },
+    {
+      "pagina": 20,
+      "texto": "b. Información proveniente de percepción remota con imágenes de satélite en bandas"
+    },
+    {
+      "pagina": 20,
+      "texto": "ultravioleta, visible, infrarrojas, de radar y demás existentes;"
+    },
+    {
+      "pagina": 20,
+      "texto": "c. Información derivada de muestreos geoquímicos con química del agua de todas las"
+    },
+    {
+      "pagina": 20,
+      "texto": "captaciones de agua subterránea existentes en la zona de interés que incluya marcadores"
+    },
+    {
+      "pagina": 20,
+      "texto": "geotermométricos y contenido de litio;"
+    },
+    {
+      "pagina": 20,
+      "texto": "d. Información derivada de estudios geofísicos, a través de: registros de los pozos disponibles"
+    },
+    {
+      "pagina": 20,
+      "texto": "al menos con las curvas de resistividad, potencial natural y gama; levantamientos de"
+    },
+    {
+      "pagina": 20,
+      "texto": "resistividad, gravimétricos, electromagnéticos, sísmicos y demás existentes, y"
+    },
+    {
+      "pagina": 20,
+      "texto": "e. Información derivada de estudios hidrogeológicos e hidrogeoquímicos, a través de:"
+    },
+    {
+      "pagina": 20,
+      "texto": "medición de parámetros fisicoquímicos, la piezometría de la zona de interés y demás"
+    },
+    {
+      "pagina": 20,
+      "texto": "existentes."
+    },
+    {
+      "pagina": 20,
+      "texto": "V. Plano georreferenciado de localización y descripción de las obras realizadas en el periodo, en el que"
+    },
+    {
+      "pagina": 20,
+      "texto": "se incluya la ubicación del cabezal de cada pozo perforado;"
+    },
+    {
+      "pagina": 20,
+      "texto": "VI. Situación del Área Geotérmica antes de iniciar las obras y trabajos del periodo que se reporta;"
+    },
+    {
+      "pagina": 20,
+      "texto": "VII. Descripción general del avance de obras y trabajos ejecutados conforme al cronograma de trabajo"
+    },
+    {
+      "pagina": 20,
+      "texto": "presentado ante la Secretaría en la solicitud correspondiente;"
+    },
+    {
+      "pagina": 20,
+      "texto": "VIII. Nombre, tipo, estatus y trayectoria de los pozos perforados en el Área Geotérmica en el periodo que se"
+    },
+    {
+      "pagina": 20,
+      "texto": "reporta;"
+    },
+    {
+      "pagina": 20,
+      "texto": "IX. Resultados y seguimiento de cada uno de los pozos perforados, así como la propuesta de Pozos"
+    },
+    {
+      "pagina": 20,
+      "texto": "Geotérmicos por perforar, según sea el caso, y"
+    },
+    {
+      "pagina": 20,
+      "texto": "X. De ser el caso, detallar las actividades de Usos Diversos realizadas, la tecnología empleada para cada"
+    },
+    {
+      "pagina": 20,
+      "texto": "una, si se realizaron en cascada o de manera independiente, así como precisar las Coordenadas"
+    },
+    {
+      "pagina": 20,
+      "texto": "Geodésicas de la ubicación y los productos obtenidos, así como los beneficios sociales y ambientales"
+    },
+    {
+      "pagina": 20,
+      "texto": "generados."
+    },
+    {
+      "pagina": 21,
+      "texto": "La Secretaría puede solicitar información detallada respecto a los resultados e información a que se refiere este"
+    },
+    {
+      "pagina": 21,
+      "texto": "artículo."
+    },
+    {
+      "pagina": 21,
+      "texto": "La información precisada en el presente artículo debe integrar aquélla a que se refiere el artículo 55, primer"
+    },
+    {
+      "pagina": 21,
+      "texto": "párrafo de la Ley, la cual debe resguardarse en los términos que al efecto señalen las disposiciones normativas"
+    },
+    {
+      "pagina": 21,
+      "texto": "aplicables en materia de transparencia y protección de datos personales."
+    },
+    {
+      "pagina": 21,
+      "texto": "Los informes semestrales a que se refiere el artículo 73 de este Reglamento deben presentarse dentro de los"
+    },
+    {
+      "pagina": 21,
+      "texto": "quince días hábiles siguientes a la conclusión del periodo a reportar."
+    },
+    {
+      "pagina": 21,
+      "texto": "Artículo 75. Las personas titulares de Permisos de Exploración, Permisos para Usos Diversos y Concesiones"
+    },
+    {
+      "pagina": 21,
+      "texto": "deben informar a la CONAGUA, con copia para la Secretaría de manera inmediata, si existe interferencia con"
+    },
+    {
+      "pagina": 21,
+      "texto": "acuíferos adyacentes al Yacimiento Geotérmico derivado de los trabajos de Exploración o Explotación realizados,"
+    },
+    {
+      "pagina": 21,
+      "texto": "según corresponda, así como las medidas implementadas de mitigación y control realizadas a fin de evitar cualquier"
+    },
+    {
+      "pagina": 21,
+      "texto": "daño que pudiera presentarse. Una vez mitigado el riesgo, las personas titulares de Permisos de Exploración o"
+    },
+    {
+      "pagina": 21,
+      "texto": "Concesiones deben suspender actividades hasta en tanto la CONAGUA dictamine lo procedente de acuerdo con las"
+    },
+    {
+      "pagina": 21,
+      "texto": "disposiciones previstas en la legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 21,
+      "texto": "CAPÍTULO IX"
+    },
+    {
+      "pagina": 21,
+      "texto": "De la Modificación de los Permisos de Exploración, Permisos para Usos Diversos o Concesiones"
+    },
+    {
+      "pagina": 21,
+      "texto": "Artículo 76. Las personas titulares de Permisos de Exploración, Permisos para Usos Diversos o Concesiones"
+    },
+    {
+      "pagina": 21,
+      "texto": "pueden solicitar a la Secretaría una modificación cuando se determine que es conveniente para el interés del Estado;"
+    },
+    {
+      "pagina": 21,
+      "texto": "y cuando ocurra una modificación de las condiciones económicas, técnicas u operativas originalmente previstas en el"
+    },
+    {
+      "pagina": 21,
+      "texto": "título de Permiso de Exploración, Permiso para Usos Diversos o Concesión, que afecten sustancialmente las"
+    },
+    {
+      "pagina": 21,
+      "texto": "condiciones de aprovechamiento del Recurso Geotérmico. Para ello, deben presentar la solicitud correspondiente,"
+    },
+    {
+      "pagina": 21,
+      "texto": "adjuntando la información y documentos que justifiquen la petición, el análisis de su procedencia y la propuesta de"
+    },
+    {
+      "pagina": 21,
+      "texto": "modificación. La Secretaría puede solicitar documentos, análisis o informes adicionales, además de realizar las"
+    },
+    {
+      "pagina": 21,
+      "texto": "investigaciones o análisis que estime necesarios."
+    },
+    {
+      "pagina": 21,
+      "texto": "La modificación de los Permisos de Exploración, Permisos para Usos Diversos o Concesiones, debe atender el"
+    },
+    {
+      "pagina": 21,
+      "texto": "siguiente procedimiento:"
+    },
+    {
+      "pagina": 21,
+      "texto": "I. Recibida la solicitud, se debe proceder a la revisión del cumplimiento de los requisitos previstos en la"
+    },
+    {
+      "pagina": 21,
+      "texto": "Ley, el Reglamento y demás disposiciones aplicables, si la solicitud presenta insuficiencias o no"
+    },
+    {
+      "pagina": 21,
+      "texto": "cumple con los requisitos y formalidades exigidos, la Secretaría dentro del plazo de quince días"
+    },
+    {
+      "pagina": 21,
+      "texto": "hábiles, debe prevenir a la persona solicitante y por una sola ocasión;"
+    },
+    {
+      "pagina": 21,
+      "texto": "II. Notificada la prevención, la persona solicitante dentro del término de diez días hábiles contados a partir"
+    },
+    {
+      "pagina": 21,
+      "texto": "de la notificación respectiva, debe desahogar la prevención al subsanar la omisión o aclarar y rectificar"
+    },
+    {
+      "pagina": 21,
+      "texto": "su solicitud. Durante este periodo el término para que la Secretaría resuelva se suspende y se reanuda"
+    },
+    {
+      "pagina": 21,
+      "texto": "a partir del día hábil inmediato siguiente a aquél en que la persona solicitante desahogue la"
+    },
+    {
+      "pagina": 21,
+      "texto": "prevención. En el supuesto de que la persona solicitante omita desahogar la prevención en el término"
+    },
+    {
+      "pagina": 21,
+      "texto": "señalado, o a pesar de haberla desahogado no se subsane la omisión correspondiente, la Secretaría"
+    },
+    {
+      "pagina": 21,
+      "texto": "debe desechar el trámite en términos de lo establecido en la Ley Federal de Procedimiento"
+    },
+    {
+      "pagina": 21,
+      "texto": "Administrativo;"
+    },
+    {
+      "pagina": 21,
+      "texto": "III. Cuando de la evaluación de la solicitud correspondiente se desprenda que esta cumple con los"
+    },
+    {
+      "pagina": 21,
+      "texto": "supuestos para la modificación, la Secretaría debe tenerla por admitida;"
+    },
+    {
+      "pagina": 21,
+      "texto": "IV. Una vez evaluada la solicitud de modificación, dentro de los veinte días hábiles siguientes a la"
+    },
+    {
+      "pagina": 21,
+      "texto": "presentación de la solicitud o a que haya sido desahogada la prevención, la Secretaría debe emitir la"
+    },
+    {
+      "pagina": 21,
+      "texto": "resolución correspondiente, debidamente fundada y motivada, y en la que puede conceder o negar la"
+    },
+    {
+      "pagina": 21,
+      "texto": "modificación del Permiso de Exploración, Permiso para Usos Diversos o Concesión de que se trate."
+    },
+    {
+      "pagina": 21,
+      "texto": "Artículo 77. Para efectos de lo establecido en el artículo anterior, las personas interesadas deben cumplir con los"
+    },
+    {
+      "pagina": 21,
+      "texto": "requisitos y procedimientos previstos en este Reglamento para los Permisos de Exploración, Permisos para Usos"
+    },
+    {
+      "pagina": 21,
+      "texto": "Diversos o Concesiones, respectivamente."
+    },
+    {
+      "pagina": 22,
+      "texto": "Artículo 78. Además de las gestiones ante la Secretaría, las personas titulares de permisos y Concesiones que"
+    },
+    {
+      "pagina": 22,
+      "texto": "soliciten a la Secretaría la modificación de estos, también deben cumplir con las disposiciones previstas en la"
+    },
+    {
+      "pagina": 22,
+      "texto": "legislación y normatividad aplicable en materia ambiental e hídrica."
+    },
+    {
+      "pagina": 22,
+      "texto": "TÍTULO CUARTO"
+    },
+    {
+      "pagina": 22,
+      "texto": "DE LA INFORMACIÓN DEL SUBSUELO NACIONAL"
+    },
+    {
+      "pagina": 22,
+      "texto": "Capítulo Único"
+    },
+    {
+      "pagina": 22,
+      "texto": "Artículo 79. Para la inscripción en el Registro de Geotermia de los actos a que se refiere el artículo 58 de la Ley,"
+    },
+    {
+      "pagina": 22,
+      "texto": "se deben llevar los libros siguientes:"
+    },
+    {
+      "pagina": 22,
+      "texto": "I. Permisos de Exploración;"
+    },
+    {
+      "pagina": 22,
+      "texto": "II. Permisos para Usos Diversos;"
+    },
+    {
+      "pagina": 22,
+      "texto": "III. Concesiones;"
+    },
+    {
+      "pagina": 22,
+      "texto": "IV. Avisos de Aprovechamientos Geotérmicos Exentos;"
+    },
+    {
+      "pagina": 22,
+      "texto": "V. Convenios;"
+    },
+    {
+      "pagina": 22,
+      "texto": "VI. Consulta previa, libre e informada, y"
+    },
+    {
+      "pagina": 22,
+      "texto": "VII. Otros, que se consideren necesarios."
+    },
+    {
+      "pagina": 22,
+      "texto": "La Secretaría debe disponer de los medios necesarios para identificar las inscripciones y relacionar aquéllas"
+    },
+    {
+      "pagina": 22,
+      "texto": "vinculadas entre sí, así como para salvaguardar la información contenida en los libros y la documentación soporte de"
+    },
+    {
+      "pagina": 22,
+      "texto": "las inscripciones."
+    },
+    {
+      "pagina": 22,
+      "texto": "La Secretaría debe desarrollar un registro de tipo cartográfico que permita la localización de todas las Áreas"
+    },
+    {
+      "pagina": 22,
+      "texto": "Geotérmicas y su vínculo con la información que se tenga de estas."
+    },
+    {
+      "pagina": 22,
+      "texto": "Artículo 80. Las solicitudes para la inscripción en el Registro de Geotermia de las resoluciones expedidas por"
+    },
+    {
+      "pagina": 22,
+      "texto": "autoridad judicial o administrativa, que afecten Permisos de Exploración, Permisos para Usos Diversos, Concesiones"
+    },
+    {
+      "pagina": 22,
+      "texto": "o Avisos de Aprovechamientos Geotérmicos Exentos, o los derechos que deriven de ellos, deben contener los"
+    },
+    {
+      "pagina": 22,
+      "texto": "siguientes requisitos:"
+    },
+    {
+      "pagina": 22,
+      "texto": "I. Tipo de resolución;"
+    },
+    {
+      "pagina": 22,
+      "texto": "II. Nombre y situación jurídica de la persona solicitante dentro del procedimiento del cual se derivó la"
+    },
+    {
+      "pagina": 22,
+      "texto": "resolución respectiva;"
+    },
+    {
+      "pagina": 22,
+      "texto": "III. Identificación del Área Geotérmica objeto del Permiso, Concesión o Aviso afectado y, de conocerse,"
+    },
+    {
+      "pagina": 22,
+      "texto": "los datos de inscripción correspondientes en el Registro de Geotermia;"
+    },
+    {
+      "pagina": 22,
+      "texto": "IV. En su caso, nombre y situación jurídica de la persona o personas cuyos derechos resulten afectados"
+    },
+    {
+      "pagina": 22,
+      "texto": "con motivo de la resolución;"
+    },
+    {
+      "pagina": 22,
+      "texto": "V. El señalamiento, en su caso, de la afectación al Permiso, la Concesión, al aviso, o a los derechos que"
+    },
+    {
+      "pagina": 22,
+      "texto": "de ellos deriven, y"
+    },
+    {
+      "pagina": 22,
+      "texto": "VI. Fecha en que la resolución causó ejecutoria."
+    },
+    {
+      "pagina": 22,
+      "texto": "A la solicitud se debe acompañar copia certificada de la resolución de la autoridad judicial o administrativa de que"
+    },
+    {
+      "pagina": 22,
+      "texto": "se trate."
+    },
+    {
+      "pagina": 22,
+      "texto": "Artículo 81. Las solicitudes para la inscripción en el Registro de Geotermia de las anotaciones judiciales"
+    },
+    {
+      "pagina": 22,
+      "texto": "preventivas derivadas de reclamaciones por negativa, rectificación, modificación, nulidad o cancelación de"
+    },
+    {
+      "pagina": 22,
+      "texto": "inscripciones, deberán contener, además de los requisitos señalados en el artículo anterior, el número de expediente"
+    },
+    {
+      "pagina": 22,
+      "texto": "y la autoridad judicial ante la cual se lleva a cabo el proceso judicial de que se trate."
+    },
+    {
+      "pagina": 22,
+      "texto": "A la solicitud se debe acompañar copia certificada de la resolución que ordena la anotación judicial preventiva"
+    },
+    {
+      "pagina": 22,
+      "texto": "correspondiente."
+    },
+    {
+      "pagina": 22,
+      "texto": "La inscripción de la anotación judicial preventiva deja de surtir sus efectos hasta que se presente la solicitud de"
+    },
+    {
+      "pagina": 22,
+      "texto": "inscripción en el Registro de Geotermia, de la sentencia ejecutoriada que se haya dictado en el proceso judicial"
+    },
+    {
+      "pagina": 22,
+      "texto": "respectivo."
+    },
+    {
+      "pagina": 23,
+      "texto": "Artículo 82. Las solicitudes para rectificar, modificar o cancelar una inscripción en el Registro de Geotermia"
+    },
+    {
+      "pagina": 23,
+      "texto": "deben contener:"
+    },
+    {
+      "pagina": 23,
+      "texto": "I. Nombre de la parte o partes afectadas, debe entenderse por parte afectada, a la persona o personas"
+    },
+    {
+      "pagina": 23,
+      "texto": "que haya gestionado la inscripción o tenga interés jurídico en que subsista;"
+    },
+    {
+      "pagina": 23,
+      "texto": "II. Datos de la inscripción en el Registro de Geotermia, y"
+    },
+    {
+      "pagina": 23,
+      "texto": "III. Datos por modificar."
+    },
+    {
+      "pagina": 23,
+      "texto": "Artículo 83. Las actividades registrales se ejercen de acuerdo con lo dispuesto por la Ley y el Reglamento y"
+    },
+    {
+      "pagina": 23,
+      "texto": "demás disposiciones que deriven de ellos."
+    },
+    {
+      "pagina": 23,
+      "texto": "Artículo 84. Para efectos de lo dispuesto en la fracción XX del artículo 7 de la Ley, la Secretaría debe elaborar la"
+    },
+    {
+      "pagina": 23,
+      "texto": "Guía Nacional de Zonas con Potencial Geotérmico la cual debe incluir, por lo menos, la siguiente información:"
+    },
+    {
+      "pagina": 23,
+      "texto": "I. Potencial de baja, media y alta entalpía en el territorio nacional;"
+    },
+    {
+      "pagina": 23,
+      "texto": "II. Potencial de reservas para generación eléctrica;"
+    },
+    {
+      "pagina": 23,
+      "texto": "III. Relación de tecnologías y sus aplicaciones para Usos Diversos;"
+    },
+    {
+      "pagina": 23,
+      "texto": "IV. Modelaciones en los sistemas eléctricos;"
+    },
+    {
+      "pagina": 23,
+      "texto": "V. Costos nivelados de la energía en México, y"
+    },
+    {
+      "pagina": 23,
+      "texto": "VI. Ahorro en costos y emisiones por tecnología."
+    },
+    {
+      "pagina": 23,
+      "texto": "La actualización de la Guía Nacional de Zonas con Potencial Geotérmico se debe realizar cada tres años."
+    },
+    {
+      "pagina": 23,
+      "texto": "Adicionalmente, la Secretaría debe llevar a cabo las gestiones necesarias para realizar estudios geocientíficos y"
+    },
+    {
+      "pagina": 23,
+      "texto": "geofísicos relativos a geotermia oceánica, geotermia no convencional y los relativos a las diversas tecnologías"
+    },
+    {
+      "pagina": 23,
+      "texto": "utilizadas para Usos Diversos, así como los demás que estime pertinentes para el debido cumplimiento del objeto de"
+    },
+    {
+      "pagina": 23,
+      "texto": "la Ley."
+    },
+    {
+      "pagina": 23,
+      "texto": "TÍTULO QUINTO"
+    },
+    {
+      "pagina": 23,
+      "texto": "DE LOS PROCEDIMIENTOS DE REVOCACIÓN, TERMINACIÓN, RESCATE Y REASIGNACIÓN"
+    },
+    {
+      "pagina": 23,
+      "texto": "CAPÍTULO I"
+    },
+    {
+      "pagina": 23,
+      "texto": "De la Revocación"
+    },
+    {
+      "pagina": 23,
+      "texto": "Artículo 85. De acuerdo con lo establecido en los artículos 35 y 49 de la Ley, la revocación del Permiso de"
+    },
+    {
+      "pagina": 23,
+      "texto": "Exploración, la Concesión y el Permiso para Usos Diversos se debe substanciar por la Secretaría y sujetarse al"
+    },
+    {
+      "pagina": 23,
+      "texto": "siguiente procedimiento:"
+    },
+    {
+      "pagina": 23,
+      "texto": "I. La Secretaría inicia el expediente correspondiente, en el que debe hacer constar las causales de"
+    },
+    {
+      "pagina": 23,
+      "texto": "revocación previstas en el artículo 33 de la Ley;"
+    },
+    {
+      "pagina": 23,
+      "texto": "II. La Secretaría debe notificar el inicio del procedimiento a la persona titular del Permiso de Exploración,"
+    },
+    {
+      "pagina": 23,
+      "texto": "Permiso para Usos Diversos y la Concesión o al representante legal, en el que se debe hacer de"
+    },
+    {
+      "pagina": 23,
+      "texto": "conocimiento los hechos que constituyen la o las causales que se le imputan. Se debe otorgar un"
+    },
+    {
+      "pagina": 23,
+      "texto": "plazo de quince días hábiles, contados a partir de que surta efectos la notificación, para que la persona"
+    },
+    {
+      "pagina": 23,
+      "texto": "titular exprese lo que a su derecho convenga y, en su caso, ofrezca las pruebas que estime necesarias"
+    },
+    {
+      "pagina": 23,
+      "texto": "para su defensa;"
+    },
+    {
+      "pagina": 23,
+      "texto": "Son admisibles todas las pruebas a excepción de la confesional a cargo de servidores públicos. No se"
+    },
+    {
+      "pagina": 23,
+      "texto": "considera comprendida en esta prohibición la petición de informes a las autoridades administrativas,"
+    },
+    {
+      "pagina": 23,
+      "texto": "respecto de hechos que consten en sus expedientes."
+    },
+    {
+      "pagina": 23,
+      "texto": "III. Transcurrido el plazo previsto en la fracción anterior, la Secretaría debe emitir el acuerdo de admisión"
+    },
+    {
+      "pagina": 23,
+      "texto": "de pruebas que corresponda, en el que debe ordenar las diligencias necesarias para su preparación y"
+    },
+    {
+      "pagina": 23,
+      "texto": "desahogo;"
+    },
+    {
+      "pagina": 23,
+      "texto": "IV. Concluido el desahogo de las pruebas ofrecidas, la persona titular del permiso o Concesión cuenta con"
+    },
+    {
+      "pagina": 23,
+      "texto": "un plazo de diez días hábiles para presentar sus alegatos;"
+    },
+    {
+      "pagina": 24,
+      "texto": "V. Transcurrido el periodo de alegatos, en un plazo no mayor a treinta días hábiles, la Secretaría debe"
+    },
+    {
+      "pagina": 24,
+      "texto": "dictar la resolución correspondiente, y"
+    },
+    {
+      "pagina": 24,
+      "texto": "VI. La resolución debe notificarse al titular del Permiso de Exploración, Permiso para Usos Diversos o"
+    },
+    {
+      "pagina": 24,
+      "texto": "Concesión o al representante legal, en términos de lo establecido en la Ley Federal de Procedimiento"
+    },
+    {
+      "pagina": 24,
+      "texto": "Administrativo."
+    },
+    {
+      "pagina": 24,
+      "texto": "Artículo 86. El procedimiento de revocación es aplicable, en lo conducente, a las demás causas de extinción"
+    },
+    {
+      "pagina": 24,
+      "texto": "previstas en el artículo 31 de la Ley."
+    },
+    {
+      "pagina": 24,
+      "texto": "Artículo 87. Para los efectos del artículo 36 de la Ley, los pozos perforados deben mantenerse en condiciones"
+    },
+    {
+      "pagina": 24,
+      "texto": "operativas y con las instalaciones necesarias para asegurar la estabilidad y seguridad de dichos pozos, asimismo, los"
+    },
+    {
+      "pagina": 24,
+      "texto": "bienes que deben retirar las personas titulares de los Permisos de Exploración o Concesiones no deben incluir"
+    },
+    {
+      "pagina": 24,
+      "texto": "aquellos cuyo retiro comprometa o afecte la estabilidad o seguridad de los pozos terminados."
+    },
+    {
+      "pagina": 24,
+      "texto": "Artículo 88. Para el caso de las Concesiones, la declaratoria de rescate emitida por la Secretaría, debe"
+    },
+    {
+      "pagina": 24,
+      "texto": "publicarse en el Diario Oficial de la Federación."
+    },
+    {
+      "pagina": 24,
+      "texto": "CAPÍTULO II"
+    },
+    {
+      "pagina": 24,
+      "texto": "De la Terminación Anticipada y la Reasignación"
+    },
+    {
+      "pagina": 24,
+      "texto": "Artículo 89. De acuerdo con lo establecido en los artículos 7, fracción VIII, 31 y 35 de la Ley, la Secretaría puede"
+    },
+    {
+      "pagina": 24,
+      "texto": "dar por terminados anticipadamente los Permisos de Exploración, Permisos para Usos Diversos o las Concesiones,"
+    },
+    {
+      "pagina": 24,
+      "texto": "en atención al aviso que presente la persona titular del Permiso o Concesión, entre otras, sobre la disminución de"
+    },
+    {
+      "pagina": 24,
+      "texto": "sus capacidades y la renuncia solicitada por la persona titular."
+    },
+    {
+      "pagina": 24,
+      "texto": "Artículo 90. Notificada la terminación anticipada de la Concesión en los términos señalados en el artículo"
+    },
+    {
+      "pagina": 24,
+      "texto": "anterior, dentro de los siguientes cuarenta días hábiles, la Secretaría debe determinar el procedimiento a seguir para"
+    },
+    {
+      "pagina": 24,
+      "texto": "reasignar el Área Geotérmica situada en supuesto indicado."
+    },
+    {
+      "pagina": 24,
+      "texto": "Lo anterior debe tomar en consideración las condiciones técnicas, financieras, sociales, de seguridad y"
+    },
+    {
+      "pagina": 24,
+      "texto": "ambientales en que se encuentre el Área Geotérmica, la vigencia de la Concesión, y demás elementos que estime"
+    },
+    {
+      "pagina": 24,
+      "texto": "relevantes."
+    },
+    {
+      "pagina": 24,
+      "texto": "TÍTULO SEXTO"
+    },
+    {
+      "pagina": 24,
+      "texto": "DEL PROCEDIMIENTO DE INSPECCIÓN, VERIFICACIÓN Y SEGUIMIENTO"
+    },
+    {
+      "pagina": 24,
+      "texto": "CAPÍTULO I"
+    },
+    {
+      "pagina": 24,
+      "texto": "Disposiciones Generales"
+    },
+    {
+      "pagina": 24,
+      "texto": "Artículo 91. De conformidad con lo previsto en los artículos 7, fracción XXI y 61 de la Ley, para vigilar el"
+    },
+    {
+      "pagina": 24,
+      "texto": "cumplimiento a la Ley y el Reglamento, las Normas Oficiales Mexicanas que al efecto se expidan y las demás"
+    },
+    {
+      "pagina": 24,
+      "texto": "disposiciones aplicables, la Secretaría puede realizar actos de inspección, verificación y seguimiento a los Permisos"
+    },
+    {
+      "pagina": 24,
+      "texto": "de Exploración, Permisos para Usos Diversos, Concesiones y avisos de los Aprovechamientos Geotérmicos Exentos."
+    },
+    {
+      "pagina": 24,
+      "texto": "Para la realización de los actos y procedimientos administrativos de inspección, verificación, seguimiento,"
+    },
+    {
+      "pagina": 24,
+      "texto": "medidas de seguridad, determinación de infracciones administrativas e imposición de sanciones, se deben aplicar las"
+    },
+    {
+      "pagina": 24,
+      "texto": "disposiciones previstas en la Ley Federal de Procedimiento Administrativo, para estos efectos se precisan los actos"
+    },
+    {
+      "pagina": 24,
+      "texto": "siguientes:"
+    },
+    {
+      "pagina": 24,
+      "texto": "I. Inspección: La revisión física, documental, o ambas, que de forma general realiza la Secretaría"
+    },
+    {
+      "pagina": 24,
+      "texto": "respecto a los Permisos de Exploración, Permisos para Usos Diversos, Concesiones y avisos de"
+    },
+    {
+      "pagina": 24,
+      "texto": "Aprovechamientos Geotérmicos Exentos;"
+    },
+    {
+      "pagina": 24,
+      "texto": "II. Verificación: Las visitas de verificación que realiza la Secretaría sobre temas específicos a las"
+    },
+    {
+      "pagina": 24,
+      "texto": "instalaciones de Permisos de Exploración, Permisos para Usos Diversos, Concesiones y avisos de"
+    },
+    {
+      "pagina": 24,
+      "texto": "Aprovechamientos Geotérmicos Exentos, y"
+    },
+    {
+      "pagina": 25,
+      "texto": "III. Seguimiento: La revisión y análisis que realiza la Secretaría a los informes, reportes, solicitudes, avisos"
+    },
+    {
+      "pagina": 25,
+      "texto": "y cualquier otra información que presenten las personas titulares de Permisos de Exploración,"
+    },
+    {
+      "pagina": 25,
+      "texto": "Permisos para Usos Diversos, Concesiones y avisos de Aprovechamientos Geotérmicos Exentos; así"
+    },
+    {
+      "pagina": 25,
+      "texto": "como las acciones que implementa la Secretaría para constatar la atención que se brindó a las"
+    },
+    {
+      "pagina": 25,
+      "texto": "medidas de seguridad o sanciones impuestas."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 92. La Secretaría puede realizar la inspección, verificación y seguimiento por los posibles"
+    },
+    {
+      "pagina": 25,
+      "texto": "incumplimientos a las obligaciones previstas en la Ley, el Reglamento, el título de permiso o Concesión"
+    },
+    {
+      "pagina": 25,
+      "texto": "correspondiente y demás normativa aplicable, ya sea de oficio o, en su caso, a solicitud de un tercero, cuando"
+    },
+    {
+      "pagina": 25,
+      "texto": "existan indicios de incumplimientos en actividades en materia de geotermia, y de ser procedente, deben iniciar los"
+    },
+    {
+      "pagina": 25,
+      "texto": "procedimientos administrativos correspondientes."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 93. Respecto al supuesto previsto en el último párrafo del artículo 63 de la Ley, cuando se advierta la"
+    },
+    {
+      "pagina": 25,
+      "texto": "existencia de actividades de Exploración o Explotación de Recursos Geotérmicos en el territorio nacional, sin contar"
+    },
+    {
+      "pagina": 25,
+      "texto": "con los permisos o Concesiones correspondientes, la Secretaría debe iniciar el procedimiento administrativo"
+    },
+    {
+      "pagina": 25,
+      "texto": "conforme a lo estipulado en la Ley Federal de Procedimiento Administrativo."
+    },
+    {
+      "pagina": 25,
+      "texto": "CAPÍTULO II"
+    },
+    {
+      "pagina": 25,
+      "texto": "De las Medidas de Seguridad"
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 94. De conformidad con lo estipulado en el artículo 62 de la Ley, se debe entender que existe peligro"
+    },
+    {
+      "pagina": 25,
+      "texto": "grave cuando se identifique que haya un riesgo de explosión, derrumbe, incendio, o cualquier otra situación, acto o"
+    },
+    {
+      "pagina": 25,
+      "texto": "condición que pueda causar un daño significativo e inmediato a la salud de las personas, a las instalaciones o al"
+    },
+    {
+      "pagina": 25,
+      "texto": "medio ambiente, en estos casos, desde la visita de verificación, durante la substanciación del procedimiento"
+    },
+    {
+      "pagina": 25,
+      "texto": "administrativo de sanción o en el seguimiento, la Secretaría puede ordenar las medidas de seguridad para corregir"
+    },
+    {
+      "pagina": 25,
+      "texto": "las irregularidades que se hubiesen encontrado, las cuales deben considerar el otorgamiento de un plazo"
+    },
+    {
+      "pagina": 25,
+      "texto": "estrictamente necesario para su atención y notificar a la persona que se hizo acreedora a dichas medidas de"
+    },
+    {
+      "pagina": 25,
+      "texto": "seguridad."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 95. Cuando la Secretaría ordene alguna de las medidas de seguridad señaladas en el artículo 62 de la"
+    },
+    {
+      "pagina": 25,
+      "texto": "Ley, debe indicar las acciones a ejecutar para cumplir con estas, así como los plazos para su atención."
+    },
+    {
+      "pagina": 25,
+      "texto": "Asimismo, la Secretaría puede ordenar el retiro de las medidas de seguridad impuestas cuando determine que las"
+    },
+    {
+      "pagina": 25,
+      "texto": "obras o instalaciones ya no representan un peligro grave para las personas o sus bienes."
+    },
+    {
+      "pagina": 25,
+      "texto": "CAPÍTULO III"
+    },
+    {
+      "pagina": 25,
+      "texto": "De las Sanciones Administrativas"
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 96. La Secretaría debe sancionar administrativamente, los incumplimientos a la Ley, el Reglamento, los"
+    },
+    {
+      "pagina": 25,
+      "texto": "términos y condiciones de los Permisos de Exploración, Permisos para Usos Diversos o Concesiones"
+    },
+    {
+      "pagina": 25,
+      "texto": "correspondientes, y demás disposiciones normativas en materia de geotermia, en términos de los artículos 63 y 64"
+    },
+    {
+      "pagina": 25,
+      "texto": "de la Ley."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 97. La Secretaría debe señalar, en la resolución que resulte del procedimiento administrativo, las"
+    },
+    {
+      "pagina": 25,
+      "texto": "obligaciones y sanciones impuestas con motivo de las infracciones cometidas, así como los plazos y acciones para"
+    },
+    {
+      "pagina": 25,
+      "texto": "su cumplimiento."
+    },
+    {
+      "pagina": 25,
+      "texto": "La Secretaría puede ejecutar las visitas de verificación que estime necesarias para confirmar la atención a las"
+    },
+    {
+      "pagina": 25,
+      "texto": "obligaciones impuestas y, en su caso, determinar lo que en derecho corresponda en términos del procedimiento"
+    },
+    {
+      "pagina": 25,
+      "texto": "administrativo previsto en la Ley Federal de Procedimiento Administrativo."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 98. Se considera reincidente a la persona que haya incurrido en un incumplimiento o incumplimientos y"
+    },
+    {
+      "pagina": 25,
+      "texto": "que se le haya sido impuesto una sanción, cometa otra del mismo tipo o naturaleza, dentro de un plazo de un año"
+    },
+    {
+      "pagina": 25,
+      "texto": "contado a partir de la imposición de la sanción respectiva."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 99. Para la aplicación de las sanciones previstas en la Ley, la Secretaría debe fundar y motivar su"
+    },
+    {
+      "pagina": 25,
+      "texto": "resolución en la que se deben considerar los aspectos previstos en la Ley, el Reglamento y demás normativa"
+    },
+    {
+      "pagina": 25,
+      "texto": "aplicable."
+    },
+    {
+      "pagina": 25,
+      "texto": "Artículo 100. Para efectos de la determinación de los plazos a los que se refiere el presente capítulo, cuando la"
+    },
+    {
+      "pagina": 25,
+      "texto": "Secretaría imponga una sanción o determine una obligación puede otorgar al infractor un plazo de hasta doce meses"
+    },
+    {
+      "pagina": 26,
+      "texto": "para cumplir con esta y ejecutar las acciones señaladas en la resolución recaída en el procedimiento administrativo"
+    },
+    {
+      "pagina": 26,
+      "texto": "de sanción con motivo de la infracción o infracciones en que hubiere incurrido."
+    },
+    {
+      "pagina": 26,
+      "texto": "TRANSITORIOS"
+    },
+    {
+      "pagina": 26,
+      "texto": "PRIMERO. El presente Reglamento entra en vigor al día hábil siguiente de su publicación en el Diario Oficial de la"
+    },
+    {
+      "pagina": 26,
+      "texto": "Federación."
+    },
+    {
+      "pagina": 26,
+      "texto": "SEGUNDO. Se abroga el Reglamento de la Ley de Energía Geotérmica, publicado en el Diario Oficial de la"
+    },
+    {
+      "pagina": 26,
+      "texto": "Federación el treinta y uno de octubre de dos mil catorce, así como todas las demás disposiciones que se opongan a"
+    },
+    {
+      "pagina": 26,
+      "texto": "este Reglamento."
+    },
+    {
+      "pagina": 26,
+      "texto": "TERCERO. Las referencias realizadas al Reglamento de la Ley de Energía Geotérmica en otros ordenamientos"
+    },
+    {
+      "pagina": 26,
+      "texto": "jurídicos se entienden hechas, en lo aplicable, al Reglamento de la Ley de Geotermia."
+    },
+    {
+      "pagina": 26,
+      "texto": "CUARTO. Las disposiciones normativas emitidas con anterioridad a la entrada en vigor del presente reglamento,"
+    },
+    {
+      "pagina": 26,
+      "texto": "continúan vigentes hasta que inicie la vigencia de aquellas que las sustituyan, en lo que no se oponga a la Ley y el"
+    },
+    {
+      "pagina": 26,
+      "texto": "presente reglamento."
+    },
+    {
+      "pagina": 26,
+      "texto": "QUINTO. Las solicitudes de prórroga de aquellas Áreas Geotérmicas que cuentan con Permiso de Exploración"
+    },
+    {
+      "pagina": 26,
+      "texto": "vigente y en las que la Comisión Federal de Electricidad tenga interés de continuar con los trabajos de Exploración,"
+    },
+    {
+      "pagina": 26,
+      "texto": "además de lo previsto en el Séptimo Transitorio de la Ley de Geotermia, la Comisión Federal de Electricidad debe"
+    },
+    {
+      "pagina": 26,
+      "texto": "acreditar sus capacidades jurídicas, administrativas, técnicas y financieras conforme a lo previsto en el presente"
+    },
+    {
+      "pagina": 26,
+      "texto": "Reglamento y demostrar que estas continúan vigentes."
+    },
+    {
+      "pagina": 26,
+      "texto": "SEXTO. Los permisos y Concesiones otorgados previo a la publicación de la Ley de Geotermia continúan"
+    },
+    {
+      "pagina": 26,
+      "texto": "surtiendo sus efectos hasta la terminación de su vigencia, rigiéndose conforme a los términos en los que fueron"
+    },
+    {
+      "pagina": 26,
+      "texto": "otorgados bajo la Ley de Energía Geotérmica. Las personas titulares de los permisos y Concesiones deben realizar"
+    },
+    {
+      "pagina": 26,
+      "texto": "sus actividades en los términos establecidos en la Ley de Energía Geotérmica y las demás disposiciones emanadas"
+    },
+    {
+      "pagina": 26,
+      "texto": "de la misma y, en lo que no se oponga a lo anterior, por lo dispuesto en la Ley de Geotermia y su Reglamento."
+    },
+    {
+      "pagina": 26,
+      "texto": "SÉPTIMO. Las solicitudes de permisos y Concesiones que se hayan presentado antes de la entrada en vigor de"
+    },
+    {
+      "pagina": 26,
+      "texto": "la Ley de Geotermia y continúen en trámite deben ser resueltas bajo la Ley de Geotermia."
+    },
+    {
+      "pagina": 26,
+      "texto": "Lo anterior no se considera como efecto retroactivo en perjuicio de las personas solicitantes, toda vez que, al no"
+    },
+    {
+      "pagina": 26,
+      "texto": "estar resueltas, no confirieron ningún derecho adquirido previo."
+    },
+    {
+      "pagina": 26,
+      "texto": "OCTAVO. La Secretaría dentro de un plazo no mayor a sesenta días hábiles contados a partir de la entrada en"
+    },
+    {
+      "pagina": 26,
+      "texto": "vigor de este Reglamento, debe publicar en el Diario Oficial de la Federación las disposiciones administrativas de"
+    },
+    {
+      "pagina": 26,
+      "texto": "carácter general para la planeación vinculante a las que se refieren los artículos 6 y 7 de este Reglamento."
+    },
+    {
+      "pagina": 26,
+      "texto": "En tanto no se emitan las disposiciones, no será aplicable lo establecido en el artículo 6 del presente Reglamento."
+    },
+    {
+      "pagina": 26,
+      "texto": "NOVENO. En tanto se determina el formato autorizado por la Secretaría para la presentación de cada solicitud a"
+    },
+    {
+      "pagina": 26,
+      "texto": "la que hace referencia el presente Reglamento y estas se publiquen en los portales electrónicos de la Secretaría, así"
+    },
+    {
+      "pagina": 26,
+      "texto": "como en los portales públicos de información de trámites, los formatos previos, los escritos libres y las versiones"
+    },
+    {
+      "pagina": 26,
+      "texto": "electrónicas autorizadas son válidos para presentar la solicitud que corresponda."
+    },
+    {
+      "pagina": 26,
+      "texto": "DÉCIMO. Las erogaciones que se generen con motivo de la aplicación del presente decreto se deben realizar con"
+    },
+    {
+      "pagina": 26,
+      "texto": "cargo a los presupuestos autorizados a los ejecutores del gasto que intervienen en la implementación de este, por lo"
+    },
+    {
+      "pagina": 26,
+      "texto": "que no se autorizan ampliaciones líquidas a sus presupuestos para tal fin en el presente ejercicio fiscal, ni se puede"
+    },
+    {
+      "pagina": 26,
+      "texto": "incrementar el presupuesto regularizable de dichos ejecutores de gasto para tales efectos."
+    },
+    {
+      "pagina": 26,
+      "texto": "Dado en la residencia del Poder Ejecutivo Federal, en Ciudad de México a 29 de septiembre de 2025.- Presidenta"
+    },
+    {
+      "pagina": 26,
+      "texto": "de los Estados Unidos Mexicanos, Claudia Sheinbaum Pardo.- Rúbrica.- Secretaria de Medio Ambiente y Recursos"
+    },
+    {
+      "pagina": 26,
+      "texto": "Naturales, Alicia Isabel Adriana Bárcena Ibarra.- Rúbrica.- Secretaria de Energía, Luz Elena González Escobar.-"
+    },
+    {
+      "pagina": 26,
+      "texto": "Rúbrica."
+    }
+  ],
+  "margenes": [
+    {
+      "pagina": 1,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 1,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 1,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 1,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 1,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 1,
+      "texto": "1 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 2,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 2,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 2,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 2,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 2,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 2,
+      "texto": "2 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 3,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 3,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 3,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 3,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 3,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 3,
+      "texto": "3 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 4,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 4,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 4,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 4,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 4,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 4,
+      "texto": "4 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 5,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 5,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 5,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 5,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 5,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 5,
+      "texto": "5 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 6,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 6,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 6,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 6,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 6,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 6,
+      "texto": "6 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 7,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 7,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 7,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 7,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 7,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 7,
+      "texto": "7 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 8,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 8,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 8,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 8,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 8,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 8,
+      "texto": "8 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 9,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 9,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 9,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 9,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 9,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 9,
+      "texto": "9 de 26",
+      "bbox": [
+        292.7300109863281,
+        746.3970336914062,
+        321.5,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 10,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 10,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 10,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 10,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 10,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 10,
+      "texto": "10 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 11,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 11,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 11,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 11,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 11,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 11,
+      "texto": "11 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 12,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 12,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 12,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 12,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 12,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 12,
+      "texto": "12 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 13,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 13,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 13,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 13,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 13,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 13,
+      "texto": "13 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 14,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 14,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 14,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 14,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 14,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 14,
+      "texto": "14 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 15,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 15,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 15,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 15,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 15,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 15,
+      "texto": "15 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 16,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 16,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 16,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 16,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 16,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 16,
+      "texto": "16 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 17,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 17,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 17,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 17,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 17,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 17,
+      "texto": "17 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 18,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 18,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 18,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 18,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 18,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 18,
+      "texto": "18 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 19,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 19,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 19,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 19,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 19,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 19,
+      "texto": "19 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 20,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 20,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 20,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 20,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 20,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 20,
+      "texto": "20 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 21,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 21,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 21,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 21,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 21,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 21,
+      "texto": "21 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 22,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 22,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 22,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 22,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 22,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 22,
+      "texto": "22 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 23,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 23,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 23,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 23,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 23,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 23,
+      "texto": "23 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 24,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 24,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 24,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 24,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 24,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 24,
+      "texto": "24 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 25,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 25,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 25,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 25,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 25,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 25,
+      "texto": "25 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    },
+    {
+      "pagina": 26,
+      "texto": "REGLAMENTO DE LA LEY DE GEOTERMIA",
+      "bbox": [
+        377.3500061035156,
+        42.360023498535156,
+        543.5357055664062,
+        52.06430435180664
+      ]
+    },
+    {
+      "pagina": 26,
+      "texto": "CÁMARA DE DIPUTADOS DEL H. CONGRESO DE LA UNIÓN",
+      "bbox": [
+        140.4199981689453,
+        56.12545394897461,
+        276.31689453125,
+        64.10161590576172
+      ]
+    },
+    {
+      "pagina": 26,
+      "texto": "Secretaría General",
+      "bbox": [
+        140.4199981689453,
+        62.10529708862305,
+        187.36256408691406,
+        71.86921691894531
+      ]
+    },
+    {
+      "pagina": 26,
+      "texto": "Secretaría de Servicios Parlamentarios",
+      "bbox": [
+        140.4199981689453,
+        71.57473754882812,
+        233.31512451171875,
+        79.00081634521484
+      ]
+    },
+    {
+      "pagina": 26,
+      "texto": "Nuevo Reglamento DOF 03-10-2025",
+      "bbox": [
+        426.7900085449219,
+        56.22121810913086,
+        543.1148681640625,
+        63.96770095825195
+      ]
+    },
+    {
+      "pagina": 26,
+      "texto": "26 de 26",
+      "bbox": [
+        290.57000732421875,
+        746.3970336914062,
+        323.7799987792969,
+        756.3599853515625
+      ]
+    }
+  ],
+  "paginas": 26
+}

@@ -1,0 +1,4472 @@
+{
+  "fecha_revision": "2026-09-17",
+  "fuente": "C:/Users/User/Documents/Codex/Documentos latex/01_Proyecto_Actual/Informe_Instrumentos_Sector_Energetico_Mexico_2024-2026.md",
+  "corte_radar": "2026-09-14",
+  "version_radar": "4.17",
+  "alcance": "Sección 12; inventario bibliográfico comparado con catálogo, sin revalidación integral de fuentes ni equivalencia entre filas y documentos.",
+  "totales_por_estado": {
+    "FALTA EN CATALOGO": 140,
+    "DECRETO COMPUESTO: COBERTURA PARCIAL": 1,
+    "YA CARGADO": 6,
+    "FALTA: ANTECEDENTE O EFECTOS LIMITADOS": 15,
+    "PORTAL O COLECCION": 10,
+    "PENDIENTE DE PUBLICACION VERIFICADA": 3,
+    "FALTA: PROYECTO O CONSULTA": 4
+  },
+  "filas": [
+    {
+      "id": "RAD-001",
+      "linea_radar": 1540,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "31 oct 2024",
+      "tipo_radar": "Decreto constitucional",
+      "titulo_radar": "Áreas y empresas estratégicas",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5742012"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5742012"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-002",
+      "linea_radar": 1541,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "20 dic 2024",
+      "tipo_radar": "Decreto constitucional",
+      "titulo_radar": "Simplificación orgánica; transferencia de funciones regulatorias",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5745905"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5745905"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-003",
+      "linea_radar": 1542,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "18 mar 2025",
+      "tipo_radar": "Decreto legislativo",
+      "titulo_radar": "Ocho leyes energéticas, Fondo Mexicano del Petróleo y LOAPF",
+      "estado_radar": "Vigente",
+      "estado_carga": "DECRETO COMPUESTO: COBERTURA PARCIAL",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5752329"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5752329"
+        }
+      ],
+      "nota": "LSE y LPTE cargadas. Faltan seis leyes; separar además reformas a LOAPF y Fondo Mexicano del Petróleo.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-004",
+      "linea_radar": 1543,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "18 mar 2025",
+      "tipo_radar": "Decreto legislativo",
+      "titulo_radar": "Reforma a la Ley de Ingresos sobre Hidrocarburos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5752330"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5752330"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-005",
+      "linea_radar": 1544,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "15 abr 2025",
+      "tipo_radar": "Decreto",
+      "titulo_radar": "Aprueba PND 2025-2030",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5755161"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5755161"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-006",
+      "linea_radar": 1545,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "15 abr 2025",
+      "tipo_radar": "Plan",
+      "titulo_radar": "Texto del PND 2025-2030",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5755162"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5755162"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-007",
+      "linea_radar": 1546,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "17 abr 2025",
+      "tipo_radar": "Reglamento interior",
+      "titulo_radar": "Reglamento Interior de la SENER",
+      "estado_radar": "Vigente",
+      "estado_carga": "YA CARGADO",
+      "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+      "titulo_en_supabase": "Reglamento Interior de la Secretaría de Energía",
+      "codigos_dof": [
+        "5755222"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5755222"
+        }
+      ],
+      "nota": "Coincidencia de código DOF; RLSE conciliado por identidad del instrumento. No implica validación de sus fragmentos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-008",
+      "linea_radar": 1547,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "8 may 2025",
+      "tipo_radar": "Reglamento interior",
+      "titulo_radar": "Reglamento Interior de la CNE",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5756757"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5756757"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-009",
+      "linea_radar": 1548,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley del Sector Hidrocarburos",
+      "estado_radar": "Vigente",
+      "estado_carga": "YA CARGADO",
+      "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+      "titulo_en_supabase": "Reglamento de la Ley del Sector de Hidrocarburos",
+      "codigos_dof": [
+        "5769153"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769153"
+        }
+      ],
+      "nota": "Coincidencia de código DOF; RLSE conciliado por identidad del instrumento. No implica validación de sus fragmentos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-010",
+      "linea_radar": 1549,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de Geotermia",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769154"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769154"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-011",
+      "linea_radar": 1550,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley del Sector Eléctrico",
+      "estado_radar": "Vigente",
+      "estado_carga": "YA CARGADO",
+      "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+      "titulo_en_supabase": "Reglamento de la Ley del Sector Eléctrico",
+      "codigos_dof": [
+        "5769155"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769155"
+        }
+      ],
+      "nota": "Coincidencia de código DOF; RLSE conciliado por identidad del instrumento. No implica validación de sus fragmentos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-012",
+      "linea_radar": 1551,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de Biocombustibles",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769156"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769156"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-013",
+      "linea_radar": 1552,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de Planeación y Transición Energética",
+      "estado_radar": "Vigente",
+      "estado_carga": "YA CARGADO",
+      "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+      "titulo_en_supabase": "Reglamento de la Ley de Planeación y Transición Energética",
+      "codigos_dof": [
+        "5769157"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769157"
+        }
+      ],
+      "nota": "Coincidencia de código DOF; RLSE conciliado por identidad del instrumento. No implica validación de sus fragmentos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-014",
+      "linea_radar": 1553,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "Reforma reglamentaria",
+      "titulo_radar": "Reglamento de la Ley de Ingresos sobre Hidrocarburos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769158"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769158"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-015",
+      "linea_radar": 1554,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "2 dic 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de la Empresa Pública del Estado, CFE",
+      "estado_radar": "Vigente; fe de erratas posterior",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5774837"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5774837"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-016",
+      "linea_radar": 1555,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "29 dic 2025",
+      "tipo_radar": "Fe de erratas",
+      "titulo_radar": "Reglamento de la Ley de CFE",
+      "estado_radar": "Integra el texto aplicable",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5777392"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5777392"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-017",
+      "linea_radar": 1556,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "3 dic 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de la Empresa Pública del Estado, PEMEX",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5775017"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5775017"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-018",
+      "linea_radar": 1557,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "27 abr 2026",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Manual de Organización General de la SENER",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5785999"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5785999"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-019",
+      "linea_radar": 1558,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "29 may 2026",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Manual de Organización General de la CNE",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5788990"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5788990"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-020",
+      "linea_radar": 1559,
+      "seccion": "12.1 Constitución, leyes, PND y reglamentos",
+      "subseccion": "",
+      "institucion": "SCJN",
+      "fecha_radar": "17 jul 2026",
+      "tipo_radar": "Sentencia",
+      "titulo_radar": "Controversia constitucional 124/2025; límite de competencias municipales en hidrocarburos y electricidad",
+      "estado_radar": "Publicada; invalidez con efectos desde la notificación al Congreso local",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5793873"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5793873"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-021",
+      "linea_radar": 1565,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "23 ene 2024",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Actualización de la Estrategia de Transición para Promover el Uso de Tecnologías y Combustibles más Limpios",
+      "estado_radar": "**Sin efectos**; el PROSENER indica que será sustituida",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714865"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714865"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-022",
+      "linea_radar": 1566,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "31 may 2024",
+      "tipo_radar": "Programa",
+      "titulo_radar": "PRODESEN 2024-2038",
+      "estado_radar": "Antecedente del régimen previo",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "SENER",
+          "url": "https://www.gob.mx/sener/articulos/programa-de-desarrollo-del-sistema-electrico-nacional-2024-2038"
+        },
+        {
+          "etiqueta": "PDF CENACE",
+          "url": "https://www.cenace.gob.mx/Docs/16_MARCOREGULATORIO/Prodecen/20%202024-2038%20Cap%C3%ADtulos%201%20al%206.pdf"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-023",
+      "linea_radar": 1567,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "18 sep 2024",
+      "tipo_radar": "Acuerdo modificatorio",
+      "titulo_radar": "Mercancías cuya importación y exportación regula SENER",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5739205"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5739205"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-024",
+      "linea_radar": 1568,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "17 oct 2025",
+      "tipo_radar": "Acuerdo / plan",
+      "titulo_radar": "PLADESE 2025-2039",
+      "estado_radar": "Publicado y rector del sector eléctrico",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5770297"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5770297"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-025",
+      "linea_radar": 1569,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "17 oct 2025",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Planeación vinculante en generación eléctrica",
+      "estado_radar": "Vigente",
+      "estado_carga": "YA CARGADO",
+      "ley_id": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "titulo_en_supabase": "DACG para la planeación vinculante en la actividad de generación de energía eléctrica",
+      "codigos_dof": [
+        "5770298"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5770298"
+        }
+      ],
+      "nota": "Coincidencia de código DOF; RLSE conciliado por identidad del instrumento. No implica validación de sus fragmentos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-026",
+      "linea_radar": 1570,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "17 oct 2025",
+      "tipo_radar": "Convocatoria",
+      "titulo_radar": "Primera atención prioritaria de permisos e interconexión",
+      "estado_radar": "Modificada tres veces",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5770299"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5770299"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-027",
+      "linea_radar": 1571,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "24 oct 2025",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Primera convocatoria",
+      "estado_radar": "Integra requisitos y plazos",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5770917"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5770917"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-028",
+      "linea_radar": 1572,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "10 nov 2025",
+      "tipo_radar": "Segunda modificación",
+      "titulo_radar": "Primera convocatoria",
+      "estado_radar": "Integra requisitos y plazos",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5772392"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5772392"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-029",
+      "linea_radar": 1573,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "2 dic 2025",
+      "tipo_radar": "Tercera modificación",
+      "titulo_radar": "Primera convocatoria",
+      "estado_radar": "Última modificación localizada de esa convocatoria",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5774850"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5774850"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-030",
+      "linea_radar": 1574,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "22 dic 2025",
+      "tipo_radar": "Decreto",
+      "titulo_radar": "Aprobación de PROSENER 2025-2030",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5776837"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5776837"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-031",
+      "linea_radar": 1575,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "22 dic 2025",
+      "tipo_radar": "Programa",
+      "titulo_radar": "Texto de PROSENER 2025-2030",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5776838"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5776838"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-032",
+      "linea_radar": 1576,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "28 ene 2026",
+      "tipo_radar": "Lineamientos CFE",
+      "titulo_radar": "Esquemas para el Desarrollo Mixto",
+      "estado_radar": "Sustento normativo; distinto de la convocatoria",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5778994"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5778994"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-033",
+      "linea_radar": 1577,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "6 feb 2026",
+      "tipo_radar": "Aviso SENER",
+      "titulo_radar": "Convocatoria para Esquemas de Desarrollo Mixto de CFE",
+      "estado_radar": "Registro cerrado el 3 mar 2026; nota DOF propia pendiente de acreditar",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "Ventanilla Energía",
+          "url": "https://ventanilla.energia.gob.mx/avisos/8"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-034",
+      "linea_radar": 1578,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "8 may 2026",
+      "tipo_radar": "Lineamientos",
+      "titulo_radar": "Ventanilla Única de Autoconsumo",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5786923"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5786923"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-035",
+      "linea_radar": 1579,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "11 may 2026",
+      "tipo_radar": "Convocatoria",
+      "titulo_radar": "Segunda atención prioritaria de generación e interconexión",
+      "estado_radar": "Modificada cuatro veces",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5787117"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5787117"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-036",
+      "linea_radar": 1580,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "15 may 2026",
+      "tipo_radar": "Convocatoria",
+      "titulo_radar": "Proyectos estratégicos de generación y almacenamiento",
+      "estado_radar": "Modificada tres veces",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5787666"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5787666"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-037",
+      "linea_radar": 1581,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "26 may 2026",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Proyectos estratégicos",
+      "estado_radar": "Primera modificación",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5788508"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5788508"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-038",
+      "linea_radar": 1582,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "26 may 2026",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Segunda convocatoria",
+      "estado_radar": "Primera modificación",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5788509"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5788509"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-039",
+      "linea_radar": 1583,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "8 jun 2026",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Segunda convocatoria",
+      "estado_radar": "Segunda modificación",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5789883"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5789883"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-040",
+      "linea_radar": 1584,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "18 jun 2026",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Segunda convocatoria",
+      "estado_radar": "Tercera modificación",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790938"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790938"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-041",
+      "linea_radar": 1585,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "10 sep 2026",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Segunda convocatoria",
+      "estado_radar": "Cuarta modificación; reprograma etapas 8 a 17 y entra en vigor el mismo día",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5798361"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5798361"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-042",
+      "linea_radar": 1586,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "18 jun 2026",
+      "tipo_radar": "Lineamientos",
+      "titulo_radar": "Migración voluntaria y expedita de autoabastecimiento y cogeneración",
+      "estado_radar": "Vigente; nota aclaratoria posterior",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790937"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790937"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-043",
+      "linea_radar": 1587,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "26 jun 2026",
+      "tipo_radar": "Nota aclaratoria",
+      "titulo_radar": "Lineamientos de migración",
+      "estado_radar": "Integra el texto aplicable",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5791847"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5791847"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-044",
+      "linea_radar": 1588,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "8 sep 2026",
+      "tipo_radar": "Acuerdo modificatorio",
+      "titulo_radar": "Lineamientos de migración de autoabastecimiento y cogeneración",
+      "estado_radar": "Amplía calendarios y precisa conexión, SAEE, pruebas, suministro y medición; vigente desde el día hábil siguiente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5798117"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5798117"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-045",
+      "linea_radar": 1589,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "10 jul 2026",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Proyectos estratégicos de generación y almacenamiento",
+      "estado_radar": "Segunda modificación",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5793261"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5793261"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-046",
+      "linea_radar": 1590,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "31 ago 2026",
+      "tipo_radar": "Acuerdo / formatos",
+      "titulo_radar": "Permisos, autorizaciones, bitácoras y avisos de biocombustibles",
+      "estado_radar": "Publicado; vigente desde el 1 sep 2026; deja sin efectos el acuerdo de formatos de 13 nov 2009",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5797477"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5797477"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-047",
+      "linea_radar": 1591,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "2 sep 2026",
+      "tipo_radar": "Tercera modificación",
+      "titulo_radar": "Proyectos estratégicos de generación y almacenamiento",
+      "estado_radar": "Mantiene cierre de generación el 2 sep; amplía SAEE al 30 oct 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5797703"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5797703"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-048",
+      "linea_radar": 1592,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "7 sep 2026",
+      "tipo_radar": "Plan",
+      "titulo_radar": "Plan de Desarrollo del Sector Hidrocarburos (PLADESHi)",
+      "estado_radar": "Publicado y vigente; horizonte de 15 años, revisiones anuales y escenarios 2025-2039",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5798065"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5798065"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-049",
+      "linea_radar": 1593,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Sistema",
+      "titulo_radar": "Sistema de Información Energética",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "SIE",
+          "url": "https://sie.energia.gob.mx/inicio/"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-050",
+      "linea_radar": 1594,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Publicación",
+      "titulo_radar": "Balance Nacional de Energía",
+      "estado_radar": "Colección oficial anual",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "SENER",
+          "url": "https://www.gob.mx/sener/articulos/balance-nacional-de-energia-296106"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-051",
+      "linea_radar": 1600,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "Instrumentos previstos pero no localizados como publicación",
+      "institucion": null,
+      "fecha_radar": null,
+      "tipo_radar": "Estrategia Nacional de Transición Energética",
+      "titulo_radar": "Estrategia Nacional de Transición Energética",
+      "estado_radar": "No localizada; PROSENER dijo que estaba en elaboración",
+      "estado_carga": "PENDIENTE DE PUBLICACION VERIFICADA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5752329"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "LPTE en decreto de 18 mar 2025",
+          "url": "https://sidof.segob.gob.mx/notas/5752329"
+        }
+      ],
+      "nota": "La URL sustenta la previsión del instrumento; no es el documento faltante.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-052",
+      "linea_radar": 1601,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "Instrumentos previstos pero no localizados como publicación",
+      "institucion": null,
+      "fecha_radar": null,
+      "tipo_radar": "PLATEASE",
+      "titulo_radar": "PLATEASE",
+      "estado_radar": "No localizado como instrumento emitido",
+      "estado_carga": "PENDIENTE DE PUBLICACION VERIFICADA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769157"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "Reglamento LPTE",
+          "url": "https://sidof.segob.gob.mx/notas/5769157"
+        }
+      ],
+      "nota": "La URL sustenta la previsión del instrumento; no es el documento faltante.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-053",
+      "linea_radar": 1602,
+      "seccion": "12.2 SENER: planeación, transición e información",
+      "subseccion": "Instrumentos previstos pero no localizados como publicación",
+      "institucion": null,
+      "fecha_radar": null,
+      "tipo_radar": "Declaratoria integral de operación del SNIE",
+      "titulo_radar": "Declaratoria integral de operación del SNIE",
+      "estado_radar": "No localizada",
+      "estado_carga": "PENDIENTE DE PUBLICACION VERIFICADA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769157"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "Reglamento LPTE",
+          "url": "https://sidof.segob.gob.mx/notas/5769157"
+        }
+      ],
+      "nota": "La URL sustenta la previsión del instrumento; no es el documento faltante.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-054",
+      "linea_radar": 1608,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CENACE/SENER",
+      "fecha_radar": "12 ene 2024",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714307"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714307"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-055",
+      "linea_radar": 1609,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "17 ene 2024",
+      "tipo_radar": "Acuerdo A/062/2023",
+      "titulo_radar": "Modificación o transferencia de permisos de generación y suministro",
+      "estado_radar": "Derogado en la parte aplicable por DACG de 23 oct 2025",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714540"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714540"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-056",
+      "linea_radar": 1610,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "18 ene 2024",
+      "tipo_radar": "Acuerdo A/051/2023",
+      "titulo_radar": "Beneficio neto de obras particulares en PAM y cesión de redes",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714631"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714631"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-057",
+      "linea_radar": 1611,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "23 ene 2024",
+      "tipo_radar": "Acuerdo A/025/2023",
+      "titulo_radar": "Acceso abierto a RNT y RGD",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714880"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714880"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-058",
+      "linea_radar": 1612,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "12 mar 2024",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Insistencia de modificaciones de 2019 a lineamientos CEL",
+      "estado_radar": "Define retorno al marco previo",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5719864"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5719864"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-059",
+      "linea_radar": 1613,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "8 abr 2024",
+      "tipo_radar": "Acuerdo A/007/2024",
+      "titulo_radar": "Asignación de CEL disponibles, obligación 2022",
+      "estado_radar": "Acto ejecutado",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5722482"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5722482"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-060",
+      "linea_radar": 1614,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "17 ago 2026",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Requisitos CEL 2025-2026",
+      "estado_radar": "Vigente; 13.9% anual",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=17082026-MAT.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-061",
+      "linea_radar": 1615,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "23 abr 2024",
+      "tipo_radar": "Acuerdo A/023/2024",
+      "titulo_radar": "Exclusión de centros de carga de autoabastecimiento o cogeneración legada",
+      "estado_radar": "Vigente/transitorio; revisar lineamientos de migración 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5724250"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5724250"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-062",
+      "linea_radar": 1616,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "20 may 2024",
+      "tipo_radar": "Acuerdo A/054/2024",
+      "titulo_radar": "Unidades de inspección para centros de carga, generación, transmisión y distribución",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5727366"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5727366"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-063",
+      "linea_radar": 1617,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "13 jun 2024",
+      "tipo_radar": "Acuerdo A/061/2024",
+      "titulo_radar": "Deja insubsistente modificación de 2020 sobre permisos",
+      "estado_radar": "Antecedente; régimen sustituido en 2025",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5730361"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5730361"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-064",
+      "linea_radar": 1618,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "10 sep 2024",
+      "tipo_radar": "Acuerdo A/108/2024",
+      "titulo_radar": "Electromovilidad e infraestructura de carga conectada al SEN",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5738646"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5738646"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-065",
+      "linea_radar": 1619,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "30 ene 2025",
+      "tipo_radar": "Acuerdo A/085/2024",
+      "titulo_radar": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5748078"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5748078"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-066",
+      "linea_radar": 1620,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "7 mar 2025",
+      "tipo_radar": "Acuerdo A/113/2024",
+      "titulo_radar": "Primeras DACG de almacenamiento eléctrico",
+      "estado_radar": "**Sin efectos desde abril de 2026**",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5751230"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5751230"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-067",
+      "linea_radar": 1621,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "6 ago 2025",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5764827"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5764827"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-068",
+      "linea_radar": 1622,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "7 oct 2025",
+      "tipo_radar": "Formato",
+      "titulo_radar": "Autoconsumo interconectado 0.7-20 MW",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769388"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769388"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-069",
+      "linea_radar": 1623,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "23 oct 2025",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Permisos de generación y almacenamiento, modificaciones y vigencias",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5770667"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5770667"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-070",
+      "linea_radar": 1624,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "17 mar 2026",
+      "tipo_radar": "Contrato modelo",
+      "titulo_radar": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5782317"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5782317"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-071",
+      "linea_radar": 1625,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "3 abr 2026",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5784027"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5784027"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-072",
+      "linea_radar": 1626,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "16 abr 2026",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Cogeneración",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5785044"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5785044"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-073",
+      "linea_radar": 1627,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "16 abr 2026",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Integración de SAEE al SEN",
+      "estado_radar": "Vigente; sustituye A/113/2024",
+      "estado_carga": "YA CARGADO",
+      "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+      "titulo_en_supabase": "ACUERDO de la CNE por el que se emiten las DACG para la integración de SAE al SEN",
+      "codigos_dof": [
+        "5785045"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5785045"
+        }
+      ],
+      "nota": "Coincidencia de código DOF; RLSE conciliado por identidad del instrumento. No implica validación de sus fragmentos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-074",
+      "linea_radar": 1628,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "22 may 2026",
+      "tipo_radar": "Formatos",
+      "titulo_radar": "Cogeneración",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5788271"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5788271"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-075",
+      "linea_radar": 1629,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "22 may 2026",
+      "tipo_radar": "Formatos",
+      "titulo_radar": "SAEE",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5788270"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5788270"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-076",
+      "linea_radar": 1630,
+      "seccion": "12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "18 jun 2026",
+      "tipo_radar": "Metodología",
+      "titulo_radar": "Cargo de transmisión para permisos legados LSPEE",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790939"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790939"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-077",
+      "linea_radar": 1636,
+      "seccion": "12.4 CENACE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "12 ene 2024",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Suspensión del Mercado de Energía de Corto Plazo",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714307"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714307"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-054"
+    },
+    {
+      "id": "RAD-078",
+      "linea_radar": 1637,
+      "seccion": "12.4 CENACE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "17 oct 2025",
+      "tipo_radar": "Insumo de planeación",
+      "titulo_radar": "PLADESE, PVIRCE y PAM",
+      "estado_radar": "CENACE participa como soporte técnico",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5770297"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "PLADESE",
+          "url": "https://sidof.segob.gob.mx/notas/5770297"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-024"
+    },
+    {
+      "id": "RAD-079",
+      "linea_radar": 1638,
+      "seccion": "12.4 CENACE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "17 mar 2026",
+      "tipo_radar": "Contrato modelo",
+      "titulo_radar": "Interconexión y conexión",
+      "estado_radar": "Aplicación operativa junto con CNE y CFE",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5782317"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5782317"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-070"
+    },
+    {
+      "id": "RAD-080",
+      "linea_radar": 1639,
+      "seccion": "12.4 CENACE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "3 abr 2026",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Mecanismos competitivos para confiabilidad",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5784027"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5784027"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-071"
+    },
+    {
+      "id": "RAD-081",
+      "linea_radar": 1640,
+      "seccion": "12.4 CENACE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "30 abr 2026",
+      "tipo_radar": "Aviso / programa",
+      "titulo_radar": "Programa Institucional CENACE 2026-2030",
+      "estado_radar": "Publicado por aviso",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5786368"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5786368"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-082",
+      "linea_radar": 1641,
+      "seccion": "12.4 CENACE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Marco regulatorio",
+      "titulo_radar": "Documentos de planeación y operación",
+      "estado_radar": "Portal institucional",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "CENACE",
+          "url": "https://www.cenace.gob.mx/"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-083",
+      "linea_radar": 1647,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "1 abr 2024",
+      "tipo_radar": "Modificación estatutaria",
+      "titulo_radar": "Estatuto Orgánico de la CFE",
+      "estado_radar": "Antecedente del régimen previo",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5721854"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5721854"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-084",
+      "linea_radar": 1648,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "16 may 2024",
+      "tipo_radar": "Modificación estatutaria",
+      "titulo_radar": "CFE Suministrador de Servicios Básicos",
+      "estado_radar": "Antecedente del régimen previo",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5726910"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5726910"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-085",
+      "linea_radar": 1649,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "18 mar 2025",
+      "tipo_radar": "Ley",
+      "titulo_radar": "Ley de la Empresa Pública del Estado, CFE",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5752329"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5752329"
+        }
+      ],
+      "nota": "Extraer esta ley por separado del decreto que expidió ocho leyes.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-086",
+      "linea_radar": 1650,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "2 jun 2025",
+      "tipo_radar": "Estatuto orgánico",
+      "titulo_radar": "Empresa Pública del Estado, CFE",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5758999"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5758999"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-087",
+      "linea_radar": 1651,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "17 oct 2025",
+      "tipo_radar": "Plan",
+      "titulo_radar": "PLADESE: alineación de programa, generación, transmisión y distribución",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5770297"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5770297"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-024"
+    },
+    {
+      "id": "RAD-088",
+      "linea_radar": 1652,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "2 dic 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de la Empresa Pública del Estado, CFE",
+      "estado_radar": "Vigente con fe de erratas",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5774837"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5774837"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-015"
+    },
+    {
+      "id": "RAD-089",
+      "linea_radar": 1653,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "29 dic 2025",
+      "tipo_radar": "Fe de erratas",
+      "titulo_radar": "Reglamento de CFE",
+      "estado_radar": "Integra texto aplicable",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5777392"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5777392"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-016"
+    },
+    {
+      "id": "RAD-090",
+      "linea_radar": 1654,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "4 ago 2026",
+      "tipo_radar": "Decreto",
+      "titulo_radar": "Transparencia proactiva de filiales de CFE",
+      "estado_radar": "Vigente desde 5 ago; criterios y publicación pendientes conforme a transitorios",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF vespertino",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=04082026-VES.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-091",
+      "linea_radar": 1655,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "19 ago 2026",
+      "tipo_radar": "Disposiciones generales",
+      "titulo_radar": "Adquisiciones, arrendamientos, servicios y obras de la CFE",
+      "estado_radar": "Publicadas; vigentes desde 20 ago 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF matutino",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=19082026-MAT.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-092",
+      "linea_radar": 1656,
+      "seccion": "12.5 CFE",
+      "subseccion": "",
+      "institucion": null,
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "Información corporativa, transmisión, distribución y suministro",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "CFE",
+          "url": "https://www.cfe.mx/"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-093",
+      "linea_radar": 1664,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX Logística",
+      "fecha_radar": "4 mar 2024",
+      "tipo_radar": "Aviso",
+      "titulo_radar": "Modificaciones a su Estatuto Orgánico",
+      "estado_radar": "Antecedente",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5718916"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5718916"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-094",
+      "linea_radar": 1665,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX Exploración y Producción",
+      "fecha_radar": "5 abr 2024",
+      "tipo_radar": "Aviso",
+      "titulo_radar": "Modificación a su Estatuto Orgánico",
+      "estado_radar": "Antecedente",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5722453"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5722453"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-095",
+      "linea_radar": 1666,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "10 sep 2024",
+      "tipo_radar": "Estatuto orgánico",
+      "titulo_radar": "Estatuto del Instituto Mexicano del Petróleo",
+      "estado_radar": "**Abrogado a partir del 28 ago 2026**",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5738636"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5738636"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-096",
+      "linea_radar": 1667,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "13 mar 2025",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Manual de Organización General",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5751783"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5751783"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-097",
+      "linea_radar": 1668,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX",
+      "fecha_radar": "18 mar 2025",
+      "tipo_radar": "Ley",
+      "titulo_radar": "Ley de la Empresa Pública del Estado, PEMEX",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5752329"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5752329"
+        }
+      ],
+      "nota": "Extraer esta ley por separado del decreto que expidió ocho leyes.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-098",
+      "linea_radar": 1669,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX",
+      "fecha_radar": "30 may 2025",
+      "tipo_radar": "Aviso",
+      "titulo_radar": "Estatuto Orgánico de PEMEX",
+      "estado_radar": "Consultar versión y aviso posterior",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5758825"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5758825"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-099",
+      "linea_radar": 1670,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX",
+      "fecha_radar": "12 sep 2025",
+      "tipo_radar": "Aviso",
+      "titulo_radar": "Estatuto Orgánico de PEMEX",
+      "estado_radar": "Último aviso localizado",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5767860"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5767860"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-100",
+      "linea_radar": 1671,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX",
+      "fecha_radar": "3 dic 2025",
+      "tipo_radar": "Reglamento",
+      "titulo_radar": "Ley de la Empresa Pública del Estado, PEMEX",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5775017"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5775017"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-017"
+    },
+    {
+      "id": "RAD-101",
+      "linea_radar": 1672,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "Ejecutivo Federal",
+      "fecha_radar": "4 ago 2026",
+      "tipo_radar": "Decreto",
+      "titulo_radar": "Transparencia proactiva de filiales de PEMEX",
+      "estado_radar": "Vigente desde 5 ago; criterios y publicación pendientes conforme a transitorios",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF vespertino",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=04082026-VES.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-090"
+    },
+    {
+      "id": "RAD-102",
+      "linea_radar": 1673,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "10 jun 2026",
+      "tipo_radar": "Aviso / programa",
+      "titulo_radar": "Programa Institucional Estratégico IMP 2026-2030",
+      "estado_radar": "Publicado por aviso",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790183"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790183"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-103",
+      "linea_radar": 1674,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "27 ago 2026",
+      "tipo_radar": "Estatuto orgánico",
+      "titulo_radar": "Estatuto Orgánico del Instituto Mexicano del Petróleo",
+      "estado_radar": "Publicado; vigente desde el 28 ago 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5797266"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5797266"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-104",
+      "linea_radar": 1675,
+      "seccion": "12.6 PEMEX e IMP",
+      "subseccion": "",
+      "institucion": "PEMEX",
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "Información corporativa y normativa",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "PEMEX",
+          "url": "https://www.pemex.com/"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-105",
+      "linea_radar": 1683,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "12 ene 2024",
+      "tipo_radar": "Acuerdo A/080/2023",
+      "titulo_radar": "Regularización en cesión de permisos de estaciones de servicio",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5714262"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5714262"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-106",
+      "linea_radar": 1684,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "26 ene 2024",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Importadores y cumplimiento de NOM-016-CRE-2016, calidad de petrolíferos",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5715317"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5715317"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-107",
+      "linea_radar": 1685,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNH",
+      "fecha_radar": "31 ene 2024",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Modificación del Reglamento Interno de la CNH",
+      "estado_radar": "Antecedente; CNH extinguida",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5715670"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5715670"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-108",
+      "linea_radar": 1686,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "19 feb 2024",
+      "tipo_radar": "Acuerdo A/066/2023",
+      "titulo_radar": "Herramienta EnerGeoCRE para estaciones de petrolíferos y gas LP",
+      "estado_radar": "Transición institucional",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5717263"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5717263"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-109",
+      "linea_radar": 1687,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "27 feb 2024",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Participación cruzada en hidrocarburos",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5718108"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5718108"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-110",
+      "linea_radar": 1688,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "22 may 2024",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Seguros mínimos en transporte, almacenamiento, distribución y expendio",
+      "estado_radar": "Vigente/modificado",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5727975"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5727975"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-111",
+      "linea_radar": 1689,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "16 ago 2024",
+      "tipo_radar": "Acuerdo A/60/2024",
+      "titulo_radar": "Laboratorios extranjeros y equivalencia NOM-016-CRE-2016",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5736461"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5736461"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-112",
+      "linea_radar": 1690,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "30 ago 2024",
+      "tipo_radar": "Acuerdo A/089/2024",
+      "titulo_radar": "Regularización por cambio de marca/productos en estaciones",
+      "estado_radar": "Acto de regularización",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5737709"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5737709"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-113",
+      "linea_radar": 1691,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "30 ago 2024",
+      "tipo_radar": "Acuerdo A/090/2024",
+      "titulo_radar": "Regularización de obligaciones de estaciones de petrolíferos, gas natural y gas LP",
+      "estado_radar": "Ampliado en 2025",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5737710"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5737710"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-114",
+      "linea_radar": 1692,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNH",
+      "fecha_radar": "20 dic 2024",
+      "tipo_radar": "Lineamientos",
+      "titulo_radar": "Construcción y mantenimiento de pozos",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5745908"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5745908"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-115",
+      "linea_radar": 1693,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNH",
+      "fecha_radar": "28 ene 2025",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Simplificación en exploración y extracción",
+      "estado_radar": "Transición institucional",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5747885"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5747885"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-116",
+      "linea_radar": 1694,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "29 ene 2025",
+      "tipo_radar": "Acuerdo A/169/2024",
+      "titulo_radar": "Amplía vigencia del programa de regularización A/090/2024",
+      "estado_radar": "Acto temporal",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5748017"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5748017"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-117",
+      "linea_radar": 1695,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "7 mar 2025",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Registro de plantas de gas LP y estaciones de gasolinas/diésel/gas LP",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5751221"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5751221"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-118",
+      "linea_radar": 1696,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "Fondos/SENER",
+      "fecha_radar": "24 mar 2025",
+      "tipo_radar": "Lineamientos",
+      "titulo_radar": "Investigación, desarrollo tecnológico e innovación en hidrocarburos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5752674"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5752674"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-119",
+      "linea_radar": 1697,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "6 may 2025",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Expendio simultáneo de petrolíferos y/o gas natural",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5756445"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5756445"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-120",
+      "linea_radar": 1698,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "6 may 2025",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Transporte terrestre por ductos de petróleo, petrolíferos y petroquímicos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5756444"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5756444"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-121",
+      "linea_radar": 1699,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "21 may 2025",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Instalaciones de licuefacción de gas natural",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5757818"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5757818"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-122",
+      "linea_radar": 1700,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "11 jul 2025",
+      "tipo_radar": "Simplificación",
+      "titulo_radar": "Permiso de expendio al público en estación de petrolíferos",
+      "estado_radar": "Vigente con formato posterior",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5762728"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5762728"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-123",
+      "linea_radar": 1701,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "1 sep 2025",
+      "tipo_radar": "NOM-020-ASEA-2024",
+      "titulo_radar": "Transporte de gas natural por ductos terrestres",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5767026"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5767026"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-124",
+      "linea_radar": 1702,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "2 sep 2025",
+      "tipo_radar": "NOM-019-ASEA-2024",
+      "titulo_radar": "Instalaciones de procesamiento de gas natural",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5767064"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5767064"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-125",
+      "linea_radar": 1703,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "23 sep 2025",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Balizado y GPS de transporte/distribución de petrolíferos, gas LP y petroquímicos",
+      "estado_radar": "Modificado 3 dic 2025",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5768321"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5768321"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-126",
+      "linea_radar": 1704,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "3 oct 2025",
+      "tipo_radar": "NOM de emergencia",
+      "titulo_radar": "Transporte de gas LP",
+      "estado_radar": "Prorrogada 1 abr 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769160"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769160"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-127",
+      "linea_radar": 1705,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "6 oct 2025",
+      "tipo_radar": "Formato",
+      "titulo_radar": "Solicitud simplificada para estaciones de petrolíferos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5769306"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5769306"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-128",
+      "linea_radar": 1706,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "3 dic 2025",
+      "tipo_radar": "Modificación",
+      "titulo_radar": "Balizado y GPS",
+      "estado_radar": "Integra el texto aplicable",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5775029"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5775029"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-129",
+      "linea_radar": 1707,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "11 dic 2025",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Casos fortuitos y fuerza mayor en contratos de exploración y extracción",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5775808"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5775808"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-130",
+      "linea_radar": 1708,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "24 dic 2025",
+      "tipo_radar": "Programa",
+      "titulo_radar": "Regularización extraordinaria de instalaciones de gasolinas y gas LP",
+      "estado_radar": "Acto temporal",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5777046"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5777046"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-131",
+      "linea_radar": 1709,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "20 ene 2026",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Deja parcialmente insubsistente metodología anterior de precios máximos de gas LP",
+      "estado_radar": "Sustituida por nueva metodología",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5778484"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5778484"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-132",
+      "linea_radar": 1710,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "21 ene 2026",
+      "tipo_radar": "Metodología",
+      "titulo_radar": "Precios máximos de gas LP a usuario final",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5778559"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5778559"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-133",
+      "linea_radar": 1711,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "12 mar 2026",
+      "tipo_radar": "Acuerdo/formatos",
+      "titulo_radar": "Actualización de parque vehicular en petrolíferos, gas LP y petroquímicos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5782061"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5782061"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-134",
+      "linea_radar": 1712,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "1 abr 2026",
+      "tipo_radar": "Prórroga",
+      "titulo_radar": "NOM-EM-006-ASEA-2025, transporte de gas LP",
+      "estado_radar": "Prorrogada seis meses",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5783846"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5783846"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-135",
+      "linea_radar": 1713,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA",
+      "fecha_radar": "30 abr 2026",
+      "tipo_radar": "Programa",
+      "titulo_radar": "PRONAGAS: ordenamiento de instalaciones de gasolinas y gas LP",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5786354"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5786354"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-136",
+      "linea_radar": 1714,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CENAGAS",
+      "fecha_radar": "12 jun 2026",
+      "tipo_radar": "Programa institucional",
+      "titulo_radar": "Programa Institucional CENAGAS 2026-2030",
+      "estado_radar": "Publicado",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790453"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790453"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-137",
+      "linea_radar": 1715,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CENAGAS",
+      "fecha_radar": "14 ago 2026",
+      "tipo_radar": "Convocatoria",
+      "titulo_radar": "Renovación de representantes de personas usuarias y usuarias finales del Comité Consultivo del SISTRANGAS",
+      "estado_radar": "Recepción hasta 18 sep 2026; resultados a más tardar 2 oct 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=14082026-MAT.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-138",
+      "linea_radar": 1716,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "ASEA / SHCP",
+      "fecha_radar": "13 jul 2026",
+      "tipo_radar": "Oficio de autorización",
+      "titulo_radar": "Montos por tres productos y 22 aprovechamientos de servicios de ASEA",
+      "estado_radar": "Referencia operativa; no modifica la arquitectura sectorial",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5793380"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5793380"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-139",
+      "linea_radar": 1717,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CNE",
+      "fecha_radar": "11 ago 2026",
+      "tipo_radar": "Acuerdo / programa temporal",
+      "titulo_radar": "Registro de instalaciones con despacho para autoconsumo de petrolíferos sin permiso",
+      "estado_radar": "Vigente; inscripción hasta 31 dic 2026; la constancia no constituye permiso",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=11082026-MAT.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-140",
+      "linea_radar": 1718,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "SENER",
+      "fecha_radar": "7 sep 2026",
+      "tipo_radar": "Plan",
+      "titulo_radar": "Plan de Desarrollo del Sector Hidrocarburos (PLADESHi)",
+      "estado_radar": "Publicado y vigente; instrumento rector con escenarios 2025-2039",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5798065"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5798065"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-048"
+    },
+    {
+      "id": "RAD-141",
+      "linea_radar": 1719,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "",
+      "institucion": "CENAGAS",
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "SISTRANGAS, capacidad e información institucional",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "CENAGAS",
+          "url": "https://www.gob.mx/cenagas"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-142",
+      "linea_radar": 1725,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "24 jul 2024",
+      "tipo_radar": "Convocatoria NOM-015-ASEA-2023",
+      "titulo_radar": "Descompresión de gas natural comprimido",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5734389"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5734389"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-143",
+      "linea_radar": 1726,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "30 jul 2024",
+      "tipo_radar": "Convocatoria NOM-018-ASEA-2023",
+      "titulo_radar": "Plantas de distribución de gas LP",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5734780"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5734780"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-144",
+      "linea_radar": 1727,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "14 ago 2024",
+      "tipo_radar": "Convocatoria NOM-017-ASEA-2023",
+      "titulo_radar": "Instalaciones de almacenamiento de gas LP",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5736163"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5736163"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-145",
+      "linea_radar": 1728,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "25 sep 2024",
+      "tipo_radar": "Convocatoria NOM-011-ASEA-2019",
+      "titulo_radar": "Bodegas de distribución y expendio de gas LP",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5739627"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5739627"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-146",
+      "linea_radar": 1729,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "17 jul 2025",
+      "tipo_radar": "Convocatoria",
+      "titulo_radar": "Terceros para dictamen de taponamiento de pozos",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5763176"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5763176"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-147",
+      "linea_radar": 1730,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "23 dic 2025",
+      "tipo_radar": "Convocatoria NOM-019-ASEA-2024",
+      "titulo_radar": "Procesamiento de gas natural",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5776908"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5776908"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-148",
+      "linea_radar": 1731,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "23 dic 2025",
+      "tipo_radar": "Convocatoria NOM-020-ASEA-2024",
+      "titulo_radar": "Transporte de gas natural por ductos",
+      "estado_radar": null,
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5776907"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5776907"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-149",
+      "linea_radar": 1732,
+      "seccion": "12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA",
+      "subseccion": "Normas y convocatorias ASEA de almacenamiento y gas para seguimiento",
+      "institucion": null,
+      "fecha_radar": "7 sep 2026",
+      "tipo_radar": "Consulta pública PROY-NOM-030-ASEA-2026",
+      "titulo_radar": "Distribución de gas LP mediante auto-tanque y vehículo de reparto; proyecto sujeto a 60 días naturales de comentarios",
+      "estado_radar": null,
+      "estado_carga": "FALTA: PROYECTO O CONSULTA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5798063"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5798063"
+        }
+      ],
+      "nota": "No clasificar como NOM definitiva; comprobar estatus antes de cargar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-150",
+      "linea_radar": 1738,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "11 jun 2024",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Manual de Organización General",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5730078"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5730078"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-151",
+      "linea_radar": 1739,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CRE",
+      "fecha_radar": "10 sep 2024",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Electromovilidad e infraestructura de carga",
+      "estado_radar": "Vigente/transitorio",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5738646"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5738646"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-064"
+    },
+    {
+      "id": "RAD-152",
+      "linea_radar": 1740,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "12 mar 2025",
+      "tipo_radar": "DACG",
+      "titulo_radar": "Eficiencia en inmuebles, flotas e instalaciones industriales APF 2025",
+      "estado_radar": "Aplicación 2025",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5751673"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5751673"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-153",
+      "linea_radar": 1741,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "28 abr 2025",
+      "tipo_radar": "NOM-004-ENER-2025",
+      "titulo_radar": "Conjuntos motor-bomba y motobombas",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5755989"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5755989"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-154",
+      "linea_radar": 1742,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "29 abr 2025",
+      "tipo_radar": "NOM-011-ENER-2025",
+      "titulo_radar": "Aire acondicionado central, paquete o dividido",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5756076"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5756076"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-155",
+      "linea_radar": 1743,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "2 jun 2025",
+      "tipo_radar": "NOM-014-ENER-2025",
+      "titulo_radar": "Motores monofásicos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5758923"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5758923"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-156",
+      "linea_radar": 1744,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "19 ago 2025",
+      "tipo_radar": "NOM-016-ENER-2025",
+      "titulo_radar": "Motores trifásicos",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5765860"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5765860"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-157",
+      "linea_radar": 1745,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "20 ago 2025",
+      "tipo_radar": "NOM-035-ENER-2025",
+      "titulo_radar": "Aire acondicionado unitario",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5766188"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5766188"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-158",
+      "linea_radar": 1746,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE/SE",
+      "fecha_radar": "4 nov 2025",
+      "tipo_radar": "NOM-036-ENER/SE-2025",
+      "titulo_radar": "Estufas de leña, eficiencia y seguridad",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5771767"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5771767"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-159",
+      "linea_radar": 1747,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "Comité de normalización",
+      "fecha_radar": "11 dic 2025",
+      "tipo_radar": "Reglas de operación",
+      "titulo_radar": "Comité Consultivo Nacional de Normalización de Transición Energética",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5775809"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5775809"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-160",
+      "linea_radar": 1748,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "12 mar 2026",
+      "tipo_radar": "Acuerdo",
+      "titulo_radar": "Simplificación de trámites",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5782060"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5782060"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-161",
+      "linea_radar": 1749,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "11 sep 2026",
+      "tipo_radar": "Disposiciones reglamentarias",
+      "titulo_radar": "Catálogo de Equipos y Aparatos, reporte de consumo y formatos",
+      "estado_radar": "Vigentes desde el 12 sep 2026; sustituyen catálogo de 2023 y formatos de 2020",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5798667"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5798667"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-162",
+      "linea_radar": 1750,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "14 sep 2026",
+      "tipo_radar": "Proyectos NOM",
+      "titulo_radar": "PROY-NOM-007-ENER-2026 y PROY-NOM-013-ENER-2026, eficiencia de alumbrado",
+      "estado_radar": "En consulta por 60 días naturales; aún no vigentes como NOM",
+      "estado_carga": "FALTA: PROYECTO O CONSULTA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=14092026-MAT.pdf&repo="
+        }
+      ],
+      "nota": "No clasificar como NOM definitiva; comprobar estatus antes de cargar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-163",
+      "linea_radar": 1751,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "27 mar 2026",
+      "tipo_radar": "Proyectos NOM",
+      "titulo_radar": "Lavadoras comerciales, microondas y calentadores eléctricos",
+      "estado_radar": "En consulta al corte",
+      "estado_carga": "FALTA: PROYECTO O CONSULTA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5783447",
+        "5783448",
+        "5783449"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "NOM-037",
+          "url": "https://sidof.segob.gob.mx/notas/5783447"
+        },
+        {
+          "etiqueta": "NOM-038",
+          "url": "https://sidof.segob.gob.mx/notas/5783448"
+        },
+        {
+          "etiqueta": "NOM-040",
+          "url": "https://sidof.segob.gob.mx/notas/5783449"
+        }
+      ],
+      "nota": "No clasificar como NOM definitiva; comprobar estatus antes de cargar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-164",
+      "linea_radar": 1752,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE/SE",
+      "fecha_radar": "23 jun 2026",
+      "tipo_radar": "Proyectos NOM",
+      "titulo_radar": "Calentadores solares y ventiladores",
+      "estado_radar": "En consulta al corte",
+      "estado_carga": "FALTA: PROYECTO O CONSULTA",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5791368",
+        "5791369"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "NOM-039",
+          "url": "https://sidof.segob.gob.mx/notas/5791368"
+        },
+        {
+          "etiqueta": "NOM-041",
+          "url": "https://sidof.segob.gob.mx/notas/5791369"
+        }
+      ],
+      "nota": "No clasificar como NOM definitiva; comprobar estatus antes de cargar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-165",
+      "linea_radar": 1753,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE/SE",
+      "fecha_radar": "23 jul 2026",
+      "tipo_radar": "NOM-022-ENER/SE-2025",
+      "titulo_radar": "Refrigeración comercial autocontenida: eficiencia, seguridad, pruebas y etiquetado",
+      "estado_radar": "Publicada; entrada en vigor en 180 días naturales",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5794525"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5794525"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-166",
+      "linea_radar": 1754,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "SENER/CONUEE",
+      "fecha_radar": "26 ago 2026",
+      "tipo_radar": "Suplemento de programa de normalización",
+      "titulo_radar": "Modificación de la NOM-002-SEDE/ENER-2014 para transformadores de distribución",
+      "estado_radar": "Inscrita por primera vez; modificación aún no publicada",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "DOF",
+          "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=26082026-MAT.pdf&repo="
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-167",
+      "linea_radar": 1755,
+      "seccion": "12.8 CONUEE, eficiencia energética y transición",
+      "subseccion": "",
+      "institucion": "CONUEE",
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "Normas, programas y herramientas",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "CONUEE",
+          "url": "https://www.gob.mx/conuee"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-168",
+      "linea_radar": 1761,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "LitioMx",
+      "fecha_radar": "24 jul 2026",
+      "tipo_radar": "Aviso / programa",
+      "titulo_radar": "Programa Institucional de Litio para México 2026-2030",
+      "estado_radar": "Publicado",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5794681"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5794681"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-169",
+      "linea_radar": 1762,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "ININ",
+      "fecha_radar": "17 sep 2024",
+      "tipo_radar": "Aviso",
+      "titulo_radar": "Manual de Organización General",
+      "estado_radar": "Publicado por aviso",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5739127"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5739127"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-170",
+      "linea_radar": 1763,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "10 sep 2024",
+      "tipo_radar": "Estatuto",
+      "titulo_radar": "Estatuto Orgánico",
+      "estado_radar": "**Abrogado a partir del 28 ago 2026**",
+      "estado_carga": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5738636"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5738636"
+        }
+      ],
+      "nota": "Conservar estado histórico y cotejar relación con el instrumento posterior.",
+      "repite_fuente_de": "RAD-095"
+    },
+    {
+      "id": "RAD-171",
+      "linea_radar": 1764,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "13 mar 2025",
+      "tipo_radar": "Manual",
+      "titulo_radar": "Manual de Organización General",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5751783"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5751783"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-096"
+    },
+    {
+      "id": "RAD-172",
+      "linea_radar": 1765,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "ININ",
+      "fecha_radar": "1 abr 2026",
+      "tipo_radar": "Aviso / programa",
+      "titulo_radar": "Programa Institucional ININ 2026-2030",
+      "estado_radar": "Actualizado posteriormente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5783849"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5783849"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-173",
+      "linea_radar": 1766,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "INEEL",
+      "fecha_radar": "1 jun 2026",
+      "tipo_radar": "Programa",
+      "titulo_radar": "Programa Institucional INEEL 2026-2030",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5789107"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5789107"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-174",
+      "linea_radar": 1767,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "10 jun 2026",
+      "tipo_radar": "Aviso / programa",
+      "titulo_radar": "Programa Institucional Estratégico IMP 2026-2030",
+      "estado_radar": "Vigente",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790183"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790183"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-102"
+    },
+    {
+      "id": "RAD-175",
+      "linea_radar": 1768,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "27 ago 2026",
+      "tipo_radar": "Estatuto orgánico",
+      "titulo_radar": "Estatuto Orgánico del Instituto Mexicano del Petróleo",
+      "estado_radar": "Publicado; vigente desde el 28 ago 2026",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5797266"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5797266"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": "RAD-103"
+    },
+    {
+      "id": "RAD-176",
+      "linea_radar": 1769,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "ININ",
+      "fecha_radar": "10 jun 2026",
+      "tipo_radar": "Aviso / actualización",
+      "titulo_radar": "Actualización del Programa Institucional ININ 2026-2030",
+      "estado_radar": "Última localizada",
+      "estado_carga": "FALTA EN CATALOGO",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [
+        "5790184"
+      ],
+      "fuentes": [
+        {
+          "etiqueta": "SIDOF",
+          "url": "https://sidof.segob.gob.mx/notas/5790184"
+        }
+      ],
+      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-177",
+      "linea_radar": 1770,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "INEEL",
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "Investigación eléctrica y energías limpias",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "INEEL",
+          "url": "https://www.ineel.mx/"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-178",
+      "linea_radar": 1771,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "IMP",
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "Investigación y servicios en hidrocarburos",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "IMP",
+          "url": "https://www.gob.mx/imp"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    },
+    {
+      "id": "RAD-179",
+      "linea_radar": 1772,
+      "seccion": "12.9 LitioMx, INEEL, IMP e ININ",
+      "subseccion": "",
+      "institucion": "ININ",
+      "fecha_radar": "Consulta permanente",
+      "tipo_radar": "Portal",
+      "titulo_radar": "Investigación nuclear",
+      "estado_radar": "En operación",
+      "estado_carga": "PORTAL O COLECCION",
+      "ley_id": null,
+      "titulo_en_supabase": null,
+      "codigos_dof": [],
+      "fuentes": [
+        {
+          "etiqueta": "ININ",
+          "url": "https://www.gob.mx/inin"
+        }
+      ],
+      "nota": "No equivale a un instrumento individual; seleccionar documentos concretos.",
+      "repite_fuente_de": null
+    }
+  ]
+}

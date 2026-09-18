@@ -1,0 +1,654 @@
+ACUERDO de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las Disposiciones Administrativas de Carácter General para la Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional.
+Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Nacional de Energía.
+JUAN CARLOS SOLÍS ÁVILA, Director General de la Comisión Nacional de Energía, con fundamento en los artículos 25, párrafo quinto, 27, párrafo sexto, 28, párrafo noveno y 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 1, párrafo primero, 2, 3, 4 y 13 de la Ley Federal de Procedimiento Administrativo; 1, 2, párrafo primero, 3, 7, fracciones I, II, III, V y XXII, 8, fracciones IV y IX, 12, 14, primer párrafo, 16, fracciones VI, VII, X, XIX, XXIII y XXV y 17, fracciones I, II y III de la Ley de la Comisión Nacional de Energía; 6, 7, 11, fracciones I, XLIV y XLIX y 151 de la Ley del Sector Eléctrico; 3, párrafo segundo y 19, párrafo segundo, fracciones I y III del Reglamento de la Ley del Sector Eléctrico; 2, apartado F, fracción III, 71, 77 y 78 del Reglamento Interior de la Secretaría de Energía; 2, 7, 9 y 12, fracciones IX y XI del Reglamento Interior de la Comisión Nacional de Energía; 7, fracción II del Acuerdo número CT/1.SE/2-2025, por el que se aprobaron las Reglas de Operación del Comité Técnico de la Comisión Nacional de Energía; así como el Acuerdo número CT/9.SO/46-2026 expedido por el Comité Técnico de la Comisión Nacional de Energía y,
+CONSIDERANDO
+Que el artículo 28, párrafo noveno de la Constitución Política de los Estados Unidos Mexicanos, señala que el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica, así como con la facultad sancionadora en materia energética.
+Que de conformidad con los artículos 1, 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 2, párrafo primero de la Ley de la Comisión Nacional de Energía; 2, apartado F, fracción III y 71 del Reglamento Interior de la Secretaría de Energía, y 2 del Reglamento Interior de la Comisión Nacional de Energía, la Comisión Nacional de Energía (CNE) es un órgano administrativo desconcentrado, de carácter técnico, sectorizado a la Secretaría de Energía que cuenta con independencia técnica, operativa, de gestión y de decisión, y tiene por objeto regular, supervisar e imponer sanciones en las actividades en materia energética, con el fin de promover el desarrollo ordenado, continuo y seguro de las actividades del sector energético de conformidad con la planeación vinculante en el ámbito de su competencia.
+Que el artículo 7, fracción II, de la Ley de la Comisión Nacional de Energía señala que, la CNE es competente para expedir la regulación y disposiciones administrativas de carácter general sobre las actividades en materia energética, así como vigilar y supervisar su cumplimiento, aunado a que, en términos de los artículos 7, fracción V, y 8, fracción IV, de la citada Ley, y 11, fracción I, y 151, de la Ley del Sector Eléctrico, la CNE tiene la atribución de otorgar, modificar, actualizar, terminar, revocar, extinguir y supervisar los permisos de generación de energía eléctrica, considerando los criterios de planeación vinculante establecidos por la Secretaría de Energía, así como de emitir las autorizaciones y actos administrativos vinculados al sector, que se requieran.
+Que conforme al artículo 19, párrafo segundo, fracciones I y III del Reglamento de la Ley del Sector Eléctrico la CNE puede otorgar permisos de generación y de almacenamiento de energía eléctrica.
+Que el 06 de agosto de 2025 se publicó en el Diario Oficial de la Federación (DOF) el Acuerdo de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW). Asimismo, en cumplimiento al referido acuerdo, el 07 de octubre de la citada anualidad se publicó en el referido medio de difusión el Acuerdo diverso por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW) (Acuerdo Simplificado), el cual incluye el formato para obtener dicho permiso.
+Que el 23 de octubre de 2025 se publicó en el DOF el Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los términos legales, técnicos y financieros para solicitar el otorgamiento y la modificación de permisos de generación y almacenamiento de energía eléctrica, así como su vigencia (DACG de Permisos), el cual prevé los formatos para realizar la solicitud de los citados permisos, entre los que se encuentran el formato CNE_Electricidad_01 correspondiente a la solicitud de permiso de generación de energía eléctrica y el formato CNE_ELECTRICIDAD_02 para la solicitud de permiso de almacenamiento de energía eléctrica.
+Que el 16 de abril de 2026 se publicó en el DOF el Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional (DACG de Integración de SAEE), el cual, en su Transitorio Octavo establece que, dentro de los treinta días naturales siguientes a que entre en vigor dicho Acuerdo, la CNE debe publicar en su página electrónica y en el referido medio de difusión oficial los formatos autorizados para solicitar los permisos de almacenamiento de energía eléctrica en las modalidades que se establecen en el referido instrumento, así como los correspondientes a los permisos de generación de energía eléctrica con sistemas de almacenamiento.
+Que si bien las DACG de Permisos, contemplan los formatos de solicitud de permiso de generación de energía eléctrica y el formato de solicitud de permiso de almacenamiento de energía eléctrica y el Acuerdo Simplificado, contempla el correspondiente a la solicitud de permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW, con la emisión de las DACG de Integración de SAEE, se incluyó información que no se encuentra prevista en los referidos instrumentos, tales como la posibilidad de integrar un Sistema de Almacenamiento de Energía Eléctrica (SAEE) como parte de las instalaciones y equipos de la Central Eléctrica desde el momento de presentar la solicitud de permiso de generación, así como la opción de solicitar un permiso de almacenamiento de energía eléctrica para la operación de un SAEE no Asociado, mediante la celebración de un contrato de corto, mediano o largo plazo con el Centro Nacional de Control de Energía (CENACE); por lo que para estos casos, resulta necesario emitir los formatos correspondientes que faciliten a los particulares la identificación de la información a proporcionar, según corresponda a sus necesidades y conforme a lo previsto tanto en las DACG de Permisos, el Acuerdo Simplificado, así como la DACG de Integración de SAEE.
+Que mediante la Novena Sesión Ordinaria celebrada el 12 de mayo de 2026, el Comité Técnico de la CNE aprobó el Acuerdo número CT/9.SO/46-2026, por el que autoriza la expedición del presente Acuerdo.
+Que en este contexto, en el ejercicio de las facultades que el marco jurídico atribuye a la CNE, con el fin de proporcionar a la población en general, los medios suficientes para solicitar los trámites de permiso de almacenamiento de energía eléctrica con la información del contrato que, en su caso se celebre con el CENACE, así como el permiso de generación de energía eléctrica que integre un SAEE, a cargo de este órgano desconcentrado, he tenido a bien expedir el siguiente:
+ACUERDO DE LA COMISIÓN NACIONAL DE ENERGÍA POR EL QUE SE EMITEN LOS FORMATOS REFERIDOS EN
+LAS DISPOSICIONES ADMINISTRATIVAS DE CARÁCTER GENERAL PARA LA INTEGRACIÓN DE SISTEMAS DE
+ALMACENAMIENTO DE ENERGÍA ELÉCTRICA AL SISTEMA ELÉCTRICO NACIONAL
+Único. - Se emiten los formatos referidos en el artículo Octavo Transitorio del Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional publicado en el Diario Oficial de la Federación el 16 de abril de 2026, correspondientes a los siguientes:
+I. Formato para la solicitud de permiso de generación de energía eléctrica con respaldo propio;
+II. Formato para la solicitud de permiso de generación para autoconsumo interconectado en Centrales Eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW) con respaldo propio, y
+III. Formato para la solicitud de permiso de almacenamiento de energía eléctrica con operación bajo contrato con el Centro Nacional de Control de Energía.
+Los citados formatos no crean una figura o modalidad de permiso distinta a las previstas en la Ley del Sector Eléctrico y su reglamento, sino que corresponden a los formatos para realizar solicitudes de permisos de generación bajo las figuras de Autoconsumo o Generación para el Mercado Eléctrico Mayorista, cuando el proyecto integre un Sistema de Almacenamiento de Energía Eléctrica como parte de sus instalaciones y equipos o como mecanismo de respaldo propio, así como para solicitudes de permisos de almacenamiento de energía eléctrica con operación bajo contrato con el Centro Nacional de Control de Energía, según corresponda a la actividad a realizar por la persona solicitante.
+Instrucciones de llenado
+1. Lea en su totalidad el presente instructivo previo al llenado del formato correspondiente.
+2. Los siguientes formatos se llenan con pleno conocimiento y bajo protesta de decir verdad.
+3. El formato CNE_ELECTRICIDAD_10 debe ser acompañado, en lo que aplique, de la documentación a que hace referencia el Acuerdo de la Comisión Nacional de Energía por el que se publica el formato referido en el Acuerdo diverso por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW), en su apartado "Documentos Anexos", siempre que esta no haya sido cargada a través del referido formato.
+._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
+CNE_ELECTRICIDAD_09
+FORMATO PARA LA SOLICITUD DE PERMISO DE GENERACIÓN DE ENERGÍA ELÉCTRICA CON RESPALDO
+PROPIO
+DATOS DE LA PERSONA SOLICITANTE
+Complete la sección correspondiente según el tipo de persona solicitante (física o moral). Asegúrese de adjuntar los documentos requeridos, con los que se acredite lo manifestado.
+I. DATOS DE LA PERSONA SOLICITANTE
+1 TIPO DE SOLICITANTE
+A. PERSONA FÍSICA
+1. Nombre completo:
+a. Nombre (s):
+b. Primer apellido:
+c. Segundo apellido:
+2. Identificación Oficial vigente.
+Adjuntar PDF
+3. Registro Federal de Contribuyentes (RFC):
+4. Clave Única de Registro de Población (CURP):
+5. Constancia de Situación Fiscal de la persona solicitante con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+6. Diagrama que indique la participación directa o indirecta de la persona física, así como de su cónyuge, concubina y las personas que tengan parentesco por consanguinidad o civil hasta el cuarto grado o por afinidad hasta el tercer grado, en personas morales que participen directa o indirectamente en la generación de electricidad.
+Adjuntar PDF
+Nota: La información requerida en los numerales 1 a 4 de esta sección, debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+B. PERSONA MORAL
+1. Denominación o razón social:
+2. Acta constitutiva y, en su caso, las modificaciones inscritas en el Registro Público de Comercio, con las que acredite su existencia legal.
+Adjuntar PDF
+3. Registro Federal de Contribuyentes (RFC):
+4. Diagrama de la estructura accionaria y corporativa que incluya los porcentajes de participación en el capital social y la identificación de las personas físicas o morales que ejerzan control directo o indirecto sobre la sociedad.
+Adjuntar PDF
+5. Constancia de Situación Fiscal de la persona solicitante con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+6. Diagrama que indique la participación directa o indirecta de accionistas, personas físicas o morales, en otras personas morales que participen directa o indirectamente en la generación.
+Adjuntar PDF
+7. Diagrama que indique la participación directa o indirecta de la persona moral en otras personas morales que participen directa o indirectamente en la generación de electricidad.
+Adjuntar PDF
+Nota: La información requerida en los numerales 1 a 3 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+C. INSTITUCIONES DEL GOBIERNO FEDERAL, ESTATAL O MUNICIPAL O EMPRESA PÚBLICA DEL ESTADO
+1. Denominación o razón social:
+2. Acuerdo de creación o estatuto orgánico por el cual fue creada.
+Adjuntar PDF
+3. Constancia de Situación Fiscal de la persona moral solicitante del permiso con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+Nota: La información requerida en los numerales 1 y 2 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+D. REPRESENTACIÓN LEGAL
+1. Nombre completo:
+a. Nombre (s):
+b. Primer apellido:
+c. Segundo apellido:
+2. Identificación oficial vigente.
+Adjuntar PDF
+3. Registro Federal de Contribuyentes (RFC):
+4. Clave Única de Registro de Población (CURP):
+5. Instrumento notarial vigente para acreditar la personalidad de la persona representante o apoderado legal, así como sus facultades.
+Adjuntar PDF
+6. Constancia de Situación Fiscal del Representante Legal con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+Nota: La información de los numerales 1 a 5 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+E. DOMICILIO PARA OÍR Y RECIBIR NOTIFICACIONES
+1. Código postal:
+2. Entidad Federativa:
+3. Municipio/Demarcación territorial:
+4. Localidad:
+5. Colonia:
+6. Calle:
+7. Número exterior:
+8. Número interior:
+9. Teléfono a 10 dígitos:
+10. Correo electrónico:
+11. Nombre de la persona o personas autorizadas para oír o recibir notificaciones:
+No.
+Nombre (s)
+Primer apellido
+Segundo apellido
+Correo electrónico
+Domicilio
+1
+2
+F. INFORMACIÓN TÉCNICA DE LA CENTRAL ELÉCTRICA
+1. Domicilio del proyecto, instalación o infraestructura.
+a. ¿El domicilio de las instalaciones es el mismo para oír y recibir notificaciones?
+Sí
+No
+i. Código postal:
+ii. Entidad Federativa:
+iii. Municipio/Demarcación territorial:
+iv. Localidad:
+v. Colonia:
+vi. Calle:
+vii. Número exterior:
+viii. Número interior:
+2. Datos georreferenciados.
+Nota: Presentar las coordenadas geodésicas en un plano georreferenciado.
+Vértices
+Latitud
+Longitud
+Vértice A
+Vértice B
+Vértice C
+Vértice D
+...
+Vértice "n"
+3. Plano georreferenciado de la ubicación de la Central Eléctrica en formato .kmz
+Adjuntar formato .kmz
+4. Uso, aplicaciones y destino de la energía eléctrica o Productos Asociados o al Suministro Eléctrico, en su caso:
+5. Procesos y fases operativas de desarrollo del proyecto de generación de energía eléctrica:
+6. Proyección técnica y operativa del proyecto, que debe incluir, según el tipo de actividad regulada, la potencia, capacidad, transacciones u operación anual estimada:
+7. Número de acuse de recepción, o en su caso, de la autorización definitiva en materia de Manifestación de Impacto Social del Sector Energético. (No aplica para proyectos de autoconsumo aislado con capacidad menor o igual a 20 MW, conforme al artículo 54 del Reglamento de la Ley del Sector Eléctrico).
+8. Acreditación de la propiedad, posesión legítima, uso o goce del predio. (No aplica para centrales que aprovechen yacimientos geotérmicos o recursos hidráulicos, por estar sujetas a disposiciones de uso y ocupación superficial).
+Adjuntar PDF
+9. Acuse de recepción o en su caso, autorización en materia de impacto ambiental emitida por la autoridad competente, así como cualquier documento que lo modifique o sustituya.
+Adjuntar PDF
+10. Tecnologías renovables en la central eléctrica.
+Fotovoltaica.
+Eólica.
+Hidroeléctrica.
+Geotérmica.
+Otra.
+11. Capacidad instalada (Corriente Alterna):
+MW
+12. Capacidad instalada (Corriente Directa) (para proyectos fotovoltaicos):
+MW
+13. Perfil de generación anual estimada:
+GWh
+14. Tipo de permiso solicitado:
+Autoconsumo aislado.
+Autoconsumo interconectado.
+Generación para el Mercado Eléctrico Mayorista.
+15. Número de equipos de generación y, en su caso, de almacenamiento.
+16. Características de los equipos de generación y, en su caso, de almacenamiento.
+a) Fichas Técnicas.
+Adjuntar PDF
+17. Diagrama unifilar de la o las Centrales Eléctricas que incluya su o sus propuestas de punto o puntos de interconexión con el SEN, en caso de pretender integrar un SAEE, este debe visualizarse en dicho diagrama.
+Adjuntar PDF
+18. Indicar si corresponde a una Unidad de Central Eléctrica Móvil.
+Sí No
+19. Señalar si la interconexión se realiza individualmente en un punto específico de la RNT o las RGD o si se trata de aquellos casos donde se tienen varios proyectos conectados a un punto específico de la RNT o las RGD.
+Adjuntar PDF
+20. Número de oficio del CENACE que informe los Resultados del Estudio de Impacto o Impacto versión rápida, según corresponda con el procedimiento de atención a la Solicitud de Interconexión de Centrales Eléctricas o de Conexión de Centros de Carga, establecido en el Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga vigente o el que lo modifique o sustituya. Dicho oficio debe estar emitido al nombre, denominación o razón social de la persona solicitante.
+En caso de que se pretenda integrar un Sistema de Almacenamiento de Energía Eléctrica como parte del diseño original de las instalaciones y equipos, indicar:
+21. Información del Sistema de Almacenamiento de Energía Eléctrica.
+a. Tipo de tecnología:
+Almacenamiento electroquímico (baterías).
+Almacenamiento mecánico.
+Almacenamiento por rebombeo hidráulico.
+Almacenamiento por volantes de inercia.
+Almacenamiento gravitacional.
+Almacenamiento térmico.
+Almacenamiento por aire comprimido.
+Almacenamiento químico de hidrógeno.
+Almacenamiento químico de amoniaco verde.
+Otra, especificar.
+b. Capacidad instalada (Corriente Alterna):
+MW
+c. Capacidad instalada (Corriente Directa):
+MW
+G. PROGRAMA DE OBRAS
+Desglose las fechas estimadas de inicio y terminación de cada una de las etapas señaladas. En caso de aplicar considerar al SAEE como un hito dentro del cronograma que contemple las fechas de entrada en operación, de las pruebas de comportamiento y de construcción de obras. En estatus general indicar: Sin iniciar, en proceso, finalizada:
+Etapa General del
+Proyecto
+Fecha de inicio
+Fecha de Termino
+Estatus general
+Actividades previas.
+Por iniciar obras.
+Construcción de la Central, Obras. Asociadas y SAEE, en caso de aplicar.
+Pruebas de comportamiento de la Central y SAEE, en caso de aplicar.
+Entrada en Operación Comercial (EOC) de la Central y SAEE, en caso de aplicar.
+Cronograma detallado de actividades conforme al documento xlsx disponible en la página de la Comisión Nacional de Energía.
+Adjuntar xlsx
+Me comprometo a que mi representada no suspenderá las obras por un periodo mayor a tres meses.
+Acepto
+Nota. En ningún caso se debe iniciar la construcción, el desarrollo o la ejecución de la infraestructura asociada al permiso, hasta contar con la autorización definitiva en materia de impacto social correspondiente, emitida por la SENER.
+Asimismo, en caso de pretender integrar un SAEE como parte de los equipos e instalaciones de la Central, el Programa de Obras debe contemplar dicho SAEE.
+H. ACREDITACIÓN DE LA CAPACIDAD TÉCNICA
+1. Documentación que acredite la experiencia de la persona solicitante, del Grupo de Interés Económico o grupo empresarial al que pertenece, o ambos si aplica, para el diseño, construcción y operación de proyectos de generación con características similares al objeto del permiso.
+Adjuntar PDF
+2. Presentar el historial de la persona solicitante, o en su caso, cartas de intención o compromiso de prestación de servicios de ingeniería, construcción y operación con terceros que acredite que cuenta con materiales propios o subcontratados.
+Adjuntar PDF
+Nota. En caso de pretender integrar un SAEE como parte de los equipos e instalaciones de la Central, la acreditación de la capacidad técnica debe contemplar dicho SAEE.
+I. ACREDITACIÓN DE LA CAPACIDAD FINANCIERA
+1. Describir un programa de financiamiento que contenga:
+a. Descripción general y esquema del plan general de financiamiento del proyecto.
+Adjuntar xlsx
+b. Descripción general de aportaciones de capital.
+c. Descripción general del plan de crédito.
+2. Estados financieros auditados de la propia persona solicitante, del Grupo de Interés Económico o grupo empresarial al que pertenece, o ambos si aplica, correspondientes por lo menos a los 2 años anteriores a la fecha de solicitud del permiso.
+Adjuntar PDF
+3. En su caso, cartas de intención o de crédito irrevocables, que aseguren el financiamiento de la inversión necesaria para el desarrollo del proyecto de acuerdo con el plan de negocios presentado.
+Adjuntar PDF
+J. PLAN DE NEGOCIOS
+Descripción del plan de negocios que incluya por lo menos los siguientes componentes:
+1. Monto de inversión inicial del proyecto.
+Adjuntar xlsx
+2. Periodo de operación comercial proyectado.
+3. Flujo neto de capital (esquema proforma) que cubra el periodo de operación proyectado y donde se indique el monto de inversión del proyecto, así como los costos de construcción, operación, mantenimiento, seguros, entre otros.
+4. Tasa interna de retorno, especificando la tasa de referencia o de oportunidad.
+K. PAGO DE DERECHOS
+1. Comprobante de pago por derechos o aprovechamientos.
+Adjuntar PDF
+2. Agregar la cadena y la llave de pago.
+3. Fecha de pago (dd/mm/aaaa).
+L. REQUISITOS ESPECÍFICOS PARA LA FIGURA DE AUTOCONSUMO
+1. Nombre de las personas Usuarias de Autoconsumo que formarán parte del Grupo de Autoconsumo:
+1.
+2.
+3.
+.
+.
+.
+n.
+2. Diagrama unifilar de la Red Particular.
+Adjuntar PDF
+3. Capacidad de inyección a la red en caso de existir:
+Adjuntar PDF
+Acreditación del Grupo de Autoconsumo (Atendiendo cualquiera de los puntos 4 y 5 siguientes).
+4. Escritura pública del inmueble o contrato de arrendamiento del que se desprenda que el(los) Centro(s) de Consumo respectivo(s) se ubica(n) en el predio donde se tiene la Red Particular de autoconsumo.
+5. Manifiesto bajo protesta de decir verdad que pertenece al mismo Grupo de Autoconsumo.
+Acepto
+6. Manifiesto que las Usuarias de Autoconsumo van a satisfacer sus necesidades de energía eléctrica a través de una Red Particular.
+Acepto
+7. Indicar si es Autoconsumo aislado o interconectado al SEN:
+Justifique su elección:
+Aislado
+Interconectado
+8. Contrato para la prestación del servicio de producción y aprovechamiento de energía eléctrica, excepto cuando exista una única persona Usuaria de Autoconsumo.
+Adjuntar PDF
+9. Constancia de Situación Fiscal de las personas Usuarias de Autoconsumo.
+Adjuntar PDF
+Nota. Para Centrales Eléctricas que actualicen la figura de autoconsumo, en la constancia de situación fiscal, las actividades económicas no necesariamente deben estar vinculadas con la actividad regulada por la que se solicita el permiso.
+10. En caso de existir capacidad de inyección a la red a través de centrales eléctricas de energías renovables intermitentes indicar:
+La manera en la que se dará cumplimiento al criterio de respaldo propio previsto en el artículo 59 del Reglamento de la Ley del Sector Eléctrico.
+Propio
+Mediante la integración de un Sistema de
+Almacenamiento de Energía Eléctrica.
+Contratado
+Con la Empresa Pública del Estado denominada
+Comisión Federal de Electricidad.
+Con un tercero.
+M. REQUISITOS ESPECÍFICOS PARA LA FIGURA DE GENERACIÓN PARA EL MERCADO ELÉCTRICO MAYORISTA
+1. En su caso, indicar el esquema mediante el cual se pretende realizar la figura de generación para el Mercado Eléctrico Mayorista.
+Para producción de largo plazo:
+a) Documentación que acredite que la totalidad de la producción de energía y Productos Asociados es exclusiva para la Empresa Pública del Estado, Comisión Federal de Electricidad.
+Adjuntar PDF
+b) El contrato de producción de largo plazo conforme al proyecto de generación de energía eléctrica.
+Adjuntar PDF
+Para inversión mixta:
+a) Documentación que acredite que la Empresa Pública del Estado, Comisión Federal de Electricidad, tiene una participación directa o indirecta en el proyecto, de al menos el cincuenta y cuatro por ciento.
+Adjuntar PDF
+N. REQUISITOS ESPECÍFICOS PARA PERMISOS DE GENERACIÓN DE ENERGÍA ELÉCTRICA EXCLUSIVAMENTE PARA EXPORTACIÓN
+1. La cantidad estimada de potencia y energía a exportar:
+2. La totalidad de la energía eléctrica a exportar:
+3. Manifestar bajo protesta de decir verdad que va a solicitar ante la SENER la autorización para exportación de energía eléctrica en los términos que defina la propia SENER.
+Acepto
+Nota. El plan de negocios presentado debe referirse a la actividad de exportación.
+O. MANIFESTACIONES
+Seleccione las casillas correspondientes para aceptar las siguientes manifestaciones bajo protesta de decir verdad, respecto a que:
+1. No se encuentra en el directorio de licitantes, proveedores o contratistas sancionados por autoridad competente.
+Acepto
+2. No se encuentra incluido en la relación de contribuyentes con operaciones presuntamente inexistentes al que se refiere el artículo 69-B del Código Fiscal de la Federación o el que lo sustituya.
+Acepto
+3. No participa ni ejerce actividades ilícitas, y que no realiza ni ha sido sancionada por actos de corrupción.
+Acepto
+4. Tiene conocimiento del marco regulatorio aplicable a la actividad a desarrollar, y se compromete a cumplirlo.
+Acepto
+5. Otorga su consentimiento para recibir notificaciones, requerimientos y las comunicaciones derivadas del trámite por medios electrónicos.
+Acepto
+6. Acepto que la información proporcionada en el presente trámite será protegida conforme a las disposiciones aplicables en materia de transparencia, acceso a la información pública y protección de datos personales. Asimismo, la CNE, en su carácter de sujeto obligado, garantizará la confidencialidad, integridad y uso adecuado de dicha información, utilizándola exclusivamente para los fines previstos y sin divulgarla o transferirla sin mi consentimiento, salvo en los casos permitidos por la ley.
+Acepto
+7. Manifiesto bajo protesta de decir verdad que la representación legal bajo la que se acude a la presente solicitud no ha sido revocada, modificada o limitada en forma alguna a la fecha de presentación de la solicitud.
+Acepto
+E-firma
+Nombre y firma del solicitante o de su apoderado o representante legal
+._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
+CNE_ELECTRICIDAD_10
+FORMATO PARA LA SOLICITUD DE PERMISO DE GENERACIÓN PARA AUTOCONSUMO INTERCONECTADO EN
+CENTRALES ELÉCTRICAS CUYA CAPACIDAD SEA ENTRE 0.7 Y 20 MEGAWATTS (MW) CON RESPALDO PROPIO
+DATOS DE LA PERSONA SOLICITANTE
+Complete la sección correspondiente según el tipo de persona solicitante (física o moral). Asegúrese de adjuntar los documentos requeridos, con los que se acredite lo manifestado.
+I. DATOS DE LA PERSONA SOLICITANTE
+1 TIPO DE SOLICITANTE
+A. PERSONA FÍSICA
+1. Nombre completo:
+a. Nombre (s):
+b. Primer apellido:
+c. Segundo apellido:
+2. Identificación Oficial.
+3. Registro Federal de Contribuyentes (RFC):
+4. Clave Única de Registro de Población (CURP):
+Nota: La información requerida en los numerales 1 a 4 de esta sección, debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+B. PERSONA MORAL
+1. Denominación o razón social.
+2. Acta constitutiva y, en su caso, las modificaciones inscritas en el Registro Público de Comercio, con las que acredite su existencia legal.
+3. Registro Federal de Contribuyentes (RFC):
+Nota: La información requerida en los numerales 1 a 3 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+C. INSTITUCIONES DEL GOBIERNO FEDERAL, ESTATAL O MUNICIPAL O EMPRESA PÚBLICA DEL ESTADO
+1. Denominación o razón social.
+2. Acuerdo de creación o estatuto orgánico por el cual fue creada.
+Nota: La información requerida en los numerales 1 y 2 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+D. REPRESENTACIÓN LEGAL
+1. Nombre completo:
+a. Nombre (s):
+b. Primer apellido:
+c. Segundo apellido:
+2. Tipo de identificación oficial.
+3. Registro Federal de Contribuyentes (RFC):
+4. Clave Única de Registro de Población (CURP):
+5. Número del instrumento notarial para acreditar la personalidad de la persona representante o apoderado legal, así como sus facultades.
+Nota: La información de los numerales 1 a 5 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+E. DOMICILIO PARA OÍR Y RECIBIR NOTIFICACIONES
+Código postal:
+Entidad Federativa:
+Municipio/Demarcación territorial:
+Localidad:
+Colonia:
+Calle:
+Número exterior:
+Número interior:
+Teléfono a 10 dígitos:
+Correo electrónico:
+Nombre de la persona o personas autorizadas para oír o recibir notificaciones:
+No.
+Nombre
+Primer apellido
+Segundo apellido
+Correo electrónico
+1
+2
+II. DATOS DE LA CENTRAL ELÉCTRICA
+A. Ubicación de la central eléctrica
+¿El domicilio de las instalaciones es el mismo para oír y recibir notificaciones?
+Sí No
+Código postal:
+Entidad Federativa:
+Municipio/Demarcación territorial:
+Localidad:
+Colonia:
+Calle:
+Número exterior:
+Número interior:
+B. Datos georreferenciados
+Nota: Presentar las coordenadas geodésicas en un plano georreferenciado.
+Vértices
+Latitud
+Longitud
+Vértice A
+Vértice B
+Vértice C
+Vértice D
+...
+Vértice "n"
+C. Descripción de la central eléctrica
+Tecnologías renovables en la central eléctrica:
+Fotovoltaica
+Eólica
+Hidroeléctrica
+Geotérmica
+Otra
+Capacidad instalada (Corriente Alterna):
+MW
+Capacidad instalada (Corriente Directa) (Para proyectos fotovoltaicos):
+MW
+Generación anual estimada.
+GWh
+¿Energía intermitente con inyección al SEN?
+Sí No
+Documentos que describan el respaldo propio que tendrá la central eléctrica considerando lo previsto en la Ley del Sector Eléctrico, su reglamento y demás normatividad que emita la Comisión Nacional de Energía.
+Adjuntar
+En caso de que se pretenda integrar un Sistema de Almacenamiento de Energía Eléctrica como parte del diseño original de las instalaciones y equipos, indicar:
+Información del Sistema de Almacenamiento de Energía Eléctrica.
+a. Tipo de tecnología:
+Almacenamiento electroquímico (baterías).
+Almacenamiento mecánico.
+Almacenamiento por rebombeo hidráulico.
+Almacenamiento por volantes de inercia.
+Almacenamiento gravitacional.
+Almacenamiento térmico.
+Almacenamiento por aire comprimido.
+Almacenamiento químico de hidrógeno.
+Almacenamiento químico de amoniaco verde.
+Otra, especificar.
+b. Capacidad instalada (Corriente Alterna):
+MW
+c. Capacidad instalada (Corriente Directa):
+MW
+En caso de existir capacidad de inyección a la red a través de centrales eléctricas de energías renovables intermitentes indicar:
+La manera en la que se dará cumplimiento al criterio de respaldo propio previsto en el artículo 59 del Reglamento de la Ley del Sector Eléctrico.
+Propio
+Mediante la integración de un Sistema de Almacenamiento de Energía Eléctrica.
+Contratado
+Con la Empresa Pública del Estado denominada Comisión Federal de Electricidad.
+Con un tercero.
+D. Grupo de autoconsumo y estructura accionaria
+No.
+Nombre, denominación o razón social de cada una de las Usuarias de Autoconsumo que van a satisfacer sus necesidades de energía eléctrica a través de una Red Particular, y en su caso, sus centros de consumo asociados.
+Registro Federal de Contribuyentes (RFC).
+1.
+2.
+3.
+...
+N
+E. Programa de obras simplificado
+Fecha de inicio de obras
+Fecha de terminación de obras
+Fecha de inicio de operaciones comerciales
+Nota. En caso de pretender integrar un SAEE como parte de los equipos e instalaciones de la Central, el Programa de Obras debe contemplar dicho SAEE.
+F. Financiamiento
+Descripción del plan de financiamiento:
+G. Otros aspectos
+Número de acuse de recepción o, en su caso, el número de Resolutivo Definitivo de la autorización en materia de Manifestación de Impacto Social del Sector Energético, conforme a lo dispuesto en la legislación aplicable.
+Número de oficio del Centro Nacional de Control de Energía que informe los Resultados del Estudio de Impacto o Impacto versión rápida, según corresponda, con el procedimiento de atención a la Solicitud de Interconexión de Centrales Eléctricas o de Conexión de Centros de Carga, establecido en el Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga vigente.
+III. PAGO DE DERECHOS
+1. Comprobante de pago por derechos o aprovechamientos.
+Adjuntar PDF
+2. Agregar la cadena y la llave de pago.
+3. Fecha de pago (dd/mm/aaaa).
+IV. MANIFESTACIONES
+Seleccione las casillas correspondientes para aceptar las siguientes manifestaciones bajo protesta de decir verdad:
+1. Manifiesto bajo protesta de decir verdad que la representación o el poder legal otorgado por la persona solicitante no ha sido revocado, modificado o limitado en forma alguna a la fecha de la presentación de la solicitud.
+Acepto
+2. Manifiesto bajo protesta de decir verdad que aseguraré contar con el financiamiento para desarrollar la central eléctrica por la que estoy solicitando el permiso de generación de energía eléctrica ante la Comisión Nacional de Energía de conformidad con el programa de financiamiento planteado.
+Acepto
+E-firma
+Nombre y firma del solicitante o de su apoderado o representante legal
+._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
+CNE_ELECTRICIDAD_11
+FORMATO PARA LA SOLICITUD DE PERMISO DE ALMACENAMIENTO DE ENERGÍA ELÉCTRICA CON OPERACIÓN
+BAJO CONTRATO CON EL CENTRO NACIONAL DE CONTROL DE ENERGÍA
+DATOS DE LA PERSONA SOLICITANTE
+Complete la sección correspondiente según el tipo de persona solicitante (física o moral). Asegúrese de adjuntar los documentos requeridos, con los que se acredite lo manifestado.
+I. DATOS DE LA PERSONA SOLICITANTE
+1. TIPO DE SOLICITANTE
+A. PERSONA FÍSICA
+1. Nombre completo:
+a. Nombre (s):
+b. Primer apellido:
+c. Segundo apellido:
+2. Identificación Oficial vigente.
+Adjuntar PDF
+3. Registro Federal de Contribuyentes (RFC):
+4. Clave Única de Registro de Población (CURP):
+5. Constancia de Situación Fiscal de la persona solicitante con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+6. Diagrama que indique la participación directa o indirecta de la persona física, así como de su cónyuge, concubina y las personas que tengan parentesco por consanguinidad o civil hasta el cuarto grado o por afinidad hasta el tercer grado, en personas morales que participen directa o indirectamente en el Sistema de Almacenamiento de Energía Eléctrica.
+Adjuntar PDF
+Nota: La información requerida en los numerales 1 a 4 de esta sección, debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+B. PERSONA MORAL
+1. Denominación o razón social:
+2. Acta constitutiva y, en su caso, las modificaciones inscritas en el Registro Público de Comercio, con las que acredite su existencia legal.
+Adjuntar PDF
+3. Registro Federal de Contribuyentes (RFC):
+4. Diagrama de la estructura accionaria y corporativa que incluya los porcentajes de participación en el capital social y la identificación de las personas físicas o morales que ejerzan control directo o indirecto sobre la sociedad.
+Adjuntar PDF
+5. Constancia de Situación Fiscal de la persona solicitante con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+6. Diagrama que indique la participación directa o indirecta de accionistas, personas físicas o morales, en otras personas morales que participen directa o indirectamente en el Sistema de Almacenamiento de Energía Eléctrica.
+Adjuntar PDF
+7. Diagrama que indique la participación directa o indirecta de la persona moral en otras personas morales que participen directa o indirectamente en el Sistema de Almacenamiento de Energía Eléctrica.
+Adjuntar PDF
+Nota: La información requerida en los numerales 1 a 3 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+C. INSTITUCIONES DEL GOBIERNO FEDERAL, ESTATAL O MUNICIPAL O EMPRESA PÚBLICA DEL ESTADO
+1. Denominación o razón social:
+2. Acuerdo de creación o estatuto orgánico por el cual fue creada.
+Adjuntar PDF
+3. Constancia de Situación Fiscal de la persona moral solicitante del permiso con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+Nota: La información requerida en los numerales 1 y 2 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+D. REPRESENTACIÓN LEGAL
+1. Nombre completo:
+a. Nombre (s):
+b. Primer apellido:
+c. Segundo apellido:
+2. Identificación oficial vigente.
+Adjuntar PDF
+3. Registro Federal de Contribuyentes (RFC):
+4. Clave Única de Registro de Población (CURP):
+5. Instrumento notarial vigente para acreditar la personalidad de la persona representante o apoderado legal, así como sus facultades.
+Adjuntar PDF
+6. Constancia de Situación Fiscal del Representante Legal con la opinión del cumplimiento de obligaciones fiscales en sentido positivo.
+Adjuntar PDF
+Nota: La información de los numerales 1 a 5 de esta sección debe coincidir con los datos y documentación precargados en el registro ante la Oficialía de Partes Electrónica de la Comisión.
+E. DOMICILIO PARA OÍR Y RECIBIR NOTIFICACIONES
+Código postal:
+Entidad Federativa:
+Municipio/Demarcación territorial:
+Localidad:
+Colonia:
+Calle:
+Número exterior:
+Número interior:
+Teléfono a 10 dígitos:
+Correo electrónico:
+Nombre de la persona o personas autorizadas para oír o recibir notificaciones:
+No.
+Nombre (s)
+Primer apellido
+Segundo apellido
+Correo electrónico
+Domicilio
+1
+2
+F. INFORMACIÓN TÉCNICA DEL SISTEMA DE ALMACENAMIENTO DE ENERGÍA ELÉCTRICA
+1. Domicilio del proyecto, instalación o infraestructura.
+¿El domicilio de las instalaciones es el mismo para oír y recibir notificaciones?
+Sí No
+Código postal:
+Entidad Federativa:
+Municipio/Demarcación territorial:
+Localidad:
+Colonia:
+Calle:
+Número exterior:
+Número interior:
+Datos georreferenciados
+Nota: Presentar las coordenadas geodésicas en un plano georreferenciado.
+Vértices
+Latitud
+Longitud
+Vértice A
+Vértice B
+Vértice C
+Vértice D
+...
+Vértice "n"
+2. Plano georreferenciado de la ubicación del Sistema de Almacenamiento de Energía Eléctrica en formato .kmz
+Adjuntar formato .kmz
+3. Uso, aplicaciones y destino de la energía eléctrica o Productos Asociados o al Suministro Eléctrico, en su caso.
+4. Procesos y fases operativas de desarrollo del proyecto del Sistema de Almacenamiento de Energía Eléctrica.
+5. Proyección técnica y operativa del proyecto, que debe incluir, según el tipo de actividad regulada, la potencia, capacidad, transacciones u operación anual estimada.
+6. Número de acuse de recepción, o en su caso, de la autorización definitiva en materia de Manifestación de Impacto Social del Sector Energético.
+7. Acreditación de la propiedad, posesión legítima, uso o goce del predio.
+Adjuntar PDF
+8. Acuse de recepción o en su caso, autorización en materia de impacto ambiental emitida por la autoridad competente, así como cualquier documento que lo modifique o sustituya.
+Adjuntar PDF
+9. Tipo de tecnología:
+Almacenamiento electroquímico (baterías).
+Almacenamiento mecánico.
+Almacenamiento por rebombeo hidráulico.
+Almacenamiento por volantes de inercia.
+Almacenamiento gravitacional.
+Almacenamiento térmico.
+Almacenamiento por aire comprimido.
+Almacenamiento químico de hidrógeno.
+Almacenamiento químico de amoniaco verde.
+Otra, especificar.
+10. Capacidad instalada (Corriente Alterna):
+MW
+11. Capacidad instalada (Corriente Directa):
+MW
+12. Capacidad de Almacenamiento:
+MWh
+13. Tiempo de descarga:
+hrs
+14. Modalidades de participación y servicios a otorgar:
+15. Operación anual (Ciclos de Trabajo):
+16. Número de equipos de almacenamiento:
+17. Características de los equipos de almacenamiento:
+a) Fichas Técnicas de los equipos de almacenamiento.
+Adjuntar PDF
+18. Diagrama unifilar del Sistema de Almacenamiento de Energía Eléctrica que incluya su o sus propuestas de punto o puntos de interconexión con el SEN.
+Adjuntar PDF
+19. Señalar si la interconexión se realiza individualmente en un punto específico de la RNT o las RGD o si se trata de aquellos casos donde se tienen varios proyectos conectados a un punto específico de la RNT o las RGD:
+20. Número de oficio del CENACE que informe los Resultados del Estudio de Impacto o Impacto versión rápida, según corresponda con el procedimiento de atención a la Solicitud de Interconexión de Centrales Eléctricas o de Conexión de Centros de Carga, establecido en el Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga vigente o el que lo modifique o sustituya. Dicho oficio debe estar emitido al nombre, denominación o razón social de la persona solicitante:
+21. Número de oficio del CENACE por el cual determinó las características técnicas mínimas del Sistema de Almacenamiento de Energía Eléctrica:
+G. PROGRAMA DE OBRAS
+Desglose las fechas estimadas de inicio y terminación de cada una de las etapas señaladas. En estatus general indicar: Sin iniciar, en proceso, finalizada:
+Etapa General del Proyecto
+Fecha de inicio
+Fecha de Término
+Estatus General
+Actividades previas.
+Por iniciar obras.
+Construcción del Sistema de Almacenamiento de Energía Eléctrica.
+Pruebas de comportamiento del Sistema de Almacenamiento.
+Entrada en operación comercial del Sistema de Almacenamiento.
+Cronograma detallado de actividades conforme al documento xlsx disponible en la página de la Comisión Nacional de Energía.
+Adjuntar xlsx
+Me comprometo a que mi representada no suspenderá las obras por un periodo mayor a tres meses.
+Acepto
+Nota. En ningún caso se debe iniciar la construcción, el desarrollo o la ejecución de la infraestructura asociada al permiso, hasta contar con la autorización definitiva en materia de impacto social correspondiente, emitida por la SENER.
+H. ACREDITACIÓN DE LA CAPACIDAD TÉCNICA
+1. Documentación que acredite la experiencia de la persona solicitante, del Grupo de Interés Económico o grupo empresarial al que pertenece, o ambos si aplica, para el diseño, construcción y operación de proyectos de Sistema de Almacenamiento de Energía Eléctrica con características similares al objeto del permiso.
+Adjuntar PDF
+2. Presentar el historial de la persona solicitante, o en su caso, cartas de intención o compromiso de prestación de servicios de ingeniería, construcción y operación con terceros que acredite que cuenta con materiales propios o subcontratados.
+Adjuntar PDF
+I. ACREDITACIÓN DE LA CAPACIDAD FINANCIERA
+1. Describir un programa de financiamiento que contenga:
+a. Descripción general y esquema del plan general de financiamiento del proyecto.
+Adjuntar xlsx
+b. Descripción general de aportaciones de capital.
+c. Descripción general del plan de crédito.
+2. Estados financieros auditados de la propia persona solicitante, del Grupo de Interés Económico o grupo empresarial al que pertenece, o ambos si aplica, correspondientes por lo menos a los 2 años anteriores a la fecha de solicitud del permiso.
+Adjuntar PDF
+3. En su caso, cartas de intención o de crédito irrevocables, que aseguren el financiamiento de la inversión necesaria para el desarrollo del proyecto de acuerdo con el plan de negocios presentado.
+Adjuntar PDF
+J. PLAN DE NEGOCIOS
+Descripción del plan de negocios que incluya por lo menos los siguientes componentes:
+1. Monto de inversión inicial del proyecto.
+Adjuntar xlsx
+2. Periodo de operación comercial proyectado.
+3. Flujo neto de capital (esquema proforma) que cubra el periodo de operación proyectado y donde se indique el monto de inversión del proyecto, así como los costos de construcción, operación, mantenimiento, seguros, entre otros.
+4. Tasa interna de retorno, especificando la tasa de referencia o de oportunidad.
+K. PAGO DE DERECHOS
+1. Comprobante de pago por derechos o aprovechamientos.
+Adjuntar PDF
+2. Agregar la cadena y la llave de pago.
+3. Fecha de pago (dd/mm/aaaa).
+L. MANIFESTACIONES
+Seleccione las casillas correspondientes para aceptar las siguientes manifestaciones bajo protesta de decir verdad, respecto a que:
+1. No se encuentra en el directorio de licitantes, proveedores o contratistas sancionados por autoridad competente.
+Acepto
+2. No se encuentra incluido en la relación de contribuyentes con operaciones presuntamente inexistentes al que se refiere el artículo 69-B del Código Fiscal de la Federación o el que lo sustituya.
+Acepto
+3. No participa ni ejerce actividades ilícitas, y que no realiza ni ha sido sancionada por actos de corrupción.
+Acepto
+4. Tiene conocimiento del marco regulatorio aplicable a la actividad a desarrollar, y se compromete a cumplirlo.
+Acepto
+5. Otorga su consentimiento para recibir notificaciones, requerimientos y las comunicaciones derivadas del trámite por medios electrónicos.
+Acepto
+6. Acepto que la información proporcionada en el presente trámite será protegida conforme a las disposiciones aplicables en materia de transparencia, acceso a la información pública y protección de datos personales. Asimismo, la CNE, en su carácter de sujeto obligado, garantizará la confidencialidad, integridad y uso adecuado de dicha información, utilizándola exclusivamente para los fines previstos y sin divulgarla o transferirla sin mi consentimiento, salvo en los casos permitidos por la ley.
+Acepto
+7. Manifiesto bajo protesta de decir verdad que la representación legal bajo la que se acude a la presente solicitud no ha sido revocada, modificada o limitada en forma alguna a la fecha de presentación de la solicitud.
+Acepto
+E-firma
+Nombre y firma del solicitante o de su apoderado o representante legal
+._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._._.
+TRANSITORIOS
+ÚNICO. El presente Acuerdo entra en vigor el mismo día de su publicación en el Diario Oficial de la Federación.
+Ciudad de México, a 12 de mayo de 2026.- El Director General, Juan Carlos Solís Ávila.- Rúbrica.

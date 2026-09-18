@@ -1,0 +1,48 @@
+{
+  "inventory": {
+    "catalogo": "Los 38 instrumentos cargados",
+    "cobertura": "29 referencias están cubiertas directamente. Junto con las ocho leyes del decreto compuesto representan 34 instrumentos distintos. CFE y Pemex también aparecen como leyes individuales; la fe de erratas de CFE se incorporó dentro de su reglamento. Los otros cuatro cargados son LGEC, LGTAIP y los dos de PODECOBI, fuera de esta sección.",
+    "pendientes": "104 de 164 referencias sin repeticiones",
+    "cargadas": "29 de 164 referencias sin repeticiones",
+    "familias": [
+      {
+        "familia": "Primera convocatoria de generación",
+        "total": "4 de 164 referencias sin repeticiones",
+        "estados": [
+          "Cargado",
+          "Cargado",
+          "Cargado",
+          "Cargado"
+        ]
+      },
+      {
+        "familia": "Segunda convocatoria de generación",
+        "total": "5 de 164 referencias sin repeticiones",
+        "estados": [
+          "Cargado",
+          "Cargado",
+          "Cargado",
+          "Cargado",
+          "Cargado"
+        ]
+      },
+      {
+        "familia": "Proyectos estratégicos de generación y almacenamiento",
+        "total": "4 de 164 referencias sin repeticiones",
+        "estados": [
+          "Cargado",
+          "Cargado",
+          "Cargado",
+          "Cargado"
+        ]
+      }
+    ]
+  },
+  "report": {
+    "titulo": "Convocatorias y modificaciones incorporadas · Acervo energético",
+    "publicaciones": 13,
+    "sin_desbordamiento": true
+  },
+  "enlaces_locales_correctos": true,
+  "fallos": []
+}

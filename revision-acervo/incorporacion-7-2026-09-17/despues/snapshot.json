@@ -1,0 +1,21 @@
+{
+  "fecha": "2026-09-18T00:08:29.444Z",
+  "project": "carmfqhcfsqbzcwptqfz",
+  "tablas": [
+    {
+      "tabla": "leyes",
+      "filas": 19,
+      "sha256": "09ee2f00f7cdfab917188c0049e4aaa8c58fb98587016e1ffdcbfee5a3fea8de"
+    },
+    {
+      "tabla": "articulos",
+      "filas": 2527,
+      "sha256": "efc8ac1793201df53ce58ea5c372923df64b85d7bc12909912142fe033daae91"
+    },
+    {
+      "tabla": "temas",
+      "filas": 494,
+      "sha256": "8a1dfa7465404bb195dfa64909f7f8778bce0e091443fc3ee5d818035529167e"
+    }
+  ]
+}

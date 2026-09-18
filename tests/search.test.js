@@ -145,4 +145,22 @@ describe('Search Engine', () => {
     await expect(performSearch('ab')).resolves.toEqual({ data: [], total: 0 });
     expect(fromMock).not.toHaveBeenCalled();
   });
+
+  it('resolves a merged fragment link to the complete original provision', async () => {
+    const { default: redirects } = await import('../src/lib/article-redirects.json');
+    const [oldId, canonicalId] = Object.entries(redirects)[0];
+    const query = {};
+    query.select = vi.fn(() => query);
+    query.eq = vi.fn(() => query);
+    query.single = vi.fn().mockResolvedValue({ data: {
+      id: canonicalId, identificador: 'Transitorio Octavo', contenido: 'Texto completo',
+    }, error: null });
+    fromMock.mockReturnValue(query);
+    const { getArticleById } = await import('../src/scripts/search-engine.js');
+
+    const result = await getArticleById(oldId);
+    expect(query.eq).toHaveBeenCalledWith('id', canonicalId);
+    expect(result.id).toBe(canonicalId);
+    expect(result.texto).toBe('Texto completo');
+  });
 });

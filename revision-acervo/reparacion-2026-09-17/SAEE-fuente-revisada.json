@@ -1,0 +1,1284 @@
+{
+  "instrumento": "SAEE",
+  "chunks": [
+    {
+      "identificador": "Preámbulo",
+      "tipo_articulo": "preambulo",
+      "contenido": "ACUERDO de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional.\nAl margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Nacional de Energía.\nJUAN CARLOS SOLÍS ÁVILA, Director General de la Comisión Nacional de Energía, con fundamento en los artículos 25, párrafo quinto, 27, párrafo sexto, 28, párrafo noveno y 90, primer párrafo de la Constitución Política de los Estados Unidos Mexicanos; 1, 2, fracción I, 17, 26, fracción IX, y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 1, párrafo primero, 2, 3, 4 y 13 de la Ley Federal de Procedimiento Administrativo; 1, 2, párrafo primero, 3, 5, 7, fracciones II, III y XXII, 8, fracciones I, VII y IX, 12, 16, fracciones VI, VII, X, XIX, XXIII y XXV y 17, fracciones I, II, III y XIV de la Ley de la Comisión Nacional de Energía; 1, 2, 3, fracción L, 4, segundo párrafo, 11, fracciones III, XLIV, XLVII y XLIX, 50, 83, 84 y 85 de la Ley del Sector Eléctrico; 2, párrafo primero, apartado F, fracción III, 71, 77 y 78 del Reglamento Interior de la Secretaría de Energía; 2, 7, 9, párrafo segundo, 12, fracción IX, 13 y 19 del Reglamento Interior de la Comisión Nacional de Energía; 2, fracción I, 29, 39, 59, 192, 193,194 y Vigésimo Transitorio del Reglamento de la Ley del Sector Eléctrico; 7, fracción II del Acuerdo CT/1.SE/2-2025, por el que se aprobaron las Reglas de Operación del Comité Técnico de la Comisión Nacional de Energía; así como el Acuerdo número CT/4.SE/3-2026 expedido por el Comité Técnico de la Comisión Nacional de Energía y,\nCONSIDERANDO\n\nQue el artículo 25, párrafo quinto de la Constitución Política de los Estados Unidos Mexicanos (Constitución) establece que, tratándose del servicio público de transmisión y distribución de energía eléctrica, la Nación debe llevar a cabo dichas actividades en términos de lo dispuesto por el artículo 27, párrafo sexto Constitucional.\nQue el artículo 27, párrafo sexto de la Constitución establece que corresponde exclusivamente a la Nación la planeación y el control del Sistema Eléctrico Nacional (SEN) en los términos del artículo 28 Constitucional, así como el servicio público de transmisión y distribución de energía eléctrica; en estas actividades no se otorgan concesiones, así como que las Leyes deben determinar la forma en que los particulares pueden participar en las demás actividades de la industria eléctrica, que en ningún caso pueden tener prevalencia sobre la Empresa Pública del Estado.\nQue el artículo 28, párrafo noveno de la Constitución señala que el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica, así como con la facultad sancionadora en materia energética.\nQue de conformidad con los artículos 1, 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 2, párrafo primero de la Ley de la Comisión Nacional de Energía (LCNE); 2, apartado F, fracción III y 71 del Reglamento Interior de la Secretaría de Energía y 2, párrafo primero del Reglamento Interior de la Comisión Nacional de Energía, la Comisión Nacional de Energía (CNE) es un órgano administrativo desconcentrado, de carácter técnico, sectorizado a la Secretaría de Energía (Secretaría) que cuenta con independencia técnica, operativa, de gestión y de decisión; y tiene por objeto regular, supervisar e imponer sanciones en las actividades del sector energético de conformidad con las disposiciones aplicables en materia de planeación vinculante en el ámbito de su competencia.\nQue de conformidad con el artículo 3 de la LCNE, la CNE, en el ejercicio de sus funciones, se rige por los principios de eficacia, eficiencia, honestidad, imparcialidad, integridad, objetividad, productividad, profesionalización, transparencia, participación social, austeridad y rendición de cuentas, con el fin de contribuir a garantizar la soberanía, seguridad, autosuficiencia y justicia energéticas de la Nación acorde con la política energética que establezca la Secretaría.\nQue el artículo 2 de la Ley del Sector Eléctrico (LSE) establece que el sector eléctrico comprende las actividades de generación, almacenamiento, transmisión, distribución y comercialización de la energía eléctrica, así como la planeación y el control del SEN, la operación del Mercado Eléctrico Mayorista (MEM) y la proveeduría de insumos primarios para el sector eléctrico; asimismo, señala que las actividades del sector eléctrico son de interés público y que la planeación y el control del SEN, así como el Servicio Público de Transmisión y Distribución de Energía Eléctrica son áreas estratégicas exclusivas del Estado.\nQue en el artículo 3, fracción L de la LSE, se define al Sistema de Almacenamiento de Energía Eléctrica (SAEE) como el conjunto de componentes, equipos de control y supervisión, comunicaciones, protecciones, equipos de conversión de energía, equipos auxiliares, entre otros, que permiten extraer energía eléctrica de una Red Eléctrica o de una fuente de energía y almacenarla para su posterior uso o inyección.\nQue conforme al artículo 11, fracciones III, XLIV y XLVII de la LSE, la CNE está facultada para determinar las disposiciones administrativas de carácter general que deben contener, entre otros, las metodologías de cálculo, criterios y bases para determinar las contraprestaciones aplicables por los servicios que otorguen los SAEE al SEN; y expedir las normas, metodologías y demás disposiciones generales de carácter administrativo sobre SAEE, de conformidad con la política energética que establece la Secretaría y lo establecido en la LSE.\nQue el artículo 50 de la LSE establece que las Generadoras, Generadoras Exentas, Usuarias Finales y las personas solicitantes para la interconexión de las Centrales Eléctricas y la conexión de los Centros de Carga pueden optar por agruparse para instalar SAEE, realizar obras, ampliaciones o modificaciones necesarias para la interconexión o conexión a su costa o hacer aportaciones a la Transportista o la Distribuidora para su realización y beneficiarse de las mismas, bajo los términos, condiciones y metodologías de cálculo que se establecen en los Reglamentos, o bien, que fije la CNE mediante disposiciones administrativas de carácter general.\nQue el artículo 83 de la LSE establece que la CNE, en el ámbito de sus atribuciones puede establecer y aplicar las metodologías de contraprestación en los servicios que los SAEE provean a la red y que no se encuentren incluidos en el MEM, incluyendo Servicios Conexos y servicios para la transmisión y distribución que contribuyan a la Calidad, Confiabilidad, Continuidad, Accesibilidad, Eficiencia, Sostenibilidad y Seguridad del SEN, así como las metodologías de cobros y tarifas que le apliquen por las características y operación propias de estos sistemas.\nQue conforme al artículo 84 de la LSE, la CNE debe prever lineamientos relativos a los SAEE dentro del MEM que fortalezcan la Calidad, Confiabilidad, Continuidad, Accesibilidad, Eficiencia, Sostenibilidad y Seguridad del SEN.\nQue el artículo 85 de la LSE establece que los SAEE que instalen las Participantes del Mercado y las personas permisionarias pueden ofrecer energía y Productos Asociados para aumentar la flexibilidad operativa y contribuir a la Accesibilidad, Confiabilidad, Calidad, Seguridad, Eficiencia y Sostenibilidad del SEN, conforme a las Reglas del Mercado, así como que la misma capacidad o energía disponible no debe participar en más de un servicio y debe ser ofertada en su totalidad al CENACE para efectos de operación eficiente del SEN.\nQue el artículo 2, fracción I del Reglamento de la Ley del Sector Eléctrico (RLSE) define a la Almacenadora como la Persona física o moral titular de uno o varios permisos de almacenamiento otorgado por la CNE, que opera uno o más SAEE no asociados a Centrales Eléctricas o Centros de Carga, o bien, la titular de un contrato de Participante del Mercado que representa en el MEM a dichos sistemas, o que cuenta con autorización de la Secretaría para importación o exportación de energía eléctrica, como SAEE ubicados en el extranjero o territorio nacional.\nQue el artículo 29 del RLSE refiere que el permiso de almacenamiento de energía eléctrica otorgado por la CNE debe indicar los servicios que el SAEE puede proveer en los términos previstos en las disposiciones administrativas de carácter general a que se refiere el artículo 193 del propio RLSE. El permiso de almacenamiento de energía eléctrica puede especificar que el SAEE opera bajo contrato con el CENACE, en cuyo caso, los servicios deben ser establecidos en el propio contrato. Dichos servicios pueden incluir: la regulación, el respaldo, Servicios Conexos requeridos para la confiabilidad o cualquier otro que determine la CNE, con autorización de la Secretaría.\nQue de acuerdo con el artículo 39 del RLSE, la Secretaría y la CNE, en el ámbito de sus respectivas competencias, deben promover que se realicen acciones en las actividades de generación, almacenamiento, transmisión, distribución, suministro, comercialización, planeación y Control Operativo del SEN, para alcanzar los objetivos de Justicia Energética citados en el referido RLSE.\nQue el artículo 59 del RLSE establece que para efectos de lo previsto en el artículo 32, fracción III de la LSE se entiende por respaldo propio, el que la Central Eléctrica cuente con capacidad en SAEE o con la contratación de una cobertura para cubrir los requerimientos de manejo de rampa, intermitencia y Variabilidad con la Empresa Pública del Estado, cuando sea técnicamente factible o, en su caso, con una tercera persona; lo anterior, con la finalidad de mitigar la intermitencia que producen en el SEN en los términos que la CNE establezca en las disposiciones administrativas de carácter general en la materia.\nQue conforme al artículo 64 del RLSE, cuando por causas de emergencia se pongan en riesgo las instalaciones del SEN o el Suministro Eléctrico, los SAEE, las Generadoras y las Generadoras Exentas están obligadas, por el lapso que dure dicha emergencia, a proporcionar toda la energía eléctrica y Productos Asociados, en la medida de las posibilidades físicas y técnicas de las Centrales Eléctricas que representen. Para tales efectos están sujetas a las instrucciones del CENACE. En estos casos, las Almacenadoras, las Generadoras y las Generadoras Exentas tienen derecho a recibir la contraprestación que corresponda en los términos previstos en las Reglas del Mercado.\nQue de acuerdo con el artículo 192 del RLSE, los SAEE pueden participar de forma conjunta en las actividades de generación y comercialización, asociados o no, a Centros de Carga o Centrales Eléctricas, o bien ser integrados como parte de la infraestructura para el Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como en los servicios que considere la CNE y la Secretaría, para mantener la Accesibilidad, Calidad, Confiabilidad, Continuidad, Eficiencia, Seguridad y Sostenibilidad del SEN, y contribuir a la Justicia Energética. Asimismo, este artículo señala que los SAEE integrados como elementos de infraestructura a la Red Nacional de Transmisión y a las Redes Generales de Distribución, son considerados como parte de las actividades de transmisión y distribución exclusivas de la Empresa Pública del Estado, por lo que debe ponerlos a disposición del CENACE para mantener la Calidad, Confiabilidad, Continuidad y Seguridad de Despacho del SEN, y que la Empresa Pública del Estado puede proponer para autorización de la Secretaría proyectos y modalidades de participación que incluyan SAEE cuando estos sean utilizados con fines sistémicos. El CENACE puede coordinar su operación conforme a los lineamientos técnicos y a los contratos respectivos.\nQue conforme al artículo 193 del RLSE, los servicios que pueden proveer los SAEE en el SEN, sus modalidades de participación, así como los supuestos bajo los cuales se pueden instalar de forma agrupada en los términos del artículo 50 de la LSE, deben establecerse en las disposiciones administrativas de carácter general que al efecto emita la CNE, en coordinación con la Secretaría. Asimismo, conforme al citado artículo, todos los SAEE no asociados a una Central Eléctrica o Centro de Carga con capacidad mayor o igual a 0.7 MW, requieren permiso de almacenamiento otorgado por la CNE; en ese sentido, los SAEE que forman parte de una Central Eléctrica con permiso de generación, no requieren permiso de almacenamiento.\n\nDe igual manera, el referido artículo 193 del RLSE también establece que todos los SAEE que participen en el MEM deben contar con permiso otorgado por la CNE o con autorización de la Secretaría, según corresponda, y deben ser representados por una Almacenadora, Generadora o Suministradora que sean Participantes del Mercado, de acuerdo con lo establecido en las Reglas del Mercado y la regulación aplicable. Adicionalmente, establece que no requieren de permiso los SAEE integrados a la infraestructura de la Empresa Pública del Estado para la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica y que dichos SAEE no deben participar en el MEM.\nQue el artículo 194 del RLSE señala que la operación de los SAEE debe sujetarse a las instrucciones operativas del CENACE en términos de las disposiciones administrativas previstas en el artículo 193 del propio RLSE, y que el CENACE puede celebrar contratos específicos de prestación de servicios múltiples con SAEE, cuando el análisis técnico demuestre que dichos recursos aportan a la Confiabilidad, Seguridad, Eficiencia o integración de Energías Renovables; estos contratos pueden incluir obligaciones de desempeño y disponibilidad.\nQue el artículo 195 del RLSE establece que los SAEE no pueden recibir Certificados de Energías Limpias y tampoco le son aplicables los requisitos en la materia, toda vez que la acreditación y el requerimiento de los Certificados de Energías Limpias se originan por la generación y consumo de energía eléctrica y no por su almacenamiento.\nQue conforme al artículo Vigésimo Transitorio del RLSE a partir de la entrada en vigor del RLSE, la CNE debe publicar en un plazo de ciento ochenta días hábiles, las disposiciones administrativas de carácter general sobre SAEE.\nQue en la Cuarta Sesión Extraordinaria celebrada el 08 de abril de 2026, el Comité Técnico de la CNE aprobó el Acuerdo número CT/4.SE/3-2026, mediante el cual se autoriza la emisión del presente instrumento.\nDerivado de lo anterior, en el ejercicio de las facultades que el marco jurídico vigente atribuye a la CNE y en apego a los objetivos y principios señalados en las consideraciones anteriores, resulta necesario establecer los requisitos para la integración de SAEE al SEN, por lo que tengo a bien expedir el siguiente:\nACUERDO DE LA COMISIÓN NACIONAL DE ENERGÍA POR EL QUE SE EMITEN LAS DISPOSICIONES\nADMINISTRATIVAS DE CARÁCTER GENERAL PARA LA INTEGRACIÓN DE SISTEMAS DE ALMACENAMIENTO DE\nENERGÍA ELÉCTRICA AL SISTEMA ELÉCTRICO NACIONAL\n\nArtículo Único. La Comisión Nacional de Energía emite las Disposiciones Administrativas de Carácter General para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional, para quedar como sigue:\nDISPOSICIONES ADMINISTRATIVAS DE CARÁCTER GENERAL PARA LA INTEGRACIÓN DE SISTEMAS DE ALMACENAMIENTO DE ENERGÍA ELÉCTRICA AL SISTEMA ELÉCTRICO NACIONAL\nContenido\n\nCapítulo I. Disposiciones Generales\nCapítulo II. Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional\nCapítulo III. Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas\nCapítulo IV. Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga\nCapítulo V. Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo\nCapítulo VI. Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica\nCapítulo VII. Sistemas de Almacenamiento de Energía Eléctrica no Asociados\nCapítulo VIII. Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada\nCapítulo IX. Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "titulo_nombre": null,
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Objetivo. Las presentes disposiciones tienen por objeto establecer los requisitos que se deben cumplir para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional, los lineamientos de los servicios que pueden proveer dichos sistemas, las modalidades de participación, así como los supuestos bajo los cuales se pueden instalar de forma agrupada, a fin de garantizar que la integración y operación de los Sistemas de Almacenamiento de Energía Eléctrica se realice de manera ordenada, segura y eficiente, para aprovechar sus funcionalidades técnicas y contribuir al fortalecimiento de la Accesibilidad, Continuidad, Confiabilidad, Calidad, Seguridad, Eficiencia y Sostenibilidad del Sistema Eléctrico Nacional.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Alcance. Las presentes disposiciones son de orden público, interés general y observancia obligatoria en todo el territorio nacional. El Centro Nacional de Control de Energía, las Generadoras, las Suministradoras, las Almacenadoras, la Transportista, la Distribuidora y las Usuarias Finales deben sujetarse a lo establecido en ellas, en lo que les resulte aplicable conforme a sus atribuciones o actividades, según corresponda.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Modificaciones. La modificación de las presentes disposiciones, así como de los instrumentos complementarios que, en su caso se emitan, corresponde a la Comisión Nacional de Energía, en coordinación con la Secretaría.\nLa Comisión Nacional de Energía puede modificar los términos de estas disposiciones cuando lo estime necesario, atendiendo el desarrollo tecnológico, la evolución operativa y las necesidades regulatorias derivadas de la integración de los Sistemas de Almacenamiento de Energía Eléctrica, con el propósito de asegurar la Accesibilidad, Continuidad, Calidad, Eficiencia, Confiabilidad, Seguridad y Sostenibilidad del Sistema Eléctrico Nacional en consistencia con el marco legal y regulatorio vigente.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Definiciones, siglas y acrónimos. Para la correcta interpretación y aplicación de las presentes disposiciones, además de las definiciones contenidas en la Ley del Sector Eléctrico, su Reglamento y las Reglas del Mercado, deben emplearse, en singular o plural, las siguientes definiciones, siglas y acrónimos:\nI. Análisis de Variabilidad: Análisis realizado en los Estudios de Interconexión cuyo fin es evaluar los efectos derivados de la Variabilidad de la fuente primaria de energía de una Central Eléctrica en la Confiabilidad y Seguridad del Sistema Eléctrico Nacional;\nII. Análisis de Confiabilidad: Análisis realizado en los Estudios de Interconexión y en los Estudios de Conexión, cuyo fin es evaluar el desempeño del Sistema de Almacenamiento de Energía Eléctrica en sus diferentes modalidades con el objetivo de contribuir a la Confiabilidad del Sistema Eléctrico Nacional;\nIII. Capacidad de Almacenamiento: Cantidad de energía, expresada en MWh (a seis dígitos después del punto decimal), que puede ser almacenada para ser entregada como energía eléctrica y mediante la cual se identifica al Sistema de Almacenamiento de Energía Eléctrica, indicada en corriente alterna;\nIV. CFE: Comisión Federal de Electricidad;\nV. Ciclo de Trabajo: Combinación de fases controladas (fase de carga, pausa, fase de descarga, entre otras) que inicia en un estado determinado de carga y concluye en un estado final de carga. Se utiliza en la caracterización, especificación y pruebas del Sistema de Almacenamiento de Energía Eléctrica en modo operativo de carga o descarga; un Ciclo de Trabajo se completa cuando se ha descargado una cantidad equivalente al 100% de la capacidad del Sistema de Almacenamiento de Energía Eléctrica entre el SOCmin y el SOCmax;\nVI. Código de Red: Disposiciones Administrativas de Carácter General que contienen los criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad del Sistema Eléctrico Nacional: Código de Red, publicadas el 31 de diciembre de 2021 en el Diario Oficial de la Federación, o aquel que las modifique o sustituya;\nVII. Disponibilidad de Entrega Física o DEF: Es el valor obtenido cuando los Estudios de Conexión o los Estudios de Interconexión se solicitan y elaboran bajo este criterio, su cálculo se lleva a cabo al momento de realizar dichos Estudios conforme a lo definido en las Reglas del Mercado;\nVIII. Degradación del SAEE: Afectación o disminución de la Capacidad de Almacenamiento ocasionada por los Ciclos de Trabajo y el transcurso del tiempo;\nIX. Disposiciones: Las presentes Disposiciones Administrativas de Carácter General para la Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional;\nX. Disposiciones de Autoconsumo: Disposiciones Administrativas de Carácter General para regular la figura de Autoconsumo de Energía Eléctrica, publicadas el 12 de diciembre de 2025 en el Diario Oficial de la Federación, o aquellas que las modifique o sustituya;\nXI. Disposiciones de Permisos: Disposiciones Administrativas de Carácter General que establecen los términos legales, técnicos y financieros para solicitar el otorgamiento y la modificación de permisos de generación y almacenamiento de energía eléctrica, así como su vigencia, publicadas el 23 de octubre de 2025 en el Diario Oficial de la Federación, o aquellas que las modifique o sustituya;\nXII. Profundidad de Descarga o DOD, por sus siglas en inglés, Depth Of Discharge: Cantidad máxima de energía eléctrica que puede extraerse de la batería comprendida entre el SOCmax y el SOCmin, expresada como porcentaje respecto de la Capacidad de Almacenamiento;\nXIII. Energía Disponible del SAEE: Energía máxima, expresada en MWh (a seis dígitos después del punto decimal) e indicada en corriente alterna, que puede extraerse del Sistema de Almacenamiento de Energía Eléctrica considerando su estado actual del SOC, la cual puede variar según diversos factores;\nXIV. LSE: Ley del Sector Eléctrico;\n\nXV. Manual de Interconexión y Conexión: Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga, publicado en el Diario Oficial de la Federación el 09 de febrero de 2018 o aquel que lo modifique o sustituya;\nXVI. MEM: Mercado Eléctrico Mayorista;\nXVII. Perfil de Potencia: Potencia instantánea, expresada en MW (especificando seis dígitos después del punto decimal), que un Sistema de Almacenamiento de Energía Eléctrica puede entregar o recibir en un período de tiempo específico;\nXVIII. POC: Procedimiento de Operación para la Declaración de Entrada en Operación Comercial de Centrales Eléctricas y Centros de Carga, publicado en el Sistema de Información del Mercado el 08 de abril de 2019 o aquel que lo modifique o sustituya;\nXIX. Potencia SAEE: Potencia activa, expresada en MW (a seis dígitos después del punto decimal), e indicada en corriente alterna, mediante la cual se designa e identifica al Sistema de Almacenamiento de Energía Eléctrica;\nXX. RGD: Redes Generales de Distribución;\nXXI. RLSE: Reglamento de la Ley del Sector Eléctrico;\nXXII. RNT: Red Nacional de Transmisión;\nXXIII. SAEE: Sistema de Almacenamiento de Energía Eléctrica;\nXXIV. SEN: Sistema Eléctrico Nacional;\nXXV. Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo o SAEE-Autoconsumo: Modalidad en la que una Usuaria de Autoconsumo o la persona titular de un permiso de generación de energía eléctrica bajo la figura de Autoconsumo, integran un SAEE;\nXXVI. Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga o SAEE-CC: Modalidad en la cual un Centro de Carga integra un SAEE, compartiendo el mismo Punto de Conexión;\nXXVII. Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas o SAEE-CE: Modalidad en la cual una Central Eléctrica de Energías Renovables, con permiso de generación de energía eléctrica bajo la figura de Generación para el Mercado Eléctrico Mayorista, integra un SAEE compartiendo el mismo Punto de Interconexión;\nXXVIII. Sistemas de Almacenamiento de Energía Eléctrica no Asociados o SAEE no Asociado: SAEE integrado por una Almacenadora, el cual no forma parte de una Central Eléctrica o Centro de Carga, observándose de manera independiente su inyección o retiro de energía eléctrica de la RNT o las RGD;\nXXIX. Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica o SAEE-RNT/RGD: SAEE integrado por la Transportista o la Distribuidora, como elemento de la infraestructura destinada a la prestación del Servicio Público de Transmisión o Distribución de Energía Eléctrica;\nXXX. Estado de Carga o SOC, por sus siglas en inglés, State Of Charge: Nivel de carga del SAEE en un momento específico, obtenido de la relación entre la Energía Disponible del SAEE y la Capacidad de Almacenamiento, expresado como porcentaje;\nXXXI. SOCmax: Nivel más alto de carga permitido por el SAEE, expresado como porcentaje de su Capacidad de Almacenamiento, a partir del cual el SAEE deja de cargarse conforme a los límites de seguridad definidos por diseño;\nXXXII. SOCmin: Nivel más bajo de carga permitido por el SAEE, expresado como porcentaje de su Capacidad de Almacenamiento, a partir del cual el SAEE deja de descargarse conforme a los límites de seguridad definidos por diseño;\nXXXIII. Variabilidad: Condición asociada a la fuente primaria de energía de una Central Eléctrica mediante la cual se presentan desviaciones en la potencia generada por la Central, derivadas de cambios en la intensidad o características de su fuente de energía primaria, y\nXXXIV. Vida Útil: Periodo previsto desde la prueba de puesta en servicio del SAEE hasta el final de su etapa de uso prevista, considerando la Degradación del SAEE, expresada en años o en Ciclos de Trabajo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Referencias normativas: Para los fines de las Disposiciones, deben aplicarse, de manera enunciativa más no limitativa, las Normas Oficiales Mexicanas, Normas internacionales y Normas Extranjeras que se indican a continuación, o aquellas que las modifiquen o sustituyan:\nNOM-001-SEDE-2012 Instalaciones Eléctricas (utilización);\nIEC 62619:2022 Secondary cells and batteries containing alkaline or other non-acid electrolytes - Safety requirements for secondary lithium cells and batteries, for use in industrial applications;\nIEC 62933-5-1:2024 Electrical energy storage (EES) systems - Part 5-1: Safety considerations for grid-integrated EES systems - General specification;\nIEC 62933-5-2:2025 Electrical energy storage (EES) systems - Part 5-2: Safety requirements for grid-integrated EES systems - Electrochemical-based systems;\nUL 1973, 3ra edición Batteries for Use in Stationary and Motive Auxiliary Power Applications;\nUL 9540, 3ra edición Energy Storage Systems and Equipment.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Supervisión y Vigilancia. Para fines de supervisión y vigilancia de las Disposiciones, la CNE puede ordenar y realizar visitas de verificación, requerir la presentación de información y citar a comparecer a los Integrantes del Sector Eléctrico conforme a lo establecido en el artículo 11, fracción XLII de la LSE.\nLos representantes de los SAEE, en cualquiera de sus modalidades de participación, deben atender los requerimientos de información y documentación que formule la Unidad de Vigilancia del Mercado, en el ámbito de sus atribuciones y para el ejercicio de sus funciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Sanciones. Las infracciones a las Disposiciones deben ser sancionadas de conformidad con lo establecido en la LSE y el RLSE, sin perjuicio de las sanciones que deriven de otros instrumentos regulatorios aplicables, ni de la responsabilidad civil o penal que resulte. Del mismo modo, las actuaciones de los servidores públicos en el ejercicio de sus atribuciones y facultades que se lleven a cabo al amparo de las Disposiciones deben sujetarse a los principios constitucionales de legalidad, honradez, lealtad, imparcialidad y eficacia, conforme al marco regulatorio aplicable y vigente.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "1.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Controversias. Las controversias que se deriven de la interpretación o aplicación de las Disposiciones deben sustanciarse conforme a la LSE, el RLSE, las Reglas del Mercado y demás disposiciones aplicables, sin perjuicio de las atribuciones de la CNE en el ámbito de su competencia.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo I Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE pueden integrarse como infraestructura complementaria en las actividades del sector eléctrico. Su integración no implica, por sí misma, la realización de la actividad regulada de almacenamiento, por lo tanto, su tratamiento regulatorio se determina conforme a las modalidades de participación previstas en las Disposiciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La integración de los SAEE al SEN debe realizarse considerando los instrumentos o criterios de planeación vinculante del SEN y puede ser bajo alguna de las siguientes modalidades de participación: SAEE-CE, SAEE-CC, SAEE-Autoconsumo, SAEE-RNT/RGD o SAEE no Asociado, conforme los requisitos establecidos en las Disposiciones y demás instrumentos que resulten aplicables.\nAsimismo, la CFE, considerando lo previsto en la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad, puede celebrar contratos, alianzas o asociaciones con personas físicas o morales de los sectores público, privado o social, para la integración de los SAEE en las actividades que realice, para lo cual, se requiere de la autorización de la Secretaría, considerando los instrumentos o criterios de planeación vinculante.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las modalidades de participación previstas en las Disposiciones deben cumplir, según corresponda, con los requerimientos técnicos establecidos en el Código de Red, la NOM-001-SEDE-2012, las Especificaciones Técnicas aplicables y demás normatividad que resulte aplicable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La integración de un SAEE en una Central Eléctrica o Centro de Carga existentes se considera una Modificación Técnica. En consecuencia, la representante de la Central Eléctrica o del Centro de Carga debe ingresar una solicitud de Estudios ante el CENACE. Para la atención de dicha solicitud, además de lo establecido en el Manual de Interconexión y Conexión, el CENACE debe observar lo establecido en el numeral 2.11.2. de las Disposiciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La Declaración de Entrada en Operación Comercial de los SAEE que participen en el MEM debe obtenerse conforme al POC.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las instrucciones para dar cumplimiento a lo previsto en el artículo 64 del RLSE pueden emitirse a través del operador del sistema o mediante los automatismos de los sistemas de control del SAEE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE conforme a lo establecido en las Reglas del Mercado puede emitir instrucciones de operación a los SAEE con el fin de mantener la Confiabilidad del SEN, independientemente del estado operativo en el que se encuentre el SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La mitigación de los efectos en la Confiabilidad del SEN asociados a la interconexión de una Central Eléctrica cuya fuente primaria de energía presente condiciones de Variabilidad deben atenderse de manera prioritaria mediante los recursos sistémicos, los Servicios Conexos y demás mecanismos de operación del SEN, conforme a lo que determine el CENACE en los Estudios de Interconexión.\nNo obstante, el CENACE puede establecer requisitos particulares aplicables a una Central Eléctrica como resultado de los Estudios, los cuales pueden ser cubiertos mediante los siguientes mecanismos:\nI. Integración de un SAEE como parte de sus instalaciones y equipos cumpliendo con los criterios del Capítulo III de las Disposiciones, o\nII. Agrupación con una o más Centrales Eléctricas para la integración de un SAEE, conforme a lo previsto en el Capítulo VIII de las Disposiciones.\nLo anterior sin perjuicio de que la persona permisionaria pueda realizar la contratación de respaldo para mitigar dicha condición conforme a los mecanismos que se establezcan en las Reglas del Mercado y demás normatividad aplicable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.8.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El mecanismo que, en su caso, se determine debe justificarse atendiendo la ubicación del proyecto, la topología de la red, la disponibilidad de recursos flexibles existentes o previstos y la Confiabilidad del SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.8.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE integrados para contribuir a la Confiabilidad y mitigar los efectos asociados a la Variabilidad de la fuente primaria de energía de una Central Eléctrica deben mantener, durante la vigencia del permiso de generación de energía eléctrica, la Capacidad de Almacenamiento necesaria para cumplir con dicho objetivo, conforme a lo previsto en los Estudios de Interconexión.\nEn caso de que, como resultado de la Degradación del SAEE, la Capacidad de Almacenamiento o la Potencia SAEE se reduzcan respecto de las consideraciones de dichos Estudios, el CENACE debe evaluar si dicha degradación afecta la Seguridad, Continuidad o Confiabilidad del SEN.\nCuando el CENACE determine que la Degradación del SAEE compromete el cumplimiento del objetivo para el cual fue integrado, la persona permisionaria debe llevar a cabo la reposición o actualización de la capacidad acreditada del SAEE, de conformidad con la degradación prevista en el permiso de generación y con base en los Estudios de Interconexión correspondientes.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.9.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE a los que se refieren las Disposiciones pueden, de manera enunciativa más no limitativa, emplear tecnologías, tales como: almacenamiento electroquímico o baterías, almacenamiento mecánico, almacenamiento por rebombeo hidráulico, almacenamiento por volantes de inercia, almacenamiento gravitacional, almacenamiento térmico, almacenamiento por aire comprimido, almacenamiento químico de hidrógeno o amoniaco verde y periféricos asociados.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.10.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE cuya tecnología dependa de dispositivos de electrónica de potencia para inyectar energía a la RNT o las RGD, deben implementar tecnología formadora de red (grid forming) como parte de los requerimientos técnicos del proyecto.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.11.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Todos los SAEE que pretendan ofrecer energía eléctrica y Productos Asociados en el MEM, deben presentar una solicitud de Estudios de Interconexión. Asimismo, todo SAEE que pretenda retirar energía eléctrica de la RNT o de las RGD debe presentar la solicitud de Estudios de Conexión. En los casos en los que se requiera la realización de ambos Estudios estos se deben atender mediante una sola solicitud. Adicionalmente, se debe entregar la documentación con la cual se describa detalladamente lo siguiente:\nI. Tipo de tecnología del SAEE;\nII. Capacidad de Almacenamiento;\nIII. Potencia SAEE;\nIV. Tiempo de respuesta;\nV. Velocidad de carga y descarga, y\nVI. DOD.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.11.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas y Centros de Carga existentes que integren SAEE y con ello incrementen su Capacidad Instalada Neta, demanda contratada o demanda máxima, según corresponda, deben solicitar la realización de nuevos Estudios al CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.11.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE debe realizar un Estudio Rápido, para determinar si la integración de un SAEE-CE, un SAEE-CC o un SAEE-Autoconsumo, requiere realizar el Estudio Indicativo, el Estudio de Impacto o el Estudio de Instalaciones, o sólo alguno de ellos; o si los incrementos de capacidad no ameritan realizar Estudios y solamente se requiere celebrar un nuevo Contrato de Interconexión o Conexión correspondiente a la nueva Capacidad Instalada o Carga Contratada, conforme a los criterios de Confiabilidad y Seguridad del SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.11.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE debe realizar el Análisis de Variabilidad con un enfoque sistémico, empleando la metodología vigente para dicho análisis y considerando las condiciones operativas del sistema eléctrico en la zona en la que se solicite la Interconexión de la Central Eléctrica, incluyendo, al menos, la disponibilidad de recursos de generación flexible, la capacidad del sistema eléctrico para mitigar los efectos asociados a la Variabilidad de la fuente primaria de energía de la Central, así como la existencia de otros SAEE u otros recursos que contribuyan a la Continuidad y Confiabilidad del SEN en dicha zona.\nEl resultado del Análisis de Variabilidad puede determinar que no es necesaria la integración de un SAEE por parte de la Central Eléctrica, cuando los recursos sistémicos del SEN y las condiciones del sistema eléctrico en la zona donde se solicite la Interconexión sean suficientes para mitigar los efectos asociados a la Variabilidad de la fuente primaria de energía de dicha central.\nEl CENACE debe, al menos cada dos años, revisar y, en su caso, actualizar la metodología del Análisis de Variabilidad sometiendo dicha actualización a la aprobación de la CNE. La metodología aprobada por la CNE debe ser publicada por el CENACE en el Sistema de Información del Mercado.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.11.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para todos los Estudios, debe considerarse una corriente de falla para el SAEE de, al menos, dos veces la corriente nominal, sostenida durante la falla en un periodo mínimo de 700 ms en las terminales del equipo del SAEE. Conforme se integren al SEN nuevas Centrales Eléctricas con fuente primaria de energía variable o con base en la localización de las centrales, el CENACE, a través de los Estudios de Interconexión y Estudios de Conexión debe proporcionar la especificación que debe cumplir el SAEE a fin de garantizar la Confiabilidad y Seguridad del SEN.\nEn todos los casos, la persona solicitante debe cumplir con los tiempos y costos asociados a cada uno de los Estudios descritos en el Manual de Interconexión y Conexión.\nPara el Criterio para Garantizar la Disponibilidad de Entrega Física, aplica lo señalado en el Manual de Interconexión y Conexión respecto a tiempos y costos.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.12.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE, que se integren en cualquiera de las modalidades descritas en el numeral 1.4, fracciones XXV a XXIX de las Disposiciones, deben cumplir con las normas indicadas en la Tabla 1 o en la Tabla 2 siguientes, según corresponda:\nTabla 1. Normas Internacionales\n\nIEC 62619\n\nIEC 62933-5-1\n\nIEC 62933-5-2\n\nTabla 2. Normas Extranjeras\n\nUL 1973\n\nUL 9540\n\nLas Normas mencionadas en la Tabla 1 y la Tabla 2 anteriores son aplicables en tanto no se emita la Norma Oficial Mexicana en la materia. El cumplimiento debe demostrarse conforme a lo establecido en la Ley de Infraestructura de la Calidad.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Consideraciones Generales para la operación en el MEM",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para la operación en el MEM, las diversas modalidades de participación de los SAEE deben contar con un Sistema de Medición en el Punto de Interconexión o Punto de Conexión, el cual debe cumplir con la regulación vigente.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE que participen en el MEM pueden presentar Ofertas de Compra y Ofertas de Venta de energía eléctrica y Productos Asociados en el Mercado de Energía de Corto Plazo, conforme a lo previsto en las Reglas del Mercado y demás disposiciones aplicables, considerando su naturaleza como recursos de energía limitada con las características técnicas declaradas para su operación.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE que participen en el MEM como un recurso despachable no adquieren las obligaciones de una Entidad Responsable de Carga cuando retiren energía de la red, y solo le deben aplicar los cargos por energía y Tarifas Reguladas por el uso de la red y costo de operación del CENACE, conforme a lo establecido en las Reglas del Mercado y las Disposiciones.\n\nLos SAEE que participen en el MEM como un recurso no despachable adquieren las obligaciones de una Entidad Responsable de Carga por el retiro de energía eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La liquidación de los SAEE debe sujetarse al proceso que se define en el Manual de Liquidaciones o aquel que lo modifique o sustituya. Incluyendo las Tarifas Reguladas, así como los cargos y compensaciones previstas en las Reglas del Mercado.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Tarifas Reguladas para el Servicio Público de Distribución de Energía Eléctrica por el uso de las RGD, deben aplicarse a los SAEE únicamente por el retiro de energía eléctrica. Las Tarifas Reguladas para el Servicio Público de Transmisión de Energía Eléctrica por el uso de la RNT y la operación del CENACE, deben aplicarse a los SAEE de acuerdo con lo siguiente:\nI. A los SAEE-CE por la inyección de energía eléctrica, y\nII. A los SAEE no Asociados, se debe aplicar un cincuenta por ciento de la tarifa correspondiente, ya sea por el retiro o por la inyección de energía eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Reglas del Mercado deben establecer la manera en que se deben determinar y realizar los pagos que compensen los cargos establecidos en los numerales 2.13.2. y 2.13.5. anteriores, cuando corresponda.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE que participen en el MEM en cualquiera de sus modalidades pueden celebrar contratos bilaterales de largo plazo de Potencia o cualquier otro producto que garantice la suficiencia de recursos para satisfacer la demanda eléctrica con Entidades Responsables de Carga, Suministradoras y demás Participantes del Mercado, conforme a lo establecido en las Reglas del Mercado y las demás disposiciones aplicables.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE, en las modalidades de SAEE-CE y SAEE no Asociados pueden celebrar Contratos de Cobertura Eléctrica con las Entidades Responsables de Carga sujetas a obligaciones de adquisición anticipada de energía eléctrica, Potencia y CEL, para ofrecer energía y Potencia de acuerdo con las capacidades de los SAEE y conforme a lo dispuesto en la normatividad en la materia.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.9.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los Costos de Oportunidad aplicables a los SAEE deben determinarse conforme a lo previsto en el Manual de Costos de Oportunidad emitido por el CENACE o aquel que lo modifique o lo sustituya, considerando su naturaleza como Recursos de Energía Limitada. Dichos costos deben reflejar el valor económico asociado a la administración eficiente de la energía disponible en el tiempo y utilizarse como base para la formulación de Ofertas en el MEM, a fin de asegurar una operación que preserve la disponibilidad futura del recurso y contribuya a la optimización económica del SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.13.10.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE que cuenten con una duración de almacenamiento igual o mayor a tres horas pueden acreditar Potencia para efectos del Mercado para el Balance de Potencia, conforme a lo establecido en las Reglas del Mercado y el Manual del Mercado para el Balance de Potencia o aquel que lo modifique o sustituya.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "2.14.",
+      "tipo_articulo": "ordinario",
+      "contenido": "En las modalidades de los SAEE en donde se realice compra y venta de energía eléctrica, las liquidaciones o compensaciones de los procesos de inyección y retiro de energía deben estar basados en el mismo esquema, ya sea por estructura tarifaria o precio del mercado, según corresponda, acorde con lo previsto en las disposiciones aplicables.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE-CE pueden ser integrados exclusivamente por Centrales Eléctricas de Energías Renovables. Su utilización es decisión del representante de la propia Central Eléctrica y las Ofertas presentadas en el MEM quedan sujetas a las indicaciones de despacho definidas por el CENACE. La integración de un SAEE no implica, por sí misma, la obligación de que la Central Eléctrica particione el recurso ni lo modele como activos distintos.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE-CE se consideran parte integral de las instalaciones y equipos de la Central Eléctrica. En consecuencia y conforme al artículo 193, tercer párrafo, del RLSE, no requieren permiso de almacenamiento de energía eléctrica. Respecto al permiso de generación, se debe observar lo establecido en las Disposiciones de Permisos. La energía eléctrica, Potencia y los Servicios Conexos que sean destinados para su comercialización a través de los mecanismos contemplados en el MEM debe realizarse por conducto de la Participante del Mercado que represente a la Central Eléctrica y forman parte de su actividad de generación, independientemente de que el SAEE sea utilizado para dicho fin.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE-CE pueden operar a disposición del CENACE, conforme a los criterios previstos en el numeral 2.13.3. de las Disposiciones, o a disposición de la propia Participante del Mercado que los represente, de conformidad con los criterios del numeral 2.13.4. de las Disposiciones, según convenga al representante de dicho activo. En ambos casos, los SAEE deben tener el tratamiento de un solo recurso y pueden ser destinados a la comercialización de energía eléctrica, Potencia y Servicios Conexos.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas que declaren que la operación de su SAEE-CE se realiza bajo su total disposición, deben administrar íntegramente el sistema. En este caso, las ofertas que presente en el MEM quedan sujetas a las instrucciones de despacho que emita el CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Consideraciones para la elaboración de los Estudios de Interconexión",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.5.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Cuando el SAEE deba compensar los efectos asociados a la Variabilidad de la fuente primaria de energía de la Central, los escenarios que deben estudiarse son los siguientes:\nI. Casos base de demanda mínima, media y máxima, definidos conforme al Criterio correspondiente establecido en el Código de Red, y\nII. A petición de la persona solicitante, puede incluirse el análisis con DEF.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.5.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La persona solicitante puede elegir entre los siguientes modos de operación para la elaboración de los Estudios correspondientes a Centrales Eléctricas:\nI. Compensación de los efectos asociados a la Variabilidad de la fuente primaria de energía;\nII. Operación en modo de descarga del SAEE para el MEM;\nIII. Operación en modo carga del SAEE desde la RNT, o\nIV. Cualquier combinación de las tres opciones anteriores.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.5.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Integración de SAEE en Centrales Eléctricas existentes: Debe atenderse como una Modificación Técnica mediante el procedimiento establecido en el numeral 2.11.2. de las Disposiciones.\nEl CENACE debe determinar el dimensionamiento del SAEE, el cual debe considerarse como referencia para identificar la capacidad mínima del SAEE, Rampa y Tiempo de Descarga, debiéndose integrar tales elementos en el Estudio de Impacto.\nSin perjuicio de lo anterior, la persona solicitante puede solicitar cualquier Potencia SAEE, siempre que ésta sea menor a la Capacidad Instalada Neta de la Central Eléctrica. Estos SAEE pueden cargarse desde la RNT y no deben inyectar al SEN más potencia que la declarada en la Capacidad Instalada Neta.\nCuando se requiera realizar la carga desde la RNT, el análisis del numeral 2.11.2. de las Disposiciones debe comprender el Estudio de Conexión e Interconexión que considere el impacto de la carga y la inyección de energía eléctrica a la red.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.5.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Integración de SAEE en Centrales Eléctricas nuevas: Se debe realizar el Estudio Indicativo, el Estudio de Impacto y el Estudio de Instalaciones, conforme a lo establecido en el Manual de Interconexión y Conexión y considerando adicionalmente lo previsto en las Disposiciones.\nEstos SAEE pueden cargarse desde la RNT, para lo cual, debe llevarse a cabo el Estudio de Conexión que considere el impacto de la carga en la red.\nLa persona solicitante puede solicitar cualquier capacidad para el SAEE, siempre que ésta sea menor a la Capacidad Instalada Neta de la Central Eléctrica. El SAEE no debe inyectar al SEN más potencia que la declarada en la Capacidad Instalada Neta.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE-CE deben sujetarse al proceso de interconexión previsto en el Manual de Interconexión y Conexión, incluida la presentación de la Solicitud de Interconexión ante el CENACE a través del SIASIC, y cumplir con las condiciones de operación, medición, despacho y cualquier otra que resulte aplicable conforme a las Reglas del Mercado, sin perjuicio de lo establecido en las Disposiciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La Solicitud de Interconexión para la integración de SAEE-CE, debe incluir el Perfil de Potencia horario con el cual se planea operar el SAEE asociado a la Central, considerando al menos:\nI. Estimación del perfil de generación de la Central Eléctrica;\nII. La potencia destinada a usos propios de la Central Eléctrica, y\nIII. La estrategia de carga y descarga del SAEE-CE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las nuevas Centrales Eléctricas que soliciten un permiso de generación de energía eléctrica bajo la figura de Generación para el MEM pueden integrar SAEE como parte del diseño original de sus instalaciones y equipos.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.9.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas existentes que cuenten con un permiso de generación de energía eléctrica vigente otorgado en términos de la LSE y que pretenden integrar un SAEE o modificar las características de un SAEE previamente asociado, deben solicitar la modificación de su permiso de generación conforme a los términos y requisitos establecidos en el numeral 3.9. de las Disposiciones de Permisos.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.10.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas existentes que cuenten con un permiso de generación vigente otorgado al amparo de la Ley del Servicio Público de Energía Eléctrica o de la Ley de la Industria Eléctrica y pretendan integrar un SAEE, deben solicitar la migración de su permiso de generación a los términos de la LSE.\nSi en la solicitud de migración se presenta el oficio al que hace referencia el numeral 3.9.5, fracción I de las Disposiciones de Permisos con los resultados del Estudio en el que conste la viabilidad de la integración de un SAEE y que no se incremente la Capacidad Instalada de la Central Eléctrica ni se modifique la capacidad establecida en su Contrato de Interconexión, la CNE debe resolver sobre la migración y modificación del permiso de generación para la integración del SAEE, previo cumplimiento de lo previsto en las Disposiciones de Permisos.\nEn aquellos casos en los que se incremente la Capacidad Instalada de la Central Eléctrica, una vez concluido el procedimiento de migración del permiso de generación a los términos de la LSE, la Central Eléctrica debe solicitar la modificación de dicho permiso a fin de integrar el SAEE, de conformidad con lo establecido en el numeral 3.9. de las Disposiciones. Una vez autorizada la modificación, el titular de dicho permiso debe solicitar al CENACE la modificación del Contrato de Interconexión vigente y obtener la Declaratoria de Entrada en Operación Comercial correspondiente a la adición de nuevas instalaciones y cumplir con la regulación aplicable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.11.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas que cuenten con un SAEE pueden realizar la carga de dicho sistema utilizando la energía generada por la propia Central o, en su caso, a partir de energía proveniente de la RNT. Cuando se opte por esta última opción, el representante de la Central debe indicarlo expresamente en la Solicitud de Interconexión, a fin de que el CENACE considere dicha operación en la elaboración de los Estudios de Interconexión y los Estudios de Conexión aplicables, conforme al Manual de Interconexión y Conexión.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.12.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Tratándose de SAEE-CE que pretendan cargarse desde la RNT, la Solicitud de Conexión debe incluir el Perfil de Potencia horario con el que se prevea operar el SAEE. En ausencia de dicha información o cuando ésta sea insuficiente, el CENACE puede, para efectos de los Estudios de Conexión, considerar la Potencia SAEE como demanda y estimar perfiles de carga con base en la información operativa del SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.13.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Solo en aquellos casos en los cuales el representante de la Central Eléctrica, conforme a lo señalado en el numeral 3.12. de las Disposiciones, haya determinado que la carga del SAEE se realice a partir de energía eléctrica proveniente de la RNT, puede presentar Ofertas de Compra en el Mercado de Energía de Corto Plazo para dicho propósito.\nEn caso de que el representante de la Central Eléctrica haya determinado que la carga del SAEE se realice utilizando la energía generada por la propia Central, la Oferta de Venta de energía eléctrica y Servicios Conexos que ésta presente en el Mercado de Energía de Corto Plazo debe considerar la energía disponible en MWh, descontando la energía destinada a la carga del SAEE correspondiente.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.14.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La capacidad máxima de inyección a la RNT o a las RGD por parte de las Centrales Eléctricas que integren un SAEE no puede exceder la capacidad establecida en su contrato de Interconexión, de modo que, si dichas Centrales Eléctricas pretenden que su capacidad máxima de inyección sea superior a la capacidad que se encuentra plasmada en el Contrato de Interconexión deben realizar los trámites correspondientes que incluyen los Estudios y la modificación del permiso respectivo, a efecto de que el referido contrato pueda ser modificado para prever una capacidad mayor a la que originalmente se había pactado.\nCuando la Central Eléctrica pretenda integrar un SAEE con el propósito de incrementar su capacidad de inyección debe, de manera enunciativa más no limitativa, realizar lo siguiente:\nI. Presentar la Solicitud de Interconexión ante el CENACE, conforme al procedimiento del Manual de Interconexión y Conexión. Si la Central tiene DEF, se puede solicitar que la adición se evalué bajo el Criterio para Garantizar la Disponibilidad de Entrega Física, no obstante, si la Central no tiene DEF, se puede solicitar la evaluación de la Potencia SAEE bajo el referido criterio;\nII. Tramitar la modificación del permiso de generación ante la CNE;\nIII. Solicitar la modificación de su Contrato de Interconexión ante el CENACE, y\nIV. Obtener la Declaratoria de Entrada en Operación Comercial para las nuevas condiciones de la Central Eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "3.15.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas que integren un SAEE, pueden acreditar Potencia de conformidad con lo establecido en el numeral 2.13.10. de las Disposiciones y el valor de DEF que hayan solicitado evaluar en los Estudios de Interconexión, el tipo de oferta de energía eléctrica y a partir de su Declaratoria de Entrada en Operación Comercial. Lo anterior considerando la Potencia SAEE y Capacidad de Almacenamiento que se dimensione en los Estudios de Interconexión.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "En esta modalidad, el SAEE se considera parte de las instalaciones y equipos del Centro de Carga con el que se asocia, por lo tanto, no requiere de permiso de almacenamiento de energía eléctrica. Su utilización y operación es decisión del Centro de Carga.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los Centros de Carga que integren un SAEE pueden adquirir el Suministro Eléctrico para su carga, a través de una Suministradora o participar directamente en el MEM como Usuario Calificado Participante del Mercado. Para tales efectos, la Potencia SAEE debe ser considerada parte de la demanda contratada de las Usuarias de Suministro Básico o de la demanda máxima de Usuarios Calificados, según corresponda. La Potencia SAEE demandada desde la RNT o de las RGD no puede exceder el valor aplicable a la demanda contratada o a la demanda máxima.\nEs responsabilidad de las Usuarias Finales en conjunto con su representante realizar la solicitud o actualización de los Estudios de Conexión conforme al Manual de Interconexión y Conexión. Si en un periodo de facturación o liquidación, según corresponda, se excede la demanda máxima, el CENACE, la Transportista o la Distribuidora, deben requerir a la Usuaria Final que realice el proceso de modificación de demanda.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los Centros de Carga que integren un SAEE deben destinar la energía almacenada para satisfacer las necesidades en sitio del Centro de Carga; dicha energía no debe ser inyectada a la RNT o las RGD, ni ser objeto de venta. Lo anterior, sin perjuicio de la posible participación de estos Centros de Carga en los mecanismos para la reducción de demanda y oferta de los Productos Asociados que resulten de la Demanda Controlable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los nuevos Centros de Carga que integren SAEE como parte del diseño original de sus instalaciones y equipos deben manifestarlo en la Solicitud de Conexión presentada ante el CENACE o la Distribuidora, según corresponda, conforme al procedimiento establecido en el Manual de Interconexión y Conexión.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La integración de un SAEE en un Centro de Carga existente conectado en la RNT, se considera una Modificación Técnica, por lo que el representante del Centro de Carga debe notificar al CENACE con el fin de evaluar la necesidad de realizar nuevos Estudios conforme al Manual de Interconexión y Conexión.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Consideraciones para la elaboración de los Estudios de Conexión",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.6.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los escenarios que deben estudiarse corresponden a los Casos Base de demanda mínima, media y máxima, definidos conforme al Criterio correspondiente establecido en el Código de Red.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.6.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El SAEE asociado al Centro de Carga, no debe inyectar energía eléctrica a la RNT o a las RGD en el Punto de Conexión.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.6.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La Potencia SAEE debe ser igual o menor que la demanda del Centro de Carga. El SAEE únicamente puede cargarse desde el Punto de Conexión y no debe exceder la Carga Contratada del Centro de Carga.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.6.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El Estudio de Conexión debe considerar el impacto en la RNT o en las RGD derivado de la carga del SAEE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "4.6.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las solicitudes de Estudios para la integración de SAEE en Centros de Carga deben atenderse conforme a lo siguiente:\nI. Centros de Carga Existentes: Debe atenderse como una Modificación Técnica, conforme al procedimiento del numeral 2.11.2. de las Disposiciones, y\nII. Centros de Carga Nuevos: Debe requerirse un Estudio de Impacto y un Estudio de Instalaciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Además de lo previsto en las Disposiciones de Autoconsumo, cuando a la figura de Autoconsumo se integre un SAEE se debe observar, según corresponda, lo establecido en el presente capítulo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La Capacidad Instalada de los SAEE integrados por las Usuarias de Autoconsumo o por la persona titular de un permiso de generación de energía eléctrica bajo la figura de Autoconsumo en cualquiera de sus modalidades, no debe adicionarse a la Capacidad Instalada en MW de generación establecida en el permiso de generación de energía eléctrica bajo la figura de Autoconsumo otorgado por la CNE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "SAEE integrados por las Usuarias de Autoconsumo",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.3.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Usuarias de Autoconsumo ligadas a un permiso de generación de energía eléctrica bajo la figura de Autoconsumo en cualquiera de sus modalidades pueden instalar SAEE como parte integral de las instalaciones y equipos de sus Centros de Consumo, sin que ello requiera de la obtención de un permiso de almacenamiento de energía eléctrica, siempre que la integración se realice con una Potencia SAEE igual o menor que la demanda del Centro de Consumo. La operación del SAEE es decisión de las Usuarias de Autoconsumo, conforme a las necesidades de sus Centros de Consumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.3.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La integración del SAEE puede realizarse de manera aislada a la Red Particular, en cuyo caso su carga debe realizarse con los recursos de los propios Centros de Consumo.\nAsimismo, el SAEE puede interconectarse a la Red Particular para realizar su carga; en este supuesto, no debe existir inyección de energía eléctrica desde el Centro de Consumo hacia la Red Particular.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.3.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La integración de un SAEE constituye una modificación en las instalaciones de las Usuarias de Autoconsumo. Asimismo, cuando dicha integración implique un cambio en la demanda de energía eléctrica de las Usuarias de Autoconsumo, debe efectuarse la actualización correspondiente en el Registro de Autoconsumo, conforme a lo establecido en las Disposiciones de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.3.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Cuando un Centro de Consumo no satisfaga sus Necesidades Propias a través de la Central Eléctrica del Grupo de Autoconsumo y decida realizar alguna de las acciones previstas en el numeral 3.2 o 4.7 de las Disposiciones de Autoconsumo, la operación del SAEE debe sujetarse a los criterios establecidos en el Capítulo IV. de las Disposiciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "SAEE integrados por Centrales Eléctricas con permiso de generación de energía eléctrica bajo la figura de Autoconsumo",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.4.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las personas titulares de un permiso de generación de energía eléctrica bajo la figura de Autoconsumo asociado a Centrales Eléctricas de Energías Renovables pueden integrar SAEE como parte integral de las instalaciones y equipos de su Central Eléctrica, sin que ello requiera la obtención de un permiso de almacenamiento de energía eléctrica. La utilización del SAEE es responsabilidad de la persona titular del permiso de generación de energía eléctrica asociado a la Central Eléctrica y debe destinarse al cumplimiento de los fines propios del Autoconsumo en apego a las disposiciones aplicables.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.4.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Cuando una nueva Central Eléctrica de Energías Renovables interesada en obtener un permiso de generación de energía eléctrica bajo la figura de Autoconsumo, en cualquiera de sus modalidades, decida integrar un SAEE como parte del diseño original de sus instalaciones y equipos, debe manifestarlo en su solicitud de permiso de generación.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "SAEE integrados por Centrales Eléctricas, cuya fuente primaria de energía presente condiciones de Variabilidad, con permiso de generación de energía eléctrica bajo la figura de Autoconsumo interconectado con venta de excedentes",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.5.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La energía almacenada en estos SAEE puede ser destinada a satisfacer las Necesidades Propias de la persona titular del permiso de generación de energía eléctrica bajo la figura de Autoconsumo o del Grupo de Autoconsumo o, en su caso, ser inyectada a la RNT o a las RGD, conforme a los términos y criterios establecidos en las Disposiciones de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.5.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las personas titulares de un permiso de generación de energía eléctrica bajo la figura de Autoconsumo interconectado con venta de excedentes, cuya Central Eléctrica presente condiciones de Variabilidad en su fuente primaria de energía, deben cumplir con el criterio de respaldo propio al que se refiere el artículo 59 del RLSE. Para tales efectos, corresponde al CENACE, en el ámbito de sus respectivas atribuciones, realizar los Estudios necesarios para determinar el dimensionamiento requerido de acuerdo con el Análisis de Variabilidad y el Análisis de Confiabilidad.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.5.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Una vez que el CENACE determine el dimensionamiento y las características técnicas del SAEE requerido para dar cumplimiento al criterio de respaldo propio, la persona titular del permiso puede optar por:\nI. Contratar una cobertura de respaldo en los términos previstos en el Capítulo IX. de las Disposiciones, ya sea con la Empresa Pública del Estado o con un tercero, o\nII. Integrar, como parte de las instalaciones y equipos de su Central Eléctrica, un SAEE dimensionado conforme a las determinaciones del CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.5.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Cuando la persona titular del permiso de generación de energía eléctrica bajo la figura de Autoconsumo interconectado con venta de excedentes opte por cumplir el requisito de respaldo propio mediante la integración de un SAEE como parte de las instalaciones y equipos de su Central Eléctrica, pero no esté interesada o no se encuentre realizando la inyección de Excedentes de Autoconsumo a la RNT o a las RGD, la Central puede utilizar dicho SAEE para almacenar sus Excedentes de Autoconsumo y satisfacer de manera exclusiva dentro de la Red Particular, sus Necesidades Propias en sitio o las del Grupo de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.5.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las Centrales Eléctricas obligadas a cumplir el criterio de respaldo propio pueden integrar Capacidad de Almacenamiento adicional a la requerida para cumplir con dicho criterio. La utilización de esta Capacidad de Almacenamiento adicional es decisión de la persona titular del permiso de generación de energía eléctrica bajo la figura de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "SAEE integrados por Centrales Eléctricas con permiso de generación de energía eléctrica bajo la figura de Autoconsumo interconectado sin venta de excedentes",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.6.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La integración del SAEE debe notificarse al CENACE al momento de solicitar su interconexión, a fin de que el CENACE considere las características del SAEE en la realización de los Estudios correspondientes. Los SAEE integrados bajo esta modalidad de Autoconsumo deben destinar la energía almacenada exclusivamente a satisfacer las Necesidades Propias de la persona titular del permiso respetivo o del Grupo de Autoconsumo sin inyectar energía eléctrica a la RNT o a las RGD.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.6.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "En caso de que la integración del SAEE se realice una vez que la Central Eléctrica ya se encuentre en operación, la persona titular del permiso de generación de energía eléctrica bajo la figura de Autoconsumo debe ingresar ante el CENACE la solicitud de Estudios correspondiente, conforme a lo establecido en el Manual de Interconexión y Conexión y en las Disposiciones de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Consideraciones para la elaboración de los Estudios de Interconexión y los Estudios de Conexión",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.7.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los escenarios que deben estudiarse son los siguientes:\nI. Casos base de demanda mínima, media y máxima, definidos conforme al Criterio correspondiente establecido en el Código de Red, y\nII. En caso de que el permiso de generación de energía eléctrica bajo la figura de Autoconsumo ampare a una Central Eléctrica con fuente primaria de energía variable debe realizarse un Análisis de Variabilidad para determinar la Capacidad de Almacenamiento mínima requerida. Asimismo, se debe solicitar la implementación de la tecnología formadora de red (grid forming).\nEl CENACE debe realizar los Estudios correspondientes conforme a lo establecido en el Manual de Interconexión y Conexión, en las Disposiciones de Autoconsumo y en las Disposiciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.7.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Integración de SAEE en la figura de Autoconsumo sin inyección de energía eléctrica a la Red: Estos SAEE no deben inyectar energía eléctrica a la RNT ni a las RGD en el Punto de Interconexión. En esta modalidad, la demanda del Centro de Consumo debe ser mayor a la capacidad de la Central Eléctrica.\nLa Potencia SAEE en esta modalidad debe ser igual o menor a la capacidad de la Central Eléctrica. El SAEE puede cargarse tanto con energía proveniente de la propia Central Eléctrica como desde el Punto de Interconexión.\nLos Estudios correspondientes deben realizarse conforme a lo establecido en las Disposiciones de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.7.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Integración de SAEE bajo la figura de Autoconsumo con inyección de energía eléctrica a la Red: Estos SAEE pueden inyectar energía eléctrica a la RNT o a las RGD en el Punto de Interconexión. En esta modalidad, la Central Eléctrica debe contar con una capacidad mayor que la demanda del Centro de Consumo.\nPara permitir la inyección de energía eléctrica a la RNT o a las RGD, se requieren realizar los Estudios de Interconexión. No debe realizarse una inyección superior a la capacidad de la Central Eléctrica.\nLa Potencia SAEE en esta modalidad debe ser igual o menor que la Capacidad Instalada de la Central Eléctrica. El SAEE solo puede cargarse con energía proveniente de la propia Central Eléctrica.\nLos Estudios correspondientes deben realizarse conforme a lo establecido en las Disposiciones de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "5.7.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las solicitudes de Estudios para la integración de SAEE asociados a la figura de Autoconsumo existentes se debe considerar como una Modificación Técnica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "6.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "En esta modalidad, el SAEE constituye un elemento integral de la infraestructura de la RNT o de las RGD. Su utilización debe orientarse a fortalecer la prestación del Servicio Público de Transmisión o Distribución de Energía Eléctrica, así como a aquellas acciones necesarias para mantener la Accesibilidad, Continuidad, Calidad, Eficiencia, Confiabilidad, Seguridad y Sostenibilidad del SEN. La operación de estos SAEE debe sujetarse en todo momento a la coordinación operativa del CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "6.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE-RNT/RGD son de propiedad exclusiva de la Transportista o la Distribuidora, según corresponda.\nEl CENACE y la CFE deben establecer un protocolo de intercambio de información que permita evaluar el desempeño de estos activos y determinar los costos evitados en el MEM.\n\nSin perjuicio de lo anterior, el CENACE, en coordinación con la Transportista o la Distribuidora, según corresponda, deben operar los SAEE-RNT/RGD procurando contribuir a la Confiabilidad y maximizar el excedente económico total del SEN. Las pérdidas por ineficiencia y el costo de oportunidad de la energía utilizada y demás costos incurridos, deben ser considerados en la formulación de las Tarifas Reguladas de conformidad con las disposiciones en la materia que expida la CNE, así como en la evaluación del desempeño de la gestión de activos de la Transportista y la Distribuidora.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "6.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La energía que los SAEE-RNT/RGD carguen, almacenen y descarguen no está sujeta a pagos ni a contraprestación alguna, toda vez que la energía eléctrica y los Productos Asociados de esta modalidad de SAEE, se destina exclusivamente a fines sistémicos de Confiabilidad, Calidad, Continuidad y Seguridad en la operación del SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "6.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE, con el apoyo de la Transportista y como parte del proceso de planeación vinculante, debe determinar y proponer a la Secretaría los nodos del SEN en los cuales resulte favorable integrar SAEE que formen parte de la infraestructura de la RNT para la prestación del Servicio Público de Transmisión de energía eléctrica.\nAsimismo, la Distribuidora como parte del proceso de planeación vinculante, debe determinar y proponer a la Secretaría las subestaciones o circuitos de distribución en los que resulte favorable integrar SAEE que formen parte de la infraestructura de las RGD para la prestación del Servicio Público de Distribución de energía eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "6.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE-RNT/RGD en ningún momento pueden formar parte de una Red Particular o encontrarse asociados a una Central Eléctrica o a un Centro de Carga.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "6.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La Transportista y la Distribuidora pueden integrar SAEE-RNT/RGD con características técnicas que permitan su reubicación en distintas ubicaciones del SEN, cuando así se determine viable conforme a los instrumentos o criterios de planeación vinculante.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Bajo esta Modalidad, los SAEE no deben estar asociados a Centrales Eléctricas o Centros de Carga, ni ser integrados como parte de la infraestructura para el Servicio Público de Transmisión y Distribución de Energía Eléctrica. Para efectos de su operación, cuando el SAEE retire energía eléctrica de la RNT o las RGD para su proceso de carga, se considera que el SAEE opera mediante su conexión al SEN y cuando el SAEE inyecte energía eléctrica a la RNT o a las RGD, se considera que opera mediante su Interconexión al SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE no Asociados deben integrarse al SEN conforme a instrumentos o criterios que se determinen como resultado del proceso de planeación vinculante.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE no Asociados integrados por la Empresa Pública del Estado pueden ser desplazados a distintas ubicaciones del SEN, cuando los instrumentos o criterios de la planeación vinculante lo determinen viable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Todos los SAEE no Asociados que pretendan participar en el MEM deben solicitar ante la CNE el permiso de almacenamiento de energía eléctrica, el cual debe indicar los servicios que el SAEE puede proveer.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE no Asociados realizan la actividad regulada de almacenamiento, por lo que pueden participar de forma directa en el MEM bajo la modalidad de Almacenadora, o ser representados por una Participante del Mercado en la modalidad de Generadora o Suministradora de acuerdo con lo establecido en las Reglas del Mercado.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Todos los SAEE no Asociados deben presentar al CENACE una sola Solicitud de Interconexión y conexión conforme a lo establecido en el numeral 2.11. de las Disposiciones.\nLos SAEE no Asociados, pueden acreditar Potencia de acuerdo con el valor de la DEF que haya solicitado evaluar en los Estudios de Interconexión, el tipo de Oferta y a partir de su Declaratoria de Entrada en Operación Comercial, conforme a lo establecido en el Manual del Mercado para el Balance de Potencia o aquel que lo modifique o sustituya.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La utilización de los SAEE no Asociados es decisión de la Almacenadora considerando lo previsto en el numeral 7.6. de las Disposiciones. La comercialización de energía eléctrica, Potencia y Servicios Conexos se debe realizar conforme a los mecanismos contemplados en el MEM y se encuentra sujeta a las instrucciones de despacho definidas por el CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Cuando los instrumentos o criterios de planeación vinculante lo determinen, en términos del artículo 32, fracción III de la LSE o del numeral 2.8. de las Disposiciones, los SAEE no Asociados pueden proveer a Centrales Eléctricas que decidan no integrar un SAEE y que tengan la obligación de mitigar los efectos asociados a la Variabilidad de su fuente primaria de energía, la cobertura del respaldo mencionada en los numerales 2.8., último párrafo y 5.5.3., fracción I de las Disposiciones.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El SAEE no Asociado que provea este servicio debe contar con permiso de almacenamiento y ser representado en los términos del numeral 7.5. de las Disposiciones, así como gestionar su carga de energía eléctrica proveniente de la RNT o de las RGD a través de un Punto de Conexión o Punto de Interconexión propio e independiente de la Central Eléctrica a la que provea este servicio.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para proveer esta cobertura, los SAEE no Asociados deben acatar todas las especificaciones técnicas que hayan sido determinadas por el CENACE a través del Análisis de Variabilidad realizado como parte de los Estudios de Interconexión de la Central Eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Adicional a los requisitos y especificaciones referidas en el numeral 7.8.2. de las Disposiciones, el SAEE no Asociado que pretenda proveer la cobertura, debe presentar al CENACE la Solicitud de Interconexión y la Solicitud de Conexión correspondientes de acuerdo con el Manual de Interconexión y Conexión considerando las características de la Variabilidad de la fuente primaria de energía y Confiabilidad de la Central Eléctrica a la que brinde el servicio de cobertura de respaldo, e informar sobre el servicio de cobertura de respaldo, de forma que el CENACE determine las Características Específicas de la Infraestructura Requerida y, en su caso, el Punto de Interconexión para que provea este servicio a la Central Eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los SAEE no Asociados que firmen un contrato privado para la cobertura de respaldo pueden comercializar energía eléctrica, Potencia y Servicios Conexos en los términos de los numerales 7.6. y 7.7. de las Disposiciones, siempre que instalen Capacidad de Almacenamiento adicional a la comprometida.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para realizar lo establecido en el numeral anterior, el SAEE no Asociado en ningún momento puede comercializar energía eléctrica, Potencia o Servicios Conexos a través del Punto de Conexión o Punto de Interconexión a través del cual brinde la cobertura de respaldo a una Central Eléctrica.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.8.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Las condiciones de contraprestación por el respaldo que el SAE no Asociado provea a la Central Eléctrica se pactan de mutuo acuerdo entre los interesados mediante un contrato. La Central Eléctrica debe reportar el contrato al CENACE para fines operativos.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.9.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE puede celebrar contratos de corto, mediano y largo plazo con los representantes de SAEE no Asociados cuando, como resultado del proceso de planeación vinculante, se identifique que la integración de un SAEE constituye una alternativa más eficiente para mantener o mejorar la Confiabilidad del SEN respecto de alternativas convencionales.\nDichos contratos deben celebrarse mediante los mecanismos competitivos en términos de la normatividad aplicable.\nLa determinación de eficiencia referida en el párrafo primero de este numeral debe sustentarse en un análisis que considere, de manera enunciativa más no limitativa:\nI. Evaluación análisis costo-beneficio;\nII. Impacto esperado en la Confiabilidad, Seguridad y flexibilidad operativa del SEN;\nIII. Contribución a la integración eficiente de Energías Renovables;\nIV. Reducción de congestiones, pérdidas o restricciones operativas, y\nV. Beneficios sistémicos adicionales.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.9.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE, como parte del proceso de planeación vinculante, debe realizar los estudios necesarios para identificar las zonas, regiones y nodos del SEN en los que resulte eficiente la integración de SAEE no Asociados para su operación mediante contratos. Dichos estudios deben identificar las problemáticas operativas o de Confiabilidad que se pretende atender, así como los beneficios esperados de integrar un SAEE en cada caso.\nLos estudios referidos en el párrafo anterior deben incluir, al menos, los siguientes elementos:\nI. Análisis nodal y zonal de flujos, congestiones, requerimientos de respuesta rápida y necesidades de regulación;\nII. Evaluación de los efectos de la Variabilidad, posibles vertimientos y requerimientos de integración eficiente de Energías Renovables;\nIII. Identificación de contingencias relevantes, condiciones de estabilidad y necesidades de flexibilidad en la operación del SEN;\nIV. Comparación técnico-económica entre la integración de un SAEE y alternativas convencionales, considerando costos, tiempos de implementación y beneficios sistémicos, y\nV. Justificación técnica de los nodos o zonas donde la integración de un SAEE aporte mayor valor.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.9.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Con base en los estudios a que se refiere el numeral anterior, el CENACE debe determinar la función operativa que deben cumplir los SAEE no Asociados en cada nodo o zona del SEN, así como los servicios específicos que resulten necesarios, entre ellos:\nI. Regulación de frecuencia;\nII. Servicios de respaldo y soporte ante contingencias;\nIII. Servicios Conexos requeridos para la Confiabilidad;\nIV. Servicios para la integración eficiente de Energías Renovables;\nV. Reducción de congestiones, control de rampas o almacenamiento para la operación del sistema, y\nVI. Cualquier otro servicio que determine la CNE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.9.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE debe definir las características técnicas mínimas que deben satisfacer los SAEE no Asociados identificados en los estudios, considerando al menos:\nI. Potencia SAEE requerida en el nodo (MW);\nII. Capacidad de Almacenamiento y duración mínima (MWh y horas);\nIII. Tiempo máximo de respuesta y precisión en el seguimiento de instrucciones operativas;\nIV. Requerimientos de disponibilidad;\nV. Capacidad para la prestación simultánea de servicios múltiples cuando sea necesario;\nVI. Capacidad para operar en los modos de carga, descarga y controles definidos por el CENACE, y\nVII. Requerimientos de interoperabilidad con los sistemas de supervisión, control y despacho.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.10.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Consideraciones para la elaboración de los Estudios de Conexión y Estudios de Interconexión",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.10.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El escenario que se debe estudiar es el de caso base de demanda mínima, media y máxima, definido conforme al Criterio correspondiente establecido en el Código de Red.\nA petición de la persona solicitante, puede incluirse en dicho estudio el análisis con DEF.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.10.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Se deben realizar los Estudios de Interconexión, conforme a lo previsto en el Manual de Interconexión y Conexión y en las Disposiciones. Asimismo, se deben realizar los Estudios de Conexión que contemplen el análisis para cargar el SAEE desde la RNT.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.10.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los Estudios de Interconexión se deben desarrollar con la capacidad establecida por la persona solicitante y debe considerar la carga y descarga desde la RNT.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "7.10.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para los SAEE no Asociados con una Potencia SAEE de 0.7 MW a 20 MW, aplica el Estudio de Impacto Versión Rápida, así como el Estudio de Instalaciones, conforme a las disposiciones aplicables.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Se entiende por agrupación a la integración de SAEE cuya propiedad y beneficios son compartidos por aquellos que, de manera conjunta, llevan a cabo la inversión e integración de dicho sistema; es decir, la agrupación de las Generadoras, Usuarias Finales o las personas solicitantes para la interconexión de las Centrales Eléctricas y la conexión de los Centros de Carga que, de manera conjunta, integren un SAEE con la finalidad de beneficiarse de este, cuando los instrumentos o criterios de planeación vinculante determinen que constituye una opción viable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La agrupación de interesados en integrar SAEE solo puede realizarse cuando se cumpla con los instrumentos o criterios de planeación vinculante y únicamente pueden asociarse entre sí, personas que compartan el mismo carácter (Generadora, Usuaria de Suministro Básico, Usuario Calificado, Usuario Calificado Participante del Mercado o persona solicitante para la interconexión de las Centrales Eléctricas y la conexión de los Centros de Carga).",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los representantes involucrados en la integración de SAEE de forma agrupada, deben solicitar al CENACE que realice los Estudios de Interconexión o los Estudios de Conexión simultáneamente y determine las Características Específicas de la Infraestructura Requerida.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE debe determinar, a través de Estudios de Interconexión de las instalaciones de los interesados en agruparse para instalar SAEE, si sus ubicaciones en la red eléctrica y la del propio SAEE, son adecuadas y cumplen con los instrumento o criterios de la planeación vinculante.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La agrupación de interesados en integrar SAEE solo puede realizarse en la misma subestación eléctrica, nodo o área eléctrica que el CENACE determine técnicamente adecuada para cumplir la finalidad del SAEE y para mantener la Confiabilidad del SEN.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los costos asociados a Obras Específicas relacionadas con la integración de los SAEE de manera agrupada deben ser socializados entre los beneficiarios de conformidad con los acuerdos que entre ellos pacten, con base en los resultados de infraestructura de los Estudios que emita el CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "En caso de que un SAEE agrupado opte por participar en el MEM, debe registrarse mediante la figura que corresponda, de conformidad con lo establecido en las Disposiciones, lo anterior en función del tipo de figura que se haya asociado para su instalación. Asimismo, dicho SAEE debe identificarse como un único recurso, así como precisar el régimen operativo que le resulta aplicable.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Los recursos de los SAEE agrupados, pueden ofrecer al MEM sus capacidades de forma voluntaria, apegados a la capacidad registrada ante el CENACE y de acuerdo con el Perfil de Potencia horario.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.9.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La representación del SAEE agrupado compete a una de las participantes asociadas o cuando corresponda, a una Almacenadora quien es responsable de presentar las ofertas y atender las instrucciones operativas conforme al régimen declarado.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.10.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La agrupación de SAEE debe designar, además de un representante comercial, un responsable técnico solidario ante la Distribuidora o la Transportista. Dicho responsable es el interlocutor válido para recibir órdenes de maniobra por parte del CENACE y se considera solidariamente responsable de los daños que la operación del SAEE, en su caso, cause a la RNT o a las RGD.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.11.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para el caso de las Centrales Eléctricas existentes y nuevas que decidan agruparse para la integración de un SAEE, el CENACE debe atender los Estudios respectivos desde el Estudio Indicativo. El Punto de Interconexión del SAEE a estudiar debe determinarse considerando los instrumentos o criterios de la planeación vinculante.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "8.12.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para el caso de los Centros de Carga existentes que decidan agruparse, el CENACE debe atender los Estudios respectivos a través de un Estudio Rápido y para el caso de Centros de Carga nuevos, se debe iniciar desde el Estudio de Impacto. El Punto de Interconexión del SAEE a estudiar debe determinarse considerando los instrumentos o criterios de la planeación vinculante.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.1.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La persona que solicite un permiso de generación de energía Eléctrica bajo la figura de Autoconsumo debe manifestar al momento de solicitarlo, si pretende contar con respaldo propio o bien si pretende contratarlo con CFE o a través de un tercero, en caso de requerirlo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.2.",
+      "tipo_articulo": "ordinario",
+      "contenido": "La persona titular de un permiso de generación de energía eléctrica bajo la figura de Autoconsumo interconectado con venta de excedentes, que desee recibir una contraprestación por inyectar sus excedentes, puede presentar una solicitud de respaldo propio ante la CFE o un tercero.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.3.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Para efectos de la contratación de respaldo propio en la figura de Autoconsumo interconectado con venta de excedentes, se entiende por tercero a aquellas Participantes del Mercado en las modalidades de Suministradora de Servicios Calificados, Almacenadora y Generadora que representen a Centrales Eléctricas Firmes despachables que puedan ofrecer un servicio de respaldo para cubrir los requerimientos de manejo de rampa, intermitencia y Variabilidad asociados a la figura de Autoconsumo interconectado con venta de excedentes.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.4.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Es responsabilidad del representante de cada SAEE que preste el servicio de respaldo en la figura de Autoconsumo interconectado con venta de excedentes, considerar la Degradación del SAEE con el paso del tiempo, por lo que, le corresponde a este mantener los requerimientos técnicos necesarios para el correcto cumplimiento de la función del SAEE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.5.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El uso del servicio de respaldo debe realizarse de tal forma que no afecte la operación del SEN, en cumplimiento de los criterios de Confiabilidad que emita el CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.6.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Cuando el respaldo se contrate con la CFE, el pago por el servicio de respaldo se debe realizar conforme a la Cláusula Novena del Modelo de Contrato para la venta de Excedentes de Autoconsumo y Productos Asociados incluido en las Disposiciones de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.7.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Si el respaldo se contrata con un tercero, el pago por dicho servicio se debe realizar conforme al acuerdo que se haya celebrado entre las partes involucradas.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.8.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El respaldo implica la suscripción de una cobertura eléctrica celebrada entre la persona permisionaria bajo la figura de Autoconsumo y la CFE o un tercero, mediante la cual se define el compromiso de compra/venta de una cantidad determinada de energía eléctrica o Potencia en función de la hora y fecha específica establecida por la persona permisionaria para la inyección de sus excedentes con el objetivo de cubrir los requerimientos de manejo de rampa, intermitencia y Variabilidad asociados a su central de generación de energía eléctrica bajo la figura de Autoconsumo.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.9.",
+      "tipo_articulo": "ordinario",
+      "contenido": "Al presentar su solicitud de Estudios al CENACE, la persona solicitante puede proponer la ubicación y las características de su respaldo para mitigar los efectos asociados a la Variabilidad de su fuente primaria de energía, a fin de que sea evaluado por el CENACE.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "9.10.",
+      "tipo_articulo": "ordinario",
+      "contenido": "El CENACE debe determinar, a través de Estudios de Interconexión de la instalación de Autoconsumo, si la ubicación en la red eléctrica del respaldo contratado ya sea con CFE o con un tercero es adecuada en términos de la mitigación de los efectos asociados a la Variabilidad.",
+      "titulo_nombre": null,
+      "capitulo_nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Primero",
+      "tipo_articulo": "transitorio",
+      "contenido": "El presente Acuerdo entra en vigor al día hábil siguiente de su publicación en el Diario Oficial de la Federación.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Segundo",
+      "tipo_articulo": "transitorio",
+      "contenido": "Queda sin efectos el Acuerdo número A/113/2024 por el que se emiten las Disposiciones Administrativas de Carácter General para la Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional, publicado en el Diario Oficial de la Federación el 07 de marzo de 2025.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Tercero",
+      "tipo_articulo": "transitorio",
+      "contenido": "En tanto se modifican las Reglas del Mercado para incluir las características y criterios aplicables a los Sistemas de Almacenamiento de Energía Eléctrica, en lo no previsto en las disposiciones que se emiten a través del presente Acuerdo, el trato que se les debe dar a dichos sistemas es de Centros de Carga cuando retiren energía del Sistema Eléctrico Nacional y de Centrales Eléctricas cuando inyecten energía al Sistema Eléctrico Nacional, en lo que resulte aplicable.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Cuarto",
+      "tipo_articulo": "transitorio",
+      "contenido": "En tanto no se realicen las adecuaciones al Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga a efecto de incorporar las disposiciones, criterios técnicos y características operativas aplicables a los Sistemas de Almacenamiento de Energía Eléctrica, las solicitudes de Interconexión y de Conexión correspondientes se deben tramitar conforme a lo previsto en el Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga vigente y considerar lo siguiente:\nI. Tratándose de los Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas, así como de los Sistemas de Almacenamiento de Energía Eléctrica no Asociados, las solicitudes se consideran como relativas a una Central Eléctrica, en las que debe evaluarse con base en la Capacidad Instalada Neta en el Punto de Interconexión;\nII. Tratándose de los Sistemas de Almacenamiento de Energía Eléctrica asociados a la modalidad de Autoconsumo, las solicitudes se consideran como relativas a una Central Eléctrica, y deben observar la Capacidad Neta en el Punto de Interconexión declarada por la persona permisionaria, de conformidad con las Disposiciones Administrativas de Carácter General para regular la figura de Autoconsumo de Energía Eléctrica, publicadas en el Diario Oficial de la Federación el 12 de diciembre de 2025.\nIII. Tratándose de los Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga, las solicitudes se consideran como relativas a un Centro de Carga, y deben evaluarse con base en la Carga Contratada o la demanda contratada, conforme a las disposiciones aplicables.\nPara todos los supuestos previstos en el presente artículo, los Sistemas de Almacenamiento de Energía Eléctrica que se incorporen a instalaciones en operación, no deben implicar incremento alguno en la capacidad o en la demanda en el Punto de Interconexión o en el Punto de Conexión, según corresponda.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Quinto",
+      "tipo_articulo": "transitorio",
+      "contenido": "En tanto no se modifique el Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga para incluir los procesos y procedimientos aplicables a la atención de Solicitudes de Interconexión y Solicitudes de Conexión de los Sistemas de Almacenamiento de Energía Eléctrica, la atención a las solicitudes en las modalidades de dichos sistemas asociados a Centrales Eléctricas, Centros de Carga, figura de Autoconsumo, así como aquellos no Asociados, debe realizarse conforme a lo establecido en el presente Acuerdo y en el manual referido. Adicionalmente, el Centro Nacional de Control de Energía debe considerar los siguientes análisis:\nI. Estudio Indicativo\na) Análisis en Estado Estable:\n1. Flujos de Potencia, y\n2. Corto circuito.\nb) Análisis de Variabilidad:\n1. Potencia del Sistema de Almacenamiento de Energía Eléctrica;\n2. Tiempo de descarga del Sistema de Almacenamiento de Energía Eléctrica, y\n3. Rampa del Sistema de Almacenamiento de Energía Eléctrica.\nII. Estudio de Impacto\na) Análisis en Estado Estable:\n1. Flujos de Potencia;\n2. Corto circuito, y\n3. Cálculo de nivel de la relación de corto circuito (SCR por sus siglas en ingles).\nb) Análisis de Estabilidad Transitoria:\n1. Implementación de la tecnología formadora de red (grid forming).\nc) Para el Sistema Interconectado Baja California y el Sistema Interconectado Baja California Sur puede incluirse, adicionalmente, un análisis por margen de reservas suplementales, control de flujo en enlaces de interconexión internacionales, estabilidad de convertidores y análisis de resonancia.\nIII. Estudio de Instalaciones\nRequerimientos de infraestructura para el Sistema de Almacenamiento de Energía Eléctrica que incluye de manera enunciativa, características de los sistemas de protección, comunicación, control y medición proporcionados por el Centro Nacional de Control de Energía.\nEl Centro Nacional de Control de Energía debe evaluar la aplicación adicional o excepción de algún estudio conforme a las condiciones y características particulares de cada solicitud y conforme a la Confiabilidad o Seguridad del Sistema Eléctrico Nacional.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Sexto",
+      "tipo_articulo": "transitorio",
+      "contenido": "En tanto no se encuentren habilitados en los modelos del Mercado de Energía de Corto Plazo las funcionalidades para procesar Ofertas de los Sistemas de Almacenamiento de Energía Eléctrica, las Participantes del Mercado que los representen, deben presentar al Centro Nacional de Control de Energía Ofertas de Compra y Ofertas de Venta únicamente de energía, conforme lo siguiente:\nI. Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas:\nLa descarga de energía eléctrica del Sistema de Almacenamiento de Energía Eléctrica debe incorporarse a la Oferta de Venta de energía eléctrica de la Central Eléctrica con la que se encuentre asociado, sin que sea necesario presentarse una Oferta de Venta independiente para dicha capacidad. Por su parte, los Sistemas de Almacenamiento de Energía Eléctrica que hayan solicitado el retiro de energía eléctrica de la Red Nacional de Transmisión para la carga del Sistema de Almacenamiento de Energía Eléctrica, deben realizar una Oferta de Compra fija en las horas en las que se prevea la realización de dicha carga.\nII. Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga:\nDebe presentarse una Oferta de Compra fija, incorporando a la demanda del Centro de Carga la demanda correspondiente a la carga del Sistema de Almacenamiento de Energía Eléctrica en las horas en las que se prevea dicha carga, descontando de su demanda la energía correspondiente a la descarga del Sistema de Almacenamiento de Energía Eléctrica en las horas en las que ésta se prevea.\nIV. Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo:\nLas Centrales Eléctricas ligadas a un permiso de generación de energía eléctrica bajo la figura de Autoconsumo en la modalidad interconectado con venta de excedentes deben presentar sus Ofertas de Compra y Ofertas de Venta de energía conforme a lo previsto en las Disposiciones Administrativas de Carácter General para regular la figura de Autoconsumo de Energía Eléctrica.\nV. Sistemas de Almacenamiento de Energía Eléctrica no Asociados:\nDeben realizar sus Ofertas de conformidad con lo siguiente:\na) Presentar una Oferta de Compra fija en las horas en las que se prevea la carga del Sistema de Almacenamiento de Energía Eléctrica, y\nb) Debe realizar una Oferta de Venta empleando el formato de oferta térmica, declarando disponibilidad en horas distintas a las de la carga del Sistema de Almacenamiento de Energía Eléctrica.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Séptimo",
+      "tipo_articulo": "transitorio",
+      "contenido": "A partir de la entrada en vigor del presente Acuerdo, el Centro Nacional de Control de Energía debe publicar en un plazo no mayor a noventa días naturales, la metodología del Análisis de Variabilidad a que se refiere el numeral 2.11.3 de las disposiciones que se emiten a través del presente Acuerdo, previa autorización de la Comisión Nacional de Energía.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Octavo",
+      "tipo_articulo": "transitorio",
+      "contenido": "Dentro de los treinta días naturales siguientes a que entre en vigor el presente Acuerdo, la Comisión Nacional de Energía debe publicar en su página electrónica y en el Diario Oficial de la Federación los formatos autorizados para solicitar los permisos de almacenamiento de energía eléctrica en las modalidades que se establecen en las disposiciones que se emiten mediante este Acuerdo, así como los correspondientes a los permisos de generación de energía eléctrica con sistemas de almacenamiento.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Transitorio Noveno",
+      "tipo_articulo": "transitorio",
+      "contenido": "El numeral 2.13.3. de las disposiciones que se emiten mediante este Acuerdo, es aplicable hasta en tanto no se actualicen las Reglas del Mercado que regulen los criterios aplicables a los Sistemas de Almacenamiento de Energía Eléctrica.",
+      "titulo_nombre": "Transitorios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "identificador": "Firmas y promulgación",
+      "tipo_articulo": "complementario",
+      "contenido": "Ciudad de México, a 08 de abril de 2026.- El Director General, Juan Carlos Solís Ávila.- Rúbrica.",
+      "titulo_nombre": "Documentos complementarios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo I Disposiciones Generales",
+      "orden": 0
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+      "orden": 6
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+      "orden": 7
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+      "orden": 8
+    }
+  ]
+}

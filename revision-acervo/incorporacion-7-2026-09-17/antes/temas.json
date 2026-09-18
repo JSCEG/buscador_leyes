@@ -1,0 +1,2866 @@
+[
+  {
+    "id": 496,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO PRIMERO DISPOSICIONES GENERALES",
+    "orden": 0,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 497,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Objeto y Definiciones",
+    "orden": 1,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 498,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Planeación Vinculante, Control y Prevalencia del Estado",
+    "orden": 2,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 499,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Normalización, Estandarización y Especificaciones Técnicas",
+    "orden": 3,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 500,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De los Permisos y Autorizaciones",
+    "orden": 4,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 501,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEGUNDO DE LA JUSTICIA ENERGÉTICA",
+    "orden": 5,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 502,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Justicia Energética",
+    "orden": 6,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 503,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Fondo de Servicio Universal Energético",
+    "orden": 7,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 504,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO TERCERO DE LA GENERACIÓN DE ENERGÍA ELÉCTRICA",
+    "orden": 8,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 505,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Generación Distribuida",
+    "orden": 9,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 506,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Autoconsumo",
+    "orden": 10,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 507,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección I Autoconsumo Aislado",
+    "orden": 11,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 508,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección II Autoconsumo Interconectado",
+    "orden": 12,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 509,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Generación para el Mercado Eléctrico Mayorista",
+    "orden": 13,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 510,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De los Esquemas para el Desarrollo Mixto",
+    "orden": 14,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 511,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección I Disposiciones Generales",
+    "orden": 15,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 512,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección II Producción de Largo Plazo",
+    "orden": 16,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 513,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección III Inversión Mixta",
+    "orden": 17,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 514,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección IV Otros Esquemas de Desarrollo Mixto",
+    "orden": 18,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 515,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De la Cogeneración",
+    "orden": 19,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 516,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO CUARTO DE LA TRANSMISIÓN Y DISTRIBUCIÓN DE ENERGÍA ELÉCTRICA, DEL SUMINISTRO ELÉCTRICO Y LAS TARIFAS ELÉCTRICAS",
+    "orden": 20,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 517,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Transmisión y Distribución",
+    "orden": 21,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 518,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Condiciones Generales para la Prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica y del Suministro Eléctrico",
+    "orden": 22,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 519,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Acceso Local",
+    "orden": 23,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 520,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Revisión de los Sistemas de Medición e Instalaciones Eléctricas",
+    "orden": 24,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 521,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De las Quejas del Servicio Público de Transmisión y Distribución y de Suministro Eléctrico",
+    "orden": 25,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 522,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI Del Acceso a la Red Nacional de Transmisión y a las Redes Generales de Distribución",
+    "orden": 26,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 523,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De las Tarifas Eléctricas, los Precios, las Contraprestaciones y los Costos",
+    "orden": 27,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 524,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VIII De las Aportaciones para la Ejecución de Obras para la Interconexión o Conexión a la Red Nacional de Transmisión y a las Redes Generales de Distribución",
+    "orden": 28,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 525,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IX De las Controversias Relacionadas con la Interconexión o la Conexión a la Red Nacional de Transmisión y a las Redes Generales de Distribución",
+    "orden": 29,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 526,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo X De la Suspensión del Servicio de Energía Eléctrica",
+    "orden": 30,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 527,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo XI De la Inversión para la Prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+    "orden": 31,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 528,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO QUINTO DE LAS DEMAS ACTIVIDADES DEL SECTOR ELÉCTRICO",
+    "orden": 32,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 529,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De los Usuarios Calificados y Comercializadoras no Suministradoras",
+    "orden": 33,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 530,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De los Pequeños Sistemas Eléctricos",
+    "orden": 34,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 531,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "seccion",
+    "nombre": "Sección Única De los Pequeños Sistemas Eléctricos en Régimen de Micro-Red",
+    "orden": 35,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 532,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Mercado Eléctrico Mayorista",
+    "orden": 36,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 533,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Separación de las Integrantes del Sector Eléctrico",
+    "orden": 37,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 534,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De las Obligaciones para Energías Limpias, Transición Energética y Descarbonización del Sector Eléctrico",
+    "orden": 38,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 535,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI Del Almacenamiento de Energía",
+    "orden": 39,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 536,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De la Infraestructura y el Suministro de Electricidad en Materia de Electromovilidad",
+    "orden": 40,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 537,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEXTO DE LA MANIFESTACIÓN DE IMPACTO SOCIAL DEL SECTOR ENERGÉTICO Y LA CONSULTA PREVIA",
+    "orden": 41,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 538,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Manifestación de Impacto Social del Sector Energético",
+    "orden": 42,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 539,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Consulta Previa",
+    "orden": 43,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 540,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SÉPTIMO OTRAS OBLIGACIONES DE LAS INTEGRANTES DEL SECTOR ELÉCTRICO",
+    "orden": 44,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 541,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único Del Uso y la Ocupación Superficial",
+    "orden": 45,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 542,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO OCTAVO DE LA VERIFICACIÓN E INSPECCIÓN",
+    "orden": 46,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 543,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Disposiciones Generales",
+    "orden": 47,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 544,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Visitas de Verificación",
+    "orden": 48,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 545,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Verificación mediante Requerimientos y Comparecencias",
+    "orden": 49,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 546,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Inspección",
+    "orden": 50,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 547,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De la Supervisión y Vigilancia de las otras Entidades de la Administración Pública Federal con actividades en el Sector Eléctrico",
+    "orden": 51,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 548,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO NOVENO DE LA INTERVENCIÓN Y LA REQUISA",
+    "orden": 52,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 549,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Disposiciones Generales",
+    "orden": 53,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 550,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Intervención",
+    "orden": 54,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 551,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Requisa",
+    "orden": 55,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 552,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO DÉCIMO DEL CONSEJO CONSULTIVO PARA EL FOMENTO DEL SECTOR ELÉCTRICO",
+    "orden": 56,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 553,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Integración del Consejo Consultivo",
+    "orden": 57,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 554,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Funcionamiento del Consejo Consultivo",
+    "orden": 58,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 555,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Funciones del Consejo Consultivo",
+    "orden": 59,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 556,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO DÉCIMO PRIMERO DEL CONTENIDO NACIONAL Y DE LAS ESTRATEGIAS PARA EL FOMENTO INDUSTRIAL Y DE LA INVERSIÓN EN EL SECTOR ELÉCTRICO",
+    "orden": 60,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 557,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Disposiciones Generales",
+    "orden": 61,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 558,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Innovación, el Desarrollo Tecnológico y la Formación de Recursos Humanos",
+    "orden": 62,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 559,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "titulo",
+    "nombre": "TÍTULO DÉCIMO SEGUNDO DE LAS SANCIONES",
+    "orden": 63,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 560,
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único Disposiciones Generales",
+    "orden": 64,
+    "created_at": "2026-09-17T18:26:58.765742+00:00"
+  },
+  {
+    "id": 561,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO PRIMERO DISPOSICIONES GENERALES",
+    "orden": 0,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 562,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Del Objeto y finalidad de la Ley",
+    "orden": 1,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 563,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Autoridades",
+    "orden": 2,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 564,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEGUNDO DE LA PLANEACIÓN, CONTROL Y PREVALENCIA DEL ESTADO",
+    "orden": 3,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 565,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único De la Planeación y el Control del Sistema Eléctrico Nacional",
+    "orden": 4,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 566,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO TERCERO DE LA GENERACIÓN DE ENERGÍA ELÉCTRICA",
+    "orden": 5,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 567,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Disposiciones generales",
+    "orden": 6,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 568,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Generación Distribuida",
+    "orden": 7,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 569,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Autoconsumo",
+    "orden": 8,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 570,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Generación para el Mercado Eléctrico Mayorista",
+    "orden": 9,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 571,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De los Esquemas para el Desarrollo Mixto",
+    "orden": 10,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 572,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De la Modalidad de Cogeneración",
+    "orden": 11,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 573,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO CUARTO DE LA TRANSMISIÓN Y DISTRIBUCIÓN DE ENERGÍA ELÉCTRICA",
+    "orden": 12,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 574,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único De la Transmisión y Distribución de Energía Eléctrica",
+    "orden": 13,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 575,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO QUINTO DE LA COMERCIALIZACIÓN DE ENERGÍA ELÉCTRICA",
+    "orden": 14,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 576,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único Comercialización de Energía Eléctrica",
+    "orden": 15,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 577,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEXTO DE LAS DEMÁS ACTIVIDADES DEL SECTOR ELÉCTRICO",
+    "orden": 16,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 578,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De los Usuarios Calificados",
+    "orden": 17,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 579,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De los Pequeños Sistemas Eléctricos",
+    "orden": 18,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 580,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Almacenamiento de Energía",
+    "orden": 19,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 581,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Infraestructura y el Suministro de Electricidad en Materia de Electromovilidad",
+    "orden": 20,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 582,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V Del Uso y Ocupación Superficial",
+    "orden": 21,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 583,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI Del Fomento a la Industria Nacional",
+    "orden": 22,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 584,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SÉPTIMO DEL MERCADO ELÉCTRICO MAYORISTA",
+    "orden": 23,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 585,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Operación del Mercado Eléctrico Mayorista",
+    "orden": 24,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 586,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Centro Nacional de Control de Energía",
+    "orden": 25,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 587,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO OCTAVO DISPOSICIONES APLICABLES A LOS INTEGRANTES DEL SECTOR ELÉCTRICO",
+    "orden": 26,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 588,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las Obligaciones del Servicio Universal y la Justicia Energética",
+    "orden": 27,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 589,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Impacto Social y Desarrollo Sostenible",
+    "orden": 28,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 590,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De las Obligaciones para Energías Limpias, Transición Energética y Descarbonización del Sector Eléctrico",
+    "orden": 29,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 591,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Disposiciones Generales de los Permisos",
+    "orden": 30,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 592,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De la Estandarización, Normalización, Confiabilidad y Seguridad",
+    "orden": 31,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 593,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De las Tarifas",
+    "orden": 32,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 594,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De las Inversiones de la Empresa Pública del Estado",
+    "orden": 33,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 595,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VIII De la Intervención",
+    "orden": 34,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 596,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IX De la Requisa",
+    "orden": 35,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 597,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo X De la Información",
+    "orden": 36,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 598,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "titulo",
+    "nombre": "TÍTULO NOVENO DE LAS INFRACCIONES A LA LEY",
+    "orden": 37,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 599,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Prevención y Sanción de los Actos y Omisiones Contrarios a la Ley",
+    "orden": 38,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 600,
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Sanciones",
+    "orden": 39,
+    "created_at": "2026-09-17T18:27:46.315419+00:00"
+  },
+  {
+    "id": 601,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "titulo",
+    "nombre": "TÍTULO PRIMERO Disposiciones Generales",
+    "orden": 0,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 602,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único Del Objeto de la Ley y Definiciones",
+    "orden": 1,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 603,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEGUNDO De la Planeación del Sector Energético",
+    "orden": 2,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 604,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las Autoridades y Organismos",
+    "orden": 3,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 605,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Consejo de Planeación Energética",
+    "orden": 4,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 606,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De los Instrumentos de Planeación Energética",
+    "orden": 5,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 607,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Información Energética",
+    "orden": 6,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 608,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "seccion",
+    "nombre": "Sección I Del Sistema Nacional de Información Energética",
+    "orden": 7,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 609,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "seccion",
+    "nombre": "Sección II De la información en materia de Eficiencia Energética",
+    "orden": 8,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 610,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "titulo",
+    "nombre": "TÍTULO TERCERO De la Transición Energética y la reducción de la Pobreza Energética",
+    "orden": 9,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 611,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Del Financiamiento",
+    "orden": 10,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 612,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Fondo para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+    "orden": 11,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 613,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Fondo de Servicio Universal Energético",
+    "orden": 12,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 614,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De los Recursos de Innovación, Desarrollo Tecnológico y Formación de Recursos Humanos",
+    "orden": 13,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 615,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De la Investigación Científica, la Innovación y el Desarrollo Tecnológico",
+    "orden": 14,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 616,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De los Certificados de Energías Limpias",
+    "orden": 15,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 617,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII Del Desarrollo Industrial",
+    "orden": 16,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 618,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VIII Del Financiamiento para el Aprovechamiento Sustentable de la Energía",
+    "orden": 17,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 619,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IX De la Participación Voluntaria",
+    "orden": 18,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 620,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "seccion",
+    "nombre": "Sección I Del Reconocimiento en excelencia en Eficiencia Energética",
+    "orden": 19,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 621,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "seccion",
+    "nombre": "Sección II De los acuerdos voluntarios",
+    "orden": 20,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 622,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "titulo",
+    "nombre": "TÍTULO CUARTO De la Transparencia y Acceso a la Información",
+    "orden": 21,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 623,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "titulo",
+    "nombre": "TÍTULO QUINTO De la Inspección, Vigilancia y Sanciones",
+    "orden": 22,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 624,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Inspección y Vigilancia",
+    "orden": 23,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 625,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Sanciones",
+    "orden": 24,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 626,
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Responsabilidad de las personas servidoras públicas, personas usuarias u otras",
+    "orden": 25,
+    "created_at": "2026-09-17T18:28:10.759546+00:00"
+  },
+  {
+    "id": 627,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO PRIMERO DISPOSICIONES GENERALES",
+    "orden": 0,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 628,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Disposiciones Preliminares",
+    "orden": 1,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 629,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De los Principios Generales",
+    "orden": 2,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 630,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De los principios rectores de las Autoridades garantes",
+    "orden": 3,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 631,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De los Principios en Materia de Transparencia y Acceso a la Información Pública",
+    "orden": 4,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 632,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De los Sujetos Obligados",
+    "orden": 5,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 633,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEGUNDO RESPONSABLES EN MATERIA DE TRANSPARENCIA Y ACCESO A LA INFORMACIÓN",
+    "orden": 6,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 634,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Del Sistema Nacional",
+    "orden": 7,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 635,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Consejo Nacional",
+    "orden": 8,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 636,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De los Subsistemas de Transparencia",
+    "orden": 9,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 637,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Autoridades garantes",
+    "orden": 10,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 638,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De los Comités de Transparencia",
+    "orden": 11,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 639,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De las Unidades de Transparencia",
+    "orden": 12,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 640,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO TERCERO PLATAFORMA NACIONAL DE TRANSPARENCIA",
+    "orden": 13,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 641,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único De la Plataforma Nacional de Transparencia",
+    "orden": 14,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 642,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO CUARTO CULTURA DE TRANSPARENCIA Y APERTURA INSTITUCIONAL",
+    "orden": 15,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 643,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Promoción de la Transparencia y el Derecho de Acceso a la Información",
+    "orden": 16,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 644,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Transparencia con Sentido Social",
+    "orden": 17,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 645,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Apertura Institucional",
+    "orden": 18,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 646,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO QUINTO OBLIGACIONES DE TRANSPARENCIA",
+    "orden": 19,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 647,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las Obligaciones Generales",
+    "orden": 20,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 648,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Obligaciones de Transparencia Comunes",
+    "orden": 21,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 649,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De las Obligaciones Específicas",
+    "orden": 22,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 650,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Obligaciones Específicas de las Personas Físicas o Morales que Reciben y Ejercen Recursos Públicos o Ejercen Actos de Autoridad",
+    "orden": 23,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 651,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De las Obligaciones Específicas en Materia Energética",
+    "orden": 24,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 652,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De la Verificación de las Obligaciones de Transparencia",
+    "orden": 25,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 653,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De la Denuncia por Incumplimiento a las Obligaciones de Transparencia",
+    "orden": 26,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 654,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEXTO INFORMACIÓN CLASIFICADA",
+    "orden": 27,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 655,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las Disposiciones Generales de la Clasificación y Desclasificación de la Información",
+    "orden": 28,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 656,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Información Reservada",
+    "orden": 29,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 657,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Información Confidencial",
+    "orden": 30,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 658,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Versiones Públicas",
+    "orden": 31,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 659,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SÉPTIMO PROCEDIMIENTOS DE ACCESO A LA INFORMACIÓN PÚBLICA",
+    "orden": 32,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 660,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Del Procedimiento de Acceso a la Información",
+    "orden": 33,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 661,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Cuotas de Acceso",
+    "orden": 34,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 662,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO OCTAVO DE LOS PROCEDIMIENTOS DE IMPUGNACIÓN",
+    "orden": 35,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 663,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Del Recurso de Revisión",
+    "orden": 36,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 664,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Recurso de Inconformidad",
+    "orden": 37,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 665,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Recurso de Revisión en Materia de Seguridad Nacional",
+    "orden": 38,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 666,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV Del Recurso de Revisión de Asuntos Jurisdiccionales de la Suprema Corte de Justicia de la Nación",
+    "orden": 39,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 667,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V Del Cumplimiento de las Resoluciones",
+    "orden": 40,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 668,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De los Criterios de Interpretación",
+    "orden": 41,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 669,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "titulo",
+    "nombre": "TÍTULO NOVENO MEDIDAS DE APREMIO Y SANCIONES",
+    "orden": 42,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 670,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las Medidas de Apremio",
+    "orden": 43,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 671,
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Sanciones",
+    "orden": 44,
+    "created_at": "2026-09-17T18:28:45.229269+00:00"
+  },
+  {
+    "id": 672,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "titulo",
+    "nombre": "Título Primero Disposiciones Generales",
+    "orden": 0,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 673,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Primero Del objeto y ámbito de aplicación",
+    "orden": 1,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 674,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Segundo Criterios y principios de Economía Circular",
+    "orden": 2,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 675,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "titulo",
+    "nombre": "Título Segundo Sistema Nacional de Economía Circular y distribución de competencias",
+    "orden": 3,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 676,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Primero Del Sistema Nacional de Economía Circular",
+    "orden": 4,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 677,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Segundo De la distribución de competencias",
+    "orden": 5,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 678,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "titulo",
+    "nombre": "Título Tercero De las políticas públicas y mecanismos de circularidad",
+    "orden": 6,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 679,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Primero De la Gestión Circular y su registro",
+    "orden": 7,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 680,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Segundo De los instrumentos de política pública",
+    "orden": 8,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 681,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "seccion",
+    "nombre": "Sección Primera Del Programa Nacional",
+    "orden": 9,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 682,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda Del Distintivo Nacional de Economía Circular",
+    "orden": 10,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 683,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "seccion",
+    "nombre": "Sección Tercera Del Instrumento Económico",
+    "orden": 11,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 684,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "titulo",
+    "nombre": "Título Cuarto De la información, la educación, la cultura y la investigación",
+    "orden": 12,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 685,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Primero De la Plataforma Nacional",
+    "orden": 13,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 686,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Segundo De la educación, la cultura y la investigación en materia de Economía Circular",
+    "orden": 14,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 687,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "titulo",
+    "nombre": "Título Quinto De las obligaciones y las responsabilidades ambientales",
+    "orden": 15,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 688,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Primero De la auditoría ambiental voluntaria en materia de economía circular",
+    "orden": 16,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 689,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Segundo De la responsabilidad empresarial y Responsabilidad Extendida del Productor o REP",
+    "orden": 17,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 690,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Tercero De la responsabilidad social y la participación de las personas consumidoras",
+    "orden": 18,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 691,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Cuarto De las responsabilidades y sanciones",
+    "orden": 19,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 692,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Quinto De la gradualidad",
+    "orden": 20,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 693,
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "nivel": "titulo",
+    "nombre": "Título Sexto De la aplicación supletoria",
+    "orden": 21,
+    "created_at": "2026-09-17T18:29:47.537141+00:00"
+  },
+  {
+    "id": 694,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO PRIMERO DEL SECTOR HIDROCARBUROS",
+    "orden": 0,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 695,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único Disposiciones Generales",
+    "orden": 1,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 696,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEGUNDO DEL RECONOCIMIENTO Y EXPLORACIÓN SUPERFICIAL Y DE LA EXPLORACIÓN Y EXTRACCIÓN DE HIDROCARBUROS",
+    "orden": 2,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 697,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Del Reconocimiento y Exploración Superficial",
+    "orden": 3,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 698,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Disposiciones Generales de las Asignaciones para Desarrollo Propio y Asignaciones para Desarrollo Mixto",
+    "orden": 4,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 699,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera Del Otorgamiento de Asignaciones",
+    "orden": 5,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 700,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De la Renuncia",
+    "orden": 6,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 701,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Tercera De la Revocación",
+    "orden": 7,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 702,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De las Asignaciones para Desarrollo Propio",
+    "orden": 8,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 703,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De la Modificación",
+    "orden": 9,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 704,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De la Sustitución",
+    "orden": 10,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 705,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Asignaciones para Desarrollo Mixto",
+    "orden": 11,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 706,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De la Modificación",
+    "orden": 12,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 707,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De la Modificación de Modalidad",
+    "orden": 13,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 708,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Tercera De la Revisión de la Recuperación de Costos y la Contabilidad de los Contratos Mixtos",
+    "orden": 14,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 709,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De los Contratos para la Exploración y Extracción",
+    "orden": 15,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 710,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera Del Procedimiento para la Migración de Asignaciones para Desarrollo Propio a Contratos para la Exploración y Extracción",
+    "orden": 16,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 711,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda Del Proceso de Licitación de los Contratos para la Exploración y Extracción",
+    "orden": 17,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 712,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Tercera De la Rescisión Administrativa de los Contratos para la Exploración y Extracción",
+    "orden": 18,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 713,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Cuarta De la Comercialización de los Hidrocarburos que el Estado obtenga como resultado de los Contratos para la Exploración y Extracción",
+    "orden": 19,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 714,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Quinta De la Adjudicación Directa de los Contratos para la Exploración y Extracción a Personas Titulares de Concesiones Mineras",
+    "orden": 20,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 715,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Sexta De la Coexistencia de las Asignaciones y de los Contratos para la Exploración y Extracción con las Concesiones Mineras",
+    "orden": 21,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 716,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De la Información Nacional de Hidrocarburos",
+    "orden": 22,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 717,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De la Información Estratégica del Subsuelo",
+    "orden": 23,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 718,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De las Zonas de Salvaguarda",
+    "orden": 24,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 719,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VIII De la Unificación de Campos o Yacimientos Compartidos",
+    "orden": 25,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 720,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IX De las Autorizaciones de los Pozos y de los Pozos Inviables",
+    "orden": 26,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 721,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo X De la Regulación y Obligaciones",
+    "orden": 27,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 722,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO TERCERO DE LAS DEMÁS ACTIVIDADES DE LA INDUSTRIA DE HIDROCARBUROS",
+    "orden": 28,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 723,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De los Permisos",
+    "orden": 29,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 724,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Alcance de las Actividades Permisionadas",
+    "orden": 30,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 725,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De las Operaciones en las Actividades Permisionadas",
+    "orden": 31,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 726,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De la Importación y Exportación",
+    "orden": 32,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 727,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Tercera Del Tratamiento y Refinación de Petróleo, del Procesamiento del Gas Natural y de la Formulación",
+    "orden": 33,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 728,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Cuarta De la Comercialización",
+    "orden": 34,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 729,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Quinta Del Almacenamiento",
+    "orden": 35,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 730,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Sexta De la Compresión, Descompresión, Licuefacción y Regasificación de Gas Natural",
+    "orden": 36,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 731,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Séptima Del Transporte",
+    "orden": 37,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 732,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Octava De la Distribución",
+    "orden": 38,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 733,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Novena Del Expendio al Público",
+    "orden": 39,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 734,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Décima Del Despacho para Autoconsumo",
+    "orden": 40,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 735,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Décima Primera De la Distribución de Combustibles para Aeronaves",
+    "orden": 41,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 736,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Procedimiento para la Obtención de Permisos",
+    "orden": 42,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 737,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Modificaciones y Actualizaciones a los Permisos",
+    "orden": 43,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 738,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De las Modificaciones",
+    "orden": 44,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 739,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De las Actualizaciones y el Cambio de Control",
+    "orden": 45,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 740,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De las Cesiones de los Permisos",
+    "orden": 46,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 741,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI Del Contenido de los Títulos de Permisos",
+    "orden": 47,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 742,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De las Obligaciones de la Persona Permisionaria",
+    "orden": 48,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 743,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VIII De los Sistemas Integrados",
+    "orden": 49,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 744,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De la Creación de Sistemas Integrados",
+    "orden": 50,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 745,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De los Planes Quinquenales de Expansión y Optimización de la Infraestructura de Transporte por medio de Ductos y Almacenamiento, y de Expansión del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural",
+    "orden": 51,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 746,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IX De la Regulación Económica",
+    "orden": 52,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 747,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De los Términos y Condiciones para la Prestación de los Servicios",
+    "orden": 53,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 748,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De los Contratos de Comercialización",
+    "orden": 54,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 749,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Tercera De la Suspensión del Servicio o Actividad",
+    "orden": 55,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 750,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Cuarta Del Acceso Abierto No Indebidamente Discriminatorio",
+    "orden": 56,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 751,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Quinta De las Contraprestaciones, Precios y Tarifas",
+    "orden": 57,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 752,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Sexta De las Licitaciones del CENAGAS",
+    "orden": 58,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 753,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Séptima De la Opinión de la Secretaría o la Comisión sobre las Licitaciones de las Empresas Públicas del Estado",
+    "orden": 59,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 754,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Octava De la Participación Cruzada",
+    "orden": 60,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 755,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo X De la Supervisión y Vigilancia en materia de Trazabilidad, Medición y Calidad de los Hidrocarburos, Petrolíferos y Petroquímicos",
+    "orden": 61,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 756,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo XI De la Plataforma de Información Electrónica",
+    "orden": 62,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 757,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO CUARTO DE LAS DISPOSICIONES APLICABLES A LA INDUSTRIA DE HIDROCARBUROS",
+    "orden": 63,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 758,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Información Obtenida de la Medición de los Hidrocarburos",
+    "orden": 64,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 759,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Bases de Coordinación para el Desarrollo de Proyectos en la Industria de Hidrocarburos",
+    "orden": 65,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 760,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Uso y la Ocupación Superficial",
+    "orden": 66,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 761,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Manifestación de Impacto Social del Sector Energético y de la Consulta Previa",
+    "orden": 67,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 762,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera Del Estudio de Impacto Social y de la Manifestación de Impacto Social del Sector Energético",
+    "orden": 68,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 763,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De la Consulta Previa",
+    "orden": 69,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 764,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO QUINTO DE LA PLANEACIÓN Y CONTROL DEL SECTOR HIDROCARBUROS",
+    "orden": 70,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 765,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Planeación del Sector Hidrocarburos",
+    "orden": 71,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 766,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Consejo Consultivo para el Fomento de la Industria de Hidrocarburos Nacional",
+    "orden": 72,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 767,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEXTO DEL CONTENIDO NACIONAL Y DE LAS ESTRATEGIAS PARA EL FOMENTO INDUSTRIAL Y DE LA INVERSIÓN DE LA INDUSTRIA DE HIDROCARBUROS",
+    "orden": 73,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 768,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SÉPTIMO DE LA VERIFICACIÓN",
+    "orden": 74,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 769,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las Disposiciones Generales",
+    "orden": 75,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 770,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De las Visitas de Verificación",
+    "orden": 76,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 771,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Verificación mediante Requerimientos y Comparecencias",
+    "orden": 77,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 772,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Medidas Cautelares y Precautorias",
+    "orden": 78,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 773,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO OCTAVO DEL PROCEDIMIENTO PARA LA DETERMINACIÓN DE SANCIONES",
+    "orden": 79,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 774,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "titulo",
+    "nombre": "TÍTULO NOVENO OTRAS DISPOSICIONES",
+    "orden": 80,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 775,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Ocupación Temporal y la Intervención",
+    "orden": 81,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 776,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Primera De la Ocupación Temporal",
+    "orden": 82,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 777,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "seccion",
+    "nombre": "Sección Segunda De la Intervención",
+    "orden": 83,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 778,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Revocación y Caducidad de Autorizaciones y Permisos",
+    "orden": 84,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 779,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De los Supuestos para el no Otorgamiento, Modificación o Cesión de Permisos",
+    "orden": 85,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 780,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Innovaciones Tecnológicas",
+    "orden": 86,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 781,
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De la Justicia Energética",
+    "orden": 87,
+    "created_at": "2026-09-17T19:49:28.363748+00:00"
+  },
+  {
+    "id": 782,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO PRIMERO GENERALIDADES",
+    "orden": 0,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 783,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO SEGUNDO DEL COMITÉ INTERSECRETARIAL DE PROMOCIÓN",
+    "orden": 1,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 784,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO TERCERO DE LOS CRITERIOS DE SELECCIÓN PARA LA DETERMINACIÓN DE LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR",
+    "orden": 2,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 785,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN PRIMERA DEL PROCEDIMIENTO PARA DETERMINAR LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR",
+    "orden": 3,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 786,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO CUARTO DE LA PARTICIPACIÓN DE LAS ENTIDADES FEDERATIVAS",
+    "orden": 4,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 787,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN PRIMERA DE LOS CONVENIOS DE COORDINACIÓN CELEBRADOS ENTRE EL GOBIERNO FEDERAL Y LAS ENTIDADES FEDERATIVAS",
+    "orden": 5,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 788,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN SEGUNDA DE LAS ATRIBUCIONES DE LAS ENTIDADES FEDERATIVAS",
+    "orden": 6,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 789,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO QUINTO DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL",
+    "orden": 7,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 790,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO SEXTO DE LOS DESARROLLADORES",
+    "orden": 8,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 791,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN PRIMERA DE LOS REQUISITOS PARA EL OTORGAMIENTO DE LAS AUTORIZACIONES A LOS DESARROLLADORES",
+    "orden": 9,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 792,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN SEGUNDA DE LA CONVOCATORIA",
+    "orden": 10,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 793,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN TERCERA DEL CONCURSO PÚBLICO",
+    "orden": 11,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 794,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO SÉPTIMO DE LAS ASIGNACIONES DIRECTAS",
+    "orden": 12,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 795,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "seccion",
+    "nombre": "SECCIÓN PRIMERA DEL PROCEDIMIENTO DE ASIGNACIÓN DIRECTA",
+    "orden": 13,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 796,
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO OCTAVO DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN",
+    "orden": 14,
+    "created_at": "2026-09-17T19:49:49.212724+00:00"
+  },
+  {
+    "id": 797,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I Disposiciones Generales",
+    "orden": 0,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 798,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+    "orden": 1,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 799,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+    "orden": 2,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 800,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+    "orden": 3,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 801,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+    "orden": 4,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 802,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+    "orden": 5,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 803,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+    "orden": 6,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 804,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+    "orden": 7,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 805,
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+    "orden": 8,
+    "created_at": "2026-09-17T19:50:14.787769+00:00"
+  },
+  {
+    "id": 806,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO I DE LA COMPETENCIA Y ORGANIZACIÓN DE LA SECRETARÍA",
+    "orden": 0,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 807,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO II DE LAS FACULTADES DE LA PERSONA TITULAR DE LA SECRETARÍA",
+    "orden": 1,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 808,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO III DE LAS FACULTADES GENÉRICAS DE LAS PERSONAS TITULARES DE LAS SUBSECRETARÍAS Y DE LA UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+    "orden": 2,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 809,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO IV DE LAS FACULTADES DE LA PERSONA TITULAR DE LA UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+    "orden": 3,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 810,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO V DE LAS FACULTADES GENÉRICAS DE LAS PERSONAS TITULARES DE LAS JEFATURAS DE UNIDAD Y DE LAS DIRECCIONES GENERALES",
+    "orden": 4,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 811,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO VI DE LA SUBSECRETARÍA DE PLANEACIÓN Y TRANSICIÓN ENERGÉTICA Y SUS UNIDADES ADMINISTRATIVAS",
+    "orden": 5,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 812,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO VII DE LA SUBSECRETARÍA DE ELECTRICIDAD Y SUS UNIDADES ADMINISTRATIVAS",
+    "orden": 6,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 813,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO VIII DE LA SUBSECRETARÍA DE HIDROCARBUROS Y SUS UNIDADES ADMINISTRATIVAS",
+    "orden": 7,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 814,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO IX DE LAS UNIDADES ADMINISTRATIVAS ADSCRITAS A LA UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+    "orden": 8,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 815,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO X DE LAS UNIDADES ADMINISTRATIVAS ADSCRITAS A LA OFICINA DE LA PERSONA TITULAR DE LA SECRETARÍA",
+    "orden": 9,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 816,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO XI DE LA SUPLENCIA DE LAS PERSONAS SERVIDORAS PÚBLICAS DE LA SECRETARÍA",
+    "orden": 10,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 817,
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "nivel": "capitulo",
+    "nombre": "CAPÍTULO XII DE LOS ÓRGANOS ADMINISTRATIVOS DESCONCENTRADOS",
+    "orden": 11,
+    "created_at": "2026-09-17T19:51:08.430367+00:00"
+  },
+  {
+    "id": 818,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO PRIMERO DE LAS DISPOSICIONES GENERALES",
+    "orden": 0,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 819,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único",
+    "orden": 1,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 820,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEGUNDO DEL CONSEJO DE PLANEACIÓN ENERGÉTICA",
+    "orden": 2,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 821,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Organización y Funcionamiento del Consejo",
+    "orden": 3,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 822,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De los Comités",
+    "orden": 4,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 823,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO TERCERO DE LOS INSTRUMENTOS DE PLANEACIÓN DEL SECTOR ENERGÉTICO",
+    "orden": 5,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 824,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la Coordinación, Coherencia, Exhaustividad y Consistencia",
+    "orden": 6,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 825,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Programa Sectorial de Energía",
+    "orden": 7,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 826,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la Estrategia Nacional de Transición Energética",
+    "orden": 8,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 827,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV Del Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+    "orden": 9,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 828,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V Del Plan de Desarrollo del Sector Eléctrico",
+    "orden": 10,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 829,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI Del Plan de Desarrollo del Sector Hidrocarburos",
+    "orden": 11,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 830,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VII De la alineación con el Plan Nacional de Desarrollo",
+    "orden": 12,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 831,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO CUARTO DE LA PLANEACIÓN VINCULANTE DEL SECTOR ENERGÉTICO",
+    "orden": 13,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 832,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo Único",
+    "orden": 14,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 833,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO QUINTO DEL SISTEMA NACIONAL DE INFORMACIÓN ENERGÉTICA",
+    "orden": 15,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 834,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De la organización y funcionamiento del Sistema",
+    "orden": 16,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 835,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De los Registros e Información Geoespacial",
+    "orden": 17,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 836,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III De la información para la Evaluación de la Pobreza Energética y Género",
+    "orden": 18,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 837,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Información sobre Generación Distribuida y en Aplicaciones Aisladas de la Red",
+    "orden": 19,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 838,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo V De la Información en materia de Eficiencia Energética",
+    "orden": 20,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 839,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo VI De la Información sobre Certificados de Energías Limpias",
+    "orden": 21,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 840,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SEXTO DE LA TRANSICIÓN ENERGÉTICA, LA REDUCCIÓN DE LA POBREZA ENERGÉTICA Y EL APROVECHAMIENTO SUSTENTABLE DE LA ENERGÍA",
+    "orden": 22,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 841,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De los Fondos",
+    "orden": 23,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 842,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II Del Financiamiento y la Inversión para la Transición Energética",
+    "orden": 24,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 843,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "seccion",
+    "nombre": "Sección I Del Financiamiento para el Aprovechamiento Sustentable de la Energía",
+    "orden": 25,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 844,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "seccion",
+    "nombre": "Sección II De los Certificados de Energías Limpias",
+    "orden": 26,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 845,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Aprovechamiento Sustentable de la Energía y de la Eficiencia Energética",
+    "orden": 27,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 846,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "seccion",
+    "nombre": "Sección I De las personas Usuarias de Patrón de Alto Consumo",
+    "orden": 28,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 847,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "seccion",
+    "nombre": "Sección II De los Acuerdos Voluntarios",
+    "orden": 29,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 848,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De las Metodologías",
+    "orden": 30,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 849,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "titulo",
+    "nombre": "TÍTULO SÉPTIMO DE LA INSPECCIÓN, VIGILANCIA Y SANCIONES",
+    "orden": 31,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 850,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo I De las visitas de verificación",
+    "orden": 32,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 851,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo II De la Verificación mediante Requerimientos y Comparecencias",
+    "orden": 33,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 852,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo III Del Procedimiento Administrativo de Sanción",
+    "orden": 34,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  },
+  {
+    "id": 853,
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "nivel": "capitulo",
+    "nombre": "Capítulo IV De la Transparencia, Rendición de Cuentas e Información",
+    "orden": 35,
+    "created_at": "2026-09-17T19:51:42.297118+00:00"
+  }
+]

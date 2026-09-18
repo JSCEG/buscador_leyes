@@ -1,0 +1,801 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-17",
+  "project": "carmfqhcfsqbzcwptqfz",
+  "catalogo_antes": {
+    "leyes": 25,
+    "articulos": 3044,
+    "temas": 644
+  },
+  "catalogo_despues": {
+    "leyes": 38,
+    "articulos": 3237,
+    "temas": 831
+  },
+  "registros_anteriores_sin_cambios": {
+    "leyes": 25,
+    "articulos": 3044,
+    "temas": 644
+  },
+  "instrumentos": [
+    {
+      "siglas": "CONV-GEN-1",
+      "ley_id": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "titulo": "Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 17/10/2025]",
+      "fecha_publicacion": "2025-10-17",
+      "familia": "Primera convocatoria de generación",
+      "modificacion": 0,
+      "fragmentos": 19,
+      "fragmentos_fuente": 18,
+      "notas_editoriales": 1,
+      "estructura": 17,
+      "tipos": {
+        "complementario": 3,
+        "preambulo": 1,
+        "ordinario": 11,
+        "anexo": 4
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "87c25b25a5b8c1befc973344fff1cde1e5f200f3a124576fd63ff8e3590e4e50",
+        "bloques_fuente": 200,
+        "bloques_asignados": 200,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 8,
+        "graficos_preservados": 1,
+        "casillas_preservadas": 3,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-1",
+        "code": "5770299",
+        "radar": "RAD-026",
+        "familia": "Primera convocatoria de generación",
+        "modificacion": 0,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5770299",
+        "sha256": "87c25b25a5b8c1befc973344fff1cde1e5f200f3a124576fd63ff8e3590e4e50",
+        "fecha": "17-10-2025",
+        "titulo": "Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 323603,
+        "pagina": 117,
+        "tables": 8,
+        "images": [
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/10/17/VES/67.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/10/17/VES/SENER_3_Cimg_1098163.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/10/17/VES/SENER_3_Cimg_1098808.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/10/17/VES/SENER_3_Cimg_1099459.png",
+            "alt": null
+          }
+        ]
+      }
+    },
+    {
+      "siglas": "CONV-GEN-1-M1",
+      "ley_id": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025 [DOF 24/10/2025]",
+      "fecha_publicacion": "2025-10-24",
+      "familia": "Primera convocatoria de generación",
+      "modificacion": 1,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "2ba34d3dd2419d324f5d160bafa9704439c09b9488b4703743d599291cb514cc",
+        "bloques_fuente": 17,
+        "bloques_asignados": 17,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-1-M1",
+        "code": "5770917",
+        "radar": "RAD-027",
+        "familia": "Primera convocatoria de generación",
+        "modificacion": 1,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5770917",
+        "sha256": "2ba34d3dd2419d324f5d160bafa9704439c09b9488b4703743d599291cb514cc",
+        "fecha": "24-10-2025",
+        "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025.",
+        "codDiario": 323743,
+        "pagina": 2,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-GEN-1-M2",
+      "ley_id": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/11/2025]",
+      "fecha_publicacion": "2025-11-10",
+      "familia": "Primera convocatoria de generación",
+      "modificacion": 2,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "141762fa5c921f7dd01f107cf4eabb499bf198e3389f6e3d5526c28319548193",
+        "bloques_fuente": 18,
+        "bloques_asignados": 18,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-1-M2",
+        "code": "5772392",
+        "radar": "RAD-028",
+        "familia": "Primera convocatoria de generación",
+        "modificacion": 2,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5772392",
+        "sha256": "141762fa5c921f7dd01f107cf4eabb499bf198e3389f6e3d5526c28319548193",
+        "fecha": "10-11-2025",
+        "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 324043,
+        "pagina": 142,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-GEN-1-M3",
+      "ley_id": "84446660-e33c-512f-9975-57527758c6c7",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 02/12/2025]",
+      "fecha_publicacion": "2025-12-02",
+      "familia": "Primera convocatoria de generación",
+      "modificacion": 3,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "80ee13b6af8ee224200c33f18a6cb5426fff88a23f61ddcf90b1eec9e91debfe",
+        "bloques_fuente": 26,
+        "bloques_asignados": 26,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-1-M3",
+        "code": "5774850",
+        "radar": "RAD-029",
+        "familia": "Primera convocatoria de generación",
+        "modificacion": 3,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5774850",
+        "sha256": "80ee13b6af8ee224200c33f18a6cb5426fff88a23f61ddcf90b1eec9e91debfe",
+        "fecha": "02-12-2025",
+        "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 324425,
+        "pagina": 70,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "ley_id": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "titulo": "Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 11/05/2026]",
+      "fecha_publicacion": "2026-05-11",
+      "familia": "Segunda convocatoria de generación",
+      "modificacion": 0,
+      "fragmentos": 36,
+      "fragmentos_fuente": 35,
+      "notas_editoriales": 1,
+      "estructura": 40,
+      "tipos": {
+        "complementario": 3,
+        "preambulo": 1,
+        "ordinario": 28,
+        "anexo": 4
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "178274967aec871f35d62c42ccb3cb151fedc2e4f933f1a7238d315c084f1bc7",
+        "bloques_fuente": 213,
+        "bloques_asignados": 213,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 7,
+        "graficos_preservados": 2,
+        "casillas_preservadas": 3,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-2",
+        "code": "5787117",
+        "radar": "RAD-035",
+        "familia": "Segunda convocatoria de generación",
+        "modificacion": 0,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
+        "sha256": "178274967aec871f35d62c42ccb3cb151fedc2e4f933f1a7238d315c084f1bc7",
+        "fecha": "11-05-2026",
+        "titulo": "Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 327245,
+        "pagina": 2,
+        "tables": 7,
+        "images": [
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_0.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_436325.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_436889.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_437453.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/11/VES/SENER_1_Cimg_442417.png",
+            "alt": null
+          }
+        ]
+      }
+    },
+    {
+      "siglas": "CONV-GEN-2-M1",
+      "ley_id": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "titulo": "Acuerdo por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 26/05/2026]",
+      "fecha_publicacion": "2026-05-26",
+      "familia": "Segunda convocatoria de generación",
+      "modificacion": 1,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "0cf5044b5ca7356b4469a7d5c596f7533b554819ee77f52a3eb60b34768b26b6",
+        "bloques_fuente": 29,
+        "bloques_asignados": 29,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-2-M1",
+        "code": "5788509",
+        "radar": "RAD-038",
+        "familia": "Segunda convocatoria de generación",
+        "modificacion": 1,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5788509",
+        "sha256": "0cf5044b5ca7356b4469a7d5c596f7533b554819ee77f52a3eb60b34768b26b6",
+        "fecha": "26-05-2026",
+        "titulo": "Acuerdo por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 327526,
+        "pagina": 46,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-GEN-2-M2",
+      "ley_id": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "titulo": "Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 08/06/2026]",
+      "fecha_publicacion": "2026-06-08",
+      "familia": "Segunda convocatoria de generación",
+      "modificacion": 2,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "a6d76c2a17ef2860f6fc1dfd768d12a10ee36059a9c8375e9aeb0171672d436c",
+        "bloques_fuente": 29,
+        "bloques_asignados": 29,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-2-M2",
+        "code": "5789883",
+        "radar": "RAD-039",
+        "familia": "Segunda convocatoria de generación",
+        "modificacion": 2,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5789883",
+        "sha256": "a6d76c2a17ef2860f6fc1dfd768d12a10ee36059a9c8375e9aeb0171672d436c",
+        "fecha": "08-06-2026",
+        "titulo": "Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 327766,
+        "pagina": 152,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-GEN-2-M3",
+      "ley_id": "d026115a-998a-544f-bff0-39f93c04f444",
+      "titulo": "Acuerdo por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 18/06/2026]",
+      "fecha_publicacion": "2026-06-18",
+      "familia": "Segunda convocatoria de generación",
+      "modificacion": 3,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "7d569774debc1e8531c3515e2383fa53eda266206a787855c156f817210bb5af",
+        "bloques_fuente": 30,
+        "bloques_asignados": 30,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-2-M3",
+        "code": "5790938",
+        "radar": "RAD-040",
+        "familia": "Segunda convocatoria de generación",
+        "modificacion": 3,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5790938",
+        "sha256": "7d569774debc1e8531c3515e2383fa53eda266206a787855c156f817210bb5af",
+        "fecha": "18-06-2026",
+        "titulo": "Acuerdo por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 327985,
+        "pagina": 27,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-GEN-2-M4",
+      "ley_id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "titulo": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/09/2026]",
+      "fecha_publicacion": "2026-09-10",
+      "familia": "Segunda convocatoria de generación",
+      "modificacion": 4,
+      "fragmentos": 5,
+      "fragmentos_fuente": 4,
+      "notas_editoriales": 1,
+      "estructura": 3,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 1,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "5004e64965f5062570d859d7bb51dd0d0db748a0d224cb5bd7606df56dccf365",
+        "bloques_fuente": 27,
+        "bloques_asignados": 27,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-GEN-2-M4",
+        "code": "5798361",
+        "radar": "RAD-041",
+        "familia": "Segunda convocatoria de generación",
+        "modificacion": 4,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5798361",
+        "sha256": "5004e64965f5062570d859d7bb51dd0d0db748a0d224cb5bd7606df56dccf365",
+        "fecha": "10-09-2026",
+        "titulo": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+        "codDiario": 329565,
+        "pagina": 13,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "ley_id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "titulo": "Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 15/05/2026]",
+      "fecha_publicacion": "2026-05-15",
+      "familia": "Proyectos estratégicos de generación y almacenamiento",
+      "modificacion": 0,
+      "fragmentos": 58,
+      "fragmentos_fuente": 57,
+      "notas_editoriales": 1,
+      "estructura": 71,
+      "tipos": {
+        "complementario": 3,
+        "preambulo": 1,
+        "ordinario": 51,
+        "anexo": 3
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "e66b049a4c1687d31e1606e55db26413a01f542a06b6791b552988bd3d5036c0",
+        "bloques_fuente": 242,
+        "bloques_asignados": 242,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 8,
+        "graficos_preservados": 1,
+        "casillas_preservadas": 3,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-ESTRATEGICOS",
+        "code": "5787666",
+        "radar": "RAD-036",
+        "familia": "Proyectos estratégicos de generación y almacenamiento",
+        "modificacion": 0,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5787666",
+        "sha256": "e66b049a4c1687d31e1606e55db26413a01f542a06b6791b552988bd3d5036c0",
+        "fecha": "15-05-2026",
+        "titulo": "Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.",
+        "codDiario": 327345,
+        "pagina": 20,
+        "tables": 8,
+        "images": [
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/15/VES/SENER_1_Cimg_0.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/15/VES/SENER_1_Cimg_3223443.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/15/VES/SENER_1_Cimg_3226554.png",
+            "alt": null
+          },
+          {
+            "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/15/VES/SENER_1_Cimg_3229671.png",
+            "alt": null
+          }
+        ]
+      }
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M1",
+      "ley_id": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 26/05/2026]",
+      "fecha_publicacion": "2026-05-26",
+      "familia": "Proyectos estratégicos de generación y almacenamiento",
+      "modificacion": 1,
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 4,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "1ac32a60c8f6aa1a4ccabaaf88c3c6018332d782eb7406ef80f3949681dc8b9b",
+        "bloques_fuente": 18,
+        "bloques_asignados": 18,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-ESTRATEGICOS-M1",
+        "code": "5788508",
+        "radar": "RAD-037",
+        "familia": "Proyectos estratégicos de generación y almacenamiento",
+        "modificacion": 1,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5788508",
+        "sha256": "1ac32a60c8f6aa1a4ccabaaf88c3c6018332d782eb7406ef80f3949681dc8b9b",
+        "fecha": "26-05-2026",
+        "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.",
+        "codDiario": 327526,
+        "pagina": 45,
+        "tables": 1,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "ley_id": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "titulo": "Acuerdo por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 10/07/2026]",
+      "fecha_publicacion": "2026-07-10",
+      "familia": "Proyectos estratégicos de generación y almacenamiento",
+      "modificacion": 2,
+      "fragmentos": 28,
+      "fragmentos_fuente": 27,
+      "notas_editoriales": 1,
+      "estructura": 25,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 23,
+        "transitorio": 2
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "98316b040369fce7f60f4071726ff4712d6a9d045acf0f8609db5d3be343f70d",
+        "bloques_fuente": 104,
+        "bloques_asignados": 104,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 3,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-ESTRATEGICOS-M2",
+        "code": "5793261",
+        "radar": "RAD-045",
+        "familia": "Proyectos estratégicos de generación y almacenamiento",
+        "modificacion": 2,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5793261",
+        "sha256": "98316b040369fce7f60f4071726ff4712d6a9d045acf0f8609db5d3be343f70d",
+        "fecha": "10-07-2026",
+        "titulo": "Acuerdo por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.",
+        "codDiario": 328425,
+        "pagina": 11,
+        "tables": 3,
+        "images": []
+      }
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M3",
+      "ley_id": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "titulo": "Acuerdo por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 02/09/2026]",
+      "fecha_publicacion": "2026-09-02",
+      "familia": "Proyectos estratégicos de generación y almacenamiento",
+      "modificacion": 3,
+      "fragmentos": 5,
+      "fragmentos_fuente": 4,
+      "notas_editoriales": 1,
+      "estructura": 3,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 1,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control_fuente": {
+        "sha256": "0cfde031eb5619dc65a65ca97376feb1623841962fe7c4d5e4c120df1b2b6178",
+        "bloques_fuente": 16,
+        "bloques_asignados": 16,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 1,
+        "graficos_preservados": 0,
+        "casillas_preservadas": 0,
+        "texto_publicado_no_consolidado": true
+      },
+      "fuente": {
+        "name": "CONV-ESTRATEGICOS-M3",
+        "code": "5797703",
+        "radar": "RAD-047",
+        "familia": "Proyectos estratégicos de generación y almacenamiento",
+        "modificacion": 3,
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5797703",
+        "sha256": "0cfde031eb5619dc65a65ca97376feb1623841962fe7c4d5e4c120df1b2b6178",
+        "fecha": "02-09-2026",
+        "titulo": "Acuerdo por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.",
+        "codDiario": 329425,
+        "pagina": 20,
+        "tables": 1,
+        "images": []
+      }
+    }
+  ],
+  "cotejo_fuentes": [
+    {
+      "instrumento": "CONV-GEN-1",
+      "fragmentos_fuente": 18,
+      "texto_completo_cotejado": true,
+      "tablas": 8,
+      "celdas": 411,
+      "graficos": 1,
+      "casillas": 3,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-1-M1",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 88,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-1-M2",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 10,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-1-M3",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 1,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-2",
+      "fragmentos_fuente": 35,
+      "texto_completo_cotejado": true,
+      "tablas": 7,
+      "celdas": 212,
+      "graficos": 2,
+      "casillas": 3,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-2-M1",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 85,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-2-M2",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 80,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-2-M3",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 80,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-GEN-2-M4",
+      "fragmentos_fuente": 4,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 55,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-ESTRATEGICOS",
+      "fragmentos_fuente": 57,
+      "texto_completo_cotejado": true,
+      "tablas": 8,
+      "celdas": 163,
+      "graficos": 1,
+      "casillas": 3,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-ESTRATEGICOS-M1",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 8,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-ESTRATEGICOS-M2",
+      "fragmentos_fuente": 27,
+      "texto_completo_cotejado": true,
+      "tablas": 3,
+      "celdas": 119,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-ESTRATEGICOS-M3",
+      "fragmentos_fuente": 4,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 8,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ],
+  "integridad_sql": {
+    "textos_vacios": 0,
+    "fts_vacios": 0,
+    "etiquetas_duplicadas": 0,
+    "ordenes_duplicados": 0
+  },
+  "alcance": "Tres convocatorias y diez modificaciones del radar v4.17; versiones publicadas, no texto consolidado. Incluye 13 notas editoriales separadas del texto oficial."
+}

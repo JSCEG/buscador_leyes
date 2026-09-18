@@ -1,0 +1,637 @@
+{
+  "ley": {
+    "id": "ca974945-9edf-5386-822a-c2755e66afc4",
+    "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
+    "siglas": "RICNE",
+    "fecha_publicacion": "2025-05-08",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "temas_clave": [
+      "Comisión Nacional de Energía",
+      "Organización",
+      "Atribuciones"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+    "tipo": "reglamento"
+  },
+  "articulos": [
+    {
+      "id": "93b7dff1-2c57-5057-bc7d-68787fafa299",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 0,
+      "identificador": "Preámbulo y expedición",
+      "contenido": "DECRETO por el que se expide el Reglamento Interior de la Comisión Nacional de Energía.\n\nAl margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Presidencia de la República.\n\nCLAUDIA SHEINBAUM PARDO, Presidenta de los Estados Unidos Mexicanos, en ejercicio de la facultad que me confiere el artículo 89, fracción I, de la Constitución Política de los Estados Unidos Mexicanos, y con fundamento en los artículos 14, 18, 17, 17 Bis, 20 y 33 de la Ley Orgánica de la Administración Pública Federal; 13 y 16 de la Ley de la Comisión Nacional de Energía, he tenido a bien emitir el siguiente\n\nDECRETO POR EL QUE SE EXPIDE EL REGLAMENTO INTERIOR DE LA COMISIÓN NACIONAL DE ENERGÍA\n\nARTÍCULO ÚNICO. Se expide el Reglamento Interior de la Comisión Nacional de Energía, para quedar como sigue:\n\nREGLAMENTO INTERIOR DE LA COMISIÓN NACIONAL DE ENERGÍA",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": null,
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "c904b690-3893-5a34-a021-897a7c8ec203",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 1,
+      "identificador": "Artículo 1",
+      "contenido": "El presente Reglamento tiene por objeto establecer la estructura y regular la organización y funcionamiento de la Comisión Nacional de Energía.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "aac60f9f-7a15-5a17-aec6-4a534b9de837",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 2,
+      "identificador": "Artículo 2",
+      "contenido": "La Comisión Nacional de Energía es un órgano administrativo desconcentrado de la Secretaría de Energía, de carácter técnico, con independencia técnica, operativa, de gestión y decisión, que cuenta con presupuesto propio y que ejerce sus funciones en términos de lo previsto en las leyes de la Comisión Nacional de Energía, de Planeación y Transición Energética, del Sector Eléctrico, del Sector Hidrocarburos y demás disposiciones aplicables.\n\nLa Comisión Nacional de Energía tiene por objeto regular, supervisar e imponer sanciones a las actividades en materia energética de su competencia, con el fin de promover el desarrollo ordenado, continuo y seguro de las actividades del sector energético de conformidad con la planeación vinculante en el ámbito de su competencia.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "578a820a-e57c-509e-bdab-52b9a4b57860",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 3,
+      "identificador": "Artículo 3",
+      "contenido": "Para los efectos de la interpretación y aplicación del presente Reglamento, se deben entender los conceptos y definiciones, en singular o plural, previstos en las Leyes de la Comisión Nacional de Energía, del Sector Eléctrico, del Sector Hidrocarburos, de Planeación y Transición Energética, Federal de Procedimiento Administrativo, así como las siguientes:\n\nI. CEL: Certificado de Energía Limpia;\n\nII. Comisión: Comisión Nacional de Energía;\n\nIII. Comité Técnico: Órgano colegiado responsable de conocer, opinar, analizar, evaluar, dictaminar y aprobar los actos jurídicos o administrativos que emita la Comisión, con excepción de aquellos que sean competencia de la persona titular de la Dirección General o de las Unidades Administrativas de la Comisión;\n\nIV. Comité Especial: Órgano colegiado responsable de determinar la remuneración que reciben las personas expertas técnicas del sector energético que integren el Comité Técnico;\n\nV. Fideicomiso: Organismo público al que se refiere el artículo Décimo Segundo Transitorio de la Ley de la Comisión Nacional de Energía;\n\nVI. Ley: Ley de la Comisión Nacional de Energía;\n\nVII. Reglamento: El presente Reglamento;\n\nVIII. Registro Público: El sistema de registro de permisos, autorizaciones o cualquier otro acto que emita la Comisión sobre las actividades en materia energética;\n\nIX. Secretaría: La Secretaría de Energía;\n\nX. Personas servidoras públicas: Las personas que desempeñan un empleo, cargo o comisión en la Comisión, y\n\nXI. Unidad Administrativa: Órgano que forma parte de la Comisión con funciones y actividades propias establecidas en el presente reglamento.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "56da11f4-8482-581f-b7dd-aa75d33450c9",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 4,
+      "identificador": "Artículo 4",
+      "contenido": "Corresponde a la Comisión establecer, dirigir, organizar, actualizar y publicar el Registro Público, el cual debe estar disponible en su portal de internet, a fin de dar publicidad a sus actos y resoluciones, así como a los demás documentos que deban constar en el mismo conforme a la normatividad aplicable.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "6aa995b2-fdba-56b2-8ca4-1affac724975",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 5,
+      "identificador": "Artículo 5",
+      "contenido": "Las personas servidoras públicas adscritas a la Comisión se deben sujetar a los principios de confidencialidad, responsabilidad y resguardo de la información que elaboren, registren, y resguarden con motivo de su empleo, cargo o comisión bajo los principios de servicio público; asimismo, deben observar estrictamente las disposiciones establecidas en materia de archivos, transparencia, protección de datos personales, responsabilidades administrativas y demás disposiciones jurídicas aplicables.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "8256c924-172a-5857-9a5b-8dc6084f05cc",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 6,
+      "identificador": "Artículo 6",
+      "contenido": "Los días y horas laborales de la Comisión se sujetan al calendario aprobado por el Comité Técnico, mismo que debe ser publicado en el Diario Oficial de la Federación.\n\nLos días no considerados en el Calendario Oficial, se entienden como días inhábiles para los efectos legales y administrativos a que haya lugar; la Secretaría Técnica, con visto bueno de la persona titular de la Dirección General, determina expresamente la habilitación de días y horas para la práctica de diligencias.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "5c5cf164-b4cc-50eb-90c0-dd072ae8c62c",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 7,
+      "identificador": "Artículo 7",
+      "contenido": "La Comisión debe ser dirigida y administrada por una Dirección General y cuenta con un Comité Técnico, como órgano colegiado de decisión.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO SEGUNDO — De la Organización e Integración de la Comisión",
+      "capitulo_nombre": "CAPÍTULO I — De la Organización Interna",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d35d8626-7856-598f-bb9a-5ae57d140336",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 8,
+      "identificador": "Artículo 8",
+      "contenido": "La Comisión para el despacho, estudio, planeación y desahogo de los asuntos de su competencia, cuenta con una Dirección General y las Unidades Administrativas siguientes:\n\nI. Secretaría Técnica;\n\na) Dirección General de Asuntos del Comité Técnico y Externos;\n\nII. Dirección General de Estrategia y Vinculación;\n\nIII. Unidad de Administración y Finanzas;\n\na) Dirección General de Presupuesto y Recursos Financieros;\n\nb) Dirección General de Recursos Humanos y Organización;\n\nc) Dirección General de Recursos Materiales y Servicios Generales, y\n\nd) Dirección General de Tecnologías de la Información y Comunicaciones;\n\nIV. Unidad de Asuntos Jurídicos;\n\na) Dirección General de lo Contencioso;\n\nV. Unidad de Electricidad;\n\na) Dirección General de Análisis y Evaluación Regulatoria del Sector Eléctrico;\n\nb) Dirección General de Análisis y Evaluación Económica del Sector Eléctrico;\n\nc) Dirección General de Mercados Eléctricos;\n\nd) Dirección General de Operación, Permisos y Registros de Electricidad, y\n\ne) Dirección General de Análisis y Evaluación Técnica del Sector Eléctrico;\n\nVI. Unidad de Hidrocarburos;\n\na) Dirección General del Sector Gas Natural;\n\nb) Dirección General de Integración Regulatoria de Hidrocarburos;\n\nc) Dirección General del Sector Gas Licuado de Petróleo;\n\nd) Dirección General de Mercados de Hidrocarburos;\n\ne) Dirección General del Sector Petrolíferos, y\n\nf) Dirección General del Sector Petroquímicos;\n\nVII. Unidad de Verificación;\n\na) Dirección General de Verificación del Sector Hidrocarburos, y\n\nb) Dirección General de Verificación del Sector Eléctrico;\n\nVIII. Oficinas estatales o regionales que estime necesarias para el desempeño de sus atribuciones, de conformidad con el presupuesto asignado.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO SEGUNDO — De la Organización e Integración de la Comisión",
+      "capitulo_nombre": "CAPÍTULO I — De la Organización Interna",
+      "seccion_nombre": null
+    },
+    {
+      "id": "953fac0c-e603-54f8-8f2d-dfde3313112a",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 9,
+      "identificador": "Artículo 9",
+      "contenido": "La Comisión está a cargo de la Dirección General, cuya persona titular es nombrada y removida libremente por la persona titular del Ejecutivo Federal, y ratificada por la Cámara de Senadores, en los términos establecidos por el artículo 14 de la Ley.\n\nA la persona titular de la Dirección General le corresponde la representación, trámite y resolución de los asuntos que competen a la Comisión y tiene las facultades previstas en el artículo 16 de la Ley, así como las demás que disponga la normatividad aplicable al ejercicio de sus funciones.\n\nLa persona titular de la Dirección General puede asumir, en cualquier momento, las atribuciones señaladas en el Reglamento para las Unidades Administrativas de la Comisión. Asimismo, puede delegar facultades en personas servidoras públicas subalternas, salvo aquellas que las disposiciones jurídicas aplicables señalen como indelegables.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO I — De la Dirección General de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "860091fe-42d6-5447-abd0-010d69fb6a71",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 10,
+      "identificador": "Artículo 10",
+      "contenido": "La persona titular de la Dirección General se auxilia, para el estudio, planeación y desahogo de los asuntos de su competencia, de la Secretaría Técnica, Unidades Administrativas y Direcciones Generales.\n\nLas Unidades Administrativas y sus Direcciones Generales para el desempeño de sus atribuciones se auxilian de las personas titulares de las direcciones de coordinación, direcciones de área, subdirecciones, jefaturas de departamento, enlaces y demás personas servidoras públicas que se requieran, de conformidad con el presupuesto asignado. Las personas servidoras públicas que ocupen los puestos antes señalados tienen las facultades y atribuciones que prevea el manual de organización general de la Comisión y los perfiles de puesto correspondientes, así como las demás que les sean delegadas por sus superiores jerárquicos.\n\nLas personas servidoras públicas adscritas a la Comisión pueden ser sometidas a controles de confianza, de acuerdo con lo que se establezca en el manual de organización general de la Comisión.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO I — De la Dirección General de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "cb9858bc-c5c2-5bcf-b099-5fafb31f1e65",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 11,
+      "identificador": "Artículo 11",
+      "contenido": "La Comisión puede establecer mecanismos de coordinación con otras dependencias y entidades de la Administración Pública Federal, gobiernos estatales, municipales y demarcaciones territoriales de la Ciudad de México, así como con organismos públicos y privados, para asegurar el cumplimiento de las disposiciones legales, reglamentarias y administrativas aplicables en el sector energético.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO I — De la Dirección General de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7f58a557-27de-596b-9654-62c9fb58a36a",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 12,
+      "identificador": "Artículo 12",
+      "contenido": "La persona titular de la Dirección General cuenta con las facultades indelegables siguientes:\n\nI. Acordar con la persona titular de la Secretaría el despacho de los asuntos de su competencia;\n\nII. Administrar y representar legalmente a la Comisión, tanto en su carácter de autoridad del sector energético, como de órgano administrativo desconcentrado;\n\nIII. Nombrar y remover, con excepción de las personas servidoras públicas que ocupen cargos en las dos jerarquías administrativas inferiores a la Dirección General, al personal que integre la Comisión, así como ordenar cambios de adscripción o radicación, comisiones, reasignaciones o traslados y demás acciones previstas en los ordenamientos aplicables;\n\nIV. Proponer al Comité Técnico los nombramientos de las personas servidoras públicas que ocupen cargos en los dos niveles jerárquicos inmediatos inferiores a su cargo;\n\nV. Presentar a la Secretaría el programa de trabajo y el informe de desempeño anual de la gestión de la Comisión;\n\nVI. Informar anualmente a la Secretaría los ingresos generados en el ejercicio de las atribuciones conferidas a la Comisión y su destino ejercido;\n\nVII. Celebrar convenios y asociaciones con órganos técnicos nacionales e internacionales, previa opinión favorable de la Secretaría;\n\nVIII. Expedir el código de conducta al que deben sujetarse las personas servidoras públicas adscritas a la Comisión;\n\nIX. Expedir la regulación y disposiciones administrativas de carácter general o de carácter interno que requiera la Comisión para el ejercicio de sus funciones, así como establecer los mecanismos para supervisar y vigilar su cumplimiento, con excepción de las que le correspondan al Comité Técnico;\n\nX. Aprobar y emitir el manual de organización general de la Comisión, así como las demás disposiciones relacionadas con el ingreso, permanencia y terminación de la relación laboral de las personas servidoras públicas; y\n\nXI. Las demás que se establezcan las leyes aplicables o le confieran expresamente la Secretaría o el Comité Técnico con el carácter de indelegable.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO I — De la Dirección General de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "00222872-182c-57a7-9909-0644c20c53b5",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 13,
+      "identificador": "Artículo 13",
+      "contenido": "El Comité Técnico de la Comisión está integrado en los términos previstos en el artículo 18 de la Ley y es presidido por la persona titular de la Secretaría.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "896d32a0-9158-5a9b-a2ad-da6da4832239",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 14,
+      "identificador": "Artículo 14",
+      "contenido": "Las tres personas expertas técnicas en el sector energético que forman parte del Comité Técnico pueden contar, cada una, con una persona, como máximo, que les auxilie en el cumplimiento de sus funciones; estas personas deben de cumplir con el código de conducta que al efecto se autorice y demás disposiciones jurídicas aplicables.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "43e2fa65-61f2-5aa7-93b4-70ce79e412af",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 15,
+      "identificador": "Artículo 15",
+      "contenido": "El Comité Técnico se apoya de la Secretaría Técnica para el desarrollo de sus funciones.\n\nLa Secretaría Técnica es la responsable de emitir y notificar la convocatoria de la sesión que corresponde a los integrantes del Comité Técnico. La convocatoria debe indicar la fecha y el lugar de la sesión respectiva, así como el orden del día y la documentación correspondiente a los asuntos a tratar.\n\nLa persona titular de la Secretaría puede emitir y notificar las convocatorias a las sesiones, para lo cual puede requerir el apoyo de la Secretaría Técnica. En estos casos, la persona titular de la Secretaría o la persona a quien designe debe notificar con antelación las convocatorias a la Secretaría Técnica.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3aa46393-bd43-5aaf-852d-afce79b4d351",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 16,
+      "identificador": "Artículo 16",
+      "contenido": "El Comité Técnico puede sesionar de manera ordinaria o extraordinaria en los términos previstos en el artículo 25 de la Ley.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "0922aaff-c794-51dc-a92d-a3292067fd78",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 17,
+      "identificador": "Artículo 17",
+      "contenido": "Para sesionar válidamente, el Comité Técnico requiere de un quórum de por lo menos cinco miembros, incluyendo a la presidencia. Las decisiones deben ser tomadas por el voto favorable de la mayoría simple de los presentes. En caso de empate, la persona titular de la presidencia del Comité Técnico tiene voto de calidad.\n\nLa participación, deliberación y votación de las personas integrantes del Comité Técnico durante sus sesiones puede llevarse a cabo a través de medios de comunicación remota, siempre y cuando se asegure la comunicación en tiempo real.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ee59aa26-fc26-5d95-a7c3-1ef5a71cbf77",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 18,
+      "identificador": "Artículo 18",
+      "contenido": "El Comité Técnico debe funcionar conforme a las reglas de operación que al efecto autorice y se publiquen en el Diario Oficial de la Federación, a las cuales también se deben sujetar el desarrollo de sus sesiones.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3773b9db-19a1-5432-9471-56f60ab123cd",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 19,
+      "identificador": "Artículo 19",
+      "contenido": "El Comité Técnico cuenta con las atribuciones establecidas en el artículo 17 de la Ley, así como las demás que establezcan otras disposiciones jurídicas aplicables y las que le confiera expresamente la Secretaría.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5d8bfb4a-05ff-5cde-9446-e7f75fcf1f06",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 20,
+      "identificador": "Artículo 20",
+      "contenido": "Las disposiciones contenidas en la Ley y en el presente Reglamento relacionadas con las responsabilidades, deberes y obligaciones de las personas integrantes del Comité Técnico, incluyendo lo relativo a los impedimentos y al conflicto de interés, también son aplicables a los suplentes que se designen en términos de la Ley.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "eee783f7-07c6-51bf-bb05-983d2eb59084",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 21,
+      "identificador": "Artículo 21",
+      "contenido": "Para efectos de lo dispuesto en la Ley, y sin perjuicio de lo previsto en la misma, las personas expertas técnicas deben abstenerse de conocer asuntos en que tengan interés directo o indirecto, así como aquellos donde exista conflicto de intereses en términos del artículo 23 de la Ley.\n\nLas personas expertas técnicas del sector energético deben guardar confidencialidad respecto de la información y documentación a la que por virtud de sus funciones tengan acceso, observando estrictamente las disposiciones establecidas en materia de transparencia, protección de datos personales, responsabilidades administrativas y demás disposiciones aplicables, así como cumplir con los códigos de conducta y ética que al efecto se autorice y demás disposiciones jurídicas aplicables al desempeño de sus funciones.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "cc4081f4-86e4-583f-b8f6-92bed3364174",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 22,
+      "identificador": "Artículo 22",
+      "contenido": "El Comité Especial se debe integrar y debe funcionar conforme a lo establecido en el artículo 20 de la Ley.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "11ddf21d-4d6e-50cf-96f1-23f5bf48731d",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 23,
+      "identificador": "Artículo 23",
+      "contenido": "El Comité Especial, de manera unánime, debe determinar la remuneración que reciban las personas expertas técnicas del Comité Técnico y las personas que los auxilien. Asimismo, se debe auxiliar de la Unidad de Administración y Finanzas para gestionar el pago de las remuneraciones correspondientes, mediante el modelo de contratación que se determine acorde al servicio que prestan.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d9c04360-dd7a-5ffe-9174-3964fc166dec",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 24,
+      "identificador": "Artículo 24",
+      "contenido": "A las personas titulares de las Unidades Administrativas de la Comisión, les corresponde originalmente el trámite y resolución de los asuntos competencia de las Unidades Administrativas que le sean adscritas, y tienen, además, en el ámbito de sus respectivas competencias, las siguientes facultades:\n\nI. Acordar con la persona titular de la Dirección General el despacho de los asuntos que les correspondan;\n\nII. Cumplir las órdenes y comisiones que les encomiende la persona titular de la Dirección General;\n\nIII. Dar cuenta del estado que guardan los asuntos a su cargo, para la integración de los informes que la persona titular de la Dirección General rinde;\n\nIV. Someter a consideración de la persona titular de la Dirección General los proyectos de resoluciones, acuerdos, directivas, bases y dictámenes de carácter técnico que pueden ser aprobados por el Comité Técnico;\n\nV. Programar, organizar, dirigir, coordinar y evaluar las actividades de las personas servidoras públicas que tengan adscritas a la Unidad Administrativa a su cargo;\n\nVI. Intervenir en la selección, nombramiento, desarrollo, capacitación, promoción y adscripción del personal a su cargo, así como autorizar los movimientos internos del personal, conforme a las disposiciones jurídicas aplicables, con excepción de aquellos que correspondan a la Secretaría, la persona titular de la Dirección General, la Unidad de Administración y Finanzas o el Comité Técnico;\n\nVII. Proponer a la persona titular de la Dirección General, la creación, reestructuración y eliminación de las áreas a su cargo;\n\nVIII. Proponer y participar en la organización de cursos de capacitación, seminarios y conferencias;\n\nIX. Aprobar la información de trámites y servicios que se efectúan en su Unidad Administrativa, para su inscripción y actualización en el registro o sistema dispuesto en la normatividad de mejora de infraestructura de la calidad de la Nación;\n\nX. Suscribir contratos y convenios, en el ámbito de su competencia, previa aprobación de la persona titular de la Dirección General;\n\nXI. Emitir los actos administrativos necesarios para el ejercicio de sus facultades, así como ordenar o realizar su notificación;\n\nXII. Establecer mecanismos de integración, interrelación y coordinación con las demás Unidades Administrativas para propiciar el óptimo desarrollo de las responsabilidades competencia de la Comisión;\n\nXIII. Participar, en el ámbito de su competencia, en la formulación de proyectos legislativos y reglamentarios de competencia de la Comisión;\n\nXIV. Participar, cuando sean designados para ello, en los comités, subcomités y grupos de trabajo, en las materias competencia de la Comisión;\n\nXV. Autorizar y, en su caso, emitir los criterios y procedimientos que deben observar las personas servidoras públicas a su cargo para el despacho de sus asuntos;\n\nXVI. Tramitar y resolver los recursos administrativos que conforme a las disposiciones jurídicas les correspondan;\n\nXVII. Proporcionar y requerir información y cooperación con instancias del ámbito federal, estatal, municipal y demarcaciones territoriales de la Ciudad de México, así como a cualquier persona que tenga participación en las actividades reguladas por la Comisión;\n\nXVIII. Proporcionar a la Unidad de Asuntos Jurídicos toda la información, documentación, argumentación y en general, todos los elementos necesarios para la defensa de los actos de autoridad que se impugnen o reclamen en cualquier tipo de juicio o controversia legal, en que sea señalado como autoridad demandada o responsable, intervenga como quejoso, tercero interesado u otra, así como para atender los requerimientos que en materias de transparencia y protección de datos personales se presenten en la Comisión;\n\nXIX. Proporcionar, cuando jurídicamente sea procedente, la información y documentación que se requiera en los asuntos de su competencia;\n\nXX. Expedir copias certificadas de documentos que obren en los archivos de la Unidad Administrativa a su cargo y de aquellos a los que tengan acceso con motivo del desempeño de sus funciones;\n\nXXI. Solicitar a la Secretaría Técnica la habilitación de días y horas inhábiles para la práctica de notificaciones, actuaciones y diligencias administrativas, incluidas visitas de verificación o inspección, así como habilitar a las personas servidoras públicas de la Comisión y personas notificadoras, inspectoras y verificadoras para realizarlas y facultarlas, cuando proceda y acorde con la materia de mejora regulatoria, en el ámbito de su competencia;\n\nXXII. Verificar la integración y clasificación del archivo de trámite y demás documentos que se tramiten en la unidad administrativa a su cargo;\n\nXXIII. Ejercer en el territorio nacional, las facultades que este Reglamento y los demás ordenamientos jurídicos aplicables les confieren;\n\nXXIV. Atender y resolver, dentro del ámbito de sus facultades, toda clase de asuntos que sean competencia de la Comisión, siempre y cuando no formen parte de las facultades indelegables de la persona titular de la Dirección General o del Comité Técnico;\n\nXXV. Proponer a la persona titular de la Dirección General las acciones que deban ejecutar las oficinas estatales o regionales de la Comisión;\n\nXXVI. Participar en la elaboración del Reglamento, el manual de organización general, manuales de procedimientos específicos y demás instrumentos relacionados con el funcionamiento de la Comisión;\n\nXXVII. Aplicar los ordenamientos legales que le correspondan en el ámbito de su competencia, y\n\nXXVIII. Las demás que les señalen las disposiciones jurídicas aplicables, así como las que les sean delegadas por la persona titular de la Dirección General o el Comité Técnico.\n\nLos proyectos que las Unidades Administrativas propongan en el ámbito de su competencia para aprobación del Comité Técnico deben ser enviados a la Secretaría Técnica para validación de la persona titular de la Dirección General, quien debe dar su opinión favorable para la inclusión de dichos proyectos en el orden del día de las sesiones del Comité Técnico que correspondan.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO III — De las facultades genéricas de las Unidades Administrativas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1ae7add3-e895-5cb9-a5aa-1520dd810aaa",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 25,
+      "identificador": "Artículo 25",
+      "contenido": "A las personas titulares de las Direcciones Generales les corresponde originalmente el trámite y resolución de los asuntos competencia de las unidades administrativas que le sean adscritas, y tienen, además, en el ámbito de sus respectivas competencias, las siguientes facultades:\n\nI. Acordar con la persona superior jerárquica, el despacho de los asuntos que les competan;\n\nII. Cumplir las órdenes y comisiones que les encomiende la persona superior jerárquica;\n\nIII. Emitir los actos administrativos necesarios para el ejercicio de sus facultades, así como ordenar su notificación;\n\nIV. Dar cuenta del estado que guardan los asuntos a su cargo, para la integración de los informes que la Comisión debe presentar;\n\nV. Someter a consideración de la persona superior jerárquica los proyectos de resoluciones, acuerdos, directivas, bases y dictámenes de carácter técnico que pueden ser sometidos para aprobación del Comité Técnico;\n\nVI. Programar, organizar, dirigir, coordinar y evaluar las actividades de las personas servidoras públicas que tengan a su cargo;\n\nVII. Proponer a la persona superior jerárquica, la creación, reestructuración y eliminación de las áreas a su cargo;\n\nVIII. Proponer y participar en la organización de cursos de capacitación, seminarios y conferencias;\n\nIX. Participar en los mecanismos de integración, interrelación y coordinación con las demás Unidades Administrativas para propiciar el óptimo desarrollo de las responsabilidades competencia de la Comisión;\n\nX. Proporcionar a la Unidad de Asuntos Jurídicos toda la información, documentación, argumentación y, en general, todos los elementos necesarios para la defensa de los actos de autoridad que se impugnen o reclamen en cualquier tipo de juicio o controversia legal, en que sea señalado como autoridad demandada o responsable, intervenga como quejoso, tercero interesado u otra, así como para atender los requerimientos que en materias de transparencia y protección de datos personales se presenten en la Comisión;\n\nXI. Proporcionar, cuando jurídicamente sea procedente, la información y documentación que se requiera en los asuntos de su competencia;\n\nXII. Solicitar a la Secretaría Técnica la habilitación de días y horas para la práctica de notificaciones, actuaciones y diligencias administrativas, incluidas visitas de verificación o inspección, así como habilitar a las personas servidoras públicas de la Comisión y personas notificadoras, inspectoras y verificadoras para realizarlas y facultarlas, cuando proceda y en el ámbito de su competencia;\n\nXIII. Verificar la integración y clasificación del archivo de trámite y demás documentos que se tramiten en la unidad administrativa a su cargo;\n\nXIV. Expedir copias certificadas de documentos que obren en los archivos a su cargo y de aquellos a los que tengan acceso con motivo del desempeño de sus funciones;\n\nXV. Validar proyectos de acuerdo o resolución, dentro del ámbito de sus facultades, y toda clase de asuntos que les sean asignados y delegados;\n\nXVI. Ejercer en el territorio nacional, las facultades que este Reglamento y los demás ordenamientos jurídicos aplicables les confieren;\n\nXVII. Aplicar los ordenamientos legales que le correspondan en el ámbito de su competencia, y\n\nXVIII. Las demás que les señalen las disposiciones jurídicas aplicables, así como las que les sean delegadas por sus superiores jerárquicos.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO III — De las facultades genéricas de las Unidades Administrativas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "e3b6293f-768c-5258-bf3e-29c962097119",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 26,
+      "identificador": "Artículo 26",
+      "contenido": "Las funciones específicas de las demás personas servidoras públicas de la Comisión se establecen en los manuales administrativos aprobados por la persona titular de la Dirección General, así como en los perfiles de puesto autorizados en términos de la normatividad aplicable.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO III — De las facultades genéricas de las Unidades Administrativas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "160e1163-bb31-541d-b7e1-a0e927e19ca5",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 27,
+      "identificador": "Artículo 27",
+      "contenido": "A la Secretaría Técnica le corresponden las siguientes atribuciones:\n\nI. Proponer la emisión, el diseño, modificación, actualización e interpretación del marco regulatorio de su competencia, con la orientación de la Unidad de Asuntos Jurídicos;\n\nII. Someter a consideración de la persona titular de la Dirección General los asuntos relativos a las sesiones del Comité Técnico propuestos por las Unidades Administrativas;\n\nIII. Coordinar a las Unidades Administrativas para que presenten a los integrantes del Comité Técnico el contenido de las resoluciones y los acuerdos que, en su caso, se sometan a consideración del Comité Técnico;\n\nIV. Coordinar a las Unidades Administrativas para la atención de requerimientos de información del Comité Técnico de los asuntos propuestos para las sesiones;\n\nV. Integrar el orden del día de las sesiones del Comité Técnico, emitir y notificar la convocatoria a solicitud de la persona titular de la Dirección General, o, en su caso de la persona titular de la Secretaría, para las sesiones ordinarias o extraordinarias que se celebren;\n\nVI. Coordinar a las Unidades Administrativas para que integren los expedientes electrónicos, físicos o ambos, de los temas que deban ser sometidos a consideración del Comité Técnico;\n\nVII. Coordinar los actos necesarios para someter a consideración del Comité Técnico los proyectos de resoluciones, acuerdos y demás actos administrativos que deban someterse a este;\n\nVIII. Solicitar la información y documentación a las Unidades Administrativas, a efecto de dar seguimiento a los acuerdos y resoluciones del Comité Técnico;\n\nIX. Proporcionar a los integrantes del Comité Técnico la información que le sea solicitada para el ejercicio de sus atribuciones;\n\nX. Auxiliar en la conducción de las sesiones del Comité Técnico, participar con voz, pero sin voto en sus deliberaciones, levantar las actas de las sesiones, dar cuenta de las votaciones de los integrantes del Comité Técnico y llevar el seguimiento de las resoluciones;\n\nXI. Dirigir, organizar y operar el Registro Público a que se refiere el presente Reglamento en términos de la Ley;\n\nXII. Inscribir en el Registro Público las resoluciones, acuerdos y permisos que hayan sido aprobados por el Comité Técnico, conforme a las disposiciones establecidas en materias de transparencia, acceso a la información pública y protección de datos personales;\n\nXIII. Vigilar la publicación de las actas suscritas por el Comité Técnico, en el portal de internet de la Comisión, de conformidad con las disposiciones establecidas en materias de transparencia y protección de datos personales;\n\nXIV. Notificar a los interesados y sujetos regulados los documentos, oficios y actos administrativos emitidos por el Comité Técnico o los relacionados con éste, así como los emitidos en ejercicio de sus atribuciones con el apoyo de las Unidades Administrativas competentes;\n\nXV. Coordinar la remisión de promociones a otras dependencias y entidades de la Administración Pública Federal, sus organismos desconcentrados, organismos descentralizados, empresas públicas del Estado y organismos autónomos, mediante una solicitud fundada y motivada por parte del Comité Técnico y las Unidades Administrativas;\n\nXVI. Asegurar que los documentos emitidos por el Comité Técnico se digitalicen, resguarden y archiven de manera cronológica de conformidad con la Ley General de Archivos;\n\nXVII. Cumplir con las obligaciones y responsabilidades en materia de mejora regulatoria con el apoyo de las Unidades Administrativas correspondientes;\n\nXVIII. Tramitar ante el Diario Oficial de la Federación, previa opinión favorable de la Secretaría y con el apoyo de los titulares de Unidad correspondientes, la publicación de las disposiciones administrativas de carácter general, disposiciones internas, resoluciones, acuerdos y actos que expida e instruya el Comité Técnico o la persona titular de la Dirección General, y demás actos que, en su caso, deban publicarse;\n\nXIX. Dar fe pública respecto de cualquier acto relacionado con la Comisión emitido por el Comité Técnico o la persona titular de la Dirección General, cotejar documentos, expedir certificaciones y constancias de los documentos que obren en los archivos del Comité Técnico, la Dirección General o la Secretaría Técnica, así como de aquellos a los que tenga acceso con motivo del desempeño de sus funciones, con la información documental que proporcione la Unidad Administrativa responsable;\n\nXX. Habilitar días y horas inhábiles a solicitud del Comité Técnico, de la persona titular de la Dirección General o de las Unidades Administrativas para la práctica de notificaciones, actuaciones y diligencias, así como para los actos concernientes al Comité Técnico y la recepción de los trámites a cargo de la Comisión, con base en las disposiciones jurídicas aplicables;\n\nXXI. Administrar y dirigir la gestión de recepción, registro y turno de los documentos físicos y electrónicos, así como establecer los mecanismos de operación, control y comunicación de la Oficialía de Partes física y electrónica de la Comisión;\n\nXXII. Coordinar las solicitudes de los particulares de acceso a la Oficialía de Partes Electrónica de la Comisión, así como establecer con las Unidades Administrativas correspondientes el diseño e implementación de los sistemas requeridos para su funcionamiento;\n\nXXIII. Coordinar a las Unidades Administrativas en relación con las solicitudes, requerimientos, recomendaciones, observaciones y consultas concernientes a las actividades reguladas por la Comisión con las dependencias y entidades de la Administración Pública Federal, sus organismos desconcentrados, organismos descentralizados, empresas públicas del Estado, personas que representen los intereses de los sujetos regulados y el público en general;\n\nXXIV. Coordinar, y en su caso, participar en reuniones de trabajo relacionadas con las actividades reguladas por la Comisión con las dependencias y entidades de la Administración Pública Federal, sus organismos desconcentrados, organismos descentralizados y empresas públicas del Estado, así como dar seguimiento de los acuerdos tomados en ellas;\n\nXXV. Coordinar y participar en reuniones de trabajo relacionadas con las actividades reguladas por la Comisión con personas que representen los intereses de los sujetos regulados o interesados, y en su caso, solicitar el apoyo de las Unidades Administrativas, dando seguimiento a los acuerdos alcanzados en estas;\n\nXXVI. Coordinar y participar en las audiencias que soliciten las personas que representen los intereses de los sujetos regulados o interesados e instrumentar el registro electrónico correspondiente;\n\nXXVII. Coordinar con las Unidades Administrativas, la preparación de información que se requiera para atender los temas objeto de las audiencias con personas que representen los intereses de los sujetos regulados o interesados;\n\nXXVIII. Representar a la Comisión en reuniones, foros y eventos relacionados con asuntos que sean competencia de esta, por instrucción de la persona titular de la Dirección General;\n\nXXIX. Gestionar y aprobar las modificaciones que soliciten los particulares a su registro en la Oficialía de Partes Electrónica;\n\nXXX. Ordenar la práctica de notificaciones, actuaciones y diligencias administrativas, previstos en las disposiciones jurídicas aplicables;\n\nXXXI. Emitir a petición de parte interesada las constancias de negativa o afirmativa ficta a que se refiere el artículo 17 de la Ley Federal de Procedimiento Administrativo en los asuntos competencia del Comité Técnico, y\n\nXXXII. Las demás que le señalen otras disposiciones jurídicas, las que le confiera el Comité Técnico, la persona titular de la Dirección General, así como las que sean necesarias para el ejercicio de sus facultades.\n\nPara el ejercicio de las facultades antes señaladas, la Secretaría Técnica cuenta con: la Dirección General de Asuntos del Comité Técnico y Externos, y demás personas servidoras públicas que se establezcan en el manual de organización general de la Comisión.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO IV — De la Secretaría Técnica",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1649b870-4f93-53b3-81a2-4d97d6f0ae96",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 28,
+      "identificador": "Artículo 28",
+      "contenido": "A la Dirección General de Estrategia y Vinculación le corresponden las siguientes atribuciones:\n\nI. Proponer la emisión, el diseño, modificación, actualización e interpretación del marco regulatorio de su competencia con la orientación de la Unidad de Asuntos Jurídicos;\n\nII. Presentar a la persona titular de la Dirección General, el diseño y plan de ejecución de la planeación, los programas y los proyectos estratégicos de corto, mediano y largo plazo de la Comisión, considerando la planeación vinculante y conforme a la Leyes de Planeación y Transición Energética, del Sector Eléctrico y del Sector Hidrocarburos;\n\nIII. Validar y proponer para aprobación del Comité Técnico, el plan estratégico, los programas anuales de trabajo y regulatorio de la Comisión, así como determinar las metodologías y herramientas necesarias para su implementación, seguimiento, control y evaluación del desempeño;\n\nIV. Dirigir la planeación, el programa regulatorio de la Comisión, la evaluación de la conformidad y el ciclo de las revisiones, para la formulación de las regulaciones y seguimiento por parte de las Unidades Administrativas, conforme a los objetivos estratégicos de las Leyes de Planeación y Transición Energética, del Sector Eléctrico y del Sector Hidrocarburos;\n\nV. Coordinar con las Unidades Administrativas la integración de la información requerida para la elaboración del informe anual de la Comisión, así como de reportes, investigaciones, estudios, encuestas, dictámenes, opiniones y demás documentos, cuando éstos sean necesarios para la Comisión, o de cualquier otra que solicite la Secretaría en el ámbito de sus atribuciones;\n\nVI. Coordinar con las Unidades Administrativas el diseño, generación y publicación de estadísticas, indicadores e información relativa a las actividades reguladas y del desempeño de la Comisión, así como de la integración de información requerida por la persona titular de la Dirección General para el cumplimiento de sus atribuciones;\n\nVII. Asistir a la persona titular de la Dirección General en los asuntos que le encomiende, además de coordinar los estudios, análisis, opiniones y recomendaciones que resulten procedentes para la toma de decisiones;\n\nVIII. Diseñar y proponer a la persona titular de la Dirección General la estrategia de la Comisión en materia de vinculación nacional e internacional, con el Poder Legislativo, Poder Judicial, entidades federativas, organismos sociales, empresariales, instituciones, órganos técnicos, asociaciones y academia;\n\nIX. Coordinar la cooperación técnica y regulatoria de la Comisión en el ámbito nacional e internacional, en los términos que establezca la Secretaría, así como conducir el proceso de negociación para la celebración de acuerdos interinstitucionales, y de convenios nacionales e internacionales y, en su caso, su suscripción y monitoreo de su cumplimiento;\n\nX. Proponer a la persona titular de la Dirección General la celebración o participación de la Comisión en conferencias, congresos, seminarios y otros eventos nacionales e internacionales, así como supervisar su ejecución;\n\nXI. Proponer a la persona titular de la Dirección General los mecanismos de operación, funcionamiento y supervisión de las oficinas estatales o regionales de la Comisión;\n\nXII. Coordinar la realización de conferencias y talleres sobre las actividades reguladas, en las distintas entidades federativas, Poder Legislativo e instituciones públicas o privadas, y en cualquier espacio o foro que estimen necesario, con la colaboración de las demás Unidades Administrativas;\n\nXIII. Dar seguimiento a los anteproyectos de iniciativas de leyes o decretos que se presenten al Congreso de la Unión y que incidan en el ámbito de competencia de la Comisión;\n\nXIV. Presentar a las personas titulares de la Dirección General y de las Unidades Administrativas, informes periódicos sobre la información difundida por los medios de comunicación que sea relacionada con las actividades de la Comisión y de la Secretaría; asimismo, establecer mecanismos de sistematización de la información generada en los tres órdenes de gobierno;\n\nXV. Encabezar, coordinar, monitorear y dar seguimiento a los proyectos de investigación, intercambio de información, así como a los convenios de colaboración con instituciones y organismos académicos nacionales en las materias de su competencia;\n\nXVI. Diseñar, coordinar y aplicar la estrategia de comunicación social e imagen institucional de la Comisión, además de tramitar ante la Secretaría de Gobernación, las autorizaciones correspondientes en materia de comunicación social conforme a los lineamientos establecidos;\n\nXVII. Coordinar las relaciones con los medios de comunicación nacionales y extranjeros, así como gestionar las entrevistas y conferencias de prensa de la persona titular de la Dirección General y otras personas servidoras públicas;\n\nXVIII. Coordinar la elaboración, edición, distribución, difusión de los informes, de programas, publicaciones y demás documentos de la Comisión, así como boletines de prensa y comunicados;\n\nXIX. Fungir como enlace con las áreas de comunicación social de las dependencias, entidades de la Administración Pública Federal y locales, con base en los lineamientos de la Secretaría de acuerdo con la imagen institucional;\n\nXX. Coordinar el diseño, contenido digital y actualización de las páginas electrónicas y redes sociales, donde tenga presencia la Comisión;\n\nXXI. Coadyuvar con la Secretaría en la identificación de las zonas de mayor potencial de Energías con la colaboración e información de las Unidades Administrativas correspondientes;\n\nXXII. Atender con el apoyo de las demás Unidades Administrativas, los requerimientos técnicos que realice la Secretaría para la determinación de las metas establecidas en los instrumentos de planeación, y\n\nXXIII. Las demás que le señalen otras disposiciones jurídicas, las que le confiera la persona titular de la Dirección General o el Comité Técnico, así como las que sean necesarias para el ejercicio de sus facultades.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO V — De la Dirección General de Estrategia y Vinculación",
+      "seccion_nombre": null
+    },
+    {
+      "id": "93420cad-0c98-5997-9999-156a6555fd15",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 29,
+      "identificador": "Artículo 29",
+      "contenido": "A la Unidad de Administración y Finanzas le corresponden las siguientes atribuciones:\n\nI. Proponer la emisión, diseño, modificación, actualización e interpretación del marco regulatorio de su competencia, con la orientación de la Unidad de Asuntos Jurídicos;\n\nII. Administrar los recursos financieros, humanos, materiales, servicios generales, tecnológicos y de gestión documental de la Comisión, que asegure la eficiente utilización para el logro de las metas y objetivos, en coordinación con la Unidad de Administración y Finanzas de la Secretaría;\n\nIII. Autorizar y asegurar los pagos por concepto de servicios personales a las personas servidoras públicas, de acuerdo con el tabulador de remuneraciones, publicado en el Manual de Percepciones de los Servidores Públicos de las Dependencias y Entidades de la Administración Pública Federal en los términos previstos en las disposiciones aplicables y a la administración de recursos del presupuesto asignado dentro del capítulo 1000 \"Servicios Personales\"; así como coordinar el cumplimiento de las obligaciones fiscales, de seguridad social, administrativas, de retenciones, pagos a terceros, y comprobantes fiscales digitales conforme a la legislación fiscal aplicable por las remuneraciones y deducciones que recibe el personal;\n\nIV. Promover el registro y actualización de la estructura orgánica, así como coordinar la descripción, perfilamiento y valuación de puestos, ante las autoridades correspondientes, de conformidad con las disposiciones aplicables;\n\nV. Proponer a la persona titular de la Dirección General para su aprobación, las disposiciones que deben regir las condiciones de ingreso, permanencia y terminación de la relación laboral de las personas servidoras públicas, con el apoyo de las Unidades Administrativas correspondientes;\n\nVI. Coordinar la emisión de los nombramientos de las personas servidoras públicas y establecer mecanismos de registro, control de movimientos e incidencias de personal, así como el proceso de separación laboral y licencias conforme a la normatividad aplicable vigente;\n\nVII. Conducir las relaciones laborales de la Comisión, los cambios de adscripción y la separación de conformidad con las disposiciones jurídicas aplicables;\n\nVIII. Elaborar, instruir, imponer y revocar medidas con motivo de incumplimiento a las obligaciones laborales, en que incurran las personas servidoras públicas adscritas a la Comisión en coordinación con la Unidad de Asuntos Jurídicos;\n\nIX. Coordinar la emisión y trámite ante el Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado, los movimientos afiliatorios y modificaciones salariales, derivados de los movimientos de personal;\n\nX. Coordinar la integración, conservación y actualización de los expedientes de personal activo y de baja de la Comisión, conforme a la normatividad vigente aplicable;\n\nXI. Colaborar con la Unidad de Transparencia en la coordinación de las acciones de cumplimiento de las obligaciones en materia de transparencia, acceso a la información pública y de protección de datos personales, conforme a sus atribuciones;\n\nXII. Emitir a solicitud de la persona titular de la Unidad de Verificación, las credenciales de las personas servidoras públicas habilitadas como verificadores para llevar a cabo las acciones de verificación de acuerdo con la normatividad aplicable;\n\nXIII. Coordinar a petición de las Unidades Administrativas, la remoción, cese y terminación de la relación de trabajo de las personas servidoras públicas, conforme a las disposiciones jurídicas aplicables con el apoyo de la Unidad de Asuntos Jurídicos;\n\nXIV. Participar en el cumplimiento de laudos y resoluciones en materia laboral, en coordinación con la Unidad de Asuntos Jurídicos;\n\nXV. Coordinar el proceso para el otorgamiento y autorización de los estímulos, recompensas, licencias y prestaciones a las personas servidoras públicas de la Comisión, de conformidad con la normatividad jurídica aplicable;\n\nXVI. Proponer en conjunto con la Unidad de Asuntos Jurídicos, los manuales de organización específicos y de procedimientos de la Comisión, así como los cambios y ajustes que, se estimen convenientes para la consideración de la persona titular de la Dirección General, acorde a la estructura orgánica aprobada y registrada;\n\nXVII. Autorizar y determinar la instrumentación del Programa Anual de Capacitación de acuerdo con la detección de las necesidades de capacitación en las Unidades Administrativas, verificando su aplicación y cumplimiento;\n\nXVIII. Dirigir, integrar, establecer, coordinar y gestionar el funcionamiento del Comité de Ética, así como formular y someter a su consideración el Código de Conducta de la Comisión y demás instrumentos que de este se deriven;\n\nXIX. Planear, diseñar y establecer la comunicación interna a través de los medios que se determinen para tal efecto, en coordinación con la persona responsable del área de Comunicación Social de la Comisión;\n\nXX. Administrar y aprobar los programas de becas, de servicio social y las prácticas profesionales en apoyo a las atribuciones de la Comisión, de conformidad con la normatividad aplicable en la materia;\n\nXXI. Autorizar las políticas y lineamientos internos para la integración del anteproyecto de presupuesto anual de la Comisión, así como supervisar las actividades de planeación, programación, presupuesto, ejercicio, control y evaluación de los ingresos y egresos de la Comisión;\n\nXXII. Administrar los ingresos derivados de las contribuciones y contraprestaciones que establezca la Comisión por los servicios que presta, de conformidad con las disposiciones aplicables, así como rendir cuentas de su operación;\n\nXXIII. Vigilar que los pagos por concepto de contribuciones y contraprestaciones que se deban cubrir por los servicios que presta la Comisión, se realicen en los términos y dentro de los plazos establecidos en las disposiciones fiscales aplicables; lo anterior, con la información proporcionada por las Unidades de Hidrocarburos y Electricidad;\n\nXXIV. Emitir y enviar a la autoridad correspondiente los documentos determinantes para cobro, con base en la información proporcionada por las Unidades Administrativas, relativa a los adeudos derivados de las contribuciones y contraprestaciones asociados a los servicios que presta la Comisión y a las sanciones que esta imponga, de conformidad con las disposiciones fiscales aplicables;\n\nXXV. Autorizar el ejercicio del gasto, llevar la contabilidad, formular los estados presupuestarios de la Comisión además de integrar la información para la consolidación de informes, conforme a lo previsto en la Ley Federal de Presupuesto y Responsabilidad Hacendaria, la Ley General de Contabilidad Gubernamental y demás disposiciones aplicables;\n\nXXVI. Representar legalmente a la Comisión para la presentación y gestión de declaraciones fiscales, trámites presupuestarios, administrativos, cambio de domicilio, emisión de constancias de acreditación de personalidad de las personas servidoras públicas y demás actos que deban realizarse ante la Secretaría de Hacienda y Crédito Público, la Tesorería de la Federación, instituciones bancarias, fideicomisos públicos o ante cualquier institución o autoridad administrativa;\n\nXXVII. Autorizar los recursos de las comisiones en territorio nacional, conforme a las disposiciones que emitan la Secretaría de Hacienda y Crédito Público y la Secretaría Anticorrupción y Buen Gobierno;\n\nXXVIII. Autorizar la adquisición y arrendamiento de bienes muebles e inmuebles, la prestación de servicios y la contratación de obra pública, en atención con lo dispuesto en la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público, así como en la Ley de Obras Públicas y Servicios Relacionados con las mismas según corresponda;\n\nXXIX. Autorizar los contratos de adquisiciones, arrendamientos, prestación de servicios o cualesquiera otros que impliquen actos de administración, así como suscribir, administrar, modificar, revocar, suspender, dar por terminado anticipadamente y rescindir administrativamente, en representación de la Comisión, los convenios y contratos que la misma celebre, que no sean responsabilidad directa o competencia de otra unidad administrativa;\n\nXXX. Presidir los comités de adquisiciones, arrendamientos y servicios, de obra pública y de bienes muebles, así como proponer las políticas, bases y lineamentos en materia de adquisiciones;\n\nXXXI. Coordinar y proponer para su autorización correspondiente los programas anuales de aseguramiento, de recursos materiales, de obra pública, adquisiciones, arrendamientos de bienes muebles e inmuebles que requiera la Comisión ante el Comité correspondiente;\n\nXXXII. Aprobar y coordinar la ejecución del programa de protección civil de la Comisión de conformidad con las disposiciones aplicables;\n\nXXXIII. Proponer a la persona titular de la Dirección General el plan estratégico de tecnologías de la información y la instrumentación de políticas, estándares y sistemas en materia de tecnologías de la información, así como evaluar el cumplimiento de los objetivos establecidos, de conformidad con las disposiciones jurídicas aplicables;\n\nXXXIV. Aprobar los dictámenes de viabilidad técnica y operativa para la contratación de servicios, adquisiciones o arrendamientos de bienes en materia de tecnologías de la información;\n\nXXXV. Proponer directrices en materia de tecnologías de la información, de observancia general en las Unidades Administrativas, conforme a las disposiciones aplicables;\n\nXXXVI. Aprobar los sistemas de seguridad lógica de las aplicaciones y de los sistemas de transmisión de voz y datos de la Comisión;\n\nXXXVII. Coordinar el desarrollo, programación, operación y supervisión de los servicios de los medios de comunicación electrónica, intercambio y consulta de información y la operación remota de sistemas administrativos en las Unidades Administrativas, que incluyan mecanismos para proteger la confidencialidad de la información y accesos autorizados a las bases de datos institucionales;\n\nXXXVIII. Coordinar la operación de la red de datos instalada en la Comisión, así como proporcionar, bajo estándares de calidad, los medios necesarios para la transmisión de voz, información e imágenes que requiera el Comité Técnico, la persona titular de la Dirección General y las Unidades Administrativas;\n\nXXXIX. Representar a la Comisión ante dependencias, entidades, instituciones y empresas tanto nacionales como internacionales relacionadas con las tecnologías de la información, y participar en grupos de trabajo, comités o comisiones interinstitucionales relacionadas con la materia;\n\nXL. Coordinar la implementación de los programas institucionales que determine el Ejecutivo Federal en materia de igualdad, no discriminación, ética y prevención de la corrupción, que sean de competencia de la Comisión;\n\nXLI. Proponer a la persona titular de la Dirección General, los programas para el fortalecimiento del sistema de control interno institucional y de administración de riesgos; además de asistirlo en la implementación, seguimiento y evaluación de conformidad, con las disposiciones jurídicas aplicables;\n\nXLII. Coordinar a las Unidades Administrativas en materia de solicitudes, requerimientos, recomendaciones y observaciones en materia de desarrollo de las actividades de la Comisión, vinculadas con planes y programas gubernamentales de conformidad con la normativa aplicable;\n\nXLIII. Fungir como enlace, y coordinar a las Unidades Administrativas para la atención de los requerimientos de las diversas instancias de fiscalización y del seguimiento de observaciones que deriven de auditorías practicadas;\n\nXLIV. Validar el Programa Anual de Desarrollo Archivístico de conformidad con la Ley General de Archivos, así como vigilar su cumplimiento;\n\nXLV. Programar y supervisar la operación y funcionamiento del sistema electrónico de gestión, conforme a los requerimientos realizados por las diversas áreas que integran la Comisión, y\n\nXLVI. Las demás que le señalen otras disposiciones jurídicas, las que le confiera la persona titular de la Dirección General o el Comité Técnico, así como las que sean necesarias para el ejercicio de sus facultades.\n\nLa Unidad de Administración y Finanzas para el ejercicio de sus facultades cuenta con: las Direcciones Generales de Presupuesto y Recursos Financieros; Recursos Humanos y Organización; Recursos Materiales y Servicios Generales; Tecnologías de la Información y Comunicaciones y demás personas servidoras públicas que se establezcan en el manual de organización general de la Comisión, no obstante, las facultades previstas en las disposiciones en materia de recursos humanos, materiales y financieros deben ser ejercidas por la persona titular de la Unidad conforme a la normatividad aplicable a dichas materias.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO VI — De la Unidad de Administración y Finanzas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3d1e84a5-d077-512d-bfab-7077bfa6116a",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 30,
+      "identificador": "Artículo 30",
+      "contenido": "A la Unidad de Asuntos Jurídicos le corresponden las siguientes atribuciones:\n\nI. Asesorar jurídicamente a la persona titular de la Dirección General y al Comité Técnico, así como actuar como órgano de consulta de éstas, para el cumplimiento de las leyes, reglamentos, decretos, acuerdos, circulares y demás disposiciones jurídicas aplicables en el ámbito de su competencia;\n\nII. Revisar, opinar y, en su caso, elaborar los documentos que suscriba la persona titular de la Dirección General;\n\nIII. Establecer la aplicación de los criterios jurídicos que las Unidades Administrativas de la Comisión deben cumplir y seguir, para la emisión de sus actos;\n\nIV. Asesorar a las Unidades Administrativas, en el ámbito de su competencia, en la emisión, diseño, modificación, actualización e interpretación del marco regulatorio competencia de la Comisión; así como en el trámite de los procedimientos jurídicos relativos a las actividades reguladas, necesarios para asegurar la consecución de los objetivos de la Comisión y del ejercicio de sus atribuciones;\n\nV. Atender en coordinación con la Unidad de Asuntos Jurídicos de la Secretaría, cualquier asunto de índole jurídico relacionado con las actividades reguladas por la Comisión que le requiera la Secretaría;\n\nVI. Emitir opiniones en atención a las consultas de carácter jurídico que formulen las Unidades Administrativas, sobre las materias de su competencia;\n\nVII. Atender los requerimientos de información que realice la Unidad de Asuntos Jurídicos de la Secretaría, para resolver los asuntos relacionados que sean competencia de la Comisión.\n\nVIII. Atender los requerimientos recibidos por la Fiscalía General de la República y, en su caso, las fiscalías estatales, con la información que se proporcione por las Unidades Administrativas en el ámbito de su competencia;\n\nIX. Resolver para efectos administrativos las dudas que se susciten con motivo de la aplicación de este Reglamento, así como los casos no previstos en el mismo, previa opinión de la Unidad de Asuntos Jurídicos de la Secretaría;\n\nX. Participar en la revisión jurídica de los proyectos de iniciativas de leyes, reglamentos, decretos, acuerdos, bases, resoluciones, criterios generales y demás disposiciones administrativas de carácter general competencia de la Comisión, en coordinación con la Unidad de Asuntos Jurídicos de la Secretaría;\n\nXI. Asistir a las Unidades Administrativas en el levantamiento de las actas administrativas, así como emitir opinión sobre la procedencia de la aplicación de alguna sanción;\n\nXII. Proponer al Comité Técnico, los criterios de interpretación de los reglamentos, disposiciones administrativas de carácter general, acuerdos, resoluciones, criterios generales y demás disposiciones jurídicas emitidas por la Comisión para su aplicación;\n\nXIII. Determinar el criterio aplicable cuando dos o más Unidades Administrativas emitan proyectos de resolución o acuerdos en los que desarrollen contenidos jurídicos potencialmente contradictorios, previa opinión de la Unidad de Asuntos Jurídicos de la Secretaría;\n\nXIV. Fungir como enlace en materia jurídica con las unidades de asuntos jurídicos de las dependencias y entidades de la Administración Pública Federal, local municipal y demarcaciones territoriales de la Ciudad de México, así como con la Comisión Nacional de los Derechos Humanos y coordinar la atención de los requerimientos en esta materia;\n\nXV. Proponer el Reglamento, los manuales de organización específicos y de procedimientos de la Comisión, así como los cambios y ajustes que estimen convenientes, a la persona titular de la Dirección General en conjunto con la Unidad de Administración y Finanzas;\n\nXVI. Revisar y analizar los contratos, convenios y demás actos que se suscriba la Comisión, en materia civil y mercantil de conformidad con la normatividad aplicable, previa solicitud de la Unidad de Administración y Finanzas;\n\nXVII. Orientar sobre los procedimientos administrativos de contratación de bienes y servicios para su adjudicación, a solicitud de las Unidades Administrativas de la Comisión;\n\nXVIII. Dirigir la instrumentación de otorgamiento de poderes, acuerdos delegatorios y suplencias para las personas servidoras públicas;\n\nXIX. Representar legalmente a la Comisión para proponer las contribuciones y contraprestaciones por la prestación de los servicios de la Comisión ante la autoridad competente, con la información y documentación que al efecto proporcionen las Unidades Administrativas en el ámbito de su competencia;\n\nXX. Formular y desarrollar acciones jurídicas para el mejor desempeño de la Comisión, atendiendo a las políticas públicas, disposiciones y criterios en materia de simplificación administrativa y mejora regulatoria;\n\nXXI. Concertar el compendio de las disposiciones legales, reglamentarias y administrativas, aplicables a las materias que son competencia de la Comisión;\n\nXXII. Compilar y sistematizar los criterios jurídicos del Comité Técnico;\n\nXXIII. Representar legalmente en los juicios o cualquier controversia legal a la persona titular de la Dirección General o cuando ésta represente a la persona titular del Ejecutivo Federal;\n\nXXIV. Representar legalmente a la Comisión, a la persona titular de ésta y a las Unidades Administrativas que tiene adscritas, en toda clase de procedimientos judiciales, jurisdiccionales, contenciosos administrativos y laborales que se tramiten ante las autoridades judiciales y jurisdiccionales competentes o cualquier otra;\n\nXXV. Formular denuncias o querellas en representación de la Comisión, de la persona titular de ésta o de las Unidades Administrativas que tiene adscritas, coadyuvar con el Ministerio Público en el ejercicio de la acción penal y, en su caso, otorgar el perdón legal;\n\nXXVI. Rendir los informes previos y justificados, contestar demandas, desahogar requerimientos, formular alegatos, desistirse de la acción o de la instancia, interponer recursos, realizar las actuaciones que resulten procedentes o necesarias y, en su caso, ejercer la representación de las autoridades y las personas servidoras públicas, en el ejercicio de sus funciones, cuando sean señalados como autoridades responsables, autoridades demandadas, terceras interesadas o autoridades vinculadas al cumplimiento de la suspensión o sentencia, en los juicios o en cualquier controversia legal en que sea parte la Comisión, la persona titular de ésta o las Unidades Administrativas que tiene adscritas;\n\nXXVII. Instruir y resolver los procedimientos de Responsabilidad Patrimonial en que la Comisión sea parte;\n\nXXVIII. Coordinar, en su caso, la mediación en la solución de controversias respecto de las actividades reguladas por la Comisión, siempre y cuando lo soliciten y estén de acuerdo las partes reguladas;\n\nXXIX. Orientar a las personas servidoras públicas en la presentación de denuncias o querellas respecto de hechos que les conste de manera directa, así como dar seguimiento a las carpetas de investigación que deriven de las mismas, realizar denuncias y querellas en representación de la Comisión;\n\nXXX. Orientar y emitir opinión jurídica de la viabilidad de los procedimientos de rescisión administrativa, terminación anticipada y suspensión temporal de los contratos, adquisiciones, arrendamientos, prestación de servicios o de obra, cuando le sea solicitado por la Unidad de Administración y Finanzas;\n\nXXXI. Dar seguimiento a las carpetas de investigación relacionadas con los asuntos competencia de la Comisión;\n\nXXXII. Fungir como Unidad de Transparencia de la Comisión, en términos de la normatividad aplicable a dicha materia, y\n\nXXXIII. Las demás que le señalen otras disposiciones jurídicas, las que le confiera la persona titular de la Dirección General o el Comité Técnico, así como las que sean necesarias para el ejercicio de sus facultades.\n\nLa Unidad de Asuntos Jurídicos para el ejercicio de sus facultades cuenta con: la Dirección General de lo Contencioso y demás personas servidoras públicas que se establezcan en el manual de organización general de la Comisión, no obstante, las facultades previstas en las fracciones I, III, V, XII, XIII, XV, y XXVII del presente artículo deben ser ejercidas por la persona titular de la Unidad.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO VII — De la Unidad de Asuntos Jurídicos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c8f0f92b-421a-502a-b99b-68d7866b9aad",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 31,
+      "identificador": "Artículo 31",
+      "contenido": "A la Unidad de Electricidad le corresponden las siguientes atribuciones: respecto al sector eléctrico:\n\nI. Proponer la emisión, diseño, modificación, actualización, autorización e interpretación de las disposiciones administrativas, regulaciones, lineamientos, criterios, mecanismos, metodologías, modelos de contratos o convenios, así como los requisitos de contratos de cobertura, entre otros, que integren el marco regulatorio aplicable a su sector, con la orientación de la Unidad de Asuntos Jurídicos, así como supervisar su implementación y cumplimiento;\n\nII. Validar, actualizar y supervisar el cumplimiento de las disposiciones emitidas en materia de separación contable, operativa y funcional a que deben sujetarse los permisionarios y demás integrantes del Sector Eléctrico, con excepción de la empresa pública del Estado;\n\nIII. Proponer al Comité Técnico la evaluación de la productividad y eficiencia de la empresa pública del Estado, Comisión Federal de Electricidad;\n\nIV. Proponer al Comité Técnico para su aprobación, las metodologías, criterios y bases necesarias para el cálculo, actualización y ajuste de tarifas, precios y contraprestaciones, así como analizar la evolución de los subsidios, la autorización de costos, depósitos en garantía, cuotas periódicas y lineamientos de contabilidad, ingresos recuperables y cobranza eficiente de las actividades reguladas de acuerdo con la normatividad aplicable;\n\nV. Determinar las tarifas, precios y contraprestaciones con base en las metodologías aprobadas por el Comité Técnico, así como publicar en el portal de internet de la Comisión, las memorias de cálculo utilizadas para este fin;\n\nVI. Atender las solicitudes de apoyo técnico que presenten la Secretaría y las Secretarías de Hacienda y Crédito Público y del Bienestar, para la instrumentación de programas de apoyos focalizados indicados en la Ley del Sector Eléctrico, además de las consultas y requerimientos de información por parte de autoridades o particulares sobre las actividades reguladas por la Unidad;\n\nVII. Emitir opinión y, en su caso, solicitar modificaciones sobre los programas de ampliación y modernización de la Red Nacional de Transmisión y de las Redes Generales de Distribución, considerando el impacto que estos tienen sobre la operación del Mercado Eléctrico Mayorista, así como las demás opiniones que, en el ámbito de sus atribuciones, le sean solicitadas conforme a lo establecido en la Ley del Sector Eléctrico;\n\nVIII. Revisar y proponer la autorización de las especificaciones técnicas generales que proponga el Centro Nacional de Control de Energía, requeridas para la interconexión de nuevas centrales eléctricas y la conexión de nuevos centros de carga, así como la autorización de los cobros para la realización de estudios de las características específicas de la infraestructura requerida y para los otros componentes del proceso de interconexión y conexión;\n\nIX. Proponer al Comité Técnico la emisión, revisión, ajuste y actualización de las Reglas del Mercado, así como vigilar su cumplimiento en el ámbito de su competencia, además de ejercer la vigilancia del Mercado Eléctrico Mayorista a través de los mecanismos que determine el Comité Técnico;\n\nX. Representar a la Comisión en comités, subcomités y grupos de trabajo a cargo de esta y en aquellos en que presidan otras dependencias, con el fin de proponer la regulación relacionada con las actividades reguladas en materia del sector eléctrico;\n\nXI. Determinar la procedencia y no procedencia, así como emitir la admisión o no admisión o el desechamiento de los trámites que sean presentados ante la Comisión en materia del sector eléctrico, asimismo, remitir promociones a otras autoridades;\n\nXII. Colaborar con la Unidad de Verificación en la elaboración de la propuesta para el Comité Técnico del programa anual de visitas de verificación, inspección y supervisión ordinarias, con base en la metodología aprobada por la Comisión;\n\nXIII. Proponer al Comité Técnico los proyectos relativos al otorgamiento o negación de permisos, modificaciones, cesiones, transferencias, prórrogas aplicables, autorizaciones, caducidad de derechos y demás actos relacionados con los permisos para las actividades reguladas que cumplan con la regulación aplicable, conforme a la política establecida por la Secretaría, así como emitir y suscribir los títulos de permisos, las actualizaciones y modificaciones correspondientes aprobadas por el Comité Técnico;\n\nXIV. Emitir la justificación y proponer los montos de las contribuciones y contraprestaciones por la prestación de los servicios de la Comisión; así como remitir a la Unidad de Administración y Finanzas la información correspondiente de las contribuciones y contraprestaciones que deban cubrir los sujetos regulados por los servicios que presta la Comisión, además de verificar que éstos se realicen en los términos y dentro de los plazos establecidos en las disposiciones fiscales aplicables;\n\nXV. Solicitar información a los participantes del sector eléctrico para la realización de sus actividades, así como requerir la presentación de información a los terceros que tengan cualquier relación de negocios con los sujetos regulados en el ámbito de su competencia, conforme a lo previsto en el marco jurídico aplicable;\n\nXVI. Supervisar y vigilar el cumplimiento de la regulación, de las Normas Oficiales Mexicanas y las disposiciones administrativas de carácter general aplicables a quienes realicen actividades reguladas del sector eléctrico en coordinación con la Unidad de Verificación;\n\nXVII. Emitir y suscribir la validación técnica de los proyectos de resoluciones y acuerdos que se presenten al Comité Técnico para su aprobación;\n\nXVIII. Informar a la Unidad de Verificación sobre los posibles incumplimientos a las obligaciones de los sujetos regulados para que, en su caso, se determinen los actos que correspondan, conforme a las atribuciones establecidas en el presente Reglamento y demás normatividad aplicable, así como proporcionar la información o documentación que lo sustenten;\n\nXIX. Informar a la Unidad de Asuntos Jurídicos sobre la detección de posibles ilícitos en la realización de actividades reguladas para que, en su caso, se lleven a cabo las acciones legales correspondientes ante las autoridades competentes, y proporcionar la información o documentación que lo sustente;\n\nXX. Informar a la persona titular de la Dirección General cualquier situación que pueda poner en riesgo la continuidad de la prestación de los servicios del sector eléctrico, así como proponer las acciones que estime convenientes;\n\nXXI. Coordinar el monitoreo del comportamiento de los mercados, entre otros, el Mercado Eléctrico Mayorista, las transacciones comerciales, las determinaciones del Centro Nacional de Control de Energía, e informar a la persona titular de la Dirección General sobre la posible existencia de prácticas anticompetitivas, indebidamente discriminatorias, barreras de entrada, insumos esenciales o restricciones al desarrollo eficiente del sector eléctrico, así como proponer las acciones que estime convenientes, dirigidas a fomentar y promover la competencia sujeto al marco legal aplicable;\n\nXXII. Coordinar la integración de los registros y listados relativos a las actividades reguladas, tales como comercializadores no suministradores, usuarios calificados, permisionarios, entre otros;\n\nXXIII. Regular, otorgar, validar y registrar los CEL, así como verificar el cumplimiento a las obligaciones en materia de energías limpias y operar el Sistema Electrónico de Gestión de Certificados y Cumplimiento de Obligaciones de Energías;\n\nXXIV. Proponer al Comité Técnico los parámetros para la definición de energías limpias, así como las normas, directivas, metodologías y demás disposiciones de carácter administrativo que regulen la generación de energía eléctrica a partir de energías limpias, de conformidad con lo establecido en el marco jurídico aplicable, atendiendo a la política energética establecida por la Secretaría;\n\nXXV. Apoyar a la Secretaría, en la implementación del protocolo para que el Centro Nacional de Control de Energía gestione la contratación de energía y servicios en casos de emergencia;\n\nXXVI. Atender y resolver las quejas y controversias del sector eléctrico en el ámbito de sus facultades;\n\nXXVII. Determinar y publicar anualmente el factor de emisión del Sistema Eléctrico Nacional, en coordinación con la Secretaría de Medio Ambiente y Recursos Naturales;\n\nXXVIII. Brindar apoyo técnico a la Secretaría para las actividades de planeación del sector eléctrico;\n\nXXIX. Participar en los Comités Consultivos Nacionales de Normalización que le sean asignados, así como coadyuvar con la Secretaría en la regulación, supervisión y ejecución del proceso de estandarización y normalización de las obligaciones en materia de eficiencia, calidad, confiabilidad, continuidad, seguridad y sostenibilidad del Sistema Eléctrico Nacional;\n\nXXX. Definir a los integrantes del sector eléctrico, así como establecer las modalidades y la información mínima que deben hacer pública e instruir la realización de las actividades correspondientes indicadas en la Ley del Sector Eléctrico;\n\nXXXI. Colaborar con la Unidad de Verificación en el trámite de los procedimientos para determinar la aprobación, autorización y supervisión de los organismos de evaluación de la conformidad, conforme a lo establecido en las Normas Oficiales Mexicanas o en las disposiciones jurídicas aplicables al sector, así como en la verificación del cumplimiento de obligaciones de los sujetos regulados en el sector eléctrico; y\n\nXXXII. Las demás que le señalen otras disposiciones jurídicas, las que le confiera la persona titular de la Dirección General o el Comité Técnico, así como las que sean necesarias para el ejercicio de sus facultades.\n\nLa Unidad de Electricidad para el ejercicio de sus facultades cuenta con: las Direcciones Generales de Análisis y Evaluación Regulatoria del Sector Eléctrico; de Análisis y Evaluación Económica del Sector Eléctrico; de Mercados Eléctricos; de Operación, Permisos y Registros de Electricidad, y de Análisis y Evaluación Técnica del Sector Eléctrico, así como las demás personas servidoras públicas que establezca el manual de organización general de la Comisión, no obstante, las facultades previstas en las fracciones I, III, IV, V, IX, X, XII, XIII, XIV, XVI, XVII, XVIII, XIX, XX, XXI, XXIV, XXV, XXVI, XXVIII y XXX del presente artículo deben ser ejercidas por la persona titular de la Unidad.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO VIII — De la Unidad de Electricidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a40ef4ed-2586-5c24-b963-030e9254503e",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 32,
+      "identificador": "Artículo 32",
+      "contenido": "A la Unidad de Hidrocarburos le corresponden las siguientes atribuciones respecto al sector hidrocarburos:\n\nI. Proponer la emisión, diseño, modificación, actualización e interpretación del marco regulatorio aplicable a su sector, incluyendo aquellos con el fin de evaluar las actividades reguladas conforme a los objetivos de política pública en materia energética, en lo referente a las reglas de operación y los códigos de ética de los gestores de los sistemas integrados, esto con la orientación de la Unidad de Asuntos Jurídicos; asimismo, supervisar su implementación y cumplimiento;\n\nII. Proponer al Comité Técnico el establecimiento de las disposiciones a las que se refiere el artículo 118 de la Ley del Sector Hidrocarburos, así como realizar el análisis de participación cruzada y proponer a la persona titular de la Dirección General que someta el proyecto de resolución correspondiente a aprobación de la Secretaría;\n\nIII. Emitir opinión, y en su caso, proponer modificaciones sobre la planificación de la expansión del transporte, almacenamiento y la distribución de gas natural y de gas licuado de petróleo, conforme a los lineamientos que, en su caso, establezca la Secretaría, en coordinación con las Unidades Administrativas de la Comisión que correspondan, con otras dependencias y entidades de la Administración Pública Federal cuando así lo requiera conforme a la normatividad aplicable;\n\nIV. Dirigir la realización y análisis de la evaluación para la declaratoria de utilidad pública para el tendido de ductos o de otras construcciones relacionadas y someterlo a consideración del Comité Técnico para su aprobación;\n\nV. Emitir la opinión técnica respecto a las bases de licitación para proyectos de infraestructura de sistemas integrados, transporte o almacenamiento que se realicen, conforme a la normatividad aplicable;\n\nVI. Proponer las disposiciones de carácter general para la prestación de servicios bajo el principio de acceso abierto de transporte por medio de ductos, distribución por medio de ductos y de almacenamiento de hidrocarburos, petrolíferos y petroquímicos, donde se garantice el acceso abierto y no indebidamente discriminatorio en la prestación del servicio;\n\nVII. Evaluar la procedencia técnica, revisiones periódicas y proponer ajustes en los términos y condiciones, modelos de contratos, precios y tarifas que propongan las personas permisionarias para la realización de actividades reguladas;\n\nVIII. Proponer al Comité Técnico las metodologías, procesos de evaluación y bases necesarias para el cálculo y determinación de tarifas, precios y contraprestaciones aplicables a las actividades reguladas competencia de la Comisión, así como sus revisiones o ajustes periódicos;\n\nIX. Emitir la opinión relacionada con los proyectos que se lleven a cabo para la generación de beneficios sociales y como mecanismos de promoción de desarrollo económico, conforme a lo establecido en la Ley del Sector Hidrocarburos y demás disposiciones aplicables;\n\nX. Atender las solicitudes de apoyo técnico que presenten las Secretarías de Hacienda y Crédito Público, de Energía y de Bienestar, para la instrumentación de programas de apoyos focalizados conforme a la Ley del Sector Hidrocarburos y demás disposiciones aplicables;\n\nXI. A petición de la Secretaría, identificar, evaluar y promover con las autoridades competentes, la atención de las necesidades de infraestructura común para las actividades de distribución por ducto, transporte por medio de ductos o de almacenamiento, en la región que corresponda, conforme a la normatividad aplicable;\n\nXII. Emitir la opinión que solicite la Secretaría respecto a los proyectos de plan quinquenal de expansión y optimización de la infraestructura de transporte por ducto y almacenamiento de gas natural, petrolíferos y petroquímicos, así como para los planes de emergencia para la continuidad de las actividades en los sistemas integrados de transporte por ducto y almacenamiento de gas natural;\n\nXIII. Participar en comités, subcomités, consejos y grupos de trabajo a cargo de la Comisión y en aquellos en que presidan otras dependencias, con el fin de proponer la regulación técnica relacionada con las actividades reguladas, y en su caso, prestar el apoyo técnico de conformidad con la Ley del Sector Hidrocarburos;\n\nXIV. Colaborar con la Unidad de Verificación en el trámite de los procedimientos para determinar la aprobación, autorización y supervisión de los organismos de evaluación de la conformidad, de acuerdo con lo establecido en las Normas Oficiales Mexicanas o en las disposiciones aplicables al sector, así como en la verificación del cumplimiento de obligaciones de los sujetos regulados en el sector hidrocarburos;\n\nXV. Supervisar y vigilar el cumplimiento de la regulación, las Normas Oficiales Mexicanas y de las disposiciones administrativas de carácter general aplicables, a quienes realicen o supervisen las actividades reguladas en coordinación con la Unidad de Verificación;\n\nXVI. Informar a la Unidad de Verificación sobre los posibles incumplimientos a las obligaciones de las personas permisionarias y organismos de evaluación de la conformidad, y en su caso, se determinen los actos que correspondan de acuerdo con las atribuciones establecidas en el presente Reglamento y demás normatividad aplicable, así como proporcionar la información o documentación que lo sustente;\n\nXVII. Informar a la Unidad de Asuntos Jurídicos sobre la detección de posibles ilícitos en la realización de las actividades reguladas, y en su caso, se lleven a cabo las acciones legales correspondientes ante las autoridades competentes, además de proporcionar la información o documentación que lo sustente;\n\nXVIII. Informar a la persona titular de la Dirección General cualquier situación que pueda poner en riesgo la continuidad de la prestación de las actividades permisionadas, así como proponer las acciones que estime convenientes para su aprobación e implementación;\n\nXIX. Informar a la Secretaría sobre cualquier medida o resolución que implique una afectación en el sector hidrocarburos;\n\nXX. Proponer al Comité Técnico los proyectos para otorgar o negar permisos, modificaciones, cesiones, transferencias, actualizaciones, prórrogas aplicables, autorizaciones, determinación de caducidad y demás actos relacionados con las actividades reguladas, que cumplan con la regulación aplicable y los criterios vinculantes de planeación incorporados en la política pública;\n\nXXI. Emitir y suscribir los títulos de permisos aprobados por el Comité Técnico, así como la actualización, cesión y terminación por renuncia de la persona permisionaria;\n\nXXII. Determinar los medios y formatos a través de los cuales las personas permisionarias deben presentar la información requerida como parte de las obligaciones de sus permisos y verificar la correcta requisición y actualización de la información, a través de las plataformas de información y comunicación implementadas por la Comisión;\n\nXXIII. Emitir la justificación técnica para proponer los montos de los derechos y aprovechamientos por la prestación de los servicios de la Comisión, así como su actualización con base en las reglas establecidas por la autoridad competente;\n\nXXIV. Remitir a la Unidad de Administración y Finanzas la información correspondiente a las contribuciones y contraprestaciones que deban cubrir los sujetos regulados por los servicios que presta la Comisión, para que se realice en los términos y dentro de los plazos establecidos en las disposiciones fiscales aplicables;\n\nXXV. Informar a la Unidad de Administración y Finanzas, la omisión por parte del sujeto regulado del pago de contribuciones y contraprestaciones por los servicios que preste la Comisión;\n\nXXVI. Coordinar la atención a las consultas, quejas, requerimientos de información y solicitudes para la emisión de opinión técnica por parte de autoridades o particulares, sobre las actividades reguladas en el ámbito de su competencia;\n\nXXVII. Requerir la presentación de información a los terceros que tengan cualquier relación de negocios con los sujetos regulados, en el ámbito de su competencia;\n\nXXVIII. Emitir y suscribir la validación técnica de los proyectos de resoluciones y acuerdos que se presenten al Comité Técnico para su aprobación, atendiendo a las disposiciones legales vigentes y aplicables;\n\nXXIX. Coordinar el monitoreo del comportamiento de los mercados y de las transacciones comerciales e informar a la persona titular de la Dirección General sobre la posible existencia de prácticas anticompetitivas, indebidamente discriminatorias, barreras de entrada, insumos esenciales o restricciones al desarrollo eficiente de los mercados, así como proponer las acciones que estime convenientes, dirigidas a fomentar y promover la competencia y el bienestar económico;\n\nXXX. Compilar y dirigir la actualización y el análisis de la información de precios, volúmenes, otras estadísticas e información diversa en materia de las actividades reguladas necesarias para el desempeño de las Unidades Administrativas de la Comisión, así como el soporte para el desarrollo de la política pública por parte de la Secretaría;\n\nXXXI. Determinar la procedencia y no procedencia, así como emitir la admisión, no admisión o el desechamiento de los trámites que sean presentados ante la Comisión, en materia del sector hidrocarburos;\n\nXXXII. Resguardar, usar, administrar, acopiar, actualizar, así como generar y proveer a la Dirección General de Estrategia y Vinculación la información sobre estadísticas, indicadores e información relativa a las actividades reguladas y sobre el desempeño de la Unidad de Hidrocarburos para su publicación en los medios, que para tal efecto establezca la Secretaría;\n\nXXXIII. Establecer y poner a consideración del Comité Técnico para su aprobación los lineamientos respecto a las relaciones de los sujetos regulados con personas que formen parte de su mismo grupo empresarial o consorcio que lleven a cabo actividades de Comercialización de Hidrocarburos, Petrolíferos y Petroquímicos;\n\nXXXIV. Establecer y poner a consideración del Comité Técnico para su aprobación, los mecanismos para la recopilación de información sobre los precios, descuentos y volúmenes en materia de comercialización, distribución y expendio al público de gas natural y petrolíferos, para fines estadísticos, regulatorios y de supervisión;\n\nXXXV. Proponer, en materia de petrolíferos, gas licuado de petróleo, petroquímicos y gas natural a la persona titular de la Dirección General que someta a consideración de la Secretaría, la instrucción a las Empresas Públicas del Estado que realicen las acciones necesarias, para que sus actividades y operaciones sean garantes de la seguridad y la autosuficiencia energética de la Nación y que no obstaculicen el desarrollo eficiente de los mercados, así como la política pública en materia energética, y\n\nXXXVI. Las demás que le señalen otras disposiciones jurídicas, las que le confiera la persona titular de la Dirección General o el Comité Técnico, así como las que sean necesarias para el ejercicio de sus facultades.\n\nLa Unidad de Hidrocarburos para el ejercicio de sus facultades cuenta con: las Direcciones Generales del Sector Gas Natural; de Integración Regulatoria de Hidrocarburos; del Sector Gas Licuado de Petróleo; de Mercados de Hidrocarburos; del Sector Petrolíferos, y del Sector Petroquímicos, así como las demás personas servidoras públicas que establezca el manual de organización general de la Comisión, no obstante, las facultades previstas en las fracciones I, II, III, IV, V, VI, VII, VIII, X, XIV, XV, XVII, XVIII, XX, XXVII, XXX, XXXIII y XXXIV del presente artículo deben ser ejercidas por la persona titular de la Unidad.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO IX — De la Unidad de Hidrocarburos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b0dd7a27-1f14-56df-bca9-ed5fcb3b5987",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 33,
+      "identificador": "Artículo 33",
+      "contenido": "A la Unidad de Verificación le corresponden las siguientes atribuciones: en materia de supervisión, inspección, verificación y evaluación de las actividades competencia de la Comisión:\n\nI. Proponer la emisión, diseño, modificación, actualización e interpretación del marco regulatorio aplicable a su competencia en el sector eléctrico y de hidrocarburos, con la orientación de la Unidad de Asuntos Jurídicos; así como supervisar su implementación y cumplimiento;\n\nII. Coordinar los procedimientos de aprobación, autorización y supervisión de terceros especialistas, de organismos de evaluación de la conformidad, de laboratorios y unidades de inspección y verificación, que realicen actividades de supervisión, inspección, verificación y evaluación de conformidad con las Normas Oficiales Mexicanas o disposiciones aplicables a las materias reguladas por la Comisión;\n\nIII. Coordinar y aprobar los procedimientos de autorización de las personas servidoras públicas y de acreditación a terceros para que lleven a cabo las actividades de supervisión, inspección y verificación, así como de certificación y de auditorías referidas en la Ley y demás disposiciones jurídicas aplicables;\n\nIV. Proponer al Comité Técnico el programa anual de visitas de verificación, inspección y supervisión ordinarias con base en la metodología aprobada por la Comisión, informando periódicamente a dicho órgano los resultados de su ejecución, lo anterior, no limita la ejecución de visitas extraordinarias, cuando se consideren necesarias, dichas visitas pueden contar con el apoyo de las Unidades de Electricidad e Hidrocarburos;\n\nV. Ordenar y dar por concluidas las visitas de verificación, inspección y supervisión competencia de la Comisión;\n\nVI. Realizar las visitas de verificación, inspección y supervisión; así como requerir la presentación de información y documentación, citar a comparecer a los sujetos regulados que realicen Actividades en materia energética, con el fin de determinar el grado de cumplimiento de la regulación aplicable, y del cumplimiento de las obligaciones, de sus términos y condiciones establecidas en las autorizaciones y permisos correspondientes;\n\nVII. Revisar el cumplimiento de obligaciones de los sujetos regulados y de sus actividades en materia energética, que son competencia de la Comisión con el apoyo de las unidades de Electricidad e Hidrocarburos; así como emitir los reportes mediante los cuales se determiné el cumplimiento o incumplimiento;\n\nVIII. Iniciar y resolver los procedimientos administrativos de sanción que correspondan conforme a las atribuciones de la Comisión, así como notificar los actos y actuaciones derivados de dichos procedimientos. Los inicios y resoluciones de procedimientos de sanción deben contar con la aprobación de la persona titular de la Dirección General, mediante los mecanismos que este determine;\n\nIX. Tramitar los procedimientos administrativos de sanción que correspondan conforme a las atribuciones de la Comisión, así como notificar los actos y actuaciones derivados de dichos procedimientos;\n\nX. Ordenar e imponer las medidas de seguridad, precautorias, provisionales, de prevención o de urgente aplicación y todas aquellas previstas en las demás disposiciones jurídicas que resulten aplicables, en las materias de competan a la Comisión en el ejercicio de sus facultades de verificación, inspección y supervisión, así como solicitar el apoyo de las autoridades de los tres niveles de gobierno para hacer valer dichas medidas;\n\nXI. Determinar y ejecutar las sanciones que correspondan en el ejercicio de sus atribuciones además puede solicitar el apoyo de las autoridades de los tres niveles de gobierno para hacer cumplir sus determinaciones, y\n\nXII. Las demás que le señalen otras disposiciones jurídicas, las que le confiera la persona titular de la Dirección General o el Comité Técnico, así como las que sean necesarias para el ejercicio de sus facultades.\n\nAsimismo, debe de contar con personas servidoras públicas notificadoras, inspectoras y verificadoras federales, para que, en el ámbito de sus atribuciones, impongan las medidas de seguridad, de urgente aplicación y todas aquéllas previstas en las disposiciones legales aplicables en las materias que competan a la Comisión.\n\nLa Unidad de Verificación para el ejercicio de sus facultades cuenta con: las Direcciones Generales de Verificación del Sector Hidrocarburos y de Verificación del Sector Eléctrico, así como las demás personas servidoras públicas que establezca el manual de organización general de la Comisión, a las que se les puede delegar facultades para el trámite, substanciación y notificación de los actos y actuaciones derivados de los procedimientos administrativos de visita de verificación y procedimientos administrativos de sanción; no obstante, las facultades previstas en las fracciones I, IV, V, VIII y XI del presente artículo deben ser ejercidas por la persona titular de la Unidad.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO X — De la Unidad de Verificación",
+      "seccion_nombre": null
+    },
+    {
+      "id": "eaccfc3d-ad2a-51aa-a66e-65e649ba454f",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 34,
+      "identificador": "Artículo 34",
+      "contenido": "Las oficinas estatales o regionales de la Comisión deben de ejercer las funciones que les asigne la persona titular de la Dirección General, previa propuesta de las Unidades Administrativas.\n\nLa Dirección General de Estrategia y Vinculación es la responsable de proponer a la persona titular de la Dirección General los mecanismos de operación, funcionamiento y supervisión de las oficinas estatales o regionales de la Comisión.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO XI — De las oficinas estatales y regionales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "81fb1d27-ab77-5e1b-8497-adec63219a12",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 35,
+      "identificador": "Artículo 35",
+      "contenido": "Las ausencias de la persona titular de la Dirección General pueden ser suplidas por las personas titulares de las Unidades de Hidrocarburos, Electricidad, Verificación y Asuntos Jurídicos, en el orden mencionado.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO XII — De la Suplencia de las personas servidoras públicas de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "157c2a86-8978-54a9-b6cc-8721d5069555",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 36,
+      "identificador": "Artículo 36",
+      "contenido": "Las ausencias de los titulares de Unidad y la Secretaría Técnica deben ser suplidas por las personas servidoras públicas del nivel jerárquico inmediato inferior de su adscripción conforme a las materias de su respectiva competencia.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO XII — De la Suplencia de las personas servidoras públicas de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3406ce0e-8963-56da-bc4b-7916b7a16c1c",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 37,
+      "identificador": "Artículo 37",
+      "contenido": "Las ausencias de las personas titulares de las Direcciones Generales de la Comisión deben ser suplidas por las personas servidoras públicas que para tal efecto designe la persona titular de la Unidad Administrativa a la que estén adscritos.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO XII — De la Suplencia de las personas servidoras públicas de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1bfcc551-87f8-5617-b3c1-4c0936742a8f",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 38,
+      "identificador": "Artículo 38",
+      "contenido": "Los suplentes en términos de las disposiciones de este capítulo cuentan con las facultades de las personas servidoras públicas a las que suplan.\n\nEn caso de ausencia de las personas titulares de las Unidades Administrativas y de las personas servidoras públicas de nivel jerárquico inmediato inferior, la persona titular de la Dirección General debe nombrar a la persona servidora pública que ejerza las atribuciones que correspondan.",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "capitulo_nombre": "CAPÍTULO XII — De la Suplencia de las personas servidoras públicas de la Comisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b7cab2d0-7b90-5142-961f-9369c4b4cee4",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 39,
+      "identificador": "Transitorio Primero · decreto",
+      "contenido": "El presente Decreto entra en vigor el día siguiente de su publicación.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "8412fd87-7b0f-57e2-bd22-2a552dda63ad",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 40,
+      "identificador": "Transitorio Segundo · decreto",
+      "contenido": "Se derogan las disposiciones administrativas que se opongan al presente Reglamento.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "b829856d-96d0-5ee4-af47-d9313bcc38c9",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 41,
+      "identificador": "Transitorio Tercero · decreto",
+      "contenido": "Las erogaciones que se generen con motivo de la entrada en vigor del presente Decreto se deben cubrir con cargo al presupuesto autorizado de la Secretaría de Energía en el presente ejercicio fiscal y con los recursos que la Comisión Reguladora de Energía transfiera a la Comisión Nacional de Energía, en términos de lo previsto en el transitorio décimo tercero, segundo párrafo de la Ley de la Comisión Nacional de Energía.\n\nPara ejercicios fiscales subsecuentes se deben presupuestar los recursos correspondientes en el anteproyecto de presupuesto de la Comisión Nacional de Energía.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "a40a4807-8e9c-57ca-9af0-8eef4a3863b6",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 42,
+      "identificador": "Transitorio Cuarto · decreto",
+      "contenido": "Se debe expedir el manual de organización general de la Comisión, así como las reglas de operación del Comité Técnico, dentro de los 90 días hábiles contados a partir de la entrada en vigor del presente Decreto.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "adc7059d-2a95-5934-8e0c-2bc2ef3f2572",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 43,
+      "identificador": "Transitorio Quinto · decreto",
+      "contenido": "La administración del Fideicomiso establecido en el artículo 31 de la Ley de los Órganos Reguladores Coordinados en Materia Energética continúa en los mismos términos que lo hacía la Comisión Reguladora de Energía hasta en tanto se emitan las disposiciones correspondientes establecidas en el Transitorio Décimo Segundo de la Ley de la Comisión Nacional de Energía.\n\nLa persona titular de la Unidad de Administración y Finanzas de la Comisión debe vigilar que los recursos del Fideicomiso se apliquen a los fines para los cuales fue constituido, así como gestionar y llevar a cabo los actos relacionados con el mismo, de conformidad con lo establecido en el Décimo Segundo Transitorio de la Ley, Contrato del Fideicomiso y sus reglas de operación.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "abdd9459-801d-5860-bac4-63d196fae602",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 44,
+      "identificador": "Transitorio Sexto · decreto",
+      "contenido": "La Unidad de Verificación debe de concluir con la revisión de los reportes de incumplimiento y los procedimientos de sanción que se encuentren en trámite por parte de la Comisión Reguladora de Energía a la entrada en vigor del presente Reglamento, para lo cual, cuenta con el apoyo de la Unidad de Asuntos Jurídicos.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "287ef2c5-9286-54e3-874a-4f200ed2b4cc",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 45,
+      "identificador": "Transitorio Séptimo · decreto",
+      "contenido": "Los asuntos en trámite en la Comisión Reguladora de Energía previos a su extinción deben ser resueltos por la persona titular de la Dirección General, el Comité Técnico o las Unidades Administrativas, según corresponda, conforme a las facultades establecidas en el presente Reglamento. Lo anterior, sin perjuicio de que los promoventes de dichos trámites puedan presentar voluntariamente el desistimiento de estos, e ingresarlos nuevamente en términos del marco jurídico competencia de la Comisión.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "fb75272d-04ce-5d1d-8c6c-94437537256c",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 46,
+      "identificador": "Transitorio Octavo · decreto",
+      "contenido": "Dentro del plazo previsto en el Transitorio Octavo de la Ley, la Comisión debe emitir un acuerdo en donde señale su domicilio, horario de atención, asimismo, puede emitir programas, estrategias o lineamientos para la atención de los trámites de su competencia que deben ser publicados en el Diario Oficial de la Federación.",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Transitorios del decreto",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "bfc9dcf3-987b-5248-87ac-f2d16bd1ac59",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "orden": 47,
+      "identificador": "Firmas y promulgación",
+      "contenido": "Dado en la residencia del Poder Ejecutivo Federal, en Ciudad de México a 6 de mayo de 2025.- La Presidenta de los Estados Unidos Mexicanos, Claudia Sheinbaum Pardo.- Rúbrica.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Documentos complementarios",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "TÍTULO PRIMERO — Disposiciones Generales",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "TÍTULO SEGUNDO — De la Organización e Integración de la Comisión",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO I — De la Organización Interna",
+      "orden": 2
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "TÍTULO TERCERO — De las competencias, facultades y atribuciones de la Comisión",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO I — De la Dirección General de la Comisión",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO II — Del Comité Técnico y el Comité Especial",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO III — De las facultades genéricas de las Unidades Administrativas",
+      "orden": 6
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO IV — De la Secretaría Técnica",
+      "orden": 7
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO V — De la Dirección General de Estrategia y Vinculación",
+      "orden": 8
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO VI — De la Unidad de Administración y Finanzas",
+      "orden": 9
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO VII — De la Unidad de Asuntos Jurídicos",
+      "orden": 10
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO VIII — De la Unidad de Electricidad",
+      "orden": 11
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO IX — De la Unidad de Hidrocarburos",
+      "orden": 12
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO X — De la Unidad de Verificación",
+      "orden": 13
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO XI — De las oficinas estatales y regionales",
+      "orden": 14
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "CAPÍTULO XII — De la Suplencia de las personas servidoras públicas de la Comisión",
+      "orden": 15
+    }
+  ],
+  "fuente": {
+    "name": "RICNE",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+    "sha256": "3c81e568b264cc282daafe8cb0b6f736d4fa94c423ba7720b2b52f9b5f36fd50",
+    "fecha": "08-05-2025",
+    "titulo": "Decreto por el que se expide el Reglamento Interior de la Comisión Nacional de Energía.",
+    "format": "html"
+  }
+}

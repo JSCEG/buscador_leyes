@@ -1,0 +1,1862 @@
+[
+  {
+    "name": "RLSE",
+    "chunks": 335,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO PRIMERO DISPOSICIONES GENERALES",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Objeto y Definiciones",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Planeación Vinculante, Control y Prevalencia del Estado",
+        "orden": 2
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Normalización, Estandarización y Especificaciones Técnicas",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De los Permisos y Autorizaciones",
+        "orden": 4
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEGUNDO DE LA JUSTICIA ENERGÉTICA",
+        "orden": 5
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Justicia Energética",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Fondo de Servicio Universal Energético",
+        "orden": 7
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO TERCERO DE LA GENERACIÓN DE ENERGÍA ELÉCTRICA",
+        "orden": 8
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Generación Distribuida",
+        "orden": 9
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Autoconsumo",
+        "orden": 10
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección I Autoconsumo Aislado",
+        "orden": 11
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección II Autoconsumo Interconectado",
+        "orden": 12
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Generación para el Mercado Eléctrico Mayorista",
+        "orden": 13
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De los Esquemas para el Desarrollo Mixto",
+        "orden": 14
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección I Disposiciones Generales",
+        "orden": 15
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección II Producción de Largo Plazo",
+        "orden": 16
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección III Inversión Mixta",
+        "orden": 17
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección IV Otros Esquemas de Desarrollo Mixto",
+        "orden": 18
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De la Cogeneración",
+        "orden": 19
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO CUARTO DE LA TRANSMISIÓN Y DISTRIBUCIÓN DE ENERGÍA ELÉCTRICA, DEL SUMINISTRO ELÉCTRICO Y LAS TARIFAS ELÉCTRICAS",
+        "orden": 20
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Transmisión y Distribución",
+        "orden": 21
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Condiciones Generales para la Prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica y del Suministro Eléctrico",
+        "orden": 22
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Acceso Local",
+        "orden": 23
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Revisión de los Sistemas de Medición e Instalaciones Eléctricas",
+        "orden": 24
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De las Quejas del Servicio Público de Transmisión y Distribución y de Suministro Eléctrico",
+        "orden": 25
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI Del Acceso a la Red Nacional de Transmisión y a las Redes Generales de Distribución",
+        "orden": 26
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De las Tarifas Eléctricas, los Precios, las Contraprestaciones y los Costos",
+        "orden": 27
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VIII De las Aportaciones para la Ejecución de Obras para la Interconexión o Conexión a la Red Nacional de Transmisión y a las Redes Generales de Distribución",
+        "orden": 28
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IX De las Controversias Relacionadas con la Interconexión o la Conexión a la Red Nacional de Transmisión y a las Redes Generales de Distribución",
+        "orden": 29
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo X De la Suspensión del Servicio de Energía Eléctrica",
+        "orden": 30
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo XI De la Inversión para la Prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+        "orden": 31
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO QUINTO DE LAS DEMAS ACTIVIDADES DEL SECTOR ELÉCTRICO",
+        "orden": 32
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De los Usuarios Calificados y Comercializadoras no Suministradoras",
+        "orden": 33
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De los Pequeños Sistemas Eléctricos",
+        "orden": 34
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Única De los Pequeños Sistemas Eléctricos en Régimen de Micro-Red",
+        "orden": 35
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Mercado Eléctrico Mayorista",
+        "orden": 36
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Separación de las Integrantes del Sector Eléctrico",
+        "orden": 37
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De las Obligaciones para Energías Limpias, Transición Energética y Descarbonización del Sector Eléctrico",
+        "orden": 38
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI Del Almacenamiento de Energía",
+        "orden": 39
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De la Infraestructura y el Suministro de Electricidad en Materia de Electromovilidad",
+        "orden": 40
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEXTO DE LA MANIFESTACIÓN DE IMPACTO SOCIAL DEL SECTOR ENERGÉTICO Y LA CONSULTA PREVIA",
+        "orden": 41
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Manifestación de Impacto Social del Sector Energético",
+        "orden": 42
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Consulta Previa",
+        "orden": 43
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SÉPTIMO OTRAS OBLIGACIONES DE LAS INTEGRANTES DEL SECTOR ELÉCTRICO",
+        "orden": 44
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único Del Uso y la Ocupación Superficial",
+        "orden": 45
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO OCTAVO DE LA VERIFICACIÓN E INSPECCIÓN",
+        "orden": 46
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Disposiciones Generales",
+        "orden": 47
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Visitas de Verificación",
+        "orden": 48
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Verificación mediante Requerimientos y Comparecencias",
+        "orden": 49
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Inspección",
+        "orden": 50
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De la Supervisión y Vigilancia de las otras Entidades de la Administración Pública Federal con actividades en el Sector Eléctrico",
+        "orden": 51
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO NOVENO DE LA INTERVENCIÓN Y LA REQUISA",
+        "orden": 52
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Disposiciones Generales",
+        "orden": 53
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Intervención",
+        "orden": 54
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Requisa",
+        "orden": 55
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO DÉCIMO DEL CONSEJO CONSULTIVO PARA EL FOMENTO DEL SECTOR ELÉCTRICO",
+        "orden": 56
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Integración del Consejo Consultivo",
+        "orden": 57
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Funcionamiento del Consejo Consultivo",
+        "orden": 58
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Funciones del Consejo Consultivo",
+        "orden": 59
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO DÉCIMO PRIMERO DEL CONTENIDO NACIONAL Y DE LAS ESTRATEGIAS PARA EL FOMENTO INDUSTRIAL Y DE LA INVERSIÓN EN EL SECTOR ELÉCTRICO",
+        "orden": 60
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Disposiciones Generales",
+        "orden": 61
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Innovación, el Desarrollo Tecnológico y la Formación de Recursos Humanos",
+        "orden": 62
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO DÉCIMO SEGUNDO DE LAS SANCIONES",
+        "orden": 63
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único Disposiciones Generales",
+        "orden": 64
+      }
+    ]
+  },
+  {
+    "name": "LSE",
+    "chunks": 207,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO PRIMERO DISPOSICIONES GENERALES",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Del Objeto y finalidad de la Ley",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Autoridades",
+        "orden": 2
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEGUNDO DE LA PLANEACIÓN, CONTROL Y PREVALENCIA DEL ESTADO",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único De la Planeación y el Control del Sistema Eléctrico Nacional",
+        "orden": 4
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO TERCERO DE LA GENERACIÓN DE ENERGÍA ELÉCTRICA",
+        "orden": 5
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Disposiciones generales",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Generación Distribuida",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Autoconsumo",
+        "orden": 8
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Generación para el Mercado Eléctrico Mayorista",
+        "orden": 9
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De los Esquemas para el Desarrollo Mixto",
+        "orden": 10
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De la Modalidad de Cogeneración",
+        "orden": 11
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO CUARTO DE LA TRANSMISIÓN Y DISTRIBUCIÓN DE ENERGÍA ELÉCTRICA",
+        "orden": 12
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único De la Transmisión y Distribución de Energía Eléctrica",
+        "orden": 13
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO QUINTO DE LA COMERCIALIZACIÓN DE ENERGÍA ELÉCTRICA",
+        "orden": 14
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único Comercialización de Energía Eléctrica",
+        "orden": 15
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEXTO DE LAS DEMÁS ACTIVIDADES DEL SECTOR ELÉCTRICO",
+        "orden": 16
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De los Usuarios Calificados",
+        "orden": 17
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De los Pequeños Sistemas Eléctricos",
+        "orden": 18
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Almacenamiento de Energía",
+        "orden": 19
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Infraestructura y el Suministro de Electricidad en Materia de Electromovilidad",
+        "orden": 20
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V Del Uso y Ocupación Superficial",
+        "orden": 21
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI Del Fomento a la Industria Nacional",
+        "orden": 22
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SÉPTIMO DEL MERCADO ELÉCTRICO MAYORISTA",
+        "orden": 23
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Operación del Mercado Eléctrico Mayorista",
+        "orden": 24
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Centro Nacional de Control de Energía",
+        "orden": 25
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO OCTAVO DISPOSICIONES APLICABLES A LOS INTEGRANTES DEL SECTOR ELÉCTRICO",
+        "orden": 26
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las Obligaciones del Servicio Universal y la Justicia Energética",
+        "orden": 27
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Impacto Social y Desarrollo Sostenible",
+        "orden": 28
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De las Obligaciones para Energías Limpias, Transición Energética y Descarbonización del Sector Eléctrico",
+        "orden": 29
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Disposiciones Generales de los Permisos",
+        "orden": 30
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De la Estandarización, Normalización, Confiabilidad y Seguridad",
+        "orden": 31
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De las Tarifas",
+        "orden": 32
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De las Inversiones de la Empresa Pública del Estado",
+        "orden": 33
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VIII De la Intervención",
+        "orden": 34
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IX De la Requisa",
+        "orden": 35
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo X De la Información",
+        "orden": 36
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO NOVENO DE LAS INFRACCIONES A LA LEY",
+        "orden": 37
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Prevención y Sanción de los Actos y Omisiones Contrarios a la Ley",
+        "orden": 38
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Sanciones",
+        "orden": 39
+      }
+    ]
+  },
+  {
+    "name": "LPTE",
+    "chunks": 113,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO PRIMERO Disposiciones Generales",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único Del Objeto de la Ley y Definiciones",
+        "orden": 1
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEGUNDO De la Planeación del Sector Energético",
+        "orden": 2
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las Autoridades y Organismos",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Consejo de Planeación Energética",
+        "orden": 4
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De los Instrumentos de Planeación Energética",
+        "orden": 5
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Información Energética",
+        "orden": 6
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección I Del Sistema Nacional de Información Energética",
+        "orden": 7
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección II De la información en materia de Eficiencia Energética",
+        "orden": 8
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO TERCERO De la Transición Energética y la reducción de la Pobreza Energética",
+        "orden": 9
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Del Financiamiento",
+        "orden": 10
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Fondo para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+        "orden": 11
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Fondo de Servicio Universal Energético",
+        "orden": 12
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De los Recursos de Innovación, Desarrollo Tecnológico y Formación de Recursos Humanos",
+        "orden": 13
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De la Investigación Científica, la Innovación y el Desarrollo Tecnológico",
+        "orden": 14
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De los Certificados de Energías Limpias",
+        "orden": 15
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII Del Desarrollo Industrial",
+        "orden": 16
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VIII Del Financiamiento para el Aprovechamiento Sustentable de la Energía",
+        "orden": 17
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IX De la Participación Voluntaria",
+        "orden": 18
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección I Del Reconocimiento en excelencia en Eficiencia Energética",
+        "orden": 19
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección II De los acuerdos voluntarios",
+        "orden": 20
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO CUARTO De la Transparencia y Acceso a la Información",
+        "orden": 21
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO QUINTO De la Inspección, Vigilancia y Sanciones",
+        "orden": 22
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Inspección y Vigilancia",
+        "orden": 23
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Sanciones",
+        "orden": 24
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Responsabilidad de las personas servidoras públicas, personas usuarias u otras",
+        "orden": 25
+      }
+    ]
+  },
+  {
+    "name": "LGTAIP",
+    "chunks": 238,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO PRIMERO DISPOSICIONES GENERALES",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Disposiciones Preliminares",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De los Principios Generales",
+        "orden": 2
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De los principios rectores de las Autoridades garantes",
+        "orden": 3
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De los Principios en Materia de Transparencia y Acceso a la Información Pública",
+        "orden": 4
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De los Sujetos Obligados",
+        "orden": 5
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEGUNDO RESPONSABLES EN MATERIA DE TRANSPARENCIA Y ACCESO A LA INFORMACIÓN",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Del Sistema Nacional",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Consejo Nacional",
+        "orden": 8
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De los Subsistemas de Transparencia",
+        "orden": 9
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Autoridades garantes",
+        "orden": 10
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De los Comités de Transparencia",
+        "orden": 11
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De las Unidades de Transparencia",
+        "orden": 12
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO TERCERO PLATAFORMA NACIONAL DE TRANSPARENCIA",
+        "orden": 13
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único De la Plataforma Nacional de Transparencia",
+        "orden": 14
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO CUARTO CULTURA DE TRANSPARENCIA Y APERTURA INSTITUCIONAL",
+        "orden": 15
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Promoción de la Transparencia y el Derecho de Acceso a la Información",
+        "orden": 16
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Transparencia con Sentido Social",
+        "orden": 17
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Apertura Institucional",
+        "orden": 18
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO QUINTO OBLIGACIONES DE TRANSPARENCIA",
+        "orden": 19
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las Obligaciones Generales",
+        "orden": 20
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Obligaciones de Transparencia Comunes",
+        "orden": 21
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De las Obligaciones Específicas",
+        "orden": 22
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Obligaciones Específicas de las Personas Físicas o Morales que Reciben y Ejercen Recursos Públicos o Ejercen Actos de Autoridad",
+        "orden": 23
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De las Obligaciones Específicas en Materia Energética",
+        "orden": 24
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De la Verificación de las Obligaciones de Transparencia",
+        "orden": 25
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De la Denuncia por Incumplimiento a las Obligaciones de Transparencia",
+        "orden": 26
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEXTO INFORMACIÓN CLASIFICADA",
+        "orden": 27
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las Disposiciones Generales de la Clasificación y Desclasificación de la Información",
+        "orden": 28
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Información Reservada",
+        "orden": 29
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Información Confidencial",
+        "orden": 30
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Versiones Públicas",
+        "orden": 31
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SÉPTIMO PROCEDIMIENTOS DE ACCESO A LA INFORMACIÓN PÚBLICA",
+        "orden": 32
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Del Procedimiento de Acceso a la Información",
+        "orden": 33
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Cuotas de Acceso",
+        "orden": 34
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO OCTAVO DE LOS PROCEDIMIENTOS DE IMPUGNACIÓN",
+        "orden": 35
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Del Recurso de Revisión",
+        "orden": 36
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Recurso de Inconformidad",
+        "orden": 37
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Recurso de Revisión en Materia de Seguridad Nacional",
+        "orden": 38
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV Del Recurso de Revisión de Asuntos Jurisdiccionales de la Suprema Corte de Justicia de la Nación",
+        "orden": 39
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V Del Cumplimiento de las Resoluciones",
+        "orden": 40
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De los Criterios de Interpretación",
+        "orden": 41
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO NOVENO MEDIDAS DE APREMIO Y SANCIONES",
+        "orden": 42
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las Medidas de Apremio",
+        "orden": 43
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Sanciones",
+        "orden": 44
+      }
+    ]
+  },
+  {
+    "name": "LGEC",
+    "chunks": 58,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "Título Primero Disposiciones Generales",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Primero Del objeto y ámbito de aplicación",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Segundo Criterios y principios de Economía Circular",
+        "orden": 2
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "Título Segundo Sistema Nacional de Economía Circular y distribución de competencias",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Primero Del Sistema Nacional de Economía Circular",
+        "orden": 4
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Segundo De la distribución de competencias",
+        "orden": 5
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "Título Tercero De las políticas públicas y mecanismos de circularidad",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Primero De la Gestión Circular y su registro",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Segundo De los instrumentos de política pública",
+        "orden": 8
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera Del Programa Nacional",
+        "orden": 9
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda Del Distintivo Nacional de Economía Circular",
+        "orden": 10
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Tercera Del Instrumento Económico",
+        "orden": 11
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "Título Cuarto De la información, la educación, la cultura y la investigación",
+        "orden": 12
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Primero De la Plataforma Nacional",
+        "orden": 13
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Segundo De la educación, la cultura y la investigación en materia de Economía Circular",
+        "orden": 14
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "Título Quinto De las obligaciones y las responsabilidades ambientales",
+        "orden": 15
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Primero De la auditoría ambiental voluntaria en materia de economía circular",
+        "orden": 16
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Segundo De la responsabilidad empresarial y Responsabilidad Extendida del Productor o REP",
+        "orden": 17
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Tercero De la responsabilidad social y la participación de las personas consumidoras",
+        "orden": 18
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Cuarto De las responsabilidades y sanciones",
+        "orden": 19
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Quinto De la gradualidad",
+        "orden": 20
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "Título Sexto De la aplicación supletoria",
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "name": "RISENER",
+    "chunks": 88,
+    "themes": [
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO I DE LA COMPETENCIA Y ORGANIZACIÓN DE LA SECRETARÍA",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO II DE LAS FACULTADES DE LA PERSONA TITULAR DE LA SECRETARÍA",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO III DE LAS FACULTADES GENÉRICAS DE LAS PERSONAS TITULARES DE LAS SUBSECRETARÍAS Y DE LA UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+        "orden": 2
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO IV DE LAS FACULTADES DE LA PERSONA TITULAR DE LA UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO V DE LAS FACULTADES GENÉRICAS DE LAS PERSONAS TITULARES DE LAS JEFATURAS DE UNIDAD Y DE LAS DIRECCIONES GENERALES",
+        "orden": 4
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO VI DE LA SUBSECRETARÍA DE PLANEACIÓN Y TRANSICIÓN ENERGÉTICA Y SUS UNIDADES ADMINISTRATIVAS",
+        "orden": 5
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO VII DE LA SUBSECRETARÍA DE ELECTRICIDAD Y SUS UNIDADES ADMINISTRATIVAS",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO VIII DE LA SUBSECRETARÍA DE HIDROCARBUROS Y SUS UNIDADES ADMINISTRATIVAS",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO IX DE LAS UNIDADES ADMINISTRATIVAS ADSCRITAS A LA UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+        "orden": 8
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO X DE LAS UNIDADES ADMINISTRATIVAS ADSCRITAS A LA OFICINA DE LA PERSONA TITULAR DE LA SECRETARÍA",
+        "orden": 9
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO XI DE LA SUPLENCIA DE LAS PERSONAS SERVIDORAS PÚBLICAS DE LA SECRETARÍA",
+        "orden": 10
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO XII DE LOS ÓRGANOS ADMINISTRATIVOS DESCONCENTRADOS",
+        "orden": 11
+      }
+    ]
+  },
+  {
+    "name": "RLPTE",
+    "chunks": 152,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO PRIMERO DE LAS DISPOSICIONES GENERALES",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único",
+        "orden": 1
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEGUNDO DEL CONSEJO DE PLANEACIÓN ENERGÉTICA",
+        "orden": 2
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Organización y Funcionamiento del Consejo",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De los Comités",
+        "orden": 4
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO TERCERO DE LOS INSTRUMENTOS DE PLANEACIÓN DEL SECTOR ENERGÉTICO",
+        "orden": 5
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Coordinación, Coherencia, Exhaustividad y Consistencia",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Programa Sectorial de Energía",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Estrategia Nacional de Transición Energética",
+        "orden": 8
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV Del Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+        "orden": 9
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V Del Plan de Desarrollo del Sector Eléctrico",
+        "orden": 10
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI Del Plan de Desarrollo del Sector Hidrocarburos",
+        "orden": 11
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De la alineación con el Plan Nacional de Desarrollo",
+        "orden": 12
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO CUARTO DE LA PLANEACIÓN VINCULANTE DEL SECTOR ENERGÉTICO",
+        "orden": 13
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único",
+        "orden": 14
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO QUINTO DEL SISTEMA NACIONAL DE INFORMACIÓN ENERGÉTICA",
+        "orden": 15
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la organización y funcionamiento del Sistema",
+        "orden": 16
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De los Registros e Información Geoespacial",
+        "orden": 17
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la información para la Evaluación de la Pobreza Energética y Género",
+        "orden": 18
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Información sobre Generación Distribuida y en Aplicaciones Aisladas de la Red",
+        "orden": 19
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De la Información en materia de Eficiencia Energética",
+        "orden": 20
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De la Información sobre Certificados de Energías Limpias",
+        "orden": 21
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEXTO DE LA TRANSICIÓN ENERGÉTICA, LA REDUCCIÓN DE LA POBREZA ENERGÉTICA Y EL APROVECHAMIENTO SUSTENTABLE DE LA ENERGÍA",
+        "orden": 22
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De los Fondos",
+        "orden": 23
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Financiamiento y la Inversión para la Transición Energética",
+        "orden": 24
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección I Del Financiamiento para el Aprovechamiento Sustentable de la Energía",
+        "orden": 25
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección II De los Certificados de Energías Limpias",
+        "orden": 26
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Aprovechamiento Sustentable de la Energía y de la Eficiencia Energética",
+        "orden": 27
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección I De las personas Usuarias de Patrón de Alto Consumo",
+        "orden": 28
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección II De los Acuerdos Voluntarios",
+        "orden": 29
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Metodologías",
+        "orden": 30
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SÉPTIMO DE LA INSPECCIÓN, VIGILANCIA Y SANCIONES",
+        "orden": 31
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las visitas de verificación",
+        "orden": 32
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Verificación mediante Requerimientos y Comparecencias",
+        "orden": 33
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Procedimiento Administrativo de Sanción",
+        "orden": 34
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Transparencia, Rendición de Cuentas e Información",
+        "orden": 35
+      }
+    ]
+  },
+  {
+    "name": "RLSH",
+    "chunks": 371,
+    "themes": [
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO PRIMERO DEL SECTOR HIDROCARBUROS",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo Único Disposiciones Generales",
+        "orden": 1
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEGUNDO DEL RECONOCIMIENTO Y EXPLORACIÓN SUPERFICIAL Y DE LA EXPLORACIÓN Y EXTRACCIÓN DE HIDROCARBUROS",
+        "orden": 2
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Del Reconocimiento y Exploración Superficial",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Disposiciones Generales de las Asignaciones para Desarrollo Propio y Asignaciones para Desarrollo Mixto",
+        "orden": 4
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera Del Otorgamiento de Asignaciones",
+        "orden": 5
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De la Renuncia",
+        "orden": 6
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Tercera De la Revocación",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De las Asignaciones para Desarrollo Propio",
+        "orden": 8
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De la Modificación",
+        "orden": 9
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De la Sustitución",
+        "orden": 10
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Asignaciones para Desarrollo Mixto",
+        "orden": 11
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De la Modificación",
+        "orden": 12
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De la Modificación de Modalidad",
+        "orden": 13
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Tercera De la Revisión de la Recuperación de Costos y la Contabilidad de los Contratos Mixtos",
+        "orden": 14
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De los Contratos para la Exploración y Extracción",
+        "orden": 15
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera Del Procedimiento para la Migración de Asignaciones para Desarrollo Propio a Contratos para la Exploración y Extracción",
+        "orden": 16
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda Del Proceso de Licitación de los Contratos para la Exploración y Extracción",
+        "orden": 17
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Tercera De la Rescisión Administrativa de los Contratos para la Exploración y Extracción",
+        "orden": 18
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Cuarta De la Comercialización de los Hidrocarburos que el Estado obtenga como resultado de los Contratos para la Exploración y Extracción",
+        "orden": 19
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Quinta De la Adjudicación Directa de los Contratos para la Exploración y Extracción a Personas Titulares de Concesiones Mineras",
+        "orden": 20
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Sexta De la Coexistencia de las Asignaciones y de los Contratos para la Exploración y Extracción con las Concesiones Mineras",
+        "orden": 21
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI De la Información Nacional de Hidrocarburos",
+        "orden": 22
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De la Información Estratégica del Subsuelo",
+        "orden": 23
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De las Zonas de Salvaguarda",
+        "orden": 24
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VIII De la Unificación de Campos o Yacimientos Compartidos",
+        "orden": 25
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IX De las Autorizaciones de los Pozos y de los Pozos Inviables",
+        "orden": 26
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo X De la Regulación y Obligaciones",
+        "orden": 27
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO TERCERO DE LAS DEMÁS ACTIVIDADES DE LA INDUSTRIA DE HIDROCARBUROS",
+        "orden": 28
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De los Permisos",
+        "orden": 29
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Alcance de las Actividades Permisionadas",
+        "orden": 30
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De las Operaciones en las Actividades Permisionadas",
+        "orden": 31
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De la Importación y Exportación",
+        "orden": 32
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Tercera Del Tratamiento y Refinación de Petróleo, del Procesamiento del Gas Natural y de la Formulación",
+        "orden": 33
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Cuarta De la Comercialización",
+        "orden": 34
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Quinta Del Almacenamiento",
+        "orden": 35
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Sexta De la Compresión, Descompresión, Licuefacción y Regasificación de Gas Natural",
+        "orden": 36
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Séptima Del Transporte",
+        "orden": 37
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Octava De la Distribución",
+        "orden": 38
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Novena Del Expendio al Público",
+        "orden": 39
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Décima Del Despacho para Autoconsumo",
+        "orden": 40
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Décima Primera De la Distribución de Combustibles para Aeronaves",
+        "orden": 41
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Procedimiento para la Obtención de Permisos",
+        "orden": 42
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Modificaciones y Actualizaciones a los Permisos",
+        "orden": 43
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De las Modificaciones",
+        "orden": 44
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De las Actualizaciones y el Cambio de Control",
+        "orden": 45
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De las Cesiones de los Permisos",
+        "orden": 46
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI Del Contenido de los Títulos de Permisos",
+        "orden": 47
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII De las Obligaciones de la Persona Permisionaria",
+        "orden": 48
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VIII De los Sistemas Integrados",
+        "orden": 49
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De la Creación de Sistemas Integrados",
+        "orden": 50
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De los Planes Quinquenales de Expansión y Optimización de la Infraestructura de Transporte por medio de Ductos y Almacenamiento, y de Expansión del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural",
+        "orden": 51
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IX De la Regulación Económica",
+        "orden": 52
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De los Términos y Condiciones para la Prestación de los Servicios",
+        "orden": 53
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De los Contratos de Comercialización",
+        "orden": 54
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Tercera De la Suspensión del Servicio o Actividad",
+        "orden": 55
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Cuarta Del Acceso Abierto No Indebidamente Discriminatorio",
+        "orden": 56
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Quinta De las Contraprestaciones, Precios y Tarifas",
+        "orden": 57
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Sexta De las Licitaciones del CENAGAS",
+        "orden": 58
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Séptima De la Opinión de la Secretaría o la Comisión sobre las Licitaciones de las Empresas Públicas del Estado",
+        "orden": 59
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Octava De la Participación Cruzada",
+        "orden": 60
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo X De la Supervisión y Vigilancia en materia de Trazabilidad, Medición y Calidad de los Hidrocarburos, Petrolíferos y Petroquímicos",
+        "orden": 61
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo XI De la Plataforma de Información Electrónica",
+        "orden": 62
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO CUARTO DE LAS DISPOSICIONES APLICABLES A LA INDUSTRIA DE HIDROCARBUROS",
+        "orden": 63
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Información Obtenida de la Medición de los Hidrocarburos",
+        "orden": 64
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Bases de Coordinación para el Desarrollo de Proyectos en la Industria de Hidrocarburos",
+        "orden": 65
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Del Uso y la Ocupación Superficial",
+        "orden": 66
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De la Manifestación de Impacto Social del Sector Energético y de la Consulta Previa",
+        "orden": 67
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera Del Estudio de Impacto Social y de la Manifestación de Impacto Social del Sector Energético",
+        "orden": 68
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De la Consulta Previa",
+        "orden": 69
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO QUINTO DE LA PLANEACIÓN Y CONTROL DEL SECTOR HIDROCARBUROS",
+        "orden": 70
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Planeación del Sector Hidrocarburos",
+        "orden": 71
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Del Consejo Consultivo para el Fomento de la Industria de Hidrocarburos Nacional",
+        "orden": 72
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SEXTO DEL CONTENIDO NACIONAL Y DE LAS ESTRATEGIAS PARA EL FOMENTO INDUSTRIAL Y DE LA INVERSIÓN DE LA INDUSTRIA DE HIDROCARBUROS",
+        "orden": 73
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO SÉPTIMO DE LA VERIFICACIÓN",
+        "orden": 74
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De las Disposiciones Generales",
+        "orden": 75
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De las Visitas de Verificación",
+        "orden": 76
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De la Verificación mediante Requerimientos y Comparecencias",
+        "orden": 77
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Medidas Cautelares y Precautorias",
+        "orden": 78
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO OCTAVO DEL PROCEDIMIENTO PARA LA DETERMINACIÓN DE SANCIONES",
+        "orden": 79
+      },
+      {
+        "nivel": "titulo",
+        "nombre": "TÍTULO NOVENO OTRAS DISPOSICIONES",
+        "orden": 80
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I De la Ocupación Temporal y la Intervención",
+        "orden": 81
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Primera De la Ocupación Temporal",
+        "orden": 82
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "Sección Segunda De la Intervención",
+        "orden": 83
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II De la Revocación y Caducidad de Autorizaciones y Permisos",
+        "orden": 84
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III De los Supuestos para el no Otorgamiento, Modificación o Cesión de Permisos",
+        "orden": 85
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV De las Innovaciones Tecnológicas",
+        "orden": 86
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V De la Justicia Energética",
+        "orden": 87
+      }
+    ]
+  },
+  {
+    "name": "DACG-PV",
+    "chunks": 11,
+    "themes": []
+  },
+  {
+    "name": "PODECOBI-LIN",
+    "chunks": 42,
+    "themes": [
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO PRIMERO GENERALIDADES",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO SEGUNDO DEL COMITÉ INTERSECRETARIAL DE PROMOCIÓN",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO TERCERO DE LOS CRITERIOS DE SELECCIÓN PARA LA DETERMINACIÓN DE LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR",
+        "orden": 2
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN PRIMERA DEL PROCEDIMIENTO PARA DETERMINAR LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO CUARTO DE LA PARTICIPACIÓN DE LAS ENTIDADES FEDERATIVAS",
+        "orden": 4
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN PRIMERA DE LOS CONVENIOS DE COORDINACIÓN CELEBRADOS ENTRE EL GOBIERNO FEDERAL Y LAS ENTIDADES FEDERATIVAS",
+        "orden": 5
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN SEGUNDA DE LAS ATRIBUCIONES DE LAS ENTIDADES FEDERATIVAS",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO QUINTO DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO SEXTO DE LOS DESARROLLADORES",
+        "orden": 8
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN PRIMERA DE LOS REQUISITOS PARA EL OTORGAMIENTO DE LAS AUTORIZACIONES A LOS DESARROLLADORES",
+        "orden": 9
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN SEGUNDA DE LA CONVOCATORIA",
+        "orden": 10
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN TERCERA DEL CONCURSO PÚBLICO",
+        "orden": 11
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO SÉPTIMO DE LAS ASIGNACIONES DIRECTAS",
+        "orden": 12
+      },
+      {
+        "nivel": "seccion",
+        "nombre": "SECCIÓN PRIMERA DEL PROCEDIMIENTO DE ASIGNACIÓN DIRECTA",
+        "orden": 13
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "CAPÍTULO OCTAVO DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN",
+        "orden": 14
+      }
+    ]
+  },
+  {
+    "name": "PODECOBI-DEC",
+    "chunks": 19,
+    "themes": []
+  },
+  {
+    "name": "SAEE",
+    "chunks": 154,
+    "themes": [
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo I Disposiciones Generales",
+        "orden": 0
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo II Integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+        "orden": 1
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo III Sistemas de Almacenamiento de Energía Eléctrica asociados a Centrales Eléctricas",
+        "orden": 2
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IV Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga",
+        "orden": 3
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo V Sistemas de Almacenamiento de Energía Eléctrica asociados a la figura de Autoconsumo",
+        "orden": 4
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VI Sistemas de Almacenamiento de Energía Eléctrica asociados a la infraestructura destinada a la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+        "orden": 5
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VII Sistemas de Almacenamiento de Energía Eléctrica no Asociados",
+        "orden": 6
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo VIII Supuestos bajo los cuales se pueden integrar Sistemas de Almacenamiento de Energía Eléctrica de manera agrupada",
+        "orden": 7
+      },
+      {
+        "nivel": "capitulo",
+        "nombre": "Capítulo IX Criterios para la Contratación de respaldo en la figura de Autoconsumo interconectado mediante Sistemas de Almacenamiento de Energía Eléctrica con la Comisión Federal de Electricidad o Terceros",
+        "orden": 8
+      }
+    ]
+  }
+]

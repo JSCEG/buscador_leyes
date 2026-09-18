@@ -1,0 +1,156 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-17",
+  "project": "carmfqhcfsqbzcwptqfz",
+  "catalogo_antes": {
+    "leyes": 12,
+    "articulos": 1788,
+    "temas": 358
+  },
+  "catalogo_despues": {
+    "leyes": 19,
+    "articulos": 2527,
+    "temas": 494
+  },
+  "registros_anteriores_sin_cambios": {
+    "leyes": 12,
+    "articulos": 1788,
+    "temas": 358
+  },
+  "instrumentos": [
+    {
+      "siglas": "LCNE",
+      "titulo": "Ley de la Comisión Nacional de Energía",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "fragmentos": 48,
+      "ordinarios": 28,
+      "transitorios_ley": 13,
+      "transitorios_decreto": 2,
+      "complementos": 5,
+      "estructura": 13,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "LCNE",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf",
+        "sha256": "7c13fd20564f1e7230268a0943cc226368b24c44886d6738c479f4c42cbe77de",
+        "bytes": 508412,
+        "format": "pdf"
+      }
+    },
+    {
+      "siglas": "LSH",
+      "titulo": "Ley del Sector Hidrocarburos",
+      "ley_id": "f9170461-4ad5-5e92-bce2-e81b60209050",
+      "fragmentos": 194,
+      "ordinarios": 166,
+      "transitorios_ley": 23,
+      "transitorios_decreto": 2,
+      "complementos": 3,
+      "estructura": 26,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "LSH",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf",
+        "sha256": "1405f36fd836ff74d059ebe7e50ae439cbb9e5e291a317514667f34a26f72a23",
+        "bytes": 732413,
+        "format": "pdf"
+      }
+    },
+    {
+      "siglas": "RICNE",
+      "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
+      "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "fragmentos": 48,
+      "ordinarios": 38,
+      "transitorios_ley": 0,
+      "transitorios_decreto": 8,
+      "complementos": 2,
+      "estructura": 16,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "RICNE",
+        "url": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+        "sha256": "3c81e568b264cc282daafe8cb0b6f736d4fa94c423ba7720b2b52f9b5f36fd50",
+        "fecha": "08-05-2025",
+        "titulo": "Decreto por el que se expide el Reglamento Interior de la Comisión Nacional de Energía.",
+        "format": "html"
+      }
+    },
+    {
+      "siglas": "LEPECFE",
+      "titulo": "Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "ley_id": "8574d238-79cd-562e-a902-b3a91de854f9",
+      "fragmentos": 154,
+      "ordinarios": 131,
+      "transitorios_ley": 18,
+      "transitorios_decreto": 2,
+      "complementos": 3,
+      "estructura": 25,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "LEPECFE",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf",
+        "sha256": "6e45ab84a076cbd9cfd5fbd8abbe5f2d88fbd767229f21f5e7327aaf692b22a5",
+        "bytes": 559703,
+        "format": "pdf"
+      }
+    },
+    {
+      "siglas": "LEPEPM",
+      "titulo": "Ley de la Empresa Pública del Estado, Petróleos Mexicanos",
+      "ley_id": "50c9b0b7-f30b-508e-9675-214eba940c33",
+      "fragmentos": 152,
+      "ordinarios": 126,
+      "transitorios_ley": 21,
+      "transitorios_decreto": 2,
+      "complementos": 3,
+      "estructura": 25,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "LEPEPM",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf",
+        "sha256": "e090d2278f98a33ce43b69070c3bbbec5e3b7177f0ffdbee8d4c9bf29c36c317",
+        "bytes": 598559,
+        "format": "pdf"
+      }
+    },
+    {
+      "siglas": "LBio",
+      "titulo": "Ley de Biocombustibles",
+      "ley_id": "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
+      "fragmentos": 64,
+      "ordinarios": 46,
+      "transitorios_ley": 13,
+      "transitorios_decreto": 2,
+      "complementos": 3,
+      "estructura": 16,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "LBio",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf",
+        "sha256": "c1870db657a6564bbeb692a1778472db811a920626822de553ff5ca5194f95b4",
+        "bytes": 441184,
+        "format": "pdf"
+      }
+    },
+    {
+      "siglas": "LGeo",
+      "titulo": "Ley de Geotermia",
+      "ley_id": "5a089cfe-025d-55ee-a5a5-78bab709ea30",
+      "fragmentos": 79,
+      "ordinarios": 66,
+      "transitorios_ley": 8,
+      "transitorios_decreto": 2,
+      "complementos": 3,
+      "estructura": 15,
+      "cotejo_exacto": true,
+      "fuente": {
+        "name": "LGeo",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf",
+        "sha256": "67309bf186af42de0f9e98010d38c89598676faea7f2b558ac9c9e6736d64d35",
+        "bytes": 443402,
+        "format": "pdf"
+      }
+    }
+  ]
+}

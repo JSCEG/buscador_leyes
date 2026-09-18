@@ -1,0 +1,340 @@
+[
+  {
+    "id": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+    "titulo": "DACG para la planeación vinculante en la actividad de generación de energía eléctrica",
+    "siglas": "DACG-Planeación Vinculante",
+    "fecha_publicacion": "2025-10-17",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-12T00:05:41.231947+00:00",
+    "temas_clave": [
+      "Planeación vinculante",
+      "Comisión Nacional de Energía (CNE)",
+      "Sistema Eléctrico Nacional (SEN)",
+      "Mercado Eléctrico Mayorista (MEM)",
+      "Plan de Desarrollo del Sector Eléctrico (PLADESE)"
+    ],
+    "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5770298&fecha=17/10/2025#gsc.tab=0",
+    "tipo": "dacg"
+  },
+  {
+    "id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "titulo": "Reglamento Interior de la Secretaría de Energía",
+    "siglas": "RISENER",
+    "fecha_publicacion": "2025-04-17",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-10T06:28:25.099334+00:00",
+    "temas_clave": [
+      "Dirección General de Metodologías y Estadísticas del Sistema Nacional de Información Energética"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/5755222",
+    "tipo": "reglamento"
+  },
+  {
+    "id": "50c9b0b7-f30b-508e-9675-214eba940c33",
+    "titulo": "Ley de la Empresa Pública del Estado, Petróleos Mexicanos",
+    "siglas": "LEPEPM",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:07:24.374876+00:00",
+    "temas_clave": [
+      "Hidrocarburos",
+      "Petróleos Mexicanos",
+      "Empresa pública del Estado"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "titulo": "Ley General de Economía Circular",
+    "siglas": "LGEC",
+    "fecha_publicacion": "2026-01-19",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-11T23:56:35.004898+00:00",
+    "temas_clave": [
+      "Economía Circular",
+      "Gestión Circular",
+      "Responsabilidad Extendida del Productor",
+      "Mecanismos directos e indirectos de circularidad",
+      "Huella Ambiental"
+    ],
+    "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5778439&fecha=19/01/2026#gsc.tab=0",
+    "tipo": "ley"
+  },
+  {
+    "id": "5a089cfe-025d-55ee-a5a5-78bab709ea30",
+    "titulo": "Ley de Geotermia",
+    "siglas": "LGeo",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:08:10.047499+00:00",
+    "temas_clave": [
+      "Geotermia",
+      "Permisos y concesiones",
+      "Energías renovables"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "titulo": "Reglamento de la Ley de Planeación y Transición Energética",
+    "siglas": "RLPyTE",
+    "fecha_publicacion": "2025-10-03",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-11T17:01:53.871454+00:00",
+    "temas_clave": [
+      "Planeación vinculante",
+      "Consejo de Planeación Energética",
+      "Instrumentos de planeación del Sector Energético",
+      "Sistema Nacional de Información Energética",
+      "Transición energética",
+      "pobreza energética",
+      "aprovechamiento sustentable"
+    ],
+    "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0",
+    "tipo": "reglamento"
+  },
+  {
+    "id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "titulo": "Reglamento de la Ley del Sector Eléctrico",
+    "siglas": "RLSE",
+    "fecha_publicacion": "2025-10-03",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-06-07T06:47:04.06165+00:00",
+    "temas_clave": [
+      "Planeación Vinculante",
+      "Justicia Energética",
+      "Generación Eléctrica",
+      "Autoconsumo",
+      "Almacenamiento de Energía."
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LSE.pdf",
+    "tipo": "reglamento"
+  },
+  {
+    "id": "8574d238-79cd-562e-a902-b3a91de854f9",
+    "titulo": "Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+    "siglas": "LEPECFE",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:07:07.052762+00:00",
+    "temas_clave": [
+      "Electricidad",
+      "CFE",
+      "Empresa pública del Estado"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "titulo": "Ley del Sector Eléctrico",
+    "siglas": "LSE",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-10T02:54:03.334221+00:00",
+    "temas_clave": [
+      "Planeación Vinculante",
+      "Certificados de Energías Limpias"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
+    "titulo": "Ley de Biocombustibles",
+    "siglas": "LBio",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:07:45.077772+00:00",
+    "temas_clave": [
+      "Biocombustibles",
+      "Biomasa",
+      "Transición energética"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "titulo": "Reglamento de la Ley del Sector de Hidrocarburos",
+    "siglas": "RLSH",
+    "fecha_publicacion": "2025-10-03",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-11T17:10:09.636244+00:00",
+    "temas_clave": [
+      "Hidrocarburos",
+      "Permisos",
+      "Petrolíferos",
+      "Impacto social"
+    ],
+    "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769153&fecha=03/10/2025#gsc.tab=0",
+    "tipo": "reglamento"
+  },
+  {
+    "id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "titulo": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
+    "siglas": "ACUERDO-PODECOBI-22052025",
+    "fecha_publicacion": "2025-05-22",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-06-08T19:20:45.964744+00:00",
+    "temas_clave": [
+      "Polos de Desarrollo Económico para el Bienestar",
+      "Comité Intersecretarial de Promoción",
+      "Declaratoria",
+      "Desarrolladores",
+      "Autorización",
+      "Concurso Público",
+      "Convenio de Coordinación",
+      "Vehículo de Propósito Especial",
+      "Criterios de Selección",
+      "Asignación Directa"
+    ],
+    "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758079&fecha=22%2F05%2F2025#gsc.tab=0",
+    "tipo": "acuerdo"
+  },
+  {
+    "id": "ca974945-9edf-5386-822a-c2755e66afc4",
+    "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
+    "siglas": "RICNE",
+    "fecha_publicacion": "2025-05-08",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:06:21.074066+00:00",
+    "temas_clave": [
+      "Comisión Nacional de Energía",
+      "Organización",
+      "Atribuciones"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+    "tipo": "reglamento"
+  },
+  {
+    "id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "titulo": "Ley de Planeación y Transición Energética",
+    "siglas": "LPTE",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-12T01:37:24.376994+00:00",
+    "temas_clave": [
+      "Transición Energética",
+      "Aprovechamiento Sustentable de la Energía",
+      "Energías Limpias",
+      "Eficiencia Energética",
+      "Pobreza Energética",
+      "Justicia Energética",
+      "Tecnologías Limpias",
+      "Certificados de Energías Limpias",
+      "Generación Limpia Distribuida",
+      "Sistema Nacional de Información Energética",
+      "Fondo para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+      "Fondo de Servicio Universal Energético",
+      "Usuario de Patrón de Alto Consumo",
+      "Estrategia Nacional de Transición Energética",
+      "Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+      "Plan de Desarrollo del Sector Eléctrico",
+      "Plan de Desarrollo del Sector Hidrocarburos"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "titulo": "ACUERDO de la CNE por el que se emiten las DACG para la integración de SAE al SEN",
+    "siglas": "ACUERDO-CNE-16/04/2026-DACG-SAE",
+    "fecha_publicacion": "2026-04-16",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-05-12T01:04:21.287058+00:00",
+    "temas_clave": [
+      "Sistema Eléctrico Nacional (SEN)",
+      "Sistemas de Almacenamiento de Energía Eléctrica (SAEE)",
+      "Estado de Carga o SOC",
+      "Sistemas de Almacenamiento de Energía Eléctrica asociados a Centros de Carga o SAEE-CC",
+      "Sistemas de Almacenamiento de Energía Eléctrica no Asociados o SAEE no Asociado"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5785045",
+    "tipo": "acuerdo"
+  },
+  {
+    "id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "titulo": "Ley General de Transparencia y Acceso a la Información Pública",
+    "siglas": "LGTAIP",
+    "fecha_publicacion": "2025-03-20",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-06-07T06:58:58.231226+00:00",
+    "temas_clave": [],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "f9170461-4ad5-5e92-bce2-e81b60209050",
+    "titulo": "Ley del Sector Hidrocarburos",
+    "siglas": "LSH",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:06:10.795553+00:00",
+    "temas_clave": [
+      "Hidrocarburos",
+      "Exploración y extracción",
+      "Permisos"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+    "titulo": "Ley de la Comisión Nacional de Energía",
+    "siglas": "LCNE",
+    "fecha_publicacion": "2025-03-18",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-09-18T00:02:57.85784+00:00",
+    "temas_clave": [
+      "Comisión Nacional de Energía",
+      "Regulación energética",
+      "Comité Técnico"
+    ],
+    "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf",
+    "tipo": "ley"
+  },
+  {
+    "id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
+    "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
+    "siglas": "DECRETO-PODECOBI-22052025",
+    "fecha_publicacion": "2025-05-22",
+    "fecha_ultima_reforma": null,
+    "vigente": true,
+    "created_at": "2026-06-09T20:08:03.011124+00:00",
+    "temas_clave": [
+      "Polos de Desarrollo Económico para el Bienestar",
+      "Estímulos Fiscales",
+      "Deducción Inmediata del 100%",
+      "Deducción Adicional por Capacitación e Innovación",
+      "Comité Intersecretarial de Promoción",
+      "Desarrolladores",
+      "Actividades Económicas Productivas",
+      "Declaratoria",
+      "Vehículo de Propósito Especial",
+      "Convenio de Coordinación"
+    ],
+    "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025#gsc.tab=0",
+    "tipo": "decreto"
+  }
+]

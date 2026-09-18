@@ -1,0 +1,15 @@
+[
+  {"name":"CONV-GEN-1","code":"5770299","radar":"RAD-026","familia":"Primera convocatoria de generación","modificacion":0},
+  {"name":"CONV-GEN-1-M1","code":"5770917","radar":"RAD-027","familia":"Primera convocatoria de generación","modificacion":1},
+  {"name":"CONV-GEN-1-M2","code":"5772392","radar":"RAD-028","familia":"Primera convocatoria de generación","modificacion":2},
+  {"name":"CONV-GEN-1-M3","code":"5774850","radar":"RAD-029","familia":"Primera convocatoria de generación","modificacion":3},
+  {"name":"CONV-GEN-2","code":"5787117","radar":"RAD-035","familia":"Segunda convocatoria de generación","modificacion":0},
+  {"name":"CONV-GEN-2-M1","code":"5788509","radar":"RAD-038","familia":"Segunda convocatoria de generación","modificacion":1},
+  {"name":"CONV-GEN-2-M2","code":"5789883","radar":"RAD-039","familia":"Segunda convocatoria de generación","modificacion":2},
+  {"name":"CONV-GEN-2-M3","code":"5790938","radar":"RAD-040","familia":"Segunda convocatoria de generación","modificacion":3},
+  {"name":"CONV-GEN-2-M4","code":"5798361","radar":"RAD-041","familia":"Segunda convocatoria de generación","modificacion":4},
+  {"name":"CONV-ESTRATEGICOS","code":"5787666","radar":"RAD-036","familia":"Proyectos estratégicos de generación y almacenamiento","modificacion":0},
+  {"name":"CONV-ESTRATEGICOS-M1","code":"5788508","radar":"RAD-037","familia":"Proyectos estratégicos de generación y almacenamiento","modificacion":1},
+  {"name":"CONV-ESTRATEGICOS-M2","code":"5793261","radar":"RAD-045","familia":"Proyectos estratégicos de generación y almacenamiento","modificacion":2},
+  {"name":"CONV-ESTRATEGICOS-M3","code":"5797703","radar":"RAD-047","familia":"Proyectos estratégicos de generación y almacenamiento","modificacion":3}
+]

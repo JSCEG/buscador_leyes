@@ -1,0 +1,50 @@
+[
+  {
+    "name": "CONV-GEN-1",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/17-10-2025/Vespertina/323603",
+    "file": "CONV-GEN-1-edicion.pdf",
+    "sha256": "82f15ac85c7de97078a578dd5e5ac6ef2c5025d6f7af9d1a9a398a5a58b56787",
+    "bytes": 9901233,
+    "pagina": 117
+  },
+  {
+    "name": "CONV-GEN-1-M3",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/02-12-2025/Matutina/324425",
+    "file": "CONV-GEN-1-M3-edicion.pdf",
+    "sha256": "bc1d6f44e81f452d43fcb6b8ba05ebb9a01bb2e44e47d4733ce314502349b5ca",
+    "bytes": 6392533,
+    "pagina": 70
+  },
+  {
+    "name": "CONV-GEN-2",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/11-05-2026/Vespertina/327245",
+    "file": "CONV-GEN-2-edicion.pdf",
+    "sha256": "f441289bcfc269955d8f63020cb1c25e8cd3bdfa9b65eefd6061a7481bce7a2f",
+    "bytes": 3072199,
+    "pagina": 2
+  },
+  {
+    "name": "CONV-GEN-2-M4",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/10-09-2026/Matutina/329565",
+    "file": "CONV-GEN-2-M4-edicion.pdf",
+    "sha256": "c0d21b4ac958faa59adff00f420b8c5f613c70884d25a9760c39954e4ef5ea7b",
+    "bytes": 9322154,
+    "pagina": 13
+  },
+  {
+    "name": "CONV-ESTRATEGICOS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/15-05-2026/Vespertina/327345",
+    "file": "CONV-ESTRATEGICOS-edicion.pdf",
+    "sha256": "c06daf5c3f72e1b170cbe01cf1e213f2eab4804a6c1a1db05c7950f2be736ff7",
+    "bytes": 3016147,
+    "pagina": 20
+  },
+  {
+    "name": "CONV-ESTRATEGICOS-M3",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/02-09-2026/Matutina/329425",
+    "file": "CONV-ESTRATEGICOS-M3-edicion.pdf",
+    "sha256": "60b82ab476150ec4bf99072bafb345914e5a6407c1953c61cdfd57105c58da5c",
+    "bytes": 7593657,
+    "pagina": 20
+  }
+]

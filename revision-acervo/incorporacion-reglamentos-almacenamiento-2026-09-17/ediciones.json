@@ -1,0 +1,14 @@
+[
+  {
+    "name": "DACG-PERMISOS-GA",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/23-10-2025/Matutina/323704",
+    "sha256": "0314af26eb12f95ba3de3f838b7bf8821f5a1900f5ad76fd11e42d2e7bc66a7d",
+    "bytes": 6614526
+  },
+  {
+    "name": "FORMATOS-SAEE",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/22-05-2026/Matutina/327465",
+    "sha256": "7cefb3ae9c1b29d4d0e8188a0827060111e53cf6b1564754edbc2f43ce224ff3",
+    "bytes": 78692963
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "LCNE",
+    "file": "LCNE-aplicar.sql",
+    "chars": 69656,
+    "sha256": "986f6527040532ce19298855568ab677685ee3cd770b116e817b0655bfa9e223",
+    "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+    "fragmentos": 48,
+    "temas": 13
+  },
+  {
+    "name": "LSH",
+    "file": "LSH-aplicar.sql",
+    "chars": 313851,
+    "sha256": "350ec5b7980cba75bfba9082f3003fb61b75ffbccc14bc727895eaccc55d3dde",
+    "ley_id": "f9170461-4ad5-5e92-bce2-e81b60209050",
+    "fragmentos": 194,
+    "temas": 26
+  },
+  {
+    "name": "RICNE",
+    "file": "RICNE-aplicar.sql",
+    "chars": 113373,
+    "sha256": "21ddee78af04de05889688992579d8251c90e244188c2777252db05d95a326df",
+    "ley_id": "ca974945-9edf-5386-822a-c2755e66afc4",
+    "fragmentos": 48,
+    "temas": 16
+  },
+  {
+    "name": "LEPECFE",
+    "file": "LEPECFE-aplicar.sql",
+    "chars": 231146,
+    "sha256": "f5f962c4bad9a2cb0a742bce73657e96a2354e630460a305f366be81382ce567",
+    "ley_id": "8574d238-79cd-562e-a902-b3a91de854f9",
+    "fragmentos": 154,
+    "temas": 25
+  },
+  {
+    "name": "LEPEPM",
+    "file": "LEPEPM-aplicar.sql",
+    "chars": 220558,
+    "sha256": "f458ce1a790823c960da64950469f6faa3cc3f1b45b83f9d5b91b1ad710e08ec",
+    "ley_id": "50c9b0b7-f30b-508e-9675-214eba940c33",
+    "fragmentos": 152,
+    "temas": 25
+  },
+  {
+    "name": "LBio",
+    "file": "LBio-aplicar.sql",
+    "chars": 89752,
+    "sha256": "c03dd61e0265254e3d88a41289b86f2c93cf392b9d18a7c8d52ebf6cc3003aa7",
+    "ley_id": "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
+    "fragmentos": 64,
+    "temas": 16
+  },
+  {
+    "name": "LGeo",
+    "file": "LGeo-aplicar.sql",
+    "chars": 94373,
+    "sha256": "81e5a94ae302515e24edcfee6b40e4c8a752f37cd17a8e352645a75185b394ef",
+    "ley_id": "5a089cfe-025d-55ee-a5a5-78bab709ea30",
+    "fragmentos": 79,
+    "temas": 15
+  }
+]

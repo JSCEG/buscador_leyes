@@ -1,0 +1,104 @@
+0	parrafo	ACUERDO por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.
+1	parrafo	Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.
+2	parrafo	LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2, 10, fracciones I, VI y XIV, 16, 36 y 38 de la Ley del Sector Eléctrico; 2, fracción XXV, 3, 1
+3	parrafo	CONSIDERANDO
+4	parrafo	Que el 15 de mayo de 2026 se publicó en el Diario Oficial de la Federación la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, dirigida a las personas interesadas en desarrollar proyectos estratégicos de generación y almacenamiento de energía eléctrica alineados a la planeación vinculante del sector eléctrico, misma que fue modificada mediante Acuerdo publicado en el Diario Oficial de la Federación 
+5	parrafo	Que la citada Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes para la obtención de permisos, los estudios de interconexión y conexión y, en su caso, la celebración de los contratos de interconexión y conexión, que permita el desarrollo de proyectos estratégicos de generación de energía eléctrica renovable y Sistemas de Almacenamiento de Energía Eléctrica que se desarrollen bajo Proyecto en Asociación con la Comisión Federal de Electricidad que se requieran par
+6	parrafo	Que derivado del interés manifestado por las personas participantes, con la finalidad de incentivar la participación y precisar las etapas para fortalecer la revisión realizada por las diversas autoridades y entes participantes y dar mayor claridad en la mencionada Convocatoria, evitando costos innecesarios a los particulares y favoreciendo la eficiencia administrativa, resulta procedente modificar la referida Convocatoria, sin que esta modificación incorpore requisitos adicionales de elegibilid
+7	parrafo	ACUERDO POR EL QUE SE EMITE LA SEGUNDA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN DE ↵ PROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA, ALINEADOS A ↵ LA PLANEACIÓN VINCULANTE
+8	parrafo	PRIMERO. Se modifican los numerales 1, fracciones IV y V; 2, fracción V; 3.1, fracciones XI y XII; 5.1; 8.1, segundo párrafo; 8.3, fracción II y séptimo párrafo; 9.1., fracción II, 10.1, primer párrafo y fracciones I y II; 10.2; 10.3; 11.1, primer párrafo; 12.1; 14; 17.1; 17.2; 17.3, primer párrafo; 17.4; 18, primer y segundo párrafo; 18.1, segundo párrafo y el encabezado de la segunda columna de la tabla del numeral 18.2, segundo párrafo; se adicionan una fracción XIV recorriendo la subsecuente
+9	parrafo	"1...
+10	parrafo	1.1...
+11	parrafo	I. a III ...
+12	parrafo	IV. Establecer la Capacidad Requerida para la Convocatoria de Proyectos Estratégicos para los proyectos que se presenten conforme a los términos de la Convocatoria de Proyectos Estratégicos, considerando las necesidades energéticas del Sistema Eléctrico Nacional de acuerdo con la planeación vinculante;
+13	parrafo	V. Establecer el procedimiento para que las personas solicitantes registren sus solicitudes bajo Proyectos en Asociación con la CFE, y
+14	parrafo	VI. ..."
+15	parrafo	"2. ...
+16	parrafo	I. a IV. ...
+17	parrafo	V. Capacidad Requerida para la Convocatoria de Proyectos Estratégicos: Para los efectos de la presente Convocatoria de Proyectos Estratégicos, la capacidad requerida, expresada en MW, comprende la capacidad de generación de energía eléctrica por sistema interconectado, así como la potencia de los SAEE por Gerencia de Control Regional. Dicha capacidad constituye el objetivo a cubrir mediante los proyectos que participen en la Convocatoria, a fin de atender las necesidades prioritarias del Sistema
+18	parrafo	VI. Convocatoria de Proyectos Estratégicos: La Convocatoria para la atención de Proyectos Estratégicos de generación y almacenamiento de energía eléctrica, alineados a la planeación vinculante;
+19	parrafo	VII. Disposiciones de la Planeación Vinculante: Disposiciones administrativas de carácter general para la planeación vinculante aplicables a la generación de energía eléctrica publicadas en el Diario Oficial de la Federación el 17 de octubre de 2025 y, las Disposiciones administrativas de carácter general para la planeación vinculante aplicables a Almacenamiento de Energía Eléctrica que para tal efecto emita la SENER;
+20	parrafo	VIII. Disposiciones de Permisos: Disposiciones administrativas de carácter general que establecen los términos legales, técnicos y financieros para solicitar el otorgamiento y la modificación de permisos de generación y de almacenamiento de energía eléctrica, así como su vigencia, publicadas en el Diario Oficial de la Federación el 23 de octubre de 2025;
+21	parrafo	IX. Disposiciones de Integración de SAEE: Disposiciones Administrativas de Carácter General para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional publicadas en el Diario Oficial de la Federación el 16 de abril de 2026;
+22	parrafo	X. Entrada en Operación Comercial: Fecha determinada en la planeación vinculante en la que un proyecto debe iniciar operaciones comerciales y que constituye el parámetro temporal obligatorio para validar criterios de firmeza para el desarrollo de los proyectos presentados en las solicitudes correspondientes;
+23	parrafo	XI. Esquema de Desarrollo Mixto: Modalidad de participación para el desarrollo de proyectos entre la CFE y particulares para el desarrollo de proyectos de generación conforme a la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad, los lineamientos aplicables y los instrumentos que se suscriban para cada proyecto;
+24	parrafo	XII. Grupo de Análisis Técnico o GAT: Grupo integrado en términos de las Disposiciones de la Planeación Vinculante;
+25	parrafo	XIII. LCNE: Ley de la Comisión Nacional de Energía;
+26	parrafo	XIV. LPTE: Ley de Planeación y Transición Energética;
+27	parrafo	XV. LSE: Ley del Sector Eléctrico;
+28	parrafo	XVI. MW: Megawatt;
+29	parrafo	XVII. MIC: Manual de Interconexión de Centrales Eléctricas y Conexión de Centros de Carga publicado en el Diario Oficial de la Federación el 9 de febrero de 2018 o aquel que lo sustituya;
+30	parrafo	XVIII. Nivel de Tensión: Magnitud de voltaje en el que la Central Eléctrica o el Sistema de Almacenamiento de Energía Eléctrica se conecta o interconecta, según corresponda, al SEN, expresado en kilovoltios;
+31	parrafo	XIX. OPE: Oficialía de Partes Electrónica, herramienta tecnológica con la que cuenta la CNE, para recibir y dar seguimiento a las solicitudes de permisos presentadas en términos de la Convocatoria de Proyectos Estratégicos, así como para dar seguimiento a los permisos de generación y almacenamiento de energía eléctrica. Dicha herramienta se regula con base en lo establecido en las reglas generales para su funcionamiento publicadas en el Diario Oficial de la Federación, y se encuentra disponible 
+32	parrafo	XX. Potencia SAEE: Potencia activa, expresada en MW (a seis dígitos después del punto decimal), e indicada en corriente alterna, mediante la cual se designa e identifica al Sistema de Almacenamiento de Energía Eléctrica;
+33	parrafo	XXI. Punto de Interconexión: Punto físico de la Red Nacional de Transmisión o de las Redes Generales de Distribución donde una Central Eléctrica se interconecta físicamente al SEN para inyectar energía eléctrica o donde un Sistema de Almacenamiento de Energía Eléctrica se conecta al SEN para cargar energía eléctrica;
+34	parrafo	XXII. Proyecto en Asociación con la CFE: Proyecto cuya ejecución se plantea con participación de la Comisión Federal de Electricidad, mediante un Esquema para el Desarrollo Mixto, sea Inversión Mixta, Producción de Largo Plazo, asociación, alianza o cualquier otra modalidad permitida por la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad, los Lineamientos de los Esquemas para el Desarrollo Mixto de la CFE y demás disposiciones aplicables;
+35	parrafo	XXIII. RLPTE: Reglamento de la Ley de Planeación y Transición Energética;
+36	parrafo	XXIV. RLSE: Reglamento de la Ley del Sector Eléctrico;
+37	parrafo	XXV. SENER: Secretaría de Energía;
+38	parrafo	XXVI. SEN: Sistema Eléctrico Nacional;
+39	parrafo	XXVII. SIASIC: Sistema de Atención a Solicitudes de Interconexión y Conexión del CENACE;
+40	parrafo	XXVIII. Subestación: Instalación de la RNT o de las RGD en donde un elemento de generación de energía eléctrica o Sistema de Almacenamiento de Energía Eléctrica se conecta o interconecta físicamente, según su condición operativa, al SEN; para cargar o inyectar energía eléctrica, y
+41	parrafo	XXIX. VUPE: Ventanilla Única de Proyectos Estratégicos del Sector Energético disponible en el portal https://ventanillaunica.energia.gob.mx, habilitada como un módulo para el seguimiento de proyectos del sector."
+42	parrafo	"3.1. ...
+43	parrafo	I. a la X. ...
+44	parrafo	XI. El CENACE no debe considerar proyectos que correspondan a regiones donde no exista Capacidad Requerida para la Convocatoria de Proyectos Estratégicos o que esta haya sido cubierta;
+45	parrafo	XII. Los proyectos asociados a solicitudes ingresadas al amparo de la presente Convocatoria pueden participar simultáneamente en otras convocatorias;
+46	parrafo	XIII. y XIV. ...
+47	parrafo	"5.1. La SENER, la CNE, el CENACE y la CFE, en el ámbito de sus atribuciones, deben realizar las gestiones necesarias para atender las solicitudes, estudios y procedimientos conforme a los plazos de la presente Convocatoria de Proyectos Estratégicos."
+48	parrafo	"6.2. ...
+49	parrafo	Las etapas y plazos previstos en esta Convocatoria son secuenciales y su desarrollo se encuentra sujeto al cumplimiento de cada etapa inmediata anterior correspondiente, por lo que en caso de no cumplirse alguna de ellas, la persona solicitante no puede continuar con las etapas subsecuentes del procedimiento, salvo aquellas etapas que determinen una excepción. Lo anterior, sin perjuicio de los supuestos específicos de conclusión o desechamiento expresamente previstos en esta Convocatoria."
+50	parrafo	"8.1 ...
+51	parrafo	Presentado el formato al que hace referencia el párrafo anterior y celebrado el contrato o instrumento jurídico que formalice el Proyecto en Asociación con la CFE en términos de la normatividad aplicable, la persona solicitante o la CFE pueden presentar la solicitud de permiso correspondiente para que la CNE realice su evaluación de conformidad con los requisitos establecidos en la LSE, el RLSE, la LPTE, el RLPTE, la Convocatoria de Proyectos Estratégicos y demás disposiciones aplicables."
+52	parrafo	"8.3. ...
+53	parrafo	I. ...
+54	parrafo	II. Costo estimado, en pesos mexicanos, de las Obras de Refuerzo. Cuando estas sean comunes a dos o más proyectos, los costos se asignan de manera proporcional a la potencia en MW de cada proyecto de generación o almacenamiento de energía eléctrica, considerando que se cubra el requerimiento de Capacidad Requerida para la Convocatoria de Proyectos Estratégicos, siempre que la o las personas solicitantes acepten los términos y continúen con lo previsto en la Convocatoria de Proyectos Estratégicos
+55	parrafo	III. ...
+56	parrafo	...
+57	parrafo	...
+58	parrafo	En caso de no recibirse esta aceptación a través de la VUPE, en los términos previstos, el CENACE debe emitir el oficio correspondiente en el que se notifique lo conducente.
+59	parrafo	...
+60	parrafo	..."
+61	parrafo	"9.1. ...
+62	parrafo	I. ...
+63	parrafo	II. Al CENACE, los estudios técnicos referidos en la Convocatoria de Proyectos Estratégicos, incluyendo la información necesaria para verificar el cumplimiento de los criterios de planeación vinculante, según le corresponda, establecidos en las Disposiciones de la Planeación Vinculante y dar continuidad a las etapas subsecuentes del procedimiento.
+64	parrafo	...
+65	parrafo	..."
+66	parrafo	"10.1. La SENER debe someter a consideración del Grupo de Análisis Técnico la evaluación de los proyectos que cumplan con los requisitos establecidos en la LSE, el RLSE, la LPTE, el RLPTE, la Convocatoria de Proyectos Estratégicos y demás disposiciones aplicables, para lo cual debe remitir los expedientes administrativos correspondientes.
+67	parrafo	...
+68	parrafo	I. Emitir la opinión técnica a que se refiere la etapa 10 del numeral 17.1, respecto de la evaluación realizada por la SENER y el CENACE de los proyectos presentados al amparo de la Convocatoria de Proyectos Estratégicos, y
+69	parrafo	II. Identificar aquellos proyectos que proporcionen los mayores beneficios para el SEN y el Estado, en el caso de que los proyectos que resulten elegibles para obtener un permiso al amparo de la Convocatoria de Proyectos Estratégicos. Para el cumplimiento de lo anterior, deben considerar al menos lo siguiente respecto de los proyectos evaluados: Entrada en Operación Comercial, ubicación; elementos técnicos básicos del proyecto; alivio de congestión; aportación de potencia; mejora de la confiabil
+70	parrafo	"10.2. La SENER debe notificar la opinión del GAT a la CFE, a la CNE y a las personas solicitantes a través de la VUPE, para que, en su caso, se continúe con lo previsto en el numeral 17.3 de esta Convocatoria."
+71	parrafo	"10.3. Una vez emitida la opinión del GAT, en caso de no continuar con el procedimiento, las personas solicitantes pueden presentar por las vías ordinarias las solicitudes para la obtención de los diversos permisos, autorizaciones y demás actos administrativos correspondientes, en los términos previstos en la normatividad aplicable."
+72	parrafo	"11.1. Una vez emitida la opinión técnica por parte del Grupo de Análisis Técnico, la SENER debe proporcionar a la CFE el expediente del proyecto, a través de la VUPE, para que, en su caso, se continúe el procedimiento conforme a lo previsto en el numeral 17.3 de la presente Convocatoria.
+73	parrafo	..."
+74	parrafo	"12.1. La CNE debe resolver sobre la solicitud de permiso presentada por la persona solicitante, considerando los plazos establecidos en el numeral 17.4 de la presente convocatoria y de conformidad con lo previsto en la LSE, el RLSE y la demás normatividad aplicable, para lo cual le debe ser remitido el expediente administrativo que incluya toda la información presentada por la persona solicitante, así como la proporcionada por la SENER, el CENACE y la CFE."
+75	parrafo	"14. Publicación periódica de capacidades y resultados de la Convocatoria de Proyectos Estratégicos
+76	parrafo	La SENER puede publicar y, en su caso, actualizar la Capacidad Requerida para la Convocatoria de Proyectos Estratégicos, así como el listado de proyectos que cumplieron con los requisitos correspondientes y con los criterios de planeación vinculante, y que obtuvieron un permiso con base en esta Convocatoria, en la página https://ventanilla.energia.gob.mx/.
+77	parrafo	Las publicaciones a las que hace referencia este numeral tienen carácter informativo y no sustituyen los actos, estudios, resoluciones o notificaciones que correspondan conforme a la normatividad aplicable."
+78	parrafo	"17.1 Para el desarrollo de la Convocatoria de Proyectos Estratégicos, el procedimiento de registro de manifestación de interés y solicitud de estudios de conexión e interconexión queda sujeto a las etapas, plazos y actividades siguientes:
+79	parrafo	En todos los casos, el procedimiento queda sujeto a lo siguiente:
+80	tabla	No. de ↵ Etapa ↵ Alcance ↵ Fechas/plazos (días ↵ hábiles) ↵ Descripción de la actividad ↵ 1 ↵ Publicación de la Convocatoria de Proyectos Estratégicos. ↵ 15 de mayo ↵ SENER publica en el DOF la Convoc
+81	parrafo	"
+82	parrafo	"17.2. La SENER debe notificar, a través de la VUPE, la opinión emitida por el Grupo de Análisis Técnico a la que se refiere la etapa 10 prevista en el numeral 17.1 de la Convocatoria de Proyectos Estratégicos, a la persona solicitante, a la CFE y a la CNE."
+83	parrafo	"17.3. Emitida la opinión del Grupo de Análisis Técnico a la que se refiere la etapa 10 prevista en el numeral 17.1, la CFE debe iniciar el procedimiento correspondiente para que, en su caso, formalice el Proyecto en Asociación con la CFE.
+84	parrafo	Para la formalización de los contratos o instrumentos jurídicos del Proyecto Estratégico con la CFE, se debe estar a lo previsto en la LSE, el RLSE, la LPTE, el RLPTE, la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad y su reglamento y, en su caso, a los Lineamientos de los Esquemas para el Desarrollo Mixto de la Empresa Pública del Estado, Comisión Federal de Electricidad y demás normatividad aplicable.
+85	parrafo	En caso de que no se formalice el Proyecto en Asociación con la CFE, la empresa pública del Estado lo debe informar a la SENER a efecto de que esta notifique, a través de la VUPE, la conclusión del procedimiento. Lo anterior, sin perjuicio de que la persona interesada pueda participar en otras convocatorias, conforme a la normatividad aplicable."
+86	parrafo	"17.4 Formalizado el Proyecto en Asociación con la CFE, la persona solicitante o la CFE, debe presentar la solicitud del permiso que corresponda de conformidad con las etapas, plazos y actividades siguientes:
+87	tabla	No. de ↵ Etapa ↵ Alcance ↵ Plazos (días hábiles) ↵ Descripción de actividad ↵ 1 ↵ Presentación de la solicitud de permiso. ↵ 15 días ↵ La persona solicitante o la CFE debe ingresar, a través de la OPE
+88	parrafo	"
+89	parrafo	"17.4.1. Para efectos del procedimiento de otorgamiento de permisos en términos de la Convocatoria de Proyectos Estratégicos, los plazos y etapas para su atención corresponden a los señalados en la misma."
+90	parrafo	"18. Referencias de Capacidad Requerida para la Convocatoria de Proyectos Estratégicos de Sistemas de Almacenamiento de Energía Eléctrica y Generación de Energía Eléctrica
+91	parrafo	La referencia de Capacidad Requerida para la Convocatoria de Proyectos Estratégicos establece las cantidades para identificar las necesidades generales de generación y almacenamiento de energía eléctrica, dando prioridad a los proyectos cuya Entrada en Operación Comercial esté prevista antes de 2030, de acuerdo con lo siguiente:
+92	parrafo	18.1...
+93	parrafo	Para la generación de energía eléctrica, la referencia de Capacidad Requerida para la Convocatoria de Proyectos Estratégicos considera la planeación vinculante y las condiciones operativas del SEN."
+94	parrafo	"18.2 ...
+95	parrafo	...
+96	tabla	Gerencia de Control Regional ↵ Capacidad Requerida para la Convocatoria de ↵ Proyectos Estratégicos (MW) ↵ Horas de almacenamiento ↵ Baja California ↵ 140 ↵ 3 horas ↵ Baja California Sur ↵ 50 ↵ 3 hora
+97	parrafo	"
+98	parrafo	SEGUNDO. Los plazos y referencias contenidos en la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, deben entenderse conforme a lo previsto en la modificación a la que se refiere el numeral anterior.
+99	parrafo	TRANSITORIOS
+100	parrafo	PRIMERO. El presente Acuerdo entrará en vigor el mismo día de su publicación en el Diario Oficial de la Federación.
+101	parrafo	SEGUNDO. Para el caso de aquellas personas solicitantes que hayan presentado registros de manifestación de interés y solicitudes de estudios de interconexión y conexión previo a la fecha de publicación de este Acuerdo, en un plazo no mayor a 5 días hábiles, deben manifestar su interés en continuar con el procedimiento de la Convocatoria de Proyectos Estratégicos conforme al procedimiento establecido previo a la entrada en vigor del presente Acuerdo.
+102	parrafo	En caso de que las personas solicitantes no manifiesten el interés al que se refiere el párrafo anterior, el procedimiento continuará conforme a lo establecido en el presente Acuerdo.
+103	parrafo	Ciudad de México, a 7 de julio de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.

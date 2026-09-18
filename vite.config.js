@@ -58,8 +58,6 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    hmr: {
-      clientPort: 5173
-    }
+    // HMR utiliza el puerto real de Vite, también al arrancar con --port 5317.
   }
 });

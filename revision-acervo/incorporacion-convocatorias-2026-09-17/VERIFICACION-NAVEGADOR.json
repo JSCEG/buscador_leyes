@@ -1,0 +1,441 @@
+{
+  "fecha": "2026-09-18T05:58:45.069Z",
+  "busquedas": [
+    {
+      "siglas": "CONV-GEN-1",
+      "total": 11
+    },
+    {
+      "siglas": "CONV-GEN-1-M1",
+      "total": 2
+    },
+    {
+      "siglas": "CONV-GEN-1-M2",
+      "total": 1
+    },
+    {
+      "siglas": "CONV-GEN-1-M3",
+      "total": 3
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "total": 15
+    },
+    {
+      "siglas": "CONV-GEN-2-M1",
+      "total": 3
+    },
+    {
+      "siglas": "CONV-GEN-2-M2",
+      "total": 3
+    },
+    {
+      "siglas": "CONV-GEN-2-M3",
+      "total": 3
+    },
+    {
+      "siglas": "CONV-GEN-2-M4",
+      "total": 2
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "total": 17
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M1",
+      "total": 3
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "total": 9
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M3",
+      "total": 2
+    }
+  ],
+  "fragmentos_con_tablas_o_graficos": [
+    {
+      "siglas": "CONV-GEN-1",
+      "id": "a587b39c-43fa-5509-83d7-0de2c56c110a",
+      "etiqueta": "Numeral 5",
+      "tablas": 0,
+      "celdas": 0,
+      "casillas": 0,
+      "graficos": 1,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1",
+      "id": "203ad777-ae10-59bb-8291-4f0a965ca711",
+      "etiqueta": "Numeral 6",
+      "tablas": 1,
+      "celdas": 88,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1",
+      "id": "66841059-17b2-503c-b5b0-2c917d6caebb",
+      "etiqueta": "Numeral 7",
+      "tablas": 1,
+      "celdas": 18,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1",
+      "id": "9931bc29-3772-5477-9c64-f11c40cbba68",
+      "etiqueta": "12.a · Anexo técnico",
+      "tablas": 1,
+      "celdas": 283,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1",
+      "id": "a76b3f43-e931-5271-a0fc-e2b7a267410f",
+      "etiqueta": "12.c · Formato de trámite previo",
+      "tablas": 4,
+      "celdas": 21,
+      "casillas": 3,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1",
+      "id": "08d6976b-fe81-5423-8f60-6e18f7484eac",
+      "etiqueta": "12.d · Formato de aceptación de obras",
+      "tablas": 1,
+      "celdas": 1,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1-M1",
+      "id": "fb326cd5-c412-56e2-a63c-5bf8c6b96077",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 88,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1-M2",
+      "id": "aff838b2-a58c-5d56-8034-26314c81bff4",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 10,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-1-M3",
+      "id": "0d103f90-8b3a-5a24-9a69-17cd48b6841a",
+      "etiqueta": "Resolutivo SEGUNDO",
+      "tablas": 1,
+      "celdas": 1,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "id": "b17f7fa8-a4b1-5ca0-823f-0907932e24b6",
+      "etiqueta": "Numeral 6.1",
+      "tablas": 0,
+      "celdas": 0,
+      "casillas": 0,
+      "graficos": 1,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "id": "6ee5560e-21fa-507a-9f23-64bd06dfda3b",
+      "etiqueta": "Numeral 7",
+      "tablas": 1,
+      "celdas": 115,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "id": "e187d087-dc31-55b8-ba69-83d92b7171e0",
+      "etiqueta": "Numeral 8.1",
+      "tablas": 1,
+      "celdas": 19,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "id": "1483acf1-e109-5ed6-9414-afb5b022d599",
+      "etiqueta": "Numeral 14.2",
+      "tablas": 3,
+      "celdas": 21,
+      "casillas": 3,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "id": "6a0d26f7-e912-5adc-b5ce-b7fd6719bab9",
+      "etiqueta": "Numeral 14.3",
+      "tablas": 1,
+      "celdas": 1,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2",
+      "id": "ea2bd382-b972-5048-83ad-9bd14989b7d5",
+      "etiqueta": "Numeral 14.4",
+      "tablas": 1,
+      "celdas": 56,
+      "casillas": 0,
+      "graficos": 1,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2-M1",
+      "id": "50928d41-7a42-59d2-99bb-8c111ea0596f",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 85,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2-M2",
+      "id": "e4799d81-2922-5cd7-9399-5db56ce2a5ff",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 80,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2-M3",
+      "id": "3934fece-91f3-5358-abb4-6911fd9f60c1",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 80,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-GEN-2-M4",
+      "id": "8e5cfe26-f83f-56b3-bb0b-eb0535c0e060",
+      "etiqueta": "Resolutivo ÚNICO",
+      "tablas": 1,
+      "celdas": 55,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "40bfbc8d-45f7-54f1-9f97-56df4607178b",
+      "etiqueta": "Numeral 7.2",
+      "tablas": 0,
+      "celdas": 0,
+      "casillas": 0,
+      "graficos": 1,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "362f32af-e1dc-562b-a685-092101d27b23",
+      "etiqueta": "Numeral 12.2",
+      "tablas": 1,
+      "celdas": 22,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "cb281c5a-a5a1-5f38-8ff3-63248483a679",
+      "etiqueta": "Numeral 17.1",
+      "tablas": 1,
+      "celdas": 44,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "7fb19a85-b854-5530-a611-78295d4ae439",
+      "etiqueta": "Numeral 17.4 · primer bloque",
+      "tablas": 1,
+      "celdas": 48,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "6cd822a3-cbaa-567e-a99b-bb7b833961e2",
+      "etiqueta": "Numeral 18.2",
+      "tablas": 1,
+      "celdas": 27,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "7dff4ed3-14a8-563a-b231-2bae3727122e",
+      "etiqueta": "Numeral 19.2",
+      "tablas": 3,
+      "celdas": 21,
+      "casillas": 3,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS",
+      "id": "5c20e3a3-a418-52db-bb10-d2a9279ca345",
+      "etiqueta": "Numeral 19.3",
+      "tablas": 1,
+      "celdas": 1,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M1",
+      "id": "1946cddc-6318-5768-bc1c-8a59afa420ed",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 8,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "id": "fbed5ce0-0c02-5a9a-a4d6-11506d12a5b9",
+      "etiqueta": "PRIMERO · Texto citado del numeral 17.1",
+      "tablas": 1,
+      "celdas": 44,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "id": "93f0f7e8-d5c9-5e10-a144-e09219222c50",
+      "etiqueta": "PRIMERO · Texto citado del numeral 17.4",
+      "tablas": 1,
+      "celdas": 48,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "id": "005bb5c7-c2e7-5777-8201-20803f43db45",
+      "etiqueta": "PRIMERO · Texto citado del numeral 18.2",
+      "tablas": 1,
+      "celdas": 27,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "siglas": "CONV-ESTRATEGICOS-M3",
+      "id": "6ee5efd4-df11-5569-9595-5242e6424685",
+      "etiqueta": "Resolutivo PRIMERO",
+      "tablas": 1,
+      "celdas": 8,
+      "casillas": 0,
+      "graficos": 0,
+      "coincide": true,
+      "graficos_cargados": true,
+      "sin_desbordamiento": true
+    }
+  ],
+  "enlace_version": {
+    "urls": [
+      "/#ley-b09aa69b-381d-56ee-890d-53c42a98565f",
+      "/#ley-e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "/#ley-10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "/#ley-84446660-e33c-512f-9975-57527758c6c7"
+    ],
+    "abre_documento_correcto": true
+  },
+  "ok": true
+}

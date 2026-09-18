@@ -1,0 +1,50 @@
+[
+  {
+    "name": "RLBio",
+    "ley_id": "2e138615-d588-568b-bd94-e1a3c1032317",
+    "fragmentos": 128,
+    "temas": 29,
+    "chars": 189545,
+    "sha256": "f52dd9e7f7ec911a9866fc8ebc09048487fde4401e1d5cd70aad537a4765f830"
+  },
+  {
+    "name": "RLGeo",
+    "ley_id": "c0baa869-1f0b-5f6d-bf99-1ba70ab96fbc",
+    "fragmentos": 112,
+    "temas": 32,
+    "chars": 139123,
+    "sha256": "d9f56f8acefc8f9afd8b8d047de4bd98d8992de242372a682001d2fd4d86b548"
+  },
+  {
+    "name": "RLEPECFE",
+    "ley_id": "98736b95-6a9e-54f2-966e-5c7706135b43",
+    "fragmentos": 93,
+    "temas": 23,
+    "chars": 97413,
+    "sha256": "bd3b41aa2bfd2d047a622f180d1784c64181bded46a4686a698424c7eb16665a"
+  },
+  {
+    "name": "RLEPEPM",
+    "ley_id": "055c877a-1eb8-5f0b-9fe2-d28bd73afe3b",
+    "fragmentos": 90,
+    "temas": 24,
+    "chars": 93062,
+    "sha256": "a337c082d0c33efb751ca99420cb4b0c8058623105bb97a7fc0bc21dee9a363b"
+  },
+  {
+    "name": "DACG-PERMISOS-GA",
+    "ley_id": "37c89350-82df-5021-8dbe-94e8e31e1d3e",
+    "fragmentos": 86,
+    "temas": 38,
+    "chars": 280506,
+    "sha256": "ab8d2fd99cc17a7587a62990f84f9df1e94af7c735878c4d45872e4c98927ba0"
+  },
+  {
+    "name": "FORMATOS-SAEE",
+    "ley_id": "3811f946-9a03-580d-9d00-3487db4f5e5a",
+    "fragmentos": 8,
+    "temas": 4,
+    "chars": 87602,
+    "sha256": "25bced9a2dd833d5e09e9bf44a36e4a5c318389ca784074008624e66de114645"
+  }
+]

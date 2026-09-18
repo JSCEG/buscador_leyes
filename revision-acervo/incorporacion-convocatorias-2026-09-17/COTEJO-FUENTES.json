@@ -1,0 +1,132 @@
+[
+  {
+    "instrumento": "CONV-GEN-1",
+    "fragmentos_fuente": 18,
+    "texto_completo_cotejado": true,
+    "tablas": 8,
+    "celdas": 411,
+    "graficos": 1,
+    "casillas": 3,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-1-M1",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 88,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-1-M2",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 10,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-1-M3",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 1,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-2",
+    "fragmentos_fuente": 35,
+    "texto_completo_cotejado": true,
+    "tablas": 7,
+    "celdas": 212,
+    "graficos": 2,
+    "casillas": 3,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-2-M1",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 85,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-2-M2",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 80,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-2-M3",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 80,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-GEN-2-M4",
+    "fragmentos_fuente": 4,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 55,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-ESTRATEGICOS",
+    "fragmentos_fuente": 57,
+    "texto_completo_cotejado": true,
+    "tablas": 8,
+    "celdas": 163,
+    "graficos": 1,
+    "casillas": 3,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-ESTRATEGICOS-M1",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 8,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-ESTRATEGICOS-M2",
+    "fragmentos_fuente": 27,
+    "texto_completo_cotejado": true,
+    "tablas": 3,
+    "celdas": 119,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-ESTRATEGICOS-M3",
+    "fragmentos_fuente": 4,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 8,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

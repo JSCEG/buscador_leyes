@@ -1,0 +1,20 @@
+[
+  {
+    "instrumento": "DACG-PERMISOS-GA",
+    "fragmentos": 86,
+    "texto_completo_cotejado": true,
+    "tablas": 90,
+    "celdas": 1352,
+    "casillas": 73,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "FORMATOS-SAEE",
+    "fragmentos": 8,
+    "texto_completo_cotejado": true,
+    "tablas": 40,
+    "celdas": 721,
+    "casillas": 42,
+    "estructura_de_celdas_identica": true
+  }
+]

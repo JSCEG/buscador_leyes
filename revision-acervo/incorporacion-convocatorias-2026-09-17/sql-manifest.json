@@ -1,0 +1,106 @@
+[
+  {
+    "name": "CONV-GEN-1",
+    "ley_id": "b09aa69b-381d-56ee-890d-53c42a98565f",
+    "fragmentos": 19,
+    "temas": 17,
+    "chars": 90867,
+    "sha256": "edcea308bb84908719aac6794ecf2d58c17c6070972e631c1b23922549285232"
+  },
+  {
+    "name": "CONV-GEN-1-M1",
+    "ley_id": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 24385,
+    "sha256": "1b550a29e85f4a34532eabbe79b01c45f1895f5bbf28ecbbd33cacc7ca6523cd"
+  },
+  {
+    "name": "CONV-GEN-1-M2",
+    "ley_id": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 12899,
+    "sha256": "d8a9d9579dacc87a856c4b460b5a08c670a9766a2d17ad2f9b7e52e19854f6a7"
+  },
+  {
+    "name": "CONV-GEN-1-M3",
+    "ley_id": "84446660-e33c-512f-9975-57527758c6c7",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 17518,
+    "sha256": "11fd23f7384ff9a9cc4ec5f7bcb04eeab3142a2e8ff534f3ee6340ddcd016ed1"
+  },
+  {
+    "name": "CONV-GEN-2",
+    "ley_id": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+    "fragmentos": 36,
+    "temas": 40,
+    "chars": 108632,
+    "sha256": "ec28753d1eef5795f11d0195a7cb0172b33d55362c5ebd8c08413a2001aa328c"
+  },
+  {
+    "name": "CONV-GEN-2-M1",
+    "ley_id": "f7419b4e-49eb-5425-a439-562f25a4d581",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 24002,
+    "sha256": "012dd9cb9e860d625994c21b9cf5043f0fd30b7cfae0cc515d5b36e9b81df97e"
+  },
+  {
+    "name": "CONV-GEN-2-M2",
+    "ley_id": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 24427,
+    "sha256": "962918edec0d377cde4f179864f5e4b4ac8f5de39561b1ccf52cd5323a4932b9"
+  },
+  {
+    "name": "CONV-GEN-2-M3",
+    "ley_id": "d026115a-998a-544f-bff0-39f93c04f444",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 24812,
+    "sha256": "f5ca20b3bb2ad29ae2e2a04003e04f689e53e51a07e73bc27076921068f1e8a2"
+  },
+  {
+    "name": "CONV-GEN-2-M4",
+    "ley_id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+    "fragmentos": 5,
+    "temas": 3,
+    "chars": 14495,
+    "sha256": "d556dff5ce6a00b2c795f1a3cdb4dc730eb2b20f7b9303ca990df5fdf45d9131"
+  },
+  {
+    "name": "CONV-ESTRATEGICOS",
+    "ley_id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+    "fragmentos": 58,
+    "temas": 71,
+    "chars": 117434,
+    "sha256": "bb32fc6a722283f028eea093cde3bff969141440366d53091c8d61645975ead7"
+  },
+  {
+    "name": "CONV-ESTRATEGICOS-M1",
+    "ley_id": "373ce6df-4e78-59d9-aae5-54007a446c59",
+    "fragmentos": 6,
+    "temas": 4,
+    "chars": 11901,
+    "sha256": "e1d69fbb246fb6802ff8ce307f88aec635a02cfac6a563c13befd4e2c21e5f6d"
+  },
+  {
+    "name": "CONV-ESTRATEGICOS-M2",
+    "ley_id": "29886758-c194-5db4-86eb-8c96347f7aba",
+    "fragmentos": 28,
+    "temas": 25,
+    "chars": 53949,
+    "sha256": "cde6dda3fa373b31755d51ce1fea121d7fb98a7b4b73406084a0f10469610b51"
+  },
+  {
+    "name": "CONV-ESTRATEGICOS-M3",
+    "ley_id": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+    "fragmentos": 5,
+    "temas": 3,
+    "chars": 11414,
+    "sha256": "71afb45bae87f2ac84402198228ecca3695b417c974a8b28ac1ee94cda6a6fd0"
+  }
+]

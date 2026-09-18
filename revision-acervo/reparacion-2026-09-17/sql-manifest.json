@@ -1,0 +1,74 @@
+[
+  {
+    "name": "RLSE",
+    "file": "RLSE-aplicar.sql",
+    "chars": 548297,
+    "sha256": "046f0b1caf43fd1319cdd72cf7f4f054aade7fef8c47174a1fee1d0c5c6bfac5"
+  },
+  {
+    "name": "LSE",
+    "file": "LSE-aplicar.sql",
+    "chars": 373468,
+    "sha256": "c34b961b95f0907d3a20ac2f04e5041c4eeeadfd09a12b98f58069cb77147950"
+  },
+  {
+    "name": "LPTE",
+    "file": "LPTE-aplicar.sql",
+    "chars": 171555,
+    "sha256": "77cba30d29309475322c4be5e3b94b1bc969ceec370eb42a361e3ad1049b693d"
+  },
+  {
+    "name": "LGTAIP",
+    "file": "LGTAIP-aplicar.sql",
+    "chars": 401984,
+    "sha256": "b42a7cde96a1befc45e6498086bbd487520c953b076c24cc9366bfd3cdb99b10"
+  },
+  {
+    "name": "LGEC",
+    "file": "LGEC-aplicar.sql",
+    "chars": 115776,
+    "sha256": "553978481afc999438aa6198ae6a5a1afdf53108dadf852a0d6d5571ded8edc6"
+  },
+  {
+    "name": "RISENER",
+    "file": "RISENER-aplicar.sql",
+    "chars": 441429,
+    "sha256": "3be993868e2d21594c8cedb6e4a58365d79eac9b3a3d5b08fb3b8f532001bd39"
+  },
+  {
+    "name": "RLPTE",
+    "file": "RLPTE-aplicar.sql",
+    "chars": 209799,
+    "sha256": "ed5708ad7c9c54f2a249934db5c38a63a534d17d04edca746ae63097a399eb16"
+  },
+  {
+    "name": "RLSH",
+    "file": "RLSH-aplicar.sql",
+    "chars": 630975,
+    "sha256": "19b84af479c565d79731c5859ed18f80e92ab9ebe9af2ddbb167bdcdf2890a3c"
+  },
+  {
+    "name": "DACG-PV",
+    "file": "DACG-PV-aplicar.sql",
+    "chars": 26710,
+    "sha256": "bfba3bdd94882a64c3ca63807af9dd9386319ca79cadfe2092097652e8ddf557"
+  },
+  {
+    "name": "PODECOBI-LIN",
+    "file": "PODECOBI-LIN-aplicar.sql",
+    "chars": 73985,
+    "sha256": "2316490d72da277e76a5041e4fd3695a19b9f79e0bfb8b34560b8c730a7e1676"
+  },
+  {
+    "name": "PODECOBI-DEC",
+    "file": "PODECOBI-DEC-aplicar.sql",
+    "chars": 47333,
+    "sha256": "d652879f7712506abc3e662046b881af617ae43b9e6dce5465470c9a31af46c9"
+  },
+  {
+    "name": "SAEE",
+    "file": "SAEE-aplicar.sql",
+    "chars": 204462,
+    "sha256": "3cd506ad853c25b2252d1763a4a976392bb2fffd6415d0674aa5bf808715a799"
+  }
+]

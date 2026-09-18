@@ -1,0 +1,30 @@
+0	parrafo	ACUERDO por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.
+1	parrafo	Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.
+2	parrafo	LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2 y 10 fracción II de la Ley del Sector Eléctrico, 57 del Reglamento de la Ley de Planeación y T
+3	parrafo	CONSIDERANDO
+4	parrafo	Que el 11 de mayo de 2026, se publicó en el Diario Oficial de la Federación la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, dirigida a todas las personas solicitantes interesadas en desarrollar nuevos proyectos de generación de energía eléctrica con capacidad igual o mayor a 0.7 MW, que pretendan interconectarse al Sistema Eléctrico Nacional.
+5	parrafo	Que la Segunda Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes para la obtención de los permisos de generación de energía eléctrica que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional, de acuerdo con los Instrumentos de Planeación del Sector Energético.
+6	parrafo	Que el 26 de mayo de 2026 se publicó en el Diario Oficial de la Federación el Acuerdo por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, derivado del interés manifestado por los participantes y con el propósito de favorecer una mayor participación en la Convocatoria.
+7	parrafo	Que el 8 de junio de 2026 se publicó en el Diario Oficial de la Federación el Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.
+8	parrafo	Que, considerando que la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, se encuentra relacionada con los requerimientos faltantes resultado de la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica y de interconexión al Sistema Eléctrico Nacional, alineada con la planeación vinculante y de la convocatoria pa
+9	parrafo	ACUERDO POR EL QUE SE EMITE LA TERCERA MODIFICACIÓN A LA SEGUNDA CONVOCATORIA PARA LA ↵ ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN DE ENERGÍA ELÉCTRICA E ↵ INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE
+10	parrafo	PRIMERO. Se modifican las etapas 3 a 17 del calendario previsto en el numeral 7; el segundo párrafo del numeral 8.2.; el primer párrafo de los numerales 9.1 y 9.2. de la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, para quedar en los siguientes términos:
+11	parrafo	"7. ...
+12	parrafo	...
+13	tabla	No. ↵ Etapa ↵ Fechas en 2026 ↵ Consideraciones sobre la etapa ↵ Acciones que las ↵ personas solicitantes ↵ deben realizar ↵ 3 ↵ Prevención por parte del ↵ CENACE y atención de la ↵ persona solicitante
+14	parrafo	..."
+15	parrafo	"8.2. ...
+16	parrafo	...
+17	parrafo	I...
+18	parrafo	II. ...
+19	parrafo	La SENER y el CENACE deben entregar a la CNE la información solicitada a más tardar el 01 de octubre de 2026.
+20	parrafo	..."
+21	parrafo	"9.1. ...
+22	parrafo	El Comité Técnico de la CNE debe resolver sobre la aprobación de las solicitudes que se le sometan a consideración en la sesión extraordinaria que se celebre del 08 al 09 de octubre de 2026, conforme a lo previsto en la LCNE y las Reglas de Operación de dicho Comité, para lo cual les debe ser remitido el expediente administrativo que incluya toda la información presentada por la persona particular, así como, en su caso la proporcionada por la SENER, el CENACE y el Grupo de Análisis Técnico."
+23	parrafo	"9.2. ...
+24	parrafo	La CNE debe emitir y notificar los títulos de permisos aprobados por el Comité Técnico de la CNE, respecto de permisos de generación de energía eléctrica, el 13 de octubre de 2026.
+25	parrafo	..."
+26	parrafo	SEGUNDO. Los plazos y referencias contenidas en la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, deben entenderse conforme a lo previsto en la modificación a que se refiere el numeral anterior.
+27	parrafo	TRANSITORIO
+28	parrafo	ÚNICO. El presente Acuerdo entrará en vigor el mismo día de su publicación en el Diario Oficial de la Federación.
+29	parrafo	Ciudad de México, a 04 de junio de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.

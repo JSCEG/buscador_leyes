@@ -1,0 +1,106 @@
+{
+  "instrumento": "CONV-ESTRATEGICOS-M3",
+  "sha256": "0cfde031eb5619dc65a65ca97376feb1623841962fe7c4d5e4c120df1b2b6178",
+  "tablas": 1,
+  "casillas": 0,
+  "graficos": 0,
+  "bloques": [
+    {
+      "id": 0,
+      "tipo": "parrafo",
+      "texto": "ACUERDO por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.",
+      "html": " ACUERDO por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante."
+    },
+    {
+      "id": 1,
+      "tipo": "parrafo",
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.",
+      "html": " Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía."
+    },
+    {
+      "id": 2,
+      "tipo": "parrafo",
+      "texto": "LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2o., fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXI de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2, 10, fracciones I, VI y XIV, 16, 36 y 38 de la Ley del Sector Eléctrico; 2, fracción III de la Ley de Planeación y Transición Energética, y 2, fracción XXV, 3, 13 y 28 del Reglamento de la Ley del Sector Eléctrico, y",
+      "html": "<div> LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2o., fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXI de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2, 10, fracciones I, VI y XIV, 16, 36 y 38 de la Ley del Sector Eléctrico; 2, fracción III de la Ley de Planeación y Transición Energética, y 2, fracción XXV, 3, 13 y 28 del Reglamento de la Ley del Sector Eléctrico, y</div>"
+    },
+    {
+      "id": 3,
+      "tipo": "parrafo",
+      "texto": "CONSIDERANDO",
+      "html": "<div> CONSIDERANDO<br> </div>"
+    },
+    {
+      "id": 4,
+      "tipo": "parrafo",
+      "texto": "Que el 15 de mayo de 2026 se publicó en el Diario Oficial de la Federación la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, dirigida a las personas interesadas en desarrollar proyectos estratégicos de generación y almacenamiento de energía eléctrica alineados a la planeación vinculante del sector eléctrico, misma que fue modificada mediante Acuerdos publicados en el Diario Oficial de la Federación el 26 de mayo de 2026 y el 10 de julio de 2026.",
+      "html": "<div> Que el 15 de mayo de 2026 se publicó en el Diario Oficial de la Federación la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, dirigida a las personas interesadas en desarrollar proyectos estratégicos de generación y almacenamiento de energía eléctrica alineados a la planeación vinculante del sector eléctrico, misma que fue modificada mediante Acuerdos publicados en el Diario Oficial de la Federación el 26 de mayo de 2026 y el 10 de julio de 2026.</div>"
+    },
+    {
+      "id": 5,
+      "tipo": "parrafo",
+      "texto": "Que la citada Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes de obtención de permisos, estudios de interconexión y conexión y, en su caso, la celebración de los contratos correspondientes, a fin de permitir el desarrollo de proyectos estratégicos de generación de energía eléctrica renovable y de Sistemas de Almacenamiento de Energía Eléctrica que se ejecuten bajo esquemas de Proyecto en Asociación con la Comisión Federal de Electricidad, necesarios para fortalecer la confiabilidad, continuidad, eficiencia, seguridad y sostenibilidad del Sistema Eléctrico Nacional.",
+      "html": "<div> Que la citada Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes de obtención de permisos, estudios de interconexión y conexión y, en su caso, la celebración de los contratos correspondientes, a fin de permitir el desarrollo de proyectos estratégicos de generación de energía eléctrica renovable y de Sistemas de Almacenamiento de Energía Eléctrica que se ejecuten bajo esquemas de Proyecto en Asociación con la Comisión Federal de Electricidad, necesarios para fortalecer la confiabilidad, continuidad, eficiencia, seguridad y sostenibilidad del Sistema Eléctrico Nacional.</div>"
+    },
+    {
+      "id": 6,
+      "tipo": "parrafo",
+      "texto": "Que derivado del interés manifestado por los participantes, y con el propósito de incentivar la concurrencia, fortalecer el análisis técnico por parte de las autoridades y entes involucrados, optimizar los costos de los particulares y favorecer la eficiencia administrativa, resulta procedente ampliar el plazo para el registro de manifestaciones de interés y solicitudes de estudios de interconexión y conexión, por lo que he tenido a bien emitir el siguiente:",
+      "html": "<div> Que derivado del interés manifestado por los participantes, y con el propósito de incentivar la concurrencia, fortalecer el análisis técnico por parte de las autoridades y entes involucrados, optimizar los costos de los particulares y favorecer la eficiencia administrativa, resulta procedente ampliar el plazo para el registro de manifestaciones de interés y solicitudes de estudios de interconexión y conexión, por lo que he tenido a bien emitir el siguiente:</div>"
+    },
+    {
+      "id": 7,
+      "tipo": "parrafo",
+      "texto": "ACUERDO POR EL QUE SE EMITE LA TERCERA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN DE\nPROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA, ALINEADOS A\nLA PLANEACIÓN VINCULANTE",
+      "html": "<div> ACUERDO POR EL QUE SE EMITE LA TERCERA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN DE<br> PROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA, ALINEADOS A<br> LA PLANEACIÓN VINCULANTE<br> </div>"
+    },
+    {
+      "id": 8,
+      "tipo": "parrafo",
+      "texto": "PRIMERO. Se modifica la etapa 2 del numeral 17.1. de la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, para quedar como sigue:",
+      "html": "<div> PRIMERO. Se modifica la etapa 2 del numeral 17.1. de la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, para quedar como sigue:</div>"
+    },
+    {
+      "id": 9,
+      "tipo": "parrafo",
+      "texto": "\"17.1. ...",
+      "html": "<div> &quot;17.1. ...</div>"
+    },
+    {
+      "id": 10,
+      "tipo": "parrafo",
+      "texto": "...",
+      "html": "<div> ...</div>"
+    },
+    {
+      "id": 11,
+      "tipo": "tabla",
+      "texto": "No. de Etapa\nAlcance\nFechas/plazos (días hábiles)\nDescripción de la actividad\n2\n...\nGeneración de energía eléctrica: 2 de junio al 2 de septiembre de 2026.\nSistemas de Almacenamiento de Energía Eléctrica: 2 de junio al 30 de octubre de 2026.\n...",
+      "html": "<table> <tbody><tr> <td> <div> No. de Etapa<br> </div> </td> <td> <div> Alcance<br> </div> </td> <td> <div> Fechas/plazos (días hábiles)<br> </div> </td> <td> <div> Descripción de la actividad<br> </div> </td> </tr> <tr> <td> <div> 2<br> </div> </td> <td> <div> ...</div> </td> <td> <div> Generación de energía eléctrica: 2 de junio al 2 de septiembre de 2026.</div> <div> Sistemas de Almacenamiento de Energía Eléctrica: 2 de junio al 30 de octubre de 2026.</div> </td> <td> <div> ...</div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 12,
+      "tipo": "parrafo",
+      "texto": "...\"",
+      "html": "<div> ...&quot;</div>"
+    },
+    {
+      "id": 13,
+      "tipo": "parrafo",
+      "texto": "TRANSITORIOS",
+      "html": "<div> TRANSITORIOS<br> </div>"
+    },
+    {
+      "id": 14,
+      "tipo": "parrafo",
+      "texto": "ÚNICO. El presente Acuerdo entra en vigor el mismo día de su publicación en el Diario Oficial de la Federación.",
+      "html": "<div> ÚNICO. El presente Acuerdo entra en vigor el mismo día de su publicación en el Diario Oficial de la Federación.</div>"
+    },
+    {
+      "id": 15,
+      "tipo": "parrafo",
+      "texto": "Ciudad de México, a 31 de agosto de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.",
+      "html": "<div> Ciudad de México, a 31 de agosto de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.</div>"
+    }
+  ],
+  "cotejo_textual_sin_perdida": true
+}

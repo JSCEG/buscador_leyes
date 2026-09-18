@@ -1,0 +1,18 @@
+{
+  "fecha_local": "2026-09-17",
+  "url_aplicacion": "http://127.0.0.1:5317/",
+  "metodo": "Módulo search-engine real sobre Supabase; apertura del lector por enlace de cada instrumento; apertura del artículo 22 de LCNE en el modal.",
+  "instrumentos": [
+    {"siglas":"LCNE","fragmentos":48,"temas":13,"consulta":"Energía","resultados":19,"lector_visible":true},
+    {"siglas":"LSH","fragmentos":194,"temas":26,"consulta":"Energía","resultados":125,"lector_visible":true},
+    {"siglas":"RICNE","fragmentos":48,"temas":16,"consulta":"Suplencia","resultados":1,"lector_visible":true},
+    {"siglas":"LEPECFE","fragmentos":154,"temas":25,"consulta":"Energía","resultados":21,"lector_visible":true},
+    {"siglas":"LEPEPM","fragmentos":152,"temas":25,"consulta":"Energía","resultados":19,"lector_visible":true},
+    {"siglas":"LBio","fragmentos":64,"temas":16,"consulta":"Biomasa","resultados":22,"lector_visible":true},
+    {"siglas":"LGeo","fragmentos":79,"temas":15,"consulta":"Geotérmicos","resultados":53,"lector_visible":true}
+  ],
+  "lcne_articulo_22_nota_invalidez_visible": true,
+  "fragmentos_del_informe": 739,
+  "observaciones_existentes": ["HMR de Vite intenta el puerto 5173; la aplicación se sirve en 5317.", "La tabla ley_relaciones sigue ausente; el módulo la trata como opcional.", "Avisos de iconos del manifest y favicon; no impidieron las consultas ni la lectura."],
+  "alcance": "Comprueba lectura y búsqueda en la aplicación local; no certifica todos los flujos del frontend. No se modificó el frontend en esta incorporación."
+}

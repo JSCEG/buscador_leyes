@@ -2,12 +2,25 @@ node_modules
 dist
 .DS_Store
 .env
+.env.*
+!.env.example
 
 # Logs and temporary files
+.local/
+.playwright-mcp/
+graphify-out/cache/
+revision-acervo/**/*.pdf
+revision-acervo/**/revision-visual/
+revision-acervo/**/*.png
+!revision-acervo/**/fuentes/*.png
+__pycache__/
+*.pyc
+Leyes_en_pdf/*.pdf
 *.log
 *_log.txt
 tmp_*
 url.txt
+scratch/
 
 # Agent and IDE specific
 .agents/

@@ -1,30 +1,26 @@
 import { supabase } from '../lib/supabase.js';
 import { getAllLeyesAdmin, updateLaw, deleteLaw } from './search-engine.js';
 import { isAdmin } from './auth.js';
-
-const TRANSITORY_LABELS = [
-    'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 'SEXTO', 'SÉPTIMO', 'SEPTIMO',
-    'OCTAVO', 'NOVENO', 'DÉCIMO', 'DECIMO', 'UNDÉCIMO', 'UNDECIMO', 'DUODÉCIMO', 'DUODECIMO',
-    'VIGÉSIMO', 'VIGESIMO', 'ÚNICO', 'UNICO', 'ARTÍCULO TRANSITORIO', 'ARTICULO TRANSITORIO'
-];
-const TRANSITORY_HEADING_PATTERN = new RegExp(
-    String.raw`^(?:${TRANSITORY_LABELS.join('|')})(?:\.-|[.:-])(?:\s+|$)`,
-    'iu'
-);
-
-function parseHeading(line, pattern) {
-    const match = line.match(pattern);
-    if (!match) return null;
-    return {
-        identifier: match[0].trim(),
-        remainder: line.slice(match[0].length).trim()
-    };
-}
+import { parseRegulatoryText, reconstructPdfPages, validateRegulatoryChunks } from '../lib/regulatory-parser.js';
 
 let importedFile = null;
 let importedDofText = null;
 let parsedChunks = [];
 let parsedThemes = [];
+let parsedNotices = [];
+let parsedSourceText = '';
+let documentRevision = 0;
+
+function resetParsedDocument({ keepSourceNotices = false } = {}) {
+    documentRevision++;
+    parsedChunks = [];
+    parsedThemes = [];
+    parsedNotices = keepSourceNotices ? parsedNotices.filter(n => n.code === 'tablas') : [];
+    parsedSourceText = '';
+    document.getElementById('admin-preview-area')?.classList.add('hidden');
+    const button = document.getElementById('admin-btn-ingest');
+    if (button) button.disabled = true;
+}
 
 export function initAdminIngest() {
     console.log("Admin Ingest Module initialized.");
@@ -96,6 +92,7 @@ export function initAdminIngest() {
 
     btnParse.addEventListener('click', handleParseFile);
     btnIngest.addEventListener('click', handleIngestToSupabase);
+    document.getElementById('admin-structure-mode')?.addEventListener('change', () => resetParsedDocument({ keepSourceNotices: true }));
 
     document.getElementById('admin-btn-dof-import')?.addEventListener('click', handleDofUrlImport);
     document.getElementById('admin-input-dof-url')?.addEventListener('keydown', (e) => {
@@ -147,7 +144,7 @@ async function fetchAndRenderManageLaws() {
         }
 
         listContainer.innerHTML = leyes.map(ley => {
-            const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }) : '---';
+            const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }) : '---';
             return `
                 <tr class="hover:bg-gray-50/80 transition-colors group">
                     <td class="px-6 py-4">
@@ -314,6 +311,7 @@ function handleFileSelection(file) {
     }
     importedFile = file;
     importedDofText = null;
+    resetParsedDocument();
     document.getElementById('admin-file-name').textContent = `📄 ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
     document.getElementById('admin-file-name').classList.remove('hidden');
     document.getElementById('admin-btn-parse').disabled = false;
@@ -429,6 +427,7 @@ function fillFieldIfEmpty(id, value) {
 
 async function autoDetectMetadata(file) {
     const text = await extractFirstPagesText(file, 2);
+    if (importedFile !== file) return;
     const tipo = detectTipo(text);
     const fecha = detectFecha(text);
     const titulo = detectTitulo(text);
@@ -525,7 +524,9 @@ async function handleDofUrlImport() {
         if (!html || !html.trim()) {
             throw new Error('Esta nota no tiene versión HTML en el DOF (frecuente en publicaciones antiguas o anexos escaneados). Descarga el PDF y súbelo manualmente.');
         }
+        resetParsedDocument();
         importedDofText = htmlToPlainText(html);
+        if (/<table\b/i.test(html)) parsedNotices.push({ code: 'tablas', message: 'La nota contiene tablas. Verifica columnas, unidades y notas en el documento oficial.' });
         importedFile = null;
         parsedChunks = [];
         document.getElementById('admin-preview-area')?.classList.add('hidden');
@@ -614,6 +615,7 @@ function displayAlert(type, title, message) {
 }
 
 async function handleParseFile() {
+    const revision = documentRevision;
     const titleInput = document.getElementById('admin-input-title').value.trim();
     const siglasInput = document.getElementById('admin-input-siglas').value.trim();
     if (!titleInput) {
@@ -623,6 +625,7 @@ async function handleParseFile() {
     if (!importedFile && !importedDofText) return;
     try {
         const { data: leyes } = await supabase.from('leyes').select('titulo, siglas');
+        if (revision !== documentRevision) return;
         let possibleDuplicate = false;
         let dupReason = '';
         for (const ley of (leyes || [])) {
@@ -648,11 +651,18 @@ async function handleParseFile() {
     document.getElementById('admin-btn-parse').disabled = true;
     document.getElementById('admin-loading-spinner').classList.remove('hidden');
     try {
-        const textContent = importedDofText !== null
-            ? importedDofText
+        const extraction = importedDofText !== null
+            ? { text: importedDofText, emptyPages: [] }
             : await extractTextFromPDF(importedFile);
-        parsedThemes = extractThemes(textContent);
-        parsedChunks = executeChunkingAlg(textContent, parsedThemes);
+        if (revision !== documentRevision) return;
+        const textContent = extraction.text;
+        parsedSourceText = textContent;
+        const parsed = parseRegulatoryText(textContent, { mode: document.getElementById('admin-structure-mode')?.value || 'auto' });
+        parsedThemes = parsed.themes;
+        parsedNotices = [...parsedNotices.filter(n => n.code === 'tablas'), ...parsed.notices];
+        if (extraction.emptyPages.length) parsedNotices.push({ code: 'paginas_sin_texto', blocking: true,
+            message: `Páginas sin texto extraíble: ${extraction.emptyPages.join(', ')}. Revisa si necesitan OCR antes de cargar.` });
+        parsedChunks = parsed.chunks.map(c => ({ ...c, incluir: c.tipo !== 'complementario' }));
         renderPrevision(parsedChunks, parsedThemes);
     } catch (e) {
         displayAlert('error', 'Fallo de Parseo', e.message);
@@ -663,433 +673,115 @@ async function handleParseFile() {
 }
 
 async function extractTextFromPDF(file) {
-    const arrayBuffer = await file.arrayBuffer();
-    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
-    const pdf = await loadingTask.promise;
-    let fullText = '';
-    for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const textContent = await page.getTextContent();
-        let lastY = -1;
-        let textLines = [];
-        let currentLine = '';
-        for(let item of textContent.items) {
-            if (lastY !== item.transform[5] && currentLine.length > 0) {
-                textLines.push(currentLine);
-                currentLine = '';
-            }
-            currentLine += item.str + ' ';
-            lastY = item.transform[5];
+    const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+    const pages = [];
+    try {
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+            pages.push({ items: content.items, height: page.getViewport({ scale: 1 }).height });
         }
-        if (currentLine) textLines.push(currentLine);
-        fullText += textLines.join('\n') + '\n\n';
-    }
-    return fullText;
+        return reconstructPdfPages(pages);
+    } finally { await pdf.destroy(); }
 }
 
-// Ordinales españoles usados en decretos federales (Artículo Primero, Décimo Tercero, Vigésimo, etc.)
-const ORDINAL_ARTICLE_LABEL = String.raw`(?:(?:VIG[ÉE]SIMO|TRIG[ÉE]SIMO|CUADRAG[ÉE]SIMO|QUINQUAG[ÉE]SIMO|SEXAG[ÉE]SIMO|SEPTUAG[ÉE]SIMO|OCTOG[ÉE]SIMO|NONAG[ÉE]SIMO)(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO))?|D[ÉE]CIMO(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO))?|NOVENO|OCTAVO|S[ÉE]PTIMO|SEPTIMO|SEXTO|QUINTO|CUARTO|TERCERO|SEGUNDO|PRIMERO|[ÚU]NIC[OA])`;
-const BIS_MODIFIER = String.raw`(?:\s+(?:Bis|Ter|Qu[áa]ter|Quater|Quinquies|Sexies|Septies|Octies|Novies|Decies))?`;
-const ARTICLE_LABEL_SRC = String.raw`(?:\d+(?:[º°oO])?${BIS_MODIFIER}|${ORDINAL_ARTICLE_LABEL})`;
-// Normaliza encabezados "Artículo X." en mitad de línea para forzarlos a línea propia (pdf.js los concatena)
-const ARTICLE_HEADING_INLINE_PATTERN = new RegExp(
-    String.raw`(?<!\n)(?<=[.;:!?])\s+((?:ART[ÍI]CULO|Art[íi]culo)\s+${ARTICLE_LABEL_SRC}(?:\.-|[.:-]))(?=\s+)`,
-    'giu'
-);
-
-function executeChunkingAlg(text, themes = []) {
-    let cleanText = text.replace(/----------------Page \(\d+\) Break----------------/g, '\n');
-    cleanText = cleanText.replace(/(\w+)-\n\s*(\w+)/g, "$1$2");
-    cleanText = cleanText.replace(/(^|\s)(\d{1,3})A,\s+(?=[A-ZÁÉÍÓÚÑ])/gm, '$1\n$2. ');
-    cleanText = cleanText.replace(/(?<!\b(?:art[íi]culo|lineamiento|fracci[óo]n|inciso|numeral|punto|secci[óo]n|cap[íi]tulo|t[íi]tulo|p[áa]rrafo|apartado|decreto|anexo)\s+)(?<![\d.])\b(\d{1,3})\.\s+(?=[A-ZÁÉÍÓÚÑ])/gi, '\n$1. ');
-    cleanText = cleanText.replace(/(?<!\b(?:art[íi]culo|lineamiento|fracci[óo]n|inciso|numeral|punto|secci[óo]n|cap[íi]tulo|t[íi]tulo|p[áa]rrafo|apartado|decreto|anexo)\s+)\b(\d+\.(?:\d+\.)+)\s+(?=[A-ZÁÉÍÓÚÑ])/gi, '\n$1 ');
-    // Inserta salto antes de "Artículo Primero/Segundo/...Décimo Tercero/Bis" inline (decretos federales)
-    cleanText = cleanText.replace(ARTICLE_HEADING_INLINE_PATTERN, '\n$1');
-    cleanText = cleanText.replace(/([.;:!?])\s+(TRANSITORIOS?)(?=\s|$)/gi, '$1\n$2');
-    const mainParts = cleanText.split(/\n\s*TRANSITORIOS\b/i);
-    const regularText = mainParts[0];
-    const transitoriosText = mainParts.length > 1 ? mainParts.slice(1).join('\n') : '';
-    const chunks = [];
-    // Regex robusta: "ARTÍCULO 1", "Artículo 5 Bis", numeraciones decimales "1.1.", y ordinales españoles "Artículo Décimo Tercero"
-    const articleRegex = new RegExp(
-        String.raw`(?:\n|^)\s*((?:(?:ART[ÍI]CULO|Art[íi]culo)\s+${ARTICLE_LABEL_SRC}|\d+\.(?:\d+\.?)+)\b[\s\.º°-]*)`,
-        'gi'
-    );
-    const parts = regularText.split(articleRegex);
-    if (parts[0] && parts[0].trim().length > 0) {
-        chunks.push({ identificador: "Preámbulo", contenido: parts[0].trim().replace(/\s+/g, ' '), tipo: 'preambulo' });
-    }
-    for (let i = 1; i < parts.length; i += 2) {
-        const title = parts[i].trim();
-        let originalContent = parts[i + 1] ? parts[i + 1].trim() : "";
-        // Colapsamos espacios horizontales pero mantenemos saltos de línea para tablas
-        let content = originalContent.replace(/[^\S\r\n]+/g, ' '); 
-        if (content.length > 5) {
-            // Snippet LITERAL para asegurar que indexOf lo encuentre en cleanText (que no está colapsado)
-            const mappingSnippet = originalContent.substring(0, 60); 
-            chunks.push({ 
-                identificador: title, 
-                contenido: content, 
-                tipo: 'ordinario', 
-                mapping_snippet: mappingSnippet 
-            });
-        }
-    }
-    if (transitoriosText.trim().length > 0) {
-        const transitRegex = /(?:\n|^)\s*((?:ART[ÍI]CULO\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO|VIG[ÉE]SIMO)|(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|SEPTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|DECIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO|VIG[ÉE]SIMO)(?:\s+(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO))?|ART[ÍI]CULO\s+TRANSITORIO|[ÚU]NICO)\b[\.-]*)/gi;
-        const tParts = transitoriosText.split(transitRegex);
-        for (let i = 1; i < tParts.length; i += 2) { 
-            const title = `Transitorio ${tParts[i].toUpperCase()}`;
-            let content = (tParts[i + 1] || "").trim().replace(/[^\S\r\n]+/g, ' ');
-            if (content.length > 5) {
-                // Snippet literal para transitorios
-                const mappingSnippet = (tParts[i + 1] || "").substring(0, 60);
-                chunks.push({ 
-                    identificador: title, 
-                    contenido: content, 
-                    tipo: 'transitorio', 
-                    mapping_snippet: mappingSnippet 
-                });
-            }
-        }
-    }
-    if (chunks.length <= 1 && hasNumberedLineamientoStructure(cleanText)) {
-        chunks.splice(0, chunks.length, ...chunkNumberedLineamientos(cleanText));
-    }
-    themes = extractThemes(cleanText);
-    if (themes.length > 0) {
-        chunks.forEach(chunk => {
-            if (chunk.titulo_nombre || chunk.capitulo_nombre || chunk.seccion_nombre) return;
-            // Buscamos el snippet pero colapsando espacios en cleanText para el match si es necesario
-            // O mejor, buscamos el snippet limpio que guardamos
-            const pos = cleanText.indexOf(chunk.mapping_snippet);
-            if (pos !== -1) {
-                for (const t of themes) {
-                    if (t.pos < pos) {
-                        if (t.nivel === 'titulo') chunk.titulo_nombre = t.nombre;
-                        if (t.nivel === 'capitulo') chunk.capitulo_nombre = t.nombre;
-                        if (t.nivel === 'seccion') chunk.seccion_nombre = t.nombre;
-                    }
-                }
-            }
-        });
-    }
-    return chunks;
-}
-
-function hasNumberedLineamientoStructure(text) {
-    const headings = text
-        .split('\n')
-        .map(line => line.trim().match(/^(\d{1,3})\.(?:\s+|$)/))
-        .filter(Boolean)
-        .map(match => Number(match[1]));
-
-    return headings.length >= 3 && headings.includes(1) && headings.includes(2) && headings.includes(3);
-}
-
-function chunkNumberedLineamientos(text) {
-    const chunks = [];
-    const preambleLines = [];
-    let currentChunk = null;
-    let inTransitory = false;
-    let currentTitulo = null;
-    let currentCapitulo = null;
-    let currentSeccion = null;
-
-    const flushCurrentChunk = () => {
-        if (!currentChunk) return;
-        const content = currentChunk.lines.join(' ').replace(/\s+/g, ' ').trim();
-        if (content.length > 5) {
-            chunks.push({
-                identificador: currentChunk.identificador,
-                contenido: content,
-                tipo: currentChunk.tipo,
-                titulo_nombre: currentChunk.titulo_nombre || null,
-                capitulo_nombre: currentChunk.capitulo_nombre || null,
-                seccion_nombre: currentChunk.seccion_nombre || null,
-                mapping_snippet: currentChunk.mappingSnippet || content.substring(0, 60)
-            });
-        }
-        currentChunk = null;
-    };
-
-    for (const line of text.split('\n')) {
-        const currentLine = line.trim();
-        if (!currentLine) continue;
-
-        const structuralHeading = parseStructuralHeading(currentLine);
-        if (structuralHeading) {
-            flushCurrentChunk();
-            if (structuralHeading.titulo) currentTitulo = structuralHeading.titulo;
-            if (structuralHeading.capitulo) {
-                currentCapitulo = structuralHeading.capitulo;
-                currentSeccion = null;
-            }
-            if (structuralHeading.seccion) currentSeccion = structuralHeading.seccion;
-            continue;
-        }
-
-        const transitoryMatch = currentLine.match(/^TRANSITORIOS?\b(?:[\s.:-]+(.*))?$/i);
-        if (transitoryMatch) {
-            flushCurrentChunk();
-            inTransitory = true;
-            const content = cleanTransitoryRemainder(transitoryMatch[1] || '');
-            currentChunk = {
-                identificador: 'Transitorio Único',
-                tipo: 'transitorio',
-                titulo_nombre: currentTitulo,
-                capitulo_nombre: currentCapitulo,
-                seccion_nombre: currentSeccion,
-                lines: content ? [content] : [],
-                mappingSnippet: content.substring(0, 60)
-            };
-            continue;
-        }
-
-        if (inTransitory) {
-            const transitoryHeading = parseHeading(currentLine, TRANSITORY_HEADING_PATTERN);
-            if (transitoryHeading) {
-                flushCurrentChunk();
-                currentChunk = {
-                    identificador: `Transitorio ${transitoryHeading.identifier}`.replace(/\s+/g, ' ').trim(),
-                    tipo: 'transitorio',
-                    titulo_nombre: currentTitulo,
-                    capitulo_nombre: currentCapitulo,
-                    seccion_nombre: currentSeccion,
-                    lines: transitoryHeading.remainder ? [transitoryHeading.remainder] : [],
-                    mappingSnippet: transitoryHeading.remainder ? transitoryHeading.remainder.substring(0, 60) : ''
-                };
-                continue;
-            }
-        }
-
-        if (!inTransitory) {
-            const numberedMatch = currentLine.match(/^(\d{1,3})\.(?:\s+(.*))?$/);
-            if (numberedMatch) {
-                flushCurrentChunk();
-                const content = numberedMatch[2] ? numberedMatch[2].trim() : '';
-                currentChunk = {
-                    identificador: `Lineamiento ${numberedMatch[1]}`,
-                    tipo: 'ordinario',
-                    titulo_nombre: currentTitulo,
-                    capitulo_nombre: currentCapitulo,
-                    seccion_nombre: currentSeccion,
-                    lines: content ? [content] : [],
-                    mappingSnippet: content.substring(0, 60)
-                };
-                continue;
-            }
-        }
-
-        if (currentChunk) {
-            currentChunk.lines.push(currentLine);
-        } else {
-            preambleLines.push(currentLine);
-        }
-    }
-
-    flushCurrentChunk();
-
-    const preamble = preambleLines.join(' ').replace(/\s+/g, ' ').trim();
-    if (preamble) {
-        chunks.unshift({
-            identificador: 'Preámbulo',
-            contenido: preamble,
-            tipo: 'preambulo',
-            mapping_snippet: preamble.substring(0, 60)
-        });
-    }
-
-    normalizePodecobiLineamientoHierarchy(chunks, text);
-
-    return chunks;
-}
-
-function stripThemeOrdinal(value) {
-    return (value || '')
-        .replace(/^(?:[IVXLCDM]+|PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)\b[\s.:-]*/i, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
-function parseStructuralHeading(line) {
-    const normalized = (line || '').replace(/\s+/g, ' ').trim();
-    const capMatch = normalized.match(/^CAP[ÍI]TULO\s+(.+)$/i);
-    if (capMatch) {
-        const [chapterPart, sectionPart] = capMatch[1].split(/\s+SECCI[ÓO]N\s+/i);
-        const result = { capitulo: stripThemeOrdinal(chapterPart) };
-        if (sectionPart) result.seccion = stripThemeOrdinal(sectionPart);
-        return result;
-    }
-
-    const sectionMatch = normalized.match(/^SECCI[ÓO]N\s+(.+)$/i);
-    if (sectionMatch) return { seccion: stripThemeOrdinal(sectionMatch[1]) };
-
-    const subtitleMatch = normalized.match(/^SUBT[ÍI]TULO\s+(.+)$/i);
-    if (subtitleMatch) return { seccion: stripThemeOrdinal(subtitleMatch[1]) };
-
-    const titleMatch = normalized.match(/^T[ÍI]TULO\s+(.+)$/i);
-    if (titleMatch) return { titulo: stripThemeOrdinal(titleMatch[1]) };
-
-    return null;
-}
-
-function normalizePodecobiLineamientoHierarchy(chunks, text) {
-    if (!/DE LOS VEH[ÍI]CULOS DE PROP[ÓO]SITO ESPECIAL/i.test(text)) return;
-
-    chunks.forEach(chunk => {
-        const match = (chunk.identificador || '').match(/^Lineamiento\s+(\d+)$/);
-        if (!match) return;
-        const number = Number(match[1]);
-
-        if (number >= 1 && number <= 2) {
-            chunk.capitulo_nombre = 'GENERALIDADES';
-            chunk.seccion_nombre = null;
-        } else if (number >= 3 && number <= 7) {
-            chunk.capitulo_nombre = 'DEL COMITÉ INTERSECRETARIAL DE PROMOCIÓN';
-            chunk.seccion_nombre = null;
-        } else if (number >= 8 && number <= 10) {
-            chunk.capitulo_nombre = 'DE LOS CRITERIOS DE SELECCIÓN PARA LA DETERMINACIÓN DE LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR';
-            if (number >= 9) chunk.seccion_nombre = 'DEL PROCEDIMIENTO PARA DETERMINAR LOS POLOS DE DESARROLLO ECONÓMICO PARA EL BIENESTAR';
-            else chunk.seccion_nombre = null;
-        } else if (number >= 11 && number <= 15) {
-            chunk.capitulo_nombre = 'DE LA PARTICIPACIÓN DE LAS ENTIDADES FEDERATIVAS';
-            if (number <= 14) chunk.seccion_nombre = 'DE LOS CONVENIOS DE COORDINACIÓN CELEBRADOS ENTRE EL GOBIERNO FEDERAL Y LAS ENTIDADES FEDERATIVAS';
-            else chunk.seccion_nombre = 'DE LAS ATRIBUCIONES DE LAS ENTIDADES FEDERATIVAS';
-        } else if (number >= 16 && number <= 17) {
-            chunk.capitulo_nombre = 'DE LOS VEHÍCULOS DE PROPÓSITO ESPECIAL';
-            chunk.seccion_nombre = null;
-        } else if (number >= 18 && number <= 32) {
-            chunk.capitulo_nombre = 'DE LOS DESARROLLADORES';
-            if (number <= 19) chunk.seccion_nombre = 'DE LOS REQUISITOS PARA EL OTORGAMIENTO DE LAS AUTORIZACIONES A LOS DESARROLLADORES';
-            else if (number <= 23) chunk.seccion_nombre = 'DE LA CONVOCATORIA';
-            else chunk.seccion_nombre = 'DEL CONCURSO PÚBLICO';
-        } else if (number >= 33 && number <= 38) {
-            chunk.capitulo_nombre = 'DE LAS ASIGNACIONES DIRECTAS';
-            if (number >= 36) chunk.seccion_nombre = 'DEL PROCEDIMIENTO DE ASIGNACIÓN DIRECTA';
-            else chunk.seccion_nombre = null;
-        } else if (number === 39) {
-            chunk.capitulo_nombre = 'DE LAS CAUSALES Y DEL PROCEDIMIENTO DE REVOCACIÓN DE LA AUTORIZACIÓN';
-            chunk.seccion_nombre = null;
-        }
-    });
-}
-
-function cleanTransitoryRemainder(text) {
-    return (text || '')
-        .replace(/^(?:[A-Za-z]{3,8}A\s+)+/u, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
-function extractThemes(text) {
-    const themes = [];
-    let orden = 0;
-    
-    // Improved Regex: Case insensitive, supports digits, roman numerals and names (PRIMERO, etc.)
-    // Regex mejoradas: \s* permite cualquier cantidad de espacios o saltos de línea entre el prefijo y el nombre
-    // Regex mejoradas para capturar títulos que pueden estar en líneas separadas (común en PDFs del DOF)
-    const tituloRegex = /(?:^|\n)\s*(?:T[ÍI]TULO|T[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
-    const capituloRegex = /(?:^|\n)\s*(?:CAP[ÍI]TULO|Cap[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
-    const seccionRegex = /(?:^|\n)\s*(?:SECCI[ÓO]N|Secci[óo]n)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
-
-    const cleanStr = (s => (s || '').replace(/\s+/g, ' ').trim());
-    const subtituloRegex = /(?:^|\n)\s*(?:SUBT[ÍI]TULO|Subt[íi]tulo)\s+(?:(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO)|(?:[IVXLCDM]+)|\d+)\b[\s\.º°–—-]*\s*([\s\S]{0,150}?)(?=\n\s*(?:T[ÍI]TULO|CAP[ÍI]TULO|SUBT[ÍI]TULO|SECCI[ÓO]N|ART[ÍI]CULO|Art[íi]culo|\d+\.\d)|$)/gi;
-
-    let m;
-    while ((m = tituloRegex.exec(text)) !== null) themes.push({ nivel: 'titulo', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
-    while ((m = capituloRegex.exec(text)) !== null) themes.push({ nivel: 'capitulo', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
-    while ((m = subtituloRegex.exec(text)) !== null) themes.push({ nivel: 'subtitulo', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
-    while ((m = seccionRegex.exec(text)) !== null) themes.push({ nivel: 'seccion', nombre: cleanStr(m[1]), orden: ++orden, pos: m.index });
-
-    themes.sort((a, b) => a.pos - b.pos);
-    return themes;
+function escapePreview(value) {
+    return String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 }
 
 function renderPrevision(chunks, themes = []) {
     document.getElementById('admin-preview-area').classList.remove('hidden');
-    document.getElementById('admin-preview-count').textContent = chunks.length;
-    
-    const cardsHtml = chunks.slice(0, 150).map((c, idx) => {
-        let hierarchyHtml = '';
-        if (c.titulo_nombre || c.capitulo_nombre || c.seccion_nombre) {
-            hierarchyHtml = `
-                <div class="flex flex-wrap gap-1 mb-2">
-                    ${c.titulo_nombre ? `<span class="text-[8px] px-1.5 py-0.5 bg-guinda/5 text-guinda font-bold rounded border border-guinda/10">T: ${c.titulo_nombre}</span>` : ''}
-                    ${c.capitulo_nombre ? `<span class="text-[8px] px-1.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded border border-emerald-100">C: ${c.capitulo_nombre}</span>` : ''}
-                    ${c.seccion_nombre ? `<span class="text-[8px] px-1.5 py-0.5 bg-blue-50 text-blue-700 font-bold rounded border border-blue-100">S: ${c.seccion_nombre}</span>` : ''}
-                </div>
-            `;
-        }
-
-        return `
-            <div class="chunk-card group relative p-4 border border-gray-100 rounded-xl bg-white shadow-sm hover:border-guinda/40 hover:shadow-md transition-all cursor-pointer" data-index="${idx}">
-                <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button class="p-1.5 bg-guinda/10 text-guinda rounded-lg hover:bg-guinda hover:text-white transition-colors" title="Editar contenido">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
-                    </button>
-                </div>
-                ${hierarchyHtml}
-                <div class="flex items-center gap-2 mb-2">
-                    <span class="text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter bg-slate-100 text-slate-500 border border-slate-200">${c.tipo}</span>
-                    <span class="text-xs font-bold text-gray-900 font-serif">${c.identificador}</span>
-                </div>
-                <div class="text-[10px] text-gray-500 leading-relaxed whitespace-pre-wrap line-clamp-4 font-light">${c.contenido}</div>
-            </div>
-        `;
-    }).join('');
-    
-    const container = document.getElementById('admin-preview-cards');
-    container.innerHTML = cardsHtml;
-
-    // Listener para edición rápida mediante modal
-    let editingChunkIdx = null;
-    const chunkModal = document.getElementById('edit-chunk-modal');
-    const chunkModalPanel = document.getElementById('chunk-modal-panel');
-    const chunkContentInput = document.getElementById('edit-chunk-content');
-    const chunkTitleLabel = document.getElementById('chunk-modal-identificador');
-
-    container.querySelectorAll('.chunk-card').forEach(card => {
-        card.addEventListener('click', () => {
-            editingChunkIdx = card.dataset.index;
-            const chunk = parsedChunks[editingChunkIdx];
-            
-            chunkTitleLabel.textContent = `Editar: ${chunk.identificador}`;
-            chunkContentInput.value = chunk.contenido;
-            
-            // Mostrar modal con animación
-            chunkModal.classList.remove('hidden');
-            chunkModal.classList.add('flex');
-            setTimeout(() => {
-                chunkModalPanel.classList.remove('scale-95', 'opacity-0');
-                chunkModalPanel.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        });
-    });
-
-    // Cerrar modal
-    const closeChunkModal = () => {
-        chunkModalPanel.classList.remove('scale-100', 'opacity-100');
-        chunkModalPanel.classList.add('scale-95', 'opacity-0');
-        setTimeout(() => {
-            chunkModal.classList.add('hidden');
-            chunkModal.classList.remove('flex');
-        }, 300);
+    const selected = chunks.filter(c => c.incluir !== false);
+    document.getElementById('admin-preview-count').textContent = `${selected.length} de ${chunks.length}`;
+    const diagnostics = validateRegulatoryChunks(selected, parsedNotices);
+    const counts = selected.reduce((acc,c) => { acc[c.tipo] = (acc[c.tipo] || 0) + 1; return acc; }, {});
+    const summary = document.getElementById('admin-review-summary');
+    summary.innerHTML = `
+        <p class="mb-3 font-semibold">${Object.entries(counts).map(([k,v]) => `${v} ${escapePreview(k)}`).join(' · ')} · ${themes.length} encabezados de estructura</p>
+        ${diagnostics.length ? `<ul class="mb-3 rounded-lg bg-amber-50 p-4 text-amber-900">${diagnostics.map(d => `<li class="mb-2">${d.blocking ? 'Corregir: ' : 'Revisar: '}${escapePreview(d.message)}</li>`).join('')}</ul>` : ''}
+        <label class="flex gap-2 items-start mb-3"><input type="checkbox" id="admin-review-confirm"><span>Revisé los fragmentos incluidos, su numeración y los avisos contra el documento original.</span></label>
+        <details><summary class="cursor-pointer text-guinda">Consultar texto extraído de la fuente</summary><pre class="mt-3 p-4 bg-gray-50 text-xs whitespace-pre-wrap max-h-96 overflow-auto">${escapePreview(parsedSourceText)}</pre></details>`;
+    const ingestButton = document.getElementById('admin-btn-ingest');
+    ingestButton.disabled = true;
+    document.getElementById('admin-review-confirm').onchange = e => {
+        ingestButton.disabled = !e.target.checked || diagnostics.some(d => d.blocking);
     };
-
-    document.getElementById('close-chunk-modal').onclick = closeChunkModal;
-    document.getElementById('cancel-chunk-edit').onclick = closeChunkModal;
-    document.getElementById('save-chunk-edit').onclick = () => {
-        if (editingChunkIdx !== null) {
-            parsedChunks[editingChunkIdx].contenido = chunkContentInput.value;
-            closeChunkModal();
-            renderPrevision(parsedChunks, parsedThemes);
-        }
+    const container = document.getElementById('admin-preview-cards');
+    // Mostrar todos los fragmentos; el límite previo de 150 ocultaba parte del acervo.
+    container.innerHTML = chunks.map((c,idx) => `<div class="p-4 border border-gray-200 rounded-xl bg-white">
+        <label class="flex gap-2 text-xs mb-2"><input class="chunk-include" type="checkbox" data-index="${idx}" ${c.incluir !== false ? 'checked' : ''}>Incluir al guardar</label>
+        <button type="button" class="chunk-card text-left w-full" data-index="${idx}">
+        <div class="text-xs text-gray-500">${escapePreview([c.titulo_nombre,c.capitulo_nombre,c.seccion_nombre].filter(Boolean).join(' / '))}</div>
+        <div class="text-sm font-bold text-guinda my-2">${escapePreview(c.identificador)} <span class="text-xs text-gray-500">(${escapePreview(c.tipo)})</span></div>
+        <div class="text-xs text-gray-600 whitespace-pre-wrap line-clamp-4">${escapePreview(c.contenido)}</div>
+        <span class="text-xs text-guinda mt-2 block">Ver completo y corregir</span></button></div>`).join('');
+    container.querySelectorAll('.chunk-include').forEach(input => input.onchange = () => {
+        parsedChunks[Number(input.dataset.index)].incluir = input.checked;
+        renderPrevision(parsedChunks, parsedThemes);
+    });
+    let editingIndex = null;
+    const modal = document.getElementById('edit-chunk-modal');
+    const panel = document.getElementById('chunk-modal-panel');
+    const content = document.getElementById('edit-chunk-content');
+    const label = document.getElementById('chunk-modal-identificador');
+    if (!document.getElementById('edit-chunk-label')) {
+        const controls = document.createElement('div');
+        controls.className = 'mb-3';
+        controls.innerHTML = `<label class="block text-xs mb-1" for="edit-chunk-label">Identificador</label><input id="edit-chunk-label" class="w-full border rounded p-2 mb-2">
+        <label class="block text-xs mb-1" for="edit-chunk-type">Tipo de fragmento</label><select id="edit-chunk-type" class="border rounded p-2">${['ordinario','transitorio','preambulo','anexo','complementario'].map(t=>`<option>${t}</option>`).join('')}</select>
+        <div class="flex gap-2 mt-2"><button type="button" id="split-chunk" class="text-xs border rounded p-2">Dividir desde el cursor</button><button type="button" id="merge-chunk" class="text-xs border rounded p-2">Unir con el siguiente</button></div>`;
+        content.before(controls);
+    }
+    const close = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); };
+    const commit = () => {
+        const chunk = parsedChunks[editingIndex];
+        chunk.contenido = content.value;
+        chunk.identificador = document.getElementById('edit-chunk-label').value.trim();
+        chunk.tipo = document.getElementById('edit-chunk-type').value;
+    };
+    container.querySelectorAll('.chunk-card').forEach(card => card.onclick = () => {
+        editingIndex = Number(card.dataset.index);
+        const chunk = parsedChunks[editingIndex];
+        label.textContent = `Revisar: ${chunk.identificador}`;
+        content.value = chunk.contenido;
+        document.getElementById('edit-chunk-label').value = chunk.identificador;
+        document.getElementById('edit-chunk-type').value = chunk.tipo;
+        document.getElementById('merge-chunk').disabled = editingIndex === parsedChunks.length - 1;
+        modal.classList.remove('hidden'); modal.classList.add('flex');
+        panel.classList.remove('scale-95','opacity-0'); panel.classList.add('scale-100','opacity-100');
+    });
+    document.getElementById('close-chunk-modal').onclick = close;
+    document.getElementById('cancel-chunk-edit').onclick = close;
+    document.getElementById('save-chunk-edit').onclick = () => { commit(); close(); renderPrevision(parsedChunks, parsedThemes); };
+    document.getElementById('split-chunk').onclick = () => {
+        const at = content.selectionStart;
+        if (!content.value.slice(0,at).trim() || !content.value.slice(at).trim()) return;
+        commit();
+        const original = parsedChunks[editingIndex];
+        const remainder = { ...original, identificador: `${original.identificador} · continuación`, contenido: content.value.slice(at).trim() };
+        original.contenido = content.value.slice(0,at).trim();
+        parsedChunks.splice(editingIndex+1,0,remainder);
+        close(); renderPrevision(parsedChunks, parsedThemes);
+    };
+    document.getElementById('merge-chunk').onclick = () => {
+        if (editingIndex >= parsedChunks.length-1) return;
+        commit();
+        const next = parsedChunks[editingIndex+1];
+        parsedChunks[editingIndex].contenido += `\n\n${next.identificador}\n${next.contenido}`;
+        parsedChunks.splice(editingIndex+1,1);
+        close(); renderPrevision(parsedChunks, parsedThemes);
     };
 }
 
 async function handleIngestToSupabase() {
     if (!parsedChunks.length) return;
+    const selectedChunks = parsedChunks.filter(c => c.incluir !== false);
+    const diagnostics = validateRegulatoryChunks(selectedChunks, parsedNotices);
+    if (!isAdmin()) { displayAlert('error', 'Acceso requerido', 'Inicia sesión con una cuenta administradora para cargar instrumentos.'); return; }
+    if (!document.getElementById('admin-review-confirm')?.checked || diagnostics.some(d => d.blocking)) {
+        displayAlert('error', 'Revisión pendiente', 'Corrige los fragmentos señalados y confirma la revisión antes de guardar.');
+        return;
+    }
     const titleInput = document.getElementById('admin-input-title').value.trim();
     const btn = document.getElementById('admin-btn-ingest');
     btn.disabled = true;
@@ -1150,10 +842,10 @@ async function handleIngestToSupabase() {
         if (pctEl) pctEl.textContent = '20%';
         if (textEl) textEl.textContent = 'Temas indexados, subiendo artículos...';
 
-        const totalChunks = parsedChunks.length;
+        const totalChunks = selectedChunks.length;
         const batchSize = 50;
         for (let i = 0; i < totalChunks; i += batchSize) {
-             const batch = parsedChunks.slice(i, i + batchSize).map((chunk, index) => ({
+             const batch = selectedChunks.slice(i, i + batchSize).map((chunk, index) => ({
                 ley_id: newLeyId,
                 identificador: chunk.identificador,
                 contenido: chunk.contenido,

@@ -1,0 +1,124 @@
+{
+  "fecha": "2026-09-18T04:58:09.054Z",
+  "busquedas": [
+    {
+      "siglas": "RLBio",
+      "consulta": "Valorización Energética",
+      "total": 5
+    },
+    {
+      "siglas": "RLGeo",
+      "consulta": "Usos Diversos",
+      "total": 44
+    },
+    {
+      "siglas": "RLEPECFE",
+      "consulta": "fideicomisos",
+      "total": 2
+    },
+    {
+      "siglas": "RLEPEPM",
+      "consulta": "contrato mixto",
+      "total": 2
+    },
+    {
+      "siglas": "DACG-PERMISOS-GA",
+      "consulta": "almacenamiento",
+      "total": 32
+    },
+    {
+      "siglas": "FORMATOS-SAEE",
+      "consulta": "respaldo propio",
+      "total": 3
+    }
+  ],
+  "formularios": [
+    {
+      "id": "2586d1a6-1088-5ebd-a9cd-2dec0abd379c",
+      "identificador": "CNE_ELECTRICIDAD_01 · Formato",
+      "tablas": 15,
+      "celdas": 285,
+      "casillas": 18,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "e8cf8fa6-cc8a-5224-919e-d8b4b734ad8d",
+      "identificador": "CNE_ELECTRICIDAD_02 · Formato",
+      "tablas": 11,
+      "celdas": 215,
+      "casillas": 9,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "dace0cc0-2061-5f39-8b74-cb5c9a17ddcb",
+      "identificador": "CNE_ELECTRICIDAD_03 · Formato",
+      "tablas": 30,
+      "celdas": 381,
+      "casillas": 15,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "733e4b6f-74f1-513c-bb13-429a3e65469b",
+      "identificador": "CNE_ELECTRICIDAD_04 · Formato",
+      "tablas": 14,
+      "celdas": 203,
+      "casillas": 17,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "84eeab42-2ec5-5e5e-8d59-bcc6d13fa7da",
+      "identificador": "CNE_ELECTRICIDAD_05 · Formato",
+      "tablas": 10,
+      "celdas": 179,
+      "casillas": 8,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "e597d1f8-8f02-5e57-b648-7bc86b5cde86",
+      "identificador": "CNE_ELECTRICIDAD_06 · Formato",
+      "tablas": 8,
+      "celdas": 57,
+      "casillas": 6,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "16ea4db2-81cc-5c56-a30c-006257c7480e",
+      "identificador": "CNE_ELECTRICIDAD_09 · Formato",
+      "tablas": 15,
+      "celdas": 290,
+      "casillas": 23,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "a2893ce6-6cb7-534b-b4ef-e543d55b318a",
+      "identificador": "CNE_ELECTRICIDAD_10 · Formato",
+      "tablas": 13,
+      "celdas": 187,
+      "casillas": 9,
+      "coincide": true,
+      "sin_desbordamiento": true
+    },
+    {
+      "id": "3fecc422-08a8-5d8f-aea1-ab08c04b37ef",
+      "identificador": "CNE_ELECTRICIDAD_11 · Formato",
+      "tablas": 12,
+      "celdas": 244,
+      "casillas": 10,
+      "coincide": true,
+      "sin_desbordamiento": true
+    }
+  ],
+  "cfe68": {
+    "id": "44c39145-e179-54b9-ae57-976584132b5a",
+    "tiene_CFE": true,
+    "no_conserva_errata": true
+  },
+  "ok": true
+}

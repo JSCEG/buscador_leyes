@@ -1,0 +1,118 @@
+{
+  "instrumento": "CONV-ESTRATEGICOS-M1",
+  "sha256": "1ac32a60c8f6aa1a4ccabaaf88c3c6018332d782eb7406ef80f3949681dc8b9b",
+  "tablas": 1,
+  "casillas": 0,
+  "graficos": 0,
+  "bloques": [
+    {
+      "id": 0,
+      "tipo": "parrafo",
+      "texto": "ACUERDO por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante.",
+      "html": " ACUERDO por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante."
+    },
+    {
+      "id": 1,
+      "tipo": "parrafo",
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.",
+      "html": " Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía."
+    },
+    {
+      "id": 2,
+      "tipo": "parrafo",
+      "texto": "LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero, de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2, 10 fracción I y XIV, 16, 36 y 38 de la Ley del Sector Eléctrico; 57 del Reglamento de la Ley de Planeación y Transición Energética; 2, fracción XXV, 3 y 13 del Reglamento de la Ley del Sector Eléctrico, y",
+      "html": "<div> LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero, de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2, 10 fracción I y XIV, 16, 36 y 38 de la Ley del Sector Eléctrico; 57 del Reglamento de la Ley de Planeación y Transición Energética; 2, fracción XXV, 3 y 13 del Reglamento de la Ley del Sector Eléctrico, y</div>"
+    },
+    {
+      "id": 3,
+      "tipo": "parrafo",
+      "texto": "CONSIDERANDO",
+      "html": "<div> CONSIDERANDO<br> </div>"
+    },
+    {
+      "id": 4,
+      "tipo": "parrafo",
+      "texto": "Que el 15 de mayo de 2026, se publicó en el Diario Oficial de la Federación la \"CONVOCATORIA PARA LA ATENCIÓN DE PROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA, ALINEADOS A LA PLANEACIÓN VINCULANTE\", dirigida a las personas interesadas en desarrollar proyectos estratégicos de generación y almacenamiento de energía eléctrica alineados a la planeación vinculante del sector eléctrico.",
+      "html": "<div> Que el 15 de mayo de 2026, se publicó en el Diario Oficial de la Federación la &quot;CONVOCATORIA PARA LA ATENCIÓN DE PROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA, ALINEADOS A LA PLANEACIÓN VINCULANTE&quot;, dirigida a las personas interesadas en desarrollar proyectos estratégicos de generación y almacenamiento de energía eléctrica alineados a la planeación vinculante del sector eléctrico.</div>"
+    },
+    {
+      "id": 5,
+      "tipo": "parrafo",
+      "texto": "Que la Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes para la obtención de permisos, los estudios de interconexión y conexión y, en su caso, la celebración de los contratos de interconexión y conexión, que permita el desarrollo de proyectos estratégicos que se requieran para fortalecer la confiabilidad, continuidad, eficiencia, seguridad y sostenibilidad del SEN.",
+      "html": "<div> Que la Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes para la obtención de permisos, los estudios de interconexión y conexión y, en su caso, la celebración de los contratos de interconexión y conexión, que permita el desarrollo de proyectos estratégicos que se requieran para fortalecer la confiabilidad, continuidad, eficiencia, seguridad y sostenibilidad del SEN.</div>"
+    },
+    {
+      "id": 6,
+      "tipo": "parrafo",
+      "texto": "Que derivado del interés manifestado por las personas participantes y con el propósito de favorecer una mayor participación en la Convocatoria, se considera oportuno modificar las fechas y plazos previstos en el calendario contenido en la Convocatoria, por lo que he tenido a bien emitir el siguiente:",
+      "html": "<div> Que derivado del interés manifestado por las personas participantes y con el propósito de favorecer una mayor participación en la Convocatoria, se considera oportuno modificar las fechas y plazos previstos en el calendario contenido en la Convocatoria, por lo que he tenido a bien emitir el siguiente:</div>"
+    },
+    {
+      "id": 7,
+      "tipo": "parrafo",
+      "texto": "ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN\nDE PROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA,\nALINEADOS A LA PLANEACIÓN VINCULANTE",
+      "html": "<div> ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA CONVOCATORIA  PARA LA ATENCIÓN<br> DE PROYECTOS ESTRATÉGICOS DE GENERACIÓN Y ALMACENAMIENTO DE ENERGÍA ELÉCTRICA,<br> ALINEADOS A LA PLANEACIÓN VINCULANTE<br> </div>"
+    },
+    {
+      "id": 8,
+      "tipo": "parrafo",
+      "texto": "PRIMERO. Se modifica la Etapa 2 del numeral 17.1 de la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, para quedar en los siguientes términos:",
+      "html": "<div> PRIMERO. Se modifica la Etapa 2 del numeral 17.1 de la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, para quedar en los siguientes términos:</div>"
+    },
+    {
+      "id": 9,
+      "tipo": "parrafo",
+      "texto": "\"",
+      "html": "<div> &quot;</div>"
+    },
+    {
+      "id": 10,
+      "tipo": "parrafo",
+      "texto": "17.1 ...",
+      "html": "<div> 17.1 ...</div>"
+    },
+    {
+      "id": 11,
+      "tipo": "parrafo",
+      "texto": "...",
+      "html": "<div> ...</div>"
+    },
+    {
+      "id": 12,
+      "tipo": "tabla",
+      "texto": "No. de\nEtapa\nAlcance\nFechas/plazos (días\nhábiles)\nDescripción de la actividad\n2\nRegistro de manifestación de interés y solicitud de estudios de interconexión y conexión.\n2 de junio al 2 de\nseptiembre de 2026\nLa persona solicitante debe registrar su manifestación de interés y la solicitud de estudios de conexión e interconexión, según corresponda, a través de la VUPE en el formato previsto para tales efectos.",
+      "html": "<table> <tbody><tr> <td> <div> No. de<br> Etapa<br> </div> </td> <td> <div> Alcance<br> </div> </td> <td> <div> Fechas/plazos (días<br> hábiles)<br> </div> </td> <td> <div> Descripción de la actividad<br> </div> </td> </tr> <tr> <td> <div> 2<br> </div> </td> <td> <div> Registro de manifestación de interés y solicitud de estudios de interconexión y conexión.</div> </td> <td> <div> 2 de junio al 2 de<br> septiembre de 2026<br> </div> </td> <td> <div> La persona solicitante debe registrar su manifestación de interés y la solicitud de estudios de conexión e interconexión, según corresponda, a través de la VUPE en el formato previsto para tales efectos.</div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 13,
+      "tipo": "parrafo",
+      "texto": "...\"",
+      "html": "<div> ...&quot;</div>"
+    },
+    {
+      "id": 14,
+      "tipo": "parrafo",
+      "texto": "SEGUNDO. Los plazos y referencias contenidas en la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, deben entenderse conforme a lo previsto en la modificación a que se refiere el numeral anterior.",
+      "html": "<div> SEGUNDO. Los plazos y referencias contenidas en la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante, deben entenderse conforme a lo previsto en la modificación a que se refiere el numeral anterior.</div>"
+    },
+    {
+      "id": 15,
+      "tipo": "parrafo",
+      "texto": "TRANSITORIO",
+      "html": "<div> TRANSITORIO<br> </div>"
+    },
+    {
+      "id": 16,
+      "tipo": "parrafo",
+      "texto": "ÚNICO. El presente Acuerdo entrará en vigor el mismo día de su publicación en el Diario Oficial de la Federación.",
+      "html": "<div> ÚNICO. El presente Acuerdo entrará en vigor el mismo día de su publicación en el Diario Oficial  de la Federación.</div>"
+    },
+    {
+      "id": 17,
+      "tipo": "parrafo",
+      "texto": "Ciudad de México, a 22 de mayo de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.",
+      "html": "<div> Ciudad de México, a 22 de mayo de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.</div>"
+    }
+  ],
+  "cotejo_textual_sin_perdida": true
+}

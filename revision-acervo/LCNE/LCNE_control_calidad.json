@@ -1,0 +1,23 @@
+{
+  "pdf_sha256": "7c13fd20564f1e7230268a0943cc226368b24c44886d6738c479f4c42cbe77de",
+  "lineas_cuerpo_pdf": 671,
+  "lineas_asignadas": 671,
+  "lineas_excluidas_encabezados_folios": 120,
+  "cobertura_lineas_sin_huecos": true,
+  "unicidad_asignacion": true,
+  "secuencia_ordinarios": "1–28",
+  "secuencia_transitorios_ley": "1–13",
+  "transitorios_decreto": 2,
+  "documentos_scjn": 2,
+  "nota_invalidez_preservada": true,
+  "cotejo_textual": "Cada fragmento coincide carácter por carácter con sus líneas del PDF al excluir espacios. No demuestra por sí solo fidelidad visual del extractor.",
+  "revision_visual_paginas": [
+    1,
+    11,
+    13,
+    15,
+    17,
+    19
+  ],
+  "no_escrituras_supabase": true
+}

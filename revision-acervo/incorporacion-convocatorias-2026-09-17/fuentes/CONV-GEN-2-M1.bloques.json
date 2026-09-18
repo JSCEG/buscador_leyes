@@ -1,0 +1,184 @@
+{
+  "instrumento": "CONV-GEN-2-M1",
+  "sha256": "0cf5044b5ca7356b4469a7d5c596f7533b554819ee77f52a3eb60b34768b26b6",
+  "tablas": 1,
+  "casillas": 0,
+  "graficos": 0,
+  "bloques": [
+    {
+      "id": 0,
+      "tipo": "parrafo",
+      "texto": "ACUERDO por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+      "html": " ACUERDO por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante."
+    },
+    {
+      "id": 1,
+      "tipo": "parrafo",
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.",
+      "html": " Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía."
+    },
+    {
+      "id": 2,
+      "tipo": "parrafo",
+      "texto": "LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2 y 10 fracción II de la Ley del Sector Eléctrico, 57 del Reglamento de la Ley de Planeación y Transición Energética, y 3 y 13 del Reglamento de la Ley del Sector Eléctrico, y",
+      "html": "<div> LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones I, IV, V, XXIX y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2 y 10 fracción II de la Ley del Sector Eléctrico, 57 del Reglamento de la Ley de Planeación y Transición Energética, y 3 y 13 del Reglamento de la Ley del Sector Eléctrico, y</div>"
+    },
+    {
+      "id": 3,
+      "tipo": "parrafo",
+      "texto": "CONSIDERANDO",
+      "html": "<div> CONSIDERANDO<br> </div>"
+    },
+    {
+      "id": 4,
+      "tipo": "parrafo",
+      "texto": "Que el 11 de mayo de 2026, se publicó en el Diario Oficial de la Federación la \"SEGUNDA CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN DE ENERGÍA ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE\", dirigida a todas las personas solicitantes interesadas en desarrollar nuevos proyectos de generación de energía eléctrica con capacidad igual o mayor a 0.7 MW, que pretendan interconectarse al Sistema Eléctrico Nacional.",
+      "html": "<div> Que el 11 de mayo de 2026, se publicó en el Diario Oficial de la Federación la &quot;SEGUNDA CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN DE ENERGÍA ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE&quot;, dirigida a todas las personas solicitantes interesadas en desarrollar nuevos proyectos de generación de energía eléctrica con capacidad igual o mayor a 0.7 MW, que pretendan interconectarse al Sistema Eléctrico Nacional.</div>"
+    },
+    {
+      "id": 5,
+      "tipo": "parrafo",
+      "texto": "Que la Segunda Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes para la obtención de los permisos de generación de energía eléctrica que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional, de acuerdo con los Instrumentos de Planeación del Sector Energético.",
+      "html": "<div> Que la Segunda Convocatoria establece el mecanismo para la atención prioritaria de las solicitudes para la obtención de los permisos de generación de energía eléctrica que se requieran para asegurar el cumplimiento de los objetivos de expansión del Sistema Eléctrico Nacional, de acuerdo con los Instrumentos de Planeación del Sector Energético.</div>"
+    },
+    {
+      "id": 6,
+      "tipo": "parrafo",
+      "texto": "Que derivado del interés manifestado por las personas participantes y con el propósito de favorecer una mayor participación en la Segunda Convocatoria, se considera oportuno modificar las fechas y plazos previstos en el calendario contenido en la Segunda Convocatoria, por lo que he tenido a bien emitir el siguiente:",
+      "html": "<div> Que derivado del interés manifestado por las personas participantes y con el propósito de favorecer una mayor participación en la Segunda Convocatoria, se considera oportuno modificar las fechas y plazos previstos en el calendario contenido en la Segunda Convocatoria, por lo que he tenido a bien emitir el siguiente:</div>"
+    },
+    {
+      "id": 7,
+      "tipo": "parrafo",
+      "texto": "ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA SEGUNDA CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA\nDE SOLICITUDES DE PERMISOS DE GENERACIÓN DE ENERGÍA ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO\nNACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE",
+      "html": "<div> ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA SEGUNDA CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA<br> DE SOLICITUDES DE PERMISOS DE GENERACIÓN DE ENERGÍA ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO<br> NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE<br> </div>"
+    },
+    {
+      "id": 8,
+      "tipo": "parrafo",
+      "texto": "PRIMERO. Se modifican las etapas 2 a 17 del calendario previsto en el numeral 7; el segundo párrafo del numeral 8.2.; el primer párrafo de los numerales 9.1 y 9.2. de la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, para quedar en los siguientes términos:",
+      "html": "<div> PRIMERO. Se modifican las etapas 2 a 17 del calendario previsto en el numeral 7; el segundo párrafo del numeral 8.2.; el primer párrafo de los numerales 9.1 y 9.2. de la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, para quedar en los siguientes términos:</div>"
+    },
+    {
+      "id": 9,
+      "tipo": "parrafo",
+      "texto": "\"7. ...",
+      "html": "<div> &quot;7. ...</div>"
+    },
+    {
+      "id": 10,
+      "tipo": "parrafo",
+      "texto": "...",
+      "html": "<div> ...</div>"
+    },
+    {
+      "id": 11,
+      "tipo": "tabla",
+      "texto": "No.\nEtapa\nFechas en 2026\nConsideraciones sobre la etapa\nAcciones que las personas\nsolicitantes deben realizar\n2\nPeriodo de registro de\nmanifestación de interés y\nsolicitud de estudios de\ninterconexión, a través de la\nVUPE.\n13 al 29 de mayo\nLas personas interesadas en participar en la Segunda Convocatoria deben ingresar a la VUPE para presentar su registro de manifestación de interés para participar en esta, así como para presentar la solicitud de estudios de interconexión del CENACE.\nRegistrar su manifestación\nde interés y solicitud de\nestudios de interconexión del\nCENACE, para lo cual,\ndeben completar en la VUPE\nel Formato de Manifestación\nde Interés y Solicitud de\nestudios de interconexión del\nCENACE.\n3\nPrevención por parte de\nCENACE y atención de la\npersona solicitante\n01 al 04 de junio\nEn el caso de que la solicitud de estudios de interconexión no contenga los datos o no cumplan con los requisitos aplicables, el CENACE debe prevenir a la persona solicitante para que subsanen la omisión dentro del plazo previsto en este calendario.\nSi la persona interesada no remite la información que le requiere el CENACE, el CENACE le debe notificar que no resulta procedente realizar un estudio al amparo de la Segunda Convocatoria.\nEn ningún caso se puede otorgar alguna prórroga para presentar la información que el CENACE le requiera.\nDar atención a la prevención\n4\nPeriodo para que el\nCENACE determine los\npagos que se le deben\nrealizar por concepto de los\nestudios de interconexión,\nsegún corresponda.\n05 al 08 de junio\nPor medio de la VUPE, el CENACE comunica a las personas solicitantes alguna de las siguientes opciones:\n1. El monto a pagar, para lo cual se le notifica a la persona solicitante la línea de captura de pago correspondiente;\n2. Que la información presentada resulta suficiente para la revalidación de los estudios que presentó, por lo que no debe realizar un pago adicional.\nPresentar en tiempo y forma\nla información que, en su\ncaso, le requiera el\nCENACE.\n5\nPeriodo para el pago de los\nestudios realizados por el\nCENACE.\n09 al 15 de junio\nLas personas solicitantes deben realizar el pago de la línea de captura enviada por el CENACE y presentar la evidencia de dicho pago en la VUPE, para los casos que resulten conducentes. Las personas que no acrediten realizar el pago correspondiente no pueden obtener un permiso de generación de energía eléctrica con base en la Segunda Convocatoria.\nPresentar el comprobante\ndel pago de la línea de\ncaptura que le notificó el\nCENACE a través de la\nVUPE.\n6\nPresentación de la solicitud\nde permiso de generación de\nenergía eléctrica ante la\nCNE.\n16 de junio al 15 de\njulio\nSe presenta en la OPE de la CNE, para lo cual la persona solicitante debe acreditar el cumplimiento de las Disposiciones de Permisos.\nPresentar la solicitud de\npermiso de generación de\nenergía eléctrica a través de\nla OPE de la CNE.\n7\nRevisión de cumplimiento de\nrequisitos por parte de las\npersonas solicitantes y\nnotificación de prevenciones.\n16 al 20 de julio\nLa CNE debe revisar el cumplimiento de los requisitos previstos en las Disposiciones de Permisos. En caso de que identifique que hace falta información para evaluar la solicitud o que esta presenta inconsistencias respecto de lo que la persona informó a través de la VUPE, la CNE debe realizar una única prevención que se debe notificar a través de su OPE a las personas solicitantes. Concluida esta revisión y, en su caso, desahogadas las prevenciones, la CNE debe integrar la relación de solicitudes que continúan en el proceso y remitirla al CENACE para la notificación de estudios, costos de Obras de Refuerzo y costos de Obras de Interconexión.\nRevisar las notificaciones\nque la CNE le realice a\ntravés de su OPE.\n8\nAtención de las prevenciones\nque, en su caso, notifique la\nCNE.\n21 al 24 de julio\nLas personas solicitantes deben atender la única prevención que les realice la CNE mediante la presentación de la información y documentación que corresponda. Si la prevención es atendida en tiempo y forma y la información resulta suficiente, la CNE debe incluir la solicitud en la relación que remita al CENACE para la etapa de notificación de estudios y costos. En caso de que no se atienda la prevención o la información remitida resulte insuficiente, la CNE debe notificar el desechamiento correspondiente por medio de la OPE. En este supuesto, la notificación por parte de la CNE debe realizarse a más tardar en la fecha en que le sean notificados a la persona particular los resultados de los estudios realizados por el CENACE.\nPresentar la información y\ndocumentación que atienda\nla prevención a través de la\nOPE de CNE.\n9\nNotificación de costos de\nObras de Refuerzo y de\ninterconexión.\n27 de julio\nEl CENACE debe notificar, a través de la VUPE, los resultados de los estudios realizados y los costos de Obras de Refuerzo y de interconexión a las personas solicitantes que la CNE le informe, esto es, aquellas que hayan cumplido cuantitativamente con los requisitos establecidos en las Disposiciones de Permisos y, en su caso, hayan desahogado satisfactoriamente la prevención.\nRevisar las notificaciones\nque se realicen a través de la\nVUPE.\n10\nAceptación expresa del costo\nde Obras de Interconexión y\nObras de Refuerzo definidas\npor el CENACE\n28 de julio al 04 de\nagosto\nLas personas solicitantes que se encuentren en el supuesto del numeral 9 anterior, deben presentar a través de la VUPE el Formato Aceptación de Obras.\nPresentar en la VUPE\n11\nReevaluación de resultados\nde Obras de Refuerzo y de\ninterconexión.\n05 al 11 de agosto\nPor una sola ocasión, cuando sea necesario en términos del numeral 6.2, párrafo sexto, el CENACE debe reevaluar los resultados de estudios y el costo de Obras de Interconexión y Obras de Refuerzo, y notificar la información respectiva a las personas solicitantes correspondientes dentro de los 5 días hábiles siguientes a que se actualice dicho supuesto.\nNinguna\n12\nAceptación expresa del\nCosto de Obras de Refuerzo\ny de interconexión\nredefinidas, resultado de la\netapa anterior.\n12 al 13 de agosto\nLas personas solicitantes deben presentar a través de la VUPE el Formato Aceptación de Obras mediante el cual aceptan expresa e irrevocablemente las Obras de Interconexión y Obras de Refuerzo redefinidas por el CENACE. Esta aceptación se debe presentar dentro de los 2 días hábiles siguientes a la notificación de la reevaluación realizada por el CENACE.\nPresentar en la VUPE el\nFormato Aceptación de\nObras respecto de la\nreevaluación notificada por el\nCENACE.\n13\nEvaluación de los estudios\ntécnicos y criterios de la\nplaneación vinculante.\n14 al 19 de agosto\nLa CNE debe someter ante el Grupo de Análisis Técnico la información técnica integrada resultante del desarrollo de la Segunda Convocatoria, en términos de las Disposiciones para la Planeación Vinculante.\nNinguna\n14\nRevisión y aprobación de\npermisos por parte del\nComité Técnico de la CNE.\n20 al 21 de agosto\nEl Comité Técnico de la CNE, en sesión extraordinaria, debe determinar, en su caso, la aprobación de los permisos que cumplan con los requisitos establecidos en la LSE, su reglamento y demás disposiciones aplicables, incluyendo lo previsto en la Segunda Convocatoria.\nNinguna\n15\nPublicación de resultados de\nla Convocatoria.\n24 de agosto\nLa CNE debe publicar en la VUPE y en su página de internet los resultados de la Segunda Convocatoria, esto es, las solicitudes de proyectos que fueron aprobadas para obtener un permiso de generación de energía eléctrica.\nRevisar la publicación\nrealizada por la CNE\n16\nNotificación de los permisos\naprobados por parte del\nComité Técnico de la CNE al\namparo de la Convocatoria.\n25 de agosto\nLa CNE notifica a través de su OPE los permisos de generación de energía eléctrica que las personas solicitantes hayan obtenido al amparo de la Segunda Convocatoria.\nRevisar las notificaciones\nque la CNE le realice a\ntravés de su OPE.\n17\nPresentación del\ndesistimiento de solicitudes\nde otorgamiento de permisos\nanteriores a la Convocatoria.\n26 al 31 de agosto\nEn su caso, las personas solicitantes que hayan obtenido los permisos correspondientes al amparo de la Segunda Convocatoria deben presentar, a través de la OPE de la CNE, el desistimiento de las solicitudes de permisos de generación de energía eléctrica que tuvieran presentadas de manera previa a la publicación de esta convocatoria.\nPresentar desistimiento de\ntrámites previos a través de\nla OPE de la CNE.",
+      "html": "<table> <tbody><tr> <td> <div> No.<br> </div> </td> <td> <div> Etapa<br> </div> </td> <td> <div> Fechas en 2026<br> </div> </td> <td> <div> Consideraciones sobre la etapa<br> </div> </td> <td> <div> Acciones que las personas<br> solicitantes deben realizar<br> </div> </td> </tr> <tr> <td> <div> 2<br> </div> </td> <td> <div> Periodo de registro de<br> manifestación de interés y<br> solicitud de estudios de<br> interconexión, a través de la<br> VUPE.<br> </div> </td> <td> <div> 13 al 29 de mayo<br> </div> </td> <td> <div> Las personas interesadas en participar en la Segunda Convocatoria deben ingresar a la VUPE para presentar su registro de manifestación de interés para participar en esta, así como para presentar la solicitud de estudios de interconexión del CENACE.</div> </td> <td> <div> Registrar su manifestación<br> de interés y solicitud de<br> estudios de interconexión del<br> CENACE, para lo cual,<br> deben completar en la VUPE<br> el Formato de Manifestación<br> de Interés y Solicitud de<br> estudios de interconexión del<br> CENACE.<br> </div> </td> </tr> <tr> <td> <div> 3<br> </div> </td> <td> <div> Prevención por parte de<br> CENACE y atención de la<br> persona solicitante<br> </div> </td> <td> <div> 01 al 04 de junio<br> </div> </td> <td> <div> En el caso de que la solicitud de estudios de interconexión no contenga los datos o no cumplan con los requisitos aplicables, el CENACE debe prevenir a la persona solicitante para que subsanen la omisión dentro del plazo previsto en este calendario.</div> <div> Si la persona interesada no remite la información que le requiere el CENACE, el CENACE le debe notificar que no resulta procedente realizar un estudio al amparo de la Segunda Convocatoria.</div> <div> En ningún caso se puede otorgar alguna prórroga para presentar la información que el CENACE le requiera.</div> </td> <td> <div> Dar atención a la prevención<br> </div> </td> </tr> <tr> <td> <div> 4<br> </div> </td> <td> <div> Periodo para que el<br> CENACE determine los<br> pagos que se le deben<br> realizar por concepto de los<br> estudios de interconexión,<br> según corresponda.<br> </div> </td> <td> <div> 05 al 08 de junio<br> </div> </td> <td> <div> Por medio de la VUPE, el CENACE comunica a las personas solicitantes alguna de las siguientes opciones:</div> <div> 1. El monto a pagar, para lo cual se le notifica a la persona solicitante la línea de captura de pago correspondiente;</div> <div> 2. Que la información presentada resulta suficiente para la revalidación de los estudios que presentó, por lo que no debe realizar un pago adicional.</div> </td> <td> <div> Presentar en tiempo y forma<br> la información que, en su<br> caso, le requiera el<br> CENACE.<br> </div> </td> </tr> <tr> <td> <div> 5<br> </div> </td> <td> <div> Periodo para el pago de los<br> estudios realizados por el<br> CENACE.<br> </div> </td> <td> <div> 09 al 15 de junio<br> </div> </td> <td> <div> Las personas solicitantes deben realizar el pago de la línea de captura enviada por el CENACE y presentar la evidencia de dicho pago en la VUPE, para los casos que resulten conducentes. Las personas que no acrediten realizar el pago correspondiente no pueden obtener un permiso de generación de energía eléctrica con base en la Segunda Convocatoria.</div> </td> <td> <div> Presentar el comprobante<br> del pago de la línea de<br> captura que le notificó el<br> CENACE a través de la<br> VUPE.<br> </div> </td> </tr> <tr> <td> <div> 6<br> </div> </td> <td> <div> Presentación de la solicitud<br> de permiso de generación de<br> energía eléctrica ante la<br> CNE.<br> </div> </td> <td> <div> 16 de junio al 15 de<br> julio<br> </div> </td> <td> <div> Se presenta en la OPE de la CNE, para lo cual la persona solicitante debe acreditar el cumplimiento de las Disposiciones de Permisos.</div> </td> <td> <div> Presentar la solicitud de<br> permiso de generación de<br> energía eléctrica a través de<br> la OPE de la CNE.<br> </div> </td> </tr> <tr> <td> <div> 7<br> </div> </td> <td> <div> Revisión de cumplimiento de<br> requisitos por parte de las<br> personas solicitantes y<br> notificación de prevenciones.<br> </div> </td> <td> <div> 16 al 20 de julio<br> </div> </td> <td> <div> La CNE debe revisar el cumplimiento de los requisitos previstos en las Disposiciones de Permisos. En caso de que identifique que hace falta información para evaluar la solicitud o que esta presenta inconsistencias respecto de lo que la persona informó a través de la VUPE, la CNE debe realizar una única prevención que se debe notificar a través de su OPE a las personas solicitantes. Concluida esta revisión y, en su caso, desahogadas las prevenciones, la CNE debe integrar la relación de solicitudes que continúan en el proceso y remitirla al CENACE para la notificación de estudios, costos de Obras de Refuerzo y costos de Obras de Interconexión.</div> </td> <td> <div> Revisar las notificaciones<br> que la CNE le realice a<br> través de su OPE.<br> </div> </td> </tr> <tr> <td> <div> 8<br> </div> </td> <td> <div> Atención de las prevenciones<br> que, en su caso, notifique la<br> CNE.<br> </div> </td> <td> <div> 21 al 24 de julio<br> </div> </td> <td> <div> Las personas solicitantes deben atender la única prevención que les realice la CNE mediante la presentación de la información y documentación que corresponda. Si la prevención es atendida en tiempo y forma y la información resulta suficiente, la CNE debe incluir la solicitud en la relación que remita al CENACE para la etapa de notificación de estudios y costos. En caso de que no se atienda la prevención o la información remitida resulte insuficiente, la CNE debe notificar el desechamiento correspondiente por medio de la OPE. En este supuesto, la notificación por parte de la CNE debe realizarse a más tardar en la fecha en que le sean notificados a la persona particular los resultados de los estudios realizados por el CENACE.</div> </td> <td> <div> Presentar la información y<br> documentación que atienda<br> la prevención a través de la<br> OPE de CNE.<br> </div> </td> </tr> <tr> <td> <div> 9<br> </div> </td> <td> <div> Notificación de costos de<br> Obras de Refuerzo y de<br> interconexión.<br> </div> </td> <td> <div> 27 de julio<br> </div> </td> <td> <div> El CENACE debe notificar, a través de la VUPE, los resultados de los estudios realizados y los costos de Obras de Refuerzo y de interconexión a las personas solicitantes que la CNE le informe, esto es, aquellas que hayan cumplido cuantitativamente con los requisitos establecidos en las Disposiciones de Permisos y, en su caso, hayan desahogado satisfactoriamente la prevención.</div> </td> <td> <div> Revisar las notificaciones<br> que se realicen a través de la<br> VUPE.<br> </div> </td> </tr> <tr> <td> <div> 10<br> </div> </td> <td> <div> Aceptación expresa del costo<br> de Obras de Interconexión y<br> Obras de Refuerzo definidas<br> por el CENACE<br> </div> </td> <td> <div> 28 de julio al 04 de<br> agosto<br> </div> </td> <td> <div> Las personas solicitantes que se encuentren en el supuesto del numeral 9 anterior, deben presentar a través de la VUPE el Formato Aceptación de Obras.</div> </td> <td> <div> Presentar en la VUPE<br> </div> </td> </tr> <tr> <td> <div> 11<br> </div> </td> <td> <div> Reevaluación de resultados<br> de Obras de Refuerzo y de<br> interconexión.<br> </div> </td> <td> <div> 05 al 11 de agosto<br> </div> </td> <td> <div> Por una sola ocasión, cuando sea necesario en términos del numeral 6.2, párrafo sexto, el CENACE debe reevaluar los resultados de estudios y el costo de Obras de Interconexión y Obras de Refuerzo, y notificar la información respectiva a las personas solicitantes correspondientes dentro de los 5 días hábiles siguientes a que se actualice dicho supuesto.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 12<br> </div> </td> <td> <div> Aceptación expresa del<br> Costo de Obras de Refuerzo<br> y de interconexión<br> redefinidas, resultado de la<br> etapa anterior.<br> </div> </td> <td> <div> 12 al 13 de agosto<br> </div> </td> <td> <div> Las personas solicitantes deben presentar a través de la VUPE el Formato Aceptación de Obras mediante el cual aceptan expresa e irrevocablemente las Obras de Interconexión y Obras de Refuerzo redefinidas por el CENACE. Esta aceptación se debe presentar dentro de los 2 días hábiles siguientes a la notificación de la reevaluación realizada por el CENACE.</div> </td> <td> <div> Presentar en la VUPE el<br> Formato Aceptación de<br> Obras respecto de la<br> reevaluación notificada por el<br> CENACE.<br> </div> </td> </tr> <tr> <td> <div> 13<br> </div> </td> <td> <div> Evaluación de los estudios<br> técnicos y criterios de la<br> planeación vinculante.<br> </div> </td> <td> <div> 14 al 19 de agosto<br> </div> </td> <td> <div> La CNE debe someter ante el Grupo de Análisis Técnico la información técnica integrada resultante del desarrollo de la Segunda Convocatoria, en términos de las Disposiciones para la Planeación Vinculante.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 14<br> </div> </td> <td> <div> Revisión y aprobación de<br> permisos por parte del<br> Comité Técnico de la CNE.<br> </div> </td> <td> <div> 20 al 21 de agosto<br> </div> </td> <td> <div> El Comité Técnico de la CNE, en sesión extraordinaria, debe determinar, en su caso, la aprobación de los permisos que cumplan con los requisitos establecidos en la LSE, su reglamento y demás disposiciones aplicables, incluyendo lo previsto en la Segunda Convocatoria.</div> </td> <td> <div> Ninguna<br> </div> </td> </tr> <tr> <td> <div> 15<br> </div> </td> <td> <div> Publicación de resultados de<br> la Convocatoria.<br> </div> </td> <td> <div> 24 de agosto<br> </div> </td> <td> <div> La CNE debe publicar en la VUPE y en su página de internet los resultados de la Segunda Convocatoria, esto es, las solicitudes de proyectos que fueron aprobadas para obtener un permiso de generación de energía eléctrica.</div> </td> <td> <div> Revisar la publicación<br> realizada por la CNE<br> </div> </td> </tr> <tr> <td> <div> 16<br> </div> </td> <td> <div> Notificación de los permisos<br> aprobados por parte del<br> Comité Técnico de la CNE al<br> amparo de la Convocatoria.<br> </div> </td> <td> <div> 25 de agosto<br> </div> </td> <td> <div> La CNE notifica a través de su OPE los permisos de generación de energía eléctrica que las personas solicitantes hayan obtenido al amparo de la Segunda Convocatoria.</div> </td> <td> <div> Revisar las notificaciones<br> que la CNE le realice a<br> través de su OPE.<br> </div> </td> </tr> <tr> <td> <div> 17<br> </div> </td> <td> <div> Presentación del<br> desistimiento de solicitudes<br> de otorgamiento de permisos<br> anteriores a la Convocatoria.<br> </div> </td> <td> <div> 26 al 31 de agosto<br> </div> </td> <td> <div> En su caso, las personas solicitantes que hayan obtenido los permisos correspondientes al amparo de la Segunda Convocatoria deben presentar, a través de la OPE de la CNE, el desistimiento de las solicitudes de permisos de generación de energía eléctrica que tuvieran presentadas de manera previa a la publicación de esta convocatoria.</div> </td> <td> <div> Presentar desistimiento de<br> trámites previos a través de<br> la OPE de la CNE.<br> </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 12,
+      "tipo": "parrafo",
+      "texto": "...\"",
+      "html": "<div> ...&quot;</div>"
+    },
+    {
+      "id": 13,
+      "tipo": "parrafo",
+      "texto": "\"8.2. ...",
+      "html": "<div> &quot;8.2. ...</div>"
+    },
+    {
+      "id": 14,
+      "tipo": "parrafo",
+      "texto": "...",
+      "html": "<div> ...</div>"
+    },
+    {
+      "id": 15,
+      "tipo": "parrafo",
+      "texto": "I...",
+      "html": "<div> I...</div>"
+    },
+    {
+      "id": 16,
+      "tipo": "parrafo",
+      "texto": "II. ...",
+      "html": "<div> II. ...</div>"
+    },
+    {
+      "id": 17,
+      "tipo": "parrafo",
+      "texto": "La SENER y el CENACE deben entregar a la CNE la información solicitada a más tardar el 13 de agosto de 2026.",
+      "html": "<div> La SENER y el CENACE deben entregar a la CNE la información solicitada a más tardar el 13 de agosto de 2026.</div>"
+    },
+    {
+      "id": 18,
+      "tipo": "parrafo",
+      "texto": "...\"",
+      "html": "<div> ...&quot;</div>"
+    },
+    {
+      "id": 19,
+      "tipo": "parrafo",
+      "texto": "\"9.1. ...",
+      "html": "<div> &quot;9.1. ...</div>"
+    },
+    {
+      "id": 20,
+      "tipo": "parrafo",
+      "texto": "El Comité Técnico de la CNE debe resolver sobre la aprobación de las solicitudes que se le sometan a consideración en la sesión extraordinaria que se celebre del 20 al 21 de agosto de 2026, conforme a lo previsto en la LCNE y las Reglas de Operación de dicho Comité, para lo cual les debe ser remitido el expediente administrativo que incluya toda la información presentada por la persona particular, así como, en su caso la proporcionada por la SENER, el CENACE y el Grupo de Análisis Técnico.\"",
+      "html": "<div> El Comité Técnico de la CNE debe resolver sobre la aprobación de las solicitudes que se le sometan a consideración en la sesión extraordinaria que se celebre del 20 al 21 de agosto de 2026, conforme a lo previsto en la LCNE y las Reglas de Operación de dicho Comité, para lo cual les debe ser remitido el expediente administrativo que incluya toda la información presentada por la persona particular, así como, en su caso la proporcionada por la SENER, el CENACE y el Grupo de Análisis Técnico.&quot;</div>"
+    },
+    {
+      "id": 21,
+      "tipo": "parrafo",
+      "texto": "\"9.2. ...",
+      "html": "<div> &quot;9.2. ...</div>"
+    },
+    {
+      "id": 22,
+      "tipo": "parrafo",
+      "texto": "La CNE debe emitir y notificar los títulos de permisos aprobados por el Comité Técnico de la CNE, respecto de permisos de generación de energía eléctrica, el 25 de agosto de 2026.",
+      "html": "<div> La CNE debe emitir y notificar los títulos de permisos aprobados por el Comité Técnico de la CNE, respecto de permisos de generación de energía eléctrica, el 25 de agosto de 2026.</div>"
+    },
+    {
+      "id": 23,
+      "tipo": "parrafo",
+      "texto": "...\"",
+      "html": "<div> ...&quot;</div>"
+    },
+    {
+      "id": 24,
+      "tipo": "parrafo",
+      "texto": "SEGUNDO. Los plazos y referencias contenidas en la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de",
+      "html": "<div> SEGUNDO. Los plazos y referencias contenidas en la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de </div>"
+    },
+    {
+      "id": 25,
+      "tipo": "parrafo",
+      "texto": "generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, deben entenderse conforme a lo previsto en la modificación a que se refiere el numeral anterior.",
+      "html": "<div> generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, deben entenderse conforme a lo previsto en la modificación a que se refiere el numeral anterior.</div>"
+    },
+    {
+      "id": 26,
+      "tipo": "parrafo",
+      "texto": "TRANSITORIO",
+      "html": "<div> TRANSITORIO<br> </div>"
+    },
+    {
+      "id": 27,
+      "tipo": "parrafo",
+      "texto": "ÚNICO. El presente Acuerdo entrará en vigor el mismo día de su publicación en el Diario Oficial de la Federación.",
+      "html": "<div> ÚNICO. El presente Acuerdo entrará en vigor el mismo día de su publicación en el Diario Oficial  de la Federación.</div>"
+    },
+    {
+      "id": 28,
+      "tipo": "parrafo",
+      "texto": "Ciudad de México, a 22 de mayo de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.",
+      "html": "<div> Ciudad de México, a 22 de mayo de 2026.- La Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.</div>"
+    }
+  ],
+  "cotejo_textual_sin_perdida": true
+}

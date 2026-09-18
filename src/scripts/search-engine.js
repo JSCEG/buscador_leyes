@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase.js';
+import articleRedirects from '../lib/article-redirects.json';
 
 function mapRowToLocalItem(row) {
     return {
@@ -213,6 +214,9 @@ export async function getSearchCountsByLaw(query, filters = {}) {
 
 export async function getArticleById(id) {
     if (!id) return null;
+    // Cinco cortes falsos se reunieron con su disposición original en septiembre de 2026.
+    // Mantiene los enlaces y favoritos locales que apuntaban a esos fragmentos.
+    id = articleRedirects[id] || id;
     try {
         const { data, error } = await supabase
             .from('articulos')

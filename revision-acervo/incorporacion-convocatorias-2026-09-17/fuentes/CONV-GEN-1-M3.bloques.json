@@ -1,0 +1,166 @@
+{
+  "instrumento": "CONV-GEN-1-M3",
+  "sha256": "80ee13b6af8ee224200c33f18a6cb5426fff88a23f61ddcf90b1eec9e91debfe",
+  "tablas": 1,
+  "casillas": 0,
+  "graficos": 0,
+  "bloques": [
+    {
+      "id": 0,
+      "tipo": "parrafo",
+      "texto": "ACUERDO por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante.",
+      "html": " ACUERDO por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante."
+    },
+    {
+      "id": 1,
+      "tipo": "parrafo",
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía.",
+      "html": " Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Secretaría de Energía."
+    },
+    {
+      "id": 2,
+      "tipo": "parrafo",
+      "texto": "LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero, de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones IV, V, XXXI y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4, de la Ley Federal de Procedimiento Administrativo; 57 del Reglamento de la Ley de Planeación y Transición Energética; 3 y Transitorio Vigésimo Primero del Reglamento de la Ley del Sector Eléctrico, y",
+      "html": "<div> LUZ ELENA GONZÁLEZ ESCOBAR, Secretaria de Energía, con fundamento en lo dispuesto por los artículos 28, párrafo noveno, 90, párrafo primero, de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 14, párrafo primero, 26, fracción IX y 33, fracciones IV, V, XXXI y XXXIII de la Ley Orgánica de la Administración Pública Federal; 4, de la Ley Federal de Procedimiento Administrativo;  57 del Reglamento de la Ley de Planeación y Transición Energética; 3 y Transitorio Vigésimo Primero del Reglamento de la Ley del Sector Eléctrico, y</div>"
+    },
+    {
+      "id": 3,
+      "tipo": "parrafo",
+      "texto": "CONSIDERANDO",
+      "html": "<div> CONSIDERANDO<br> </div>"
+    },
+    {
+      "id": 4,
+      "tipo": "parrafo",
+      "texto": "Que el 17 de octubre de 2025 en el Diario Oficial de la Federación se publicó la \"CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE\" (Convocatoria), dirigida a las personas particulares, para la presentación de solicitudes de permisos de generación para el desarrollo de centrales eléctricas que son estratégicas y prioritarias en la planeación vinculante del sector eléctrico hasta el 2030.",
+      "html": "<div> Que el 17 de octubre de 2025 en el Diario Oficial de la Federación se publicó la &quot;CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE&quot; (Convocatoria), dirigida a las personas particulares, para la presentación de solicitudes de permisos de generación para el desarrollo de centrales eléctricas que son estratégicas y prioritarias en la planeación vinculante del sector eléctrico hasta el 2030.</div>"
+    },
+    {
+      "id": 5,
+      "tipo": "parrafo",
+      "texto": "Que derivado del interés de las personas particulares respecto de la Convocatoria, el 24 de octubre de 2025, fue publicado en el Diario Oficial de la Federación el \"Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025\", a efecto de realizar modificaciones a las fechas del calendario establecido en la Convocatoria.",
+      "html": "<div> Que derivado del interés de las personas particulares respecto de la Convocatoria, el 24 de octubre de 2025, fue publicado en el Diario Oficial de la Federación el &quot;Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025&quot;, a efecto de realizar modificaciones a las fechas del calendario establecido en la Convocatoria.</div>"
+    },
+    {
+      "id": 6,
+      "tipo": "parrafo",
+      "texto": "Que el 10 de noviembre de 2025 se publicó en el Diario Oficial de la Federación el \"Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante\" con la finalidad de que las personas interesadas en participar en la Convocatoria cuenten con un periodo adicional para realizar el pago correspondiente de los estudios realizados por el Centro Nacional de Control de Energía.",
+      "html": "<div> Que el 10 de noviembre de 2025 se publicó en el Diario Oficial de la Federación el &quot;Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante&quot; con la finalidad de que las personas interesadas en participar en la Convocatoria cuenten con un periodo adicional para realizar el pago correspondiente de los estudios realizados por el Centro Nacional de Control de Energía.</div>"
+    },
+    {
+      "id": 7,
+      "tipo": "parrafo",
+      "texto": "Que en congruencia con lo anterior, se debe facilitar a quienes se otorguen los permisos de generación de energía eléctrica derivado de la Convocatoria, la presentación y acreditación ante el Centro Nacional de Control de Energía de las garantías necesarias para solicitar la suscripción del contrato de interconexión correspondiente.",
+      "html": "<div> Que en congruencia con lo anterior, se debe facilitar a quienes se otorguen los permisos de generación de energía eléctrica derivado de la Convocatoria, la presentación y acreditación ante el Centro Nacional de Control de Energía de las garantías necesarias para solicitar la suscripción del contrato de interconexión correspondiente.</div>"
+    },
+    {
+      "id": 8,
+      "tipo": "parrafo",
+      "texto": "Derivado de lo anterior, se considera oportuno realizar la modificación en los plazos para la presentación de las garantías, proporcionando un ajuste para que las personas interesadas exhiban las garantías que se requieren para solicitar la suscripción del contrato de interconexión y estableciendo dicha condición en el contenido del formato de aceptación de obras que se debe presentar, por lo que he tenido a bien emitir el siguiente:",
+      "html": "<div> Derivado de lo anterior, se considera oportuno realizar la modificación en los plazos para la presentación de las garantías, proporcionando un ajuste para que las personas interesadas exhiban las garantías que se requieren para solicitar la suscripción del contrato de interconexión y estableciendo dicha condición en el contenido del formato de aceptación de obras que se debe presentar, por lo que he tenido a bien emitir el siguiente:</div>"
+    },
+    {
+      "id": 9,
+      "tipo": "parrafo",
+      "texto": "ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN\nPRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN\nAL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE",
+      "html": "<div> ACUERDO POR EL QUE SE EMITE LA MODIFICACIÓN A LA CONVOCATORIA PARA LA ATENCIÓN<br> PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN<br> AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE<br> </div>"
+    },
+    {
+      "id": 10,
+      "tipo": "parrafo",
+      "texto": "PRIMERO. Se modifica el numeral ii, del apartado C, del numeral 8. Aprobación y emisión de permisos de generación de energía eléctrica, así como publicación de los resultados de la \"CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE\", para quedar en los siguientes términos:",
+      "html": "<div> PRIMERO. Se modifica el numeral ii, del apartado C, del numeral 8. Aprobación y emisión de permisos de generación de energía eléctrica, así como publicación de los resultados de la &quot;CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE&quot;, para quedar en los siguientes términos:</div>"
+    },
+    {
+      "id": 11,
+      "tipo": "parrafo",
+      "texto": "8. Aprobación y emisión de permisos de generación de energía eléctrica, así como publicación de los resultados.",
+      "html": "<div> 8. Aprobación y emisión de permisos de generación de energía eléctrica, así como publicación de los resultados.</div>"
+    },
+    {
+      "id": 12,
+      "tipo": "parrafo",
+      "texto": "A. a la B. ...",
+      "html": "<div> A. a la B. ...</div>"
+    },
+    {
+      "id": 13,
+      "tipo": "parrafo",
+      "texto": "C. Emisión de los títulos de permisos.",
+      "html": "<div> C. Emisión de los títulos de permisos.</div>"
+    },
+    {
+      "id": 14,
+      "tipo": "parrafo",
+      "texto": "...",
+      "html": "<div> ...</div>"
+    },
+    {
+      "id": 15,
+      "tipo": "parrafo",
+      "texto": "...",
+      "html": "<div> ...</div>"
+    },
+    {
+      "id": 16,
+      "tipo": "parrafo",
+      "texto": "i. ...",
+      "html": "<div> i.      ...</div>"
+    },
+    {
+      "id": 17,
+      "tipo": "parrafo",
+      "texto": "ii. Acreditar, previo a la firma del contrato de interconexión correspondiente, la presentación de la garantía por las obras de refuerzo resultado del estudio de instalaciones que hayan aceptado ante el CENACE.",
+      "html": "<div> ii.     Acreditar, previo a la firma del contrato de interconexión correspondiente, la presentación de la garantía por las obras de refuerzo resultado del estudio de instalaciones que hayan aceptado ante el CENACE.</div>"
+    },
+    {
+      "id": 18,
+      "tipo": "parrafo",
+      "texto": "iii. a v.",
+      "html": "<div> iii. a v.</div>"
+    },
+    {
+      "id": 19,
+      "tipo": "parrafo",
+      "texto": "D. ...",
+      "html": "<div> D. ...</div>"
+    },
+    {
+      "id": 20,
+      "tipo": "parrafo",
+      "texto": "SEGUNDO. Se modifica el Anexo d. Formato Aceptación de Obras de la \"CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE\", para quedar como sigue:",
+      "html": "<div> SEGUNDO. Se modifica el Anexo d. Formato Aceptación de Obras de la &quot;CONVOCATORIA PARA LA ATENCIÓN PRIORITARIA DE SOLICITUDES DE PERMISOS DE GENERACIÓN ELÉCTRICA E INTERCONEXIÓN AL SISTEMA ELÉCTRICO NACIONAL, ALINEADOS A LA PLANEACIÓN VINCULANTE&quot;, para quedar como sigue:</div>"
+    },
+    {
+      "id": 21,
+      "tipo": "parrafo",
+      "texto": "d. Formato Aceptación de Obras:",
+      "html": "<div> d. Formato Aceptación de Obras:</div>"
+    },
+    {
+      "id": 22,
+      "tipo": "tabla",
+      "texto": "CARTA DE ACEPTACIÓN DE OBRAS\nCiudad de México, a [fecha de presentación]\nA quien corresponda,\nEl suscriptor de la presente, C. [_] en mi carácter de representante [legal / apoderado], de la persona moral denominada [_], señalando para oír y recibir todo tipo de notificaciones y documentos el domicilio ubicado en: [_], y autorizando para los mismos efectos a los señores: [_]; en este acto comparezco para exponer:\nQue en nombre de mi representada y en ejercicio de las facultades que me fueron conferidas, manifiesto de manera expresa y libre de vicios del consentimiento, la voluntad para aceptar los resultados del o los Estudios correspondientes a la Solicitud de Interconexión N° [_] de fecha [_] notificado a mi representada mediante oficio número [_], en el que se establece la necesidad de realizar las inversiones e infraestructura estimada por el Centro Nacional de Control de Energía (CENACE), por la cantidad de [_].\nEn virtud de lo anterior, con la suscripción de este formato, mi representada se obliga unilateralmente y de manera incondicional a pagar al CENACE, la cantidad de [_], en caso de incumplimiento de las obligaciones relacionadas con: (i) Ejecutar y terminar la construcción de las Obras de Interconexión y Obras de Refuerzo de conformidad con las Características Específicas de la Infraestructura Requerida para la Interconexión de la central eléctrica determinadas en el o los Estudios, (ii) Iniciar las operaciones de Interconexión en la fecha de entrada en operación, (iii) Realizar los actos que el CENACE indique de conformidad con los Estudios previamente realizados, y (iv) Cumplir con la normatividad aplicable a la Red Nacional de Transmisión y las Redes Generales de Distribución, así como con las Disposiciones Administrativas de Carácter General que contienen los criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad del Sistema Eléctrico Nacional: Código de Red.\nDe conformidad con lo señalado en la \"Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante\", (La Convocatoria), publicada en el Diario Oficial de la Federación el día [_], así como el \"Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga\" (el \"Manual de Interconexión y Conexión\") y para efectos de asegurar el cumplimiento concurrente de las obligaciones antes referidas, mi representada en este acto, se compromete, en caso de que el Comité Técnico de la CNE determine la aprobación del permiso de generación de energía eléctrica por haber cumplido con los requisitos establecidos en La Convocatoria, otorgar una garantía; [ (a) dinero en efectivo, mediante depósito bancario de dinero a la vista en la cuenta bancaria número [_] a nombre del fideicomiso N° [_]; (b) Certificados de Tesorería de la Federación por la cantidad de [_] y/o (c) Carta de Crédito Stand By por la cantidad de [_], que cumple con el formato establecido en el Manual de Interconexión de Centrales Eléctricas y Conexión de Centros de Carga, y presentarla previo a la firma del contrato de interconexión correspondiente.\nPor lo expuesto atentamente solicito:\nPRIMERO. Se tenga por acreditada la personalidad con que me ostento, representando legalmente a la persona moral denominada [_].\nSEGUNDO. Se me tenga por presentado en nombre de mi representada el presente formato de aceptación de obras, para responder por el debido cumplimiento de todas y cada una de las obligaciones aquí consignadas y relacionadas con el o los estudios elaborados con motivo de la Solicitud No. [_], los cuales me fueron notificados mediante oficio No. [_] de fecha [_].\nTERCERO. Se me tenga por presentado en nombre de mi representada aceptando todos y cada uno de los términos, condiciones y plazos establecidos en La Convocatoria.\nCUARTO. Se acuerde la aceptación de promesa de la garantía por el monto requerido, misma que se presentará formalmente por parte de mi representada previo a la firma del contrato de interconexión correspondiente.\nAtentamente\nNOMBRE Y FIRMA DE LA PERSONA QUE SUSCRIBE LA CARTA",
+      "html": "<table> <tbody><tr> <td> <div> CARTA DE ACEPTACIÓN DE OBRAS<br> </div> <div> Ciudad de México, a [fecha de presentación]<br> </div> <div> A quien corresponda,</div> <div> El suscriptor de la presente, C. [_] en mi carácter de representante [legal / apoderado], de la persona moral denominada [_], señalando para oír y recibir todo tipo de notificaciones y documentos el domicilio ubicado en: [_], y autorizando para los mismos efectos a los señores: [_]; en este acto comparezco para exponer:</div> <div> Que en nombre de mi representada y en ejercicio de las facultades que me fueron conferidas, manifiesto de manera expresa y libre de vicios del consentimiento, la voluntad para aceptar los resultados del o los Estudios correspondientes a la Solicitud de Interconexión N° [_] de fecha [_] notificado a mi representada mediante oficio número [_], en el que se establece la necesidad de realizar las inversiones e infraestructura estimada por el Centro Nacional de Control de Energía (CENACE), por la cantidad de [_].</div> <div> En virtud de lo anterior, con la suscripción de este formato, mi representada se obliga unilateralmente y de manera incondicional a pagar al CENACE, la cantidad de [_], en caso de incumplimiento de las obligaciones relacionadas con: (i) Ejecutar y terminar la construcción de las Obras de Interconexión y Obras de Refuerzo de conformidad con las Características Específicas de la Infraestructura Requerida para la Interconexión de la central eléctrica determinadas en el o los Estudios, (ii) Iniciar las operaciones de Interconexión en la fecha de entrada en operación, (iii) Realizar los actos que el CENACE indique de conformidad con los Estudios previamente realizados, y (iv) Cumplir con la normatividad aplicable a la Red Nacional de Transmisión y las Redes Generales de Distribución, así como con las Disposiciones Administrativas de Carácter General que contienen los criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad del Sistema Eléctrico Nacional: Código de Red.</div> <div> De conformidad con lo señalado en la &quot;Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante&quot;,  (La Convocatoria), publicada en el Diario Oficial de la Federación el día [_], así como el &quot;Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga&quot; (el &quot;Manual de Interconexión y Conexión&quot;) y para efectos de asegurar el cumplimiento concurrente de las obligaciones antes referidas, mi representada en este acto, se compromete, en caso de que el Comité Técnico de la CNE determine la aprobación del permiso de generación de energía eléctrica por haber cumplido con los requisitos establecidos en La Convocatoria, otorgar una garantía; [ (a) dinero en efectivo, mediante depósito bancario de dinero a la vista en la cuenta bancaria número [_] a nombre del fideicomiso N° [_]; (b) Certificados de Tesorería de la Federación por la cantidad de [_] y/o (c) Carta de Crédito Stand By por la cantidad de [_], que cumple con el formato establecido en el Manual de Interconexión de Centrales Eléctricas y Conexión de Centros de Carga, y presentarla previo a la firma del contrato de interconexión correspondiente.</div> <div> Por lo expuesto atentamente solicito:</div> <div> PRIMERO. Se tenga por acreditada la personalidad con que me ostento, representando legalmente a la persona moral denominada [_].</div> <div> SEGUNDO. Se me tenga por presentado en nombre de mi representada el presente formato de aceptación de obras, para responder por el debido cumplimiento de todas y cada una de las obligaciones aquí consignadas y relacionadas con el o los estudios elaborados con motivo de la Solicitud No. [_], los cuales me fueron notificados mediante oficio No. [_] de fecha [_].</div> <div> TERCERO. Se me tenga por presentado en nombre de mi representada aceptando todos y cada uno de los términos, condiciones y plazos establecidos en La Convocatoria.</div> <div> CUARTO. Se acuerde la aceptación de promesa de la garantía por el monto requerido, misma que se presentará formalmente por parte de mi representada previo a la firma del contrato de interconexión correspondiente.</div> <div> Atentamente</div> <div> NOMBRE Y FIRMA DE LA PERSONA QUE SUSCRIBE LA CARTA</div> <div>  </div> </td> </tr> </tbody></table>"
+    },
+    {
+      "id": 23,
+      "tipo": "parrafo",
+      "texto": "TRANSITORIO",
+      "html": "<div> TRANSITORIO<br> </div>"
+    },
+    {
+      "id": 24,
+      "tipo": "parrafo",
+      "texto": "ÚNICO. El presente Acuerdo entra en vigor el mismo día de su publicación en el Diario Oficial de la Federación.",
+      "html": "<div> ÚNICO. El presente Acuerdo entra en vigor el mismo día de su publicación en el Diario Oficial  de la Federación.</div>"
+    },
+    {
+      "id": 25,
+      "tipo": "parrafo",
+      "texto": "Ciudad de México, a 28 de noviembre de 2025.- Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.",
+      "html": "<div> Ciudad de México, a 28 de noviembre de 2025.- Secretaria de Energía, Luz Elena González Escobar.- Rúbrica.</div>"
+    }
+  ],
+  "cotejo_textual_sin_perdida": true
+}

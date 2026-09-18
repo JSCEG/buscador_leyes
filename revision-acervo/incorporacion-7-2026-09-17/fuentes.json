@@ -1,0 +1,52 @@
+[
+  {
+    "name": "LCNE",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf",
+    "sha256": "7c13fd20564f1e7230268a0943cc226368b24c44886d6738c479f4c42cbe77de",
+    "bytes": 508412,
+    "format": "pdf"
+  },
+  {
+    "name": "LSH",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf",
+    "sha256": "1405f36fd836ff74d059ebe7e50ae439cbb9e5e291a317514667f34a26f72a23",
+    "bytes": 732413,
+    "format": "pdf"
+  },
+  {
+    "name": "LEPECFE",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf",
+    "sha256": "6e45ab84a076cbd9cfd5fbd8abbe5f2d88fbd767229f21f5e7327aaf692b22a5",
+    "bytes": 559703,
+    "format": "pdf"
+  },
+  {
+    "name": "LEPEPM",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf",
+    "sha256": "e090d2278f98a33ce43b69070c3bbbec5e3b7177f0ffdbee8d4c9bf29c36c317",
+    "bytes": 598559,
+    "format": "pdf"
+  },
+  {
+    "name": "LBio",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf",
+    "sha256": "c1870db657a6564bbeb692a1778472db811a920626822de553ff5ca5194f95b4",
+    "bytes": 441184,
+    "format": "pdf"
+  },
+  {
+    "name": "LGeo",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf",
+    "sha256": "67309bf186af42de0f9e98010d38c89598676faea7f2b558ac9c9e6736d64d35",
+    "bytes": 443402,
+    "format": "pdf"
+  },
+  {
+    "name": "RICNE",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+    "sha256": "3c81e568b264cc282daafe8cb0b6f736d4fa94c423ba7720b2b52f9b5f36fd50",
+    "fecha": "08-05-2025",
+    "titulo": "Decreto por el que se expide el Reglamento Interior de la Comisión Nacional de Energía.",
+    "format": "html"
+  }
+]

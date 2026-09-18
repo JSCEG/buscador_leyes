@@ -1,0 +1,212 @@
+{
+  "fecha_verificacion": "2026-09-17T19:53:31.571461+00:00",
+  "project": "carmfqhcfsqbzcwptqfz",
+  "instrumentos": 12,
+  "fragmentos": 1788,
+  "temas": 358,
+  "uuid_conservados": 1744,
+  "fragmentos_creados": 44,
+  "cortes_falsos_reunidos": 5,
+  "cobertura_fuente_pendiente": [],
+  "verificaciones": [
+    {
+      "instrumento": "RLSE",
+      "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+      "titulo": "Reglamento de la Ley del Sector Eléctrico",
+      "antes": 323,
+      "despues": 335,
+      "tipos": {
+        "ordinario": 306,
+        "transitorio": 27,
+        "preambulo": 1,
+        "complementario": 1
+      },
+      "temas": 65,
+      "fecha_publicacion": "2025-10-03",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "LSE",
+      "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+      "titulo": "Ley del Sector Eléctrico",
+      "antes": 200,
+      "despues": 207,
+      "tipos": {
+        "ordinario": 188,
+        "transitorio": 16,
+        "preambulo": 1,
+        "complementario": 2
+      },
+      "temas": 40,
+      "fecha_publicacion": "2025-03-18",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "LPTE",
+      "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+      "titulo": "Ley de Planeación y Transición Energética",
+      "antes": 110,
+      "despues": 113,
+      "tipos": {
+        "ordinario": 100,
+        "transitorio": 10,
+        "preambulo": 1,
+        "complementario": 2
+      },
+      "temas": 26,
+      "fecha_publicacion": "2025-03-18",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "LGTAIP",
+      "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+      "titulo": "Ley General de Transparencia y Acceso a la Información Pública",
+      "antes": 234,
+      "despues": 238,
+      "tipos": {
+        "ordinario": 216,
+        "transitorio": 20,
+        "complementario": 1,
+        "preambulo": 1
+      },
+      "temas": 45,
+      "fecha_publicacion": "2025-03-20",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "LGEC",
+      "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+      "titulo": "Ley General de Economía Circular",
+      "antes": 56,
+      "despues": 58,
+      "tipos": {
+        "transitorio": 7,
+        "ordinario": 49,
+        "preambulo": 1,
+        "complementario": 1
+      },
+      "temas": 22,
+      "fecha_publicacion": "2026-01-19",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "RISENER",
+      "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+      "titulo": "Reglamento Interior de la Secretaría de Energía",
+      "antes": 87,
+      "despues": 88,
+      "tipos": {
+        "ordinario": 78,
+        "transitorio": 7,
+        "preambulo": 2,
+        "complementario": 1
+      },
+      "temas": 12,
+      "fecha_publicacion": "2025-04-17",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "RLPTE",
+      "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+      "titulo": "Reglamento de la Ley de Planeación y Transición Energética",
+      "antes": 151,
+      "despues": 152,
+      "tipos": {
+        "ordinario": 136,
+        "transitorio": 13,
+        "preambulo": 2,
+        "complementario": 1
+      },
+      "temas": 36,
+      "fecha_publicacion": "2025-10-03",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "RLSH",
+      "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+      "titulo": "Reglamento de la Ley del Sector de Hidrocarburos",
+      "antes": 369,
+      "despues": 371,
+      "tipos": {
+        "ordinario": 336,
+        "transitorio": 32,
+        "complementario": 1,
+        "preambulo": 2
+      },
+      "temas": 88,
+      "fecha_publicacion": "2025-10-03",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "DACG-PV",
+      "ley_id": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "titulo": "DACG para la planeación vinculante en la actividad de generación de energía eléctrica",
+      "antes": 10,
+      "despues": 11,
+      "tipos": {
+        "ordinario": 8,
+        "transitorio": 1,
+        "complementario": 1,
+        "preambulo": 1
+      },
+      "temas": 0,
+      "fecha_publicacion": "2025-10-17",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "PODECOBI-LIN",
+      "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+      "titulo": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
+      "antes": 37,
+      "despues": 42,
+      "tipos": {
+        "ordinario": 39,
+        "transitorio": 1,
+        "preambulo": 1,
+        "complementario": 1
+      },
+      "temas": 15,
+      "fecha_publicacion": "2025-05-22",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "PODECOBI-DEC",
+      "ley_id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
+      "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
+      "antes": 18,
+      "despues": 19,
+      "tipos": {
+        "ordinario": 13,
+        "preambulo": 2,
+        "transitorio": 3,
+        "complementario": 1
+      },
+      "temas": 0,
+      "fecha_publicacion": "2025-05-22",
+      "estado": "VERIFICADO"
+    },
+    {
+      "instrumento": "SAEE",
+      "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+      "titulo": "ACUERDO de la CNE por el que se emiten las DACG para la integración de SAE al SEN",
+      "antes": 154,
+      "despues": 154,
+      "tipos": {
+        "ordinario": 143,
+        "transitorio": 9,
+        "preambulo": 1,
+        "complementario": 1
+      },
+      "temas": 9,
+      "fecha_publicacion": "2026-04-16",
+      "estado": "VERIFICADO"
+    }
+  ],
+  "redirecciones": {
+    "671132d4-7f16-4622-910a-18a90832cc79": "0ce58421-8024-43d8-8f14-1a8ca0d55f45",
+    "d574ce36-1a91-48f5-8bfd-0ce28b0e8103": "ef6d3e97-6ad6-44e8-b657-52f4c54318e2",
+    "3961528a-0292-47c4-a5b2-9cf99d653261": "85e24c51-2df8-4b02-a889-010fe9a72392",
+    "40752873-fa9e-4dd2-a872-6f4ae0f382c3": "114f6d29-2203-4562-ba10-659658d38ddc",
+    "6b1e977c-ba0e-4e78-b396-68776945925c": "89994faa-472c-45f2-88f9-0b6516162225"
+  }
+}

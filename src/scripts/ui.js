@@ -235,6 +235,8 @@ export function initUI() {
     });
 
     let cachedSummaries = [];
+    let catalogLoaded = false;
+    let activeNavId = 'nav-inicio';
     let currentLawArticles = [];
     let cachedRelaciones = [];           // filas de ley_relaciones
     let relacionesPorAfectada = {};      // ley_id afectada -> [relaciones]
@@ -272,7 +274,7 @@ export function initUI() {
         if (!nueva) return '';
         const label = REL_TIPO_LABELS[rel.tipo] || 'Modificado por';
         const fecha = rel.fecha || nueva.fecha_publicacion;
-        const fechaTxt = fecha ? ` (${new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'short' })})` : '';
+        const fechaTxt = fecha ? ` (${new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', timeZone: 'UTC' })})` : '';
         const ref = nueva.siglas || (nueva.titulo.length > 28 ? nueva.titulo.substring(0, 28) + '...' : nueva.titulo);
         return `
             <button class="rel-open-law inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-200 rounded text-[9px] font-bold text-amber-700 hover:bg-amber-100 transition-colors uppercase tracking-wide w-fit"
@@ -291,7 +293,7 @@ export function initUI() {
             if (!nueva) continue;
             const label = REL_TIPO_LABELS[rel.tipo] || 'Modificado por';
             const fecha = rel.fecha || nueva.fecha_publicacion;
-            const fechaTxt = fecha ? new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
+            const fechaTxt = fecha ? new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : null;
             html += `
                 <div class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-start gap-3 max-w-4xl">
                     <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
@@ -332,9 +334,11 @@ export function initUI() {
 
     // Lógica de clasificación avanzada de instrumentos
     function classifyInstrument(s) {
+        const otherType = { id: 'otros', label: 'Otros instrumentos', color: 'gris', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
         // Priorizar el campo 'tipo' si viene de la base de datos
         if (s.tipo) {
             const t = s.tipo.toLowerCase();
+            if (t === 'otros') return otherType;
             if (t === 'ley') return { id: 'ley', label: 'Leyes Federales', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
             if (t === 'reglamento') return { id: 'reglamento', label: 'Reglamentos', color: 'verde', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
             if (t === 'acuerdo') return { id: 'acuerdo', label: 'Acuerdos', color: 'dorado', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
@@ -353,10 +357,15 @@ export function initUI() {
         if (t.includes('decreto')) return { id: 'decreto', label: 'Decretos', color: 'purple-700', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
         if (t.includes('disposiciones administrativas') || t.includes('dacg')) return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
         if (t.includes('norma oficial') || t.includes('nom-')) return { id: 'nom', label: 'NOMs', color: 'gris', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
+        return otherType;
+    }
+
+    function renderAcervoAnalytics(summaries) {
+        const dashboard = document.getElementById('acervo-visual-dashboard');
         if (!dashboard) return;
-        
-        dashboard.classList.remove('hidden');
-        dashboard.style.display = 'block'; // Keep block for D3 measurements if needed, or rely on flex
+
+        dashboard.classList.remove('hidden', 'opacity-0');
+        dashboard.style.removeProperty('display');
 
         // 1. Data Processing
         const counts = summaries.reduce((acc, s) => {
@@ -372,7 +381,7 @@ export function initUI() {
             { id: 'acuerdo', label: 'Acuerdos', color: '#A57F2C', count: counts['acuerdo'] || 0 },
             { id: 'dacg', label: 'DACG\'s', color: '#2563eb', count: counts['dacg'] || 0 },
             { id: 'nom', label: 'NOMs', color: '#7c3aed', count: counts['nom'] || 0 },
-            { id: 'otros', label: 'Otros', color: '#64748b', count: (counts['permiso'] || 0) + (counts['manual'] || 0) + (counts['otros'] || 0) }
+            { id: 'otros', label: 'Otros', color: '#64748b', count: (counts['decreto'] || 0) + (counts['permiso'] || 0) + (counts['manual'] || 0) + (counts['otros'] || 0) }
         ].filter(c => c.count > 0);
 
         // Update Total Display
@@ -530,7 +539,12 @@ export function initUI() {
     window.addEventListener('search-ready', (e) => {
         const { summaries, relaciones } = e.detail;
         cachedSummaries = summaries;
+        catalogLoaded = true;
         indexRelaciones(relaciones);
+
+        // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
+        if (activeNavId === 'nav-leyes' && !location.hash) showLawsView();
+        if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
 
         // No longer auto-rendering on home, user wants it only in stats
         // renderAcervoAnalytics(summaries); 
@@ -765,6 +779,7 @@ export function initUI() {
     const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
+        activeNavId = activeId;
         NAV_IDS.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
@@ -788,7 +803,7 @@ export function initUI() {
     }
 
     function showGlobalSearch() {
-        document.getElementById('global-search-wrapper')?.classList.remove('hidden');
+        document.getElementById('global-search-wrapper')?.classList.remove('hidden', 'opacity-0');
     }
     function hideGlobalSearch() {
         document.getElementById('global-search-wrapper')?.classList.add('hidden');
@@ -878,6 +893,7 @@ export function initUI() {
     function showLawsView() {
         setHash(null);
         destroyTOC();
+        hideAllViews();
         showGlobalSearch();
         setActiveNav('nav-leyes');
         // Transition UI
@@ -900,7 +916,7 @@ export function initUI() {
         currentPage = 1;
 
         // Render Laws Table
-        if (cachedSummaries.length === 0) {
+        if (!catalogLoaded) {
             resultsContainer.innerHTML = `<div class="w-full flex justify-center py-12"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
             return;
         }
@@ -909,7 +925,7 @@ export function initUI() {
             <div class="w-full mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <h2 class="text-2xl font-serif font-bold text-gray-800 mb-1">Acervo Energético</h2>
-                    <p class="text-xs text-gray-400 font-medium italic">Listado completo de instrumentos jurídicos vigentes.</p>
+                    <p class="text-xs text-gray-400 font-medium italic">Listado completo de instrumentos y versiones incorporados al acervo.</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-[10px] font-black text-guinda bg-guinda/5 px-2.5 py-1 rounded-full border border-guinda/10 uppercase tracking-widest">${cachedSummaries.length} Instrumentos</span>
@@ -930,7 +946,7 @@ export function initUI() {
                         <tbody class="divide-y divide-gray-50">
                             ${cachedSummaries.sort((a,b) => a.titulo.localeCompare(b.titulo)).map(ley => {
                                 const typeInfo = classifyInstrument(ley);
-                                const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }) : '---';
+                                const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }) : '---';
                                 
                                 const typeStyle = {
                                     ley: 'bg-guinda/5 text-guinda border-guinda/10',
@@ -1044,7 +1060,7 @@ export function initUI() {
                         ${items.map(law => {
                             const snippet = law.resumen
                                 ? law.resumen.replace(/\n/g, ' ').slice(0, 75) + (law.resumen.length > 75 ? '…' : '')
-                                : 'Consulta los artículos y disposiciones vigentes.';
+                                : 'Consulta los artículos y disposiciones incorporados al acervo.';
                             
                             const typeInfo = classifyInstrument(law);
                             const cat = catConfig[typeInfo.id] || catConfig.otros;
@@ -1374,7 +1390,7 @@ export function initUI() {
         document.body.appendChild(tocBtn);
 
         // Build grid buttons HTML (separated by type)
-        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo === 'ordinario' || a.tipo_articulo === 'preambulo');
+        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo !== 'transitorio');
         const transitoriosArr = currentLawArticles.filter(a => a.tipo_articulo === 'transitorio');
 
         const buildGrid = (arr) => arr.map((art, i) => {
@@ -1384,6 +1400,8 @@ export function initUI() {
             
             if (art.tipo_articulo === 'preambulo') {
                 label = 'Pre.';
+            } else if (art.tipo_articulo === 'anexo' || art.tipo_articulo === 'complementario') {
+                label = art.tipo_articulo === 'anexo' ? `Anx.${i+1}` : `Comp.${i+1}`;
             } else if (art.tipo_articulo === 'transitorio') {
                 const match = art.articulo_label.match(/(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO|VIG[ÉE]SIMO|[ÚU]NICO|\d+)/i);
                 label = match ? `T.${match[0].substring(0,3)}.` : `T.${i+1}`;
@@ -1429,7 +1447,9 @@ export function initUI() {
             const { loggedIn, fav: isFav } = getFavoriteUiState(art.id);
             const preview = art.texto ? art.texto.replace(/\s+/g, ' ').substring(0, 100).trim() + '...' : '';
             const typeLabel = art.tipo_articulo === 'transitorio' ? 'TRANS' : 
-                             art.tipo_articulo === 'preambulo' ? 'PREAM' : 'ART';
+                             art.tipo_articulo === 'preambulo' ? 'PREAM' :
+                             art.tipo_articulo === 'anexo' ? 'ANEXO' :
+                             art.tipo_articulo === 'complementario' ? 'COMPL' : 'ART';
             
             return `<button class="toc-art-btn w-full flex flex-col gap-2 px-3 py-2.5 rounded-xl text-left transition-all hover:bg-guinda/5 group/item
                 ${isFav ? 'text-guinda' : loggedIn ? 'text-gray-700 hover:text-guinda' : 'text-gray-600'}"
@@ -3131,7 +3151,7 @@ export function initUI() {
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         
-        if (cachedSummaries.length === 0) {
+        if (!catalogLoaded) {
             resultsContainer.classList.remove('hidden');
             resultsContainer.innerHTML = `<div class="w-full flex justify-center py-16"><div class="animate-spin h-8 w-8 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
             return;
@@ -3530,7 +3550,7 @@ export function initUI() {
                                             </div>
                                             <div class="text-[9px] text-gray-400 font-medium flex items-center gap-1">
                                                 <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                ${item.fecha_publicacion ? new Date(item.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Fecha N/A'}
+                                                ${item.fecha_publicacion ? new Date(item.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }) : 'Fecha N/A'}
                                             </div>
                                             <div class="text-[10px] text-gray-400 font-medium truncate max-w-[120px] italic" title="${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}">
                                                 ${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ') || 'Disposiciones Generales'}
@@ -4168,7 +4188,7 @@ export function initUI() {
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         </div>
                         <h3 class="font-bold text-gray-800 mb-3">Búsqueda Avanzada</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Utilice términos técnicos del sector como "CENACE", "Transmisión" o "Soberanía" para encontrar artículos específicos en todas las leyes vigentes.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">Utilice términos técnicos del sector como "CENACE", "Transmisión" o "Soberanía" para encontrar artículos y disposiciones en el acervo.</p>
                     </div>
                     <!-- Card 2 -->
                     <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">

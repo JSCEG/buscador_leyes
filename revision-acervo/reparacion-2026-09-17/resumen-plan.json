@@ -1,0 +1,160 @@
+[
+  {
+    "name": "RLSE",
+    "before": 323,
+    "after": 335,
+    "insert": 13,
+    "update": 322,
+    "remove": 1,
+    "themes": 65,
+    "matches": {
+      "incluido": 63,
+      "igual": 259
+    }
+  },
+  {
+    "name": "LSE",
+    "before": 200,
+    "after": 207,
+    "insert": 7,
+    "update": 200,
+    "remove": 0,
+    "themes": 40,
+    "matches": {
+      "igual": 164,
+      "incluido": 36
+    }
+  },
+  {
+    "name": "LPTE",
+    "before": 110,
+    "after": 113,
+    "insert": 3,
+    "update": 110,
+    "remove": 0,
+    "themes": 26,
+    "matches": {
+      "incluido": 24,
+      "igual": 86
+    }
+  },
+  {
+    "name": "LGTAIP",
+    "before": 234,
+    "after": 238,
+    "insert": 5,
+    "update": 233,
+    "remove": 1,
+    "themes": 45,
+    "matches": {
+      "incluido": 42,
+      "igual": 191
+    }
+  },
+  {
+    "name": "LGEC",
+    "before": 56,
+    "after": 58,
+    "insert": 2,
+    "update": 56,
+    "remove": 0,
+    "themes": 22,
+    "matches": {
+      "diferente": 1,
+      "igual": 36,
+      "incluido": 19
+    }
+  },
+  {
+    "name": "RISENER",
+    "before": 87,
+    "after": 88,
+    "insert": 1,
+    "update": 87,
+    "remove": 0,
+    "themes": 12,
+    "matches": {
+      "incluido": 14,
+      "igual": 73
+    }
+  },
+  {
+    "name": "RLPTE",
+    "before": 151,
+    "after": 152,
+    "insert": 1,
+    "update": 151,
+    "remove": 0,
+    "themes": 36,
+    "matches": {
+      "incluido": 30,
+      "igual": 121
+    }
+  },
+  {
+    "name": "RLSH",
+    "before": 369,
+    "after": 371,
+    "insert": 4,
+    "update": 367,
+    "remove": 2,
+    "themes": 88,
+    "matches": {
+      "incluido": 80,
+      "igual": 287
+    }
+  },
+  {
+    "name": "DACG-PV",
+    "before": 10,
+    "after": 11,
+    "insert": 1,
+    "update": 10,
+    "remove": 0,
+    "themes": 0,
+    "matches": {
+      "incluido": 2,
+      "igual": 8
+    }
+  },
+  {
+    "name": "PODECOBI-LIN",
+    "before": 37,
+    "after": 42,
+    "insert": 5,
+    "update": 37,
+    "remove": 0,
+    "themes": 15,
+    "matches": {
+      "incluido": 3,
+      "igual": 34
+    }
+  },
+  {
+    "name": "PODECOBI-DEC",
+    "before": 18,
+    "after": 19,
+    "insert": 1,
+    "update": 18,
+    "remove": 0,
+    "themes": 0,
+    "matches": {
+      "incluido": 3,
+      "igual": 15
+    }
+  },
+  {
+    "name": "SAEE",
+    "before": 154,
+    "after": 154,
+    "insert": 1,
+    "update": 153,
+    "remove": 1,
+    "themes": 9,
+    "matches": {
+      "incluido": 11,
+      "igual": 141,
+      "diferente": 1
+    }
+  }
+]

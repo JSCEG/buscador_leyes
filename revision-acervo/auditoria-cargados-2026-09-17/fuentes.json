@@ -1,0 +1,114 @@
+[
+  {
+    "name": "DACG-PV",
+    "ley_id": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+    "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5770298&fecha=17/10/2025#gsc.tab=0",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5770298",
+    "format": "html",
+    "fecha": "17-10-2025",
+    "titulo": "Disposiciones administrativas de carácter general para la planeación vinculante en la actividad de generación de energía eléctrica.",
+    "sha256": "d65a8683865ad080e54c8bb437844803c109b5f7535802c0859d9a1642d30193"
+  },
+  {
+    "name": "RISENER",
+    "ley_id": "266f38c4-c576-4244-9c45-0c79886cb748",
+    "url": "https://sidof.segob.gob.mx/notas/5755222",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5755222",
+    "format": "html",
+    "fecha": "17-04-2025",
+    "titulo": "Decreto por el que se expide el Reglamento Interior de la Secretaría de Energía.",
+    "sha256": "705eb8d204c07ca3a88f25ed949cbadc2db1cc6150cbd63656363dd3e3a56dc2"
+  },
+  {
+    "name": "LGEC",
+    "ley_id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+    "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5778439&fecha=19/01/2026#gsc.tab=0",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5778439",
+    "format": "html",
+    "fecha": "19-01-2026",
+    "titulo": "Decreto por el que se expide la Ley General de Economía Circular y, se reforman y adicionan diversas disposiciones de la Ley General del Equilibrio Ecológico y la Protección al Ambiente y de la Ley General para la Prevención y Gestión Integral de los Residuos.",
+    "sha256": "2bd7b41e9b19f4750aa6760f6b994c261ec743067db8d7f1ed44244a61f4d829"
+  },
+  {
+    "name": "RLPTE",
+    "ley_id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+    "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5769157",
+    "format": "html",
+    "fecha": "03-10-2025",
+    "titulo": "Decreto por el que se expide el Reglamento de la Ley de Planeación y Transición Energética.",
+    "sha256": "2955fac6b2bf5fa558aeda3306e18ffe59d88cc4cdbc0124cf0c821084d2e827"
+  },
+  {
+    "name": "RLSE",
+    "ley_id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LSE.pdf",
+    "format": "pdf",
+    "sha256": "4bcc982b308b0813469b30db61b53d5a2c41e5a7240b3b1cac2f1aeeb2c00a2e",
+    "bytes": 1374309
+  },
+  {
+    "name": "LSE",
+    "ley_id": "8e404121-3502-4f47-937d-a43762c52da8",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf",
+    "format": "pdf",
+    "sha256": "b4574785e3b20030bf9ea1b2a496c117057806366e351dd2849dd23c21331f2c",
+    "bytes": 1994118
+  },
+  {
+    "name": "RLSH",
+    "ley_id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+    "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769153&fecha=03/10/2025#gsc.tab=0",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5769153",
+    "format": "html",
+    "fecha": "03-10-2025",
+    "titulo": "Decreto por el que se expide el Reglamento de la Ley del Sector Hidrocarburos.",
+    "sha256": "d8feba798876292cd28cd3a9d649e270fe41e18fe14d904a72614156f09c24d0"
+  },
+  {
+    "name": "PODECOBI-LIN",
+    "ley_id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+    "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758079&fecha=22%2F05%2F2025#gsc.tab=0",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5758079",
+    "format": "html",
+    "fecha": "22-05-2025",
+    "titulo": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
+    "sha256": "b331f4a88b935f1f9cbca82ce527389a5fcef8fa8482710cdeff8fe18fd03cb2"
+  },
+  {
+    "name": "LPTE",
+    "ley_id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf",
+    "format": "pdf",
+    "sha256": "c24aa3a57883383635d5271683dd76e561f21852328f0e89f6bf1c2a09aa2d41",
+    "bytes": 448133
+  },
+  {
+    "name": "SAEE",
+    "ley_id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5785045",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5785045",
+    "format": "html",
+    "fecha": "16-04-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional.",
+    "sha256": "49c3217de891ef921687069013c749532fb699d628d0ca73e3ae4151daabc6e1"
+  },
+  {
+    "name": "LGTAIP",
+    "ley_id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf",
+    "format": "pdf",
+    "sha256": "e81e23876bd08da81cb8392af7054f6187ad043ca8f965777b455f9d12554e8b",
+    "bytes": 749599
+  },
+  {
+    "name": "PODECOBI-DEC",
+    "ley_id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
+    "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025#gsc.tab=0",
+    "api_url": "https://sidof.segob.gob.mx/dof/sidof/notas/nota/5758077",
+    "format": "html",
+    "fecha": "22-05-2025",
+    "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
+    "sha256": "efd7b30043aba07361a0e06d4ea20e921c70b395841fcf58e9c1b31e13ad438e"
+  }
+]
