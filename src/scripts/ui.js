@@ -4,6 +4,8 @@ import { renderAnalisisView } from './analisis.js';
 import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-presentation.js';
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import { mountReaderSource } from './reader-source-view.js';
+import { renderAcervoView } from './acervo-view.js';
+import { ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
 export function initUI() {
@@ -260,6 +262,12 @@ export function initUI() {
     let cachedSummaries = [];
     let catalogLoaded = false;
     let activeNavId = 'nav-inicio';
+    let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
+    let acervoView = null;
+    let acervoReturnFocusId = null;
+    let lawOpenRequest = 0;
+    let searchDebounceTimer = null;
+    let searchRenderRequest = 0;
     let currentLawArticles = [];
     let cachedRelaciones = [];           // filas de ley_relaciones
     let relacionesPorAfectada = {};      // ley_id afectada -> [relaciones]
@@ -649,6 +657,25 @@ export function initUI() {
         return { topicId: params.get('tema') || undefined, entityId: params.get('entidad') || undefined };
     }
 
+    function acervoHash(state) {
+        const params = new URLSearchParams();
+        if (state.query) params.set('q', state.query);
+        if (state.group !== 'all') params.set('grupo', state.group);
+        if (state.sort !== 'title') params.set('orden', state.sort);
+        return `#acervo${params.size ? `?${params}` : ''}`;
+    }
+
+    function acervoRoute(hash) {
+        if (hash !== '#acervo' && !hash.startsWith('#acervo?')) return null;
+        const params = new URLSearchParams(hash.split('?')[1] || '');
+        return {
+            ...acervoState,
+            query: (params.get('q') || '').slice(0, 500),
+            group: ACERVO_GROUPS.some(group => group.id === params.get('grupo')) ? params.get('grupo') : 'all',
+            sort: ['date-newest', 'date-oldest'].includes(params.get('orden')) ? params.get('orden') : 'title',
+        };
+    }
+
     function explorerReturnContext(hash) {
         const focus = document.activeElement;
         return {
@@ -674,7 +701,15 @@ export function initUI() {
         const hash = location.hash;
         if (!hash) return;
         const explorer = explorerRoute(hash);
-        if (explorer) {
+        const acervo = acervoRoute(hash);
+        if (acervo) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            explorerModalReturn = null;
+            showLawsView(acervo, { updateHistory: false });
+        } else if (explorer) {
             const returnContext = explorerModalReturn?.hash === hash ? explorerModalReturn : null;
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -719,7 +754,7 @@ export function initUI() {
         }
     });
     // El explorador local no necesita esperar a que termine la consulta del acervo.
-    if (explorerRoute(location.hash)) setTimeout(handleInitialHash, 0);
+    if (explorerRoute(location.hash) || acervoRoute(location.hash)) setTimeout(handleInitialHash, 0);
 
     function showToast(message, icon = '✓', color = 'bg-gray-900') {
         const existing = document.getElementById('app-toast');
@@ -866,6 +901,8 @@ export function initUI() {
     const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
+        cancelPendingSearch();
+        if (activeId !== 'nav-leyes') releaseAcervo();
         activeNavId = activeId;
         NAV_IDS.forEach(id => {
             const el = document.getElementById(id);
@@ -898,7 +935,22 @@ export function initUI() {
         if (searchInput) searchInput.value = '';
     }
 
+    function cancelPendingSearch() {
+        clearTimeout(searchDebounceTimer);
+        searchRenderRequest++;
+        loadingIndicator?.classList.add('hidden');
+    }
+
+    function releaseAcervo() {
+        if (!acervoView) return;
+        acervoState = acervoView.captureState();
+        acervoView.destroy();
+        acervoView = null;
+    }
+
     function hideAllViews() {
+        cancelPendingSearch();
+        releaseAcervo();
         const containers = [
             'hero-section',
             'global-search-wrapper',
@@ -977,239 +1029,60 @@ export function initUI() {
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         setActiveNav('nav-inicio');
     
-    function showLawsView() {
-        setHash(null);
+    function showLawsView(state = acervoState, { updateHistory = true } = {}) {
+        lawOpenRequest++;
+        acervoState = { ...state };
+        acervoView?.destroy();
+        acervoView = null;
         destroyTOC();
         hideAllViews();
-        showGlobalSearch();
+        hideGlobalSearch();
         setActiveNav('nav-leyes');
-        // Transition UI
-        heroSection.classList.add('hidden');
-        quickFilters.classList.add('hidden');
-        statsMinimal.classList.add('hidden');
-        if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
-        document.getElementById('analisis-container')?.classList.add('hidden', 'opacity-0');
-        document.getElementById('admin-ingest-container')?.classList.add('hidden', 'opacity-0');
-
+        if (updateHistory) setHash(acervoHash(acervoState));
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
-
-        resultsContainer.classList.remove('hidden');
-        setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
-
+        resultsContainer.classList.remove('hidden', 'opacity-0');
         if (searchInput) searchInput.value = '';
         currentSearchQuery = '';
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         currentPage = 1;
-
-        // Render Laws Table
+        document.getElementById('search-filters')?.remove();
+        document.querySelector('.pagination-nav')?.remove();
         if (!catalogLoaded) {
-            resultsContainer.innerHTML = `<div class="w-full flex justify-center py-12"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
+            resultsContainer.innerHTML = '<div class="w-full flex justify-center py-12" role="status" aria-label="Cargando acervo"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>';
             return;
         }
-
-        resultsContainer.innerHTML = `
-            <div class="w-full mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <h2 class="text-2xl font-serif font-bold text-gray-800 mb-1">Acervo Energético</h2>
-                    <p class="text-xs text-gray-400 font-medium italic">Listado completo de instrumentos y versiones incorporados al acervo.</p>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-black text-guinda bg-guinda/5 px-2.5 py-1 rounded-full border border-guinda/10 uppercase tracking-widest">${cachedSummaries.length} Instrumentos</span>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl border border-gray-100 shadow-xl shadow-gray-200/40 overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xs border-collapse">
-                        <thead>
-                            <tr class="bg-gray-50 border-b border-gray-100">
-                                <th class="px-6 py-4 font-bold text-gray-400 uppercase tracking-widest">Título del Instrumento</th>
-                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest w-[10%]">Siglas</th>
-                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest text-center w-[15%]">Tipo</th>
-                                <th class="px-4 py-4 font-bold text-gray-400 uppercase tracking-widest w-[15%]">Publicación</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-50">
-                            ${cachedSummaries.sort((a,b) => a.titulo.localeCompare(b.titulo)).map(ley => {
-                                const typeInfo = classifyInstrument(ley);
-                                const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }) : '---';
-                                
-                                const typeStyle = {
-                                    ley: 'bg-guinda/5 text-guinda border-guinda/10',
-                                    reglamento: 'bg-emerald-50 text-emerald-700 border-emerald-100',
-                                    acuerdo: 'bg-blue-50 text-blue-700 border-blue-100',
-                                    dacg: 'bg-blue-50 text-blue-700 border-blue-100',
-                                    nom: 'bg-amber-50 text-amber-700 border-amber-100',
-                                    otros: 'bg-gray-50 text-gray-500 border-gray-100'
-                                }[typeInfo.id] || 'bg-gray-50 text-gray-500 border-gray-100';
-
-                                return `
-                                    <tr class="hover:bg-gray-50/80 transition-colors group cursor-pointer law-row-item" data-title="${ley.titulo}">
-                                        <td class="px-6 py-4">
-                                            <div class="font-bold text-gray-800 group-hover:text-guinda transition-colors" title="${ley.titulo}">${ley.titulo}</div>
-                                            ${ley.url_original ? `<a href="${ley.url_original}" target="_blank" class="text-[9px] text-guinda hover:underline flex items-center gap-1 mt-1 opacity-60 hover:opacity-100">
-                                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> Ver en DOF
-                                            </a>` : ''}
-                                        </td>
-                                        <td class="px-4 py-4 font-mono text-[11px] font-bold text-gray-400">${ley.siglas || '---'}</td>
-                                        <td class="px-4 py-4 text-center">
-                                            <span class="px-2 py-0.5 rounded border text-[9px] font-black uppercase tracking-widest ${typeStyle}">
-                                                ${typeInfo.id}
-                                            </span>
-                                        </td>
-                                        <td class="px-4 py-4 text-gray-400 font-medium">${date}</td>
-                                    </tr>
-                                `;
-                            }).join('')}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        `;
-
-        // Add listeners to law rows
-        document.querySelectorAll('.law-row-item').forEach(row => {
-            row.addEventListener('click', (e) => {
-                if (e.target.closest('a')) return;
-                const title = row.dataset.title;
-                const law = cachedSummaries.find(l => l.titulo === title);
-                if (law) openLawDetail(law);
-            });
+        acervoView = renderAcervoView(resultsContainer, cachedSummaries, {
+            state: acervoState,
+            onStateChange(next) {
+                acervoState = { ...next };
+                // Typing changes this view's route without adding one history entry per letter.
+                if (activeNavId === 'nav-leyes' && !resultsContainer.classList.contains('hidden')) {
+                    history.replaceState(null, '', `${location.pathname}${acervoHash(acervoState)}`);
+                }
+            },
+            onOpenLaw(law, next) {
+                acervoState = { ...next, scrollY: window.scrollY };
+                acervoReturnFocusId = law.id;
+                openLawDetail(law);
+            },
         });
-
-
-        // Add Scroll Listeners
-        document.querySelectorAll('.carousel-container').forEach(container => {
-            const scrollContainer = container.querySelector('.carousel-scroll');
-            const leftBtn = container.querySelector('.scroll-left');
-            const rightBtn = container.querySelector('.scroll-right');
-
-            if (leftBtn && rightBtn && scrollContainer) {
-                leftBtn.addEventListener('click', () => {
-                    scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-                });
-
-                rightBtn.addEventListener('click', () => {
-                    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-                });
+        const currentView = acervoView;
+        requestAnimationFrame(() => {
+            if (currentView !== acervoView || activeNavId !== 'nav-leyes' || !acervoRoute(location.hash) || resultsContainer.classList.contains('hidden')) return;
+            if (acervoReturnFocusId) {
+                const button = [...resultsContainer.querySelectorAll('[data-law-id]')].find(el => el.dataset.lawId === acervoReturnFocusId);
+                button?.focus({ preventScroll: true });
+                acervoReturnFocusId = null;
             }
+            window.scrollTo({ top: acervoState.scrollY || 0, behavior: 'instant' });
         });
-    }
-
-    // renderTimeline eliminado — vis.js no está instalado como dependencia.
-    // Si se quiere restaurar la línea de tiempo, instalar "vis-timeline" via npm
-    // y volver a integrar la función aquí.
-
-    function renderCarouselSection(title, items) {
-        if (items.length === 0) return '';
-
-        // Usamos el primer item para determinar el estilo base del carrusel si es necesario,
-        // pero cada tarjeta se clasificará individualmente.
-        const firstType = classifyInstrument(items[0]);
-        
-        const catConfig = {
-            ley: { accent: '#9B2247', label: 'Ley Federal', textColor: 'text-guinda', bgTag: 'bg-guinda/5', img: '/assets/categories/leyes.png' },
-            reglamento: { accent: '#1E5B4F', label: 'Reglamento', textColor: 'text-emerald-800', bgTag: 'bg-emerald-50', img: '/assets/categories/reglamentos.png' },
-            acuerdo: { accent: '#A57F2C', label: 'Acuerdo', textColor: 'text-amber-800', bgTag: 'bg-amber-50', img: '/assets/categories/otros.png' },
-            dacg: { accent: '#1e40af', label: 'DACG', textColor: 'text-blue-800', bgTag: 'bg-blue-50', img: '/assets/categories/otros.png' },
-            nom: { accent: '#7e22ce', label: 'NOM', textColor: 'text-purple-800', bgTag: 'bg-purple-50', img: '/assets/categories/otros.png' },
-            permiso: { accent: '#0891b2', label: 'Permiso', textColor: 'text-cyan-800', bgTag: 'bg-cyan-50', img: '/assets/categories/otros.png' },
-            manual: { accent: '#475569', label: 'Manual', textColor: 'text-slate-800', bgTag: 'bg-slate-50', img: '/assets/categories/otros.png' },
-            otros: { accent: '#64748b', label: 'Instrumento', textColor: 'text-gray-800', bgTag: 'bg-gray-50', img: '/assets/categories/otros.png' }
-        };
-
-        const baseCat = catConfig[firstType.id] || catConfig.otros;
-
-        // Category icons (SVG paths)
-        const iconPath = firstType.id === 'ley'
-            ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>`
-            : firstType.id === 'reglamento'
-                ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`
-                : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`;
-
-        return `
-            <div class="mb-8 carousel-container group/section">
-                <div class="flex items-center justify-between mb-4 px-1">
-                    <h3 class="text-lg font-serif font-bold text-gray-800 flex items-center gap-3">
-                        <div class="w-1.5 h-6 rounded-full" style="background-color: ${baseCat.accent}"></div>
-                        ${title}
-                        <span class="text-xs font-normal text-gray-400 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">${items.length}</span>
-                    </h3>
-                </div>
-
-                <div class="relative">
-                    <!-- Left Arrow -->
-                    <button class="scroll-left absolute left-0 top-1/2 -translate-y-1/2 -ml-3 z-10 bg-white shadow-xl border border-gray-100 rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-all disabled:opacity-0 hover:text-guinda hover:scale-110 hidden md:block">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    </button>
-                    <div class="carousel-scroll flex gap-6 overflow-x-auto pb-6 -mx-4 px-4 snap-x scrollbar-hide scroll-smooth">
-                        ${items.map(law => {
-                            const snippet = law.resumen
-                                ? law.resumen.replace(/\n/g, ' ').slice(0, 75) + (law.resumen.length > 75 ? '…' : '')
-                                : 'Consulta los artículos y disposiciones incorporados al acervo.';
-                            
-                            const typeInfo = classifyInstrument(law);
-                            const cat = catConfig[typeInfo.id] || catConfig.otros;
-
-                            return `
-                            <div class="min-w-[260px] w-[260px] md:min-w-[300px] md:w-[300px] snap-start rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer law-card group flex flex-col"
-                                data-title="${law.titulo.replace(/"/g, '&quot;')}">
-                                
-                                <!-- Card Image -->
-                                <div class="relative h-44 overflow-hidden">
-                                    <img src="${cat.img}" alt="${law.titulo}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                    
-                                    <!-- Siglas Badge -->
-                                    ${law.siglas ? `
-                                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg shadow-sm border border-white/20">
-                                        <span class="text-[10px] font-black ${cat.textColor}">${law.siglas}</span>
-                                    </div>
-                                    ` : ''}
-                                </div>
-
-                                <!-- Card Content -->
-                                <div class="p-6 flex flex-col flex-1">
-                                    <span class="text-[10px] font-black uppercase tracking-widest ${cat.textColor} ${cat.bgTag} px-2.5 py-1 rounded-md w-fit mb-4 border border-current opacity-80">${cat.label}</span>
-                                    
-                                    <h3 class="text-base md:text-lg font-serif font-bold text-gray-800 leading-tight line-clamp-2 mb-3 group-hover:text-guinda transition-colors" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</h3>
-                                    
-                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4 font-light">${snippet}</p>
-                                    
-                                    <div class="mt-auto pt-4 flex items-center justify-between border-t border-gray-50">
-                                        <div class="flex flex-col gap-1">
-                                            <div class="flex items-center gap-2 text-gray-400 text-[11px] font-medium">
-                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                <span>${law.fecha_publicacion || 'Mayo 2025'}</span>
-                                            </div>
-                                            ${law.url_original ? `
-                                            <a href="${law.url_original}" target="_blank" class="view-original-link flex items-center gap-1 text-guinda font-bold text-[10px] hover:underline mt-1" onclick="event.stopPropagation()">
-                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                                VER ORIGINAL
-                                            </a>
-                                            ` : ''}
-                                        </div>
-                                        
-                                        <div class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-guinda group-hover:text-white group-hover:border-guinda group-hover:shadow-lg group-hover:shadow-guinda/20 transition-all">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`;
-                        }).join('')}
-                    <!-- Right Arrow -->
-                    <button class="scroll-right absolute right-0 top-1/2 -translate-y-1/2 -mr-3 z-10 bg-white shadow-xl border border-gray-100 rounded-full p-2 text-gray-600 opacity-0 group-hover/section:opacity-100 transition-all hover:text-guinda hover:scale-110 hidden md:block">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                </div>
-            </div>
-        `;
-
     }
 
     async function openLawDetail(law, { updateHistory = true } = {}) {
         if (!lawDetailContainer) return;
+        const request = ++lawOpenRequest;
+        const originHash = location.hash;
         destroyTOC(); // Remove any previous TOC before building a new one
         hideGlobalSearch(); // Single search bar: use the scoped one inside the law view
 
@@ -1221,8 +1094,13 @@ export function initUI() {
         document.querySelector('.pagination-nav')?.remove();
         setActiveNav('nav-leyes');
 
-        // Fetch all articles for this law
-        currentLawArticles = await getArticlesByLaw(law.titulo);
+        // A later selection or return to the library cancels this navigation.
+        const [articles, dbThemes] = await Promise.all([
+            getArticlesByLaw(law.titulo), getThemesByLawName(law.titulo),
+        ]);
+        if (request !== lawOpenRequest || location.hash !== originHash || activeNavId !== 'nav-leyes') return;
+        releaseAcervo();
+        currentLawArticles = articles;
 
         // Calculate detailed stats
         const chapters = [...new Set(currentLawArticles.map(a => a.capitulo_nombre).filter(Boolean))];
@@ -1230,7 +1108,6 @@ export function initUI() {
         const transitorios = currentLawArticles.filter(a => a.articulo_label.toLowerCase().includes('transitorio')).length;
 
         // Fetch themes from DB
-        const dbThemes = await getThemesByLawName(law.titulo);
         const dbCapitulos = dbThemes.filter(t => t.nivel === 'capitulo').length;
         const dbTitulos = dbThemes.filter(t => t.nivel === 'titulo').length;
         const chaptersCount = dbCapitulos > 0 ? dbCapitulos : chapters.length;
@@ -1252,7 +1129,7 @@ export function initUI() {
                 <nav aria-label="Ruta de navegación" class="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
                     <button id="crumb-inicio" class="hover:text-guinda transition-colors font-medium" aria-label="Ir al inicio">Inicio</button>
                     <svg class="w-3 h-3 text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    <button id="crumb-categoria" class="hover:text-guinda transition-colors font-medium" aria-label="Ver todas las leyes">${law.titulo.toLowerCase().startsWith('ley') ? 'Leyes Federales' : law.titulo.toLowerCase().startsWith('reglamento') ? 'Reglamentos' : 'Acuerdos y Otros'}</button>
+                    <button id="crumb-categoria" class="hover:text-guinda transition-colors font-medium" aria-label="Volver al acervo">Acervo</button>
                     <svg class="w-3 h-3 text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     <span class="text-gray-600 font-semibold truncate max-w-[180px] sm:max-w-xs" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</span>
                 </nav>
@@ -2325,11 +2202,10 @@ export function initUI() {
             }
         });
 
-        // Debounce timer
-        let searchDebounceTimer = null;
-
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.trim();
+            cancelPendingSearch();
+            releaseAcervo();
 
             if (query.length > 2) {
                 // UI Transition to "Search Mode"
@@ -2524,6 +2400,7 @@ export function initUI() {
     // ── Fin Exportar ───────────────────────────────────────────────────────────
 
     async function showFavoritesView() {
+        setActiveNav('nav-favorites');
         setHash(null);
         destroyTOC();
         showGlobalSearch();
@@ -3196,13 +3073,15 @@ export function initUI() {
 
     async function renderResults() {
         if (!resultsContainer) return;
+        const request = ++searchRenderRequest;
+        const query = currentSearchQuery;
         
         if (loadingIndicator) loadingIndicator.classList.remove('hidden');
 
         // RE-FETCH WITH CURRENT FILTERS & PAGE
-        const { data: results, total: totalResults } = await performSearch(currentSearchQuery, currentPage, itemsPerPage, currentFilters);
+        const { data: results, total: totalResults } = await performSearch(query, currentPage, itemsPerPage, { ...currentFilters });
+        if (request !== searchRenderRequest) return;
         currentSearchResults = results;
-        const query = currentSearchQuery;
 
         if (loadingIndicator) loadingIndicator.classList.add('hidden');
 
@@ -3282,6 +3161,7 @@ export function initUI() {
             artNumInput.addEventListener('input', (e) => {
                 clearTimeout(artNumTimer);
                 artNumTimer = setTimeout(() => {
+                    if (request !== searchRenderRequest) return;
                     currentFilters.artNum = e.target.value.trim();
                     currentPage = 1;
                     renderResults();
@@ -3339,6 +3219,7 @@ export function initUI() {
         // DATA TABLES UI
         // Fetch counts by law for summary bar (fire-and-forget, won't block table render)
         const lawCounts = await getSearchCountsByLaw(query, currentFilters);
+        if (request !== searchRenderRequest) return;
         const totalGlobal = lawCounts.reduce((s, l) => s + l.count, 0);
         const badgeColors = [
             'bg-guinda/10 text-guinda border-guinda/20',

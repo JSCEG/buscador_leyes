@@ -1,16 +1,16 @@
 # Graph Report - 65.-Buscador de Leyes Energía  (2026-09-19)
 
 ## Corpus Check
-- 477 files · ~16,150,757 words
+- 483 files · ~16,169,296 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 11695 nodes · 12127 edges · 459 communities (418 shown, 41 thin omitted)
+- 11743 nodes · 12201 edges · 460 communities (419 shown, 41 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `79dd880a`
+- Built from commit: `ab427ae4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -322,6 +322,7 @@
 - [[_COMMUNITY_Community 344|Community 344]]
 - [[_COMMUNITY_Community 345|Community 345]]
 - [[_COMMUNITY_Community 357|Community 357]]
+- [[_COMMUNITY_Community 358|Community 358]]
 - [[_COMMUNITY_Community 359|Community 359]]
 - [[_COMMUNITY_Community 360|Community 360]]
 - [[_COMMUNITY_Community 361|Community 361]]
@@ -406,6 +407,7 @@
 - [[_COMMUNITY_Community 453|Community 453]]
 - [[_COMMUNITY_Community 454|Community 454]]
 - [[_COMMUNITY_Community 455|Community 455]]
+- [[_COMMUNITY_Community 459|Community 459]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `asignacion` - 499 edges
@@ -434,7 +436,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (459 total, 41 thin omitted)
+## Communities (460 total, 41 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -501,8 +503,8 @@ Cohesion: 0.13
 Nodes (15): LB (6 menciones), LCNE (3 menciones), LEPE-CFE (2 menciones), LEPE-PEMEX (3 menciones), Ley_Sector_Electrico (4 menciones), LGeo (1 menciones), LPTE (3 menciones), LSH (4 menciones) (+7 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.23
-Nodes (13): calculateGasLPStats(), createGasLPCharts(), createGasLPFilterCards(), createGasLPStatesChart(), createGasLPTypeChart(), drawGasLPMarkersOnly(), drawGasLPPermits(), filterGasLPPermits() (+5 more)
+Cohesion: 0.21
+Nodes (15): calculateGasLPStats(), createGasLPCharts(), createGasLPFilterCards(), createGasLPStatesChart(), createGasLPTypeChart(), displayStatesLayer(), drawGasLPMarkersOnly(), drawGasLPPermits() (+7 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.13
@@ -521,8 +523,8 @@ Cohesion: 0.23
 Nodes (13): calculateGasNaturalStats(), createGasNaturalCharts(), createGasNaturalFilterCards(), createGasNaturalStatesChart(), createGasNaturalTypeChart(), drawGasNaturalMarkersOnly(), drawGasNaturalPermits(), filterGasNaturalPermits() (+5 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.21
-Nodes (15): calculatePetroliferosStats(), createPetroliferosBrandChart(), createPetroliferosCharts(), createPetroliferosFilterCards(), createPetroliferosStatesChart(), displayStatesLayer(), drawPetroliferosMarkersOnly(), drawPetroliferosPermits() (+7 more)
+Cohesion: 0.23
+Nodes (13): calculatePetroliferosStats(), createPetroliferosBrandChart(), createPetroliferosCharts(), createPetroliferosFilterCards(), createPetroliferosStatesChart(), drawPetroliferosMarkersOnly(), drawPetroliferosPermits(), filterPetroliferosPermits() (+5 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.15
@@ -581,8 +583,8 @@ Cohesion: 0.50
 Nodes (3): comites, consejo_planeacion, planeacion_vinculante
 
 ### Community 50 - "Community 50"
-Cohesion: 0.29
-Nodes (6): Archivos locales, Buscador de Leyes Energía, buscador_leyes, Desarrollo local, Estado del acervo, Publicación
+Cohesion: 0.25
+Nodes (7): Archivos locales, Buscador de Leyes Energía, buscador_leyes, Desarrollo local, Estado del acervo, Explorador y lector, Publicación
 
 ### Community 55 - "Community 55"
 Cohesion: 0.40
@@ -669,7 +671,7 @@ Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+1
 
 ### Community 80 - "Community 80"
 Cohesion: 0.11
-Nodes (16): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, supabase, applyFilters(), getArticleById() (+8 more)
+Nodes (17): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, supabase, applyFilters(), getArticleById() (+9 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.13
@@ -716,8 +718,8 @@ Cohesion: 0.20
 Nodes (9): 1. Seis leyes del núcleo energético que faltan, 2. Cinco reglamentos principales que faltan, 3. Planeación y operación pendientes, 4. Primera ficha propuesta: LCNE, 5. Revisión de cada instrumento antes de subirlo, 6. Matriz detallada, 7. Avance de la primera revisión individual, Faltantes y orden de carga individual (+1 more)
 
 ### Community 92 - "Community 92"
-Cohesion: 0.13
-Nodes (30): ENTITY_TYPES, escapeHtml(), EXPLORER_LIMITS, getEntityReferences(), getNeighborhood(), normalize(), searchEntities(), loadExplorerCatalog() (+22 more)
+Cohesion: 0.09
+Nodes (38): entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt, ENTITY_TYPES (+30 more)
 
 ### Community 93 - "Community 93"
 Cohesion: 0.07
@@ -1547,6 +1549,10 @@ Nodes (3): fecha, project, tablas
 Cohesion: 0.15
 Nodes (12): enlaces_locales_correctos, fallos, inventory, cargadas, catalogo, cobertura, familias, pendientes (+4 more)
 
+### Community 358 - "Community 358"
+Cohesion: 0.11
+Nodes (21): ACERVO_GROUPS, agreementObject(), changedCall, collator, directCall, EXPLICIT_GROUPS, getAcervoGroup(), GROUP_IDS (+13 more)
+
 ### Community 359 - "Community 359"
 Cohesion: 0.08
 Nodes (24): messageCode, Nota, cadenaContenido, codDiario, codEdicion, codNota, codOrgaDos, codOrgaUno (+16 more)
@@ -1620,8 +1626,8 @@ Cohesion: 0.10
 Nodes (20): assetBytes, bodyLines, complementaryDocuments, databaseCheckedAt, databaseWrites, decreeTransitories, highlightedLines, inputSha256 (+12 more)
 
 ### Community 398 - "Community 398"
-Cohesion: 0.18
-Nodes (8): entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt, services
+Cohesion: 0.25
+Nodes (7): Datos y fechas honestos, Implementación posterior y aceptación, Pantalla propuesta, Problemas actuales confirmados, Propuesta de estadísticas del acervo, Qué cambiar, Una sola definición de grupos
 
 ### Community 399 - "Community 399"
 Cohesion: 0.29
@@ -1847,8 +1853,12 @@ Nodes (5): Assets publicados, Cobertura comprobada, Contrato de consumo, Procede
 Cohesion: 0.40
 Nodes (4): articles, revision, schemaVersion, verifiedAt
 
+### Community 459 - "Community 459"
+Cohesion: 0.25
+Nodes (7): Ampliación pendiente, Archivos y reproducción, Comportamiento cuando falta la fuente sincronizada, Funcionamiento, Integridad y edición posterior, Lector y cotejo con el documento original, PDF sincronizado: cobertura inicial real
+
 ## Knowledge Gaps
-- **10232 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+10227 more)
+- **10253 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+10248 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1862,7 +1872,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `asignacion` connect `Community 65` to `Community 95`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _10262 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _10283 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.057539682539682536 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
