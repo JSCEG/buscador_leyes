@@ -1,0 +1,122 @@
+[
+  {
+    "name": "DESARROLLO-MIXTO-CFE",
+    "ley_id": "d4b231b0-6b12-5dbe-b003-a6986814c000",
+    "fragmentos": 31,
+    "temas": 6,
+    "chars": 96081,
+    "sha256": "7c48e8dac6b74e7092fa66cba4f4a5b47a9ff64fad99a787229fc393226828b9"
+  },
+  {
+    "name": "FORMATOS-BIOCOMBUSTIBLES",
+    "ley_id": "72a25a95-89a6-5489-8b15-12ff63706e3a",
+    "fragmentos": 28,
+    "temas": 13,
+    "chars": 1263136,
+    "sha256": "1a51bb023366589ed6e7378f50829ee729eff51261af412ec09d23e829ede0e6"
+  },
+  {
+    "name": "CATALOGO-CONUEE",
+    "ley_id": "d9667c21-b2e6-5ecd-9b3f-f66bb053ef27",
+    "fragmentos": 32,
+    "temas": 9,
+    "chars": 49057,
+    "sha256": "69dd1c1821190661fe43cbc1d430f0899fc3f6c067d4e93edff0e7349429a19d"
+  },
+  {
+    "name": "CFE-IMPEDIMENTOS",
+    "ley_id": "a7fdc69c-897a-59fb-85f5-7779c46fd03d",
+    "fragmentos": 32,
+    "temas": 5,
+    "chars": 78057,
+    "sha256": "f56e06442d0621223e0a450e8a55270bcc72419e670df68be254b2dd5bb5aa96"
+  },
+  {
+    "name": "REFORMA-AREAS-ESTRATEGICAS",
+    "ley_id": "6cd39069-4eb3-5c14-b71a-f7fa839a69fa",
+    "fragmentos": 10,
+    "temas": 6,
+    "chars": 17617,
+    "sha256": "9bbabfaa46128ef132f17af14c992153eddd4c0a7f98e16fcd86ef7b624d8f81"
+  },
+  {
+    "name": "REFORMA-SIMPLIFICACION",
+    "ley_id": "6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+    "fragmentos": 30,
+    "temas": 6,
+    "chars": 45944,
+    "sha256": "1ff2e1351a3a7eaae66f85a460fc036da8469d308c6b309894a248995f894a44"
+  },
+  {
+    "name": "REFORMA-LIH",
+    "ley_id": "6e4c2d90-0ad2-5c47-a0e0-ed132f09415c",
+    "fragmentos": 42,
+    "temas": 6,
+    "chars": 53901,
+    "sha256": "fca3b5ba16dcdefd8f5ebeb132758590f0a2127216ff7a799bd9a1c1a59cc9b6"
+  },
+  {
+    "name": "REFORMA-RLIH",
+    "ley_id": "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+    "fragmentos": 31,
+    "temas": 6,
+    "chars": 31672,
+    "sha256": "640e089ad86532820113a7a34e0ecfb94b497567d3567bd414dd8ffa32b803bc"
+  },
+  {
+    "name": "ASEA-CONV-GNC",
+    "ley_id": "ebef59b3-a5a6-5a9b-88af-add201f0226c",
+    "fragmentos": 8,
+    "temas": 6,
+    "chars": 19422,
+    "sha256": "363a8ee871e2fd7a7b064f27b21f69f50739853e3938cc61952b26ec61570fca"
+  },
+  {
+    "name": "ASEA-CONV-DISTRIBUCION-LP",
+    "ley_id": "fbf37f5b-3cb8-5328-807b-c500edfffd0c",
+    "fragmentos": 8,
+    "temas": 6,
+    "chars": 20174,
+    "sha256": "3dfac26783cab8dd4681e4875ace62a7a55e3faf2e276dc3a4c4798b4a416f52"
+  },
+  {
+    "name": "ASEA-CONV-ALMACENAMIENTO-LP",
+    "ley_id": "ece70b87-4e3f-596d-b1c1-482f1237bcef",
+    "fragmentos": 8,
+    "temas": 6,
+    "chars": 21464,
+    "sha256": "8dcb3595d41d0fc0fb4360c2ef84481fc9249877184f05c47cc3c5ebb106b211"
+  },
+  {
+    "name": "ASEA-CONV-BODEGAS-LP",
+    "ley_id": "e61b9357-ae95-5e4a-b210-f535f5b372d4",
+    "fragmentos": 6,
+    "temas": 6,
+    "chars": 25161,
+    "sha256": "fbdb6275f28930abc62df1f4a055a15b5c7f1700ce206a2f41acffcdc65f9357"
+  },
+  {
+    "name": "ASEA-CONV-TAPONAMIENTO",
+    "ley_id": "f842022d-7adc-52ee-9b5a-5883b5cd780a",
+    "fragmentos": 9,
+    "temas": 6,
+    "chars": 20625,
+    "sha256": "63182afb080a406d1f63944265cc89d2e7cadb73b3efe907cd068906f8a8ecc5"
+  },
+  {
+    "name": "ASEA-CONV-PROCESAMIENTO-GN",
+    "ley_id": "4f96be01-2fc1-56a1-aab1-d8641c83a7e2",
+    "fragmentos": 8,
+    "temas": 6,
+    "chars": 20732,
+    "sha256": "ce3ecf3ca5fc0e61fa379c0464034263ed7a65345aff9b3ca3df789918fdf8ad"
+  },
+  {
+    "name": "ASEA-CONV-TRANSPORTE-GN",
+    "ley_id": "d952ee94-6aa5-5ed3-885b-978a519ca54b",
+    "fragmentos": 9,
+    "temas": 6,
+    "chars": 21632,
+    "sha256": "1ad592ac041b8d2a3e5a736d419650ede4f97bb02d87398f5f7dd7875299914b"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {"name":"DACG-COGENERACION","code":"5785044","radar":"RAD-072","familia":"Cogeneración","pieza":"DACG para la generación de energía eléctrica en modalidad de cogeneración","tipo":"dacg"},
+  {"name":"FORMATOS-COGENERACION","code":"5788271","radar":"RAD-074","familia":"Cogeneración","pieza":"Formatos de las DACG de cogeneración","tipo":"acuerdo"},
+  {"name":"MIGRACION-PERMISOS","code":"5790937","radar":"RAD-042","familia":"Migración de permisos","pieza":"Lineamientos de migración voluntaria y expedita","tipo":"acuerdo"},
+  {"name":"MIGRACION-ACLARACION","code":"5791847","radar":"RAD-043","familia":"Migración de permisos","pieza":"Nota aclaratoria de los lineamientos de migración","tipo":"acuerdo"},
+  {"name":"MIGRACION-MODIFICACION","code":"5798117","radar":"RAD-044","familia":"Migración de permisos","pieza":"Modificación de los lineamientos de migración","tipo":"acuerdo"}
+]

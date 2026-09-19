@@ -1,0 +1,26 @@
+[
+  {
+    "name": "CFE-CONTRATACION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/19-08-2026/Matutina/329166",
+    "file": "CFE-CONTRATACION-edicion.pdf",
+    "sha256": "a7c206cad00cf89d19750bca7faa09470526fff07c0874d31ff3941dca605c55",
+    "bytes": 7821940,
+    "pagina": 89
+  },
+  {
+    "name": "CONV-SISTRANGAS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/14-08-2026/Matutina/329086",
+    "file": "CONV-SISTRANGAS-edicion.pdf",
+    "sha256": "5ec39d45cbcdef191fbeae7caf31049fcf7d72fe37999f3f33dfa10ae73317d8",
+    "bytes": 8455984,
+    "pagina": 406
+  },
+  {
+    "name": "DECRETO-REFORMA-ENERGETICA",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/18-03-2025/Vespertina/320062",
+    "file": "DECRETO-REFORMA-ENERGETICA-edicion.pdf",
+    "sha256": "ed57fbef06b46f37d53ca1caea856f4eb3b0d2d316c6e7bb7e837daa001708a3",
+    "bytes": 2571878,
+    "pagina": 2
+  }
+]

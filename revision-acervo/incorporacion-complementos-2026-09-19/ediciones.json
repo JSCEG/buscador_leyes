@@ -1,0 +1,122 @@
+[
+  {
+    "name": "DESARROLLO-MIXTO-CFE",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/28-01-2026/Matutina/325425",
+    "file": "DESARROLLO-MIXTO-CFE-edicion.pdf",
+    "sha256": "b76dbe009e39723956037613bbfa882de1370c54e968bd45b97ba5a8fabd212c",
+    "bytes": 5359450,
+    "pagina": 65
+  },
+  {
+    "name": "FORMATOS-BIOCOMBUSTIBLES",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/31-08-2026/Matutina/329365",
+    "file": "FORMATOS-BIOCOMBUSTIBLES-edicion.pdf",
+    "sha256": "51a89cc6ed35f31778d3d2134cbd1d1c135514a184cdb99b11eb23ae66260880",
+    "bytes": 6259191,
+    "pagina": 4
+  },
+  {
+    "name": "CATALOGO-CONUEE",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/11-09-2026/Matutina/329588",
+    "file": "CATALOGO-CONUEE-edicion.pdf",
+    "sha256": "cc69670d9b9bf822c80a37180326f88a794b74b698133fafaa379b515769a8e9",
+    "bytes": 7703962,
+    "pagina": 26
+  },
+  {
+    "name": "CFE-IMPEDIMENTOS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705",
+    "file": "CFE-IMPEDIMENTOS-edicion.pdf",
+    "sha256": "37f3ebe292747ee4d2bdf0a720b9c67b940f1953347523eb9843e10f39aa446e",
+    "bytes": 8230822,
+    "pagina": 213
+  },
+  {
+    "name": "REFORMA-AREAS-ESTRATEGICAS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/31-10-2024/Matutina/317061",
+    "file": "REFORMA-AREAS-ESTRATEGICAS-edicion.pdf",
+    "sha256": "f228408a91d60e7f9c6212b78fa273c08b445f2280b89ceac391c17c190ecb24",
+    "bytes": 4535102,
+    "pagina": 2
+  },
+  {
+    "name": "REFORMA-SIMPLIFICACION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/20-12-2024/Vespertina/318281",
+    "file": "REFORMA-SIMPLIFICACION-edicion.pdf",
+    "sha256": "878e180516f11559603f1c361026978b42ec475e50d0a3628cfae4ec61de9ee6",
+    "bytes": 11283977,
+    "pagina": 2
+  },
+  {
+    "name": "REFORMA-LIH",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/18-03-2025/Vespertina/320062",
+    "file": "REFORMA-LIH-edicion.pdf",
+    "sha256": "ed57fbef06b46f37d53ca1caea856f4eb3b0d2d316c6e7bb7e837daa001708a3",
+    "bytes": 2571878,
+    "pagina": 260
+  },
+  {
+    "name": "REFORMA-RLIH",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/03-10-2025/Vespertina/323363",
+    "file": "REFORMA-RLIH-edicion.pdf",
+    "sha256": "70701a5e439eb90fd61b55250c5802c26a6f695cfd81b1b4da2719ba2478907b",
+    "bytes": 5186796,
+    "pagina": 232
+  },
+  {
+    "name": "ASEA-CONV-GNC",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/24-07-2024/Matutina/314882",
+    "file": "ASEA-CONV-GNC-edicion.pdf",
+    "sha256": "4021069a1fa31ad27d2be30f67d5c6172d2f19ec72cd3be010f0d86700af86f3",
+    "bytes": 5631520,
+    "pagina": 14
+  },
+  {
+    "name": "ASEA-CONV-DISTRIBUCION-LP",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/30-07-2024/Matutina/314982",
+    "file": "ASEA-CONV-DISTRIBUCION-LP-edicion.pdf",
+    "sha256": "cfeb27bbb0bd78a15a48a2ea93c277ac2aadb327c3fb4644416073f1eaaa574f",
+    "bytes": 3343215,
+    "pagina": 53
+  },
+  {
+    "name": "ASEA-CONV-ALMACENAMIENTO-LP",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/14-08-2024/Matutina/315283",
+    "file": "ASEA-CONV-ALMACENAMIENTO-LP-edicion.pdf",
+    "sha256": "8cb074d98bda7e32c442b1b08680080329669ef51a38ee2ecd8c6cecc2b49cfc",
+    "bytes": 8668484,
+    "pagina": 32
+  },
+  {
+    "name": "ASEA-CONV-BODEGAS-LP",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/25-09-2024/Matutina/316242",
+    "file": "ASEA-CONV-BODEGAS-LP-edicion.pdf",
+    "sha256": "9189c50fb7beeec6c7a8fe839a4430cf859ba0c09413cf0e48f1b6eed3aa5f40",
+    "bytes": 12243311,
+    "pagina": 93
+  },
+  {
+    "name": "ASEA-CONV-TAPONAMIENTO",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/17-07-2025/Matutina/322104",
+    "file": "ASEA-CONV-TAPONAMIENTO-edicion.pdf",
+    "sha256": "d02cdee0c5d4bbc23902d311be0ef4ae10154129972a2f92ca78ec48599bb801",
+    "bytes": 3601247,
+    "pagina": 33
+  },
+  {
+    "name": "ASEA-CONV-PROCESAMIENTO-GN",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/23-12-2025/Matutina/324806",
+    "file": "ASEA-CONV-PROCESAMIENTO-GN-edicion.pdf",
+    "sha256": "442e0fe84692750b36f31e5803c9750fafdafc1044ca1306c42404ad5910cfc5",
+    "bytes": 22306724,
+    "pagina": 75
+  },
+  {
+    "name": "ASEA-CONV-TRANSPORTE-GN",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/23-12-2025/Matutina/324806",
+    "file": "ASEA-CONV-TRANSPORTE-GN-edicion.pdf",
+    "sha256": "442e0fe84692750b36f31e5803c9750fafdafc1044ca1306c42404ad5910cfc5",
+    "bytes": 22306724,
+    "pagina": 72
+  }
+]

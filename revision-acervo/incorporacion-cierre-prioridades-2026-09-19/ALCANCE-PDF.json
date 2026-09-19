@@ -1,0 +1,38 @@
+[
+  {
+    "instrumento": "CFE-CONTRATACION",
+    "pagina_inicial": 89,
+    "pagina_final": 149,
+    "paginas": 61,
+    "muestras_visuales": [
+      89,
+      149
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "CONV-SISTRANGAS",
+    "pagina_inicial": 406,
+    "pagina_final": 407,
+    "paginas": 2,
+    "muestras_visuales": [
+      406,
+      407
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "DECRETO-REFORMA-ENERGETICA",
+    "pagina_inicial": 2,
+    "pagina_final": 259,
+    "paginas": 258,
+    "muestras_visuales": [
+      2,
+      259
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  }
+]

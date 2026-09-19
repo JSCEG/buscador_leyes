@@ -1,0 +1,143 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-19",
+  "instrumentos": [
+    {
+      "siglas": "PLADESE",
+      "ley_id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "fragmentos": 89,
+      "estructura": 10,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "PROSENER-DECRETO",
+      "ley_id": "237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+      "fragmentos": 9,
+      "estructura": 10,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "PROSENER",
+      "ley_id": "ff6459a0-eaeb-51ed-a578-73de837b3de1",
+      "fragmentos": 51,
+      "estructura": 4,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "PLADESHI",
+      "ley_id": "48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+      "fragmentos": 81,
+      "estructura": 7,
+      "cotejo_exacto": true
+    }
+  ],
+  "registros_anteriores_sin_cambios": true,
+  "catalogo_global": {
+    "leyes": 68,
+    "articulos": 4121,
+    "temas": 1100
+  },
+  "cotejo_fuentes": [
+    {
+      "instrumento": "PLADESE",
+      "fragmentos_fuente": 88,
+      "texto_completo_cotejado": true,
+      "tablas": 74,
+      "celdas": 8002,
+      "graficos": 67,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "PROSENER-DECRETO",
+      "fragmentos_fuente": 8,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "PROSENER",
+      "fragmentos_fuente": 50,
+      "texto_completo_cotejado": true,
+      "tablas": 27,
+      "celdas": 637,
+      "graficos": 13,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "PLADESHI",
+      "fragmentos_fuente": 80,
+      "texto_completo_cotejado": true,
+      "tablas": 46,
+      "celdas": 1820,
+      "graficos": 88,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ],
+  "alcance_pdf": [
+    {
+      "instrumento": "PLADESE",
+      "pagina_inicial": 2,
+      "pagina_final": 112,
+      "paginas": 111,
+      "muestras_visuales": [
+        2,
+        45,
+        102,
+        108,
+        111,
+        112
+      ],
+      "final_localizado": true,
+      "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+    },
+    {
+      "instrumento": "PROSENER-DECRETO",
+      "pagina_inicial": 5,
+      "pagina_final": 6,
+      "paginas": 2,
+      "muestras_visuales": [
+        5,
+        6
+      ],
+      "final_localizado": true,
+      "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+    },
+    {
+      "instrumento": "PROSENER",
+      "pagina_inicial": 6,
+      "pagina_final": 50,
+      "paginas": 45,
+      "muestras_visuales": [
+        6,
+        28,
+        39,
+        47,
+        50
+      ],
+      "final_localizado": true,
+      "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+    },
+    {
+      "instrumento": "PLADESHI",
+      "pagina_inicial": 17,
+      "pagina_final": 125,
+      "paginas": 109,
+      "muestras_visuales": [
+        17,
+        20,
+        71,
+        116,
+        124,
+        125
+      ],
+      "final_localizado": true,
+      "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "instrumento": "DACG-COGENERACION",
+    "cotejo_aprobado": true,
+    "cuerpo_sin_omisiones_detectadas": true,
+    "observaciones": [],
+    "limite": "El cotejo léxico se complementa con comparación exacta de celdas, bloques, numeración y muestras visuales."
+  },
+  {
+    "instrumento": "FORMATOS-COGENERACION",
+    "cotejo_aprobado": true,
+    "cuerpo_sin_omisiones_detectadas": true,
+    "observaciones": [],
+    "limite": "El cotejo léxico se complementa con comparación exacta de celdas, bloques, numeración y muestras visuales."
+  },
+  {
+    "instrumento": "MIGRACION-PERMISOS",
+    "cotejo_aprobado": true,
+    "cuerpo_sin_omisiones_detectadas": true,
+    "observaciones": [],
+    "limite": "El cotejo léxico se complementa con comparación exacta de celdas, bloques, numeración y muestras visuales."
+  },
+  {
+    "instrumento": "MIGRACION-ACLARACION",
+    "cotejo_aprobado": true,
+    "cuerpo_sin_omisiones_detectadas": true,
+    "observaciones": [
+      "Se conserva íntegro el HTML oficial. Su segundo encabezado (bloque 4) tiene redacción distinta del PDF; ambos identifican la misma nota. El cuerpo, ambas tablas y firma coinciden. Se excluye del cotejo el aviso de precios del DOF situado después de la firma, ajeno a esta nota."
+    ],
+    "limite": "El cotejo léxico se complementa con comparación exacta de celdas, bloques, numeración y muestras visuales."
+  },
+  {
+    "instrumento": "MIGRACION-MODIFICACION",
+    "cotejo_aprobado": true,
+    "cuerpo_sin_omisiones_detectadas": true,
+    "observaciones": [
+      "El PDF repite los encabezados Etapa y Fechas al continuar las dos tablas entre páginas. La versión HTML conserva cada tabla completa con un encabezado."
+    ],
+    "limite": "El cotejo léxico se complementa con comparación exacta de celdas, bloques, numeración y muestras visuales."
+  }
+]

@@ -1,0 +1,203 @@
+[
+  {
+    "name": "DACG-COGENERACION",
+    "code": "5785044",
+    "radar": "RAD-072",
+    "familia": "Cogeneración",
+    "pieza": "DACG para la generación de energía eléctrica en modalidad de cogeneración",
+    "tipo": "dacg",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5785044",
+    "sha256": "a2657a9270af5741891b4997618f294dc5fe6573de50c598252d4c3c9a3cea0e",
+    "fecha": "16-04-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración.",
+    "codDiario": 326685,
+    "pagina": 27,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "FORMATOS-COGENERACION",
+    "code": "5788271",
+    "radar": "RAD-074",
+    "familia": "Cogeneración",
+    "pieza": "Formatos de las DACG de cogeneración",
+    "tipo": "acuerdo",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5788271",
+    "sha256": "449e3771831992d071aafb2974b8c424e59a8fe8d7ee880aa5963bb39c88f1c5",
+    "fecha": "22-05-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las Disposiciones Administrativas de Carácter General para la Generación de Energía Eléctrica en la Modalidad de Cogeneración.",
+    "codDiario": 327465,
+    "pagina": 80,
+    "tables": 28,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_5836.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_8137.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_13614.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_15915.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_18216.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_20895.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_23196.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_26833.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_29134.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_31435.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_36804.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_42882.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_45311.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_47740.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_50041.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_53708.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_56137.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_58566.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_60995.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_63424.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_65853.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_68282.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_70711.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_78377.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_80678.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_86913.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_89214.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_91515.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_97986.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/22/MAT/sener_2_Cimg_100415.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "MIGRACION-PERMISOS",
+    "code": "5790937",
+    "radar": "RAD-042",
+    "familia": "Migración de permisos",
+    "pieza": "Lineamientos de migración voluntaria y expedita",
+    "tipo": "lineamientos",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5790937",
+    "sha256": "31864d63afec92bb0dbaadd62bae956e4afaf4a5e9f50b1b8a9acf971d8453d1",
+    "fecha": "18-06-2026",
+    "titulo": "Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico.",
+    "codDiario": 327985,
+    "pagina": 5,
+    "tables": 2,
+    "images": []
+  },
+  {
+    "name": "MIGRACION-ACLARACION",
+    "code": "5791847",
+    "radar": "RAD-043",
+    "familia": "Migración de permisos",
+    "pieza": "Nota aclaratoria de los lineamientos de migración",
+    "tipo": "acuerdo",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5791847",
+    "sha256": "84bdd436d6cf6a7454748f6e7839cb28ad139657c0afac5f0bc5735ea35366ac",
+    "fecha": "26-06-2026",
+    "titulo": "Nota Aclaratoria al Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico, publicada el 18 de junio de 2026.",
+    "codDiario": 328125,
+    "pagina": 107,
+    "tables": 2,
+    "images": []
+  },
+  {
+    "name": "MIGRACION-MODIFICACION",
+    "code": "5798117",
+    "radar": "RAD-044",
+    "familia": "Migración de permisos",
+    "pieza": "Modificación de los lineamientos de migración",
+    "tipo": "acuerdo",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5798117",
+    "sha256": "80c49c8cefabdc75ac55b0e3aaaacf0ebb4ac47885bd751e6b317c95d56a4bf4",
+    "fecha": "08-09-2026",
+    "titulo": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico.",
+    "codDiario": 329525,
+    "pagina": 4,
+    "tables": 2,
+    "images": []
+  }
+]

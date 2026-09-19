@@ -6,11 +6,11 @@
   "sha256_radar": "8be4492f89218f7bb0f2f684b98a823c1286606d757426de4ee312c57705dfbf",
   "alcance": "Sección 12, Ligas de interés. Inventario bibliográfico cruzado con la instantánea actual de Supabase; no es una revisión jurídica integral ni un conteo de documentos finales de ingesta.",
   "limites": [
-    "Corte documental del radar: 18 de septiembre de 2026, versión 4.18. Catálogo Supabase consultado el 19 de septiembre. No hubo altas ni cambios de datos.",
+    "Corte documental del radar: 18 de septiembre de 2026, versión 4.18. Catálogo Supabase verificado el 19 de septiembre después de 27 incorporaciones. Los 41 instrumentos anteriores se conservaron sin cambios.",
     "Sección 12, Ligas de interés: los resultados por proyecto de las convocatorias en sección 6 quedan fuera de los totales. No es una búsqueda exhaustiva de todo el DOF.",
-    "Los 102 pendientes son referencias bibliográficas por cotejar, no 102 leyes ni 102 documentos finales listos para importar. Una fila puede agrupar varios textos, avisos o programas.",
+    "Los 76 pendientes del inventario ampliado son referencias bibliográficas por cotejar, no esa cantidad de leyes ni documentos finales listos para importar. Del bloque prioritario queda RAD-033 por acreditar sus bases completas.",
     "La ausencia se determina como instrumento propio del catálogo. No excluye menciones o extractos dentro de otros textos, ni equivale a falta de una ficha en Análisis.",
-    "El estatus jurídico se reproduce del radar; este cruce no revalida íntegramente la vigencia. Se consultaron fuentes oficiales de cogeneración, formatos, modificación de migración, PLADESHi y CONUEE. El enlace nuevo de CFE no respondió y requiere cotejo.",
+    "El estatus jurídico se reproduce del radar; este cruce no certifica vigencia. Las nuevas cargas conservan sus tablas y, cuando corresponde, figuras originales mediante enlaces oficiales. No se duplican PDFs ni imágenes en Git.",
     "Se conservan 13 antecedentes, 4 filas de proyectos/consulta (8 proyectos NOM), 10 portales y 3 publicaciones previstas no localizadas. No deben importarse como normas finales vigentes."
   ],
   "etiquetas_estado": {
@@ -23,38 +23,37 @@
     "no_localizado": "Publicación no localizada en el radar"
   },
   "resumen": {
-    "instrumentos_cargados": 41,
-    "fragmentos": 3300,
-    "temas": 904,
+    "instrumentos_cargados": 68,
+    "fragmentos": 4121,
+    "temas": 1100,
     "filas_radar": 180,
     "repeticiones": 15,
     "referencias_sin_repeticiones": 165,
-    "urls_distintas": 164,
+    "urls_distintas": 191,
     "estados_sin_repeticiones": {
-      "pendiente": 102,
-      "parcial": 1,
-      "cargado": 32,
+      "cargado": 59,
+      "pendiente": 76,
       "antecedente": 13,
       "portal": 10,
       "no_localizado": 3,
       "proyecto": 4
     },
     "estados_todas_las_filas": {
-      "pendiente": 113,
-      "parcial": 1,
-      "cargado": 35,
+      "cargado": 65,
+      "pendiente": 84,
       "antecedente": 14,
       "portal": 10,
       "no_localizado": 3,
       "proyecto": 4
     },
-    "instrumentos_cargados_representados_en_radar": 37,
+    "instrumentos_cargados_representados_en_radar": 64,
     "instrumentos_cargados_fuera_de_seccion_12": 4,
     "convocatorias_generacion_originales": 3,
     "modificaciones_convocatorias_generacion": 10,
     "referencias_convocatorias_generacion": 13,
     "filas_proyectos_nom": 4,
-    "proyectos_nom_desglosados": 8
+    "proyectos_nom_desglosados": 8,
+    "incorporaciones_2026_09_19": 27
   },
   "secciones": [
     {
@@ -62,9 +61,8 @@
       "filas": 20,
       "sin_repeticiones": 20,
       "estados": {
-        "pendiente": 9,
-        "parcial": 1,
-        "cargado": 10
+        "cargado": 15,
+        "pendiente": 5
       }
     },
     {
@@ -73,8 +71,8 @@
       "sin_repeticiones": 33,
       "estados": {
         "antecedente": 2,
-        "pendiente": 11,
-        "cargado": 15,
+        "pendiente": 2,
+        "cargado": 24,
         "portal": 2,
         "no_localizado": 3
       }
@@ -84,9 +82,9 @@
       "filas": 23,
       "sin_repeticiones": 23,
       "estados": {
-        "pendiente": 15,
+        "pendiente": 13,
         "antecedente": 3,
-        "cargado": 5
+        "cargado": 7
       }
     },
     {
@@ -104,8 +102,8 @@
       "sin_repeticiones": 8,
       "estados": {
         "antecedente": 2,
-        "cargado": 1,
-        "pendiente": 4,
+        "cargado": 3,
+        "pendiente": 2,
         "portal": 1
       }
     },
@@ -125,8 +123,9 @@
       "filas": 45,
       "sin_repeticiones": 44,
       "estados": {
-        "pendiente": 40,
+        "pendiente": 32,
         "antecedente": 2,
+        "cargado": 8,
         "portal": 1,
         "proyecto": 1
       }
@@ -136,8 +135,9 @@
       "filas": 18,
       "sin_repeticiones": 17,
       "estados": {
-        "pendiente": 12,
+        "pendiente": 11,
         "antecedente": 1,
+        "cargado": 1,
         "proyecto": 3,
         "portal": 1
       }
@@ -159,7 +159,7 @@
         "RAD-072",
         "RAD-074"
       ],
-      "detalle": "DACG y formatos: dos referencias pendientes.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Revisar anexos y conservar el vínculo entre disposición y formulario."
     },
     {
@@ -169,7 +169,7 @@
         "RAD-043",
         "RAD-044"
       ],
-      "detalle": "Lineamientos, nota aclaratoria y modificación: tres referencias pendientes.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Leer conjuntamente los tres textos y conservar la procedencia de cada cambio."
     },
     {
@@ -180,7 +180,7 @@
         "RAD-031",
         "RAD-048"
       ],
-      "detalle": "PLADESE, decreto y texto de PROSENER, y PLADESHi. Las fichas explicativas del explorador no sustituyen la carga de estos textos.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
     },
     {
@@ -189,7 +189,7 @@
         "RAD-032",
         "RAD-033"
       ],
-      "detalle": "Lineamientos y aviso. Localizar las bases completas; un aviso o un portal no equivale al instrumento íntegro.",
+      "detalle": "Bloque incorporado salvo RAD-033. Falta localizar bases completas; el aviso y los materiales de apoyo no las sustituyen.",
       "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
     },
     {
@@ -198,7 +198,7 @@
         "RAD-046",
         "RAD-161"
       ],
-      "detalle": "Formatos de biocombustibles y Catálogo de Equipos y Aparatos CONUEE; conservar campos, instructivos y tablas.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
     },
     {
@@ -207,7 +207,7 @@
         "RAD-091",
         "RAD-180"
       ],
-      "detalle": "Disposiciones de contratación de agosto y políticas reportadas el 18 de septiembre. La segunda fuente requiere reintentar el cotejo.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
     },
     {
@@ -219,7 +219,7 @@
         "RAD-004",
         "RAD-014"
       ],
-      "detalle": "Reformas constitucionales, Ley de Ingresos sobre Hidrocarburos y su reglamento. El decreto de ocho leyes sigue parcial por las reformas a LOAPF y Fondo Mexicano del Petróleo.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
     },
     {
@@ -234,7 +234,7 @@
         "RAD-148",
         "RAD-137"
       ],
-      "detalle": "Siete convocatorias de terceros ASEA y una del comité SISTRANGAS; distinguir su alcance y fechas de las convocatorias eléctricas.",
+      "detalle": "Bloque incorporado y cotejado el 19 de septiembre de 2026.",
       "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
     },
     {
@@ -521,6 +521,19 @@
       ]
     },
     {
+      "id": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración",
+      "siglas": "DACG-COGENERACION",
+      "tipo": "dacg",
+      "fecha_publicacion": "2026-04-16",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5785044",
+      "fragmentos": 35,
+      "temas": 9,
+      "referencias_radar": [
+        "RAD-072"
+      ]
+    },
+    {
       "id": "3811f946-9a03-580d-9d00-3487db4f5e5a",
       "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las DACG para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
       "siglas": "FORMATOS-SAEE",
@@ -531,6 +544,19 @@
       "temas": 4,
       "referencias_radar": [
         "RAD-075"
+      ]
+    },
+    {
+      "id": "4e1d7050-8198-5a8a-9609-cce7660f401b",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las Disposiciones Administrativas de Carácter General para la Generación de Energía Eléctrica en la Modalidad de Cogeneración",
+      "siglas": "FORMATOS-COGENERACION",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-05-22",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788271",
+      "fragmentos": 8,
+      "temas": 7,
+      "referencias_radar": [
+        "RAD-074"
       ]
     },
     {
@@ -560,6 +586,45 @@
       ]
     },
     {
+      "id": "e61b9357-ae95-5e4a-b210-f535f5b372d4",
+      "titulo": "Acuerdo por el cual se reforma la denominación, se modifican, adicionan y derogan diversos numerales de la Convocatoria dirigida a las Unidades de Verificación interesadas en obtener la Aprobación para realizar la evaluación de la conformidad de la Norma Oficial Mexicana NOM-011-ASEA-2019, Bodegas de guarda para distribución y bodegas de expendio de gas licuado de petróleo, mediante recipientes portátiles y recipientes transportables sujetos a presión",
+      "siglas": "ASEA-CONV-BODEGAS-LP",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-09-25",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5739627",
+      "fragmentos": 6,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-145"
+      ]
+    },
+    {
+      "id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "titulo": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico",
+      "siglas": "PLADESE",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-10-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770297",
+      "fragmentos": 89,
+      "temas": 10,
+      "referencias_radar": [
+        "RAD-024"
+      ]
+    },
+    {
+      "id": "48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+      "titulo": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Hidrocarburos",
+      "siglas": "PLADESHI",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-09-07",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798065",
+      "fragmentos": 81,
+      "temas": 7,
+      "referencias_radar": [
+        "RAD-048"
+      ]
+    },
+    {
       "id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
       "titulo": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/09/2026]",
       "siglas": "CONV-GEN-2-M4",
@@ -570,6 +635,19 @@
       "temas": 3,
       "referencias_radar": [
         "RAD-041"
+      ]
+    },
+    {
+      "id": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/11/2025]",
+      "siglas": "CONV-GEN-1-M2",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-11-10",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5772392",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-028"
       ]
     },
     {
@@ -596,19 +674,6 @@
       "temas": 4,
       "referencias_radar": [
         "RAD-029"
-      ]
-    },
-    {
-      "id": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
-      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/11/2025]",
-      "siglas": "CONV-GEN-1-M2",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2025-11-10",
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5772392",
-      "fragmentos": 6,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-028"
       ]
     },
     {
@@ -690,6 +755,19 @@
       ]
     },
     {
+      "id": "d9667c21-b2e6-5ecd-9b3f-f66bb053ef27",
+      "titulo": "Acuerdo por el que se emiten las Disposiciones Reglamentarias para el Catálogo de Equipos y Aparatos, respecto de los cuales los sujetos obligados deben reportar su consumo de energía y formatos para la entrega de información",
+      "siglas": "CATALOGO-CONUEE",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-09-11",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798667",
+      "fragmentos": 32,
+      "temas": 9,
+      "referencias_radar": [
+        "RAD-161"
+      ]
+    },
+    {
       "id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
       "titulo": "Acuerdo por el que se emiten los Lineamientos para la implementación de la Ventanilla Única de Autoconsumo para la atención prioritaria, expedita y simultánea de trámites asociados a la generación de energía eléctrica bajo la figura de Autoconsumo",
       "siglas": "VENTANILLA-AUTOCONSUMO",
@@ -703,6 +781,19 @@
       ]
     },
     {
+      "id": "91a6f28d-52a9-5f72-96e0-ac50a1991c96",
+      "titulo": "Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
+      "siglas": "MIGRACION-PERMISOS",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-06-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5790937",
+      "fragmentos": 78,
+      "temas": 21,
+      "referencias_radar": [
+        "RAD-042"
+      ]
+    },
+    {
       "id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
       "titulo": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
       "siglas": "ACUERDO-PODECOBI-22052025",
@@ -712,6 +803,123 @@
       "fragmentos": 42,
       "temas": 15,
       "referencias_radar": []
+    },
+    {
+      "id": "72a25a95-89a6-5489-8b15-12ff63706e3a",
+      "titulo": "Acuerdo por el que se emiten los formatos de solicitud de permisos y bitácoras para la producción, importación, exportación, almacenamiento, transporte, comercialización, distribución y expendio al público de biocombustibles, autorizaciones y bitácoras para la producción de biocombustibles, así como de avisos de inicio de operaciones, modificaciones o suspensiones, cesiones y prórroga de dichos permisos y autorizaciones",
+      "siglas": "FORMATOS-BIOCOMBUSTIBLES",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-08-31",
+      "url_original": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5797477",
+      "fragmentos": 28,
+      "temas": 13,
+      "referencias_radar": [
+        "RAD-046"
+      ]
+    },
+    {
+      "id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
+      "titulo": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
+      "siglas": "MIGRACION-MODIFICACION",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-09-08",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798117",
+      "fragmentos": 19,
+      "temas": 7,
+      "referencias_radar": [
+        "RAD-044"
+      ]
+    },
+    {
+      "id": "ebef59b3-a5a6-5a9b-88af-add201f0226c",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-015-ASEA- 2023, Descompresión de Gas Natural Comprimido",
+      "siglas": "ASEA-CONV-GNC",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2024-07-24",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5734389",
+      "fragmentos": 8,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-142"
+      ]
+    },
+    {
+      "id": "ece70b87-4e3f-596d-b1c1-482f1237bcef",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-017-ASEA- 2023, Instalaciones de Almacenamiento de Gas Licuado de Petróleo (GLP). (Cancela y sustituye a la Norma Oficial Mexicana NOM-015-SECRE-2013, Diseño, construcción, seguridad, operación y mantenimiento de sistemas de almacenamiento de gas licuado de petróleo mediante planta de depósito o planta de suministro que se encuentran directamente vinculados a los sistemas de transporte o distribución por ducto de gas licuado de petróleo, o que forman parte integral de las terminales terrestres o marítimas de importación de dicho producto)",
+      "siglas": "ASEA-CONV-ALMACENAMIENTO-LP",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2024-08-14",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5736163",
+      "fragmentos": 8,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-144"
+      ]
+    },
+    {
+      "id": "fbf37f5b-3cb8-5328-807b-c500edfffd0c",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-018-ASEA- 2023, Plantas de Distribución de Gas Licuado de Petróleo (cancela y sustituye a la NOM-001-SESH-2014, Plantas de distribución de Gas L.P. Diseño, construcción y condiciones seguras en su operación)",
+      "siglas": "ASEA-CONV-DISTRIBUCION-LP",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2024-07-30",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5734780",
+      "fragmentos": 8,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-143"
+      ]
+    },
+    {
+      "id": "4f96be01-2fc1-56a1-aab1-d8641c83a7e2",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-019-ASEA- 2024, Instalaciones de procesamiento de gas natural (cancela a la NOM-137-SEMARNAT-2013, Contaminación atmosférica.- Complejos procesadores de gas.- Control de emisiones de compuestos de azufre)",
+      "siglas": "ASEA-CONV-PROCESAMIENTO-GN",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2025-12-23",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776908",
+      "fragmentos": 8,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-147"
+      ]
+    },
+    {
+      "id": "d952ee94-6aa5-5ed3-885b-978a519ca54b",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-020-ASEA- 2024, Transporte de gas natural por medio de ductos terrestres (cancela a la NOM-007-ASEA-2016, Transporte de gas natural, etano y gas asociado al carbón mineral por medio de ductos)",
+      "siglas": "ASEA-CONV-TRANSPORTE-GN",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2025-12-23",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776907",
+      "fragmentos": 9,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-148"
+      ]
+    },
+    {
+      "id": "f842022d-7adc-52ee-9b5a-5883b5cd780a",
+      "titulo": "Convocatoria dirigida a las personas físicas y morales interesadas en obtener la Autorización como Tercero para emitir el Dictamen Técnico del Taponamiento de Pozos previsto en las Disposiciones administrativas de carácter general que establecen los Lineamientos aplicables a la Construcción y Mantenimiento de Pozos para la Exploración y Extracción de Hidrocarburos",
+      "siglas": "ASEA-CONV-TAPONAMIENTO",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2025-07-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5763176",
+      "fragmentos": 9,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-146"
+      ]
+    },
+    {
+      "id": "a067e4c6-638c-5174-b9fd-386837bf0a28",
+      "titulo": "Convocatoria para el mecanismo de designación para la renovación de los representantes de las personas Usuarias y Usuarias Finales del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural (SISTRANGAS)",
+      "siglas": "CONV-SISTRANGAS",
+      "tipo": "convocatoria",
+      "fecha_publicacion": "2026-08-14",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796317",
+      "fragmentos": 7,
+      "temas": 5,
+      "referencias_radar": [
+        "RAD-137"
+      ]
     },
     {
       "id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
@@ -753,6 +961,19 @@
       ]
     },
     {
+      "id": "237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+      "titulo": "Decreto por el que se aprueba el Programa Sectorial de Energía 2025-2030",
+      "siglas": "PROSENER-DECRETO",
+      "tipo": "decreto",
+      "fecha_publicacion": "2025-12-22",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776837",
+      "fragmentos": 9,
+      "temas": 10,
+      "referencias_radar": [
+        "RAD-030"
+      ]
+    },
+    {
       "id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
       "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
       "siglas": "DECRETO-PODECOBI-22052025",
@@ -762,6 +983,71 @@
       "fragmentos": 19,
       "temas": 0,
       "referencias_radar": []
+    },
+    {
+      "id": "6cd39069-4eb3-5c14-b71a-f7fa839a69fa",
+      "titulo": "Decreto por el que se reforman el párrafo quinto del artículo 25, los párrafos sexto y séptimo del artículo 27 y el párrafo cuarto del artículo 28 de la Constitución Política de los Estados Unidos Mexicanos, en materia de áreas y empresas estratégicas",
+      "siglas": "REFORMA-AREAS-ESTRATEGICAS",
+      "tipo": "decreto",
+      "fecha_publicacion": "2024-10-31",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5742012",
+      "fragmentos": 10,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-001"
+      ]
+    },
+    {
+      "id": "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+      "titulo": "Decreto por el que se reforman y derogan diversas disposiciones del Reglamento de la Ley de Ingresos sobre Hidrocarburos",
+      "siglas": "REFORMA-RLIH",
+      "tipo": "decreto",
+      "fecha_publicacion": "2025-10-03",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5769158",
+      "fragmentos": 31,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-014"
+      ]
+    },
+    {
+      "id": "6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+      "titulo": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Constitución Política de los Estados Unidos Mexicanos, en materia de simplificación orgánica",
+      "siglas": "REFORMA-SIMPLIFICACION",
+      "tipo": "decreto",
+      "fecha_publicacion": "2024-12-20",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5745905",
+      "fragmentos": 30,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-002"
+      ]
+    },
+    {
+      "id": "6e4c2d90-0ad2-5c47-a0e0-ed132f09415c",
+      "titulo": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley de Ingresos sobre Hidrocarburos",
+      "siglas": "REFORMA-LIH",
+      "tipo": "decreto",
+      "fecha_publicacion": "2025-03-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5752330",
+      "fragmentos": 42,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-004"
+      ]
+    },
+    {
+      "id": "100f7f8a-26e6-5619-b2d6-56e9d95f8d72",
+      "titulo": "Disposiciones Generales en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras de la Comisión Federal de Electricidad",
+      "siglas": "CFE-CONTRATACION",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-08-19",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796647",
+      "fragmentos": 116,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-091"
+      ]
     },
     {
       "id": "37c89350-82df-5021-8dbe-94e8e31e1d3e",
@@ -775,6 +1061,28 @@
       "referencias_radar": [
         "RAD-069"
       ]
+    },
+    {
+      "id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+      "titulo": "Ley General de Economía Circular",
+      "siglas": "LGEC",
+      "tipo": "ley",
+      "fecha_publicacion": "2026-01-19",
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5778439&fecha=19/01/2026#gsc.tab=0",
+      "fragmentos": 58,
+      "temas": 22,
+      "referencias_radar": []
+    },
+    {
+      "id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+      "titulo": "Ley General de Transparencia y Acceso a la Información Pública",
+      "siglas": "LGTAIP",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-20",
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf",
+      "fragmentos": 238,
+      "temas": 45,
+      "referencias_radar": []
     },
     {
       "id": "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
@@ -798,6 +1106,19 @@
       "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf",
       "fragmentos": 79,
       "temas": 15,
+      "referencias_radar": [
+        "RAD-003"
+      ]
+    },
+    {
+      "id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
+      "titulo": "Ley de Planeación y Transición Energética",
+      "siglas": "LPTE",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-18",
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf",
+      "fragmentos": 113,
+      "temas": 26,
       "referencias_radar": [
         "RAD-003"
       ]
@@ -844,19 +1165,6 @@
       ]
     },
     {
-      "id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
-      "titulo": "Ley de Planeación y Transición Energética",
-      "siglas": "LPTE",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-18",
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf",
-      "fragmentos": 113,
-      "temas": 26,
-      "referencias_radar": [
-        "RAD-003"
-      ]
-    },
-    {
       "id": "8e404121-3502-4f47-937d-a43762c52da8",
       "titulo": "Ley del Sector Eléctrico",
       "siglas": "LSE",
@@ -883,26 +1191,95 @@
       ]
     },
     {
-      "id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
-      "titulo": "Ley General de Economía Circular",
-      "siglas": "LGEC",
-      "tipo": "ley",
-      "fecha_publicacion": "2026-01-19",
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5778439&fecha=19/01/2026#gsc.tab=0",
-      "fragmentos": 58,
-      "temas": 22,
-      "referencias_radar": []
+      "id": "d4b231b0-6b12-5dbe-b003-a6986814c000",
+      "titulo": "Lineamientos de los Esquemas para el Desarrollo Mixto de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "siglas": "DESARROLLO-MIXTO-CFE",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-01-28",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5778994",
+      "fragmentos": 31,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-032"
+      ]
     },
     {
-      "id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
-      "titulo": "Ley General de Transparencia y Acceso a la Información Pública",
-      "siglas": "LGTAIP",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-20",
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf",
-      "fragmentos": 238,
-      "temas": 45,
-      "referencias_radar": []
+      "id": "5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524",
+      "titulo": "Nota Aclaratoria al Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico, publicada el 18 de junio de 2026",
+      "siglas": "MIGRACION-ACLARACION",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-06-26",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5791847",
+      "fragmentos": 4,
+      "temas": 5,
+      "referencias_radar": [
+        "RAD-043"
+      ]
+    },
+    {
+      "id": "a7fdc69c-897a-59fb-85f5-7779c46fd03d",
+      "titulo": "Políticas que regulan los supuestos en que la Comisión Federal de Electricidad se abstendrá de considerar ofertas o celebrar contratos en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras",
+      "siglas": "CFE-IMPEDIMENTOS",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-09-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5799057",
+      "fragmentos": 32,
+      "temas": 5,
+      "referencias_radar": [
+        "RAD-180"
+      ]
+    },
+    {
+      "id": "ff6459a0-eaeb-51ed-a578-73de837b3de1",
+      "titulo": "Programa Sectorial de Energía 2025-2030",
+      "siglas": "PROSENER",
+      "tipo": "programa",
+      "fecha_publicacion": "2025-12-22",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776838",
+      "fragmentos": 51,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-031"
+      ]
+    },
+    {
+      "id": "08bb78b2-c71e-5362-98cb-b85ea046c262",
+      "titulo": "Reformas a la Ley del Fondo Mexicano del Petróleo para la Estabilización y el Desarrollo y a la Ley Orgánica de la Administración Pública Federal (artículos Noveno y Décimo del decreto del 18 de marzo de 2025)",
+      "siglas": "REFORMAS-FMP-LOAPF",
+      "tipo": "decreto",
+      "fecha_publicacion": "2025-03-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5752329",
+      "fragmentos": 32,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-003"
+      ]
+    },
+    {
+      "id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
+      "siglas": "RICNE",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-05-08",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+      "fragmentos": 48,
+      "temas": 16,
+      "referencias_radar": [
+        "RAD-008"
+      ]
+    },
+    {
+      "id": "266f38c4-c576-4244-9c45-0c79886cb748",
+      "titulo": "Reglamento Interior de la Secretaría de Energía",
+      "siglas": "RISENER",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-04-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/5755222",
+      "fragmentos": 88,
+      "temas": 12,
+      "referencias_radar": [
+        "RAD-007"
+      ]
     },
     {
       "id": "2e138615-d588-568b-bd94-e1a3c1032317",
@@ -928,6 +1305,19 @@
       "temas": 32,
       "referencias_radar": [
         "RAD-010"
+      ]
+    },
+    {
+      "id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+      "titulo": "Reglamento de la Ley de Planeación y Transición Energética",
+      "siglas": "RLPyTE",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-10-03",
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0",
+      "fragmentos": 152,
+      "temas": 36,
+      "referencias_radar": [
+        "RAD-013"
       ]
     },
     {
@@ -958,32 +1348,6 @@
       ]
     },
     {
-      "id": "625c1343-cf4a-4dad-8808-912ed50ba641",
-      "titulo": "Reglamento de la Ley de Planeación y Transición Energética",
-      "siglas": "RLPyTE",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0",
-      "fragmentos": 152,
-      "temas": 36,
-      "referencias_radar": [
-        "RAD-013"
-      ]
-    },
-    {
-      "id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
-      "titulo": "Reglamento de la Ley del Sector de Hidrocarburos",
-      "siglas": "RLSH",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769153&fecha=03/10/2025#gsc.tab=0",
-      "fragmentos": 371,
-      "temas": 88,
-      "referencias_radar": [
-        "RAD-009"
-      ]
-    },
-    {
       "id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
       "titulo": "Reglamento de la Ley del Sector Eléctrico",
       "siglas": "RLSE",
@@ -997,29 +1361,16 @@
       ]
     },
     {
-      "id": "ca974945-9edf-5386-822a-c2755e66afc4",
-      "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
-      "siglas": "RICNE",
+      "id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+      "titulo": "Reglamento de la Ley del Sector de Hidrocarburos",
+      "siglas": "RLSH",
       "tipo": "reglamento",
-      "fecha_publicacion": "2025-05-08",
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
-      "fragmentos": 48,
-      "temas": 16,
+      "fecha_publicacion": "2025-10-03",
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769153&fecha=03/10/2025#gsc.tab=0",
+      "fragmentos": 371,
+      "temas": 88,
       "referencias_radar": [
-        "RAD-008"
-      ]
-    },
-    {
-      "id": "266f38c4-c576-4244-9c45-0c79886cb748",
-      "titulo": "Reglamento Interior de la Secretaría de Energía",
-      "siglas": "RISENER",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-04-17",
-      "url_original": "https://sidof.segob.gob.mx/notas/5755222",
-      "fragmentos": 88,
-      "temas": 12,
-      "referencias_radar": [
-        "RAD-007"
+        "RAD-009"
       ]
     },
     {
@@ -1047,9 +1398,9 @@
       "tipo_radar": "Decreto constitucional",
       "titulo_radar": "Áreas y empresas estratégicas",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "6cd39069-4eb3-5c14-b71a-f7fa839a69fa",
+      "titulo_en_supabase": "Decreto por el que se reforman el párrafo quinto del artículo 25, los párrafos sexto y séptimo del artículo 27 y el párrafo cuarto del artículo 28 de la Constitución Política de los Estados Unidos Mexicanos, en materia de áreas y empresas estratégicas",
       "codigos_dof": [
         "5742012"
       ],
@@ -1057,16 +1408,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5742012"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5742012"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Leyes y reformas por completar"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "6cd39069-4eb3-5c14-b71a-f7fa839a69fa"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-001"
     },
@@ -1080,9 +1437,9 @@
       "tipo_radar": "Decreto constitucional",
       "titulo_radar": "Simplificación orgánica; transferencia de funciones regulatorias",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+      "titulo_en_supabase": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Constitución Política de los Estados Unidos Mexicanos, en materia de simplificación orgánica",
       "codigos_dof": [
         "5745905"
       ],
@@ -1090,16 +1447,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5745905"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5745905"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Leyes y reformas por completar"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "6c8a912f-6ebb-5638-8d95-b53e5c4b596c"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-002"
     },
@@ -1113,9 +1476,9 @@
       "tipo_radar": "Decreto legislativo",
       "titulo_radar": "Ocho leyes energéticas, Fondo Mexicano del Petróleo y LOAPF",
       "estado_radar": "Vigente",
-      "estado_carga": "Decreto con cobertura parcial",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "08bb78b2-c71e-5362-98cb-b85ea046c262",
+      "titulo_en_supabase": "Reformas a la Ley del Fondo Mexicano del Petróleo para la Estabilización y el Desarrollo y a la Ley Orgánica de la Administración Pública Federal (artículos Noveno y Décimo del decreto del 18 de marzo de 2025)",
       "codigos_dof": [
         "5752329"
       ],
@@ -1123,12 +1486,16 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5752329"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5752329"
         }
       ],
-      "nota": "Las ocho leyes expedidas están cargadas. Las reformas a LOAPF y a la Ley del Fondo Mexicano del Petróleo no están incorporadas como instrumentos propios. La URL común no acredita cobertura íntegra del decreto.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-cierre-prioridades-2026-09-19/VERIFICACION.json. Cobertura del decreto completada: ocho leyes en sus fichas anteriores y artículos Noveno y Décimo (FMP y LOAPF), sus transitorios y cierre común en la nueva ficha.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "DECRETO COMPUESTO: COBERTURA PARCIAL",
-      "estado": "parcial",
+      "estado": "cargado",
       "familias": [
         "Leyes y reformas por completar"
       ],
@@ -1140,7 +1507,8 @@
         "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
         "5a089cfe-025d-55ee-a5a5-78bab709ea30",
         "8e404121-3502-4f47-937d-a43762c52da8",
-        "d19354e7-fbf9-427b-aa91-55017b027e0a"
+        "d19354e7-fbf9-427b-aa91-55017b027e0a",
+        "08bb78b2-c71e-5362-98cb-b85ea046c262"
       ],
       "es_repeticion": false,
       "referencia_principal": "RAD-003"
@@ -1155,9 +1523,9 @@
       "tipo_radar": "Decreto legislativo",
       "titulo_radar": "Reforma a la Ley de Ingresos sobre Hidrocarburos",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "6e4c2d90-0ad2-5c47-a0e0-ed132f09415c",
+      "titulo_en_supabase": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley de Ingresos sobre Hidrocarburos",
       "codigos_dof": [
         "5752330"
       ],
@@ -1165,16 +1533,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5752330"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5752330"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Leyes y reformas por completar"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "6e4c2d90-0ad2-5c47-a0e0-ed132f09415c"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-004"
     },
@@ -1485,9 +1859,9 @@
       "tipo_radar": "Reforma reglamentaria",
       "titulo_radar": "Reglamento de la Ley de Ingresos sobre Hidrocarburos",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+      "titulo_en_supabase": "Decreto por el que se reforman y derogan diversas disposiciones del Reglamento de la Ley de Ingresos sobre Hidrocarburos",
       "codigos_dof": [
         "5769158"
       ],
@@ -1495,16 +1869,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5769158"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5769158"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json. La nota 5769158 contiene una REFORMA al reglamento, no su texto íntegro; se carga con esa identificación.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Leyes y reformas por completar"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-014"
     },
@@ -1811,9 +2191,9 @@
       "tipo_radar": "Acuerdo / plan",
       "titulo_radar": "PLADESE 2025-2039",
       "estado_radar": "Publicado y rector del sector eléctrico",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "titulo_en_supabase": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico",
       "codigos_dof": [
         "5770297"
       ],
@@ -1821,16 +2201,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5770297"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5770297"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Planeación del sector"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "c30cb5dd-e944-52fd-8818-518a56b57fae"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-024"
     },
@@ -2017,9 +2403,9 @@
       "tipo_radar": "Decreto",
       "titulo_radar": "Aprobación de PROSENER 2025-2030",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+      "titulo_en_supabase": "Decreto por el que se aprueba el Programa Sectorial de Energía 2025-2030",
       "codigos_dof": [
         "5776837"
       ],
@@ -2027,16 +2413,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5776837"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5776837"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Planeación del sector"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "237a4ba0-c4b0-51e9-8931-d3d6433ba94a"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-030"
     },
@@ -2050,9 +2442,9 @@
       "tipo_radar": "Programa",
       "titulo_radar": "Texto de PROSENER 2025-2030",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "ff6459a0-eaeb-51ed-a578-73de837b3de1",
+      "titulo_en_supabase": "Programa Sectorial de Energía 2025-2030",
       "codigos_dof": [
         "5776838"
       ],
@@ -2060,16 +2452,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5776838"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5776838"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Planeación del sector"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "ff6459a0-eaeb-51ed-a578-73de837b3de1"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-031"
     },
@@ -2083,9 +2481,9 @@
       "tipo_radar": "Lineamientos CFE",
       "titulo_radar": "Esquemas para el Desarrollo Mixto",
       "estado_radar": "Sustento normativo; distinto de la convocatoria",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "d4b231b0-6b12-5dbe-b003-a6986814c000",
+      "titulo_en_supabase": "Lineamientos de los Esquemas para el Desarrollo Mixto de la Empresa Pública del Estado, Comisión Federal de Electricidad",
       "codigos_dof": [
         "5778994"
       ],
@@ -2093,17 +2491,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5778994"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5778994"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Desarrollo mixto de CFE",
         "Desarrollo mixto CFE"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "d4b231b0-6b12-5dbe-b003-a6986814c000"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-032"
     },
@@ -2127,7 +2531,7 @@
           "url": "https://ventanilla.energia.gob.mx/avisos/8"
         }
       ],
-      "nota": "Aviso oficial SENER localizado; la nota DOF propia sigue pendiente de acreditar según el radar. Registro cerrado al corte. Revisar bases completas antes de preparar la ingesta.",
+      "nota": "Se revisaron el aviso de SENER y su carpeta pública el 19 de septiembre. Contiene dos formularios PDF, los lineamientos (ya cargados), dos hojas XLSX y un calendario PNG. No se identificaron bases completas ni una publicación DOF propia de la convocatoria. Se conserva pendiente; no se confunden los materiales de apoyo con las bases.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
       "estado": "pendiente",
@@ -2429,9 +2833,9 @@
       "tipo_radar": "Lineamientos",
       "titulo_radar": "Migración voluntaria y expedita de autoabastecimiento y cogeneración",
       "estado_radar": "Vigente; nota aclaratoria posterior",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "91a6f28d-52a9-5f72-96e0-ac50a1991c96",
+      "titulo_en_supabase": "Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
       "codigos_dof": [
         "5790937"
       ],
@@ -2439,16 +2843,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5790937"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5790937"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-pendientes-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Migración de permisos"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "91a6f28d-52a9-5f72-96e0-ac50a1991c96"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-042"
     },
@@ -2462,9 +2872,9 @@
       "tipo_radar": "Nota aclaratoria",
       "titulo_radar": "Lineamientos de migración",
       "estado_radar": "Integra el texto aplicable",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524",
+      "titulo_en_supabase": "Nota Aclaratoria al Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico, publicada el 18 de junio de 2026",
       "codigos_dof": [
         "5791847"
       ],
@@ -2472,16 +2882,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5791847"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5791847"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-pendientes-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Migración de permisos"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-043"
     },
@@ -2495,9 +2911,9 @@
       "tipo_radar": "Acuerdo modificatorio",
       "titulo_radar": "Lineamientos de migración de autoabastecimiento y cogeneración",
       "estado_radar": "Amplía calendarios y precisa conexión, SAEE, pruebas, suministro y medición; vigente desde el día hábil siguiente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
+      "titulo_en_supabase": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
       "codigos_dof": [
         "5798117"
       ],
@@ -2505,16 +2921,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5798117"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5798117"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-pendientes-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Migración de permisos"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "937bf84d-a25f-5810-8f60-622b9c0ff1a6"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-044"
     },
@@ -2563,9 +2985,9 @@
       "tipo_radar": "Acuerdo / formatos",
       "titulo_radar": "Permisos, autorizaciones, bitácoras y avisos de biocombustibles",
       "estado_radar": "Publicado; vigente desde el 1 sep 2026; deja sin efectos el acuerdo de formatos de 13 nov 2009",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "72a25a95-89a6-5489-8b15-12ff63706e3a",
+      "titulo_en_supabase": "Acuerdo por el que se emiten los formatos de solicitud de permisos y bitácoras para la producción, importación, exportación, almacenamiento, transporte, comercialización, distribución y expendio al público de biocombustibles, autorizaciones y bitácoras para la producción de biocombustibles, así como de avisos de inicio de operaciones, modificaciones o suspensiones, cesiones y prórroga de dichos permisos y autorizaciones",
       "codigos_dof": [
         "5797477"
       ],
@@ -2573,16 +2995,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5797477"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5797477"
         }
       ],
-      "nota": "Se corrige la clasificación histórica: es el acuerdo nuevo de formatos de 2026 el que deja sin efectos al de 2009. La frase «deja sin efectos» no convierte al acuerdo nuevo en antecedente.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA: ANTECEDENTE O EFECTOS LIMITADOS",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Biocombustibles e información energética"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "72a25a95-89a6-5489-8b15-12ff63706e3a"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-046"
     },
@@ -2631,9 +3059,9 @@
       "tipo_radar": "Plan",
       "titulo_radar": "Plan de Desarrollo del Sector Hidrocarburos (PLADESHi)",
       "estado_radar": "Publicado y vigente; horizonte de 15 años, revisiones anuales y escenarios 2025-2039",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+      "titulo_en_supabase": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Hidrocarburos",
       "codigos_dof": [
         "5798065"
       ],
@@ -2641,16 +3069,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5798065"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5798065"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Planeación del sector"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "48e6158c-c1a3-5b6d-811d-16e85b05ab64"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-048"
     },
@@ -3385,9 +3819,9 @@
       "tipo_radar": "DACG",
       "titulo_radar": "Cogeneración",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración",
       "codigos_dof": [
         "5785044"
       ],
@@ -3395,16 +3829,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5785044"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5785044"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-pendientes-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Cogeneración"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "bb8c115e-4ccf-570d-9a06-d405aac070a2"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-072"
     },
@@ -3453,9 +3893,9 @@
       "tipo_radar": "Formatos",
       "titulo_radar": "Cogeneración",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "4e1d7050-8198-5a8a-9609-cce7660f401b",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las Disposiciones Administrativas de Carácter General para la Generación de Energía Eléctrica en la Modalidad de Cogeneración",
       "codigos_dof": [
         "5788271"
       ],
@@ -3463,16 +3903,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5788271"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5788271"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-pendientes-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Cogeneración"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "4e1d7050-8198-5a8a-9609-cce7660f401b"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-074"
     },
@@ -3583,9 +4029,9 @@
       "tipo_radar": "Insumo de planeación",
       "titulo_radar": "PLADESE, PVIRCE y PAM",
       "estado_radar": "CENACE participa como soporte técnico",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "titulo_en_supabase": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico",
       "codigos_dof": [
         "5770297"
       ],
@@ -3593,14 +4039,20 @@
         {
           "etiqueta": "PLADESE",
           "url": "https://sidof.segob.gob.mx/notas/5770297"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5770297"
         }
       ],
-      "nota": "Referencia repetida de RAD-024. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-024",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "c30cb5dd-e944-52fd-8818-518a56b57fae"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-024"
     },
@@ -3862,9 +4314,9 @@
       "tipo_radar": "Plan",
       "titulo_radar": "PLADESE: alineación de programa, generación, transmisión y distribución",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "titulo_en_supabase": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico",
       "codigos_dof": [
         "5770297"
       ],
@@ -3872,14 +4324,20 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5770297"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5770297"
         }
       ],
-      "nota": "Referencia repetida de RAD-024. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-024",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "c30cb5dd-e944-52fd-8818-518a56b57fae"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-024"
     },
@@ -3988,24 +4446,32 @@
       "tipo_radar": "Disposiciones generales",
       "titulo_radar": "Adquisiciones, arrendamientos, servicios y obras de la CFE",
       "estado_radar": "Publicadas; vigentes desde 20 ago 2026",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
-      "codigos_dof": [],
+      "estado_carga": "Cargado",
+      "ley_id": "100f7f8a-26e6-5619-b2d6-56e9d95f8d72",
+      "titulo_en_supabase": "Disposiciones Generales en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras de la Comisión Federal de Electricidad",
+      "codigos_dof": [
+        "5796647"
+      ],
       "fuentes": [
         {
           "etiqueta": "DOF matutino",
           "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=19082026-MAT.pdf&repo="
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5796647"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-cierre-prioridades-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "CFE: contratación e impedimentos"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "100f7f8a-26e6-5619-b2d6-56e9d95f8d72"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-091"
     },
@@ -4023,23 +4489,29 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5799057"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5799057"
         }
       ],
       "codigos_dof": [
         "5799057"
       ],
-      "estado": "pendiente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "estado_carga": "Cargado",
+      "ley_id": "a7fdc69c-897a-59fb-85f5-7779c46fd03d",
+      "titulo_en_supabase": "Políticas que regulan los supuestos en que la Comisión Federal de Electricidad se abstendrá de considerar ofertas o celebrar contratos en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras",
+      "cobertura_ids": [
+        "a7fdc69c-897a-59fb-85f5-7779c46fd03d"
+      ],
       "familias": [
         "CFE: contratación e impedimentos"
       ],
       "es_repeticion": false,
       "repite_fuente_de": null,
       "referencia_principal": "RAD-180",
-      "nota": "Novedad del radar v4.18. Ausente como instrumento propio en el catálogo consultado. El enlace SIDOF no respondió al cotejo web del 19 de septiembre; revisar la publicación completa antes de preparar la carga. El estatus jurídico se reproduce del radar, no se certifica en esta revisión."
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json."
     },
     {
       "id": "RAD-092",
@@ -5444,25 +5916,33 @@
       "tipo_radar": "Convocatoria",
       "titulo_radar": "Renovación de representantes de personas usuarias y usuarias finales del Comité Consultivo del SISTRANGAS",
       "estado_radar": "Recepción hasta 18 sep 2026; resultados a más tardar 2 oct 2026",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
-      "codigos_dof": [],
+      "estado_carga": "Cargado",
+      "ley_id": "a067e4c6-638c-5174-b9fd-386837bf0a28",
+      "titulo_en_supabase": "Convocatoria para el mecanismo de designación para la renovación de los representantes de las personas Usuarias y Usuarias Finales del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural (SISTRANGAS)",
+      "codigos_dof": [
+        "5796317"
+      ],
       "fuentes": [
         {
           "etiqueta": "DOF",
           "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=14082026-MAT.pdf&repo="
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5796317"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-cierre-prioridades-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Comité Consultivo del SISTRANGAS",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "a067e4c6-638c-5174-b9fd-386837bf0a28"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-137"
     },
@@ -5536,9 +6016,9 @@
       "tipo_radar": "Plan",
       "titulo_radar": "Plan de Desarrollo del Sector Hidrocarburos (PLADESHi)",
       "estado_radar": "Publicado y vigente; instrumento rector con escenarios 2025-2039",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+      "titulo_en_supabase": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Hidrocarburos",
       "codigos_dof": [
         "5798065"
       ],
@@ -5546,14 +6026,20 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5798065"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5798065"
         }
       ],
-      "nota": "Referencia repetida de RAD-048. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-planeacion-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-048",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "48e6158c-c1a3-5b6d-811d-16e85b05ab64"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-048"
     },
@@ -5596,9 +6082,9 @@
       "tipo_radar": "Convocatoria NOM-015-ASEA-2023",
       "titulo_radar": "Descompresión de gas natural comprimido",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "ebef59b3-a5a6-5a9b-88af-add201f0226c",
+      "titulo_en_supabase": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-015-ASEA- 2023, Descompresión de Gas Natural Comprimido",
       "codigos_dof": [
         "5734389"
       ],
@@ -5606,17 +6092,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5734389"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5734389"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "ebef59b3-a5a6-5a9b-88af-add201f0226c"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-142"
     },
@@ -5630,9 +6122,9 @@
       "tipo_radar": "Convocatoria NOM-018-ASEA-2023",
       "titulo_radar": "Plantas de distribución de gas LP",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "fbf37f5b-3cb8-5328-807b-c500edfffd0c",
+      "titulo_en_supabase": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-018-ASEA- 2023, Plantas de Distribución de Gas Licuado de Petróleo (cancela y sustituye a la NOM-001-SESH-2014, Plantas de distribución de Gas L.P. Diseño, construcción y condiciones seguras en su operación)",
       "codigos_dof": [
         "5734780"
       ],
@@ -5640,17 +6132,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5734780"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5734780"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "fbf37f5b-3cb8-5328-807b-c500edfffd0c"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-143"
     },
@@ -5664,9 +6162,9 @@
       "tipo_radar": "Convocatoria NOM-017-ASEA-2023",
       "titulo_radar": "Instalaciones de almacenamiento de gas LP",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "ece70b87-4e3f-596d-b1c1-482f1237bcef",
+      "titulo_en_supabase": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-017-ASEA- 2023, Instalaciones de Almacenamiento de Gas Licuado de Petróleo (GLP). (Cancela y sustituye a la Norma Oficial Mexicana NOM-015-SECRE-2013, Diseño, construcción, seguridad, operación y mantenimiento de sistemas de almacenamiento de gas licuado de petróleo mediante planta de depósito o planta de suministro que se encuentran directamente vinculados a los sistemas de transporte o distribución por ducto de gas licuado de petróleo, o que forman parte integral de las terminales terrestres o marítimas de importación de dicho producto)",
       "codigos_dof": [
         "5736163"
       ],
@@ -5674,17 +6172,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5736163"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5736163"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "ece70b87-4e3f-596d-b1c1-482f1237bcef"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-144"
     },
@@ -5698,9 +6202,9 @@
       "tipo_radar": "Convocatoria NOM-011-ASEA-2019",
       "titulo_radar": "Bodegas de distribución y expendio de gas LP",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "e61b9357-ae95-5e4a-b210-f535f5b372d4",
+      "titulo_en_supabase": "Acuerdo por el cual se reforma la denominación, se modifican, adicionan y derogan diversos numerales de la Convocatoria dirigida a las Unidades de Verificación interesadas en obtener la Aprobación para realizar la evaluación de la conformidad de la Norma Oficial Mexicana NOM-011-ASEA-2019, Bodegas de guarda para distribución y bodegas de expendio de gas licuado de petróleo, mediante recipientes portátiles y recipientes transportables sujetos a presión",
       "codigos_dof": [
         "5739627"
       ],
@@ -5708,17 +6212,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5739627"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5739627"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json. La publicación es una modificación de convocatoria, no la convocatoria original íntegra.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "e61b9357-ae95-5e4a-b210-f535f5b372d4"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-145"
     },
@@ -5732,9 +6242,9 @@
       "tipo_radar": "Convocatoria",
       "titulo_radar": "Terceros para dictamen de taponamiento de pozos",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "f842022d-7adc-52ee-9b5a-5883b5cd780a",
+      "titulo_en_supabase": "Convocatoria dirigida a las personas físicas y morales interesadas en obtener la Autorización como Tercero para emitir el Dictamen Técnico del Taponamiento de Pozos previsto en las Disposiciones administrativas de carácter general que establecen los Lineamientos aplicables a la Construcción y Mantenimiento de Pozos para la Exploración y Extracción de Hidrocarburos",
       "codigos_dof": [
         "5763176"
       ],
@@ -5742,17 +6252,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5763176"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5763176"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "f842022d-7adc-52ee-9b5a-5883b5cd780a"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-146"
     },
@@ -5766,9 +6282,9 @@
       "tipo_radar": "Convocatoria NOM-019-ASEA-2024",
       "titulo_radar": "Procesamiento de gas natural",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "4f96be01-2fc1-56a1-aab1-d8641c83a7e2",
+      "titulo_en_supabase": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-019-ASEA- 2024, Instalaciones de procesamiento de gas natural (cancela a la NOM-137-SEMARNAT-2013, Contaminación atmosférica.- Complejos procesadores de gas.- Control de emisiones de compuestos de azufre)",
       "codigos_dof": [
         "5776908"
       ],
@@ -5776,17 +6292,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5776908"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5776908"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "4f96be01-2fc1-56a1-aab1-d8641c83a7e2"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-147"
     },
@@ -5800,9 +6322,9 @@
       "tipo_radar": "Convocatoria NOM-020-ASEA-2024",
       "titulo_radar": "Transporte de gas natural por ductos",
       "estado_radar": null,
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "d952ee94-6aa5-5ed3-885b-978a519ca54b",
+      "titulo_en_supabase": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-020-ASEA- 2024, Transporte de gas natural por medio de ductos terrestres (cancela a la NOM-007-ASEA-2016, Transporte de gas natural, etano y gas asociado al carbón mineral por medio de ductos)",
       "codigos_dof": [
         "5776907"
       ],
@@ -5810,17 +6332,23 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5776907"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5776907"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Convocatorias de terceros ASEA",
         "Convocatorias ASEA y SISTRANGAS"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "d952ee94-6aa5-5ed3-885b-978a519ca54b"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-148"
     },
@@ -6206,9 +6734,9 @@
       "tipo_radar": "Disposiciones reglamentarias",
       "titulo_radar": "Catálogo de Equipos y Aparatos, reporte de consumo y formatos",
       "estado_radar": "Vigentes desde el 12 sep 2026; sustituyen catálogo de 2023 y formatos de 2020",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "d9667c21-b2e6-5ecd-9b3f-f66bb053ef27",
+      "titulo_en_supabase": "Acuerdo por el que se emiten las Disposiciones Reglamentarias para el Catálogo de Equipos y Aparatos, respecto de los cuales los sujetos obligados deben reportar su consumo de energía y formatos para la entrega de información",
       "codigos_dof": [
         "5798667"
       ],
@@ -6216,16 +6744,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5798667"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5798667"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-complementos-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Biocombustibles e información energética"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "d9667c21-b2e6-5ecd-9b3f-f66bb053ef27"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-161"
     },
@@ -6798,7 +7332,7 @@
         "RAD-072",
         "RAD-074"
       ],
-      "motivo": "Siguiente carga sugerida: DACG y acuerdo de formatos. Dos publicaciones cotejadas en SIDOF; revisar sus tablas y anexos uno a uno."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     },
     {
       "nombre": "Migración de permisos",
@@ -6807,7 +7341,7 @@
         "RAD-043",
         "RAD-044"
       ],
-      "motivo": "Original, nota aclaratoria y modificación de septiembre; tres hitos separados en la línea del tiempo."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     },
     {
       "nombre": "Planeación del sector",
@@ -6817,7 +7351,7 @@
         "RAD-031",
         "RAD-048"
       ],
-      "motivo": "PLADESE, decreto y texto de PROSENER, y PLADESHi. Las fichas explicativas del explorador no sustituyen la carga de estos textos."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     },
     {
       "nombre": "Desarrollo mixto CFE",
@@ -6825,7 +7359,7 @@
         "RAD-032",
         "RAD-033"
       ],
-      "motivo": "Lineamientos y aviso. Localizar las bases completas; un aviso o un portal no equivale al instrumento íntegro."
+      "motivo": "Bloque incorporado salvo RAD-033. Falta localizar bases completas; el aviso y los materiales de apoyo no las sustituyen."
     },
     {
       "nombre": "Biocombustibles e información energética",
@@ -6833,7 +7367,7 @@
         "RAD-046",
         "RAD-161"
       ],
-      "motivo": "Formatos de biocombustibles y Catálogo de Equipos y Aparatos CONUEE; conservar campos, instructivos y tablas."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     },
     {
       "nombre": "CFE: contratación e impedimentos",
@@ -6841,7 +7375,7 @@
         "RAD-091",
         "RAD-180"
       ],
-      "motivo": "Disposiciones de contratación de agosto y políticas reportadas el 18 de septiembre. La segunda fuente requiere reintentar el cotejo."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     },
     {
       "nombre": "Leyes y reformas por completar",
@@ -6852,7 +7386,7 @@
         "RAD-004",
         "RAD-014"
       ],
-      "motivo": "Reformas constitucionales, Ley de Ingresos sobre Hidrocarburos y su reglamento. El decreto de ocho leyes sigue parcial por las reformas a LOAPF y Fondo Mexicano del Petróleo."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     },
     {
       "nombre": "Convocatorias ASEA y SISTRANGAS",
@@ -6866,7 +7400,7 @@
         "RAD-148",
         "RAD-137"
       ],
-      "motivo": "Siete convocatorias de terceros ASEA y una del comité SISTRANGAS; distinguir su alcance y fechas de las convocatorias eléctricas."
+      "motivo": "Bloque incorporado y cotejado el 19 de septiembre de 2026."
     }
   ],
   "novedades": [

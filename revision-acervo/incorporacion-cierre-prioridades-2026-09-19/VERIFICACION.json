@@ -1,0 +1,103 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-19",
+  "instrumentos": [
+    {
+      "siglas": "CFE-CONTRATACION",
+      "ley_id": "100f7f8a-26e6-5619-b2d6-56e9d95f8d72",
+      "fragmentos": 116,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "CONV-SISTRANGAS",
+      "ley_id": "a067e4c6-638c-5174-b9fd-386837bf0a28",
+      "fragmentos": 7,
+      "estructura": 5,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "DECRETO-REFORMA-ENERGETICA",
+      "ley_id": "08bb78b2-c71e-5362-98cb-b85ea046c262",
+      "fragmentos": 32,
+      "estructura": 6,
+      "cotejo_exacto": true
+    }
+  ],
+  "registros_anteriores_sin_cambios": true,
+  "catalogo_global": {
+    "leyes": 68,
+    "articulos": 4121,
+    "temas": 1100
+  },
+  "cotejo_fuentes": [
+    {
+      "instrumento": "CFE-CONTRATACION",
+      "fragmentos_fuente": 115,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CONV-SISTRANGAS",
+      "fragmentos_fuente": 6,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "DECRETO-REFORMA-ENERGETICA",
+      "fragmentos_fuente": 31,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ],
+  "alcance_pdf": [
+    {
+      "instrumento": "CFE-CONTRATACION",
+      "pagina_inicial": 89,
+      "pagina_final": 149,
+      "paginas": 61,
+      "muestras_visuales": [
+        89,
+        149
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CONV-SISTRANGAS",
+      "pagina_inicial": 406,
+      "pagina_final": 407,
+      "paginas": 2,
+      "muestras_visuales": [
+        406,
+        407
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "DECRETO-REFORMA-ENERGETICA",
+      "pagina_inicial": 2,
+      "pagina_final": 259,
+      "paginas": 258,
+      "muestras_visuales": [
+        2,
+        259
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    }
+  ]
+}

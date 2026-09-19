@@ -1,0 +1,52 @@
+[
+  {
+    "instrumento": "DACG-COGENERACION",
+    "fragmentos_fuente": 34,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "FORMATOS-COGENERACION",
+    "fragmentos_fuente": 7,
+    "texto_completo_cotejado": true,
+    "tablas": 28,
+    "celdas": 518,
+    "graficos": 0,
+    "casillas": 30,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "MIGRACION-PERMISOS",
+    "fragmentos_fuente": 77,
+    "texto_completo_cotejado": true,
+    "tablas": 2,
+    "celdas": 76,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "MIGRACION-ACLARACION",
+    "fragmentos_fuente": 3,
+    "texto_completo_cotejado": true,
+    "tablas": 2,
+    "celdas": 6,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "MIGRACION-MODIFICACION",
+    "fragmentos_fuente": 18,
+    "texto_completo_cotejado": true,
+    "tablas": 2,
+    "celdas": 76,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

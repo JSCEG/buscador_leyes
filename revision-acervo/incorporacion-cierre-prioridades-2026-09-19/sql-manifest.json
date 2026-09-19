@@ -1,0 +1,26 @@
+[
+  {
+    "name": "CFE-CONTRATACION",
+    "ley_id": "100f7f8a-26e6-5619-b2d6-56e9d95f8d72",
+    "fragmentos": 116,
+    "temas": 6,
+    "chars": 334978,
+    "sha256": "b6c471dea1f82e8812888200bfe2e3c4b13f3f342250d48b481661b2f4bd9497"
+  },
+  {
+    "name": "CONV-SISTRANGAS",
+    "ley_id": "a067e4c6-638c-5174-b9fd-386837bf0a28",
+    "fragmentos": 7,
+    "temas": 5,
+    "chars": 15577,
+    "sha256": "9e239bdecc66cdb41015adca5a30c209713fe74f44716378f3be5a000a333d0f"
+  },
+  {
+    "name": "DECRETO-REFORMA-ENERGETICA",
+    "ley_id": "08bb78b2-c71e-5362-98cb-b85ea046c262",
+    "fragmentos": 32,
+    "temas": 6,
+    "chars": 42202,
+    "sha256": "8ff6adc380fce42f2d7df3310196a743edce170e995582ffabf528d91a700c9d"
+  }
+]

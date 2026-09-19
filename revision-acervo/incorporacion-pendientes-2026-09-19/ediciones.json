@@ -1,0 +1,42 @@
+[
+  {
+    "name": "DACG-COGENERACION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685",
+    "file": "DACG-COGENERACION-edicion.pdf",
+    "sha256": "aa23e284c9c97542a96c8db5278f4694f38d0ad1f07b2081b6f0db268a93cba4",
+    "bytes": 6748589,
+    "pagina": 27
+  },
+  {
+    "name": "FORMATOS-COGENERACION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/22-05-2026/Matutina/327465",
+    "file": "FORMATOS-COGENERACION-edicion.pdf",
+    "sha256": "7cefb3ae9c1b29d4d0e8188a0827060111e53cf6b1564754edbc2f43ce224ff3",
+    "bytes": 78692963,
+    "pagina": 80
+  },
+  {
+    "name": "MIGRACION-PERMISOS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/18-06-2026/Matutina/327985",
+    "file": "MIGRACION-PERMISOS-edicion.pdf",
+    "sha256": "4fb0664039a940ee5f281059d741aa8bafff6b713ff969e60af49ed248331c49",
+    "bytes": 5584306,
+    "pagina": 5
+  },
+  {
+    "name": "MIGRACION-ACLARACION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/26-06-2026/Matutina/328125",
+    "file": "MIGRACION-ACLARACION-edicion.pdf",
+    "sha256": "2d99cb2a77fdc34e7f8f39187ab4d00b105f9b33466b07c66fb7df7e69e53470",
+    "bytes": 5117372,
+    "pagina": 107
+  },
+  {
+    "name": "MIGRACION-MODIFICACION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/08-09-2026/Matutina/329525",
+    "file": "MIGRACION-MODIFICACION-edicion.pdf",
+    "sha256": "f4ebc3cfc7aa62134ba0bd223bf6f2e747ba756eec187a408a5212f4e717f974",
+    "bytes": 5818850,
+    "pagina": 4
+  }
+]

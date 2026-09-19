@@ -1,0 +1,42 @@
+[
+  {
+    "instrumento": "PLADESE",
+    "fragmentos_fuente": 88,
+    "texto_completo_cotejado": true,
+    "tablas": 74,
+    "celdas": 8002,
+    "graficos": 67,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "PROSENER-DECRETO",
+    "fragmentos_fuente": 8,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "PROSENER",
+    "fragmentos_fuente": 50,
+    "texto_completo_cotejado": true,
+    "tablas": 27,
+    "celdas": 637,
+    "graficos": 13,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "PLADESHI",
+    "fragmentos_fuente": 80,
+    "texto_completo_cotejado": true,
+    "tablas": 46,
+    "celdas": 1820,
+    "graficos": 88,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

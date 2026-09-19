@@ -1,0 +1,122 @@
+[
+  {
+    "name": "DESARROLLO-MIXTO-CFE",
+    "code": "5778994",
+    "radar": "RAD-032",
+    "familia": "Desarrollo mixto de CFE",
+    "pieza": "Esquemas para el Desarrollo Mixto",
+    "tipo": "acuerdo"
+  },
+  {
+    "name": "FORMATOS-BIOCOMBUSTIBLES",
+    "code": "5797477",
+    "radar": "RAD-046",
+    "familia": "Biocombustibles e información energética",
+    "pieza": "Permisos, autorizaciones, bitácoras y avisos de biocombustibles",
+    "tipo": "acuerdo"
+  },
+  {
+    "name": "CATALOGO-CONUEE",
+    "code": "5798667",
+    "radar": "RAD-161",
+    "familia": "Biocombustibles e información energética",
+    "pieza": "Catálogo de Equipos y Aparatos, reporte de consumo y formatos",
+    "tipo": "acuerdo"
+  },
+  {
+    "name": "CFE-IMPEDIMENTOS",
+    "code": "5799057",
+    "radar": "RAD-180",
+    "familia": "CFE: contratación e impedimentos",
+    "pieza": "Impedimentos para considerar ofertas o celebrar contratos",
+    "tipo": "acuerdo"
+  },
+  {
+    "name": "REFORMA-AREAS-ESTRATEGICAS",
+    "code": "5742012",
+    "radar": "RAD-001",
+    "familia": "Leyes y reformas por completar",
+    "pieza": "Áreas y empresas estratégicas",
+    "tipo": "decreto"
+  },
+  {
+    "name": "REFORMA-SIMPLIFICACION",
+    "code": "5745905",
+    "radar": "RAD-002",
+    "familia": "Leyes y reformas por completar",
+    "pieza": "Simplificación orgánica; transferencia de funciones regulatorias",
+    "tipo": "decreto"
+  },
+  {
+    "name": "REFORMA-LIH",
+    "code": "5752330",
+    "radar": "RAD-004",
+    "familia": "Leyes y reformas por completar",
+    "pieza": "Reforma a la Ley de Ingresos sobre Hidrocarburos",
+    "tipo": "decreto"
+  },
+  {
+    "name": "REFORMA-RLIH",
+    "code": "5769158",
+    "radar": "RAD-014",
+    "familia": "Leyes y reformas por completar",
+    "pieza": "Reforma al Reglamento de la Ley de Ingresos sobre Hidrocarburos",
+    "tipo": "decreto"
+  },
+  {
+    "name": "ASEA-CONV-GNC",
+    "code": "5734389",
+    "radar": "RAD-142",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Descompresión de gas natural comprimido",
+    "tipo": "convocatoria"
+  },
+  {
+    "name": "ASEA-CONV-DISTRIBUCION-LP",
+    "code": "5734780",
+    "radar": "RAD-143",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Plantas de distribución de gas LP",
+    "tipo": "convocatoria"
+  },
+  {
+    "name": "ASEA-CONV-ALMACENAMIENTO-LP",
+    "code": "5736163",
+    "radar": "RAD-144",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Instalaciones de almacenamiento de gas LP",
+    "tipo": "convocatoria"
+  },
+  {
+    "name": "ASEA-CONV-BODEGAS-LP",
+    "code": "5739627",
+    "radar": "RAD-145",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Modificación de la convocatoria para bodegas de gas LP",
+    "tipo": "acuerdo"
+  },
+  {
+    "name": "ASEA-CONV-TAPONAMIENTO",
+    "code": "5763176",
+    "radar": "RAD-146",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Terceros para dictamen de taponamiento de pozos",
+    "tipo": "convocatoria"
+  },
+  {
+    "name": "ASEA-CONV-PROCESAMIENTO-GN",
+    "code": "5776908",
+    "radar": "RAD-147",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Procesamiento de gas natural",
+    "tipo": "convocatoria"
+  },
+  {
+    "name": "ASEA-CONV-TRANSPORTE-GN",
+    "code": "5776907",
+    "radar": "RAD-148",
+    "familia": "Convocatorias de terceros ASEA",
+    "pieza": "Transporte de gas natural por ductos",
+    "tipo": "convocatoria"
+  }
+]

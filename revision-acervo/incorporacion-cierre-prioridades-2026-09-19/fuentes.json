@@ -1,0 +1,50 @@
+[
+  {
+    "name": "CFE-CONTRATACION",
+    "code": "5796647",
+    "radar": "RAD-091",
+    "familia": "CFE: contratación e impedimentos",
+    "pieza": "Disposiciones Generales de contratación de la CFE",
+    "tipo": "acuerdo",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5796647",
+    "sha256": "d4bf6df33b35225c9af0290f7d387ac74e996ef94133894260ed8f71b9aad390",
+    "fecha": "19-08-2026",
+    "titulo": "Disposiciones Generales en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras de la Comisión Federal de Electricidad.",
+    "codDiario": 329166,
+    "pagina": 89,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "CONV-SISTRANGAS",
+    "code": "5796317",
+    "radar": "RAD-137",
+    "familia": "Convocatorias ASEA y SISTRANGAS",
+    "pieza": "Renovación de representantes de personas usuarias del SISTRANGAS",
+    "tipo": "convocatoria",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5796317",
+    "sha256": "dd2732166dfbe9fcf903c399be357167456112951fa1e6eb298a20c78f676377",
+    "fecha": "14-08-2026",
+    "titulo": "Convocatoria para el mecanismo de designación para la renovación de los representantes de las personas Usuarias y Usuarias Finales del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural (SISTRANGAS).",
+    "codDiario": 329086,
+    "pagina": 406,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "DECRETO-REFORMA-ENERGETICA",
+    "code": "5752329",
+    "radar": "RAD-003",
+    "familia": "Leyes y reformas por completar",
+    "pieza": "Decreto de expedición de leyes y reformas del sector energético",
+    "tipo": "decreto",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5752329",
+    "sha256": "b6d282de677189459e923bf1a3d08a11344772ea55b93c66f1d7759d7d58d53f",
+    "fecha": "18-03-2025",
+    "titulo": "Decreto por el que se expiden la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad; la Ley de la Empresa Pública del Estado, Petróleos Mexicanos; la Ley del Sector Eléctrico; la Ley del Sector Hidrocarburos; la Ley de Planeación y Transición Energética; la Ley de Biocombustibles; la Ley de Geotermia y, la Ley de la Comisión Nacional de Energía; se reforman diversas disposiciones de la Ley del Fondo Mexicano del Petróleo para la Estabilización y el Desarrollo y, se reforman, adicionan y derogan diversas disposiciones de la Ley Orgánica de la Administración Pública Federal.",
+    "codDiario": 320062,
+    "pagina": 2,
+    "tables": 0,
+    "images": []
+  }
+]

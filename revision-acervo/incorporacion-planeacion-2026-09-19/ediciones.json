@@ -1,0 +1,34 @@
+[
+  {
+    "name": "PLADESE",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/17-10-2025/Vespertina/323603",
+    "file": "PLADESE-edicion.pdf",
+    "sha256": "82f15ac85c7de97078a578dd5e5ac6ef2c5025d6f7af9d1a9a398a5a58b56787",
+    "bytes": 9901233,
+    "pagina": 2
+  },
+  {
+    "name": "PROSENER-DECRETO",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/22-12-2025/Matutina/324785",
+    "file": "PROSENER-DECRETO-edicion.pdf",
+    "sha256": "8718317c5f2fd17c881067bc428b66cb2d1a5dd21ae17052a62937b0ce511196",
+    "bytes": 6261377,
+    "pagina": 5
+  },
+  {
+    "name": "PROSENER",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/22-12-2025/Matutina/324785",
+    "file": "PROSENER-edicion.pdf",
+    "sha256": "8718317c5f2fd17c881067bc428b66cb2d1a5dd21ae17052a62937b0ce511196",
+    "bytes": 6261377,
+    "pagina": 6
+  },
+  {
+    "name": "PLADESHI",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/07-09-2026/Matutina/329505",
+    "file": "PLADESHI-edicion.pdf",
+    "sha256": "d56aa56ec9750c758bcdc1173b3ddcc0033f6f037d9a856810805a9e51a8b84f",
+    "bytes": 17852649,
+    "pagina": 17
+  }
+]

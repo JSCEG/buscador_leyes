@@ -1,0 +1,34 @@
+[
+  {
+    "name": "PLADESE",
+    "ley_id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+    "fragmentos": 89,
+    "temas": 10,
+    "chars": 574318,
+    "sha256": "85b5816c15982e053a3d62092d29ed71ce2d256b1649558534f97c12e275163c"
+  },
+  {
+    "name": "PROSENER-DECRETO",
+    "ley_id": "237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+    "fragmentos": 9,
+    "temas": 10,
+    "chars": 14209,
+    "sha256": "69141eb114c824c3979752ed118a151286a575365247467c0153a8f664282069"
+  },
+  {
+    "name": "PROSENER",
+    "ley_id": "ff6459a0-eaeb-51ed-a578-73de837b3de1",
+    "fragmentos": 51,
+    "temas": 4,
+    "chars": 233281,
+    "sha256": "3ed3647a3e2e72fd019f48e0c1b3f6b5c72084c327c9f9f3cd7b614bb1a05a55"
+  },
+  {
+    "name": "PLADESHI",
+    "ley_id": "48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+    "fragmentos": 81,
+    "temas": 7,
+    "chars": 421256,
+    "sha256": "d36af834c866824684a31020a6d12dc6173ff86e02bc26f885dbbf5acaeb9414"
+  }
+]

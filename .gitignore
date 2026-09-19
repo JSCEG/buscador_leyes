@@ -14,6 +14,15 @@ revision-acervo/**/*.pdf
 revision-acervo/**/revision-visual/
 revision-acervo/**/*.png
 !revision-acervo/**/fuentes/*.png
+/revision-acervo/incorporacion-pendientes-2026-09-19/fuentes/*.png
+# Fuentes temporales, respaldos y duplicados de las cargas del 19/09.
+# Se versionan el payload final, los perfiles, las huellas y los cotejos.
+/revision-acervo/incorporacion-*-2026-09-19/fuentes/
+/revision-acervo/incorporacion-*-2026-09-19/antes/
+/revision-acervo/incorporacion-*-2026-09-19/despues-*/
+/revision-acervo/incorporacion-*-2026-09-19/*-fuente-vista.html
+/revision-acervo/incorporacion-*-2026-09-19/*-revisado.json
+/revision-acervo/incorporacion-*-2026-09-19/*-aplicar.sql
 __pycache__/
 *.pyc
 Leyes_en_pdf/*.pdf

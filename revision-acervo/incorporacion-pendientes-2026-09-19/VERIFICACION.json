@@ -1,0 +1,99 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-19",
+  "instrumentos": [
+    {
+      "siglas": "DACG-COGENERACION",
+      "ley_id": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
+      "fragmentos": 35,
+      "estructura": 9,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "FORMATOS-COGENERACION",
+      "ley_id": "4e1d7050-8198-5a8a-9609-cce7660f401b",
+      "fragmentos": 8,
+      "estructura": 7,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "MIGRACION-PERMISOS",
+      "ley_id": "91a6f28d-52a9-5f72-96e0-ac50a1991c96",
+      "fragmentos": 78,
+      "estructura": 21,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "MIGRACION-ACLARACION",
+      "ley_id": "5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524",
+      "fragmentos": 4,
+      "estructura": 5,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "MIGRACION-MODIFICACION",
+      "ley_id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
+      "fragmentos": 19,
+      "estructura": 7,
+      "cotejo_exacto": true
+    }
+  ],
+  "registros_anteriores_sin_cambios": true,
+  "catalogo_global": {
+    "leyes": 68,
+    "articulos": 4121,
+    "temas": 1100
+  },
+  "cotejo_fuentes": [
+    {
+      "instrumento": "DACG-COGENERACION",
+      "fragmentos_fuente": 34,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "FORMATOS-COGENERACION",
+      "fragmentos_fuente": 7,
+      "texto_completo_cotejado": true,
+      "tablas": 28,
+      "celdas": 518,
+      "graficos": 0,
+      "casillas": 30,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "MIGRACION-PERMISOS",
+      "fragmentos_fuente": 77,
+      "texto_completo_cotejado": true,
+      "tablas": 2,
+      "celdas": 76,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "MIGRACION-ACLARACION",
+      "fragmentos_fuente": 3,
+      "texto_completo_cotejado": true,
+      "tablas": 2,
+      "celdas": 6,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "MIGRACION-MODIFICACION",
+      "fragmentos_fuente": 18,
+      "texto_completo_cotejado": true,
+      "tablas": 2,
+      "celdas": 76,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ]
+}

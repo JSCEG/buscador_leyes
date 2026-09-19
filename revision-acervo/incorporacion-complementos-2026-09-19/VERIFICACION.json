@@ -1,0 +1,455 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-19",
+  "instrumentos": [
+    {
+      "siglas": "DESARROLLO-MIXTO-CFE",
+      "ley_id": "d4b231b0-6b12-5dbe-b003-a6986814c000",
+      "fragmentos": 31,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "FORMATOS-BIOCOMBUSTIBLES",
+      "ley_id": "72a25a95-89a6-5489-8b15-12ff63706e3a",
+      "fragmentos": 28,
+      "estructura": 13,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "CATALOGO-CONUEE",
+      "ley_id": "d9667c21-b2e6-5ecd-9b3f-f66bb053ef27",
+      "fragmentos": 32,
+      "estructura": 9,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "CFE-IMPEDIMENTOS",
+      "ley_id": "a7fdc69c-897a-59fb-85f5-7779c46fd03d",
+      "fragmentos": 32,
+      "estructura": 5,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "REFORMA-AREAS-ESTRATEGICAS",
+      "ley_id": "6cd39069-4eb3-5c14-b71a-f7fa839a69fa",
+      "fragmentos": 10,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "REFORMA-SIMPLIFICACION",
+      "ley_id": "6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+      "fragmentos": 30,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "REFORMA-LIH",
+      "ley_id": "6e4c2d90-0ad2-5c47-a0e0-ed132f09415c",
+      "fragmentos": 42,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "REFORMA-RLIH",
+      "ley_id": "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+      "fragmentos": 31,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-GNC",
+      "ley_id": "ebef59b3-a5a6-5a9b-88af-add201f0226c",
+      "fragmentos": 8,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-DISTRIBUCION-LP",
+      "ley_id": "fbf37f5b-3cb8-5328-807b-c500edfffd0c",
+      "fragmentos": 8,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-ALMACENAMIENTO-LP",
+      "ley_id": "ece70b87-4e3f-596d-b1c1-482f1237bcef",
+      "fragmentos": 8,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-BODEGAS-LP",
+      "ley_id": "e61b9357-ae95-5e4a-b210-f535f5b372d4",
+      "fragmentos": 6,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-TAPONAMIENTO",
+      "ley_id": "f842022d-7adc-52ee-9b5a-5883b5cd780a",
+      "fragmentos": 9,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-PROCESAMIENTO-GN",
+      "ley_id": "4f96be01-2fc1-56a1-aab1-d8641c83a7e2",
+      "fragmentos": 8,
+      "estructura": 6,
+      "cotejo_exacto": true
+    },
+    {
+      "siglas": "ASEA-CONV-TRANSPORTE-GN",
+      "ley_id": "d952ee94-6aa5-5ed3-885b-978a519ca54b",
+      "fragmentos": 9,
+      "estructura": 6,
+      "cotejo_exacto": true
+    }
+  ],
+  "registros_anteriores_sin_cambios": true,
+  "catalogo_global": {
+    "leyes": 68,
+    "articulos": 4121,
+    "temas": 1100
+  },
+  "cotejo_fuentes": [
+    {
+      "instrumento": "DESARROLLO-MIXTO-CFE",
+      "fragmentos_fuente": 30,
+      "texto_completo_cotejado": true,
+      "tablas": 3,
+      "celdas": 216,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+      "fragmentos_fuente": 27,
+      "texto_completo_cotejado": true,
+      "tablas": 1269,
+      "celdas": 20312,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CATALOGO-CONUEE",
+      "fragmentos_fuente": 31,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 100,
+      "graficos": 8,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CFE-IMPEDIMENTOS",
+      "fragmentos_fuente": 31,
+      "texto_completo_cotejado": true,
+      "tablas": 2,
+      "celdas": 28,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "REFORMA-AREAS-ESTRATEGICAS",
+      "fragmentos_fuente": 9,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "REFORMA-SIMPLIFICACION",
+      "fragmentos_fuente": 29,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "REFORMA-LIH",
+      "fragmentos_fuente": 41,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "REFORMA-RLIH",
+      "fragmentos_fuente": 30,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-GNC",
+      "fragmentos_fuente": 7,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-DISTRIBUCION-LP",
+      "fragmentos_fuente": 7,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-ALMACENAMIENTO-LP",
+      "fragmentos_fuente": 7,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-BODEGAS-LP",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-TAPONAMIENTO",
+      "fragmentos_fuente": 8,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-PROCESAMIENTO-GN",
+      "fragmentos_fuente": 7,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "ASEA-CONV-TRANSPORTE-GN",
+      "fragmentos_fuente": 8,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ],
+  "alcance_pdf": [
+    {
+      "instrumento": "DESARROLLO-MIXTO-CFE",
+      "pagina_inicial": 65,
+      "pagina_final": 84,
+      "paginas": 20,
+      "muestras_visuales": [
+        65,
+        84
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+      "pagina_inicial": 4,
+      "pagina_final": 282,
+      "paginas": 279,
+      "muestras_visuales": [
+        4,
+        7,
+        281,
+        282
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CATALOGO-CONUEE",
+      "pagina_inicial": 26,
+      "pagina_final": 38,
+      "paginas": 13,
+      "muestras_visuales": [
+        26,
+        34,
+        36,
+        38
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CFE-IMPEDIMENTOS",
+      "pagina_inicial": 213,
+      "pagina_final": 225,
+      "paginas": 13,
+      "muestras_visuales": [
+        213,
+        225
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "REFORMA-AREAS-ESTRATEGICAS",
+      "pagina_inicial": 2,
+      "pagina_final": 4,
+      "paginas": 3,
+      "muestras_visuales": [
+        2,
+        4
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "REFORMA-SIMPLIFICACION",
+      "pagina_inicial": 2,
+      "pagina_final": 10,
+      "paginas": 9,
+      "muestras_visuales": [
+        2,
+        10
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "REFORMA-LIH",
+      "pagina_inicial": 260,
+      "pagina_final": 268,
+      "paginas": 9,
+      "muestras_visuales": [
+        260,
+        268
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "REFORMA-RLIH",
+      "pagina_inicial": 232,
+      "pagina_final": 235,
+      "paginas": 4,
+      "muestras_visuales": [
+        232,
+        235
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-GNC",
+      "pagina_inicial": 14,
+      "pagina_final": 16,
+      "paginas": 3,
+      "muestras_visuales": [
+        14,
+        16
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-DISTRIBUCION-LP",
+      "pagina_inicial": 53,
+      "pagina_final": 55,
+      "paginas": 3,
+      "muestras_visuales": [
+        53,
+        55
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-ALMACENAMIENTO-LP",
+      "pagina_inicial": 32,
+      "pagina_final": 34,
+      "paginas": 3,
+      "muestras_visuales": [
+        32,
+        34
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-BODEGAS-LP",
+      "pagina_inicial": 93,
+      "pagina_final": 96,
+      "paginas": 4,
+      "muestras_visuales": [
+        93,
+        96
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-TAPONAMIENTO",
+      "pagina_inicial": 33,
+      "pagina_final": 35,
+      "paginas": 3,
+      "muestras_visuales": [
+        33,
+        35
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-PROCESAMIENTO-GN",
+      "pagina_inicial": 75,
+      "pagina_final": 77,
+      "paginas": 3,
+      "muestras_visuales": [
+        75,
+        77
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "ASEA-CONV-TRANSPORTE-GN",
+      "pagina_inicial": 72,
+      "pagina_final": 74,
+      "paginas": 3,
+      "muestras_visuales": [
+        72,
+        74
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    }
+  ]
+}

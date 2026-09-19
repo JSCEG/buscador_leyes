@@ -1,0 +1,2 @@
+-- Aplicado el 19-09-2026: los índices pertenecen al plan y no son documentos relacionados.
+BEGIN; DO $audit$ DECLARE n integer; BEGIN UPDATE public.articulos SET tipo_articulo='anexo' WHERE tipo_articulo='complementario' AND id IN ('158319c9-c941-589e-9f68-236ee93738c8','00ee81ba-cdaa-5fa5-84bd-31a8a4de9d54','e5768f5e-17db-56ff-991a-e9c1dd3fdca2') AND identificador IN ('Presentación e índices del plan','Presentación e índice del programa'); GET DIAGNOSTICS n=ROW_COUNT; IF n<>3 THEN RAISE EXCEPTION 'Clasificación inesperada'; END IF; END $audit$; COMMIT;

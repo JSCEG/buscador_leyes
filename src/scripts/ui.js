@@ -1106,7 +1106,7 @@ export function initUI() {
                 </nav>
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-100 pb-6">
                     <div>
-                        <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Marco Legal Vigente ${law.siglas ? `· ${law.siglas}` : ''}</span>
+                        <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Acervo normativo ${law.siglas ? `· ${law.siglas}` : ''}</span>
                         <h1 class="text-2xl sm:text-3xl font-head font-bold text-gray-900 mt-2 mb-2">${law.titulo}</h1>
                         <p class="text-sm text-gray-500 font-light">Publicado: <span class="font-bold text-gray-700">${law.fecha_publicacion || 'N/D'}</span> · Última reforma: <span class="font-bold text-gray-700">${law.fecha_ultima_reforma || 'N/D'}</span></p>
                         ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
@@ -1193,7 +1193,7 @@ export function initUI() {
                  <!-- Metric Cards -->
                  <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
                      <span class="text-3xl font-head font-bold text-guinda">${currentLawArticles.length}</span>
-                     <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Artículos</span>
+                     <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Fragmentos</span>
                  </div>
                  <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
                      <span class="text-3xl font-head font-bold text-guinda">${chaptersCount}</span>
@@ -1236,7 +1236,7 @@ export function initUI() {
                     </div>
                     <input type="text" id="law-search-input" 
                         class="block w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-full text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-guinda/10 focus:border-guinda transition-all" 
-                        placeholder="Buscar artículos específicos en ${law.titulo}...">
+                        placeholder="Buscar dentro de ${law.titulo}...">
                 </div>
 
                 <div class="reader-toolbar reader-law-toolbar">

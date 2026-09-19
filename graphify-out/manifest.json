@@ -215,7 +215,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\data\\manifest.json": {
-    "mtime": 1789840467.4127426,
+    "mtime": 1789859826.6165402,
     "ast_hash": "ebb3e943f1ca6d628a3f264d3d397484",
     "semantic_hash": ""
   },
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\scripts\\ui.js": {
-    "mtime": 1789837223.5448077,
-    "ast_hash": "d6c8d5b5552e1cc5ac4a82d9a055e6e1",
+    "mtime": 1789849467.936387,
+    "ast_hash": "668d9b0abbc116dc6530913b2f3d7a56",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\legal-ingest-pipeline.test.js": {
@@ -4250,8 +4250,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\lector-2026-09-19\\README.md": {
-    "mtime": 1789840424.0527182,
-    "ast_hash": "8e443f394d0bab32f8c04d98bc4a0072",
+    "mtime": 1789840935.01623,
+    "ast_hash": "65def99d9939958e630db62ffe3caa5d",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\acervo-2026-09-19\\acervo-escritorio.png": {
@@ -4315,28 +4315,28 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-19\\catalogo-actual.json": {
-    "mtime": 1789840190.0676901,
-    "ast_hash": "041d0aa6d3385083542440e1e513b5f0",
+    "mtime": 1789859815.3066413,
+    "ast_hash": "0a81d7b1424af9af5813d815daf64e6a",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-19\\INVENTARIO.json": {
-    "mtime": 1789840190.0656884,
-    "ast_hash": "e0ee8b495f294320ca6a20f089aef3ed",
+    "mtime": 1789859815.3066413,
+    "ast_hash": "cb04d1596e0db7b2652ab2950f361a7f",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-19\\catalogo-actual.json": {
-    "mtime": 1789839860.46807,
-    "ast_hash": "5f57ea51c2b8057f8da4c88059eeafd4",
+    "mtime": 1789859570.3089871,
+    "ast_hash": "0a81d7b1424af9af5813d815daf64e6a",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-19\\generar_inventario.py": {
-    "mtime": 1789840186.2682755,
-    "ast_hash": "eeb32f6c3893e8fac0ac84f37535f34a",
+    "mtime": 1789859799.656064,
+    "ast_hash": "453080fac9ac7f829188c37438d75a89",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-19\\INVENTARIO.json": {
-    "mtime": 1789840189.9398715,
-    "ast_hash": "e0ee8b495f294320ca6a20f089aef3ed",
+    "mtime": 1789859815.1945286,
+    "ast_hash": "cb04d1596e0db7b2652ab2950f361a7f",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\server\\reader-dev.js": {
@@ -4370,28 +4370,473 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-19\\INVENTARIO.html": {
-    "mtime": 1789840190.0124514,
-    "ast_hash": "852a22baa5b92723823dff231fc9f31b",
+    "mtime": 1789859815.2671514,
+    "ast_hash": "8d0be282810a0c63b94f21391c5d870b",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-19\\INVENTARIO.md": {
-    "mtime": 1789840190.0316033,
-    "ast_hash": "147f60accd5af75f9f9f15cb60e01ca8",
+    "mtime": 1789859815.272928,
+    "ast_hash": "c1fabae41d4e84fdead83a4d6d628795",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-19\\INVENTARIO.html": {
-    "mtime": 1789840189.9458745,
-    "ast_hash": "9ef198bac05324a5cff9e2444e0d3ab1",
+    "mtime": 1789859815.2045865,
+    "ast_hash": "1aeead1c52ca7d7350ce1d399d9cec98",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-19\\INVENTARIO.md": {
-    "mtime": 1789840189.9428828,
-    "ast_hash": "147f60accd5af75f9f9f15cb60e01ca8",
+    "mtime": 1789859815.1985571,
+    "ast_hash": "c1fabae41d4e84fdead83a4d6d628795",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\.wrangler\\tmp\\pages-dv5OsW\\functionsRoutes-0.5849662722558501.mjs": {
     "mtime": 1789840226.1914506,
     "ast_hash": "e9ee3d21874d760b11286709ce846e9a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\incorporacion-pendientes-2026-09-19\\INCORPORACION.json": {
+    "mtime": 1789859645.4989274,
+    "ast_hash": "89cf0aed2c90df581b4522e2ca10a428",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\ALCANCE-PDF.json": {
+    "mtime": 1789859373.0235734,
+    "ast_hash": "0c1fda06bcc0630953d487066322a770",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\CFE-CONTRATACION-carga.json": {
+    "mtime": 1789859402.4976335,
+    "ast_hash": "eeb0c0fa1ef0a517350bb545803adc25",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\config.json": {
+    "mtime": 1789859138.3487988,
+    "ast_hash": "d0a4f64fe5c2f3e53a54976b0964ee95",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\CONV-SISTRANGAS-carga.json": {
+    "mtime": 1789859402.5141132,
+    "ast_hash": "c95793361d71ffe3631033c237292479",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\COTEJO-FUENTES.json": {
+    "mtime": 1789859813.224866,
+    "ast_hash": "ea652a3536d6844a33f2289f79383754",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\DECRETO-REFORMA-ENERGETICA-carga.json": {
+    "mtime": 1789859402.5287976,
+    "ast_hash": "a5ea9f7c611fa5ff9deef51b6c9fd3c0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\ediciones.json": {
+    "mtime": 1789859225.009767,
+    "ast_hash": "44de014af7e50544b269fec6b3700832",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\FUENTES-NO-RECUPERADAS.json": {
+    "mtime": 1789859151.858134,
+    "ast_hash": "d751713988987e9331980363e24189ce",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\fuentes.json": {
+    "mtime": 1789859187.284196,
+    "ast_hash": "1549ffc50fcf4df75f7cd632e35eb1f8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\generar_sql.py": {
+    "mtime": 1789859399.5643103,
+    "ast_hash": "8a94637d74c328c5b1fddc717aaf59ba",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\imagenes.json": {
+    "mtime": 1789859209.5774872,
+    "ast_hash": "d751713988987e9331980363e24189ce",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\preparar.py": {
+    "mtime": 1789859349.9712596,
+    "ast_hash": "86421a5d260d58771432fad7dfb6c871",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\revisar_pdf.py": {
+    "mtime": 1789849701.3093438,
+    "ast_hash": "0809e671b62b9dd0d530a5736d87836e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\sql-manifest.json": {
+    "mtime": 1789859402.5307643,
+    "ast_hash": "ac003503233b4545f923429a2d977d5c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cierre-prioridades-2026-09-19\\VERIFICACION.json": {
+    "mtime": 1789859491.333248,
+    "ast_hash": "3e172b3fef9d6edc46d31e1ee9197382",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ALCANCE-PDF.json": {
+    "mtime": 1789849720.691542,
+    "ast_hash": "bab3da7fe3f24e3ae83baacc4234ea7d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-ALMACENAMIENTO-LP-carga.json": {
+    "mtime": 1789849738.5145998,
+    "ast_hash": "831aa60dfb25f3191143f18817f05148",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-BODEGAS-LP-carga.json": {
+    "mtime": 1789849738.5186,
+    "ast_hash": "a76cd184f2ba6c478ce7c19e16ba10ca",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-DISTRIBUCION-LP-carga.json": {
+    "mtime": 1789849738.5116162,
+    "ast_hash": "fb5ba719efc31d63852daab31b99e2e8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-GNC-carga.json": {
+    "mtime": 1789849738.506936,
+    "ast_hash": "35ad8a8c1d6a4a249ccd4eab30a77106",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-PROCESAMIENTO-GN-carga.json": {
+    "mtime": 1789849738.5261743,
+    "ast_hash": "6c8924afbf6f60220c8e6b66f85f45cc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-TAPONAMIENTO-carga.json": {
+    "mtime": 1789849738.5231378,
+    "ast_hash": "c23f79a969547bbfd2e3b694eec2afa5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ASEA-CONV-TRANSPORTE-GN-carga.json": {
+    "mtime": 1789849738.5291753,
+    "ast_hash": "9d6ecb6a17e9f30f148eb87880c5f8b5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\CATALOGO-CONUEE-carga.json": {
+    "mtime": 1789849738.476921,
+    "ast_hash": "bc08f1954fb63d5e82c6bbd3b689803a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\CFE-IMPEDIMENTOS-carga.json": {
+    "mtime": 1789849738.4829156,
+    "ast_hash": "3e07e98e93b9dc139624cfede64ba378",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\config.json": {
+    "mtime": 1789848290.6784625,
+    "ast_hash": "99886a44c20fab4e7da51ed5142335a8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\COTEJO-FUENTES.json": {
+    "mtime": 1789849649.6945136,
+    "ast_hash": "748c20e532fcc6bff5728aa9cd1338f7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\DESARROLLO-MIXTO-CFE-carga.json": {
+    "mtime": 1789849738.4301639,
+    "ast_hash": "a9063d238c51d9369b7d91f5910435ef",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\ediciones.json": {
+    "mtime": 1789849325.6023579,
+    "ast_hash": "532b4cd25f28c00a1c69278c273116b1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\FORMATOS-BIOCOMBUSTIBLES-carga.json": {
+    "mtime": 1789849738.4549277,
+    "ast_hash": "1d69d457d469bec4143759dfc7dcb30e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\FUENTES-NO-RECUPERADAS.json": {
+    "mtime": 1789859801.973814,
+    "ast_hash": "58e0494c51d30eb3494f7c9198986bb9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\fuentes.json": {
+    "mtime": 1789849360.1616204,
+    "ast_hash": "dd185784a97e6d015f8c1e759886df6a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\generar_sql.py": {
+    "mtime": 1789849735.8532305,
+    "ast_hash": "40fdabeb46b6712c84591112848888ce",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\imagenes.json": {
+    "mtime": 1789849406.5993674,
+    "ast_hash": "20b83584793477721e988f36b6d31ffc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\perfiles-fuentes.json": {
+    "mtime": 1789849572.3738096,
+    "ast_hash": "df7b9b62f600257b2e0b9def21b6d721",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\preparar.py": {
+    "mtime": 1789849626.6787941,
+    "ast_hash": "a90c501b67b2f10aa0d7ae34bb8f9ab5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\REFORMA-AREAS-ESTRATEGICAS-carga.json": {
+    "mtime": 1789849738.487917,
+    "ast_hash": "77561b79ba9ca496e01f2bf0982e1276",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\REFORMA-LIH-carga.json": {
+    "mtime": 1789849738.497917,
+    "ast_hash": "6763d716de2651af48c8668555604e49",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\REFORMA-RLIH-carga.json": {
+    "mtime": 1789849738.5029168,
+    "ast_hash": "77173b3b2e788a7f05f86106640c8335",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\REFORMA-SIMPLIFICACION-carga.json": {
+    "mtime": 1789849738.4929175,
+    "ast_hash": "c41a3fc6b721739e0329110352d6d12d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\revisar_pdf.py": {
+    "mtime": 1789849701.3093438,
+    "ast_hash": "0809e671b62b9dd0d530a5736d87836e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\sql-manifest.json": {
+    "mtime": 1789849738.5311751,
+    "ast_hash": "e143476f5855edaff741ff93426f8e6a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-complementos-2026-09-19\\VERIFICACION.json": {
+    "mtime": 1789859491.2977824,
+    "ast_hash": "83377b6e7322331dfcc912ff9d384e96",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\actualizar-catalogo.py": {
+    "mtime": 1789859564.7150161,
+    "ast_hash": "e4bc7c5bb02bb64abdab4625f666b4d7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\config.json": {
+    "mtime": 1789847773.8421586,
+    "ast_hash": "54b018d0e335113a3c9d21485ce9ec5e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\cotejar_pdf.py": {
+    "mtime": 1789847806.0668085,
+    "ast_hash": "0a68eb90300f528939c0a7cefbf6b3dc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\COTEJO-FUENTES.json": {
+    "mtime": 1789847725.541671,
+    "ast_hash": "d11cbc3bd7f1075c39aea398d61fd42d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\COTEJO-PDF-diferencias.json": {
+    "mtime": 1789847706.3559377,
+    "ast_hash": "c71a2311339b17a9804e9549faf3fced",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\COTEJO-PDF.json": {
+    "mtime": 1789847808.2439473,
+    "ast_hash": "32a8dbf623a7be17b2dacb62ed19b30c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\DACG-COGENERACION-carga.json": {
+    "mtime": 1789847813.7718785,
+    "ast_hash": "e76fbba44fe084f47a10b680f05ff1f8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\ediciones.json": {
+    "mtime": 1789847591.1144814,
+    "ast_hash": "397e1e385cdd26ddbff5576219c3c8ae",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\FORMATOS-COGENERACION-carga.json": {
+    "mtime": 1789847813.7838414,
+    "ast_hash": "1ba3878af34f0a92507674d75a755531",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\fuentes.json": {
+    "mtime": 1789847491.1866245,
+    "ast_hash": "18a76f0791eaf7112b2cf0bf0e33c014",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\generar_reporte.py": {
+    "mtime": 1789859641.507889,
+    "ast_hash": "1e5657b62ed6c4b240b66c5511179520",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\generar_sql.py": {
+    "mtime": 1789847811.3123045,
+    "ast_hash": "502e3c20a2293eea6b3e3869b7e1b903",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\imagenes.json": {
+    "mtime": 1789847590.7688525,
+    "ast_hash": "05395e3e17132db839936ab1d8b46f0f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\INCORPORACION.json": {
+    "mtime": 1789859645.4398623,
+    "ast_hash": "89cf0aed2c90df581b4522e2ca10a428",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\MIGRACION-ACLARACION-carga.json": {
+    "mtime": 1789847813.8138547,
+    "ast_hash": "972705007165574762e6714f7562de68",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\MIGRACION-MODIFICACION-carga.json": {
+    "mtime": 1789847813.8258567,
+    "ast_hash": "cd80ce0827ac5911d156040d593de179",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\MIGRACION-PERMISOS-carga.json": {
+    "mtime": 1789847813.800841,
+    "ast_hash": "11d40f6666c8294e6d6add7a7a1bc469",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\preparar.py": {
+    "mtime": 1789847695.94997,
+    "ast_hash": "90b4605ba8b2c2ab42490e4e64d7643f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\revisar_pdf.py": {
+    "mtime": 1789847698.3594196,
+    "ast_hash": "7ce152912761ed65e11a00a44da51719",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\sql-manifest.json": {
+    "mtime": 1789847813.8278391,
+    "ast_hash": "4d533705a5bd9c48c392dd716a3da24f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\VERIFICACION.json": {
+    "mtime": 1789859491.082381,
+    "ast_hash": "97856195edaba48e8d3323cfd716276e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\verificar-todas.py": {
+    "mtime": 1789859488.1505146,
+    "ast_hash": "12599a67ab505a0cf35025bd174c535a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\verificar.py": {
+    "mtime": 1789847928.4638476,
+    "ast_hash": "747f3a04d87b02f2740fb88c4c14f258",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\ALCANCE-PDF.json": {
+    "mtime": 1789848775.502545,
+    "ast_hash": "7d4dea0dac53346e5c4a442777ea2da4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\clasificar-indices.sql": {
+    "mtime": 1789849399.898216,
+    "ast_hash": "1eee1effef2916886cf069325b4042df",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\config.json": {
+    "mtime": 1789847966.327476,
+    "ast_hash": "0603bd055b8f19c7766809e5c8409799",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\COTEJO-FUENTES.json": {
+    "mtime": 1789848784.3931334,
+    "ast_hash": "2ab94fbb1d497a51f46fe982c65968a7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\ediciones.json": {
+    "mtime": 1789848409.9877572,
+    "ast_hash": "eaafe2d2cfd9e0da30cc5beb98fb03d7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\fuentes.json": {
+    "mtime": 1789848021.2570415,
+    "ast_hash": "f39b2a359bf7b0e08d01c8f0b59518f8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\generar_sql.py": {
+    "mtime": 1789848840.0990913,
+    "ast_hash": "d80aec125f4b60db02e86f78d86dee7b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\imagenes.json": {
+    "mtime": 1789848279.9656138,
+    "ast_hash": "2263e910b677405ebdba8bcc0ce48201",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\PLADESE-carga.json": {
+    "mtime": 1789849376.9134707,
+    "ast_hash": "6fba308f62780ac4404f5acca37dc2f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\PLADESHI-carga.json": {
+    "mtime": 1789849376.9765718,
+    "ast_hash": "e72c3611f4422cdb558333f3d5e9c09f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\preparar.py": {
+    "mtime": 1789849374.4268692,
+    "ast_hash": "95cd9e606e4c1c2fcc6692749e2bf08e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\PROSENER-carga.json": {
+    "mtime": 1789849376.9495733,
+    "ast_hash": "670bf3cd8443d1691849bd7aadf37f67",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\PROSENER-DECRETO-carga.json": {
+    "mtime": 1789849376.9315734,
+    "ast_hash": "e4f3c99c9db41cba91f42c1d69eb91ff",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\revisar_pdf.py": {
+    "mtime": 1789848771.6596684,
+    "ast_hash": "73dca75738f0a52a5e21d73bb4519086",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\sql-manifest.json": {
+    "mtime": 1789849376.98458,
+    "ast_hash": "d70dd0394b7d49e2857de24a2392240c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\VERIFICACION.json": {
+    "mtime": 1789859491.1473985,
+    "ast_hash": "389c43f5d86f3b57b43ff8fecb236552",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-planeacion-2026-09-19\\verificar.py": {
+    "mtime": 1789849073.2430115,
+    "ast_hash": "15055cc95fd5ecd6e508276428ec4526",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-19\\altas-verificadas.json": {
+    "mtime": 1789859570.3707974,
+    "ast_hash": "742f32be13506322f4a4a229b1ab8fbe",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\incorporacion-pendientes-2026-09-19\\INCORPORACION.html": {
+    "mtime": 1789859645.4686341,
+    "ast_hash": "62c7a28e15d7815170cde499c3dcb113",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\incorporacion-pendientes-2026-09-19\\INCORPORACION.md": {
+    "mtime": 1789859645.4828403,
+    "ast_hash": "1c32937e4009a0f0367694d6fa56407d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\INCORPORACION.html": {
+    "mtime": 1789859645.441872,
+    "ast_hash": "62c7a28e15d7815170cde499c3dcb113",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-pendientes-2026-09-19\\INCORPORACION.md": {
+    "mtime": 1789859645.441872,
+    "ast_hash": "1c32937e4009a0f0367694d6fa56407d",
     "semantic_hash": ""
   }
 }

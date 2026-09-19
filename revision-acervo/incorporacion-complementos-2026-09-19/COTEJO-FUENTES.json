@@ -1,0 +1,152 @@
+[
+  {
+    "instrumento": "DESARROLLO-MIXTO-CFE",
+    "fragmentos_fuente": 30,
+    "texto_completo_cotejado": true,
+    "tablas": 3,
+    "celdas": 216,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "fragmentos_fuente": 27,
+    "texto_completo_cotejado": true,
+    "tablas": 1269,
+    "celdas": 20312,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CATALOGO-CONUEE",
+    "fragmentos_fuente": 31,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 100,
+    "graficos": 8,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CFE-IMPEDIMENTOS",
+    "fragmentos_fuente": 31,
+    "texto_completo_cotejado": true,
+    "tablas": 2,
+    "celdas": 28,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "REFORMA-AREAS-ESTRATEGICAS",
+    "fragmentos_fuente": 9,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "REFORMA-SIMPLIFICACION",
+    "fragmentos_fuente": 29,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "REFORMA-LIH",
+    "fragmentos_fuente": 41,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "REFORMA-RLIH",
+    "fragmentos_fuente": 30,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-GNC",
+    "fragmentos_fuente": 7,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-DISTRIBUCION-LP",
+    "fragmentos_fuente": 7,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-ALMACENAMIENTO-LP",
+    "fragmentos_fuente": 7,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-BODEGAS-LP",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-TAPONAMIENTO",
+    "fragmentos_fuente": 8,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-PROCESAMIENTO-GN",
+    "fragmentos_fuente": 7,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "ASEA-CONV-TRANSPORTE-GN",
+    "fragmentos_fuente": 8,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

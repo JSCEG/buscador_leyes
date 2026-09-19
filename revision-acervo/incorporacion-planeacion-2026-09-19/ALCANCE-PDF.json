@@ -1,0 +1,61 @@
+[
+  {
+    "instrumento": "PLADESE",
+    "pagina_inicial": 2,
+    "pagina_final": 112,
+    "paginas": 111,
+    "muestras_visuales": [
+      2,
+      45,
+      102,
+      108,
+      111,
+      112
+    ],
+    "final_localizado": true,
+    "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+  },
+  {
+    "instrumento": "PROSENER-DECRETO",
+    "pagina_inicial": 5,
+    "pagina_final": 6,
+    "paginas": 2,
+    "muestras_visuales": [
+      5,
+      6
+    ],
+    "final_localizado": true,
+    "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+  },
+  {
+    "instrumento": "PROSENER",
+    "pagina_inicial": 6,
+    "pagina_final": 50,
+    "paginas": 45,
+    "muestras_visuales": [
+      6,
+      28,
+      39,
+      47,
+      50
+    ],
+    "final_localizado": true,
+    "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+  },
+  {
+    "instrumento": "PLADESHI",
+    "pagina_inicial": 17,
+    "pagina_final": 125,
+    "paginas": 109,
+    "muestras_visuales": [
+      17,
+      20,
+      71,
+      116,
+      124,
+      125
+    ],
+    "final_localizado": true,
+    "limite": "El contenido de las figuras se conserva como imagen oficial por liga. No se declara equivalencia OCR ni cotejo léxico integral de las imágenes."
+  }
+]

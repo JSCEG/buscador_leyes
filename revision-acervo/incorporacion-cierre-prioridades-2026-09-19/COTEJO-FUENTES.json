@@ -1,0 +1,35 @@
+[
+  {
+    "instrumento": "CFE-CONTRATACION",
+    "alcance": "Documento completo",
+    "fragmentos_fuente": 115,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CONV-SISTRANGAS",
+    "alcance": "Documento completo",
+    "fragmentos_fuente": 6,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "DECRETO-REFORMA-ENERGETICA",
+    "alcance": "Artículos Noveno y Décimo, sus transitorios y cierre común; bloques 4747 a 4863 (base cero) del decreto original",
+    "fragmentos_fuente": 31,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

@@ -1,0 +1,6 @@
+[
+ {"name":"PLADESE","code":"5770297","radar":"RAD-024","familia":"Planeación del sector","pieza":"Plan de Desarrollo del Sector Eléctrico 2025-2039","tipo":"acuerdo"},
+ {"name":"PROSENER-DECRETO","code":"5776837","radar":"RAD-030","familia":"Planeación del sector","pieza":"Decreto de aprobación del Programa Sectorial de Energía 2025-2030","tipo":"decreto"},
+ {"name":"PROSENER","code":"5776838","radar":"RAD-031","familia":"Planeación del sector","pieza":"Programa Sectorial de Energía 2025-2030","tipo":"programa"},
+ {"name":"PLADESHI","code":"5798065","radar":"RAD-048","familia":"Planeación del sector","pieza":"Plan de Desarrollo del Sector Hidrocarburos 2025-2039","tipo":"acuerdo"}
+]

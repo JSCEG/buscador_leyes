@@ -1,0 +1,42 @@
+[
+  {
+    "name": "DACG-COGENERACION",
+    "ley_id": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
+    "fragmentos": 35,
+    "temas": 9,
+    "chars": 58407,
+    "sha256": "5d4267ba105287cfb958d9ffed43dbbaba293da33d55e597f9ea2272b71bcdd5"
+  },
+  {
+    "name": "FORMATOS-COGENERACION",
+    "ley_id": "4e1d7050-8198-5a8a-9609-cce7660f401b",
+    "fragmentos": 8,
+    "temas": 7,
+    "chars": 67920,
+    "sha256": "4b1702c38cf5b1e2f6b98a2c1690fa5607a9dab3bd86ea7ca841cfb62b58e740"
+  },
+  {
+    "name": "MIGRACION-PERMISOS",
+    "ley_id": "91a6f28d-52a9-5f72-96e0-ac50a1991c96",
+    "fragmentos": 78,
+    "temas": 21,
+    "chars": 138286,
+    "sha256": "1494441c4d4e5712ddda5d88511ecb401b93c57d9abc2e2a4bc7eb3b69968826"
+  },
+  {
+    "name": "MIGRACION-ACLARACION",
+    "ley_id": "5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524",
+    "fragmentos": 4,
+    "temas": 5,
+    "chars": 9946,
+    "sha256": "a47599de7c0ced857c92f376e4bece23b383dbfa948357c6499345a2c50df138"
+  },
+  {
+    "name": "MIGRACION-MODIFICACION",
+    "ley_id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
+    "fragmentos": 19,
+    "temas": 7,
+    "chars": 43325,
+    "sha256": "09c4b73bf34a8ee492be3dae69b01bc6817e3a5b95ffdd43c6fb0c13523df9a5"
+  }
+]
