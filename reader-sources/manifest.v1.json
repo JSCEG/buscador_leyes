@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
+  "revision": 2,
   "verifiedAt": "2026-09-19T07:41:55+00:00",
   "sources": {
     "lcne-7c13fd20564f": {
@@ -8,189 +8,110 @@
       "title": "Ley de la Comisión Nacional de Energía",
       "lawId": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
       "sha256": "7c13fd20564f1e7230268a0943cc226368b24c44886d6738c479f4c42cbe77de",
-      "pdfUrl": "/reader-sources/lcne-7c13fd20564f/original.pdf",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/lcne-7c13fd20564f",
       "originalUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf",
       "pageCount": 20,
       "pages": [
         {
           "number": 1,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-01.png",
-          "imageSha256": "623515c7b6c72f7d51a677b2342861065e2e89e1e824d9ed062b60ac74a4958b",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 2,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-02.png",
-          "imageSha256": "2c5c9c3f633d28355ae1937a2725638d468476b03f1e09e4f548d4b0da3f377e",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 3,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-03.png",
-          "imageSha256": "1407c5970c037fdafad15528f41289c6b9b11df2298b22e1cf75141e87ae0d11",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 4,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-04.png",
-          "imageSha256": "f390d43c61d3cb43adfc4b0c5506488a039ddc99d9f637d10da9be66e084c95b",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 5,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-05.png",
-          "imageSha256": "3f1d76e58bc41052c56322b050bfd60eed2f0dfbf3df4623e0d8c37c817454fc",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 6,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-06.png",
-          "imageSha256": "1d3daa8065407b5fe4b992a5acb2bcf7caf06664708a8f79a5d2de9de5c95b1b",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 7,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-07.png",
-          "imageSha256": "47fa2903fae49c7357a5d8ce0bdcd51118f6f7c6751b4c889cb02ce615049082",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 8,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-08.png",
-          "imageSha256": "1cd2fb6f90a99150076353ebbf07baf8deddce767edd3afbae8bd0ef977ca536",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 9,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-09.png",
-          "imageSha256": "345b6f8596dc610a0e819b3ac74123eccca1088b7068a07d5a5c8dc52a59f5b6",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 10,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-10.png",
-          "imageSha256": "88a78e4ecf9522222480b1e7bc9e33e957eb3bd6f1e92f308bc5fe3e43806902",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 11,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-11.png",
-          "imageSha256": "e3229593be8b1e7722265ee11c8858b1e6c6a250fa5cbf316e090d737130b9b0",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 12,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-12.png",
-          "imageSha256": "6db4e6119686628dc15925f578b18ea1e256af1e8935b296b0a09dfa393d3bc7",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 13,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-13.png",
-          "imageSha256": "d2dfa606f27bb44cb41735ae7e6c17633950941bf638292ebdefe6ca4c19aade",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 14,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-14.png",
-          "imageSha256": "c2d443ad751f02d3b99af92e4eb81c5744d83a0bd5f81f710ce2051d0fcc5275",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 15,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-15.png",
-          "imageSha256": "9c0dc39bca9f6fabb134b6b8949d34323d2f2a6a8d7f86cdde2bf236aa82c3d2",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 16,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-16.png",
-          "imageSha256": "fe97b40c53363d8c22ad58491c6c3003a8c06c852b97e5c2d7d0f43d38227e7e",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 17,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-17.png",
-          "imageSha256": "4aa9ced722a0cf87d6a157682dcfddeea6e12bb3ed2917641b0487cd6af1a4eb",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 18,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-18.png",
-          "imageSha256": "709403dddb9b6ca35baef2b880f8df6db7fc87473a64ffdd660ebf15099f50b6",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 19,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-19.png",
-          "imageSha256": "e0342ea9c73d7b2849f957c9d082e942c7b05b7d6f1918e780b4606a0cecef36",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         },
         {
           "number": 20,
           "width": 612.0,
-          "height": 792.0,
-          "imageUrl": "/reader-sources/lcne-7c13fd20564f/pagina-20.png",
-          "imageSha256": "2d3e75bd85e92ac45e25cb28782a771dec53c5be00e1135905825eaf140b2d91",
-          "imageWidth": 888,
-          "imageHeight": 1149
+          "height": 792.0
         }
       ]
     }
