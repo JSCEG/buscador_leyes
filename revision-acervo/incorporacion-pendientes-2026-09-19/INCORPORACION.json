@@ -1,0 +1,284 @@
+{
+  "fecha": "2026-09-19",
+  "instrumentos_antes": 41,
+  "instrumentos_despues": 68,
+  "fragmentos_despues": 4121,
+  "temas_despues": 1100,
+  "altas": [
+    {
+      "familia": "Cogeneración",
+      "siglas": "DACG-COGENERACION",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración",
+      "fecha": "2026-04-16",
+      "fragmentos": 35,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-bb8c115e-4ccf-570d-9a06-d405aac070a2",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5785044",
+      "sha256": "a2657a9270af5741891b4997618f294dc5fe6573de50c598252d4c3c9a3cea0e"
+    },
+    {
+      "familia": "Cogeneración",
+      "siglas": "FORMATOS-COGENERACION",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las Disposiciones Administrativas de Carácter General para la Generación de Energía Eléctrica en la Modalidad de Cogeneración",
+      "fecha": "2026-05-22",
+      "fragmentos": 8,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-4e1d7050-8198-5a8a-9609-cce7660f401b",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5788271",
+      "sha256": "449e3771831992d071aafb2974b8c424e59a8fe8d7ee880aa5963bb39c88f1c5"
+    },
+    {
+      "familia": "Migración de permisos",
+      "siglas": "MIGRACION-PERMISOS",
+      "titulo": "Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
+      "fecha": "2026-06-18",
+      "fragmentos": 78,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-91a6f28d-52a9-5f72-96e0-ac50a1991c96",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5790937",
+      "sha256": "31864d63afec92bb0dbaadd62bae956e4afaf4a5e9f50b1b8a9acf971d8453d1"
+    },
+    {
+      "familia": "Migración de permisos",
+      "siglas": "MIGRACION-ACLARACION",
+      "titulo": "Nota Aclaratoria al Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico, publicada el 18 de junio de 2026",
+      "fecha": "2026-06-26",
+      "fragmentos": 4,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5791847",
+      "sha256": "84bdd436d6cf6a7454748f6e7839cb28ad139657c0afac5f0bc5735ea35366ac"
+    },
+    {
+      "familia": "Migración de permisos",
+      "siglas": "MIGRACION-MODIFICACION",
+      "titulo": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
+      "fecha": "2026-09-08",
+      "fragmentos": 19,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-937bf84d-a25f-5810-8f60-622b9c0ff1a6",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5798117",
+      "sha256": "80c49c8cefabdc75ac55b0e3aaaacf0ebb4ac47885bd751e6b317c95d56a4bf4"
+    },
+    {
+      "familia": "Planeación del sector",
+      "siglas": "PLADESE",
+      "titulo": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico",
+      "fecha": "2025-10-17",
+      "fragmentos": 89,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5770297",
+      "sha256": "9b1f35cb8ba00589b054e067049903393ad0f8a25b6de23351bb8b1a826f7749"
+    },
+    {
+      "familia": "Planeación del sector",
+      "siglas": "PROSENER-DECRETO",
+      "titulo": "Decreto por el que se aprueba el Programa Sectorial de Energía 2025-2030",
+      "fecha": "2025-12-22",
+      "fragmentos": 9,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5776837",
+      "sha256": "4fb56629a5399d23aca0289d8c93467399a31b54de40d6480482f99222646ed5"
+    },
+    {
+      "familia": "Planeación del sector",
+      "siglas": "PROSENER",
+      "titulo": "Programa Sectorial de Energía 2025-2030",
+      "fecha": "2025-12-22",
+      "fragmentos": 51,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-ff6459a0-eaeb-51ed-a578-73de837b3de1",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5776838",
+      "sha256": "745d8572cc6a8271e14da10d803364ac3e5d3d04e354deff27a0427ae130b077"
+    },
+    {
+      "familia": "Planeación del sector",
+      "siglas": "PLADESHI",
+      "titulo": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Hidrocarburos",
+      "fecha": "2026-09-07",
+      "fragmentos": 81,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5798065",
+      "sha256": "f823026fb4ab5ca2de75a21a001348a2c2dadc1860fbbddf75c96e6036369b49"
+    },
+    {
+      "familia": "Desarrollo mixto de CFE",
+      "siglas": "DESARROLLO-MIXTO-CFE",
+      "titulo": "Lineamientos de los Esquemas para el Desarrollo Mixto de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "fecha": "2026-01-28",
+      "fragmentos": 31,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-d4b231b0-6b12-5dbe-b003-a6986814c000",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5778994",
+      "sha256": "0bc4596454b7d915f253f56c5c2f5edb91c87caa24a7040ff46850cf2979c2f7"
+    },
+    {
+      "familia": "Biocombustibles e información energética",
+      "siglas": "FORMATOS-BIOCOMBUSTIBLES",
+      "titulo": "Acuerdo por el que se emiten los formatos de solicitud de permisos y bitácoras para la producción, importación, exportación, almacenamiento, transporte, comercialización, distribución y expendio al público de biocombustibles, autorizaciones y bitácoras para la producción de biocombustibles, así como de avisos de inicio de operaciones, modificaciones o suspensiones, cesiones y prórroga de dichos permisos y autorizaciones",
+      "fecha": "2026-08-31",
+      "fragmentos": 28,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-72a25a95-89a6-5489-8b15-12ff63706e3a",
+      "fuente": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5797477",
+      "sha256": "56ab4035b27daa40c9ecb4a757eca1688ed78dc4ba1cceb60fdcf77d6378d108"
+    },
+    {
+      "familia": "Biocombustibles e información energética",
+      "siglas": "CATALOGO-CONUEE",
+      "titulo": "Acuerdo por el que se emiten las Disposiciones Reglamentarias para el Catálogo de Equipos y Aparatos, respecto de los cuales los sujetos obligados deben reportar su consumo de energía y formatos para la entrega de información",
+      "fecha": "2026-09-11",
+      "fragmentos": 32,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-d9667c21-b2e6-5ecd-9b3f-f66bb053ef27",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5798667",
+      "sha256": "f909314b22e4ae11c5e4bcee217e245bfd766f687fc7823504a584c5a8905b08"
+    },
+    {
+      "familia": "CFE: contratación e impedimentos",
+      "siglas": "CFE-IMPEDIMENTOS",
+      "titulo": "Políticas que regulan los supuestos en que la Comisión Federal de Electricidad se abstendrá de considerar ofertas o celebrar contratos en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras",
+      "fecha": "2026-09-18",
+      "fragmentos": 32,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-a7fdc69c-897a-59fb-85f5-7779c46fd03d",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5799057",
+      "sha256": "c1d87d5ef8966d374844c8bbf732bd8b5ac39d1a5543ffe1bc94026ca424b270"
+    },
+    {
+      "familia": "Leyes y reformas por completar",
+      "siglas": "REFORMA-AREAS-ESTRATEGICAS",
+      "titulo": "Decreto por el que se reforman el párrafo quinto del artículo 25, los párrafos sexto y séptimo del artículo 27 y el párrafo cuarto del artículo 28 de la Constitución Política de los Estados Unidos Mexicanos, en materia de áreas y empresas estratégicas",
+      "fecha": "2024-10-31",
+      "fragmentos": 10,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-6cd39069-4eb3-5c14-b71a-f7fa839a69fa",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5742012",
+      "sha256": "4bd75d82db2803e40a71fc628599d1b34e10ab2619764fbfad2879e01cf9b9d7"
+    },
+    {
+      "familia": "Leyes y reformas por completar",
+      "siglas": "REFORMA-SIMPLIFICACION",
+      "titulo": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Constitución Política de los Estados Unidos Mexicanos, en materia de simplificación orgánica",
+      "fecha": "2024-12-20",
+      "fragmentos": 30,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5745905",
+      "sha256": "9d4895915a123d4484eea9f5d3bccb211334c7fdc90a255a6f822bfcb9a88fdd"
+    },
+    {
+      "familia": "Leyes y reformas por completar",
+      "siglas": "REFORMA-LIH",
+      "titulo": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley de Ingresos sobre Hidrocarburos",
+      "fecha": "2025-03-18",
+      "fragmentos": 42,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-6e4c2d90-0ad2-5c47-a0e0-ed132f09415c",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5752330",
+      "sha256": "e877ff1152a8e6a38a8b13174d9e217d7d8c51a1c4b28165625b2cbb970a0337"
+    },
+    {
+      "familia": "Leyes y reformas por completar",
+      "siglas": "REFORMA-RLIH",
+      "titulo": "Decreto por el que se reforman y derogan diversas disposiciones del Reglamento de la Ley de Ingresos sobre Hidrocarburos",
+      "fecha": "2025-10-03",
+      "fragmentos": 31,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5769158",
+      "sha256": "50c16265d1e9ef1234d30f0a06e09ab1fa01c84b676f6fa02886c7cfc9f7f453"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-GNC",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-015-ASEA- 2023, Descompresión de Gas Natural Comprimido",
+      "fecha": "2024-07-24",
+      "fragmentos": 8,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-ebef59b3-a5a6-5a9b-88af-add201f0226c",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5734389",
+      "sha256": "a06e6bd1f7dea9b8de056c5b3e2b6dcb83c3821ab64a4e5d819933f2ed149f85"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-DISTRIBUCION-LP",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-018-ASEA- 2023, Plantas de Distribución de Gas Licuado de Petróleo (cancela y sustituye a la NOM-001-SESH-2014, Plantas de distribución de Gas L.P. Diseño, construcción y condiciones seguras en su operación)",
+      "fecha": "2024-07-30",
+      "fragmentos": 8,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-fbf37f5b-3cb8-5328-807b-c500edfffd0c",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5734780",
+      "sha256": "71c6fa104c69f4aec0d5b8eff53d37958aca2002b2a30eaac9a39a48fbeca501"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-ALMACENAMIENTO-LP",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-017-ASEA- 2023, Instalaciones de Almacenamiento de Gas Licuado de Petróleo (GLP). (Cancela y sustituye a la Norma Oficial Mexicana NOM-015-SECRE-2013, Diseño, construcción, seguridad, operación y mantenimiento de sistemas de almacenamiento de gas licuado de petróleo mediante planta de depósito o planta de suministro que se encuentran directamente vinculados a los sistemas de transporte o distribución por ducto de gas licuado de petróleo, o que forman parte integral de las terminales terrestres o marítimas de importación de dicho producto)",
+      "fecha": "2024-08-14",
+      "fragmentos": 8,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-ece70b87-4e3f-596d-b1c1-482f1237bcef",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5736163",
+      "sha256": "a505aa91dcba3b7b06b62481a743720a56e5434da3b377d688136238c207611f"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-BODEGAS-LP",
+      "titulo": "Acuerdo por el cual se reforma la denominación, se modifican, adicionan y derogan diversos numerales de la Convocatoria dirigida a las Unidades de Verificación interesadas en obtener la Aprobación para realizar la evaluación de la conformidad de la Norma Oficial Mexicana NOM-011-ASEA-2019, Bodegas de guarda para distribución y bodegas de expendio de gas licuado de petróleo, mediante recipientes portátiles y recipientes transportables sujetos a presión",
+      "fecha": "2024-09-25",
+      "fragmentos": 6,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-e61b9357-ae95-5e4a-b210-f535f5b372d4",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5739627",
+      "sha256": "234f74208ba3144e6b5b4dda75588070fe413e0da040bf7fdc1a1b54f16ab41d"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-TAPONAMIENTO",
+      "titulo": "Convocatoria dirigida a las personas físicas y morales interesadas en obtener la Autorización como Tercero para emitir el Dictamen Técnico del Taponamiento de Pozos previsto en las Disposiciones administrativas de carácter general que establecen los Lineamientos aplicables a la Construcción y Mantenimiento de Pozos para la Exploración y Extracción de Hidrocarburos",
+      "fecha": "2025-07-17",
+      "fragmentos": 9,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-f842022d-7adc-52ee-9b5a-5883b5cd780a",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5763176",
+      "sha256": "97aa80ae58f5725830b3501cb8a5c3fe0909457f8fc884ce7aa03b9c7c7df1f0"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-PROCESAMIENTO-GN",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-019-ASEA- 2024, Instalaciones de procesamiento de gas natural (cancela a la NOM-137-SEMARNAT-2013, Contaminación atmosférica.- Complejos procesadores de gas.- Control de emisiones de compuestos de azufre)",
+      "fecha": "2025-12-23",
+      "fragmentos": 8,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-4f96be01-2fc1-56a1-aab1-d8641c83a7e2",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5776908",
+      "sha256": "09237fc5905b3255dfdf26511d0d148c1126afa529f666652ad55f728a903e25"
+    },
+    {
+      "familia": "Convocatorias de terceros ASEA",
+      "siglas": "ASEA-CONV-TRANSPORTE-GN",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-020-ASEA- 2024, Transporte de gas natural por medio de ductos terrestres (cancela a la NOM-007-ASEA-2016, Transporte de gas natural, etano y gas asociado al carbón mineral por medio de ductos)",
+      "fecha": "2025-12-23",
+      "fragmentos": 9,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-d952ee94-6aa5-5ed3-885b-978a519ca54b",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5776907",
+      "sha256": "d6ae144561dde87f26066721ba24a2e7351fc2f9d61f72d71b8805aae1326e97"
+    },
+    {
+      "familia": "CFE: contratación e impedimentos",
+      "siglas": "CFE-CONTRATACION",
+      "titulo": "Disposiciones Generales en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras de la Comisión Federal de Electricidad",
+      "fecha": "2026-08-19",
+      "fragmentos": 116,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-100f7f8a-26e6-5619-b2d6-56e9d95f8d72",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5796647",
+      "sha256": "d4bf6df33b35225c9af0290f7d387ac74e996ef94133894260ed8f71b9aad390"
+    },
+    {
+      "familia": "Convocatorias ASEA y SISTRANGAS",
+      "siglas": "CONV-SISTRANGAS",
+      "titulo": "Convocatoria para el mecanismo de designación para la renovación de los representantes de las personas Usuarias y Usuarias Finales del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural (SISTRANGAS)",
+      "fecha": "2026-08-14",
+      "fragmentos": 7,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-a067e4c6-638c-5174-b9fd-386837bf0a28",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5796317",
+      "sha256": "dd2732166dfbe9fcf903c399be357167456112951fa1e6eb298a20c78f676377"
+    },
+    {
+      "familia": "Leyes y reformas por completar",
+      "siglas": "REFORMAS-FMP-LOAPF",
+      "titulo": "Reformas a la Ley del Fondo Mexicano del Petróleo para la Estabilización y el Desarrollo y a la Ley Orgánica de la Administración Pública Federal (artículos Noveno y Décimo del decreto del 18 de marzo de 2025)",
+      "fecha": "2025-03-18",
+      "fragmentos": 32,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-08bb78b2-c71e-5362-98cb-b85ea046c262",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5752329",
+      "sha256": "b6d282de677189459e923bf1a3d08a11344772ea55b93c66f1d7759d7d58d53f"
+    }
+  ],
+  "anteriores_sin_cambios": true,
+  "pendientes_prioritarios": [
+    "RAD-033: bases completas de desarrollo mixto CFE"
+  ],
+  "referencias_ampliadas_por_cotejar": 76
+}
