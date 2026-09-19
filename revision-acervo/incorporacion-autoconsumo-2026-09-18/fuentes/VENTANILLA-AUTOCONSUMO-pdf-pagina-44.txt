@@ -1,0 +1,46 @@
+44 DIARIO OFICIAL Viernes 8 de mayo de 2026 
+DATOS DE IDENTIFICACIÓN DE AUTOCONSUMO
+1. Modalidad de Autoconsumo:  Generación para Autoconsumo interconectado 
+2. Modalidad de disposición de Excedentes, en caso 
+de Generación para Autoconsumo Interconectado:
+ Generación para Autoconsumo Interconectado con 
+Venta de Excedentes de Autoconsumo 
+ Generación para Autoconsumo interconectado sin
+Venta de Excedentes de Autoconsumo 
+3. Capacidad de inyección a la Red Nacional de 
+Transmisión en caso de existir: 
+En caso de venta de excedentes 
+DATOS DEL PROYECTO DE AUTOCONSUMO
+1. Nombre del Proyecto: 
+2. Descripción del proyecto: 
+3. Gerencia de Control Regional (CENACE): Central, Oriental, Occidental, Noroeste, Norte, Noreste, Baja 
+California, Peninsular, Subgerencia la Paz o Subgerencia Santa 
+Rosalia 
+4. Entidad Federativa: 
+5. Subestación Eléctrica de Interconexión: 
+6. Punto de Interconexión | Conexión solicitado: 
+7. Nivel de tensión (kV): 
+8. Cuenta con disponibilidad de cambio de nivel de 
+tensión: 
+ Sí 
+ No 
+UBICACIÓN DEL PROYECTO DE AUTOCONSUMO
+1. Código Postal: 
+2. Entidad Federativa: 
+3. Municipio / Alcaldía: 
+4. Localidad / Colonia: 
+5. Calle: 
+6. Número Exterior: 
+7. Número Interior: 
+PLANO GEORREFERENCIADO DEL PROYECTO DE AUTOCONSUMO 
+(En donde se indique la ubicación del Grupo de Autoconsumo, que comprende la Central Eléctrica y Centro de Carga, 
+además del Sistema de Almacenamiento de Energía Eléctrica) 
+1. Número Interior: 
+2. Vértices: Latitud Longitud 
+ Vértice A 
+ Vértice B 
+ Vértice C 
+ + Agregar vértice 
+3. Plano georreferenciado de la ubicación del 
+proyecto en formato .KML o .KMZ: 
+ 

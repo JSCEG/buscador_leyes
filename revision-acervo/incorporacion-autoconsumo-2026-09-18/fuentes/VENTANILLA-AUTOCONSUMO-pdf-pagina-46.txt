@@ -1,0 +1,46 @@
+46 DIARIO OFICIAL Viernes 8 de mayo de 2026 
+CENTRALES ELÉCTRICAS CON FUENTE PRIMARIA HIDRÁULICA CON TECNOLOGÍA 
+EMBALSE O FILO DE AGUA
+1. Energía bruta en MWh estimada a producir 
+mensualmente: 
+2. Perfil horario de producción mensual (aplicable a 
+centrales hidráulicas de filo de agua): 
+CENTRALES ELÉCTRICAS CON FUENTE PRIMARIA SOLAR
+1. Energía bruta en MWh estimada a producir 
+mensualmente: 
+2. El perfil horario de producción en MWh mensual 
+con base a la capacidad instalada en corriente 
+alterna sin seguidor y con seguidor a un eje o dos 
+ejes, dependiendo del caso que aplique: 
+3. La irradiación solar global y difusa horizontal 
+en W/m2: 
+4. El perfil horario/mensual para un día soleado, 
+medio nublado y nublado en kW y W/m2: 
+Soleado Medio nublado Nublado
+5. El perfil horario de la temperatura ambiente 
+promedio por mes en sitio: 
+PARA CENTRALES ELÉCTRICAS CON FUENTE PRIMARIA EÓLICA
+1. Energía bruta en MWh estimada a producir 
+mensualmente: 
+2. El perfil horario de producción en MWh mensual 
+con base a la Capacidad Instalada: 
+3. La velocidad de viento cinco minutal durante un 
+año y el perfil horario promedio mensual en m/s: 
+4. El perfil horario de la temperatura ambiente 
+promedio por mes en sitio: 
+5. El perfil horario de la densidad del viento 
+promedio mensual en sitio: 
+6. Indicar el respaldo en caso de ser generadora 
+intermitente e inyectar energía a la Red Nacional 
+de Transmisión o a las Redes Generales de 
+Distribución. 
+*Energías renovables
+ Propio 
+ Contratado 
+RESPALDO CONTRATADO 
+En el caso de respaldo contratado se debe cargar el siguiente documento
+1. Documentos que acrediten, en su caso, el 
+respaldo contratado considerando lo previsto en la 
+Ley del Sector Eléctrico, su reglamento y demás 
+normatividad aplicable: 
+ 

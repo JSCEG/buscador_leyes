@@ -1,0 +1,2 @@
+# Preserve source evidence and reviewed SQL byte-for-byte, including line endings.
+** -text

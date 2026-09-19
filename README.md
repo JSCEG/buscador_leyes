@@ -12,14 +12,14 @@ Validación: `npm test -- --run`, `npm run lint` y `npm run build`.
 
 ## Estado del acervo
 
-Al 18 de septiembre de 2026: **38 instrumentos, 3,237 fragmentos y 831 entradas de estructura** verificados en Supabase. Las tres convocatorias de generación y sus diez modificaciones se conservan como publicaciones independientes, enlazadas mediante notas editoriales.
+Al 18 de septiembre de 2026: **41 instrumentos, 3,300 fragmentos y 904 entradas de estructura** verificados en Supabase. Se incorporaron los requisitos de autoconsumo interconectado de 0.7 a 20 MW, su formato y la Ventanilla Única de Autoconsumo, preservando sus tablas, instrucciones y anexos. Las tres convocatorias de generación y sus diez modificaciones se conservan como publicaciones independientes, enlazadas mediante notas editoriales.
 
 - [Contexto técnico y de las incorporaciones](CONTEXTO_BUSCADOR_RADAR.md).
 - [Inventario del radar y próximos bloques](revision-acervo/FALTANTES_Y_ORDEN_DE_CARGA.md).
 - [Evidencia y precauciones de reproducción](revision-acervo/README.md).
 - [Referencia de Supabase](SUPABASE.md), con información histórica que debe contrastarse con el contexto actualizado.
 
-El radar utilizado tiene corte del 14 de septiembre de 2026 (v4.17). Quedan 104 referencias por cotejar e incorporar; no equivalen necesariamente a 104 instrumentos nuevos. También están pendientes la tabla general de relaciones y la ampliación de los temas transversales editoriales.
+El radar utilizado tiene corte del 14 de septiembre de 2026 (v4.17). Quedan 101 referencias por cotejar e incorporar; no equivalen necesariamente a 101 instrumentos nuevos. El siguiente bloque propuesto es cogeneración (DACG y formatos). También están pendientes la tabla general de relaciones y la ampliación de los temas transversales editoriales.
 
 ## Publicación
 

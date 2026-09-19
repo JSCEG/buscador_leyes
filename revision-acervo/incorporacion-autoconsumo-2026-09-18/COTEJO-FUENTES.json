@@ -1,0 +1,32 @@
+[
+  {
+    "instrumento": "AUTOCONSUMO-0.7-20",
+    "fragmentos_fuente": 8,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "FORMATO-AUTOCONSUMO",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 12,
+    "celdas": 205,
+    "graficos": 0,
+    "casillas": 8,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "VENTANILLA-AUTOCONSUMO",
+    "fragmentos_fuente": 47,
+    "texto_completo_cotejado": true,
+    "tablas": 24,
+    "celdas": 863,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

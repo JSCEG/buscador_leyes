@@ -1,0 +1,26 @@
+[
+  {
+    "name": "AUTOCONSUMO-0.7-20",
+    "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+    "fragmentos": 9,
+    "temas": 6,
+    "chars": 23857,
+    "sha256": "baa51da7c87196d604c87f09c69e220369ca0af1e148c2e499bf3ef391b312cd"
+  },
+  {
+    "name": "FORMATO-AUTOCONSUMO",
+    "ley_id": "d93c8b82-8df1-530a-a779-6ad965b9d206",
+    "fragmentos": 6,
+    "temas": 13,
+    "chars": 42092,
+    "sha256": "c100c7520675e9317a3e83cd5426f586d81d4cdc4388117d7254c0ebf444be90"
+  },
+  {
+    "name": "VENTANILLA-AUTOCONSUMO",
+    "ley_id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
+    "fragmentos": 48,
+    "temas": 54,
+    "chars": 175013,
+    "sha256": "58cba16e4dcc2f9b029d482feeab28b19629a2be8f10f5fb0842df86e944e79f"
+  }
+]

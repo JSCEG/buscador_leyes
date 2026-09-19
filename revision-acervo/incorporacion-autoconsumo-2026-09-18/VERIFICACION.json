@@ -1,0 +1,162 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-18",
+  "project": "carmfqhcfsqbzcwptqfz",
+  "catalogo_antes": {
+    "leyes": 38,
+    "articulos": 3237,
+    "temas": 831
+  },
+  "catalogo_despues": {
+    "leyes": 41,
+    "articulos": 3300,
+    "temas": 904
+  },
+  "registros_anteriores_sin_cambios": {
+    "leyes": 38,
+    "articulos": 3237,
+    "temas": 831
+  },
+  "instrumentos": [
+    {
+      "siglas": "AUTOCONSUMO-0.7-20",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "fragmentos": 9,
+      "fragmentos_fuente": 8,
+      "notas_editoriales": 1,
+      "estructura": 6,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 2,
+        "transitorio": 4
+      },
+      "cotejo_exacto": true,
+      "control": {
+        "sha256": "845ff24d22906d78bce35b539e63389c0a7c13b1cc3b6928952478abed2f8337",
+        "bloques_fuente": 65,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 0,
+        "casillas_preservadas": 0,
+        "graficos_preservados": 0,
+        "texto_publicado_no_consolidado": true
+      }
+    },
+    {
+      "siglas": "FORMATO-AUTOCONSUMO",
+      "ley_id": "d93c8b82-8df1-530a-a779-6ad965b9d206",
+      "fragmentos": 6,
+      "fragmentos_fuente": 5,
+      "notas_editoriales": 1,
+      "estructura": 13,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 1,
+        "anexo": 1,
+        "transitorio": 1
+      },
+      "cotejo_exacto": true,
+      "control": {
+        "sha256": "787b0187a9e046183526e15134d8f9b57af3d46d6824b1b1633ad0d251d6c8fd",
+        "bloques_fuente": 91,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 12,
+        "casillas_preservadas": 8,
+        "graficos_preservados": 0,
+        "texto_publicado_no_consolidado": true
+      }
+    },
+    {
+      "siglas": "VENTANILLA-AUTOCONSUMO",
+      "ley_id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
+      "fragmentos": 48,
+      "fragmentos_fuente": 47,
+      "notas_editoriales": 1,
+      "estructura": 54,
+      "tipos": {
+        "complementario": 2,
+        "preambulo": 1,
+        "ordinario": 37,
+        "transitorio": 5,
+        "anexo": 3
+      },
+      "cotejo_exacto": true,
+      "control": {
+        "sha256": "d330f1d6440081bc7ae2ef8b02e0d77f38e16c1a9143748338c442a1b5bb8213",
+        "bloques_fuente": 301,
+        "cobertura_total": true,
+        "sin_solapamientos": true,
+        "tablas_preservadas": 24,
+        "casillas_preservadas": 0,
+        "graficos_preservados": 0,
+        "texto_publicado_no_consolidado": true
+      }
+    }
+  ],
+  "cotejo_fuentes": [
+    {
+      "instrumento": "AUTOCONSUMO-0.7-20",
+      "fragmentos_fuente": 8,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "FORMATO-AUTOCONSUMO",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 12,
+      "celdas": 205,
+      "graficos": 0,
+      "casillas": 8,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "VENTANILLA-AUTOCONSUMO",
+      "fragmentos_fuente": 47,
+      "texto_completo_cotejado": true,
+      "tablas": 24,
+      "celdas": 863,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ],
+  "cotejo_pdf": [
+    {
+      "instrumento": "AUTOCONSUMO-0.7-20",
+      "palabras_html": 2181,
+      "palabras_pdf": 2181,
+      "diferencia_controlada": {},
+      "texto_sin_omisiones_detectadas": true,
+      "observacion": "Mismo vocabulario y frecuencias tras retirar encabezados del diario.",
+      "limites": "El cotejo léxico no demuestra por sí solo orden ni maquetación; se complementa con cotejo exacto por bloques, celdas y revisión visual."
+    },
+    {
+      "instrumento": "FORMATO-AUTOCONSUMO",
+      "palabras_html": 3706,
+      "palabras_pdf": 3706,
+      "diferencia_controlada": {},
+      "texto_sin_omisiones_detectadas": true,
+      "observacion": "Mismo vocabulario y frecuencias tras retirar encabezados del diario.",
+      "limites": "El cotejo léxico no demuestra por sí solo orden ni maquetación; se complementa con cotejo exacto por bloques, celdas y revisión visual."
+    },
+    {
+      "instrumento": "VENTANILLA-AUTOCONSUMO",
+      "palabras_html": 17124,
+      "palabras_pdf": 17107,
+      "diferencia_controlada": {
+        "o": 17
+      },
+      "texto_sin_omisiones_detectadas": true,
+      "observacion": "17 viñetas circulares aparecen como letra o en el HTML oficial y no como palabras en el PDF; se preserva el HTML.",
+      "limites": "El cotejo léxico no demuestra por sí solo orden ni maquetación; se complementa con cotejo exacto por bloques, celdas y revisión visual."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+Viernes 8 de mayo de 2026 DIARIO OFICIAL 31 
+7.2.3. El CENACE debe elaborar y notificar los resultados del Estudio Rápido en el plazo máximo de diez 
+días hábiles, contado a partir de la solicitud de Centros de Carga que pretendan incorporar un esquema de 
+Autoconsumo. 
+7.2.4. La CNE debe resolver sobre el otorgamiento del permiso de generación de energía eléctrica bajo la 
+figura de Autoconsumo, dentro del plazo máximo de treinta días hábiles, contado a partir de la admisión a 
+trámite de la solicitud del permiso. 
+7.2.5. La CFE debe suscribir el Contrato de Interconexión y Conexión con la Persona Solicitante dentro de 
+un plazo máximo de diez días hábiles, contado a partir de la instrucción para la suscripción del Contrato de 
+Interconexión y Conexión que realice el CENACE. 
+7.2.6. La CFE y la Persona Solicitante, en su caso, deben suscribir el Contrato de Venta de Excedentes en 
+un plazo máximo de diez días hábiles, contado a partir de la determinación de procedencia realizada por la 
+CFE para la suscripción de dicho contrato en términos del numeral 14.7 de los Lineamientos. 
+7.2.7. El CENACE debe realizar el Registro de Activos Físicos o, en su caso, la actualización 
+correspondiente al Grupo de Autoconsumo, el cual incluye a la Central Eléctrica y al Centro de Carga que, a 
+su vez, comprende todos los Centros de Consumo, en un plazo máximo de veinte días hábiles, contado a 
+partir de la aprobación de la solicitud por parte del CENACE. 
+7.2.8. El CENACE debe realizar las pruebas de comportamiento para la puesta en operación de las 
+Centrales Eléctricas en un plazo máximo de sesenta días hábiles, contados a partir de la solicitud de 
+realización de pruebas. 
+CAPÍTULO III 
+De los Estudios para Autoconsumo 
+8. Requisitos para los Estudios para Autoconsumo 
+8.1. Para solicitar la interconexión de Centrales Eléctricas y conexión de Centros de Carga, así como para 
+la suscripción del Contrato de Interconexión y Conexión, la Persona Solicitante debe presentar a través de la 
+VUA, el Formato de solicitud para la realización de los Estudios para Autoconsumo y la solicitud para la 
+suscripción del Contrato de Interconexión y Conexión, contenidos en el Anexo A de los Lineamientos.
+8.1.1. En el Formato del Anexo A referido se debe proporcionar la siguiente información: 
+a) La información de la Persona Solicitante y, en su caso, de las personas apoderadas, representantes 
+legales o acreditadas, y adjuntar los documentos con los cuales comprueben que cuentan con las facultades 
+para realizar todas las gestiones y actos inherentes a la solicitud, en representación de la Persona Solicitante; 
+b) El tipo de tecnología de la Central Eléctrica; 
+c) El tiempo de vida útil de la Central Eléctrica; 
+d) La eficiencia de la Central Eléctrica; 
+e) La Capacidad de la Central Eléctrica; 
+f) La Capacidad Instalada Neta de la Central Eléctrica; 
+g) La Capacidad Neta en el Punto de Interconexión; 
+h) La Demanda contratada del Centro de Carga y, en caso de ser un Centro de Carga existente, adjuntar 
+el documento que lo acredite; 
+i) Tratándose de Centrales Eléctricas con generación intermitente que pretendan inyectar energía al 
+Sistema Eléctrico Nacional, se debe indicar si el servicio de respaldo se va a realizar a través de la 
+incorporación de respaldo propio mediante Sistemas de Almacenamiento de Energía Eléctrica o mediante la 
+contratación de una cobertura con pago a la CFE o un tercero, así como la información técnica 
+correspondiente; 
+j) La información técnica del Sistema de Almacenamiento de Energía Eléctrica asociado a la figura de 
+Autoconsumo en términos de las Disposiciones de Almacenamiento; 
+k) La ubicación de la Central Eléctrica, que incluya las coordenadas geodésicas en un plano 
+georreferenciado; 
+l) Indicar si pretende llevar a cabo la venta de Excedentes de Autoconsumo y Productos Asociados; 
+m) Para infraestructura nueva, el diagrama unifilar simplificado del proyecto a desarrollar, en donde se 
+observe la Central Eléctrica y el Centro de Carga, que incluya la propuesta de punto de interconexión al SEN; 

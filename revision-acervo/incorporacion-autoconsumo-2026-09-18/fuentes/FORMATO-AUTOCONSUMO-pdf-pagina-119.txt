@@ -1,0 +1,43 @@
+Martes 7 de octubre de 2025 DIARIO OFICIAL 119 
+Instructivo de llenado 
+Instrucciones generales 
+Lea en su totalidad el presente instructivo previo al llenado del formato. 
+Ingresa a la Oficialía de Partes Electrónica (OPE) con su usuario y contraseña y seleccione el mercado, el 
+tipo de empresa y el trámite de que se trata para acceder a la solicitud de permiso de generación para 
+autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW). 
+Para la correcta presentación de este formato de solicitud e integración de los documentos anexos, deberá 
+atender lo siguiente: 
+i. Este formato se llena con pleno conocimiento de que lo hace, bajo protesta de decir verdad. 
+ii. En caso de que alguna información requerida en el formato no concierna al proyecto, escribir “NC” que 
+corresponde a No Corresponde. 
+iii. Al momento de entregar el presente formato de solicitud no es necesario entregar esta hoja de 
+información general. 
+DOCUMENTOS ANEXOS 
+De conformidad con el Transitorio Tercero del Acuerdo de la Comisión Nacional de Energía por el que se 
+establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en 
+centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW). 
+Asimismo, deberán adjuntar la siguiente documentación: 
+1) Para personas físicas: 
+i. Identificación oficial 
+ii. Constancia de Situación Fiscal 
+iii. Clave Única de Registro de Población (CURP) 
+2) Para personas morales: 
+i. Acta constitutiva y, en su caso, las modificaciones inscritas en el Registro Público de Comercio, con las 
+que acredite su existencia legal 
+ii. Constancia de Situación Fiscal 
+3) Para las entidades y empresas del Gobierno Federal, Estatal o Municipal, y empresas públicas del 
+Estado: 
+i. Acuerdo de creación o estatuto orgánico por el cual fue creada; 
+4) Para la persona representante legal o apoderada de la persona solicitante: 
+i. Identificación oficial; 
+ii. Constancia de Situación Fiscal, 
+iii. Clave Única de Registro de Población (CURP) 
+iv. Instrumento notarial para acreditar la personalidad de la persona representante o apoderado legal, así 
+como sus facultades; 
+5) La descripción del proyecto, que deberá contener al menos lo siguiente: 
+i. El plano georreferenciado de la ubicación de la central eléctrica en formato .kmz; 
+ii. Describir la figura de autoconsumo interconectado a desarrollar, indicando como mínimo la siguiente 
+información: la demanda estimada de cada una de las Usuarias de Autoconsumo, la descripción de la red de 
+Autoconsumo a desarrollar e indicar el punto de interconexión a la Red Nacional de Transmisión o de las 
+Redes Generales de Distribución y, en su caso, lo que prevean las disposiciones que para tal fin emita la 
+Comisión Nacional de Energía; 

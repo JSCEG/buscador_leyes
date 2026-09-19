@@ -1,0 +1,55 @@
+50 DIARIO OFICIAL Viernes 8 de mayo de 2026 
+ALMACENAMIENTO ELECTROQUÍMICO (BATERÍAS) 
+En caso de que el tipo de tecnología seleccionada sea Almacenamiento Electroquímico (baterías), se deben 
+completar los siguientes campos: 
+1. Información detallada de la composición de las 
+baterías: 
+ 
+2. Eficiencia de las baterías y capacidad de 
+carga/descarga: 
+ 
+3. Tiempo de carga de las baterías: 
+4. Tiempo de desagregación de las baterías: 
+5. Número óptimo de ciclos de carga y descarga 
+anuales: 
+ 
+ La capacidad mínima del SAEE es determinada 
+por el CENACE estableciendo un porcentaje de la 
+capacidad de la Central Eléctrica en los estudios. 
+ En caso de requerir una capacidad mayor para el 
+SAEE seleccione: 
+ Para una CE FV debe indicar una capacidad mayor al 
+30 % y mayor a 3 hrs de descarga. 
+ __________ %___________hrs. 
+ Para una CE EO debe indicar una capacidad mayor al 
+40 % y mayor a 4 hrs de descarga. 
+ ___________ %___________hrs. 
+ Para una CE híbrida debe indicar una capacidad 
+mayor al 40 % y mayor a 4 hrs de descarga. 
+ __________ %___________hrs. 
+INSTALADO PREVIAMENTE 
+En caso de contar con respaldo propio, se debe complementar la información correspondiente al SAEE instalado 
+previamente. 
+6. Número de estudios de almacenamiento: 
+7. Documento de los estudios de instalación de 
+SAEE: 
+Cargar documento
+8. ¿El SAEE está ubicado dentro del predio del 
+Proyecto de autoconsumo? 
+ Sí 
+ No 
+9. En caso de que no, indicar las coordenadas del 
+polígono del SAEE: 
+ 
+Vértices Latitud Longitud 
+ Vértice A 
+ Vértice B 
+ Vértice C 
+ + Agregar vértice 
+10. Plano georreferenciado de la ubicación del SAEE 
+en formato .KML o .KMZ 
+ 
+INFORMACIÓN GENERAL DE LOS INVERSORES DEL SAEE
+1. Fabricante(s) de los inversores 
+2. Modelo(s) de los inversores 
+3. Capacidad del inversor en kW 

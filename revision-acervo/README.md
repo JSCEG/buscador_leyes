@@ -2,7 +2,7 @@
 
 Este directorio conserva el inventario, auditorías, fuentes textuales, perfiles de extracción, payloads revisados, respaldos de las tablas jurídicas y verificaciones de las cargas realizadas en septiembre de 2026.
 
-El estado actual es **38 instrumentos / 3,237 fragmentos / 831 entradas de estructura**. Consultar `FALTANTES_Y_ORDEN_DE_CARGA.md` y `inventario-radar-2026-09-17/INVENTARIO.html`. Los informes anteriores conservan los conteos de su momento; no deben sumarse entre sí.
+El estado actual es **41 instrumentos / 3,300 fragmentos / 904 entradas de estructura**. La última carga está documentada en `incorporacion-autoconsumo-2026-09-18/INCORPORACION.html`. Consultar `FALTANTES_Y_ORDEN_DE_CARGA.md` y `inventario-radar-2026-09-17/INVENTARIO.html`. Los informes anteriores conservan los conteos de su momento; no deben sumarse entre sí.
 
 Los SQL de reparación y carga **ya se aplicaron**. No ejecutarlos como una instalación nueva ni volver a aplicarlos sobre la base actual. Los scripts de cada expediente son herramientas de mantenimiento específicas para las fuentes revisadas; algunos incluyen operaciones de escritura y requieren revisión antes de ejecutarse. El arranque normal de la app no los ejecuta.
 

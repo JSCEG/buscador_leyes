@@ -1,22 +1,22 @@
 # Inventario del radar frente al acervo actual
 
-Catálogo: 2026-09-17. Radar: v4.17, corte 2026-09-14. Alcance: sección 12, «Ligas de interés».
+Catálogo: 2026-09-18. Radar: v4.17, corte 2026-09-14. Alcance: sección 12, «Ligas de interés».
 
-**38 instrumentos, 3,237 fragmentos y 831 entradas de estructura cargados.**
+**41 instrumentos, 3,300 fragmentos y 904 entradas de estructura cargados.**
 
 El radar contiene 179 filas, 15 repeticiones identificadas y **164 referencias sin repeticiones**. Hay 163 URLs distintas. Ninguna de estas cifras equivale al número definitivo de instrumentos o archivos por cargar.
 
 | Estado | Referencias sin repeticiones |
 |---|---:|
-| Por cotejar e incorporar | 104 |
-| Cargado | 29 |
+| Por cotejar e incorporar | 101 |
+| Cargado | 32 |
 | Decreto con cobertura parcial | 1 |
 | Antecedente o efectos limitados | 13 |
 | Proyecto / consulta | 4 |
 | Portal / colección | 10 |
 | Publicación no localizada en el radar | 3 |
 
-Las 29 referencias directamente cubiertas y las ocho leyes dentro del decreto compuesto corresponden a 34 instrumentos distintos. CFE y Pemex aparecen también como leyes individuales; la fe de erratas de CFE está incorporada dentro de su reglamento. Otros cuatro instrumentos cargados están fuera de esta sección: LGEC, LGTAIP y los dos de PODECOBI. El decreto compuesto conserva cobertura parcial por LOAPF y Fondo Mexicano del Petróleo.
+Las 32 referencias directamente cubiertas y las ocho leyes dentro del decreto compuesto corresponden a 37 instrumentos distintos. CFE y Pemex aparecen también como leyes individuales; la fe de erratas de CFE está incorporada dentro de su reglamento. Otros cuatro instrumentos cargados están fuera de esta sección: LGEC, LGTAIP y los dos de PODECOBI. El decreto compuesto conserva cobertura parcial por LOAPF y Fondo Mexicano del Petróleo.
 
 ## Familias y documentos relacionados
 
@@ -76,13 +76,13 @@ El aviso oficial existe; el radar no acredita una nota DOF propia de la convocat
 
 ### Autoconsumo
 
-DACG, formato y Ventanilla Única: tres referencias pendientes.
+Acuerdo de requisitos, formato y Ventanilla Única cargados; 63 fragmentos, 36 tablas y ocho casillas conservados.
 
 Mantener requisitos, formatos y procedimiento identificados por separado.
 
-- RAD-067: Acuerdo — [Permiso de autoconsumo interconectado de 0.7 a 20 MW](https://sidof.segob.gob.mx/notas/5764827) · 6 ago 2025 · **Por cotejar e incorporar**.
-- RAD-068: Formato — [Autoconsumo interconectado 0.7-20 MW](https://sidof.segob.gob.mx/notas/5769388) · 7 oct 2025 · **Por cotejar e incorporar**.
-- RAD-034: Lineamientos — [Ventanilla Única de Autoconsumo](https://sidof.segob.gob.mx/notas/5786923) · 8 may 2026 · **Por cotejar e incorporar**.
+- RAD-067: Acuerdo — [Permiso de autoconsumo interconectado de 0.7 a 20 MW](https://sidof.segob.gob.mx/notas/5764827) · 6 ago 2025 · **Cargado**.
+- RAD-068: Formato — [Autoconsumo interconectado 0.7-20 MW](https://sidof.segob.gob.mx/notas/5769388) · 7 oct 2025 · **Cargado**.
+- RAD-034: Lineamientos — [Ventanilla Única de Autoconsumo](https://sidof.segob.gob.mx/notas/5786923) · 8 may 2026 · **Cargado**.
 
 ### Cogeneración
 
@@ -139,7 +139,9 @@ Es una convocatoria institucional; separar de las convocatorias de proyectos el�
 
 ## Criterio de preparación
 
-Los cuatro reglamentos, las DACG de permisos, los formatos SAEE y las trece publicaciones de las tres convocatorias de generación ya están incorporados. Entre los pendientes siguen autoconsumo, cogeneración, migración de permisos, desarrollo mixto, planeación y regulación de hidrocarburos/ASEA. Continuar documento por documento, conservando numerales, calendarios y formularios.
+Los cuatro reglamentos, las DACG de permisos, los formatos SAEE, las trece publicaciones de las convocatorias de generación y los tres documentos de autoconsumo ya están incorporados. Entre los pendientes siguen cogeneración, migración de permisos, desarrollo mixto, planeación y regulación de hidrocarburos/ASEA. Continuar documento por documento, conservando numerales, calendarios y formularios.
+
+La [evidencia de autoconsumo](../incorporacion-autoconsumo-2026-09-18/INCORPORACION.html) conserva la revisión de las fuentes, los formularios completos y el cotejo posterior de los tres documentos.
 
 Las convocatorias incluyen notas editoriales con enlaces al original y sus modificaciones. La tabla ley_relaciones sigue pendiente; las publicaciones se conservan por separado y no se presentan como texto consolidado. La [evidencia de las trece incorporaciones](../incorporacion-convocatorias-2026-09-17/INCORPORACION.html) conserva fuentes, tablas, gráficos y cotejo posterior.
 
@@ -149,7 +151,7 @@ Las convocatorias incluyen notas editoriales con enlaces al original y sus modif
 - La ausencia significa ausencia como instrumento propio en el catálogo; no prueba que el nombre o algún extracto no aparezcan en otros textos.
 - Una fila puede agrupar documentos; una nota DOF puede contener varias leyes. Las ligas a bases jurídicas no prueban publicación del instrumento previsto.
 - Los procesos y resultados de convocatorias por proyecto de la sección 6 quedan fuera de estos totales.
-- Catálogo actualizado después de las trece publicaciones de convocatorias y modificaciones; se conserva el cotejo exacto de las altas y de los 25 instrumentos anteriores.
+- Catálogo actualizado después de los tres documentos de autoconsumo; cotejo exacto de las altas y conservación de los 38 instrumentos anteriores.
 
 Se corrigió RAD-046: los formatos de Biocombustibles de 2026 no son un antecedente por dejar sin efectos los de 2009. RAD-166 identifica un programa de normalización, no una modificación de NOM ya publicada. Las cuatro filas de proyectos de NOM representan ocho proyectos.
 

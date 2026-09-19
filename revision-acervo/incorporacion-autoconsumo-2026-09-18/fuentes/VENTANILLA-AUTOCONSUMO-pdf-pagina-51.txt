@@ -1,0 +1,47 @@
+Viernes 8 de mayo de 2026 DIARIO OFICIAL 51 
+DATOS DE IDENTIFICACIÓN DEL CENTRO DE CARGA
+1. Carga contratada (MW): 
+2. Demanda contratada (MW): 
+3. Perfil de demanda para un día hábil y domingo de 
+verano (MW) 
+ 
+4. Perfil de demanda para un día hábil y domingo de 
+invierno (MW) 
+ 
+5. Tipo de proceso:  Agrícola 
+ Alimenticia 
+ Automotriz 
+ Cementera 
+ Centro de datos 
+ Comercial 
+ Farmacéutica 
+ Ganadera 
+ Gran Industria 
+ Habitacional 
+ Hotelería 
+ Manufactura 
+ Minería 
+ Parque Industrial 
+ Química 
+ Siderúrgica 
+ Textil 
+ TI & comunicaciones 
+ Otros 
+PREGUNTAS DE PARQUE INDUSTRIAL
+6. Número de lotes: 
+7. Tamaño de cada lote en m2: 
+8. Tipo de carga a la que está dirigida el parque 
+industrial: 
+ Centro de Datos 
+ Metal 
+ Mecánica 
+ Tecnologías de la información 
+ Proceso de autopartes 
+ Siderúrgico 
+ Alimentos 
+ Otros 
+9. Carga estimada por lote en (MW): 
+10. Tiempo estimado de lotificación del proyecto: 
+11. Especifique el proceso principal del Centro de 
+Carga: 
+ 

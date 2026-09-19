@@ -1,0 +1,50 @@
+Viernes 8 de mayo de 2026 DIARIO OFICIAL 47 
+ESTATUS DE LA CENTRAL 
+Dependiendo del estatus de la Central Eléctrica, se debe cargar el siguiente documento
+1. El diagrama unifilar simplificado vigente en donde 
+se observe la Central Eléctrica y el Centro de 
+Carga y que incluya la propuesta de punto de 
+interconexión con el Sistema Eléctrico Nacional, 
+para Centrales Eléctricas existentes y debe 
+observarse el SAEE en caso de aplicar: 
+ 
+2. Diagrama unifilar simplificado del proyecto 
+resultante en donde se observe la Central 
+Eléctrica y el Centro de Carga y que incluya la 
+propuesta de punto de interconexión con el SEN, 
+para Centrales Eléctricas nuevas y debe 
+observarse el SAEE en caso de aplicar:
+ 
+3. Combustible a utilizarse en la Central Eléctrica: Cuando aplique
+Combustible Principal Sustituto 
+Tipo 
+Consumo* 
+Poder Calorífico** 
+Costo de 
+referencia*** 
+ 
+Recurso renovable 
+* Gas: Nm3/año, combustóleo y diésel: m3/año, Otros: ton/año 
+** Gas: kJ/Nm3, combustóleo y diésel: kJ/m3, Otros: kJ/ton 
+*** Gas: $/Nm3, combustóleo y diésel: $/m3, Otros: $/ton 
+- En caso de que se utilice más de un combustible principal, agregar como anexo a la solicitud la información de 
+temperatura y presión. 
+- Tratándose de gas natural, referir los datos a las siguientes condiciones: temperatura de 20°C y presión de 1 kg/cm2 
+4. Capacidad Instalada (MW): 
+5. Capacidad Instalada Neta de la Central Eléctrica 
+(MW): 
+ 
+6. Capacidad de generación en (MW): 
+7. Indicar la Capacidad Instalada de la Central 
+Eléctrica correspondiente a corriente alterna (MW) 
+para Central Eléctrica Fotovoltaica: 
+ 
+8. Indicar la Capacidad Instalada de la Central 
+Eléctrica correspondiente a corriente directa (MW) 
+para Central Eléctrica Fotovoltaica: 
+ 
+9. Capacidad contratada en interconexión en (MW): 
+10. Generación anual estimada (GWh): 
+11. Perfil de generación anual estimada de la Central 
+Eléctrica: 
+ 

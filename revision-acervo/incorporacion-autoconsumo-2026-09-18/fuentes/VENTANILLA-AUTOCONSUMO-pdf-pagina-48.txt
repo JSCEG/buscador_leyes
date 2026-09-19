@@ -1,0 +1,45 @@
+48 DIARIO OFICIAL Viernes 8 de mayo de 2026 
+12. Número de equipos de generación*: 1. Para Centrales Eléctricas eólicas el número de turbinas 
+estimado, para Centrales Eléctricas fotovoltaicas en número 
+de inversores y paneles solares, para Centrales Eléctricas 
+de Ciclo Combinado el tipo de arreglo. 
+2. Para Centrales Eléctricas asíncronas y con fuente de 
+energía primaria intermitente, se debe considerar que deben 
+cumplir con los requerimientos generales y específicos del 
+Código de Red respecto a regulación de voltaje y 
+frecuencia. 
+13. Fecha Estimada de Operación (FEO): Para el caso de Solicitudes del Autoconsumo que se tengan 
+contempladas etapas, es necesario proporcionar la fecha de 
+entrada en operación de cada etapa y la capacidad 
+correspondiente. 
+ Etapa 1: Fecha Capacidad en MW 
+ Etapa 2: Fecha Capacidad en MW 
+ Etapa 3: Fecha Capacidad en MW 
+ + Agregar otra etapa 
+14. Indicar la vida útil de la Central Eléctrica: 
+15. Indicar la eficiencia de la Central Eléctrica: 
+16. Último recibo de Suministro Eléctrico no mayor a 
+tres meses de antigüedad de la Central Eléctrica: 
+ 
+UBICACIÓN DE LA CENTRAL ELÉCTRICA
+1. La ubicación de la Central Eléctrica es la misma 
+del proyecto de autoconsumo: 
+ Sí 
+ No 
+2. Código Postal: 
+3. Entidad Federativa: 
+4. Municipio / Alcaldía: 
+5. Localidad / Colonia: 
+6. Calle: 
+7. Número Exterior: 
+8. Número Interior: 
+COORDENADAS GEODÉSICAS EN UN PLANO GEORREFERENCIADO DE LA CENTRAL ELÉCTRICA
+1. Número Interior: 
+2. Vértices : Latitud Longitud 
+ Vértice A: 
+ Vértice B: 
+ Vértice C: 
+ + Agregar vértice: 
+3. Plano georreferenciado de la ubicación de la 
+Central Eléctrica en formato .KML o .KMZ: 
+ 

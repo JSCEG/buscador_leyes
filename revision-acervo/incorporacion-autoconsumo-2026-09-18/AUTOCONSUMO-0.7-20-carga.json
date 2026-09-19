@@ -1,0 +1,165 @@
+{
+  "ley": {
+    "id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
+    "siglas": "AUTOCONSUMO-0.7-20",
+    "fecha_publicacion": "2025-08-06",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Autoconsumo",
+      "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "Trámites eléctricos"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5764827",
+    "tipo": "acuerdo"
+  },
+  "articulos": [
+    {
+      "id": "4e0b7843-5622-5292-9353-bf3445e08dcd",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 0,
+      "identificador": "Nota editorial · documentos relacionados",
+      "contenido": "### Nota editorial · documentos relacionados de autoconsumo\n\nSe conserva la publicación del DOF de 06/08/2025. Esta nota es información editorial del buscador y no forma parte del texto oficial.\n\nDocumentos relacionados del bloque de autoconsumo; cada uno conserva su objeto, ámbito de aplicación y estructura propios:\n\n- <a href=\"/#ley-156449fb-698e-59bf-a9e1-06f1e9dafa85\" target=\"_blank\" rel=\"noopener noreferrer\">Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW</a> · [fuente oficial](https://sidof.segob.gob.mx/notas/docFuente/5764827)\n- <a href=\"/#ley-d93c8b82-8df1-530a-a779-6ad965b9d206\" target=\"_blank\" rel=\"noopener noreferrer\">Formato de solicitud de permiso de autoconsumo interconectado de 0.7 a 20 MW</a> · [fuente oficial](https://sidof.segob.gob.mx/notas/docFuente/5769388)\n- <a href=\"/#ley-9ec1ad6e-375e-5248-ac10-cb9971d4424c\" target=\"_blank\" rel=\"noopener noreferrer\">Lineamientos de la Ventanilla Única de Autoconsumo</a> · [fuente oficial](https://sidof.segob.gob.mx/notas/docFuente/5786923)\n\nLos formularios, sus instrucciones, tablas y casillas se conservan íntegros. Los resolutivos del acuerdo se distinguen de los transitorios y de los numerales de los lineamientos. Se reproducen las publicaciones identificadas; no se presenta un texto consolidado ni se certifica su vigencia. Fuentes cotejadas el 18 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "3d86067e-ddc0-5647-beaf-b0f17b5aa6d9",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 1,
+      "identificador": "Preámbulo del acuerdo",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n ACUERDO de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW).\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Nacional de Energía.\n<div> JUAN CARLOS SOLÍS ÁVILA, Director General de la Comisión Nacional de Energía, con fundamento en los artículos 25, último párrafo, 28, párrafo noveno, y 90, primer párrafo, de la Constitución Política de los Estados Unidos Mexicanos; 1, 17,y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 1, primer párrafo, 2, 3, 4 y 13 de la Ley Federal de Procedimiento Administrativo; 1, 2, fracciones VIII y IX, 5, 6 y 51 de la Ley Nacional para Eliminar Trámites Burocráticos; 1, fracciones II y IV, 2, 6, 7, 11, fracciones I, XLIV y XLIX, 16, 17, fracción II, 18, 19, párrafo primero, 30 segundo párrafo, 32, 33 y 34 de la Ley del Sector Eléctrico; 1, 2, 6, fracción I, 7, fracciones II, III y V, 8, fracción IV, 16, fracciones VI y XIX, 17 fracción II y Transitorios Tercero, Séptimo y Noveno de la Ley de la Comisión Nacional de Energía; 2, apartado F, fracción III, 77 y 78 del Reglamento Interior de la Secretaría de Energía, y 1, 2, 7, 9, 10, 12, fracciones IX y XI del Reglamento Interior de la Comisión Nacional de Energía, así como al Acuerdo número CT/3.SO/14-2025 emitido por el Comité Técnico de la Comisión Nacional de Energía,</div>\n<div> CONSIDERANDO<br> </div>\n<div> Que el último párrafo del artículo 25 de la Constitución Política de los Estados Unidos Mexicanos establece que las autoridades de todos los órdenes de gobierno deberán implementar políticas públicas de simplificación administrativa y digitalización de trámites y servicios, buenas prácticas regulatorias, desarrollo y fortalecimiento de capacidades tecnológicas y demás objetivos que establezca la ley nacional en la materia.</div>\n<div> Por su parte, el artículo 28, párrafo noveno, de la Constitución Política de los Estados Unidos Mexicanos, señala que el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica; así como la facultad sancionadora en materia energética y de hidrocarburos.</div>\n<div> Que de conformidad con los artículos 2, párrafo primero de la Ley de la Comisión Nacional de Energía y 2, párrafo primero del Reglamento Interior de la Comisión Nacional de Energía, la Comisión Nacional de Energía (Comisión) es un órgano administrativo desconcentrado de carácter técnico, sectorizado a la Secretaría de Energía, que cuenta con independencia técnica, operativa, de gestión y de decisión en los términos de la Ley.</div>\n<div> En ese sentido, el artículo 7, fracción II de la Ley de la Comisión Nacional de Energía señala que la Comisión es competente para emitir la regulación de las actividades en materia energética, aunado a que en términos de los artículos 7, fracciones V y 8, fracción IV de la citada Ley, y 151 de la Ley del Sector Eléctrico, la Comisión tiene la atribución de otorgar, modificar, terminar y supervisar los permisos de generación y comercialización de energía eléctrica, así como emitir las autorizaciones y actos administrativos vinculados al sector, que se requieran.</div>\n<div> Que conforme a los artículos 16, 17, 18 y 19 de la Ley del Sector Eléctrico, señalan que corresponde a la Comisión otorgar los permisos de generación a las personas físicas o morales que desarrollen actividades bajo la figura de autoconsumo, siempre que su capacidad sea igual o mayor a 0.7 megawatts (MW), así como establecer los requisitos, condiciones y modalidades conforme a la ley y su reglamento.</div>\n<div> Que los artículos 30 y 33 de la Ley del Sector Eléctrico reconocen como autoconsumo a la producción de una Central Eléctrica con capacidad igual o mayor a 0.7 MW que es destinada para satisfacer las necesidades propias en sitio de la persona titular del permiso de generación vigente, previendo que el autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW puede sujetarse a un trámite simplificado para la obtención del permiso de generación, conforme a los lineamientos que para tal efecto emita esta Comisión.</div>\n<div> Que en el artículo 2 de la Ley Nacional para Eliminar Trámites Burocráticos se establecen los objetivos de la política en materia de simplificación administrativa y digitalización de trámites y servicios, entre los que se encuentran, establecer las herramientas, instrumentos y acciones para promover las buenas prácticas regulatorias, así como establecer las obligaciones de las autoridades de los tres órdenes de gobierno para garantizar el cumplimiento de los objetivos de la citada Ley.</div>\n<div> De igual forma, el artículo 6 de la Ley Nacional para Eliminar Trámites Burocráticos establece que los sujetos obligados regirán su actuar en apego, entre otros, a los principios de confianza ciudadana, certeza jurídica, simplificación; proporcionalidad; armonización regulatoria; interoperabilidad de sistemas institucionales; equivalencia funcional; mayor beneficio; utilidad social y accesibilidad; para el cumplimiento de los objetivos de dicha Ley.</div>\n<div> Que, mediante sesión ordinaria de 23 de julio de 2025, el Comité Técnico de la Comisión tuvo a bien aprobar el Acuerdo Número CT/3.SO/14-2025, por el que se autoriza la expedición del presente Acuerdo.</div>\n<div> Derivado de lo anterior, en el ejercicio de las facultades que el marco jurídico vigente atribuye a la Comisión y en apego a los objetivos y principios señalados en las consideraciones anteriores, con la finalidad de atender lo señalado en el párrafo segundo del artículo 30 de la Ley del Sector Eléctrico y coadyuvar en los objetivos de política energética, simplificación administrativa y digitalización de trámites y servicios, se definen los requisitos que permiten obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW, por lo que, tengo a bien expedir el siguiente:</div>\n<div> ACUERDO DE LA COMISIÓN NACIONAL DE ENERGÍA POR EL QUE SE ESTABLECEN LOS<br> REQUISITOS PARA OBTENER EL PERMISO DE GENERACIÓN PARA AUTOCONSUMO<br> INTERCONECTADO EN CENTRALES ELÉCTRICAS CUYA CAPACIDAD SEA ENTRE 0.7 Y 20<br> MEGAWATTS (MW)<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Preámbulo y considerandos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8d20bb53-e5ab-57ce-bb2b-d09f456df342",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 2,
+      "identificador": "Resolutivo Primero · Requisitos del permiso",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> Primero. Las personas interesadas en obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW señalado en el presente Acuerdo, deben presentar lo siguiente ante la Comisión Nacional de Energía:</div>\n<div> I.     Formato autorizado por la Comisión Nacional de Energía debidamente requisitado, que debe contener al menos lo siguiente:</div>\n<div> a)    Información de la persona solicitante, consistente en:</div>\n<div> i.     Nombre, denominación o razón social de la persona interesada;</div>\n<div> ii.     En su caso, Clave Única de Registro de Población, y</div>\n<div> iii.    Domicilio y correo electrónico para oír y recibir notificaciones.</div>\n<div> b)    Bajo protesta de decir verdad que:</div>\n<div> i.     La representación legal de la persona solicitante no ha sido revocada, modificada o limitada en forma alguna a la fecha de la presentación de la solicitud, y </div>\n<div> ii.     En su caso, asegurar el financiamiento del proyecto;</div>\n<div> c)    Tipo de tecnología y, cuando así aplique, el combustible primario a utilizar;</div>\n<div> d)    La capacidad de la central de generación de energía eléctrica indicando la correspondiente a corriente alterna y corriente directa, cuando sea necesario, así como la generación anual estimada;</div>\n<div> e)    Propuesta de la ubicación de la central eléctrica, señalando las coordenadas geodésicas en un plano georreferenciado;</div>\n<div> f)     Indicar si cuenta con respaldo propio o contratado, en caso de ser generadora intermitente e inyectar energía a la Red Nacional de Transmisión o Redes Generales de Distribución;</div>\n<div> g)    Indicar la denominación o razón social de cada una de las Usuarias de la red particular asociada a la central eléctrica que pueden recibir y aprovechar la energía conforme a lo dispuesto en el Reglamento de la Ley del Sector Eléctrico y las Disposiciones Administrativas de Carácter General que la Comisión Nacional de Energía emita al respecto;</div>\n<div> h)    Descripción general del plan de financiamiento; </div>\n<div> i)     El número de acuse de recepción o, en su caso, el número de Resolutivo Definitivo de la autorización en materia de Manifestación de Impacto Social del Sector Energético, conforme a lo dispuesto en la legislación aplicable, y</div>\n<div> j)     El número de oficio del Centro Nacional de Control de Energía que informe los Resultados del Estudio de Impacto o Impacto versión rápida, según corresponda con el procedimiento de atención a la Solicitud de Interconexión de Centrales Eléctricas o de Conexión de Centros de Carga, establecido en el Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga vigente.</div>\n<div> II.     Acreditación de personalidad jurídica:</div>\n<div> a)    Para personas físicas:</div>\n<div> i.     Identificación oficial</div>\n<div> ii.     Clave Única de Registro de Población;</div>\n<div> b)    Para personas morales:</div>\n<div> i.     Acta constitutiva y, en su caso, las modificaciones inscritas en el Registro Público de Comercio, con las que acredite su existencia legal;</div>\n<div> c)    Para las entidades y empresas del Gobierno Federal, Estatal o Municipal, y empresas públicas del Estado.</div>\n<div> i.     Acuerdo de creación o estatuto orgánico por el cual fue creada;</div>\n<div> d)    Para la persona representante legal o apoderada de la persona solicitante:</div>\n<div> i.     Identificación oficial;</div>\n<div> ii.     Clave Única de Registro de Población, y </div>\n<div> iii.    Instrumento notarial para acreditar la personalidad de la persona representante legal o apoderado, así como sus facultades;</div>\n<div> III.    Diagrama unifilar simplificado de la o las centrales eléctricas que incluya su propuesta de punto de interconexión con el Sistema Eléctrico Nacional;</div>\n<div> IV.   Programa simplificado de obras que incluya las siguientes etapas:</div>\n<div> a)    Inicio de obras;</div>\n<div> b)    Terminación de obras, y </div>\n<div> c)    Fecha de inicio de operaciones comerciales;</div>\n<div> V.    El Plan de negocios correspondiente en caso de que la central eléctrica no esté instalada;</div>\n<div> VI.   Acreditación de la capacidad técnica y financiera de la persona solicitante o del grupo empresarial al que pertenece, para lo cual se requiere:</div>\n<div> a)    Estados financieros de carácter general correspondientes por lo menos a los 2 años anteriores a la fecha de solicitud del permiso de la persona solicitante o del grupo empresarial al que pertenece, y </div>\n<div> b)    Información documental que acredite la experiencia de la persona solicitante para el diseño, construcción y operación de proyectos de generación con características similares al objeto del permiso;</div>\n<div> VII.   En su caso, diagrama de la estructura accionaria y corporativa de la solicitante que incluya los porcentajes de participación en el capital social y la identificación de las personas físicas o morales que ejerzan control directo o indirecto sobre la sociedad;</div>\n<div> VIII.  Comprobante de pago de derechos o aprovechamientos de la solicitud del permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW; y</div>\n<div> IX.   Los demás que, en su caso, la Comisión determine mediante la emisión de las disposiciones que correspondan.</div>\n<div> De conformidad con el artículo 78 de la Ley Nacional para Eliminar Trámites Burocráticos, en caso de que alguno de los requisitos mencionados en el presente artículo se encuentre en poder de la Comisión o esté disponible en el Expediente Digital Ciudadano para Trámites y Servicios referido en dicha Ley, no es necesario presentarlo nuevamente ante la Comisión. Lo anterior, siempre y cuando dicha información o documento se encuentre vigente y no haya sufrido cambios hasta el momento del ingreso de la solicitud del permiso señalado en este Acuerdo.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Resolutivos del acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "6dbe255f-6e61-5d15-a911-a2410779ea16",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 3,
+      "identificador": "Resolutivo Segundo · Procedimiento de resolución",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> Segundo. La Comisión Nacional de Energía debe analizar, evaluar y resolver la solicitud del permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW regulado mediante el presente Acuerdo con base en el procedimiento que se establezca en el Reglamento de la Ley del Sector Eléctrico y en las Disposiciones Administrativas de Carácter General que para tal efecto se emitan.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Resolutivos del acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "e555349c-da5a-52af-8db4-1ab87f5f5386",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 4,
+      "identificador": "Transitorio PRIMERO",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> TRANSITORIOS<br> </div>\n<div> PRIMERO. El presente Acuerdo entra en vigor a partir de que los Reglamentos de las Leyes del Sector Eléctrico y de Planeación y Transición Energética hayan entrado en vigor.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Transitorios del acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3341dc50-1cc9-5da7-94f6-b555d196ab3b",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 5,
+      "identificador": "Transitorio SEGUNDO",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> SEGUNDO. La Comisión Nacional de Energía debe inscribir y mantener actualizada la información del trámite derivado del presente Acuerdo en el Portal Ciudadano Único de Trámites y Servicios, de conformidad con lo establecido en el artículo 53 de la Ley Nacional para Eliminar Trámites Burocráticos.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Transitorios del acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "44911701-5a21-52b4-9c90-c49a23694b60",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 6,
+      "identificador": "Transitorio TERCERO",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> TERCERO. La Comisión Nacional de Energía debe publicar en su página electrónica y en el Diario Oficial de la Federación el formato autorizado a que se refiere el artículo primero, fracción I del presente Acuerdo, a partir de su entrada en vigor. Asimismo, debe revisar anualmente su contenido y publicar, en caso de que resulte aplicable, la versión actualizada a más tardar en el mes de noviembre de cada año.</div>\n<div> Adicionalmente, la Comisión Nacional de Energía debe realizar los ajustes que, en los procedimientos administrativos, sistemas de registro, o cualquier otro mecanismo, requiera de actualización conforme a las modificaciones normativas realizadas.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Transitorios del acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7a12f2bb-ef8e-59e7-9951-8945008438a6",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 7,
+      "identificador": "Transitorio CUARTO",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> CUARTO. La persona titular del permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 MW señalado en el presente Acuerdo debe observar para su operación los modelos de contrato, metodologías de cálculo, criterios y bases para determinar y actualizar las contraprestaciones que para tal efecto emita la Comisión Nacional de Energía.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Transitorios del acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "93f443e8-6d1e-50f6-bc53-3c77f6c92de5",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "orden": 8,
+      "identificador": "Firma del acuerdo",
+      "contenido": "<!-- ### Transcripción de la publicación oficial -->\n\n<div> Ciudad de México, a 23 de julio de 2025.- El Director General, Juan Carlos Solís Ávila.- Rúbrica.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo y considerandos",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Resolutivos del acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Transitorios del acuerdo",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 5
+    }
+  ],
+  "fuente": {
+    "name": "AUTOCONSUMO-0.7-20",
+    "code": "5764827",
+    "radar": "RAD-067",
+    "familia": "Autoconsumo",
+    "pieza": "Requisitos para permiso de autoconsumo interconectado de 0.7 a 20 MW",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5764827",
+    "sha256": "845ff24d22906d78bce35b539e63389c0a7c13b1cc3b6928952478abed2f8337",
+    "fecha": "06-08-2025",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW).",
+    "codDiario": 322403,
+    "pagina": 26,
+    "tables": 0,
+    "images": []
+  }
+}

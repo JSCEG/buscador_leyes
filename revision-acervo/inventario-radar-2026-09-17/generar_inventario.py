@@ -58,6 +58,8 @@ loaded = {
     'RAD-039': 'CONV-GEN-2-M2', 'RAD-040': 'CONV-GEN-2-M3', 'RAD-041': 'CONV-GEN-2-M4',
     'RAD-036': 'CONV-ESTRATEGICOS', 'RAD-037': 'CONV-ESTRATEGICOS-M1',
     'RAD-045': 'CONV-ESTRATEGICOS-M2', 'RAD-047': 'CONV-ESTRATEGICOS-M3',
+    'RAD-067': 'AUTOCONSUMO-0.7-20', 'RAD-068': 'FORMATO-AUTOCONSUMO',
+    'RAD-034': 'VENTANILLA-AUTOCONSUMO',
 }
 compound_siglas = ['LCNE', 'LSH', 'LEPECFE', 'LEPEPM', 'LBio', 'LGeo', 'LSE', 'LPTE']
 
@@ -83,7 +85,7 @@ families = [
      'detalle': 'Lineamientos y aviso de convocatoria: dos referencias pendientes.',
      'tratamiento': 'El aviso oficial existe; el radar no acredita una nota DOF propia de la convocatoria. No presentar el aviso como texto normativo completo.'},
     {'nombre': 'Autoconsumo', 'ids': ids(67, 68, 34),
-     'detalle': 'DACG, formato y Ventanilla Única: tres referencias pendientes.',
+     'detalle': 'Acuerdo de requisitos, formato y Ventanilla Única cargados; 63 fragmentos, 36 tablas y ocho casillas conservados.',
      'tratamiento': 'Mantener requisitos, formatos y procedimiento identificados por separado.'},
     {'nombre': 'Cogeneración', 'ids': ids(72, 74),
      'detalle': 'DACG y formatos: dos referencias pendientes.',
@@ -107,6 +109,9 @@ for family in families:
         family_lookup.setdefault(row_id, []).append(family['nombre'])
 
 notes = {
+    'RAD-067': 'Acuerdo de requisitos cargado con dos resolutivos y cuatro transitorios separados; preámbulo, firma y nota editorial identificados.',
+    'RAD-068': 'Formato e instructivo completos: 12 tablas, 205 celdas y ocho casillas. Se conserva el acuerdo que lo publica y su transitorio.',
+    'RAD-034': 'Lineamientos cargados con ocho capítulos, 36 numerales de segundo nivel y todos sus subnumerales e incisos, cinco transitorios y tres anexos completos. Se preservaron 24 tablas y 863 celdas.',
     'RAD-003': 'Las ocho leyes expedidas están cargadas. Las reformas a LOAPF y a la Ley del Fondo Mexicano del Petróleo no están incorporadas como instrumentos propios. La URL común no acredita cobertura íntegra del decreto.',
     'RAD-033': 'Aviso oficial SENER localizado; la nota DOF propia sigue pendiente de acreditar según el radar. Registro cerrado al corte. Revisar bases completas antes de preparar la ingesta.',
     'RAD-046': 'Se corrige la clasificación histórica: es el acuerdo nuevo de formatos de 2026 el que deja sin efectos al de 2009. La frase «deja sin efectos» no convierte al acuerdo nuevo en antecedente.',
@@ -193,7 +198,7 @@ data = {
         'La ausencia significa ausencia como instrumento propio en el catálogo; no prueba que el nombre o algún extracto no aparezcan en otros textos.',
         'Una fila puede agrupar documentos; una nota DOF puede contener varias leyes. Las ligas a bases jurídicas no prueban publicación del instrumento previsto.',
         'Los procesos y resultados de convocatorias por proyecto de la sección 6 quedan fuera de estos totales.',
-        'Catálogo actualizado después de las trece publicaciones de convocatorias y modificaciones; se conserva el cotejo exacto de las altas y de los 25 instrumentos anteriores.',
+        'Catálogo actualizado después de los tres documentos de autoconsumo; cotejo exacto de las altas y conservación de los 38 instrumentos anteriores.',
     ],
     'etiquetas_estado': labels, 'resumen': metrics, 'secciones': groups,
     'familias': families, 'correcciones': corrections, 'catalogo': laws, 'filas': rows,
@@ -224,7 +229,8 @@ for f in families:
         md.append(f"- {row_id}: {r['tipo_radar']} — [{r['titulo_radar']}]({r['fuentes'][0]['url']}) · {r['fecha_radar']} · **{r['estado_carga']}**.")
     md.append('')
 md += ['## Criterio de preparación', '',
-       'Los cuatro reglamentos, las DACG de permisos, los formatos SAEE y las trece publicaciones de las tres convocatorias de generación ya están incorporados. Entre los pendientes siguen autoconsumo, cogeneración, migración de permisos, desarrollo mixto, planeación y regulación de hidrocarburos/ASEA. Continuar documento por documento, conservando numerales, calendarios y formularios.', '',
+       'Los cuatro reglamentos, las DACG de permisos, los formatos SAEE, las trece publicaciones de las convocatorias de generación y los tres documentos de autoconsumo ya están incorporados. Entre los pendientes siguen cogeneración, migración de permisos, desarrollo mixto, planeación y regulación de hidrocarburos/ASEA. Continuar documento por documento, conservando numerales, calendarios y formularios.', '',
+       'La [evidencia de autoconsumo](../incorporacion-autoconsumo-2026-09-18/INCORPORACION.html) conserva la revisión de las fuentes, los formularios completos y el cotejo posterior de los tres documentos.', '',
        'Las convocatorias incluyen notas editoriales con enlaces al original y sus modificaciones. La tabla ley_relaciones sigue pendiente; las publicaciones se conservan por separado y no se presentan como texto consolidado. La [evidencia de las trece incorporaciones](../incorporacion-convocatorias-2026-09-17/INCORPORACION.html) conserva fuentes, tablas, gráficos y cotejo posterior.', '',
        '## Alcance y trazabilidad', '']
 md += [f'- {note}' for note in data['limites']]
@@ -235,5 +241,5 @@ md += ['', 'Se corrigió RAD-046: los formatos de Biocombustibles de 2026 no son
 
 template = (OUT / 'plantilla.html').read_text(encoding='utf-8')
 embedded = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c')
-(OUT / 'INVENTARIO.html').write_text(template.replace('__INVENTARIO_JSON__', embedded), encoding='utf-8')
+(OUT / 'INVENTARIO.html').write_text(template.replace('__FECHA_CATALOGO__', data['fecha_catalogo']).replace('__INVENTARIO_JSON__', embedded), encoding='utf-8')
 print(json.dumps(metrics, ensure_ascii=False, indent=2))

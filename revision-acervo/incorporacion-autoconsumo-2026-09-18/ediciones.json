@@ -1,0 +1,26 @@
+[
+  {
+    "name": "AUTOCONSUMO-0.7-20",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/06-08-2025/Matutina/322403",
+    "file": "AUTOCONSUMO-0.7-20-edicion.pdf",
+    "sha256": "47b9e25c4def3e17c37434fb2344a76d9fc0f34cf34144b4cd4f423c492be27d",
+    "bytes": 6379401,
+    "pagina": 26
+  },
+  {
+    "name": "FORMATO-AUTOCONSUMO",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/07-10-2025/Matutina/323403",
+    "file": "FORMATO-AUTOCONSUMO-edicion.pdf",
+    "sha256": "cd93c396dc04a950ef45c1c150795b42f154892fb0b39252a72712115c043d8c",
+    "bytes": 10658722,
+    "pagina": 113
+  },
+  {
+    "name": "VENTANILLA-AUTOCONSUMO",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/08-05-2026/Matutina/327165",
+    "file": "VENTANILLA-AUTOCONSUMO-edicion.pdf",
+    "sha256": "92d7d0137e0aeab26cfddd931464f054d76591395dae42d994bc6d428cbe61f0",
+    "bytes": 5964528,
+    "pagina": 26
+  }
+]

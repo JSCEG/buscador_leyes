@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\scripts\\ui.js": {
-    "mtime": 1789775689.9154127,
-    "ast_hash": "5fbed6b1d5203e216b1e95f0f672c7c3",
+    "mtime": 1789775837.9686027,
+    "ast_hash": "a072b07e051a4c1d2d3551af505ee500",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\legal-ingest-pipeline.test.js": {
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\README.md": {
-    "mtime": 1789775092.0953028,
-    "ast_hash": "c5d8406309dac2080d429874da81c66f",
+    "mtime": 1789777576.7908497,
+    "ast_hash": "eccd49e56d02689ea9c9da90e5c882c1",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\SUPABASE.md": {
@@ -610,8 +610,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\CONTEXTO_BUSCADOR_RADAR.md": {
-    "mtime": 1789711376.8411143,
-    "ast_hash": "dcab9a83e0c5b65ee63afb936dea9af2",
+    "mtime": 1789777768.209434,
+    "ast_hash": "902ff672fb6cd3d0ba471c5179254391",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\.playwright-mcp\\page-2026-09-17T17-45-27-964Z.yml": {
@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\FALTANTES_Y_ORDEN_DE_CARGA.md": {
-    "mtime": 1789711365.3312867,
-    "ast_hash": "f71ad4dde78214c94b922de4341c7070",
+    "mtime": 1789777585.0195136,
+    "ast_hash": "e955c60bf503307b009d9642fc0def50",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\MATRIZ_RADAR.md": {
@@ -1945,18 +1945,18 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\catalogo-actual.json": {
-    "mtime": 1789711214.1481037,
-    "ast_hash": "d5b0434de7097ae668615b1d0ddf26f1",
+    "mtime": 1789777439.2370756,
+    "ast_hash": "b9f574cbf6fc89c5f82f6ad9b0bad0fc",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\generar_inventario.py": {
-    "mtime": 1789711211.013054,
-    "ast_hash": "74343a33a07ba95371c24b7c9abac038",
+    "mtime": 1789777837.111577,
+    "ast_hash": "210182e796b30696e5ccdbfc5c421e5f",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\INVENTARIO.json": {
-    "mtime": 1789711214.347927,
-    "ast_hash": "a8cdc17d66fda25a0f7a1868293859b6",
+    "mtime": 1789777844.2002645,
+    "ast_hash": "fef38e316c9cbfa5fd712d25eb8d1b06",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\.playwright-mcp\\page-2026-09-18T04-23-31-546Z.yml": {
@@ -1965,18 +1965,18 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\INVENTARIO.html": {
-    "mtime": 1789711214.396113,
-    "ast_hash": "3843d2b7e8a6ca8c656c4071d0ef38bd",
+    "mtime": 1789777844.2092621,
+    "ast_hash": "d6fd9b9c4ce727d123937b02eb13c261",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\INVENTARIO.md": {
-    "mtime": 1789711214.367611,
-    "ast_hash": "71680f336a6be98f0fac6eba48cf4188",
+    "mtime": 1789777844.205261,
+    "ast_hash": "3be8c94c701e5e3129d89ac0a4772047",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\plantilla.html": {
-    "mtime": 1789711214.1481037,
-    "ast_hash": "e4abb98417a66235ed36aff121d94534",
+    "mtime": 1789777833.849378,
+    "ast_hash": "7cf93bb801cea537d0be427879d4a0c6",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\vista-inventario.png": {
@@ -3345,13 +3345,598 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\README.md": {
-    "mtime": 1789774711.533772,
-    "ast_hash": "9797246e69a1c42106302200c9aeaa05",
+    "mtime": 1789777581.1031444,
+    "ast_hash": "12a54e95468c318046f99e2ab1b5d765",
     "semantic_hash": ""
   },
-  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-visual\\acuerdo-portada-corregida.png": {
-    "mtime": 1789775694.5433729,
-    "ast_hash": "4f0af63abc9a78455fc26df91fa2144d",
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\AUTOCONSUMO-0.7-20-aplicar.sql": {
+    "mtime": 1789777184.9091198,
+    "ast_hash": "a8196809d1d8dc427dfb77eed62df4a0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\AUTOCONSUMO-0.7-20-carga.json": {
+    "mtime": 1789777184.9081173,
+    "ast_hash": "ab0f9c9c13bc5b2488702c5fb884612e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\AUTOCONSUMO-0.7-20-revisado.json": {
+    "mtime": 1789777031.771232,
+    "ast_hash": "043a8b80f9164f82c266bb42c1397f90",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\config.json": {
+    "mtime": 1789776737.8891263,
+    "ast_hash": "b3e2ea5b311d37ca45a7cefa36ee93c4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\cotejar_pdf.py": {
+    "mtime": 1789777180.2141404,
+    "ast_hash": "1b52062206f57fbc00a97cd5b0786122",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\COTEJO-FUENTES.json": {
+    "mtime": 1789777037.7157013,
+    "ast_hash": "9b85baaa165b71fbf6ee5d2091155560",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\COTEJO-PDF.json": {
+    "mtime": 1789777184.7016518,
+    "ast_hash": "bc1ff1c7575967ab99bb89824d1ee2ad",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\ediciones.json": {
+    "mtime": 1789776838.916319,
+    "ast_hash": "08e47bdcee2c871aba8f485d1078993b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\FORMATO-AUTOCONSUMO-aplicar.sql": {
+    "mtime": 1789777184.9131198,
+    "ast_hash": "95257e10ad5e6a54b36432cf9f85660d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\FORMATO-AUTOCONSUMO-carga.json": {
+    "mtime": 1789777184.9121168,
+    "ast_hash": "150bbd5b7f84c5587bc0df98c511f4a9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\FORMATO-AUTOCONSUMO-revisado.json": {
+    "mtime": 1789777031.777233,
+    "ast_hash": "c63c2f83c0ca6ebd96bec353ebfd7501",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes.json": {
+    "mtime": 1789776810.750515,
+    "ast_hash": "88080c28b296211f20db821b1206c856",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\generar_informe.py": {
+    "mtime": 1789777226.4536862,
+    "ast_hash": "f7c6483a0479e7722a769015f49ebd0c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\generar_sql.py": {
+    "mtime": 1789777159.9907978,
+    "ast_hash": "462aaeb00bf41acd4b800f630deb5f6b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\imagenes.json": {
+    "mtime": 1789776828.4672382,
+    "ast_hash": "cd2f0c0d05f8e74f2a12f686fb90bc67",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\preparar.py": {
+    "mtime": 1789777027.222097,
+    "ast_hash": "801023201e78959784b05f24e5e06e1b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\revisar_pdf.py": {
+    "mtime": 1789777023.227992,
+    "ast_hash": "aa327695c81349921e6611057d5a2cc9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\sql-manifest.json": {
+    "mtime": 1789777184.9231172,
+    "ast_hash": "f5a9694ec88d561d4920f96f3a646874",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\TRANSACCIONES.json": {
+    "mtime": 1789777331.124468,
+    "ast_hash": "cbcc05237f2b95e9bc34ddc67b234fb2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\VENTANILLA-AUTOCONSUMO-aplicar.sql": {
+    "mtime": 1789777184.9221168,
+    "ast_hash": "507251a49d29c705c163e61a4ea98802",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\VENTANILLA-AUTOCONSUMO-carga.json": {
+    "mtime": 1789777184.919117,
+    "ast_hash": "42a5c779cb459680f34d6b0619f0f3b0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\VENTANILLA-AUTOCONSUMO-revisado.json": {
+    "mtime": 1789777031.7895243,
+    "ast_hash": "4c359ab70f75e60ebcea8f7aeebe7bab",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\VERIFICACION.json": {
+    "mtime": 1789777416.6182418,
+    "ast_hash": "7ecd9b78b56b8420d2a15e1293ced07e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\verificar.py": {
+    "mtime": 1789777404.8407815,
+    "ast_hash": "305102225450a4b3d9737287c9e477af",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\antes-validado\\articulos.json": {
+    "mtime": 1789776790.4440756,
+    "ast_hash": "037c37c49c668dc7d39adf04e4b37033",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\antes-validado\\leyes.json": {
+    "mtime": 1789776787.6900399,
+    "ast_hash": "62f4660e0b5d63a6a357631ff76798c9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\antes-validado\\snapshot.json": {
+    "mtime": 1789776790.4835978,
+    "ast_hash": "72418e987f19654a4e81e6f32c69c97d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\antes-validado\\temas.json": {
+    "mtime": 1789776788.359004,
+    "ast_hash": "1f6f519e13bc97e911ad9dbb0ca95f00",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\despues-verificado\\articulos.json": {
+    "mtime": 1789777356.613652,
+    "ast_hash": "f2c909301d22d3e09bfb6c2820ba1374",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\despues-verificado\\leyes.json": {
+    "mtime": 1789777353.6514099,
+    "ast_hash": "bb2ebffa79f66ed78dd2fa1bd82eef1b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\despues-verificado\\snapshot.json": {
+    "mtime": 1789777356.6599796,
+    "ast_hash": "bfa32d0a9f52699fc50f005867174c3d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\despues-verificado\\temas.json": {
+    "mtime": 1789777353.9161544,
+    "ast_hash": "863ada5f0749adce1d22b5ce04e93371",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20.bloques.json": {
+    "mtime": 1789776859.489817,
+    "ast_hash": "1f8e12550505096211eb137049af2e97",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20.nota.json": {
+    "mtime": 1789776805.8151286,
+    "ast_hash": "60eec525dbc57e3ca94224d4327575d7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO.bloques.json": {
+    "mtime": 1789776859.8438778,
+    "ast_hash": "2c26779c6e78914613961f07830a5392",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO.nota.json": {
+    "mtime": 1789776807.0523355,
+    "ast_hash": "ab0a6e07d80ed2c1aedf17f237a2421a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO.bloques.json": {
+    "mtime": 1789776861.0912633,
+    "ast_hash": "3964898e20f61614245d31fec2f631be",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO.nota.json": {
+    "mtime": 1789776809.2021272,
+    "ast_hash": "714e108ab3345f62e9a0cc61a13f64ea",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-17\\catalogo-antes-autoconsumo.json": {
+    "mtime": 1789777439.2010753,
+    "ast_hash": "d5b0434de7097ae668615b1d0ddf26f1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\AUTOCONSUMO-0.7-20-fuente-vista.html": {
+    "mtime": 1789776859.523813,
+    "ast_hash": "d7ea1ab0223b05e442b5bdc0b5622ba0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\FORMATO-AUTOCONSUMO-fuente-vista.html": {
+    "mtime": 1789776859.8568764,
+    "ast_hash": "03878d3b8220d61efd33733bedd06a1d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\INCORPORACION.html": {
+    "mtime": 1789777416.8174028,
+    "ast_hash": "26ab86895e41344e457b7e62d3b637e1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\INCORPORACION.md": {
+    "mtime": 1789777416.8148818,
+    "ast_hash": "229d7c76dccef929f95a08b4a78ca92b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\VENTANILLA-AUTOCONSUMO-fuente-vista.html": {
+    "mtime": 1789776861.1372633,
+    "ast_hash": "1e831037f24cbfca8113acceb43f09b2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20-pdf-pagina-26.txt": {
+    "mtime": 1789777038.267712,
+    "ast_hash": "49467974ec29345600e20ac89a1e39db",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20-pdf-pagina-27.txt": {
+    "mtime": 1789777038.5178318,
+    "ast_hash": "de780b4b8daeca57983f3b8ba7b22505",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20-pdf-pagina-28.txt": {
+    "mtime": 1789777038.5313785,
+    "ast_hash": "10c0f8795da97cd4900d9dc0dccc84a0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20-pdf-pagina-3.txt": {
+    "mtime": 1789776884.5595164,
+    "ast_hash": "b5ee00b95cbe7586e6f39e9dba976318",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20-pdf-texto.txt": {
+    "mtime": 1789777038.662651,
+    "ast_hash": "350193aecaeff4c038338401aef02e70",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20.html": {
+    "mtime": 1789776806.2745955,
+    "ast_hash": "5bc3643ef27a6d2b5b7cd94ff742f7dc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20.indice-bloques.txt": {
+    "mtime": 1789776859.5248146,
+    "ast_hash": "1fb81debf0d3e726dfd1febbc45344fd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\AUTOCONSUMO-0.7-20.txt": {
+    "mtime": 1789776806.2756028,
+    "ast_hash": "319fe89c8aae66307961f776906d30d7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-113.txt": {
+    "mtime": 1789777038.6982603,
+    "ast_hash": "28c2cb4caa230f83097c3ef247753661",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-114.txt": {
+    "mtime": 1789777038.7092712,
+    "ast_hash": "972558cfd865ad0d12ce4af422a08cd2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-115.txt": {
+    "mtime": 1789777038.7198079,
+    "ast_hash": "5a3ff67979a2e1dd147123f08e9d0599",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-116.txt": {
+    "mtime": 1789777038.8320527,
+    "ast_hash": "4e2e29937b144bcc74419b77853fa5db",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-117.txt": {
+    "mtime": 1789777038.8944297,
+    "ast_hash": "a5fe418e52acfedeee00569deb0dec27",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-118.txt": {
+    "mtime": 1789777038.9015381,
+    "ast_hash": "8c3a0785855f517f15a64bd6538ed878",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-119.txt": {
+    "mtime": 1789777038.9605393,
+    "ast_hash": "5a02efbdf489a4a94344ff23f997f85a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-120.txt": {
+    "mtime": 1789777038.969541,
+    "ast_hash": "e0318993201569833c602fa58dc7452a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-pagina-3.txt": {
+    "mtime": 1789776889.586936,
+    "ast_hash": "f0bdfba74438c2784c7e71bf941d4fa2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-pdf-texto.txt": {
+    "mtime": 1789777039.0426004,
+    "ast_hash": "43b2a9fdd426b6278ac5d444449a7772",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO.html": {
+    "mtime": 1789776807.507681,
+    "ast_hash": "af38f0ab55319f367573bc51006b6462",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO.indice-bloques.txt": {
+    "mtime": 1789776859.8579073,
+    "ast_hash": "8327a6749504796d4870594e2a82fe18",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO.txt": {
+    "mtime": 1789776807.5096793,
+    "ast_hash": "a643dd10e5ff7f8ff02858a966d0e5c0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-2.txt": {
+    "mtime": 1789776892.5331185,
+    "ast_hash": "65db41d6aacafd9ed99fbfeacde78792",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-26.txt": {
+    "mtime": 1789777039.058221,
+    "ast_hash": "8bb64be9c85260214a0d1a731ed73f86",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-27.txt": {
+    "mtime": 1789777039.0717635,
+    "ast_hash": "91b9ef208cbd45ad93fbe9de7ebf219d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-28.txt": {
+    "mtime": 1789777039.0790596,
+    "ast_hash": "1ea4528fdb802b3dfd2bea08bc67f7b6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-29.txt": {
+    "mtime": 1789777039.0880582,
+    "ast_hash": "48e96e95440cc9ce35ee6932971af63d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-30.txt": {
+    "mtime": 1789777039.1823802,
+    "ast_hash": "72a999788ce95f1bc76938b92f5ee5de",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-31.txt": {
+    "mtime": 1789777039.189894,
+    "ast_hash": "6c565ce3d899812d079a73ee7742e2ac",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-32.txt": {
+    "mtime": 1789777039.2004402,
+    "ast_hash": "400ca190674d6dde895e2a769ec0dbe1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-33.txt": {
+    "mtime": 1789777039.2094424,
+    "ast_hash": "4a789988fef3d0a6afb6e66ed764d21b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-34.txt": {
+    "mtime": 1789777039.2179751,
+    "ast_hash": "1879faf92f5f56e0b46f3a87cd8bafb1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-35.txt": {
+    "mtime": 1789777039.225976,
+    "ast_hash": "7e3bc797504eeebc1c780a7e1be353d7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-36.txt": {
+    "mtime": 1789777039.3266027,
+    "ast_hash": "c5b79465ac120ad5893063c18852ebe0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-37.txt": {
+    "mtime": 1789777039.3356018,
+    "ast_hash": "c32e01e8c08b83a458e8cb75c6a5d162",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-38.txt": {
+    "mtime": 1789777039.3456018,
+    "ast_hash": "b43a093a0b30bee4aa3bcf473fb033fd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-39.txt": {
+    "mtime": 1789777039.4581342,
+    "ast_hash": "17bf997ef22cc3344055060006fce829",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-40.txt": {
+    "mtime": 1789777039.5346637,
+    "ast_hash": "c8e860818309a25022f42d1a435e5c26",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-41.txt": {
+    "mtime": 1789777039.5396616,
+    "ast_hash": "06681afd5590e7e18d979458f6a1870d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-42.txt": {
+    "mtime": 1789777039.5476649,
+    "ast_hash": "ad213b8ef8a5c6645601bbb2e0eeb839",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-43.txt": {
+    "mtime": 1789777039.555663,
+    "ast_hash": "c0ce453a4fbd9c83e5e9d272081cfadb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-44.txt": {
+    "mtime": 1789777039.6499455,
+    "ast_hash": "2c32b3693cf8ee8607bc32754c6ad389",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-45.txt": {
+    "mtime": 1789777039.658944,
+    "ast_hash": "535aa7b4dc881610805cd379907cdb9e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-46.txt": {
+    "mtime": 1789777039.667943,
+    "ast_hash": "64b2f5febab776fdc3a8729fce531a7a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-47.txt": {
+    "mtime": 1789777039.683953,
+    "ast_hash": "bd6d76c0d0259b924f6dd11af19b738f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-48.txt": {
+    "mtime": 1789777039.6904638,
+    "ast_hash": "e64df27666b97e5705c345c19ec4823c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-49.txt": {
+    "mtime": 1789777039.6974778,
+    "ast_hash": "f09c1ae3ac147a4255f1686f9c821a62",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-50.txt": {
+    "mtime": 1789777039.708478,
+    "ast_hash": "ca2165f7c9b860838f753ef6cd993b9f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-51.txt": {
+    "mtime": 1789777039.7174757,
+    "ast_hash": "7956e850e8069f1f1a9774d71757aa5a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-52.txt": {
+    "mtime": 1789777039.726478,
+    "ast_hash": "5a3c8a525ba8a1c676fef91ce4621ddd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-53.txt": {
+    "mtime": 1789777039.8955524,
+    "ast_hash": "936f324d5969e67d1ad0d66e27e827f3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-54.txt": {
+    "mtime": 1789777040.0161994,
+    "ast_hash": "715c19029421cce67d6c8398381356e9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-55.txt": {
+    "mtime": 1789777040.032766,
+    "ast_hash": "0596afb33a080df7a2f7a3acc12d8fd5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-56.txt": {
+    "mtime": 1789777040.0377789,
+    "ast_hash": "2978e0757801261d18206c134438f631",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-57.txt": {
+    "mtime": 1789777040.0437777,
+    "ast_hash": "2d7ce5814449de21f178b1abb3da297e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-58.txt": {
+    "mtime": 1789777040.050296,
+    "ast_hash": "ceaf80f2bf6a1c70e5c81632a3f2e815",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-59.txt": {
+    "mtime": 1789777040.060298,
+    "ast_hash": "45c2cc5f8e475c2bb9892d177e15a8c6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-60.txt": {
+    "mtime": 1789777040.066296,
+    "ast_hash": "b9759cacdb2692fe1e67bf2e62b59bd0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-61.txt": {
+    "mtime": 1789777040.0722988,
+    "ast_hash": "cd2ad028957b671380640a403104bc8f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-62.txt": {
+    "mtime": 1789777040.0793095,
+    "ast_hash": "7ba4e08d08b5a65abdc621b3f81ebc6f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-63.txt": {
+    "mtime": 1789777040.0893104,
+    "ast_hash": "a2f34b6a0dd742964d2c54f5f99dbce8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-pagina-64.txt": {
+    "mtime": 1789777040.20301,
+    "ast_hash": "a02856adb75722d8d477cb8bfc35d268",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO-pdf-texto.txt": {
+    "mtime": 1789777040.286023,
+    "ast_hash": "790e04145bd4d01d5d701be7faf9b597",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO.html": {
+    "mtime": 1789776810.7319787,
+    "ast_hash": "fe8d281be7b51f35e6823363dd114c0a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO.indice-bloques.txt": {
+    "mtime": 1789776861.1392634,
+    "ast_hash": "aa4845c0e5f3455710fc00012ca019ca",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\VENTANILLA-AUTOCONSUMO.txt": {
+    "mtime": 1789776810.7329795,
+    "ast_hash": "60c4266b99c0928f92a1a59a63be8f6d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-1.png": {
+    "mtime": 1789776827.5142572,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-2.png": {
+    "mtime": 1789776827.648027,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-3.png": {
+    "mtime": 1789776827.7823243,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-4.png": {
+    "mtime": 1789776827.921726,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-5.png": {
+    "mtime": 1789776828.0589664,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-6.png": {
+    "mtime": 1789776828.1928318,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-7.png": {
+    "mtime": 1789776828.3292239,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\fuentes\\FORMATO-AUTOCONSUMO-imagen-8.png": {
+    "mtime": 1789776828.466237,
+    "ast_hash": "79e4b1fca84ce41b1d77ce5c4a66946f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-autoconsumo-2026-09-18\\VERIFICACION-NAVEGADOR.json": {
+    "mtime": 1789777763.0782993,
+    "ast_hash": "1de413dc6852e445566d97948dd4d34f",
     "semantic_hash": ""
   }
 }

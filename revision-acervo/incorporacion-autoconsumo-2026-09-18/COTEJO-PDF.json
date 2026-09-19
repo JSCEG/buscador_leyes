@@ -1,0 +1,31 @@
+[
+  {
+    "instrumento": "AUTOCONSUMO-0.7-20",
+    "palabras_html": 2181,
+    "palabras_pdf": 2181,
+    "diferencia_controlada": {},
+    "texto_sin_omisiones_detectadas": true,
+    "observacion": "Mismo vocabulario y frecuencias tras retirar encabezados del diario.",
+    "limites": "El cotejo léxico no demuestra por sí solo orden ni maquetación; se complementa con cotejo exacto por bloques, celdas y revisión visual."
+  },
+  {
+    "instrumento": "FORMATO-AUTOCONSUMO",
+    "palabras_html": 3706,
+    "palabras_pdf": 3706,
+    "diferencia_controlada": {},
+    "texto_sin_omisiones_detectadas": true,
+    "observacion": "Mismo vocabulario y frecuencias tras retirar encabezados del diario.",
+    "limites": "El cotejo léxico no demuestra por sí solo orden ni maquetación; se complementa con cotejo exacto por bloques, celdas y revisión visual."
+  },
+  {
+    "instrumento": "VENTANILLA-AUTOCONSUMO",
+    "palabras_html": 17124,
+    "palabras_pdf": 17107,
+    "diferencia_controlada": {
+      "o": 17
+    },
+    "texto_sin_omisiones_detectadas": true,
+    "observacion": "17 viñetas circulares aparecen como letra o en el HTML oficial y no como palabras en el PDF; se preserva el HTML.",
+    "limites": "El cotejo léxico no demuestra por sí solo orden ni maquetación; se complementa con cotejo exacto por bloques, celdas y revisión visual."
+  }
+]

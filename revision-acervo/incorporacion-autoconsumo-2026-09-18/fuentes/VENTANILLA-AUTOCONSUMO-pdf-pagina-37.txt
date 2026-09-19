@@ -1,0 +1,52 @@
+Viernes 8 de mayo de 2026 DIARIO OFICIAL 37 
+13.1.2. El Grupo de Autoconsumo, a través de la persona titular de un permiso de Autoconsumo 
+interconectado que realice la venta de Excedentes de Autoconsumo y Productos Asociados, así como de 
+Certificados de Energías Limpias y Potencia debe ser representada en el MEM a través de una Participante 
+del Mercado en la modalidad Generadora. Lo anterior, para efectos del procedimiento previsto en los 
+presentes Lineamientos. 
+13.1.3. La Participante del Mercado en la modalidad Generadora debe representar en el MEM al Grupo de 
+Autoconsumo, para la compra de Faltantes de Autoconsumo y, en su caso, para la venta o renuncia de 
+Excedentes de Autoconsumo y Productos Asociados. 
+13.1.4. La Generadora, a efecto de registrar los activos físicos, debe presentar la solicitud de Registro de 
+Activos Físicos, a través de la VUA y el CENACE debe valorar la solicitud con la siguiente documentación que 
+consta en el expediente de la VUA: 
+a) Contrato de Interconexión y Conexión; 
+b) Diagrama unifilar, y 
+c) Solicitud de diagnóstico para verificar el cumplimiento del Sistema de Medición. 
+13.1.5. El CENACE cuenta con un plazo de ocho días hábiles para revisar la solicitud de Registro de 
+Activos Físicos y determinar si dicha solicitud debe ser admitida o, en su caso, prevenir a la Generadora a 
+efecto de que subsane las omisiones detectadas. 
+13.1.6. La Generadora cuenta con un plazo de cinco días hábiles, contado a partir de que surta efectos la 
+notificación, para desahogar la prevención. Una vez transcurrido dicho plazo sin que la Persona Solicitante 
+haya desahogado la prevención o la información resulte insuficiente, el CENACE, en un plazo no mayor a tres 
+días hábiles, debe notificar a la Generadora el desechamiento de la solicitud. 
+13.1.7. En el caso de que la atención a la prevención se realice en tiempo y forma, el CENACE, en un 
+plazo no mayor a tres días hábiles posteriores al plazo para desahogar la prevención, debe admitir la solicitud 
+de Registro de Activos Físicos. 
+13.1.8. Una vez admitida la solicitud de Registro de Activos Físicos por el CENACE, se debe validar el 
+cumplimiento de los requisitos de medición por parte de la CFE, conforme al numeral 13.2. 
+13.1.9. Una vez que la CFE confirmó el cumplimiento de los requisitos de los Sistemas de Medición a 
+través de los resultados del diagnóstico, el CENACE debe analizar la solicitud de Registro de Activos Físicos 
+y, en su caso, declarar el estatus “aprobado” a que se refiere el numeral 4.1.6 del Manual de Registro de 
+Activo y Acreditación de Participantes del Mercado, en un plazo no mayor a veinte días hábiles. 
+13.1.10. El CENACE no puede conceder el estatus de “aprobado” a la solicitud de Registro de Activos 
+Físicos, en tanto la CFE no haya determinado que la Persona Solicitante cumple con los requisitos de los 
+Sistemas de Medición. 
+13.2. Cumplimiento de los requisitos de los Sistemas de Medición 
+13.2.1. Una vez admitida la solicitud de Registro de Activos Físicos por parte del CENACE, la CFE debe 
+iniciar la etapa de validación del cumplimiento de los requisitos de los Sistemas de Medición. 
+13.2.2. Desde la solicitud de Registro de Activos Físicos, la Central Eléctrica y el Centro de Carga deben 
+garantizar la disponibilidad del Sistema de Medición a efecto de que la CFE proceda a realizar el diagnóstico 
+de dicho sistema a través de la validación de la instalación física del Sistema de Medición y, en su caso, 
+detectar faltantes u obras necesarias para la correcta instalación del Sistema de Medición. 
+13.2.3. El diagnóstico de los Sistemas de Medición por parte de la CFE, a efecto de verificar el 
+cumplimiento de los requisitos de los Sistemas de Medición, debe observar, según el supuesto que se 
+actualice, lo siguiente: 
+a) Para el caso de proyectos nuevos, los requerimientos de los Sistemas de Medición se determinan en el 
+Estudio de Instalaciones. A través de la solicitud de Registro de Activos Físicos, a que se refiere el numeral 
+9.2, inciso a) de estos Lineamientos, la persona titular del permiso de Autoconsumo interconectado debe 
+solicitar a la CFE el diagnóstico de los Sistemas de Medición; 
+b) Para el caso de Centros de Carga existentes que solicitan incorporar un esquema de Autoconsumo, los 
+requerimientos de los Sistemas de Medición deben ser determinados por la CFE a través de la prestación del 
+servicio de ingeniería que se realice a solicitud del titular del permiso de generación de energía para 
+Autoconsumo; 

@@ -1,16 +1,16 @@
 # Graph Report - 65.-Buscador de Leyes Energía  (2026-09-18)
 
 ## Corpus Check
-- 399 files · ~14,110,203 words
+- 440 files · ~15,909,673 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 10321 nodes · 10631 edges · 352 communities (320 shown, 32 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.8)
+- 11075 nodes · 11354 edges · 389 communities (353 shown, 36 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4235e839`
+- Built from commit: `9de27c8c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -82,9 +82,16 @@
 - [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
 - [[_COMMUNITY_Community 72|Community 72]]
+- [[_COMMUNITY_Community 73|Community 73]]
 - [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 75|Community 75]]
+- [[_COMMUNITY_Community 76|Community 76]]
+- [[_COMMUNITY_Community 77|Community 77]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 79|Community 79]]
 - [[_COMMUNITY_Community 80|Community 80]]
 - [[_COMMUNITY_Community 81|Community 81]]
+- [[_COMMUNITY_Community 82|Community 82]]
 - [[_COMMUNITY_Community 83|Community 83]]
 - [[_COMMUNITY_Community 84|Community 84]]
 - [[_COMMUNITY_Community 85|Community 85]]
@@ -315,6 +322,23 @@
 - [[_COMMUNITY_Community 344|Community 344]]
 - [[_COMMUNITY_Community 345|Community 345]]
 - [[_COMMUNITY_Community 357|Community 357]]
+- [[_COMMUNITY_Community 359|Community 359]]
+- [[_COMMUNITY_Community 360|Community 360]]
+- [[_COMMUNITY_Community 361|Community 361]]
+- [[_COMMUNITY_Community 362|Community 362]]
+- [[_COMMUNITY_Community 363|Community 363]]
+- [[_COMMUNITY_Community 364|Community 364]]
+- [[_COMMUNITY_Community 365|Community 365]]
+- [[_COMMUNITY_Community 366|Community 366]]
+- [[_COMMUNITY_Community 367|Community 367]]
+- [[_COMMUNITY_Community 368|Community 368]]
+- [[_COMMUNITY_Community 369|Community 369]]
+- [[_COMMUNITY_Community 370|Community 370]]
+- [[_COMMUNITY_Community 371|Community 371]]
+- [[_COMMUNITY_Community 372|Community 372]]
+- [[_COMMUNITY_Community 373|Community 373]]
+- [[_COMMUNITY_Community 374|Community 374]]
+- [[_COMMUNITY_Community 388|Community 388]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `asignacion` - 499 edges
@@ -343,7 +367,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (352 total, 32 thin omitted)
+## Communities (389 total, 36 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
@@ -504,12 +528,18 @@ Nodes (52): addArticleCard(), addClosingSlide(), addContentShell(), addCoverFoot
 ### Community 63 - "Community 63"
 Cohesion: 0.24
 Nodes (10): { createClient }, {
-    extractLegalStructureFromText,    rebuildTextFromChunks}, fix(), supabase, extractLegalStructureFromText(), rebuildTextFromChunks(), { createClient }, {    extractLegalStructureFromText,    rebuildTextFromChunks} (+2 more)
+    extractLegalStructureFromText,
+    rebuildTextFromChunks
+}, fix(), supabase, extractLegalStructureFromText(), rebuildTextFromChunks(), { createClient }, {
+    extractLegalStructureFromText,
+    rebuildTextFromChunks
+} (+2 more)
 
 ### Community 64 - "Community 64"
 Cohesion: 0.22
 Nodes (10): { createClient }, {
-    extractLegalStructureFromPdf}, fs, main(), path, supabase, convertPdfToMarkdown(), extractLegalStructureFromPdf() (+2 more)
+    extractLegalStructureFromPdf
+}, fs, main(), path, supabase, convertPdfToMarkdown(), extractLegalStructureFromPdf() (+2 more)
 
 ### Community 65 - "Community 65"
 Cohesion: 0.00
@@ -542,17 +572,45 @@ Nodes (8): escapeHtml(), getHighlightPattern(), getTextPreview(), highlightHtml(
 Cohesion: 0.28
 Nodes (9): chunkLegalText(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), hasNumberedLineamientoStructure(), normalizeChunkContent(), normalizePodecobiLineamientoHierarchy(), parseHeading(), parseStructuralHeading() (+1 more)
 
+### Community 73 - "Community 73"
+Cohesion: 0.01
+Nodes (302): asignacion, 0, 1, 10, 100, 101, 102, 103 (+294 more)
+
 ### Community 74 - "Community 74"
 Cohesion: 0.09
 Nodes (21): articulos, estructura, incidencias_corregidas, material_complementario, metadata, articulos_ordinarios, estado_preparacion, fecha_consulta (+13 more)
 
+### Community 75 - "Community 75"
+Cohesion: 0.02
+Nodes (92): asignacion, 0, 1, 10, 11, 12, 13, 14 (+84 more)
+
+### Community 76 - "Community 76"
+Cohesion: 0.03
+Nodes (66): asignacion, 0, 1, 10, 11, 12, 13, 14 (+58 more)
+
+### Community 77 - "Community 77"
+Cohesion: 0.07
+Nodes (26): messageCode, Nota, cadenaContenido, codDiario, codEdicion, codNota, codOrgaCuatro, codOrgaDos (+18 more)
+
+### Community 78 - "Community 78"
+Cohesion: 0.07
+Nodes (26): messageCode, Nota, cadenaContenido, codDiario, codEdicion, codNota, codOrgaCuatro, codOrgaDos (+18 more)
+
+### Community 79 - "Community 79"
+Cohesion: 0.07
+Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+18 more)
+
 ### Community 80 - "Community 80"
 Cohesion: 0.12
-Nodes (20): supabase, closeEditModal(), fetchAndRenderManageLaws(), handleDeleteLaw(), handleUpdateLaw(), initAdminIngest(), initAdminManagement(), applyFilters() (+12 more)
+Nodes (16): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, supabase, applyFilters(), getArticleById() (+8 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.13
 Nodes (14): cobertura_lineas_sin_huecos, cotejo_textual, documentos_scjn, lineas_asignadas, lineas_cuerpo_pdf, lineas_excluidas_encabezados_folios, no_escrituras_supabase, nota_invalidez_preservada (+6 more)
+
+### Community 82 - "Community 82"
+Cohesion: 0.07
+Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+18 more)
 
 ### Community 83 - "Community 83"
 Cohesion: 0.13
@@ -563,8 +621,8 @@ Cohesion: 0.14
 Nodes (13): articulos, metadata, articulos_ordinarios, descripcion, fecha_publicacion, fuente, ley, palabras_totales (+5 more)
 
 ### Community 85 - "Community 85"
-Cohesion: 0.11
-Nodes (18): 10. Correcciones aplicadas y verificadas — 17 de septiembre de 2026, 11. Siete instrumentos incorporados — 17 de septiembre de 2026, 12. Servicio local y pendientes posteriores, 13. Inventario completo de Ligas de interés, posterior a las siete cargas, 14. Seis incorporaciones de reglamentos y almacenamiento — estado vigente, 15. Convocatorias y sus modificaciones incorporadas — cierre del 18 de septiembre de 2026, 1. Aplicación que se ejecuta actualmente, 2. Supabase comprobado (+10 more)
+Cohesion: 0.10
+Nodes (19): 10. Correcciones aplicadas y verificadas — 17 de septiembre de 2026, 11. Siete instrumentos incorporados — 17 de septiembre de 2026, 12. Servicio local y pendientes posteriores, 13. Inventario completo de Ligas de interés, posterior a las siete cargas, 14. Seis incorporaciones de reglamentos y almacenamiento — estado vigente, 15. Convocatorias y sus modificaciones incorporadas — cierre del 18 de septiembre de 2026, 16. Tres instrumentos de autoconsumo — estado actual al 18 de septiembre de 2026, 1. Aplicación que se ejecuta actualmente (+11 more)
 
 ### Community 86 - "Community 86"
 Cohesion: 0.18
@@ -583,8 +641,8 @@ Cohesion: 0.39
 Nodes (7): ARTICLE, norm(), ORDINAL_POINT, parseRegulatoryText(), reconstructPdfPages(), STRUCTURE_NUMBER, validateRegulatoryChunks()
 
 ### Community 90 - "Community 90"
-Cohesion: 0.08
-Nodes (27): build(), Inserciones nuevas, una transacción por instrumento. No ejecuta SQL remoto., uid(), join(), parse(), Perfiles cerrados para las seis fuentes restantes. Conserva cada línea del cuerp, build(), note() (+19 more)
+Cohesion: 0.06
+Nodes (33): build(), Inserciones nuevas, una transacción por instrumento. No ejecuta SQL remoto., uid(), join(), parse(), Perfiles cerrados para las seis fuentes restantes. Conserva cada línea del cuerp, build(), note() (+25 more)
 
 ### Community 91 - "Community 91"
 Cohesion: 0.20
@@ -759,8 +817,8 @@ Cohesion: 0.39
 Nodes (6): clean_source(), key(), norm(), parse(), Preparación local con perfiles explícitos y cotejo. No tiene acceso de escritura, tail_structure()
 
 ### Community 143 - "Community 143"
-Cohesion: 0.33
-Nodes (5): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103
+Cohesion: 0.07
+Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+18 more)
 
 ### Community 144 - "Community 144"
 Cohesion: 0.29
@@ -1422,22 +1480,74 @@ Nodes (3): fecha, project, tablas
 Cohesion: 0.15
 Nodes (12): enlaces_locales_correctos, fallos, inventory, cargadas, catalogo, cobertura, familias, pendientes (+4 more)
 
+### Community 359 - "Community 359"
+Cohesion: 0.08
+Nodes (24): messageCode, Nota, cadenaContenido, codDiario, codEdicion, codNota, codOrgaDos, codOrgaUno (+16 more)
+
+### Community 360 - "Community 360"
+Cohesion: 0.11
+Nodes (18): catalogo_antes, articulos, leyes, temas, catalogo_despues, articulos, leyes, temas (+10 more)
+
+### Community 361 - "Community 361"
+Cohesion: 0.15
+Nodes (12): chunks, control, bloques_fuente, casillas_preservadas, cobertura_total, graficos_preservados, sha256, sin_solapamientos (+4 more)
+
+### Community 362 - "Community 362"
+Cohesion: 0.15
+Nodes (12): chunks, control, bloques_fuente, casillas_preservadas, cobertura_total, graficos_preservados, sha256, sin_solapamientos (+4 more)
+
+### Community 363 - "Community 363"
+Cohesion: 0.15
+Nodes (12): chunks, control, bloques_fuente, casillas_preservadas, cobertura_total, graficos_preservados, sha256, sin_solapamientos (+4 more)
+
+### Community 364 - "Community 364"
+Cohesion: 0.24
+Nodes (9): closeEditModal(), fetchAndRenderManageLaws(), handleDeleteLaw(), handleUpdateLaw(), initAdminIngest(), initAdminManagement(), deleteLaw(), getAllLeyesAdmin() (+1 more)
+
+### Community 365 - "Community 365"
+Cohesion: 0.25
+Nodes (7): bloques, casillas, cotejo_textual_sin_perdida, graficos, instrumento, sha256, tablas
+
+### Community 366 - "Community 366"
+Cohesion: 0.25
+Nodes (7): bloques, casillas, cotejo_textual_sin_perdida, graficos, instrumento, sha256, tablas
+
+### Community 367 - "Community 367"
+Cohesion: 0.25
+Nodes (7): bloques, casillas, cotejo_textual_sin_perdida, graficos, instrumento, sha256, tablas
+
+### Community 368 - "Community 368"
+Cohesion: 0.50
+Nodes (3): fecha, project, tablas
+
+### Community 369 - "Community 369"
+Cohesion: 0.50
+Nodes (3): fecha_consulta, instrumentos, proyecto
+
+### Community 370 - "Community 370"
+Cohesion: 0.50
+Nodes (3): fecha, project, tablas
+
+### Community 388 - "Community 388"
+Cohesion: 0.20
+Nodes (9): busqueda_global, coincidencias_reportadas, consulta, documentos_reportados, tarjetas_primera_pagina, entorno, fecha_local, instrumentos (+1 more)
+
 ## Knowledge Gaps
-- **9133 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+9128 more)
+- **9823 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+9818 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **36 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `asignacion` connect `Community 177` to `Community 198`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Why does `asignacion` connect `Community 173` to `Community 194`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Why does `asignacion` connect `Community 159` to `Community 193`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _9157 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _9852 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.07180851063829788 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

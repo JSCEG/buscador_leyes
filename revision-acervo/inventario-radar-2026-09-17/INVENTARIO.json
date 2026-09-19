@@ -1,5 +1,5 @@
 {
-  "fecha_catalogo": "2026-09-17",
+  "fecha_catalogo": "2026-09-18",
   "corte_radar": "2026-09-14",
   "version_radar": "4.17",
   "fuente_radar": "C:\\Users\\User\\Documents\\Codex\\Documentos latex\\01_Proyecto_Actual\\Informe_Instrumentos_Sector_Energetico_Mexico_2024-2026.md",
@@ -10,7 +10,7 @@
     "La ausencia significa ausencia como instrumento propio en el catálogo; no prueba que el nombre o algún extracto no aparezcan en otros textos.",
     "Una fila puede agrupar documentos; una nota DOF puede contener varias leyes. Las ligas a bases jurídicas no prueban publicación del instrumento previsto.",
     "Los procesos y resultados de convocatorias por proyecto de la sección 6 quedan fuera de estos totales.",
-    "Catálogo actualizado después de las trece publicaciones de convocatorias y modificaciones; se conserva el cotejo exacto de las altas y de los 25 instrumentos anteriores."
+    "Catálogo actualizado después de los tres documentos de autoconsumo; cotejo exacto de las altas y conservación de los 38 instrumentos anteriores."
   ],
   "etiquetas_estado": {
     "pendiente": "Por cotejar e incorporar",
@@ -22,32 +22,32 @@
     "no_localizado": "Publicación no localizada en el radar"
   },
   "resumen": {
-    "instrumentos_cargados": 38,
-    "fragmentos": 3237,
-    "temas": 831,
+    "instrumentos_cargados": 41,
+    "fragmentos": 3300,
+    "temas": 904,
     "filas_radar": 179,
     "repeticiones": 15,
     "referencias_sin_repeticiones": 164,
     "urls_distintas": 163,
     "estados_sin_repeticiones": {
-      "pendiente": 104,
+      "pendiente": 101,
       "parcial": 1,
-      "cargado": 29,
+      "cargado": 32,
       "antecedente": 13,
       "portal": 10,
       "no_localizado": 3,
       "proyecto": 4
     },
     "estados_todas_las_filas": {
-      "pendiente": 115,
+      "pendiente": 112,
       "parcial": 1,
-      "cargado": 32,
+      "cargado": 35,
       "antecedente": 14,
       "portal": 10,
       "no_localizado": 3,
       "proyecto": 4
     },
-    "instrumentos_cargados_representados_en_radar": 34,
+    "instrumentos_cargados_representados_en_radar": 37,
     "instrumentos_cargados_fuera_de_seccion_12": 4,
     "convocatorias_generacion_originales": 3,
     "modificaciones_convocatorias_generacion": 10,
@@ -72,8 +72,8 @@
       "sin_repeticiones": 33,
       "estados": {
         "antecedente": 2,
-        "pendiente": 12,
-        "cargado": 14,
+        "pendiente": 11,
+        "cargado": 15,
         "portal": 2,
         "no_localizado": 3
       }
@@ -83,9 +83,9 @@
       "filas": 23,
       "sin_repeticiones": 23,
       "estados": {
-        "pendiente": 17,
+        "pendiente": 15,
         "antecedente": 3,
-        "cargado": 3
+        "cargado": 5
       }
     },
     {
@@ -213,7 +213,7 @@
         "RAD-068",
         "RAD-034"
       ],
-      "detalle": "DACG, formato y Ventanilla Única: tres referencias pendientes.",
+      "detalle": "Acuerdo de requisitos, formato y Ventanilla Única cargados; 63 fragmentos, 36 tablas y ocho casillas conservados.",
       "tratamiento": "Mantener requisitos, formatos y procedimiento identificados por separado."
     },
     {
@@ -338,6 +338,12 @@
       "nota": "Publicación oficial incorporada íntegramente como versión separada, con fecha DOF y nota editorial que enlaza el original y sus modificaciones. Calendarios y anexos conservados; no es texto consolidado ni acredita plazos abiertos."
     },
     {
+      "id": "RAD-034",
+      "antes": "FALTA EN CATALOGO",
+      "ahora": "Cargado",
+      "nota": "Lineamientos cargados con ocho capítulos, 36 numerales de segundo nivel y todos sus subnumerales e incisos, cinco transitorios y tres anexos completos. Se preservaron 24 tablas y 863 celdas."
+    },
+    {
       "id": "RAD-035",
       "antes": "FALTA EN CATALOGO",
       "ahora": "Cargado",
@@ -398,6 +404,18 @@
       "nota": "Publicación oficial incorporada íntegramente como versión separada, con fecha DOF y nota editorial que enlaza el original y sus modificaciones. Calendarios y anexos conservados; no es texto consolidado ni acredita plazos abiertos."
     },
     {
+      "id": "RAD-067",
+      "antes": "FALTA EN CATALOGO",
+      "ahora": "Cargado",
+      "nota": "Acuerdo de requisitos cargado con dos resolutivos y cuatro transitorios separados; preámbulo, firma y nota editorial identificados."
+    },
+    {
+      "id": "RAD-068",
+      "antes": "FALTA EN CATALOGO",
+      "ahora": "Cargado",
+      "nota": "Formato e instructivo completos: 12 tablas, 205 celdas y ocho casillas. Se conserva el acuerdo que lo publica y su transitorio."
+    },
+    {
       "id": "RAD-069",
       "antes": "FALTA EN CATALOGO",
       "ahora": "Cargado",
@@ -424,45 +442,17 @@
   ],
   "catalogo": [
     {
-      "id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
-      "titulo": "ACUERDO de la CNE por el que se emiten las DACG para la integración de SAE al SEN",
-      "siglas": "ACUERDO-CNE-16/04/2026-DACG-SAE",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-04-16",
+      "id": "055c877a-1eb8-5f0b-9fe2-d28bd73afe3b",
+      "titulo": "Reglamento de la Ley de la Empresa Pública del Estado, Petróleos Mexicanos",
+      "siglas": "RLEPEPM",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-12-03",
       "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5785045",
-      "fragmentos": 154,
-      "temas": 9,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LEPEPM.pdf",
+      "fragmentos": 90,
+      "temas": 24,
       "referencias_radar": [
-        "RAD-073"
-      ]
-    },
-    {
-      "id": "3811f946-9a03-580d-9d00-3487db4f5e5a",
-      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las DACG para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
-      "siglas": "FORMATOS-SAEE",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-05-22",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788270",
-      "fragmentos": 8,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-075"
-      ]
-    },
-    {
-      "id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
-      "titulo": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/09/2026]",
-      "siglas": "CONV-GEN-2-M4",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-09-10",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798361",
-      "fragmentos": 5,
-      "temas": 3,
-      "referencias_radar": [
-        "RAD-041"
+        "RAD-017"
       ]
     },
     {
@@ -480,155 +470,17 @@
       ]
     },
     {
-      "id": "373ce6df-4e78-59d9-aae5-54007a446c59",
-      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 26/05/2026]",
-      "siglas": "CONV-ESTRATEGICOS-M1",
+      "id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
+      "siglas": "AUTOCONSUMO-0.7-20",
       "tipo": "acuerdo",
-      "fecha_publicacion": "2026-05-26",
+      "fecha_publicacion": "2025-08-06",
       "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788508",
-      "fragmentos": 6,
-      "temas": 4,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5764827",
+      "fragmentos": 9,
+      "temas": 6,
       "referencias_radar": [
-        "RAD-037"
-      ]
-    },
-    {
-      "id": "84446660-e33c-512f-9975-57527758c6c7",
-      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 02/12/2025]",
-      "siglas": "CONV-GEN-1-M3",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2025-12-02",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5774850",
-      "fragmentos": 6,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-029"
-      ]
-    },
-    {
-      "id": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
-      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025 [DOF 24/10/2025]",
-      "siglas": "CONV-GEN-1-M1",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2025-10-24",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770917",
-      "fragmentos": 6,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-027"
-      ]
-    },
-    {
-      "id": "f7419b4e-49eb-5425-a439-562f25a4d581",
-      "titulo": "Acuerdo por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 26/05/2026]",
-      "siglas": "CONV-GEN-2-M1",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-05-26",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788509",
-      "fragmentos": 6,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-038"
-      ]
-    },
-    {
-      "id": "29886758-c194-5db4-86eb-8c96347f7aba",
-      "titulo": "Acuerdo por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 10/07/2026]",
-      "siglas": "CONV-ESTRATEGICOS-M2",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-07-10",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5793261",
-      "fragmentos": 28,
-      "temas": 25,
-      "referencias_radar": [
-        "RAD-045"
-      ]
-    },
-    {
-      "id": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
-      "titulo": "Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 08/06/2026]",
-      "siglas": "CONV-GEN-2-M2",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-06-08",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5789883",
-      "fragmentos": 6,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-039"
-      ]
-    },
-    {
-      "id": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
-      "titulo": "Acuerdo por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 02/09/2026]",
-      "siglas": "CONV-ESTRATEGICOS-M3",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-09-02",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5797703",
-      "fragmentos": 5,
-      "temas": 3,
-      "referencias_radar": [
-        "RAD-047"
-      ]
-    },
-    {
-      "id": "d026115a-998a-544f-bff0-39f93c04f444",
-      "titulo": "Acuerdo por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 18/06/2026]",
-      "siglas": "CONV-GEN-2-M3",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2026-06-18",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5790938",
-      "fragmentos": 6,
-      "temas": 4,
-      "referencias_radar": [
-        "RAD-040"
-      ]
-    },
-    {
-      "id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
-      "titulo": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
-      "siglas": "ACUERDO-PODECOBI-22052025",
-      "tipo": "acuerdo",
-      "fecha_publicacion": "2025-05-22",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758079&fecha=22%2F05%2F2025#gsc.tab=0",
-      "fragmentos": 42,
-      "temas": 15,
-      "referencias_radar": []
-    },
-    {
-      "id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
-      "titulo": "Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 15/05/2026]",
-      "siglas": "CONV-ESTRATEGICOS",
-      "tipo": "otros",
-      "fecha_publicacion": "2026-05-15",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5787666",
-      "fragmentos": 58,
-      "temas": 71,
-      "referencias_radar": [
-        "RAD-036"
-      ]
-    },
-    {
-      "id": "b09aa69b-381d-56ee-890d-53c42a98565f",
-      "titulo": "Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 17/10/2025]",
-      "siglas": "CONV-GEN-1",
-      "tipo": "otros",
-      "fecha_publicacion": "2025-10-17",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770299",
-      "fragmentos": 19,
-      "temas": 17,
-      "referencias_radar": [
-        "RAD-026"
+        "RAD-067"
       ]
     },
     {
@@ -646,16 +498,102 @@
       ]
     },
     {
-      "id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
-      "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
-      "siglas": "DECRETO-PODECOBI-22052025",
-      "tipo": "decreto",
-      "fecha_publicacion": "2025-05-22",
+      "id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "titulo": "Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 15/05/2026]",
+      "siglas": "CONV-ESTRATEGICOS",
+      "tipo": "otros",
+      "fecha_publicacion": "2026-05-15",
       "fecha_ultima_reforma": null,
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025#gsc.tab=0",
-      "fragmentos": 19,
-      "temas": 0,
-      "referencias_radar": []
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5787666",
+      "fragmentos": 58,
+      "temas": 71,
+      "referencias_radar": [
+        "RAD-036"
+      ]
+    },
+    {
+      "id": "266f38c4-c576-4244-9c45-0c79886cb748",
+      "titulo": "Reglamento Interior de la Secretaría de Energía",
+      "siglas": "RISENER",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-04-17",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/5755222",
+      "fragmentos": 88,
+      "temas": 12,
+      "referencias_radar": [
+        "RAD-007"
+      ]
+    },
+    {
+      "id": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "titulo": "Acuerdo por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 10/07/2026]",
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-07-10",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5793261",
+      "fragmentos": 28,
+      "temas": 25,
+      "referencias_radar": [
+        "RAD-045"
+      ]
+    },
+    {
+      "id": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "titulo": "Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 11/05/2026]",
+      "siglas": "CONV-GEN-2",
+      "tipo": "otros",
+      "fecha_publicacion": "2026-05-11",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
+      "fragmentos": 36,
+      "temas": 40,
+      "referencias_radar": [
+        "RAD-035"
+      ]
+    },
+    {
+      "id": "2e138615-d588-568b-bd94-e1a3c1032317",
+      "titulo": "Reglamento de la Ley de Biocombustibles",
+      "siglas": "RLBio",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-10-03",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LBio.pdf",
+      "fragmentos": 128,
+      "temas": 29,
+      "referencias_radar": [
+        "RAD-012"
+      ]
+    },
+    {
+      "id": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "titulo": "Acuerdo por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 02/09/2026]",
+      "siglas": "CONV-ESTRATEGICOS-M3",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-09-02",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5797703",
+      "fragmentos": 5,
+      "temas": 3,
+      "referencias_radar": [
+        "RAD-047"
+      ]
+    },
+    {
+      "id": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 26/05/2026]",
+      "siglas": "CONV-ESTRATEGICOS-M1",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-05-26",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788508",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-037"
+      ]
     },
     {
       "id": "37c89350-82df-5021-8dbe-94e8e31e1d3e",
@@ -672,6 +610,35 @@
       ]
     },
     {
+      "id": "3811f946-9a03-580d-9d00-3487db4f5e5a",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las DACG para la integración de Sistemas de Almacenamiento de Energía Eléctrica al Sistema Eléctrico Nacional",
+      "siglas": "FORMATOS-SAEE",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-05-22",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788270",
+      "fragmentos": 8,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-075"
+      ]
+    },
+    {
+      "id": "50c9b0b7-f30b-508e-9675-214eba940c33",
+      "titulo": "Ley de la Empresa Pública del Estado, Petróleos Mexicanos",
+      "siglas": "LEPEPM",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-18",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf",
+      "fragmentos": 152,
+      "temas": 25,
+      "referencias_radar": [
+        "RAD-003",
+        "RAD-097"
+      ]
+    },
+    {
       "id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
       "titulo": "Ley General de Economía Circular",
       "siglas": "LGEC",
@@ -682,32 +649,6 @@
       "fragmentos": 58,
       "temas": 22,
       "referencias_radar": []
-    },
-    {
-      "id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
-      "titulo": "Ley General de Transparencia y Acceso a la Información Pública",
-      "siglas": "LGTAIP",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-20",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf",
-      "fragmentos": 238,
-      "temas": 45,
-      "referencias_radar": []
-    },
-    {
-      "id": "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
-      "titulo": "Ley de Biocombustibles",
-      "siglas": "LBio",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-18",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf",
-      "fragmentos": 64,
-      "temas": 16,
-      "referencias_radar": [
-        "RAD-003"
-      ]
     },
     {
       "id": "5a089cfe-025d-55ee-a5a5-78bab709ea30",
@@ -724,6 +665,230 @@
       ]
     },
     {
+      "id": "625c1343-cf4a-4dad-8808-912ed50ba641",
+      "titulo": "Reglamento de la Ley de Planeación y Transición Energética",
+      "siglas": "RLPyTE",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-10-03",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0",
+      "fragmentos": 152,
+      "temas": 36,
+      "referencias_radar": [
+        "RAD-013"
+      ]
+    },
+    {
+      "id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
+      "titulo": "Reglamento de la Ley del Sector Eléctrico",
+      "siglas": "RLSE",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-10-03",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LSE.pdf",
+      "fragmentos": 335,
+      "temas": 65,
+      "referencias_radar": [
+        "RAD-011"
+      ]
+    },
+    {
+      "id": "84446660-e33c-512f-9975-57527758c6c7",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 02/12/2025]",
+      "siglas": "CONV-GEN-1-M3",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-12-02",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5774850",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-029"
+      ]
+    },
+    {
+      "id": "8574d238-79cd-562e-a902-b3a91de854f9",
+      "titulo": "Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "siglas": "LEPECFE",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-18",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf",
+      "fragmentos": 154,
+      "temas": 25,
+      "referencias_radar": [
+        "RAD-003",
+        "RAD-085"
+      ]
+    },
+    {
+      "id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "titulo": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/09/2026]",
+      "siglas": "CONV-GEN-2-M4",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-09-10",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798361",
+      "fragmentos": 5,
+      "temas": 3,
+      "referencias_radar": [
+        "RAD-041"
+      ]
+    },
+    {
+      "id": "8e404121-3502-4f47-937d-a43762c52da8",
+      "titulo": "Ley del Sector Eléctrico",
+      "siglas": "LSE",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-18",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf",
+      "fragmentos": 207,
+      "temas": 40,
+      "referencias_radar": [
+        "RAD-003"
+      ]
+    },
+    {
+      "id": "98736b95-6a9e-54f2-966e-5c7706135b43",
+      "titulo": "Reglamento de la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "siglas": "RLEPECFE",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-12-02",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LEPECFE.pdf",
+      "fragmentos": 93,
+      "temas": 23,
+      "referencias_radar": [
+        "RAD-015",
+        "RAD-016"
+      ]
+    },
+    {
+      "id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
+      "titulo": "Acuerdo por el que se emiten los Lineamientos para la implementación de la Ventanilla Única de Autoconsumo para la atención prioritaria, expedita y simultánea de trámites asociados a la generación de energía eléctrica bajo la figura de Autoconsumo",
+      "siglas": "VENTANILLA-AUTOCONSUMO",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-05-08",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5786923",
+      "fragmentos": 48,
+      "temas": 54,
+      "referencias_radar": [
+        "RAD-034"
+      ]
+    },
+    {
+      "id": "a12de3ac-bdcd-53fb-83b6-a0ec6cfe5bab",
+      "titulo": "Ley de Biocombustibles",
+      "siglas": "LBio",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-18",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf",
+      "fragmentos": 64,
+      "temas": 16,
+      "referencias_radar": [
+        "RAD-003"
+      ]
+    },
+    {
+      "id": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "titulo": "Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 17/10/2025]",
+      "siglas": "CONV-GEN-1",
+      "tipo": "otros",
+      "fecha_publicacion": "2025-10-17",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770299",
+      "fragmentos": 19,
+      "temas": 17,
+      "referencias_radar": [
+        "RAD-026"
+      ]
+    },
+    {
+      "id": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "titulo": "Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 08/06/2026]",
+      "siglas": "CONV-GEN-2-M2",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-06-08",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5789883",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-039"
+      ]
+    },
+    {
+      "id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
+      "titulo": "Reglamento de la Ley del Sector de Hidrocarburos",
+      "siglas": "RLSH",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-10-03",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769153&fecha=03/10/2025#gsc.tab=0",
+      "fragmentos": 371,
+      "temas": 88,
+      "referencias_radar": [
+        "RAD-009"
+      ]
+    },
+    {
+      "id": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+      "titulo": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
+      "siglas": "ACUERDO-PODECOBI-22052025",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-05-22",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758079&fecha=22%2F05%2F2025#gsc.tab=0",
+      "fragmentos": 42,
+      "temas": 15,
+      "referencias_radar": []
+    },
+    {
+      "id": "c0baa869-1f0b-5f6d-bf99-1ba70ab96fbc",
+      "titulo": "Reglamento de la Ley de Geotermia",
+      "siglas": "RLGeo",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-10-03",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGeo.pdf",
+      "fragmentos": 112,
+      "temas": 32,
+      "referencias_radar": [
+        "RAD-010"
+      ]
+    },
+    {
+      "id": "ca974945-9edf-5386-822a-c2755e66afc4",
+      "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
+      "siglas": "RICNE",
+      "tipo": "reglamento",
+      "fecha_publicacion": "2025-05-08",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
+      "fragmentos": 48,
+      "temas": 16,
+      "referencias_radar": [
+        "RAD-008"
+      ]
+    },
+    {
+      "id": "d026115a-998a-544f-bff0-39f93c04f444",
+      "titulo": "Acuerdo por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 18/06/2026]",
+      "siglas": "CONV-GEN-2-M3",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-06-18",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5790938",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-040"
+      ]
+    },
+    {
       "id": "d19354e7-fbf9-427b-aa91-55017b027e0a",
       "titulo": "Ley de Planeación y Transición Energética",
       "siglas": "LPTE",
@@ -732,6 +897,88 @@
       "fecha_ultima_reforma": null,
       "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf",
       "fragmentos": 113,
+      "temas": 26,
+      "referencias_radar": [
+        "RAD-003"
+      ]
+    },
+    {
+      "id": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+      "titulo": "ACUERDO de la CNE por el que se emiten las DACG para la integración de SAE al SEN",
+      "siglas": "ACUERDO-CNE-16/04/2026-DACG-SAE",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-04-16",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5785045",
+      "fragmentos": 154,
+      "temas": 9,
+      "referencias_radar": [
+        "RAD-073"
+      ]
+    },
+    {
+      "id": "d93c8b82-8df1-530a-a779-6ad965b9d206",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se publica el formato referido en el Acuerdo diverso por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
+      "siglas": "FORMATO-AUTOCONSUMO",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-10-07",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5769388",
+      "fragmentos": 6,
+      "temas": 13,
+      "referencias_radar": [
+        "RAD-068"
+      ]
+    },
+    {
+      "id": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025 [DOF 24/10/2025]",
+      "siglas": "CONV-GEN-1-M1",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-10-24",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770917",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-027"
+      ]
+    },
+    {
+      "id": "e7297529-d3df-4e69-8c01-d3d6d70e3e55",
+      "titulo": "Ley General de Transparencia y Acceso a la Información Pública",
+      "siglas": "LGTAIP",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-20",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf",
+      "fragmentos": 238,
+      "temas": 45,
+      "referencias_radar": []
+    },
+    {
+      "id": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "titulo": "Acuerdo por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 26/05/2026]",
+      "siglas": "CONV-GEN-2-M1",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-05-26",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788509",
+      "fragmentos": 6,
+      "temas": 4,
+      "referencias_radar": [
+        "RAD-038"
+      ]
+    },
+    {
+      "id": "f9170461-4ad5-5e92-bce2-e81b60209050",
+      "titulo": "Ley del Sector Hidrocarburos",
+      "siglas": "LSH",
+      "tipo": "ley",
+      "fecha_publicacion": "2025-03-18",
+      "fecha_ultima_reforma": null,
+      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf",
+      "fragmentos": 194,
       "temas": 26,
       "referencias_radar": [
         "RAD-003"
@@ -752,203 +999,16 @@
       ]
     },
     {
-      "id": "8574d238-79cd-562e-a902-b3a91de854f9",
-      "titulo": "Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad",
-      "siglas": "LEPECFE",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-18",
+      "id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
+      "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
+      "siglas": "DECRETO-PODECOBI-22052025",
+      "tipo": "decreto",
+      "fecha_publicacion": "2025-05-22",
       "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf",
-      "fragmentos": 154,
-      "temas": 25,
-      "referencias_radar": [
-        "RAD-003",
-        "RAD-085"
-      ]
-    },
-    {
-      "id": "50c9b0b7-f30b-508e-9675-214eba940c33",
-      "titulo": "Ley de la Empresa Pública del Estado, Petróleos Mexicanos",
-      "siglas": "LEPEPM",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-18",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf",
-      "fragmentos": 152,
-      "temas": 25,
-      "referencias_radar": [
-        "RAD-003",
-        "RAD-097"
-      ]
-    },
-    {
-      "id": "8e404121-3502-4f47-937d-a43762c52da8",
-      "titulo": "Ley del Sector Eléctrico",
-      "siglas": "LSE",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-18",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf",
-      "fragmentos": 207,
-      "temas": 40,
-      "referencias_radar": [
-        "RAD-003"
-      ]
-    },
-    {
-      "id": "f9170461-4ad5-5e92-bce2-e81b60209050",
-      "titulo": "Ley del Sector Hidrocarburos",
-      "siglas": "LSH",
-      "tipo": "ley",
-      "fecha_publicacion": "2025-03-18",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf",
-      "fragmentos": 194,
-      "temas": 26,
-      "referencias_radar": [
-        "RAD-003"
-      ]
-    },
-    {
-      "id": "ca974945-9edf-5386-822a-c2755e66afc4",
-      "titulo": "Reglamento Interior de la Comisión Nacional de Energía",
-      "siglas": "RICNE",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-05-08",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5756757",
-      "fragmentos": 48,
-      "temas": 16,
-      "referencias_radar": [
-        "RAD-008"
-      ]
-    },
-    {
-      "id": "266f38c4-c576-4244-9c45-0c79886cb748",
-      "titulo": "Reglamento Interior de la Secretaría de Energía",
-      "siglas": "RISENER",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-04-17",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/5755222",
-      "fragmentos": 88,
-      "temas": 12,
-      "referencias_radar": [
-        "RAD-007"
-      ]
-    },
-    {
-      "id": "2e138615-d588-568b-bd94-e1a3c1032317",
-      "titulo": "Reglamento de la Ley de Biocombustibles",
-      "siglas": "RLBio",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LBio.pdf",
-      "fragmentos": 128,
-      "temas": 29,
-      "referencias_radar": [
-        "RAD-012"
-      ]
-    },
-    {
-      "id": "c0baa869-1f0b-5f6d-bf99-1ba70ab96fbc",
-      "titulo": "Reglamento de la Ley de Geotermia",
-      "siglas": "RLGeo",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGeo.pdf",
-      "fragmentos": 112,
-      "temas": 32,
-      "referencias_radar": [
-        "RAD-010"
-      ]
-    },
-    {
-      "id": "625c1343-cf4a-4dad-8808-912ed50ba641",
-      "titulo": "Reglamento de la Ley de Planeación y Transición Energética",
-      "siglas": "RLPyTE",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0",
-      "fragmentos": 152,
-      "temas": 36,
-      "referencias_radar": [
-        "RAD-013"
-      ]
-    },
-    {
-      "id": "98736b95-6a9e-54f2-966e-5c7706135b43",
-      "titulo": "Reglamento de la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad",
-      "siglas": "RLEPECFE",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-12-02",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LEPECFE.pdf",
-      "fragmentos": 93,
-      "temas": 23,
-      "referencias_radar": [
-        "RAD-015",
-        "RAD-016"
-      ]
-    },
-    {
-      "id": "055c877a-1eb8-5f0b-9fe2-d28bd73afe3b",
-      "titulo": "Reglamento de la Ley de la Empresa Pública del Estado, Petróleos Mexicanos",
-      "siglas": "RLEPEPM",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-12-03",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LEPEPM.pdf",
-      "fragmentos": 90,
-      "temas": 24,
-      "referencias_radar": [
-        "RAD-017"
-      ]
-    },
-    {
-      "id": "7b6d37f8-5fd5-485e-bc5d-640a9b234950",
-      "titulo": "Reglamento de la Ley del Sector Eléctrico",
-      "siglas": "RLSE",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LSE.pdf",
-      "fragmentos": 335,
-      "temas": 65,
-      "referencias_radar": [
-        "RAD-011"
-      ]
-    },
-    {
-      "id": "bdfc48ed-5ff9-4746-9251-6e1fdc989c58",
-      "titulo": "Reglamento de la Ley del Sector de Hidrocarburos",
-      "siglas": "RLSH",
-      "tipo": "reglamento",
-      "fecha_publicacion": "2025-10-03",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769153&fecha=03/10/2025#gsc.tab=0",
-      "fragmentos": 371,
-      "temas": 88,
-      "referencias_radar": [
-        "RAD-009"
-      ]
-    },
-    {
-      "id": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
-      "titulo": "Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 11/05/2026]",
-      "siglas": "CONV-GEN-2",
-      "tipo": "otros",
-      "fecha_publicacion": "2026-05-11",
-      "fecha_ultima_reforma": null,
-      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
-      "fragmentos": 36,
-      "temas": 40,
-      "referencias_radar": [
-        "RAD-035"
-      ]
+      "url_original": "https://www.dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025#gsc.tab=0",
+      "fragmentos": 19,
+      "temas": 0,
+      "referencias_radar": []
     }
   ],
   "filas": [
@@ -2046,9 +2106,9 @@
       "tipo_radar": "Lineamientos",
       "titulo_radar": "Ventanilla Única de Autoconsumo",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
+      "titulo_en_supabase": "Acuerdo por el que se emiten los Lineamientos para la implementación de la Ventanilla Única de Autoconsumo para la atención prioritaria, expedita y simultánea de trámites asociados a la generación de energía eléctrica bajo la figura de Autoconsumo",
       "codigos_dof": [
         "5786923"
       ],
@@ -2058,14 +2118,16 @@
           "url": "https://sidof.segob.gob.mx/notas/5786923"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Lineamientos cargados con ocho capítulos, 36 numerales de segundo nivel y todos sus subnumerales e incisos, cinco transitorios y tres anexos completos. Se preservaron 24 tablas y 863 celdas.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Autoconsumo"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "9ec1ad6e-375e-5248-ac10-cb9971d4424c"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-034"
     },
@@ -3109,9 +3171,9 @@
       "tipo_radar": "Acuerdo",
       "titulo_radar": "Permiso de autoconsumo interconectado de 0.7 a 20 MW",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
       "codigos_dof": [
         "5764827"
       ],
@@ -3121,14 +3183,16 @@
           "url": "https://sidof.segob.gob.mx/notas/5764827"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Acuerdo de requisitos cargado con dos resolutivos y cuatro transitorios separados; preámbulo, firma y nota editorial identificados.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Autoconsumo"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "156449fb-698e-59bf-a9e1-06f1e9dafa85"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-067"
     },
@@ -3142,9 +3206,9 @@
       "tipo_radar": "Formato",
       "titulo_radar": "Autoconsumo interconectado 0.7-20 MW",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "d93c8b82-8df1-530a-a779-6ad965b9d206",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se publica el formato referido en el Acuerdo diverso por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
       "codigos_dof": [
         "5769388"
       ],
@@ -3154,14 +3218,16 @@
           "url": "https://sidof.segob.gob.mx/notas/5769388"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Formato e instructivo completos: 12 tablas, 205 celdas y ocho casillas. Se conserva el acuerdo que lo publica y su transitorio.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [
         "Autoconsumo"
       ],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "d93c8b82-8df1-530a-a779-6ad965b9d206"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-068"
     },

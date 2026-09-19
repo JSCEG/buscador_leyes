@@ -1,0 +1,52 @@
+Viernes 8 de mayo de 2026 DIARIO OFICIAL 45 
+COORDENADAS DE LA SUBESTACIÓN ELÉCTRICA DEL PROYECTO DE AUTOCONSUMO 
+(En donde se indique la ubicación del Grupo de Autoconsumo, que comprende la Central Eléctrica y Centro de Carga, y el 
+Sistema de Almacenamiento de Energía Eléctrica con la Subestación Eléctrica)
+1. Vértices Latitud Longitud 
+ Vértice A 
+ Vértice B 
+ Vértice C 
+ + Agregar vértice 
+2. Plano georreferenciado de la ubicación de la 
+Subestación de en formato .KML o .KMZ: 
+ 
+DATOS DE IDENTIFICACIÓN DE LA CENTRAL ELÉCTRICA
+1. Estatus de la Central Eléctrica:  Nueva 
+ Existente 
+2. Nombre de la Central Eléctrica y Acrónimo del 
+CENACE: 
+ 
+3. Clave de la Central Eléctrica (En caso de central 
+existente): 
+ 
+4. Tipo de Tecnología:  Configuración híbrida (En caso de seleccionar esta 
+opción, se permite indicar más de un tipo de 
+tecnología. Para cada una de ellas, debe capturarse 
+la información específica correspondiente) 
+ Solar 
+○ Fotovoltaica 
+○ Termo solar 
+ Eólica 
+○ Onshore 
+○ Offshore 
+ Hidráulica 
+○ Embalse 
+○ Filo de Agua 
+○ Mareomotriz 
+ Térmica 
+○ Vapor 
+○ Ciclo Combinado 
+○ Turbo gas 
+○ Combustión Interna 
+ Cogeneración 
+○ Vapor 
+○ Ciclo Combinado 
+○ Turbo gas 
+○ Combustión Interna 
+ Bioenergía 
+○ Biomasa 
+○ Biogás 
+CENTRALES ELÉCTRICAS CON FUENTE PRIMARIA BIOGÁS O BIOMASA
+1. Energía bruta en MWh estimada a producir 
+mensualmente: 
+2. Perfil horario/mensual de producción MWh: 

@@ -1,0 +1,52 @@
+{
+  "fecha_local": "2026-09-18",
+  "entorno": "https://buscador-leyes-jav.pages.dev/",
+  "instrumentos": [
+    {
+      "siglas": "AUTOCONSUMO-0.7-20",
+      "ley_id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "tarjetas_directas": 9,
+      "tarjetas_anidadas": 0,
+      "modal_revisado": "Resolutivo Primero: nueve requisitos romanos conservados"
+    },
+    {
+      "siglas": "FORMATO-AUTOCONSUMO",
+      "ley_id": "d93c8b82-8df1-530a-a779-6ad965b9d206",
+      "tarjetas_directas": 6,
+      "tarjetas_anidadas": 0,
+      "modal_revisado": "Formato completo e instructivo",
+      "tablas": 12,
+      "celdas": 205,
+      "casillas": 8,
+      "instructivo_presente": true,
+      "cierre_por_definir_presente": true
+    },
+    {
+      "siglas": "VENTANILLA-AUTOCONSUMO",
+      "ley_id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
+      "tarjetas_directas_tras_cargar_mas": 48,
+      "tarjetas_anidadas": 0,
+      "anexos": [
+        {"nombre": "A", "tablas": 22, "celdas": 861, "cierre_aceptada_por_la_persona_solicitante_presente": true},
+        {"nombre": "B", "tablas": 1, "celdas": 1, "desborde_documento": false},
+        {"nombre": "C", "tablas": 1, "celdas": 1, "desborde_documento": false}
+      ],
+      "anexo_a_movil": {
+        "ancho_ventana": 390,
+        "alto_ventana": 844,
+        "ancho_documento": 385,
+        "ancho_modal": 345,
+        "tablas": 22,
+        "celdas": 861,
+        "desborde_documento": false
+      }
+    }
+  ],
+  "busqueda_global": {
+    "consulta": "autoconsumo",
+    "coincidencias_reportadas": 149,
+    "documentos_reportados": 18,
+    "tarjetas_primera_pagina": 10
+  },
+  "limites": "Comprobación en navegador de las vistas indicadas; no equivale a una certificación jurídica ni a una prueba exhaustiva de cada tamaño de pantalla. La carga exacta completa se acredita separadamente en VERIFICACION.json. Se observó el error previo por ausencia de ley_relaciones; no se creó esa tabla en este bloque."
+}

@@ -1,0 +1,45 @@
+Viernes 8 de mayo de 2026 DIARIO OFICIAL 49 
+DATOS DE IDENTIFICACIÓN DEL SISTEMA DE ALMACENAMIENTO DE ENERGÍA ELÉCTRICA (SAEE)
+1. El proyecto ya cuenta con respaldo; indicar si se 
+desea incorporar un nuevo Sistema de 
+Almacenamiento de Energía Eléctrica (SAEE). 
+ Sí 
+ No 
+(SÍ) 
+En caso de incorporar un nuevo SAEE, se debe llenar la información correspondiente al nuevo 
+Sistema de Almacenamiento de Energía Eléctrica.
+2. ¿El SAEE inyectará energía eléctrica a la RNT o a 
+las RGD? 
+ Red Nacional de Transmisión 
+ Red General de Distribución 
+3. Tecnología que utiliza el SAEE: Solo se puede seleccionar un tipo de tecnología 
+ Almacenamiento electroquímico (baterías) 
+ Almacenamiento mecánico 
+ Almacenamiento por rebombeo hidráulico 
+ Almacenamiento por volantes de inercia 
+ Almacenamiento gravitacional 
+ Almacenamiento térmico 
+ Almacenamiento por aire comprimido 
+ Almacenamiento químico (hidrógeno, amoniaco verde)
+ Periféricos asociados 
+ Otro (Especificar): 
+4. Capacidad de Almacenamiento (MW): 
+5. Indicar Potencia del SAEE (MW): 
+6. Tiempo de respuesta (seg) 
+7. Velocidad de carga (MW/min) 
+8. Velocidad de descarga (MW/min) 
+9. Profundidad de Descarga o DOD, por sus siglas 
+en inglés, Depth Of Discharge: 
+ 
+10. Perfil de potencia horario del SAEE: 
+11. Indicar corriente de falla que soporta el SAEE: 
+Seleccionar el(los) modos(s) de operación para 
+elaboración de estudios: 
+ Compensación de los efectos asociados a la 
+Variabilidad de la fuente primaria de energía; 
+ Operación en modo de descarga del SAEE para el 
+MEM; 
+ Operación en modo carga del SAEE desde la RNT, o 
+ Cualquier combinación de las tres opciones 
+anteriores. 
+Indicar método de carga del SAEE: 
