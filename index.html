@@ -68,8 +68,8 @@
             scrollbar-width: thin;
         }
     </style>
-  <script type="module" crossorigin src="/assets/index-CghI2-fk.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DRmCSvxg.css">
+  <script type="module" crossorigin src="/assets/index-BftrDdTy.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BuB4447m.css">
 </head>
 
 <body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
@@ -728,7 +728,7 @@
     <div id="detail-modal"
         class="fixed inset-0 z-50 bg-white/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8 transition-opacity duration-300">
         <div class="bg-white w-full max-w-2xl max-h-full rounded-2xl shadow-2xl border border-gray-100 flex flex-col transform scale-95 opacity-0 transition-all duration-300"
-            id="modal-panel">
+            id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
             <div class="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-50/80">
                 <div class="flex flex-col">
                     <button id="modal-ley"
@@ -763,9 +763,20 @@
                     </button>
                 </div>
             </div>
-            <div id="modal-content"
-                class="p-8 overflow-y-auto prose prose-sm max-w-none prose-headings:font-head prose-a:text-guinda">
-                <!-- Content -->
+            <div class="reader-toolbar">
+                <div class="reader-modes" role="group" aria-label="Vista del documento">
+                    <button type="button" data-reader-mode="text" aria-pressed="true" aria-controls="modal-content">Texto</button>
+                    <button type="button" data-reader-mode="original" aria-pressed="false" aria-controls="reader-original">PDF original</button>
+                    <button type="button" data-reader-mode="split" aria-pressed="false" aria-controls="reader-body">Texto y PDF</button>
+                </div>
+                <div id="reader-settings-slot"></div>
+            </div>
+            <div id="reader-body" data-mode="text">
+                <div id="modal-content" tabindex="0" aria-label="Texto de la disposición"
+                    class="p-8 overflow-y-auto prose prose-sm max-w-none prose-headings:font-head prose-a:text-guinda">
+                    <!-- Content -->
+                </div>
+                <section id="reader-original" class="hidden" aria-label="Documento original"></section>
             </div>
             <div
                 class="px-5 py-3 border-t border-gray-50 bg-[#FAFAF9] rounded-b-2xl flex items-center justify-between gap-4">
