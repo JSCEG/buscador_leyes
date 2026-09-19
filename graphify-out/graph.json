@@ -1593,7 +1593,7 @@
       "source_file": "docs/diseno-premium-2026-09-19/assets/feather.min.js",
       "source_location": "L12",
       "id": "assets_feather_min_e",
-      "community": 68,
+      "community": 92,
       "norm_label": "e()"
     },
     {
@@ -97668,7 +97668,7 @@
       "source_file": "src/main.js",
       "source_location": "L1",
       "id": "src_main_js",
-      "community": 80,
+      "community": 0,
       "norm_label": "main.js"
     },
     {
@@ -97677,7 +97677,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L1",
       "id": "src_data_explorer_catalog_json",
-      "community": 462,
+      "community": 92,
       "norm_label": "explorer-catalog.json"
     },
     {
@@ -97686,7 +97686,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L2",
       "id": "data_explorer_catalog_schemaversion",
-      "community": 462,
+      "community": 92,
       "norm_label": "schemaversion"
     },
     {
@@ -97695,7 +97695,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L3",
       "id": "data_explorer_catalog_revision",
-      "community": 462,
+      "community": 92,
       "norm_label": "revision"
     },
     {
@@ -97704,7 +97704,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L4",
       "id": "data_explorer_catalog_updatedat",
-      "community": 462,
+      "community": 92,
       "norm_label": "updatedat"
     },
     {
@@ -97713,7 +97713,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L5",
       "id": "data_explorer_catalog_topics",
-      "community": 462,
+      "community": 92,
       "norm_label": "topics"
     },
     {
@@ -97722,7 +97722,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L85",
       "id": "data_explorer_catalog_entities",
-      "community": 462,
+      "community": 92,
       "norm_label": "entities"
     },
     {
@@ -97731,7 +97731,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L832",
       "id": "data_explorer_catalog_relations",
-      "community": 462,
+      "community": 92,
       "norm_label": "relations"
     },
     {
@@ -97740,7 +97740,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L1394",
       "id": "data_explorer_catalog_migrationnotes",
-      "community": 462,
+      "community": 92,
       "norm_label": "migrationnotes"
     },
     {
@@ -97902,7 +97902,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L1",
       "id": "src_lib_article_preview_js",
-      "community": 463,
+      "community": 402,
       "norm_label": "article-preview.js"
     },
     {
@@ -97911,7 +97911,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L2",
       "id": "lib_article_preview_gettextpreview",
-      "community": 463,
+      "community": 402,
       "norm_label": "gettextpreview()"
     },
     {
@@ -97920,7 +97920,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L17",
       "id": "lib_article_preview_stop_words_es",
-      "community": 463,
+      "community": 402,
       "norm_label": "stop_words_es"
     },
     {
@@ -97929,7 +97929,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L26",
       "id": "lib_article_preview_gethighlightpattern",
-      "community": 463,
+      "community": 402,
       "norm_label": "gethighlightpattern()"
     },
     {
@@ -97938,7 +97938,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L42",
       "id": "lib_article_preview_escapehtml",
-      "community": 463,
+      "community": 402,
       "norm_label": "escapehtml()"
     },
     {
@@ -97947,7 +97947,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L46",
       "id": "lib_article_preview_highlightwithpattern",
-      "community": 463,
+      "community": 402,
       "norm_label": "highlightwithpattern()"
     },
     {
@@ -97956,7 +97956,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L52",
       "id": "lib_article_preview_highlighttext",
-      "community": 463,
+      "community": 402,
       "norm_label": "highlighttext()"
     },
     {
@@ -97965,7 +97965,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L57",
       "id": "lib_article_preview_highlighthtml",
-      "community": 463,
+      "community": 402,
       "norm_label": "highlighthtml()"
     },
     {
@@ -98237,6 +98237,105 @@
       "id": "lib_explorer_store_getexplorerrevision",
       "community": 68,
       "norm_label": "getexplorerrevision()"
+    },
+    {
+      "label": "instrument-timeline.js",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L1",
+      "id": "src_lib_instrument_timeline_js",
+      "community": 70,
+      "norm_label": "instrument-timeline.js"
+    },
+    {
+      "label": "text()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L4",
+      "id": "lib_instrument_timeline_text",
+      "community": 70,
+      "norm_label": "text()"
+    },
+    {
+      "label": "normalize()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L5",
+      "id": "lib_instrument_timeline_normalize",
+      "community": 70,
+      "norm_label": "normalize()"
+    },
+    {
+      "label": "months",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L6",
+      "id": "lib_instrument_timeline_months",
+      "community": 70,
+      "norm_label": "months"
+    },
+    {
+      "label": "verbs",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L7",
+      "id": "lib_instrument_timeline_verbs",
+      "community": 70,
+      "norm_label": "verbs"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L8",
+      "id": "lib_instrument_timeline_types",
+      "community": 70,
+      "norm_label": "types"
+    },
+    {
+      "label": "timelineDate()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L10",
+      "id": "lib_instrument_timeline_timelinedate",
+      "community": 70,
+      "norm_label": "timelinedate()"
+    },
+    {
+      "label": "timelineSource()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L16",
+      "id": "lib_instrument_timeline_timelinesource",
+      "community": 70,
+      "norm_label": "timelinesource()"
+    },
+    {
+      "label": "editorialReferences()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L24",
+      "id": "lib_instrument_timeline_editorialreferences",
+      "community": 70,
+      "norm_label": "editorialreferences()"
+    },
+    {
+      "label": "complementDate()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L41",
+      "id": "lib_instrument_timeline_complementdate",
+      "community": 70,
+      "norm_label": "complementdate()"
+    },
+    {
+      "label": "buildInstrumentTimeline()",
+      "file_type": "code",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L57",
+      "id": "lib_instrument_timeline_buildinstrumenttimeline",
+      "community": 70,
+      "norm_label": "buildinstrumenttimeline()"
     },
     {
       "label": "reader-preferences.js",
@@ -98541,7 +98640,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L1",
       "id": "src_lib_supabase_js",
-      "community": 80,
+      "community": 68,
       "norm_label": "supabase.js"
     },
     {
@@ -98550,7 +98649,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L6",
       "id": "lib_supabase_supabase",
-      "community": 80,
+      "community": 68,
       "norm_label": "supabase"
     },
     {
@@ -98667,7 +98766,7 @@
       "source_file": "src/scripts/admin-ingest.js",
       "source_location": "L25",
       "id": "scripts_admin_ingest_initadminingest",
-      "community": 80,
+      "community": 0,
       "norm_label": "initadminingest()"
     },
     {
@@ -98964,7 +99063,7 @@
       "source_file": "src/scripts/admin-management.js",
       "source_location": "L1",
       "id": "src_scripts_admin_management_js",
-      "community": 80,
+      "community": 0,
       "norm_label": "admin-management.js"
     },
     {
@@ -98973,7 +99072,7 @@
       "source_file": "src/scripts/admin-management.js",
       "source_location": "L3",
       "id": "scripts_admin_management_initadminmanagement",
-      "community": 80,
+      "community": 0,
       "norm_label": "initadminmanagement()"
     },
     {
@@ -98991,7 +99090,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L1",
       "id": "src_scripts_auth_js",
-      "community": 80,
+      "community": 402,
       "norm_label": "auth.js"
     },
     {
@@ -99000,7 +99099,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L4",
       "id": "scripts_auth_authlisteners",
-      "community": 80,
+      "community": 402,
       "norm_label": "authlisteners"
     },
     {
@@ -99009,7 +99108,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L7",
       "id": "scripts_auth_notifyauthlisteners",
-      "community": 80,
+      "community": 402,
       "norm_label": "notifyauthlisteners()"
     },
     {
@@ -99018,7 +99117,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L11",
       "id": "scripts_auth_initauth",
-      "community": 80,
+      "community": 402,
       "norm_label": "initauth()"
     },
     {
@@ -99027,7 +99126,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L30",
       "id": "scripts_auth_getcurrentuser",
-      "community": 80,
+      "community": 402,
       "norm_label": "getcurrentuser()"
     },
     {
@@ -99036,7 +99135,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L34",
       "id": "scripts_auth_isloggedin",
-      "community": 80,
+      "community": 402,
       "norm_label": "isloggedin()"
     },
     {
@@ -99054,7 +99153,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L46",
       "id": "scripts_auth_onauthchange",
-      "community": 80,
+      "community": 402,
       "norm_label": "onauthchange()"
     },
     {
@@ -99063,7 +99162,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L51",
       "id": "scripts_auth_login",
-      "community": 80,
+      "community": 402,
       "norm_label": "login()"
     },
     {
@@ -99072,7 +99171,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L57",
       "id": "scripts_auth_register",
-      "community": 80,
+      "community": 402,
       "norm_label": "register()"
     },
     {
@@ -99081,7 +99180,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L74",
       "id": "scripts_auth_logout",
-      "community": 80,
+      "community": 402,
       "norm_label": "logout()"
     },
     {
@@ -99090,7 +99189,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L81",
       "id": "scripts_auth_dbgetfavorites",
-      "community": 80,
+      "community": 402,
       "norm_label": "dbgetfavorites()"
     },
     {
@@ -99099,7 +99198,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L92",
       "id": "scripts_auth_dbaddfavorite",
-      "community": 80,
+      "community": 402,
       "norm_label": "dbaddfavorite()"
     },
     {
@@ -99108,7 +99207,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L101",
       "id": "scripts_auth_dbremovefavorite",
-      "community": 80,
+      "community": 402,
       "norm_label": "dbremovefavorite()"
     },
     {
@@ -99117,7 +99216,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L112",
       "id": "scripts_auth_dbgetallnotes",
-      "community": 80,
+      "community": 402,
       "norm_label": "dbgetallnotes()"
     },
     {
@@ -99126,7 +99225,7 @@
       "source_file": "src/scripts/auth.js",
       "source_location": "L125",
       "id": "scripts_auth_dbsavenote",
-      "community": 80,
+      "community": 402,
       "norm_label": "dbsavenote()"
     },
     {
@@ -99162,7 +99261,7 @@
       "source_file": "src/scripts/explorer-editor.js",
       "source_location": "L9",
       "id": "scripts_explorer_editor_option",
-      "community": 68,
+      "community": 92,
       "norm_label": "option()"
     },
     {
@@ -99171,7 +99270,7 @@
       "source_file": "src/scripts/explorer-editor.js",
       "source_location": "L10",
       "id": "scripts_explorer_editor_input",
-      "community": 68,
+      "community": 92,
       "norm_label": "input()"
     },
     {
@@ -99180,7 +99279,7 @@
       "source_file": "src/scripts/explorer-editor.js",
       "source_location": "L11",
       "id": "scripts_explorer_editor_textarea",
-      "community": 68,
+      "community": 92,
       "norm_label": "textarea()"
     },
     {
@@ -99234,7 +99333,7 @@
       "source_file": "src/scripts/explorer-view.js",
       "source_location": "L18",
       "id": "scripts_explorer_view_icon",
-      "community": 92,
+      "community": 389,
       "norm_label": "icon()"
     },
     {
@@ -99389,6 +99488,33 @@
       "id": "scripts_explorer_view_renderanalisisview",
       "community": 92,
       "norm_label": "renderanalisisview()"
+    },
+    {
+      "label": "instrument-timeline-view.js",
+      "file_type": "code",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L1",
+      "id": "src_scripts_instrument_timeline_view_js",
+      "community": 70,
+      "norm_label": "instrument-timeline-view.js"
+    },
+    {
+      "label": "dateText()",
+      "file_type": "code",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L5",
+      "id": "scripts_instrument_timeline_view_datetext",
+      "community": 70,
+      "norm_label": "datetext()"
+    },
+    {
+      "label": "renderInstrumentTimeline()",
+      "file_type": "code",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L7",
+      "id": "scripts_instrument_timeline_view_renderinstrumenttimeline",
+      "community": 70,
+      "norm_label": "renderinstrumenttimeline()"
     },
     {
       "label": "law-presentation.js",
@@ -99954,7 +100080,7 @@
       "source_file": "src/scripts/reader-controls.js",
       "source_location": "L4",
       "id": "scripts_reader_controls_readercontrolshtml",
-      "community": 80,
+      "community": 402,
       "norm_label": "readercontrolshtml()"
     },
     {
@@ -100170,16 +100296,16 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L1",
       "id": "src_scripts_ui_js",
-      "community": 80,
+      "community": 402,
       "norm_label": "ui.js"
     },
     {
       "label": "initUI()",
       "file_type": "code",
       "source_file": "src/scripts/ui.js",
-      "source_location": "L12",
+      "source_location": "L13",
       "id": "scripts_ui_initui",
-      "community": 80,
+      "community": 402,
       "norm_label": "initui()"
     },
     {
@@ -100251,7 +100377,7 @@
       "source_file": "tests/article-preview.test.js",
       "source_location": "L1",
       "id": "tests_article_preview_test_js",
-      "community": 463,
+      "community": 402,
       "norm_label": "article-preview.test.js"
     },
     {
@@ -100260,7 +100386,7 @@
       "source_file": "tests/article-preview.test.js",
       "source_location": "L5",
       "id": "tests_article_preview_test_publication",
-      "community": 463,
+      "community": 402,
       "norm_label": "publication"
     },
     {
@@ -100359,7 +100485,7 @@
       "source_file": "tests/explorer-view.test.js",
       "source_location": "L1",
       "id": "tests_explorer_view_test_js",
-      "community": 462,
+      "community": 92,
       "norm_label": "explorer-view.test.js"
     },
     {
@@ -100368,7 +100494,7 @@
       "source_file": "tests/explorer-view.test.js",
       "source_location": "L4",
       "id": "tests_explorer_view_test_services",
-      "community": 462,
+      "community": 92,
       "norm_label": "services"
     },
     {
@@ -100377,8 +100503,53 @@
       "source_file": "tests/explorer-view.test.js",
       "source_location": "L11",
       "id": "tests_explorer_view_test_clone",
-      "community": 462,
+      "community": 92,
       "norm_label": "clone()"
+    },
+    {
+      "label": "instrument-timeline.test.js",
+      "file_type": "code",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L1",
+      "id": "tests_instrument_timeline_test_js",
+      "community": 70,
+      "norm_label": "instrument-timeline.test.js"
+    },
+    {
+      "label": "summaries",
+      "file_type": "code",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L7",
+      "id": "tests_instrument_timeline_test_summaries",
+      "community": 70,
+      "norm_label": "summaries"
+    },
+    {
+      "label": "raw",
+      "file_type": "code",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L8",
+      "id": "tests_instrument_timeline_test_raw",
+      "community": 70,
+      "norm_label": "raw"
+    },
+    {
+      "label": "articlesFor()",
+      "file_type": "code",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L9",
+      "id": "tests_instrument_timeline_test_articlesfor",
+      "community": 70,
+      "norm_label": "articlesfor()"
+    },
+    {
+      "label": "dataFor()",
+      "file_type": "code",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L10",
+      "id": "tests_instrument_timeline_test_datafor",
+      "community": 70,
+      "norm_label": "datafor()"
     },
     {
       "label": "legal-ingest-pipeline.test.js",
@@ -102854,6 +103025,24 @@
       "id": "lector_2026_09_19_readme_distinci\u00f3n_visual_de_documentos_relacionados",
       "community": 459,
       "norm_label": "distincion visual de documentos relacionados"
+    },
+    {
+      "label": "Navegaci\u00f3n, portada y tema",
+      "file_type": "document",
+      "source_file": "docs/lector-2026-09-19/README.md",
+      "source_location": "L81",
+      "id": "lector_2026_09_19_readme_navegaci\u00f3n_portada_y_tema",
+      "community": 459,
+      "norm_label": "navegacion, portada y tema"
+    },
+    {
+      "label": "Cronolog\u00eda para todos los instrumentos",
+      "file_type": "document",
+      "source_file": "docs/lector-2026-09-19/README.md",
+      "source_location": "L89",
+      "id": "lector_2026_09_19_readme_cronolog\u00eda_para_todos_los_instrumentos",
+      "community": 459,
+      "norm_label": "cronologia para todos los instrumentos"
     },
     {
       "label": "GUIA_ESTILOS_WEB.md",
@@ -216419,6 +216608,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "src_lib_acervo_model_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -216568,6 +216768,17 @@
       "confidence_score": 1.0,
       "source": "lib_acervo_model_groupacervo",
       "target": "lib_acervo_model_getacervogroup"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_acervo_model_getacervogroup",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -217047,6 +217258,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_scripts_instrument_timeline_view_js",
+      "target": "src_lib_explorer_model_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/explorer-model.test.js",
       "source_location": "L4",
       "weight": 1.0,
@@ -217328,6 +217550,17 @@
       "confidence_score": 1.0,
       "source": "src_scripts_explorer_view_js",
       "target": "lib_explorer_model_escapehtml"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_scripts_instrument_timeline_view_js",
+      "target": "lib_explorer_model_escapehtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -217733,6 +217966,326 @@
       "confidence_score": 1.0,
       "source": "src_scripts_explorer_editor_js",
       "target": "lib_explorer_store_getexplorerrevision"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_buildinstrumenttimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_complementdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_editorialreferences",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_months",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_timelinedate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_timelinesource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_instrument_timeline_verbs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "lib_related_document_relateddocumentlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_lib_instrument_timeline_js",
+      "target": "src_lib_related_document_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_scripts_instrument_timeline_view_js",
+      "target": "src_lib_instrument_timeline_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "src_lib_instrument_timeline_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_complementdate",
+      "target": "lib_instrument_timeline_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_editorialreferences",
+      "target": "lib_instrument_timeline_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_normalize",
+      "target": "lib_instrument_timeline_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_timelinedate",
+      "target": "lib_instrument_timeline_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_complementdate",
+      "target": "lib_instrument_timeline_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_editorialreferences",
+      "target": "lib_instrument_timeline_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_complementdate",
+      "target": "lib_instrument_timeline_timelinedate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "lib_instrument_timeline_timelinedate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_buildinstrumenttimeline",
+      "target": "lib_instrument_timeline_timelinesource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "lib_instrument_timeline_timelinesource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_buildinstrumenttimeline",
+      "target": "lib_instrument_timeline_editorialreferences",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_buildinstrumenttimeline",
+      "target": "lib_instrument_timeline_complementdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/instrument-timeline.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "lib_instrument_timeline_buildinstrumenttimeline",
+      "target": "lib_related_document_relateddocumentlabel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "scripts_instrument_timeline_view_renderinstrumenttimeline",
+      "target": "lib_instrument_timeline_buildinstrumenttimeline"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_scripts_instrument_timeline_view_js",
+      "target": "lib_instrument_timeline_buildinstrumenttimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "lib_instrument_timeline_buildinstrumenttimeline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -221066,6 +221619,70 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_scripts_instrument_timeline_view_js",
+      "target": "scripts_instrument_timeline_view_datetext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/instrument-timeline-view.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_scripts_instrument_timeline_view_js",
+      "target": "scripts_instrument_timeline_view_renderinstrumenttimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "src_scripts_instrument_timeline_view_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "src_scripts_instrument_timeline_view_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "scripts_instrument_timeline_view_renderinstrumenttimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "scripts_instrument_timeline_view_renderinstrumenttimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/scripts/law-presentation.js",
       "source_location": "L452",
       "weight": 1.0,
@@ -223111,9 +223728,9 @@
       "source_file": "tests/ui-explorer.test.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_ui_explorer_test_js",
-      "target": "scripts_search_engine_getarticlesbylaw",
-      "confidence_score": 1.0
+      "target": "scripts_search_engine_getarticlesbylaw"
     },
     {
       "relation": "imports",
@@ -223405,6 +224022,57 @@
       "confidence_score": 1.0,
       "source": "tests_explorer_view_test_js",
       "target": "tests_explorer_view_test_services"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "tests_instrument_timeline_test_articlesfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "tests_instrument_timeline_test_datafor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "tests_instrument_timeline_test_raw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_js",
+      "target": "tests_instrument_timeline_test_summaries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/instrument-timeline.test.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tests_instrument_timeline_test_datafor",
+      "target": "tests_instrument_timeline_test_articlesfor",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -225901,10 +226569,30 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/lector-2026-09-19/README.md",
-      "source_location": "L73",
+      "source_location": "L89",
       "weight": 1.0,
       "source": "lector_2026_09_19_readme_ampliaci\u00f3n_pendiente",
-      "target": "lector_2026_09_19_readme_distinci\u00f3n_visual_de_documentos_relacionados",
+      "target": "lector_2026_09_19_readme_cronolog\u00eda_para_todos_los_instrumentos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/lector-2026-09-19/README.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lector_2026_09_19_readme_ampliaci\u00f3n_pendiente",
+      "target": "lector_2026_09_19_readme_distinci\u00f3n_visual_de_documentos_relacionados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/lector-2026-09-19/README.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "lector_2026_09_19_readme_ampliaci\u00f3n_pendiente",
+      "target": "lector_2026_09_19_readme_navegaci\u00f3n_portada_y_tema",
       "confidence_score": 1.0
     },
     {
@@ -228766,5 +229454,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "839e6871a5efca6c0525c6dda45795ee1afebdc1"
+  "built_at_commit": "41ec879b41ef9c7c01f9bbec75b87969414b98fc"
 }

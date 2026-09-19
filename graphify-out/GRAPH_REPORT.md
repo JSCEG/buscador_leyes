@@ -1,16 +1,16 @@
 # Graph Report - 65.-Buscador de Leyes Energía  (2026-09-19)
 
 ## Corpus Check
-- 486 files · ~16,171,760 words
+- 489 files · ~16,173,691 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 11750 nodes · 12214 edges · 462 communities (420 shown, 42 thin omitted)
+- 11771 nodes · 12261 edges · 461 communities (419 shown, 42 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `839e6871`
+- Built from commit: `41ec879b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -79,6 +79,7 @@
 - [[_COMMUNITY_Community 67|Community 67]]
 - [[_COMMUNITY_Community 68|Community 68]]
 - [[_COMMUNITY_Community 69|Community 69]]
+- [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
 - [[_COMMUNITY_Community 72|Community 72]]
 - [[_COMMUNITY_Community 73|Community 73]]
@@ -407,8 +408,6 @@
 - [[_COMMUNITY_Community 454|Community 454]]
 - [[_COMMUNITY_Community 455|Community 455]]
 - [[_COMMUNITY_Community 459|Community 459]]
-- [[_COMMUNITY_Community 462|Community 462]]
-- [[_COMMUNITY_Community 463|Community 463]]
 - [[_COMMUNITY_Community 465|Community 465]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -424,25 +423,25 @@
 10. `asignacion` - 418 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `filtered()` --calls--> `normalize()`  [INFERRED]
+  docs/diseno-premium-2026-09-19/prototipo.js → src/lib/explorer-model.js
+- `openExplorerEditor()` --calls--> `e()`  [INFERRED]
+  src/scripts/explorer-editor.js → docs/diseno-premium-2026-09-19/assets/feather.min.js
+- `main()` --calls--> `extractLegalStructureFromPdf()`  [EXTRACTED]
+  ingestar_pdf.js → legal-ingest-pipeline.js
 - `searchForm()` --calls--> `icon()`  [INFERRED]
   docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
 - `home()` --calls--> `icon()`  [INFERRED]
-  docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
-- `resultCard()` --calls--> `icon()`  [INFERRED]
-  docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
-- `filtered()` --calls--> `normalize()`  [INFERRED]
-  docs/diseno-premium-2026-09-19/prototipo.js → src/lib/explorer-model.js
-- `resultList()` --calls--> `icon()`  [INFERRED]
   docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (462 total, 42 thin omitted)
+## Communities (461 total, 42 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (58): ARTICLE, norm(), ORDINAL_POINT, parseRegulatoryText(), reconstructPdfPages(), STRUCTURE_NUMBER, validateRegulatoryChunks(), ARTICLE_HEADING_INLINE_PATTERN (+50 more)
+Cohesion: 0.05
+Nodes (60): ARTICLE, norm(), ORDINAL_POINT, parseRegulatoryText(), reconstructPdfPages(), STRUCTURE_NUMBER, validateRegulatoryChunks(), ARTICLE_HEADING_INLINE_PATTERN (+52 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.12
@@ -625,8 +624,8 @@ Cohesion: 0.05
 Nodes (42): Artículo 1, Artículo 10, Artículo 11, Artículo 12, Artículo 13, Artículo 14, Artículo 15, Artículo 16 (+34 more)
 
 ### Community 68 - "Community 68"
-Cohesion: 0.12
-Nodes (20): e(), validateCatalog(), assertValid(), canPublishExplorer(), clearDraft(), createExplorerStore(), defaultStore, getDraft() (+12 more)
+Cohesion: 0.13
+Nodes (17): validateCatalog(), assertValid(), canPublishExplorer(), clearDraft(), createExplorerStore(), defaultStore, getDraft(), getExplorerRevision() (+9 more)
 
 ### Community 69 - "Community 69"
 Cohesion: 0.25
@@ -634,6 +633,10 @@ Nodes (7): ensureHeadingBoundaries(), extractLegalStructureFromMarkdown(), norma
     extractLegalStructureFromMarkdown,
     extractLegalStructureFromText
 }, require
+
+### Community 70 - "Community 70"
+Cohesion: 0.21
+Nodes (15): buildInstrumentTimeline(), complementDate(), editorialReferences(), months, normalize(), text(), timelineDate(), timelineSource() (+7 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.28
@@ -668,8 +671,8 @@ Cohesion: 0.07
 Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+18 more)
 
 ### Community 80 - "Community 80"
-Cohesion: 0.08
-Nodes (36): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, relatedDocumentLabel(), supabase, initAdminIngest() (+28 more)
+Cohesion: 0.11
+Nodes (17): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, relatedDocumentLabel(), applyFilters(), getArticleById() (+9 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.13
@@ -716,8 +719,8 @@ Cohesion: 0.20
 Nodes (9): 1. Seis leyes del núcleo energético que faltan, 2. Cinco reglamentos principales que faltan, 3. Planeación y operación pendientes, 4. Primera ficha propuesta: LCNE, 5. Revisión de cada instrumento antes de subirlo, 6. Matriz detallada, 7. Avance de la primera revisión individual, Faltantes y orden de carga individual (+1 more)
 
 ### Community 92 - "Community 92"
-Cohesion: 0.13
-Nodes (30): ENTITY_TYPES, escapeHtml(), EXPLORER_LIMITS, getEntityReferences(), getNeighborhood(), normalize(), searchEntities(), loadExplorerCatalog() (+22 more)
+Cohesion: 0.08
+Nodes (41): e(), entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt (+33 more)
 
 ### Community 93 - "Community 93"
 Cohesion: 0.07
@@ -1605,7 +1608,7 @@ Nodes (9): busqueda_global, coincidencias_reportadas, consulta, documentos_repor
 
 ### Community 389 - "Community 389"
 Cohesion: 0.17
-Nodes (23): applyPreferences(), closeDialog(), excerpt(), filtered(), filters(), highlight(), home(), hydrateIcons() (+15 more)
+Nodes (24): applyPreferences(), closeDialog(), excerpt(), filtered(), filters(), highlight(), home(), hydrateIcons() (+16 more)
 
 ### Community 390 - "Community 390"
 Cohesion: 0.20
@@ -1640,8 +1643,8 @@ Cohesion: 0.12
 Nodes (15): checks, adminPublishAndConflictRollback, anonymousCannotWrite, articleOpensFromSupabase, darkMode, newEntityViaEditor, newRelationViaEditor, newTopicViaEditor (+7 more)
 
 ### Community 402 - "Community 402"
-Cohesion: 0.24
-Nodes (12): applyReaderPreferences(), DEFAULT_READER_PREFERENCES, getStorage(), loadReaderPreferences(), normalizeReaderPreferences(), READER_FONT_SIZE_OPTIONS, READER_FONT_SIZE_RANGE, READER_LINE_HEIGHT_OPTIONS (+4 more)
+Cohesion: 0.10
+Nodes (36): escapeHtml(), getHighlightPattern(), getTextPreview(), highlightHtml(), highlightText(), highlightWithPattern(), STOP_WORDS_ES, applyReaderPreferences() (+28 more)
 
 ### Community 403 - "Community 403"
 Cohesion: 0.20
@@ -1852,19 +1855,11 @@ Cohesion: 0.40
 Nodes (4): articles, revision, schemaVersion, verifiedAt
 
 ### Community 459 - "Community 459"
-Cohesion: 0.22
-Nodes (8): Ampliación pendiente, Archivos y reproducción, Comportamiento cuando falta la fuente sincronizada, Distinción visual de documentos relacionados, Funcionamiento, Integridad y edición posterior, Lector y cotejo con el documento original, PDF sincronizado: cobertura inicial real
-
-### Community 462 - "Community 462"
 Cohesion: 0.18
-Nodes (8): entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt, services
-
-### Community 463 - "Community 463"
-Cohesion: 0.38
-Nodes (8): escapeHtml(), getHighlightPattern(), getTextPreview(), highlightHtml(), highlightText(), highlightWithPattern(), STOP_WORDS_ES, publication
+Nodes (10): Ampliación pendiente, Archivos y reproducción, Comportamiento cuando falta la fuente sincronizada, Cronología para todos los instrumentos, Distinción visual de documentos relacionados, Funcionamiento, Integridad y edición posterior, Lector y cotejo con el documento original (+2 more)
 
 ## Knowledge Gaps
-- **10254 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+10249 more)
+- **10261 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+10256 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1878,9 +1873,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `asignacion` connect `Community 65` to `Community 95`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _10284 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _10291 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.057539682539682536 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05487269534679543 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.11578947368421053 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

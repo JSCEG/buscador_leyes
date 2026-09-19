@@ -34,6 +34,15 @@ it('keeps all 48 LCNE fragments and distinguishes reviewed complements through f
     initUI();
     window.dispatchEvent(new CustomEvent('search-ready', { detail: { summaries: [{ ...ley, articulos: 48 }], relaciones: [] } }));
     await vi.advanceTimersByTimeAsync(75);
+    const timeline = document.getElementById('law-timeline');
+    expect(timeline.querySelectorAll('.it-event')).toHaveLength(3);
+    const chronologyJudgment = articles.find(a => a.articulo_label.startsWith('Sentencia de la SCJN'));
+    timeline.querySelector(`[href="#art-${chronologyJudgment.id}"]`).click();
+    await vi.advanceTimersByTimeAsync(25);
+    expect(document.getElementById('modal-title').textContent).toBe(chronologyJudgment.articulo_label);
+    expect(document.getElementById('reader-related-notice').hidden).toBe(false);
+    document.getElementById('close-modal').click();
+    await vi.advanceTimersByTimeAsync(310);
     document.getElementById('btn-load-more-law').click();
     const list = document.getElementById('law-articles-list');
     expect(list.querySelectorAll(':scope > .result-item')).toHaveLength(46);

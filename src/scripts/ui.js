@@ -7,6 +7,7 @@ import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
 import { ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
+import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
 export function initUI() {
@@ -272,7 +273,6 @@ export function initUI() {
     let currentLawArticles = [];
     let cachedRelaciones = [];           // filas de ley_relaciones
     let relacionesPorAfectada = {};      // ley_id afectada -> [relaciones]
-    let relacionesPorNueva = {};         // ley_id nueva -> [relaciones]
 
     const REL_TIPO_LABELS = {
         modifica: 'Modificado por',
@@ -285,10 +285,8 @@ export function initUI() {
     function indexRelaciones(relaciones) {
         cachedRelaciones = relaciones || [];
         relacionesPorAfectada = {};
-        relacionesPorNueva = {};
         for (const rel of cachedRelaciones) {
             (relacionesPorAfectada[rel.ley_afectada_id] ||= []).push(rel);
-            (relacionesPorNueva[rel.ley_nueva_id] ||= []).push(rel);
         }
     }
 
@@ -316,46 +314,7 @@ export function initUI() {
             </button>`;
     }
 
-    // Banners para el encabezado del detalle de ley: avisa si el instrumento
-    // tiene una modificación posterior cargada, o si él mismo modifica a otro.
-    function buildLawDetailBanners(law) {
-        let html = '';
-        for (const rel of (relacionesPorAfectada[law.id] || [])) {
-            const nueva = summaryById(rel.ley_nueva_id);
-            if (!nueva) continue;
-            const label = REL_TIPO_LABELS[rel.tipo] || 'Modificado por';
-            const fecha = rel.fecha || nueva.fecha_publicacion;
-            const fechaTxt = fecha ? new Date(fecha).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : null;
-            html += `
-                <div class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-start gap-3 max-w-4xl">
-                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                    <div class="text-sm">
-                        <span class="font-bold text-amber-800">${label} un instrumento más reciente${fechaTxt ? ` (${fechaTxt})` : ''}.</span>
-                        <button class="rel-open-law block mt-1 text-amber-700 hover:text-amber-900 underline underline-offset-2 text-left font-medium" data-ley-id="${nueva.id}">
-                            Ver: ${nueva.titulo}
-                        </button>
-                    </div>
-                </div>`;
-        }
-        for (const rel of (relacionesPorNueva[law.id] || [])) {
-            const afectada = summaryById(rel.ley_afectada_id);
-            if (!afectada) continue;
-            const verbo = { modifica: 'Modifica a', reforma: 'Reforma a', adiciona: 'Adiciona a', abroga: 'Abroga a', sustituye: 'Sustituye a' }[rel.tipo] || 'Modifica a';
-            html += `
-                <div class="mt-4 p-4 bg-verde/5 border border-verde/20 rounded-lg flex items-start gap-3 max-w-4xl">
-                    <svg class="w-5 h-5 text-verde flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <div class="text-sm">
-                        <span class="font-bold text-verde">${verbo}:</span>
-                        <button class="rel-open-law block mt-1 text-verde hover:text-verde/70 underline underline-offset-2 text-left font-medium" data-ley-id="${afectada.id}">
-                            ${afectada.titulo}
-                        </button>
-                    </div>
-                </div>`;
-        }
-        return html;
-    }
-
-    // Listener delegado único para todos los badges/banners de relaciones
+    // Listener delegado para los badges de relaciones en resultados.
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.rel-open-law');
         if (!btn) return;
@@ -1150,7 +1109,6 @@ export function initUI() {
                         <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Marco Legal Vigente ${law.siglas ? `· ${law.siglas}` : ''}</span>
                         <h1 class="text-2xl sm:text-3xl font-head font-bold text-gray-900 mt-2 mb-2">${law.titulo}</h1>
                         <p class="text-sm text-gray-500 font-light">Publicado: <span class="font-bold text-gray-700">${law.fecha_publicacion || 'N/D'}</span> · Última reforma: <span class="font-bold text-gray-700">${law.fecha_ultima_reforma || 'N/D'}</span></p>
-                        ${buildLawDetailBanners(law)}
                         ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
                     </div>
                     <div class="flex gap-2 flex-wrap">
@@ -1218,6 +1176,7 @@ export function initUI() {
                 </div>
             </div>
 
+            <div id="law-timeline"></div>
             <section class="mb-8 animate-fade-in-up" style="animation-delay: 0.08s;">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4">
                     <div>
@@ -1295,6 +1254,16 @@ export function initUI() {
                 </div>
             </div>
         `;
+
+        renderInstrumentTimeline(document.getElementById('law-timeline'), {
+            law, summaries: cachedSummaries, articles: currentLawArticles, relations: cachedRelaciones,
+        }, {
+            onOpenLaw: id => openLawDetail(summaryById(id)),
+            onOpenArticle: id => {
+                currentModalList = [...currentLawArticles.filter(article => !relatedDocumentLabel(article)), ...currentLawArticles.filter(article => relatedDocumentLabel(article))];
+                openDetail(id);
+            },
+        });
 
         renderLawPresentationEmbed(
             document.getElementById('law-presentation-embed'),
