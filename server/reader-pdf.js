@@ -20,9 +20,11 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
     const timer = setTimeout(() => controller.abort(), 20000);
     try {
         const upstream = await fetcher(source.originalUrl, {
-            redirect: 'error', signal: controller.signal, headers: { Accept: 'application/pdf' },
+            // Workers supports manual/follow; a 3xx fails the !ok check below.
+            redirect: 'manual', signal: controller.signal, headers: { Accept: 'application/pdf' },
         });
         if (!upstream.ok || !/^application\/pdf(?:;|$)/i.test(upstream.headers.get('content-type') || '')) {
+            console.warn('[reader-pdf] upstream response', { sourceId, status: upstream.status, contentType: upstream.headers.get('content-type') });
             await upstream.body?.cancel();
             return problem(502, 'source-unavailable');
         }
@@ -56,7 +58,8 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
             'Content-Disposition': 'inline; filename="documento-oficial.pdf"',
             'X-Reader-SHA256': actual,
         } });
-    } catch {
+    } catch (error) {
+        console.warn('[reader-pdf] upstream failure', { sourceId, name: error?.name, message: error?.message });
         return problem(controller.signal.aborted ? 504 : 502, 'source-unavailable');
     } finally { clearTimeout(timer); }
 }

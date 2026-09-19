@@ -49,6 +49,8 @@ El PDF y las 20 imágenes se retiraron del directorio público actual; no se ree
 
 La ruta `/api/reader/:sourceId` usa el mismo handler en Vite y Cloudflare. `public/_routes.json` limita las invocaciones de Functions a esa ruta. El despliegue está pensado para Cloudflare Pages; un hosting puramente estático no ejecuta este endpoint. Referencia: [rutas de Pages Functions](https://developers.cloudflare.com/pages/functions/routing/).
 
+Workers requiere `redirect: 'manual'`; las respuestas 3xx se rechazan explícitamente mediante `!response.ok`, sin seguir destinos nuevos. La opción estándar `redirect: 'error'` falló sólo en ese entorno y se corrigió tras revisar sus registros. La vista previa de Cloudflare confirmó HTTP 200, 508.412 bytes y el SHA-256 cotejado. Los errores del origen registran fuente, estado/tipo o excepción para permitir diagnóstico; no se registran cabeceras de visitantes ni contenido del PDF desde el handler.
+
 Comprobación de la modalidad remota: suite completa de 161 pruebas, más la nueva regresión de reintento (16 pruebas del módulo pasan tras ese ajuste), lint, build y compilación de Pages Functions correctos. En la aplicación local se comprobó el artículo 7 en sus páginas 2, 3 y 4, el cambio al artículo 8 y su original en móvil a 390 px sin desbordamiento. Esta evidencia sustituye la prueba aislada del puerto 5318 como demostración de integración; no amplía cobertura a otros instrumentos.
 
 ## Comportamiento cuando falta la fuente sincronizada

@@ -17,7 +17,7 @@ it('returns only the reviewed bytes, disables storage, and does not forward requ
     expect(response.status).toBe(200);
     expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
     expect(response.headers.get('cache-control')).toBe('no-store');
-    expect(fetcher.mock.calls[0]).toEqual([source.originalUrl, expect.objectContaining({ redirect: 'error', headers: { Accept: 'application/pdf' } })]);
+    expect(fetcher.mock.calls[0]).toEqual([source.originalUrl, expect.objectContaining({ redirect: 'manual', headers: { Accept: 'application/pdf' } })]);
 });
 
 it('rejects unknown sources, query overrides, unsupported methods and unapproved hosts without a fetch', async () => {
@@ -39,6 +39,9 @@ it('rejects changed editions, non-PDF responses, redirects and oversized streams
     expect(await changed.json()).toEqual({ code: 'source-version-changed' });
     expect((await serveReaderPdf(request(), 'lcne', options(async () => upstream('<html>', { 'Content-Type': 'text/html' })))).status).toBe(502);
     expect((await serveReaderPdf(request(), 'lcne', options(async () => { throw new Error('redirect'); }))).status).toBe(502);
+    const redirect = vi.fn(async () => new Response(null, { status: 302, headers: { Location: 'https://outside.test/file.pdf' } }));
+    expect((await serveReaderPdf(request(), 'lcne', options(redirect))).status).toBe(502);
+    expect(redirect).toHaveBeenCalledTimes(1);
     expect((await serveReaderPdf(request(), 'lcne', options(async () => upstream(bytes, { 'Content-Length': String(MAX_PDF_BYTES + 1) })))).status).toBe(502);
     const large = await serveReaderPdf(request(), 'lcne', options(async () => upstream(new Uint8Array(MAX_PDF_BYTES + 1))));
     expect(await large.json()).toEqual({ code: 'source-too-large' });
