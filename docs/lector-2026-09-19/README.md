@@ -72,11 +72,23 @@ Las pruebas del lector están en `reader-preferences.test.js`, `reader-controls.
 
 ### Distinción visual de documentos relacionados
 
-Los fragmentos revisados con `tipo_articulo: complementario` se agrupan bajo **Documentos relacionados** en la lista y en ambas vistas del índice. El lector muestra una franja persistente al alternar Texto y PDF, con etiquetas para sentencias, resolutivos de la SCJN, promulgación o complemento genérico. La clasificación utiliza el tipo existente y el identificador; nunca una mención de sentencia dentro del texto de un artículo. Los anexos conservan su lugar en el instrumento.
+Los documentos complementarios se agrupan bajo **Documentos relacionados** en la lista y en ambas vistas del índice. El lector muestra una franja persistente al alternar Texto y PDF, con etiquetas para sentencias, resolutivos de la SCJN y fe de erratas. La clasificación utiliza el tipo existente y el identificador; nunca una mención de sentencia dentro del texto de un artículo. Firmas, promulgación, índices, referencias internas del decreto y notas editoriales conservan su lugar en el registro principal: compartir el tipo de ingesta `complementario` no los convierte en documentos independientes. Los anexos también conservan su lugar en el instrumento.
 
-La LCNE conserva sus 48 fragmentos: 44 en la lista principal y cuatro en el bloque de complementos. No hay cambios en contenido, identificadores, mapas PDF ni escrituras en Supabase. `ui-related-documents.test.js` comprueba conservación de los 48 registros, filtrado, índice y retirada del aviso al volver a un artículo ordinario. Validación: 137 pruebas, lint y build correctos; comprobación visual local en escritorio y móvil de 390 px.
+La LCNE conserva sus 48 fragmentos: 46 en la lista principal y dos en el bloque de documentos de la SCJN. No hay cambios en contenido, identificadores, mapas PDF ni escrituras en Supabase. `ui-related-documents.test.js` comprueba conservación de los 48 registros, filtrado, índice, exclusión de firmas/notas y retirada del aviso al volver a un artículo ordinario.
 
 La prueba local de PDF remoto también reutiliza las etiquetas. Sigue siendo un prototipo independiente; esta entrega visual no cambia el origen de los PDFs del lector publicado.
+
+### Navegación, portada y tema
+
+La navegación entre artículos y fragmentos está sobre los controles Texto/PDF, con los nombres completos de los destinos en etiquetas accesibles y botones que permanecen visibles al desplazar el contenido. El contador representa fragmentos, incluyendo preámbulo y transitorios. Los enlaces compartidos cargan los vecinos del instrumento; la paginación de tarjetas no limita la navegación del lector. El modo de lectura se conserva al avanzar.
+
+El visor distingue las páginas del fragmento actual. Si sólo ocupa una, muestra **Página única**, sin selector ni flechas inutilizables. Para varias páginas indica la posición dentro del fragmento y la página real del PDF.
+
+La ruta raíz abre el acervo; **Buscar** lleva a `#buscar` y explica que consulta el texto de todos los instrumentos. El footer institucional usa fondo claro y logotipos a color de día; fondo oscuro y logotipos blancos de noche. Validación: 138 pruebas, lint y build; revisión local del cambio de tema y de la navegación móvil.
+
+### Propuesta siguiente: cronología de convocatorias
+
+Las notas editoriales de convocatorias ya contienen referencias explícitas a otros registros del acervo. Por ejemplo, la convocatoria de proyectos estratégicos enlaza el original del 15/05/2026 y las modificaciones del 26/05/2026, 10/07/2026 y 02/09/2026. Una línea del tiempo puede presentar esos registros por fecha, con título, indicador del documento abierto y acceso al registro completo y a su fuente oficial. Firmas, índices y notas editoriales no serían hitos independientes. Esta cronología es una propuesta, todavía no una vista implementada; las fechas y relaciones deben provenir de los registros cotejados.
 
 **Los otros 40 instrumentos del acervo aún no tienen un mapa sincronizado publicado en esta entrega.** Incorporarlos requiere fijar la versión de fuente, conservar su hash, revisar asignaciones a páginas/líneas, cotejar UUID y contenido actuales y comprobar casos especiales: numerales repetidos, transitorios, acuerdos modificatorios, tablas y anexos.
 

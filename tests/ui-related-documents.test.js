@@ -36,10 +36,13 @@ it('keeps all 48 LCNE fragments and distinguishes reviewed complements through f
     await vi.advanceTimersByTimeAsync(75);
     document.getElementById('btn-load-more-law').click();
     const list = document.getElementById('law-articles-list');
-    expect(list.querySelectorAll(':scope > .result-item')).toHaveLength(44);
-    expect(list.querySelectorAll('.related-documents .result-item')).toHaveLength(4);
+    expect(list.querySelectorAll(':scope > .result-item')).toHaveLength(46);
+    expect(list.querySelectorAll('.related-documents .result-item')).toHaveLength(2);
     expect(new Set([...list.querySelectorAll('.result-item')].map(el => el.dataset.id))).toEqual(new Set(articles.map(a => a.id)));
-    expect(document.querySelectorAll('.related-documents-index .toc-art-btn')).toHaveLength(8); // Grid + list.
+    expect(document.querySelectorAll('.related-documents-index .toc-art-btn')).toHaveLength(4); // Grid + list.
+    for (const label of ['Firma del acuerdo', 'Firma de la convocatoria', 'Firmas y promulgación', 'Índice de las disposiciones', 'Nota editorial · versiones relacionadas', 'Referencia a otros artículos del decreto']) {
+        expect(relatedDocumentLabel({ tipo_articulo: 'complementario', articulo_label: label })).toBeNull();
+    }
 
     const input = document.getElementById('law-search-input');
     const filter = value => { input.value = value; input.dispatchEvent(new Event('input')); };

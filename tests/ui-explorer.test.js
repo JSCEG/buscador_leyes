@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, expect, it, vi } from 'vitest';
 import { renderAnalisisView } from '../src/scripts/analisis.js';
-import { getArticleById } from '../src/scripts/search-engine.js';
+import { getArticleById, getArticlesByLaw } from '../src/scripts/search-engine.js';
 
 vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
 vi.mock('../src/scripts/search-engine.js', () => ({
@@ -24,6 +24,7 @@ it('restores explorer routes and article return context without adding history w
     const scroll = vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
     const article = { id: 'article-uuid', texto: 'Texto de la disposición.', articulo_label: 'Artículo 8', ley_origen: 'Ley de prueba' };
     getArticleById.mockResolvedValue(article);
+    getArticlesByLaw.mockResolvedValue([article]);
     renderAnalisisView.mockImplementation(async (container) => {
         container.innerHTML = '<h2 id="explorer-entity-title" tabindex="-1">Entidad</h2><button id="explorer-open-article" data-open-article="article-uuid">Leer fundamento</button>';
         container.querySelector('button').onclick = () => document.dispatchEvent(new CustomEvent('analisis:openArticle', {

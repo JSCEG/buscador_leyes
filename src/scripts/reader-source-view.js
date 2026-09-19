@@ -111,13 +111,24 @@ export function mountReaderSource(container, article) {
             option.value = String(index); option.selected = index === pageIndex; select.append(option);
         });
         selectLabel.append(select);
-        pages.append(previous, selectLabel, next);
+        const isArticle = article?.tipo_articulo === 'ordinario' || /^Artículo\s+\d/i.test(article?.articulo_label || '');
+        const pageGroup = el('div', 'rs-page-group');
+        pageGroup.append(el('p', 'rs-page-scope', `Páginas de este ${isArticle ? 'artículo' : 'fragmento'}`));
+        if (result.pages.length === 1) {
+            pages.append(el('span', 'rs-single-page', `Página única · ${page.number} del PDF`));
+        } else {
+            [...select.options].forEach((option, index) => {
+                option.textContent = `${index + 1} de ${result.pages.length} · Página ${result.pages[index].number} del PDF`;
+            });
+            pages.append(previous, selectLabel, next);
+        }
+        pageGroup.append(pages);
         const zoomControls = el('div', 'rs-zoom-controls');
         const less = el('button', 'rs-icon-button', '−'); less.type = 'button'; less.setAttribute('aria-label', 'Reducir página original');
         const reset = el('button', 'rs-zoom-reset', `${zoom}%`); reset.type = 'button'; reset.setAttribute('aria-label', 'Ajustar página al ancho');
         const more = el('button', 'rs-icon-button', '+'); more.type = 'button'; more.setAttribute('aria-label', 'Ampliar página original');
         zoomControls.append(less, reset, more);
-        toolbar.append(pages, zoomControls);
+        toolbar.append(pageGroup, zoomControls);
 
         const viewport = el('div', 'rs-viewport');
         viewport.tabIndex = 0;

@@ -575,7 +575,7 @@ export function initUI() {
         indexRelaciones(relaciones);
 
         // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
-        if (activeNavId === 'nav-leyes' && !location.hash) showLawsView();
+        if (activeNavId === 'nav-leyes' && !location.hash) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
 
         // No longer auto-rendering on home, user wants it only in stats
@@ -629,7 +629,7 @@ export function initUI() {
         explorerViewHash = explorerHash(e.detail);
         setHash(explorerViewHash);
     });
-    document.addEventListener('analisis:goHome', () => resetToHero());
+    document.addEventListener('analisis:goHome', () => showLawsView());
 
     // Compare modal close
     document.getElementById('close-compare-modal')?.addEventListener('click', closeCompareModal);
@@ -703,7 +703,14 @@ export function initUI() {
         if (!hash) return;
         const explorer = explorerRoute(hash);
         const acervo = acervoRoute(hash);
-        if (acervo) {
+        if (hash === '#buscar') {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            explorerModalReturn = null;
+            resetToHero({ updateHistory: false });
+        } else if (acervo) {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
             detailModal.classList.remove('flex');
@@ -725,7 +732,11 @@ export function initUI() {
             const item = await getArticleById(id);
             if (request !== readerOpenRequest || location.hash !== hash) return;
             if (!item) { showToast('No se encontró este artículo en el acervo.', '!'); return; }
-            currentModalList = [item];
+            const instrumentArticles = await getArticlesByLaw(item.ley_origen);
+            if (request !== readerOpenRequest || location.hash !== hash) return;
+            currentModalList = instrumentArticles.some(article => article.id === id)
+                ? [...instrumentArticles.filter(article => !relatedDocumentLabel(article)), ...instrumentArticles.filter(article => relatedDocumentLabel(article))]
+                : [item];
             await openDetail(id, { updateHistory: false });
         } else if (hash.startsWith('#ley-')) {
             clearTimeout(closeModalTimer);
@@ -749,7 +760,7 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            resetToHero({ updateHistory: false });
+            showLawsView(acervoState, { updateHistory: false });
         } else {
             await handleInitialHash();
         }
@@ -975,7 +986,7 @@ export function initUI() {
     }
 
     function resetToHero({ updateHistory = true } = {}) {
-        if (updateHistory) setHash(null);
+        if (updateHistory) setHash('#buscar');
         destroyTOC();
         hideAllViews();
         
@@ -1070,7 +1081,7 @@ export function initUI() {
         });
         const currentView = acervoView;
         requestAnimationFrame(() => {
-            if (currentView !== acervoView || activeNavId !== 'nav-leyes' || !acervoRoute(location.hash) || resultsContainer.classList.contains('hidden')) return;
+            if (currentView !== acervoView || activeNavId !== 'nav-leyes' || (location.hash && !acervoRoute(location.hash)) || resultsContainer.classList.contains('hidden')) return;
             if (acervoReturnFocusId) {
                 const button = [...resultsContainer.querySelectorAll('[data-law-id]')].find(el => el.dataset.lawId === acervoReturnFocusId);
                 button?.focus({ preventScroll: true });
@@ -1709,7 +1720,7 @@ export function initUI() {
         });
 
         // Breadcrumb listeners
-        document.getElementById('crumb-inicio')?.addEventListener('click', () => resetToHero());
+        document.getElementById('crumb-inicio')?.addEventListener('click', () => showLawsView({ group: 'all', query: '', sort: 'title' }));
         document.getElementById('crumb-categoria')?.addEventListener('click', () => showLawsView());
 
         // Theme Filter Listeners
@@ -1871,7 +1882,12 @@ export function initUI() {
 
         const primary = articles.filter(item => !relatedDocumentLabel(item));
         const related = articles.filter(item => relatedDocumentLabel(item));
-        currentModalList = [...primary, ...related];
+        // Card pagination must not truncate navigation through the instrument.
+        const navigationQuery = (highlightQuery || '').toLowerCase().trim();
+        const navigationArticles = navigationQuery.length > 2
+            ? currentLawArticles.filter(item => [item.texto, item.articulo_label, item.titulo_nombre, item.capitulo_nombre].some(value => value?.toLowerCase().includes(navigationQuery)))
+            : currentLawArticles;
+        currentModalList = [...navigationArticles.filter(item => !relatedDocumentLabel(item)), ...navigationArticles.filter(item => relatedDocumentLabel(item))];
 
         const renderCard = item => {
             const relatedLabel = relatedDocumentLabel(item);
@@ -3516,6 +3532,17 @@ export function initUI() {
         const prevBtn = document.getElementById('modal-prev-btn');
         const nextBtn = document.getElementById('modal-next-btn');
         const navCounter = document.getElementById('modal-nav-counter');
+        const previousArticle = currentIndex > 0 ? currentModalList[currentIndex - 1] : null;
+        const nextArticle = currentIndex >= 0 ? currentModalList[currentIndex + 1] : null;
+        const labelNavigation = (button, labelId, destination, direction) => {
+            if (!button) return;
+            const label = destination?.articulo_label || `Sin ${direction.toLowerCase()}`;
+            document.getElementById(labelId).textContent = label;
+            button.setAttribute('aria-label', destination ? `${direction}: ${label}` : label);
+            button.title = destination ? `${direction}: ${label}` : label;
+        };
+        labelNavigation(prevBtn, 'modal-prev-label', previousArticle, 'Anterior');
+        labelNavigation(nextBtn, 'modal-next-label', nextArticle, 'Siguiente');
 
         if (prevBtn) {
             prevBtn.disabled = currentIndex <= 0;
@@ -3530,7 +3557,7 @@ export function initUI() {
             };
         }
         if (navCounter) {
-            navCounter.textContent = currentIndex >= 0 ? `${currentIndex + 1}/${total}` : '';
+            navCounter.textContent = currentIndex >= 0 ? `${currentIndex + 1} de ${total}` : '';
         }
 
         // Bookmark button in modal header
@@ -4074,6 +4101,7 @@ export function initUI() {
         // / — focus search (not in input)
         if (e.key === '/' && !inInput) {
             e.preventDefault();
+            if (!modalOpen && globalSearchWrapper.classList.contains('hidden')) resetToHero();
             if (searchInput) {
                 searchInput.focus();
                 searchInput.select();
@@ -4528,8 +4556,8 @@ export function initUI() {
 
     // Trigger hero animation when resetToHero is called
     const originalResetToHero = resetToHero;
-    resetToHero = function() {
-        originalResetToHero();
+    resetToHero = function(options) {
+        originalResetToHero(options);
         if (typeof anime !== 'undefined') {
             anime({
                 targets: ['#hero-section', '#global-search-wrapper', '#quick-filters'],
@@ -4541,4 +4569,5 @@ export function initUI() {
             });
         }
     };
+    if (!location.hash) showLawsView(acervoState, { updateHistory: false });
 }

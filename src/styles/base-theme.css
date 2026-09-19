@@ -865,3 +865,12 @@ html.dark-mode body.app-polished::before {
     background: rgba(255, 30, 86, 0.3) !important;
     border: 2px solid #050505 !important;
 }
+
+/* The institutional footer follows the same day/night preference as the app. */
+#institutional-footer { background:#f5f2ec !important; color:#3f3a34; border-top:1px solid #ded4c2; }
+#institutional-footer img { filter:none; opacity:1; }
+#institutional-footer .institutional-footer-divider { background:#c7bda9; }
+#institutional-footer a:focus-visible { outline:3px solid #a57f2c; outline-offset:5px; }
+html.dark-mode #institutional-footer { background:#171717 !important; color:#f4f6f8 !important; border-color:#645534 !important; }
+html.dark-mode #institutional-footer img { filter:brightness(0) invert(1); opacity:.9; }
+html.dark-mode #institutional-footer .institutional-footer-divider { background:#ffffff40; }

@@ -54,10 +54,9 @@ it('loads the acervo once ready and preserves its independent route, filters and
     acervoSearch().dispatchEvent(new Event('input', { bubbles: true }));
   };
 
-  // Opening before Supabase finishes must replace the loading state when data arrives.
-  document.getElementById('nav-leyes').click();
+  // The bare home URL starts with the library, including its loading state.
   expect(results.querySelector('[aria-label="Cargando acervo"]')).not.toBeNull();
-  expect(location.hash).toBe('#acervo');
+  expect(location.hash).toBe('');
 
   const summaries = [
     { id: 'ley-electrica', titulo: 'Ley del Sector Eléctrico', tipo: 'ley', fecha_publicacion: '2025-03-18' },
@@ -163,6 +162,13 @@ it('loads the acervo once ready and preserves its independent route, filters and
   history.replaceState(null, '', '/');
   window.dispatchEvent(new PopStateEvent('popstate'));
   await settle();
+  expect(document.getElementById('hero-section').classList.contains('hidden')).toBe(true);
+  expect(results.querySelector('.ac-library')).not.toBeNull();
+  expect(globalSearch.classList.contains('hidden')).toBe(true);
+  expect(location.hash).toBe('');
+  document.getElementById('nav-inicio').click();
+  await settle();
+  expect(location.hash).toBe('#buscar');
   expect(document.getElementById('hero-section').classList.contains('hidden')).toBe(false);
   expect(results.classList.contains('hidden')).toBe(true);
   expect(globalSearch.classList.contains('hidden')).toBe(false);

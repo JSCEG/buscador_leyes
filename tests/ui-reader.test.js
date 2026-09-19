@@ -189,4 +189,19 @@ it('reads a real structured instrument, shares preferences, switches source lazi
     expect.soft(document.body.classList.contains('reader-modal-open'), 'a cancelled related-article open must not lock scrolling').toBe(false);
     expect.soft(sources.length, 'a cancelled related-article open must not mount a source').toBe(mountsBeforeRelatedResolve);
     expect(location.hash).toBe(explorerRoute);
+
+    // Shared links must load the instrument's neighbors, not strand the reader at 1/1.
+    history.replaceState(null, '', `/#art-${tableArticle.id}`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    await vi.advanceTimersByTimeAsync(75);
+    expect(getArticlesByLaw).toHaveBeenLastCalledWith(ley.titulo);
+    const next = document.getElementById('modal-next-btn');
+    expect(next.disabled).toBe(false);
+    expect(next.getAttribute('aria-label')).toBe(`Siguiente: ${nextArticle.articulo_label}`);
+    expect(document.getElementById('modal-nav-controls').nextElementSibling.classList.contains('reader-toolbar')).toBe(true);
+    expect(document.getElementById('modal-nav-counter').textContent).toMatch(/de 6$/);
+    next.click();
+    await vi.advanceTimersByTimeAsync(25);
+    expect(document.getElementById('modal-title').textContent).toBe(nextArticle.articulo_label);
+    expect(sources.at(-1).articleId).toBe(nextArticle.id);
 });

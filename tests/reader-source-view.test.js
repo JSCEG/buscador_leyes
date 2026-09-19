@@ -41,9 +41,12 @@ describe('Reader source view', () => {
     it('navigates the linked pages and preserves page, zoom and scroll when reopened', async () => {
         const view = mountReaderSource(container, article);
         await view.open();
+        expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de este fragmento');
+        expect(container.querySelector('select').selectedOptions[0].textContent).toBe('1 de 2 · Página 1 del PDF');
         container.querySelector('[aria-label="Página vinculada siguiente"]').click();
         await tick();
         expect(container.querySelector('img').getAttribute('src')).toBe(pages[1].imageUrl);
+        expect(getReaderSource).toHaveBeenLastCalledWith(article.id, expect.objectContaining({ pageIndex: 1 }));
         container.querySelector('[aria-label="Ampliar página original"]').click();
         expect(container.querySelector('.rs-page').style.width).toBe('125%');
         const viewport = container.querySelector('.rs-viewport'); viewport.scrollTop = 90;
@@ -52,6 +55,16 @@ describe('Reader source view', () => {
         expect(container.querySelector('.rs-viewport')).toBe(viewport);
         expect(viewport.scrollTop).toBe(90);
         expect(container.querySelector('.rs-page').style.width).toBe('125%');
+    });
+
+    it('shows a single-page indication without navigation that cannot be used', async () => {
+        getReaderSource.mockResolvedValue({ ...mapped(), pages: [pages[0]] });
+        await mountReaderSource(container, { ...article, tipo_articulo: 'ordinario' }).open();
+        expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de este artículo');
+        expect(container.querySelector('.rs-single-page').textContent).toBe('Página única · 1 del PDF');
+        expect(container.querySelector('select')).toBeNull();
+        expect(container.querySelector('[aria-label="Página vinculada siguiente"]')).toBeNull();
+        expect(container.querySelector('[aria-label="Ampliar página original"]')).not.toBeNull();
     });
 
     it('does not render a stale asynchronous result after switching articles', async () => {
