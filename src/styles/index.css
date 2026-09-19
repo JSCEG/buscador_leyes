@@ -6,6 +6,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prose has one alignment across instruments, results and explanations.
+   Keep the last line natural so short paragraphs do not stretch across mobile. */
+#main-container p,
+#main-container blockquote,
+#analisis-container .nx-description,
+#analisis-container .nx-relation > p,
+#analisis-container .nx-sources blockquote {
+    text-align: justify;
+    text-align-last: start;
+    text-justify: inter-word;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+}
+
 @layer utilities {
 
     /* Hide scrollbar for Chrome, Safari and Opera */

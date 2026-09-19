@@ -1,0 +1,154 @@
+"""Cruza sección 12 del radar vigente con una instantánea de lectura de Supabase.
+
+Conserva identidades RAD y decisiones de cobertura ya cotejadas. Las nuevas
+referencias requieren una decisión explícita; no se equipara URL con cobertura.
+No escribe en Supabase ni descarga documentos para ingesta.
+"""
+import csv
+import hashlib
+import json
+import re
+from collections import Counter
+from copy import deepcopy
+from pathlib import Path
+
+OUT = Path(__file__).resolve().parent
+PRIOR = OUT.parent / 'inventario-radar-2026-09-17'
+old = json.loads((PRIOR / 'INVENTARIO.json').read_text(encoding='utf-8-sig'))
+catalog = json.loads((OUT / 'catalogo-actual.json').read_text(encoding='utf-8-sig'))
+source = Path(old['fuente_radar'])
+source_bytes = source.read_bytes()
+text = source_bytes.decode('utf-8-sig')
+version = re.search(r'^version:\s*"([^"]+)"', text, re.M).group(1)
+assert version == '4.18', 'Revisar novedades antes de cambiar el corte.'
+laws = catalog['instrumentos']
+by_id = {law['id']: law for law in laws}
+assert len(by_id) == len(laws)
+rows, matched, changes = [], set(), []
+section = subsection = ''
+active = False
+for line_number, line in enumerate(text.splitlines(), 1):
+    if line.startswith('# 12.'): active = True
+    if line.startswith('# 13.'): active = False
+    if not active: continue
+    if line.startswith('## '): section, subsection = line[3:], ''
+    if line.startswith('### '): subsection = line[4:]
+    if not line.startswith('|') or not re.search(r'\]\(https?://', line): continue
+    links = [dict(etiqueta=a, url=b) for a, b in re.findall(r'\[([^\]]+)\]\((https?://[^)]+)\)', line)]
+    urls = {link['url'] for link in links}
+    candidates = [r for r in old['filas'] if r['id'] not in matched and r['seccion'] == section
+                  and {f['url'] for f in r['fuentes']} == urls
+                  and r['titulo_radar'].replace('**', '') in line.replace('**', '')]
+    cells = [c.strip() for c in line.strip('|').split('|')]
+    if len(candidates) == 1:
+        row = deepcopy(candidates[0])
+        matched.add(row['id'])
+        previous_line = row['linea_radar']
+        row['linea_radar'] = line_number
+        row['fuentes'] = links
+        # Status is the penultimate column only in the general 5/6-column tables.
+        if len(cells) in (5, 6) and row['estado_radar'] != cells[-2]:
+            changes.append(dict(id=row['id'], campo='estado_radar', antes=row['estado_radar'], ahora=cells[-2]))
+            row['estado_radar'] = cells[-2]
+        for law_id in row['cobertura_ids']:
+            assert law_id in by_id, f"Falta en Supabase una cobertura anterior: {row['id']}"
+    else:
+        assert not candidates and urls == {'https://sidof.segob.gob.mx/notas/5799057'}, f'Revisar nueva fila {line_number}: {line}'
+        row = dict(id='RAD-180', linea_radar=line_number, seccion=section, subseccion=subsection,
+                   institucion='CFE', fecha_radar=cells[0], tipo_radar=cells[1], titulo_radar=cells[2],
+                   estado_radar=cells[3], fuentes=links, codigos_dof=['5799057'], estado='pendiente',
+                   estado_carga=old['etiquetas_estado']['pendiente'], ley_id=None, titulo_en_supabase=None,
+                   cobertura_ids=[], familias=['CFE: contratación e impedimentos'], es_repeticion=False,
+                   repite_fuente_de=None, referencia_principal='RAD-180',
+                   nota='Novedad del radar v4.18. Ausente como instrumento propio en el catálogo consultado. El enlace SIDOF no respondió al cotejo web del 19 de septiembre; revisar la publicación completa antes de preparar la carga. El estatus jurídico se reproduce del radar, no se certifica en esta revisión.')
+        changes.append(dict(id=row['id'], campo='nueva_referencia', ahora=row['titulo_radar']))
+    rows.append(row)
+assert matched == {r['id'] for r in old['filas']}, 'Hay filas anteriores sin correspondencia; revisar la fuente.'
+assert len(rows) == 180 and len({r['id'] for r in rows}) == 180
+unique = [r for r in rows if not r['es_repeticion']]
+counts = Counter(r['estado'] for r in unique)
+coverage = {id for r in rows for id in r['cobertura_ids']}
+for law in laws:
+    law['referencias_radar'] = [r['id'] for r in unique if law['id'] in r['cobertura_ids']]
+
+def ids(*numbers): return [f'RAD-{n:03d}' for n in numbers]
+
+priority = [
+    dict(nombre='Cogeneración', ids=ids(72, 74), motivo='Siguiente carga sugerida: DACG y acuerdo de formatos. Dos publicaciones cotejadas en SIDOF; revisar sus tablas y anexos uno a uno.'),
+    dict(nombre='Migración de permisos', ids=ids(42, 43, 44), motivo='Original, nota aclaratoria y modificación de septiembre; tres hitos separados en la línea del tiempo.'),
+    dict(nombre='Planeación del sector', ids=ids(24, 30, 31, 48), motivo='PLADESE, decreto y texto de PROSENER, y PLADESHi. Las fichas explicativas del explorador no sustituyen la carga de estos textos.'),
+    dict(nombre='Desarrollo mixto CFE', ids=ids(32, 33), motivo='Lineamientos y aviso. Localizar las bases completas; un aviso o un portal no equivale al instrumento íntegro.'),
+    dict(nombre='Biocombustibles e información energética', ids=ids(46, 161), motivo='Formatos de biocombustibles y Catálogo de Equipos y Aparatos CONUEE; conservar campos, instructivos y tablas.'),
+    dict(nombre='CFE: contratación e impedimentos', ids=ids(91, 180), motivo='Disposiciones de contratación de agosto y políticas reportadas el 18 de septiembre. La segunda fuente requiere reintentar el cotejo.'),
+    dict(nombre='Leyes y reformas por completar', ids=ids(1, 2, 3, 4, 14), motivo='Reformas constitucionales, Ley de Ingresos sobre Hidrocarburos y su reglamento. El decreto de ocho leyes sigue parcial por las reformas a LOAPF y Fondo Mexicano del Petróleo.'),
+    dict(nombre='Convocatorias ASEA y SISTRANGAS', ids=ids(*range(142, 149), 137), motivo='Siete convocatorias de terceros ASEA y una del comité SISTRANGAS; distinguir su alcance y fechas de las convocatorias eléctricas.'),
+]
+families = deepcopy(old['familias'])
+for p in priority:
+    if not any(f['nombre'] == p['nombre'] for f in families):
+        families.append(dict(nombre=p['nombre'], ids=p['ids'], detalle=p['motivo'], tratamiento='Cotejar texto completo, anexos y relaciones antes de preparar la ingesta.'))
+for r in rows:
+    r['familias'] = [f['nombre'] for f in families if r['id'] in f['ids']]
+family_by_name = {f['nombre']: f for f in families}
+families = [family_by_name[p['nombre']] for p in priority] + [f for f in families if f['nombre'] not in {p['nombre'] for p in priority}]
+summary = dict(old['resumen'], instrumentos_cargados=len(laws), fragmentos=sum(l['fragmentos'] for l in laws),
+               temas=sum(l['temas'] for l in laws), filas_radar=len(rows), repeticiones=len(rows)-len(unique),
+               referencias_sin_repeticiones=len(unique), urls_distintas=len({f['url'] for r in rows for f in r['fuentes']}),
+               estados_sin_repeticiones=dict(counts), estados_todas_las_filas=dict(Counter(r['estado'] for r in rows)))
+limits = [
+    'Corte documental del radar: 18 de septiembre de 2026, versión 4.18. Catálogo Supabase consultado el 19 de septiembre. No hubo altas ni cambios de datos.',
+    'Sección 12, Ligas de interés: los resultados por proyecto de las convocatorias en sección 6 quedan fuera de los totales. No es una búsqueda exhaustiva de todo el DOF.',
+    'Los 102 pendientes son referencias bibliográficas por cotejar, no 102 leyes ni 102 documentos finales listos para importar. Una fila puede agrupar varios textos, avisos o programas.',
+    'La ausencia se determina como instrumento propio del catálogo. No excluye menciones o extractos dentro de otros textos, ni equivale a falta de una ficha en Análisis.',
+    'El estatus jurídico se reproduce del radar; este cruce no revalida íntegramente la vigencia. Se consultaron fuentes oficiales de cogeneración, formatos, modificación de migración, PLADESHi y CONUEE. El enlace nuevo de CFE no respondió y requiere cotejo.',
+    'Se conservan 13 antecedentes, 4 filas de proyectos/consulta (8 proyectos NOM), 10 portales y 3 publicaciones previstas no localizadas. No deben importarse como normas finales vigentes.',
+]
+data = dict(old, fecha_catalogo=catalog['fecha_consulta'], corte_radar='2026-09-18', version_radar=version,
+            sha256_radar=hashlib.sha256(source_bytes).hexdigest(), resumen=summary, limites=limits,
+            filas=rows, catalogo=laws, familias=families, prioridades=priority, novedades=changes)
+data['secciones'] = [dict(seccion=s, filas=sum(r['seccion']==s for r in rows),
+                         sin_repeticiones=sum(r['seccion']==s for r in unique),
+                         estados=dict(Counter(r['estado'] for r in unique if r['seccion']==s)))
+                     for s in dict.fromkeys(r['seccion'] for r in rows)]
+(OUT / 'INVENTARIO.json').write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+with (OUT / 'INVENTARIO.csv').open('w', encoding='utf-8-sig', newline='') as stream:
+    writer = csv.writer(stream)
+    writer.writerow(['ID', 'Sección', 'Tipo', 'Referencia', 'Fecha', 'Estado de carga', 'Estatus según radar', 'Fuentes', 'Nota'])
+    for r in rows:
+        writer.writerow([r['id'], r['seccion'], r['tipo_radar'], r['titulo_radar'], r['fecha_radar'], r['estado_carga'],
+                         r['estado_radar'], ' | '.join(f['url'] for f in r['fuentes']), r['nota']])
+md = ['# Pendientes del radar frente al acervo', '', 'Radar v4.18 · corte 18 de septiembre de 2026 · consulta Supabase 19 de septiembre.', '',
+      '**41 instrumentos y 3,300 fragmentos cargados. 180 filas del radar, 15 repeticiones y 165 referencias distintas.**', '',
+      '| Situación | Referencias |', '|---|---:|']
+md += [f"| {old['etiquetas_estado'][key]} | {count} |" for key, count in counts.items()]
+md += ['', 'La novedad frente al inventario anterior es RAD-180, políticas CFE de impedimentos. Los 101 pendientes anteriores pasan a 102. El sitio no respondió al cotejo; se conserva como novedad del radar pendiente de verificar.', '', '## Orden propuesto', '']
+lookup = {r['id']: r for r in rows}
+for index, p in enumerate(priority, 1):
+    md += [f"### {index}. {p['nombre']}", '', p['motivo'], '']
+    for id in p['ids']:
+        r = lookup[id]
+        md.append(f"- {id}: [{r['titulo_radar']}]({r['fuentes'][0]['url']}) · {r['fecha_radar']} · {r['estado_carga']}.")
+    md.append('')
+md += ['## Ya cubierto', '', 'Almacenamiento SAEE (integración, permisos y formatos), tres instrumentos de autoconsumo y las trece publicaciones de convocatorias eléctricas (tres originales y diez modificaciones). No recargarlos.', '',
+       '## Pendientes de la aplicación', '', 'Lector remoto: integración LCNE en esta entrega; faltan mapas de los otros 40 instrumentos y tratamiento de fuentes DOF en HTML. Estadísticas por tipo: propuesta pendiente. Línea del tiempo disponible para cualquier instrumento; completar relaciones explícitas y verificadas donde aún no estén capturadas. Explorador: resolver las siete referencias documentales previamente marcadas pendientes.', '', '## Alcance', '']
+md += ['- '+s for s in limits]
+md += ['', '[Inventario navegable](INVENTARIO.html) · [CSV](INVENTARIO.csv) · [JSON](INVENTARIO.json)', '', f"SHA-256 del radar: `{data['sha256_radar']}`."]
+(OUT / 'INVENTARIO.md').write_text('\n'.join(md)+'\n', encoding='utf-8')
+template = (PRIOR / 'plantilla.html').read_text(encoding='utf-8')
+template = template.replace('v4.17', 'v4.18').replace('14 septiembre 2026', '18 septiembre 2026').replace('14 de septiembre de 2026', '18 de septiembre de 2026')
+template = template.replace('179 filas', '180 filas').replace('164 referencias', '165 referencias').replace('163 URLs', '164 URLs')
+template = template.replace('La tabla de relaciones regulatorias sigue pendiente.', 'La línea del tiempo ya muestra relaciones verificadas para cualquier tipo de instrumento; falta ampliar sus vínculos donde no estén documentados.')
+template = template.replace('Inventario local actualizado después de las trece publicaciones de convocatorias y modificaciones.', 'Radar v4.18 y catálogo Supabase cotejados el 19 de septiembre de 2026. Sin nuevas cargas en esta revisión.')
+notice = '<section class="note"><strong>Novedad del radar:</strong> políticas CFE de impedimentos del 18 de septiembre (RAD-180), pendientes de cotejo de fuente. <a href="INVENTARIO.md">Ver orden de incorporación y pendientes de la aplicación</a>.</section>'
+template = template.replace('<section id="inventario">', notice+'<section id="inventario">')
+embedded = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c')
+(OUT / 'INVENTARIO.html').write_text(template.replace('__FECHA_CATALOGO__', data['fecha_catalogo']).replace('__INVENTARIO_JSON__', embedded), encoding='utf-8')
+public = OUT.parents[1] / 'public/revision-acervo/inventario-radar-2026-09-19'
+public.mkdir(parents=True, exist_ok=True)
+for name in ['INVENTARIO.html', 'INVENTARIO.md', 'INVENTARIO.csv', 'INVENTARIO.json', 'catalogo-actual.json']:
+    published = (OUT / name).read_text(encoding='utf-8-sig')
+    if name.endswith('.html'):
+        # Previous local evidence is intentionally not copied to the public build.
+        published = re.sub(r'<a href="\.\./[^"]+">([^<]+)</a>', r'\1', published)
+    (public / name).write_text(published, encoding='utf-8-sig' if name.endswith('.csv') else 'utf-8')
+print(json.dumps(dict(resumen=summary, novedades=changes), ensure_ascii=False, indent=2))

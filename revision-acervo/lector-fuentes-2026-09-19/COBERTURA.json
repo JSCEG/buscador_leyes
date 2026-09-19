@@ -17,7 +17,8 @@
     "revision-acervo\\incorporacion-7-2026-09-17\\LCNE-revisado.json": "4048da7331eeaf1d601f8ad033c57c79dd3b32c40f8ff9b14e79cef021551910",
     "revision-acervo\\incorporacion-7-2026-09-17\\fuentes\\LCNE.lineas.json": "01eed1858ad4e8cdab61b6d6335bf6160c0d54eff60a1ef53912cc1b5943d86a"
   },
-  "assetBytes": 4069824,
-  "manifestBytes": 172860,
+  "assetBytes": 0,
+  "transport": "remote-pdf",
+  "manifestBytes": 168277,
   "databaseWrites": false
 }

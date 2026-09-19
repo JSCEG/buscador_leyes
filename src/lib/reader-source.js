@@ -51,8 +51,12 @@ export function resolveReaderSource(manifest, articleId, { pageIndex = 0, origin
     if (!article || typeof article !== 'object') return unmapped('invalid-traceability', originalUrl);
     const source = has(manifest.sources, article?.sourceId) ? manifest.sources[article.sourceId] : null;
     const fallbackUrl = officialUrl(originalUrl) || officialUrl(source?.originalUrl);
+    const remote = source?.transport === 'remote-pdf';
+    const safePdf = remote
+        ? /^[a-z0-9-]+$/.test(source.id) && source.pdfUrl === `/api/reader/${source.id}` && officialUrl(source.originalUrl)
+        : safeAsset(source?.pdfUrl);
     if (!source || !sha256(source.sha256) || !sha256(article.contentSha256)
-        || !safeAsset(source.pdfUrl) || !Array.isArray(source.pages) || !source.pages.length
+        || !safePdf || !Array.isArray(source.pages) || !source.pages.length
         || !Number.isInteger(source.pageCount) || source.pageCount !== source.pages.length
         || !Array.isArray(article.pageNumbers) || !article.pageNumbers.length
         || !Array.isArray(article.anchors) || !article.anchors.length) return unmapped('invalid-traceability', fallbackUrl);
@@ -60,7 +64,7 @@ export function resolveReaderSource(manifest, articleId, { pageIndex = 0, origin
     const pages = article.pageNumbers.map(number => source.pages.find(page => page?.number === number));
     if (new Set(article.pageNumbers).size !== pages.length || pages.some(page => !page
         || !Number.isInteger(page.number) || page.number < 1 || page.number > source.pageCount
-        || !positive(page.width) || !positive(page.height) || !safeAsset(page.imageUrl))) {
+        || !positive(page.width) || !positive(page.height) || (!remote && !safeAsset(page.imageUrl)))) {
         return unmapped('invalid-traceability', fallbackUrl);
     }
     const validAnchor = anchor => {
@@ -82,7 +86,7 @@ export function resolveReaderSource(manifest, articleId, { pageIndex = 0, origin
             width: (x1 - x0) / page.width * 100, height: (y1 - y0) / page.height * 100 };
     });
     return { status: 'mapped', reason: null, source, pages, pageIndex: index, page, highlights,
-        pdfUrl: `${source.pdfUrl}#page=${page.number}`, originalUrl: fallbackUrl,
+        pdfUrl: `${remote ? source.originalUrl : source.pdfUrl}#page=${page.number}`, originalUrl: fallbackUrl,
         articleLabel: article.label, contentSha256: article.contentSha256, contentVerified: false };
 }
 

@@ -1,12 +1,10 @@
-"""Publica únicamente assets locales ya cotejados; no consulta ni escribe en Supabase.
+"""Publica el mapa cotejado del PDF remoto; no copia PDF/imágenes ni escribe en Supabase.
 
 Requiere pypdf. El cotejo remoto de UUID y texto está preservado como evidencia
 en LCNE-verificacion-bd.json. Falla ante cambios de PDF, texto o identidad.
 """
 import hashlib
 import json
-import shutil
-import struct
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -46,9 +44,7 @@ lines = {line['id']: line for line in trace['lineas']}
 assert len(lines) == reviewed['control']['lineas_cuerpo_pdf'] == 671
 
 source_id = f'lcne-{pdf_hash[:12]}'
-asset_dir = OUT / source_id
-asset_dir.mkdir(parents=True, exist_ok=True)
-shutil.copyfile(pdf_path, asset_dir / 'original.pdf')
+OUT.mkdir(parents=True, exist_ok=True)
 reader = PdfReader(pdf_path)
 assert len(reader.pages) == trace['paginas'] == 20
 pages = []
@@ -57,15 +53,7 @@ for number, pdf_page in enumerate(reader.pages, 1):
     assert list(pdf_page.mediabox) == list(pdf_page.cropbox), 'Recorte requiere nueva preparación.'
     assert float(pdf_page.mediabox.left) == float(pdf_page.mediabox.bottom) == 0
     width, height = float(pdf_page.mediabox.width), float(pdf_page.mediabox.height)
-    image_name = f'pagina-{number:02}.png'
-    image = (REVIEW / 'paginas' / image_name).read_bytes()
-    assert image[:8] == b'\x89PNG\r\n\x1a\n'
-    pixel_width, pixel_height = struct.unpack('>II', image[16:24])
-    assert abs(pixel_width / pixel_height - width / height) < 0.002
-    (asset_dir / image_name).write_bytes(image)
-    pages.append(dict(number=number, width=width, height=height,
-                      imageUrl=f'/reader-sources/{source_id}/{image_name}',
-                      imageSha256=sha(image), imageWidth=pixel_width, imageHeight=pixel_height))
+    pages.append(dict(number=number, width=width, height=height))
 
 articles = {}
 assigned = set()
@@ -93,10 +81,10 @@ for row in loaded['articulos']:
 
 # Los títulos/capítulos pueden estar asignados a estructura en la revisión, no al texto del artículo.
 source = dict(id=source_id, title=loaded['ley']['titulo'], lawId=loaded['ley']['id'], sha256=pdf_hash,
-              pdfUrl=f'/reader-sources/{source_id}/original.pdf', originalUrl=loaded['fuente']['url'],
+              transport='remote-pdf', pdfUrl=f'/api/reader/{source_id}', originalUrl=loaded['fuente']['url'],
               pageCount=len(pages), pages=pages)
 verified_at = datetime.strptime(checked['checkedAt'], '%Y-%m-%d %H:%M:%S UTC').replace(tzinfo=timezone.utc).isoformat()
-manifest = dict(schemaVersion=1, revision=1, verifiedAt=verified_at,
+manifest = dict(schemaVersion=1, revision=2, verifiedAt=verified_at,
                 sources={source_id: source}, articles=articles)
 (OUT / 'manifest.v1.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 report = dict(sourceId=source_id, sourceSha256=pdf_hash, databaseCheckedAt=checked['checkedAt'],
@@ -105,7 +93,7 @@ report = dict(sourceId=source_id, sourceSha256=pdf_hash, databaseCheckedAt=check
               bodyLines=len(lines), highlightedLines=len(assigned), structureLinesWithoutArticle=len(lines) - len(assigned),
               inputSha256={str(path.relative_to(PROJECT)): sha(path.read_bytes()) for path in
                            [INGEST / 'LCNE-carga.json', INGEST / 'LCNE-revisado.json', INGEST / 'fuentes/LCNE.lineas.json']},
-              assetBytes=sum(path.stat().st_size for path in asset_dir.iterdir()),
+              assetBytes=0, transport='remote-pdf',
               manifestBytes=(OUT / 'manifest.v1.json').stat().st_size, databaseWrites=False)
 (ROOT / 'COBERTURA.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(report, ensure_ascii=True, indent=2))

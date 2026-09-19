@@ -7,6 +7,7 @@ dist
 
 # Logs and temporary files
 .local/
+.wrangler/
 .playwright-mcp/
 graphify-out/cache/
 revision-acervo/**/*.pdf
@@ -17,6 +18,8 @@ __pycache__/
 *.pyc
 Leyes_en_pdf/*.pdf
 *.log
+/public/reader-sources/**/*.pdf
+/public/reader-sources/**/*.png
 *_log.txt
 tmp_*
 url.txt

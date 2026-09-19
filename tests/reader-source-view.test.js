@@ -1,7 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const getReaderSource = vi.hoisted(() => vi.fn());
+const remote = vi.hoisted(() => ({ render: vi.fn(), cancelRender: vi.fn(), destroy: vi.fn() }));
 vi.mock('../src/lib/reader-source.js', () => ({ getReaderSource }));
+vi.mock('../src/lib/reader-pdf.js', () => ({ createRemotePdf: () => remote }));
 import { mountReaderSource } from '../src/scripts/reader-source-view.js';
 
 const article = { id: '104581e9-3698-5eb4-b585-89ffe7589535', texto: 'Artículo 2. Texto de cotejo.', url_original: 'https://www.dof.gob.mx/documento' };
@@ -13,6 +15,8 @@ describe('Reader source view', () => {
     let container;
     beforeEach(() => {
         getReaderSource.mockReset();
+        remote.render.mockReset().mockResolvedValue(undefined);
+        remote.cancelRender.mockClear(); remote.destroy.mockClear();
         document.body.innerHTML = '<div id="reader-original"></div>';
         container = document.getElementById('reader-original');
         getReaderSource.mockImplementation(async (_id, options) => mapped(options.pageIndex));
@@ -25,6 +29,43 @@ describe('Reader source view', () => {
         await view.open();
         expect(getReaderSource).toHaveBeenCalledWith(article.id, { articleText: article.texto, originalUrl: article.url_original, pageIndex: 0 });
         expect(container.querySelector('img').getAttribute('src')).toBe(pages[0].imageUrl);
+    });
+
+    it('renders verified remote pages as canvas and keeps highlighting hidden until rendering completes', async () => {
+        let finish;
+        remote.render.mockImplementationOnce(() => new Promise(resolve => { finish = resolve; }));
+        getReaderSource.mockResolvedValue({ ...mapped(), source: { transport: 'remote-pdf' } });
+        const view = mountReaderSource(container, article);
+        const pending = view.open(); await tick();
+        expect(container.querySelector('img')).toBeNull();
+        expect(container.querySelector('canvas')).not.toBeNull();
+        expect(container.querySelector('.rs-page').style.visibility).toBe('hidden');
+        finish(); await pending;
+        expect(container.querySelector('.rs-page').style.visibility).toBe('');
+        expect(container.querySelector('.rs-status').textContent).toContain('cargada');
+        view.destroy();
+        expect(remote.destroy).toHaveBeenCalledTimes(1);
+    });
+
+    it('explains an official edition change without leaving false highlights visible', async () => {
+        remote.render.mockRejectedValue(Object.assign(new Error(), { code: 'source-version-changed' }));
+        getReaderSource.mockResolvedValue({ ...mapped(), source: { transport: 'remote-pdf' } });
+        await mountReaderSource(container, article).open();
+        expect(container.textContent).toContain('edición distinta');
+        expect(container.querySelector('.rs-highlight')).toBeNull();
+        expect(container.querySelector('a').href).toBe(article.url_original);
+    });
+
+    it('recreates a failed remote reader when the user retries', async () => {
+        remote.render.mockRejectedValueOnce(new Error('temporary network failure'));
+        getReaderSource.mockResolvedValue({ ...mapped(), source: { transport: 'remote-pdf' } });
+        await mountReaderSource(container, article).open();
+        expect(remote.destroy).toHaveBeenCalledTimes(1);
+        [...container.querySelectorAll('button')].find(button => button.textContent === 'Volver a intentar').click();
+        await tick();
+        expect(remote.render).toHaveBeenCalledTimes(2);
+        expect(container.querySelector('canvas')).not.toBeNull();
+        expect(container.querySelector('.rs-status').textContent).toContain('cargada');
     });
 
     it('renders percentage highlights and links to the actual PDF page', async () => {

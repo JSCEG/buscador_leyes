@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { readerDevPlugin } from './server/reader-dev.js';
 
 const execAsync = promisify(exec);
 
@@ -40,7 +41,7 @@ const manifestPlugin = () => {
 };
 
 export default defineConfig({
-  plugins: [manifestPlugin()],
+  plugins: [manifestPlugin(), readerDevPlugin()],
   test: {
     environment: 'jsdom',
     globals: true,

@@ -58,10 +58,9 @@ html.dark-mode .reader-nav-counter { color:#ead7df; }
 #reader-original .rs-footer p { color:var(--rs-muted) !important; }
 #reader-original .rs-footer::before { display:none; }
 #reader-original .rs-footer .rs-muted { font-size:11px; }
-#modal-content .reader-text,#law-articles-list .reader-preview { font-family:'Noto Sans',system-ui,sans-serif; font-size:var(--reader-font-size) !important; line-height:var(--reader-line-height) !important; text-align:left !important; font-weight:400; overflow-wrap:anywhere; }
+#modal-content .reader-text,#law-articles-list .reader-preview { font-family:'Noto Sans',system-ui,sans-serif; font-size:var(--reader-font-size) !important; line-height:var(--reader-line-height) !important; text-align:justify !important; text-align-last:start; text-justify:inter-word; hyphens:auto; font-weight:400; overflow-wrap:anywhere; }
 #modal-content .reader-text { max-width:72ch; margin-inline:auto; color:#2e2925; }
-#modal-content .reader-text :is(div,p,li,td,th,blockquote,span) { font-size:inherit !important; line-height:inherit !important; text-align:left !important; }
-#modal-content .reader-text div { hyphens:none !important; }
+#modal-content .reader-text :is(div,p,li,td,th,blockquote,span) { font-size:inherit !important; line-height:inherit !important; text-align:justify !important; text-align-last:start; hyphens:auto !important; }
 #modal-content .reader-text p { margin-block:0 1.15em; }
 #modal-content .reader-text :is(h1,h2,h3,h4) { font-size:1.15em !important; line-height:1.45 !important; margin-block:1.5em .7em; }
 #modal-content .reader-text table { display:block; max-width:100%; width:100%; overflow-x:auto; font-size:inherit; line-height:inherit; }

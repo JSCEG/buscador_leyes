@@ -52,6 +52,10 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   if (url.origin !== self.location.origin) return;
 
+  // Remote originals are checked on the server and held only in reader memory.
+  // Do not persist them, including when opening a PDF in a separate tab.
+  if (url.pathname.startsWith('/api/reader/')) return;
+
   // ── 1. Navegación (index.html) — NETWORK FIRST ───────────────────────────
   // Siempre obtiene el HTML más reciente del servidor; cae al caché sólo si
   // no hay red (modo offline).

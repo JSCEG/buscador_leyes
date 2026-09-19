@@ -16,13 +16,13 @@ Las coordenadas provienen de `revision-acervo/incorporacion-7-2026-09-17/fuentes
 
 El PDF contiene la nota sobre invalidez y documentos de la SCJN que ya se preservaron en la revisión. Esta función reproduce la fuente fijada por hash; no certifica por sí misma vigencia jurídica actual ni sustituye una revisión del documento.
 
-## Assets publicados
+## Mapa publicado y PDF remoto (revisión 2)
 
 `public/reader-sources/manifest.v1.json` contiene esquema/revisión, fuentes, dimensiones por página y el mapa UUID → páginas/rectángulos. Cada artículo conserva SHA-256 del texto exacto UTF-8. No duplica los textos completos del acervo.
 
-`public/reader-sources/lcne-7c13fd20564f/` contiene el PDF original de 508.412 bytes y 20 PNG ya generados desde ese documento por la revisión previa. Total de assets: **4.069.824 bytes**; manifiesto: aproximadamente **173 KB**. No se cargan PDF ni imágenes durante la carga del manifiesto.
+El directorio público ya no contiene el PDF ni las 20 imágenes. El manifiesto mide aproximadamente **168 KB**; los bytes del PDF se solicitan a Diputados mediante `/api/reader/lcne-7c13fd20564f`, se verifican y permanecen sólo temporalmente en memoria. El historial anterior de Git conserva sus versiones; no se reescribió. No se carga el PDF al consultar únicamente el manifiesto.
 
-Los PNG son representaciones del PDF, con resaltados dibujados por separado. El enlace al PDF preservado usa `#page=N`. Cada página conserva dimensiones propias, tamaño de imagen y SHA-256. El generador verifica relación de aspecto, ausencia de rotación/recorte y límites de cada rectángulo. La revisión visual previa documentó páginas 1, 11, 13, 15, 17 y 19; no se afirma una nueva revisión visual manual de las 20 páginas.
+El navegador renderiza el PDF con PDF.js y dibuja los resaltados por separado. El enlace al PDF oficial usa `#page=N`. Cada página conserva dimensiones propias. El generador verifica ausencia de rotación/recorte y límites de cada rectángulo. El proxy y el lector rechazan una edición cuyo hash sea distinto. La revisión visual previa documentó páginas 1, 11, 13, 15, 17 y 19; no se afirma una nueva revisión manual de las 20 páginas.
 
 ## Contrato de consumo
 
@@ -37,7 +37,7 @@ const result = await getReaderSource(article.id, {
 ```
 
 - `status: 'mapped'` y `contentVerified: true` permiten mostrar la página y `highlights` expresados como porcentajes `x/y/width/height`.
-- `pages` contiene sólo las páginas del fragmento. `page` es la seleccionada; `pdfUrl` ya incluye `#page=N`; `source.pdfUrl` apunta al archivo preservado completo.
+- `pages` contiene sólo las páginas del fragmento. `page` es la seleccionada; `pdfUrl` es el enlace oficial con `#page=N`; `source.pdfUrl` apunta al proxy que verifica el PDF remoto.
 - `status: 'unmapped'` significa que no debe presentarse ubicación precisa. Si existe un enlace oficial seguro se devuelve `originalUrl`, sin páginas ni resaltados.
 - Una edición posterior del contenido, incluso de la misma longitud, produce `content-mismatch`. La comparación es exacta, sin normalizar espacios ni puntuación. Falta de texto, de Web Crypto o fallo de red también producen un fallback explícito.
 - `resolveReaderSource(manifest, id, options)` es la parte pura, sin comprobar texto; su resultado lleva `contentVerified: false`. La vista pública debe usar `getReaderSource`.
@@ -47,6 +47,6 @@ const result = await getReaderSource(article.id, {
 
 Con Python y `pypdf`, ejecutar `generar_lcne.py` desde cualquier directorio. Reutiliza exclusivamente archivos locales y la evidencia remota guardada. **Volver a generar no equivale a hacer un nuevo cotejo remoto**: para actualizar la fecha se requiere otro SELECT y su comparación completa.
 
-`COBERTURA.json` preserva conteos y hashes de los insumos. `tests/reader-source.test.js` verifica los 48 textos, hashes de todos los assets, fragmentos de varias páginas, límites de coordenadas, contenido editado, manifiestos incompatibles y fallback sin trazabilidad.
+`COBERTURA.json` preserva conteos y hashes de los insumos. `tests/reader-source.test.js` verifica los 48 textos, fragmentos de varias páginas, coordenadas y fallback. Las pruebas de `reader-pdf`, `reader-pdf-proxy`, `reader-source-view` y `reader-service-worker` comprueban integridad remota, errores, límites, cierre y exclusión de caché.
 
 Los demás instrumentos no reciben correspondencias inferidas: mantienen acceso a su fuente oficial cuando esté disponible. Ampliar cobertura requiere preparar y revisar sus mapas de procedencia como una tarea independiente.

@@ -10,11 +10,13 @@ Al abrir un artículo están disponibles **Texto**, **PDF original** y, desde 10
 
 Las preferencias se guardan en `localStorage` bajo `sener-reader-preferences-v1`. Son propias del navegador y no se suben a Supabase ni sustituyen el tema global de la aplicación. En navegación privada, almacenamiento bloqueado o cuota agotada, los controles siguen funcionando durante la sesión; no se garantiza su conservación después de cerrar o recargar el navegador.
 
+El texto de lectura, las vistas previas y las explicaciones usan justificación en todos los anchos. La última línea conserva su longitud natural y la separación silábica usa el idioma español del documento. El PDF conserva la composición tipográfica de su fuente.
+
 El diálogo identifica su título, mantiene el recorrido de teclado dentro de sus controles y devuelve el foco al cerrar. `Escape` cierra primero los ajustes abiertos y después el lector. Los accesos desde el explorador conservan la ruta y selección para regresar a la misma ficha. No se altera el contrato de enlaces compartidos `#art-UUID`.
 
 ## PDF sincronizado: cobertura inicial real
 
-La **Ley de la Comisión Nacional de Energía (LCNE)** tiene **48 fragmentos vinculados a 20 páginas** de la copia oficial preservada:
+La **Ley de la Comisión Nacional de Energía (LCNE)** tiene **48 fragmentos vinculados a 20 páginas** de una edición oficial cotejada. El lector consulta ahora el PDF de Diputados por internet y lo verifica contra esa edición:
 
 | Unidad | Cantidad |
 |---|---:|
@@ -26,9 +28,9 @@ La **Ley de la Comisión Nacional de Energía (LCNE)** tiene **48 fragmentos vin
 
 Son **645 líneas con coordenadas** atribuibles a los fragmentos. Otras **26 líneas de títulos y capítulos** permanecen visibles en la página, sin atribuirlas a un artículo. La nota sobre invalidez del artículo 22 y los documentos de la SCJN conservados en la revisión no se eliminan ni se presentan como artículos ordinarios.
 
-El panel muestra una **imagen de la página del PDF**, con los resaltados como una capa separada. Se posiciona cerca de las líneas vinculadas al fragmento. Si éste continúa en varias páginas, las flechas y el selector recorren únicamente sus páginas. El zoom va de **75% a 250%**; el botón de porcentaje ajusta al ancho. Alternar Texto y PDF conserva el panel mientras se consulta el mismo fragmento. Abrir otro fragmento resuelve su propia correspondencia.
+El panel renderiza el **PDF remoto en un canvas**, con los resaltados como una capa separada. Se posiciona cerca de las líneas vinculadas al fragmento. Si éste continúa en varias páginas, las flechas y el selector recorren únicamente sus páginas. El zoom va de **75% a 250%**; el botón de porcentaje ajusta al ancho. Alternar Texto y PDF conserva el panel mientras se consulta el mismo fragmento. Abrir otro fragmento resuelve su propia correspondencia.
 
-**Abrir PDF completo** abre la copia preservada con `#page=N`. El comportamiento del visor externo respecto a ese fragmento URL depende del navegador. El texto accesible permanece en la pestaña Texto; la imagen no lo sustituye.
+**Abrir PDF completo** abre la liga oficial de Diputados con `#page=N`. El comportamiento del visor externo respecto a ese fragmento URL depende del navegador. El texto accesible permanece en la pestaña Texto; el canvas no lo sustituye.
 
 Ejemplos para comprobar el recorrido:
 
@@ -41,7 +43,13 @@ Cada asociación usa el **UUID real del fragmento** y un **SHA-256 del contenido
 
 Si un administrador edita un artículo —incluso cambiando un solo carácter o un espacio—, su contenido deja de coincidir y el panel informa que necesita un nuevo cotejo. La edición no actualiza automáticamente las páginas ni las coordenadas. Para restablecer precisión debe revisarse el texto contra la fuente correspondiente y regenerarse su manifiesto con evidencia.
 
-La copia PDF se identifica por SHA-256 y los assets se publican en una ruta que incorpora su huella. Las dimensiones se guardan **por página**, con validación de los límites de todos los rectángulos. El documento preservado es una edición concreta: la función no acredita por sí sola vigencia jurídica ni que el enlace oficial siga ofreciendo idénticos bytes.
+La edición se identifica por SHA-256. Una Pages Function obtiene únicamente la fuente permitida en el manifiesto, con límite de 8 MiB y 20 segundos, rechaza redirecciones y comprueba tipo MIME y hash antes de responder. No admite URLs proporcionadas por el visitante. El cliente vuelve a verificar la huella, el total de páginas y sus dimensiones. Si cambian los bytes oficiales, no muestra resaltados y ofrece la fuente actual para consulta. La función no acredita por sí sola vigencia jurídica.
+
+El PDF y las 20 imágenes se retiraron del directorio público actual; no se reescribió el historial de Git. La evidencia local de cotejo sigue fuera del build. El manifiesto conserva sólo hash, dimensiones y mapa de artículos. No se usa R2, KV ni caché persistente: respuesta `no-store`, exclusión del Service Worker y una sola copia temporal en memoria del navegador, reutilizable por dos minutos. Al cerrar el lector se destruye su documento PDF.js. Esta modalidad necesita conexión y disponibilidad de Diputados.
+
+La ruta `/api/reader/:sourceId` usa el mismo handler en Vite y Cloudflare. `public/_routes.json` limita las invocaciones de Functions a esa ruta. El despliegue está pensado para Cloudflare Pages; un hosting puramente estático no ejecuta este endpoint. Referencia: [rutas de Pages Functions](https://developers.cloudflare.com/pages/functions/routing/).
+
+Comprobación de la modalidad remota: suite completa de 161 pruebas, más la nueva regresión de reintento (16 pruebas del módulo pasan tras ese ajuste), lint, build y compilación de Pages Functions correctos. En la aplicación local se comprobó el artículo 7 en sus páginas 2, 3 y 4, el cambio al artículo 8 y su original en móvil a 390 px sin desbordamiento. Esta evidencia sustituye la prueba aislada del puerto 5318 como demostración de integración; no amplía cobertura a otros instrumentos.
 
 ## Comportamiento cuando falta la fuente sincronizada
 
@@ -49,10 +57,10 @@ La copia PDF se identifica por SHA-256 y los assets se publican en una ruta que 
 - Texto distinto: desactiva páginas y resaltados y explica que cambió desde el cotejo.
 - Imposibilidad de comprobar la huella: conserva el acceso a la fuente, sin afirmar ubicación precisa.
 - Fallo al cargar el manifiesto: ofrece reintento y fuente oficial. La petición tiene un límite de diez segundos.
-- Fallo de imagen: mantiene el enlace al PDF completo y permite reintentar la imagen.
+- Fallo del PDF remoto: mantiene la fuente oficial y permite volver a descargarlo. Una edición distinta exige revisar el mapa antes de recuperar el resaltado.
 - Sin URL oficial disponible: lo informa, sin fabricar una liga.
 
-El manifiesto se carga al solicitar el original. El PDF y las imágenes no se descargan para abrir solamente Texto. La primera cobertura agrega aproximadamente **173 KB de metadatos** y **4,07 MB de assets**, de los cuales el PDF ocupa 508.412 bytes.
+El manifiesto se carga al solicitar el original. El PDF no se descarga para abrir solamente Texto. La cobertura remota agrega aproximadamente **168 KB de metadatos** al build y consulta un PDF oficial de 508.412 bytes sólo al abrir el original. No añade PDF ni imágenes al build.
 
 ## Archivos y reproducción
 

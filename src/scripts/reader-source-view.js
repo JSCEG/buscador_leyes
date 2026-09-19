@@ -1,4 +1,5 @@
 import { getReaderSource } from '../lib/reader-source.js';
+import { createRemotePdf } from '../lib/reader-pdf.js';
 import '../styles/reader-source.css';
 
 const mounted = new WeakMap();
@@ -43,6 +44,7 @@ export function mountReaderSource(container, article) {
     let pageIndex = 0;
     let zoom = 100;
     let current = null;
+    let remotePdf = null;
     const titleId = `reader-source-title-${++nextId}`;
     const articleId = article?.id;
     const articleText = article?.texto ?? article?.contenido ?? article?.text ?? '';
@@ -67,7 +69,9 @@ export function mountReaderSource(container, article) {
         if (destroyed) return;
         content.replaceChildren();
         const box = el('div', 'rs-fallback');
-        const message = reason === 'content-mismatch'
+        const message = reason === 'source-version-changed'
+            ? 'La fuente oficial tiene una edición distinta de la cotejada. El resaltado se pausó hasta revisar su correspondencia. Puedes abrir el PDF oficial actualizado.'
+            : reason === 'content-mismatch'
             ? 'El texto de este fragmento cambió desde el último cotejo. Consulta la fuente original para verificarlo.'
                 : reason === 'verification-unavailable'
                     ? 'No se pudo comprobar que el texto corresponde a esta edición del documento. Consulta la fuente original para cotejarlo.'
@@ -88,12 +92,13 @@ export function mountReaderSource(container, article) {
         setStatus(error ? 'Vista del original no disponible.' : 'Sin sincronización de página para este fragmento.');
     }
 
-    function renderPage(result, token) {
+    async function renderPage(result, token) {
         current = result;
         pageIndex = result.pageIndex;
         const page = result.page;
         const imageUrl = safeUrl(page?.imageUrl);
-        if (!imageUrl) { fallback(null, true, result); return; }
+        const remote = result.source?.transport === 'remote-pdf';
+        if (!remote && !imageUrl) { fallback(null, true, result); return; }
         content.replaceChildren();
         const toolbar = el('div', 'rs-toolbar');
         toolbar.setAttribute('aria-label', 'Controles de la página original');
@@ -137,8 +142,9 @@ export function mountReaderSource(container, article) {
         const figure = el('div', 'rs-page');
         figure.style.width = `${zoom}%`;
         figure.style.aspectRatio = `${page.width} / ${page.height}`;
-        const image = el('img', 'rs-page-image');
+        const image = el(remote ? 'canvas' : 'img', 'rs-page-image');
         image.alt = `Página ${page.number} del documento original. El texto accesible está en la vista Texto.`;
+        if (remote) { image.setAttribute('role', 'img'); image.setAttribute('aria-label', image.alt); }
         image.width = page.width; image.height = page.height;
         image.decoding = 'async';
         const highlights = (result.highlights || []).filter(box => ['x', 'y', 'width', 'height'].every(key => Number.isFinite(box[key])) && box.width > 0 && box.height > 0 && box.x >= 0 && box.y >= 0 && box.x + box.width <= 100.1 && box.y + box.height <= 100.1);
@@ -154,7 +160,9 @@ export function mountReaderSource(container, article) {
         footer.append(el('p', 'rs-caption', `Página ${page.number} del PDF · ${pageIndex + 1} de ${result.pages.length} páginas vinculadas${highlights.length ? ' · Fragmento resaltado' : ''}.`));
         const pdfLink = sourceLink(result.pdfUrl || result.source?.pdfUrl, 'Abrir PDF completo ↗');
         if (pdfLink) footer.append(pdfLink);
-        footer.append(el('p', 'rs-muted', 'Imagen de la página original. El resaltado orienta el cotejo; la fuente conserva el documento completo.'));
+        footer.append(el('p', 'rs-muted', remote
+            ? 'PDF consultado en la fuente oficial y verificado contra la edición cotejada. El resaltado orienta la lectura.'
+            : 'Imagen de la página original. El resaltado orienta el cotejo; la fuente conserva el documento completo.'));
         content.append(toolbar, viewport, footer);
         if (result.source?.title) heading.textContent = result.source.title;
 
@@ -169,14 +177,14 @@ export function mountReaderSource(container, article) {
             setStatus(`Página ${page.number} del PDF. Ampliación ${zoom}%.`);
         };
         updateZoom(zoom);
-        setStatus(`Cargando imagen de la página ${page.number} del PDF…`);
+        setStatus(remote ? `Consultando el PDF oficial · Página ${page.number}…` : `Cargando imagen de la página ${page.number} del PDF…`);
         less.addEventListener('click', () => updateZoom(zoom - 25));
         more.addEventListener('click', () => updateZoom(zoom + 25));
         reset.addEventListener('click', () => updateZoom(100));
         previous.addEventListener('click', () => requestPage(pageIndex - 1));
         next.addEventListener('click', () => requestPage(pageIndex + 1));
         select.addEventListener('change', () => requestPage(Number(select.value)));
-        image.addEventListener('load', () => {
+        const loaded = () => {
             if (!isCurrent(token)) return;
             setStatus(`Página ${page.number} del PDF cargada${highlights.length ? '. Fragmento resaltado.' : '.'}`);
             if (highlights.length) {
@@ -184,7 +192,24 @@ export function mountReaderSource(container, article) {
                 // Layout dimensions stay stable while the parent dialog animates its scale.
                 viewport.scrollTop = Math.max(0, figure.offsetTop + figure.offsetHeight * top / 100 - 24);
             }
-        }, { once: true });
+        };
+        if (remote) {
+            figure.style.visibility = 'hidden';
+            remotePdf ||= createRemotePdf(result.source);
+            try {
+                await remotePdf.render(image, page);
+                if (!isCurrent(token)) return;
+                figure.style.visibility = '';
+                loaded();
+            } catch (error) {
+                if (isCurrent(token)) {
+                    remotePdf.destroy(); remotePdf = null;
+                    fallback(error.code, true, result);
+                }
+            }
+            return;
+        }
+        image.addEventListener('load', loaded, { once: true });
         image.addEventListener('error', () => {
             if (!isCurrent(token)) return;
             const failure = el('div', 'rs-image-error');
@@ -199,6 +224,7 @@ export function mountReaderSource(container, article) {
     async function requestPage(index) {
         const token = ++sequence;
         if (destroyed) return;
+        remotePdf?.cancelRender();
         const target = Math.max(0, Number.isInteger(index) ? index : 0);
         const activeControl = content.contains(document.activeElement) ? document.activeElement.getAttribute('aria-label') : null;
         shell.setAttribute('aria-busy', 'true');
@@ -209,7 +235,8 @@ export function mountReaderSource(container, article) {
             if (result.status !== 'mapped' || result.contentVerified !== true) {
                 fallback(result.reason || 'verification-unavailable', result.reason === 'source-unavailable', result); return;
             }
-            renderPage(result, token);
+            await renderPage(result, token);
+            if (!isCurrent(token)) return;
             if (activeControl) {
                 const matchingControl = [...content.querySelectorAll('[aria-label]')].find(control => control.getAttribute('aria-label') === activeControl && !control.disabled);
                 (matchingControl || content.querySelector('select'))?.focus({ preventScroll: true });
@@ -228,6 +255,7 @@ export function mountReaderSource(container, article) {
         destroy() {
             if (destroyed) return;
             destroyed = true; sequence++;
+            remotePdf?.destroy();
             if (mounted.get(container) === api) { mounted.delete(container); container.replaceChildren(); }
         },
     };

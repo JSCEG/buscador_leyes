@@ -1,16 +1,15 @@
 import { readFileSync } from 'node:fs';
-import { createHash, webcrypto } from 'node:crypto';
+import { webcrypto } from 'node:crypto';
 import { afterEach, expect, it, vi } from 'vitest';
 import { getReaderSource, loadReaderSources, resolveReaderSource } from '../src/lib/reader-source.js';
 
 const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json', 'utf8'));
 const loaded = JSON.parse(readFileSync('revision-acervo/incorporacion-7-2026-09-17/LCNE-carga.json', 'utf8'));
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
-const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
 
-it('maps all 48 reviewed UUIDs to the preserved PDF and verifies every published asset', async () => {
+it('maps all 48 reviewed UUIDs to the exact official PDF without published page images', async () => {
     vi.stubGlobal('crypto', webcrypto);
     expect(Object.keys(manifest.articles)).toHaveLength(48);
     for (const row of loaded.articulos) {
@@ -27,9 +26,11 @@ it('maps all 48 reviewed UUIDs to the preserved PDF and verifies every published
         }
     }
     const source = Object.values(manifest.sources)[0];
-    expect(hash(readFileSync(`public${source.pdfUrl}`))).toBe(source.sha256);
+    expect(source.sha256).toBe(loaded.fuente.sha256);
+    expect(source.transport).toBe('remote-pdf');
+    expect(source.pdfUrl).toBe(`/api/reader/${source.id}`);
     expect(source.pages).toHaveLength(20);
-    for (const page of source.pages) expect(hash(readFileSync(`public${page.imageUrl}`))).toBe(page.imageSha256);
+    for (const page of source.pages) expect(page.imageUrl).toBeUndefined();
 });
 
 it('keeps multi-page article boundaries and positions within each actual page dimensions', () => {
@@ -38,7 +39,7 @@ it('keeps multi-page article boundaries and positions within each actual page di
     expect(first.pages.map(page => page.number)).toEqual([1, 2]);
     expect(first.page.number).toBe(1);
     expect(second.page.number).toBe(2);
-    expect(second.pdfUrl).toMatch(/original\.pdf#page=2$/);
+    expect(second.pdfUrl).toBe(`${loaded.fuente.url}#page=2`);
     expect(first.highlights).not.toEqual(second.highlights);
     expect(resolveReaderSource(manifest, article2.id, { pageIndex: -3 }).pageIndex).toBe(0);
     expect(resolveReaderSource(manifest, article2.id, { pageIndex: 99 }).pageIndex).toBe(1);
@@ -69,7 +70,7 @@ it('rejects broken coordinates and unsafe asset paths instead of displaying fals
     outsidePage.articles[article2.id].anchors[0].bbox[2] = 100000;
     expect(resolveReaderSource(outsidePage, article2.id).reason).toBe('invalid-traceability');
     const badImage = copy(manifest);
-    Object.values(badImage.sources)[0].pages[0].imageUrl = 'https://outside.invalid/tracking.png';
+    Object.values(badImage.sources)[0].pdfUrl = 'https://outside.invalid/tracking.pdf';
     expect(resolveReaderSource(badImage, article2.id).reason).toBe('invalid-traceability');
     const noDimensions = copy(manifest);
     Object.values(noDimensions.sources)[0].pages[0].width = 0;
