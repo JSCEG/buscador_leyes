@@ -68,8 +68,8 @@
             scrollbar-width: thin;
         }
     </style>
-  <script type="module" crossorigin src="/assets/index-Bbw5H1PW.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DN4eDKDk.css">
+  <script type="module" crossorigin src="/assets/index-BdX1i4i7.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BRnNUGwc.css">
 </head>
 
 <body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
@@ -87,8 +87,8 @@
                 <span class="text-[10px] font-bold tracking-[0.18em] text-guinda uppercase whitespace-nowrap">Buscador Jurídico</span>
             </div>
             <nav class="hidden lg:flex items-center gap-5 text-sm text-gray-500 font-medium">
-                <a href="#" id="nav-inicio" class="hover:text-guinda transition-colors font-medium">Inicio</a>
-                <a href="#" id="nav-leyes" class="hover:text-guinda transition-colors font-medium">Acervo</a>
+                <a href="#acervo" id="nav-leyes" class="hover:text-guinda transition-colors font-medium">Acervo</a>
+                <a href="#buscar" id="nav-inicio" class="hover:text-guinda transition-colors font-medium">Buscar</a>
                 <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors font-medium">Análisis</a>
                 <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
                 <a href="#" id="nav-admin"
@@ -167,10 +167,10 @@
             </button>
         </div>
         <nav class="flex-1 overflow-y-auto py-4">
-            <a href="#" id="mobile-nav-inicio"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Inicio</a>
-            <a href="#" id="mobile-nav-leyes"
+            <a href="#acervo" id="mobile-nav-leyes"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Acervo</a>
+            <a href="#buscar" id="mobile-nav-inicio"
+                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Buscar</a>
             <a href="#" id="mobile-nav-analisis"
                 class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Análisis</a>
             <a href="#" id="mobile-nav-stats"
@@ -316,11 +316,11 @@
                 </div>
                 <h1 class="mb-5 tracking-tight font-head"
                     style="font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.05; color:#9B2247;">
-                    Marco Legal <em style="color:#9B2247; font-style:normal;">Energético</em>
+                    Buscar por <em style="color:#9B2247; font-style:normal;">término</em>
                 </h1>
                 <p class="text-gray-400 text-sm sm:text-base font-light max-w-sm mx-auto leading-relaxed"
                     style="letter-spacing:0.01em;">
-                    Explora leyes, reglamentos y artículos del sector energético con búsqueda jurídica inteligente.
+                    Encuentra coincidencias en el texto de todos los instrumentos del acervo: leyes, reglamentos, acuerdos y demás disposiciones.
                 </p>
             </div>
         </div>
@@ -702,13 +702,13 @@
 
 
     <!-- Footer Institutional -->
-    <footer class="w-full bg-[#1E1E1E] text-white py-12 px-6 mt-auto">
+    <footer id="institutional-footer" class="w-full py-12 px-6 mt-auto">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                <img src="/img/logo_gob.png" alt="Gobierno de México" class="h-10 brightness-0 invert opacity-80">
-                <div class="hidden sm:block h-8 w-px bg-white/20"></div>
-                <img src="/img/logo_sener.png" alt="SENER" class="h-10 brightness-0 invert opacity-80">
-                <div class="hidden sm:block h-8 w-px bg-white/20"></div>
+                <img src="/img/logo_gob.png" alt="Gobierno de México" class="h-10">
+                <div class="institutional-footer-divider hidden sm:block h-8 w-px"></div>
+                <img src="/img/logo_sener.png" alt="SENER" class="h-10">
+                <div class="institutional-footer-divider hidden sm:block h-8 w-px"></div>
                 <p class="text-[11px] font-medium opacity-70 mb-0">© 2025 Secretaría de Energía. <br> Todos los derechos reservados.</p>
             </div>
             <div class="flex gap-8 text-[11px] font-bold tracking-widest uppercase opacity-70">
@@ -763,6 +763,17 @@
                     </button>
                 </div>
             </div>
+            <nav id="modal-nav-controls" class="reader-article-nav" aria-label="Navegación entre artículos y fragmentos">
+                <button id="modal-prev-btn" type="button" disabled>
+                    <span class="reader-nav-arrow" aria-hidden="true">←</span>
+                    <span class="reader-nav-destination"><small>Anterior</small><span id="modal-prev-label">Sin anterior</span></span>
+                </button>
+                <span id="modal-nav-counter" class="reader-nav-counter" aria-label="Posición en la lectura"></span>
+                <button id="modal-next-btn" type="button" disabled>
+                    <span class="reader-nav-destination"><small>Siguiente</small><span id="modal-next-label">Sin siguiente</span></span>
+                    <span class="reader-nav-arrow" aria-hidden="true">→</span>
+                </button>
+            </nav>
             <div class="reader-toolbar">
                 <div class="reader-modes" role="group" aria-label="Vista del documento">
                     <button type="button" data-reader-mode="text" aria-pressed="true" aria-controls="modal-content">Texto</button>
@@ -784,27 +795,6 @@
             </div>
             <div
                 class="px-5 py-3 border-t border-gray-50 bg-[#FAFAF9] rounded-b-2xl flex items-center justify-between gap-4">
-                <div id="modal-nav-controls" class="flex items-center gap-1">
-                    <button id="modal-prev-btn"
-                        class="flex items-center gap-1 text-xs text-gray-400 hover:text-guinda transition-colors py-1.5 px-2 rounded-lg hover:bg-guinda/5 disabled:opacity-30 disabled:pointer-events-none"
-                        disabled>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                            </path>
-                        </svg>
-                        Anterior
-                    </button>
-                    <span id="modal-nav-counter" class="text-[10px] text-gray-300 px-1 min-w-[40px] text-center"></span>
-                    <button id="modal-next-btn"
-                        class="flex items-center gap-1 text-xs text-gray-400 hover:text-guinda transition-colors py-1.5 px-2 rounded-lg hover:bg-guinda/5 disabled:opacity-30 disabled:pointer-events-none"
-                        disabled>
-                        Siguiente
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
                 <div class="flex items-center gap-2 flex-shrink-0">
                     <!-- Share button with dropdown -->
                     <div class="relative" id="share-menu-wrapper">
