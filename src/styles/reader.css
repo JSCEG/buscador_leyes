@@ -81,5 +81,21 @@ html[data-reader-surface="dark"] #modal-content,html[data-reader-surface="dark"]
     #modal-content .reader-text p { margin-left:0; padding-left:10px; }
     #modal-content .reader-text .prose p { padding-left:0; }
 }
+.related-documents { padding:20px; border:1px solid #d4c6a4; border-left:4px solid #a57f2c; border-radius:10px; background:#f8f4e9; }
+.related-documents-intro { margin-bottom:18px; }
+.related-documents-title { font:700 20px/1.3 'Noto Sans',system-ui,sans-serif; color:#59451f; margin:0 0 8px; }
+.related-documents-description { font:400 13px/1.6 'Noto Sans',system-ui,sans-serif; color:#685638; margin:0 0 12px; }
+.related-document-badge-row { padding-right:52px; margin-bottom:12px; }
+.related-document-badge { display:inline-block; padding:5px 9px; border:1px solid #c5ae7a; border-radius:5px; background:#f5ecd5; color:#59451f; font:700 11px/1.5 'Noto Sans',system-ui,sans-serif; }
+.related-documents .related-document-card { border-color:#d4c6a4; }
+.related-documents-index { padding:14px; border-left:3px solid #a57f2c; background:#f8f4e9; border-radius:6px; }
+.related-documents-index .related-documents-title { font-size:13px; }
+.reader-related-notice { flex-shrink:0; display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:10px 24px; border-bottom:1px solid #d4c6a4; background:#f8f4e9; color:#59451f; }
+.reader-related-notice[hidden] { display:none !important; }
+.reader-related-notice p { font:400 12px/1.5 'Noto Sans',system-ui,sans-serif; margin:0; }
+html.dark-mode :is(.related-documents,.related-documents-index,.reader-related-notice) { background:#302b21 !important; border-color:#b89a59 !important; color:#efe4cf !important; }
+html.dark-mode .related-documents-title,html.dark-mode .related-documents-description,html.dark-mode .reader-related-notice p { color:#efe4cf !important; }
+html.dark-mode .related-document-badge { background:#463a23 !important; border-color:#b89a59 !important; color:#ffe7b1 !important; }
+@media(max-width:640px) { .related-documents { padding:14px; } .reader-related-notice { padding:8px 16px; } }
 @media print { .reader-toolbar,#reader-original { display:none !important; } #reader-body { display:block; overflow:visible; } #reader-body #modal-content { display:block !important; } }
 @media (prefers-reduced-motion:reduce) { #detail-modal,#modal-panel { animation:none !important; transition:none !important; transform:none !important; } }

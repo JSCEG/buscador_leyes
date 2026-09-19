@@ -27,20 +27,20 @@ it('renders the real agreement, pagination, index and filtered cards without nes
     await vi.advanceTimersByTimeAsync(75);
 
     const list = document.getElementById('law-articles-list');
-    expect(list.querySelectorAll(':scope > .result-item')).toHaveLength(20);
+    expect(list.querySelectorAll('.result-item')).toHaveLength(20);
     expect(list.querySelector('.result-item .result-item')).toBeNull();
     document.getElementById('btn-load-more-law').click();
-    expect(list.querySelectorAll(':scope > .result-item')).toHaveLength(28);
+    expect(list.querySelectorAll('.result-item')).toHaveLength(28);
     expect(list.querySelector('p div, p table')).toBeNull();
     expect(document.querySelectorAll('.toc-art-btn .toc-art-btn')).toHaveLength(0);
 
     const input = document.getElementById('law-search-input');
     input.value = 'generación';
     input.dispatchEvent(new Event('input'));
-    expect(list.querySelectorAll(':scope > .result-item').length).toBeGreaterThan(1);
+    expect(list.querySelectorAll('.result-item').length).toBeGreaterThan(1);
     expect(list.querySelector('.result-item .result-item')).toBeNull();
     expect(list.querySelector('mark').textContent.toLowerCase()).toBe('generación');
     input.value = '';
     input.dispatchEvent(new Event('input'));
-    expect(list.querySelectorAll(':scope > .result-item')).toHaveLength(28);
+    expect(list.querySelectorAll('.result-item')).toHaveLength(28);
 });

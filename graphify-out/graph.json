@@ -3591,7 +3591,7 @@
       "source_file": "Estilos Institucionales/js/map-config.js",
       "source_location": "L6334",
       "id": "js_map_config_showstateslayer",
-      "community": 18,
+      "community": 25,
       "norm_label": "showstateslayer()"
     },
     {
@@ -3600,7 +3600,7 @@
       "source_file": "Estilos Institucionales/js/map-config.js",
       "source_location": "L6389",
       "id": "js_map_config_displaystateslayer",
-      "community": 18,
+      "community": 25,
       "norm_label": "displaystateslayer()"
     },
     {
@@ -97677,7 +97677,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L1",
       "id": "src_data_explorer_catalog_json",
-      "community": 92,
+      "community": 462,
       "norm_label": "explorer-catalog.json"
     },
     {
@@ -97686,7 +97686,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L2",
       "id": "data_explorer_catalog_schemaversion",
-      "community": 92,
+      "community": 462,
       "norm_label": "schemaversion"
     },
     {
@@ -97695,7 +97695,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L3",
       "id": "data_explorer_catalog_revision",
-      "community": 92,
+      "community": 462,
       "norm_label": "revision"
     },
     {
@@ -97704,7 +97704,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L4",
       "id": "data_explorer_catalog_updatedat",
-      "community": 92,
+      "community": 462,
       "norm_label": "updatedat"
     },
     {
@@ -97713,7 +97713,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L5",
       "id": "data_explorer_catalog_topics",
-      "community": 92,
+      "community": 462,
       "norm_label": "topics"
     },
     {
@@ -97722,7 +97722,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L85",
       "id": "data_explorer_catalog_entities",
-      "community": 92,
+      "community": 462,
       "norm_label": "entities"
     },
     {
@@ -97731,7 +97731,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L832",
       "id": "data_explorer_catalog_relations",
-      "community": 92,
+      "community": 462,
       "norm_label": "relations"
     },
     {
@@ -97740,7 +97740,7 @@
       "source_file": "src/data/explorer-catalog.json",
       "source_location": "L1394",
       "id": "data_explorer_catalog_migrationnotes",
-      "community": 92,
+      "community": 462,
       "norm_label": "migrationnotes"
     },
     {
@@ -97749,7 +97749,7 @@
       "source_file": "src/data/legacy-temas.json",
       "source_location": "L1",
       "id": "src_data_legacy_temas_json",
-      "community": 92,
+      "community": 460,
       "norm_label": "legacy-temas.json"
     },
     {
@@ -97902,7 +97902,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L1",
       "id": "src_lib_article_preview_js",
-      "community": 70,
+      "community": 463,
       "norm_label": "article-preview.js"
     },
     {
@@ -97911,7 +97911,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L2",
       "id": "lib_article_preview_gettextpreview",
-      "community": 70,
+      "community": 463,
       "norm_label": "gettextpreview()"
     },
     {
@@ -97920,7 +97920,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L17",
       "id": "lib_article_preview_stop_words_es",
-      "community": 70,
+      "community": 463,
       "norm_label": "stop_words_es"
     },
     {
@@ -97929,7 +97929,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L26",
       "id": "lib_article_preview_gethighlightpattern",
-      "community": 70,
+      "community": 463,
       "norm_label": "gethighlightpattern()"
     },
     {
@@ -97938,7 +97938,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L42",
       "id": "lib_article_preview_escapehtml",
-      "community": 70,
+      "community": 463,
       "norm_label": "escapehtml()"
     },
     {
@@ -97947,7 +97947,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L46",
       "id": "lib_article_preview_highlightwithpattern",
-      "community": 70,
+      "community": 463,
       "norm_label": "highlightwithpattern()"
     },
     {
@@ -97956,7 +97956,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L52",
       "id": "lib_article_preview_highlighttext",
-      "community": 70,
+      "community": 463,
       "norm_label": "highlighttext()"
     },
     {
@@ -97965,7 +97965,7 @@
       "source_file": "src/lib/article-preview.js",
       "source_location": "L57",
       "id": "lib_article_preview_highlighthtml",
-      "community": 70,
+      "community": 463,
       "norm_label": "highlighthtml()"
     },
     {
@@ -98028,7 +98028,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L1",
       "id": "src_lib_explorer_model_js",
-      "community": 92,
+      "community": 460,
       "norm_label": "explorer-model.js"
     },
     {
@@ -98037,7 +98037,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L2",
       "id": "lib_explorer_model_explorer_limits",
-      "community": 92,
+      "community": 460,
       "norm_label": "explorer_limits"
     },
     {
@@ -98046,7 +98046,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L12",
       "id": "lib_explorer_model_entity_types",
-      "community": 92,
+      "community": 460,
       "norm_label": "entity_types"
     },
     {
@@ -98055,7 +98055,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L17",
       "id": "lib_explorer_model_isobject",
-      "community": 92,
+      "community": 460,
       "norm_label": "isobject()"
     },
     {
@@ -98064,7 +98064,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L18",
       "id": "lib_explorer_model_normalize",
-      "community": 92,
+      "community": 460,
       "norm_label": "normalize()"
     },
     {
@@ -98082,7 +98082,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L169",
       "id": "lib_explorer_model_searchentities",
-      "community": 92,
+      "community": 460,
       "norm_label": "searchentities()"
     },
     {
@@ -98091,7 +98091,7 @@
       "source_file": "src/lib/explorer-model.js",
       "source_location": "L185",
       "id": "lib_explorer_model_getneighborhood",
-      "community": 92,
+      "community": 460,
       "norm_label": "getneighborhood()"
     },
     {
@@ -98208,7 +98208,7 @@
       "source_file": "src/lib/explorer-store.js",
       "source_location": "L132",
       "id": "lib_explorer_store_canpublishexplorer",
-      "community": 68,
+      "community": 92,
       "norm_label": "canpublishexplorer()"
     },
     {
@@ -98451,7 +98451,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L1",
       "id": "src_lib_regulatory_parser_js",
-      "community": 0,
+      "community": 464,
       "norm_label": "regulatory-parser.js"
     },
     {
@@ -98460,7 +98460,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L6",
       "id": "lib_regulatory_parser_article",
-      "community": 0,
+      "community": 464,
       "norm_label": "article"
     },
     {
@@ -98469,7 +98469,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L7",
       "id": "lib_regulatory_parser_ordinal_point",
-      "community": 0,
+      "community": 464,
       "norm_label": "ordinal_point"
     },
     {
@@ -98478,7 +98478,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L10",
       "id": "lib_regulatory_parser_structure_number",
-      "community": 0,
+      "community": 464,
       "norm_label": "structure_number"
     },
     {
@@ -98487,7 +98487,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L13",
       "id": "lib_regulatory_parser_norm",
-      "community": 0,
+      "community": 464,
       "norm_label": "norm()"
     },
     {
@@ -98496,7 +98496,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L15",
       "id": "lib_regulatory_parser_parseregulatorytext",
-      "community": 0,
+      "community": 464,
       "norm_label": "parseregulatorytext()"
     },
     {
@@ -98505,7 +98505,7 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L177",
       "id": "lib_regulatory_parser_validateregulatorychunks",
-      "community": 0,
+      "community": 464,
       "norm_label": "validateregulatorychunks()"
     },
     {
@@ -98514,8 +98514,26 @@
       "source_file": "src/lib/regulatory-parser.js",
       "source_location": "L199",
       "id": "lib_regulatory_parser_reconstructpdfpages",
-      "community": 0,
+      "community": 464,
       "norm_label": "reconstructpdfpages()"
+    },
+    {
+      "label": "related-document.js",
+      "file_type": "code",
+      "source_file": "src/lib/related-document.js",
+      "source_location": "L1",
+      "id": "src_lib_related_document_js",
+      "community": 80,
+      "norm_label": "related-document.js"
+    },
+    {
+      "label": "relatedDocumentLabel()",
+      "file_type": "code",
+      "source_file": "src/lib/related-document.js",
+      "source_location": "L3",
+      "id": "lib_related_document_relateddocumentlabel",
+      "community": 80,
+      "norm_label": "relateddocumentlabel()"
     },
     {
       "label": "supabase.js",
@@ -99216,7 +99234,7 @@
       "source_file": "src/scripts/explorer-view.js",
       "source_location": "L18",
       "id": "scripts_explorer_view_icon",
-      "community": 92,
+      "community": 389,
       "norm_label": "icon()"
     },
     {
@@ -99315,7 +99333,7 @@
       "source_file": "src/scripts/explorer-view.js",
       "source_location": "L51",
       "id": "scripts_explorer_view_drawresults",
-      "community": 92,
+      "community": 460,
       "norm_label": "drawresults()"
     },
     {
@@ -99954,7 +99972,7 @@
       "source_file": "src/scripts/reader-source-view.js",
       "source_location": "L1",
       "id": "src_scripts_reader_source_view_js",
-      "community": 89,
+      "community": 461,
       "norm_label": "reader-source-view.js"
     },
     {
@@ -99963,7 +99981,7 @@
       "source_file": "src/scripts/reader-source-view.js",
       "source_location": "L4",
       "id": "scripts_reader_source_view_mounted",
-      "community": 89,
+      "community": 461,
       "norm_label": "mounted"
     },
     {
@@ -99972,7 +99990,7 @@
       "source_file": "src/scripts/reader-source-view.js",
       "source_location": "L7",
       "id": "scripts_reader_source_view_safeurl",
-      "community": 89,
+      "community": 461,
       "norm_label": "safeurl()"
     },
     {
@@ -99981,7 +99999,7 @@
       "source_file": "src/scripts/reader-source-view.js",
       "source_location": "L16",
       "id": "scripts_reader_source_view_el",
-      "community": 89,
+      "community": 461,
       "norm_label": "el()"
     },
     {
@@ -99990,7 +100008,7 @@
       "source_file": "src/scripts/reader-source-view.js",
       "source_location": "L23",
       "id": "scripts_reader_source_view_sourcelink",
-      "community": 89,
+      "community": 461,
       "norm_label": "sourcelink()"
     },
     {
@@ -99999,7 +100017,7 @@
       "source_file": "src/scripts/reader-source-view.js",
       "source_location": "L36",
       "id": "scripts_reader_source_view_mountreadersource",
-      "community": 89,
+      "community": 461,
       "norm_label": "mountreadersource()"
     },
     {
@@ -100159,7 +100177,7 @@
       "label": "initUI()",
       "file_type": "code",
       "source_file": "src/scripts/ui.js",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "scripts_ui_initui",
       "community": 70,
       "norm_label": "initui()"
@@ -100233,7 +100251,7 @@
       "source_file": "tests/article-preview.test.js",
       "source_location": "L1",
       "id": "tests_article_preview_test_js",
-      "community": 70,
+      "community": 463,
       "norm_label": "article-preview.test.js"
     },
     {
@@ -100242,7 +100260,7 @@
       "source_file": "tests/article-preview.test.js",
       "source_location": "L5",
       "id": "tests_article_preview_test_publication",
-      "community": 70,
+      "community": 463,
       "norm_label": "publication"
     },
     {
@@ -100251,7 +100269,7 @@
       "source_file": "tests/explorer-model.test.js",
       "source_location": "L1",
       "id": "tests_explorer_model_test_js",
-      "community": 92,
+      "community": 460,
       "norm_label": "explorer-model.test.js"
     },
     {
@@ -100260,7 +100278,7 @@
       "source_file": "tests/explorer-model.test.js",
       "source_location": "L7",
       "id": "tests_explorer_model_test_copy",
-      "community": 92,
+      "community": 460,
       "norm_label": "copy()"
     },
     {
@@ -100269,7 +100287,7 @@
       "source_file": "tests/explorer-model.test.js",
       "source_location": "L8",
       "id": "tests_explorer_model_test_entity",
-      "community": 92,
+      "community": 460,
       "norm_label": "entity()"
     },
     {
@@ -100278,7 +100296,7 @@
       "source_file": "tests/explorer-model.test.js",
       "source_location": "L9",
       "id": "tests_explorer_model_test_relation",
-      "community": 92,
+      "community": 460,
       "norm_label": "relation()"
     },
     {
@@ -100287,7 +100305,7 @@
       "source_file": "tests/explorer-model.test.js",
       "source_location": "L13",
       "id": "tests_explorer_model_test_smallcatalog",
-      "community": 92,
+      "community": 460,
       "norm_label": "smallcatalog()"
     },
     {
@@ -100341,7 +100359,7 @@
       "source_file": "tests/explorer-view.test.js",
       "source_location": "L1",
       "id": "tests_explorer_view_test_js",
-      "community": 92,
+      "community": 462,
       "norm_label": "explorer-view.test.js"
     },
     {
@@ -100350,7 +100368,7 @@
       "source_file": "tests/explorer-view.test.js",
       "source_location": "L4",
       "id": "tests_explorer_view_test_services",
-      "community": 92,
+      "community": 462,
       "norm_label": "services"
     },
     {
@@ -100359,7 +100377,7 @@
       "source_file": "tests/explorer-view.test.js",
       "source_location": "L11",
       "id": "tests_explorer_view_test_clone",
-      "community": 92,
+      "community": 462,
       "norm_label": "clone()"
     },
     {
@@ -100449,7 +100467,7 @@
       "source_file": "tests/reader-source-view.test.js",
       "source_location": "L1",
       "id": "tests_reader_source_view_test_js",
-      "community": 89,
+      "community": 461,
       "norm_label": "reader-source-view.test.js"
     },
     {
@@ -100458,7 +100476,7 @@
       "source_file": "tests/reader-source-view.test.js",
       "source_location": "L3",
       "id": "tests_reader_source_view_test_getreadersource",
-      "community": 89,
+      "community": 461,
       "norm_label": "getreadersource"
     },
     {
@@ -100467,7 +100485,7 @@
       "source_file": "tests/reader-source-view.test.js",
       "source_location": "L7",
       "id": "tests_reader_source_view_test_article",
-      "community": 89,
+      "community": 461,
       "norm_label": "article"
     },
     {
@@ -100476,7 +100494,7 @@
       "source_file": "tests/reader-source-view.test.js",
       "source_location": "L8",
       "id": "tests_reader_source_view_test_pages",
-      "community": 89,
+      "community": 461,
       "norm_label": "pages"
     },
     {
@@ -100485,7 +100503,7 @@
       "source_file": "tests/reader-source-view.test.js",
       "source_location": "L9",
       "id": "tests_reader_source_view_test_mapped",
-      "community": 89,
+      "community": 461,
       "norm_label": "mapped()"
     },
     {
@@ -100494,7 +100512,7 @@
       "source_file": "tests/reader-source-view.test.js",
       "source_location": "L10",
       "id": "tests_reader_source_view_test_tick",
-      "community": 89,
+      "community": 461,
       "norm_label": "tick()"
     },
     {
@@ -100557,7 +100575,7 @@
       "source_file": "tests/regulatory-parser.test.js",
       "source_location": "L1",
       "id": "tests_regulatory_parser_test_js",
-      "community": 0,
+      "community": 464,
       "norm_label": "regulatory-parser.test.js"
     },
     {
@@ -100640,6 +100658,15 @@
       "id": "tests_ui_reader_test_deferred",
       "community": 80,
       "norm_label": "deferred()"
+    },
+    {
+      "label": "ui-related-documents.test.js",
+      "file_type": "code",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L1",
+      "id": "tests_ui_related_documents_test_js",
+      "community": 80,
+      "norm_label": "ui-related-documents.test.js"
     },
     {
       "label": "AGENTS.md",
@@ -102427,7 +102454,7 @@
       "label": "Datos y fechas honestos",
       "file_type": "document",
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
-      "source_location": "L66",
+      "source_location": "L68",
       "id": "acervo_2026_09_19_propuesta_estadisticas_datos_y_fechas_honestos",
       "community": 398,
       "norm_label": "datos y fechas honestos"
@@ -102436,10 +102463,37 @@
       "label": "Implementaci\u00f3n posterior y aceptaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
-      "source_location": "L76",
+      "source_location": "L78",
       "id": "acervo_2026_09_19_propuesta_estadisticas_implementaci\u00f3n_posterior_y_aceptaci\u00f3n",
       "community": 398,
       "norm_label": "implementacion posterior y aceptacion"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "docs/acervo-2026-09-19/README.md",
+      "source_location": "L1",
+      "id": "docs_acervo_2026_09_19_readme_md",
+      "community": 465,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Biblioteca del acervo",
+      "file_type": "document",
+      "source_file": "docs/acervo-2026-09-19/README.md",
+      "source_location": "L1",
+      "id": "acervo_2026_09_19_readme_biblioteca_del_acervo",
+      "community": 465,
+      "norm_label": "biblioteca del acervo"
+    },
+    {
+      "label": "Validaci\u00f3n",
+      "file_type": "document",
+      "source_file": "docs/acervo-2026-09-19/README.md",
+      "source_location": "L11",
+      "id": "acervo_2026_09_19_readme_validaci\u00f3n",
+      "community": 465,
+      "norm_label": "validacion"
     },
     {
       "label": "AUDITORIA-CODIGO.md",
@@ -216208,9 +216262,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_acervo_groups",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_acervo_groups"
     },
     {
       "relation": "contains",
@@ -216218,9 +216272,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_agreementobject",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_agreementobject"
     },
     {
       "relation": "contains",
@@ -216228,9 +216282,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_changedcall",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_changedcall"
     },
     {
       "relation": "contains",
@@ -216238,9 +216292,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_collator",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_collator"
     },
     {
       "relation": "contains",
@@ -216248,9 +216302,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_directcall",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_directcall"
     },
     {
       "relation": "contains",
@@ -216258,9 +216312,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_explicit_groups",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_explicit_groups"
     },
     {
       "relation": "contains",
@@ -216268,9 +216322,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_getacervogroup",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_getacervogroup"
     },
     {
       "relation": "contains",
@@ -216278,9 +216332,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_group_ids",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_group_ids"
     },
     {
       "relation": "contains",
@@ -216288,9 +216342,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_groupacervo",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_groupacervo"
     },
     {
       "relation": "contains",
@@ -216298,9 +216352,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_issummary",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_issummary"
     },
     {
       "relation": "contains",
@@ -216308,9 +216362,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_normalize",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_normalize"
     },
     {
       "relation": "contains",
@@ -216318,9 +216372,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_publicationday",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_publicationday"
     },
     {
       "relation": "contains",
@@ -216328,9 +216382,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_selectacervo",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_selectacervo"
     },
     {
       "relation": "contains",
@@ -216338,9 +216392,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_text",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_text"
     },
     {
       "relation": "contains",
@@ -216348,9 +216402,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_acervo_model_js",
-      "target": "lib_acervo_model_titleorder",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_titleorder"
     },
     {
       "relation": "imports_from",
@@ -216359,9 +216413,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "src_lib_acervo_model_js",
-      "confidence_score": 1.0
+      "target": "src_lib_acervo_model_js"
     },
     {
       "relation": "imports_from",
@@ -216370,9 +216424,9 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
-      "target": "src_lib_acervo_model_js",
-      "confidence_score": 1.0
+      "target": "src_lib_acervo_model_js"
     },
     {
       "relation": "imports_from",
@@ -216381,9 +216435,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "src_lib_acervo_model_js",
-      "confidence_score": 1.0
+      "target": "src_lib_acervo_model_js"
     },
     {
       "relation": "imports",
@@ -216392,9 +216446,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "lib_acervo_model_acervo_groups",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_acervo_groups"
     },
     {
       "relation": "imports",
@@ -216403,9 +216457,9 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
-      "target": "lib_acervo_model_acervo_groups",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_acervo_groups"
     },
     {
       "relation": "imports",
@@ -216414,9 +216468,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "lib_acervo_model_acervo_groups",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_acervo_groups"
     },
     {
       "relation": "calls",
@@ -216425,9 +216479,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_normalize",
-      "target": "lib_acervo_model_text",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_text"
     },
     {
       "relation": "calls",
@@ -216436,9 +216490,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_publicationday",
-      "target": "lib_acervo_model_text",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_text"
     },
     {
       "relation": "calls",
@@ -216447,9 +216501,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_titleorder",
-      "target": "lib_acervo_model_text",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_text"
     },
     {
       "relation": "calls",
@@ -216458,9 +216512,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_getacervogroup",
-      "target": "lib_acervo_model_normalize",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_normalize"
     },
     {
       "relation": "calls",
@@ -216469,9 +216523,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_selectacervo",
-      "target": "lib_acervo_model_normalize",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_normalize"
     },
     {
       "relation": "calls",
@@ -216480,9 +216534,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_groupacervo",
-      "target": "lib_acervo_model_issummary",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_issummary"
     },
     {
       "relation": "calls",
@@ -216491,9 +216545,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_getacervogroup",
-      "target": "lib_acervo_model_agreementobject",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_agreementobject"
     },
     {
       "relation": "calls",
@@ -216502,9 +216556,9 @@
       "source_file": "src/lib/acervo-model.js",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_acervo_model_groupacervo",
-      "target": "lib_acervo_model_getacervogroup",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_getacervogroup"
     },
     {
       "relation": "imports",
@@ -216513,9 +216567,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "lib_acervo_model_getacervogroup",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_getacervogroup"
     },
     {
       "relation": "imports",
@@ -216524,9 +216578,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "lib_acervo_model_getacervogroup",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_getacervogroup"
     },
     {
       "relation": "calls",
@@ -216546,9 +216600,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "lib_acervo_model_selectacervo",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_selectacervo"
     },
     {
       "relation": "imports",
@@ -216557,9 +216611,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "lib_acervo_model_selectacervo",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_selectacervo"
     },
     {
       "relation": "imports",
@@ -216568,9 +216622,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "lib_acervo_model_groupacervo",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_groupacervo"
     },
     {
       "relation": "imports",
@@ -216579,9 +216633,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "lib_acervo_model_groupacervo",
-      "confidence_score": 1.0
+      "target": "lib_acervo_model_groupacervo"
     },
     {
       "relation": "contains",
@@ -218427,6 +218481,60 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/related-document.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_related_document_js",
+      "target": "lib_related_document_relateddocumentlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "src_lib_related_document_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_ui_related_documents_test_js",
+      "target": "src_lib_related_document_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scripts/ui.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_scripts_ui_js",
+      "target": "lib_related_document_relateddocumentlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_ui_related_documents_test_js",
+      "target": "lib_related_document_relateddocumentlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/lib/supabase.js",
       "source_location": "L6",
       "weight": 1.0,
@@ -218506,9 +218614,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "scripts_acervo_view_countlabel",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_countlabel"
     },
     {
       "relation": "contains",
@@ -218516,9 +218624,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "scripts_acervo_view_element",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_element"
     },
     {
       "relation": "contains",
@@ -218526,9 +218634,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "scripts_acervo_view_mountedviews",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_mountedviews"
     },
     {
       "relation": "contains",
@@ -218536,9 +218644,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "scripts_acervo_view_number",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_number"
     },
     {
       "relation": "contains",
@@ -218546,9 +218654,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "scripts_acervo_view_publicationdate",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_publicationdate"
     },
     {
       "relation": "contains",
@@ -218556,9 +218664,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_acervo_view_js",
-      "target": "scripts_acervo_view_renderacervoview",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_renderacervoview"
     },
     {
       "relation": "imports_from",
@@ -218567,9 +218675,9 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
-      "target": "src_scripts_acervo_view_js",
-      "confidence_score": 1.0
+      "target": "src_scripts_acervo_view_js"
     },
     {
       "relation": "imports_from",
@@ -218578,9 +218686,9 @@
       "source_file": "tests/acervo-view.test.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_view_test_js",
-      "target": "src_scripts_acervo_view_js",
-      "confidence_score": 1.0
+      "target": "src_scripts_acervo_view_js"
     },
     {
       "relation": "calls",
@@ -218589,9 +218697,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_acervo_view_countlabel",
-      "target": "scripts_acervo_view_number",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_number"
     },
     {
       "relation": "calls",
@@ -218600,9 +218708,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_acervo_view_renderacervoview",
-      "target": "scripts_acervo_view_countlabel",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_countlabel"
     },
     {
       "relation": "calls",
@@ -218611,9 +218719,9 @@
       "source_file": "src/scripts/acervo-view.js",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_acervo_view_renderacervoview",
-      "target": "scripts_acervo_view_element",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_element"
     },
     {
       "relation": "imports",
@@ -218622,9 +218730,9 @@
       "source_file": "src/scripts/ui.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_scripts_ui_js",
-      "target": "scripts_acervo_view_renderacervoview",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_renderacervoview"
     },
     {
       "relation": "imports",
@@ -218633,9 +218741,9 @@
       "source_file": "tests/acervo-view.test.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_view_test_js",
-      "target": "scripts_acervo_view_renderacervoview",
-      "confidence_score": 1.0
+      "target": "scripts_acervo_view_renderacervoview"
     },
     {
       "relation": "contains",
@@ -222785,9 +222893,9 @@
       "source_file": "tests/ui-acervo.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_ui_acervo_test_js",
-      "target": "src_scripts_search_engine_js",
-      "confidence_score": 1.0
+      "target": "src_scripts_search_engine_js"
     },
     {
       "relation": "imports_from",
@@ -222821,6 +222929,17 @@
       "confidence_score": 1.0,
       "source": "tests_ui_reader_test_js",
       "target": "src_scripts_search_engine_js"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_related_documents_test_js",
+      "target": "src_scripts_search_engine_js",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -222884,9 +223003,9 @@
       "source_file": "tests/ui-acervo.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_ui_acervo_test_js",
-      "target": "scripts_search_engine_performsearch",
-      "confidence_score": 1.0
+      "target": "scripts_search_engine_performsearch"
     },
     {
       "relation": "imports",
@@ -222936,6 +223055,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_related_documents_test_js",
+      "target": "scripts_search_engine_getarticlebyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/scripts/ui.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -222950,7 +223080,40 @@
       "source_file": "tests/ui-acervo.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_ui_acervo_test_js",
+      "target": "scripts_search_engine_getarticlesbylaw"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-agreements.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_ui_agreements_test_js",
+      "target": "scripts_search_engine_getarticlesbylaw"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-reader.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_ui_reader_test_js",
+      "target": "scripts_search_engine_getarticlesbylaw"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_related_documents_test_js",
       "target": "scripts_search_engine_getarticlesbylaw",
       "confidence_score": 1.0
     },
@@ -222958,28 +223121,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tests/ui-agreements.test.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_ui_agreements_test_js",
-      "target": "scripts_search_engine_getarticlesbylaw"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/ui-reader.test.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_ui_reader_test_js",
-      "target": "scripts_search_engine_getarticlesbylaw"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/scripts/ui.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -222994,9 +223135,9 @@
       "source_file": "tests/ui-acervo.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_ui_acervo_test_js",
-      "target": "scripts_search_engine_getthemesbylawname",
-      "confidence_score": 1.0
+      "target": "scripts_search_engine_getthemesbylawname"
     },
     {
       "relation": "imports",
@@ -223019,6 +223160,17 @@
       "confidence_score": 1.0,
       "source": "tests_ui_reader_test_js",
       "target": "scripts_search_engine_getthemesbylawname"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/ui-related-documents.test.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_ui_related_documents_test_js",
+      "target": "scripts_search_engine_getthemesbylawname",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -223058,9 +223210,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "tests_acervo_model_test_instrument",
-      "confidence_score": 1.0
+      "target": "tests_acervo_model_test_instrument"
     },
     {
       "relation": "contains",
@@ -223068,9 +223220,9 @@
       "source_file": "tests/acervo-model.test.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_model_test_js",
-      "target": "tests_acervo_model_test_realcatalog",
-      "confidence_score": 1.0
+      "target": "tests_acervo_model_test_realcatalog"
     },
     {
       "relation": "contains",
@@ -223078,9 +223230,9 @@
       "source_file": "tests/acervo-view.test.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_view_test_js",
-      "target": "tests_acervo_view_test_frame",
-      "confidence_score": 1.0
+      "target": "tests_acervo_view_test_frame"
     },
     {
       "relation": "contains",
@@ -223088,9 +223240,9 @@
       "source_file": "tests/acervo-view.test.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_view_test_js",
-      "target": "tests_acervo_view_test_search",
-      "confidence_score": 1.0
+      "target": "tests_acervo_view_test_search"
     },
     {
       "relation": "contains",
@@ -223098,9 +223250,9 @@
       "source_file": "tests/acervo-view.test.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_acervo_view_test_js",
-      "target": "tests_acervo_view_test_summaries",
-      "confidence_score": 1.0
+      "target": "tests_acervo_view_test_summaries"
     },
     {
       "relation": "contains",
@@ -223420,9 +223572,9 @@
       "source_file": "tests/ui-acervo.test.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_ui_acervo_test_js",
-      "target": "tests_ui_acervo_test_originalscrolly",
-      "confidence_score": 1.0
+      "target": "tests_ui_acervo_test_originalscrolly"
     },
     {
       "relation": "imports",
@@ -224971,9 +225123,9 @@
       "source_file": "README.md",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "65_buscador_de_leyes_energ\u00eda_readme_buscador_de_leyes_energ\u00eda",
-      "target": "65_buscador_de_leyes_energ\u00eda_readme_explorador_y_lector",
-      "confidence_score": 1.0
+      "target": "65_buscador_de_leyes_energ\u00eda_readme_explorador_y_lector"
     },
     {
       "relation": "contains",
@@ -225301,9 +225453,9 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_acervo_2026_09_19_propuesta_estadisticas_md",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "confidence_score": 1.0
+      "target": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo"
     },
     {
       "relation": "contains",
@@ -225311,9 +225463,9 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_datos_y_fechas_honestos",
-      "confidence_score": 1.0
+      "target": "acervo_2026_09_19_propuesta_estadisticas_datos_y_fechas_honestos"
     },
     {
       "relation": "contains",
@@ -225321,9 +225473,9 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_implementaci\u00f3n_posterior_y_aceptaci\u00f3n",
-      "confidence_score": 1.0
+      "target": "acervo_2026_09_19_propuesta_estadisticas_implementaci\u00f3n_posterior_y_aceptaci\u00f3n"
     },
     {
       "relation": "contains",
@@ -225331,9 +225483,9 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_pantalla_propuesta",
-      "confidence_score": 1.0
+      "target": "acervo_2026_09_19_propuesta_estadisticas_pantalla_propuesta"
     },
     {
       "relation": "contains",
@@ -225341,9 +225493,9 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_problemas_actuales_confirmados",
-      "confidence_score": 1.0
+      "target": "acervo_2026_09_19_propuesta_estadisticas_problemas_actuales_confirmados"
     },
     {
       "relation": "contains",
@@ -225351,9 +225503,9 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_qu\u00e9_cambiar",
-      "confidence_score": 1.0
+      "target": "acervo_2026_09_19_propuesta_estadisticas_qu\u00e9_cambiar"
     },
     {
       "relation": "contains",
@@ -225361,8 +225513,28 @@
       "source_file": "docs/acervo-2026-09-19/PROPUESTA-ESTADISTICAS.md",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "acervo_2026_09_19_propuesta_estadisticas_propuesta_de_estad\u00edsticas_del_acervo",
-      "target": "acervo_2026_09_19_propuesta_estadisticas_una_sola_definici\u00f3n_de_grupos",
+      "target": "acervo_2026_09_19_propuesta_estadisticas_una_sola_definici\u00f3n_de_grupos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/acervo-2026-09-19/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_acervo_2026_09_19_readme_md",
+      "target": "acervo_2026_09_19_readme_biblioteca_del_acervo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/acervo-2026-09-19/README.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "acervo_2026_09_19_readme_biblioteca_del_acervo",
+      "target": "acervo_2026_09_19_readme_validaci\u00f3n",
       "confidence_score": 1.0
     },
     {
@@ -225641,9 +225813,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_lector_2026_09_19_readme_md",
-      "target": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original"
     },
     {
       "relation": "contains",
@@ -225651,9 +225823,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "target": "lector_2026_09_19_readme_ampliaci\u00f3n_pendiente",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_ampliaci\u00f3n_pendiente"
     },
     {
       "relation": "contains",
@@ -225661,9 +225833,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "target": "lector_2026_09_19_readme_archivos_y_reproducci\u00f3n",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_archivos_y_reproducci\u00f3n"
     },
     {
       "relation": "contains",
@@ -225671,9 +225843,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "target": "lector_2026_09_19_readme_comportamiento_cuando_falta_la_fuente_sincronizada",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_comportamiento_cuando_falta_la_fuente_sincronizada"
     },
     {
       "relation": "contains",
@@ -225681,9 +225853,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "target": "lector_2026_09_19_readme_funcionamiento",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_funcionamiento"
     },
     {
       "relation": "contains",
@@ -225691,9 +225863,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "target": "lector_2026_09_19_readme_integridad_y_edici\u00f3n_posterior",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_integridad_y_edici\u00f3n_posterior"
     },
     {
       "relation": "contains",
@@ -225701,9 +225873,9 @@
       "source_file": "docs/lector-2026-09-19/README.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lector_2026_09_19_readme_lector_y_cotejo_con_el_documento_original",
-      "target": "lector_2026_09_19_readme_pdf_sincronizado_cobertura_inicial_real",
-      "confidence_score": 1.0
+      "target": "lector_2026_09_19_readme_pdf_sincronizado_cobertura_inicial_real"
     },
     {
       "relation": "contains",
@@ -228564,5 +228736,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ab427ae48315402bfe796225f4350c37ec9884ad"
+  "built_at_commit": "56a06716ad06ea67c1ceae9c49f207010e218f8e"
 }

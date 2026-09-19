@@ -69,7 +69,7 @@ it('reads a real structured instrument, shares preferences, switches source lazi
 
     const law = document.getElementById('law-detail-container');
     expect(law.classList.contains('hidden')).toBe(false);
-    expect(law.querySelectorAll('#law-articles-list > .result-item')).toHaveLength(6);
+    expect(law.querySelectorAll('#law-articles-list .result-item')).toHaveLength(6);
     const increase = law.querySelector('[data-reader-size="2"]');
     increase.click(); increase.click(); increase.click();
     changeSelect('#law-detail-container [data-reader-spacing]', '2');

@@ -6,6 +6,7 @@ import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
 import { ACERVO_GROUPS } from '../lib/acervo-model.js';
+import { relatedDocumentLabel } from '../lib/related-document.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
 export function initUI() {
@@ -1303,7 +1304,8 @@ export function initUI() {
         document.body.appendChild(tocBtn);
 
         // Build grid buttons HTML (separated by type)
-        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo !== 'transitorio');
+        const relacionados = currentLawArticles.filter(a => relatedDocumentLabel(a));
+        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo !== 'transitorio' && !relatedDocumentLabel(a));
         const transitoriosArr = currentLawArticles.filter(a => a.tipo_articulo === 'transitorio');
 
         const buildGrid = (arr) => arr.map((art, i) => {
@@ -1348,6 +1350,15 @@ export function initUI() {
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Artículos Transitorios</p>
                         <div class="toc-grid-layout" style="display:grid; width:100%; min-width:100%; max-width:100%; grid-template-columns:repeat(auto-fit, minmax(72px, 1fr)); gap:0.5rem; align-items:stretch;">
                             ${buildGrid(transitoriosArr)}
+                        </div>
+                    </div>
+                ` : ''}
+                ${relacionados.length ? `
+                    <div class="related-documents-index">
+                        <p class="related-documents-title">Documentos relacionados</p>
+                        <p class="related-documents-description">Complementos que acompañan al instrumento.</p>
+                        <div class="toc-grid-layout" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(72px, 1fr)); gap:0.5rem;">
+                            ${buildGrid(relacionados)}
                         </div>
                     </div>
                 ` : ''}
@@ -1407,6 +1418,12 @@ export function initUI() {
                         <div class="flex flex-col gap-1">${buildList(transitoriosArr)}</div>
                     </div>
                 ` : ''}
+                ${relacionados.length ? `
+                    <div class="related-documents-index">
+                        <p class="related-documents-title">Documentos relacionados</p>
+                        <div class="flex flex-col gap-1">${buildList(relacionados)}</div>
+                    </div>
+                ` : ''}
             </div>
         `;
 
@@ -1422,8 +1439,8 @@ export function initUI() {
             <!-- Header -->
             <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0 border-b border-gray-50">
                 <div>
-                    <p class="text-sm font-bold text-gray-800">Índice de Artículos</p>
-                    <p class="text-[10px] text-gray-400 mt-0.5">${currentLawArticles.length} artículos · clic para abrir</p>
+                    <p class="text-sm font-bold text-gray-800">Índice del instrumento</p>
+                    <p class="text-[10px] text-gray-400 mt-0.5">${currentLawArticles.length} fragmentos · clic para abrir</p>
                 </div>
                 <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5" aria-label="Cerrar índice">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1852,9 +1869,12 @@ export function initUI() {
             return;
         }
 
-        currentModalList = articles;
+        const primary = articles.filter(item => !relatedDocumentLabel(item));
+        const related = articles.filter(item => relatedDocumentLabel(item));
+        currentModalList = [...primary, ...related];
 
-        list.innerHTML = articles.map(item => {
+        const renderCard = item => {
+            const relatedLabel = relatedDocumentLabel(item);
             const highlightedText = highlightText(getTextPreview(item.texto), highlightQuery);
             const hasNote = !!getNote(item.id);
             const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
@@ -1868,7 +1888,8 @@ export function initUI() {
             const compareBg = isSelected ? 'bg-guinda/10' : '';
 
             return `
-            <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item" data-id="${item.id}">
+            <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item${relatedLabel ? ' related-document-card' : ''}" data-id="${item.id}">
+                ${relatedLabel ? `<div class="related-document-badge-row"><span class="related-document-badge">${relatedLabel}</span></div>` : ''}
                 <div class="flex items-center justify-between mb-2 pr-14">
                     <span class="text-xs font-bold text-gray-700 flex items-center gap-1.5">
                         ${item.articulo_label}
@@ -1883,7 +1904,16 @@ export function initUI() {
                 </button>
             </div>
             `;
-        }).join('');
+        };
+        list.innerHTML = primary.map(renderCard).join('') + (related.length ? `
+            <section class="related-documents" aria-labelledby="related-documents-title">
+                <div class="related-documents-intro">
+                    <h2 id="related-documents-title" class="related-documents-title">Documentos relacionados</h2>
+                    <p class="related-documents-description">Documentos complementarios que acompañan al instrumento. Se muestran separados de su articulado.</p>
+                </div>
+                <div class="space-y-4">${related.map(renderCard).join('')}</div>
+            </section>
+        ` : '');
 
         document.querySelectorAll('#law-articles-list .result-item').forEach(el => {
             el.addEventListener('click', (e) => {
@@ -3395,6 +3425,10 @@ export function initUI() {
 
         modalLey.textContent = item.ley_origen;
         modalTitle.textContent = item.articulo_label;
+        const relatedLabel = relatedDocumentLabel(item);
+        const relatedNotice = document.getElementById('reader-related-notice');
+        relatedNotice.hidden = !relatedLabel;
+        relatedNotice.querySelector('.related-document-badge').textContent = relatedLabel || '';
         // Make law label clickable — goes to that law's detail
         modalLey.onclick = () => {
             const law = cachedSummaries.find(l => l.titulo === item.ley_origen);

@@ -215,7 +215,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\data\\manifest.json": {
-    "mtime": 1789834527.3957062,
+    "mtime": 1789835485.9990041,
     "ast_hash": "ebb3e943f1ca6d628a3f264d3d397484",
     "semantic_hash": ""
   },
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\scripts\\ui.js": {
-    "mtime": 1789834048.737265,
-    "ast_hash": "255734a8f7207d21727bb1bd462d19eb",
+    "mtime": 1789835364.4173887,
+    "ast_hash": "68664150e31990e204522bd8802ec79b",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\legal-ingest-pipeline.test.js": {
@@ -295,8 +295,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\index.html": {
-    "mtime": 1789804424.0326748,
-    "ast_hash": "0cff634cfbb6bbe09aef5372e189ea9d",
+    "mtime": 1789835366.6664183,
+    "ast_hash": "157123332241476ffa1ab2cfebad6d66",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\ley-chunker-eval-v1.html": {
@@ -3340,8 +3340,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\ui-agreements.test.js": {
-    "mtime": 1789775663.6456974,
-    "ast_hash": "242a015f7d1ac9786ab4e9c3ce5cda9e",
+    "mtime": 1789835474.2397487,
+    "ast_hash": "d8047233e43ed4e1964520554d658751",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\README.md": {
@@ -4195,8 +4195,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\ui-reader.test.js": {
-    "mtime": 1789804163.8437736,
-    "ast_hash": "00ecae5b512d9da9d1320c89a7f77078",
+    "mtime": 1789835472.0814261,
+    "ast_hash": "ed493ed4e8d9dacbbbfba7d2acb7bf33",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\lector-fuentes-2026-09-19\\README.md": {
@@ -4350,8 +4350,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\acervo-2026-09-19\\PROPUESTA-ESTADISTICAS.md": {
-    "mtime": 1789833555.7464786,
-    "ast_hash": "6567bffbbc67e1f0efc6178fa89749d6",
+    "mtime": 1789834602.1094334,
+    "ast_hash": "2e312185561e27c9546af50b1d9b66bc",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\lector-2026-09-19\\README.md": {
@@ -4372,6 +4372,26 @@
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\lector-2026-09-19\\escritorio-multipagina.png": {
     "mtime": 1789804398.5788143,
     "ast_hash": "de770ffdfa7991234ace228c212920a5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\lib\\related-document.js": {
+    "mtime": 1789835362.172038,
+    "ast_hash": "4fb7fe1b7ef7edd7dede3f5e1d122462",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\ui-related-documents.test.js": {
+    "mtime": 1789835449.2202013,
+    "ast_hash": "28009b758c17dc8a2c6e9f692134b941",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\acervo-2026-09-19\\README.md": {
+    "mtime": 1789834599.2573988,
+    "ast_hash": "98e4a93ef4ff254fe481bcc5f869295c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\docs\\acervo-2026-09-19\\acervo-movil.png": {
+    "mtime": 1789834573.1214309,
+    "ast_hash": "e325b576643dec2d1f448c0489a2dc2e",
     "semantic_hash": ""
   }
 }

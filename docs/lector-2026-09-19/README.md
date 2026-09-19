@@ -70,6 +70,14 @@ Las pruebas del lector están en `reader-preferences.test.js`, `reader-controls.
 
 ## Ampliación pendiente
 
+### Distinción visual de documentos relacionados
+
+Los fragmentos revisados con `tipo_articulo: complementario` se agrupan bajo **Documentos relacionados** en la lista y en ambas vistas del índice. El lector muestra una franja persistente al alternar Texto y PDF, con etiquetas para sentencias, resolutivos de la SCJN, promulgación o complemento genérico. La clasificación utiliza el tipo existente y el identificador; nunca una mención de sentencia dentro del texto de un artículo. Los anexos conservan su lugar en el instrumento.
+
+La LCNE conserva sus 48 fragmentos: 44 en la lista principal y cuatro en el bloque de complementos. No hay cambios en contenido, identificadores, mapas PDF ni escrituras en Supabase. `ui-related-documents.test.js` comprueba conservación de los 48 registros, filtrado, índice y retirada del aviso al volver a un artículo ordinario. Validación: 137 pruebas, lint y build correctos; comprobación visual local en escritorio y móvil de 390 px.
+
+La prueba local de PDF remoto también reutiliza las etiquetas. Sigue siendo un prototipo independiente; esta entrega visual no cambia el origen de los PDFs del lector publicado.
+
 **Los otros 40 instrumentos del acervo aún no tienen un mapa sincronizado publicado en esta entrega.** Incorporarlos requiere fijar la versión de fuente, conservar su hash, revisar asignaciones a páginas/líneas, cotejar UUID y contenido actuales y comprobar casos especiales: numerales repetidos, transitorios, acuerdos modificatorios, tablas y anexos.
 
 No debe trasladarse una numeración o geometría de LCNE a otro documento. PDF rotados, páginas con recortes o dimensiones distintas, documentos escaneados y publicaciones sólo HTML necesitan preparación específica. El radar puede detectar una publicación, pero el hallazgo no habilita por sí mismo una correspondencia revisada.
