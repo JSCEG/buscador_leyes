@@ -2,6 +2,8 @@ import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, 
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 import { renderAnalisisView } from './analisis.js';
 import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-presentation.js';
+import { initReaderControls, readerControlsHtml } from './reader-controls.js';
+import { mountReaderSource } from './reader-source-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 
 export function initUI() {
@@ -23,6 +25,33 @@ export function initUI() {
     const copyBtn = document.getElementById('copy-btn');
     const loadingIndicator = document.getElementById('loading-indicator');
     const modalEditBtn = document.getElementById('modal-edit-btn');
+    const readerControls = initReaderControls();
+    const readerOriginal = document.getElementById('reader-original');
+    const readerBody = document.getElementById('reader-body');
+    document.getElementById('reader-settings-slot').innerHTML = readerControlsHtml();
+    readerControls.sync();
+    let readerSource = null;
+    let readerMode = 'text';
+    let readerOpenRequest = 0;
+    let readerReturnFocus = null;
+    const setReaderMode = mode => {
+        readerMode = mode;
+        readerBody.dataset.mode = mode;
+        modalPanel.classList.toggle('reader-wide', mode === 'split');
+        modalContent.classList.toggle('hidden', mode === 'original');
+        readerOriginal.classList.toggle('hidden', mode === 'text');
+        document.querySelectorAll('[data-reader-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.readerMode === mode)));
+        if (mode !== 'text') readerSource?.open();
+    };
+    document.querySelectorAll('[data-reader-mode]').forEach(button => button.addEventListener('click', () => setReaderMode(button.dataset.readerMode)));
+    const readerMedia = window.matchMedia?.('(min-width: 1000px)');
+    readerMedia?.addEventListener('change', e => { if (!e.matches && readerMode === 'split') setReaderMode('text'); });
+    const releaseReader = () => {
+        readerOpenRequest++;
+        readerSource?.destroy();
+        readerSource = null;
+        document.body.classList.remove('reader-modal-open');
+    };
 
     // Nav elements
     const navInicio = document.getElementById('nav-inicio');
@@ -120,13 +149,6 @@ export function initUI() {
         sunIcons.forEach(el => el.classList.toggle('hidden', !dark));
         if (label) label.textContent = dark ? 'Modo claro' : 'Modo oscuro';
     }
-
-    // Initialize dark mode from saved preference
-    applyGlobalDark(isDark);
-
-    document.getElementById('darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
-    document.getElementById('mobile-darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
-    // ── Fin Modo Oscuro ────────────────────────────────────────────────────────
 
     // Mobile Menu Logic
     function toggleMobileMenu(show) {
@@ -581,11 +603,22 @@ export function initUI() {
     // Custom events from análisis module
     document.addEventListener('analisis:openArticle', async (e) => {
         const { id, list } = e.detail;
+        const request = ++readerOpenRequest;
+        const originHash = location.hash;
+        if (location.hash.startsWith('#explorar')) {
+            explorerModalReturn = explorerReturnContext(location.hash);
+        }
         if (list && list.length) {
             const promises = list.map(lid => getArticleById(lid));
-            currentModalList = (await Promise.all(promises)).filter(Boolean);
+            const items = (await Promise.all(promises)).filter(Boolean);
+            if (request !== readerOpenRequest || location.hash !== originHash) return;
+            currentModalList = items;
         }
         openDetail(id);
+    });
+    document.addEventListener('analisis:stateChange', (e) => {
+        explorerViewHash = explorerHash(e.detail);
+        setHash(explorerViewHash);
     });
     document.addEventListener('analisis:goHome', () => resetToHero());
 
@@ -599,44 +632,94 @@ export function initUI() {
     function setHash(hash) {
         // pushState en lugar de replaceState para que el botón Atrás del navegador
         // pueda retroceder entre artículos, leyes y la vista de inicio.
+        if (location.hash === (hash || '')) return;
         history.pushState(null, '', hash ? `${location.pathname}${hash}` : location.pathname);
+    }
+
+    function explorerHash({ topicId, entityId } = {}) {
+        const params = new URLSearchParams();
+        if (topicId) params.set('tema', topicId);
+        if (entityId) params.set('entidad', entityId);
+        return `#explorar${params.size ? `?${params}` : ''}`;
+    }
+
+    function explorerRoute(hash) {
+        if (hash !== '#explorar' && !hash.startsWith('#explorar?')) return null;
+        const params = new URLSearchParams(hash.split('?')[1] || '');
+        return { topicId: params.get('tema') || undefined, entityId: params.get('entidad') || undefined };
+    }
+
+    function explorerReturnContext(hash) {
+        const focus = document.activeElement;
+        return {
+            hash, focus, scrollY: window.scrollY,
+            articleId: focus?.closest('[data-open-article]')?.dataset.openArticle,
+            entityId: focus?.closest('[data-select-entity]')?.dataset.selectEntity,
+        };
+    }
+
+    function restoreExplorerPosition(context) {
+        if (!context) return;
+        const container = document.getElementById('analisis-container');
+        const restoredArticle = context.articleId && [...(container?.querySelectorAll('[data-open-article]') || [])]
+            .find(button => button.dataset.openArticle === context.articleId);
+        const restoredEntity = context.entityId && [...(container?.querySelectorAll('[data-select-entity]') || [])]
+            .find(button => button.dataset.selectEntity === context.entityId);
+        const focus = context.focus?.isConnected ? context.focus : restoredArticle || restoredEntity || container?.querySelector('#explorer-entity-title');
+        focus?.focus({ preventScroll: true });
+        window.scrollTo({ top: context.scrollY, behavior: 'instant' });
     }
 
     async function handleInitialHash() {
         const hash = location.hash;
         if (!hash) return;
-        if (hash.startsWith('#art-')) {
+        const explorer = explorerRoute(hash);
+        if (explorer) {
+            const returnContext = explorerModalReturn?.hash === hash ? explorerModalReturn : null;
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            await showAnalisisView(explorer, { updateHistory: false });
+            restoreExplorerPosition(returnContext);
+            explorerModalReturn = null;
+        } else if (hash.startsWith('#art-')) {
+            const request = ++readerOpenRequest;
             const id = decodeURIComponent(hash.slice(5));
             const item = await getArticleById(id);
-            if (!item) return;
+            if (request !== readerOpenRequest || location.hash !== hash) return;
+            if (!item) { showToast('No se encontró este artículo en el acervo.', '!'); return; }
             currentModalList = [item];
-            openDetail(id);
+            await openDetail(id, { updateHistory: false });
         } else if (hash.startsWith('#ley-')) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            explorerModalReturn = null;
             const leyId = decodeURIComponent(hash.slice(5));
             const law = cachedSummaries.find(l => l.id === leyId);
-            if (law) openLawDetail(law);
+            if (law) await openLawDetail(law, { updateHistory: false });
         }
     }
 
     // Maneja el botón Atrás / Adelante del navegador.
     // Restaura la vista correcta según el hash de la URL.
     window.addEventListener('popstate', async () => {
-        const hash = location.hash;
-        if (!hash) {
+        if (!location.hash) {
             // Sin hash → regresar a la pantalla de inicio
-            resetToHero();
-        } else if (hash.startsWith('#art-')) {
-            const id = decodeURIComponent(hash.slice(5));
-            const item = await getArticleById(id);
-            if (!item) return;
-            currentModalList = [item];
-            openDetail(id);
-        } else if (hash.startsWith('#ley-')) {
-            const leyId = decodeURIComponent(hash.slice(5));
-            const law = cachedSummaries.find(l => l.id === leyId);
-            if (law) openLawDetail(law);
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            explorerModalReturn = null;
+            resetToHero({ updateHistory: false });
+        } else {
+            await handleInitialHash();
         }
     });
+    // El explorador local no necesita esperar a que termine la consulta del acervo.
+    if (explorerRoute(location.hash)) setTimeout(handleInitialHash, 0);
 
     function showToast(message, icon = '✓', color = 'bg-gray-900') {
         const existing = document.getElementById('app-toast');
@@ -690,6 +773,9 @@ export function initUI() {
     let currentPage = 1;
     let currentFilters = { type: 'all', law: 'all', artNum: '' };
     let currentModalList = [];
+    let explorerModalReturn = null;
+    let explorerViewHash = '#explorar';
+    let closeModalTimer;
     let compareSelection = [];
     const itemsPerPage = 10;
 
@@ -835,8 +921,8 @@ export function initUI() {
         });
     }
 
-    function resetToHero() {
-        setHash(null);
+    function resetToHero({ updateHistory = true } = {}) {
+        if (updateHistory) setHash(null);
         destroyTOC();
         hideAllViews();
         
@@ -1122,7 +1208,7 @@ export function initUI() {
 
     }
 
-    async function openLawDetail(law) {
+    async function openLawDetail(law, { updateHistory = true } = {}) {
         if (!lawDetailContainer) return;
         destroyTOC(); // Remove any previous TOC before building a new one
         hideGlobalSearch(); // Single search bar: use the scoped one inside the law view
@@ -1159,64 +1245,9 @@ export function initUI() {
         // Show Law Detail
         lawDetailContainer.classList.remove('hidden');
         setTimeout(() => lawDetailContainer.classList.remove('opacity-0'), 50);
-        setHash(`#ley-${encodeURIComponent(law.id)}`);
-
-        // Reading Controls State
-        let currentFontSize = 100; // Percentage
-        let currentTheme = 'light'; // light, sepia, dark
+        if (updateHistory) setHash(`#ley-${encodeURIComponent(law.id)}`);
 
         lawDetailContainer.innerHTML = `
-            <!-- Desktop Reading Controls (hidden on mobile) -->
-            <div id="reading-controls" class="hidden md:flex fixed bottom-6 right-6 z-40 flex-col gap-2 animate-fade-in-up">
-                 <div class="bg-white/95 backdrop-blur border border-gray-200 shadow-2xl rounded-2xl p-2 flex flex-col gap-2 items-center transition-colors duration-300" id="reading-panel">
-                    <div class="flex items-center gap-1 bg-gray-50 rounded-full p-1">
-                        <button id="btn-font-decrease" class="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-full transition-colors" title="Letra más pequeña">
-                            <span class="font-serif text-sm">A</span>
-                        </button>
-                        <span id="font-size-display" class="text-[10px] font-bold text-gray-400 w-8 text-center">${currentFontSize}%</span>
-                        <button id="btn-font-increase" class="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-full transition-colors" title="Letra más grande">
-                            <span class="font-serif text-lg font-bold">A</span>
-                        </button>
-                    </div>
-                    <div class="w-full h-px bg-gray-100"></div>
-                    <div class="flex gap-1">
-                        <button class="theme-btn w-6 h-6 rounded-full border-2 border-transparent bg-white shadow-sm hover:scale-110 transition-transform ${currentTheme === 'light' ? 'ring-2 ring-guinda ring-offset-1' : ''}" data-theme="light" title="Modo Claro"></button>
-                        <button class="theme-btn w-6 h-6 rounded-full border-2 border-transparent bg-[#f4ecd8] shadow-sm hover:scale-110 transition-transform ${currentTheme === 'sepia' ? 'ring-2 ring-guinda ring-offset-1' : ''}" data-theme="sepia" title="Modo Sepia"></button>
-                        <button class="theme-btn w-6 h-6 rounded-full border-2 border-transparent bg-[#1a1a1a] shadow-sm hover:scale-110 transition-transform ${currentTheme === 'dark' ? 'ring-2 ring-guinda ring-offset-1' : ''}" data-theme="dark" title="Modo Oscuro"></button>
-                    </div>
-                 </div>
-            </div>
-
-            <!-- Mobile: floating settings toggle -->
-            <button id="mobile-reading-toggle" class="md:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-white border border-gray-200 shadow-xl rounded-full flex items-center justify-center text-gray-500 hover:text-guinda transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-            </button>
-            <!-- Mobile reading overlay -->
-            <div id="mobile-reading-overlay" class="md:hidden fixed inset-0 bg-black/30 z-40 hidden"></div>
-            <!-- Mobile reading bottom sheet -->
-            <div id="mobile-reading-sheet" class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white rounded-t-3xl shadow-2xl border-t border-gray-100 transform translate-y-full transition-transform duration-300">
-                <div class="flex justify-center pt-3 pb-1"><div class="w-10 h-1 bg-gray-200 rounded-full"></div></div>
-                <div class="px-6 pb-10 pt-2">
-                    <p class="text-sm font-bold text-gray-800 mb-5">Opciones de lectura</p>
-                    <div class="mb-6">
-                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Tamaño de texto</p>
-                        <div class="flex items-center gap-4">
-                            <button id="mob-font-decrease" class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center font-serif text-xl text-gray-600 active:bg-guinda active:text-white transition-colors">A</button>
-                            <span id="mob-font-display" class="flex-1 text-center text-sm font-bold text-gray-500">${currentFontSize}%</span>
-                            <button id="mob-font-increase" class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center font-serif text-3xl font-bold text-gray-600 active:bg-guinda active:text-white transition-colors">A</button>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Fondo</p>
-                        <div class="grid grid-cols-3 gap-3">
-                            <button class="mob-theme-btn h-14 rounded-2xl border-2 flex items-center justify-center text-xs font-bold transition-all bg-white ${currentTheme === 'light' ? 'border-guinda text-guinda' : 'border-gray-100 text-gray-700'}" data-theme="light">Blanco</button>
-                            <button class="mob-theme-btn h-14 rounded-2xl border-2 flex items-center justify-center text-xs font-bold transition-all bg-[#f4ecd8] ${currentTheme === 'sepia' ? 'border-guinda text-guinda' : 'border-transparent text-[#5b4636]'}" data-theme="sepia">Sepia</button>
-                            <button class="mob-theme-btn h-14 rounded-2xl border-2 flex items-center justify-center text-xs font-bold transition-all bg-[#1a1a1a] ${currentTheme === 'dark' ? 'border-guinda' : 'border-transparent'} text-white" data-theme="dark">Oscuro</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="mb-8 animate-fade-in-up transition-colors duration-300" id="law-header-area">
                 <nav aria-label="Ruta de navegación" class="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
                     <button id="crumb-inicio" class="hover:text-guinda transition-colors font-medium" aria-label="Ir al inicio">Inicio</button>
@@ -1360,6 +1391,10 @@ export function initUI() {
                         placeholder="Buscar artículos específicos en ${law.titulo}...">
                 </div>
 
+                <div class="reader-toolbar reader-law-toolbar">
+                    <span>Lectura del instrumento</span>
+                    ${readerControlsHtml()}
+                </div>
                 <!-- Articles List -->
                 <div id="law-articles-list" class="space-y-4 max-w-4xl mx-auto">
                     <!-- Render initial articles -->
@@ -1720,140 +1755,7 @@ export function initUI() {
             renderLawStructureChart(currentLawArticles, dbThemes);
         }, 100);
 
-        // Reading Controls Listeners
-        const articlesList = document.getElementById('law-articles-list');
-        const increaseBtn = document.getElementById('btn-font-increase');
-        const decreaseBtn = document.getElementById('btn-font-decrease');
-        const fontDisplay = document.getElementById('font-size-display');
-        const themeBtns = document.querySelectorAll('.theme-btn');
-        const headerArea = document.getElementById('law-header-area');
-
-        // Apply saved theme immediately
-        const applyTheme = (theme) => {
-            currentTheme = theme;
-
-            document.body.classList.remove('bg-light', 'bg-sepia', 'bg-dark');
-            document.body.classList.add(`bg-${theme}`);
-
-            // Update desktop buttons active state
-            themeBtns.forEach(btn => {
-                btn.classList.remove('ring-2', 'ring-guinda', 'ring-offset-1');
-                if (btn.dataset.theme === theme) {
-                    btn.classList.add('ring-2', 'ring-guinda', 'ring-offset-1');
-                }
-            });
-            // Update mobile sheet buttons active state
-            document.querySelectorAll('.mob-theme-btn').forEach(btn => {
-                btn.classList.remove('border-guinda', 'text-guinda');
-                btn.classList.add('border-transparent');
-                if (btn.dataset.theme === theme) {
-                    btn.classList.remove('border-transparent');
-                    btn.classList.add('border-guinda');
-                    if (theme !== 'dark') btn.classList.add('text-guinda');
-                }
-            });
-
-            // Ensure styles exist
-            if (!document.getElementById('reader-themes-style')) {
-                const style = document.createElement('style');
-                style.id = 'reader-themes-style';
-                style.innerHTML = `
-                    /* Sepia Mode */
-                    .bg-sepia { background-color: #f4ecd8 !important; color: #5b4636 !important; }
-                    .bg-sepia .bg-white { background-color: #fdf6e3 !important; border-color: #e6dcb1 !important; }
-                    .bg-sepia .text-gray-900, .bg-sepia .text-gray-800 { color: #433422 !important; }
-                    .bg-sepia .text-gray-600, .bg-sepia .text-gray-500 { color: #5b4636 !important; }
-                    .bg-sepia #reading-panel { background-color: rgba(253, 246, 227, 0.95) !important; border-color: #e6dcb1 !important; }
-                    
-                    /* Dark Mode */
-                    .bg-dark { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
-                    .bg-dark .bg-white { background-color: #242424 !important; border-color: rgba(229,229,229,0.14) !important; }
-                    .bg-dark .text-gray-900, .bg-dark .text-gray-800 { color: #ffffff !important; }
-                    .bg-dark .text-gray-700 { color: #d4d4d4 !important; }
-                    .bg-dark .text-gray-600, .bg-dark .text-gray-500 { color: #a3a3a3 !important; }
-                    .bg-dark .text-gray-400 { color: #737373 !important; }
-                    .bg-dark .border-gray-100, .bg-dark .border-gray-200 { border-color: rgba(229,229,229,0.14) !important; }
-                    .bg-dark .bg-gray-50 { background-color: #252525 !important; }
-                    .bg-dark .bg-guinda\/5 { background-color: rgba(155, 34, 71, 0.16) !important; }
-                    .bg-dark #reading-panel { background-color: rgba(30, 30, 30, 0.95) !important; border-color: #404040 !important; }
-                    .bg-dark .text-guinda { color: #D6B46A !important; }
-                    .bg-dark #search-input { background-color: #242424 !important; border-color: rgba(214,180,106,0.45) !important; color: #ffffff !important; }
-                    .bg-dark #search-input::placeholder { color: #737373 !important; }
-                    .bg-dark .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; }
-                    .bg-dark .hover\:bg-gray-50:hover { background-color: #2d2d2d !important; }
-                `;
-                document.head.appendChild(style);
-            }
-        };
-
-        // Initialize theme
-        applyTheme(currentTheme);
-
-        const updateFontSize = () => {
-            if (articlesList) articlesList.style.fontSize = `${currentFontSize}%`;
-            document.querySelectorAll('#font-size-display, #mob-font-display').forEach(el => {
-                el.innerText = `${currentFontSize}%`;
-            });
-        };
-
-        if (increaseBtn) {
-            increaseBtn.addEventListener('click', () => {
-                if (currentFontSize < 250) {
-                    currentFontSize += 10;
-                    updateFontSize();
-                }
-            });
-        }
-
-        if (decreaseBtn) {
-            decreaseBtn.addEventListener('click', () => {
-                if (currentFontSize > 80) {
-                    currentFontSize -= 10;
-                    updateFontSize();
-                }
-            });
-        }
-
-        if (fontDisplay) {
-            fontDisplay.addEventListener('click', () => {
-                currentFontSize = 100;
-                updateFontSize();
-            });
-            fontDisplay.style.cursor = 'pointer';
-            fontDisplay.title = 'Restablecer al 100%';
-        }
-
-        themeBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                applyTheme(e.target.dataset.theme);
-            });
-        });
-
-        // Mobile reading sheet
-        const mobileReadingToggle = document.getElementById('mobile-reading-toggle');
-        const mobileReadingSheet = document.getElementById('mobile-reading-sheet');
-        const mobileReadingOverlay = document.getElementById('mobile-reading-overlay');
-
-        const toggleMobileReadingSheet = (show) => {
-            mobileReadingSheet?.classList.toggle('translate-y-full', !show);
-            mobileReadingOverlay?.classList.toggle('hidden', !show);
-        };
-
-        mobileReadingToggle?.addEventListener('click', () => toggleMobileReadingSheet(true));
-        mobileReadingOverlay?.addEventListener('click', () => toggleMobileReadingSheet(false));
-
-        document.getElementById('mob-font-decrease')?.addEventListener('click', () => {
-            if (currentFontSize > 80) { currentFontSize -= 10; updateFontSize(); }
-        });
-        document.getElementById('mob-font-increase')?.addEventListener('click', () => {
-            if (currentFontSize < 250) { currentFontSize += 10; updateFontSize(); }
-        });
-        document.querySelectorAll('.mob-theme-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                applyTheme(btn.dataset.theme);
-                toggleMobileReadingSheet(false);
-            });
-        });
+        readerControls.sync();
 
         // Law share button wiring
         const lawShareBtn = document.getElementById('law-share-btn');
@@ -2097,7 +1999,7 @@ export function initUI() {
                     </span>
                     <span class="text-[10px] text-gray-400 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
                 </div>
-                <p class="text-sm text-gray-600 font-light leading-relaxed line-clamp-3">${highlightedText}</p>
+                <p class="reader-preview text-gray-600 line-clamp-3">${highlightedText}</p>
                 <button class="bookmark-card-btn absolute top-3 right-9 p-1 ${loggedIn ? 'text-gray-300 hover:text-guinda' : 'text-guinda'} transition-colors" data-id="${item.id}" title="${favTitle}">${bookmarkIcon}</button>
                 <button class="compare-card-btn absolute top-3 right-3 p-1 ${compareColor} ${compareBg} rounded transition-colors" data-id="${item.id}" title="Comparar artículo">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
@@ -3593,9 +3495,22 @@ export function initUI() {
         }
     }
 
-    async function openDetail(id) {
+    async function openDetail(id, { updateHistory = true } = {}) {
+        const request = ++readerOpenRequest;
+        // También preserva el regreso al usar Adelante del navegador desde el explorador.
+        if (!explorerModalReturn && activeNavId === 'nav-analisis') {
+            explorerModalReturn = explorerReturnContext(explorerViewHash);
+        }
         const item = await getArticleById(id);
-        if (!item) return;
+        if (request !== readerOpenRequest) return;
+        if (!item) {
+            if (detailModal.classList.contains('hidden')) explorerModalReturn = null;
+            showToast('No se encontró este artículo en el acervo.', '!');
+            return;
+        }
+        clearTimeout(closeModalTimer);
+        const firstOpen = detailModal.classList.contains('hidden');
+        if (firstOpen) readerReturnFocus = document.activeElement;
 
         modalLey.textContent = item.ley_origen;
         modalTitle.textContent = item.articulo_label;
@@ -3609,7 +3524,10 @@ export function initUI() {
         const hasMarkdown = item.texto.includes('|') || item.texto.includes('**') || item.texto.includes('###');
         
         let finalHtml = '';
-        if (hasMarkdown) {
+        if (/<(?:div|p|table|section|ul|ol|h[1-6])\b/i.test(item.texto)) {
+            // Reviewed HTML already carries its paragraph/table structure.
+            finalHtml = item.texto;
+        } else if (hasMarkdown) {
             // Usar marked para el renderizado (especialmente para tablas)
             finalHtml = `<div class="prose-container">
                 <div class="prose prose-sm max-w-none prose-p:leading-relaxed">
@@ -3673,7 +3591,7 @@ export function initUI() {
                 <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 <span class="font-medium">Búsqueda:</span> <mark class="hl">${escapeHtml(activeQuery)}</mark>
             </div>` : ''}
-            ${hl(finalHtml)}
+            <div class="reader-text">${hl(finalHtml)}</div>
         `;
 
         // Prev/Next navigation
@@ -3984,11 +3902,19 @@ export function initUI() {
             if (btn) btn.onclick = () => { shareMenu?.classList.add('hidden'); action(); };
         });
 
+        readerSource?.destroy();
+        readerSource = mountReaderSource(readerOriginal, item);
+        modalContent.scrollTop = 0;
+        setReaderMode(readerMode);
+        readerControls.sync();
+
         // Update URL for sharing
-        setHash(`#art-${encodeURIComponent(id)}`);
+        if (updateHistory) setHash(`#art-${encodeURIComponent(id)}`);
 
         detailModal.classList.remove('hidden');
         detailModal.classList.add('flex');
+        document.body.classList.add('reader-modal-open');
+        if (firstOpen) closeModal.focus({ preventScroll: true });
         
         if (typeof anime !== 'undefined') {
             anime({
@@ -4018,13 +3944,19 @@ export function initUI() {
     }
 
     function closeModalFunc() {
-        setHash(null);
+        readerOpenRequest++;
+        const returnContext = explorerModalReturn;
+        explorerModalReturn = null;
+        setHash(returnContext?.hash || null);
         modalPanel.classList.remove('scale-100', 'opacity-100');
         modalPanel.classList.add('scale-95', 'opacity-0');
 
-        setTimeout(() => {
+        closeModalTimer = setTimeout(() => {
             detailModal.classList.add('hidden');
             detailModal.classList.remove('flex');
+            releaseReader();
+            restoreExplorerPosition(returnContext);
+            if (!returnContext && readerReturnFocus?.isConnected) readerReturnFocus.focus({ preventScroll: true });
         }, 300);
     }
 
@@ -4070,12 +4002,13 @@ export function initUI() {
     }
 
     // ── Análisis de Temas Transversales ──────────────────────────────────────────
-    function showAnalisisView() {
+    async function showAnalisisView(state = {}, { updateHistory = true } = {}) {
         if (searchInput) searchInput.value = '';
         currentSearchQuery = '';
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         
-        setHash(null);
+        explorerViewHash = explorerHash(state);
+        if (updateHistory) setHash(explorerViewHash);
         destroyTOC();
         hideGlobalSearch();
         setActiveNav('nav-analisis');
@@ -4097,9 +4030,7 @@ export function initUI() {
         analisisContainer.classList.remove('hidden');
         setTimeout(() => analisisContainer.classList.remove('opacity-0'), 50);
 
-        if (analisisContainer.children.length === 0) {
-            renderAnalisisView(analisisContainer);
-        }
+        await renderAnalisisView(analisisContainer, state);
     }
     // ── Fin Análisis ─────────────────────────────────────────────────────────────
 
@@ -4188,6 +4119,14 @@ export function initUI() {
         const inInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target.isContentEditable;
         const modalOpen = !detailModal.classList.contains('hidden');
 
+        if (modalOpen && e.key === 'Tab' && modalPanel.contains(document.activeElement)) {
+            const focusable = [...modalPanel.querySelectorAll('button:not([disabled]), a[href], input, select, textarea, summary, [tabindex="0"]')]
+                .filter(el => el.getClientRects().length && !el.closest('[hidden], .hidden') && (!el.closest('details:not([open])') || el.tagName === 'SUMMARY'));
+            const first = focusable[0], last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+            if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+        }
+
         // ? — keyboard help (anywhere except inputs)
         if (e.key === '?' && !inInput) {
             e.preventDefault();
@@ -4197,6 +4136,8 @@ export function initUI() {
 
         // Esc — close things
         if (e.key === 'Escape') {
+            const settings = modalOpen && modalPanel.querySelector('.reader-settings[open]');
+            if (settings) { settings.open = false; settings.querySelector('summary').focus(); return; }
             // Close keyboard help
             const khm = document.getElementById('keyboard-help-modal');
             if (khm) { khm.remove(); return; }
@@ -4226,13 +4167,13 @@ export function initUI() {
         }
 
         // Arrow navigation (only when modal is open and not in input)
-        if (modalOpen && !inInput) {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        if (modalOpen && !inInput && !e.target.closest('button, a, summary, #reader-original')) {
+            if (e.key === 'ArrowRight') {
                 e.preventDefault();
                 document.getElementById('modal-next-btn')?.click();
                 return;
             }
-            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            if (e.key === 'ArrowLeft') {
                 e.preventDefault();
                 document.getElementById('modal-prev-btn')?.click();
                 return;

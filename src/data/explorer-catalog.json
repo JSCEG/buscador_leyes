@@ -1,0 +1,1405 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "updatedAt": "2026-09-19T00:00:00.000Z",
+  "topics": [
+    {
+      "id": "planeacion-vinculante",
+      "title": "Planeación Vinculante",
+      "summary": "Explora los instrumentos, conceptos y autoridades reunidos en torno a la planeación vinculante del sector energético. Las conexiones temáticas son editoriales y cada ficha conserva sus referencias.",
+      "entityIds": [
+        "tema-planeacion-vinculante",
+        "estrategia",
+        "pnd",
+        "pse",
+        "sener",
+        "geobio",
+        "platease",
+        "pladese",
+        "pladeshi",
+        "cfe",
+        "pemex",
+        "cne"
+      ],
+      "rootEntityId": "tema-planeacion-vinculante"
+    },
+    {
+      "id": "consejos-comites",
+      "title": "Participación y Especialistas",
+      "summary": "Explora la participación de órganos colegiados y especialistas en la planeación energética. Se distinguen las referencias localizadas en el acervo de las heredadas pendientes de revisión.",
+      "entityIds": [
+        "tema-consejos-comites",
+        "cpe-central",
+        "comite-cientifico",
+        "comite-transicion",
+        "politicas-eval",
+        "investigacion",
+        "recomendaciones",
+        "informes"
+      ],
+      "rootEntityId": "tema-consejos-comites"
+    },
+    {
+      "id": "transicion-sustentabilidad",
+      "title": "Transición y Sustentabilidad",
+      "summary": "Consulta conceptos y referencias relacionados con transición energética, fuentes renovables, sustentabilidad y reducción de emisiones.",
+      "entityIds": [
+        "tema-transicion-sustentabilidad",
+        "politica-sustentable",
+        "biocombustibles",
+        "geotermia",
+        "mercado-limpio",
+        "cero-emisiones"
+      ],
+      "rootEntityId": "tema-transicion-sustentabilidad"
+    },
+    {
+      "id": "soberania-seguridad",
+      "title": "Soberanía y Seguridad",
+      "summary": "Consulta las referencias temáticas a soberanía, seguridad energética, infraestructura y continuidad del suministro.",
+      "entityIds": [
+        "tema-soberania-seguridad",
+        "seguridad-nacional",
+        "cfe-garante",
+        "pemex-garante",
+        "redes-nacionales",
+        "confiabilidad-final"
+      ],
+      "rootEntityId": "tema-soberania-seguridad"
+    },
+    {
+      "id": "justicia-energetica",
+      "title": "Justicia Energética",
+      "summary": "Explora referencias a justicia energética, beneficio social, acceso a energía y utilidad pública, respetando el alcance específico de cada instrumento citado.",
+      "entityIds": [
+        "tema-justicia-energetica",
+        "justicia-base",
+        "utilidad-publica",
+        "cfe-social",
+        "pemex-social",
+        "tarifas-justas"
+      ],
+      "rootEntityId": "tema-justicia-energetica"
+    }
+  ],
+  "entities": [
+    {
+      "id": "tema-planeacion-vinculante",
+      "type": "concepto",
+      "title": "Planeación Vinculante",
+      "description": "Explora los instrumentos, conceptos y autoridades reunidos en torno a la planeación vinculante del sector energético. Las conexiones temáticas son editoriales y cada ficha conserva sus referencias.",
+      "aliases": [
+        "Instrumento Rector del Estado"
+      ],
+      "references": [
+        {
+          "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
+          "legacyArticleId": "LPTE-Art-002",
+          "label": "LPTE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "articleId": "6894f5f3-e396-51c4-9841-fdb499c06a5c",
+          "legacyArticleId": "RLB-Art-010",
+          "label": "RLBio · Artículo 10",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LBio.pdf"
+        },
+        {
+          "articleId": "b3ab9131-aa88-58ac-bef6-cc8a0968352d",
+          "legacyArticleId": "LCFE-Art-016",
+          "label": "LEPECFE · Artículo 16",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        },
+        {
+          "articleId": "1f524037-1317-5ec5-a731-b2b29f42dddb",
+          "legacyArticleId": "LPEMEX-Art-017",
+          "label": "LEPEPM · Artículo 17",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        },
+        {
+          "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
+          "legacyArticleId": "LSE-Art-012",
+          "label": "LSE · Artículo 12",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        },
+        {
+          "articleId": "de08db51-9fac-532c-a1b6-98ec84a03843",
+          "legacyArticleId": "LSH-Art-008",
+          "label": "LSH · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf"
+        },
+        {
+          "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
+          "legacyArticleId": "LCNE-Art-007",
+          "label": "LCNE · Artículo 7",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        },
+        {
+          "articleId": "104581e9-3698-5eb4-b585-89ffe7589535",
+          "legacyArticleId": "LCNE-Art-002",
+          "label": "LCNE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "estrategia",
+      "type": "instrumento",
+      "title": "Estrategia Nacional de Transición Energética",
+      "description": "Instrumento de planeación identificado como Estrategia Nacional de Transición Energética en la LPTE. Esta ficha reúne sus referencias dentro de la colección de planeación vinculante.",
+      "aliases": [
+        "Estrategia Nacional"
+      ],
+      "references": [
+        {
+          "articleId": "d43f4ccc-c71b-5c32-b087-4bedbe691384",
+          "legacyArticleId": "LB-Art-011",
+          "label": "LBio · Artículo 11",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf"
+        },
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "articleId": "f3286a77-34de-419b-9dfa-a1a19a514950",
+          "label": "LPTE · Artículo 3 · Definiciones",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pnd",
+      "type": "instrumento",
+      "title": "Plan Nacional de Desarrollo",
+      "description": "Instrumento incluido en el recorrido editorial de planeación nacional. La referencia heredada a la LCNE se conserva para revisar el contexto de su relación con la política energética.",
+      "aliases": [
+        "Plan Nacional de Des."
+      ],
+      "references": [
+        {
+          "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
+          "legacyArticleId": "LCNE-Art-007",
+          "label": "LCNE · Artículo 7",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pse",
+      "type": "instrumento",
+      "title": "Programa Sectorial de Energía",
+      "description": "Instrumento de planeación sectorial incluido en la LPTE entre los que elabora y publica la Secretaría de Energía.",
+      "aliases": [
+        "Programa Sectorial"
+      ],
+      "references": [
+        {
+          "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
+          "legacyArticleId": "LCNE-Art-007",
+          "label": "LCNE · Artículo 7",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "sener",
+      "type": "autoridad",
+      "title": "Secretaría de Energía",
+      "description": "Dependencia a cargo de la planeación vinculante del sector energético según la referencia a la LPTE conservada en esta colección.",
+      "aliases": [
+        "SENER (Rector)"
+      ],
+      "references": [
+        {
+          "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
+          "legacyArticleId": "LPTE-Art-002",
+          "label": "LPTE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "geobio",
+      "type": "concepto",
+      "title": "Geotermia y biocombustibles",
+      "description": "Agrupación temática de geotermia y biocombustibles para consultar su conexión con la planeación del sector energético.",
+      "aliases": [
+        "Geotermia y Biocomb."
+      ],
+      "references": [
+        {
+          "articleId": "6894f5f3-e396-51c4-9841-fdb499c06a5c",
+          "legacyArticleId": "RLB-Art-010",
+          "label": "RLBio · Artículo 10",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LBio.pdf"
+        }
+      ]
+    },
+    {
+      "id": "platease",
+      "type": "instrumento",
+      "title": "Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía",
+      "description": "Instrumento definido en la LPTE para la transición energética y el aprovechamiento sustentable de la energía.",
+      "aliases": [
+        "PLATEASE"
+      ],
+      "references": [
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "articleId": "f3286a77-34de-419b-9dfa-a1a19a514950",
+          "label": "LPTE · Artículo 3 · Definiciones",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pladese",
+      "type": "instrumento",
+      "title": "Plan de Desarrollo del Sector Eléctrico",
+      "description": "Instrumento de planeación del sector eléctrico. La ficha reúne las referencias al plan y a la planeación eléctrica presentes en el acervo.",
+      "aliases": [
+        "PLADESE (Luz)",
+        "PLADESE"
+      ],
+      "references": [
+        {
+          "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
+          "legacyArticleId": "LSE-Art-012",
+          "label": "LSE · Artículo 12",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        },
+        {
+          "articleId": "f3286a77-34de-419b-9dfa-a1a19a514950",
+          "label": "LPTE · Artículo 3 · Definiciones",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pladeshi",
+      "type": "instrumento",
+      "title": "Plan de Desarrollo del Sector Hidrocarburos",
+      "description": "Instrumento de planeación del sector hidrocarburos. La LSH sitúa su emisión a cargo de la Secretaría de Energía.",
+      "aliases": [
+        "PLADESHi (Crudo)",
+        "PLADESHI"
+      ],
+      "references": [
+        {
+          "articleId": "de08db51-9fac-532c-a1b6-98ec84a03843",
+          "legacyArticleId": "LSH-Art-008",
+          "label": "LSH · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf"
+        },
+        {
+          "articleId": "f3286a77-34de-419b-9dfa-a1a19a514950",
+          "label": "LPTE · Artículo 3 · Definiciones",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cfe",
+      "type": "concepto",
+      "title": "CFE y particulares en el sector eléctrico",
+      "description": "Agrupación editorial de los participantes del sector eléctrico para explorar referencias relacionadas con la planeación. La referencia heredada corresponde al programa de desarrollo de la CFE.",
+      "aliases": [
+        "CFE y Privados (Luz)"
+      ],
+      "references": [
+        {
+          "articleId": "b3ab9131-aa88-58ac-bef6-cc8a0968352d",
+          "legacyArticleId": "LCFE-Art-016",
+          "label": "LEPECFE · Artículo 16",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pemex",
+      "type": "concepto",
+      "title": "Pemex y particulares en el sector hidrocarburos",
+      "description": "Agrupación editorial de los participantes del sector hidrocarburos para explorar referencias relacionadas con la planeación. La referencia heredada corresponde al programa de desarrollo de Petróleos Mexicanos.",
+      "aliases": [
+        "Pemex y Privados (Gas)"
+      ],
+      "references": [
+        {
+          "articleId": "1f524037-1317-5ec5-a731-b2b29f42dddb",
+          "legacyArticleId": "LPEMEX-Art-017",
+          "label": "LEPEPM · Artículo 17",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cne",
+      "type": "autoridad",
+      "title": "Comisión Nacional de Energía",
+      "description": "Órgano incluido en la colección por sus funciones en materia de regulación, supervisión y sanciones dentro de su competencia.",
+      "aliases": [
+        "Regulador (CNE)"
+      ],
+      "references": [
+        {
+          "articleId": "104581e9-3698-5eb4-b585-89ffe7589535",
+          "legacyArticleId": "LCNE-Art-002",
+          "label": "LCNE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "tema-consejos-comites",
+      "type": "concepto",
+      "title": "Participación y Especialistas",
+      "description": "Explora la participación de órganos colegiados y especialistas en la planeación energética. Se distinguen las referencias localizadas en el acervo de las heredadas pendientes de revisión.",
+      "aliases": [
+        "Consejo de Planeación y Comités Técnicos"
+      ],
+      "references": [
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "legacyArticleId": "LCPE-Art-002",
+          "label": "LCPE-Art-002 · referencia heredada pendiente de revisión"
+        },
+        {
+          "legacyArticleId": "RCPE-Art-012",
+          "label": "RCPE-Art-012 · referencia heredada pendiente de revisión"
+        },
+        {
+          "legacyArticleId": "RCPE-Art-015",
+          "label": "RCPE-Art-015 · referencia heredada pendiente de revisión"
+        },
+        {
+          "legacyArticleId": "LPTE-Art-110",
+          "label": "LPTE-Art-110 · referencia heredada pendiente de revisión",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cpe-central",
+      "type": "autoridad",
+      "title": "Consejo de Planeación Energética",
+      "description": "Órgano colegiado identificado en la LPTE. Esta ficha conserva referencias heredadas a sus funciones; los lineamientos citados en el contenido anterior requieren verificación.",
+      "aliases": [
+        "Consejo de Planeación"
+      ],
+      "references": [
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "legacyArticleId": "LCPE-Art-002",
+          "label": "LCPE-Art-002 · referencia heredada pendiente de revisión"
+        },
+        {
+          "articleId": "f3286a77-34de-419b-9dfa-a1a19a514950",
+          "label": "LPTE · Artículo 3 · Definiciones",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "comite-cientifico",
+      "type": "autoridad",
+      "title": "Comité Científico",
+      "description": "Grupo de participación científica incluido en el recorrido editorial anterior. Su referencia específica permanece pendiente de verificación en el acervo.",
+      "aliases": [],
+      "references": [
+        {
+          "legacyArticleId": "RCPE-Art-012",
+          "label": "RCPE-Art-012 · referencia heredada pendiente de revisión"
+        }
+      ]
+    },
+    {
+      "id": "comite-transicion",
+      "type": "autoridad",
+      "title": "Comité de Transición",
+      "description": "Grupo de consulta sobre transición energética incluido en el recorrido editorial anterior. Su referencia específica permanece pendiente de verificación en el acervo.",
+      "aliases": [],
+      "references": [
+        {
+          "legacyArticleId": "RCPE-Art-015",
+          "label": "RCPE-Art-015 · referencia heredada pendiente de revisión"
+        }
+      ]
+    },
+    {
+      "id": "politicas-eval",
+      "type": "concepto",
+      "title": "Evaluación de los planes sectoriales",
+      "description": "Concepto editorial sobre seguimiento y evaluación de los instrumentos de planeación. La referencia heredada a lineamientos del Consejo requiere verificación.",
+      "aliases": [
+        "Los Planes Sectoriales"
+      ],
+      "references": [
+        {
+          "legacyArticleId": "LCPE-Art-002",
+          "label": "LCPE-Art-002 · referencia heredada pendiente de revisión"
+        }
+      ]
+    },
+    {
+      "id": "investigacion",
+      "type": "concepto",
+      "title": "Innovación Tecnológica",
+      "description": "Concepto temático que agrupa investigación e innovación tecnológica en energía. La referencia heredada LPTE-Art-110 no se localizó y requiere revisión antes de usarla como fundamento.",
+      "aliases": [],
+      "references": [
+        {
+          "legacyArticleId": "LPTE-Art-110",
+          "label": "LPTE-Art-110 · referencia heredada pendiente de revisión",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "recomendaciones",
+      "type": "concepto",
+      "title": "Recomendaciones",
+      "description": "Concepto editorial para organizar recomendaciones relacionadas con la planeación energética. La referencia heredada a lineamientos del Consejo requiere verificación.",
+      "aliases": [],
+      "references": [
+        {
+          "legacyArticleId": "LCPE-Art-008",
+          "label": "LCPE-Art-008 · referencia heredada pendiente de revisión"
+        }
+      ]
+    },
+    {
+      "id": "informes",
+      "type": "concepto",
+      "title": "Informes Públicos",
+      "description": "Concepto editorial para consultar referencias a información y reportes de la planeación energética.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "b637bf54-b3dd-4d5e-80cf-7872934d9af3",
+          "legacyArticleId": "LPTE-Art-012",
+          "label": "LPTE · Artículo 12",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "tema-transicion-sustentabilidad",
+      "type": "concepto",
+      "title": "Transición y Sustentabilidad",
+      "description": "Consulta conceptos y referencias relacionados con transición energética, fuentes renovables, sustentabilidad y reducción de emisiones.",
+      "aliases": [
+        "Hacia un Futuro Limpio y Eficiente"
+      ],
+      "references": [
+        {
+          "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
+          "legacyArticleId": "LPTE-Art-002",
+          "label": "LPTE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "articleId": "28605ce3-bd02-5ee2-a506-4176083a24f7",
+          "legacyArticleId": "LB-Art-001",
+          "label": "LBio · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf"
+        },
+        {
+          "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
+          "legacyArticleId": "LSE-Art-001",
+          "label": "LSE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ]
+    },
+    {
+      "id": "politica-sustentable",
+      "type": "concepto",
+      "title": "Meta Nacional",
+      "description": "Concepto que reúne las referencias a la transición y diversificación del sistema energético.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
+          "legacyArticleId": "LPTE-Art-002",
+          "label": "LPTE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "biocombustibles",
+      "type": "concepto",
+      "title": "Biocombustibles",
+      "description": "Concepto para explorar el desarrollo de biocombustibles a través de las referencias de la Ley de Biocombustibles.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "28605ce3-bd02-5ee2-a506-4176083a24f7",
+          "legacyArticleId": "LB-Art-001",
+          "label": "LBio · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf"
+        }
+      ]
+    },
+    {
+      "id": "geotermia",
+      "type": "concepto",
+      "title": "Geotermia",
+      "description": "Concepto para explorar el aprovechamiento de recursos geotérmicos a través de las referencias de la Ley de Geotermia.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "1a600438-846a-5798-9a40-768b50c9bbea",
+          "legacyArticleId": "LG-Art-001",
+          "label": "LGeo · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "mercado-limpio",
+      "type": "concepto",
+      "title": "Sustentabilidad en el sector eléctrico",
+      "description": "Agrupación editorial de referencias sobre sustentabilidad y finalidades del sector eléctrico. No representa por sí misma una regla de despacho.",
+      "aliases": [
+        "Despacho CFE"
+      ],
+      "references": [
+        {
+          "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
+          "legacyArticleId": "LSE-Art-001",
+          "label": "LSE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cero-emisiones",
+      "type": "concepto",
+      "title": "Reducción de Emisiones",
+      "description": "Concepto temático sobre reducción de emisiones y sustentabilidad en el marco energético.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "19d32204-bb0b-4674-b795-9ef2c715d0ac",
+          "legacyArticleId": "RLPTE-Art-005",
+          "label": "RLPyTE · Artículo 5",
+          "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0"
+        }
+      ]
+    },
+    {
+      "id": "tema-soberania-seguridad",
+      "type": "concepto",
+      "title": "Soberanía y Seguridad",
+      "description": "Consulta las referencias temáticas a soberanía, seguridad energética, infraestructura y continuidad del suministro.",
+      "aliases": [
+        "Autosuficiencia y Control Energético Nacional"
+      ],
+      "references": [
+        {
+          "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
+          "legacyArticleId": "LCFE-Art-003",
+          "label": "LEPECFE · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        },
+        {
+          "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
+          "legacyArticleId": "LPEMEX-Art-003",
+          "label": "LEPEPM · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        },
+        {
+          "legacyArticleId": "BME-Art-126",
+          "label": "BME-Art-126 · referencia heredada pendiente de revisión"
+        }
+      ]
+    },
+    {
+      "id": "seguridad-nacional",
+      "type": "concepto",
+      "title": "Soberanía Nacional",
+      "description": "Concepto para consultar referencias relacionadas con soberanía y seguridad energética.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "c95901fe-c3b5-50e3-87ca-a5f71b123884",
+          "legacyArticleId": "LCNE-Art-001",
+          "label": "LCNE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cfe-garante",
+      "type": "concepto",
+      "title": "CFE y seguridad energética",
+      "description": "Perspectiva temática de las funciones de la Comisión Federal de Electricidad vinculadas con la seguridad y continuidad del suministro.",
+      "aliases": [
+        "CFE (Electricidad)"
+      ],
+      "references": [
+        {
+          "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
+          "legacyArticleId": "LCFE-Art-003",
+          "label": "LEPECFE · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pemex-garante",
+      "type": "concepto",
+      "title": "Pemex y seguridad energética",
+      "description": "Perspectiva temática de las funciones de Petróleos Mexicanos vinculadas con soberanía, seguridad y autosuficiencia energética.",
+      "aliases": [
+        "Pemex (Combustibles)"
+      ],
+      "references": [
+        {
+          "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
+          "legacyArticleId": "LPEMEX-Art-003",
+          "label": "LEPEPM · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        }
+      ]
+    },
+    {
+      "id": "redes-nacionales",
+      "type": "concepto",
+      "title": "Redes e infraestructura energética",
+      "description": "Agrupación editorial de infraestructura y redes para explorar su relación con la seguridad energética.",
+      "aliases": [
+        "Redes y Tuberías"
+      ],
+      "references": [
+        {
+          "articleId": "f49edb38-6c7d-4007-9811-11b299ab1666",
+          "legacyArticleId": "LSE-Art-002",
+          "label": "LSE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ]
+    },
+    {
+      "id": "confiabilidad-final",
+      "type": "concepto",
+      "title": "Confiabilidad y continuidad del suministro",
+      "description": "Concepto relacionado con la continuidad y confiabilidad del suministro. Las referencias heredadas a Bases del Mercado Eléctrico requieren revisión.",
+      "aliases": [
+        "Continuidad Garantizada"
+      ],
+      "references": [
+        {
+          "legacyArticleId": "BME-Art-1-2-6",
+          "label": "BME-Art-1-2-6 · referencia heredada pendiente de revisión"
+        }
+      ]
+    },
+    {
+      "id": "tema-justicia-energetica",
+      "type": "concepto",
+      "title": "Justicia Energética",
+      "description": "Explora referencias a justicia energética, beneficio social, acceso a energía y utilidad pública, respetando el alcance específico de cada instrumento citado.",
+      "aliases": [
+        "Beneficio Social y Utilidad Pública"
+      ],
+      "references": [
+        {
+          "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
+          "legacyArticleId": "LCFE-Art-003",
+          "label": "LEPECFE · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        },
+        {
+          "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
+          "legacyArticleId": "LSE-Art-001",
+          "label": "LSE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        },
+        {
+          "articleId": "12d3f796-5f74-5f92-84aa-808d795f3b14",
+          "legacyArticleId": "LG-Art-004",
+          "label": "LGeo · Artículo 4",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "justicia-base",
+      "type": "concepto",
+      "title": "Justicia Energética",
+      "description": "Concepto para explorar las referencias a justicia energética dentro de la legislación del sector eléctrico.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
+          "legacyArticleId": "LSE-Art-001",
+          "label": "LSE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ]
+    },
+    {
+      "id": "utilidad-publica",
+      "type": "concepto",
+      "title": "Utilidad Pública",
+      "description": "Concepto para consultar el alcance de la utilidad pública en la referencia específica a la Ley de Geotermia, sin extenderlo a actividades no citadas.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "12d3f796-5f74-5f92-84aa-808d795f3b14",
+          "legacyArticleId": "LG-Art-004",
+          "label": "LGeo · Artículo 4",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cfe-social",
+      "type": "concepto",
+      "title": "CFE y justicia energética",
+      "description": "Perspectiva temática de los fines de justicia energética y desarrollo sustentable de la Comisión Federal de Electricidad.",
+      "aliases": [
+        "CFE sin lucro"
+      ],
+      "references": [
+        {
+          "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
+          "legacyArticleId": "LCFE-Art-003",
+          "label": "LEPECFE · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pemex-social",
+      "type": "concepto",
+      "title": "Pemex y justicia energética",
+      "description": "Perspectiva temática de los fines de Petróleos Mexicanos y su relación editorial con el beneficio social.",
+      "aliases": [
+        "Pemex para el Pueblo"
+      ],
+      "references": [
+        {
+          "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
+          "legacyArticleId": "LPEMEX-Art-003",
+          "label": "LEPEPM · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        }
+      ]
+    },
+    {
+      "id": "tarifas-justas",
+      "type": "concepto",
+      "title": "Tarifas y Electrificación",
+      "description": "Agrupación editorial de acceso a energía, electrificación y tarifas. La relación específica entre estos asuntos y las referencias heredadas requiere revisión.",
+      "aliases": [],
+      "references": [
+        {
+          "articleId": "c95901fe-c3b5-50e3-87ca-a5f71b123884",
+          "legacyArticleId": "LCNE-Art-001",
+          "label": "LCNE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-planeacion-vinculante-estrategia",
+      "source": "tema-planeacion-vinculante",
+      "target": "estrategia",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Estrategia Nacional de Transición Energética forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "d43f4ccc-c71b-5c32-b087-4bedbe691384",
+          "legacyArticleId": "LB-Art-011",
+          "label": "LBio · Artículo 11",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf"
+        },
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-pnd",
+      "source": "tema-planeacion-vinculante",
+      "target": "pnd",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Plan Nacional de Desarrollo forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
+          "legacyArticleId": "LCNE-Art-007",
+          "label": "LCNE · Artículo 7",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-pse",
+      "source": "tema-planeacion-vinculante",
+      "target": "pse",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Programa Sectorial de Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
+          "legacyArticleId": "LCNE-Art-007",
+          "label": "LCNE · Artículo 7",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-sener",
+      "source": "tema-planeacion-vinculante",
+      "target": "sener",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Secretaría de Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
+          "legacyArticleId": "LPTE-Art-002",
+          "label": "LPTE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-geobio",
+      "source": "tema-planeacion-vinculante",
+      "target": "geobio",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Geotermia y biocombustibles forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "6894f5f3-e396-51c4-9841-fdb499c06a5c",
+          "legacyArticleId": "RLB-Art-010",
+          "label": "RLBio · Artículo 10",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LBio.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-platease",
+      "source": "tema-planeacion-vinculante",
+      "target": "platease",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-pladese",
+      "source": "tema-planeacion-vinculante",
+      "target": "pladese",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Plan de Desarrollo del Sector Eléctrico forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
+          "legacyArticleId": "LSE-Art-012",
+          "label": "LSE · Artículo 12",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-pladeshi",
+      "source": "tema-planeacion-vinculante",
+      "target": "pladeshi",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Plan de Desarrollo del Sector Hidrocarburos forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "de08db51-9fac-532c-a1b6-98ec84a03843",
+          "legacyArticleId": "LSH-Art-008",
+          "label": "LSH · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSH.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-cfe",
+      "source": "tema-planeacion-vinculante",
+      "target": "cfe",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "CFE y particulares en el sector eléctrico forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "b3ab9131-aa88-58ac-bef6-cc8a0968352d",
+          "legacyArticleId": "LCFE-Art-016",
+          "label": "LEPECFE · Artículo 16",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-pemex",
+      "source": "tema-planeacion-vinculante",
+      "target": "pemex",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Pemex y particulares en el sector hidrocarburos forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "1f524037-1317-5ec5-a731-b2b29f42dddb",
+          "legacyArticleId": "LPEMEX-Art-017",
+          "label": "LEPEPM · Artículo 17",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-planeacion-vinculante-cne",
+      "source": "tema-planeacion-vinculante",
+      "target": "cne",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Comisión Nacional de Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "104581e9-3698-5eb4-b585-89ffe7589535",
+          "legacyArticleId": "LCNE-Art-002",
+          "label": "LCNE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-cpe-central",
+      "source": "tema-consejos-comites",
+      "target": "cpe-central",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Consejo de Planeación Energética forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
+          "legacyArticleId": "LPTE-Art-008",
+          "label": "LPTE · Artículo 8",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        },
+        {
+          "legacyArticleId": "LCPE-Art-002",
+          "label": "LCPE-Art-002 · referencia heredada pendiente de revisión"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-comite-cientifico",
+      "source": "tema-consejos-comites",
+      "target": "comite-cientifico",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Comité Científico forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "legacyArticleId": "RCPE-Art-012",
+          "label": "RCPE-Art-012 · referencia heredada pendiente de revisión"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-comite-transicion",
+      "source": "tema-consejos-comites",
+      "target": "comite-transicion",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Comité de Transición forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "legacyArticleId": "RCPE-Art-015",
+          "label": "RCPE-Art-015 · referencia heredada pendiente de revisión"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-politicas-eval",
+      "source": "tema-consejos-comites",
+      "target": "politicas-eval",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Evaluación de los planes sectoriales forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "legacyArticleId": "LCPE-Art-002",
+          "label": "LCPE-Art-002 · referencia heredada pendiente de revisión"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-investigacion",
+      "source": "tema-consejos-comites",
+      "target": "investigacion",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Innovación Tecnológica forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "legacyArticleId": "LPTE-Art-110",
+          "label": "LPTE-Art-110 · referencia heredada pendiente de revisión",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-recomendaciones",
+      "source": "tema-consejos-comites",
+      "target": "recomendaciones",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Recomendaciones forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "legacyArticleId": "LCPE-Art-008",
+          "label": "LCPE-Art-008 · referencia heredada pendiente de revisión"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-consejos-comites-informes",
+      "source": "tema-consejos-comites",
+      "target": "informes",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Informes Públicos forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "b637bf54-b3dd-4d5e-80cf-7872934d9af3",
+          "legacyArticleId": "LPTE-Art-012",
+          "label": "LPTE · Artículo 12",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-transicion-sustentabilidad-politica-sustentable",
+      "source": "tema-transicion-sustentabilidad",
+      "target": "politica-sustentable",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Meta Nacional forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
+          "legacyArticleId": "LPTE-Art-002",
+          "label": "LPTE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPTE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-transicion-sustentabilidad-biocombustibles",
+      "source": "tema-transicion-sustentabilidad",
+      "target": "biocombustibles",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Biocombustibles forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "28605ce3-bd02-5ee2-a506-4176083a24f7",
+          "legacyArticleId": "LB-Art-001",
+          "label": "LBio · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LBio.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-transicion-sustentabilidad-geotermia",
+      "source": "tema-transicion-sustentabilidad",
+      "target": "geotermia",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Geotermia forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "1a600438-846a-5798-9a40-768b50c9bbea",
+          "legacyArticleId": "LG-Art-001",
+          "label": "LGeo · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-transicion-sustentabilidad-mercado-limpio",
+      "source": "tema-transicion-sustentabilidad",
+      "target": "mercado-limpio",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Sustentabilidad en el sector eléctrico forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
+          "legacyArticleId": "LSE-Art-001",
+          "label": "LSE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-transicion-sustentabilidad-cero-emisiones",
+      "source": "tema-transicion-sustentabilidad",
+      "target": "cero-emisiones",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Reducción de Emisiones forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "19d32204-bb0b-4674-b795-9ef2c715d0ac",
+          "legacyArticleId": "RLPTE-Art-005",
+          "label": "RLPyTE · Artículo 5",
+          "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-soberania-seguridad-seguridad-nacional",
+      "source": "tema-soberania-seguridad",
+      "target": "seguridad-nacional",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Soberanía Nacional forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "c95901fe-c3b5-50e3-87ca-a5f71b123884",
+          "legacyArticleId": "LCNE-Art-001",
+          "label": "LCNE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-soberania-seguridad-cfe-garante",
+      "source": "tema-soberania-seguridad",
+      "target": "cfe-garante",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "CFE y seguridad energética forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
+          "legacyArticleId": "LCFE-Art-003",
+          "label": "LEPECFE · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-soberania-seguridad-pemex-garante",
+      "source": "tema-soberania-seguridad",
+      "target": "pemex-garante",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Pemex y seguridad energética forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
+          "legacyArticleId": "LPEMEX-Art-003",
+          "label": "LEPEPM · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-soberania-seguridad-redes-nacionales",
+      "source": "tema-soberania-seguridad",
+      "target": "redes-nacionales",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Redes e infraestructura energética forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "f49edb38-6c7d-4007-9811-11b299ab1666",
+          "legacyArticleId": "LSE-Art-002",
+          "label": "LSE · Artículo 2",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-soberania-seguridad-confiabilidad-final",
+      "source": "tema-soberania-seguridad",
+      "target": "confiabilidad-final",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Confiabilidad y continuidad del suministro forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "legacyArticleId": "BME-Art-1-2-6",
+          "label": "BME-Art-1-2-6 · referencia heredada pendiente de revisión"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-justicia-energetica-justicia-base",
+      "source": "tema-justicia-energetica",
+      "target": "justicia-base",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Justicia Energética forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
+          "legacyArticleId": "LSE-Art-001",
+          "label": "LSE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-justicia-energetica-utilidad-publica",
+      "source": "tema-justicia-energetica",
+      "target": "utilidad-publica",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Utilidad Pública forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "12d3f796-5f74-5f92-84aa-808d795f3b14",
+          "legacyArticleId": "LG-Art-004",
+          "label": "LGeo · Artículo 4",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGeo.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-justicia-energetica-cfe-social",
+      "source": "tema-justicia-energetica",
+      "target": "cfe-social",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "CFE y justicia energética forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
+          "legacyArticleId": "LCFE-Art-003",
+          "label": "LEPECFE · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPECFE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-justicia-energetica-pemex-social",
+      "source": "tema-justicia-energetica",
+      "target": "pemex-social",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Pemex y justicia energética forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
+          "legacyArticleId": "LPEMEX-Art-003",
+          "label": "LEPEPM · Artículo 3",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LEPEPM.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    },
+    {
+      "id": "rel-justicia-energetica-tarifas-justas",
+      "source": "tema-justicia-energetica",
+      "target": "tarifas-justas",
+      "type": "asociacion-tematica",
+      "label": "Asociación temática",
+      "description": "Tarifas y Electrificación forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "references": [
+        {
+          "articleId": "c95901fe-c3b5-50e3-87ca-a5f71b123884",
+          "legacyArticleId": "LCNE-Art-001",
+          "label": "LCNE · Artículo 1",
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf"
+        }
+      ],
+      "reviewStatus": "editorial"
+    }
+  ],
+  "migrationNotes": [
+    "Origen: TEMAS de src/scripts/analisis.js. El contenido íntegro, incluidos atributos, métricas, extractos, niveles y conectores, se conserva en src/data/legacy-temas.json. No se han recalculado ni publicado como métricas actuales los conteos heredados.",
+    "La migración conserva las cinco colecciones y sus 33 nodos. Cada colección dispone de una raíz editorial. Los antiguos niveles visuales y conectores no se convierten en una jerarquía jurídica: las relaciones del catálogo sólo expresan asociación temática editorial.",
+    "Los títulos oficiales de Estrategia, PLADESE, PLADESHi, PLATEASE y Consejo se contrastaron con el artículo 3 de LPTE en el acervo existente. Sus abreviaturas y títulos anteriores se conservan como aliases. El título Plan Nacional de Desarrollo ya figura en el contenido heredado.",
+    "Los articleId se resolvieron mediante lectura de leyes y articulos en Supabase el 2026-09-19, cotejando siglas y el identificador exacto del artículo. legacyArticleId conserva cada identificador anterior. Resolver la ubicación no verifica por sí mismo la interpretación editorial.",
+    "Correspondencias de siglas por el título de la ley existente: LB→LBio, RLB→RLBio, LG→LGeo, LCFE→LEPECFE, LPEMEX→LEPEPM, RLPTE→RLPyTE; LPTE, LSE, LSH y LCNE se mantienen.",
+    "Los extractos entrecomillados del contenido anterior no se trasladan como citas verificadas. Se conservan exclusivamente en la copia legacy, pues no todos coinciden con el artículo citado; por ejemplo, la atribución de instalar y presidir el Consejo no aparece en LPTE Artículo 8 del acervo actual.",
+    "Los resúmenes actuales son descripciones editoriales de navegación, no declaraciones de vigencia ni inferencias de subordinación. Las paráfrasis originales permanecen en legacy-temas.json para su revisión.",
+    "Referencias pendientes sin enlace interno a artículo: BME-Art-1-2-6, BME-Art-126, LCPE-Art-002, LCPE-Art-008, LPTE-Art-110, RCPE-Art-012, RCPE-Art-015. LCPE, RCPE y BME no se localizaron entre los instrumentos del acervo; LPTE Artículo 110 no se localizó. Para LPTE se conserva el enlace al documento de la ley, sin atribuirle un artículo existente.",
+    "Los identificadores BME-Art-126 y BME-Art-1-2-6 del legado se conservan separados; no se ha supuesto que sean equivalentes."
+  ]
+}

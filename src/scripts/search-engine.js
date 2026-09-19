@@ -220,7 +220,7 @@ export async function getArticleById(id) {
     try {
         const { data, error } = await supabase
             .from('articulos')
-            .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, leyes ( titulo, fecha_publicacion )')
+            .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes ( titulo, siglas, fecha_publicacion, url_original )')
             .eq('id', id)
             .single();
 
@@ -245,7 +245,7 @@ export async function getArticlesByLaw(lawName) {
 
         const { data, error } = await supabase
             .from('articulos')
-            .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, leyes ( titulo, fecha_publicacion )')
+            .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes ( titulo, siglas, fecha_publicacion, url_original )')
             .eq('ley_id', lawData.id)
             .order('orden', { ascending: true });
 

@@ -1,0 +1,233 @@
+{
+  "fecha": "2026-09-19",
+  "prototipo": true,
+  "pruebas": [
+    {
+      "nombre": "Aa modifica párrafo legal",
+      "antes": "18px",
+      "despues": "24px",
+      "correcto": true
+    },
+    {
+      "nombre": "Preferencias tras recarga",
+      "medida": {
+        "font": "24px",
+        "line": "48px"
+      }
+    },
+    {
+      "nombre": "Anchos lector",
+      "medidas": [
+        {
+          "contenido": 282,
+          "fuente": "18px",
+          "scroll": 306,
+          "width": 320
+        },
+        {
+          "contenido": 344,
+          "fuente": "18px",
+          "scroll": 376,
+          "width": 390
+        },
+        {
+          "contenido": 707,
+          "fuente": "18px",
+          "scroll": 755,
+          "width": 768
+        },
+        {
+          "contenido": 728,
+          "fuente": "18px",
+          "scroll": 1010,
+          "width": 1024
+        },
+        {
+          "contenido": 1040,
+          "fuente": "18px",
+          "scroll": 1426,
+          "width": 1440
+        },
+        {
+          "contenido": 1050,
+          "fuente": "18px",
+          "scroll": 1906,
+          "width": 1920
+        },
+        {
+          "contenido": 1050,
+          "fuente": "18px",
+          "scroll": 2546,
+          "width": 2560
+        }
+      ]
+    },
+    {
+      "nombre": "Índice móvil",
+      "url": "http://127.0.0.1:5317/docs/diseno-premium-2026-09-19/prototipo.html#lector?ley=AUTOCONSUMO-0.7-20&art=4",
+      "dialogoCerrado": true
+    },
+    {
+      "nombre": "Filtro 2026",
+      "tarjetas": 1,
+      "texto": "1 instrumento\nFiltros\nOrdenar resultados\nOrden de la muestra\nPublicación más reciente\nTítulo de A a Z\n\nResultados para «autoconsumo» en cuatro instrumentos de muestra.\n\nAcuerdo\n48 fragmentos en el acervo\nVentanilla Única de Autoconsumo\nSecretaría de "
+    },
+    {
+      "nombre": "Acciones resultados a320",
+      "medida": {
+        "guardadoAccesible": true,
+        "scroll": 306,
+        "w": 320
+      }
+    },
+    {
+      "nombre": "Formulario 12 tablas/205 celdas a320 y Aa",
+      "antes": {
+        "celdas": 205,
+        "scroll": 306,
+        "tablas": 12,
+        "tamano": "18px",
+        "width": 320,
+        "wrappers": [
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          },
+          {
+            "overflow": "auto",
+            "parent": "table-scroll",
+            "role": "region"
+          }
+        ]
+      },
+      "despues": {
+        "scroll": 306,
+        "tamano": "24px",
+        "width": 320
+      }
+    },
+    {
+      "nombre": "Modo oscuro",
+      "estado": {
+        "bodyBackground": "rgb(23, 31, 27)",
+        "font": "24px"
+      }
+    },
+    {
+      "nombre": "Anchos inicio",
+      "medidas": [
+        {
+          "input": "16px",
+          "scroll": 306,
+          "width": 320
+        },
+        {
+          "input": "16px",
+          "scroll": 376,
+          "width": 390
+        },
+        {
+          "input": "16px",
+          "scroll": 755,
+          "width": 768
+        },
+        {
+          "input": "16px",
+          "scroll": 1010,
+          "width": 1024
+        },
+        {
+          "input": "16px",
+          "scroll": 1426,
+          "width": 1440
+        }
+      ]
+    },
+    {
+      "nombre": "Buscar desde Inicio",
+      "url": "http://127.0.0.1:5317/docs/diseno-premium-2026-09-19/prototipo.html#resultados?q=autoconsumo",
+      "tarjetas": 3
+    },
+    {
+      "nombre": "Anchos resultados",
+      "medidas": [
+        {
+          "scroll": 306,
+          "width": 320
+        },
+        {
+          "scroll": 376,
+          "width": 390
+        },
+        {
+          "scroll": 755,
+          "width": 768
+        },
+        {
+          "scroll": 1010,
+          "width": 1024
+        },
+        {
+          "scroll": 1426,
+          "width": 1440
+        }
+      ]
+    },
+    {
+      "nombre": "Guardado demo tras recarga",
+      "visible": true
+    }
+  ],
+  "limites": "Comprobaciones del prototipo en navegador integrado; pendientes validación en dispositivos físicos, lectores de pantalla y zoom real antes de implementar en producción. No equivalen a certificación WCAG."
+}

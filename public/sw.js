@@ -91,7 +91,7 @@ self.addEventListener('fetch', (event) => {
 
   // ── 3. Datos JSON (/data/*.json) — NETWORK FIRST ────────────────────────
   // Los archivos de ley deben estar siempre frescos.
-  if (url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+  if ((url.pathname.startsWith('/data/') || url.pathname.startsWith('/reader-sources/')) && url.pathname.endsWith('.json')) {
     event.respondWith(
       fetch(req)
         .then((response) => {

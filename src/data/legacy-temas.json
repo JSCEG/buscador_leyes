@@ -1,0 +1,1100 @@
+[
+  {
+    "id": "planeacion-vinculante",
+    "numero": "01",
+    "titulo": "Planeación Vinculante",
+    "subtitulo": "Instrumento Rector del Estado",
+    "objetivo": "La Planeación Vinculante es la obligación legal de que el gobierno, CFE, Pemex y empresas privadas subordinen sus actividades e inversiones a un mismo objetivo: mantener la energía segura, accesible para todos y cada vez más limpia. Para lograrlo, todos deben seguir rigurosamente los mismos Planes creados por la Secretaría de Energía.",
+    "color": "#9B2247",
+    "metricas": [
+      {
+        "valor": "5",
+        "label": "leyes y reglamentos"
+      },
+      {
+        "valor": "7",
+        "label": "planes principales"
+      },
+      {
+        "valor": "107+",
+        "label": "menciones obligatorias"
+      }
+    ],
+    "atributos": [
+      {
+        "nombre": "¿Quién decide?",
+        "valor": "Secretaría de Energía (SENER)",
+        "tipo": "gov"
+      },
+      {
+        "nombre": "Naturaleza",
+        "valor": "Obligatorio para todo el sector",
+        "tipo": "chain"
+      },
+      {
+        "nombre": "Para el futuro",
+        "valor": "Transición hacia energías limpias",
+        "tipo": "doc"
+      },
+      {
+        "nombre": "¿Quién apoya?",
+        "valor": "Consejo de Planeación y Comités",
+        "tipo": "council"
+      },
+      {
+        "nombre": "Planes Principales",
+        "valor": "Estrategia Nacional, Programas Sectoriales, CFE, Pemex",
+        "tipo": "plan"
+      },
+      {
+        "nombre": "Aplica en...",
+        "valor": "Luz, Gasolinas, Diésel, Geotermia",
+        "tipo": "scope"
+      }
+    ],
+    "cadena": [
+      {
+        "nivel": 1,
+        "rol": "VISIÓN DE LARGO PLAZO",
+        "nodos": [
+          {
+            "id": "estrategia",
+            "titulo": "Estrategia Nacional",
+            "descripcion": "El horizonte maestro a largo plazo (20-30 años) para dejar atrás tecnologías contaminantes.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LB-Art-011",
+              "LPTE-Art-008"
+            ],
+            "refs": "Transición"
+          }
+        ],
+        "conector": "que guía al"
+      },
+      {
+        "nivel": 2,
+        "rol": "VISIÓN DEL SEXENIO (ANCLA)",
+        "nodos": [
+          {
+            "id": "pnd",
+            "titulo": "Plan Nacional de Des.",
+            "descripcion": "El mandato del Presidente con visión a 6 años.",
+            "color": "#9B2247",
+            "articulos": [
+              "LCNE-Art-007"
+            ],
+            "refs": "Plan de Desarrollo"
+          },
+          {
+            "id": "pse",
+            "titulo": "Programa Sectorial",
+            "descripcion": "La traducción del PND al lenguaje de energía para un sexenio.",
+            "color": "#9B2247",
+            "articulos": [
+              "LCNE-Art-007"
+            ],
+            "refs": "PROSENER"
+          }
+        ],
+        "conector": "ejecutados estrictamente por"
+      },
+      {
+        "nivel": 3,
+        "rol": "EL RECTOR Y ALCANCE EXTERNO",
+        "nodos": [
+          {
+            "id": "sener",
+            "titulo": "SENER (Rector)",
+            "descripcion": "Secretaría de Energía, dicta reglas apoyada en la Ley Nacional.",
+            "color": "#9B2247",
+            "articulos": [
+              "LPTE-Art-002"
+            ],
+            "refs": "LPTE Art. 2"
+          },
+          {
+            "id": "geobio",
+            "titulo": "Geotermia y Biocomb.",
+            "descripcion": "La obligatoriedad llega hasta reglamentos secundarios muy específicos.",
+            "color": "#25D366",
+            "articulos": [
+              "RLB-Art-010"
+            ],
+            "refs": "Reglamentos Bio/Geo"
+          }
+        ],
+        "conector": "diseñando los"
+      },
+      {
+        "nivel": 4,
+        "rol": "PLANES ESPECIALIZADOS",
+        "nodos": [
+          {
+            "id": "platease",
+            "titulo": "PLATEASE",
+            "descripcion": "Trata sobre eficiencia y sustentabilidad medioambiental.",
+            "color": "#9B2247",
+            "articulos": [
+              "LPTE-Art-008"
+            ],
+            "refs": "Eficiencia"
+          },
+          {
+            "id": "pladese",
+            "titulo": "PLADESE (Luz)",
+            "descripcion": "Plan maestro de expansión del Sistema Eléctrico.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LSE-Art-012"
+            ],
+            "refs": "Eléctrico"
+          },
+          {
+            "id": "pladeshi",
+            "titulo": "PLADESHi (Crudo)",
+            "descripcion": "Plan rector del Sector Hidrocarburos.",
+            "color": "#A57F2C",
+            "articulos": [
+              "LSH-Art-008"
+            ],
+            "refs": "Hidrocarburos"
+          }
+        ],
+        "conector": "de cumplimiento obligatorio para"
+      },
+      {
+        "nivel": 5,
+        "rol": "EJECUTORES Y VIGILANTES",
+        "nodos": [
+          {
+            "id": "cfe",
+            "titulo": "CFE y Privados (Luz)",
+            "descripcion": "Solo operan bajo las metas impuestas en la planeación.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LCFE-Art-016"
+            ],
+            "refs": "Operación Luz"
+          },
+          {
+            "id": "pemex",
+            "titulo": "Pemex y Privados (Gas)",
+            "descripcion": "Trabajan anclados al Plan Petrolero Nacional.",
+            "color": "#A57F2C",
+            "articulos": [
+              "LPEMEX-Art-017"
+            ],
+            "refs": "Operación Crudo"
+          },
+          {
+            "id": "cne",
+            "titulo": "Regulador (CNE)",
+            "descripcion": "La Comisión vigila y que todos respeten las reglas y el plan.",
+            "color": "#444",
+            "articulos": [
+              "LCNE-Art-002"
+            ],
+            "refs": "Vigilancia"
+          }
+        ],
+        "conector": null
+      }
+    ],
+    "articulosClave": [
+      {
+        "id": "LPTE-Art-002",
+        "siglas": "LPTE",
+        "color": "#9B2247",
+        "label": "Art. 2",
+        "rol": "Norma Fundamental",
+        "descripcion": "Se asegura que el Estado planifique hacia dónde vamos en energía, siendo obligatorio y cuidando de que tengamos soberanía.",
+        "extracto": "\"La Secretaría de Energía está a cargo de la planeación vinculante en el Sector Energético, que incluye, como parte esencial, el desarrollo de las áreas estratégicas para preservar la soberanía…\""
+      },
+      {
+        "id": "LPTE-Art-008",
+        "siglas": "LPTE",
+        "color": "#9B2247",
+        "label": "Art. 8",
+        "rol": "Los Planes Rectores",
+        "descripcion": "La ley manda explícitamente a la Secretaría de Energía a escribir tres grandes Planes obligatorios (PLATEASE, PLADESE y PLADESHi).",
+        "extracto": "\"Corresponde a la Secretaría: I. Elaborar y publicar la Estrategia, el Programa Sectorial de Energía, el PLATEASE, el PLADESE, el PLADESHi y coordinar su ejecución…\""
+      },
+      {
+        "id": "RLB-Art-010",
+        "siglas": "Bio",
+        "color": "#1E5B4F",
+        "label": "Art. 10",
+        "rol": "Biocombustibles",
+        "descripcion": "Incluso para dar un permiso para producir etanol o biodiésel, el gobierno debe asegurarse que cuadre con la Planeación Vinculante superior.",
+        "extracto": "\"La SENER, para el otorgamiento de permisos y Autorizaciones, debe considerar lo establecido en los instrumentos de planeación... y el cumplimiento de las disposiciones administrativas de carácter general para la planeación vinculante…\""
+      },
+      {
+        "id": "LCFE-Art-016",
+        "siglas": "LCFE",
+        "color": "#1E5B4F",
+        "label": "Art. 16",
+        "rol": "Programa de la CFE",
+        "descripcion": "Manda que la principal empresa de luz de México haga su propio Plan a 5 años, sin contradecir las guías del gobierno.",
+        "extracto": "\"El Programa de Desarrollo de la CFE se debe elaborar y actualizar anualmente, con un horizonte de cinco años... para garantizar el suministro de energía eléctrica al pueblo…\""
+      },
+      {
+        "id": "LPEMEX-Art-017",
+        "siglas": "Pemex",
+        "color": "#A57F2C",
+        "label": "Art. 17",
+        "rol": "Programa de Pemex",
+        "descripcion": "La petrolera estatal debe organizar sus inversiones a cinco años siguiendo la política energética de la Secretaría.",
+        "extracto": "\"El Programa de Desarrollo de Petróleos Mexicanos se debe elaborar con un horizonte de cinco años... para preservar la soberanía, seguridad, sostenibilidad, autosuficiencia y justicia energética…\""
+      },
+      {
+        "id": "LSE-Art-012",
+        "siglas": "LSE",
+        "color": "#1E5B4F",
+        "label": "Art. 12",
+        "rol": "Sector Eléctrico",
+        "descripcion": "A nivel eléctrico, ordena que el Estado sea la fuente del 54% de la luz del país, garantizando seguridad por encima de intereses privados.",
+        "extracto": "\"La planeación del sector eléctrico tiene carácter vinculante… El Estado debe mantener al menos el cincuenta y cuatro por ciento del promedio de la energía inyectada a la red…\""
+      },
+      {
+        "id": "LSH-Art-008",
+        "siglas": "LSH",
+        "color": "#A57F2C",
+        "label": "Art. 8",
+        "rol": "Sector Hidrocarburos",
+        "descripcion": "Obliga a las refinerías y pozos petroleros a seguir el plan principal y no solo sus prioridades de negocio individual.",
+        "extracto": "\"La planeación del sector hidrocarburos tiene carácter vinculante y está a cargo de la Secretaría de Energía, autoridad que debe emitir el Plan de Desarrollo del Sector Hidrocarburos…\""
+      },
+      {
+        "id": "LCNE-Art-007",
+        "siglas": "LCNE",
+        "color": "#444",
+        "label": "Art. 7",
+        "rol": "Programa Sectorial y PND",
+        "descripcion": "Establece que los reguladores usan sus estudios para apoyar el Programa Sectorial, que resulta indispensable dentro del gran Plan Nacional de Desarrollo de México.",
+        "extracto": "\"Aportar elementos técnicos a la Secretaría para la formulación y seguimiento del Programa Sectorial de Energía y demás instrumentos de política pública en la materia…\""
+      },
+      {
+        "id": "LCNE-Art-002",
+        "siglas": "LCNE",
+        "color": "#444",
+        "label": "Art. 2",
+        "rol": "El Vigilante",
+        "descripcion": "La Comisión Nacional de Energía revisa y sanciona las desviaciones, asegurando que la Planeación no sea sólo un simple papel, sino reglas rígidas.",
+        "extracto": "\"Tiene por objeto regular, supervisar e imponer sanciones... promover su desarrollo ordenado, continuo y seguro... de conformidad con la planeación vinculante en el ámbito de su competencia.\""
+      }
+    ],
+    "menciones": [
+      {
+        "siglas": "LSH",
+        "nombre": "Ley Petrolera",
+        "valor": 67,
+        "color": "#A57F2C"
+      },
+      {
+        "siglas": "LSE",
+        "nombre": "Ley Eléctrica",
+        "valor": 50,
+        "color": "#1E5B4F"
+      },
+      {
+        "siglas": "RLPTE",
+        "nombre": "Reglamentos",
+        "valor": 47,
+        "color": "#7a1b38"
+      },
+      {
+        "siglas": "LPTE",
+        "nombre": "Ley General (LPTE)",
+        "valor": 27,
+        "color": "#9B2247"
+      },
+      {
+        "siglas": "LB/LG",
+        "nombre": "Geo y Biocombustibles",
+        "valor": 19,
+        "color": "#1E5B4F"
+      }
+    ]
+  },
+  {
+    "id": "consejos-comites",
+    "numero": "02",
+    "titulo": "Participación y Especialistas",
+    "subtitulo": "Consejo de Planeación y Comités Técnicos",
+    "objetivo": "Asegurar que las decisiones del gobierno no se tomen en solitario. La ley crea foros permanentes donde expertos científicos, académicos, la industria y la sociedad civil analizan, vigilan y recomiendan mejoras a la Secretaría de Energía.",
+    "color": "#1E5B4F",
+    "metricas": [
+      {
+        "valor": "4",
+        "label": "leyes y reglamentos"
+      },
+      {
+        "valor": "5",
+        "label": "tipos de comités"
+      },
+      {
+        "valor": "35+",
+        "label": "menciones obligatorias"
+      }
+    ],
+    "atributos": [
+      {
+        "nombre": "Naturaleza",
+        "valor": "Órgano de consulta y evaluación",
+        "tipo": "chain"
+      },
+      {
+        "nombre": "¿Quién preside?",
+        "valor": "Secretaría de Energía",
+        "tipo": "gov"
+      },
+      {
+        "nombre": "¿Quién participa?",
+        "valor": "Academia, Industria, Sociedad Civil",
+        "tipo": "council"
+      },
+      {
+        "nombre": "Misión Principal",
+        "valor": "Guiar el rescate y la transición energética",
+        "tipo": "doc"
+      },
+      {
+        "nombre": "Nivel Técnico",
+        "valor": "Científico y de factibilidad",
+        "tipo": "plan"
+      },
+      {
+        "nombre": "Carácter",
+        "valor": "Permanente (no temporal)",
+        "tipo": "scope"
+      }
+    ],
+    "cadena": [
+      {
+        "nivel": 1,
+        "rol": "EL FORO CENTRAL",
+        "nodos": [
+          {
+            "id": "cpe-central",
+            "titulo": "Consejo de Planeación",
+            "descripcion": "Mesa principal donde la sociedad y los expertos dialogan con el gobierno sobre el rumbo energético.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LPTE-Art-008",
+              "LCPE-Art-002"
+            ],
+            "refs": "LPTE Art. 8 · LCPE"
+          }
+        ],
+        "conector": "que es apoyado por"
+      },
+      {
+        "nivel": 2,
+        "rol": "LOS GRUPOS ESPECIALIZADOS",
+        "nodos": [
+          {
+            "id": "comite-cientifico",
+            "titulo": "Comité Científico",
+            "descripcion": "Académicos e investigadores asegurando que las decisiones tengan base en la ciencia.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "RCPE-Art-012"
+            ],
+            "refs": "Reglas Consejo Art. 12"
+          },
+          {
+            "id": "comite-transicion",
+            "titulo": "Comité de Transición",
+            "descripcion": "Expertos dedicados exclusivamente a buscar energías limpias y eficientes.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "RCPE-Art-015"
+            ],
+            "refs": "Reglas Consejo Art. 15"
+          }
+        ],
+        "conector": "para analizar"
+      },
+      {
+        "nivel": 3,
+        "rol": "LO QUE VIGILAN",
+        "nodos": [
+          {
+            "id": "politicas-eval",
+            "titulo": "Los Planes Sectoriales",
+            "descripcion": "Revisan si los grandes planes del gobierno realmente están funcionando.",
+            "color": "#9B2247",
+            "articulos": [
+              "LCPE-Art-002"
+            ],
+            "refs": "Funciones del Consejo"
+          },
+          {
+            "id": "investigacion",
+            "titulo": "Innovación Tecnológica",
+            "descripcion": "Fomentan el desarrollo de tecnología hecha en México y patentes nacionales.",
+            "color": "#444",
+            "articulos": [
+              "LPTE-Art-110"
+            ],
+            "refs": "Fomento a Universidades"
+          }
+        ],
+        "conector": "entregando"
+      },
+      {
+        "nivel": 4,
+        "rol": "EL RESULTADO PRÁCTICO",
+        "nodos": [
+          {
+            "id": "recomendaciones",
+            "titulo": "Recomendaciones",
+            "descripcion": "Sugerencias para corregir el rumbo o mejorar los planes.",
+            "color": "#555",
+            "articulos": [
+              "LCPE-Art-008"
+            ],
+            "refs": "Acuerdos del Consejo"
+          },
+          {
+            "id": "informes",
+            "titulo": "Informes Públicos",
+            "descripcion": "Reportes abiertos y transparentes sobre nuestros éxitos o fracasos en energía.",
+            "color": "#666",
+            "articulos": [
+              "LPTE-Art-012"
+            ],
+            "refs": "Transparencia Obligatoria"
+          }
+        ],
+        "conector": null
+      }
+    ],
+    "articulosClave": [
+      {
+        "id": "LPTE-Art-008",
+        "siglas": "LPTE",
+        "color": "#9B2247",
+        "label": "Art. 8",
+        "rol": "Creación del Consejo",
+        "descripcion": "La Ley ordena expresamente instalar este Consejo para involucrar a quienes saben del aspecto técnico y social.",
+        "extracto": "\"Corresponde a la Secretaría: Instalar y presidir el Consejo de Planeación Energética y sus respectivos órganos auxiliares, para el mejor desempeño de la planeación…\""
+      },
+      {
+        "id": "LCPE-Art-002",
+        "siglas": "Reglas",
+        "color": "#1E5B4F",
+        "label": "LCPE 2",
+        "rol": "El Papel del Consejo",
+        "descripcion": "Reafirma que es un grupo independiente para \"coordinar y seguir\" de forma permanente cómo vamos en materia energética nacional.",
+        "extracto": "\"El Consejo de Planeación Energética es el órgano colegiado de carácter permanente que apoya a la Secretaría de Energía en la coordinación y seguimiento…\""
+      },
+      {
+        "id": "RCPE-Art-012",
+        "siglas": "Reglas",
+        "color": "#1E5B4F",
+        "label": "Comité Científico",
+        "rol": "El Rol de la Ciencia",
+        "descripcion": "Garantiza un espacio exclusivo para que las universidades y centros de investigación den su opinión técnica para nuevos proyectos de energía.",
+        "extracto": "\"Para apoyar sus funciones, el Consejo contará con un Comité Científico integrado por investigadores del más alto nivel de las instituciones académicas nacionales…\""
+      },
+      {
+        "id": "RCPE-Art-015",
+        "siglas": "Reglas",
+        "color": "#1E5B4F",
+        "label": "Comité Transición",
+        "rol": "Expertos Ambientales",
+        "descripcion": "El Consejo se apoya directamente en un grupo dedicado solo a vigilar la eficiencia y el avance del país hacia un futuro menos contaminante.",
+        "extracto": "\"El Comité Consultivo para la Transición Energética emitirá recomendaciones sobre las políticas públicas en materia de sustentabilidad y tecnología limpia…\""
+      },
+      {
+        "id": "LPTE-Art-110",
+        "siglas": "LPTE",
+        "color": "#9B2247",
+        "label": "Art. 110",
+        "rol": "Impulso Nacional",
+        "descripcion": "Estos comités pueden sugerir hacia dónde dirigir el dinero público para apoyar inventos e investigación en las universidades.",
+        "extracto": "\"El Consejo podrá proponer lineamientos para el financiamiento de proyectos de innovación científica y tecnológica en las Universidades Públicas…\""
+      }
+    ],
+    "menciones": [
+      {
+        "siglas": "LCPE",
+        "nombre": "Lineamientos de Operación",
+        "valor": 35,
+        "color": "#1E5B4F"
+      },
+      {
+        "siglas": "LPTE",
+        "nombre": "Ley General de Planeación",
+        "valor": 22,
+        "color": "#9B2247"
+      },
+      {
+        "siglas": "LB",
+        "nombre": "Ley de Biocombustibles",
+        "valor": 4,
+        "color": "#1E5B4F"
+      },
+      {
+        "siglas": "LSH",
+        "nombre": "Legislación Petrolera",
+        "valor": 3,
+        "color": "#A57F2C"
+      },
+      {
+        "siglas": "LSE",
+        "nombre": "Legislación Eléctrica",
+        "valor": 2,
+        "color": "#444"
+      }
+    ]
+  },
+  {
+    "id": "transicion-sustentabilidad",
+    "numero": "03",
+    "titulo": "Transición y Sustentabilidad",
+    "subtitulo": "Hacia un Futuro Limpio y Eficiente",
+    "objetivo": "La meta ineludible del Estado y los particulares para reducir emisiones contaminantes, generar más energías limpias, sustituir combustibles fósiles gradualmente y combatir el cambio climático de forma progresiva.",
+    "color": "#1E5B4F",
+    "metricas": [
+      {
+        "valor": "15",
+        "label": "leyes y reglamentos"
+      },
+      {
+        "valor": "236",
+        "label": "menciones obligatorias"
+      },
+      {
+        "valor": "3",
+        "label": "nuevas fuentes prioritarias"
+      }
+    ],
+    "atributos": [
+      {
+        "nombre": "¿Qué exige?",
+        "valor": "Reducción de huella de carbono",
+        "tipo": "chain"
+      },
+      {
+        "nombre": "Visión principal",
+        "valor": "Sustentabilidad a largo plazo",
+        "tipo": "doc"
+      },
+      {
+        "nombre": "Sectores Obligados",
+        "valor": "Toda la cadena energética",
+        "tipo": "scope"
+      },
+      {
+        "nombre": "Armas Clave",
+        "valor": "Biocombustibles y Geotermia",
+        "tipo": "plan"
+      },
+      {
+        "nombre": "Responsabilidad",
+        "valor": "Gobierno y Mercado Privado",
+        "tipo": "gov"
+      }
+    ],
+    "cadena": [
+      {
+        "nivel": 1,
+        "rol": "LA POLÍTICA NACIONAL",
+        "nodos": [
+          {
+            "id": "politica-sustentable",
+            "titulo": "Meta Nacional",
+            "descripcion": "Transicionar nuestra economía para dejar de depender exclusivamente de quemar carbón y petróleo.",
+            "color": "#25D366",
+            "articulos": [
+              "LPTE-Art-002"
+            ],
+            "refs": "LPTE Art. 2"
+          }
+        ],
+        "conector": "impulsando las"
+      },
+      {
+        "nivel": 2,
+        "rol": "FUENTES LIMPIAS Y RECURSOS",
+        "nodos": [
+          {
+            "id": "biocombustibles",
+            "titulo": "Biocombustibles",
+            "descripcion": "Sustituir gasolinas usando etanol y biodiésel del campo mexicano.",
+            "color": "#25D366",
+            "articulos": [
+              "LB-Art-001"
+            ],
+            "refs": "Ley de Bio. Art. 1"
+          },
+          {
+            "id": "geotermia",
+            "titulo": "Geotermia",
+            "descripcion": "Aprovechar el calor del subsuelo nacional para generar luz limpia 24/7.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LG-Art-001"
+            ],
+            "refs": "Ley Geo. Art. 1"
+          }
+        ],
+        "conector": "reguladas por"
+      },
+      {
+        "nivel": 3,
+        "rol": "EFICIENCIA Y DESPACHO",
+        "nodos": [
+          {
+            "id": "mercado-limpio",
+            "titulo": "Despacho CFE",
+            "descripcion": "Priorizar o dar incentivos para que suba a la red eléctrica la energía que menos contamina.",
+            "color": "#444",
+            "articulos": [
+              "LSE-Art-001"
+            ],
+            "refs": "LSE Despacho"
+          }
+        ],
+        "conector": "para lograr"
+      },
+      {
+        "nivel": 4,
+        "rol": "EL BENEFICIO FINAL",
+        "nodos": [
+          {
+            "id": "cero-emisiones",
+            "titulo": "Reducción de Emisiones",
+            "descripcion": "Mitigar el cambio climático y proteger la salud y el medio ambiente del pueblo de México.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "RLPTE-Art-005"
+            ],
+            "refs": "Sustentabilidad"
+          }
+        ],
+        "conector": null
+      }
+    ],
+    "articulosClave": [
+      {
+        "id": "LPTE-Art-002",
+        "siglas": "LPTE",
+        "color": "#9B2247",
+        "label": "Eje Rector",
+        "rol": "Transición",
+        "descripcion": "La Ley ordena que la política energética no solo busque luz barata, sino que integre la diversificación hacia energías limpias de manera obligatoria.",
+        "extracto": "\"...con el fin de coadyuvar con la soberanía, justicia y autosuficiencia energética, como parte de la diversificación y de la transición energética...\""
+      },
+      {
+        "id": "LB-Art-001",
+        "siglas": "Bio",
+        "color": "#1E5B4F",
+        "label": "Biocomb.",
+        "rol": "Nueva Matriz",
+        "descripcion": "Reconoce que aprovechar los residuos y cultivos de forma sustentable ayudará a reducir gases contaminantes en el país.",
+        "extracto": "\"La presente Ley... tiene por objeto regular y promover el desarrollo sustentable de los Biocombustibles... Contribuir con la reducción de las emisiones contaminantes a la atmósfera...\""
+      },
+      {
+        "id": "LSE-Art-001",
+        "siglas": "LSE",
+        "color": "#1E5B4F",
+        "label": "Luz Limpia",
+        "rol": "Sector Eléctrico",
+        "descripcion": "La Ley Eléctrica subordina el mercado a que la energía generada sea sustentable y no contribuya al calentamiento global indiscriminado.",
+        "extracto": "\"...promover la generación de energía eléctrica a partir de energías limpias y la reducción de emisiones contaminantes de la industria eléctrica...\""
+      }
+    ],
+    "menciones": [
+      {
+        "siglas": "LPTE",
+        "nombre": "Ley Transición",
+        "valor": 64,
+        "color": "#9B2247"
+      },
+      {
+        "siglas": "LSE",
+        "nombre": "Legislación Eléctrica",
+        "valor": 49,
+        "color": "#1E5B4F"
+      },
+      {
+        "siglas": "BME/CENACE",
+        "nombre": "Mercado Mayorista",
+        "valor": 37,
+        "color": "#444"
+      },
+      {
+        "siglas": "LB",
+        "nombre": "Biocombustibles",
+        "valor": 26,
+        "color": "#1E5B4F"
+      }
+    ]
+  },
+  {
+    "id": "soberania-seguridad",
+    "numero": "04",
+    "titulo": "Soberanía y Seguridad",
+    "subtitulo": "Autosuficiencia y Control Energético Nacional",
+    "objetivo": "Garantizar que México no dependa de factores externos para satisfacer sus necesidades básicas de energía, asegurando el abasto continuo, confiable y seguro de luz y combustibles para toda la población en cualquier momento, como un tema de seguridad nacional.",
+    "color": "#A57F2C",
+    "metricas": [
+      {
+        "valor": "13",
+        "label": "leyes y reglamentos"
+      },
+      {
+        "valor": "247",
+        "label": "menciones halladas"
+      },
+      {
+        "valor": "2",
+        "label": "empresas del estado garantes"
+      }
+    ],
+    "atributos": [
+      {
+        "nombre": "¿Qué busca?",
+        "valor": "Abasto continuo sin interrupciones",
+        "tipo": "chain"
+      },
+      {
+        "nombre": "Independencia",
+        "valor": "Reducir vulnerabilidad extranjera",
+        "tipo": "doc"
+      },
+      {
+        "nombre": "Sectores Estratégicos",
+        "valor": "Generación, Petróleo y Litio",
+        "tipo": "scope"
+      },
+      {
+        "nombre": "Empresas Guardianes",
+        "valor": "Pemex y CFE",
+        "tipo": "gov"
+      },
+      {
+        "nombre": "Condición legal",
+        "valor": "Área prioritaria de Seguridad Nacional",
+        "tipo": "council"
+      }
+    ],
+    "cadena": [
+      {
+        "nivel": 1,
+        "rol": "EL FIN ÚLTIMO Y DEBER DEL ESTADO",
+        "nodos": [
+          {
+            "id": "seguridad-nacional",
+            "titulo": "Soberanía Nacional",
+            "descripcion": "El mandato de que el pueblo de México sea el dueño y rector exclusivo de su destino energético vital.",
+            "color": "#9B2247",
+            "articulos": [
+              "LCNE-Art-001"
+            ],
+            "refs": "LCNE Art. 1"
+          }
+        ],
+        "conector": "protegida mediante"
+      },
+      {
+        "nivel": 2,
+        "rol": "LOS GARANTES (EMPRESAS PRODUCTIVAS)",
+        "nodos": [
+          {
+            "id": "cfe-garante",
+            "titulo": "CFE (Electricidad)",
+            "descripcion": "El Estado mantiene el 54% de la energía para evitar apagones por mercado.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LCFE-Art-003"
+            ],
+            "refs": "Confiabilidad Eléctrica"
+          },
+          {
+            "id": "pemex-garante",
+            "titulo": "Pemex (Combustibles)",
+            "descripcion": "Extracción exclusiva de crudo para no importar gasolinas en crisis global.",
+            "color": "#A57F2C",
+            "articulos": [
+              "LPEMEX-Art-003"
+            ],
+            "refs": "Autosuficiencia"
+          }
+        ],
+        "conector": "operando las"
+      },
+      {
+        "nivel": 3,
+        "rol": "AREAS INTRANSFERIBLES",
+        "nodos": [
+          {
+            "id": "redes-nacionales",
+            "titulo": "Redes y Tuberías",
+            "descripcion": "Las líneas de Alta Tensión y los ductos críticos como control absoluto del Estado.",
+            "color": "#555",
+            "articulos": [
+              "LSE-Art-002"
+            ],
+            "refs": "Transmisión Estratégica"
+          }
+        ],
+        "conector": "asegurando"
+      },
+      {
+        "nivel": 4,
+        "rol": "EL IMPACTO EN EL PUEBLO",
+        "nodos": [
+          {
+            "id": "confiabilidad-final",
+            "titulo": "Continuidad Garantizada",
+            "descripcion": "Servicio 24 horas confiable en hospitales, hogares e industrias, pase lo que pase en el exterior.",
+            "color": "#A57F2C",
+            "articulos": [
+              "BME-Art-1-2-6"
+            ],
+            "refs": "Confiabilidad"
+          }
+        ],
+        "conector": null
+      }
+    ],
+    "articulosClave": [
+      {
+        "id": "LCFE-Art-003",
+        "siglas": "CFE",
+        "color": "#1E5B4F",
+        "label": "Garante",
+        "rol": "CFE Soberana",
+        "descripcion": "La principal misión de la CFE ya no es generar dinero, sino asegurar que siempre haya luz en el país como un derecho soberano.",
+        "extracto": "\"La Comisión Federal de Electricidad tiene como objeto procurar la justicia energética... y el desarrollo regional sustentable sin afán de lucro... velando por la continuidad y seguridad...\""
+      },
+      {
+        "id": "LPEMEX-Art-003",
+        "siglas": "Pemex",
+        "color": "#A57F2C",
+        "label": "Independencia",
+        "rol": "Pemex Soberano",
+        "descripcion": "Pemex fue reformado para ser la herramienta clave en evitar que México deba comprar todo su combustible a precio de oro de terceros países.",
+        "extracto": "\"Petróleos Mexicanos tiene como objeto... contribuir a la soberanía, la seguridad y la autosuficiencia energética, sin dejar de mejorar la productividad...\""
+      },
+      {
+        "id": "BME-Art-126",
+        "siglas": "Redes",
+        "color": "#444",
+        "label": "Confiabilidad",
+        "rol": "El Mercado",
+        "descripcion": "A nivel más técnico (Mercado Eléctrico Mayorista), todas las reglas operativas se doblegan ante una meta: que la red no se caiga jamás.",
+        "extracto": "\"El Mercado Eléctrico... deberá promover el desarrollo del Sistema en condiciones de eficiencia, Calidad, Confiabilidad, Continuidad y Seguridad...\""
+      }
+    ],
+    "menciones": [
+      {
+        "siglas": "LSE/BME",
+        "nombre": "Sector Eléctrico y Mercado",
+        "valor": 114,
+        "color": "#1E5B4F"
+      },
+      {
+        "siglas": "LSH/LPEMEX",
+        "nombre": "Sector Hidrocarburos",
+        "valor": 37,
+        "color": "#A57F2C"
+      },
+      {
+        "siglas": "LCNE",
+        "nombre": "Comisión Nacional",
+        "valor": 6,
+        "color": "#444"
+      },
+      {
+        "siglas": "LPTE",
+        "nombre": "Ley General",
+        "valor": 6,
+        "color": "#9B2247"
+      }
+    ]
+  },
+  {
+    "id": "justicia-energetica",
+    "numero": "05",
+    "titulo": "Justicia Energética",
+    "subtitulo": "Beneficio Social y Utilidad Pública",
+    "objetivo": "Establece el cambio de paradigma donde el acceso a la energía no es un simple producto comercial, sino un asunto de interés y utilidad pública. Obliga a todo el sector a procurar que los beneficios lleguen al pueblo de México sin afán de lucro excesivo.",
+    "color": "#9B2247",
+    "metricas": [
+      {
+        "valor": "9",
+        "label": "leyes y reglamentos"
+      },
+      {
+        "valor": "84",
+        "label": "menciones halladas"
+      },
+      {
+        "valor": "1",
+        "label": "nuevo mandato social"
+      }
+    ],
+    "atributos": [
+      {
+        "nombre": "¿Qué prioriza?",
+        "valor": "El bienestar de la población",
+        "tipo": "chain"
+      },
+      {
+        "nombre": "Naturaleza legal",
+        "valor": "Utilidad Pública Preferente",
+        "tipo": "doc"
+      },
+      {
+        "nombre": "Mandato principal",
+        "valor": "Dar servicio sin afán de lucro",
+        "tipo": "gov"
+      },
+      {
+        "nombre": "Condición",
+        "valor": "Obligación del Estado",
+        "tipo": "council"
+      }
+    ],
+    "cadena": [
+      {
+        "nivel": 1,
+        "rol": "EL IDEAL Y DERECHO SOCIAL",
+        "nodos": [
+          {
+            "id": "justicia-base",
+            "titulo": "Justicia Energética",
+            "descripcion": "Garantizar que todos los mexicanos tengan acceso a energía segura, a precios justos y constante.",
+            "color": "#9B2247",
+            "articulos": [
+              "LSE-Art-001"
+            ],
+            "refs": "LSE Art. 1"
+          }
+        ],
+        "conector": "elevada por la ley a"
+      },
+      {
+        "nivel": 2,
+        "rol": "SUPERIORIDAD LEGAL",
+        "nodos": [
+          {
+            "id": "utilidad-publica",
+            "titulo": "Utilidad Pública",
+            "descripcion": "Cualquier obra de energía es más importante que intereses privados por el bien del país.",
+            "color": "#444",
+            "articulos": [
+              "LG-Art-004"
+            ],
+            "refs": "Interés General"
+          }
+        ],
+        "conector": "delegada a"
+      },
+      {
+        "nivel": 3,
+        "rol": "EMPRESAS AL SERVICIO DEL PUEBLO",
+        "nodos": [
+          {
+            "id": "cfe-social",
+            "titulo": "CFE sin lucro",
+            "descripcion": "El nuevo mandato legal para que la CFE no busque maximizar ganancias sino el bienestar.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LCFE-Art-003"
+            ],
+            "refs": "Ley CFE"
+          },
+          {
+            "id": "pemex-social",
+            "titulo": "Pemex para el Pueblo",
+            "descripcion": "Pemex trabajando para mantener combustibles accesibles e impulsar el campo.",
+            "color": "#A57F2C",
+            "articulos": [
+              "LPEMEX-Art-003"
+            ],
+            "refs": "Ley Pemex"
+          }
+        ],
+        "conector": "para lograr"
+      },
+      {
+        "nivel": 4,
+        "rol": "EL IMPACTO EN LAS COMUNIDADES",
+        "nodos": [
+          {
+            "id": "tarifas-justas",
+            "titulo": "Tarifas y Electrificación",
+            "descripcion": "Que el Estado mantenga tarifas protegidas y lleve luz a donde las empresas privadas no verían negocio.",
+            "color": "#1E5B4F",
+            "articulos": [
+              "LCNE-Art-001"
+            ],
+            "refs": "Desarrollo Nacional"
+          }
+        ],
+        "conector": null
+      }
+    ],
+    "articulosClave": [
+      {
+        "id": "LCFE-Art-003",
+        "siglas": "CFE",
+        "color": "#1E5B4F",
+        "label": "Sin Lucro",
+        "rol": "Objeto de CFE",
+        "descripcion": "Cambia radicalmente a la CFE: ya no es una empresa productiva para ganar dinero, es una empresa del Estado para llevar justicia al pueblo.",
+        "extracto": "\"La Comisión Federal de Electricidad tiene como objeto procurar la justicia energética para el pueblo... y el desarrollo regional sustentable sin afán de lucro...\""
+      },
+      {
+        "id": "LSE-Art-001",
+        "siglas": "LSE",
+        "color": "#9B2247",
+        "label": "LSE Art 1",
+        "rol": "Sector Eléctrico",
+        "descripcion": "Incrusta en toda la Ley Eléctrica este principio: si un particular opera en el mercado, debe alinearse a este objetivo superior de justicia.",
+        "extracto": "\"La presente Ley... tiene por finalidad promover el desarrollo sustentable de la industria eléctrica y garantizar su operación... para que cuadyuve en la justicia energética...\""
+      },
+      {
+        "id": "LG-Art-004",
+        "siglas": "Geo",
+        "color": "#444",
+        "label": "Utilidad P.",
+        "rol": "Superioridad Civil",
+        "descripcion": "Enlista que todas las obras dedicadas a generar energía (geotérmica, eléctrica o ductos) son lo más importante para la nación.",
+        "extracto": "\"Las actividades a que se refiere la presente Ley son de utilidad pública preferente sobre cualquier otro uso o aprovechamiento del subsuelo...\""
+      }
+    ],
+    "menciones": [
+      {
+        "siglas": "LSE/RLSE",
+        "nombre": "Legislación Eléctrica",
+        "valor": 41,
+        "color": "#1E5B4F"
+      },
+      {
+        "siglas": "LPTE",
+        "nombre": "Desarrollo y Transición",
+        "valor": 11,
+        "color": "#9B2247"
+      },
+      {
+        "siglas": "LSH/Geo",
+        "nombre": "Recursos Naturales",
+        "valor": 17,
+        "color": "#A57F2C"
+      },
+      {
+        "siglas": "Otros",
+        "nombre": "LCNE, CFE, Pemex",
+        "valor": 15,
+        "color": "#444"
+      }
+    ]
+  }
+]

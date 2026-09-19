@@ -1,0 +1,23 @@
+{
+  "sourceId": "lcne-7c13fd20564f",
+  "sourceSha256": "7c13fd20564f1e7230268a0943cc226368b24c44886d6738c479f4c42cbe77de",
+  "databaseCheckedAt": "2026-09-19 07:41:55 UTC",
+  "mappedFragments": 48,
+  "ordinaryArticles": 28,
+  "lawTransitories": 13,
+  "decreeTransitories": 2,
+  "preambles": 1,
+  "complementaryDocuments": 4,
+  "sourcePages": 20,
+  "bodyLines": 671,
+  "highlightedLines": 645,
+  "structureLinesWithoutArticle": 26,
+  "inputSha256": {
+    "revision-acervo\\incorporacion-7-2026-09-17\\LCNE-carga.json": "2ed6ba6748b64d27584d5d45dcefe0b986f1523e349dd742156c6a5b466ca912",
+    "revision-acervo\\incorporacion-7-2026-09-17\\LCNE-revisado.json": "4048da7331eeaf1d601f8ad033c57c79dd3b32c40f8ff9b14e79cef021551910",
+    "revision-acervo\\incorporacion-7-2026-09-17\\fuentes\\LCNE.lineas.json": "01eed1858ad4e8cdab61b6d6335bf6160c0d54eff60a1ef53912cc1b5943d86a"
+  },
+  "assetBytes": 4069824,
+  "manifestBytes": 172860,
+  "databaseWrites": false
+}

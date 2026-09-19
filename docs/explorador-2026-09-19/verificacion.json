@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-19",
+  "widths": [
+    {
+      "detail": 275.56817626953125,
+      "document": 315,
+      "explorer": 283.5511169433594,
+      "viewport": 320
+    },
+    {
+      "detail": 345.4829406738281,
+      "document": 385,
+      "explorer": 353.46588134765625,
+      "viewport": 390
+    },
+    {
+      "detail": 691.6193237304688,
+      "document": 764,
+      "explorer": 731.6192626953125,
+      "viewport": 768
+    },
+    {
+      "detail": 696.7045288085938,
+      "document": 1019,
+      "explorer": 986.7045288085938,
+      "viewport": 1024
+    },
+    {
+      "detail": 946.0084838867188,
+      "document": 1435,
+      "explorer": 1280,
+      "viewport": 1440
+    },
+    {
+      "detail": 946.0084838867188,
+      "document": 1915,
+      "explorer": 1280,
+      "viewport": 1920
+    },
+    {
+      "detail": 946.0084838867188,
+      "document": 2555,
+      "explorer": 1280,
+      "viewport": 2560
+    }
+  ],
+  "sharedCatalog": true,
+  "checks": {
+    "newTopicViaEditor": true,
+    "newEntityViaEditor": true,
+    "newRelationViaEditor": true,
+    "previewOnly": true,
+    "temporaryDraftRemoved": true,
+    "articleOpensFromSupabase": true,
+    "returnContextPreserved": true,
+    "darkMode": true,
+    "sharedCatalogRead": true,
+    "anonymousCannotWrite": true,
+    "adminPublishAndConflictRollback": true
+  }
+}

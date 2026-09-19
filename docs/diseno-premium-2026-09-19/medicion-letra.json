@@ -1,0 +1,12 @@
+{
+  "antes": {
+    "contenedor": "16px",
+    "texto": "14px"
+  },
+  "despues": {
+    "contenedor": "19.2px",
+    "texto": "14px"
+  },
+  "accion": "Dos pulsaciones de aumentar texto en ajustes móviles",
+  "viewport": 390
+}

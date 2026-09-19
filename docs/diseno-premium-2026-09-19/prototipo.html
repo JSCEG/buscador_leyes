@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Marco Legal Energético | Propuesta de diseño</title>
+  <link rel="stylesheet" href="./assets/sener/styles.css">
+  <link rel="stylesheet" href="./prototipo.css">
+  <script src="./assets/feather.min.js" defer></script>
+  <script src="./prototipo.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="demo-banner"><span>Propuesta de diseño</span><span>Datos de muestra · Sin conexión a la base de datos</span></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="brand" data-action="home" aria-label="Marco Legal Energético. Ir al inicio">
+        <img class="gob-logo" src="/img/logo_gob.png" alt="Gobierno de México">
+        <img class="sener-logo" src="/img/logo_sener.png" alt="Energía. Secretaría de Energía">
+        <span class="brand-name">Marco Legal<br>Energético</span>
+      </button>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <button data-action="home" data-nav="home">Inicio</button>
+        <button data-action="catalog" data-nav="results">Acervo</button>
+        <button data-action="saved" data-nav="saved">Mi consulta <span id="saved-count">0</span></button>
+      </nav>
+      <div class="header-actions"><button class="icon-button" data-action="theme" aria-label="Cambiar a modo oscuro" title="Cambiar apariencia"><span data-icon="moon"></span></button><button class="icon-button mobile-menu" data-action="menu" aria-label="Abrir navegación"><span data-icon="menu"></span></button></div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"><div class="loading-state">Preparando la propuesta de consulta…</div></main>
+  <footer class="site-footer"><div><strong>Marco Legal Energético</strong><span>Consulta documental del sector energético</span></div><p>Las publicaciones originales se consultan en su fuente oficial. Esta propuesta utiliza una selección del acervo al 18 de septiembre de 2026.</p><button class="text-button" data-action="about">Acerca de esta propuesta</button></footer>
+  <dialog id="panel-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><h2 id="dialog-title"></h2><button class="icon-button" data-action="close-dialog" aria-label="Cerrar panel"><span data-icon="close"></span></button></div><div id="dialog-body"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

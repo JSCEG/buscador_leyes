@@ -1,16 +1,16 @@
-# Graph Report - 65.-Buscador de Leyes Energía  (2026-09-18)
+# Graph Report - 65.-Buscador de Leyes Energía  (2026-09-19)
 
 ## Corpus Check
-- 440 files · ~15,909,673 words
+- 477 files · ~16,150,757 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 11075 nodes · 11354 edges · 389 communities (353 shown, 36 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.8)
+- 11695 nodes · 12127 edges · 459 communities (418 shown, 41 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9de27c8c`
+- Built from commit: `79dd880a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -339,6 +339,73 @@
 - [[_COMMUNITY_Community 373|Community 373]]
 - [[_COMMUNITY_Community 374|Community 374]]
 - [[_COMMUNITY_Community 388|Community 388]]
+- [[_COMMUNITY_Community 389|Community 389]]
+- [[_COMMUNITY_Community 390|Community 390]]
+- [[_COMMUNITY_Community 391|Community 391]]
+- [[_COMMUNITY_Community 392|Community 392]]
+- [[_COMMUNITY_Community 393|Community 393]]
+- [[_COMMUNITY_Community 394|Community 394]]
+- [[_COMMUNITY_Community 395|Community 395]]
+- [[_COMMUNITY_Community 396|Community 396]]
+- [[_COMMUNITY_Community 397|Community 397]]
+- [[_COMMUNITY_Community 398|Community 398]]
+- [[_COMMUNITY_Community 399|Community 399]]
+- [[_COMMUNITY_Community 400|Community 400]]
+- [[_COMMUNITY_Community 401|Community 401]]
+- [[_COMMUNITY_Community 402|Community 402]]
+- [[_COMMUNITY_Community 403|Community 403]]
+- [[_COMMUNITY_Community 404|Community 404]]
+- [[_COMMUNITY_Community 405|Community 405]]
+- [[_COMMUNITY_Community 406|Community 406]]
+- [[_COMMUNITY_Community 407|Community 407]]
+- [[_COMMUNITY_Community 408|Community 408]]
+- [[_COMMUNITY_Community 409|Community 409]]
+- [[_COMMUNITY_Community 410|Community 410]]
+- [[_COMMUNITY_Community 411|Community 411]]
+- [[_COMMUNITY_Community 412|Community 412]]
+- [[_COMMUNITY_Community 413|Community 413]]
+- [[_COMMUNITY_Community 414|Community 414]]
+- [[_COMMUNITY_Community 415|Community 415]]
+- [[_COMMUNITY_Community 416|Community 416]]
+- [[_COMMUNITY_Community 417|Community 417]]
+- [[_COMMUNITY_Community 418|Community 418]]
+- [[_COMMUNITY_Community 419|Community 419]]
+- [[_COMMUNITY_Community 420|Community 420]]
+- [[_COMMUNITY_Community 421|Community 421]]
+- [[_COMMUNITY_Community 422|Community 422]]
+- [[_COMMUNITY_Community 423|Community 423]]
+- [[_COMMUNITY_Community 424|Community 424]]
+- [[_COMMUNITY_Community 425|Community 425]]
+- [[_COMMUNITY_Community 426|Community 426]]
+- [[_COMMUNITY_Community 427|Community 427]]
+- [[_COMMUNITY_Community 428|Community 428]]
+- [[_COMMUNITY_Community 429|Community 429]]
+- [[_COMMUNITY_Community 430|Community 430]]
+- [[_COMMUNITY_Community 431|Community 431]]
+- [[_COMMUNITY_Community 432|Community 432]]
+- [[_COMMUNITY_Community 433|Community 433]]
+- [[_COMMUNITY_Community 434|Community 434]]
+- [[_COMMUNITY_Community 435|Community 435]]
+- [[_COMMUNITY_Community 436|Community 436]]
+- [[_COMMUNITY_Community 437|Community 437]]
+- [[_COMMUNITY_Community 438|Community 438]]
+- [[_COMMUNITY_Community 439|Community 439]]
+- [[_COMMUNITY_Community 440|Community 440]]
+- [[_COMMUNITY_Community 441|Community 441]]
+- [[_COMMUNITY_Community 442|Community 442]]
+- [[_COMMUNITY_Community 443|Community 443]]
+- [[_COMMUNITY_Community 444|Community 444]]
+- [[_COMMUNITY_Community 445|Community 445]]
+- [[_COMMUNITY_Community 446|Community 446]]
+- [[_COMMUNITY_Community 447|Community 447]]
+- [[_COMMUNITY_Community 448|Community 448]]
+- [[_COMMUNITY_Community 449|Community 449]]
+- [[_COMMUNITY_Community 450|Community 450]]
+- [[_COMMUNITY_Community 451|Community 451]]
+- [[_COMMUNITY_Community 452|Community 452]]
+- [[_COMMUNITY_Community 453|Community 453]]
+- [[_COMMUNITY_Community 454|Community 454]]
+- [[_COMMUNITY_Community 455|Community 455]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `asignacion` - 499 edges
@@ -353,25 +420,25 @@
 10. `asignacion` - 418 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `main()` --calls--> `extractLegalStructureFromPdf()`  [EXTRACTED]
-  ingestar_pdf.js → legal-ingest-pipeline.js
-- `fix()` --calls--> `extractLegalStructureFromText()`  [EXTRACTED]
-  fix_rechunk.js → legal-ingest-pipeline.js
-- `fix()` --calls--> `rebuildTextFromChunks()`  [EXTRACTED]
-  fix_rechunk.js → legal-ingest-pipeline.js
-- `rechunk()` --calls--> `extractLegalStructureFromText()`  [EXTRACTED]
-  rechunk_leyes.js → legal-ingest-pipeline.js
-- `rechunk()` --calls--> `rebuildTextFromChunks()`  [EXTRACTED]
-  rechunk_leyes.js → legal-ingest-pipeline.js
+- `searchForm()` --calls--> `icon()`  [INFERRED]
+  docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
+- `home()` --calls--> `icon()`  [INFERRED]
+  docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
+- `resultCard()` --calls--> `icon()`  [INFERRED]
+  docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
+- `filtered()` --calls--> `normalize()`  [INFERRED]
+  docs/diseno-premium-2026-09-19/prototipo.js → src/lib/explorer-model.js
+- `resultList()` --calls--> `icon()`  [INFERRED]
+  docs/diseno-premium-2026-09-19/prototipo.js → src/scripts/explorer-view.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (389 total, 36 thin omitted)
+## Communities (459 total, 41 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (44): ARTICLE_HEADING_INLINE_PATTERN, ARTICLE_LABEL_SRC, autoDetectMetadata(), BIS_MODIFIER, calculateSimilarity(), chunkNumberedLineamientos(), cleanTransitoryRemainder(), detectFecha() (+36 more)
+Cohesion: 0.06
+Nodes (58): ARTICLE, norm(), ORDINAL_POINT, parseRegulatoryText(), reconstructPdfPages(), STRUCTURE_NUMBER, validateRegulatoryChunks(), ARTICLE_HEADING_INLINE_PATTERN (+50 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.12
@@ -554,8 +621,8 @@ Cohesion: 0.05
 Nodes (42): Artículo 1, Artículo 10, Artículo 11, Artículo 12, Artículo 13, Artículo 14, Artículo 15, Artículo 16 (+34 more)
 
 ### Community 68 - "Community 68"
-Cohesion: 0.24
-Nodes (16): authListeners, dbAddFavorite(), dbGetAllNotes(), dbGetFavorites(), dbRemoveFavorite(), dbSaveNote(), getCurrentUser(), initAuth() (+8 more)
+Cohesion: 0.12
+Nodes (20): e(), validateCatalog(), assertValid(), canPublishExplorer(), clearDraft(), createExplorerStore(), defaultStore, getDraft() (+12 more)
 
 ### Community 69 - "Community 69"
 Cohesion: 0.25
@@ -565,8 +632,8 @@ Nodes (7): ensureHeadingBoundaries(), extractLegalStructureFromMarkdown(), norma
 }, require
 
 ### Community 70 - "Community 70"
-Cohesion: 0.38
-Nodes (8): escapeHtml(), getHighlightPattern(), getTextPreview(), highlightHtml(), highlightText(), highlightWithPattern(), STOP_WORDS_ES, publication
+Cohesion: 0.13
+Nodes (26): escapeHtml(), getHighlightPattern(), getTextPreview(), highlightHtml(), highlightText(), highlightWithPattern(), STOP_WORDS_ES, initAdminIngest() (+18 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.28
@@ -601,7 +668,7 @@ Cohesion: 0.07
 Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+18 more)
 
 ### Community 80 - "Community 80"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (16): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, supabase, applyFilters(), getArticleById() (+8 more)
 
 ### Community 81 - "Community 81"
@@ -637,8 +704,8 @@ Cohesion: 0.18
 Nodes (10): 12.1 Constitución, leyes, PND y reglamentos, 12.2 SENER: planeación, transición e información, 12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado, 12.4 CENACE, 12.5 CFE, 12.6 PEMEX e IMP, 12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA, 12.8 CONUEE, eficiencia energética y transición (+2 more)
 
 ### Community 89 - "Community 89"
-Cohesion: 0.39
-Nodes (7): ARTICLE, norm(), ORDINAL_POINT, parseRegulatoryText(), reconstructPdfPages(), STRUCTURE_NUMBER, validateRegulatoryChunks()
+Cohesion: 0.11
+Nodes (20): fetchManifest(), getReaderSource(), has(), loadReaderSources(), officialUrl(), resolveReaderSource(), safeAsset(), sha256() (+12 more)
 
 ### Community 90 - "Community 90"
 Cohesion: 0.06
@@ -649,8 +716,8 @@ Cohesion: 0.20
 Nodes (9): 1. Seis leyes del núcleo energético que faltan, 2. Cinco reglamentos principales que faltan, 3. Planeación y operación pendientes, 4. Primera ficha propuesta: LCNE, 5. Revisión de cada instrumento antes de subirlo, 6. Matriz detallada, 7. Avance de la primera revisión individual, Faltantes y orden de carga individual (+1 more)
 
 ### Community 92 - "Community 92"
-Cohesion: 0.67
-Nodes (4): commandWorks(), resolveMarkitdownBinary(), resolvePythonBinary(), runMarkitdownToMarkdown()
+Cohesion: 0.13
+Nodes (30): ENTITY_TYPES, escapeHtml(), EXPLORER_LIMITS, getEntityReferences(), getNeighborhood(), normalize(), searchEntities(), loadExplorerCatalog() (+22 more)
 
 ### Community 93 - "Community 93"
 Cohesion: 0.07
@@ -1501,8 +1568,8 @@ Cohesion: 0.15
 Nodes (12): chunks, control, bloques_fuente, casillas_preservadas, cobertura_total, graficos_preservados, sha256, sin_solapamientos (+4 more)
 
 ### Community 364 - "Community 364"
-Cohesion: 0.24
-Nodes (9): closeEditModal(), fetchAndRenderManageLaws(), handleDeleteLaw(), handleUpdateLaw(), initAdminIngest(), initAdminManagement(), deleteLaw(), getAllLeyesAdmin() (+1 more)
+Cohesion: 0.40
+Nodes (4): fecha, limites, prototipo, pruebas
 
 ### Community 365 - "Community 365"
 Cohesion: 0.25
@@ -1532,24 +1599,272 @@ Nodes (3): fecha, project, tablas
 Cohesion: 0.20
 Nodes (9): busqueda_global, coincidencias_reportadas, consulta, documentos_reportados, tarjetas_primera_pagina, entorno, fecha_local, instrumentos (+1 more)
 
+### Community 389 - "Community 389"
+Cohesion: 0.17
+Nodes (23): applyPreferences(), closeDialog(), excerpt(), filtered(), filters(), highlight(), home(), hydrateIcons() (+15 more)
+
+### Community 390 - "Community 390"
+Cohesion: 0.20
+Nodes (9): Auditoría de código para la mejora visual y responsiva, Conclusión, Fase 1 — lector confiable, Fase 2 — sistema visual y composición adaptativa, Fase 3 — validación y pulido, Hallazgos comprobados en código, Implementación propuesta, sin migrar de framework, Límites de esta revisión (+1 more)
+
+### Community 391 - "Community 391"
+Cohesion: 0.12
+Nodes (16): Comportamiento por pantalla, Del radar diario a una actualización revisable, Diagnóstico basado en la versión actual, Dirección visual, Estadísticas explorables y fichas de planeación actualizables, Evolución del buscador jurídico SENER, Fichas que expliquen y documenten, Implementación en entregas pequeñas (+8 more)
+
+### Community 392 - "Community 392"
+Cohesion: 0.22
+Nodes (8): accion, antes, contenedor, texto, despues, contenedor, texto, viewport
+
+### Community 397 - "Community 397"
+Cohesion: 0.10
+Nodes (20): assetBytes, bodyLines, complementaryDocuments, databaseCheckedAt, databaseWrites, decreeTransitories, highlightedLines, inputSha256 (+12 more)
+
+### Community 398 - "Community 398"
+Cohesion: 0.18
+Nodes (8): entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt, services
+
+### Community 399 - "Community 399"
+Cohesion: 0.29
+Nodes (6): Flujo editorial, Gestión del explorador del marco normativo, Importación, respaldo e historial, Persistencia y permisos, Radar regulatorio, Verificación
+
+### Community 400 - "Community 400"
+Cohesion: 0.67
+Nodes (4): commandWorks(), resolveMarkitdownBinary(), resolvePythonBinary(), runMarkitdownToMarkdown()
+
+### Community 401 - "Community 401"
+Cohesion: 0.12
+Nodes (15): checks, adminPublishAndConflictRollback, anonymousCannotWrite, articleOpensFromSupabase, darkMode, newEntityViaEditor, newRelationViaEditor, newTopicViaEditor (+7 more)
+
+### Community 402 - "Community 402"
+Cohesion: 0.24
+Nodes (12): applyReaderPreferences(), DEFAULT_READER_PREFERENCES, getStorage(), loadReaderPreferences(), normalizeReaderPreferences(), READER_FONT_SIZE_OPTIONS, READER_FONT_SIZE_RANGE, READER_LINE_HEIGHT_OPTIONS (+4 more)
+
+### Community 403 - "Community 403"
+Cohesion: 0.20
+Nodes (10): id, lawId, originalUrl, pageCount, pages, pdfUrl, sha256, title (+2 more)
+
+### Community 404 - "Community 404"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 00481d55-e606-57df-ba99-3e742a3df143
+
+### Community 405 - "Community 405"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 0459f193-721f-55af-9d51-e8d06b4d0505
+
+### Community 406 - "Community 406"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 0e41c34f-a335-5092-9169-f7879f4f0bde
+
+### Community 407 - "Community 407"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 104581e9-3698-5eb4-b585-89ffe7589535
+
+### Community 408 - "Community 408"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 174859de-7f7f-55b2-9dbe-48694912a21d
+
+### Community 409 - "Community 409"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 1862b194-48c4-5c13-a590-3f8f9c316293
+
+### Community 410 - "Community 410"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 1ded2acf-7449-5b29-ad9e-790f0bfc6248
+
+### Community 411 - "Community 411"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 2d24bea8-431c-5968-8afc-a28027a641ad
+
+### Community 412 - "Community 412"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 2e1b6235-dbdb-5639-8800-6dc0b031b5fe
+
+### Community 413 - "Community 413"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 36e5ebad-3708-5dab-8ece-31e3e44e0020
+
+### Community 414 - "Community 414"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 3a161311-713c-55ae-b8c8-bc6b311a97bf
+
+### Community 415 - "Community 415"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 3b882698-0569-564a-85a1-473894dd3d63
+
+### Community 416 - "Community 416"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 4446259e-dc6b-5509-b55c-c0ce4117003e
+
+### Community 417 - "Community 417"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 4f5e5bd9-5215-585f-8613-e5641e52a7bd
+
+### Community 418 - "Community 418"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 50bde50c-b903-5d9b-a557-7c4a3235d55e
+
+### Community 419 - "Community 419"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 571090a1-2b5b-5b6f-840f-3422158069d2
+
+### Community 420 - "Community 420"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 58302179-51b2-5eef-8ae3-009d6520778d
+
+### Community 421 - "Community 421"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 5e8049df-9c88-5885-9dd1-2e95c7f91fbb
+
+### Community 422 - "Community 422"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 61934e2c-492b-528f-89eb-62512b26cf09
+
+### Community 423 - "Community 423"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 61e391c7-402d-577f-aa26-81aec04c6379
+
+### Community 424 - "Community 424"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 665cde60-c9ab-57f2-9637-d0f51a2ab02d
+
+### Community 425 - "Community 425"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 7ac364e8-13a7-5c8b-9c12-43923b3b05b6
+
+### Community 426 - "Community 426"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 7ceca0c6-5d3f-5c29-b30a-e85a645737bc
+
+### Community 427 - "Community 427"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 809e424a-3256-52d1-ac81-fd7fd6656b1d
+
+### Community 428 - "Community 428"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 819c7f95-4238-53b7-b6e6-5de9d4a6f8dc
+
+### Community 429 - "Community 429"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 86e05762-4d6b-5fa7-98c7-cc08ad9f508b
+
+### Community 430 - "Community 430"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 8981de29-6e4b-5a88-94a8-ae6fdd45d85e
+
+### Community 431 - "Community 431"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 8b0c9794-175a-5bb6-87fb-0b99382924a7
+
+### Community 432 - "Community 432"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 8d4bfa94-511e-5d77-ad97-c48d0f595d80
+
+### Community 433 - "Community 433"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 938ae62f-40d6-5bf3-a108-d5bda86a081b
+
+### Community 434 - "Community 434"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, 97ca19d7-3e3e-5442-b682-6c3f46b91eeb
+
+### Community 435 - "Community 435"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, a0a53da1-40a4-5fe5-924f-d60664cfa6ed
+
+### Community 436 - "Community 436"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, a24fff20-feb6-56f7-844b-891279c818d6
+
+### Community 437 - "Community 437"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, a3892793-f124-5aee-869a-26a5de2e1ca6
+
+### Community 438 - "Community 438"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, aa71a9cf-2883-5634-875b-d8f9806e3993
+
+### Community 439 - "Community 439"
+Cohesion: 0.29
+Nodes (7): anchors, contentSha256, label, pageNumbers, sourceId, type, ae4cefdf-47f4-5b83-862c-4b53890aeaf9
+
+### Community 440 - "Community 440"
+Cohesion: 0.29
+Nodes (7): b592de16-7c63-5264-a821-513bf55f5651, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 441 - "Community 441"
+Cohesion: 0.29
+Nodes (7): bdef2956-ffd0-586f-abfc-596bfc62cac5, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 442 - "Community 442"
+Cohesion: 0.29
+Nodes (7): c95901fe-c3b5-50e3-87ca-a5f71b123884, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 443 - "Community 443"
+Cohesion: 0.29
+Nodes (7): cac52e91-78c9-5290-b3be-b3ac454249cd, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 444 - "Community 444"
+Cohesion: 0.29
+Nodes (7): cbff37fc-fa3e-5963-8ca2-6bc8e46b2e37, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 445 - "Community 445"
+Cohesion: 0.29
+Nodes (7): ccb85620-1a79-5738-8092-00f347baf190, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 446 - "Community 446"
+Cohesion: 0.29
+Nodes (7): d1e2219e-5838-5c13-a3fc-bd6bad7077db, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 447 - "Community 447"
+Cohesion: 0.29
+Nodes (7): d6a21b3a-f4b6-5b58-8f44-6e13b07c454a, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 448 - "Community 448"
+Cohesion: 0.29
+Nodes (7): dc836fa2-28ae-5af0-b945-5747ca3bf03a, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 449 - "Community 449"
+Cohesion: 0.29
+Nodes (7): e0ea0d6c-a43c-5188-aeca-e43599070391, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 450 - "Community 450"
+Cohesion: 0.29
+Nodes (7): ec1e7b14-aadd-580f-b1cc-2ebe3be1a046, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 451 - "Community 451"
+Cohesion: 0.29
+Nodes (7): f8f83f32-96a2-5eb6-a16d-ea54f672ba6f, anchors, contentSha256, label, pageNumbers, sourceId, type
+
+### Community 452 - "Community 452"
+Cohesion: 0.33
+Nodes (5): checkedAt, lawId, method, project, rows
+
+### Community 453 - "Community 453"
+Cohesion: 0.33
+Nodes (5): Assets publicados, Cobertura comprobada, Contrato de consumo, Procedencia del lector: LCNE, Reproducibilidad y límites
+
+### Community 454 - "Community 454"
+Cohesion: 0.40
+Nodes (4): articles, revision, schemaVersion, verifiedAt
+
 ## Knowledge Gaps
-- **9823 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+9818 more)
+- **10232 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+10227 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **36 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `asignacion` connect `Community 177` to `Community 198`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `asignacion` connect `Community 173` to `Community 194`?**
+- **Why does `asignacion` connect `Community 176` to `Community 197`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Why does `asignacion` connect `Community 159` to `Community 193`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `asignacion` connect `Community 65` to `Community 95`?**
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _9852 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _10262 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07180851063829788 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.057539682539682536 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.11578947368421053 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

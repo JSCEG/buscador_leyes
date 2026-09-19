@@ -1,0 +1,344 @@
+{
+  "checkedAt": "2026-09-19 07:41:55 UTC",
+  "method": "SELECT id, ley_id, orden, identificador, md5(contenido); lectura exclusiva.",
+  "project": "buscador-leyes",
+  "lawId": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+  "rows": [
+    {
+      "id": "4446259e-dc6b-5509-b55c-c0ce4117003e",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 0,
+      "identificador": "Preámbulo y expedición",
+      "content_md5": "9d29d201f80e23778e8f676ff9862347"
+    },
+    {
+      "id": "c95901fe-c3b5-50e3-87ca-a5f71b123884",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 1,
+      "identificador": "Artículo 1",
+      "content_md5": "9cf77106cb2eb5d5adf697753361eddd"
+    },
+    {
+      "id": "104581e9-3698-5eb4-b585-89ffe7589535",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 2,
+      "identificador": "Artículo 2",
+      "content_md5": "93fe0d75aed6b838db09cb8f455f875c"
+    },
+    {
+      "id": "dc836fa2-28ae-5af0-b945-5747ca3bf03a",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 3,
+      "identificador": "Artículo 3",
+      "content_md5": "714b794bca8b595e1f01ecbe4cc4605e"
+    },
+    {
+      "id": "8d4bfa94-511e-5d77-ad97-c48d0f595d80",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 4,
+      "identificador": "Artículo 4",
+      "content_md5": "985976d605842bc06b70d61b3e4cf141"
+    },
+    {
+      "id": "938ae62f-40d6-5bf3-a108-d5bda86a081b",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 5,
+      "identificador": "Artículo 5",
+      "content_md5": "6245232fe280a9f2818f864f87adca7c"
+    },
+    {
+      "id": "58302179-51b2-5eef-8ae3-009d6520778d",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 6,
+      "identificador": "Artículo 6",
+      "content_md5": "29fd4f001a58d2b6bf518803529786bb"
+    },
+    {
+      "id": "0459f193-721f-55af-9d51-e8d06b4d0505",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 7,
+      "identificador": "Artículo 7",
+      "content_md5": "a0e29457eab712c3c7b954ee702f545a"
+    },
+    {
+      "id": "ccb85620-1a79-5738-8092-00f347baf190",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 8,
+      "identificador": "Artículo 8",
+      "content_md5": "b13f304fc1a092d406379790740529fa"
+    },
+    {
+      "id": "7ceca0c6-5d3f-5c29-b30a-e85a645737bc",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 9,
+      "identificador": "Artículo 9",
+      "content_md5": "79ea49c8a349308e056d0802b36c047b"
+    },
+    {
+      "id": "8981de29-6e4b-5a88-94a8-ae6fdd45d85e",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 10,
+      "identificador": "Artículo 10",
+      "content_md5": "a9519c504b01033558d2d864518b50dc"
+    },
+    {
+      "id": "ae4cefdf-47f4-5b83-862c-4b53890aeaf9",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 11,
+      "identificador": "Artículo 11",
+      "content_md5": "17fa7d20274a0e7a8fb877f6389b26cb"
+    },
+    {
+      "id": "2e1b6235-dbdb-5639-8800-6dc0b031b5fe",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 12,
+      "identificador": "Artículo 12",
+      "content_md5": "ea6f10161d6dabe0ffc10266632cf2bb"
+    },
+    {
+      "id": "e0ea0d6c-a43c-5188-aeca-e43599070391",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 13,
+      "identificador": "Artículo 13",
+      "content_md5": "ad0078f448eca832eb314c22c94cf8c0"
+    },
+    {
+      "id": "d1e2219e-5838-5c13-a3fc-bd6bad7077db",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 14,
+      "identificador": "Artículo 14",
+      "content_md5": "8ff504810102a5707941db6b79bd017b"
+    },
+    {
+      "id": "4f5e5bd9-5215-585f-8613-e5641e52a7bd",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 15,
+      "identificador": "Artículo 15",
+      "content_md5": "76c81f29c9bc5da9ebedcf089af8a194"
+    },
+    {
+      "id": "3a161311-713c-55ae-b8c8-bc6b311a97bf",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 16,
+      "identificador": "Artículo 16",
+      "content_md5": "cc74118abfbcd9510f0d50ac7ace74b0"
+    },
+    {
+      "id": "1862b194-48c4-5c13-a590-3f8f9c316293",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 17,
+      "identificador": "Artículo 17",
+      "content_md5": "016ed821c0cc79850a5271972f254c08"
+    },
+    {
+      "id": "2d24bea8-431c-5968-8afc-a28027a641ad",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 18,
+      "identificador": "Artículo 18",
+      "content_md5": "9d977d4b6b297abae4a8b05b1b401d7b"
+    },
+    {
+      "id": "bdef2956-ffd0-586f-abfc-596bfc62cac5",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 19,
+      "identificador": "Artículo 19",
+      "content_md5": "84fb55987ad500b29ed1746a44b801d5"
+    },
+    {
+      "id": "86e05762-4d6b-5fa7-98c7-cc08ad9f508b",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 20,
+      "identificador": "Artículo 20",
+      "content_md5": "5fcd3c7b4a831d5d7924a2b58c7e4772"
+    },
+    {
+      "id": "ec1e7b14-aadd-580f-b1cc-2ebe3be1a046",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 21,
+      "identificador": "Artículo 21",
+      "content_md5": "56a9e057f91f2bd1f32a224fbd208c7f"
+    },
+    {
+      "id": "665cde60-c9ab-57f2-9637-d0f51a2ab02d",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 22,
+      "identificador": "Artículo 22",
+      "content_md5": "6acbc6e3a4d70902dc0463c593f032b1"
+    },
+    {
+      "id": "571090a1-2b5b-5b6f-840f-3422158069d2",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 23,
+      "identificador": "Artículo 23",
+      "content_md5": "2c67fc43b70407988b6ff2fddc26cbfb"
+    },
+    {
+      "id": "d6a21b3a-f4b6-5b58-8f44-6e13b07c454a",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 24,
+      "identificador": "Artículo 24",
+      "content_md5": "25cf8b79cadb2e79b5aa23e1ad2c9500"
+    },
+    {
+      "id": "a0a53da1-40a4-5fe5-924f-d60664cfa6ed",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 25,
+      "identificador": "Artículo 25",
+      "content_md5": "0863f208b596d1b6bc0dc8af5b1a9568"
+    },
+    {
+      "id": "809e424a-3256-52d1-ac81-fd7fd6656b1d",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 26,
+      "identificador": "Artículo 26",
+      "content_md5": "4579762af8bb9e67ec981a1dc8183bf1"
+    },
+    {
+      "id": "174859de-7f7f-55b2-9dbe-48694912a21d",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 27,
+      "identificador": "Artículo 27",
+      "content_md5": "43c73113171e74f1e382cc352c5b139e"
+    },
+    {
+      "id": "3b882698-0569-564a-85a1-473894dd3d63",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 28,
+      "identificador": "Artículo 28",
+      "content_md5": "fcb796bb4761b0857fec4ac89f1bd850"
+    },
+    {
+      "id": "b592de16-7c63-5264-a821-513bf55f5651",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 29,
+      "identificador": "Transitorio Primero · ley",
+      "content_md5": "50b28fa29845f7c09cc21b919a1d6275"
+    },
+    {
+      "id": "819c7f95-4238-53b7-b6e6-5de9d4a6f8dc",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 30,
+      "identificador": "Transitorio Segundo · ley",
+      "content_md5": "ce9a12c983d1acc702b50fedf3f471a6"
+    },
+    {
+      "id": "0e41c34f-a335-5092-9169-f7879f4f0bde",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 31,
+      "identificador": "Transitorio Tercero · ley",
+      "content_md5": "568014bcda29a987f0800f3674569f52"
+    },
+    {
+      "id": "00481d55-e606-57df-ba99-3e742a3df143",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 32,
+      "identificador": "Transitorio Cuarto · ley",
+      "content_md5": "391a4cce59bfd6f0f3a75a820f7f813d"
+    },
+    {
+      "id": "97ca19d7-3e3e-5442-b682-6c3f46b91eeb",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 33,
+      "identificador": "Transitorio Quinto · ley",
+      "content_md5": "4a0ecf0bd48f82763b5488064c579b33"
+    },
+    {
+      "id": "61e391c7-402d-577f-aa26-81aec04c6379",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 34,
+      "identificador": "Transitorio Sexto · ley",
+      "content_md5": "aeda0ffc00fa31b1f2f8dda4b2aff181"
+    },
+    {
+      "id": "aa71a9cf-2883-5634-875b-d8f9806e3993",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 35,
+      "identificador": "Transitorio Séptimo · ley",
+      "content_md5": "3f9cd74ede8d33ab0142196882b5151c"
+    },
+    {
+      "id": "a24fff20-feb6-56f7-844b-891279c818d6",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 36,
+      "identificador": "Transitorio Octavo · ley",
+      "content_md5": "018ee1e39edf7c23580030702618df0a"
+    },
+    {
+      "id": "7ac364e8-13a7-5c8b-9c12-43923b3b05b6",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 37,
+      "identificador": "Transitorio Noveno · ley",
+      "content_md5": "b60ced41de23cd648c88db80451e3aeb"
+    },
+    {
+      "id": "f8f83f32-96a2-5eb6-a16d-ea54f672ba6f",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 38,
+      "identificador": "Transitorio Décimo · ley",
+      "content_md5": "2cb0f825c7b0586a74940604f8d58d82"
+    },
+    {
+      "id": "36e5ebad-3708-5dab-8ece-31e3e44e0020",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 39,
+      "identificador": "Transitorio Décimo Primero · ley",
+      "content_md5": "149dd539d46595bbdf8343c2e2d5b38c"
+    },
+    {
+      "id": "5e8049df-9c88-5885-9dd1-2e95c7f91fbb",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 40,
+      "identificador": "Transitorio Décimo Segundo · ley",
+      "content_md5": "b16ce0d314f8947e0b120e38d55d3757"
+    },
+    {
+      "id": "a3892793-f124-5aee-869a-26a5de2e1ca6",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 41,
+      "identificador": "Transitorio Décimo Tercero · ley",
+      "content_md5": "607b32beb53246c3e0ff6f15055ff58c"
+    },
+    {
+      "id": "cac52e91-78c9-5290-b3be-b3ac454249cd",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 42,
+      "identificador": "Referencia a otros artículos del decreto",
+      "content_md5": "738c334829927bc0605e3eff44867f25"
+    },
+    {
+      "id": "61934e2c-492b-528f-89eb-62512b26cf09",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 43,
+      "identificador": "Transitorio Primero del decreto",
+      "content_md5": "e6d980d06571844aa00d939c8080a793"
+    },
+    {
+      "id": "1ded2acf-7449-5b29-ad9e-790f0bfc6248",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 44,
+      "identificador": "Transitorio Segundo del decreto",
+      "content_md5": "3e786592945aa133a51a48a4070cfe62"
+    },
+    {
+      "id": "cbff37fc-fa3e-5963-8ca2-6bc8e46b2e37",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 45,
+      "identificador": "Firmas y promulgación del decreto",
+      "content_md5": "8ebd16c2c6ee43ebd3bd8cf608296789"
+    },
+    {
+      "id": "8b0c9794-175a-5bb6-87fb-0b99382924a7",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 46,
+      "identificador": "Resolutivos de la SCJN · AI 51/2025",
+      "content_md5": "4f59e3a55d71f9ea9ad22ae2c37fa9d2"
+    },
+    {
+      "id": "50bde50c-b903-5d9b-a557-7c4a3235d55e",
+      "ley_id": "fddf3bf4-fbca-5b34-9631-e195b6e97229",
+      "orden": 47,
+      "identificador": "Sentencia de la SCJN · AI 51/2025",
+      "content_md5": "56e8c39b7cddc35adcff6add87e226ad"
+    }
+  ]
+}

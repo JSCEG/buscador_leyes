@@ -1,0 +1,40 @@
+/* SENER · Typography tokens
+   Patria (display, sans institucional) + Noto Sans (texto) + IBM Plex Mono (cifras).
+   Patria y Noto Sans se cargan como binarios locales (ver fonts.css); ambas son
+   de trazo sans — sin herencia serif. Pesos reales disponibles: Light/Regular/Bold
+   (Patria) y Light/Regular/Medium/Bold (Noto Sans); no existe un corte 600 en
+   ninguna de las dos, así que --fw-semibold usa el corte Bold.
+   Escala subida y pesos reforzados: la letra se reportó demasiado delgada —
+   cuerpo, subtítulos y pies ahora parten de Medium (500) en vez de Regular (400),
+   y todos los tamaños crecen un ~10–15% adicional sobre la revisión anterior. */
+:root {
+  /* Familias */
+  --font-display: 'Patria', 'Noto Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-text:    'Noto Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Pesos */
+  --fw-light:   300; /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-semibold: 700; /* @kind font */
+  --fw-bold:    700; /* @kind font */
+
+  /* Escala (px, pensada para proyección 1920×1080 / documento) */
+  --fs-display:  116px; /* portada */
+  --fs-title:    64px;  /* título de lámina */
+  --fs-subtitle: 48px;  /* subtítulo */
+  --fs-kicker:   30px;  /* antetítulo, +tracking, mayúsculas */
+  --fs-body:     36px;  /* cuerpo */
+  --fs-caption:  31px;  /* pie / nota */
+  --fs-micro:    27px;  /* etiqueta menor */
+
+  /* Interlínea */
+  --lh-tight:  1.0; /* @kind font */
+  --lh-snug:   1.15; /* @kind font */
+  --lh-body:   1.45; /* @kind font */
+
+  /* Tracking */
+  --tracking-kicker: .14em; /* mayúsculas de antetítulo */
+  --tracking-tight: -.01em; /* títulos display */
+}
