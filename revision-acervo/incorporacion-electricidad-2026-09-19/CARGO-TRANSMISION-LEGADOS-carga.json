@@ -1,0 +1,273 @@
+{
+  "ley": {
+    "id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
+    "siglas": "CARGO-TRANSMISION-LEGADOS",
+    "fecha_publicacion": "2026-06-18",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Cargo de transmisión para permisos legados LSPEE"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+    "tipo": "acuerdo"
+  },
+  "articulos": [
+    {
+      "id": "c5a3dc73-cbd2-5c02-817c-7e32910f8cd0",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 18/06/2026. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5790939). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nEntrada en vigor prevista en el transitorio Primero: **19 de octubre de 2026**, posterior a la fecha de esta revisión (19 de septiembre de 2026). Se incorpora como publicación con entrada en vigor futura, no como disposición vigente al corte. Sus demás transitorios conservan los supuestos y plazos aplicables.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "617a073b-4e48-5c60-a5d3-558b4e967632",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n ACUERDO de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Nacional  de Energía.\n<div> JUAN CARLOS SOLÍS ÁVILA, Director General de la Comisión Nacional de Energía, con fundamento en los artículos 27, párrafo sexto, 25, párrafo quinto, 28, párrafo noveno y 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 1, 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 1, 2, párrafo primero, 7, fracciones I, II y III, 8, fracciones I, VI, VII y IX, 12, 14, párrafo primero, 16, fracciones VI, X, XIX, XXIII y XXV y 17, fracciones I, II, III y XIV de la Ley de la Comisión Nacional de Energía; 1, 2, 4, párrafo segundo, 11, fracciones IV y XLIX y Transitorio Cuarto de la Ley del Sector Eléctrico; 118 y 119, párrafos primero y tercero del Reglamento de la Ley del Sector Eléctrico; 2, párrafo primero, apartado F, fracción III, 71, 77 y 78 del Reglamento Interior de la Secretaría de Energía; 2, 7, 13 y 19 del Reglamento Interior de la Comisión Nacional de Energía; 7, fracción II del Acuerdo número CT/1.SE/2-2025, por el que se aprobaron las Reglas de Operación del Comité Técnico de la Comisión Nacional de Energía, así como el Acuerdo número CT/6.SE/2-2026 expedido por el Comité Técnico de la Comisión Nacional de Energía y,</div>\n<div> CONSIDERANDO<br> </div>\n<div> Que el artículo 25, párrafo quinto de la Constitución Política de los Estados Unidos Mexicanos (Constitución) prevé que el sector público tiene a su cargo, de manera exclusiva, las áreas estratégicas que se señalan en el artículo 28, párrafo cuarto constitucional y que, tratándose de la planeación y el control del Sistema Eléctrico Nacional (SEN) y del servicio público de transmisión y distribución de energía eléctrica, la Nación debe llevar a cabo dichas actividades en términos de lo dispuesto en el artículo 27, párrafo sexto de la Constitución.</div>\n<div> Que de conformidad con el artículo 27, párrafo sexto de la Constitución corresponde exclusivamente a la Nación la planeación y el control del SEN en los términos del artículo 28 constitucional. Además, las leyes deben determinar la forma en que los particulares pueden participar en las demás actividades de la industria eléctrica.</div>\n<div> Que de conformidad con el artículo 28, párrafos cuarto y noveno de la Constitución el Estado ejerce funciones de manera exclusiva en la planeación y el control del SEN, cuyos objetivos son preservar la seguridad y autosuficiencia energética de la Nación y proveer al pueblo de la electricidad al menor precio posible, evitando el lucro, para garantizar la seguridad nacional y soberanía a través de la empresa pública del Estado que se establezca. Asimismo, el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica en materia energética en los términos que determine la ley.</div>\n<div> Que el 18 de marzo de 2025 fue publicado en el Diario Oficial de la Federación (DOF), el Decreto por el que se expiden, entre otras, la Ley del Sector Eléctrico (LSE).</div>\n<div> Que el Transitorio Cuarto de la LSE dispone que la Comisión Nacional de Energía (CNE) debe revisar y actualizar las metodologías de transmisión y las metodologías de las tarifas reguladas del Servicio Público de Transmisión, para dar cumplimiento a lo establecido en la reforma constitucional en materia de áreas y empresas estratégicas, publicada en el DOF el 31 de octubre de 2024. Lo anterior, para garantizar la Eficiencia, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del SEN.</div>\n<div> Que de conformidad con los artículos 1, 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 2, párrafo primero de la Ley de la Comisión Nacional de Energía (LCNE); 2, apartado F, fracción III y 71 del Reglamento Interior de la Secretaría de Energía y 2, párrafo primero del Reglamento Interior de la Comisión Nacional de Energía, la CNE es un órgano administrativo desconcentrado, de carácter técnico, sectorizado a la Secretaría de Energía, que cuenta con independencia técnica, operativa, de gestión y de decisión, que tiene por objeto regular, supervisar e imponer sanciones en las actividades del sector energético de conformidad con las disposiciones aplicables en materia de planeación vinculante en el ámbito de su competencia.</div>\n<div> Que los artículos 7, fracciones I y III, y 8, fracciones I, VI y VII de la LCNE, establecen que la CNE tiene atribuciones para emitir resoluciones, acuerdos, criterios de interpretación, directivas, bases y demás actos administrativos necesarios para el cumplimiento de sus atribuciones, así como vigilar y supervisar su cumplimiento; emitir la metodología para determinar las tarifas y contraprestaciones del sector eléctrico y realizar el seguimiento de costos, regular en materia de tarifas de transmisión, así como promover el desarrollo ordenado, continuo y seguro de las actividades de generación de electricidad, los servicios públicos de transmisión y distribución eléctrica, y la comercialización de electricidad.</div>\n<div> Que en el otrora Programa Sectorial de Energía 2007-2012 (PROSENER 2007-2012), publicado en el DOF el 21 de febrero de 2008, se estableció el Objetivo III.2. &quot;Fomentar el aprovechamiento de fuentes renovables de energía y biocombustibles técnica, económica, ambiental y socialmente viables&quot;. Para medir el avance de su cumplimiento se dispuso del indicador denominado &quot;Renovables como porcentaje de la capacidad de generación de energía eléctrica&quot;, el cual tuvo como línea base 23% en el año 2006 y se estableció como meta a alcanzar 26% para el año 2012.</div>\n<div> Que para atender lo referido en el considerando anterior, mediante el oficio número SPEDT/200-523-09, del 16 de diciembre de 2009, la Secretaría de Energía instruyó a la extinta Comisión Reguladora de Energía (CRE) realizar todos los actos necesarios a efecto de asegurar la creación de una metodología del tipo &quot;estampilla postal&quot; para el cálculo de servicios de transmisión, transformación y distribución, con la finalidad de favorecer el aprovechamiento de las energías renovables y la cogeneración eficiente, debiendo considerar el Programa Sectorial de Energía 2007-2012 y la manifestación de interés de los desarrolladores de proyectos a partir de fuentes renovables y de cogeneración eficiente.</div>\n<div> Que para los efectos antes mencionados, mediante la Resolución número RES/066/2010, modificada por medio de la Resolución número RES/194/2010, ambas publicadas en el DOF el 16 de abril de 2010 y 13 de agosto de 2010, respectivamente, la extinta CRE expidió la metodología para la determinación de los cargos correspondientes a los servicios de transmisión que preste el suministrador a las personas permisionarias con centrales de generación de energía eléctrica con fuentes de energía renovable o cogeneración eficiente, cuyo objeto fue fungir como el instrumento a emplear por la Comisión Federal de Electricidad para calcular, respecto de centrales de generación de energía eléctrica con fuentes de energía renovable o cogeneración eficiente, los cargos correspondientes a Servicios de Transmisión de energía eléctrica en alta, media y baja tensión. Dichos cargos consideraban los costos relacionados con el uso de la infraestructura, las pérdidas, los Servicios Conexos a la transmisión y el cargo fijo por administración del convenio para el Servicio de Transmisión de energía eléctrica.</div>\n<div> Que bajo el nuevo paradigma constitucional y la legislación reglamentaria sobre la cual se deben conducir las actividades del sector eléctrico, la evolución de las condiciones del SEN, el Servicio Público de Transmisión y Distribución de Energía Eléctrica y del Mercado Eléctrico Mayorista, resulta necesario revisar y actualizar la metodología de transmisión aplicable a las personas permisionarias con centrales de generación de energía eléctrica, que tengan celebrados contratos de interconexión y convenios para el Servicio de Transmisión de energía eléctrica al amparo de la Ley del Servicio Público de Energía Eléctrica (LSPEE).</div>\n<div> Que a partir de la publicación de la LSE, el Plan de Desarrollo del Sector Eléctrico publicado en el DOF el 17 de octubre de 2025, se configura como un instrumento estratégico y operativo, pilar del desarrollo ordenado del sector eléctrico, el cual en su numeral 2.2.1 señala que en diciembre de 2024, la capacidad instalada correspondiente a centrales eléctricas con tecnologías limpias fue de 36.9%, de la que el 32.6 % corresponde a energía renovable, mientras que en 2014 la capacidad instalada de energía renovable fue de 26%, por lo que el objetivo del PROSENER 2007-2012 se cumplió en 2014.</div>\n<div> En este contexto, en observancia a la actual política energética, resulta necesario actualizar y emitir una nueva metodología de transmisión aplicable a las personas permisionarias con centrales de generación de energía eléctrica que tengan celebrados contratos de interconexión y convenios para el Servicio de Transmisión de energía eléctrica al amparo de la LSPEE. Lo anterior, en virtud de que las metodologías actualmente aplicables fueron diseñadas bajo circunstancias, condiciones y objetivos específicos que han sido alcanzados, por lo que resulta procedente revisar y adecuar los criterios utilizados para la determinación de los cargos correspondientes, a fin de que éstos reflejen de manera adecuada las condiciones actuales del sector y aseguren un tratamiento regulatorio consistente y justificado.</div>\n<div> Que, mediante la Sexta Sesión Extraordinaria del 15 de junio de 2026, el Comité Técnico de la CNE aprobó el Acuerdo número CT/6.SE/2-2026, por el que se autoriza la emisión del presente Acuerdo.</div>\n<div> Que conforme a todo lo anterior y, en cumplimiento al Transitorio Cuarto de la LSE, la CNE realizó la revisión de las metodologías de los servicios de transmisión previstas en la Resolución número RES/066/2010 y su modificación prevista en la Resolución número RES/194/2010, así como de las demás metodologías que fueron emitidas durante la vigencia de la LSPEE relacionadas con dicho servicio, con la finalidad de actualizarlas y con ello garantizar la eficiencia, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del SEN para asegurar las mejores condiciones para el Estado y la igualdad de condiciones entre los distintos Integrantes del Sector Eléctrico, tengo a bien emitir el siguiente:</div>\n<div> ACUERDO DE LA COMISIÓN NACIONAL DE ENERGÍA POR EL QUE SE EMITE LA METODOLOGÍA<br> PARA LA DETERMINACIÓN DEL CARGO CORRESPONDIENTE AL SERVICIO DE TRANSMISIÓN DE<br> ENERGÍA ELÉCTRICA QUE PRESTE LA SUMINISTRADORA A LAS PERSONAS PERMISIONARIAS CON<br> CENTRALES DE GENERACIÓN DE ENERGÍA ELÉCTRICA, QUE CUENTEN CON CONTRATO DE<br> INTERCONEXIÓN Y CONVENIO PARA EL SERVICIO DE TRANSMISIÓN DE ENERGÍA ELÉCTRICA<br> CELEBRADOS AL AMPARO DE LA LEY DEL SERVICIO PÚBLICO DE ENERGÍA ELÉCTRICA<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1d31fdfd-fffb-5e1a-aa5a-dd943f462bd4",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 2,
+      "identificador": "Artículo Único · Expedición de metodología",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Único. La Comisión Nacional de Energía emite la metodología para la determinación del Cargo correspondiente al Servicio de Transmisión que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el Servicio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica, para quedar como sigue:</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "2d364038-ae89-569b-ac1d-8ab8bbaaa61b",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 3,
+      "identificador": "Apartado 1. Alcance y objetivos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> METODOLOGÍA PARA LA DETERMINACIÓN DEL CARGO CORRESPONDIENTE AL SERVICIO DE<br> TRANSMISIÓN DE ENERGÍA ELÉCTRICA QUE PRESTE LA SUMINISTRADORA A LAS PERSONAS<br> PERMISIONARIAS CON CENTRALES DE GENERACIÓN DE ENERGÍA ELÉCTRICA, QUE CUENTEN<br> CON CONTRATO DE INTERCONEXIÓN Y CONVENIO PARA EL SERVICIO DE TRANSMISIÓN DE<br> ENERGÍA ELÉCTRICA CELEBRADOS AL AMPARO DE LA LEY DEL SERVICIO PÚBLICO DE ENERGÍA<br> ELÉCTRICA<br> </div>\n<div> 1. Alcance y objetivos</div>\n<div> 1.1. La presente metodología tiene como objeto determinar el Cargo correspondiente al Servicio de Transmisión que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica que cuenten con contrato de interconexión y Convenio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica.</div>\n<div> 1.2. La presente metodología es de observancia obligatoria en todo el territorio nacional y su aplicación es para las Personas Permisionarias que cuenten con contrato de interconexión y Convenio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica y a la Suministradora.</div>\n<div> 1.3. La Metodología de Transmisión tiene como objetivos, entre otros, los siguientes:</div>\n<div> I. Cumplir con la política energética nacional y con lo establecido en el artículo 27, párrafo sexto de la Constitución Política de los Estados Unidos Mexicanos;</div>\n<div> II. Promover el desarrollo eficiente del sector eléctrico, garantizar la continuidad de los servicios, evitar la discriminación indebida, promover el acceso abierto a la Red Nacional de Transmisión y a las Redes Generales de Distribución cuando sea técnicamente factible y proteger los intereses de las usuarias de la red;</div>\n<div> III. Mejorar la eficiencia en el uso del Sistema Eléctrico Nacional, y</div>\n<div> IV. Garantizar que las Personas Permisionarias realicen pagos equitativos, justos y proporcionales por la prestación del Servicio de Transmisión.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Metodología de transmisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b40c5f28-abef-5e97-ae90-25d0a170e20c",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 4,
+      "identificador": "Apartado 2. Acrónimos y Definiciones",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 2. Acrónimos y Definiciones</div>\n<div> 2.1. Para efectos de la Metodología de Transmisión, además de las definiciones contenidas en la Ley del Sector Eléctrico, el Reglamento de la Ley del Sector Eléctrico y las Bases del Mercado Eléctrico, aquellas que las modifiquen o sustituyan, son aplicables las siguientes definiciones y acrónimos, mismas que deben entenderse en singular o plural sin alterar su significado, siempre y cuando el contexto así lo permita:</div>\n<div> I. Cargo: Monto que resulta de la suma de los importes determinados por el CENACE derivados de la Liquidación de Mercado por el Servicio Público de Transmisión de Energía Eléctrica, el Servicio Público de Distribución de Energía Eléctrica, el servicio de operación del CENACE y los SCnMEM;</div>\n<div> II. CENACE: Centro Nacional de Control de Energía;</div>\n<div> III. CNE: Comisión Nacional de Energía;</div>\n<div> IV. Convenio de Transmisión: Convenio para el Servicio de Transmisión celebrado entre la Suministradora y la Persona Permisionaria en términos de la Ley del Servicio Público de Energía Eléctrica;</div>\n<div> V. Metodología de Transmisión: Metodología para la determinación de los Cargos correspondientes al Servicio de Transmisión que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y Convenio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica;</div>\n<div> VI. Liquidación de Mercado: Proceso de liquidación y re-liquidaciones del Mercado Eléctrico Mayorista en el que se calculan los importes abonados y cobrados por el CENACE a las Participantes del Mercado, entre otros, así como los diferentes servicios regulados por la CNE, conforme a lo previsto en las Bases del Mercado Eléctrico, el Manual de Liquidaciones y el Manual de Estado de Cuenta, Facturación y Pagos, o los que los modifiquen o sustituyan;</div>\n<div> VII. Persona Permisionaria: Persona titular de un permiso otorgado en términos de la Ley del Servicio Público de Energía Eléctrica que cuenta con contrato de interconexión y Convenio de Transmisión celebrados al amparo de la citada ley;</div>\n<div> VIII. SCnMEM: Servicios Conexos no incluidos en el Mercado Eléctrico Mayorista;</div>\n<div> IX. Servicio de Transmisión: El servicio de conducir la energía eléctrica desde el punto de interconexión hasta cada punto de carga, a través del Sistema Eléctrico Nacional, determinado en el contrato de interconexión correspondiente, celebrado al amparo de la Ley del Servicio Público de Energía Eléctrica, y</div>\n<div> X. Suministradora: Empresa Pública del Estado, Comisión Federal de Electricidad.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Metodología de transmisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b049791f-1776-5ad3-b510-ed8e2bad63e8",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 5,
+      "identificador": "Apartado 3. Determinación del Cargo por el Servicio de Transmisión",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3. Determinación del Cargo por el Servicio de Transmisión</div>\n<div> 3.1. El Cargo por el Servicio de Transmisión para cada Persona Permisionaria se calcula a partir de la suma de los importes determinados por el CENACE a la Suministradora, que resulten de aplicar la Liquidación de Mercado por el Servicio Público de Transmisión de Energía Eléctrica, el Servicio Público de Distribución de Energía Eléctrica, el servicio de operación del CENACE y los SCnMEM, conforme a lo establecido en el Manual de Liquidaciones.</div>\n<div> 3.2. El Cargo por el Servicio de Transmisión para cada Persona Permisionaria se determina de la siguiente manera:</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_0.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_8049.png\" alt=\"Figura de la publicación oficial\"></div>\n<table> <tbody><tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_10133.png\" alt=\"Figura de la publicación oficial\"></div> </td> <td> <div> Cargo por el Servicio de Transmisión que la Suministradora debe cobrar a la Persona Permisionaria <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_11611.png\" alt=\"Figura de la publicación oficial\"> por la prestación de dicho servicio, expresado en pesos.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_13163.png\" alt=\"Figura de la publicación oficial\"></div> </td> <td> <div> Importe de la Liquidación de Mercado por el Servicio Público de Transmisión de Energía Eléctrica para la Persona Permisionaria <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_15186.png\" alt=\"Figura de la publicación oficial\">, expresado en pesos.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_16738.png\" alt=\"Figura de la publicación oficial\"></div> </td> <td> <div> Importe de la Liquidación de Mercado por el Servicio Público de Distribución de Energía Eléctrica para la Persona Permisionaria <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_18937.png\" alt=\"Figura de la publicación oficial\">, expresado en pesos.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_20489.png\" alt=\"Figura de la publicación oficial\"></div> </td> <td> <div> Importe de la Liquidación de Mercado por el servicio de operación del CENACE para la Persona Permisionaria <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_23511.png\" alt=\"Figura de la publicación oficial\">, expresado en pesos.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_25063.png\" alt=\"Figura de la publicación oficial\"></div> </td> <td> <div> Importe de la Liquidación de Mercado por los SCnMEM para la Persona Permisionaria <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_27796.png\" alt=\"Figura de la publicación oficial\">, expresado en pesos.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_29348.png\" alt=\"Figura de la publicación oficial\"></div> </td> <td> <div> Corresponde a la <img src=\"https://dof.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_30763.png\" alt=\"Figura de la publicación oficial\"> Permisionaria.</div> </td> </tr> </tbody></table>\n<div> 3.3. La Suministradora debe remitir a la CNE mensualmente mediante oficio un informe de los Cargos cobrados por el Servicio de Transmisión a las Personas Permisionarias, correspondiente al mes inmediato anterior al mes que corresponda la entrega del informe. Dicha entrega debe realizarse en un plazo no mayor a diez días hábiles posteriores al último día del mes que se reporta.</div>\n<div> 3.4. La facturación que realice la Suministradora a la Persona Permisionaria con base en los numerales 3.1 y 3.2 de la presente Metodología de Transmisión debe realizarse mensualmente y ser notificada y cobrada, conforme a lo previsto en el contrato de interconexión y el Convenio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica.</div>\n<div> 3.5. La Metodología de Transmisión puede ser revisada y ajustada por la CNE en cualquier momento o a propuesta de la Suministradora, a fin de reflejar las condiciones y características del Servicio de Transmisión.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Metodología de transmisión",
+      "seccion_nombre": null
+    },
+    {
+      "id": "dae6f05c-3646-51aa-bee5-6ca6f48da7e7",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 6,
+      "identificador": "Transitorio PRIMERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TRANSITORIOS<br> </div>\n<div> PRIMERO. El presente Acuerdo entra en vigor a partir del 19 de octubre de 2026.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "afc99578-dc27-5e33-9bd2-449fa14b84e6",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 7,
+      "identificador": "Transitorio SEGUNDO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> SEGUNDO. A partir de la entrada en vigor del presente Acuerdo, quedan sin efectos todas las disposiciones administrativas, acuerdos, resoluciones o actos administrativos que resulten aplicables sobre la determinación de los cargos correspondientes por los Servicios de Transmisión a las personas titulares de un permiso otorgado en términos de la Ley del Servicio Público de Energía Eléctrica que cuenten con contrato de interconexión y Convenio de Transmisión celebrados al amparo de la citada ley. Todas las referencias a la metodología de transmisión previstas en dichos contratos y convenios se entienden hechas a la metodología emitida a través del presente Acuerdo.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7ffc167a-9fde-579a-aae6-931ac9b57465",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 8,
+      "identificador": "Transitorio TERCERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TERCERO. Durante el procedimiento de migración voluntaria y expedita al que hace referencia el artículo Sexto Transitorio de la Ley del Sector Eléctrico, y considerando los lineamientos de referencia que para tal efecto emita la Secretaría de Energía, no les es aplicable el presente Acuerdo durante el plazo comprendido entre el 19 de octubre de 2026 y el 06 de octubre de 2028 a las Personas Permisionarias con centrales de generación de energía eléctrica que cumplan con lo siguiente:</div>\n<div> I.     Que cuenten con un contrato de interconexión y Convenio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica con una vigencia posterior al 06 de octubre  de 2028, y</div>\n<div> II.     Que inicien el procedimiento de migración voluntaria y expedita a las figuras de la Ley del Sector Eléctrico, mediante el registro de la manifestación de interés para participar en dicho procedimiento y la presentación de la solicitud de migración correspondiente, en términos de los lineamientos a que se refiere el artículo Sexto Transitorio de la Ley del Sector Eléctrico, que para tal efecto emita la Secretaría de Energía.</div>\n<div> Durante el plazo señalado en el primer párrafo del presente artículo, las Personas Permisionarias, referidas en el párrafo inmediato anterior, continúan operando conforme a lo establecido en el contrato de interconexión y el Convenio de Transmisión que tengan vigente a la fecha de entrada en vigor del presente Acuerdo, y deben realizar el pago del cargo correspondiente al Servicio de Transmisión, el cual debe continuar acorde a lo establecido en dichos instrumentos y en la metodología de transmisión aplicable previo a la entrada en vigor del presente Acuerdo.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "144d29b1-56d2-5efa-9e66-3a1e92e7f1aa",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 9,
+      "identificador": "Transitorio CUARTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CUARTO. Lo establecido en el artículo Transitorio anterior, queda sin efectos cuando las Personas Permisionarias con centrales de generación de energía eléctrica que cuenten con un contrato de interconexión y un Convenio de Transmisión celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica con una vigencia posterior al 06 de octubre de 2028 se encuentren en alguno de los supuestos siguientes:</div>\n<div> I.     No concluyan con todas las etapas del procedimiento de migración voluntaria y expedita a las figuras de la Ley del Sector Eléctrico, establecido en los lineamientos a que se refiere el artículo Sexto Transitorio de la Ley del Sector Eléctrico, que para tal efecto emita la Secretaría de Energía;</div>\n<div> II.     Se les otorgue el estatus de habilitado en el registro de activos físicos que corresponda, de acuerdo con lo establecido en el procedimiento de migración voluntaria y expedita que se señala en la fracción anterior, conforme a lo estipulado en la normatividad aplicable, o</div>\n<div> III.    Inicien su operación en el Mercado Eléctrico Mayorista, una vez concluido el procedimiento de migración voluntaria y expedita correspondiente.</div>\n<div> En cualquiera de los supuestos mencionados en las fracciones anteriores, una vez que les sean notificadas a las Personas Permisionarias las resoluciones respectivas, de acuerdo con lo establecido en la normatividad aplicable, estas deben realizar el pago de los cargos por el Servicio de Transmisión conforme al presente Acuerdo, o bien, de las tarifas correspondientes, a partir del siguiente periodo de facturación respectivo inmediato posterior a la fecha de la referida notificación.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "02e1f78a-3ba1-51f8-b148-d75eb3d40622",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 10,
+      "identificador": "Transitorio QUINTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> QUINTO. Para las Personas Permisionarias que tienen celebrados contratos de interconexión para centrales eléctricas con energías renovables o cogeneración eficiente al amparo de la Ley del Servicio Público de Energía Eléctrica y en tanto se actualicen las Reglas del Mercado, los cargos indicados en el numeral 3.2 del presente Acuerdo, deben incluir los cargos determinados resultantes de la energía compensada, de acuerdo con lo establecido en la cláusula décima quinta, fracción XV.3, inciso ii) del contrato de interconexión correspondiente.</div>\n<div> Para efectos de lo anterior, la Comisión Federal de Electricidad, a través de CFE Intermediación de Contratos Legados, S.A. de C.V., debe enviar al Centro Nacional de Control de Energía los datos de la energía compensada a fin de que puedan ser incluidos en las Liquidaciones del Mercado, debiendo estas realizar las acciones necesarias para mantener su operación.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b936182d-8083-5538-9942-35c2d0302338",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 11,
+      "identificador": "Transitorio SEXTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> SEXTO. La Secretaría de Energía, la Comisión Nacional de Energía, el Centro Nacional de Control de Energía y la Comisión Federal de Electricidad, en el ámbito de sus respectivas competencias y atribuciones, deben coordinarse y, en su caso, realizar las adecuaciones técnicas, operativas y jurídicas que se requieran para cumplir con lo establecido en el presente Acuerdo.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "56fd582a-ef67-5e03-9c87-e1a269c78d2c",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "orden": 12,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 15 de junio de 2026.- El Director General, Juan Carlos Solís Ávila.- Rúbrica.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Cargo de transmisión para permisos legados LSPEE",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Metodología de transmisión",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Transitorios",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 6
+    }
+  ],
+  "fuente": {
+    "name": "CARGO-TRANSMISION-LEGADOS",
+    "code": "5790939",
+    "radar": "RAD-076",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Cargo de transmisión para permisos legados LSPEE",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente",
+    "observacion": "El transitorio primero fija entrada en vigor el 19 de octubre de 2026; no se presenta como vigente al corte del 19 de septiembre.",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+    "sha256": "460474516ffe573722c5f719941f45662bdf107fff30cced8f8815cb24df5bc7",
+    "fecha": "18-06-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica.",
+    "codDiario": 327985,
+    "pagina": 31,
+    "tables": 1,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_8049.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_10133.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_11611.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_13163.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_15186.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_16738.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_18937.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_20489.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_23511.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_25063.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_27796.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_29348.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_30763.png",
+        "alt": null
+      }
+    ]
+  }
+}

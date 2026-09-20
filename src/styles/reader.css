@@ -65,7 +65,7 @@ html.dark-mode .reader-nav-counter { color:#ead7df; }
 #modal-content .reader-text :is(h1,h2,h3,h4) { font-size:1.15em !important; line-height:1.45 !important; margin-block:1.5em .7em; }
 #modal-content .reader-text table { display:block; max-width:100%; width:100%; overflow-x:auto; font-size:inherit; line-height:inherit; }
 #modal-content .reader-text td,#modal-content .reader-text th { min-width:8em; padding:12px; }
-#modal-content .reader-text img { max-width:100%; height:auto; }
+#modal-content .reader-text img { display:inline-block; vertical-align:middle; max-width:100%; height:auto; }
 html[data-reader-surface="light"] #modal-content,html[data-reader-surface="light"] #law-articles-list .result-item { background:#fff !important; }
 html[data-reader-surface="light"] #modal-content .reader-text *,html[data-reader-surface="light"] #law-articles-list .reader-preview { color:#2e2925 !important; }
 html[data-reader-surface="sepia"] #modal-content,html[data-reader-surface="sepia"] #law-articles-list .result-item { background:#f8efd9 !important; }

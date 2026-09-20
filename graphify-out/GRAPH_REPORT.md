@@ -1,16 +1,16 @@
 # Graph Report - 65.-Buscador de Leyes Energía  (2026-09-19)
 
 ## Corpus Check
-- 591 files · ~16,687,980 words
+- 627 files · ~16,925,229 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 12856 nodes · 13296 edges · 572 communities (520 shown, 52 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 31 edges (avg confidence: 0.8)
+- 13408 nodes · 13822 edges · 607 communities (551 shown, 56 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 32 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `743041b3`
+- Built from commit: `78e6d748`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -485,6 +485,33 @@
 - [[_COMMUNITY_Community 535|Community 535]]
 - [[_COMMUNITY_Community 536|Community 536]]
 - [[_COMMUNITY_Community 537|Community 537]]
+- [[_COMMUNITY_Community 572|Community 572]]
+- [[_COMMUNITY_Community 573|Community 573]]
+- [[_COMMUNITY_Community 574|Community 574]]
+- [[_COMMUNITY_Community 575|Community 575]]
+- [[_COMMUNITY_Community 576|Community 576]]
+- [[_COMMUNITY_Community 577|Community 577]]
+- [[_COMMUNITY_Community 578|Community 578]]
+- [[_COMMUNITY_Community 579|Community 579]]
+- [[_COMMUNITY_Community 580|Community 580]]
+- [[_COMMUNITY_Community 581|Community 581]]
+- [[_COMMUNITY_Community 582|Community 582]]
+- [[_COMMUNITY_Community 583|Community 583]]
+- [[_COMMUNITY_Community 584|Community 584]]
+- [[_COMMUNITY_Community 585|Community 585]]
+- [[_COMMUNITY_Community 586|Community 586]]
+- [[_COMMUNITY_Community 587|Community 587]]
+- [[_COMMUNITY_Community 588|Community 588]]
+- [[_COMMUNITY_Community 589|Community 589]]
+- [[_COMMUNITY_Community 590|Community 590]]
+- [[_COMMUNITY_Community 591|Community 591]]
+- [[_COMMUNITY_Community 592|Community 592]]
+- [[_COMMUNITY_Community 593|Community 593]]
+- [[_COMMUNITY_Community 594|Community 594]]
+- [[_COMMUNITY_Community 595|Community 595]]
+- [[_COMMUNITY_Community 596|Community 596]]
+- [[_COMMUNITY_Community 605|Community 605]]
+- [[_COMMUNITY_Community 606|Community 606]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `asignacion` - 499 edges
@@ -513,7 +540,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (572 total, 52 thin omitted)
+## Communities (607 total, 56 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -1723,8 +1750,8 @@ Cohesion: 0.12
 Nodes (15): checks, adminPublishAndConflictRollback, anonymousCannotWrite, articleOpensFromSupabase, darkMode, newEntityViaEditor, newRelationViaEditor, newTopicViaEditor (+7 more)
 
 ### Community 402 - "Community 402"
-Cohesion: 0.67
-Nodes (4): commandWorks(), resolveMarkitdownBinary(), resolvePythonBinary(), runMarkitdownToMarkdown()
+Cohesion: 0.07
+Nodes (29): articulos, fuente, cobertura, codDiario, code, estado_radar, familia, fecha (+21 more)
 
 ### Community 403 - "Community 403"
 Cohesion: 0.18
@@ -1963,12 +1990,12 @@ Cohesion: 0.24
 Nodes (12): applyReaderPreferences(), DEFAULT_READER_PREFERENCES, getStorage(), loadReaderPreferences(), normalizeReaderPreferences(), READER_FONT_SIZE_OPTIONS, READER_FONT_SIZE_RANGE, READER_LINE_HEIGHT_OPTIONS (+4 more)
 
 ### Community 467 - "Community 467"
-Cohesion: 0.21
-Nodes (14): 1. Cogeneración, 2. Migración de permisos, 3. Planeación del sector, 4. Desarrollo mixto CFE, 5. Biocombustibles e información energética, 6. CFE: contratación e impedimentos, 7. Leyes y reformas por completar, 8. Convocatorias ASEA y SISTRANGAS (+6 more)
+Cohesion: 0.11
+Nodes (23): 1. Cogeneración, 1. Electricidad, redes y mercado, 2. Cogeneración, 2. Migración de permisos, 3. Migración de permisos, 3. Planeación del sector, 4. Desarrollo mixto CFE, 4. Planeación del sector (+15 more)
 
 ### Community 468 - "Community 468"
-Cohesion: 0.21
-Nodes (14): 1. Cogeneración, 2. Migración de permisos, 3. Planeación del sector, 4. Desarrollo mixto CFE, 5. Biocombustibles e información energética, 6. CFE: contratación e impedimentos, 7. Leyes y reformas por completar, 8. Convocatorias ASEA y SISTRANGAS (+6 more)
+Cohesion: 0.11
+Nodes (23): 1. Cogeneración, 1. Electricidad, redes y mercado, 2. Cogeneración, 2. Migración de permisos, 3. Migración de permisos, 3. Planeación del sector, 4. Desarrollo mixto CFE, 4. Planeación del sector (+15 more)
 
 ### Community 469 - "Community 469"
 Cohesion: 0.07
@@ -2119,8 +2146,8 @@ Cohesion: 0.12
 Nodes (15): ASEA-CONV-ALMACENAMIENTO-LP, ASEA-CONV-BODEGAS-LP, ASEA-CONV-DISTRIBUCION-LP, ASEA-CONV-GNC, ASEA-CONV-PROCESAMIENTO-GN, ASEA-CONV-TAPONAMIENTO, ASEA-CONV-TRANSPORTE-GN, CATALOGO-CONUEE (+7 more)
 
 ### Community 508 - "Community 508"
-Cohesion: 0.22
-Nodes (8): prepare(), Perfiles de las tres fuentes cotejadas. No escribe en Supabase., prepare(), Dos perfiles documentales revisados: numerales y formularios completos, sin inge, parse(), pdf_lines(), Perfiles cerrados: cuatro reglamentos. No ejecuta escrituras en Supabase., save()
+Cohesion: 0.16
+Nodes (10): prepare(), Perfiles de las tres fuentes cotejadas. No escribe en Supabase., prepare(), Perfiles cerrados de trece publicaciones; no consolida ni ejecuta ingestas., prepare(), Dos perfiles documentales revisados: numerales y formularios completos, sin inge, parse(), pdf_lines() (+2 more)
 
 ### Community 509 - "Community 509"
 Cohesion: 0.18
@@ -2198,10 +2225,102 @@ Nodes (3): add(), Perfiles de planeación: apartados, tablas y figuras completas
 Cohesion: 0.67
 Nodes (3): build(), SQL de incorporación: una transacción verificable por instrumento, sin reemplazo, uid()
 
+### Community 528 - "Community 528"
+Cohesion: 0.07
+Nodes (29): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+21 more)
+
+### Community 572 - "Community 572"
+Cohesion: 0.07
+Nodes (29): articulos, fuente, codDiario, code, estado_radar, familia, fecha, identificacion (+21 more)
+
+### Community 573 - "Community 573"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 574 - "Community 574"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 575 - "Community 575"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 576 - "Community 576"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 577 - "Community 577"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 578 - "Community 578"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 579 - "Community 579"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 580 - "Community 580"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 581 - "Community 581"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 582 - "Community 582"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 583 - "Community 583"
+Cohesion: 0.07
+Nodes (28): articulos, fuente, codDiario, code, estado_radar, familia, fecha, images (+20 more)
+
+### Community 584 - "Community 584"
+Cohesion: 0.08
+Nodes (23): altas, anteriores_sin_cambios, catalogo_antes, articulos, leyes, temas, catalogo_despues, articulos (+15 more)
+
+### Community 585 - "Community 585"
+Cohesion: 0.08
+Nodes (23): altas, anteriores_sin_cambios, catalogo_antes, articulos, leyes, temas, catalogo_despues, articulos (+15 more)
+
+### Community 586 - "Community 586"
+Cohesion: 0.13
+Nodes (14): AVISO-PROGRAMA-CENACE, BENEFICIO-REDES, CARGO-TRANSMISION-LEGADOS, CEL-ASIGNACION-2022, CEL-INSUBSISTENCIA, CEL-REQUISITOS-2025-2026, DACG-ACCESO-REDES, DACG-ELECTROMOVILIDAD (+6 more)
+
+### Community 587 - "Community 587"
+Cohesion: 0.13
+Nodes (14): alcance_pdf, catalogo_antes, articulos, leyes, temas, catalogo_global, articulos, leyes (+6 more)
+
+### Community 588 - "Community 588"
+Cohesion: 0.31
+Nodes (9): add(), index(), label(), parts(), pre(), Segmentación revisada de estas ediciones: no reutilizar sin cotejar las fuentes., resolutions(), signature() (+1 more)
+
+### Community 589 - "Community 589"
+Cohesion: 0.60
+Nodes (4): build(), note(), SQL de incorporación: una transacción verificable por instrumento, sin reemplazo, uid()
+
+### Community 590 - "Community 590"
+Cohesion: 0.50
+Nodes (3): Alcance, Electricidad, redes y mercado · 19 septiembre 2026, Pendientes
+
+### Community 591 - "Community 591"
+Cohesion: 0.50
+Nodes (3): Alcance, Electricidad, redes y mercado · 19 septiembre 2026, Pendientes
+
+### Community 605 - "Community 605"
+Cohesion: 0.40
+Nodes (4): Electricidad, redes y mercado · 19 septiembre 2026, Evidencia, Revisión y regeneración, Validación de la entrega
+
+### Community 606 - "Community 606"
+Cohesion: 0.67
+Nodes (4): commandWorks(), resolveMarkitdownBinary(), resolvePythonBinary(), runMarkitdownToMarkdown()
+
 ## Knowledge Gaps
-- **11109 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+11104 more)
+- **11566 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+11561 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **52 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **56 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -2210,10 +2329,10 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Why does `asignacion` connect `Community 176` to `Community 197`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `asignacion` connect `Community 231` to `Community 249`?**
+- **Why does `asignacion` connect `Community 230` to `Community 248`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _11156 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _11619 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.057539682539682536 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

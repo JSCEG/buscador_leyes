@@ -13,6 +13,86 @@
       "temas": 9
     },
     {
+      "id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "titulo": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022",
+      "siglas": "CEL-ASIGNACION-2022",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-04-08",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+      "fragmentos": 10,
+      "temas": 7
+    },
+    {
+      "id": "ac79c92a-b039-5907-a934-14511c7bdebf",
+      "titulo": "Acuerdo Núm. A/023/2024 de la Comisión Reguladora de Energía mediante el cual se modifica el Acuerdo A/064/2017 por el que se reconoce a los integrantes de una sociedad de autoabastecimiento o de un permiso de cogeneración de energía eléctrica, el derecho a solicitar directamente la exclusión de sus centros de carga del permiso y del contrato de interconexión legado respectivo",
+      "siglas": "EXCLUSION-CARGAS-LEGADAS",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-04-23",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5724250",
+      "fragmentos": 8,
+      "temas": 6
+    },
+    {
+      "id": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+      "titulo": "Acuerdo Núm. A/025/2023 por el que la Comisión Reguladora de Energía modifica la resolución Núm. RES/948/2015 por la que se expiden las Disposiciones Administrativas de Carácter General en materia de acceso abierto y prestación de los servicios en la Red Nacional de Transmisión y las Redes Generales de Distribución de energía eléctrica",
+      "siglas": "DACG-ACCESO-REDES",
+      "tipo": "dacg",
+      "fecha_publicacion": "2024-01-23",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714880",
+      "fragmentos": 123,
+      "temas": 14
+    },
+    {
+      "id": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+      "titulo": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica",
+      "siglas": "BENEFICIO-REDES",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-01-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714631",
+      "fragmentos": 26,
+      "temas": 14
+    },
+    {
+      "id": "40ca1503-43de-5551-b655-704cbeeee109",
+      "titulo": "Acuerdo Núm. A/054/2024 de la Comisión Reguladora de Energía por el que se expiden las Disposiciones Administrativas de Carácter General que establecen las bases normativas para autorizar unidades de inspección de requerimientos para centros de carga y de la industria eléctrica en las áreas de generación, transmisión y distribución de energía eléctrica, así como el procedimiento aplicable a inspecciones y las condiciones de operación de las unidades de inspección",
+      "siglas": "UNIDADES-INSPECCION",
+      "tipo": "dacg",
+      "fecha_publicacion": "2024-05-20",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5727366",
+      "fragmentos": 57,
+      "temas": 16
+    },
+    {
+      "id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso",
+      "siglas": "LIQUIDACION-CARGAS-SUR",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-01-30",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+      "fragmentos": 13,
+      "temas": 8
+    },
+    {
+      "id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "titulo": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente",
+      "siglas": "DACG-ELECTROMOVILIDAD",
+      "tipo": "dacg",
+      "fecha_publicacion": "2024-09-10",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5738646",
+      "fragmentos": 25,
+      "temas": 9
+    },
+    {
+      "id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
+      "siglas": "CARGO-TRANSMISION-LEGADOS",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-06-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+      "fragmentos": 13,
+      "temas": 7
+    },
+    {
       "id": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
       "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración",
       "siglas": "DACG-COGENERACION",
@@ -21,6 +101,16 @@
       "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5785044",
       "fragmentos": 35,
       "temas": 9
+    },
+    {
+      "id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
+      "siglas": "DACG-MECANISMOS-CENACE",
+      "tipo": "dacg",
+      "fecha_publicacion": "2026-04-03",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+      "fragmentos": 41,
+      "temas": 13
     },
     {
       "id": "3811f946-9a03-580d-9d00-3487db4f5e5a",
@@ -71,6 +161,16 @@
       "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5739627",
       "fragmentos": 6,
       "temas": 6
+    },
+    {
+      "id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
+      "siglas": "MODELOS-INTERCONEXION",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-03-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+      "fragmentos": 48,
+      "temas": 10
     },
     {
       "id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
@@ -243,6 +343,26 @@
       "temas": 13
     },
     {
+      "id": "ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+      "titulo": "Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026",
+      "siglas": "CEL-REQUISITOS-2025-2026",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-08-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796405",
+      "fragmentos": 6,
+      "temas": 6
+    },
+    {
+      "id": "947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+      "titulo": "Acuerdo por el que se informa a todos los participantes del mercado eléctrico mayorista y a la población en general, que han quedado insubsistentes el \"Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014\" y el \"Acuerdo por el que se reforma el Segundo Transitorio del Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014, publicado el 28 de octubre de 2019\", publicados en el Diario Oficial de la Federación el 28 de octubre y 10 de diciembre de 2019, respectivamente",
+      "siglas": "CEL-INSUBSISTENCIA",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-03-12",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5719864",
+      "fragmentos": 5,
+      "temas": 5
+    },
+    {
       "id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
       "titulo": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
       "siglas": "MIGRACION-MODIFICACION",
@@ -251,6 +371,26 @@
       "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798117",
       "fragmentos": 19,
       "temas": 7
+    },
+    {
+      "id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "siglas": "MANUAL-SUSPENSION-MEM",
+      "tipo": "manual",
+      "fecha_publicacion": "2024-01-12",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+      "fragmentos": 27,
+      "temas": 15
+    },
+    {
+      "id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
+      "siglas": "AVISO-PROGRAMA-CENACE",
+      "tipo": "aviso",
+      "fecha_publicacion": "2026-04-30",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+      "fragmentos": 5,
+      "temas": 6
     },
     {
       "id": "ebef59b3-a5a6-5a9b-88af-add201f0226c",

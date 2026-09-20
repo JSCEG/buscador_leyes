@@ -1,0 +1,220 @@
+{
+  "ley": {
+    "id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+    "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso",
+    "siglas": "LIQUIDACION-CARGAS-SUR",
+    "fecha_publicacion": "2025-01-30",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Liquidación de cargas indirectamente modeladas en suministro de último recurso"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+    "tipo": "acuerdo"
+  },
+  "articulos": [
+    {
+      "id": "38d1e937-ab0d-5273-b94f-0ccf09c1a6d2",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 30/01/2025. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5748078). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "e455c848-f35c-59bb-bda6-5e4d74eed451",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n ACUERDO Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Reguladora de Energía.\n<div> ACUERDO Núm. A/085/2024</div>\n<div> ACUERDO POR EL QUE LA COMISIÓN REGULADORA DE ENERGÍA EMITE LOS CRITERIOS PARA LA LIQUIDACIÓN DE CARGAS INDIRECTAMENTE MODELADAS EN LOS ESTADOS DE CUENTA DIARIOS (ECD) QUE EMITE EL CENACE PARA LOS CASOS EN QUE SE PRESTE EL SERVICIO DE SUMINISTRO DE ÚLTIMO RECURSO</div>\n<div> En sesión ordinaria celebrada el 18 de julio de 2024 el Órgano de Gobierno de la Comisión Reguladora de Energía, con fundamento en los artículos 28, párrafo octavo, de la Constitución Política de los Estados Unidos Mexicanos; 1, 2, fracción III, y 43 Ter de la Ley Orgánica de la Administración Pública Federal; 1, 2, fracción II, 3, párrafo primero, 4, párrafo primero, 5, 14, 22, fracciones I, II, III, VIII, IX, XXVI y XXVII, 27, 41, fracción III y 42 de la Ley de los Órganos Reguladores Coordinados en Materia Energética; 1, 2, 3, fracciones LI y LV, 4, 7, 12, fracciones V, XLVII, XLIX, y LIII, 46, párrafo primero, 48, párrafo tercero, 51, 56, 57, 58 y 60 de la Ley de la Industria Eléctrica reformada mediante Decreto publicado en el Diario Oficial de la Federación el 06 de noviembre de 2020; 1, 2, 3, 4, 12 y 13 de la Ley Federal del Procedimiento Administrativo; y, 1, 4, 7, fracción I, 12, 13, 16 y 18, fracciones I, V y XLIV del Reglamento Interno de la Comisión Reguladora de Energía, publicado en el Diario Oficial de la Federación el 28 de abril de 2017 y su modificación publicada en el mismo medio de difusión oficial el 11 de abril de 2019, y</div>\n<div> CONSIDERANDO<br> </div>\n<div> PRIMERO.    Que de conformidad con los artículos 28, párrafo octavo, de la Constitución Política de los Estados Unidos Mexicanos; 1, 2, fracción III, y 43 Ter de la Ley Orgánica de la Administración Pública Federal; y, 1, 2, fracción II, y 3, párrafo primero, de la Ley de los Órganos Reguladores Coordinados en Materia Energética (LORCME), la Comisión Reguladora de Energía (CRE) es una dependencia de la Administración Pública Federal con carácter de Órgano Regulador Coordinado en Materia Energética, con autonomía técnica, operativa y de gestión y con personalidad jurídica, que tiene a su cargo, entre otras atribuciones, las previstas en la Ley de la Industria Eléctrica (LIE) y demás disposiciones jurídicas aplicables.</div>\n<div> SEGUNDO.   Que de acuerdo con los artículos 22, fracciones I, II, III y XXVII, 41, fracción III, y 42 de la LORCME, corresponde a la CRE emitir sus actos y resoluciones con autonomía técnica, operativa y de gestión, así como regular y promover, entre otras, (i) el desarrollo eficiente de la generación de electricidad, los servicios públicos de transmisión y distribución eléctrica, la transmisión y distribución eléctrica que no forma parte del servicio público y la comercialización de electricidad, (ii) la competencia en el sector, (iii) la protección de los intereses de los usuarios, (iv) una adecuada cobertura nacional, y (v) atender a la confiabilidad, estabilidad y seguridad en el suministro y la prestación de servicios.</div>\n<div> TERCERO. Que el artículo 12, fracción V de la LIE reformada mediante Decreto publicado en el Diario Oficial de la Federación (DOF) el 06 de noviembre de 2020, confiere atribuciones a la CRE para expedir y aplicar las metodologías para determinar y ajustar las tarifas máximas de los Suministradores de Último Recurso y los precios máximos del Suministro de Último Recurso, y determinar las demás condiciones para dicho Suministro.</div>\n<div> CUARTO. Que el artículo 3, fracción LI, de la LIE define el Suministro de Último Recurso como el Suministro Eléctrico que se provee bajo precios máximos a los Usuarios Calificados, por tiempo limitado, con la finalidad de mantener la continuidad del servicio cuando un Suministrador de Servicios Calificados deje de prestar el Suministro Eléctrico.</div>\n<div> QUINTO. Que el artículo 46, párrafo primero, de la LIE indica que la CRE puede establecer  requisitos específicos para ofrecer el Suministro de Último Recurso, a fin de promover la eficiencia y calidad de dichos servicios.</div>\n<div> SEXTO. Que el artículo 48, párrafo tercero, de la LIE señala que los Suministradores de Último Recurso ofrecerán el Suministro de Último Recurso a todos los Usuarios Calificados que lo requieran, siempre que ello sea técnicamente factible y cumpla con las disposiciones aplicables.</div>\n<div> SÉPTIMO. Que el artículo 51 de la LIE establece que el Suministro de Último Recurso se preverá  en los contratos de Suministro Calificado y los contratos de Participante de Mercado que celebren los Usuarios Calificados.</div>\n<div> OCTAVO. Que el artículo 56 de la LIE señala que, en caso de incumplimiento de las obligaciones de pago o de garantía de un Suministrador de Servicios Calificados, o cuando un Suministrador de Servicios Calificados deje de prestar servicios a un Generador Exento o a un Usuario Calificado por cualquier motivo, sin que éstos hayan elegido otro Comercializador, el Suministrador de Último Recurso correspondiente comprará la producción de los Generadores Exentos y prestará el Suministro de Último Recurso a los Usuarios Calificados afectados, hasta en tanto éstos contraten la compraventa o el Suministro Eléctrico bajo cualquiera de las modalidades existentes.</div>\n<div> NOVENO. Que el artículo 57 de la LIE establece que cuando no exista un permisionario para proveer Suministro de Último Recurso en una zona geográfica o para una clase de usuarios, los Suministradores  de Servicios Básicos estarán obligados a ofrecer el Suministro de Último Recurso. Para este efecto, no se requerirá la separación a que se refiere el artículo 8 de la LIE.</div>\n<div> DÉCIMO. Que el artículo 58 de la LIE faculta a la CRE para expedir y aplicar las metodologías para determinar y ajustar las tarifas máximas de los Suministradores de Último Recurso y los precios máximos del Suministro de Último Recurso. Dichas tarifas y precios máximos o los parámetros usados para su cálculo podrán ser determinados a través de procesos competitivos que para tal efecto ordene la CRE.</div>\n<div> UNDÉCIMO. Que el artículo 60, párrafo quinto, de la LIE establece que en caso de que un Usuario Final no realice el Registro de Usuarios Calificados, la CRE lo registrará y notificará al Suministrador correspondiente para que preste el Suministro de Último Recurso al Usuario Final en dichos Centros de Carga hasta en tanto contrate el Suministro Eléctrico a través de un Suministrador de Servicios Calificados o en modalidad de Usuario Calificado Participante del Mercado.</div>\n<div> DUODÉCIMO. Que el inciso (d) de la base 8.4.1 de las Bases del Mercado Eléctrico (BME), publicadas en el DOF el 08 de septiembre de 2015 establece que las Entidades Responsables de Carga presentarán, para cada hora, sus ofertas de compra de energía al Mercado del Día en Adelanto. Las ofertas realizadas por zona de carga incluirán todo Centro de Carga Indirectamente Modelado que representan.</div>\n<div> DECIMOTERCERO. Que el subinciso (ii) del inciso (j) de la base 8.4.1 de las BME establece que las Entidades Responsables de Carga pagarán el Precio Marginal Local del NodoP por la cantidad retirada por sus Centros de Carga Directamente Modelados. Si el NodoP es diferente del punto de conexión (NodoF), el Centro Nacional de Control de Energía (CENACE) ajustará la cantidad de retiros de carga en el NodoP para tomar en cuenta las pérdidas técnicas en las redes que no correspondan al Mercado Eléctrico Mayorista asignadas a las Entidades Responsables de Carga por la CRE.</div>\n<div> DECIMOCUARTO. Que la base 8.4.2, inciso (b) de las BME dispone que los Vectores de Distribución de Generación podrán ser diferentes de los Vectores de Distribución de Carga en cada zona, si las Centrales Eléctricas Indirectamente Modeladas tienen una distribución diferente que la carga; asimismo, el inciso (c) de la base antes referida establece que los otros cálculos para las Centrales Eléctricas Indirectamente Modeladas son equivalentes al modelado de carga.</div>\n<div> DECIMOQUINTO. Que el inciso (b), subinciso (ii) de las bases 9.3.1 de las BME establece que las Entidades Responsables de Carga presentarán ofertas de compra en la ubicación que corresponde a los Centros de Carga y que, para Centros de Carga Indirectamente Modelados, la Entidad Responsable de Carga presentará una oferta de compra por cada Zona de Carga.</div>\n<div> DECIMOSEXTO. Que la base 16.3.1 de las BME establece que el Transportista y Distribuidor son las únicas entidades facultadas para el envío de registros de medición para liquidación al CENACE.</div>\n<div> DECIMOSÉPTIMO. Que el Acuerdo que abroga el diverso por el que se determina el concepto de demanda y los requisitos para la agregación de Centros de Carga para ser considerados como Usuarios Calificados, publicado el 26 de enero de 2016 y establece el concepto de demanda y los términos bajo los cuales los Usuarios Finales que pertenezcan a un grupo de interés económico podrán agregar sus Centros de Carga para ser considerados como Usuarios Calificados, expedido por la SENER y publicado en el DOF el 01 de marzo de 2017, indica los términos para la agregación de los Centros de Carga a fin de alcanzar los niveles de consumo o demanda fijados para ser considerado como Usuario Calificado.</div>\n<div> DECIMOCTAVO. Que el numeral 5.7.1 del Manual de Medición para Liquidaciones publicado en el DOF el 10 de enero de 2018 señala que, para determinar la energía consumida por los Centros de Carga Indirectamente Modelados y Directamente Medidos, el Distribuidor debe enviar al CENACE los datos del consumo total de los Centros de Carga Indirectamente Modelados y Directamente Medidos, agregados por Zona de Carga, por Participante del Mercado, con base en el registro en el MEM.</div>\n<div> DECIMONOVENO. Que el numeral 5.7.2 del Manual de Medición para Liquidaciones establece que, para determinar la energía consumida por los Centros de Carga Indirectamente Modelados y Directamente Medidos, el CENACE deberá agregar por Zona de Carga los datos del consumo total de los Centros de Carga Indirectamente Modelados y Directamente Medidos, por Participante del Mercado, con base en el registro en el MEM.</div>\n<div> VIGÉSIMO. Que el 31 de agosto de 2018 la CRE emitió la Resolución Núm. RES/1900/2018 por la que se expide la metodología para determinar el cálculo y ajuste de la Tarifa Máxima de los Suministradores de Último Recurso y el Precio Máximo del Suministro de Último Recurso que aplicarán la Empresa Productiva Subsidiaria CFE Suministrador de Servicios Básicos y la empresa filial CFE Calificados, en su carácter de Suministradores de Último Recurso, modificada mediante el Acuerdo Núm. A/032/2021 emitido por la CRE el 28 de octubre de 2021.</div>\n<div> VIGÉSIMO PRIMERO. Que el 30 de noviembre de 2023 la CRE emitió la Resolución número RES/1574/2023, a través de la cual, se aprobó el Modelo de Contrato mercantil para la prestación del servicio de Suministro de Último Recurso de energía eléctrica presentado por Iberdrola Clientes, S.A. de C.V. en cuyo Resolutivo Cuarto se establece que, para la aplicación del Modelo de Contrato autorizado, está empresa podrá aplicar de forma transitoria la metodología para determinar el cálculo y ajuste de la Tarifa Máxima de los Suministradores de Último Recurso y el Precio Máximo del Suministro de Último Recurso que aplicarán la Empresa Productiva Subsidiaria CFE Suministrador de Servicios Básicos y la empresa filial CFE Calificados, en su carácter de Suministradores de Último Recurso, expedida mediante la Resolución Núm. RES/1900/2018 emitida el 31 de  agosto del 2018 y modificada mediante el Acuerdo Núm. A/032/2021 emitido el 28 de  octubre de 2021.</div>\n<div> VIGÉSIMO SEGUNDO. Que la Empresa Productiva Subsidiaria CFE Suministrador de Servicios Básicos y la Empresa Filial CFE Calificados, S.A. de C.V. en su carácter de Suministradores de Último Recurso, han manifestado a la CRE diversas inquietudes respecto de la aplicación de los elementos de la metodología para determinar el cálculo y ajuste de la Tarifa Máxima de los Suministradores de Último Recurso y el Precio Máximo del Suministro de Último Recurso que aplicarán la Empresa Productiva Subsidiaria CFE Suministrador de Servicios Básicos y la empresa filial CFE Calificados, en su carácter de Suministradores de Último Recurso, expedida mediante la Resolución Núm. RES/1900/2018 emitida el 31 de agosto del 2018 y modificada mediante el Acuerdo Núm. A/032/2021 emitido el 28 de octubre de 2021, cuando se tienen Centros de Carga Indirectamente Modelados recibiendo el Servicio de Suministro de Último Recurso en la misma Zona de Carga donde convergen otros tipos de suministro distinto.</div>\n<div> VIGÉSIMO TERCERO. Que derivado de las manifestaciones referidas en el considerando Vigésimo Segundo, la CRE considera necesario intervenir a fin de establecer los criterios básicos a considerar para que los Suministradores de Último Recurso, puedan aplicar los cargos de los Centros de Carga indirectamente Modelados que se ubiquen en el Suministro de Último Recurso, conforme a lo previsto en la metodología para determinar el cálculo y ajuste de la Tarifa Máxima de los Suministradores de Último Recurso y el Precio Máximo del Suministro de Último Recurso que aplicarán la Empresa Productiva Subsidiaria CFE Suministrador de Servicios Básicos y la empresa filial CFE Calificados, en su carácter de Suministradores de Último Recurso, expedida mediante la Resolución Núm. RES/1900/2018 emitida el 31 de  agosto del 2018 y modificada mediante el Acuerdo Núm. A/032/2021 emitido el 28 de octubre de 2021. En este sentido, por los presentes Criterios se establecen aspectos específicos que no se contemplan en las BME para la modalidad de Suministro de Último Recurso y que tampoco se prevén en los Manuales, y demás disposiciones aplicables, a fin de que, los Suministradores de Último Recurso estén en posibilidad de aplicar de forma transparente los numerales 2.1 &quot;cargo por energía&quot;, 2.3 &quot;cargo por Certificados de Energías Limpias&quot;, 2.4 &quot;cargo por transmisión de energía eléctrica&quot;, 2.5 &quot;cargo por distribución de energía eléctrica&quot;, 2.6 &quot;cargo por operación del CENACE&quot;, 2.7 &quot;cargo por Servicios Conexos no Incluidos en el MEM&quot;, 3.4 &quot;cargo por Cobro de Servicio&quot; y 4.1 &quot;cargo por Otros costos asociados&quot;.</div>\n<div> VIGÉSIMO CUARTO.  Por tanto, considerando que tratándose de Cargas Indirectamente Modeladas, las Reglas del Mercado prevén la integración de forma agregada de los Centros de Carga que comparten Zona de Carga, es decir, les asigna el mismo elemento, a efecto de que oferten y se liquiden en la misma cuenta de orden en bloque, generándose que el Estado de Cuenta Diario (ECD) solo identifique los cargos de energía en el Mercado del Día en Adelanto y el Mercado en Tiempo Real como una sola tira de datos donde no es posible distinguir qué porción de cada dato horario o diario corresponde a uno u otro Centro de Carga, es por ello, que se justifica la emisión del presente instrumento, para que, el CENACE emita los ECD por cada Centro de Carga y los Suministradores de Último Recurso puedan liquidar conforme a los consumos de cada Centro de Carga al que proporciona el Suministro de Último Recurso.</div>\n<div> VIGÉSIMO QUINTO. Que el 19 de junio de 2024, la CRE envió a la Comisión Nacional de Mejora Regulatoria (CONAMER) a través del Sistema de Manifestaciones de Impacto Regulatorio (SIMIR), la solicitud de exención del Análisis de Impacto Regulatorio (AIR) y el anteproyecto del presente Acuerdo.</div>\n<div> VIGÉSIMO SEXTO. Que mediante Oficio Núm. CONAMER/24/2698, de fecha 25 de junio de 2024,  la CONAMER emitió la procedencia de la exención de la AIR sobre el anteproyecto del presente Acuerdo para continuar con las formalidades para su publicación en el DOF.</div>\n<div> VIGÉSIMO SÉPTIMO. Que el 11 de julio de 2024, la CRE envió a la CONAMER a través del SIMIR,  una solicitud de reiteración de la exención del AIR derivado de ajustes de forma en el anteproyecto del presente Acuerdo.</div>\n<div> VIGÉSIMO OCTAVO. Que mediante Oficio Núm. CONAMER/24/2942, de fecha 12 de julio de 2024, la CONAMER reiteró la procedencia de la exención de la AIR sobre el anteproyecto del presente Acuerdo para continuar con las formalidades para su publicación en el DOF.</div>\n<div> Por lo anteriormente expuesto y fundado, el Órgano de Gobierno de la Comisión Reguladora de Energía emite el siguiente:</div>\n<div> ACUERDO<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1e46c847-4892-59fb-ba7e-f9976c8d6cc7",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 2,
+      "identificador": "Resolutivo PRIMERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> PRIMERO. Se emite el presente Acuerdo por el que la Comisión Reguladora de Energía expide los Criterios para la liquidación de Cargas Indirectamente Modeladas que se ubiquen en el Suministro de Último Recurso, contenidos en el Anexo Único del presente Acuerdo.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7ec97225-5fc7-5e3b-8607-773dcfc963db",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 3,
+      "identificador": "Resolutivo SEGUNDO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> SEGUNDO. El presente Acuerdo y su Anexo Único entrarán en vigor al día hábil siguiente al de su publicación en el Diario Oficial de la Federación.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "aa47f504-a217-5a5c-abac-61b3d21864bc",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 4,
+      "identificador": "Resolutivo TERCERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TERCERO. Se instruye al Centro Nacional de Control de Energía y a CFE Distribución para que apliquen los criterios establecidos en el Anexo Único del presente Acuerdo, a partir del periodo de facturación siguiente, al del inicio de su vigencia. Así como a realizar en un plazo máximo de 18 meses contados a partir de la entrada en vigor del presente Acuerdo  la revisión y modificación del Manual de Registro y Acreditación de Participante de Mercado y cualquier otro de los Manual de Practicas de Mercado que, en su caso, requiera actualizar para instrumentar las modificaciones procedentes de acuerdo a los criterios contemplados  en el Anexo Único y se contemplen los procedimientos que resulten necesarios para la obtención de las lecturas de los Centros de Carga Indirectamente Modelados que se encuentren recibiendo el Suministro de Último Recurso.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "0945a66a-6333-5138-9151-15f1d0b78c81",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 5,
+      "identificador": "Resolutivo CUARTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CUARTO. El presente acto administrativo podrá impugnarse a través del juicio de amparo indirecto, conforme a lo dispuesto por el artículo 27 de la Ley de los Órganos Reguladores Coordinados en Materia Energética, ante los órganos jurisdiccionales del Poder Judicial de la Federación, dentro del plazo establecido en la Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos, y que el expediente respectivo se encuentra y puede ser consultado en las oficinas de la Comisión Reguladora de Energía, ubicadas en Boulevard Adolfo López Mateos 172, Colonia Merced Gómez, Alcaldía Benito Juárez, Código Postal 03930, Ciudad de México.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "2fd76255-39f4-5619-9e6b-91341018c8de",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 6,
+      "identificador": "Resolutivo QUINTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> QUINTO. Inscríbase el presente Acuerdo bajo el número A/085/2024, en el Registro al que se refieren los artículos 22, fracción XXVI, incisos a) y e), y 25, fracción X, de la Ley de los Órganos Reguladores Coordinados en Materia Energética; y 4, 16, último párrafo, y 27, fracciones XI y XII del Reglamento Interno de la Comisión Reguladora de Energía publicado en el Diario Oficial de la Federación el 28 de abril de 2017 y su modificación publicada en el mismo medio de difusión el 11 de abril de 2019.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "67465ca5-7e6a-5788-b99b-1897fad1f21a",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 7,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 18 de julio de 2024.- Comisionado Presidente, Leopoldo Vicente Melchi García.- Rúbrica.- Comisionados: Walter Julián Ángel Jiménez, Hermilo Ceja Lucas, Guadalupe Escalante Benítez, Luis Linares Zapata.- Rúbricas.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5b58cb05-5caa-58c8-8658-fed3703e0b44",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 8,
+      "identificador": "Presentación e índice",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> ANEXO ÚNICO DEL ACUERDO A/085/2024<br> </div>\n<div> CRITERIOS PARA LA LIQUIDACIÓN DE DE CARGAS INDIRECTAMENTE MODELADAS EN LOS ESTADOS DE CUENTA DIARIOS (ECD) QUE EMITE EL CENACE PARA LOS CASOS EN QUE SE PRESTE EL SERVICIO DE SUMINISTRO DE ÚLTIMO RECURSO</div>\n<div> Contenido<br> </div>\n<div> Capítulo 1. Disposiciones generales................................................................................. 2</div>\n<div> 1.1.   Acrónimos y Definiciones................................................................................... 2</div>\n<div> 1.2.   Objeto, alcance y ámbito de aplicación.................................................................. 3</div>\n<div> 1.3.   Marco jurídico aplicable...................................................................................... 3</div>\n<div> Capítulo 2. Criterios para la liquidación de Centros de Cargas Indirectamente Modelados que se encuentran recibiendo el Suministro de Último Recurso en la misma Zona de Carga.................... 4</div>",
+      "tipo_articulo": "anexo",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Índice",
+      "seccion_nombre": null
+    },
+    {
+      "id": "015b90e8-da7a-5c41-be20-ec5922010960",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 9,
+      "identificador": "Apartado 1.1. Acrónimos y Definiciones",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Capítulo 1. Disposiciones generales</div>\n<div> 1.1.  Acrónimos y Definiciones</div>\n<div> 1.1.1.  Para efectos de estos Criterios, además de las definiciones contenidas en la LIE, serán aplicables los siguientes acrónimos y definiciones, mismas que se deberán entender en singular o plural:</div>\n<div> i.      BME: Bases del Mercado Eléctrico</div>\n<div> ii.     CENACE: Centro Nacional de Control de Energía.</div>\n<div> iii.    Centro de Carga Directamente Medido: Centro de Carga que cuenta en el Punto de Conexión con un Sistema de Medición con las características establecidas en el Manual de Medición para Liquidaciones o aquel que le modifique o sustituya, de tal manera que la cantidad de energía consumida para efectos de la liquidación del Mercado Eléctrico Mayorista se basa en valores específicos medidos para dicho Centro de Carga. Es posible que un Centro de Carga sea Directamente Medido e Indirectamente Modelado.</div>\n<div> iv.    Centro de Carga Indirectamente Modelado: Centro de Carga que no se incluye individualmente en el Modelo de la Red Física o el Modelo Comercial del Mercado. Dichos Centros de Carga se asociarán con el NodoP Distribuido en el Modelo Comercial del Mercado, de tal forma que la energía eléctrica que compran en el Mercado se valorará al Precio Marginal Local (PML) asociado con la Zona de Carga correspondiente.</div>\n<div> v.     Contrato de Suministro de Último Recurso: Contrato Mercantil para el servicio de Suministro de Último Recurso de Energía Eléctrica celebrado con base en los modelos de contrato aprobados por la CRE, por el Suministrador de Último Recurso o el Suministrador de Servicios Básicos en su carácter de Suministrador de Último Recurso, según corresponda, con el Usuario Calificado.</div>\n<div> vi.    CRE: Comisión Reguladora de Energía.</div>\n<div> vii.   ECD: Estado de Cuenta Diario.</div>\n<div> viii.   LIE: Ley de la Industria Eléctrica, reformada mediante Decreto publicado en el Diario Oficial de la Federación el 06 de noviembre de 2020.</div>\n<div> ix.    MEM: Mercado Eléctrico Mayorista.</div>\n<div> x.     Metodología de Suministro de Último Recurso: metodología para determinar el cálculo y ajuste de la Tarifa Máxima de los Suministradores de Último Recurso y el Precio Máximo  del Suministro de Último Recurso que aplicarán la Empresa Productiva Subsidiaria CFE Suministrador de Servicios Básicos y la empresa filial CFE Calificados, en su carácter  de Suministradores de Último Recurso, expedida mediante la Resolución  Núm. RES/1900/2018 emitida el 31 de  agosto del 2018 y modificada mediante el  Acuerdo Núm. A/032/2021 emitido el 28 de octubre de 2021.</div>\n<div> xi.    Suministrador de Último Recurso: Permisionario o el Suministrador de Servicios Básicos en su carácter de Suministrador de Último Recurso, que ofrece el Suministro de Último Recurso a los Usuarios Calificados y representa en el Mercado Eléctrico Mayorista a los Generadores Exentos que lo requieran.</div>\n<div> xii.   SUR: Suministro de Último Recurso.</div>\n<div> xiii.   Usuario Calificado: Usuario Final que cuenta con registro ante la CRE para adquirir el Suministro Eléctrico como Participante del Mercado o mediante un Suministrador de Servicios Calificados, encontrándose en los supuestos señalados en los artículos 56 o 60  de la LIE.</div>\n<div> xiv.   NodoP Distribuido o Zona de Carga: Vector de factores de ponderación (que suman 1), que puede ser multiplicado por una cantidad con el propósito de representar la distribución media ponderada de inyecciones o retiros entre diferentes NodosP Elementales a partir de instalaciones Indirectamente Modeladas (por ejemplo, para representar la mezcla de puntos de retiro utilizados por los Centros de Carga Indirectamente Modelados en una zona).</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Capítulo 1 · Disposiciones generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b6b2b7bf-de50-5e9f-a745-16b9bf32fa35",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 10,
+      "identificador": "Apartado 1.2. Objeto, alcance y ámbito de aplicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.2.  Objeto, alcance y ámbito de aplicación</div>\n<div> 1.2.1   Los presentes Criterios son de orden público, interés general y observancia en todo el territorio nacional y tiene por objeto establecer criterios generales que deberán observar el CENACE, los Suministradores de Último Recurso, y el Distribuidor, para la liquidación de Centros de Cargas Indirectamente Modelados que se encuentran recibiendo el Suministro de Último Recurso.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Capítulo 1 · Disposiciones generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c6c77bb7-c2bc-5240-853d-6bf9eeda8ae7",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 11,
+      "identificador": "Apartado 1.3. Marco jurídico aplicable",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.3.  Marco jurídico aplicable</div>\n<div> 1.3.1   Los presentes Criterios se rigen por la LIE y su Reglamento; el Código de Comercio; las Bases del Mercado Eléctrico; el Manual de Medición para Liquidaciones; el Manual de Registro y Acreditación de Participantes del Mercado; las Disposiciones administrativas de carácter general que establecen los mecanismos para la asignación de usuarios calificados y generadores exentos a los Suministradores de Último Recurso, cuando se requiera en términos de la Ley de la Industria Eléctrica, emitida mediante Resolución Núm. RES/945/2015 publicada en el Diario Oficial de la Federación (DOF) el 09 de febrero de 2016; las Disposiciones Administrativas de Carácter General que establecen las condiciones generales para la prestación del suministro eléctrico publicadas en el DOF el 18 de febrero de 2016, expedida mediante la Resolución Núm. RES/999/2015 o aquellas que las modifiquen o sustituyan y las demás disposiciones administrativas que resulten aplicables.</div>\n<div> 1.3.2   La interpretación administrativa de los presentes Criterios corresponde a la CRE.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Capítulo 1 · Disposiciones generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "02face04-77ff-5b58-9884-34f12043c75d",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "orden": 12,
+      "identificador": "Capítulo 2 · Criterios de liquidación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Capítulo 2. Criterios para la liquidación de Centros de Cargas Indirectamente Modelados que se encuentran recibiendo el Suministro de Último Recurso en la misma Zona de Carga.</div>\n<div> Cuando un(os) Centro(s) de Carga Indirectamente Modelado(s) y Directamente Medidos que haya(n) sido asignado(s) al SUR conforme a los Mecanismos para la asignación de Usuarios Calificados y Generadores Exentos a los Suministradores de Último Recurso, se deberán observar los siguientes criterios para la emisión de los ECD:</div>\n<div> 1.       Sin perjuicio de lo establecido en el numeral 9.3.1, inciso (b), subinciso (ii) de las BME y el numeral 4.4.10, inciso (a) del Manual de Registro y Acreditación de Participantes del Mercado, los Suministradores de Último Recurso que representen Centros de Carga presentaran una oferta de compra por cada Centro de Carga. Para lo cual, el CENACE creará una clave para la identificación del activo físico (elemento de liquidación independiente) para cada Centro de Carga en la Zona de Carga de que se trate en el proceso de Registro de Activos Físicos, en el cual se presentarán las ofertas de compra.</div>\n<div> 2.       A excepción de lo establecido en los numerales, 5.2.1, 5.7.1 y 5.7.2 del Manual de Medición para Liquidaciones, el Distribuidor y Transportista proporcionan al CENACE los registros de medición de la energía suministrada correspondientes de cada uno de los Centros de Carga Indirectamente Modelados que se encuentren en la Zona de Carga recibiendo el SUR.</div>\n<div> 3.       El CENACE con la información proporcionada por el Distribuidor o el Transportista realiza la liquidación en el MEM por Usuario Calificado de manera desagregada al Centro de Carga Indirectamente Modelado que se encuentra recibiendo el SUR y lo asocia al elemento de liquidación que corresponda, mientras se mantenga en este tipo de suministro.</div>\n<div> 4.        El CENACE emite los Estados de Cuenta Diarios con la información de la energía eléctrica suministrada asociada al elemento de liquidación que corresponda al Centro de Carga Indirectamente Modelado que recibe el SUR.</div>\n<div> ____________________________<br> </div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "capitulo_nombre": "Capítulo 2",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Índice",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo 1 · Disposiciones generales",
+      "orden": 6
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Capítulo 2",
+      "orden": 7
+    }
+  ],
+  "fuente": {
+    "name": "LIQUIDACION-CARGAS-SUR",
+    "code": "5748078",
+    "radar": "RAD-065",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+    "sha256": "da2c73bc90b26211184f04981adfef5852a6e4867bb9beba326eddd7ff7a2348",
+    "fecha": "30-01-2025",
+    "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso.",
+    "codDiario": 319022,
+    "pagina": 179,
+    "tables": 0,
+    "images": []
+  }
+}

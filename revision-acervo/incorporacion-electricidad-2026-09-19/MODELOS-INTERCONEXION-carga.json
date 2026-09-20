@@ -1,0 +1,615 @@
+{
+  "ley": {
+    "id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+    "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
+    "siglas": "MODELOS-INTERCONEXION",
+    "fecha_publicacion": "2026-03-17",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Interconexión y conexión de centrales, SAEE y centros de carga"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+    "tipo": "acuerdo"
+  },
+  "articulos": [
+    {
+      "id": "cf9d007f-b7fa-5dba-ba70-f2ef910c0dd9",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 17/03/2026. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5782317). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nLas 32 cláusulas y los campos de firmas corresponden a un modelo de contrato. Se conservan para consulta; no se trata de un contrato celebrado ni de una pantalla para enviar datos.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "1eed8302-3802-586b-846c-91191eb1728e",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n ACUERDO por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Nacional de Energía.\n<div> JUAN CARLOS SOLÍS ÁVILA, Director General de la Comisión Nacional de Energía, con fundamento en los artículos 25, párrafo quinto, 27, párrafo sexto, 28, párrafos cuarto y noveno, y 90, primer párrafo de la Constitución Política de los Estados Unidos Mexicanos; 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 4 de la Ley Federal de Procedimiento Administrativo; 2, párrafo primero, 7, fracciones I, II, III, V y XXII, 8, fracciones IV y IX, 12, 14, párrafo primero y 16, fracciones VI, VII, X, XIX, XXIII y XXV de la Ley de la Comisión Nacional de Energía; 6, 7, 11, fracciones XV, XLIV y XLIX, 32, último párrafo de la Ley del Sector Eléctrico; 107 del Reglamento de la Ley del Sector Eléctrico; 2, párrafo primero, apartado F, fracción III, 71, 77 y 78 del Reglamento Interior de la Secretaría de Energía; 2, 7, 9, 12, fracciones IX y XI del Reglamento Interior de la Comisión Nacional de Energía; 7, primer párrafo, fracción II del Acuerdo número CT/1.SE/2-2025, Aprobación de las Reglas de Operación del Comité Técnico de la Comisión Nacional de Energía, publicado en el Diario Oficial de la Federación el 24 de junio de 2025; así como al Acuerdo número CT/2.SE/2-2026 emitido por el Comité Técnico de la Comisión Nacional de Energía y,</div>\n<div> CONSIDERANDO<br> </div>\n<div> Que, el artículo 25, párrafo quinto, de la Constitución Política de los Estados Unidos Mexicanos establece que, tratándose del servicio público de transmisión y distribución de energía eléctrica, la Nación debe llevar a cabo dichas actividades en términos de lo dispuesto por el párrafo sexto del artículo 27 de dicha Constitución.</div>\n<div> Que de conformidad con el artículo 27, párrafo sexto de la Constitución Política de los Estados Unidos Mexicanos, corresponde exclusivamente a la Nación la planeación y el control del Sistema Eléctrico Nacional en términos del artículo 28 constitucional. Además, las leyes deben determinar la forma en que los particulares pueden participar en las demás actividades de la industria eléctrica.</div>\n<div> Por su parte, el artículo 28, párrafo noveno de la Constitución Política de los Estados Unidos Mexicanos, señala que el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica, así como con la facultad sancionadora en materia energética y de hidrocarburos.</div>\n<div> Que el 18 de marzo de 2025, en cumplimiento al decreto de reforma constitucional en materia de simplificación orgánica del 20 de diciembre de 2024, fue publicado en el Diario Oficial de la Federación (DOF) el Decreto por el que se reforman, adicionan y derogan diversas disposiciones y se expiden, entre otras leyes, la Ley de la Comisión Nacional de Energía (LCNE), con lo cual, se consuma la extinción de la Comisión Reguladora de Energía (CRE), así como la creación de la Comisión Nacional de Energía (CNE) como un órgano administrativo desconcentrado, sectorizado a la Secretaría de Energía (SENER).</div>\n<div> Que de conformidad con los artículos 1, 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 2, párrafo primero de la LCNE; 2, apartado F, fracción III y 71 del Reglamento Interior de la Secretaría de Energía y 2, párrafo primero del Reglamento Interior de la Comisión Nacional de Energía, la CNE es un órgano administrativo desconcentrado, de carácter técnico, que cuenta con independencia técnica, operativa, de gestión y de decisión; y tiene por objeto regular, supervisar e imponer sanciones en las actividades del sector energético de conformidad con las disposiciones aplicables en materia de planeación vinculante en el ámbito de su competencia.</div>\n<div> Asimismo, los transitorios Tercero y Séptimo de la LCNE establecen que, las referencias normativas a la extinta CRE se entienden hechas o conferidas a la SENER o a la CNE, conforme a las atribuciones, competencias y facultades que les correspondan, así como que todas las disposiciones, normas, lineamientos, políticas, criterios y demás normatividad emitida por la extinta CRE y la SENER continúan en vigor en lo que no se opongan a la referida Ley, sin perjuicio de que sean adecuadas, modificadas o sustituidas, en términos de las disposiciones de la referida Ley y las demás aplicables.</div>\n<div> Que en el artículo 2 de la Ley Nacional para Eliminar Trámites Burocráticos se establecen los objetivos de la política en materia de simplificación administrativa y digitalización de trámites y servicios, entre los que se encuentran, establecer las herramientas, instrumentos y acciones para promover las buenas prácticas regulatorias, así como establecer las obligaciones de las autoridades de los tres órdenes de gobierno para garantizar el cumplimiento de los objetivos de la citada Ley.</div>\n<div> De igual forma, el artículo 6 de la Ley Nacional para Eliminar Trámites Burocráticos establece que los sujetos obligados deben regir su actuar en apego, entre otros, a los principios de confianza ciudadana, certeza jurídica, simplificación, proporcionalidad, armonización regulatoria, interoperabilidad de sistemas institucionales, equivalencia funcional, mayor beneficio, utilidad social y accesibilidad, para el cumplimiento de los objetivos de dicha Ley.</div>\n<div> Que de conformidad con lo establecido en los artículos 7, fracciones I y III y 8, fracción VII de la LCNE, la CNE tiene las atribuciones para emitir resoluciones, acuerdos, criterios de interpretación, directivas, bases y demás actos administrativos necesarios para el cumplimiento de sus atribuciones; vigilar y supervisar su cumplimiento, así como promover el desarrollo ordenado, continuo y seguro de las actividades de generación de electricidad, los servicios públicos de transmisión y distribución de energía eléctrica y la comercialización de electricidad.</div>\n<div> Que el artículo 11, fracción XV de la Ley del Sector Eléctrico (LSE), establece que la CNE está facultada para expedir, entre otros, los modelos de contrato de interconexión de Centrales Eléctricas, conexión de Centros de Carga y los demás que se requieran.</div>\n<div> Que los artículos 48, párrafos tercero, fracción III y cuarto, y 49, último párrafo de la LSE, establecen que para la interconexión de las Centrales Eléctricas y conexión de los Centros de Carga, el Centro Nacional de Control de Energía (CENACE) está obligado a instruir a la Transportista o a la Distribuidora la celebración del contrato de interconexión o conexión, a solicitud del representante de la Central Eléctrica o del Centro de Carga, una vez definidas las características específicas de la infraestructura requerida o determinada la exención de estas, así como que las Reglas del Mercado deben especificar los plazos máximos para que el representante solicite la celebración de dicho contrato con base en las características específicas de la infraestructura requerida. Asimismo, que la Transportista o la Distribuidora y la solicitante están obligadas  a celebrar los contratos de interconexión o conexión, con base en los modelos que emita la CNE, dentro de los diez días hábiles siguientes a la notificación de la orden correspondiente por parte del CENACE.</div>\n<div> Que los artículos 22, fracción I, 32, fracción I y último párrafo, 34 y 37, fracción I de la LSE y 55, 56, 57 y 60 del Reglamento de la Ley del Sector Eléctrico (RLSE) prevén como requisito para llevar a cabo las actividades previstas en dichos preceptos jurídicos, la celebración de los contratos de interconexión y conexión correspondientes.</div>\n<div> Que el artículo 107 del RLSE dispone que, en los contratos de interconexión y conexión celebrados por la Transportista o la Distribuidora, así como en los de Suministro Básico, se debe fijar como pena convencional, el pago mensual de una prestación para aquellos casos en que no se permita llevar a cabo la revisión de los Sistemas de Medición.</div>\n<div> Que en las Reglas del Mercado se establecen los lineamientos, requisitos y procesos que deben observarse para la suscripción del contrato de interconexión y conexión conforme al modelo de contrato correspondiente que se encuentre vigente a la fecha de suscripción.</div>\n<div> Que, en la Segunda Sesión Extraordinaria celebrada el 02 de marzo de 2026, el Comité Técnico de la CNE aprobó el Acuerdo número CT/2.SE/2-2026, mediante el cual se autoriza la emisión del presente instrumento.</div>\n<div> Que en el ejercicio de las facultades que el marco jurídico atribuye a la CNE, en apego a los objetivos y principios señalados en las consideraciones anteriores y con la finalidad de procurar la cobertura y seguridad en el suministro eléctrico nacional, así como coadyuvar en los objetivos de política energética, se considera necesario actualizar, expedir y simplificar los modelos de contrato de interconexión y conexión competencia de la CNE, ajustándolos al marco legal vigente, por lo que he tenido a bien expedir el siguiente:</div>\n<div> ACUERDO POR EL QUE LA COMISIÓN NACIONAL DE ENERGÍA EXPIDE EL MODELO DE CONTRATO<br> PARA LA INTERCONEXIÓN, CONEXIÓN O AMBAS A LA RED NACIONAL DE TRANSMISIÓN O A LAS<br> REDES GENERALES DE DISTRIBUCIÓN PARA CENTRALES ELÉCTRICAS, SISTEMAS DE<br> ALMACENAMIENTO DE ENERGÍA ELÉCTRICA Y CENTROS DE CARGA<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c9b4f9db-088b-5bb5-822a-0cba5c829fdb",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 2,
+      "identificador": "Artículo Primero · Expedición del modelo",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Primero. La Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga, para quedar como sigue:</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "034669c9-9d3d-58dc-9408-6c9dab578be3",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 3,
+      "identificador": "Modelo de contrato · Presentación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> MODELO DE CONTRATO PARA LA INTERCONEXIÓN, CONEXIÓN O AMBAS A LA RED NACIONAL DE TRANSMISIÓN O A LAS REDES GENERALES DE DISTRIBUCIÓN PARA CENTRALES ELÉCTRICAS, SISTEMAS DE ALMACENAMIENTO DE ENERGÍA ELÉCTRICA Y CENTROS DE CARGA</div>\n<div> [Asignar número de contrato y numeración de páginas]<br> </div>\n<div> CONTRATO DE [INTERCONEXIÓN /-/ CONEXIÓN] A [LA RED NACIONAL DE TRANSMISIÓN / LAS REDES GENERALES DE DISTRIBUCIÓN], EN LO SUCESIVO &quot;EL CONTRATO&quot;, QUE CELEBRAN POR UNA PARTE LA EMPRESA PÚBLICA DEL ESTADO, DENOMINADA COMISIÓN FEDERAL DE ELECTRICIDAD EN SU CARÁCTER DE [TRANSPORTISTA / DISTRIBUIDORA] EN LO SUCESIVO LA &quot;[TRANSPORTISTA / DISTRIBUIDORA]&quot;, REPRESENTADA POR _______________ EN SU CARÁCTER DE ______________ Y POR OTRA PARTE [NOMBRE, DENOMINACIÓN O RAZÓN SOCIAL DE LA PERMISIONARIA DE GENERACIÓN O DE ALMACENAMIENTO DE ENERGÍA ELÉCTRICA O DEL CENTRO DE CARGA O AMBOS] EN LO SUCESIVO &quot;LA SOLICITANTE&quot;, REPRESENTADA POR _________ EN SU CARÁCTER DE ______________, Y A QUIENES EN LO SUCESIVO SE LES CONOCE COMO &quot;LAS PARTES&quot;, AL TENOR DE LAS SIGUIENTES DECLARACIONES Y CLÁUSULAS:</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c0d994f5-8c68-5748-8f7b-c676e9d4b15e",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 4,
+      "identificador": "Declaración I · Transportista o distribuidora",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> DECLARACIONES<br> </div>\n<div> I. Declara la [Transportista / Distribuidora] que:</div>\n<div> a) Conforme al artículo 27, párrafo sexto de la Constitución Política de los Estados Unidos Mexicanos (CPEUM) y al artículo 3, fracciones XIX, XX, XLVIII y LXIII de la Ley del Sector Eléctrico (LSE), es la Empresa Pública del Estado, denominada Comisión Federal de Electricidad (CFE), quien presta el Servicio Público de [Transmisión / Distribución]  de Energía Eléctrica en su calidad de [Transportista / Distribuidora], en [la Red Nacional de Transmisión (RNT) / las Redes Generales de Distribución (RGD)] en términos de las disposiciones jurídicas aplicables.</div>\n<div> b) La persona _________________, en su carácter de ________________ cuenta con las facultades legales suficientes para celebrar el presente Contrato, lo cual se acredita con ___________, las cuales están vigentes en los términos en que fueron otorgadas de conformidad con lo establecido en el artículo 15, fracción XXII y Décimo Segundo Transitorio de la Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad (LEPECFE) y se agrega al presente Contrato como Anexo A.</div>\n<div> c) Es responsable de los segmentos de [la RNT / las RGD] a su cargo y, opera sus redes conforme a las instrucciones del Centro Nacional de Control de Energía (CENACE), de conformidad con el artículo 44 de la LSE.</div>\n<div> [Agregar este inciso en caso de uso de medios electrónicos]</div>\n<div> d) Acepta celebrar el presente acto jurídico a través del uso de medios electrónicos y otorgar su consentimiento mediante el uso de la Firma Electrónica Avanzada.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Declaraciones",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a18e6898-b8f0-5b95-a0ad-47ff7e92f143",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 5,
+      "identificador": "Declaración II · Solicitante",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> II. Declara la Solicitante que:</div>\n<div> a) [Opción 1. Persona física] Es una persona física con capacidad jurídica para contratar y obligarse en términos del presente Contrato identificándose con el documento oficial _____________, que se agrega al presente Contrato como Anexo B.</div>\n<div> [Acreditación de la representación de la opción 1. Persona física, en caso de requerirse] Actúa en su carácter de [Representante/Apoderado Legal] lo cual se acredita con la [escritura pública / póliza] No. __________ y se identifica con el documento oficial _____________, los cuales se agregan al presente Contrato como Anexo B.</div>\n<div> [Opción 2. Persona moral] Es una persona moral, constituida legalmente conforme a las leyes mexicanas, de acuerdo con la [escritura pública / póliza] No. __________, que se agrega al presente Contrato como Anexo B.</div>\n<div> [Acreditación de la representación de la opción 2. Persona moral] La persona _________________, en su carácter de ________________ cuenta con las facultades legales suficientes para celebrar el presente Contrato, lo cual se acredita con el testimonio de la [escritura pública / póliza] No. __________, que se agrega al presente Contrato como Anexo B.</div>\n<div> [Opción 3. Gobierno Estatal, Municipal, de la Ciudad de México o de las demarcaciones territoriales de la Ciudad de México] [El Estado / Municipio de __________ o La Ciudad de México / Alcaldía de la Ciudad de México ___________] es una [Entidad Federativa / Entidad Municipal / Demarcación Territorial] parte integrante de los Estados Unidos Mexicanos, constituida como una República, con gobierno republicano, representativo, democrático, laico y popular, en los términos de lo establecido por los artículos 40, 43, así como [(para el caso de la Ciudad de México) 122 y] 115 de la CPEUM, que cuenta con personalidad jurídica y con facultades para manejar su patrimonio conforme a la ley y los artículos ___________ de la Constitución Política [del Estado ____________ / de la Ciudad de México];</div>\n<div> La persona Titular del Poder Ejecutivo [Estatal / Municipal / de la Ciudad de México / de la Demarcación Territorial], se encuentra legalmente facultada para suscribir el presente instrumento, de conformidad con los artículos _____________ de la Constitución Política [del Estado _____________ / de la Ciudad de México], artículos __________ de la Ley Orgánica [del Poder Ejecutivo /y/ de la Administración Pública] [del Estado _____________ / de la Ciudad de México], y los artículos _________ de la Ley _______________.</div>\n<div> La persona _________ acredita su personalidad como Titular del Poder Ejecutivo de ____________ mediante ____________________, tal y como se desprende de la copia del citado documento, y que se agrega al presente Contrato como Anexo B.</div>\n<div> [Opción 4. Titular de la Entidad o Dependencia de la Administración Pública] La persona [Nombre de la Entidad o Dependencia de la Administración Pública], es una [Entidad / Dependencia] de la Administración Pública [Federal / Estatal / Municipal / de la Ciudad de México], en términos de lo establecido por los artículos ______, [del / de la (CPEUM o nombre de la Ley o instrumento de creación)].</div>\n<div> La persona _________ acredita su personalidad como Representante Legal de la persona [Nombre de la Entidad o Dependencia de la Administración Pública] mediante _________________ y cuenta legalmente con las facultades para suscribir el presente instrumento, de conformidad con los artículos ______, [del / de la (Nombre del Reglamento Interior / Estatuto Orgánico o instrumento correspondiente)], que se agrega al presente Contrato como Anexo B.</div>\n<div> b) Cuenta con la documentación establecida en el numeral [12.1.3 (o el que lo sustituya)] del Manual de Interconexión y Conexión relativa a la suscripción del Contrato y cumple con los requisitos establecidos en las Reglas del Mercado. Documentación que se agrega al presente Contrato como Anexo C.</div>\n<div> [Agregar este párrafo en caso de permisionarias de generación o almacenamiento de energía eléctrica] Solicitó y obtuvo de la [Comisión Nacional de Energía (CNE) / extinta Comisión Reguladora de Energía (CRE)] el permiso de [generación / almacenamiento] de energía eléctrica número ______________, por un periodo de ____ años, mismo que se incorpora al presente Contrato como Anexo D. La capacidad autorizada en el permiso de [generación / almacenamiento] de energía eléctrica es de [_______ MW para la Central Eléctrica /y/ _______ MW para el Sistema de Almacenamiento de Energía Eléctrica].</div>\n<div> [Agregar este párrafo en caso de generación exenta asociada a la Red Particular de los Centros de Carga que hayan celebrado o celebren un contrato de conexión a la  Red Nacional de Transmisión] Solicitó incluir generación exenta conectada a la Red Particular del Centro de Carga por una Capacidad Instalada de _____ kW.</div>\n<div> c) Conoce el contenido de la LSE y su Reglamento, así como de las demás disposiciones aplicables al Contrato, y sus Anexos, los cuales se describen a continuación:</div>\n<div> Anexo A Documentación que acredita la representación legal para la celebración del presente Contrato por parte de la Empresa Pública del Estado, denominada Comisión Federal de Electricidad, en su carácter de [Transportista / Distribuidora].</div>\n<div> Anexo B [Opción 1: Identificación oficial vigente de la persona física con fotografía y firma y, en su caso, documentación que acredita su representación o poder legal / Opción 2: Documentación que acredita la constitución y representación o poder legal para la celebración del presente Contrato por parte de la persona moral (la cual puede incluir actas constitutivas, poderes notariales, pólizas otorgadas ante corredores públicos, e identificaciones oficiales vigentes con fotografía y firma) / Opción 3: Documentación que acredita la personalidad como Titular del Poder Ejecutivo (Estatal / Municipal / de la Ciudad de México / Demarcación Territorial) / Opción 4: Documentación que acredita la personalidad como Titular o representante del / de la (nombre de la Dependencia o Entidad de la Administración Pública)].</div>\n<div> Anexo C Documentación asociada a la suscripción del Contrato conforme a la sección [12.1 (o la que la sustituya)] del Manual de Interconexión y Conexión, en cumplimiento con los requisitos establecidos en las Reglas del Mercado, así como la instrucción por parte del CENACE para su suscripción.</div>\n<div> Anexo D (en caso de que aplique) Permiso de [generación / almacenamiento] de energía eléctrica otorgado por la [CNE/CRE].</div>\n<div> [Agregar este inciso en caso de uso de medios electrónicos]</div>\n<div> d) Acepta celebrar el presente acto jurídico a través del uso de medios electrónicos y otorgar su consentimiento mediante el uso de la Firma Electrónica Avanzada.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Declaraciones",
+      "seccion_nombre": null
+    },
+    {
+      "id": "dccda6c9-bab0-507a-a5d4-a9b4b2d608ff",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 6,
+      "identificador": "Declaración III · Ambas partes",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> III. Declaran y acuerdan las Partes que:</div>\n<div> a) Deben cumplir con la CPEUM, la LSE, en lo que resulte aplicable la LEPECFE y la Ley de la Comisión Nacional de Energía (LCNE), y sus Reglamentos, las Reglas del Mercado y las disposiciones administrativas de carácter general emitidas por la Secretaría de Energía y la CNE (entre las que se encuentran las que establecen las condiciones generales para la prestación del Servicio Público de Transmisión y Distribución de Energía Eléctrica y la regulación en materia de Eficiencia, Accesibilidad, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del Sistema Eléctrico Nacional), mejores prácticas del sector eléctrico y demás actos que de ellas emanen o se relacionen, y cualquier otra disposición jurídica que resulte aplicable o que sustituya o complemente a las anteriores.</div>\n<div> b) Suscriben en tiempo y forma el presente instrumento de conformidad con:</div>\n<div> i. El artículo 48 párrafos segundo, tercero, fracción III y cuarto de la LSE, [(Agregar el siguiente fundamento en caso de uso de medios electrónicos) así como los artículos 7 de la Ley de la Firma Electrónica Avanzada y 89, párrafo tercero y 89 bis del Código de Comercio,] y</div>\n<div> ii. La instrucción emitida por el CENACE incluida como parte del Anexo C.</div>\n<div> c) Deben acatar la orden que el CENACE realice para la [Interconexión /-/ Conexión] física de la instalación, de acuerdo con el programa de sincronización en no más de setenta y dos (72) horas siguientes a la notificación de la orden correspondiente, de conformidad con el artículo 48, párrafo cuarto, de la LSE.</div>\n<div> DEFINICIONES<br> </div>\n<div> Además de las definiciones previstas en la LSE y su Reglamento, y en las Reglas del Mercado, para efectos del presente Contrato se entenderá por:</div>\n<div> Cambio de Ley: (i) la modificación, derogación, abrogación o interpretación por autoridad competente de cualquier ley o reglamento que afecte el cumplimiento del Contrato, de los convenios, adendas o sus Anexos, o (ii) la imposición por cualquier autoridad gubernamental después de la fecha de inicio de la vigencia del presente Contrato o sus Anexos, de cualquier condición o requerimiento no especificado en dicha fecha, el cual, en cualquier forma, establezca o modifique requerimientos que afecten substancialmente los servicios a prestarse al amparo del Contrato o sus Anexos, siempre y cuando dicho Cambio de Ley sea aplicable a este Contrato o a sus Anexos.</div>\n<div> DACGMA: Disposiciones administrativas de carácter general en materia de Aportaciones que emita la CNE, o el instrumento que las modifique o sustituya.</div>\n<div> LCNE: Ley de la Comisión Nacional de Energía.</div>\n<div> LEPECFE: Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad.</div>\n<div> LFPA: Ley Federal de Procedimiento Administrativo.</div>\n<div> LSE: Ley del Sector Eléctrico.</div>\n<div> Manual de Interconexión y Conexión: Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga, publicado en el Diario Oficial de la Federación el 09 de febrero de 2018, el que lo modifique o sustituya.</div>\n<div> PAM: Programas de ampliación y modernización de la Red Nacional de Transmisión y las Redes Generales de Distribución.</div>\n<div> PLADESE: Plan de Desarrollo del Sector Eléctrico.</div>\n<div> Reglamento: Reglamento de la Ley del Sector Eléctrico.</div>\n<div> RGD: Redes Generales de Distribución.</div>\n<div> RNT: Red Nacional de Transmisión.</div>\n<div> SEN: Sistema Eléctrico Nacional.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Declaraciones",
+      "seccion_nombre": null
+    },
+    {
+      "id": "6fe14c9b-d7af-5c2a-b733-eff4935718bf",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 7,
+      "identificador": "Cláusula Primera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CLÁUSULAS<br> </div>\n<div> Primera. Objeto del Contrato. Asegurar la construcción de la infraestructura requerida para la [Interconexión /-/ Conexión] de [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga] con el SEN; realizar y mantener la [Interconexión /-/ Conexión] física entre [la RNT / las RGD] de la [Transportista / Distribuidora] y [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga] ubicada en [indicar domicilio o coordenadas de ser necesario], por una [Capacidad Instalada Neta de ________ MW /y/ Carga Contratada de ________ MW], a una tensión nominal de operación de ________ kV de la Solicitante, así como llevar a cabo las actividades operativas inherentes a la [Interconexión /-/ Conexión], durante la vigencia de este Contrato. El Punto de [Interconexión /-/ Conexión] es en ________________________________.</div>\n<div> [Agregar este párrafo en caso de generación exenta asociada a la Red Particular de los Centros de Carga que hayan celebrado o celebren un contrato de conexión a la Red Nacional de Transmisión] Lo anterior, incluyendo a la generación exenta conectada a la Red Particular del Centro de Carga por una Capacidad Instalada de _____ kW.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5c7f3dea-a743-5964-944b-ec3a9002a042",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 8,
+      "identificador": "Cláusula Segunda",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Segunda. Vigencia. El presente Contrato surte sus efectos a partir de su firma [electrónica por medio de &quot;NOMBRE DEL SISTEMA HABILITADO PARA TAL FIN&quot;] y termina de forma automática cuando [posterior al desarrollo de la infraestructura requerida para la Interconexión /-/ Conexión /, en el caso de Centrales Eléctricas /y/ Sistemas de Almacenamiento de Energía Eléctrica, termine la vigencia del permiso de / generación o almacenamiento / de energía eléctrica asociado a la instalación /y/ en el caso de Centros de Carga, se cancele la conexión física] a que se refiere la Declaración II, inciso b) y la cláusula Primera del Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "9b804221-2788-55e2-b726-b2f43fe82cd6",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 9,
+      "identificador": "Cláusula Tercera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Tercera. Terminación. Adicionalmente a lo previsto en la cláusula Segunda del Contrato, este puede darse por terminado por las causas siguientes:</div>\n<div> a) Cuando la Solicitante incurriere en contumacia conforme al artículo 184, segundo párrafo de la LSE y se determine la suspensión definitiva del Servicio Público de Transmisión y Distribución de Energía Eléctrica;</div>\n<div> b) (Las fechas de este inciso deben ser congruentes con los programas de obras, fechas o plazos señalados en los permisos, convenios, programas, planes y/o solicitudes de interconexión y conexión o suministro) Por incumplimiento de la Solicitante respecto a la fecha estimada de inicio [fecha] y terminación [fecha] de la infraestructura requerida para la [Interconexión /-/ Conexión], si esta excede un período máximo de seis (6) meses adicionales a la fecha original o a la prórroga que al efecto se autorice por las autoridades competentes, conforme a la LFPA, la LSE y los instrumentos regulatorios que de ella derivan;</div>\n<div> c) Por voluntad de las Partes, siendo requisito que la notificación correspondiente se haga de manera fehaciente y con una anticipación mínima de seis (6) meses a la fecha en que se pretenda que surta efectos la terminación y se realice conforme a la normatividad aplicable;</div>\n<div> d) Por rescisión mediante aviso por escrito a su contraparte, notificándole de manera fehaciente con no menos de treinta (30) días hábiles de anticipación, por las siguientes causales:</div>\n<div> I. Por incumplimiento de la Solicitante respecto de la Fecha Estimada de Operación [fecha] (dicha fecha debe ser congruente con los programas de obras, fechas o plazos señalados en los permisos, autorizaciones, registros, convenios, programas y/o solicitudes de interconexión y conexión o suministro) [de la Central Eléctrica /y/ del Sistema de Almacenamiento de Energía Eléctrica /y/ del Centro de Carga], salvo que esta última sea prorrogada en términos de lo previsto en la cláusula Décima Segunda del presente Contrato;</div>\n<div> II. Por contravención a las disposiciones normativas previstas en la Declaración III, inciso a) del Contrato, siempre y cuando dicha contravención, según lo resuelva la CNE en el ámbito de sus atribuciones regulatorias, afecte sustancialmente lo establecido en este Contrato o sus Anexos;</div>\n<div> III. Por embargo, suspensión de pagos, quiebra, concurso mercantil, disolución o liquidación de la Solicitante;</div>\n<div> IV. En caso de que la Solicitante decida no realizar la infraestructura requerida en el Estudio de Instalaciones, o no las realice en la Fecha Estimada de Operación [de la Central Eléctrica /y/ del Sistema de Almacenamiento de Energía Eléctrica /y/ del Centro de Carga], en cuyo caso, adicional a la rescisión, se debe proceder conforme a lo establecido en la cláusula Vigésima Sexta del Contrato;</div>\n<div> V. Cuando la Solicitante enajene o grave en cualquier forma el presente Contrato o alguno de los derechos que derivan del mismo, sin observar lo establecido en la cláusula Vigésima Cuarta del Contrato;</div>\n<div> VI. Por incapacidad jurídica, legal o judicial de la Solicitante o la [Transportista / Distribuidora], que le impida cumplir con las obligaciones derivadas de este Contrato, y</div>\n<div> VII. Por incumplimiento de alguna de las Partes a cualquier cláusula del presente Contrato, cuando se hayan agotado los mecanismos para la gestión de incumplimientos conforme a lo establecido en la cláusula Décima Octava del Contrato.</div>\n<div> Mientras no se termine el Contrato, por cualquiera de las causales antes referidas, cada Parte debe seguir cumpliendo con sus obligaciones respectivas al amparo de este, hasta la conclusión de su vigencia.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5bd473c1-4496-58b5-9590-154251334bfe",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 10,
+      "identificador": "Cláusula Cuarta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Cuarta. Modificación. El presente instrumento puede ser modificado o adicionado de común acuerdo por las Partes, siempre y cuando no se altere la estructura del modelo  de Contrato, mediante adendas o convenios modificatorios, los cuales surten efectos a partir de su suscripción y forman parte integrante del mismo. Aquellas modificaciones que impliquen cambios al modelo de contrato deben aprobarse por la CNE, de manera previa a su suscripción.</div>\n<div> Las adendas o convenios modificatorios que no impliquen una Modificación Técnica  o deriven de la modificación u obtención de un nuevo permiso de generación o almacenamiento de energía eléctrica o no constituyan cambios al modelo de Contrato deben ser efectuadas entre la [Transportista / Distribuidora] y la Solicitante sin necesidad de aprobación o instrucción previa por parte de la CNE o el CENACE.</div>\n<div> En caso de que se realice una modificación al Contrato, se deben actualizar los Anexos y garantías correspondientes en plazos, monto o ambos, en función de la adenda o convenio modificatorio realizado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "afed125b-f6ae-5ad4-8e97-29e8663976a4",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 11,
+      "identificador": "Cláusula Quinta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Quinta. Solicitudes de información y comunicaciones. La Solicitante debe enviar a la [Transportista / Distribuidora] la información que le solicite y, viceversa, a través de medios electrónicos establecidos &quot;MEDIO HABILITADO PARA TAL FIN&quot; por la [Transportista / Distribuidora], dicho medio de comunicación electrónica debe considerar lo establecido en los artículos 30, 35, fracción II y 69-C de la LFPA y 7, 12 y 13 de la Ley de Firma Electrónica Avanzada.</div>\n<div> Cualquier comunicación o solicitud de las Partes que deba notificarse con motivo del presente Contrato debe hacerse a través de los medios electrónicos establecidos o, en caso de que no sea factible su utilización, por correo electrónico o por escrito, debiendo ser entregada por mensajero o mensajería contra acuse de recibo. A partir de la notificación por escrito o de medios electrónicos que expidan un acuse de recibo de la Parte que la reciba, esta cuenta con un plazo de diez (10) días hábiles para contestar dicho requerimiento. En caso de que la Parte obligada a proporcionar la información, requiera un plazo mayor para contestar, debe manifestarlo, a través de los medios mencionados en las líneas que anteceden, justificando su solicitud de prórroga. Dicha prórroga no puede ser mayor a cinco (5) días hábiles.</div>\n<div> Los avisos escritos deben dirigirse a las Partes a través de sus coordinadores como a continuación se menciona:</div>\n<table> <tbody><tr> <td> <div> Si el aviso es para la Solicitante</div> <div> Dirección:</div> <div> ___________________________</div> <div> ___________________________</div> <div> Persona coordinadora y persona suplente:</div> <div> ___________________________</div> <div> ___________________________</div> <div> Correos electrónicos:</div> <div> ___________________________</div> <div> ___________________________</div> </td> <td> <div> Si el aviso es para la [Transportista / Distribuidora]</div> <div> Dirección:</div> <div> ___________________________________________</div> <div> ___________________________________________</div> <div> Persona coordinadora y persona suplente:</div> <div> ___________________________________________</div> <div> ___________________________________________</div> <div> Correos electrónicos:</div> <div> ___________________________________________</div> <div> ___________________________________________</div> </td> </tr> </tbody></table>\n<div> En caso de que cualquiera de las Partes desee cambiar de dirección, correo electrónico, persona coordinadora o suplente de esta, debe avisarlo a la otra diez (10) días hábiles previos al cambio.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "30cb4ab9-af36-590f-a336-6bdeaf1b25bc",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 12,
+      "identificador": "Cláusula Sexta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Sexta. Personas coordinadoras. Cada una de las Partes debe designar a una persona coordinadora y su correspondiente suplente, conforme a lo establecido en la cláusula Quinta de este Contrato, para llevar a cabo las actividades que se requieren para el cumplimento de este Contrato.</div>\n<div> Las personas coordinadoras tienen las siguientes funciones:</div>\n<div> a) Servir de vínculo entre las Partes para todos los asuntos relacionados con la instrumentación y operación del presente Contrato;</div>\n<div> b) Establecer procedimientos para intercambiar información con respecto al avance de la construcción y desarrollo de las instalaciones, el avance de las instalaciones en el [Punto de Interconexión /-/ Conexión], las pruebas y la Fecha Estimada de Operación;</div>\n<div> c) Acordar por escrito las características necesarias para las pruebas de desempeño de los sistemas de comunicación, protecciones y equipos relacionados con el Punto de [Interconexión /-/ Conexión] conforme a las características técnicas que haya definido el CENACE, y</div>\n<div> d) Organizar los grupos de trabajo que sean necesarios para desarrollar sus funciones de conformidad con el presente Contrato.</div>\n<div> Las personas coordinadoras no tienen facultades para modificar o eliminar ninguna de las disposiciones del presente Contrato. Todos los actos o decisiones de las personas coordinadoras deben constar en actas que se levanten al efecto, las cuales deben estar firmadas por la Parte que las hubiese designado y por dichas personas coordinadoras.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "6ab4089e-e25f-5644-a4d4-3ecb764ebc33",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 13,
+      "identificador": "Cláusula Séptima",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Séptima. Confidencialidad de la información. La información, que con motivo de la celebración de este Contrato y sus Anexos obtenga una Parte acerca de la otra, no puede ser dada a conocer a terceros ni ser utilizada para fines distintos a los del Contrato, salvo autorización expresa y por escrito de la otra Parte. Por lo tanto, cada una de las Partes se obliga, en nombre de sus empresas filiales, directores, empleados y representantes, a mantener toda información que no sea del dominio público en estricta confidencialidad.</div>\n<div> Esta cláusula no resulta aplicable respecto de la información que: (i) le sea exigida por ley, reglamento, proceso jurisdiccional o administrativo o en relación con algún litigio o proceso contencioso del cual sea parte, en el entendido de que la Parte a la que le sea requerida dicha información debe dar aviso a la otra Parte manifestando tal circunstancia dentro de los cinco (5) días hábiles posteriores a la fecha en la que recibió la solicitud de la información, o (ii) revele a algún cesionario potencial respecto de la cesión de los derechos del Contrato o de los Anexos, siempre y cuando dicho cesionario potencial asuma las obligaciones de confidencialidad contenidas en esta cláusula. No tiene carácter de confidencial la información mínima que, de acuerdo con la LSE, la legislación en materia de transparencia y las disposiciones emitidas por la SENER o la CNE en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, entre otras, debe hacerse pública por parte de la [Transportista / Distribuidora].</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a1f30651-41b4-597e-af8c-7e1696264f65",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 14,
+      "identificador": "Cláusula Octava",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Octava. De la infraestructura requerida para la [Interconexión /-/ Conexión]. Las Partes acuerdan que para el desarrollo, construcción, cesión o [Interconexión /-/ Conexión] física de la infraestructura requerida para la [Interconexión /-/ Conexión] se debe observar lo establecido en el Manual de Interconexión y Conexión, las DACGMA y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica y se obligan a cumplir puntualmente con lo señalado en las Declaraciones II, incisos b) y c), y III, inciso a), así como lo establecido en los Anexos del Contrato.</div>\n<div> Las Partes acuerdan que, para las Obras de Refuerzo, se debe observar lo establecido en la cláusula Décima del Contrato.</div>\n<div> Una vez que se concluya la construcción de toda la infraestructura requerida a la que hace referencia esta cláusula y que la o las Unidades de Inspección, conforme a lo señalado en el artículo 48, fracciones IV y V de la LSE, el Manual de Interconexión y Conexión, las DACGMA y en las Declaraciones II, incisos b) y c), y III, inciso a) de este Contrato, certifiquen, según corresponda, que las instalaciones para la [Interconexión /-/ Conexión] cumplen con lo requerido conforme al Anexo C del Contrato, las Normas Oficiales Mexicanas, especificaciones técnicas, características específicas de la infraestructura requerida y otros estándares aplicables, la [Transportista / Distribuidora] debe llevar a cabo la [Interconexión /-/ Conexión] física a que se refiere esta cláusula, dentro de las setenta y dos (72) horas siguientes a la notificación de la orden correspondiente por parte del CENACE, en términos de lo previsto en el artículo 48, párrafo cuarto de la LSE.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "828178d7-4d19-5a47-b9a4-ae6c3195289b",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 15,
+      "identificador": "Cláusula Novena",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Novena. Modificaciones del Punto de [Interconexión /-/ Conexión]. En caso de que la Solicitante requiera modificar alguna o algunas de sus características que haga necesario un cambio en la infraestructura de la RNT o las RGD referente a la ubicación o características del Punto de [Interconexión /-/ Conexión], la Solicitante debe proceder conforme a lo establecido en el Manual de Interconexión y Conexión, las DACGMA y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica.</div>\n<div> En caso de que [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga] ya se [encuentre(n) / interconectada(o) /-/ conectado] y se realicen modificaciones a la RNT o a las RGD como resultado de las obras del PLADESE y los PAM que impliquen modificaciones al Punto de [Interconexión /-/ Conexión], dichas obras se deben realizar sin cargo a la Solicitante.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "0b0c21bb-3084-51f3-a159-5c7e6008855c",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 16,
+      "identificador": "Cláusula Décima",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima. Obras de Refuerzo. Las Partes acuerdan que para el desarrollo, construcción, cesión o interconexión física de las Obras de Refuerzo requeridas para la [Interconexión /-/ Conexión] se debe observar lo establecido en el Manual de Interconexión y Conexión y las DACGMA. Asimismo, se obligan a cumplir puntualmente con lo señalado en las Declaraciones II, incisos b) y c), y III, inciso a), así como lo establecido en los Anexos del Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c862000c-8670-5cc2-8005-1b2b97204a99",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 17,
+      "identificador": "Cláusula Décima Primera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Primera. Instalación del Sistema de Medición. Comprende todo Sistema de Medición que debe ser instalado para la liquidación o facturación con cargo a la Solicitante, mismo que debe estar sujeto a las condiciones de diseño y operación, así como estar acorde a lo establecido por el CENACE de conformidad con lo dispuesto en el Manual de Interconexión y Conexión, el Manual de Medición para Liquidaciones, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista, las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico y en las Declaraciones II, incisos b) y c), y III, inciso a) de este Contrato. Su instalación debe ser en el Punto de [Interconexión /-/ Conexión] que, para efecto de facturación o liquidación, se considera como Punto de entrega/recepción en concordancia con las Bases del Mercado Eléctrico y el Manual de Medición para Liquidaciones, conforme a lo establecido en las Reglas del Mercado y demás disposiciones jurídicas aplicables o debe estar ubicado conforme a los supuestos previstos en las demás disposiciones vigentes en la materia. Dicho Sistema de Medición debe ser de libre acceso para la [Transportista / Distribuidora] para revisiones, mantenimiento y, en su caso, toma de lecturas.</div>\n<div> La propiedad, uso y responsabilidades sobre los Sistemas de Medición para liquidación o facturación instalados se determina conforme a lo establecido en las Reglas del Mercado, las DACGMA y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico. El Sistema de Medición para liquidaciones se debe otorgar en comodato a la [Transportista / Distribuidora].</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "fe1d47d5-3e61-5f2f-8c12-9782da4b7f6e",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 18,
+      "identificador": "Cláusula Décima Segunda",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Segunda. Prórrogas. El presente Contrato está sujeto a las condiciones originalmente previstas, por lo que las modificaciones que acuerden las Partes deben cumplir los respectivos procedimientos, el Manual de Interconexión y Conexión, la LFPA y demás disposiciones aplicables, por la naturaleza del objeto del presente Contrato.</div>\n<div> La Solicitante tiene como responsabilidad el cumplimiento de [las fechas de inicio y terminación de la infraestructura requerida para la Interconexión /-/ Conexión y / la Fecha Estimada de Operación de la Central Eléctrica /y/ del Sistema de Almacenamiento de Energía Eléctrica /y/ del Centro de Carga], que debe ser congruente con lo establecido en las Declaraciones II, incisos b) y c), así como III, inciso a) de este Contrato. Si la Solicitante requiere de una prórroga mayor a seis (6) meses para [las fechas de inicio y terminación de la infraestructura requerida para la Interconexión /-/ Conexión y / la Fecha Estimada de Operación de la Central Eléctrica /y/ del Sistema de Almacenamiento de Energía Eléctrica /y/ del Centro de Carga], esta se debe realizar conforme a la regulación aplicable solicitando [la modificación del permiso de generación / almacenamiento de energía eléctrica a la CNE o la prórroga correspondiente al Centro de Carga ante el CENACE].</div>\n<div> Así mismo, la Solicitante debe seguir el procedimiento establecido en el Manual de Interconexión y Conexión para solicitar la validación de los estudios previamente emitidos a efecto de solicitar la prórroga correspondiente y determinar si la infraestructura requerida continúa siendo parte de la planeación original o pierde su condición original.</div>\n<div> En caso de que [la CNE otorgue la modificación del permiso de generación / almacenamiento de energía eléctrica o el CENACE otorgue la prórroga correspondiente al Centro de Carga], la Solicitante debe ampliar por el mismo plazo las garantías correspondientes a la infraestructura requerida para la [Interconexión /-/ Conexión] ante el CENACE. Si se requiere infraestructura adicional esta también debe ser incluida en la ampliación del monto de las garantías.</div>\n<div> Una vez agotados los pasos previos señalados en esta Cláusula, las Partes deben llevar a cabo la modificación a este Contrato, en lo relativo a las nuevas [fechas de inicio y terminación de la infraestructura requerida para la Interconexión /-/ Conexión /y/ la Fecha Estimada de Operación de la Central Eléctrica /y/ del Sistema de Almacenamiento de Energía Eléctrica /y/ del Centro de Carga].</div>\n<div> Por otra parte, la [Transportista / Distribuidora] debe informar a la Solicitante los motivos de los retrasos que se presenten en las actividades que sean de su competencia con respecto del plan de trabajo para la construcción de las obras.</div>\n<div> Si la Solicitante identifica que existen retrasos en el plan de trabajo para la construcción de las obras asociados a la [Transportista / Distribuidora] debe notificarlo a la CNE y al CENACE, adjuntando las pruebas fehacientes que justifiquen su dicho, para la coordinación y atención que resulte procedente.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7cd02164-2ed3-58b4-843d-e2f8a6a3169c",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 19,
+      "identificador": "Cláusula Décima Tercera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Tercera. Terminación anticipada de las obras de [Interconexión /-/ Conexión]. Si la Solicitante termina anticipadamente las Obras de [Interconexión /-/ Conexión] y, por ende, solicita adelantar la Fecha Estimada de Operación, debe obtener la aprobación previa correspondiente del CENACE.</div>\n<div> Una vez obtenida la aprobación a la que se refiere el párrafo anterior, las Partes deben formalizar la adenda o convenio modificatorio correspondiente a este Contrato, en lo relativo a la nueva fecha para la finalización de la infraestructura requerida para la [Interconexión /-/ Conexión] y la Fecha Estimada de Operación.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "4b022b8c-4b25-5a79-b972-82d5b6bbbb84",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 20,
+      "identificador": "Cláusula Décima Cuarta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Cuarta. Medición y Mantenimiento. La medición y mantenimiento debe estar sujeta a lo siguiente:</div>\n<div> a) Del Medidor para liquidación o facturación (MF). Las Partes acuerdan cumplir con lo indicado en las Bases del Mercado Eléctrico, el Manual de Interconexión y Conexión, el Manual de Medición para Liquidaciones, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico o aquellas que las sustituyan.</div>\n<div> La Solicitante puede instalar y mantener a su propio cargo Sistemas de Medición de respaldo en el Punto de [Interconexión /-/ Conexión], cuando la infraestructura y el espacio disponible lo permitan, o en sus instalaciones, adicional al mencionado de liquidación o facturación, siempre y cuando cumpla con la normatividad, características y prácticas establecidas en las Bases del Mercado Eléctrico, el Manual de Interconexión y Conexión, el Manual de Medición para Liquidaciones, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico o aquellas que las sustituyan.</div>\n<div> La [Transportista / Distribuidora] debe realizar la recuperación de las lecturas del Sistema de Medición que haya servido de base para la determinación de la cantidad de energía entregada/recibida en el Punto de [Interconexión /-/ Conexión], de acuerdo con lo establecido en las Bases del Mercado Eléctrico, el Manual de Interconexión y Conexión, el Manual de Medición para Liquidaciones, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico o aquellas que las sustituyan, a efecto de informar al CENACE lo conducente;</div>\n<div> b) De los Medidores para Monitoreo. Las Partes se comprometen a cumplir con las Bases del Mercado Eléctrico, el Manual de Interconexión y Conexión, el Manual de Medición para Liquidaciones, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista y las disposiciones administrativas de carácter general en materia de Eficiencia, Accesibilidad, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del Sistema Eléctrico Nacional, en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico o aquellas que las sustituyan y con las instrucciones que emita el CENACE en la materia, y</div>\n<div> c) De la infraestructura de [Interconexión /-/ Conexión]. La operación y mantenimiento de las instalaciones comprendidas entre [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga] y el Punto de [Interconexión /-/ Conexión], es decir, las Obras Específicas son con cargo a la Solicitante y a su entera responsabilidad. La Solicitante puede acordar la contratación de los servicios de la [Transportista / Distribuidora] o de un tercero para el mantenimiento de la infraestructura construida entre [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga] y el Punto de [Interconexión /-/ Conexión]. En el caso de que, de común acuerdo entre las Partes, dicha infraestructura hubiere sido aportada o cedida por la Solicitante a la [Transportista / Distribuidora], de conformidad con las DACGMA o las disposiciones jurídicas aplicables en materia de cesión de Redes Particulares, la operación y mantenimiento corresponde a esta última.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "31ccffc9-41ce-502f-ac6e-b1482baa1e28",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 21,
+      "identificador": "Cláusula Décima Quinta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Quinta. Notificaciones al CENACE. Las Partes deben mantener comunicación con el CENACE para la notificación de programas de mantenimiento rutinario o de emergencia que determinen en concordancia con lo establecido en la cláusula Décima Cuarta del Contrato.</div>\n<div> Si en el SEN se pronostica o se presenta un estado operativo de emergencia, el CENACE debe determinar las modificaciones o los ajustes necesarios a los programas de mantenimiento para garantizar la operación del SEN de acuerdo con lo establecido en las disposiciones administrativas de carácter general en materia de Eficiencia, Accesibilidad, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del Sistema Eléctrico Nacional emitidas por la CNE, las Bases del Mercado Eléctrico y el Manual de Programación de Salidas.</div>\n<div> Asimismo, tanto la Solicitante como la [Transportista / Distribuidora] deben informarse entre sí de todas las notificaciones que realicen al CENACE en relación con el Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "2e9f1c66-6b88-58fb-b272-378dfc910c3c",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 22,
+      "identificador": "Cláusula Décima Sexta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Sexta. Procedimiento de Resolución de Controversias. Las Partes acuerdan que las controversias que se presenten entre la [Transportista / Distribuidora] y la Solicitante se deben sujetar a lo previsto en las Reglas del Mercado y las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como aquellas en materia de Suministro Eléctrico.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5bf26e9a-ff19-5ab7-a289-d773fac541ef",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 23,
+      "identificador": "Cláusula Décima Séptima",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Séptima. Otras responsabilidades. La [Transportista / Distribuidora] es responsable de sus propios actos u omisiones, por lo que conviene en mantener a la Solicitante libre de toda responsabilidad, en paz y a salvo de reclamaciones presentadas por terceros incluyendo a empleados de la [Transportista / Distribuidora], que deriven de actos u omisiones de la [Transportista / Distribuidora]. De igual manera, la Solicitante es responsable de sus propios actos u omisiones, por lo que conviene en mantener a la [Transportista / Distribuidora] libre de toda responsabilidad, en paz y a salvo de reclamaciones presentadas por terceros, incluyendo a operadores y personal de mantenimiento de la Solicitante o contratados por esta y a sus empleados, derivadas de actos u omisiones de la Solicitante.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "90cb78cd-5db4-5428-b265-da97c956fbad",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 24,
+      "identificador": "Cláusula Décima Octava",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Octava. Del incumplimiento de las obligaciones. Sin perjuicio de lo señalado en la cláusula Tercera, inciso d) del presente Contrato, la Parte que incumpla alguna de las obligaciones establecidas en el Contrato debe corregir su falta, sin exceder de un plazo de treinta (30) días naturales, contados a partir de la fecha en que la otra Parte le haya notificado dicho incumplimiento o de que la Parte en incumplimiento se lo informe. Si por la naturaleza del incumplimiento no fuera posible resolverlo en dicho plazo, la Parte en incumplimiento debe presentar un programa detallado de trabajo, dentro del referido plazo, para subsanarlo. Presentado el programa, la Parte en cumplimiento tiene diez (10) días naturales contados a partir de la recepción del programa, para aceptarlo o, en su caso, para identificar y notificar a la Parte en incumplimiento las objeciones específicas al mismo. De señalarse objeciones al programa, las Partes deben hacer su mejor esfuerzo para llegar a un acuerdo respecto de dichas objeciones y, en caso de no llegar a un acuerdo dentro de un plazo de quince (15) días naturales, contados a partir de la fecha en que se hayan notificado las objeciones al programa, las Partes deben proceder de conformidad con lo establecido en la cláusula Décima Sexta del presente Contrato.</div>\n<div> No se considera incumplimiento el que derive de una causa de Caso Fortuito o Fuerza Mayor conforme a la cláusula Décima Novena del Contrato.</div>\n<div> En caso de darse el incumplimiento del artículo 48, penúltimo párrafo de la LSE, la Solicitante debe informar, a más tardar el día hábil siguiente a la fecha en que se actualice este supuesto, al CENACE y a la CNE, a fin de que esta última determine si existe causa justificada para ello y resolver al respecto.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d2e75a6b-686c-5b08-a46b-61d397a229c8",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 25,
+      "identificador": "Cláusula Décima Novena",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Décima Novena. Caso Fortuito o Fuerza Mayor. Con excepción de las obligaciones pecuniarias, ninguna de las Partes es responsable por el incumplimiento de sus obligaciones al tenor del Contrato, siempre que, dicho incumplimiento o retraso sea originado por causas de Caso Fortuito o Fuerza Mayor entendiendo por éstos los hechos o acontecimientos del ser humano o de la naturaleza que no sean previsibles o, aun siendo previsibles, no puedan evitarse por las Partes con el uso de la debida diligencia. La Parte que lo sufra debe notificarlo y acreditarlo fehacientemente a la otra conforme a lo establecido en la cláusula Vigésima del Contrato.</div>\n<div> Para los efectos del presente Contrato, dentro del Caso Fortuito o Fuerza Mayor se debe incluir, en forma enunciativa mas no limitativa, lo siguiente:</div>\n<div> a) Cualquier acción u omisión de cualquier autoridad gubernamental que impida o retrase el cumplimiento de las obligaciones de cualquiera de las Partes, siempre y cuando dicha acción u omisión no sea imputable a alguna de las Partes o causada por ella;</div>\n<div> b) Terremoto, explosión, fuego, inundación, huracán, y otros fenómenos meteorológicos, epidemias, disturbios civiles, huelgas que sean declaradas legalmente procedentes por las autoridades competentes, o cualquier hecho igualmente grave que impida el cumplimiento de las obligaciones, y</div>\n<div> c) Las condiciones operativas que se presenten en el SEN, la RNT o las RGD que impidan llevar a cabo alguna actividad en específico con la finalidad de preservar la Confiabilidad y Seguridad del SEN y que no sean atribuibles al CENACE, la Transportista, la Distribuidora o la Solicitante.</div>\n<div> La Parte cuyo cumplimiento de obligaciones se viere afectado por el Caso Fortuito o la Fuerza Mayor, debe:</div>\n<div> a) Realizar todos los esfuerzos a su alcance para reducir o eliminar los efectos del Caso Fortuito o la Fuerza Mayor respecto del cumplimiento de sus obligaciones derivadas del presente Contrato;</div>\n<div> b) Notificar a la otra Parte cuando desaparezca el Caso Fortuito o la Fuerza Mayor en un plazo no mayor a cinco (5) días hábiles contados a partir de la fecha en la que se actualice este supuesto, y</div>\n<div> c) Reasumir de inmediato el cumplimiento de sus obligaciones en cuanto desaparezca el Caso Fortuito o la Fuerza Mayor.</div>\n<div> No se considera Caso Fortuito o Fuerza Mayor, en forma enunciativa mas no limitativa, lo siguiente:</div>\n<div> a) Cualquier acto, evento o condición que sea causado por la negligencia o acto intencionado de cualquiera de las Partes, subcontratista o proveedor de cualquiera de las Partes, de sus afiliadas u otra persona en relación con el cumplimiento de las obligaciones respectivas de las Partes en virtud de este Contrato;</div>\n<div> b) Cualquier acto, evento o condición que sea razonablemente previsible en la fecha de la formalización de este Contrato que una persona diligente puede haber esperado de forma razonable: (i) de tener en cuenta en dicha fecha de formalización, y (ii) que puede haber evitado o contra la cual se puede haber protegido utilizando esfuerzos comercialmente disponibles y razonables;</div>\n<div> c) Cambios en la condición financiera de cualquiera de las Partes, o cualquier proveedor o subcontratista que afecte la capacidad de cualquiera de las Partes para cumplir sus obligaciones respectivas;</div>\n<div> d) Cambios en la paridad cambiaria y en las condiciones del mercado;</div>\n<div> e) La entrega tardía de maquinaria, equipo, materiales y combustible u otras de naturaleza análoga;</div>\n<div> f) Deficiencias en la calidad de los materiales o equipos de [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga], o de los combustibles utilizados, y</div>\n<div> g) Aumento en el precio o costos de los materiales o equipos de [la Central Eléctrica /y/ el Sistema de Almacenamiento de Energía Eléctrica /y/ el Centro de Carga], o de los combustibles utilizados.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1b706ff6-b830-52f7-83b3-8ecb011bb9c7",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 26,
+      "identificador": "Cláusula Vigésima",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima. Obligación de notificar el Caso Fortuito o Fuerza Mayor. En caso de que ocurra el Caso Fortuito o Fuerza Mayor, la Parte cuyo cumplimiento se ve afectado debe notificarlo a la otra Parte, en un plazo no mayor a diez (10) días naturales a partir de la fecha en que se presente el Caso Fortuito o Fuerza Mayor, así como a las entidades correspondientes conforme a la normativa aplicable. La notificación para la otra Parte debe contener:</div>\n<div> a) Una descripción completa del Caso Fortuito o Fuerza Mayor;</div>\n<div> b) Pruebas documentales que de manera fehaciente demuestren la existencia del Caso Fortuito o Fuerza Mayor;</div>\n<div> c) El plazo durante el que se prevé que el Caso Fortuito o Fuerza Mayor continúe impidiendo el cumplimiento de las obligaciones de alguna de las Partes conforme a este Contrato;</div>\n<div> d) La obligación u obligaciones cuyo cumplimiento se ve afectado por el Caso Fortuito o Fuerza Mayor, y</div>\n<div> e) Las medidas a implementar por la Parte cuyo cumplimiento de obligaciones se hace imposible para remediar, eliminar o mitigar los efectos causados por el Caso Fortuito o Fuerza Mayor.</div>\n<div> Si el Caso Fortuito o Fuerza Mayor impide el cumplimiento de las obligaciones de alguna de las Partes solo parcialmente, dicha Parte debe notificarlo de inmediato y continuar cumpliendo con todas las demás obligaciones que no se vean afectadas por el Caso Fortuito o Fuerza Mayor.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8fd9b2bb-c4e5-5c8c-a9b5-08bbbc72a5cb",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 27,
+      "identificador": "Cláusula Vigésima Primera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Primera. Cesión de derechos. La [Transportista / Distribuidora] se obliga a no ceder a terceras personas, físicas o morales, los derechos y obligaciones que se deriven del presente Contrato, salvo lo previsto por la cláusula Vigésima Cuarta del Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "313a4f1e-b843-525f-ac12-714de68f5d57",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 28,
+      "identificador": "Cláusula Vigésima Segunda",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Segunda. Interrupción de los Servicios. Los servicios objeto de este Contrato pueden suspenderse sin responsabilidad para la [Transportista / Distribuidora] cuando se pongan o puedan ponerse en riesgo las instalaciones de la RNT o las RGD, en caso de emergencia o de Caso Fortuito o Fuerza Mayor, así como en los supuestos previstos en las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, conforme a lo establecido en el artículo 117 del Reglamento. Asimismo, los servicios objeto de este Contrato pueden suspenderse cuando se actualice alguno de los supuestos establecidos en el artículo 56 de la LSE.</div>\n<div> La [Transportista / Distribuidora] con las instrucciones del CENACE debe realizar el máximo esfuerzo técnico para normalizar las condiciones operativas en el menor tiempo posible, dentro del área de su responsabilidad. Por su parte la Solicitante debe proporcionar el apoyo necesario a la [Transportista / Distribuidora] de acuerdo con las instrucciones del CENACE, absteniéndose de realizar maniobra diferente alguna.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1a3b4d32-209f-5e20-80a5-0506dda70623",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 29,
+      "identificador": "Cláusula Vigésima Tercera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Tercera. Obligaciones fiscales. Cada una de las Partes debe hacer el pago de los impuestos, derechos, productos y aprovechamientos, recargos, multas y cualquier cargo de naturaleza fiscal que le corresponda en los términos establecidos en la legislación tributaria aplicable. Por tanto, ninguna de las Partes está obligada a absorber ninguna obligación fiscal correspondiente a la otra Parte.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "44ad5ef5-1542-5540-b3b4-e1c2dad9fdcf",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 30,
+      "identificador": "Cláusula Vigésima Cuarta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Cuarta. No Transferencia del Contrato. El presente Contrato y sus Anexos, así como los derechos y obligaciones que de ellos se derivan, no son susceptibles de ser transferidos por ninguna de las Partes, salvo por el caso de que se haya efectuado la transmisión total de los derechos derivados de los documentos mencionados en los incisos b) y c) de la Declaración II del Contrato y se formalice dicho acto entre las Partes.</div>\n<div> No obstante lo previsto en esta cláusula, en el caso de escisión, fusión o transformación de la [Transportista / Distribuidora] o de la Solicitante en una o varias entidades, los derechos y obligaciones derivados de este Contrato y sus Anexos pueden ser transferidos a la persona que acredite la legítima titularidad de estos.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a8339c21-cb53-5ced-a75e-9cfa723fc440",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 31,
+      "identificador": "Cláusula Vigésima Quinta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Quinta. Totalidad del Contrato. Las Partes están de acuerdo en que el presente Contrato sustituye todos los contratos y convenios anteriores, escritos, orales y aquellos realizados por medios electrónicos autorizados, realizados entre las Partes en relación con el objeto del presente Contrato. Ningún contrato celebrado con anterioridad, ninguna negociación entre las Partes en el curso de sus transacciones, ni ninguna declaración de cualquier funcionario, empleado, apoderado o representante de cada una de las Partes, hecha con anterioridad a la celebración del presente Contrato, puede ser admitida en la interpretación de los términos y condiciones de este.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "38693e48-58f0-50ba-a597-96843533113a",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 32,
+      "identificador": "Cláusula Vigésima Sexta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Sexta. Ejecución de las Garantías. En caso de que la Solicitante decida no realizar la infraestructura requerida, incluyendo en su caso las Obras de Refuerzo a la RNT o a las RGD o las obras, ampliaciones o modificaciones en el Punto de [Interconexión /-/ Conexión], no las realice en la fecha estimada de inicio y terminación de la infraestructura requerida, o incumpla con la Fecha Estimada de Operación y no se haya solicitado u otorgado la prórroga correspondiente, debe cubrir el monto que el CENACE haya determinado para la Solicitante, a través de la ejecución total o parcial de la garantía respectiva, en términos del Manual de Interconexión y Conexión, o se debe proceder conforme a lo señalado en el convenio de Aportaciones que, en su caso, haya suscrito.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "cdba44e4-a2c3-56e0-aed6-546fd801949d",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 33,
+      "identificador": "Cláusula Vigésima Séptima",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Séptima. Penas Convencionales. De conformidad con lo establecido en el artículo 107 del Reglamento, las Partes acuerdan y aceptan que, para aquellos casos en que no se permita llevar a cabo la revisión de los Sistemas de Medición, se debe fijar como pena convencional el pago mensual de una prestación, establecida conforme a las disposiciones administrativas de carácter general en materia del Servicio Público de Transmisión y Distribución de Energía Eléctrica, durante el periodo en el que subsista esta condición.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3060904e-e69d-58a2-9a76-91f218adb3fc",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 34,
+      "identificador": "Cláusula Vigésima Octava",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Octava. Relación entre las Partes. Las Partes convienen en que ninguna de ellas adquiere, por virtud de la celebración del presente Contrato, responsabilidad laboral  o civil alguna con respecto a los empleados o prestadores de servicios de la otra Parte, por lo que cada Parte conviene en mantener a la otra libre y a salvo y a indemnizarla por los daños y perjuicios que en su caso se le lleguen a causar, comprometiéndose a cooperar con la otra Parte en caso de que a esta se le pretenda imputar cualquier tipo de responsabilidad laboral o civil.</div>\n<div> La Solicitante es responsable por todos los permisos, impuestos, derechos, penalizaciones, sanciones y cualquier otro cargo o autorización que le corresponda, derivado del presente Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "14a37100-c04e-5e0f-83d3-ef18e9d9c736",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 35,
+      "identificador": "Cláusula Vigésima Novena",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Vigésima Novena. Cambio de Ley y actualización de documentos. En caso de que ocurriese un Cambio de Ley, las Partes acuerdan en celebrar el convenio modificatorio para realizar las modificaciones que sean necesarias a este Contrato y a sus Anexos para que se mantenga el equilibrio económico y sus estipulaciones con el menor cambio posible y se cumplan los objetivos, términos y condiciones pactados en los mismos, dichos cambios se deben someter a la CNE para su consideración y, en su caso, aprobación.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "98fc2652-209c-5655-9889-10e3a75a6317",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 36,
+      "identificador": "Cláusula Trigésima",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Trigésima. Domicilios convencionales. Para los efectos que se deriven de la aplicación del presente Contrato, las Partes señalan como sus domicilios los siguientes:</div>\n<div> La [Transportista / Distribuidora]: __________________________, con domicilio en ___________ Col. _________, C.P. _____, [demarcación territorial / Municipio _________, (entidad federativa)].</div>\n<div> La Solicitante: _________________________, con domicilio en ___________ Col. _________, C. P. _______, [demarcación territorial / Municipio _________, (entidad federativa)].</div>\n<div> Cualquier cambio de domicilio de las Partes debe ser notificado a la otra, con acuse de recibo, con diez (10) días naturales de anticipación a la fecha en que se quiera que surta efectos ese cambio. Sin este aviso, todas las notificaciones se entienden válidamente hechas en los domicilios señalados.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ab630092-0f1a-5fb8-9b48-5b015697ac33",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 37,
+      "identificador": "Cláusula Trigésima Primera",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Trigésima Primera. Restricción. En ninguna circunstancia las Partes pueden dar en garantía los bienes del dominio público.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "34a84b4e-f959-5d7f-b132-961441f1e577",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 38,
+      "identificador": "Cláusula Trigésima Segunda",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Trigésima Segunda. Legislación aplicable. Todo lo no expresamente previsto en el presente Contrato se rige por la LSE, el Código de Comercio, la LEPECFE y, en su caso, sus reglamentos y, supletoriamente, por el Código Civil Federal, el Código Nacional de Procedimientos Civiles y Familiares y demás ordenamientos jurídicos aplicables, incluyendo los de carácter fiscal. En caso de controversia, las Partes se someten a la jurisdicción de los tribunales federales donde se ubique el respectivo [Punto de Interconexión /-/ Conexión], renunciando la [Transportista / Distribuidora] y la Solicitante desde ahora a la jurisdicción que le pudiere corresponder debido a su domicilio, presente o futuro.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Cláusulas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "6d66a87a-b3cd-5e81-9191-4d997051fc85",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 39,
+      "identificador": "Modelo de contrato · Campos de firmas",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Una vez leído el presente Contrato y enteradas &quot;Las Partes&quot; de su contenido y alcances, lo firman [en ____ tantos / de manera electrónica por medio del &quot;NOMBRE DEL SISTEMA HABILITADO PARA TAL FIN&quot;] en [demarcación territorial / Municipio _________, (entidad federativa)], el [fecha].</div>\n<div> POR:</div>\n<div> &quot;LA [TRANSPORTISTA / DISTRIBUIDORA]&quot;<br> </div>\n<table> <tbody><tr> <td> <div>  </div> </td> <td> <div>  </div> </td> <td> <div>  </div> </td> </tr> <tr> <td> <div> (Nombre, cargo y firma)<br> </div> </td> <td> <div>  </div> </td> <td> <div> (Nombre, cargo y firma)</div> </td> </tr> </tbody></table>\n<div> POR:</div>\n<div> &quot;LA SOLICITANTE&quot;<br> </div>\n<table> <tbody><tr> <td> <div>  </div> </td> <td> <div>  </div> </td> <td> <div>  </div> </td> </tr> <tr> <td> <div> (Nombre, cargo y firma)<br> </div> </td> <td> <div>  </div> </td> <td> <div> (Nombre, cargo y firma)</div> </td> </tr> </tbody></table>\n<div> Las firmas y antefirmas que anteceden corresponden al Contrato celebrado [electrónicamente en el &quot;NOMBRE DEL SISTEMA HABILITADO PARA TAL FIN&quot;] entre las Partes, el [fecha].</div>",
+      "tipo_articulo": "anexo",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Modelo de contrato · Firmas",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d9f244b2-8490-5d9c-86ba-9249adff1403",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 40,
+      "identificador": "Artículo Segundo",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Segundo. El modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga, es aplicable para:</div>\n<div> I. Centrales Eléctricas con un permiso de generación de energía eléctrica otorgado por la Comisión Nacional de Energía o por la extinta Comisión Reguladora de Energía, para su interconexión al Sistema Eléctrico Nacional; incluyendo aquellas que se encuentren bajo la figura de Autoconsumo o en la modalidad de cogeneración cuando estas pretendan sincronizarse con el Sistema Eléctrico Nacional;</div>\n<div> II. Sistemas de Almacenamiento de Energía Eléctrica con un permiso de almacenamiento de energía eléctrica otorgado por la Comisión Nacional de Energía, y</div>\n<div> III. Centros de Carga que se conecten o requieran infraestructura en la Red Nacional de Transmisión o las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista; incluyendo a todos los Usuarios Calificados, así como aquellos que se encuentren registrados ante la Comisión Nacional de Energía como Usuarias de Autoconsumo. Asimismo, también aplica a todos los Centros de Carga que se conecten en las Redes Generales de Distribución con carga contratada mayor o igual a 1 MW aun cuando estos sean Usuarias de Suministro Básico.</div>\n<div> Los Centros de Carga que no actualicen el supuesto previsto en la fracción III, no requieren la suscripción de un contrato de conexión, no obstante, deben cumplir lo establecido en las disposiciones en materia de Servicio Público de Transmisión y Distribución de Energía Eléctrica, así como de Suministro Eléctrico que resulten aplicables.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d906cf00-dbc2-563f-8903-aab01cb59b45",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 41,
+      "identificador": "Artículo Tercero",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Tercero. Para los supuestos aplicables a que hace referencia el artículo anterior, se establece lo siguiente:</div>\n<div> I. Si la instalación requiere sincronizarse al Sistema Eléctrico Nacional o inyectar energía eléctrica a la Red Nacional de Transmisión o a las Redes Generales de Distribución, esta debe suscribir un contrato de interconexión;</div>\n<div> II. Si la instalación requiere retirar o consumir energía eléctrica desde la Red Nacional de Transmisión o las Redes Generales de Distribución, esta debe suscribir un contrato de conexión, y</div>\n<div> III. Si la instalación requiere realizar las actividades señaladas en las fracciones I y II a través del mismo punto de interconexión-conexión, esta debe suscribir un contrato de interconexión-conexión. En su caso, si posteriormente desea realizar solo una de las dos actividades, puede solicitar la modificación del contrato de interconexión-conexión por un contrato de conexión o un contrato de interconexión, según corresponda.</div>\n<div> En todos los casos se debe contar con la instrucción del Centro Nacional de Control de Energía para la celebración del contrato respectivo. El Centro Nacional de Control de Energía puede instruir adendas o convenios modificatorios a los contratos respectivos derivado de la modificación u obtención de un nuevo permiso de generación o almacenamiento de energía eléctrica, por la modificación técnica de la instalación o cualquier otro supuesto previsto, conforme a las facultades que le otorga la Ley del Sector Eléctrico y demás ordenamientos jurídicos aplicables.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b0b2b371-0a1f-5845-a9b5-16b90d822ffb",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 42,
+      "identificador": "Artículo Cuarto",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Cuarto. Los contratos de interconexión, conexión e interconexión-conexión a la Red Nacional de Transmisión o a las Redes Generales de Distribución, así como sus adendas o convenios modificatorios, pueden ser suscritos utilizando medios electrónicos o con la Firma Electrónica Avanzada, en cuyo caso estos se deben adecuar únicamente por lo que hace al uso de medios electrónicos, en términos de la Ley de la Firma Electrónica Avanzada y demás normatividad aplicable.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "eb261907-4689-531e-ac67-354fca82ec94",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 43,
+      "identificador": "Artículo Quinto",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Quinto. Las Centrales Eléctricas que pretendan operar bajo la figura de Generación Distribuida, con Capacidad Instalada menor a 0.7 MW, no requieren la suscripción de un contrato de interconexión conforme al modelo que se expide mediante el presente Acuerdo, para estos casos se debe suscribir un contrato de interconexión conforme al modelo expedido mediante las disposiciones administrativas de carácter general en materia de Generación Distribuida o aquel que lo sustituya. Derivado de lo anterior, no resulta procedente la interconexión de instalaciones de generación exenta a la Red Nacional de Transmisión cuando esta no se encuentre asociada a la Red Particular de los Centros de Carga que hayan celebrado o celebren un contrato de conexión a la Red Nacional de Transmisión.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "f127b022-0d35-572c-a75b-a36b385e2ded",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 44,
+      "identificador": "Transitorio PRIMERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TRANSITORIOS<br> </div>\n<div> PRIMERO. El presente Acuerdo entra en vigor el día hábil siguiente al de su publicación en el Diario Oficial de la Federación.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "58808b4a-adba-575f-828c-749c51ed5707",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 45,
+      "identificador": "Transitorio SEGUNDO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> SEGUNDO. Se abrogan los siguientes instrumentos normativos emitidos por la extinta Comisión Reguladora de Energía:</div>\n<div> I. Resolución Núm. RES/949/2015 por la que la Comisión Reguladora de Energía expide el modelo de contrato de interconexión de acceso abierto y no indebidamente discriminatorio para Centrales Eléctricas interconectadas a la Red Nacional de Transmisión o a las Redes Generales de Distribución, conforme al artículo 12, fracción XV de la Ley de la Industria Eléctrica, publicada en el Diario Oficial de la Federación el 03 de febrero de 2016;</div>\n<div> II. Resolución Núm. RES/950/2015 por la que la Comisión Reguladora de Energía expide el modelo de contrato de conexión de acceso abierto y no indebidamente discriminatorio para centros de carga conectadas a tensiones mayores a 1 kV a la Red Nacional de Transmisión o a las Redes Generales de Distribución, conforme al artículo 12, fracción XV de la Ley de la Industria Eléctrica, publicada en el Diario Oficial de la Federación el 04 de febrero de 2016;</div>\n<div> III. Aclaración a la Cláusula Sexta, Octava, Décima Cuarta, Décima Quinta y Décima Octava de la Resolución Núm. RES/949/2015, mediante la cual se expide el modelo de contrato de interconexión de acceso abierto y no indebidamente discriminatorio para centrales eléctricas interconectadas a la Red Nacional de Transmisión o a las Redes Generales de Distribución, publicado el 3 de febrero de 2016, publicada en el Diario Oficial de la Federación el 04 de mayo de 2016, y</div>\n<div> IV. Aclaración a la Cláusula Sexta, Novena, Décima Cuarta, Décima Quinta y Vigésima Sexta de la Resolución Núm. RES/950/2015, mediante la cual se expide el modelo de contrato de conexión de acceso abierto y no debidamente discriminatorio para centros de carga conectados a tensiones mayores a 1kV a la red nacional de transmisión o a las redes generales de distribución, publicado el 4 de febrero de 2016, publicada en el Diario Oficial de la Federación el 04 de mayo de 2016.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5acc3cc3-21cf-5736-94df-27fd01ea98cc",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 46,
+      "identificador": "Transitorio TERCERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TERCERO. Para el caso de las Centrales Eléctricas bajo la figura de generación exenta asociadas a la Red Particular de los Centros de Carga que hayan celebrado o celebren un contrato de conexión a la Red Nacional de Transmisión, estas no deben inyectar energía eléctrica al Sistema Eléctrico Nacional. El Centro de Carga es responsable de instalar los equipos de protección y seccionamiento necesarios en su Red Particular para cumplir con lo anterior, así como para garantizar la seguridad de las instalaciones.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "58e710df-3686-587a-a8b6-58378ca87076",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "orden": 47,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 02 de marzo de 2026.- El Director General, Juan Carlos Solís Ávila.- Rúbrica.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Interconexión y conexión de centrales, SAEE y centros de carga",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Modelo de contrato",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Modelo de contrato · Declaraciones",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Modelo de contrato · Cláusulas",
+      "orden": 6
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Modelo de contrato · Firmas",
+      "orden": 7
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Transitorios",
+      "orden": 8
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 9
+    }
+  ],
+  "fuente": {
+    "name": "MODELOS-INTERCONEXION",
+    "code": "5782317",
+    "radar": "RAD-070",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Interconexión y conexión de centrales, SAEE y centros de carga",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+    "sha256": "c4657658696fe743f0c30cf6fbea15b94718b742dc3a2ceda9b2fbc69b89d621",
+    "fecha": "17-03-2026",
+    "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga.",
+    "codDiario": 326145,
+    "pagina": 4,
+    "tables": 3,
+    "images": []
+  }
+}

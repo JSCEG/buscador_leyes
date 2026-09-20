@@ -1,0 +1,409 @@
+{
+  "ley": {
+    "id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+    "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+    "siglas": "MANUAL-SUSPENSION-MEM",
+    "fecha_publicacion": "2024-01-12",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Suspensión de Operaciones del Mercado de Energía de Corto Plazo"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+    "tipo": "manual"
+  },
+  "articulos": [
+    {
+      "id": "3dac9daf-727e-5d76-b74e-0ef2261c03c8",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 12/01/2024. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5714307). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "bbb4de14-34bb-5f81-b8d2-20dbb109b5ed",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n ACUERDO por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Centro Nacional de Control de Energía.\n<div> RICARDO OCTAVIO ARTURO MOTA PALOMINO, Director General del Centro Nacional de Control de Energía, con fundamento en los artículos 25, párrafo quinto, 27, párrafo sexto, 28, párrafos cuarto y quinto, 49, párrafo primero y 90, párrafos primero y segundo de la Constitución Política de los Estados Unidos Mexicanos; 1o, párrafos primero y tercero, 3o, párrafo primero, fracción I, y 45 de la Ley Orgánica de la Administración Pública Federal; 1o, 2o, 6o, párrafo primero, 11, 12, 14, párrafo primero, fracción I, 15, párrafo segundo, 17, 21, 22, párrafo primero, fracción I, y 59, párrafo primero, fracciones I, XII y XIV de la Ley Federal de las Entidades Paraestatales; 1o, 2o, párrafo primero, fracciones III y IV, y 3o del Reglamento de la Ley Federal de las Entidades Paraestatales; Apartado A, fracción I, numeral 16 de la Relación de Entidades Paraestatales de la Administración Pública Federal, publicada en el Diario Oficial de la Federación el 7 de agosto de 2023; 4 de la Ley Federal de Procedimiento Administrativo; 95, 107, 108, párrafo primero, fracción III, 110, párrafo segundo de la Ley de la Industria Eléctrica; Base 1, inciso 1.5, subincisos 1.5.1, apartado (b), sub-apartado (i) y 1.5.5 de las Bases del Mercado Eléctrico; Capítulo 2, sección 2.2, numeral 2.2.8, párrafo primero, inciso (a), Capítulo 4, sección 4.2, numeral 4.2.1, párrafo primero, inciso (a), subinciso (iv), sección 4.4, numeral 4.4.3, párrafo primero, inciso (a), fracción (iv), y sección 4.5, numeral 4.5.3, párrafo primero, incisos (a) y (b) del Manual para el Desarrollo de las Reglas del Mercado; PRIMERO, párrafo primero, SEGUNDO, párrafo primero, TERCERO, párrafo primero, fracción II, SEXTO, VIGÉSIMO PRIMERO, párrafo primero, fracciones I, X y XI, y VIGÉSIMO CUARTO del Decreto por el que se crea el Centro Nacional de Control de Energía; y 1, párrafo primero, 3, párrafo primero, apartado A, fracción II y 9, párrafo primero, fracción III, en relación con el 46, párrafo primero, fracción III del Estatuto Orgánico del Centro Nacional de Control de Energía, publicado en el Diario Oficial de la Federación el 20 de abril de 2018, y</div>\n<div> CONSIDERANDO<br> </div>\n<div> PRIMERO. Que con fecha 8 de enero de 2018, la Secretaría de Energía publicó en el Diario Oficial de la Federación el Acuerdo por el que se emite el Manual para el Desarrollo de las Reglas del Mercado.</div>\n<div> SEGUNDO. Que mediante acuerdo CA-011/2021-38 dictado en la 38a Sesión Ordinaria del Consejo de Administración del Centro Nacional de Control de Energía celebrada el 23 de marzo de 2021, dicho Órgano Superior acordó delegar en el Director General del Centro Nacional de Control de Energía la emisión del Dictamen Preliminar y Aprobaciones previa y final, a las propuestas de desarrollo y/o modificación de los Manuales de Prácticas del Mercado.</div>\n<div> TERCERO. Que de conformidad con el artículo 25, párrafo quinto de la Constitución Política de los Estados Unidos Mexicanos, el sector público tendrá a su cargo, de manera exclusiva, las áreas estratégicas que se señalan en el artículo 28, párrafo cuarto, de dicha Norma Suprema.</div>\n<div> CUARTO. Que el artículo 27, párrafo sexto de la Constitución Política de los Estados Unidos Mexicanos, establece que corresponde exclusivamente a la Nación la planeación y el control del Sistema Eléctrico Nacional, así como el Servicio Público de Transmisión y Distribución de Energía Eléctrica, y que en estas actividades no se otorgarán concesiones, sin perjuicio de que el Estado pueda celebrar contratos con particulares en los términos que establezcan las leyes, mismas que determinarán la forma en que los particulares podrán participar en las demás actividades de la industria eléctrica.</div>\n<div> QUINTO. Que el artículo 28, párrafo cuarto, de la Constitución Política de los Estados Unidos Mexicanos, señala como áreas estratégicas, entre otras, la planeación y el control del Sistema Eléctrico Nacional, así como el Servicio Público de Transmisión y Distribución de Energía Eléctrica.</div>\n<div> SEXTO. Que el artículo 1, párrafo primero, de la Ley de la Industria Eléctrica, dispone que esta es reglamentaria de los artículos 25, párrafo cuarto (ahora párrafo quinto), 27 párrafo sexto y 28, párrafo cuarto, de la Constitución Política de los Estados Unidos Mexicanos, y que tiene por objeto regular la planeación y el control del Sistema Eléctrico Nacional, el Servicio Público de Transmisión y Distribución de Energía Eléctrica y las demás actividades de la industria eléctrica, y que las disposiciones de esta Ley son de interés social y orden público. Asimismo, este artículo 1, párrafo segundo, de la Ley de la Industria Eléctrica, señala que la misma tiene entre otras finalidades, promover el desarrollo sustentable de la industria eléctrica y garantizar su operación continua, eficiente y segura en beneficio de los usuarios, así como el cumplimiento de las obligaciones de servicio público y universal.</div>\n<div> SÉPTIMO. Que el artículo 3, párrafo primero, en sus fracciones I, XX y XXXVIII, de la Ley de la Industria Eléctrica, señala que: (i) las Bases del Mercado Eléctrico son disposiciones administrativas de carácter general que contienen los principios del diseño y operación del Mercado Eléctrico Mayorista, (ii) las Disposiciones Operativas del Mercado son bases operativas, criterios, guías, lineamientos, manuales, procedimientos y demás disposiciones emitidas por el Centro Nacional de Control de Energía, en los cuales se definirán los procesos operativos del Mercado Eléctrico Mayorista, de conformidad con las Bases del Mercado Eléctrico, y (iii) las Reglas del Mercado son, conjuntamente, las Bases del Mercado Eléctrico y las Disposiciones Operativas del Mercado, que rigen al Mercado Eléctrico Mayorista.</div>\n<div> OCTAVO. Que conforme al artículo 96, párrafo segundo, de la Ley de la Industria Eléctrica, las Reglas del Mercado establecerán los requisitos mínimos para ser Participante del Mercado, y determinarán los derechos y obligaciones de los Participantes del Mercado, y los artículos 95, párrafo segundo y 108, párrafo primero, fracción III, de este mismo ordenamiento jurídico, facultan al Centro Nacional de Control de Energía para llevar a cabo los procesos de revisión, ajuste, actualización y emisión de las Disposiciones Operativas del Mercado, con sujeción a los mecanismos y lineamientos que establezca la Comisión Reguladora de Energía.</div>\n<div> NOVENO. Que el 8 de septiembre de 2015, se publicaron en el Diario Oficial de la Federación las Bases del Mercado Eléctrico, mismas que definen las reglas y procedimientos que deberán llevar a cabo los Participantes del Mercado y las autoridades para mantener una adecuada administración, operación y planeación del Mercado Eléctrico Mayorista, y que en su Base 1, inciso 1.5, establece la estructura y desarrollo de las Reglas del Mercado.</div>\n<div> DÉCIMO. Que los Manuales de Prácticas del Mercado forman parte de las Disposiciones Operativas del Mercado y tienen por objeto desarrollar con mayor detalle los elementos de las Bases del Mercado Eléctrico y establecer los procedimientos, reglas, instrucciones, principios de cálculo, directrices y ejemplos a seguir para la administración, operación y planeación del Mercado Eléctrico Mayorista.</div>\n<div> DÉCIMO PRIMERO. Que el 20 de diciembre de 2022, se presentó a la Dirección de Administración del Mercado Eléctrico Mayorista del Centro Nacional de Control de Energía, la propuesta del Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo, a dicha propuesta se le asignó el número de expediente D-MP002/2022 (en adelante la &quot;Propuesta de Desarrollo&quot;).</div>\n<div> DÉCIMO SEGUNDO. Que el 13 de febrero de 2023, el Director General del Centro Nacional de Control de Energía emitió el Dictamen Preliminar de la Propuesta de Desarrollo, incluyendo los comentarios recibidos de parte de los Integrantes de la Industria Eléctrica.</div>\n<div> DÉCIMO TERCERO. Que el 23 de febrero de 2023, el proponente atendió las recomendaciones contenidas en el Dictamen Preliminar, así como los comentarios recibidos de parte de los Integrantes de la Industria Eléctrica y procedió a adecuar en lo conducente la Propuesta de Desarrollo.</div>\n<div> DÉCIMO CUARTO. Que el 2 de marzo de 2023, el Director General del Centro Nacional de Control de Energía emitió la Aprobación previa a la Propuesta de Desarrollo.</div>\n<div> DÉCIMO QUINTO. Que el 6 de marzo de 2023, el Director de Administración del Mercado Eléctrico Mayorista del Centro Nacional de Control de Energía sometió la Propuesta de Desarrollo a la autorización de la Comisión Reguladora de Energía.</div>\n<div> DÉCIMO SEXTO. Que el 2 de mayo de 2023, el Director de Administración del Mercado Eléctrico Mayorista del Centro Nacional de Control de Energía envió un escrito a la Comisión Reguladora de Energía para informar de algunas adecuaciones a la Propuesta de Desarrollo.</div>\n<div> DÉCIMO SÉPTIMO. Que el 22 de mayo de 2023, el Director de Administración del Mercado Eléctrico Mayorista del Centro Nacional de Control de Energía envió una nueva versión de la Propuesta de Desarrollo para atender los cambios, comentarios y sugerencias de la Comisión Reguladora de Energía a la Propuesta de Desarrollo.</div>\n<div> DÉCIMO OCTAVO. Que mediante Resolución número RES/526/2023 del 15 de junio de 2023 la Comisión Reguladora de Energía, autorizó el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo.</div>\n<div> DÉCIMO NOVENO. Que mediante acuerdo CA-026/2023-48 dictado en la 48a Sesión Ordinaria del Consejo de Administración del Centro Nacional de Control de Energía celebrada el 10 de octubre de 2023, dicho Órgano Superior aprobó y expidió el &quot;Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo&quot; e instruyó al Director General para que se publique tanto en el Sistema de Información del Mercado como en el Diario Oficial de la Federación.</div>\n<div> VIGÉSIMO. Que el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo se considera un acto administrativo de carácter general que debe publicarse en el Diario Oficial de la Federación, a fin de que produzca plenos efectos jurídicos, por lo que he tenido a bien emitir el siguiente:</div>\n<div> ACUERDO<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "9894492f-323b-50a7-821b-10fcbf86df7e",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 2,
+      "identificador": "Artículo Único · Publicación del manual",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> ARTÍCULO ÚNICO.- El Centro Nacional de Control de Energía publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5f6940a2-db13-51ec-a4cc-faf75626fa88",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 3,
+      "identificador": "Transitorio ÚNICO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TRANSITORIO<br> </div>\n<div> ÚNICO.- El Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo entrará en vigor conforme a lo indicado en el CAPÍTULO 8 titulado &quot;Disposiciones Transitorias&quot;, del referido Manual.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "9d69a8f6-ddb2-5fe1-a48b-41569c242307",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 4,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 23 de noviembre de 2023.- El Director General del Centro Nacional de Control de Energía, Ricardo Octavio Arturo Mota Palomino.- Rúbrica.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c5fce3af-06a1-5753-ab5d-38d207521021",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 5,
+      "identificador": "Presentación e índice",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo<br> </div>\n<div> ÍNDICE<br> </div>\n<div> CAPÍTULO 1. Introducción</div>\n<div> 1.1.       Propósito de los Manuales de Prácticas de Mercado</div>\n<div> 1.2.       Propósito y contenido de este Manual</div>\n<div> 1.3.       Términos definidos</div>\n<div> 1.4.       Reglas de interpretación</div>\n<div> CAPÍTULO 2. Condiciones y Criterios para Declarar la Suspensión de Operaciones del Mercado</div>\n<div> 2.1.       Condiciones para Declarar la Suspensión del Mercado</div>\n<div> 2.2.       Criterios para Declarar la Suspensión del Mercado</div>\n<div> CAPÍTULO 3. Procedimiento para Declarar la Suspensión del Mercado</div>\n<div> 3.1.       Declaratoria de Suspensión del Mercado</div>\n<div> 3.2.       Características de los comunicados de Suspensión del Mercado</div>\n<div> CAPÍTULO 4. Actuación del CENACE, de los Participantes del Mercado y de los Transportistas y Distribuidores durante la Suspensión del Mercado</div>\n<div> 4.1.       Actuación del CENACE</div>\n<div> 4.2.       Actuación de los Participantes del Mercado</div>\n<div> 4.3.       Actuación del Transportista y el Distribuidor</div>\n<div> CAPÍTULO 5. Reinicio de Operaciones del Mercado</div>\n<div> 5.1.       Procedimiento para el Reinicio de Operaciones del Mercado</div>\n<div> 5.2.       Acciones posteriores al Reinicio de Operaciones del Mercado</div>\n<div> CAPÍTULO 6. Precios de Energía y Servicios Conexos durante la Suspensión del Mercado de Energía de Corto Plazo</div>\n<div> 6.1.       Ámbito de aplicación</div>\n<div> 6.2.       Definición del Periodo durante la Suspensión del Mercado</div>\n<div> 6.3.       Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Unidades de Central Eléctrica</div>\n<div> 6.4.       Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Entidades Responsables de Carga</div>\n<div> 6.5.       Derechos Financieros de Transmisión y Contratos de Cobertura Eléctrica durante la Suspensión del Mercado</div>\n<div> 6.6.       Mercados para el Balance de Potencia y Certificados de Energía Limpia durante la Suspensión del Mercado</div>\n<div> CAPÍTULO 7. Medios de Impugnación</div>\n<div> CAPÍTULO 8. Disposiciones Transitorias</div>",
+      "tipo_articulo": "anexo",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Índice",
+      "seccion_nombre": null
+    },
+    {
+      "id": "aa092c45-dc39-57b1-af41-7de051b82850",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 6,
+      "identificador": "Apartado 1.1. Propósito de los Manuales de Prácticas de Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Introducción<br> </div>\n<div> 1.1.         Propósito de los Manuales de Prácticas de Mercado</div>\n<div> 1.1.1.       Las Reglas del Mercado que rigen al Mercado Eléctrico Mayorista se integran por las Bases del Mercado Eléctrico y las Disposiciones Operativas del Mercado.</div>\n<div> 1.1.2.       Las Disposiciones Operativas del Mercado son los documentos que definen los procesos operativos del Mercado Eléctrico Mayorista y jerárquicamente comprenden a los Manuales de Prácticas de Mercado, las Guías Operativas y, los Criterios y Procedimientos de Operación.</div>\n<div> 1.1.3.       Los Manuales de Prácticas de Mercado forman parte de las Disposiciones Operativas del Mercado y tienen por objeto desarrollar en detalle cada uno de los apartados contenidos en las Bases del Mercado Eléctrico. Mediante estos manuales se establecen los principios de cálculo, instrucciones, reglas, lineamientos, procedimientos y ejemplos a seguir para la administración, operación y planeación del Mercado Eléctrico Mayorista.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 1",
+      "seccion_nombre": null
+    },
+    {
+      "id": "dcbea5e2-b7c9-59c1-a5a6-ecbd833b4e1b",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 7,
+      "identificador": "Apartado 1.2. Propósito y contenido de este Manual",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.2.         Propósito y contenido de este Manual</div>\n<div> 1.2.1.       Este Manual describe los criterios para la Suspensión y el Reinicio de Operaciones del Mercado de Energía de Corto Plazo, la oportunidad y medios para anunciar a los Participantes del Mercado, el Transportista y el Distribuidor, así como la determinación de los Precios de Energía y Servicios Conexos durante la Suspensión del Mercado. El Manual es aplicable al CENACE, los Participantes del Mercado y demás actores.</div>\n<div> 1.2.2.       El contenido de este Manual desarrolla con mayor detalle la Base 10.7 de las Bases del Mercado Eléctrico e incluye los siguientes temas:</div>\n<div> (a)   La Declaratoria de Suspensión de Operaciones del Mercado de Energía de Corto Plazo y el Anuncio por parte del CENACE de que se Suspenden las Operaciones Normales del Mercado en el Sistema Eléctrico Nacional o regiones afectadas;</div>\n<div> (b)   La reanudación de las Operaciones Normales del Mercado; y</div>\n<div> (c)    La elaboración y publicación de informes que repasen y analicen los hechos previos y durante la Suspensión del Mercado, así como las conclusiones y recomendaciones futuras para evitar situaciones similares.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 1",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b331c3ab-33e6-5c89-a713-089efcad4d5e",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 8,
+      "identificador": "Apartado 1.3. Términos definidos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.3.         Términos definidos</div>\n<div> Para los efectos de este Manual, se deberán tener en cuenta los términos y definiciones establecidos en el artículo 3 de la Ley de la Industria Eléctrica, el artículo 2 de su Reglamento, las Bases del Mercado Eléctrico Mayorista y los Manuales de Prácticas de Mercado que le apliquen a este Manual. En particular, los términos correspondientes a:</div>\n<div> 1.3.1.       CENACE: Centro Nacional de Control de Energía.</div>\n<div> 1.3.2.       Certificado de Energías Limpias: Título emitido por la CRE que acredita la producción de un monto determinado de energía eléctrica a partir de Energías Limpias y que sirve para cumplir los requisitos asociados al consumo de los Centros de Carga.</div>\n<div> 1.3.3.       Código de Red: Tendrá el mismo significado que se señala en la Base 2.1.14 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.4.       Confiabilidad: Situación que permite satisfacer la demanda eléctrica de los Usuarios Finales en el Sistema Eléctrico Nacional bajo condiciones de suficiencia y Seguridad de Despacho, conforme a los criterios respectivos que emita la CRE.</div>\n<div> 1.3.5.       Continuidad: Satisfacción de la demanda eléctrica de los Usuarios Finales con una frecuencia y duración de interrupciones menor a lo establecido en los criterios respectivos que emita la CRE.</div>\n<div> 1.3.6.       CRE: Comisión Reguladora de Energía.</div>\n<div> 1.3.7.       Derechos Financieros de Transmisión: El derecho y la obligación correlativa de recibir o pagar un monto basado en la diferencia que resulte de los componentes de congestionamiento de los Precios Marginales Locales en dos nodos del Sistema Eléctrico Nacional en un periodo determinado, en los términos de las Reglas del Mercado.</div>\n<div> 1.3.8.       Distribuidor: Los organismos o empresas productivas del Estado o sus empresas productivas subsidiarias, que presenten el Servicio Público de Distribución de Energía Eléctrica en el territorio mexicano.</div>\n<div> 1.3.9.       Entidad Responsable de Carga: Tendrá el mismo significado que se señala en la Base 2.1.47 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.10.     Estado Operativo de Emergencia: Conforme al Código de Red, es el estado operativo en el cual, la ocurrencia de una contingencia sencilla más severa conduciría a que una o varias de las variables del sistema eléctrico que corresponda están fuera de sus Límites operativos, lo que puede llevar al Sistema Eléctrico Nacional a una condición de inestabilidad y requerir por tanto de la ejecución de acciones remediales.</div>\n<div> 1.3.11.     Garantía de Suficiencia de Ingresos en el Mercado de Tiempo Real: Tendrá el mismo significado que se señala en la Base 2.1.55 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.12.     Garantía de Suficiencia de Ingresos en el Mercado del Día en Adelanto: Tendrá el mismo significado que se señala en la Base 2.1.56 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.13.     Isla Eléctrica: Condición en la cual una porción del Sistema Eléctrico Nacional se encuentra aislada del resto del Sistema y es energizada por una o más Unidades de Central Eléctrica.</div>\n<div> 1.3.14.     Mercado de Energía de Corto Plazo: Tendrá el mismo significado que se señala en las Bases 1.3.2 y 2.1.73 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.15.     Mercado de Tiempo Real: Tendrá el mismo significado que se señala en la Base 2.1.74 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.16.     Mercado del Día en Adelanto: Tendrá el mismo significado que se señala en la Base 2.1.76 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.17.     Mercado para el Balance de Potencia: Tendrá el mismo significado que se señala en la Base 2.1.77 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.18.     Mercado Eléctrico Mayorista: Mercado operado por el CENACE en el que los Participantes del Mercado podrán realizar las transacciones señaladas en el artículo 96 de la Ley de la Industria Eléctrica.</div>\n<div> 1.3.19.     Operación: Tendrá el mismo significado que se señala en la Base 2.1.92 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.20.     Participante del Mercado: Persona que celebra el contrato respectivo con el CENACE en modalidad de Generador, Comercializador, Suministrador, Comercializador no Suministrador o Usuario Calificado.</div>\n<div> 1.3.21.     Región: Porción del Sistema Eléctrico Nacional compuesta de nodos y Unidades de Central Eléctrica, definidas por el CENACE para fines del procedimiento de la Suspensión del Mercado de Energía de Corto Plazo, según la Declaratoria emitida por el CENACE.</div>\n<div> 1.3.22.     Secretaría: Secretaría de Energía.</div>\n<div> 1.3.23.     Sistema Eléctrico Nacional: El sistema integrado por: a) La Red Nacional de Transmisión; b) Las Redes Generales de Distribución; c) Las Centrales Eléctricas que entregan energía eléctrica a la Red Nacional de Transmisión o a las Redes Generales de Distribución; d) Los equipos e instalaciones del CENACE utilizados para llevar a cabo el Control Operativo del Sistema Eléctrico Nacional, y e) Los demás elementos que determine la Secretaría.</div>\n<div> 1.3.24.     Sistema de Información del Mercado: Tendrá el mismo significado que se señala en la Base 2.1.126 de las Bases del Mercado Eléctrico.</div>\n<div> 1.3.25.     Suspensión del Mercado: Condición temporal y limitada, declarada por el CENACE, en la que existe la imposibilidad de llevar a cabo las operaciones normales del Mercado de Energía de Corto Plazo, como respuesta a una o varios causales que afectan la Operación del Sistema Eléctrico Nacional o la ejecución de los procesos del Mercado de Energía de Corto Plazo.</div>\n<div> (a)   Suspensión Parcial del Mercado: Es la suspensión de uno de los procesos del Mercado que integran el Mercado de Energía de Corto Plazo, esto es, la Suspensión del Mercado de Tiempo Real.</div>\n<div> (b)   Suspensión Total del Mercado: Es la suspensión de todos los procesos del Mercado que integran el Mercado de Energía de Corto Plazo, esto es, la Suspensión del Mercado del Día en Adelanto y del Mercado de Tiempo Real.</div>\n<div> 1.3.26.     Transportista: Los organismos o empresas productivas del Estado, o sus empresas productivas subsidiarias, que presten el Servicio Público de Transmisión de Energía Eléctrica.</div>\n<div> 1.3.27.     Unidad de Central Eléctrica: Tendrá el mismo significado que se señala en la Base 2.1.140 de las Bases del Mercado Eléctrico.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 1",
+      "seccion_nombre": null
+    },
+    {
+      "id": "46a7980f-3eed-539f-a1b8-a413537341be",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 9,
+      "identificador": "Apartado 1.4. Reglas de interpretación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.4.         Reglas de interpretación</div>\n<div> 1.4.1.       Los términos definidos en este Manual pueden ser utilizados en plural o singular sin alterar su significado, siempre que el contexto lo permita.</div>\n<div> 1.4.2.       La interpretación administrativa de este Manual corresponde a la CRE en el ámbito de sus competencias. En caso de existir alguna contradicción o inconsistencia entre lo dispuesto en este Manual y lo dispuesto en las Bases del Mercado Eléctrico, prevalecerá lo dispuesto en las Bases del Mercado Eléctrico.</div>\n<div> 1.4.3.       A menos que se indique lo contrario, los días señalados en este Manual se entenderán como días naturales y, cuando se haga referencia al mes o año, se entenderá como mes o año calendario.</div>\n<div> 1.4.4.       A menos que se indique expresamente lo contrario, toda referencia a un capítulo, sección, numeral, inciso, subinciso, apartado o, en general, a cualquier disposición, se entenderá hecha al capítulo, sección, numeral, inciso, subinciso o apartado correspondiente de este Manual.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 1",
+      "seccion_nombre": null
+    },
+    {
+      "id": "226a6cfe-c48c-55b1-961d-4d5278155959",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 10,
+      "identificador": "Apartado 2.1. Condiciones para Declarar la Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 2.<br> </div>\n<div> Condiciones y Criterios para Declarar la Suspensión de Operaciones del Mercado<br> </div>\n<div> 2.1.         Condiciones para Declarar la Suspensión del Mercado</div>\n<div> 2.1.1.       El CENACE será la única autoridad para declarar la Suspensión, Parcial o Total, del Mercado de Energía de Corto Plazo.</div>\n<div> 2.1.2.       La Base 10.7.1, inciso (a), de las Bases del Mercado Eléctrico establece las situaciones en las que el CENACE podrá Suspender el Mercado de manera Parcial o Total, en caso de que se produzca alguna de las siguientes tres condiciones:</div>\n<div> (a)   se presente alguna de las condiciones que definen al Estado Operativo de Emergencia listadas en el Código de Red y sus disposiciones operativas que emita la CRE, que imposibiliten realizar las Operaciones del Mercado. Esto incluye lo siguiente:</div>\n<div> i.      un colapso total en el Sistema Eléctrico o parcial en alguna región del Sistema Eléctrico;</div>\n<div> ii.     el Sistema Eléctrico se encuentra divido en dos o más Islas Eléctricas provocando un escenario cuya solución a través de los algoritmos de optimización del Mercado no es factible;</div>\n<div> iii.    las variables eléctricas están fuera de sus límites operativos provocando afectaciones en el suministro eléctrico; o</div>\n<div> iv.    la operación del Mercado impide pasar a un Estado Normal o de Alerta.</div>\n<div> (b)   fallas en el hardware, software o sistemas de comunicación que el CENACE utiliza para ejecutar el Mercado de Energía de Corto Plazo; o</div>\n<div> (c)    alguna situación de emergencia, no imputable al CENACE, que inhabilite el uso del Centro de Control de Operación del CENACE, y no pueda recurrirse al uso inmediato de la infraestructura, personal y equipo en alguna sede alterna. Esto incluye lo siguiente:</div>\n<div> i.      actos de terrorismo y vandalismo;</div>\n<div> ii.     sabotaje;</div>\n<div> iii.    toma de las instalaciones;</div>\n<div> iv.    huelgas o paros;</div>\n<div> v.     manifestaciones; o</div>\n<div> vi.    desastres naturales.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 2",
+      "seccion_nombre": null
+    },
+    {
+      "id": "611234fe-a970-51f3-8b31-676fd4b69156",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 11,
+      "identificador": "Apartado 2.2. Criterios para Declarar la Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 2.2.         Criterios para Declarar la Suspensión del Mercado</div>\n<div> 2.2.1.       El CENACE deberá evaluar una posible Suspensión del Mercado, Parcial o Total, en todo o en alguna porción el Sistema Eléctrico y determinará si su capacidad para operar el Mercado de Energía de Corto Plazo de conformidad con las Reglas del Mercado se ha visto afectada, y tomará en cuenta, entre otras cosas, lo siguiente:</div>\n<div> (a)   el total de activos físicos afectados;</div>\n<div> (b)   el tiempo estimado para volver a la Operación Normal del Mercado en el Sistema Eléctrico Nacional o regiones afectadas;</div>\n<div> (c)    los sistemas informáticos involucrados, incluidos los sistemas de difusión de información;</div>\n<div> (d)   la fuente del problema, la cual podría incluir proveedores de tecnología comercial y operativa; y</div>\n<div> (e)   todos aquellas situaciones o hechos que pongan en riesgo la integridad y seguridad del Centro de Control de Operación del CENACE o de la población en general, tales como desastres naturales, manifestaciones, toma de las instalaciones o cualquier evento de caso fortuito o fuerza mayor en términos de lo previsto en el apartado &quot;B.5 Casos Fortuitos o de Fuerza Mayor&quot; del Código de Red.</div>\n<div> 2.2.2.       La Suspensión del Mercado podrá declararse de manera Parcial o Total en función de los siguientes criterios generales:</div>\n<div> (a)   Para la condición señalada en el inciso (a), subinciso i, del numeral 2.1.2 de este Manual, la Suspensión del Mercado será Parcial, una vez que se prevea que esta condición durará menos de 24 horas; en caso contrario, la Suspensión del Mercado será Total.</div>\n<div> (b)   Para la condición señalada en el inciso (a), subinciso ii, del numeral 2.1.2 de este Manual, la Suspensión del Mercado será Parcial si la duración estimada de la condición operativa es menor a 24 horas; en caso contrario, la Suspensión del Mercado será Total.</div>\n<div> (c)    Para la condición señalada en el inciso (a), subinciso iii, del numeral 2.1.2 de este Manual, la Suspensión del Mercado será Parcial si la duración estimada de la condición operativa es menor a 24 horas; en caso contrario, la Suspensión del Mercado será Total.</div>\n<div> (d)   Para la condición señalada en el inciso (a), subinciso iv, del numeral 2.1.2 de este Manual, la Suspensión del Mercado será Parcial si la duración estimada de la condición es menor a 24 horas; en caso contrario, la Suspensión del Mercado será Total.</div>\n<div> (e)   Para la condición señalada en el inciso (b), del numeral 2.1.2 de este Manual, la Suspensión del Mercado será Parcial si la duración estimada de la condición es menor a 4 horas; en caso contrario, la Suspensión del Mercado será Total.</div>\n<div> (f)    Para la condición señalada en el inciso (c), del numeral 2.1.2 de este Manual, la Suspensión del Mercado será Parcial, una vez que se prevea que esta condición durará menos de 24 horas; en caso contrario, la Suspensión del Mercado será Total.</div>\n<div> 2.2.3.       El CENACE no Suspenderá las Operaciones del Mercado por las siguientes causas:</div>\n<div> a)    que los Precios de Energía en los diferentes nodos que integran el Sistema Eléctrico Nacional presenten variaciones negativas o positivas en cualquier magnitud; y</div>\n<div> b)    que la carga se haya reducido con respecto a la demanda prevista.</div>\n<div> 2.2.4.       En todo caso, la Suspensión del Mercado tendrá carácter de solución excepcional y de último recurso, debiendo ser aplicada durante el tiempo mínimo indispensable para realizar una restauración de las condiciones que permitan una Operación Normal y segura del Mercado de Energía de Corto Plazo en la región o regiones afectadas.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 2",
+      "seccion_nombre": null
+    },
+    {
+      "id": "53cde6d7-9cf0-5b71-978e-c33b34e079c4",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 12,
+      "identificador": "Apartado 3.1. Declaratoria de Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 3.<br> </div>\n<div> Procedimiento para Declarar la Suspensión del Mercado<br> </div>\n<div> 3.1.         Declaratoria de Suspensión del Mercado</div>\n<div> 3.1.1.       La Suspensión del Mercado será llevada a cabo siguiendo los procedimientos establecidos en este Manual y su ejecución, operación y levantamiento será responsabilidad exclusiva del CENACE por conducto de su Dirección de Administración del Mercado Eléctrico Mayorista o, en su defecto, por quien sea designado por el Director General del CENACE. Dicho procedimiento se realizará de la siguiente manera:</div>\n<div> (a)   se anunciará alguna de las condiciones especificadas en el numeral 2.1.2 de este Manual, por parte de la Dirección del CENACE que le corresponda;</div>\n<div> (b)   se evaluará el impacto de las causas y se determinará si dicha condición requiere la Suspensión Parcial o Total del Mercado de Energía de Corto Plazo en todo el Sistema Eléctrico Nacional o en alguna de sus regiones;</div>\n<div> (c)    el Director de Administración del Mercado Eléctrico Mayorista o, en su defecto, por quien sea designado por el Director General del CENACE, publicará la Declaratoria de Suspensión del Mercado correspondiente [ver numeral 3.1.4 de este Manual] en los medios especificados en el numeral 3.1.3 de este Manual; y</div>\n<div> (d)   Una vez declarada la Suspensión y en las condiciones de operación prevalecientes, se realizarán los ajustes necesarios para el adecuado funcionamiento tanto del Sistema Eléctrico Nacional como de la Infraestructura de Información y Comunicaciones.</div>\n<div> 3.1.2.       La Suspensión deberá ser anunciada a los Participantes de Mercado, al Transportista y el Distribuidor de manera inmediata, y notificada al Consejo de Administración del CENACE, a la Secretaría y a la CRE lo antes posible y como máximo dentro de las dos horas siguientes después de ejecutada la Suspensión. Cuando lo anterior sea imposible derivado de las circunstancias, el CENACE deberá justificar las causas que motivaron el retraso y cumplir con esta obligación hasta en un máximo de veinticuatro horas siguientes.</div>\n<div> 3.1.3.       La Declaratoria de Suspensión deberá ser emitida a través de cualquiera de los siguientes medios:</div>\n<div> (a)   el Sistema de Información del Mercado;</div>\n<div> (b)   el correo electrónico; y</div>\n<div> (c)    cualquier otro medio de comunicación definido para tales efectos [ver numeral 3.1.4, inciso (h)].</div>\n<div> 3.1.4.       La Declaratoria de Suspensión del Mercado deberá especificar los siguientes puntos:</div>\n<div> (a)   la fecha y hora de la Declaratoria de Suspensión;</div>\n<div> (b)   el Periodo de inicio de la Suspensión;</div>\n<div> (c)    si se trata de una Suspensión Parcial o Total;</div>\n<div> (d)   el Sistema Interconectado o las regiones afectadas a las que se les aplicará la Suspensión del Mercado;</div>\n<div> (e)   los nodos afectados;</div>\n<div> (f)    el tiempo estimado de duración;</div>\n<div> (g)   la actuación esperada de los Participantes del Mercado por parte del CENACE; y</div>\n<div> (h)   los medios de comunicación adicionales correspondientes al numeral 3.1.3, inciso (c), que se utilizarán para la comunicación de información a los actores.</div>\n<div> 3.1.5.       Una vez declarada la Suspensión del Mercado, las Direcciones del CENACE que correspondan serán las responsables de realizar todas las acciones necesarias para operar el Sistema Eléctrico Nacional y/o la Infraestructura de Información y Comunicaciones con criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad.</div>\n<div> 3.1.6.       El CENACE deberá emitir anuncios de manera periódica por cada región donde ocurra una Suspensión, de conformidad por los medios establecidos en el numeral 3.1.3, incluso si son suspensiones simultáneas en diferentes regiones del Sistema Eléctrico Nacional.</div>\n<div> 3.1.7.       En ningún caso el CENACE podrá declarar una Suspensión retroactiva del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 3",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8c7978cc-e8d6-56b5-8c48-a0ded3e3ea6c",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 13,
+      "identificador": "Apartado 3.2. Características de los comunicados de Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3.2.         Características de los comunicados de Suspensión del Mercado</div>\n<div> 3.2.1.       Una hora después de emitida la Declaratoria de Suspensión, las Unidades de Central Eléctrica enviarán al CENACE, a través de los medios de comunicación definidos en la Declaratoria de Suspensión correspondiente, un informe preliminar indicando el estado de sus instalaciones y activos de conformidad con lo dispuesto en el Código de Red vigente.</div>\n<div> 3.2.2.       Los informes preliminares de las Unidades de Central Eléctrica deberán contener la siguiente información:</div>\n<div> (a)   identificación de la instalación en el Mercado: nombre, clave, ubicación y capacidad;</div>\n<div> (b)   descripción del estado actual de la instalación: funcionamiento, capacidad y disponibilidad de producción; y</div>\n<div> (c)    detalle de cualquier incidencia o problema técnico: si existe algún problema técnico que afecte a la producción o al funcionamiento de la instalación, deberá detallarse en el informe.</div>\n<div> 3.2.3.       Dentro de las dos horas siguientes y, de manera justificada, hasta un máximo de veinticuatro horas después emitida la Declaratoria de Suspensión del Mercado, el Director de Administración del Mercado Eléctrico Mayorista anunciará a los Participantes del Mercado, al Transportista y Distribuidor, y notificará a su Consejo de Administración, a la Secretaría y a la CRE, lo siguiente:</div>\n<div> (a)   las causas que dieron lugar a la Declaratoria de Suspensión del Mercado;</div>\n<div> (b)   el tipo de Suspensión de Mercado (Parcial o Total);</div>\n<div> (c)    la lista de nodos afectados;</div>\n<div> (d)   las regiones afectadas del Sistema;</div>\n<div> (e)   la duración esperada, en su caso;</div>\n<div> (f)    el Plan de Acción para recuperar las Operaciones afectadas del Mercado; y</div>\n<div> (g)   los antecedentes, si los hubiere.</div>\n<div> Cuando la notificación a que se refiere este numeral se realice al Consejo de Administración del CENACE, a la Secretaría y a la CRE, luego de las dos horas siguientes de emitida la Declaratoria de Suspensión, el Director de Administración del Mercado Eléctrico Mayorista o, en su defecto, por quien sea designado por el Director General del CENACE, deberá incluir un escrito en el que se describan las causas que hayan motivado la imposibilidad de notificarlo dentro del plazo inicial de dos horas siguientes a la emisión de la Declaratoria de Suspensión del Mercado.</div>\n<div> 3.2.4.       Cada cuatro horas, el Director de Administración del Mercado Eléctrico Mayorista emitirá comunicados con información actualizada a los actores descritos en el numeral 3.1.2, los cuales deberán incluir la siguiente información:</div>\n<div> (a)   el estado actual de la Suspensión del Mercado;</div>\n<div> (b)   la actualización del Plan de Acción; y</div>\n<div> (c)    la posible fecha para el Reinicio de Operaciones del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 3",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d330b191-dc64-5c28-b144-734a76547bb6",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 14,
+      "identificador": "Apartado 4.1. Actuación del CENACE",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 4.<br> </div>\n<div> Actuación del CENACE, de los Participantes del Mercado y de los Transportistas y Distribuidores<br> durante la Suspensión del Mercado<br> </div>\n<div> 4.1.         Actuación del CENACE</div>\n<div> 4.1.1.       Durante la Suspensión del Mercado, le corresponderá al CENACE:</div>\n<div> (a)   Restablecer a la mayor brevedad posible tanto la operación segura y confiable del Sistema Eléctrico Nacional como el funcionamiento normal del Mercado, en consonancia con la seguridad de las personas y las instalaciones.</div>\n<div> (b)   Solicitar información sobre el funcionamiento de sus instalaciones a los Participantes del Mercado, al Transportista y al Distribuidor.</div>\n<div> (c)    Continuar utilizando, en la medida de lo posible, los Procedimientos de Operación y las herramientas de Mercado durante la Suspensión del Mercado para determinar la asignación y el despacho de las Unidades de Central Eléctrica, así como los Precios de Energía y Servicios Conexos.</div>\n<div> (d)   Llevar un registro o bitácora interna de todas las acciones solicitadas a los Participantes del Mercado, al Transportista y el Distribuidor.</div>\n<div> (e)   Mantener informados a todos los actores sobre el estado de la Suspensión del Mercado o, en su caso, del Reinicio de las operaciones. Cualquier información adicional estará disponible en los medios de comunicación definidos en la Declaratoria para tal efecto.</div>\n<div> (f)    Emitir instrucciones de asignación y despacho o cualquier otra instrucción pertinente a los Participantes del Mercado que le permita tanto continuar con operaciones confiables como mantener la operación del Mercado en aquellas regiones y/o procesos del Sistema Eléctrico Nacional que no se encuentren suspendidas.</div>\n<div> (g)   Supervisar las condiciones que desencadenaron la Suspensión del Mercado para determinar cuándo se reiniciarán las Operaciones Normales del Mercado.</div>\n<div> (h)   Anunciar el Reinicio del Mercado, como se describe en el Capítulo 5 del presente Manual, e informar el fin de la Suspensión señalando la fecha y la hora de despacho en el que se reanudarán las Operaciones Normales del Mercado.</div>\n<div> (i)    Determinar posterior al restablecimiento de las Operaciones Normales del Mercado en las regiones afectadas del Sistema Eléctrico Nacional, los programas de asignación y despacho de las Unidades de Central Eléctrica de acuerdo con las Bases del Mercado Eléctrico.</div>\n<div> (j)    Emitir informes preliminares y finales en los que se detallen las circunstancias que generaron la Suspensión del Mercado, las medidas adoptadas para asegurar la operación confiable y remediar las causas de la Suspensión del Mercado, las acciones realizadas por los Participantes del Mercado durante la Suspensión y las conclusiones o recomendaciones para evitar Suspensiones similares en el futuro.</div>\n<div> (k)    Indicar a los Participantes del Mercado que implementen medidas correctivas, si su Consejo de Administración, la Secretaría y la CRE determinan que las medidas correctivas están justificadas para evitar la recurrencia de otra Suspensión del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 4",
+      "seccion_nombre": null
+    },
+    {
+      "id": "646057a4-0fab-5e13-8c26-9ee28880b81b",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 15,
+      "identificador": "Apartado 4.2. Actuación de los Participantes del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.2.         Actuación de los Participantes del Mercado</div>\n<div> 4.2.1.       Durante la Suspensión del Mercado, le corresponderá a los Participantes del Mercado:</div>\n<div> (a)   Dar cumplimiento a los avisos de Suspensión del Mercado y cualesquiera otras instrucciones que emita el CENACE, las cuales tendrán como objetivo final el pronto y expedito restablecimiento de las Operaciones Normales del Mercado.</div>\n<div> (b)   Llevar a cabo sus operaciones e interacciones con el CENACE de manera consistente con dichas notificaciones e instrucciones.</div>\n<div> (c)    Llevar un registro o bitácora interna de todas las acciones solicitadas por el CENACE.</div>\n<div> (d)   Notificar de inmediato al CENACE si no pueden cumplir a cabalidad con alguna instrucción emitida por el CENACE a través de los medios de comunicación oficiales definidos en la Declaratoria de Suspensión del Mercado.</div>\n<div> (e)   Reanudar tras el Anuncio de Reinicio de las Operaciones Normales del Mercado, las operaciones e interacciones normales con el CENACE de conformidad con las Bases del Mercado Eléctrico.</div>\n<div> (f)    Responder y cumplir con todas las solicitudes de información del CENACE sobre el funcionamiento de sus instalaciones antes, durante y después de la Suspensión del Mercado.</div>\n<div> (g)   Proporcionar al CENACE sus datos de medición disponibles durante la Suspensión del Mercado, cuando este organismo así lo requiera.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 4",
+      "seccion_nombre": null
+    },
+    {
+      "id": "16ce97ca-653c-5897-9fce-ab67455d918c",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 16,
+      "identificador": "Apartado 4.3. Actuación del Transportista y el Distribuidor",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.3.         Actuación del Transportista y el Distribuidor</div>\n<div> 4.3.1.       Durante la Suspensión del Mercado, le corresponderá al Transportista y al Distribuidor:</div>\n<div> (a)   Actuar conforme a los manuales de restablecimiento del Sistema Eléctrico Nacional.</div>\n<div> (b)   Llevar a cabo sus operaciones e interacciones con el CENACE de manera consistente con las notificaciones e instrucciones que emita el CENACE.</div>\n<div> (c)    Llevar un registro o bitácora interna de todas las acciones solicitadas por el CENACE.</div>\n<div> (d)   Notificar de inmediato al CENACE si no pueden cumplir a cabalidad con alguna instrucción emitida por el CENACE a través de los medios de comunicación oficiales definidos en la Declaratoria de Suspensión del Mercado.</div>\n<div> (e)   Responder y cumplir con todas las solicitudes de información del CENACE sobre el funcionamiento de sus instalaciones antes, durante y después de la Suspensión del Mercado.</div>\n<div> (f)    Proporcionar al CENACE sus datos de medición disponibles, si este organismo así lo requiere.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 4",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5cd1da49-bf87-542d-b658-0415f6a292b0",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 17,
+      "identificador": "Apartado 5.1. Procedimiento para el Reinicio de Operaciones del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 5.<br> </div>\n<div> Reinicio de Operaciones del Mercado<br> </div>\n<div> 5.1.         Procedimiento para el Reinicio de Operaciones del Mercado</div>\n<div> 5.1.1.       Una vez superadas las causas que dieron lugar a la Declaratoria de Suspensión del Mercado, o se prevea con certeza cuándo será factible Reiniciar Operaciones Normales del Mercado, el Director de Administración del Mercado Eléctrico Mayorista o, en su defecto, por quien sea designado por el Director General del CENACE, declarará el Reinicio de Operaciones del Mercado de Energía de Corto Plazo, lo anunciará a los Participantes de Mercado, al Transportista y Distribuidor, y lo notificará al Consejo de Administración, a la Secretaría y a la CRE.</div>\n<div> 5.1.2.       El CENACE anunciará el Reinicio de Operaciones al menos una hora antes del Reinicio de Operaciones del Mercado.</div>\n<div> 5.1.3.       El Anuncio de Reinicio de Operaciones del Mercado se podrá comunicar a través de cualquiera de los siguientes medios:</div>\n<div> (a)   el Sistema de Información del Mercado;</div>\n<div> (b)   el correo electrónico; y</div>\n<div> (c)    cualquier otro medio de comunicación definido para tales efectos.</div>\n<div> 5.1.4.       El Anuncio de Reinicio de Operaciones del Mercado deberá especificar los siguientes puntos:</div>\n<div> (a)   la fecha y hora del Anuncio;</div>\n<div> (b)   la fecha y hora del Reinicio de Operaciones del Mercado;</div>\n<div> (c)    el Sistema Interconectado o las regiones afectadas a las que se les aplicará el Reinicio de Operaciones del Mercado;</div>\n<div> (d)   los nodos para reinstalar;</div>\n<div> (e)   el Mercado que reinicia operaciones; y</div>\n<div> (f)    el Periodo de Suspensión del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 5",
+      "seccion_nombre": null
+    },
+    {
+      "id": "45ddbfdf-8ec4-5578-8495-0a4b963b804e",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 18,
+      "identificador": "Apartado 5.2. Acciones posteriores al Reinicio de Operaciones del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.2.         Acciones posteriores al Reinicio de Operaciones del Mercado</div>\n<div> 5.2.1.       Dentro de un plazo de cinco días hábiles posteriores al Reinicio de las Operaciones del Mercado, los Participantes del Mercado afectados por la Suspensión enviarán al CENACE, a través del Sistema de Información del Mercado, un informe con la información sobre sus actividades realizadas antes, durante y después de la Suspensión del Mercado.</div>\n<div> 5.2.2.       El informe deberá contener la siguiente información:</div>\n<div> (a)   descripción de las actividades previas a la Suspensión;</div>\n<div> (b)   detalles de las actividades realizadas durante la Suspensión: qué medidas tomaron para mantener sus instalaciones y activos seguros y operativos durante la Suspensión del Mercado;</div>\n<div> (c)    información sobre el Reinicio de Operaciones: descripción de cómo llevaron a cabo el Reinicio de sus Operaciones y qué acciones tomaron para garantizar una transición segura y sin problemas;</div>\n<div> (d)   incidencias o problemas: si surgieron problemas o incidencias durante o después del Reinicio de Operaciones, deberán detallarlos en el informe; y</div>\n<div> (e)   recomendaciones: cualquier información que consideren relevante para prevenir problemas similares en el futuro.</div>\n<div> 5.2.3.       En un plazo de diez días hábiles a partir de la fecha de emisión de la Declaratoria de Reinicio de Operaciones del Mercado, el CENACE deberá emitir un informe público preliminar sobre las causas que originaron la Suspensión, los nodos afectados, las acciones tomadas para Reiniciar la operación normal del Mercado y las conclusiones o recomendaciones futuras para evitar una situación similar.</div>\n<div> 5.2.4.       Dentro de un plazo de cuarenta días hábiles posteriores al Reinicio de las Operaciones del Mercado, el CENACE enviará un informe detallado a su Consejo de Administración y a la CRE, que contenga:</div>\n<div> (a)   la fecha y hora del evento de Suspensión;</div>\n<div> (b)   el Sistema Interconectado o las regiones afectadas;</div>\n<div> (c)    los nodos reinstalados;</div>\n<div> (d)   el Mercado que reinició operaciones;</div>\n<div> (e)   el Periodo de Suspensión del Mercado que se utilizará;</div>\n<div> (f)    las causas que originaron la Suspensión del Mercado;</div>\n<div> (g)   las acciones tomadas para Reiniciar la Operación Normal del Mercado;</div>\n<div> (h)   las acciones ejecutadas para llevar a cabo la asignación y despacho de las Unidades de Central Eléctrica, así como la determinación de los Precios de Energía y Servicios Conexos; y</div>\n<div> (i)    las conclusiones y recomendaciones futuras para evitar una situación similar.</div>\n<div> 5.2.5.       El CENACE emitirá una versión pública final del informe al que refiere el numeral 5.2.4 para su publicación en el Área Pública del Sistema de Información del Mercado en un plazo de diez días hábiles después de su presentación al Consejo de Administración.</div>\n<div> 5.2.6.       Los Participantes del Mercado tendrán un plazo de veinte días hábiles para emitir comentarios a dicho documento público, a través del Sistema de Información del Mercado.</div>\n<div> 5.2.7.       Con base en las recomendaciones y comentarios recibidos, el CENACE podrá:</div>\n<div> (a)   detonar modificaciones de manera pública a las Reglas del Mercado de conformidad con el Manual para el Desarrollo de las Reglas del Mercado;</div>\n<div> (b)   notificar a la CRE sobre los Parámetros de Referencia de las Unidades de Central Eléctrica que pudieron ocasionar o contribuir a la condición del sistema, si es el caso;</div>\n<div> (c)    informar a la CRE cualquier anomalía en la actuación de los Participantes del Mercado; y</div>\n<div> (d)   tomar todas las acciones necesarias para corregir los factores o eventos que causaron la Suspensión del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 5",
+      "seccion_nombre": null
+    },
+    {
+      "id": "04f85d33-db41-5706-86d6-26d8a37f1b50",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 19,
+      "identificador": "Apartado 6.1. Ámbito de aplicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 6.<br> </div>\n<div> Precios de Energía y Servicios Conexos durante la Suspensión del Mercado de Energía de Corto Plazo<br> </div>\n<div> 6.1.         Ámbito de aplicación</div>\n<div> 6.1.1.       Durante la Suspensión del Mercado, el CENACE identificará y publicará una lista de nodos afectados por la Suspensión del Mercado en los medios de comunicación oficiales definidos en la Declaratoria de Suspensión, a los cuales se les aplicarán los Precios de Energía y Servicios Conexos determinados de conformidad con lo establecido en la sección 6.3.</div>\n<div> 6.1.2.       Los Precios de Energía y Servicios Conexos determinados y publicados por el CENACE en términos de este capítulo servirán para liquidar a las Unidades de Central Eléctrica y a las Entidades Responsables de Carga que existan en cada región afectada del Sistema Eléctrico Nacional.</div>\n<div> 6.1.3.       Para los Períodos de Suspensión del Mercado declarados conforme lo señalado en el presente Manual, el CENACE determinará y publicará los Precios de Energía y Servicios Conexos para liquidar el Mercado del Día en Adelanto, el Mercado de Tiempo Real, los Derechos Financieros de Transmisión y las Transacciones Bilaterales Financieras que existan en la región o regiones afectadas del Sistema Eléctrico Nacional, dependiendo de la causa y el momento de la Suspensión, de acuerdo con lo establecido en las secciones 6.3, 6.4 y 6.5.</div>\n<div> 6.1.4.       Durante el Período de Suspensión del Mercado, los Participantes del Mercado representantes de Unidades de Central Eléctrica con estatus firme-despachable o intermitente despachable (según lo que define la base 3.3.16 de las Bases del Mercado Eléctrico) que hayan seguido las instrucciones de despacho, serán acreedores al pago de la Garantía de Suficiencia de Ingresos que en su caso corresponda, la cual considerará los costos de combustible, operación y mantenimiento señalados en el numeral 6.3.2 (d).</div>\n<div> 6.1.5.       Los Participantes del Mercado que consideren que los costos de referencia utilizados en el cálculo de la Garantía de Suficiencia de Ingresos (según se define en el Capítulo 6) no cubren los costos reales incurridos durante la Suspensión, podrán solicitar a la Unidad de Vigilancia del Mercado su revisión en términos de lo establecido en el Manual de Vigilancia del Mercado. La Unidad de Vigilancia del Mercado, analizará e instruirá al CENACE realizar los ajustes que considere necesarios, conforme lo estipulado en el Manual de Vigilancia del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 6",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c35ba654-509f-54aa-8345-8e9173f150a3",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 20,
+      "identificador": "Apartado 6.2. Definición del Periodo durante la Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6.2.         Definición del Periodo durante la Suspensión del Mercado</div>\n<div> 6.2.1.       El Periodo de Suspensión del Mercado se aplicará en horas, redondeando fracciones a horas completas. Por ejemplo, si la Declaratoria de Suspensión del Mercado comienza a las 00:15 h y termina a las 02:45 h del mismo día, el Periodo de Suspensión del Mercado sería de tres horas, es decir, 00:00-00:59 h (1), 01:00-01:59 h (2) y 02:00-02:59 h (3).</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 6",
+      "seccion_nombre": null
+    },
+    {
+      "id": "62fcc0ee-dccf-5324-aba8-76383441e568",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 21,
+      "identificador": "Apartado 6.3. Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Unidades de Central Eléctrica",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6.3.         Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Unidades de Central Eléctrica</div>\n<div> 6.3.1.       Para los Períodos de Suspensión del Mercado, el CENACE pagará a los generadores con base en las siguientes condiciones y premisas:</div>\n<div> (a)   El CENACE determinará los Precios de Energía y Servicios Conexos incluidos en el Mercado de Energía de Corto Plazo.</div>\n<div> (b)   La determinación de los Precios de los Nodos Distribuidos considerará los valores de los Precios Marginales Locales determinados en los nodosP afectados por la Suspensión del Mercado.</div>\n<div> 6.3.2.       Las reglas aplicables para la determinación de los Precios Marginales Locales, y la procedencia del pago por concepto de Garantía de Suficiencia de Ingresos serán las siguientes:</div>\n<div> (a)   Si la Suspensión del Mercado es Parcial y las condiciones que originan la Suspensión corresponden a lo dispuesto en los incisos (a) o (c) del numeral 2.1.2 de este Manual, se aplicará lo siguiente:</div>\n<div> i.      Los Precios Marginales Locales corresponderán a los Precios determinados en el Mercado del Día en Adelanto para el respectivo día de operación.</div>\n<div> ii.     El cálculo del monto diario de la Garantía de Suficiencia de Ingresos del Mercado de Tiempo Real de los generadores afectados por la Suspensión del Mercado considerará el Período de Suspensión del Mercado.</div>\n<div> (b)   Si la Suspensión del Mercado es Parcial y las condiciones que originan la Suspensión corresponden a lo dispuesto en el inciso (b) del numeral 2.1.2 de este Manual, se aplicará lo siguiente:</div>\n<div> i.      Los Precios Marginales Locales se determinarán a partir de simulaciones ExPost, considerando las condiciones operativas de demanda y disponibilidad que se presentaron durante la Operación en Tiempo Real.</div>\n<div> ii.     En su caso, la Garantía de Suficiencia de Ingresos del Mercado de Tiempo Real se otorgará de acuerdo con las reglas de cálculo establecidas en las Bases del Mercado Eléctrico y el Manual de Liquidaciones.</div>\n<div> (c)    Si la Suspensión del Mercado es Total y las condiciones que originan la Suspensión corresponden a lo dispuesto en los incisos (a), (b) o (c) del numeral 2.1.2 de este Manual, la determinación de los Precios Marginales Locales se realizará aplicando lo siguiente:</div>\n<div> i.      Los Precios Marginales Locales del Mercado del Día en Adelanto y de Tiempo Real corresponderán a los Precios del Mercado del Día en Adelanto determinados en la fecha y hora en que se obtuvo el valor promedio horario más bajo de los Precios Marginales Locales de los últimos 7 días, siempre que dicho valor promedio sea positivo. La determinación del valor promedio se realizará ponderando los Precios de cada nodoP con la demanda horaria de cada nodoP y considerando únicamente los nodos afectados por la Suspensión del Mercado. En caso de que la demanda total en los nodos afectados sea igual a cero, entonces la ponderación se hará en función de las inyecciones nodales.</div>\n<div> ii.     En estos casos, el Periodo de Suspensión será considerado en el cálculo de la Garantía de Suficiencia de Ingresos.</div>\n<div> (d)   Los costos de producción estimados de cada Unidad de Central Eléctrica afectada por la Suspensión del Mercado se determinarán en función de la última oferta válida presentada para el día de operación correspondiente. En caso de no contar con una oferta válida para el día de operación correspondiente, el CENACE determinará las ofertas por omisión con base en los Parámetros de Referencia registrados y los índices de Precios de Combustibles aplicables.</div>\n<div> 6.3.3.       Los Participantes del Mercado que hayan seguido las instrucciones de despacho podrán presentar a la CRE solicitudes de revisión de corrección de Garantía de Suficiencia de Ingresos, cuando puedan demostrar satisfactoriamente a la CRE que los Precios determinados y el pago de la Garantía de Suficiencia de Ingresos no cubren sus costos variables incrementales de combustible, operación y mantenimiento.</div>\n<div> 6.3.4.       Los Precios de Energía y Servicios Conexos para el Periodo de Suspensión del Mercado se publicarán en el Sistema de Información del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 6",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ee1fc705-dab9-59d4-a70a-a5aeb7516593",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 22,
+      "identificador": "Apartado 6.4. Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Entidades Responsables de Carga",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6.4.         Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Entidades Responsables de Carga</div>\n<div> 6.4.1.       Durante el tiempo que dure la Suspensión del Mercado, los Precios Marginales asociados a las Entidades Responsables de Carga que hubieran sido afectadas por la Suspensión del Mercado se determinarán considerando un promedio de los Precios Marginales Locales de los nodos afectados por tal Suspensión.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 6",
+      "seccion_nombre": null
+    },
+    {
+      "id": "e295cdf2-567b-58b5-bc85-060ac335e67f",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 23,
+      "identificador": "Apartado 6.5. Derechos Financieros de Transmisión y Contratos de Cobertura Eléctrica durante la Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6.5.         Derechos Financieros de Transmisión y Contratos de Cobertura Eléctrica durante la Suspensión del Mercado</div>\n<div> 6.5.1.       Durante la Suspensión del Mercado y únicamente en el caso de que no existan Precios del Mercado del Día en Adelanto, se utilizarán los Precios Marginales Locales de conformidad con lo dispuesto en el numeral 6.3.2, inciso (c) de este Manual, para liquidar los Derechos Financieros de Transmisión.</div>\n<div> 6.5.2.       Para el caso de los Contratos de Cobertura Eléctrica cuyos productos deban ser transmitidos a través de Transacciones Bilaterales Financieras, y solo en el caso de que el Mercado de Día en Adelanto se haya Suspendido y ese día sea el límite para ingresar las Transacciones Bilaterales correspondientes al DO+3, se podrá traspasar el valor de las operaciones que no hayan podido registrarse en otro día de operación.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 6",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7f4ced74-b836-5ad3-8859-20fdba2a8fa5",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 24,
+      "identificador": "Apartado 6.6. Mercados para el Balance de Potencia y Certificados de Energía Limpia durante la Suspensión del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6.6.         Mercados para el Balance de Potencia y Certificados de Energía Limpia durante la Suspensión del Mercado</div>\n<div> 6.6.1.       La Suspensión de alguno de los procesos del Mercado de Energía de Corto Plazo bajo los supuestos del numeral 2.1.2 de este Manual no generará indeterminaciones en los insumos del proceso del Mercado para el Balance de Potencia ni el proceso del Mercado de Certificados de Energía Limpia.</div>\n<div> 6.6.2.       En el caso del Mercado para el Balance de Potencia, se procederá de la siguiente manera:</div>\n<div> (a)   Los insumos del Mercado para el Balance de Potencia se obtendrán excluyendo de este los Periodos de Suspensión definidos en el numeral 6.2.1 y declarados bajo los supuestos del numeral 2.1.2 de este Manual, redefiniendo el año calendario utilizado en su cálculo. Para el caso de la Tecnología de Generación de Referencia, dicha exclusión solo aplicará para el cálculo de los ingresos de Mercado de dicha tecnología.</div>\n<div> (b)   Si durante las etapas de preparación o ejecución del Mercado para el Balance de Potencia existen Períodos de Suspensión, dichas etapas se pausarán y se reanudarán automáticamente una vez finalicen, prorrogables por un período igual a los Períodos de Suspensión. Es decir, el proceso de Mercado para el Balance de Potencia podrá realizarse después de febrero; de otra manera, si al finalizar los Períodos de Suspensión no se dispone de todo lo necesario para continuar el desarrollo de las etapas, se reanudarán hasta disponer de ello.</div>\n<div> 6.6.3.       En el caso de los Certificados de Energía Limpia, durante la Suspensión del Mercado, y sujeto a las mediciones disponibles, la CRE reconocerá los Certificados de Energía Limpia que correspondan a dicho Periodo.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 6",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ec3aadb5-4ba0-520a-95b7-9ae27c63b14b",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 25,
+      "identificador": "Manual · Capítulo 7 · Medios de impugnación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 7.<br> </div>\n<div> Medios de Impugnación<br> </div>\n<div> 7.1.1.       Las controversias que pudieran derivarse de este Manual se resolverán en los términos del Manual de Solución de Controversias.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 7",
+      "seccion_nombre": null
+    },
+    {
+      "id": "71ba3856-a632-5e9d-b635-5a6dc9a98026",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "orden": 26,
+      "identificador": "Manual · Capítulo 8 · Disposiciones transitorias",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CAPÍTULO 8.<br> </div>\n<div> Disposiciones Transitorias<br> </div>\n<div> 8.1.1.       El presente Manual entrará en vigor a partir del día hábil siguiente de su publicación en el Sistema de Información del Mercado y una vez que el CENACE notifique a los Participantes del Mercado a través del Buzón de Notificaciones del Área Segura del Sistema de Información del Mercado.</div>\n<div> (R.- 546833)<br> </div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "capitulo_nombre": "Manual · Capítulo 8",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Transitorios",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Índice",
+      "orden": 6
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 1",
+      "orden": 7
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 2",
+      "orden": 8
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 3",
+      "orden": 9
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 4",
+      "orden": 10
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 5",
+      "orden": 11
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 6",
+      "orden": 12
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 7",
+      "orden": 13
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Manual · Capítulo 8",
+      "orden": 14
+    }
+  ],
+  "fuente": {
+    "name": "MANUAL-SUSPENSION-MEM",
+    "code": "5714307",
+    "radar": "RAD-054",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+    "tipo": "manual",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+    "sha256": "a9b8df29029ff19a9ad68806cd7fdfe3caf11771b0b2bf2263b8d118769a6265",
+    "fecha": "12-01-2024",
+    "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo.",
+    "codDiario": 310942,
+    "pagina": 2,
+    "tables": 0,
+    "images": []
+  }
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "instrumento": "MANUAL-SUSPENSION-MEM",
+    "fragmentos_fuente": 26,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "BENEFICIO-REDES",
+    "fragmentos_fuente": 25,
+    "texto_completo_cotejado": true,
+    "tablas": 71,
+    "celdas": 1581,
+    "graficos": 52,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "DACG-ACCESO-REDES",
+    "fragmentos_fuente": 122,
+    "texto_completo_cotejado": true,
+    "tablas": 101,
+    "celdas": 2188,
+    "graficos": 130,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CEL-INSUBSISTENCIA",
+    "fragmentos_fuente": 4,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CEL-ASIGNACION-2022",
+    "fragmentos_fuente": 9,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 5,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "EXCLUSION-CARGAS-LEGADAS",
+    "fragmentos_fuente": 7,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "UNIDADES-INSPECCION",
+    "fragmentos_fuente": 56,
+    "texto_completo_cotejado": true,
+    "tablas": 24,
+    "celdas": 422,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "DACG-ELECTROMOVILIDAD",
+    "fragmentos_fuente": 24,
+    "texto_completo_cotejado": true,
+    "tablas": 4,
+    "celdas": 59,
+    "graficos": 19,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "LIQUIDACION-CARGAS-SUR",
+    "fragmentos_fuente": 12,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "MODELOS-INTERCONEXION",
+    "fragmentos_fuente": 47,
+    "texto_completo_cotejado": true,
+    "tablas": 3,
+    "celdas": 14,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "DACG-MECANISMOS-CENACE",
+    "fragmentos_fuente": 40,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 46,
+    "graficos": 113,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CARGO-TRANSMISION-LEGADOS",
+    "fragmentos_fuente": 12,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 12,
+    "graficos": 14,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "AVISO-PROGRAMA-CENACE",
+    "fragmentos_fuente": 4,
+    "texto_completo_cotejado": true,
+    "tablas": 0,
+    "celdas": 0,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  },
+  {
+    "instrumento": "CEL-REQUISITOS-2025-2026",
+    "fragmentos_fuente": 5,
+    "texto_completo_cotejado": true,
+    "tablas": 1,
+    "celdas": 6,
+    "graficos": 0,
+    "casillas": 0,
+    "estructura_de_celdas_identica": true
+  }
+]

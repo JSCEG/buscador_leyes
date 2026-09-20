@@ -1,0 +1,171 @@
+[
+  {
+    "instrumento": "MANUAL-SUSPENSION-MEM",
+    "pagina_inicial": 2,
+    "pagina_final": 16,
+    "paginas": 15,
+    "muestras_visuales": [
+      2,
+      16
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "BENEFICIO-REDES",
+    "pagina_inicial": 517,
+    "pagina_final": 547,
+    "paginas": 31,
+    "muestras_visuales": [
+      517,
+      547
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "DACG-ACCESO-REDES",
+    "pagina_inicial": 189,
+    "pagina_final": 304,
+    "paginas": 116,
+    "muestras_visuales": [
+      189,
+      300,
+      302,
+      304
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "CEL-INSUBSISTENCIA",
+    "pagina_inicial": 12,
+    "pagina_final": 13,
+    "paginas": 2,
+    "muestras_visuales": [
+      12,
+      13
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "CEL-ASIGNACION-2022",
+    "pagina_inicial": 139,
+    "pagina_final": 144,
+    "paginas": 6,
+    "muestras_visuales": [
+      139,
+      144
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "EXCLUSION-CARGAS-LEGADAS",
+    "pagina_inicial": 171,
+    "pagina_final": 179,
+    "paginas": 9,
+    "muestras_visuales": [
+      171,
+      179
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "UNIDADES-INSPECCION",
+    "pagina_inicial": 79,
+    "pagina_final": 117,
+    "paginas": 39,
+    "muestras_visuales": [
+      79,
+      117
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "DACG-ELECTROMOVILIDAD",
+    "pagina_inicial": 115,
+    "pagina_final": 135,
+    "paginas": 21,
+    "muestras_visuales": [
+      115,
+      135
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "LIQUIDACION-CARGAS-SUR",
+    "pagina_inicial": 179,
+    "pagina_final": 184,
+    "paginas": 6,
+    "muestras_visuales": [
+      179,
+      184
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "MODELOS-INTERCONEXION",
+    "pagina_inicial": 4,
+    "pagina_final": 20,
+    "paginas": 17,
+    "muestras_visuales": [
+      4,
+      20
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "DACG-MECANISMOS-CENACE",
+    "pagina_inicial": 54,
+    "pagina_final": 79,
+    "paginas": 26,
+    "muestras_visuales": [
+      54,
+      79
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "CARGO-TRANSMISION-LEGADOS",
+    "pagina_inicial": 31,
+    "pagina_final": 35,
+    "paginas": 5,
+    "muestras_visuales": [
+      31,
+      35
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "AVISO-PROGRAMA-CENACE",
+    "pagina_inicial": 189,
+    "pagina_final": 189,
+    "paginas": 1,
+    "muestras_visuales": [
+      189
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  },
+  {
+    "instrumento": "CEL-REQUISITOS-2025-2026",
+    "pagina_inicial": 44,
+    "pagina_final": 45,
+    "paginas": 2,
+    "muestras_visuales": [
+      44,
+      45
+    ],
+    "final_localizado": true,
+    "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+  }
+]

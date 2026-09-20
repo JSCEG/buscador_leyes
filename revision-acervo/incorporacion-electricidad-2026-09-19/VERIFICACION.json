@@ -1,0 +1,442 @@
+{
+  "estado": "CARGADOS_Y_COTEJADOS",
+  "fecha_local": "2026-09-19",
+  "instrumentos": [
+    {
+      "siglas": "MANUAL-SUSPENSION-MEM",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "fragmentos": 27,
+      "estructura": 15,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "BENEFICIO-REDES",
+      "ley_id": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+      "fragmentos": 26,
+      "estructura": 14,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "DACG-ACCESO-REDES",
+      "ley_id": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+      "fragmentos": 123,
+      "estructura": 14,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "CEL-INSUBSISTENCIA",
+      "ley_id": "947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+      "fragmentos": 5,
+      "estructura": 5,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "CEL-ASIGNACION-2022",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "fragmentos": 10,
+      "estructura": 7,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "EXCLUSION-CARGAS-LEGADAS",
+      "ley_id": "ac79c92a-b039-5907-a934-14511c7bdebf",
+      "fragmentos": 8,
+      "estructura": 6,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "UNIDADES-INSPECCION",
+      "ley_id": "40ca1503-43de-5551-b655-704cbeeee109",
+      "fragmentos": 57,
+      "estructura": 16,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "DACG-ELECTROMOVILIDAD",
+      "ley_id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "fragmentos": 25,
+      "estructura": 9,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "LIQUIDACION-CARGAS-SUR",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "fragmentos": 13,
+      "estructura": 8,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "MODELOS-INTERCONEXION",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "fragmentos": 48,
+      "estructura": 10,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "DACG-MECANISMOS-CENACE",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "fragmentos": 41,
+      "estructura": 13,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "CARGO-TRANSMISION-LEGADOS",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "fragmentos": 13,
+      "estructura": 7,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "AVISO-PROGRAMA-CENACE",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "fragmentos": 5,
+      "estructura": 6,
+      "cotejo_exacto": true,
+      "cobertura": "parcial"
+    },
+    {
+      "siglas": "CEL-REQUISITOS-2025-2026",
+      "ley_id": "ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+      "fragmentos": 6,
+      "estructura": 6,
+      "cotejo_exacto": true,
+      "cobertura": "cargado"
+    }
+  ],
+  "registros_anteriores_sin_cambios": true,
+  "catalogo_antes": {
+    "leyes": 68,
+    "articulos": 4121,
+    "temas": 1100
+  },
+  "catalogo_global": {
+    "leyes": 82,
+    "articulos": 4528,
+    "temas": 1236
+  },
+  "cotejo_fuentes": [
+    {
+      "instrumento": "MANUAL-SUSPENSION-MEM",
+      "fragmentos_fuente": 26,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "BENEFICIO-REDES",
+      "fragmentos_fuente": 25,
+      "texto_completo_cotejado": true,
+      "tablas": 71,
+      "celdas": 1581,
+      "graficos": 52,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "DACG-ACCESO-REDES",
+      "fragmentos_fuente": 122,
+      "texto_completo_cotejado": true,
+      "tablas": 101,
+      "celdas": 2188,
+      "graficos": 130,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CEL-INSUBSISTENCIA",
+      "fragmentos_fuente": 4,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CEL-ASIGNACION-2022",
+      "fragmentos_fuente": 9,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 5,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "EXCLUSION-CARGAS-LEGADAS",
+      "fragmentos_fuente": 7,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "UNIDADES-INSPECCION",
+      "fragmentos_fuente": 56,
+      "texto_completo_cotejado": true,
+      "tablas": 24,
+      "celdas": 422,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "DACG-ELECTROMOVILIDAD",
+      "fragmentos_fuente": 24,
+      "texto_completo_cotejado": true,
+      "tablas": 4,
+      "celdas": 59,
+      "graficos": 19,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "LIQUIDACION-CARGAS-SUR",
+      "fragmentos_fuente": 12,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "MODELOS-INTERCONEXION",
+      "fragmentos_fuente": 47,
+      "texto_completo_cotejado": true,
+      "tablas": 3,
+      "celdas": 14,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "DACG-MECANISMOS-CENACE",
+      "fragmentos_fuente": 40,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 46,
+      "graficos": 113,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CARGO-TRANSMISION-LEGADOS",
+      "fragmentos_fuente": 12,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 12,
+      "graficos": 14,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "AVISO-PROGRAMA-CENACE",
+      "fragmentos_fuente": 4,
+      "texto_completo_cotejado": true,
+      "tablas": 0,
+      "celdas": 0,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    },
+    {
+      "instrumento": "CEL-REQUISITOS-2025-2026",
+      "fragmentos_fuente": 5,
+      "texto_completo_cotejado": true,
+      "tablas": 1,
+      "celdas": 6,
+      "graficos": 0,
+      "casillas": 0,
+      "estructura_de_celdas_identica": true
+    }
+  ],
+  "alcance_pdf": [
+    {
+      "instrumento": "MANUAL-SUSPENSION-MEM",
+      "pagina_inicial": 2,
+      "pagina_final": 16,
+      "paginas": 15,
+      "muestras_visuales": [
+        2,
+        16
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "BENEFICIO-REDES",
+      "pagina_inicial": 517,
+      "pagina_final": 547,
+      "paginas": 31,
+      "muestras_visuales": [
+        517,
+        547
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "DACG-ACCESO-REDES",
+      "pagina_inicial": 189,
+      "pagina_final": 304,
+      "paginas": 116,
+      "muestras_visuales": [
+        189,
+        300,
+        302,
+        304
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CEL-INSUBSISTENCIA",
+      "pagina_inicial": 12,
+      "pagina_final": 13,
+      "paginas": 2,
+      "muestras_visuales": [
+        12,
+        13
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CEL-ASIGNACION-2022",
+      "pagina_inicial": 139,
+      "pagina_final": 144,
+      "paginas": 6,
+      "muestras_visuales": [
+        139,
+        144
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "EXCLUSION-CARGAS-LEGADAS",
+      "pagina_inicial": 171,
+      "pagina_final": 179,
+      "paginas": 9,
+      "muestras_visuales": [
+        171,
+        179
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "UNIDADES-INSPECCION",
+      "pagina_inicial": 79,
+      "pagina_final": 117,
+      "paginas": 39,
+      "muestras_visuales": [
+        79,
+        117
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "DACG-ELECTROMOVILIDAD",
+      "pagina_inicial": 115,
+      "pagina_final": 135,
+      "paginas": 21,
+      "muestras_visuales": [
+        115,
+        135
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "LIQUIDACION-CARGAS-SUR",
+      "pagina_inicial": 179,
+      "pagina_final": 184,
+      "paginas": 6,
+      "muestras_visuales": [
+        179,
+        184
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "MODELOS-INTERCONEXION",
+      "pagina_inicial": 4,
+      "pagina_final": 20,
+      "paginas": 17,
+      "muestras_visuales": [
+        4,
+        20
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "DACG-MECANISMOS-CENACE",
+      "pagina_inicial": 54,
+      "pagina_final": 79,
+      "paginas": 26,
+      "muestras_visuales": [
+        54,
+        79
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CARGO-TRANSMISION-LEGADOS",
+      "pagina_inicial": 31,
+      "pagina_final": 35,
+      "paginas": 5,
+      "muestras_visuales": [
+        31,
+        35
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "AVISO-PROGRAMA-CENACE",
+      "pagina_inicial": 189,
+      "pagina_final": 189,
+      "paginas": 1,
+      "muestras_visuales": [
+        189
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    },
+    {
+      "instrumento": "CEL-REQUISITOS-2025-2026",
+      "pagina_inicial": 44,
+      "pagina_final": 45,
+      "paginas": 2,
+      "muestras_visuales": [
+        44,
+        45
+      ],
+      "final_localizado": true,
+      "limite": "Alcance y muestras del PDF. La comparación textual y de celdas íntegra se realiza contra el HTML oficial. Los formularios gráficos conservan sus imágenes originales."
+    }
+  ]
+}

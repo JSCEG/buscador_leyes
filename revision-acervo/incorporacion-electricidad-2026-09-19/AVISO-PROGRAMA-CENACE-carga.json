@@ -1,0 +1,123 @@
+{
+  "ley": {
+    "id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+    "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
+    "siglas": "AVISO-PROGRAMA-CENACE",
+    "fecha_publicacion": "2026-04-30",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Programa Institucional CENACE 2026-2030"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+    "tipo": "aviso"
+  },
+  "articulos": [
+    {
+      "id": "44e3e907-b18a-5b99-84b5-797e2ee5b813",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 30/04/2026. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5786368). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nEsta ficha contiene únicamente el aviso de publicación. El programa completo es un documento distinto de 52 páginas, localizado en [el PDF oficial](https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf). Su texto, tablas e indicadores todavía no están incorporados al buscador; el inventario conserva la referencia con cobertura parcial.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "5f19daaf-29da-5d78-95e3-cf32c45d3b4f",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n AVISO mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Centro Nacional de Control de Energía.\n<div> RICARDO OCTAVIO ARTURO MOTA PALOMINO, Director General del Centro Nacional de Control de Energía, con fundamento en los artículos 25, párrafo quinto, 27, párrafo sexto, 28, párrafos cuarto y sexto y 90, párrafos primero y segundo de la Constitución Política de los Estados Unidos Mexicanos; 17, fracciones II y V, 22, 24, 26 bis, 30, 31, párrafo segundo de la Ley de Planeación; 24, fracción I de la Ley Federal de Presupuesto y Responsabilidad Hacendaria; 1o, párrafo tercero, 3o, fracción I y 45 de la Ley Orgánica de la Administración Pública Federal; 2o, 6o, párrafo primero, 11, 14, fracción I, 17, 22, fracción I, 47, 48, 49, 58 fracciones I y II, y 59, fracciones I, V y XIV de la Ley Federal de las Entidades Paraestatales; 22, primer párrafo del Reglamento de la Ley Federal de las Entidades Paraestatales; 123, 124, 125 y 126, párrafos primero y segundo de la Ley del Sector Eléctrico; PRIMERO, párrafo primero, SEGUNDO, TERCERO, fracción II, CUARTO, SEXTO, VIGÉSIMO PRIMERO, fracciones I y XI, y VIGÉSIMO CUARTO del Decreto por el que se crea el Centro Nacional de Control de Energía; así como en el Plan Nacional de Desarrollo 2025-2030 y el Programa Sectorial de Energía 2025-2030, y en el Acuerdo No. CA-002/2026, del Consejo de Administración del CENACE tomado en la 1ª. Sesión Extraordinaria, celebrada el 24 de febrero de 2026, tengo a bien emitir el siguiente:</div>\n<div> AVISO MEDIANTE EL CUAL SE INFORMA LA PUBLICACIÓN DEL PROGRAMA INSTITUCIONAL  2026-<br> 2030 DEL CENTRO NACIONAL DE CONTROL DE ENERGÍA<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Programa Institucional CENACE 2026-2030",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b49782a9-2449-5ff2-9e5a-2a0f6e4df52e",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "orden": 2,
+      "identificador": "Aviso · Identificación y medios de consulta",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Denominación: PROGRAMA INSTITUCIONAL 2026-2030 DEL CENTRO NACIONAL DE CONTROL DE ENERGÍA.</div>\n<div> Emisor: Centro Nacional de Control de Energía.</div>\n<div> Fecha de emisión: 13 de abril de 2026</div>\n<div> Medios de consulta: El documento está publicado en la siguiente liga de internet:</div>\n<div> https://www.gob.mx/cenace/documentos/programa-institucional-del-centro-nacional-de-control-de-energia-2026-2030</div>\n<div> DOF: www.dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Programa Institucional CENACE 2026-2030",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b184e3d3-a491-5154-99c5-298c84e4351e",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "orden": 3,
+      "identificador": "Transitorio Único",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TRANSITORIO<br> </div>\n<div> Único. El presente Aviso entrará en vigor el día de su publicación en el Diario Oficial de la Federación.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Programa Institucional CENACE 2026-2030",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b1fba549-79eb-5b90-aff3-c3d66efa8d61",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "orden": 4,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 13 de abril de 2026.- Director General del Centro Nacional de Control de Energía, Ricardo Octavio Arturo Mota Palomino.- Rúbrica.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Programa Institucional CENACE 2026-2030",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Programa Institucional CENACE 2026-2030",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Transitorios",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 5
+    }
+  ],
+  "fuente": {
+    "name": "AVISO-PROGRAMA-CENACE",
+    "code": "5786368",
+    "radar": "RAD-081",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Programa Institucional CENACE 2026-2030",
+    "tipo": "aviso",
+    "estado_radar": "Publicado por aviso",
+    "cobertura": "parcial",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+    "sha256": "833ffacba038c68fbc46364f992d3c3d8025ea50f2bb2ed0d1b4b52f124eaf94",
+    "fecha": "30-04-2026",
+    "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía.",
+    "codDiario": 327005,
+    "pagina": 189,
+    "tables": 0,
+    "images": []
+  }
+}

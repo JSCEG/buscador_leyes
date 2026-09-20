@@ -1,0 +1,1581 @@
+[
+  {
+    "name": "MANUAL-SUSPENSION-MEM",
+    "code": "5714307",
+    "radar": "RAD-054",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+    "tipo": "manual",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+    "sha256": "a9b8df29029ff19a9ad68806cd7fdfe3caf11771b0b2bf2263b8d118769a6265",
+    "fecha": "12-01-2024",
+    "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo.",
+    "codDiario": 310942,
+    "pagina": 2,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "BENEFICIO-REDES",
+    "code": "5714631",
+    "radar": "RAD-056",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Beneficio neto de obras particulares en PAM y cesión de redes",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5714631",
+    "sha256": "15e788c2125a744786340de81ad2196fe9426a7ff72a697a1f69e695f3d97e5b",
+    "fecha": "18-01-2024",
+    "titulo": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica.",
+    "codDiario": 311042,
+    "pagina": 517,
+    "tables": 71,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_4368.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_16399.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_17785.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_19215.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_20590.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_22515.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_24841.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_47932.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_78463.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_101312.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_223472.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_235310.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_236682.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_237532.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_238922.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_240729.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_242256.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_243624.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_245497.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_246739.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_258584.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_259862.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_260708.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_262110.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_263929.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_265552.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_266941.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_268491.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_269871.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_271446.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_272694.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_279817.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_281448.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_282828.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_284688.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_286068.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_287930.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_289178.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_295918.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_297447.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_298827.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_300631.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_302011.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_303807.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_305055.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_312132.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_313688.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_315077.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_316904.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_318293.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_320111.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/18/MAT/cre_1_Cimg_379890.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "DACG-ACCESO-REDES",
+    "code": "5714880",
+    "radar": "RAD-057",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Acceso abierto a RNT y RGD",
+    "tipo": "dacg",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5714880",
+    "sha256": "0e93dfc187006a5d565e91e86de8b43617a32df29ef1bd602aa03f651039c1ec",
+    "fecha": "23-01-2024",
+    "titulo": "Acuerdo Núm. A/025/2023 por el que la Comisión Reguladora de Energía modifica la resolución Núm. RES/948/2015 por la que se expiden las Disposiciones Administrativas de Carácter General en materia de acceso abierto y prestación de los servicios en la Red Nacional de Transmisión y las Redes Generales de Distribución de energía eléctrica.",
+    "codDiario": 311101,
+    "pagina": 189,
+    "tables": 101,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_2888.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_5605.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_20215.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_35086.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_50545.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_67609.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_69855.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_72101.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_74437.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_76773.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_79109.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_81445.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_84718.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_87054.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_90327.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_92663.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_95167.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_97671.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_99948.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_102225.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_104600.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_106975.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_109350.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_111725.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_114469.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_118312.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_135204.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_145953.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_154518.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_252749.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_270080.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_297902.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_329400.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_346636.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_355267.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_400691.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_448983.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_466461.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_478464.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_495146.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_503930.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_547137.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_563450.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_578866.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_595300.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_626860.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_644313.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_652946.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_1550230.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_2462709.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_3394048.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4376942.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4393848.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4410514.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4426500.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4444241.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4461579.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4478917.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4495895.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4511911.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4528815.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4544863.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4561559.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4578388.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4594505.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4610622.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4627048.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4647921.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4649925.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4652012.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4654149.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4656386.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4661148.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4674088.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4678636.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4682271.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4690322.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4697439.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4701231.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4708710.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4712052.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4715905.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4720845.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4725873.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4740329.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4743535.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4746843.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4751097.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4755416.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4763030.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4774550.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4777617.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4780767.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4784380.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4789775.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4794816.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4804008.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4807335.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4811180.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4816316.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4821515.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4835998.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4839228.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4842539.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4846263.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4850066.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4854781.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4859715.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4874977.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4879103.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4887770.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4897548.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4901274.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4910303.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4919260.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4923000.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4931524.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4940228.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4944063.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4952630.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4961305.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4965024.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4971735.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4975974.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4982799.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_4991884.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_5168259.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_5335405.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/01/23/MAT/cre_1_Cimg_5534386.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "CEL-INSUBSISTENCIA",
+    "code": "5719864",
+    "radar": "RAD-058",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Insubsistencia del acuerdo modificatorio de los lineamientos CEL de 2019",
+    "tipo": "acuerdo",
+    "estado_radar": "Define retorno al marco previo",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5719864",
+    "sha256": "6800298915fc6a1f6b49db5bf254632f974ed99cf36e832a0aa490fdeb488eb1",
+    "fecha": "12-03-2024",
+    "titulo": "Acuerdo por el que se informa a todos los participantes del mercado eléctrico mayorista y a la población en general, que han quedado insubsistentes el \"Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014\" y el \"Acuerdo por el que se reforma el Segundo Transitorio del Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014, publicado el 28 de octubre de 2019\", publicados en el Diario Oficial de la Federación el 28 de octubre y 10 de diciembre de 2019, respectivamente.",
+    "codDiario": 312082,
+    "pagina": 12,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "CEL-ASIGNACION-2022",
+    "code": "5722482",
+    "radar": "RAD-059",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Asignación de CEL disponibles, obligación 2022",
+    "tipo": "acuerdo",
+    "estado_radar": "Acto ejecutado",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+    "sha256": "b0ca5fee4960a5869ae2b8c7fca19e09f1ea49f1098aeb66cce910660868818b",
+    "fecha": "08-04-2024",
+    "titulo": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022.",
+    "codDiario": 312601,
+    "pagina": 139,
+    "tables": 0,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_7098.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_97855.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_108840.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_115482.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "EXCLUSION-CARGAS-LEGADAS",
+    "code": "5724250",
+    "radar": "RAD-061",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Exclusión de centros de carga de autoabastecimiento o cogeneración legada",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio; revisar lineamientos de migración 2026",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5724250",
+    "sha256": "e729dca454aa80d5b5b3853daf816ad89e801e3de0cb889a25e9db50e22617a8",
+    "fecha": "23-04-2024",
+    "titulo": "Acuerdo Núm. A/023/2024 de la Comisión Reguladora de Energía mediante el cual se modifica el Acuerdo A/064/2017 por el que se reconoce a los integrantes de una sociedad de autoabastecimiento o de un permiso de cogeneración de energía eléctrica, el derecho a solicitar directamente la exclusión de sus centros de carga del permiso y del contrato de interconexión legado respectivo.",
+    "codDiario": 312941,
+    "pagina": 171,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "UNIDADES-INSPECCION",
+    "code": "5727366",
+    "radar": "RAD-062",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Unidades de inspección para centros de carga, generación, transmisión y distribución",
+    "tipo": "dacg",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5727366",
+    "sha256": "25fe95266dbcb31ec5595fa9d6b790ddf22d6892d3a147bdcb7e520258fbbee9",
+    "fecha": "20-05-2024",
+    "titulo": "Acuerdo Núm. A/054/2024 de la Comisión Reguladora de Energía por el que se expiden las Disposiciones Administrativas de Carácter General que establecen las bases normativas para autorizar unidades de inspección de requerimientos para centros de carga y de la industria eléctrica en las áreas de generación, transmisión y distribución de energía eléctrica, así como el procedimiento aplicable a inspecciones y las condiciones de operación de las unidades de inspección.",
+    "codDiario": 313401,
+    "pagina": 79,
+    "tables": 24,
+    "images": []
+  },
+  {
+    "name": "DACG-ELECTROMOVILIDAD",
+    "code": "5738646",
+    "radar": "RAD-064",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Electromovilidad e infraestructura de carga conectada al SEN",
+    "tipo": "dacg",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5738646",
+    "sha256": "d911780f43cc9542384714a8135e90e5b78b2c366f038c92c5ca56cdd11ba258",
+    "fecha": "10-09-2024",
+    "titulo": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente.",
+    "codDiario": 315901,
+    "pagina": 115,
+    "tables": 4,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_50517.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_103404.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_165123.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_210521.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_343912.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_351790.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_365573.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_376256.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_384086.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_395452.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_408820.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_422247.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_436897.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_450835.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_468905.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_988024.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_1264950.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/09/10/MAT/cre_1_Cimg_1685208.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "LIQUIDACION-CARGAS-SUR",
+    "code": "5748078",
+    "radar": "RAD-065",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+    "sha256": "da2c73bc90b26211184f04981adfef5852a6e4867bb9beba326eddd7ff7a2348",
+    "fecha": "30-01-2025",
+    "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso.",
+    "codDiario": 319022,
+    "pagina": 179,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "MODELOS-INTERCONEXION",
+    "code": "5782317",
+    "radar": "RAD-070",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Interconexión y conexión de centrales, SAEE y centros de carga",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+    "sha256": "c4657658696fe743f0c30cf6fbea15b94718b742dc3a2ceda9b2fbc69b89d621",
+    "fecha": "17-03-2026",
+    "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga.",
+    "codDiario": 326145,
+    "pagina": 4,
+    "tables": 3,
+    "images": []
+  },
+  {
+    "name": "DACG-MECANISMOS-CENACE",
+    "code": "5784027",
+    "radar": "RAD-071",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+    "tipo": "dacg",
+    "estado_radar": "Vigente",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+    "sha256": "d08fa19a6f5b736ff81235cf4280c874ea6b3f0fecfdbad0f5d966a57ce107c8",
+    "fecha": "03-04-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional.",
+    "codDiario": 326465,
+    "pagina": 54,
+    "tables": 1,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_736.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_2527.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_4318.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_5054.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_6565.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_8300.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_20666.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_32925.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_34480.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_35991.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_37726.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_39461.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_54776.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_64393.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_65948.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_67459.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_86073.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_101209.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_111669.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_122192.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_129878.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_137494.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_148193.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_159025.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_160196.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_175119.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_188616.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_200033.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_202536.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_203272.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_204783.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_206688.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_210608.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_211344.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_212923.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_216482.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_217218.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_218689.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_220588.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_223655.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_224391.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_225902.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_227373.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_229272.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_231871.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_232607.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_234078.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_235977.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_238905.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_240804.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_244508.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_245244.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_246715.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_248010.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_251542.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_252278.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_254177.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_257572.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_258308.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_260207.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_262147.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_263334.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_264070.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_265649.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_269048.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_270947.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_275024.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_275760.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_277231.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_279122.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_281021.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_283684.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_284420.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_285931.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_287830.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_291763.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_292499.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_294078.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_297945.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_298681.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_300192.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_302091.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_305886.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_306622.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_308133.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_310032.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_313258.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_313994.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_315505.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_316976.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_318875.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_321869.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_322605.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_324116.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_325959.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_328730.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_329466.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_330977.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_332820.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_335523.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_336259.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_337770.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_339613.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_342632.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_344187.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_346030.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_348895.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_350450.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_352293.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_355468.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_356204.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_357715.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "CARGO-TRANSMISION-LEGADOS",
+    "code": "5790939",
+    "radar": "RAD-076",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Cargo de transmisión para permisos legados LSPEE",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente",
+    "observacion": "El transitorio primero fija entrada en vigor el 19 de octubre de 2026; no se presenta como vigente al corte del 19 de septiembre.",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+    "sha256": "460474516ffe573722c5f719941f45662bdf107fff30cced8f8815cb24df5bc7",
+    "fecha": "18-06-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica.",
+    "codDiario": 327985,
+    "pagina": 31,
+    "tables": 1,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_8049.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_10133.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_11611.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_13163.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_15186.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_16738.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_18937.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_20489.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_23511.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_25063.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_27796.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_29348.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/06/18/MAT/sener_3_Cimg_30763.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "AVISO-PROGRAMA-CENACE",
+    "code": "5786368",
+    "radar": "RAD-081",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Programa Institucional CENACE 2026-2030",
+    "tipo": "aviso",
+    "estado_radar": "Publicado por aviso",
+    "cobertura": "parcial",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+    "sha256": "833ffacba038c68fbc46364f992d3c3d8025ea50f2bb2ed0d1b4b52f124eaf94",
+    "fecha": "30-04-2026",
+    "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía.",
+    "codDiario": 327005,
+    "pagina": 189,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "CEL-REQUISITOS-2025-2026",
+    "code": "5796405",
+    "radar": "RAD-060",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Requisitos para la adquisición de CEL en los periodos 2025 y 2026",
+    "tipo": "acuerdo",
+    "estado_radar": "Referencia de alcance temporal: periodos 2025 y 2026",
+    "identificacion": "Nota identificada en el índice DOF del 17 de agosto de 2026.",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5796405",
+    "sha256": "59efa274676a3066ce95c60c4e4fa4766f859c99d28c28f239475d399a2cb959",
+    "fecha": "17-08-2026",
+    "titulo": "Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026.",
+    "codDiario": 329125,
+    "pagina": 44,
+    "tables": 1,
+    "images": []
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "name": "MANUAL-SUSPENSION-MEM",
+    "code": "5714307",
+    "radar": "RAD-054",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+    "tipo": "manual",
+    "estado_radar": "Vigente/transitorio"
+  },
+  {
+    "name": "BENEFICIO-REDES",
+    "code": "5714631",
+    "radar": "RAD-056",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Beneficio neto de obras particulares en PAM y cesión de redes",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio"
+  },
+  {
+    "name": "DACG-ACCESO-REDES",
+    "code": "5714880",
+    "radar": "RAD-057",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Acceso abierto a RNT y RGD",
+    "tipo": "dacg",
+    "estado_radar": "Vigente/transitorio"
+  },
+  {
+    "name": "CEL-INSUBSISTENCIA",
+    "code": "5719864",
+    "radar": "RAD-058",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Insubsistencia del acuerdo modificatorio de los lineamientos CEL de 2019",
+    "tipo": "acuerdo",
+    "estado_radar": "Define retorno al marco previo"
+  },
+  {
+    "name": "CEL-ASIGNACION-2022",
+    "code": "5722482",
+    "radar": "RAD-059",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Asignación de CEL disponibles, obligación 2022",
+    "tipo": "acuerdo",
+    "estado_radar": "Acto ejecutado"
+  },
+  {
+    "name": "EXCLUSION-CARGAS-LEGADAS",
+    "code": "5724250",
+    "radar": "RAD-061",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Exclusión de centros de carga de autoabastecimiento o cogeneración legada",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio; revisar lineamientos de migración 2026"
+  },
+  {
+    "name": "UNIDADES-INSPECCION",
+    "code": "5727366",
+    "radar": "RAD-062",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Unidades de inspección para centros de carga, generación, transmisión y distribución",
+    "tipo": "dacg",
+    "estado_radar": "Vigente/transitorio"
+  },
+  {
+    "name": "DACG-ELECTROMOVILIDAD",
+    "code": "5738646",
+    "radar": "RAD-064",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Electromovilidad e infraestructura de carga conectada al SEN",
+    "tipo": "dacg",
+    "estado_radar": "Vigente/transitorio"
+  },
+  {
+    "name": "LIQUIDACION-CARGAS-SUR",
+    "code": "5748078",
+    "radar": "RAD-065",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente/transitorio"
+  },
+  {
+    "name": "MODELOS-INTERCONEXION",
+    "code": "5782317",
+    "radar": "RAD-070",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Interconexión y conexión de centrales, SAEE y centros de carga",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente"
+  },
+  {
+    "name": "DACG-MECANISMOS-CENACE",
+    "code": "5784027",
+    "radar": "RAD-071",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+    "tipo": "dacg",
+    "estado_radar": "Vigente"
+  },
+  {
+    "name": "CARGO-TRANSMISION-LEGADOS",
+    "code": "5790939",
+    "radar": "RAD-076",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Cargo de transmisión para permisos legados LSPEE",
+    "tipo": "acuerdo",
+    "estado_radar": "Vigente",
+    "observacion": "El transitorio primero fija entrada en vigor el 19 de octubre de 2026; no se presenta como vigente al corte del 19 de septiembre."
+  },
+  {
+    "name": "AVISO-PROGRAMA-CENACE",
+    "code": "5786368",
+    "radar": "RAD-081",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Programa Institucional CENACE 2026-2030",
+    "tipo": "aviso",
+    "estado_radar": "Publicado por aviso",
+    "cobertura": "parcial"
+  },
+  {
+    "name": "CEL-REQUISITOS-2025-2026",
+    "code": "5796405",
+    "radar": "RAD-060",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Requisitos para la adquisición de CEL en los periodos 2025 y 2026",
+    "tipo": "acuerdo",
+    "estado_radar": "Referencia de alcance temporal: periodos 2025 y 2026",
+    "identificacion": "Nota identificada en el índice DOF del 17 de agosto de 2026."
+  }
+]

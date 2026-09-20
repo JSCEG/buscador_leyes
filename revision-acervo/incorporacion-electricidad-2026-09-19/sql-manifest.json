@@ -1,0 +1,114 @@
+[
+  {
+    "name": "MANUAL-SUSPENSION-MEM",
+    "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+    "fragmentos": 27,
+    "temas": 15,
+    "chars": 74880,
+    "sha256": "1b3f6487a42f2a42c98af855735f87009ba1d29ba35a9b0e43d16d2b5648e492"
+  },
+  {
+    "name": "BENEFICIO-REDES",
+    "ley_id": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+    "fragmentos": 26,
+    "temas": 14,
+    "chars": 159623,
+    "sha256": "a2c36739e48d164ff04c81ae848da8113bac9259962f39a8cb26b92e3e4bc874"
+  },
+  {
+    "name": "DACG-ACCESO-REDES",
+    "ley_id": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+    "fragmentos": 123,
+    "temas": 14,
+    "chars": 511755,
+    "sha256": "da40f2e82caab24d80b6ab21c47b24b288b1e82c6c4fcca50022988e4f5d3b21"
+  },
+  {
+    "name": "CEL-INSUBSISTENCIA",
+    "ley_id": "947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+    "fragmentos": 5,
+    "temas": 5,
+    "chars": 17539,
+    "sha256": "bad27e4cf8158bd8bbf9cf3723b87a9b736d44877916f8209b283bc441db713b"
+  },
+  {
+    "name": "CEL-ASIGNACION-2022",
+    "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+    "fragmentos": 10,
+    "temas": 7,
+    "chars": 34233,
+    "sha256": "bb8cd04d6b53127c204ddf7cb9cf66e53259827d5dc69bdd62d8bcf8d3695e2b"
+  },
+  {
+    "name": "EXCLUSION-CARGAS-LEGADAS",
+    "ley_id": "ac79c92a-b039-5907-a934-14511c7bdebf",
+    "fragmentos": 8,
+    "temas": 6,
+    "chars": 50515,
+    "sha256": "5dee17d83d93fbb8d34829d178faf56c688b8cac796f8c0cd04c273e8d2edef7"
+  },
+  {
+    "name": "UNIDADES-INSPECCION",
+    "ley_id": "40ca1503-43de-5551-b655-704cbeeee109",
+    "fragmentos": 57,
+    "temas": 16,
+    "chars": 190914,
+    "sha256": "7d9059a6f835749f7c8619f16ed8d760a5a2ae58b98922fd0190d2df72ae078e"
+  },
+  {
+    "name": "DACG-ELECTROMOVILIDAD",
+    "ley_id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+    "fragmentos": 25,
+    "temas": 9,
+    "chars": 97786,
+    "sha256": "8b37fbe5e2d872dff34e7291074ffaacf0e342e68ea7afa9c0fe09d2cae138d3"
+  },
+  {
+    "name": "LIQUIDACION-CARGAS-SUR",
+    "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+    "fragmentos": 13,
+    "temas": 8,
+    "chars": 38423,
+    "sha256": "21b489cc546d9836e901cd7be6aea2317951cf5bbf8560da464994a61e6993cb"
+  },
+  {
+    "name": "MODELOS-INTERCONEXION",
+    "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+    "fragmentos": 48,
+    "temas": 10,
+    "chars": 98892,
+    "sha256": "580031041943b9cbbb42d6a176d99b85788966190e20c6b60c524ebc536eea11"
+  },
+  {
+    "name": "DACG-MECANISMOS-CENACE",
+    "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+    "fragmentos": 41,
+    "temas": 13,
+    "chars": 164804,
+    "sha256": "d36f05dc8dadb0cce3f6425c6c94d219705cdf620031f248be436927abd63f6f"
+  },
+  {
+    "name": "CARGO-TRANSMISION-LEGADOS",
+    "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+    "fragmentos": 13,
+    "temas": 7,
+    "chars": 39048,
+    "sha256": "c77e9814626f26c5e3b70d48d868c4393d6db1f28d71c3c2fda59bf44d94d21b"
+  },
+  {
+    "name": "AVISO-PROGRAMA-CENACE",
+    "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+    "fragmentos": 5,
+    "temas": 6,
+    "chars": 9201,
+    "sha256": "0c1b7f2537d9975a73904ee2510d63218932625bff56d9d2efc9b9382e7be7f3"
+  },
+  {
+    "name": "CEL-REQUISITOS-2025-2026",
+    "ley_id": "ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+    "fragmentos": 6,
+    "temas": 6,
+    "chars": 15828,
+    "sha256": "be96b86e398a5dd3e03ffb720eed33f8c4472d26e315dab879edf9d8cbbce509"
+  }
+]

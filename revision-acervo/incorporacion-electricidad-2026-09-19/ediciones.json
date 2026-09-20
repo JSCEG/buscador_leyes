@@ -1,0 +1,114 @@
+[
+  {
+    "name": "MANUAL-SUSPENSION-MEM",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/12-01-2024/Vespertina/310942",
+    "file": "MANUAL-SUSPENSION-MEM-edicion.pdf",
+    "sha256": "e140498db008332e78d1773e5bb87a89a2420e2b518547e7457a6f23820eceb2",
+    "bytes": 498213,
+    "pagina": 2
+  },
+  {
+    "name": "BENEFICIO-REDES",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/18-01-2024/Matutina/311042",
+    "file": "BENEFICIO-REDES-edicion.pdf",
+    "sha256": "f19d7306421896e2fb023a6d97b156233714ffb65876177c9849330f13bd1abe",
+    "bytes": 6871809,
+    "pagina": 517
+  },
+  {
+    "name": "DACG-ACCESO-REDES",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/23-01-2024/Matutina/311101",
+    "file": "DACG-ACCESO-REDES-edicion.pdf",
+    "sha256": "69abcd4beaa791bbde64666099c23ba394e7db0f9a23ab0ef09717a34e014743",
+    "bytes": 14913571,
+    "pagina": 189
+  },
+  {
+    "name": "CEL-INSUBSISTENCIA",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/12-03-2024/Matutina/312082",
+    "file": "CEL-INSUBSISTENCIA-edicion.pdf",
+    "sha256": "8d03c52e53413d9d4c1eba9126f7e3076844a5344ccbf6cc7f865db67be0f7eb",
+    "bytes": 9108207,
+    "pagina": 12
+  },
+  {
+    "name": "CEL-ASIGNACION-2022",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601",
+    "file": "CEL-ASIGNACION-2022-edicion.pdf",
+    "sha256": "fd0f00ae1f140ae00bca0e33184f51904b2522221f7d27e82219a9b952c942e8",
+    "bytes": 2859203,
+    "pagina": 139
+  },
+  {
+    "name": "EXCLUSION-CARGAS-LEGADAS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/23-04-2024/Matutina/312941",
+    "file": "EXCLUSION-CARGAS-LEGADAS-edicion.pdf",
+    "sha256": "6cd76cba5f7dcf1c46a790e32f7382908d30f744ca232fa350c710471bc8ee9f",
+    "bytes": 4873186,
+    "pagina": 171
+  },
+  {
+    "name": "UNIDADES-INSPECCION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/20-05-2024/Matutina/313401",
+    "file": "UNIDADES-INSPECCION-edicion.pdf",
+    "sha256": "ff2228046bb3d69539afcb8e5e12ce20e28b5e03c657807452db5d88f20e8131",
+    "bytes": 6150267,
+    "pagina": 79
+  },
+  {
+    "name": "DACG-ELECTROMOVILIDAD",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/10-09-2024/Matutina/315901",
+    "file": "DACG-ELECTROMOVILIDAD-edicion.pdf",
+    "sha256": "a1b0ce65ba69fa6689b1694186b88bae03e6528b9ebc30784b3fefbb78dae855",
+    "bytes": 11238404,
+    "pagina": 115
+  },
+  {
+    "name": "LIQUIDACION-CARGAS-SUR",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/30-01-2025/Matutina/319022",
+    "file": "LIQUIDACION-CARGAS-SUR-edicion.pdf",
+    "sha256": "6f61392bee73b51fd93fb684f7349c202b405c8a275ac6b0f0e20c10b065b5ae",
+    "bytes": 6473246,
+    "pagina": 179
+  },
+  {
+    "name": "MODELOS-INTERCONEXION",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/17-03-2026/Matutina/326145",
+    "file": "MODELOS-INTERCONEXION-edicion.pdf",
+    "sha256": "3ae8c9b91d329d0508aafcd558e552fa7361c90c01d8ca3ac839a721175dcc34",
+    "bytes": 4902977,
+    "pagina": 4
+  },
+  {
+    "name": "DACG-MECANISMOS-CENACE",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/03-04-2026/Matutina/326465",
+    "file": "DACG-MECANISMOS-CENACE-edicion.pdf",
+    "sha256": "cd053ad61462f87ac2a5870d75ba0ee7aaf650229167a2bbfaa52d15a1c92046",
+    "bytes": 4458472,
+    "pagina": 54
+  },
+  {
+    "name": "CARGO-TRANSMISION-LEGADOS",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/18-06-2026/Matutina/327985",
+    "file": "CARGO-TRANSMISION-LEGADOS-edicion.pdf",
+    "sha256": "4fb0664039a940ee5f281059d741aa8bafff6b713ff969e60af49ed248331c49",
+    "bytes": 5584306,
+    "pagina": 31
+  },
+  {
+    "name": "AVISO-PROGRAMA-CENACE",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/30-04-2026/Matutina/327005",
+    "file": "AVISO-PROGRAMA-CENACE-edicion.pdf",
+    "sha256": "8c7956f18f1e1c92ae928fba2e72ab33ca5a86565116b83cf869a39ab1b2de8b",
+    "bytes": 6641594,
+    "pagina": 189
+  },
+  {
+    "name": "CEL-REQUISITOS-2025-2026",
+    "url": "https://sidof.segob.gob.mx/notas/getNewsletter/17-08-2026/Matutina/329125",
+    "file": "CEL-REQUISITOS-2025-2026-edicion.pdf",
+    "sha256": "46b5daef3c0bafff1716c204d6e060580ad24b8ad1361fbb21e275deec9f8472",
+    "bytes": 14817170,
+    "pagina": 44
+  }
+]

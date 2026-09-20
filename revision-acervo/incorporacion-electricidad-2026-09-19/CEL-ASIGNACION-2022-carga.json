@@ -1,0 +1,203 @@
+{
+  "ley": {
+    "id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+    "titulo": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022",
+    "siglas": "CEL-ASIGNACION-2022",
+    "fecha_publicacion": "2024-04-08",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Asignación de CEL disponibles, obligación 2022"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+    "tipo": "acuerdo"
+  },
+  "articulos": [
+    {
+      "id": "fed306e6-603d-5417-bc74-244d997ec72b",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 08/04/2024. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5722482). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nEl criterio corresponde al año de obligación 2022. El radar lo identifica como acto ejecutado; no se presenta como una nueva convocatoria de asignación.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "5b4a54b6-2107-5c2d-af3b-830553630480",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n ACUERDO Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Reguladora de Energía.\n<div> ACUERDO Núm. A/007/2024<br> </div>\n<div> ACUERDO DE LA COMISIÓN REGULADORA DE ENERGÍA POR EL QUE SE ESTABLECE EL CRITERIO PARA LA ASIGNACIÓN DE CERTIFICADOS DE ENERGÍAS LIMPIAS DISPONIBLES EN LA CUENTA DE LA COMISIÓN REGULADORA DE ENERGÍA, CORRESPONDIENTES AL AÑO DE OBLIGACIÓN 2022</div>\n<div> En sesión ordinaria celebrada el 30 de enero de 2024, el Órgano de Gobierno de la Comisión Reguladora de Energía, con fundamento en los artículos 28, párrafo octavo de la Constitución Política de los Estados Unidos Mexicanos; 1, 2, fracción III y 43 Ter de la Ley Orgánica de la Administración Pública Federal; 1, 2, fracción II, 3, párrafo primero, 4, párrafo primero, 5, 22, fracciones I, II, III, X y XXVII, 41, fracción III y 42 de la Ley de los Órganos Reguladores Coordinados en Materia Energética; 1, 2, 3, fracción VIII, 4, fracción V, 6, fracción II, 7, 12, fracciones XVI, XVII, XVIII, XX, XLIX y LII, 122, 123, 125, 126, fracción III, 127 y 128 de la Ley de la Industria Eléctrica reformada mediante Decreto publicado en el Diario Oficial de la Federación el 06 de noviembre de 2020; Transitorio Vigésimo Segundo de la Ley de Transición Energética; 1, 2, 3, 4 y 12 de la Ley Federal de Procedimiento Administrativo; 1, 2, 7, fracción I, 12, 16, 18, fracciones I, XVIII, XLIII y XLIV del Reglamento Interno de la Comisión Reguladora de Energía publicado en el Diario Oficial de la Federación el 28 de abril de 2017 y su modificación publicada en el mismo medio de difusión el 11 de abril de 2019; y la disposición 34 de las Disposiciones Administrativas de Carácter General para el funcionamiento del Sistema de Gestión de Certificados y Cumplimiento de Obligaciones de Energías Limpias, y</div>\n<div> CONSIDERANDO<br> </div>\n<div> PRIMERO. Que de conformidad con lo dispuesto en los artículos 28, párrafo octavo, de la Constitución Política de los Estados Unidos Mexicanos, 1, 2, fracción III y 43 Ter de la Ley Orgánica de la Administración Pública Federal y 1, 2, fracción II, 3, párrafo primero, 4, párrafo primero, y 41 de la Ley de Órganos Reguladores Coordinados en Materia Energética (LORCME), la Comisión Reguladora de Energía (Comisión) es una dependencia de la Administración Pública Federal Centralizada con carácter de Órgano Regulador Coordinado en Materia Energética, con personalidad jurídica, autonomía técnica, operativa y de gestión, que tiene a su cargo, entre otras atribuciones, las previstas en la Ley de la Industria Eléctrica y demás disposiciones jurídicas aplicables.</div>\n<div> SEGUNDO. Que los artículos 22, fracciones I, II y III, 41, fracción III y 42 de la LORCME, establecen que, la Comisión tiene las atribuciones de emitir sus actos y resoluciones con autonomía técnica, operativa y de gestión, así como regular y promover, entre otros, (i) el desarrollo eficiente de la generación de electricidad, los servicios públicos de transmisión y distribución eléctrica, la transmisión y distribución eléctrica que no forma parte del servicio público y la comercialización de electricidad, (ii) la competencia en el sector, (iii) la protección de los intereses de los usuarios, (iv) una adecuada cobertura nacional y (v) la atención a confiabilidad, estabilidad y seguridad en el suministro y la prestación de los servicios.</div>\n<div> TERCERO. Que el 11 de agosto de 2014, se publicó en el Diario Oficial de la Federación (DOF) la Ley de la Industria Eléctrica, la cual tiene por finalidad promover el desarrollo sustentable de la industria eléctrica, garantizar su operación continua, eficiente y segura en beneficio de los usuarios, así como el cumplimiento de las obligaciones de servicio público y universal, de Energías Limpias y de reducción de emisiones contaminantes.</div>\n<div> En concordancia con lo anterior, el 31 de octubre de 2014, se publicaron en el DOF los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición (Lineamientos) mismos que, de acuerdo con lo establecido en su numeral 2, tienen como finalidad cumplir el objetivo de los Certificados de Energías Limpias (CEL) de contribuir a lograr las metas de la política en materia de participación de las Energías Limpias en la generación de energía eléctrica, con el mínimo costo y con base en mecanismos de mercado. </div>\n<div> CUARTO. Que el 24 de diciembre de 2015, se publicó en el DOF la Ley de Transición Energética (LTE), la cual tiene por objeto regular el aprovechamiento sustentable de la energía, así como las obligaciones en materia de Energías Limpias y de reducción de emisiones contaminantes de la Industria Eléctrica, manteniendo la competitividad de los sectores productivos; dicho objeto comprende, entre otros: facilitar el cumplimiento de las metas de Energías Limpias y Eficiencia Energética establecidas en la LTE de una manera económicamente viable; determinar las obligaciones en materia de aprovechamiento sustentable de la energía y Eficiencia Energética; reducir, bajo condiciones de viabilidad económica, la generación de emisiones contaminantes en la generación de energía eléctrica; y, promover el aprovechamiento energético de recursos renovables y de los residuos.</div>\n<div> QUINTO. Que, en términos de lo previsto por el artículo 3, fracción VIII de la Ley de la Industria Eléctrica, reformada mediante Decreto publicado en el DOF el 6 de noviembre de 2020 (LIE), se entiende como CEL al título emitido por la Comisión que acredita la producción de un monto determinado de energía eléctrica a partir de Energías Limpias y que sirve para cumplir los requisitos asociados al consumo de los Centros de Carga.</div>\n<div> SEXTO. Que los artículos 12, fracciones XVI, XVII, XVIII, y XX, 126, fracción III y 127 de la LIE, prevén que, la Comisión se encuentra facultada para otorgar los CEL, emitir la regulación para validar su titularidad; verificar el cumplimiento de los requisitos relativos a éstos; expedir las normas, directivas, metodologías y demás disposiciones de carácter administrativo que regulen y promuevan la generación de energía eléctrica a partir de Energías Limpias, atendiendo a la política energética establecida por la Secretaría de Energía, así como vigilar el cumplimiento de las disposiciones administrativas de carácter general en relación con las atribuciones que le confiere la LIE.</div>\n<div> SÉPTIMO. Que el 30 de marzo de 2016, se publicaron en el DOF las Disposiciones Administrativas de Carácter General para el funcionamiento del Sistema de Gestión de Certificados y Cumplimiento de Obligaciones de Energías Limpias, emitidas mediante la Resolución Núm. RES/174/2016, modificadas y adicionadas a través del Acuerdo número A/067/2017, publicado en el DOF el 23 de enero de 2018 (Disposiciones), las cuales tienen como objeto regular el funcionamiento del Sistema Electrónico de Gestión de Certificados y Cumplimiento de Obligaciones de Energías Limpias (S-CEL), además de establecer el procedimiento administrativo mediante el cual serán emitidos y otorgados, así como liquidados y cancelados los CEL.</div>\n<div> OCTAVO. Que el 31 de marzo de 2017, se publicó en el DOF el Aviso por el que se dan a conocer los requisitos para la adquisición de Certificados de Energías Limpias en 2020, 2021 y 2022 establecidos por la Secretaría de Energía, señalando en sus considerandos que, los CEL son un instrumento para promover nuevas inversiones en Energías Limpias, que permiten transformar en obligaciones individuales las metas nacionales de generación limpia de electricidad, de forma eficaz y al menor costo para el país, especificando en su artículo Tercero que, el Requisito de Certificados de Energías Limpias correspondiente al periodo de obligación 2022 será de 13.9%. </div>\n<div> NOVENO. Que el 04 de marzo de 2020, se publicó en el DOF el Acuerdo Núm. A/013/2019 por el que la Comisión Reguladora de Energía emite el criterio para calcular el número total de Certificados de Energías Limpias disponibles para cubrir el monto total de las Obligaciones de Energías Limpias para cada uno de los dos primeros años de vigencia de dichas Obligaciones y expide la Metodología de Cálculo del Precio Implícito de los Certificados de Energías Limpias a que hace referencia el Transitorio Vigésimo Segundo de la Ley de Transición Energética (A/013/2019). Mismo que sirvió de base para la determinación de la no aplicación del mecanismo de Flexibilidad al que refiere la disposición 54 de las Disposiciones.</div>\n<div> DÉCIMO. Que el artículo 122 de la LIE dispone que los requisitos para adquirir CEL se establecerán como una proporción del total de la Energía Eléctrica consumida en los Centros de Carga.</div>\n<div> UNDÉCIMO. Que el artículo 123 de la LIE y el lineamiento 3, fracción VIII, de los Lineamientos, establecen como Participantes Obligados a Suministradores, Usuarios Calificados Participantes del Mercado y los Usuarios Finales que se suministren por el Abasto Aislado, así como los titulares de los Contratos de Interconexión Legados que incluyan Centros de Carga, sean de carácter público o particular, los cuales, estarán sujetos al cumplimiento de las Obligaciones en materia de Energías Limpias. Asimismo, el lineamiento 23 de dichos Lineamientos señala que, las Obligaciones de los Participantes Obligados, incluyendo la fecha de Liquidación, se sujetarán a los requisitos de información, así como los procedimientos de monitoreo y verificación que establezca la Comisión.</div>\n<div> DUODÉCIMO. Que el artículo 125 de la LIE, establece que la regulación que expida la Comisión deberá fomentar la celebración de Contratos de Cobertura Eléctrica a largo plazo que incluyan CEL y podrá permitir el traslado de CEL excedentes o faltantes entre periodos y establecer cobros por realizar dicho traslado a fin de promover la estabilidad de precios.</div>\n<div> DECIMOTERCERO. Que el numeral 34 de las Disposiciones establece que, aquellos CEL que no fueron emitidos ni otorgados a pesar de que ello habría sido posible, serán transferidos a la cuenta que para tal efecto administre la Comisión, siempre y cuando haya transcurrido un plazo de seis meses a partir de la fecha en que se debieron emitir y otorgar. Una vez que dichos CEL han sido transferidos a la cuenta antes mencionada, la Comisión podrá asignarlos de manera no onerosa y proporcionalmente al consumo de todos los Participantes Obligados al final del Periodo de Obligación que corresponda, y que estén al corriente sus </div>\n<div> obligaciones de Periodos de Obligación anteriores.</div>\n<div> DECIMOCUARTO. Que, ante la implementación del Acuerdo por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondiente al año de obligación 2021 (A/013/2023), publicado en el DOF el 09 de mayo de 2023, se generó un remanente de 14,451 CEL, por la materialización de los incumplimientos a los que refieren los párrafos penúltimo y último del numeral 1.1 del Anexo B del citado Acuerdo, los cuales se acumularán como CEL disponibles en la cuenta de la Comisión para su asignación para el año de obligación 2022.</div>\n<div> DECIMOQUINTO. Que durante el periodo comprendido de octubre de 2021 a septiembre de 2022, se otorgaron 4,365,093 CEL a la cuenta de la Comisión, a los cuales se les adicionarán los CEL derivados del remanente señalado en el considerando anterior y, de conformidad con el numeral 34 de las Disposiciones, se podrán distribuir entre los Participantes Obligados, de manera no onerosa y proporcional al consumo, al final del Periodo de Obligación que corresponda, siempre y cuando estén en cumplimiento de sus obligaciones del Periodo de Obligación corriente y anteriores en tiempo y forma.</div>\n<div> DECIMOSEXTO. Que, el presente Acuerdo, tiene como objeto establecer el mecanismo a través del cual la Comisión llevará a cabo la asignación no onerosa de los CEL referida en los Considerandos Decimocuarto y Decimoquinto del presente Acuerdo, lo anterior de conformidad con lo señalado en el numeral 34 de las Disposiciones, así mismo, de acuerdo con el informe de CEL remanentes de 2021 y los CEL otorgados a la cuenta de la Comisión del año de obligación de 2022, cuyo saldo total de CEL susceptibles a la asignación en comento, es de 4,379,544 al mes de marzo de 2023, lo cual se detalla en el Anexo A del presente instrumento, mismos que serán asignados en términos de lo definido en el Anexo B del presente Acuerdo, a través de la cuenta registrada en el S-CEL por cada Participante Obligado que se encuentre al corriente de sus obligaciones en términos de lo dispuesto en las disposiciones aplicables. Por lo antes fundado y motivado, se emite el siguiente:</div>\n<div> ACUERDO<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "13098314-1cfe-56ce-a9fc-b6edf7368565",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 2,
+      "identificador": "Resolutivo PRIMERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> PRIMERO. Se emite el criterio para la asignación de los Certificados de Energías Limpias correspondientes al año de obligación 2022, disponibles en la cuenta de la Comisión Reguladora de Energía a la que hace referencia el numeral 34 de las Disposiciones Administrativas de Carácter General para el funcionamiento del Sistema de Gestión de Certificados y Cumplimiento de Obligaciones de Energías Limpias, contenido en el Anexo B del presente Acuerdo, mismo que, en conjunto con el Anexo A de este Acuerdo, forman parte integrante de este instrumento, como si a la letra se insertara.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "66641d9c-f15e-5917-ac00-f03fadf55204",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 3,
+      "identificador": "Resolutivo SEGUNDO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> SEGUNDO. En ejercicio de la facultad establecida en el artículo 18, fracciones XVIII y XLIII del Reglamento Interno de la Comisión Reguladora de Energía, se instruye a la Unidad de Electricidad, para que en ejercicio de las facultades previstas en los artículos 29, fracciones III, XIII y XXVIII, y 34, fracciones XXXII, XXXIII y XXXVIII del citado ordenamiento legal, lleve a cabo la asignación no onerosa de los Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondiente al remanente del año de obligación 2021 y al año de obligación 2022, en términos de lo descrito en los Considerandos Decimocuarto y Decimoquinto, así como los Anexos del presente Acuerdo </div>\n<div> Para efecto de los anterior, el medio idóneo para el otorgamiento de los Certificados de Energías Limpias a los Participantes Obligados que se encuentren al corriente de sus obligaciones en materia de adquisición de Certificados de Energías Limpias y pagos de aprovechamientos relativos a dicha obligación es el Sistema Electrónico de Gestión de Certificados y Cumplimiento de Obligaciones de Energías Limpias. Por lo cual, la asignación no onerosa de mérito se realizará en un proceso de otorgamiento adicional al otorgamiento mensual de Certificados de Energías Limpias posterior inmediato a que surta efectos el presente Acuerdo. La Unidad de Electricidad será la instancia que notificará vía oficio a los Participantes Obligados que resultaron elegibles a recibir Certificados de Energías Limpias de la cuenta de la Comisión Reguladora de Energía correspondientes al año de obligación 2022 y de las condiciones para llevar a cabo dicho otorgamiento.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "7fc1157e-fdda-5387-bead-b88a146d832a",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 4,
+      "identificador": "Resolutivo TERCERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TERCERO. Publíquese el presente Acuerdo y sus anexos en el Diario Oficial de la Federación, mismos que entrarán en vigor al día hábil siguiente de su publicación en el medio de difusión señalado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "dbc1746c-5a21-572b-9b88-c4560e8e9bf7",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 5,
+      "identificador": "Resolutivo CUARTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> CUARTO. Hágase de conocimiento público que, el presente acto administrativo podrá impugnarse a través del juicio de amparo indirecto, conforme a lo dispuesto por el artículo 27 de la Ley de Órganos Reguladores Coordinados en Materia Energética, ante los órganos jurisdiccionales del Poder Judicial de la Federación, dentro del plazo establecido en la Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos, y que el expediente respectivo se encuentra y puede ser consultado en las oficinas de la Comisión Reguladora de Energía, ubicadas en Boulevard Adolfo López Mateos número 172, colonia Merced Gómez, Código Postal 03930, Alcaldía Benito Juárez, Ciudad de México.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "f3d7d0eb-9bef-55c2-9eee-0c6f7646fa5a",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 6,
+      "identificador": "Resolutivo QUINTO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> QUINTO. Inscríbase el presente Acuerdo bajo el número A/007/2024, en el registro a que se refieren los artículos 22, fracción XXVI, incisos a), e) y f), y 25, fracción X de la Ley de Órganos Reguladores Coordinados en Materia Energética; 4, 16, último párrafo y 27, fracciones XI y XII del Reglamento Interno de la Comisión Reguladora de Energía, publicado en el Diario Oficial de la Federación el 28 de abril de 2017 y su modificación, publicada en el mismo medio de difusión el 11 de abril de 2019.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "72c5c24d-8b0d-5b8a-93fd-1770617627a2",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 7,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 30 de enero de 2024.- Comisionado Presidente, Leopoldo Vicente Melchi García.- Rúbrica.- Comisionados: Walter Julián Ángel Jiménez, Hermilo Ceja Lucas, Guadalupe Escalante Benítez, Luis Linares Zapata.- Rúbricas.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3e8022b4-5fbc-5959-a96e-8d4019dec960",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 8,
+      "identificador": "Anexo A · Definiciones",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> ANEXO A<br> </div>\n<div> CRITERIO POR EL CUAL SE REALIZÓ LA ASIGNACIÓN DE CERTIFICADOS DE ENERGÍAS LIMPIAS DISPONIBLES EN LA CUENTA DE LA COMISIÓN CORRESPONDIENTES AL AÑO DE OBLIGACIÓN 2021.</div>\n<div> Determinación del remanente de CEL de la Comisión correspondiente al año de obligación 2021.</div>\n<div> El cálculo se realiza conforme a lo previsto en el numeral 1.1. del Anexo B del Acuerdo A/013/2023, visto de manera total, se utiliza la siguiente formula:</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_0.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> Donde:</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_7098.png\" alt=\"Figura de la publicación oficial\"></div>\n<div> Para el cálculo del remanente de CEL en la bolsa de la Comisión correspondientes al año de obligación 2021, la Comisión aplicó los siguientes criterios:</div>\n<div> I.     De conformidad con el Considerando Decimoséptimo del &quot;Acuerdo de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligaciones 2021&quot;, el cual establece que el saldo de CEL de la Bolsa de la Comisión fue de 4,357,411 CEL al mes de marzo de 2022.</div>\n<div> II.     Que resultaron 60 Participantes Obligados a recibir CEL de la Bolsa de la Comisión correspondientes al año de obligación 2021 de forma no onerosa.</div>\n<div> III.    Que, el S-CEL reporta un consumo de 236,789,220.93 MWh de Energía Eléctrica de los 60 Participantes Obligados que recibieron CEL de la Bolsa de la Comisión del ejercicio 2021.</div>\n<div> IV.   Aquellas fracciones de CEL que no fueron otorgadas fueron transferidas nuevamente a la cuenta de la Comisión.</div>\n<div> Derivado de lo anterior, para determinar el remanente de la bolsa la Comisión 2021, se debe considerar el número de CEL de la Bolsa 2021 menos la cantidad de CEL efectivamente otorgados a los Participantes Obligados elegidos para recibir CEL (4,342,960) y agregar el acumulado de las fracciones de CEL que no pudieron ser entregados (29).</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_97855.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> Al respecto, el remanente se explica por los siguientes dos puntos:</div>\n<div> I.     El S-CEL no puede entregar fracciones de Certificados.</div>\n<div> II.     Los CEL de la Bolsa de la Comisión se otorgaron sólo a aquellos Participantes Obligados inscritos en </div>\n<div> el S-CEL que dieron cumplimiento con lo establecido en el punto 1.2 del Anexo B del Acuerdo A/013/2023, sin embargo, algunos de ellos no aceptaron dicho otorgamiento en el plazo previsto para ello.</div>",
+      "tipo_articulo": "anexo",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Anexo A",
+      "seccion_nombre": null
+    },
+    {
+      "id": "fe0f6434-f1c6-5165-bba5-aa9c006ed922",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "orden": 9,
+      "identificador": "Anexo B · Fórmula y condiciones de asignación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> ANEXO B<br> </div>\n<div> CRITERIO PARA LA ASIGNACIÓN DE CERTIFICADOS DE ENERGÍAS LIMPIAS DISPONIBLES EN LA CUENTA DE LA COMISIÓN CORRESPONDIENTES AL AÑO DE OBLIGACIÓN 2022.</div>\n<div> 1. De acuerdo con lo establecido en la disposición 34 de las Disposiciones se prevé lo siguiente:</div>\n<div> &quot;Aquellos CEL que no fueron emitidos ni otorgados a pesar de que ello habría sido posible, serán transferidos a la cuenta que para tal efecto administre la Comisión, siempre y cuando haya transcurrido un plazo de seis meses a partir de la fecha en que se debieron emitir y otorgar. Una vez que dichos CEL han sido transferidos a la cuenta antes mencionada, la Comisión podrá asignarlos de manera no onerosa y proporcionalmente al consumo de todos los Participantes Obligados al final del Periodo de Obligación que corresponda, y que estén al corriente sus obligaciones de Periodos de Obligación anteriores&quot;.</div>\n<div> Con base en dicha disposición, se presenta el criterio para la asignación no onerosa de los CEL, que se encuentran en la cuenta de la Comisión, correspondientes al año de obligación 2022 y los remanentes del 2021. Dicha asignación deberá realizarse a través del S-CEL.</div>\n<div> 1.1   Fórmula para la asignación no onerosa de CEL de la cuenta de la Comisión.</div>\n<div> De conformidad con lo descrito en el numeral anterior, el criterio para la asignación de CEL disponibles en la cuenta de la Comisión consiste en una prorrata del consumo que representa cada Participante Obligado en proporción al consumo total, tal como se describe en la siguiente fórmula:</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_108840.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> Donde:</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_115482.png\" alt=\"Figura de la publicación oficial\"></div>\n<div> En los casos en los que los Participantes Obligados no se hayan inscrito en el S-CEL, se configurará un incumplimiento en sus Obligaciones en materia de Energías Limpias, motivo por lo cual, no serán sujetos para recibir CEL por concepto de asignación no onerosa.</div>\n<div> En el supuesto de que haya casos de Participantes Obligados que no se encuentren inscritos en el S-CEL, y que por tanto no sean elegibles para recibir CEL de manera no onerosa, es previsible que, la suma de los porcentajes del consumo que representa cada Participante Obligado en el S-CEL, no alcance el 100% del consumo de energía eléctrica del Sistema Eléctrico Nacional y, por tanto, es posible que existan CEL de la cuenta de la Comisión correspondientes al año de obligación 2022, cuya asignación no onerosa no sea posible realizar. Por tanto, estos CEL que no resulten asignados, permanecerán en la cuenta de la Comisión y se considerarán en el cálculo de la disponibilidad de CEL para el año de obligaciones siguiente al que se refiere el presente Acuerdo.</div>\n<div> 1.2 Condiciones para su otorgamiento.</div>\n<div> De conformidad con la disposición 10 de las Disposiciones, están obligados a inscribirse en el S-CEL todas aquellas personas que:</div>\n<div> a)    Conforme a los Lineamientos sean Participantes Obligados;</div>\n<div> b)    Aquellos Generadores Limpios y Suministradores que representan a la Generación Limpia Distribuida que deseen les sean otorgados CEL, y</div>\n<div> c)     Las Entidades Voluntarias que deseen adquirir, vender o en su caso, cancelar voluntariamente CEL.</div>\n<div> En su carácter de Participantes Obligados, los Suministradores, Usuarios Calificados Participantes del Mercado y los Usuarios Finales que reciban energía eléctrica por el abasto aislado, así como los titulares de los Contratos de Interconexión Legados que incluyan Centros de Carga cuya energía eléctrica no provenga en su totalidad de una Central Eléctrica Limpia, de conformidad con la disposición 34 de las Disposiciones, serán sujetos a recibir los CEL disponibles en la cuenta de la Comisión en los términos descritos en el apartado 1.1 de este Anexo B, siempre que se encuentren al corriente de las siguientes obligaciones, para lo cual se considerara lo siguiente:</div>\n<div> d)    Que sean Participantes Obligados que cuenten con un registro activo en el S-CEL durante el periodo de otorgamiento;</div>\n<div> e)    Que se hayan inscrito antes 15 de mayo de 2023;</div>\n<div> f)     Que hayan presentado su declaración anual al 100% del año de obligación 2022 o con un diferimiento igual o menor al 25% de su Obligación para el periodo 2022.</div>\n<div> g)    Aquellos Participantes Obligados que, derivado de la falla presentada en el S-CEL haya informado en tiempo y forma de su imposibilidad para presentar su declaración para el periodo 2022, se les considerará en cumplimiento en caso de que hayan presentado su declaración anual a más tardar el 31 de octubre de 2023, atendiendo a que la falla fue subsanada el 29 de agosto de 2023.</div>\n<div> h)    Que no cuenten con un oficio de incumplimiento para el año de obligación 2022;</div>\n<div> i)     Que estén al corriente de los pagos anuales en tiempo y forma por Administración de la Cuenta  de S-CEL hasta el 2022.</div>\n<div> _______________________<br> </div>",
+      "tipo_articulo": "anexo",
+      "titulo_nombre": "Asignación de CEL disponibles, obligación 2022",
+      "capitulo_nombre": "Anexo B",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Asignación de CEL disponibles, obligación 2022",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Anexo A",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Anexo B",
+      "orden": 6
+    }
+  ],
+  "fuente": {
+    "name": "CEL-ASIGNACION-2022",
+    "code": "5722482",
+    "radar": "RAD-059",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Asignación de CEL disponibles, obligación 2022",
+    "tipo": "acuerdo",
+    "estado_radar": "Acto ejecutado",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+    "sha256": "b0ca5fee4960a5869ae2b8c7fca19e09f1ea49f1098aeb66cce910660868818b",
+    "fecha": "08-04-2024",
+    "titulo": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022.",
+    "codDiario": 312601,
+    "pagina": 139,
+    "tables": 0,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_7098.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_97855.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_108840.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2024/04/08/MAT/cre_1_Cimg_115482.png",
+        "alt": null
+      }
+    ]
+  }
+}

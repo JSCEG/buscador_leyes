@@ -1,0 +1,1006 @@
+{
+  "ley": {
+    "id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
+    "siglas": "DACG-MECANISMOS-CENACE",
+    "fecha_publicacion": "2026-04-03",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Electricidad, redes y mercado",
+      "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+    "tipo": "dacg"
+  },
+  "articulos": [
+    {
+      "id": "259413a6-602b-5d93-844d-5d6e740795d2",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 0,
+      "identificador": "Nota editorial · alcance de la publicación",
+      "contenido": "### Nota editorial · Electricidad, redes y mercado\n\nEsta nota pertenece al buscador y no al texto oficial. Se conserva la publicación del DOF de 03/04/2026. No se certifica vigencia ni se construye un texto consolidado.\n\nFuente: [publicación oficial](https://sidof.segob.gob.mx/notas/docFuente/5784027). Se conservan la numeración, las tablas, los anexos y las fórmulas gráficas publicadas. Las firmas pertenecen al propio instrumento.\n\nRevisión documental: 19 de septiembre de 2026.\n",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Información editorial",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "d6a88d07-d3ce-5801-a646-b5270a559d0e",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 1,
+      "identificador": "Preámbulo y considerandos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n ACUERDO de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional.\n Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Comisión Nacional de Energía.\n<div> JUAN CARLOS SOLÍS ÁVILA, Director General de la Comisión Nacional de Energía, con fundamento en los artículos 25, párrafo quinto, 27, párrafo sexto, 28, párrafo noveno y 90, párrafo primero de la Constitución Política de los Estados Unidos Mexicanos; 1, 2, fracción I, 17, 26, fracción IX, y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 1, párrafo primero, 2, 3, 4 y 13 de la Ley Federal de Procedimiento Administrativo; 1, 2, párrafo primero, 7, fracciones I, II, III y XXII; 8, fracciones I, VI, VII, VIII y IX, 12, 16, fracciones VI, X, XIX, XXIII y XXV de la Ley de la Comisión Nacional de Energía; 1, 2, párrafo segundo, 4, párrafo segundo, 11 fracciones XI, XXXVII, XLIV, XLVIII y XLIX, y 155, párrafo tercero de la Ley del Sector Eléctrico; 14, párrafo primero del Reglamento de la Ley del Sector Eléctrico; 2, párrafo primero, apartado F, fracción III, 71, 77 y 78 del Reglamento Interior de la Secretaría de Energía; 2, 7 y 19 del Reglamento Interior de la Comisión Nacional de Energía; 7, fracción II del Acuerdo número CT/1.SE/2-2025, por el que se aprobaron las Reglas de Operación del Comité Técnico de la Comisión Nacional de Energía; así como el Acuerdo número CT/6.SO/51-2026 expedido por el Comité Técnico de la Comisión Nacional de Energía, y,</div>\n<div> CONSIDERANDO<br> </div>\n<div> Que el artículo 25, párrafo quinto de la Constitución Política de los Estados Unidos Mexicanos (Constitución), prevé que el sector público tiene a su cargo, de manera exclusiva, las áreas estratégicas que se señalan en el artículo 28, párrafo cuarto Constitucional y que, tratándose de la planeación y el control del Sistema Eléctrico Nacional (SEN) y del servicio público de transmisión y distribución de energía eléctrica, la Nación debe llevar a cabo dichas actividades en términos de lo dispuesto en el artículo 27, párrafo sexto, Constitucional.</div>\n<div> Que de conformidad con el artículo 27, párrafo sexto de la Constitución corresponde exclusivamente a la Nación la planeación y el control del SEN en los términos del artículo 28 Constitucional. Además, las leyes deben determinar la forma en que los particulares pueden participar en las demás actividades de la industria eléctrica.</div>\n<div> Que de conformidad con el artículo 28, párrafos cuarto y noveno de la Constitución el Estado ejerce funciones de manera exclusiva en la planeación y el control del SEN, cuyos objetivos son preservar la seguridad y autosuficiencia energética de la Nación y proveer al pueblo de la electricidad al menor precio posible, evitando el lucro, para garantizar la seguridad nacional y soberanía a través de la empresa pública del Estado que se establezca. Asimismo, el Poder Ejecutivo Federal, por conducto de la dependencia encargada de conducir y supervisar la política energética del país, cuenta con las atribuciones para llevar a cabo la regulación técnica y económica en materia energética en los términos que determine la ley.</div>\n<div> Que el 18 de marzo de 2025, en cumplimiento al decreto de reforma constitucional en materia de simplificación orgánica, el 20 de diciembre de 2024, fue publicado en el Diario Oficial de la Federación el Decreto por el que se reforman, adicionan y derogan diversas disposiciones y se expiden, entre otras leyes, la Ley de la Comisión Nacional de Energía (LCNE), con lo cual, se consuma la extinción de la Comisión Reguladora de Energía, así como la creación de la Comisión Nacional de Energía (CNE) como un órgano administrativo desconcentrado, sectorizado a la Secretaría de Energía (Secretaría).</div>\n<div> Que de conformidad con los artículos 1, 2, fracción I, 17, 26, fracción IX y 33, último párrafo de la Ley Orgánica de la Administración Pública Federal; 2, párrafo primero de la LCNE; 2, apartado F, fracción III y 71 del Reglamento Interior de la Secretaría de Energía y 2, párrafo primero del Reglamento Interior de la Comisión Nacional de Energía, la CNE es un órgano administrativo desconcentrado, de carácter técnico, sectorizado a la Secretaría, que cuenta con independencia técnica, operativa, de gestión y de decisión; y tiene por objeto regular, supervisar e imponer sanciones en las actividades del sector energético de conformidad con las disposiciones aplicables en materia de planeación vinculante en el ámbito de su competencia.</div>\n<div> Que el artículo 3, fracciones IX y XXXVIII de la Ley del Sector Eléctrico (LSE), define la Confiabilidad como la habilidad y capacidad del SEN para satisfacer la demanda de energía eléctrica bajo condiciones de suficiencia y Seguridad de Despacho, siendo esta última la condición operativa indispensable para mantener la Continuidad del sistema frente a la falla de uno o múltiples elementos; y a los Productos Asociados como aquellos productos vinculados a la operación y desarrollo del sector eléctrico necesarios para la Eficiencia, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del SEN.</div>\n<div> Que conforme al artículo 11, fracciones XI, XXXVII, XLIV y XLVIII de la LSE, la CNE está facultada para vigilar la operación del Mercado Eléctrico Mayorista (MEM) y las determinaciones del Centro Nacional de Control de Energía (CENACE) a fin de asegurar el funcionamiento eficiente del MEM; dictar o ejecutar las medidas necesarias para proteger los intereses del público en relación con la Eficiencia, Accesibilidad, Sostenibilidad, Calidad, Confiabilidad, Continuidad y Seguridad del Suministro Eléctrico, y solicitar a otras autoridades, en el ámbito de su competencia, la aplicación de medidas de seguridad adicionales o necesarias; expedir y vigilar el cumplimiento de las disposiciones administrativas de carácter general en relación con las atribuciones que les confiere la LSE; y expedir y supervisar la regulación necesaria para asegurar la Eficiencia, Accesibilidad, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad del SEN.</div>\n<div> Que los artículos 14 y 15 de la LSE establecen que el Estado ejerce el Control Operativo del SEN a través del CENACE y que las instrucciones que este emita en el ejercicio de dicho control son de carácter obligatorio para todos los Integrantes del Sector Eléctrico.</div>\n<div> Que el artículo 155, párrafos primero y tercero de la LSE dispone que el CENACE debe solicitar la autorización de la Secretaría para lleva a cabo mecanismos competitivos para adquirir potencia, energía, Productos Asociados y Servicios Conexos y que la CNE debe expedir las disposiciones de carácter general para dichos mecanismos de adquisición y puede determinar mecanismos mediante los cuales los costos netos de estos contratos se compartan entre todas las Suministradoras y Usuarios Calificados, o bien, que se cobren a las Suministradoras o Usuarios Calificados que, mediante el incumplimiento de sus obligaciones de cobertura, hayan ocasionado la necesidad, sin perjuicio de las sanciones que resulten aplicables.</div>\n<div> Que el artículo 14 del Reglamento de la Ley del Sector Eléctrico establece que la CNE, en coordinación con la Secretaría, debe emitir los criterios que debe observar el CENACE en la aplicación de los mecanismos competitivos para adquirir potencia, energía eléctrica, Servicios Conexos y otros Productos Asociados, a fin de asegurar la Seguridad y Confiabilidad del SEN, ellos cuales deben incluir la coordinación con los procesos de planeación operativa del CENACE. Dichos criterios deben ser flexibles respecto a la tecnología que aporte la solución técnica requerida para el SEN.</div>\n<div> Que en la Sexta Sesión Ordinaria del 2026 celebrada el 25 de marzo de 2026, el Comité Técnico de la CNE aprobó el Acuerdo número CT/6.SO/51-2026, mediante el cual se autoriza la emisión del presente instrumento.</div>\n<div> Que en el ejercicio de las facultades que el marco jurídico atribuye a la CNE, en apego a los objetivos y principios señalados en las consideraciones anteriores y con la finalidad de procurar la cobertura y seguridad en el Suministro Eléctrico nacional, así como coadyuvar en los objetivos de política energética, se considera necesario actualizar y expedir los criterios a los que se refieren los artículos 155 de la LSE y 14 del Reglamento de la Ley del Sector Eléctrico, ajustándolos al marco legal vigente, por lo que he tenido a bien expedir el siguiente:</div>\n<div> ACUERDO DE LA COMISIÓN NACIONAL DE ENERGÍA POR EL QUE SE EMITEN LAS DISPOSICIONES<br> ADMINISTRATIVAS DE CARÁCTER GENERAL QUE ESTABLECEN LOS CRITERIOS QUE DEBE OBSERVAR EL<br> CENTRO NACIONAL DE CONTROL DE ENERGÍA EN LA APLICACIÓN DE MECANISMOS COMPETITIVOS PARA<br> ADQUIRIR POTENCIA, ENERGÍA ELÉCTRICA, SERVICIOS CONEXOS Y OTROS PRODUCTOS ASOCIADOS<br> ORIENTADOS A ASEGURAR LA CONFIABILIDAD DEL SISTEMA ELÉCTRICO NACIONAL<br> </div>",
+      "tipo_articulo": "preambulo",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Preámbulo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5a80de3f-6e23-54df-86c7-d71ef46b9a86",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 2,
+      "identificador": "Artículo Único · Expedición de las DACG",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Artículo Único. La Comisión Nacional de Energía emite las disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, Servicios Conexos y otros Productos Asociados orientados a asegurar la Confiabilidad del Sistema Eléctrico Nacional, para quedar  como sigue:</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Acuerdo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "09dbb9d5-3bde-525b-a467-8093d358d454",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 3,
+      "identificador": "Presentación e índice",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> DISPOSICIONES ADMINISTRATIVAS DE CARÁCTER GENERAL QUE ESTABLECEN LOS CRITERIOS QUE DEBE OBSERVAR EL CENTRO NACIONAL DE CONTROL DE ENERGÍA EN LA APLICACIÓN DE MECANISMOS COMPETITIVOS PARA ADQUIRIR POTENCIA, ENERGÍA ELÉCTRICA, SERVICIOS CONEXOS Y OTROS PRODUCTOS ASOCIADOS ORIENTADOS A ASEGURAR LA CONFIABILIDAD DEL SISTEMA ELÉCTRICO NACIONAL</div>\n<div> CONTENIDO<br> </div>\n<div> 1. Disposiciones generales</div>\n<div> 1.1 Objeto y ámbito de aplicación</div>\n<div> 1.2 Definiciones y Acrónimos</div>\n<div> 1.3 Reglas de interpretación</div>\n<div> 2. Criterios de Activación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 2.1 Consideraciones Generales</div>\n<div> 2.2 Proceso de activación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 3. Sobre los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 3.1 Generalidades</div>\n<div> 3.2 Presentación de Ofertas Monómicas por Confiabilidad</div>\n<div> 3.3 Obligaciones de los Vendedores</div>\n<div> 3.4 Implementación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 3.5 Asignación y despacho</div>\n<div> 4. Consideraciones respecto de las Reglas del Mercado</div>\n<div> 4.1 Consideraciones Generales</div>\n<div> 4.2 Registro de Participante del Mercado Temporal</div>\n<div> 4.3 Acreditación de Participante Temporal del Mercado</div>\n<div> 4.4 Registro de Activos Físicos</div>\n<div> 4.5 Garantías de Cumplimiento</div>\n<div> 4.6 Acceso al Sistema Eléctrico Nacional</div>\n<div> 4.7 Modelado de Activos</div>\n<div> 4.8 Operaciones en el Mercado de Energía de Corto Plazo</div>\n<div> 4.9 Mercado para el Balance de Potencia</div>\n<div> 4.10 Certificados de Energías Limpias del Mercado</div>\n<div> 4.11 Derechos Financieros de Transmisión</div>\n<div> 4.12 Unidades de Central Eléctrica Móviles</div>\n<div> 4.13 Mediciones para Liquidaciones</div>\n<div> 4.14 Despacho de capacidad excedente interconectada</div>\n<div> 5. Consideraciones asociadas a las Liquidaciones, Facturación y pagos</div>\n<div> 5.1 Definición de los costos y Precio Monómico</div>\n<div> 5.2 Liquidaciones</div>\n<div> 5.3 Estados de Cuenta, Facturación, Cobros y Pagos</div>\n<div> 5.4 Liquidación de las Unidades de Central Eléctrica y Sistemas de Almacenamiento de Energía Eléctrica contratados mediante los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 5.5 Liquidación para socializar el costo de la aplicación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 5.6 Liquidación del desplazamiento o habilitación de Unidades de Central Eléctrica Móviles</div>\n<div> 5.7 Términos relativos a las fórmulas aplicables a los numerales 5.4, 5.5 y 5.7 de las Disposiciones</div>\n<div> 6. Garantías</div>\n<div> 6.1 Presentación de la Garantía</div>\n<div> 6.2 Ejecución o devolución de la Garantía</div>",
+      "tipo_articulo": "anexo",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Índice",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ec2e43bd-bd6e-504c-bb18-b21c4b967eb7",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 4,
+      "identificador": "Apartado 1.1 Objeto y ámbito de aplicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1. Disposiciones generales<br> </div>\n<div> 1.1 Objeto y ámbito de aplicación</div>\n<div> 1.1.1 Objetivo</div>\n<div> Las presentes disposiciones tienen por objetivo establecer los criterios y actividades que debe seguir el Centro Nacional de Control de Energía para la aplicación de los mecanismos a los que se refieren los artículos 155 de la Ley del Sector Eléctrico y 14 de su reglamento, incluyendo, entre otros, los procesos de contratación de energía eléctrica y Productos Asociados; el desplazamiento o habilitación de Unidades de Central Eléctrica Móviles; el registro de Activos Físicos y acreditación como Participante del Mercado; los requerimientos de medición; la infraestructura eléctrica mínima para la interconexión y conexión; la liquidación, facturación y cobros que resulten de la energía eléctrica y Productos Asociados contratados; así como las excepciones temporales en el cumplimiento de las Reglas del Mercado y otras disposiciones administrativas de carácter general que resulten aplicables a los vendedores que participen en tales mecanismos, en relación con las condiciones pronosticadas para el Sistema Eléctrico Nacional.</div>\n<div> 1.1.2 Alcance y aplicación</div>\n<div> Las presentes disposiciones son de orden público, interés general y de observancia obligatoria en el territorio nacional para todos los Integrantes del Sector Eléctrico, así como para los interesados y vendedores que participen en los mecanismos a los que se refieren los artículos 155 de la Ley del Sector Eléctrico y 14 de su reglamento, mismos que se aplican de forma preventiva.</div>\n<div> 1.1.3 Modificaciones</div>\n<div> La modificación de las presentes disposiciones es atribución exclusiva de la Comisión Nacional de Energía en coordinación con la Secretaría de Energía, quienes pueden modificar los criterios y requerimientos cuando ello sea necesario, derivado del desarrollo y evolución de los recursos de Demanda Controlable en el Sistema Eléctrico Nacional y en el Mercado Eléctrico Mayorista con el fin de procurar la operación del Sistema Eléctrico Nacional en condiciones de Accesibilidad, Eficiencia, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad en consistencia con las Reglas del Mercado y el marco regulatorio vigente.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 1. Disposiciones generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "4351dac7-1336-56d6-9bb8-d740b228c466",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 5,
+      "identificador": "Apartado 1.2 Definiciones y Acrónimos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.2 Definiciones y Acrónimos</div>\n<div> Para efectos de interpretación y aplicación de las presentes disposiciones, además de las contenidas en la Ley del Sector Eléctrico, sus reglamentos, las disposiciones administrativas de carácter general previstas en el Código de Red y las Reglas del Mercado, se deben emplear, en singular o plural, las siguientes definiciones, siglas y acrónimos:</div>\n<div> I. Código de Red: Disposiciones Administrativas de Carácter General que contienen los criterios de eficiencia, calidad, confiabilidad, continuidad, seguridad y sustentabilidad del Sistema Eléctrico Nacional: Código de Red, expedidas a través de la Resolución número RES/550/2021, publicada en el Diario Oficial de la Federación el 31 de diciembre de 2021 o aquella que la modifique o sustituya;</div>\n<div> II. Contrato: Contrato para la compraventa de energía eléctrica y Productos Asociados en relación con la aplicación de los mecanismos a los que se refieren los artículos 155 de la Ley del Sector Eléctrico y 14 de su reglamento, mediante el cual se documenta la relación comercial de carácter mercantil, entre el CENACE y el vendedor, sujeto a las presentes disposiciones;</div>\n<div> III. Contrato de Participante del Mercado: Contrato que deben suscribir los candidatos a Participantes del Mercado con el CENACE para ser registrados como Participantes del Mercado y poder realizar operaciones en el Mercado Eléctrico Mayorista, en alguna de las modalidades permitidas por la Ley;</div>\n<div> IV. DEF: Disponibilidad de Entrega Física;</div>\n<div> V. DOM: Disposiciones Operativas del Mercado;</div>\n<div> VI. Disposiciones: Las presentes Disposiciones Administrativas de Carácter General que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, Servicios Conexos y otros Productos Asociados orientados a asegurar la Confiabilidad del Sistema Eléctrico Nacional;</div>\n<div> VII. Energía Contratada: Energía eléctrica de la Unidad de Central Eléctrica o del Sistema de Almacenamiento de Energía Eléctrica contratada a través de los mecanismos a los que se refieren los artículos 155 de la Ley del Sector Eléctrico y 14 de su reglamento, que se compromete a entregar al Sistema Eléctrico Nacional. La cantidad está definida por el CENACE en el Contrato que se haya suscrito;</div>\n<div> VIII. ERC: Entidad Responsable de Carga, es cualquier representante de Centros de Carga, de manera enunciativa más no limitativa, Suministradoras de Servicios Básicos, Suministradoras de Servicios Calificados, Suministradoras de Último Recurso, Usuarios Calificados Participantes del Mercado o el Generador de Intermediación;</div>\n<div> IX. Garantía: Instrumento jurídico mediante el cual el vendedor que celebra el Contrato garantiza algunas de las obligaciones que asume en términos de dicho instrumento;</div>\n<div> X. Horizonte de Planeación Operativa de Mediano Plazo: Horizonte de un mes hasta tres años en adelante, en el cual se cumplen las condiciones de Accesibilidad, Eficiencia, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad para la operación del Sistema Eléctrico Nacional, conforme a lo establecido en las Bases del Mercado Eléctrico;</div>\n<div> XI. Interconexión Temporal: Enlace físico de una Central Eléctrica a la Red Nacional de Transmisión o a las Redes Generales de Distribución de manera temporal, incluyendo, si los hubiera, los requerimientos de infraestructura definidos por el CENACE para la entrega de la Energía Contratada. El término también se refiere al incremento temporal de la Capacidad Instalada para una Central Eléctrica existente;</div>\n<div> XII. LSE: Ley del Sector Eléctrico;</div>\n<div> XIII. Manual de Interconexión y Conexión: Manual para la Interconexión de Centrales Eléctricas y Conexión de Centros de Carga, publicado en el Diario Oficial de la Federación el 09 de febrero de 2018, o aquel que lo modifique o sustituya;</div>\n<div> XIV. Mecanismos de Adquisición por Confiabilidad: Mecanismos competitivos para adquirir potencia, energía eléctrica, Servicios Conexos y otros Productos Asociados a los que se refieren los artículos 155 de la LSE y 14 de su reglamento;</div>\n<div> XV. MEM: Mercado Eléctrico Mayorista;</div>\n<div> XVI. Oferta Monómica por Confiabilidad: Manifestación unilateral de voluntad, mediante la cual se ofrece al CENACE, en relación con los Mecanismos de Adquisición por Confiabilidad, la venta de energía eléctrica y Productos Asociados que el CENACE requiera contratar para el SEN, a la cual le resulta aplicable la regulación en materia civil;</div>\n<div> XVII. Persona Interesada: Persona que envía al CENACE una Oferta Monómica por Confiabilidad, al amparo de las Disposiciones;</div>\n<div> XVIII. Precio Monómico: Precio de la Energía Contratada, el cual debe ser único, fijo e inalterable en pesos de los Estados Unidos Mexicanos por cada MWh, sin considerar el Impuesto al Valor Agregado (IVA), durante el plazo de ejecución y hasta el total cumplimiento del Contrato, mismo que incluye cualquier costo fijo o variable en que incurre el vendedor por la energía entregada, exceptuando la energía de pruebas y la energía adicional no solicitada por el CENACE, conforme a lo establecido en las Disposiciones;</div>\n<div> XIX. RGD: Redes Generales de Distribución;</div>\n<div> XX. RID: Registro de Instrucciones de Despacho;</div>\n<div> XXI. RNT: Red Nacional de Transmisión;</div>\n<div> XXII. SEN: Sistema Eléctrico Nacional;</div>\n<div> XXIII. Sistema Interconectado: Sistema Interconectado Baja California, Sistema Interconectado Baja California Sur, Sistema Interconectado Mulegé o Sistema Interconectado Nacional;</div>\n<div> XXIV. SAEE: Sistema de Almacenamiento de Energía Eléctrica que es ofrecido en la Oferta Monómica por Confiabilidad por la Persona Interesada para participar en los Mecanismos de Adquisición por Confiabilidad y que, en su caso, es seleccionado por el CENACE y utilizado por el vendedor para cumplir con el Contrato que se celebre;</div>\n<div> XXV. UCE: Unidad de Central Eléctrica que es ofrecida en la Oferta Monómica por Confiabilidad por la Persona Interesada para participar en los Mecanismos de Adquisición por Confiabilidad y que, en su caso, es seleccionada por el CENACE y utilizada por el vendedor para cumplir con el Contrato que se celebre;</div>\n<div> XXVI. UCEM: Unidad de Central Eléctrica Móvil del Estado que cuente o no con un permiso de generación de energía eléctrica vigente, y</div>\n<div> XXVII. Vendedor: Persona que suscribe un Contrato con el CENACE, al amparo de las Disposiciones, con motivo de la aplicación de los Mecanismos de Adquisición por Confiabilidad y que, eventualmente adquiere el carácter de Participante del Mercado de forma temporal.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 1. Disposiciones generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "651b5823-613a-52b6-92aa-020622c94182",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 6,
+      "identificador": "Apartado 1.3 Reglas de interpretación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 1.3 Reglas de interpretación</div>\n<div> 1.3.1 La interpretación de las Disposiciones es atribución exclusiva de la CNE en coordinación con la Secretaría.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 1. Disposiciones generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "764bd74d-7dea-54da-b767-af4adb183c27",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 7,
+      "identificador": "Apartado 2.1 Consideraciones Generales",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 2. Criterios de Activación de los Mecanismos de Adquisición por Confiabilidad<br> </div>\n<div> 2.1 Consideraciones Generales</div>\n<div> 2.1.1 Previa notificación a la CNE y autorización de la Secretaría, a fin de asegurar la Seguridad y Confiabilidad del SEN, el CENACE puede, a través de los Mecanismos de Adquisición por Confiabilidad, en el siguiente orden de prelación:</div>\n<div> I.     Implementar los recursos previstos en los numerales 2.2.5, 4.12 o 4.14 de las Disposiciones, o</div>\n<div> II.     Llevar a cabo la contratación de UCE, SAEE o ambas conforme al procedimiento previsto en las Disposiciones.</div>\n<div> 2.1.2 Para la contratación de UCE o SAEE, el CENACE puede emitir convocatorias para la adquisición de energía eléctrica y Productos Asociados, al amparo de las Disposiciones, con la finalidad de atender las condiciones identificadas para el Horizonte de Planeación Operativa de Mediano Plazo.</div>\n<div> 2.1.3 En los procesos de contratación que el CENACE ejecute al amparo de las Disposiciones, pueden participar las Personas Interesadas que cumplan con los requisitos establecidos en la convocatoria conforme a las Disposiciones. La selección que realice el CENACE debe ser conforme a los criterios de evaluación, prelación y adjudicación que determine el propio CENACE en función de las condiciones pronosticadas que se requiere atender, así como con el apoyo de la Transportista o la Distribuidora. Los criterios deben incluirse en las convocatorias que se publiquen en el Sistema de Información del Mercado.</div>\n<div> 2.1.4 Si una vez realizada la acción prevista en la fracción I, del numeral 2.1.1. de las Disposiciones no es suficiente para atender las condiciones que derivaron en la implementación de los Mecanismos de Adquisición por Confiabilidad, el CENACE debe publicarla convocatoria dirigida a los Integrantes del Sector Eléctrico y al público en general, a través del área pública del Sistema de Información del Mercado. Dicha convocatoria debe contener la siguiente información técnica y operativa:</div>\n<div> I.        Área geográfica en la que se aplican los Mecanismos de Adquisición por Confiabilidad;</div>\n<div> II.       Descripción de la energía eléctrica y Productos Asociados que el CENACE requiera contratar para el SEN;</div>\n<div> III.      Periodos de inicio y fin, especificando perfiles horarios de asignación y despacho cuando aplique;</div>\n<div> IV.      Punto(s) de Interconexión requerido(s), sin ser limitativo;</div>\n<div> V.       Medio de comunicación a través del que las Personas Interesadas deben enviar sus Ofertas Monómicas por Confiabilidad;</div>\n<div> VI.      Plazos, mismos que pueden ajustarse con el fin de atender de forma adecuada las condiciones identificadas, y</div>\n<div> VII.     Demás información que el CENACE requiera para el cumplimiento de los Mecanismos de Adquisición por Confiabilidad.</div>\n<div> 2.1.5 Las UCE y los SAEE de las Personas Interesadas en participar en los Mecanismos de Adquisición por Confiabilidad deben estar disponibles para los periodos declarados en sus Ofertas Monómicas por Confiabilidad y comprometerse a cumplir con la infraestructura mínima necesaria para la Interconexión Temporal que el CENACE determine en conjunto con la Transportista o la Distribuidora.</div>\n<div> 2.1.6 El Contrato debe especificar, por lo menos, la siguiente información:</div>\n<div> I.        Objeto y vigencia del Contrato;</div>\n<div> II.       Activo(s) Físico(s) y Punto(s) de Interconexión;</div>\n<div> III.      Potencia máxima permitida;</div>\n<div> IV.      Perfil horario de energía requerido por el CENACE;</div>\n<div> V.       Precio Monómico en MXN $/MWh, mismo que se debe utilizar en el proceso de liquidaciones;</div>\n<div> VI.      Factor de compensación aplicable a la medición para liquidación (cuando aplique);</div>\n<div> VII.     Algoritmos de cálculo para determinar la energía en el punto de Interconexión Temporal;</div>\n<div> VIII.    Declaración relativa al conocimiento sobre las Disposiciones y de las obligaciones para cumplir  con estas;</div>\n<div> IX.      Cláusula de obligación de la suscripción del Contrato de Participante del Mercado que debe tener la vigencia correspondiente a la del Contrato, en términos de lo previsto en el numeral 4.1.2 de las Disposiciones;</div>\n<div> X.       Monto y vigencia de la Garantía, y</div>\n<div> XI.      Penalizaciones por incumplimiento.</div>\n<div> La duración de los Contratos que se suscriban con los Vendedores y que resulten de los Mecanismos de Adquisición por Confiabilidad, debe ser la necesaria para procurar la operación del SEN en condiciones de Accesibilidad, Eficiencia, Calidad, Confiabilidad, Continuidad, Seguridad y Sostenibilidad.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 2. Criterios de Activación de los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "b6f080f2-8679-58d3-a4d8-8c21055dffe7",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 8,
+      "identificador": "Apartado 2.2 Proceso de activación de los Mecanismos de Adquisición por Confiabilidad",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 2.2 Proceso de activación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 2.2.1 El CENACE debe realizar estudios en el Horizonte de Planeación Operativa de Mediano Plazo tomando como insumo los valores de demanda y reservas de años anteriores y cualquier otra información de la que disponga, a fin de determinar los periodos y la Disponibilidad de Producción Física de las UCEM, UCE y SAEE requeridos para cada uno de los Sistemas Interconectados.</div>\n<div> 2.2.2 En caso de que el CENACE identifique que los recursos en operación en cada Sistema Interconectado son insuficientes para garantizar la operación confiable, puede iniciar el proceso para implementar los Mecanismos de Adquisición por Confiabilidad.</div>\n<div> 2.2.3 Para la activación de los Mecanismos de Adquisición por Confiabilidad, el CENACE debe identificar escenarios en los que resulten insatisfechos los requerimientos de demanda más reservas, cuyas causales pueden estar relacionadas con pronósticos de demanda y consumo, pronósticos climatológicos, Salidas Programadas, Solicitudes de Interconexión y Solicitudes de Conexión, indisponibilidad, contingencias, diferimiento o degradación de generación, energéticos primarios, importaciones, exportaciones o infraestructura de transmisión y distribución o cualquier otra que identifique.</div>\n<div> 2.2.4 Tras determinar que se cumplen los supuestos para la activación de los Mecanismos de Adquisición por Confiabilidad, el CENACE debe hacerlo del conocimiento de la CNE y solicitar a la Secretaría la autorización para su activación.</div>\n<div> 2.2.5 El CENACE debe incluir en su solicitud de autorización a la Secretaría los resultados de los estudios realizados considerando los numerales 2.2.1, 2.2.3 y 2.2.6 de las Disposiciones. En dicha solicitud, el CENACE debe describir la justificación para la aplicación de los Mecanismos de Adquisición por Confiabilidad considerando las condiciones actuales. Asimismo, el CENACE debe proponer las posibles acciones para atender las condiciones identificadas considerando los recursos o la combinación de recursos disponibles que apliquen. Dichos recursos incluyen:</div>\n<div> I.        Unidades de generación de energía eléctrica con Puntos de Interconexión fijos y móviles;</div>\n<div> II.       Sistema de Almacenamiento de Energía Eléctrica o Recursos de Demanda Controlable;</div>\n<div> III.      Recursos de importación o exportación con otros sistemas eléctricos vecinos;</div>\n<div> IV.      Diferimiento de retiro de Unidades de Central Eléctrica, y</div>\n<div> V.       Cualquier otro recurso o alternativa que se identifique.</div>\n<div> 2.2.6 Las causales que motivan la activación de los Mecanismos de Adquisición por Confiabilidad son las siguientes:</div>\n<div> I.        Pronóstico de la Reserva Operativa de los Sistemas Interconectados del SEN por debajo de los límites para mantener el Estado Operativo Normal de conformidad con lo establecido en el Manual Regulatorio de Estados Operativos del Sistema Eléctrico Nacional del Código de Red;</div>\n<div> II.       Acumulación de solicitudes de Salidas Programadas, Salidas Forzadas y Licencias de Emergencia de Centrales Eléctricas, Elementos de la RNT o las RGD del Mercado Eléctrico Mayorista;</div>\n<div> III.      Declaratorias o pronósticos de Estados Operativos de Emergencia;</div>\n<div> IV.      Diferimiento de la entrada en operación de proyectos de generación o transmisión que deriven en que los recursos en operación en cada Sistema Interconectado son insuficientes para garantizar la operación confiable, continua y segura;</div>\n<div> V.       Cambios en los pronósticos de demanda y consumo, pronósticos climatológicos, indisponibilidad o degradación de generación, energéticos primarios, importaciones, exportaciones o infraestructura de transmisión y distribución o cualquier otra que identifique;</div>\n<div> VI.      Factores o condiciones externas en relación con el SEN, y</div>\n<div> VII.     Cualquier otra que proponga el CENACE y sea autorizada por la Secretaría.</div>\n<div> 2.2.7 La Secretaría dispone de un plazo de hasta cinco (5) días hábiles, contados a partir de la recepción de la solicitud de autorización, para manifestar al CENACE, de manera fundada y motivada, su autorización respecto a la activación de los Mecanismos de Adquisición por Confiabilidad o, en su caso, su negativa.</div>\n<div> 2.2.8 Para dar cumplimiento a lo previsto en la fracción I, del numeral 2.1.1. de las Disposiciones, el CENACE debe evaluar la disponibilidad de UCEM para ser habilitadas o desplazadas a la región del Sistema Interconectado, con la finalidad de atender las condiciones identificadas para el Horizonte de Planeación Operativa de Mediano Plazo, y debe aplicar en lo conducente, lo establecido en el numeral 4.12 y lo aplicable a las UCEM de las Disposiciones.</div>\n<div> 2.2.9 En caso de que la capacidad de UCEM disponibles sea insuficiente para mitigar las condiciones identificadas para el Horizonte de Planeación Operativa de Mediano Plazo, el CENACE debe publicar en el Sistema de Información del Mercado la convocatoria correspondiente, la cual debe especificar los requerimientos técnicos y operativos señalados en el numeral 2.1.4 de las Disposiciones.</div>\n<div> 2.2.10 La CNE puede solicitar en cualquier momento, información adicional al CENACE para verificar que, mediante la implementación de los Mecanismos de Adquisición por Confiabilidad, se procuraron las mejores condiciones en el mercado sujetas a los criterios de Confiabilidad.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 2. Criterios de Activación de los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a8fd21dc-47d7-5110-a32a-a3e32c94b8ed",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 9,
+      "identificador": "Apartado 3.1 Generalidades",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3. Sobre los Mecanismos de Adquisición por Confiabilidad<br> </div>\n<div> 3.1 Generalidades</div>\n<div> 3.1.1 Una vez obtenida la autorización de la Secretaría, el CENACE debe iniciar los procesos de adquisición de energía eléctrica y Productos Asociados conforme a las Disposiciones, seleccionando las UCE y los SAEE conforme al numeral 3.1.3 de las Disposiciones. El CENACE debe recibir las propuestas y Ofertas Monómicas por Confiabilidad de las Personas Interesadas en los plazos y bajo las condiciones de elegibilidad estipuladas en la convocatoria publicada en el Sistema de Información del Mercado.</div>\n<div> 3.1.2 Para la adquisición y contratación competitiva de energía eléctrica y Productos Asociados se deben considerar los recursos o combinación de recursos disponibles señalados en el numeral 2.2.5 de las Disposiciones.</div>\n<div> 3.1.3 El CENACE debe evaluar las Ofertas Monómicas por Confiabilidad recibidas priorizando la Confiabilidad del SEN y en el caso de contar con diversas alternativas en el mismo Punto de Interconexión o zona de carga, debe seleccionar las opciones de menor costo de adquisición para el sistema. Una vez realizada la evaluación de las Ofertas Monómicas por Confiabilidad, el CENACE debe notificar a las Personas Interesadas cuyas Ofertas Monómicas por Confiabilidad resultaron seleccionadas y deben publicarse las UCE y SAEE seleccionados en el Sistema de Información del Mercado, informando la cantidad de energía eléctrica y Productos Asociados, los Puntos de Interconexión y periodos correspondientes. Lo anterior, en los plazos y bajo los criterios de elegibilidad estipuladas en la convocatoria publicada en el Sistema de Información del Mercado.</div>\n<div> 3.1.4 La selección de las UCE, los SAEE, o ambos, debe estar sujeta, a los criterios de Confiabilidad del SEN y de capacidad de atención a las condiciones técnicas identificadas con base en las necesidades de energía eléctrica y Productos Asociados que establezca el CENACE a través de los Mecanismos de Adquisición por Confiabilidad y debe obedecer a cuestiones de eficiencia económica.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 3. Sobre los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d6166756-342a-5227-b8ee-d3ed4a72f7b9",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 10,
+      "identificador": "Apartado 3.2 Presentación de Ofertas Monómicas por Confiabilidad",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3.2 Presentación de Ofertas Monómicas por Confiabilidad</div>\n<div> 3.2.1 Las Personas Interesadas que participen en los Mecanismos de Adquisición por Confiabilidad pueden presentar Ofertas Monómicas por Confiabilidad una vez que sea publicada la convocatoria en el Sistema de Información del Mercado. Dichas ofertas deben estar en función de los requerimientos que establezca el CENACE para la atención de las condiciones identificadas, en términos del numeral 2.1.2 de las Disposiciones.</div>\n<div> 3.2.2 Las Personas Interesadas en participar en los Mecanismos de Adquisición por Confiabilidad deben cumplir con los Requisitos de Registro y Acreditación de la sección 4 de las Disposiciones.</div>\n<div> 3.2.3 El CENACE debe recibir por escrito conforme a los medios y plazos señalados en la convocatoria todas las Ofertas Monómicas por Confiabilidad de las Personas Interesadas en participar en los Mecanismos de Adquisición por Confiabilidad para su evaluación y valoración.</div>\n<div> 3.2.4 Las Personas Interesadas en vender energía eléctrica y Productos Asociados al CENACE mediante los Mecanismos de Adquisición por Confiabilidad, deben presentar sus Ofertas Monómicas por Confiabilidad, las cuales deben contener lo siguiente:</div>\n<div> I.        Descripción del proyecto, incluyendo características técnicas mínimas como capacidad instalada e instalada neta (MW), tecnología, tipo de combustible primario y secundario, domicilio del proyecto, coordenadas geodésicas, curvas de capacidad, tiempos de arranque y paro, rampas de entrada y salida (MW/min), capacidad de almacenamiento de energía (MWh) y perfil de carga y descarga, según corresponda;</div>\n<div> II.       Precio Monómico;</div>\n<div> III.      Periodos y perfiles de asignación y despacho: En caso de que el CENACE defina varios periodos o perfiles de asignación y despacho para la aplicación, se debe indicar la Oferta Monómica por Confiabilidad, de forma clara e independiente, para cada uno de aquellos en los que la Persona Interesada se comprometa a participar;</div>\n<div> IV.      Ubicación. Se debe especificar el Punto o Puntos de Interconexión y nivel de tensión a los cuales se propone entregar la energía eléctrica y Productos Asociados;</div>\n<div> V.       Cuestionario para la Evaluación de Antecedentes, firmado por el representante o apoderado legal, a fin de realizar la evaluación de antecedentes del Manual de Registro y Acreditación de Participantes del Mercado, prevista en dicho Manual, y</div>\n<div> VI.      Cumplir con los requisitos de representación que establecen los artículos 15 y 19 la Ley Federal de Procedimiento Administrativo.</div>\n<div> 3.2.5 Si alguna de las Ofertas Monómicas por Confiabilidad no cumple con los requisitos establecidos o si la evaluación de antecedentes no resulta satisfactoria conforme al Manual de Registro y Acreditación de Participantes del Mercado, esta no debe ser valorada.</div>\n<div> 3.2.6 Los representantes de las UCE y los SAEE que resulten seleccionadas deben realizar todos los actos jurídicos que sean necesarios para formalizar el Contrato.</div>\n<div> 3.2.7 Una vez formalizada la contratación, el CENACE debe presentar a la CNE y a la Secretaría un informe de la evaluación realizada respecto de las Ofertas Monómicas por Confiabilidad y de los criterios que se aplicaron para elegir a las UCE y los SAEE seleccionados, dentro de los veinte (20) días hábiles contados a partir del día hábil siguiente a aquel en el que se haya formalizado la última contratación.</div>\n<div> 3.2.8 Los representantes de las UCE y los SAEE que resulten seleccionados a partir de la convocatoria contraen compromisos financieramente vinculantes en términos de las Ofertas Monómicas por Confiabilidad presentadas.</div>\n<div> 3.2.9 Es responsabilidad de los representantes de las UCE y los SAEE seleccionadas el cabal cumplimiento de la o las Ofertas Monómicas por Confiabilidad que presenten para participar en los Mecanismos de Adquisición por Confiabilidad.</div>\n<div> 3.2.10 Las Personas Interesadas que resulten seleccionadas para suscribir un Contrato, adquieren el carácter de Vendedores.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 3. Sobre los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "111d85ef-7229-5125-8424-80adf358515a",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 11,
+      "identificador": "Apartado 3.3 Obligaciones de los Vendedores",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3.3 Obligaciones de los Vendedores</div>\n<div> 3.3.1 Los Vendedores deben cumplir con lo siguiente:</div>\n<div> I.        Todas las características y especificaciones técnicas, así como los horarios y plazos de entrega de la energía eléctrica y Productos Asociados pactados en los Contratos celebrados con el CENACE;</div>\n<div> II.       Proporcionar la energía eléctrica y Productos Asociados pactados en los Contratos y la atención al CENACE únicamente a través de personal autorizado y capacitado;</div>\n<div> III.      Las disposiciones reglamentarias y administrativas aplicables; así como responder ante el CENACE por cualquier daño o perjuicio por incumplimiento de estas, salvo los casos previstos en las Disposiciones;</div>\n<div> IV.      Garantizar el cumplimiento del Contrato conforme al numeral 6 de las Disposiciones;</div>\n<div> V.       Notificar cualquier cambio en la información de su domicilio, número telefónico o correo electrónico, dentro de los cinco (5) días naturales previos a que se realice el cambio;</div>\n<div> VI.      Notificar la existencia de fallas, degradación de capacidad, salida forzada, programas de mantenimiento, trabajos de puesta en servicio, reparación, modificación, reconfiguración, ampliación, modernización y otras actividades necesarias en los Elementos y sus Equipos Asociados para que el CENACE asigne las licencias aplicables;</div>\n<div> VII.     Suministrar la energía eléctrica y Productos Asociados, dentro de la vigencia y en el Punto de Interconexión pactados en los Contratos;</div>\n<div> VIII.    Evitar desconectar la UCE sin la autorización previa del CENACE, durante los periodos acordados;</div>\n<div> IX.      Operar los SAEE según los términos contractuales;</div>\n<div> X.       Desarrollar ingeniería, obtener los permisos correspondientes, adquirir suministros y construir las obras requeridas para lograr la interconexión eléctrica de las UCE o los SAEE a la Red Particular o a la RNT/RGD sin responsabilidad para el CENACE, la Transportista y la Distribuidora en los costos en que se incurran;</div>\n<div> XI.      Operar en cumplimiento de las Reglas del Mercado y las Normas Oficiales Mexicanas, salvo los casos previstos en las Disposiciones, y</div>\n<div> XII.     Cuando aplique, garantizar el suministro y almacenamiento de combustible para operar las UCE en los términos y condiciones de los Contratos pactados.</div>\n<div> 3.3.2 Previo a la fecha de inicio de entrega de la energía eléctrica y Productos Asociados conforme al Contrato celebrado, el Vendedor debe solicitar las pruebas de desempeño de las UCE o SAEE que represente ante el CENACE. Este último, debe evaluar y, en su caso, otorgar la autorización de la solicitud de las pruebas tomando en cuenta las Prácticas Prudentes.</div>\n<div> 3.3.3 Los representantes en el MEM de las UCE y los SAEE deben contar con su registro temporal de Participante del Mercado ante el CENACE, así como se debe estar a lo dispuesto por el numeral 4 de las Disposiciones, para poder iniciar el periodo de pruebas y la entrega de la energía eléctrica y Productos Asociados en el Mercado de Energía de Corto Plazo.</div>\n<div> 3.3.4 Las UCE y los SAEE seleccionados para los Mecanismos de Adquisición por Confiabilidad deben seguir las instrucciones de Control Operativo del CENACE y las Reglas del Mercado conforme a lo previsto en las Disposiciones y en lo que no se contraponga al Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 3. Sobre los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "4f65bb20-eb46-55c9-9822-e9e72d53d5a9",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 12,
+      "identificador": "Apartado 3.4 Implementación de los Mecanismos de Adquisición por Confiabilidad",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3.4 Implementación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 3.4.1 Celebrado el Contrato y en cualquier momento, previo al inicio de la entrega de la energía eléctrica y Productos Asociados en términos del Contrato, el Vendedor y el CENACE deben convenir el procedimiento operativo a seguir para la operación de la UCE o el SAEE interconectado, según sea el caso, en los diferentes Sistemas Interconectados del SEN. Dicho procedimiento debe estar basado en los diseños y las capacidades de la UCE o SAEE del Vendedor, los procedimientos de asignación y despacho del CENACE, así como ser consistentes con las Prácticas Prudentes, la LSE y su marco regulatorio, salvo los casos previstos en las Disposiciones. Este procedimiento operativo se debe anexar al Contrato, por lo que forma parte del mismo.</div>\n<div> 3.4.2 En un plazo no mayor a veinte (20) días hábiles, contados a partir del último Día de Operación de los recursos adquiridos mediante los Mecanismos de Adquisición por Confiabilidad, el CENACE debe informar a la Secretaría y a la CNE, por Sistema Interconectado o Gerencia de Control Regional del Sistema Interconectado Nacional y por recurso adquirido, lo siguiente:</div>\n<div> I.        Capacidades adquiridas en MW y sus periodos asociados;</div>\n<div> II.       Cantidad de energía eléctrica en MWh y Productos Asociados;</div>\n<div> III.      Precio unitario de la energía eléctrica en ($/MWh), el cual debe corresponder a la relación entre el costo total de la energía eléctrica y Productos Asociados (en pesos) entre la cantidad de energía eléctrica y Productos Asociados (en MWh), y</div>\n<div> IV.      Cualquier otra que el CENACE considere necesario comunicar.</div>\n<div> La información de este numeral debe ser actualizada en lo que corresponda e informada a la Secretaría y a la CNE dentro de los veinte (20) días hábiles, contados a partir del día en el que se realice la tercera Re-liquidación del Día de Operación antes referido.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 3. Sobre los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "3f4ab932-889d-541e-8179-f1077c7210aa",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 13,
+      "identificador": "Apartado 3.5 Asignación y despacho",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 3.5 Asignación y despacho</div>\n<div> 3.5.1 Durante la vigencia del Contrato, el Vendedor debe operar y mantener su UCE o SAEE de conformidad con las Prácticas Prudentes de desempeño, los criterios mínimos operativos establecidos por el CENACE, las especificaciones contractuales y los procedimientos operativos convenidos en su Contrato. Las UCE y los SAEE que resultaron contratados bajo los Mecanismos de Adquisición por Confiabilidad se deben contemplar como recursos Firmes-no despachables y presentar Ofertas de Programa Fijo en el Mercado de Energía de Corto Plazo. Para dar cumplimiento a las Reglas del Mercado, estos recursos deben tener un programa de generación conforme a los términos que se establezcan en sus Contratos.</div>\n<div> 3.5.2 Las instrucciones de despacho que emita el CENACE, así como el inicio y fin de la entrega de la energía eléctrica y Productos Asociados, se deben hacer conforme a la energía programada en el Mercado de Energía de Corto Plazo, de acuerdo con las cantidades horarias pactadas en el Contrato. Asimismo, la carga de los SAEE se debe realizar conforme a las instrucciones que el CENACE emita para el registro de la oferta de compra en el Mercado de Energía de Corto Plazo. Los SAEE deben abstenerse de presentar ofertas de compra de energía en las mismas horas en las que se haya pactado su descarga y de modificar los perfiles de carga y descarga, salvo por las suspensiones o modificaciones previstas en el numeral 3.5.5 de las Disposiciones.</div>\n<div> 3.5.3 El CENACE puede solicitar al Vendedor una extensión del periodo de entrega de la energía eléctrica y Productos Asociados. Para este caso, el precio y el plazo debe ser pactado bajo mutuo acuerdo entre el CENACE y el Vendedor, para lo cual debe suscribirse un convenio modificatorio. En caso de requerirse un incremento respecto al Precio Monómico establecido en el Contrato, este solo debe corresponder a los costos en los que pueda incurrir el Vendedor por la extensión, lo cual debe ser manifestado por este último de buena fe en el convenio modificatorio. Asimismo, si el CENACE identifica que más de un Vendedor tiene la misma capacidad de atender las condiciones técnicas identificadas debe elegir la opción más económica. El CENACE debe publicar en el área certificada del Sistema de Información del Mercado la cantidad de energía eléctrica y Productos Asociados y los periodos correspondientes en los que se extiende la contratación.</div>\n<div> 3.5.4 Cuando el CENACE lo solicite, el Vendedor puede entregar energía eléctrica y Productos Asociados en exceso de la potencia horaria comprometida en su Contrato, siempre y cuando las condiciones de cada Sistema Interconectado, Gerencia de Control Regional o Zona de Carga lo requieran; en caso contrario, la UCE o SAEE debe de apegarse en todo momento al programa fijo horario de entrega de la energía eléctrica y Productos Asociados establecido en su Contrato.</div>\n<div> 3.5.5 La entrega de energía eléctrica y Productos Asociados solo se debe suspender o modificar por razones de Fuerza Mayor o Caso Fortuito. En caso de que cualquiera de estos eventos ocurra, el CENACE o el representante de la UCE o SAEE, según corresponda, debe emitir el informe correspondiente dentro de las siguientes 24 horas, indicando el tiempo estimado de reanudación de la entrega de la energía eléctrica y Productos Asociados, según sea el caso, comprometiéndose a solucionar la causa. El Contrato debe considerar las especificaciones para ello.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 3. Sobre los Mecanismos de Adquisición por Confiabilidad",
+      "seccion_nombre": null
+    },
+    {
+      "id": "1de9e9c7-6822-56d7-ae60-29fe50740e33",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 14,
+      "identificador": "Apartado 4.1 Consideraciones Generales",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4. Consideraciones respecto de las Reglas del Mercado<br> </div>\n<div> 4.1 Consideraciones Generales</div>\n<div> 4.1.1 Para realizar la liquidación en el MEM de la energía asociada a los Contratos, los Vendedores deben realizar las etapas del proceso de Registro de Participantes del Mercado, la Acreditación y el registro de los Activos Físicos, señalados en las Reglas del Mercado.</div>\n<div> 4.1.2 Al culminar la etapa de Registro como Participante del Mercado, se debe suscribir el Contrato Temporal de Participante del Mercado, con el cual, el Vendedor adquiere todos los derechos y obligaciones establecidos en las Reglas del Mercado para las Participantes del Mercado; sin embargo, debido a que la activación de los Mecanismos de Adquisición por Confiabilidad se desprende de una condición de planeación operativa de mediano plazo y con la finalidad de establecer un proceso ágil que permita al CENACE disponer, en tiempo y forma, de la energía eléctrica y Productos Asociados contratados mediante los Mecanismos de Adquisición por Confiabilidad, se debe estar a las consideraciones señaladas en la presente sección.</div>\n<div> La vigencia del Contrato de Participante del Mercado debe ser la necesaria para atender las condiciones pronosticadas por el CENACE para el SEN con base en los insumos con los que se cuente.</div>\n<div> 4.1.3 Los Vendedores, deben cubrir todos los requisitos y formalidades del Registro y Acreditación de Participante del Mercado, por lo menos cinco (5) días hábiles antes de la fecha de inicio de pruebas y entrega de la energía eléctrica y Productos Asociados contratados, en términos de lo establecido en la presente sección.</div>\n<div> 4.1.4 En caso de que se presente alguna condición no prevista en las Disposiciones, el CENACE de conformidad con el artículo 124, fracción II de la LSE puede determinar los actos necesarios aplicables a los Vendedores con la finalidad de mantener la Confiabilidad del SEN.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "6479993d-fe28-51dc-a893-cd35fbcfd357",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 15,
+      "identificador": "Apartado 4.2 Registro de Participante del Mercado Temporal",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.2 Registro de Participante del Mercado Temporal</div>\n<div> 4.2.1 Los Vendedores que hayan suscrito el Contrato, deben de entregar al CENACE escrito libre que cumpla con los artículos 15 y 19 de la Ley Federal de Procedimiento Administrativo, el cual debe ser firmado por el representante o apoderado legal, acompañado de la siguiente documentación:</div>\n<div> A. De la Empresa:</div>\n<div> I.        Acta constitutiva de la sociedad vigente y debidamente protocolizada ante fedatario público junto con los datos de registro ante el Registro Público de la Propiedad y del Comercio, y</div>\n<div> II.       Cédula de Identificación Fiscal.</div>\n<div> B. Del representante o apoderado legal</div>\n<div> I.        Poder legal.</div>\n<div> II.       Cédula de Identificación Fiscal.</div>\n<div> III.      Identificación oficial vigente.</div>\n<div> IV.      Escrito firmado que contenga la siguiente leyenda:</div>\n<div>          &quot;Declaro bajo protesta de decir verdad que las facultades y poderes manifestados se encuentran vigentes a la fecha de presentación de la solicitud y hasta la fecha de la firma del Contrato.&quot;</div>\n<div> V.       Escrito firmado que contenga la siguiente leyenda:</div>\n<div> &quot;Declaro bajo protesta de decir verdad que mi representada no aparece en el Directorio de Licitantes, Proveedores y Contratistas sancionados con el impedimento para presentar propuestas o celebrar contratos con las dependencias, entidades de la Administración Pública Federal y de los Gobiernos de los Estados, de la Secretaría de la Función Pública.&quot;</div>\n<div> C. Del Contacto Secundario.</div>\n<div> I.        Nombre.</div>\n<div> II.       Teléfono.</div>\n<div> III.      Correo electrónico.</div>\n<div> IV.      Cargo que ostenta en la empresa.</div>\n<div> V.       Dirección para recibir notificaciones.</div>\n<div> D. Registro de cuentas en el Sistema de Información del Mercado.</div>\n<div> I.        Formato CH-Participantes debidamente llenado (archivo *.xlsx), proporcionado al Vendedor por el área correspondiente del CENACE durante la etapa de registro de Activos Físicos.</div>\n<div> II.       Formato de Solicitud de cuentas de usuarios acreditados a las interfaces externas del Sistema de Información del Mercado debidamente llenado (archivo *.xlsx) proporcionado al Vendedor por el área correspondiente del CENACE durante la etapa de registro de Activos Físicos.</div>\n<div> Como parte del proceso de registro se debe tomar en consideración la evaluación de antecedentes realizada durante el proceso de evaluación de Ofertas Monómicas por Confiabilidad.</div>\n<div> 4.2.2 Los Vendedores pueden mantener el acceso al Sistema de Información del Mercado como máximo un año posterior a la fecha de finalización del Contrato, una vez cumplido este periodo y salvo que se realice una Re-liquidación adicional se debe inhabilitar su acceso al Sistema de Información del Mercado.</div>\n<div> 4.2.3 Para aquellos Vendedores que sean Participantes del Mercado al momento de ser activados los Mecanismos de Adquisición por Confiabilidad, el CENACE puede utilizar la información que obra en su poder, para generar el registro de una nueva Participante del Mercado Temporal que represente a la UCE o SAEE contratado, con el fin de separar las transacciones que éste realice dentro del MEM y las que realice en términos del Contrato. En caso de considerarlo necesario el CENACE puede solicitar información complementaria para realizar dicho registro y el Vendedor está obligado a proporcionarla.</div>\n<div> 4.2.4 Los Vendedores no requieren realizar lo siguiente:</div>\n<div> I.        El pago de la Cuota de Registro, y</div>\n<div> II.       Presentar los requisitos mínimos de capital contable.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "5a1f9d2d-832b-53e9-a2d9-53c993a0fda7",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 16,
+      "identificador": "Apartado 4.3 Acreditación de Participante Temporal del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.3 Acreditación de Participante Temporal del Mercado</div>\n<div> 4.3.1 Para iniciar el periodo de pruebas y la liquidación en el MEM, es necesario que la Participante del Mercado Temporal lleve a cabo un proceso de acreditación mediante el cual el CENACE debe corroborar:</div>\n<div> I.        Que la Participante del Mercado cuente con los medios de comunicación necesarios para su interacción con el CENACE;</div>\n<div> II.       Que la Participante del Mercado haya registrado y activado las cuentas bancarias y Cuentas de Orden para la emisión de estados de cuenta y llevar a cabo las transferencias electrónicas con el CENACE, y</div>\n<div> III.      Que se hayan llevado a cabo todas las pruebas y simulacros necesarios para validar la confiabilidad de las comunicaciones entre la Participante del Mercado y el CENACE.</div>\n<div> 4.3.2 El CENACE debe identificar a la Participante del Mercado Temporal con el estatus de &quot;Acreditado&quot; una vez que complete y mantenga actualizados los siguientes requerimientos:</div>\n<div> I.        Para dar cumplimiento al requisito de conectividad, debe presentar un escrito donde se mencionen las características de sus requisitos de red, voz y datos para la conectividad, además del cumplimiento conforme a los términos del Manual de Registro y Acreditación de Participantes del Mercado descritos en el punto 5.4., en el cual se menciona que se deben completar satisfactoriamente los requisitos establecidos en el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista aplicables para sus actividades en el MEM;</div>\n<div> II.       Para dar cumplimiento al registro de cuentas bancarias, debe presentar las cuentas bancarias principal y de respaldo las cuales deben ser de distintos bancos, a través de un escrito, con la información siguiente: Nombre o razón social de la persona titular de la cuenta; nombre del banco; número de la sucursal; número de la cuenta, CLABE Interbancaria Estandarizada de 18 dígitos; ubicación de la sucursal y un estado de cuenta de cada cuenta, no mayor a tres meses al día de entrega, lo anterior conforme a los términos del Manual de Registro y Acreditación de Participantes del Mercado;</div>\n<div> III.      Para dar cumplimiento al registro de Cuentas de Orden, debe presentar un escrito donde describa la estructura y las actividades o activos relacionados a cada cuenta de orden requerida, así como el formato &quot;CH_SUBCUENTAS&quot;, conforme a los términos del Manual de Registro y Acreditación de Participantes del Mercado;</div>\n<div> IV.      Para dar cumplimiento al requisito de plan de emergencia del Manual de Registro y Acreditación de Participantes del Mercado, debe presentar un escrito donde describa los métodos alternos para remitir ofertas o recibir instrucciones del CENACE ante pérdida de los medios principales de comunicación e información de contactos, y</div>\n<div> V.       Completar los simulacros para la operación en el MEM respecto del envío de ofertas, emisión de estados de cuenta, confirmación de recepción de ofertas y estados de cuenta y pruebas de comunicaciones de voz y datos.</div>\n<div> 4.3.3 La Participante del Mercado Temporal, en el proceso de acreditación está exento de presentar los siguientes requisitos:</div>\n<div> I.        Presentar la Garantía de Cumplimiento Básica;</div>\n<div> II.       Cumplir con los requisitos de capacitación y entrenamiento, y</div>\n<div> III.      Establecer el escritorio de atención 24/7.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "99e88cad-41ac-52c2-a541-939ab35626ed",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 17,
+      "identificador": "Apartado 4.4 Registro de Activos Físicos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.4 Registro de Activos Físicos</div>\n<div> 4.4.1 El Vendedor o su representante en el MEM para llevar a cabo el registro de Activos Físicos en el MEM debe presentar ante el CENACE un escrito libre que cumpla con los artículos 15 y 19 de la Ley Federal de Procedimiento Administrativo, y presentar la siguiente documentación:</div>\n<div> I.        El Título de permiso de generación de energía eléctrica vigente o el acuse de la solicitud de permiso de generación de energía eléctrica ingresada ante la CNE;</div>\n<div> II.       El contrato de interconexión suscrito conforme a lo previsto en las Disposiciones;</div>\n<div> III.      Escrito indicando la nomenclatura de la instalación temporal y el número de Cuenta de Orden asignada a la Central Eléctrica;</div>\n<div> IV.      El diagrama unifilar de las instalaciones señalando el o los medidores para liquidaciones y la disposición de sus servicios auxiliares o propios;</div>\n<div> V.       Los formatos con información técnica de las instalaciones: CH_UNIDADES, CH_CARGAS, USO_UNIDADES y CH_CENTRALES, y</div>\n<div> VI.      El resultado favorable de la revisión de la funcionalidad de los equipos de medición conforme a lo previsto en el numeral 4.13 de las Disposiciones.</div>\n<div> 4.4.2 Cuando el Vendedor solicite un periodo de pruebas previo a la fecha compromiso de inicio de entrega de la energía eléctrica y Productos Asociados establecida en el Contrato, se debe tomar en cuenta lo siguiente:</div>\n<div> I.        Para que la UCE o el SAEE adquiera el estatus de &quot;Aprobado&quot;, el Vendedor debe presentar la información señalada en el numeral 4.4.1 de las Disposiciones, con un periodo mínimo de nueve (9) días hábiles previos a la fecha establecida para el inicio de periodo de pruebas;</div>\n<div> II.       La UCE o el SAEE no puede adquirir el estatus de &quot;Aprobado&quot;, en tanto no haya cumplido satisfactoriamente con los requisitos establecidos en el numeral 4.4.1 de las Disposiciones. El Vendedor debe dar atención expedita a cualquier requerimiento que el CENACE realice durante el proceso de Registro de Activos Físicos;</div>\n<div> III.      Una vez cumplidos los requisitos anteriores, el CENACE debe notificar a la Participante del Mercado con al menos tres (3) días naturales de anticipación a la fecha en la cual adquiere el estatus &quot;Aprobado&quot;, y</div>\n<div> IV.      Una vez concluido el periodo de pruebas e iniciada la fecha de inicio de entrega de energía eléctrica y Productos Asociados de sus productos señalada en el Contrato la UCE o SAEE adquiere el estatus de &quot;Habilitado&quot;.</div>\n<div> 4.4.3 Cuando el Vendedor inicie sus operaciones a partir de la fecha compromiso de entrega de energía eléctrica y Productos Asociados establecida en el Contrato o en una fecha posterior, se debe tomar en cuenta lo siguiente:</div>\n<div> I.        Para que la UCE o el SAEE adquiera el estatus de &quot;Habilitado&quot;, el Vendedor debe presentar la información señalada en el numeral 4.4.1 de las Disposiciones, con un periodo mínimo de nueve (9) días hábiles previos a la fecha de inicio de operaciones;</div>\n<div> II.       La UCE o el SAEE no puede adquirir el estatus de &quot;Habilitado&quot;, en tanto no haya cumplido satisfactoriamente con los requisitos establecidos en el numeral 4.4.1 de las Disposiciones. El Vendedor debe dar atención expedita a cualquier requerimiento que el CENACE realice durante el proceso de registro de Activos Físicos, y</div>\n<div> III.      Una vez cumplidos los requisitos anteriores, el CENACE debe notificar a la Participante del Mercado con al menos tres (3) días naturales de anticipación la fecha en la cual adquiere el estatus &quot;Habilitado&quot;.</div>\n<div> 4.4.4 Los Activos Físicos permanecen vigentes hasta la fecha de término del periodo de duración del Contrato.</div>\n<div> 4.4.5 Los formatos señalados en los numerales 4.3.2, inciso III y 4.4.1, inciso V de las Disposiciones deben estar disponibles para su descarga en el módulo de Registro del Área Pública del Sistema de Información del Mercado.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "6738c7cf-2eca-53f5-bee7-99596785abda",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 18,
+      "identificador": "Apartado 4.5 Garantías de Cumplimiento",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.5 Garantías de Cumplimiento</div>\n<div> 4.5.1 Las Garantías de Cumplimiento a las que hace mención el Manual de Garantías de Cumplimiento, no son aplicables a los Vendedores. No obstante, se debe observar lo establecido en la sección 6.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "55c21a29-d0a2-524c-8bdb-1783f84a48d7",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 19,
+      "identificador": "Apartado 4.6 Acceso al Sistema Eléctrico Nacional",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.6 Acceso al Sistema Eléctrico Nacional</div>\n<div> 4.6.1 El CENACE, puede solicitar a la CNE y a la Secretaría, con base en lo establecido en la LSE y la Ley de Planeación y Transición Energética, que dicha autoridad, gestione ante otras autoridades federales, estatales o municipales, las medidas que estime necesarias respecto de las actividades reguladas y, en su caso, solicitar la intervención de estas, para el logro del cumplimiento de los Mecanismos de Adquisición por Confiabilidad. Lo anterior, sin menoscabo de que el Vendedor deba tramitar por su cuenta otros permisos o autorizaciones que se requieran.</div>\n<div> 4.6.2 Derivado de las condiciones del SEN, mediante la determinación del CENACE, puede no requerirse a los Vendedores, en lo estrictamente necesario, cumplir con lo establecido en el Código de Red, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista, el Manual de Interconexión y Conexión, el Manual de Programación de Salidas, el Procedimiento de Operación para la Declaración de Entrada en Operación Comercial y otras disposiciones de carácter general en relación con los procesos descritos en las Disposiciones.</div>\n<div> 4.6.3 El CENACE debe realizar estudios internos para evaluar la factibilidad técnica de la interconexión temporal de los activos de la Oferta Monómica por Confiabilidad presentada al CENACE.</div>\n<div> 4.6.4 El CENACE con el apoyo de la Transportista y Distribuidora debe identificar las obras mínimas necesarias para realizar la Interconexión Temporal de los activos de los Vendedores. Las obras mínimas pueden considerar situaciones especiales respecto del cumplimiento de la normativa de construcción y equipo eléctrico de la Transportista y la Distribuidora.</div>\n<div> 4.6.5 El CENACE, el Vendedor, la Transportista y la Distribuidora deben acordar el uso de medios y sistemas de comunicación de voz y datos existentes para el envío y recepción de la información que se genere en las instalaciones del Activo Físico del Vendedor al Centro de Control del CENACE.</div>\n<div> 4.6.6 El CENACE, a solicitud del Vendedor, debe instruir a la Transportista y la Distribuidora la interconexión de los activos del Vendedor, por lo que es necesaria la formalización de un Contrato de Interconexión que considere los casos previstos en las Disposiciones, incluyendo la no presentación de las garantías y de la carta de aceptación de estudios a las que se refiere el Manual de Interconexión y Conexión, así como la no presentación del permiso de generación de energía eléctrica si aún no se cuenta con este al momento de la suscripción del Contrato. Asimismo, no resulta aplicable la revisión de las Unidades de Inspección a las que se refiere el Manual de Interconexión y Conexión.</div>\n<div> 4.6.7 Previo a la Interconexión de las UCE o el SAEE, según corresponda, la Transportista y la Distribuidora deben notificar al CENACE que existen las condiciones para llevar a cabo la Interconexión.</div>\n<div> 4.6.8 El CENACE puede solicitar información al Vendedor y éste último está obligado a proporcionarla, respecto de las características de los activos que representa (curvas de capabilidad, Pmin, Pmax, etc.).</div>\n<div> 4.6.9 El CENACE, la Transportista, la Distribuidora y el Vendedor deben realizar la coordinación de protecciones entre los activos de la Transportista y la Distribuidora con los activos del Vendedor.</div>\n<div> 4.6.10 El Vendedor debe disponer de personal operativo, en las instalaciones donde interconecte el Activo Físico, con una disponibilidad 24/7 durante el periodo del Contrato.</div>\n<div> 4.6.11 Una vez concluidos los plazos de entrega de la energía eléctrica y Productos Asociados, el CENACE se debe coordinar con la Transportista, la Distribuidora y el Vendedor para la desconexión segura del SEN de los activos de este último. Las UCE y los SAEE contratados no pueden seguir interconectadas a la RNT o las RGD después del periodo de contratación, deben de iniciar con los Estudios de Interconexión bajo el Manual de Interconexión y Conexión y cumplir con el marco regulatorio en la materia. El Vendedor debe prever sus necesidades de consumo de energía eléctrica para la alimentación de servicios propios y actividades posteriores al periodo de contratación, ya que una vez finalizado, sus activos son desconectados del SEN.</div>\n<div> 4.6.12 Previa aprobación por el CENACE y de forma anticipada a la fecha de inicio de entrega de energía eléctrica y Productos Asociados, los Vendedores pueden interconectarse a la RNT o las RGD, para la realización de pruebas operativas para la puesta en servicio de las UCE o los SAEE según corresponda, siempre que hayan concluido el Registro de Activos. Dichas pruebas deben ser congruentes con los tiempos correspondientes al tipo de prueba a desarrollar y de conformidad con las Prácticas Prudentes.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "09154706-f413-519c-8e3b-caed0404ced6",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 20,
+      "identificador": "Apartado 4.7 Modelado de Activos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.7 Modelado de Activos</div>\n<div> 4.7.1 El CENACE puede modelar a las UCE y SAEE como Indirectamente Modeladas o Directamente Modeladas con base en las condiciones y disposición de la red eléctrica existente y medios de comunicación disponibles.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "129f75a4-08c5-50d4-b2e0-146f9823885e",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 21,
+      "identificador": "Apartado 4.8 Operaciones en el Mercado de Energía de Corto Plazo",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.8 Operaciones en el Mercado de Energía de Corto Plazo</div>\n<div> 4.8.1 Las UCE y los SAEE deben ser consideradas como Firmes no-despachables. El CENACE puede modificar el programa de generación, únicamente por caso fortuito o fuerza mayor o ante eventos que impacten la Confiabilidad del SEN, sin incurrir en responsabilidad alguna.</div>\n<div> 4.8.2 Durante todo el periodo de vigencia del Contrato, los Vendedores deben enviar Ofertas de Programa Fijo, conforme a lo establecido en el numeral 2.8.6 del Manual de Mercado de Energía de Corto Plazo. El programa fijo debe corresponder a las cantidades horarias de energía pactadas en el Contrato.</div>\n<div> 4.8.3 Los Vendedores deben enviar sus Ofertas de Programa Fijo por los medios que establezca el CENACE. En el caso de que el medio establecido no se encuentre disponible, se pueden enviar por correo electrónico o por algún otro medio que determine el CENACE. Para aquellos SAEE que retiren energía de la RNT o de las RGD para la carga del SAEE, deben presentar ofertas de compra fija en el Mercado del Día en Adelanto, en las horas en las que se haya pactado dicha carga y de conformidad con los perfiles de consumo que se establezcan en el Contrato, por lo cual deben abstenerse de presentar ofertas de compra en las mismas horas en las que se haya pactado la descarga del SAEE.</div>\n<div> 4.8.4 Los Vendedores pueden realizar exclusivamente transacciones de compra y venta de energía eléctrica en el Mercado de Energía de Corto Plazo, según corresponda, por lo que no pueden ofrecer Servicios Conexos adicionales a los comprometidos en el Contrato e incluidos en el Precio Monómico, ni realizar Transacciones Bilaterales Financieras o recibir Derechos Financieros de Transmisión, así como tampoco participar en el Mercado de Certificados de Energía Limpia.</div>\n<div> 4.8.5 El CENACE establece los procedimientos operativos en acuerdo con el Vendedor, donde se establecen los mecanismos de segregación para la liquidación de energía eléctrica y Productos Asociados, motivo de la contratación, dichos procedimientos operativos se deben anexar al Contrato.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "9e83ee3b-4f16-56ba-b560-6bb6fbac872e",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 22,
+      "identificador": "Apartado 4.9 Mercado para el Balance de Potencia",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.9 Mercado para el Balance de Potencia</div>\n<div> 4.9.1 Para las UCE y los SAEE derivados de los Mecanismos de Adquisición por Confiabilidad se considera que la DEF es igual a cero (0), puesto que no les son requeridos Estudios de Interconexión de acuerdo con lo establecido en las Disposiciones.</div>\n<div> 4.9.2 Las capacidades de las UCE y los SAEE derivadas de los Mecanismos de Adquisición por Confiabilidad, no se deben incluir en el cálculo de la generación disponible total de la zona de potencia o Sistema Interconectado, que se utiliza para obtener las Horas Críticas que se describen en el numeral 3.4 del Manual del Mercado para el Balance de Potencia.</div>\n<div> 4.9.3 A las UCE y SAEE derivadas de los Mecanismos de Adquisición por Confiabilidad no se les puede registrar o asociar Transacciones Bilaterales de Potencia (TBPot).</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ab694044-0d8e-537d-b6ed-db54ee3a49ef",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 23,
+      "identificador": "Apartado 4.10 Certificados de Energías Limpias del Mercado",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.10 Certificados de Energías Limpias del Mercado</div>\n<div> 4.10.1 Las UCE que se utilicen durante la vigencia de los Mecanismos de Adquisición por Confiabilidad, no son acreedoras a Certificados de Energías Limpias. Por su parte, los SAEE que se utilicen durante la vigencia de los Mecanismos de Adquisición por Confiabilidad, no son acreedores a Certificados de Energías Limpias, según se establece en el artículo 195 del Reglamento de la LSE.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8b115d6b-2f9d-5be7-82ed-84c54cf49601",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 24,
+      "identificador": "Apartado 4.11 Derechos Financieros de Transmisión",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.11 Derechos Financieros de Transmisión</div>\n<div> 4.11.1 No se deben calcular Derechos Financieros de Transmisión para las UCE y los SAEE derivados de los Mecanismos de Adquisición por Confiabilidad.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "2e2547b0-b805-5178-899a-79c9f1acdc16",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 25,
+      "identificador": "Apartado 4.12 Unidades de Central Eléctrica Móviles",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.12 Unidades de Central Eléctrica Móviles</div>\n<div> 4.12.1 Para cumplir con lo establecido en la fracción I del numeral 2.1.1 de las Disposiciones deben ser consideradas las UCEM que se encuentren disponibles para reubicarse o habilitarse en los puntos identificados por el CENACE.</div>\n<div> 4.12.2 El CENACE debe instruir a la Transportista o la Distribuidora la Interconexión al Sistema Eléctrico Nacional y se deben establecer las fronteras operativas, previa solicitud del representante de la UCEM.</div>\n<div> 4.12.3 Las UCEM no son acreedoras a un Contrato, ya que estas deben participar en el Mercado de Energía de Corto Plazo, lo cual les permite contabilizar disponibilidad para el Mercado para el Balance de Potencia. De conformidad con lo anterior, su liquidación se debe realizar conforme a lo establecido en las Reglas del Mercado y las Disposiciones.</div>\n<div> 4.12.4 El representante de la UCEM debe solicitar y cubrir todos los requisitos y formalidades para el registro y acreditación de Participantes del Mercado de acuerdo con los tiempos establecidos en el numeral 4.1.3 de las Disposiciones.</div>\n<div> 4.12.5 Las UCEM no requieren realizar el pago de la Cuota de Registro establecida en el numeral 3.3.4 del Manual de Registro y Acreditación de Participantes del Mercado.</div>\n<div> 4.12.6 Las UCEM no requieren presentar los requisitos mínimos de Capital Contable señalados en el numeral 3.6.3 del Manual de Registro y Acreditación de Participantes del Mercado.</div>\n<div> 4.12.7 Las UCEM están sujetas a las Garantías de Cumplimiento a las que hace mención el Manual de Garantías de Cumplimiento.</div>\n<div> 4.12.8 Las UCEM no requieren cumplir en su totalidad con lo establecido en el Código de Red, el Manual de Requerimientos de Tecnologías de la Información y Comunicaciones para el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista, el Manual de Interconexión y Conexión, el Manual de Programación de Salidas y otras disposiciones de carácter general y Reglas del Mercado en relación con los procesos descritos en las Disposiciones.</div>\n<div> 4.12.9 El CENACE debe realizar estudios internos para evaluar la factibilidad técnica previo a la Interconexión Temporal de las UCEM desplazadas, entregando por escrito a los representantes de estas, los resultados de las factibilidades encontradas.</div>\n<div> 4.12.10 Las UCEM están sujetas a las obras mínimas necesarias que determine el CENACE con el apoyo de la Transportista y Distribuidora para realizar la interconexión. Las obras mínimas pueden considerar situaciones especiales respecto del cumplimiento de la normativa de construcción y equipo eléctrico de la Transportista y Distribuidora.</div>\n<div> 4.12.11 Las UCEM deben ser modeladas como unidades térmicas despachables para presentar ofertas económicas en el Mercado de Energía de Corto Plazo, lo anterior, sin menoscabo de que los representantes de las UCEM proporcionen los parámetros técnicos. En caso de no contar con los parámetros técnicos que permitan el modelado, el CENACE puede optar por modelar a las UCEM como unidades no programables (No Despachable), hasta en tanto se entreguen dichos parámetros por la UCEM.</div>\n<div> 4.12.12 Las UCEM con Ofertas de Venta Económicas de unidad de central térmica, son elegibles para recibir pagos de Garantía de Suficiencia de Ingresos a fin de apoyar la recuperación de los costos de la asignación y de la producción de energía que excedan los ingresos por la venta de energía eléctrica y Servicios Conexos en el Mercado de Energía de Corto Plazo.</div>\n<div> 4.12.13 Las UCEM deben ser remuneradas bajo la premisa de haber cumplido con la instrucción del CENACE, por los costos de desplazamiento o habilitación de sus activos, así como de cubrir los costos por regresar las mismas a su lugar de origen. Dicha remuneración se debe realizar a través de lo establecido en el numeral 5.6 de las Disposiciones.</div>\n<div> 4.12.14 La Transportista y Distribuidora deben realizar todos los trabajos y obras requeridas conforme al numeral 4.12.10 de las Disposiciones que permitan interconectar a las UCEM desplazadas.</div>\n<div> 4.12.15 Previa aprobación del CENACE, las UCEM pueden interconectarse a la RNT o las RGD previo a la fecha de inicio de entrega de energía eléctrica y Productos Asociados, para la realización de pruebas operativas para la puesta en servicio. Dichas pruebas deben ser congruentes con los tiempos correspondientes al tipo de prueba a desarrollar y de conformidad con las Prácticas Prudentes.</div>\n<div> 4.12.16 Para aquellas UCEM que sean instruidas para garantizar la Confiabilidad, Seguridad y Continuidad del SEN y de acuerdo con los estudios realizados por el CENACE, se les debe otorgar un DEF del cien por ciento, por lo que pueden participar en el Mercado para el Balance de Potencia y la Fecha de Entrada en Operación Comercial debe ser considerada cuando el activo cuente con el estatus de &quot;Habilitado&quot; para poder ofertar en el Mercado de Energía de Corto Plazo.</div>\n<div> 4.12.17 Para aquellas UCEM que sean instruidas por el CENACE, para su traslado, habilitación o ambas, no es necesario que presenten el permiso de generación correspondiente, con la nueva ubicación actualizada. Para ello cuentan con un plazo de hasta cinco (5) días hábiles posteriores a la obtención de la actualización del permiso para presentarlo ante el CENACE.</div>\n<div> 4.12.18 Además de la información descrita en el numeral 3.2.7 de las Disposiciones, el CENACE debe enviar a la Secretaría y a la CNE un informe con las instrucciones de traslado o habilitación que emita a las UCEM.</div>\n<div> 4.12.19 Para aquellas UCEM que sean instruidas para su traslado y/o habilitación, les es aplicable lo previsto en el numeral 4.13 de las Disposiciones.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "64cc82d9-55de-5f5b-952e-190d79eab5dc",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 26,
+      "identificador": "Apartado 4.13 Mediciones para Liquidaciones",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.13 Mediciones para Liquidaciones</div>\n<div> 4.13.1 La supervisión de la instalación y calibración de los equipos de medición proporcionados por el Vendedor, quien mantiene la propiedad de los equipos de medición al finalizar la vigencia del Contrato, debe ser realizada por la Transportista o la Distribuidora, según corresponda.</div>\n<div> 4.13.2 Los equipos de medición para liquidaciones deben estar en el Punto de Interconexión Temporal de las UCE, UCEM o SAEE. En caso de que no sea técnicamente factible instalarlos en dicho punto, se debe acordar a través de procedimientos operativos entre el CENACE y el Vendedor, el factor de compensación aplicable a la medición para liquidación en el Contrato y el procedimiento operativo debe ser parte de sus anexos.</div>\n<div> 4.13.3 Los equipos de medición no requieren contar con un dictamen de inspección, ni con un Diagnóstico del Sistema de Medición, sin embargo, deben contar con una revisión favorable de la Transportista o la Distribuidora respecto de la funcionalidad de los equipos de medición, para lo cual se debe de observar lo siguiente:</div>\n<div> I.        La UCE, UCEM o SAEE solicita al CENACE, a través de escrito libre, se revise la funcionalidad de los equipos de medición, proporcionando las características de medición fiscal de los Transformadores de Instrumentos y de los Medidores;</div>\n<div> II.       El CENACE solicita a la Transportista o Distribuidora la revisión de la funcionalidad de los equipos de medición conforme a la información recibida;</div>\n<div> III.      La Transportista o Distribuidora debe emitir respuesta al CENACE respecto a la revisión de funcionalidad de los equipos de medición;</div>\n<div> IV.      Si la revisión de la funcionalidad de los equipos de medición resulta favorable, el CENACE y la Transportista o Distribuidora, previo al inicio del periodo pruebas, deben realizar el Procedimiento de alta de los Sistemas de Medición en el Sistema de Administración para Puesta en Servicio de Equipo (SAPPSE), y</div>\n<div> V.       En caso de no contarse con una revisión favorable de la funcionalidad de los equipos de medición, la UCE, la UCEM o el SAEE, según corresponda, deben subsanar las observaciones correspondientes.</div>\n<div> 4.13.4 Para el cumplimiento de lo anterior, las Gerencias de Control Regional del CENACE en ámbito de su responsabilidad deben llevar a cabo dichas actividades en coordinación con la Transportista o la Distribuidora.</div>\n<div> 4.13.5 A las UCE, UCEM y los SAEE contratadas como resultado de los Mecanismos de Adquisición por Confiabilidad, no les es requerido lo siguiente:</div>\n<div> I.        Contar con medidor de respaldo. Cuando se presente una falla en los equipos de medición para liquidaciones, se deben realizar las estimaciones de conformidad con el Manual de Medición para Liquidaciones;</div>\n<div> II.       Sincronía de tiempo;</div>\n<div> III.      Cumplir con la exactitud y exclusividad en transformadores de instrumento, es decir, pueden contar con una exactitud distinta a las Reglas del Mercado que cumpla con la funcionalidad para efectos de facturación, y</div>\n<div> IV.      El sistema de comunicación remota en el medidor o medidores de energía.</div>\n<div> Para efecto de dar cumplimiento a la sincronía de tiempo, la Transportista o Distribuidora según corresponda, deben sincronizar la estampa de tiempo del medidor vía sistema de adquisición al momento de obtener los registros de medición.</div>\n<div> 4.13.6 El representante de la UCE, la UCEM o del SAEE propietario de los equipos de medición es responsable de reparar la falla en el menor tiempo posible, conforme a los lineamientos normativos establecidos, para lo cual se debe de coordinar con la Transportista o la Distribuidora.</div>\n<div> 4.13.7 La Transportista y la Distribuidora, en el ámbito de sus facultades, son responsables de la transferencia de los Registros de Medición de conformidad con los tiempos establecidos en el Manual de Medición para Liquidaciones.</div>\n<div> 4.13.8 Los Registros de Medición en el Punto de Interconexión Temporal deben ser considerados para determinar los montos de energía para las Liquidaciones establecidas en el numeral 5 de las Disposiciones.</div>\n<div> 4.13.9 El CENACE y el Vendedor o el representante de las UCEM pueden acordar a través de procedimientos operativos, reglas que permitan realizar segregaciones de energía en función a la configuración eléctrica de la instalación para determinar la energía a ser considerada en el proceso de liquidaciones, dichos procedimientos operativos deben formar parte de los anexos del Contrato.</div>\n<div> 4.13.10 Las liquidaciones de energía eléctrica y Productos Asociados contratados mediante los Mecanismos de Adquisición por Confiabilidad a los Vendedores se deben realizar de acuerdo con lo establecido en el presente Manual. En el supuesto de que el inicio de operación de un recurso se requiera por Confiabilidad y si por algún motivo el Vendedor no ha finalizado su proceso de registro en la fecha de inicio pactada en el Contrato, las liquidaciones correspondientes se deben ajustar en el proceso de Re-liquidaciones una vez que los Vendedores hayan finalizado su proceso de registro, lo cual debe suceder a más tardar veinte (20) días naturales posteriores al primer Día de Operación en el que inyecta energía al SEN o antes de la terminación del Contrato, lo que ocurra primero.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "bb0c9130-4af5-5008-b00b-24b3a8069a22",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 27,
+      "identificador": "Apartado 4.14 Despacho de capacidad excedente interconectada",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 4.14 Despacho de capacidad excedente interconectada</div>\n<div> 4.14.1 En los casos donde las Centrales Eléctricas que se encuentran interconectadas permanentemente al SEN, realicen mantenimientos mayores o bien repotenciaciones a las mismas que, les permitan incrementar su capacidad de generación, pueden ofrecer dicha capacidad al mercado, hasta que cumplan con la regulación aplicable. No obstante, dicho incremento de capacidad puede ser considerado como parte de la aplicación de los Mecanismos de Adquisición por Confiabilidad como se describe a continuación.</div>\n<div> 4.14.2 Para que el CENACE, previa autorización de la Secretaría, establezca la capacidad excedente de generación temporal que cada Central Eléctrica ubicada en el supuesto previsto en el numeral 4.14.1, pueda entregar al Sistema Eléctrico al amparo de los Mecanismos de Adquisición por Confiabilidad, debe realizar pruebas de verificación de capacidad de dichas Centrales Eléctricas, para ello debe seleccionar aquellas que hayan realizado una repotenciación y/o hayan regresado de un mantenimiento mayor, que esté en trámite el incremento de capacidad de generación ante la CNE, asimismo , bajo estudio técnico preliminar del CENACE, no presenten problemas en la red eléctrica para evacuar la capacidad excedente.</div>\n<div> 4.14.3 El CENACE debe solicitar a la CNE el estado que guarda el trámite que la Central Eléctrica con capacidad excedente haya ingresado, así como la no objeción que, le permita a CENACE autorizar dicho incremento de manera temporal durante la implementación de los Mecanismos de Adquisición por Confiabilidad. En ese entendido, la CNE debe responder al CENACE en un plazo máximo de 5 días hábiles después de haberle realizado la consulta.</div>\n<div> 4.14.4 Durante la aplicación de los Mecanismos de Adquisición por Confiabilidad, el CENACE debe modificar temporalmente los parámetros registrados en el MEM, para que la Participante del Mercado que representa a estos recursos, pueda realizar ofertas al Mercado de Energía de Corto Plazo considerando la capacidad excedente disponible que dichas Centrales Eléctricas pueden entregar al Sistema Interconectado. Dichas modificaciones en parámetros, así como el periodo de tiempo en el que van a estar vigentes deben ser notificados por el CENACE a la Participante del Mercado a través de los medios oficiales.</div>\n<div> 4.14.5 En caso de que la Participante del Mercado sea elegible y notificado por el CENACE para que la Central Eléctrica que representa oferte la totalidad de su capacidad, incluyendo su excedente, la Participante del Mercado debe confirmar en un plazo no mayor a 5 días hábiles, que dicha capacidad adicional está a disposición del SEN y del MEM. En caso contrario la Participante del Mercado debe de informar al CENACE, en el mismo plazo citado anteriormente y por los medios oficiales, una justificación técnica, administrativa o comercial por la cual la Participante del Mercado o la Central Eléctrica elegidos están imposibilitados en ofertar dicha capacidad adicional.</div>\n<div> 4.14.6 Las Participantes del Mercado que representen estas Centrales Eléctricas interconectadas previo a la aplicación de los Mecanismos de Adquisición por Confiabilidad, no requieren solicitar modificaciones en el registro del MEM, para que estas Centrales Eléctricas puedan ser elegibles con intención de que, en la asignación de generación en el Mercado de Día en Adelanto o en el Mercado de Tiempo Real, se incluya la capacidad excedente. En consecuencia, los requerimientos que se establecen en los apartados previos de esta sección no son aplicables a estos Participantes del Mercado y a las Centrales Eléctricas que representan, ya que solo se consideran Unidades de Central Eléctrica que se encuentran operando comercialmente en el MEM.</div>\n<div> 4.14.7 La energía excedente asignada en el Mercado de Día en Adelanto y/o entregada en el Mercado de Tiempo Real, por estas Centrales Eléctricas, se debe liquidar al Precio Marginal Local del Mercado correspondiente y, dado el caso, son elegibles para recibir pagos por Garantía de Suficiencia de Ingresos, de acuerdo con lo dispuesto en el Manual de Liquidaciones.</div>\n<div> 4.14.8 La capacidad excedente presentada por las Participantes del Mercado que representen Centrales Eléctricas elegibles debidamente notificadas y confirmadas por el CENACE, y que resulten asignadas en el Mercado de Día en Adelanto y/o Mercado de Tiempo Real, deben ser consideradas para el reconocimiento de Disponibilidad de Entrega Física, siempre y cuando la capacidad que se encuentra registrada y operando comercialmente en el MEM de la Central Eléctrica elegible, cuente con DEF acreditada ante el CENACE. La determinación y cálculo de la DEF debe ser de acuerdo con el valor calculado al momento de la Interconexión.</div>\n<div> 4.14.9 El CENACE debe notificar a la Secretaría y a la CNE las Centrales Eléctricas que fueron elegibles por CENACE y confirmadas por las Participantes del Mercado para entregar la energía excedente, una vez que se modifiquen los parámetros correspondientes en el MEM.</div>\n<div> 4.14.10 Las Centrales Eléctricas ubicadas en este supuesto que opten por ofrecer capacidad excedente en el Mercado de Energía de Corto Plazo, pueden registrar Transacciones Bilaterales Financieras, debiendo cumplir con lo establecido en el Manual de Transacciones Bilaterales y Registro de Contratos de Cobertura Eléctrica.</div>\n<div> 4.14.11 Una vez terminado el periodo de implementación de los Mecanismos de Adquisición por Confiabilidad y estas Centrales Eléctricas no hayan concluido con el trámite en la normatividad aplicable que, les permita continuar con el incremento de capacidad en el Sistema Interconectado, el CENACE entonces debe regresar a la Central Eléctrica ubicada en este supuesto a los valores previos en los catálogos del MEM, hasta en tanto regularice su trámite respectivo.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "seccion_nombre": null
+    },
+    {
+      "id": "47dac22a-11cd-5d20-bbd4-65501c3a6dcd",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 28,
+      "identificador": "Apartado 5.1 Definición de los costos y Precio Monómico",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos<br> </div>\n<div> 5.1 Definición de los costos y Precio Monómico</div>\n<div> 5.1.1 El precio de la energía eléctrica y Productos Asociados de las UCE o los SAEE seleccionados para participar en los Mecanismos de Adquisición por Confiabilidad debe ser el Precio Monómico establecido en el Contrato, según la Oferta Monómica por Confiabilidad presentada por el propio Vendedor y aceptada por el CENACE.</div>\n<div> 5.1.2 El Precio Monómico incluye cualquier costo en el que incurra el Vendedor para proveer la energía eléctrica y Productos Asociados para la atención de las condiciones identificadas, en términos del numeral 2.1.2 de las Disposiciones.</div>\n<div> 5.1.3 Los costos que pueden incluirse en el Precio Monómico, de manera enunciativa más no limitativa son: costo de la energía eléctrica entregada, traslados y retiros, arranques y paros de la Unidad de Central Eléctrica, combustible, permisos, pólizas, seguros, impuestos, garantías, materiales, sueldos, honorarios, nuevas obras de interconexión y conexión eléctrica y/o adecuaciones, Tarifas Reguladas, administración y todos los demás gastos asociados a la entrega de la energía eléctrica y Productos Asociados, así como su margen de utilidad y, en el caso de Sistemas de Almacenamiento de Energía Eléctrica, los costos asociados a la energía requerida para su carga. El Vendedor no puede exigir retribución por ningún otro concepto una vez formalizado el Contrato y durante la vigencia del mismo.</div>\n<div> 5.1.4 En caso de que exista material o suministros de procedencia extranjera, la responsabilidad de efectuar los trámites de importación y pagar los impuestos y derechos que se generen con motivo de esto, son a cargo del Vendedor. Asimismo, los cambios en las condiciones de mercado, en el tipo de cambio o en la disponibilidad o escasez de combustible que se susciten durante la vigencia del Contrato no se pueden considerar casos fortuitos o fuerza mayor.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "27b09254-b0f5-539c-bd46-a076ccc80073",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 29,
+      "identificador": "Apartado 5.2 Liquidaciones",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.2 Liquidaciones</div>\n<div> 5.2.1 Las liquidaciones de la energía eléctrica y Productos Asociados contratados mediante los Mecanismos de Adquisición por Confiabilidad a los Vendedores se deben realizar de acuerdo con lo establecido en las Disposiciones.</div>\n<div> 5.2.2 La Liquidación por la energía eléctrica y Productos Asociados entregados por las UCE y los SAEE que participan en los Mecanismos de Adquisición por Confiabilidad están sujetas al proceso y plazos estándar de liquidación del Mercado Eléctrico Mayorista. El CENACE debe pagar al Vendedor el Precio Monómico de la energía eléctrica y Productos Asociados contratados por cada MWh medido que entregue al SEN en el Punto de Interconexión establecido y durante la vigencia del Contrato.</div>\n<div> 5.2.3 Las liquidaciones durante el periodo de pruebas que se realicen antes de la fecha de inicio de entrega de energía eléctrica y Productos Asociados se deben liquidar al valor del Precio Marginal Local del Mercado de Energía de Corto Plazo correspondiente al nodo donde entrega la UCE o el SAEE y no al Precio Monómico.</div>\n<div> 5.2.4 En el caso de que el Vendedor entregue energía eléctrica adicional a la contratada que no sea explícitamente solicitada por el CENACE, se debe liquidar al valor del Precio Marginal Local del nodo donde entrega la UCE o el SAEE del Mercado de Energía de Tiempo Real.</div>\n<div> 5.2.5 La energía eléctrica entregada adicional a la contratada que solicite el CENACE, así como la energía entregada durante la rampa de entrada y salida de las UCE y los SAEE se debe liquidar al Precio Monómico contratado.</div>\n<div> 5.2.6 Las UCE y los SAEE contratados mediante la aplicación de los Mecanismos de Adquisición por Confiabilidad no son sujetas de pago de Garantía de Suficiencia de Ingresos.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "0922dac9-e60a-52a7-8933-803cb8c80c9b",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 30,
+      "identificador": "Apartado 5.3 Estados de Cuenta, Facturación, Cobros y Pagos",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.3 Estados de Cuenta, Facturación, Cobros y Pagos</div>\n<div> 5.3.1 El Vendedor debe seguir los tiempos establecidos en el Manual de Estados de Cuenta Facturación y Pagos, para presentar sus facturas, sin embargo, , en caso que no cuente con un sistema informático que le permita presentar las facturas de acuerdo con lo establecido en el Manual de Estados de Cuenta Facturación y Pagos, no está obligado a presentar una factura por cada Estado de Cuenta Diario, por lo que debe entregar al CENACE una factura que contenga los Folios Únicos de Liquidación, de forma acumulada por el periodo que comprenda de lunes a domingo de los Estados de Cuenta Diarios correspondientes y esta se debe enviar a más tardar el primer martes posterior al corte dominical respectivo. Si el Vendedor opta por lo señalado anteriormente, este puede presentar una sola factura semanal que incluya el valor total de la semana facturada de acuerdo con lo siguiente:</div>\n<div> 5.3.2 El CENACE debe enviar al Vendedor un resumen que incluya el valor total de las liquidaciones de la semana respectiva en donde se distingan las facturas, notas de crédito o débito, según corresponda.</div>\n<div> 5.3.3 Las facturas que presente el Vendedor deben cumplir como mínimo con la siguiente información:</div>\n<div> I.        Información fiscal, tanto del Vendedor como del CENACE;</div>\n<div> II.       Señalar el período de emisión de los estados de cuenta diarios que se están acumulando;</div>\n<div> III.      Presentar como conceptos separados, los Folios Únicos de Liquidación acumulados de los Estados de Cuenta Diarios en el periodo semanal;</div>\n<div> IV.      Importe total por pagar por la semana correspondiente para facturas, Notas de Crédito y Notas de Débito;</div>\n<div> V.       Fecha de Emisión del documento fiscal, y</div>\n<div> VI.      Los demás requisitos que marquen las disposiciones fiscales aplicables.</div>\n<div> 5.3.4 El CENACE y el Vendedor deben convenir en el Contrato, que los adeudos que mantengan y que se desprendan de los Estados de Cuenta Diarios que emita el CENACE, quedan extintos hasta donde alcance, cuando el CENACE o el Vendedor previamente hayan expedido y entregado sus comprobantes fiscales uno al otro, de conformidad con lo establecido en el Manual de Estados de Cuenta Facturación y Pagos y las Disposiciones, en consecuencia, se deben realizar las transferencias de efectivo únicamente por las diferencias que resulten entre las cuentas por cobrar y las cuentas por pagar (en adelante el &quot;Neteo&quot;), que resulte de los importes acumulados de las facturas entregadas en el periodo respectivo. Además, en cumplimiento de lo expuesto en el párrafo anterior, así como de la conveniencia de reducir el flujo de efectivo entre las contratantes, estas deben convenir en el contrato en extinguir las deudas recíprocas que pudieran existir, con base en el proceso de Neteo referido anteriormente, compensando las cuentas por cobrar y cuentas por pagar que existan entre el CENACE y el Vendedor, quedando obligadas a pagar únicamente el saldo en contra conforme a lo dispuesto en el Manual de Estados de Cuenta Facturación y Pagos.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "88d561df-04e8-58d1-88e0-99b828eef204",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 31,
+      "identificador": "Apartado 5.4 Liquidación de las Unidades de Central Eléctrica y Sistemas de Almacenamiento de Energía Eléctrica contratados mediante los Mecanismos de Adquisic",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.4 Liquidación de las Unidades de Central Eléctrica y Sistemas de Almacenamiento de Energía Eléctrica contratados mediante los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 5.4.1 La Liquidación a las UCE y los SAEE contratadas en los Mecanismos de Adquisición por Confiabilidad, se sujetan al proceso de doble liquidación del MEM, según se describe en el Manual de Liquidaciones. Sin embargo, el CENACE debe garantizar que la energía eléctrica y Productos Asociados se paguen al Precio Monómico pactado entre el CENACE y el vendedor, en cumplimiento de las condiciones del Contrato.</div>\n<div> 5.4.2 Las UCE y los SAEE deben recibir el pago por la totalidad de sus costos establecidos en su Oferta Monómica por Confiabilidad y devolver los excedentes generados; la diferencia diaria que resulte entre el Precio Monómico pactado y los ingresos que recaude la misma UCE o el SAEE por concepto de venta de energía eléctrica y Productos Asociados en el Mercado de Corto Plazo se debe liquidar a través de un tipo de pago o cargo por diferencia considerando lo siguiente:</div>\n<div> I.        Costos pactados con el Vendedor: De acuerdo con lo establecido en el Contrato, se incluye un Precio Monómico horario al cual están dispuestos a entregar la energía eléctrica y Productos Asociados. El costo diario de la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_0.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_736.png\" alt=\"Figura de la publicación oficial\">, por la energía contratada en el Mecanismo de Adquisición por Confiabilidad, es igual a la suma de todas las horas del día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_2527.png\" alt=\"Figura de la publicación oficial\">, del producto del precio monómico horario acordado con el CENACE en el contrato, por la cantidad de Energía Contratada por la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_4318.png\" alt=\"Figura de la publicación oficial\">, que representa la UCE o SAEE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_5054.png\" alt=\"Figura de la publicación oficial\"> contratado, durante la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_6565.png\" alt=\"Figura de la publicación oficial\">:</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_8300.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_20666.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> II.       Los ingresos o egresos por la venta de Energía en el Mercado de Día en Adelanto: Las UCE y los SAEE contratadas deben enviar una oferta de venta de programa fijo al MDA con los valores de la energía eléctrica y Productos Asociados en el Mercado de Energía de Corto Plazo, por lo tanto, el pago o cargo diario al vendedor debe ser, en primera instancia, la suma de todas las horas del producto del Precio Marginal Local de la energía en el Mercado del Día en Adelanto en el nodo <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_32925.png\" alt=\"Figura de la publicación oficial\">, donde entrega la UCE o SAEE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_34480.png\" alt=\"Figura de la publicación oficial\">, en la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_35991.png\" alt=\"Figura de la publicación oficial\">, por la cantidad de Productos del Mercado programados para ser entregados en el Mercado del Día en Adelanto por el vendedor, durante cada hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_37726.png\" alt=\"Figura de la publicación oficial\">.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_39461.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_54776.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> III.      Cálculo de los ingresos o egresos por la energía eléctrica y Productos Asociados entregados en el Mercado de Tiempo Real: Para cada día de operación y para cada UCE o SAEE contratado, se deben calcular los ingresos o egresos por la venta de la energía eléctrica y Productos Asociados contratados en el Mercado de Tiempo Real, sumando para todas las horas del día de operación, los productos del precio medio horario de la Energía en el Mercado de Tiempo Real, en el nodo <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_64393.png\" alt=\"Figura de la publicación oficial\">, donde entrega la UCE o SAEE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_65948.png\" alt=\"Figura de la publicación oficial\">, por la diferencia entre la cantidad de Energía inyectada (medida) en el Mercado de Tiempo Real por el vendedor, en cada hora menos la cantidad de Energía programada para ser entregada en el Mercado del Día en Adelanto.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_67459.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_86073.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> IV.      Pago o Cargo por la diferencia entre los costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo:</div>\n<div>          Cuando los costos diarios ofrecidos por el vendedor representante de la UCE o el SAEE, según corresponda, resulten mayores a los ingresos diarios obtenidos en el Mercado de Día en Adelanto más los ingresos diarios obtenidos en el Mercado de Tiempo Real, en el Día de Operación, deben recibir un pago por la diferencia a fin de que reciba el costo total diario estipulado en el contrato por la energía eléctrica, Servicios Conexos y otros Productos Asociados al Precio Monómico pactado.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_101209.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div>          Cuando los costos estipulados en el contrato por la energía eléctrica, Servicios Conexos y otros Productos Asociados al Precio Monómico pactado resulten menores a los ingresos diarios obtenidos en el Mercado de Día en Adelanto más los ingresos diarios obtenidos en el Mercado de Tiempo Real, el Vendedor debe recibir un cargo por la diferencia entre los ingresos reales obtenidos y los costos pactados en el contrato.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_111669.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> V.       El pago o cargo diario total al vendedor, por la UCE, el conjunto de las UCE o SAEE que representa, contratadas en Mecanismo de adquisición por Confiabilidad, agrupadas en la Cuenta de Orden del vendedor, para cada día de operación contratado, debe ser la suma de los pagos/cargos diarios correspondientes.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_122192.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div>          F6501: Pago por: Diferencia entre los costos ofrecidos y los Ingresos obtenidos en el Mercado de Corto Plazo de las UCE y SAEE contratados por mecanismo de Adquisición por Confiabilidad</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_129878.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div>          F6501: Cargo por: Diferencia entre los costos ofrecidos y los Ingresos obtenidos en el Mercado de Corto Plazo de las UCE y SAEE contratados por mecanismo de Adquisición por Confiabilidad</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "57c371bc-3d6e-597f-858c-022e6be51123",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 32,
+      "identificador": "Apartado 5.5 Liquidación para socializar el costo de la aplicación de los Mecanismos de Adquisición por Confiabilidad",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.5 Liquidación para socializar el costo de la aplicación de los Mecanismos de Adquisición por Confiabilidad</div>\n<div> 5.5.1 El costo o ingreso asociado a la aplicación de los Mecanismos de Adquisición por Confiabilidad debe ser socializado entre las ERC compradoras de energía física en proporción a sus compras de energía física diarias.</div>\n<div> 5.5.2 El CENACE debe aplicar la socialización de la diferencia entre los costos ofrecidos por el Vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo derivado de la aplicación de los Mecanismos de Adquisición por Confiabilidad entre las ERC referidas en el numeral 5.3.2 de las Disposiciones mediante un cargo diario.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_137494.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> F6618: Cargo por: Contribución de los Compradores de Energía Física al Déficit del Pago a las UCE y SAEE contratadas por mecanismo de Adquisición por Confiabilidad.</div>\n<div> 5.5.3 Asimismo, en el caso de en el que la diferencia entre los costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo derivado de la aplicación de los Mecanismos de Adquisición por Confiabilidad sea negativa, es decir, cuando los costos estipulados en el contrato por la energía eléctrica, Servicios Conexos y otros Productos Asociados al Precio Monómico pactado resulten menores a los ingresos diarios obtenidos en los Mercados de Corto Plazo, las ERC referidas en el numeral 5.3.2 de las Disposiciones obtienen un pago diario.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_148193.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> F6618: Pago por: Contribución de los Compradores de Energía Física al Déficit del Pago a las UCE y SAEE contratadas por mecanismo de Adquisición por Confiabilidad</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c5edde43-4a95-5013-8b5a-a8059d1f4720",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 33,
+      "identificador": "Apartado 5.6 Liquidación del desplazamiento o habilitación de Unidades de Central Eléctrica Móviles",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.6 Liquidación del desplazamiento o habilitación de Unidades de Central Eléctrica Móviles</div>\n<div> 5.6.1 Las UCEM deben determinar sus ingresos conforme a lo previsto en las Reglas del Mercado ya que su operación se realiza como cualquier otra Central Eléctrica que opere en el MEM.</div>\n<div> 5.6.2 Los costos en los que incurran las UCEM por la habilitación o el desplazamiento en cumplimiento a las instrucciones del CENACE a partir de la activación de los Mecanismos de Adquisición por Confiabilidad deben ser socializados entre todas las ERC conforme a las Disposiciones. Dichos costos deben evitar el Lucro y pueden ser sujetos a revisión por parte de las autoridades competentes.</div>\n<div> 5.6.3 Las Participantes del Mercado representantes de las UCEM instruidas, deben reportar al CENACE los costos incurridos de forma total o parcial en función de las actividades realizadas y la disponibilidad de la información, teniendo como fecha límite ciento veinte (120) días naturales posteriores a la fecha de inicio de operación de cada UCEM instruida, para su integración al proceso de liquidaciones. En caso de que los representantes de las UCEM instruidas no reporten de manera justificada los costos totales incurridos en dicho periodo y se haya superado el plazo previamente referido, los costos reportados, deben ser promovidos a través de un procedimiento de reconsideración con base en lo estipulado en el Manual de Solución de Controversias y en el Manual de Estados de Cuenta, Facturación y Pagos.</div>\n<div> Los costos en los que se incurran por las obras realizadas por la Transportista y la Distribuidora deben ser consideradas por la UCEM en los costos reportados al CENACE para que la representante de la UCEM se los reintegre.</div>\n<div> 5.6.4 El pago diario al representante de la UCEM por los costos incurridos por el desplazamiento o habilitación instruido debe ser el cociente de la sumatoria del monto de los costos totales incurridos para el traslado o habilitación de las instalaciones para interconectar las UCEM (mano de obra, materiales, etc.) de la UCEM a la ubicación instruida por el CENACE y los costos totales incurridos por regresar las UCEM a su lugar de origen (dicho costo se debe actualizar en el proceso de Reliquidaciones) y el número de días naturales en el que la UCEM <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_159025.png\" alt=\"Figura de la publicación oficial\"> fue instruida por el operador del sistema eléctrico.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_160196.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> 5.6.5 El pago total diario debe ser la suma de todos los pagos de los representantes de las UCEM que fueron instruidos a ser desplazados.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_175119.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> F7301: Pago por: Desplazamiento o habilitación de Unidades de Central Eléctrica Móviles</div>\n<div> 5.6.6 Las ERC deben contribuir al pago diario al representante de la UCEM por los costos incurridos por el desplazamiento o habilitación de dichas centrales en proporción a las Compras de Energía Física diarias comprendidas en los días naturales en el que las UCEM fueron instruidas por el operador del sistema eléctrico.</div>\n<div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_188616.png\" alt=\"Figura de la publicación oficial\"><br> </div>\n<div> F7418: Cargo por: Contribución al pago por desplazamiento o habilitación de Unidades de Central Eléctrica Móviles</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8088f30b-9518-5016-aadd-6f9b53f074ee",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 34,
+      "identificador": "Apartado 5.7 Términos relativos a las fórmulas aplicables a los numerales 5.4, 5.5 y 5.7 de las Disposiciones",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 5.7 Términos relativos a las fórmulas aplicables a los numerales 5.4, 5.5 y 5.7 de las Disposiciones</div>\n<table> <tbody><tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_200033.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cargo diario a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_202536.png\" alt=\"Figura de la publicación oficial\">, por la UCE, el conjunto de las UCEs o SAEE que representa <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_203272.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_204783.png\" alt=\"Figura de la publicación oficial\">, por la diferencia entre los costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_206688.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cargo Diario a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_210608.png\" alt=\"Figura de la publicación oficial\">, asociado a la Cuenta de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_211344.png\" alt=\"Figura de la publicación oficial\">, por concepto de diferencia de costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo derivado de la aplicación de los Mecanismos de Adquisición por Confiabilidad. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_212923.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cargo diario a las ERC <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_216482.png\" alt=\"Figura de la publicación oficial\">, asociadas a la Cuenta de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_217218.png\" alt=\"Figura de la publicación oficial\">, por aportación al pago de los costos incurridos por el desplazamiento o habilitación de UCEM, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_218689.png\" alt=\"Figura de la publicación oficial\">. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_220588.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cargo diario total a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_223655.png\" alt=\"Figura de la publicación oficial\">, por la UCE, el conjunto de las UCEs o SAEE que representa <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_224391.png\" alt=\"Figura de la publicación oficial\">, asociadas a la Cuenta de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_225902.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_227373.png\" alt=\"Figura de la publicación oficial\">, por la diferencia entre los costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_229272.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Compra de energía física de la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_231871.png\" alt=\"Figura de la publicación oficial\">, que están asociadas a la Cuenta de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_232607.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_234078.png\" alt=\"Figura de la publicación oficial\">. Expresada en MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_235977.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Compra total de energía física de las Participantes del Mercado en el Mercado de Tiempo Real durante el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_238905.png\" alt=\"Figura de la publicación oficial\">. Expresada en MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_240804.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Costo incurrido por la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_244508.png\" alt=\"Figura de la publicación oficial\">, asociado a la Cuenta de  Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_245244.png\" alt=\"Figura de la publicación oficial\">, por el desplazamiento o habilitación instruida a la unidad móvil <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_246715.png\" alt=\"Figura de la publicación oficial\">.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_248010.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> El costo horario de la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_251542.png\" alt=\"Figura de la publicación oficial\"> por la UCE, el conjunto de las UCEs o SAEE que representa, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_252278.png\" alt=\"Figura de la publicación oficial\">, por la energía contratada en el Mecanismo de Adquisición por Confiabilidad.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_254177.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> El costo diario de la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_257572.png\" alt=\"Figura de la publicación oficial\">, por la UCE, el conjunto de las UCEs o SAEE que representa, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_258308.png\" alt=\"Figura de la publicación oficial\">, por la energía contratada en el Mecanismo de Adquisición por Confiabilidad.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_260207.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Número de días naturales en el que la UCEM <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_262147.png\" alt=\"Figura de la publicación oficial\">, perteneciente a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_263334.png\" alt=\"Figura de la publicación oficial\">, asociado a la cuenta de orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_264070.png\" alt=\"Figura de la publicación oficial\">, fue instruida por el operador del sistema eléctrico.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_265649.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago diario total de todos los pagos de los representantes de la UCEM por los costos incurridos por el desplazamiento o habilitación en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_269048.png\" alt=\"Figura de la publicación oficial\">.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_270947.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago diario total a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_275024.png\" alt=\"Figura de la publicación oficial\">, asociado a la Cuenta  de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_275760.png\" alt=\"Figura de la publicación oficial\">, representante de la UCEM <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_277231.png\" alt=\"Figura de la publicación oficial\"> por los costos incurridos por el desplazamiento o habilitación en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_279122.png\" alt=\"Figura de la publicación oficial\">.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_281021.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago diario a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_283684.png\" alt=\"Figura de la publicación oficial\">, por la UCE, el conjunto de las UCEs o SAEE que representa <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_284420.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_285931.png\" alt=\"Figura de la publicación oficial\">, por la diferencia entre los costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_287830.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago Diario a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_291763.png\" alt=\"Figura de la publicación oficial\">, asociado a la Cuenta de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_292499.png\" alt=\"Figura de la publicación oficial\">, por concepto de diferencia de costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo derivado de la aplicación de los Mecanismos de Adquisición por Confiabilidad. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_294078.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago Diario a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_297945.png\" alt=\"Figura de la publicación oficial\"> por la UCE, el conjunto de las UCEs o SAEE que representa <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_298681.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_300192.png\" alt=\"Figura de la publicación oficial\"> por la cantidad de energía programada para ser entregada en el Mercado del Día en Adelanto. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_302091.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago Diario a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_305886.png\" alt=\"Figura de la publicación oficial\"> por la UCE, el conjunto de las UCEs o SAEE que representa <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_306622.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_308133.png\" alt=\"Figura de la publicación oficial\"> por el incremento en la generación de energía para el Mercado de Tiempo Real respecto a la energía programada para ser entregada en el Mercado del Día en Adelanto. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_310032.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Pago diario total a la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_313258.png\" alt=\"Figura de la publicación oficial\">, por la UCE, el conjunto de las UCEs o SAEE que representa <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_313994.png\" alt=\"Figura de la publicación oficial\">, asociadas a la Cuenta de Orden <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_315505.png\" alt=\"Figura de la publicación oficial\">, en el día <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_316976.png\" alt=\"Figura de la publicación oficial\">, por la diferencia entre los costos ofrecidos por el vendedor y los ingresos obtenidos en el Mercado de Energía de Corto Plazo. Expresado en $.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_318875.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cantidad de energía programada para ser entregada en el Mercado del Día en Adelanto por la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_321869.png\" alt=\"Figura de la publicación oficial\">, por la totalidad o una parte  de la UCE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_322605.png\" alt=\"Figura de la publicación oficial\"> que representa, en la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_324116.png\" alt=\"Figura de la publicación oficial\">. Expresada en MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_325959.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cantidad de energía media horaria entregada en el Mercado de Tiempo Real por la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_328730.png\" alt=\"Figura de la publicación oficial\">, que representa la UCE, el conjunto de las UCEs o SAEE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_329466.png\" alt=\"Figura de la publicación oficial\">, durante la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_330977.png\" alt=\"Figura de la publicación oficial\">. Expresada en MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_332820.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Cantidad de energía media horaria entregada en el Mercado de Tiempo Real por la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_335523.png\" alt=\"Figura de la publicación oficial\">, que representa la UCE, el conjunto de las UCEs o SAEE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_336259.png\" alt=\"Figura de la publicación oficial\">, durante la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_337770.png\" alt=\"Figura de la publicación oficial\">. Expresada en MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_339613.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Precio Marginal Local de la energía en el Mercado del Día en Adelanto,  en el nodo <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_342632.png\" alt=\"Figura de la publicación oficial\">, durante la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_344187.png\" alt=\"Figura de la publicación oficial\">. Expresado en $/MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_346030.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Precio Marginal Local en el Mercado de Tiempo Real, en el nodo <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_348895.png\" alt=\"Figura de la publicación oficial\">, durante la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_350450.png\" alt=\"Figura de la publicación oficial\">. Expresado en $/MWh.</div> </td> </tr> <tr> <td> <div> <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_352293.png\" alt=\"Figura de la publicación oficial\"><br> </div> </td> <td> <div> Precio Monómico horario acordado con el CENACE en el contrato del Mecanismo de adquisición por Confiabilidad por parte de la Participante del Mercado <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_355468.png\" alt=\"Figura de la publicación oficial\">, que representa la UCE <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_356204.png\" alt=\"Figura de la publicación oficial\">, durante la hora <img src=\"https://dof.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_357715.png\" alt=\"Figura de la publicación oficial\">. Expresado en $/MWh.</div> </td> </tr> </tbody></table>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a762d4c8-eddd-5977-965d-07b96c92e5e9",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 35,
+      "identificador": "Apartado 6.1 Presentación de la Garantía",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6. Garantías</div>\n<div> 6.1 Presentación de la Garantía</div>\n<div> Para garantizar el cumplimiento de las obligaciones del Contrato, el Vendedor debe entregar la Garantía al CENACE a más tardar a la fecha de firma del Contrato, la cual puede ser una Transferencia Bancaria o una Carta de Crédito Stand By en favor del CENACE, emitida por una institución de crédito integrante del Sistema Bancario Mexicano que esté legalmente facultada, de acuerdo con la LSE.</div>\n<div> El valor de la Garantía debe ser de $100,000.00 (Cien mil pesos 00/100 M.N.) por cada MW asociado a la Oferta Monómica por Confiabilidad del Vendedor y contratada mediante los Mecanismos de Adquisición por Confiabilidad.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 6. Garantías",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c881c8f5-ad69-5b5b-b664-ba7512ab24fa",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 36,
+      "identificador": "Apartado 6.2 Ejecución o devolución de la Garantía",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> 6.2 Ejecución o devolución de la Garantía</div>\n<div> El CENACE puede ejecutar la Garantía, en caso de que el Vendedor incumpla cualquiera de sus obligaciones previstas en su Contrato, señalando de manera enunciativa más no limitativa, entre otras, el incumplimiento del Vendedor por no entregar en tiempo el producto, así como por el incumplimiento del Vendedor sobre las órdenes de despacho del CENACE y sus indicaciones.</div>\n<div> El Vendedor puede solicitar mediante escrito libre al CENACE el retiro de la Garantía presentada, una vez transcurrida la primera Re-Liquidación del MEM del último día de operación comprendido en el periodo contratado. El CENACE cuenta hasta con 20 días hábiles para devolver la Garantía a favor del Vendedor.</div>",
+      "tipo_articulo": "ordinario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "DACG · 6. Garantías",
+      "seccion_nombre": null
+    },
+    {
+      "id": "4ef1fee4-3845-595b-9a3d-703eca5fd2a3",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 37,
+      "identificador": "Transitorio PRIMERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TRANSITORIOS<br> </div>\n<div> PRIMERO. El presente Acuerdo entra en vigor el día hábil siguiente al de su publicación en el Diario Oficial de la Federación.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8d4e5f97-95ef-557b-8537-b84919db6aa6",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 38,
+      "identificador": "Transitorio SEGUNDO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> SEGUNDO. Se deja sin efectos el Acuerdo número A/020/2018 por el que la Comisión Reguladora de Energía emite criterios que deberá observar el Centro Nacional de Control de Energía, para la adquisición de potencia por medio de subastas por confiabilidad y mecanismo de asignación de los costos netos entre las entidades responsables de carga publicado en el Diario Oficial de la Federación el 12 de julio de 2018.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "018969a2-75d6-5a36-8108-e482b35e8901",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 39,
+      "identificador": "Transitorio TERCERO",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> TERCERO. El Centro Nacional de Control de Energía debe implementar el cálculo de los folios de liquidación previstos en el numeral 5 de las disposiciones que se emiten a través del presente Acuerdo, en los Estados de Cuenta Diarios en un periodo no mayor a 180 días naturales posteriores a la entrada en vigor del presente Acuerdo. Asimismo, el Centro Nacional de Control de Energía debe informar, a través del Sistema de Información del Mercado, a las Participantes del Mercado e Integrantes del Sector Eléctrico la inclusión de los nuevos folios por lo menos 20 días naturales antes de la implementación.</div>",
+      "tipo_articulo": "transitorio",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "75826f0c-5a5d-5a5c-b617-86ca2625b395",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "orden": 40,
+      "identificador": "Firma y publicación",
+      "contenido": "<!-- Transcripción de la publicación oficial -->\n<div> Ciudad de México, a 25 de marzo de 2026.- El Director General, Juan Carlos Solís Ávila.- Rúbrica.</div>",
+      "tipo_articulo": "complementario",
+      "titulo_nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "capitulo_nombre": "Firma",
+      "seccion_nombre": null
+    }
+  ],
+  "temas": [
+    {
+      "nivel": "titulo",
+      "nombre": "Información editorial",
+      "orden": 0
+    },
+    {
+      "nivel": "titulo",
+      "nombre": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+      "orden": 1
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Preámbulo",
+      "orden": 2
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Acuerdo",
+      "orden": 3
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Índice",
+      "orden": 4
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "DACG · 1. Disposiciones generales",
+      "orden": 5
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "DACG · 2. Criterios de Activación de los Mecanismos de Adquisición por Confiabilidad",
+      "orden": 6
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "DACG · 3. Sobre los Mecanismos de Adquisición por Confiabilidad",
+      "orden": 7
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "DACG · 4. Consideraciones respecto de las Reglas del Mercado",
+      "orden": 8
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "DACG · 5. Consideraciones asociadas a las Liquidaciones, Facturación y Pagos",
+      "orden": 9
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "DACG · 6. Garantías",
+      "orden": 10
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Transitorios",
+      "orden": 11
+    },
+    {
+      "nivel": "capitulo",
+      "nombre": "Firma",
+      "orden": 12
+    }
+  ],
+  "fuente": {
+    "name": "DACG-MECANISMOS-CENACE",
+    "code": "5784027",
+    "radar": "RAD-071",
+    "familia": "Electricidad, redes y mercado",
+    "pieza": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
+    "tipo": "dacg",
+    "estado_radar": "Vigente",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+    "sha256": "d08fa19a6f5b736ff81235cf4280c874ea6b3f0fecfdbad0f5d966a57ce107c8",
+    "fecha": "03-04-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional.",
+    "codDiario": 326465,
+    "pagina": 54,
+    "tables": 1,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_0.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_736.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_2527.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_4318.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_5054.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_6565.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_8300.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_20666.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_32925.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_34480.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_35991.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_37726.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_39461.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_54776.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_64393.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_65948.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_67459.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_86073.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_101209.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_111669.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_122192.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_129878.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_137494.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_148193.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_159025.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_160196.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_175119.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_188616.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_200033.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_202536.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_203272.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_204783.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_206688.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_210608.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_211344.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_212923.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_216482.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_217218.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_218689.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_220588.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_223655.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_224391.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_225902.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_227373.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_229272.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_231871.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_232607.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_234078.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_235977.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_238905.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_240804.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_244508.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_245244.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_246715.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_248010.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_251542.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_252278.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_254177.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_257572.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_258308.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_260207.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_262147.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_263334.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_264070.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_265649.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_269048.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_270947.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_275024.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_275760.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_277231.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_279122.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_281021.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_283684.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_284420.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_285931.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_287830.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_291763.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_292499.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_294078.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_297945.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_298681.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_300192.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_302091.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_305886.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_306622.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_308133.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_310032.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_313258.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_313994.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_315505.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_316976.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_318875.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_321869.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_322605.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_324116.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_325959.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_328730.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_329466.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_330977.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_332820.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_335523.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_336259.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_337770.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_339613.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_342632.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_344187.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_346030.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_348895.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_350450.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_352293.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_355468.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_356204.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/03/MAT/sener_2_Cimg_357715.png",
+        "alt": null
+      }
+    ]
+  }
+}
