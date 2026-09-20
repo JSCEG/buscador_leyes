@@ -6,9 +6,9 @@
   "sha256_radar": "8be4492f89218f7bb0f2f684b98a823c1286606d757426de4ee312c57705dfbf",
   "alcance": "Sección 12, Ligas de interés. Inventario bibliográfico cruzado con la instantánea actual de Supabase; no es una revisión jurídica integral ni un conteo de documentos finales de ingesta.",
   "limites": [
-    "Corte documental del radar: 18 de septiembre de 2026, versión 4.18. Catálogo Supabase verificado el 19 de septiembre después de 27 incorporaciones. Los 41 instrumentos anteriores se conservaron sin cambios.",
+    "Corte documental del radar: 18 de septiembre de 2026, versión 4.18. Catálogo Supabase verificado el 19 de septiembre después de 41 incorporaciones. Cada bloque preservó los registros anteriores sin cambios.",
     "Sección 12, Ligas de interés: los resultados por proyecto de las convocatorias en sección 6 quedan fuera de los totales. No es una búsqueda exhaustiva de todo el DOF.",
-    "Los 76 pendientes del inventario ampliado son referencias bibliográficas por cotejar, no esa cantidad de leyes ni documentos finales listos para importar. Del bloque prioritario queda RAD-033 por acreditar sus bases completas.",
+    "Los 62 pendientes del inventario ampliado son referencias bibliográficas por cotejar, no esa cantidad de leyes ni documentos finales listos para importar. Además, RAD-081 tiene cobertura parcial: aviso cargado y programa completo por incorporar. RAD-033 requiere acreditar sus bases completas.",
     "La ausencia se determina como instrumento propio del catálogo. No excluye menciones o extractos dentro de otros textos, ni equivale a falta de una ficha en Análisis.",
     "El estatus jurídico se reproduce del radar; este cruce no certifica vigencia. Las nuevas cargas conservan sus tablas y, cuando corresponde, figuras originales mediante enlaces oficiales. No se duplican PDFs ni imágenes en Git.",
     "Se conservan 13 antecedentes, 4 filas de proyectos/consulta (8 proyectos NOM), 10 portales y 3 publicaciones previstas no localizadas. No deben importarse como normas finales vigentes."
@@ -23,37 +23,39 @@
     "no_localizado": "Publicación no localizada en el radar"
   },
   "resumen": {
-    "instrumentos_cargados": 68,
-    "fragmentos": 4121,
-    "temas": 1100,
+    "instrumentos_cargados": 82,
+    "fragmentos": 4528,
+    "temas": 1236,
     "filas_radar": 180,
     "repeticiones": 15,
     "referencias_sin_repeticiones": 165,
-    "urls_distintas": 191,
+    "urls_distintas": 205,
     "estados_sin_repeticiones": {
-      "cargado": 59,
-      "pendiente": 76,
+      "cargado": 72,
+      "pendiente": 62,
       "antecedente": 13,
       "portal": 10,
       "no_localizado": 3,
+      "parcial": 1,
       "proyecto": 4
     },
     "estados_todas_las_filas": {
-      "cargado": 65,
-      "pendiente": 84,
+      "cargado": 82,
+      "pendiente": 66,
       "antecedente": 14,
       "portal": 10,
       "no_localizado": 3,
+      "parcial": 1,
       "proyecto": 4
     },
-    "instrumentos_cargados_representados_en_radar": 64,
+    "instrumentos_cargados_representados_en_radar": 78,
     "instrumentos_cargados_fuera_de_seccion_12": 4,
     "convocatorias_generacion_originales": 3,
     "modificaciones_convocatorias_generacion": 10,
     "referencias_convocatorias_generacion": 13,
     "filas_proyectos_nom": 4,
     "proyectos_nom_desglosados": 8,
-    "incorporaciones_2026_09_19": 27
+    "incorporaciones_2026_09_19": 41
   },
   "secciones": [
     {
@@ -82,9 +84,8 @@
       "filas": 23,
       "sin_repeticiones": 23,
       "estados": {
-        "pendiente": 13,
-        "antecedente": 3,
-        "cargado": 7
+        "cargado": 20,
+        "antecedente": 3
       }
     },
     {
@@ -92,7 +93,7 @@
       "filas": 6,
       "sin_repeticiones": 2,
       "estados": {
-        "pendiente": 1,
+        "parcial": 1,
         "portal": 1
       }
     },
@@ -153,6 +154,27 @@
     }
   ],
   "familias": [
+    {
+      "nombre": "Electricidad, redes y mercado",
+      "ids": [
+        "RAD-054",
+        "RAD-056",
+        "RAD-057",
+        "RAD-058",
+        "RAD-059",
+        "RAD-060",
+        "RAD-061",
+        "RAD-062",
+        "RAD-064",
+        "RAD-065",
+        "RAD-070",
+        "RAD-071",
+        "RAD-076",
+        "RAD-081"
+      ],
+      "detalle": "Bloque incorporado salvo RAD-081. El aviso CENACE está cargado; falta incorporar el programa completo de 52 páginas, sus tablas e indicadores.",
+      "tratamiento": "Cotejar texto completo, anexos y relaciones antes de preparar la ingesta."
+    },
     {
       "nombre": "Cogeneración",
       "ids": [
@@ -521,6 +543,110 @@
       ]
     },
     {
+      "id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "titulo": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022",
+      "siglas": "CEL-ASIGNACION-2022",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-04-08",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+      "fragmentos": 10,
+      "temas": 7,
+      "referencias_radar": [
+        "RAD-059"
+      ]
+    },
+    {
+      "id": "ac79c92a-b039-5907-a934-14511c7bdebf",
+      "titulo": "Acuerdo Núm. A/023/2024 de la Comisión Reguladora de Energía mediante el cual se modifica el Acuerdo A/064/2017 por el que se reconoce a los integrantes de una sociedad de autoabastecimiento o de un permiso de cogeneración de energía eléctrica, el derecho a solicitar directamente la exclusión de sus centros de carga del permiso y del contrato de interconexión legado respectivo",
+      "siglas": "EXCLUSION-CARGAS-LEGADAS",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-04-23",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5724250",
+      "fragmentos": 8,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-061"
+      ]
+    },
+    {
+      "id": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+      "titulo": "Acuerdo Núm. A/025/2023 por el que la Comisión Reguladora de Energía modifica la resolución Núm. RES/948/2015 por la que se expiden las Disposiciones Administrativas de Carácter General en materia de acceso abierto y prestación de los servicios en la Red Nacional de Transmisión y las Redes Generales de Distribución de energía eléctrica",
+      "siglas": "DACG-ACCESO-REDES",
+      "tipo": "dacg",
+      "fecha_publicacion": "2024-01-23",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714880",
+      "fragmentos": 123,
+      "temas": 14,
+      "referencias_radar": [
+        "RAD-057"
+      ]
+    },
+    {
+      "id": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+      "titulo": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica",
+      "siglas": "BENEFICIO-REDES",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-01-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714631",
+      "fragmentos": 26,
+      "temas": 14,
+      "referencias_radar": [
+        "RAD-056"
+      ]
+    },
+    {
+      "id": "40ca1503-43de-5551-b655-704cbeeee109",
+      "titulo": "Acuerdo Núm. A/054/2024 de la Comisión Reguladora de Energía por el que se expiden las Disposiciones Administrativas de Carácter General que establecen las bases normativas para autorizar unidades de inspección de requerimientos para centros de carga y de la industria eléctrica en las áreas de generación, transmisión y distribución de energía eléctrica, así como el procedimiento aplicable a inspecciones y las condiciones de operación de las unidades de inspección",
+      "siglas": "UNIDADES-INSPECCION",
+      "tipo": "dacg",
+      "fecha_publicacion": "2024-05-20",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5727366",
+      "fragmentos": 57,
+      "temas": 16,
+      "referencias_radar": [
+        "RAD-062"
+      ]
+    },
+    {
+      "id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso",
+      "siglas": "LIQUIDACION-CARGAS-SUR",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2025-01-30",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+      "fragmentos": 13,
+      "temas": 8,
+      "referencias_radar": [
+        "RAD-065"
+      ]
+    },
+    {
+      "id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "titulo": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente",
+      "siglas": "DACG-ELECTROMOVILIDAD",
+      "tipo": "dacg",
+      "fecha_publicacion": "2024-09-10",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5738646",
+      "fragmentos": 25,
+      "temas": 9,
+      "referencias_radar": [
+        "RAD-064"
+      ]
+    },
+    {
+      "id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
+      "siglas": "CARGO-TRANSMISION-LEGADOS",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-06-18",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+      "fragmentos": 13,
+      "temas": 7,
+      "referencias_radar": [
+        "RAD-076"
+      ]
+    },
+    {
       "id": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
       "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración",
       "siglas": "DACG-COGENERACION",
@@ -531,6 +657,19 @@
       "temas": 9,
       "referencias_radar": [
         "RAD-072"
+      ]
+    },
+    {
+      "id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
+      "siglas": "DACG-MECANISMOS-CENACE",
+      "tipo": "dacg",
+      "fecha_publicacion": "2026-04-03",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+      "fragmentos": 41,
+      "temas": 13,
+      "referencias_radar": [
+        "RAD-071"
       ]
     },
     {
@@ -596,6 +735,19 @@
       "temas": 6,
       "referencias_radar": [
         "RAD-145"
+      ]
+    },
+    {
+      "id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
+      "siglas": "MODELOS-INTERCONEXION",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-03-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+      "fragmentos": 48,
+      "temas": 10,
+      "referencias_radar": [
+        "RAD-070"
       ]
     },
     {
@@ -818,6 +970,32 @@
       ]
     },
     {
+      "id": "ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+      "titulo": "Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026",
+      "siglas": "CEL-REQUISITOS-2025-2026",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2026-08-17",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796405",
+      "fragmentos": 6,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-060"
+      ]
+    },
+    {
+      "id": "947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+      "titulo": "Acuerdo por el que se informa a todos los participantes del mercado eléctrico mayorista y a la población en general, que han quedado insubsistentes el \"Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014\" y el \"Acuerdo por el que se reforma el Segundo Transitorio del Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014, publicado el 28 de octubre de 2019\", publicados en el Diario Oficial de la Federación el 28 de octubre y 10 de diciembre de 2019, respectivamente",
+      "siglas": "CEL-INSUBSISTENCIA",
+      "tipo": "acuerdo",
+      "fecha_publicacion": "2024-03-12",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5719864",
+      "fragmentos": 5,
+      "temas": 5,
+      "referencias_radar": [
+        "RAD-058"
+      ]
+    },
+    {
       "id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
       "titulo": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
       "siglas": "MIGRACION-MODIFICACION",
@@ -828,6 +1006,32 @@
       "temas": 7,
       "referencias_radar": [
         "RAD-044"
+      ]
+    },
+    {
+      "id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "siglas": "MANUAL-SUSPENSION-MEM",
+      "tipo": "manual",
+      "fecha_publicacion": "2024-01-12",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+      "fragmentos": 27,
+      "temas": 15,
+      "referencias_radar": [
+        "RAD-054"
+      ]
+    },
+    {
+      "id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
+      "siglas": "AVISO-PROGRAMA-CENACE",
+      "tipo": "aviso",
+      "fecha_publicacion": "2026-04-30",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+      "fragmentos": 5,
+      "temas": 6,
+      "referencias_radar": [
+        "RAD-081"
       ]
     },
     {
@@ -3249,9 +3453,9 @@
       "tipo_radar": "Manual",
       "titulo_radar": "Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "titulo_en_supabase": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
       "codigos_dof": [
         "5714307"
       ],
@@ -3259,14 +3463,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5714307"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5714307"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "8f0c071e-ef10-5b40-a9f9-b401dbb823ea"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-054"
     },
@@ -3311,9 +3523,9 @@
       "tipo_radar": "Acuerdo A/051/2023",
       "titulo_radar": "Beneficio neto de obras particulares en PAM y cesión de redes",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+      "titulo_en_supabase": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica",
       "codigos_dof": [
         "5714631"
       ],
@@ -3321,14 +3533,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5714631"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5714631"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "a25595c8-cdb8-57de-8200-7551ca27ac9c"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-056"
     },
@@ -3342,9 +3562,9 @@
       "tipo_radar": "Acuerdo A/025/2023",
       "titulo_radar": "Acceso abierto a RNT y RGD",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+      "titulo_en_supabase": "Acuerdo Núm. A/025/2023 por el que la Comisión Reguladora de Energía modifica la resolución Núm. RES/948/2015 por la que se expiden las Disposiciones Administrativas de Carácter General en materia de acceso abierto y prestación de los servicios en la Red Nacional de Transmisión y las Redes Generales de Distribución de energía eléctrica",
       "codigos_dof": [
         "5714880"
       ],
@@ -3352,14 +3572,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5714880"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5714880"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json. Es el acuerdo modificatorio A/025/2023; conserva omisiones y derogaciones del anexo, no el texto consolidado de RES/948/2015.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "02442bce-c5ff-5b39-aeff-59a9d8a37a80"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-057"
     },
@@ -3373,9 +3601,9 @@
       "tipo_radar": "Acuerdo",
       "titulo_radar": "Insistencia de modificaciones de 2019 a lineamientos CEL",
       "estado_radar": "Define retorno al marco previo",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+      "titulo_en_supabase": "Acuerdo por el que se informa a todos los participantes del mercado eléctrico mayorista y a la población en general, que han quedado insubsistentes el \"Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014\" y el \"Acuerdo por el que se reforma el Segundo Transitorio del Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014, publicado el 28 de octubre de 2019\", publicados en el Diario Oficial de la Federación el 28 de octubre y 10 de diciembre de 2019, respectivamente",
       "codigos_dof": [
         "5719864"
       ],
@@ -3383,14 +3611,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5719864"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5719864"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json. El título oficial dice insubsistencia; se conserva el título de la referencia original del radar para trazabilidad.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "947a7dcb-d00d-5494-8333-91c7d8fb5d46"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-058"
     },
@@ -3404,9 +3640,9 @@
       "tipo_radar": "Acuerdo A/007/2024",
       "titulo_radar": "Asignación de CEL disponibles, obligación 2022",
       "estado_radar": "Acto ejecutado",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "titulo_en_supabase": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022",
       "codigos_dof": [
         "5722482"
       ],
@@ -3414,14 +3650,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5722482"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5722482"
         }
       ],
-      "nota": "El radar lo identifica como acto ejecutado; conservar su alcance temporal al decidir su incorporación.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "15fcb1e0-8cd8-5215-9be6-727be3002b3b"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-059"
     },
@@ -3435,22 +3679,32 @@
       "tipo_radar": "Acuerdo",
       "titulo_radar": "Requisitos CEL 2025-2026",
       "estado_radar": "Vigente; 13.9% anual",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
-      "codigos_dof": [],
+      "estado_carga": "Cargado",
+      "ley_id": "ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+      "titulo_en_supabase": "Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026",
+      "codigos_dof": [
+        "5796405"
+      ],
       "fuentes": [
         {
           "etiqueta": "DOF",
           "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=17082026-MAT.pdf&repo="
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5796405"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "ae305a67-31a5-5ec6-8b2e-e12b8f71985a"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-060"
     },
@@ -3464,9 +3718,9 @@
       "tipo_radar": "Acuerdo A/023/2024",
       "titulo_radar": "Exclusión de centros de carga de autoabastecimiento o cogeneración legada",
       "estado_radar": "Vigente/transitorio; revisar lineamientos de migración 2026",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "ac79c92a-b039-5907-a934-14511c7bdebf",
+      "titulo_en_supabase": "Acuerdo Núm. A/023/2024 de la Comisión Reguladora de Energía mediante el cual se modifica el Acuerdo A/064/2017 por el que se reconoce a los integrantes de una sociedad de autoabastecimiento o de un permiso de cogeneración de energía eléctrica, el derecho a solicitar directamente la exclusión de sus centros de carga del permiso y del contrato de interconexión legado respectivo",
       "codigos_dof": [
         "5724250"
       ],
@@ -3474,14 +3728,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5724250"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5724250"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "ac79c92a-b039-5907-a934-14511c7bdebf"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-061"
     },
@@ -3495,9 +3757,9 @@
       "tipo_radar": "Acuerdo A/054/2024",
       "titulo_radar": "Unidades de inspección para centros de carga, generación, transmisión y distribución",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "40ca1503-43de-5551-b655-704cbeeee109",
+      "titulo_en_supabase": "Acuerdo Núm. A/054/2024 de la Comisión Reguladora de Energía por el que se expiden las Disposiciones Administrativas de Carácter General que establecen las bases normativas para autorizar unidades de inspección de requerimientos para centros de carga y de la industria eléctrica en las áreas de generación, transmisión y distribución de energía eléctrica, así como el procedimiento aplicable a inspecciones y las condiciones de operación de las unidades de inspección",
       "codigos_dof": [
         "5727366"
       ],
@@ -3505,14 +3767,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5727366"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5727366"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "40ca1503-43de-5551-b655-704cbeeee109"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-062"
     },
@@ -3557,9 +3827,9 @@
       "tipo_radar": "Acuerdo A/108/2024",
       "titulo_radar": "Electromovilidad e infraestructura de carga conectada al SEN",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "titulo_en_supabase": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente",
       "codigos_dof": [
         "5738646"
       ],
@@ -3567,14 +3837,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5738646"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5738646"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "b813a2eb-8fc2-5f33-a50b-fe9647f738f1"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-064"
     },
@@ -3588,9 +3866,9 @@
       "tipo_radar": "Acuerdo A/085/2024",
       "titulo_radar": "Liquidación de cargas indirectamente modeladas en suministro de último recurso",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "titulo_en_supabase": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso",
       "codigos_dof": [
         "5748078"
       ],
@@ -3598,14 +3876,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5748078"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5748078"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "e54dee73-be6a-5c74-8646-5ecbdaef9090"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-065"
     },
@@ -3757,9 +4043,9 @@
       "tipo_radar": "Contrato modelo",
       "titulo_radar": "Interconexión y conexión de centrales, SAEE y centros de carga",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "titulo_en_supabase": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
       "codigos_dof": [
         "5782317"
       ],
@@ -3767,14 +4053,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5782317"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5782317"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "e8d9d3e6-bad0-5b76-a957-eade6279cfe5"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-070"
     },
@@ -3788,9 +4082,9 @@
       "tipo_radar": "DACG",
       "titulo_radar": "Mecanismos competitivos CENACE para potencia, energía, servicios conexos y confiabilidad",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
       "codigos_dof": [
         "5784027"
       ],
@@ -3798,14 +4092,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5784027"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5784027"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-071"
     },
@@ -3967,9 +4269,9 @@
       "tipo_radar": "Metodología",
       "titulo_radar": "Cargo de transmisión para permisos legados LSPEE",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
       "codigos_dof": [
         "5790939"
       ],
@@ -3977,14 +4279,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5790939"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5790939"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json. El transitorio Primero fija la entrada en vigor el 19 de octubre de 2026, posterior al corte. Se conserva el estado del radar como antecedente de la revisión, sin equipararlo a vigencia comprobada.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "cargado",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "6be7cf44-0134-5950-b9d0-a898d4ec5ced"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-076"
     },
@@ -3998,9 +4308,9 @@
       "tipo_radar": "Manual",
       "titulo_radar": "Suspensión del Mercado de Energía de Corto Plazo",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "titulo_en_supabase": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
       "codigos_dof": [
         "5714307"
       ],
@@ -4008,14 +4318,20 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5714307"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5714307"
         }
       ],
-      "nota": "Referencia repetida de RAD-054. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-054",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "8f0c071e-ef10-5b40-a9f9-b401dbb823ea"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-054"
     },
@@ -4066,9 +4382,9 @@
       "tipo_radar": "Contrato modelo",
       "titulo_radar": "Interconexión y conexión",
       "estado_radar": "Aplicación operativa junto con CNE y CFE",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "titulo_en_supabase": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
       "codigos_dof": [
         "5782317"
       ],
@@ -4076,14 +4392,20 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5782317"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5782317"
         }
       ],
-      "nota": "Referencia repetida de RAD-070. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-070",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "e8d9d3e6-bad0-5b76-a957-eade6279cfe5"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-070"
     },
@@ -4097,9 +4419,9 @@
       "tipo_radar": "DACG",
       "titulo_radar": "Mecanismos competitivos para confiabilidad",
       "estado_radar": "Vigente",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "titulo_en_supabase": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
       "codigos_dof": [
         "5784027"
       ],
@@ -4107,14 +4429,20 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5784027"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5784027"
         }
       ],
-      "nota": "Referencia repetida de RAD-071. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-071",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-071"
     },
@@ -4128,9 +4456,9 @@
       "tipo_radar": "Aviso / programa",
       "titulo_radar": "Programa Institucional CENACE 2026-2030",
       "estado_radar": "Publicado por aviso",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Decreto con cobertura parcial",
+      "ley_id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "titulo_en_supabase": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
       "codigos_dof": [
         "5786368"
       ],
@@ -4138,14 +4466,22 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5786368"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5786368"
         }
       ],
-      "nota": "Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json. Sólo se incorpora el aviso. El programa de 52 páginas está localizado en https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf; faltan su texto, tablas e indicadores.",
       "repite_fuente_de": null,
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
-      "familias": [],
-      "cobertura_ids": [],
+      "estado": "parcial",
+      "familias": [
+        "Electricidad, redes y mercado"
+      ],
+      "cobertura_ids": [
+        "f17cb3b7-0f09-5a97-8c90-47812c921dbd"
+      ],
       "es_repeticion": false,
       "referencia_principal": "RAD-081"
     },
@@ -6424,9 +6760,9 @@
       "tipo_radar": "DACG",
       "titulo_radar": "Electromovilidad e infraestructura de carga",
       "estado_radar": "Vigente/transitorio",
-      "estado_carga": "Por cotejar e incorporar",
-      "ley_id": null,
-      "titulo_en_supabase": null,
+      "estado_carga": "Cargado",
+      "ley_id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "titulo_en_supabase": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente",
       "codigos_dof": [
         "5738646"
       ],
@@ -6434,14 +6770,20 @@
         {
           "etiqueta": "SIDOF",
           "url": "https://sidof.segob.gob.mx/notas/5738646"
+        },
+        {
+          "etiqueta": "Texto oficial cotejado",
+          "url": "https://sidof.segob.gob.mx/notas/docFuente/5738646"
         }
       ],
-      "nota": "Referencia repetida de RAD-064. Referencia del radar; cotejar fuente completa y vigencia antes de procesar.",
+      "nota": "Incorporado y cotejado con la fuente oficial el 19 de septiembre de 2026. Se conserva la publicación, no un texto consolidado; no se certifica vigencia. Evidencia: incorporacion-electricidad-2026-09-19/VERIFICACION.json.",
       "repite_fuente_de": "RAD-064",
       "estado_carga_anterior": "FALTA EN CATALOGO",
-      "estado": "pendiente",
+      "estado": "cargado",
       "familias": [],
-      "cobertura_ids": [],
+      "cobertura_ids": [
+        "b813a2eb-8fc2-5f33-a50b-fe9647f738f1"
+      ],
       "es_repeticion": true,
       "referencia_principal": "RAD-064"
     },
@@ -7326,6 +7668,26 @@
     }
   ],
   "prioridades": [
+    {
+      "nombre": "Electricidad, redes y mercado",
+      "ids": [
+        "RAD-054",
+        "RAD-056",
+        "RAD-057",
+        "RAD-058",
+        "RAD-059",
+        "RAD-060",
+        "RAD-061",
+        "RAD-062",
+        "RAD-064",
+        "RAD-065",
+        "RAD-070",
+        "RAD-071",
+        "RAD-076",
+        "RAD-081"
+      ],
+      "motivo": "Bloque incorporado salvo RAD-081. El aviso CENACE está cargado; falta incorporar el programa completo de 52 páginas, sus tablas e indicadores."
+    },
     {
       "nombre": "Cogeneración",
       "ids": [

@@ -1,0 +1,184 @@
+{
+  "fecha": "2026-09-19",
+  "catalogo_antes": {
+    "leyes": 68,
+    "articulos": 4121,
+    "temas": 1100
+  },
+  "catalogo_despues": {
+    "leyes": 82,
+    "articulos": 4528,
+    "temas": 1236
+  },
+  "altas": [
+    {
+      "siglas": "MANUAL-SUSPENSION-MEM",
+      "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "fecha": "2024-01-12",
+      "fragmentos": 27,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+      "sha256": "a9b8df29029ff19a9ad68806cd7fdfe3caf11771b0b2bf2263b8d118769a6265",
+      "radar": "RAD-054",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "BENEFICIO-REDES",
+      "titulo": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica",
+      "fecha": "2024-01-18",
+      "fragmentos": 26,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-a25595c8-cdb8-57de-8200-7551ca27ac9c",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5714631",
+      "sha256": "15e788c2125a744786340de81ad2196fe9426a7ff72a697a1f69e695f3d97e5b",
+      "radar": "RAD-056",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "DACG-ACCESO-REDES",
+      "titulo": "Acuerdo Núm. A/025/2023 por el que la Comisión Reguladora de Energía modifica la resolución Núm. RES/948/2015 por la que se expiden las Disposiciones Administrativas de Carácter General en materia de acceso abierto y prestación de los servicios en la Red Nacional de Transmisión y las Redes Generales de Distribución de energía eléctrica",
+      "fecha": "2024-01-23",
+      "fragmentos": 123,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5714880",
+      "sha256": "0e93dfc187006a5d565e91e86de8b43617a32df29ef1bd602aa03f651039c1ec",
+      "radar": "RAD-057",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "CEL-INSUBSISTENCIA",
+      "titulo": "Acuerdo por el que se informa a todos los participantes del mercado eléctrico mayorista y a la población en general, que han quedado insubsistentes el \"Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014\" y el \"Acuerdo por el que se reforma el Segundo Transitorio del Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014, publicado el 28 de octubre de 2019\", publicados en el Diario Oficial de la Federación el 28 de octubre y 10 de diciembre de 2019, respectivamente",
+      "fecha": "2024-03-12",
+      "fragmentos": 5,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5719864",
+      "sha256": "6800298915fc6a1f6b49db5bf254632f974ed99cf36e832a0aa490fdeb488eb1",
+      "radar": "RAD-058",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "CEL-ASIGNACION-2022",
+      "titulo": "Acuerdo Núm. A/007/2024 de la Comisión Reguladora de Energía por el que se establece el criterio para la asignación de Certificados de Energías Limpias disponibles en la cuenta de la Comisión Reguladora de Energía, correspondientes al año de obligación 2022",
+      "fecha": "2024-04-08",
+      "fragmentos": 10,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+      "sha256": "b0ca5fee4960a5869ae2b8c7fca19e09f1ea49f1098aeb66cce910660868818b",
+      "radar": "RAD-059",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "EXCLUSION-CARGAS-LEGADAS",
+      "titulo": "Acuerdo Núm. A/023/2024 de la Comisión Reguladora de Energía mediante el cual se modifica el Acuerdo A/064/2017 por el que se reconoce a los integrantes de una sociedad de autoabastecimiento o de un permiso de cogeneración de energía eléctrica, el derecho a solicitar directamente la exclusión de sus centros de carga del permiso y del contrato de interconexión legado respectivo",
+      "fecha": "2024-04-23",
+      "fragmentos": 8,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-ac79c92a-b039-5907-a934-14511c7bdebf",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5724250",
+      "sha256": "e729dca454aa80d5b5b3853daf816ad89e801e3de0cb889a25e9db50e22617a8",
+      "radar": "RAD-061",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "UNIDADES-INSPECCION",
+      "titulo": "Acuerdo Núm. A/054/2024 de la Comisión Reguladora de Energía por el que se expiden las Disposiciones Administrativas de Carácter General que establecen las bases normativas para autorizar unidades de inspección de requerimientos para centros de carga y de la industria eléctrica en las áreas de generación, transmisión y distribución de energía eléctrica, así como el procedimiento aplicable a inspecciones y las condiciones de operación de las unidades de inspección",
+      "fecha": "2024-05-20",
+      "fragmentos": 57,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-40ca1503-43de-5551-b655-704cbeeee109",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5727366",
+      "sha256": "25fe95266dbcb31ec5595fa9d6b790ddf22d6892d3a147bdcb7e520258fbbee9",
+      "radar": "RAD-062",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "DACG-ELECTROMOVILIDAD",
+      "titulo": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente",
+      "fecha": "2024-09-10",
+      "fragmentos": 25,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5738646",
+      "sha256": "d911780f43cc9542384714a8135e90e5b78b2c366f038c92c5ca56cdd11ba258",
+      "radar": "RAD-064",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "LIQUIDACION-CARGAS-SUR",
+      "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso",
+      "fecha": "2025-01-30",
+      "fragmentos": 13,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+      "sha256": "da2c73bc90b26211184f04981adfef5852a6e4867bb9beba326eddd7ff7a2348",
+      "radar": "RAD-065",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "MODELOS-INTERCONEXION",
+      "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
+      "fecha": "2026-03-17",
+      "fragmentos": 48,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+      "sha256": "c4657658696fe743f0c30cf6fbea15b94718b742dc3a2ceda9b2fbc69b89d621",
+      "radar": "RAD-070",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "DACG-MECANISMOS-CENACE",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
+      "fecha": "2026-04-03",
+      "fragmentos": 41,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+      "sha256": "d08fa19a6f5b736ff81235cf4280c874ea6b3f0fecfdbad0f5d966a57ce107c8",
+      "radar": "RAD-071",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "CARGO-TRANSMISION-LEGADOS",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
+      "fecha": "2026-06-18",
+      "fragmentos": 13,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+      "sha256": "460474516ffe573722c5f719941f45662bdf107fff30cced8f8815cb24df5bc7",
+      "radar": "RAD-076",
+      "cobertura": "cargado"
+    },
+    {
+      "siglas": "AVISO-PROGRAMA-CENACE",
+      "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
+      "fecha": "2026-04-30",
+      "fragmentos": 5,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+      "sha256": "833ffacba038c68fbc46364f992d3c3d8025ea50f2bb2ed0d1b4b52f124eaf94",
+      "radar": "RAD-081",
+      "cobertura": "parcial"
+    },
+    {
+      "siglas": "CEL-REQUISITOS-2025-2026",
+      "titulo": "Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026",
+      "fecha": "2026-08-17",
+      "fragmentos": 6,
+      "url": "https://buscador-leyes-jav.pages.dev/#ley-ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+      "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5796405",
+      "sha256": "59efa274676a3066ce95c60c4e4fa4766f859c99d28c28f239475d399a2cb959",
+      "radar": "RAD-060",
+      "cobertura": "cargado"
+    }
+  ],
+  "anteriores_sin_cambios": true,
+  "recursos": {
+    "tablas": 206,
+    "celdas": 4328,
+    "graficos": 333
+  },
+  "referencias_radar": {
+    "cargado": 72,
+    "pendiente": 62,
+    "antecedente": 13,
+    "portal": 10,
+    "no_localizado": 3,
+    "parcial": 1,
+    "proyecto": 4
+  }
+}
