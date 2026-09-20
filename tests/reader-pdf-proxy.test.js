@@ -10,6 +10,21 @@ const request = (path = 'lcne', method = 'GET') => new Request(`https://app.test
 const upstream = (body = bytes, headers = {}) => new Response(body, { headers: { 'Content-Type': 'application/pdf', ...headers } });
 afterEach(() => vi.unstubAllGlobals());
 
+it('serves the reviewed CENACE PDF but rejects other DOF URLs and URL overrides', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cenace'), 'cenace', { sources: { cenace: { ...source, originalUrl } }, fetcher });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    fetcher.mockClear();
+    for (const url of [originalUrl + '?url=https://outside.test', originalUrl + '/other', originalUrl.replace('CENACE', 'CENAGAS'), 'https://dof.gob.mx/other.pdf']) {
+        expect((await serveReaderPdf(request('cenace'), 'cenace', { sources: { cenace: { ...source, originalUrl: url } }, fetcher })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());

@@ -1,0 +1,10 @@
+{
+  "instrumento": "PROGRAMA-CENACE",
+  "fragmentos": 33,
+  "apartados_mapeados": 32,
+  "tablas_fuente": 20,
+  "celdas_fuente": 429,
+  "celdas_y_spans_identicos": true,
+  "bloques_integros": true,
+  "mapa_coincide": true
+}

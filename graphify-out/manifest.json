@@ -215,7 +215,7 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\data\\manifest.json": {
-    "mtime": 1789864019.8201218,
+    "mtime": 1789920237.749444,
     "ast_hash": "ebb3e943f1ca6d628a3f264d3d397484",
     "semantic_hash": ""
   },
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\README.md": {
-    "mtime": 1789804407.9159827,
-    "ast_hash": "c606f24efe735d97615bb83570706fa5",
+    "mtime": 1789920053.1592414,
+    "ast_hash": "526df4908424275199fb4fa66b20a07f",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\SUPABASE.md": {
@@ -4135,8 +4135,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\reader-sources\\manifest.v1.json": {
-    "mtime": 1789840083.4623547,
-    "ast_hash": "8fae8e56e984d56d246870cc7908cabf",
+    "mtime": 1789919527.5548253,
+    "ast_hash": "16e81f0da3bba8ac7d879b09d4c336b3",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\lector-fuentes-2026-09-19\\COBERTURA.json": {
@@ -4190,8 +4190,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\reader-source.test.js": {
-    "mtime": 1789840111.7646255,
-    "ast_hash": "ce4bafd2936b94e04870d6b2f82ba26d",
+    "mtime": 1789919616.2219703,
+    "ast_hash": "a295b3809089cb7655afd90303167942",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\ui-reader.test.js": {
@@ -4345,8 +4345,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\server\\reader-pdf.js": {
-    "mtime": 1789840866.672801,
-    "ast_hash": "0edda2aec67e6c73457ae45cc0c8c97c",
+    "mtime": 1789919421.5949655,
+    "ast_hash": "7ba7178272e2e99fec3f7803e2953710",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\src\\lib\\reader-pdf.js": {
@@ -4355,8 +4355,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\reader-pdf-proxy.test.js": {
-    "mtime": 1789840869.6444318,
-    "ast_hash": "e5893aa53d60deb72d8f494dfbfde48f",
+    "mtime": 1789919423.8884428,
+    "ast_hash": "3bc0db39d7ea4dd45535e976933c2ed4",
     "semantic_hash": ""
   },
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\tests\\reader-pdf.test.js": {
@@ -5027,6 +5027,166 @@
   "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-electricidad-2026-09-19\\README.md": {
     "mtime": 1789864183.4718554,
     "ast_hash": "18caa763a668a3781d79593d79d6762d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\incorporacion-cenace-2026-09-20\\INCORPORACION.json": {
+    "mtime": 1789919982.3664749,
+    "ast_hash": "6007fca0b62fe8f97cdb5335db464d18",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-20\\catalogo-actual.json": {
+    "mtime": 1789920211.3078284,
+    "ast_hash": "7e6f4291ee13afd101e4a8cc9332be04",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-20\\INVENTARIO.json": {
+    "mtime": 1789920211.2792647,
+    "ast_hash": "cf00e87fe5150708f605b6599cd86a92",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\actualizacion-nota-aviso.json": {
+    "mtime": 1789919527.4484901,
+    "ast_hash": "1beb91fe29ae84ec7aca0928a8ded6a2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\actualizar_inventario.py": {
+    "mtime": 1789920210.6640131,
+    "ast_hash": "77a0d81f09487216281a31d7756a56eb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\COTEJO-CELDAS.json": {
+    "mtime": 1789919289.1274354,
+    "ast_hash": "6774c5b820a1ddca953b08df1cac34bb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\COTEJO-FUENTE.json": {
+    "mtime": 1789919480.0363793,
+    "ast_hash": "d5a7aa935ffe1a2d55628eb8adea9db5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\COTEJO-PAGINAS.json": {
+    "mtime": 1789919289.1212616,
+    "ast_hash": "99d6bf2b7259a47e83627a319f5e8334",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\extraer_pdf.py": {
+    "mtime": 1789919283.2800822,
+    "ast_hash": "6911d1b618e888268de6657f359db984",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\fuente.json": {
+    "mtime": 1789919289.1284363,
+    "ast_hash": "9c77a6d842b658478e786710b763f38b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\generar_reporte.py": {
+    "mtime": 1789919977.7132728,
+    "ast_hash": "f6b6c26085eed67573382dc0beb26098",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\generar_sql.py": {
+    "mtime": 1789919524.7987642,
+    "ast_hash": "bfc09255d8746848576b035248f66eb5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\INCORPORACION.json": {
+    "mtime": 1789919982.3073344,
+    "ast_hash": "6007fca0b62fe8f97cdb5335db464d18",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\mapa-cenace.json": {
+    "mtime": 1789919464.9501116,
+    "ast_hash": "7382fcfbe560d4221f9cc9475bf0a284",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\preparar.py": {
+    "mtime": 1789919464.4993243,
+    "ast_hash": "88b9a13a571828a4eefd91e7b75b15bf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\PROGRAMA-CENACE-carga.json": {
+    "mtime": 1789919464.9481122,
+    "ast_hash": "b0909e7b30a561ea5caa8d529ec0e281",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\publicar_mapa.py": {
+    "mtime": 1789919526.901608,
+    "ast_hash": "58a896e3162a2d99815ece867a57cb97",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\SEGMENTACION.json": {
+    "mtime": 1789919464.9511125,
+    "ast_hash": "83df6a5799337435859180301d999447",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\sql-manifest.json": {
+    "mtime": 1789919527.451492,
+    "ast_hash": "9838afd802f852e6f49f62a98edc0b9a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\VERIFICACION.json": {
+    "mtime": 1789919618.8906076,
+    "ast_hash": "e5c1d695e46808ee6566135143cd4ed7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\verificar.py": {
+    "mtime": 1789919618.3083255,
+    "ast_hash": "c951a054cf3677d685aa67f2ff8dae0b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-20\\catalogo-actual.json": {
+    "mtime": 1789920211.2012167,
+    "ast_hash": "7e6f4291ee13afd101e4a8cc9332be04",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-20\\INVENTARIO.json": {
+    "mtime": 1789920211.1981995,
+    "ast_hash": "cf00e87fe5150708f605b6599cd86a92",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\incorporacion-cenace-2026-09-20\\INCORPORACION.html": {
+    "mtime": 1789919982.3404706,
+    "ast_hash": "d7f42d2a01024dead1361c946c9e53f0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\incorporacion-cenace-2026-09-20\\INCORPORACION.md": {
+    "mtime": 1789919982.3563764,
+    "ast_hash": "f0fa6bdb5bf235615e20fa9a7601167b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-20\\INVENTARIO.html": {
+    "mtime": 1789920211.263418,
+    "ast_hash": "1ca6003ca5062c1374a1c49ea6887e74",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\public\\revision-acervo\\inventario-radar-2026-09-20\\INVENTARIO.md": {
+    "mtime": 1789920211.263418,
+    "ast_hash": "711a0b10f095abcc801ae322a5c0df3f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\INCORPORACION.html": {
+    "mtime": 1789919982.3358617,
+    "ast_hash": "d7f42d2a01024dead1361c946c9e53f0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\INCORPORACION.md": {
+    "mtime": 1789919982.3073344,
+    "ast_hash": "f0fa6bdb5bf235615e20fa9a7601167b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\incorporacion-cenace-2026-09-20\\README.md": {
+    "mtime": 1789919979.8486674,
+    "ast_hash": "2d99448eff1bc4ec58fbddf9a62157a2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-20\\INVENTARIO.html": {
+    "mtime": 1789920211.214213,
+    "ast_hash": "1ca6003ca5062c1374a1c49ea6887e74",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\User\\Documents\\65.-Buscador de Leyes Energ\u00eda\\revision-acervo\\inventario-radar-2026-09-20\\INVENTARIO.md": {
+    "mtime": 1789920211.2082453,
+    "ast_hash": "711a0b10f095abcc801ae322a5c0df3f",
     "semantic_hash": ""
   }
 }

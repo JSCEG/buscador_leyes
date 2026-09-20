@@ -1,6 +1,7 @@
 import manifest from '../public/reader-sources/manifest.v1.json';
 
 export const MAX_PDF_BYTES = 8 * 1024 * 1024;
+const reviewedDofPdfs = new Set(['https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf']);
 
 function problem(status, code) {
     return new Response(JSON.stringify({ code }), {
@@ -14,7 +15,8 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
     if (new URL(request.url).search) return problem(400, 'unexpected-parameters');
     const source = Object.hasOwn(sources, sourceId) ? sources[sourceId] : null;
     if (!source || source.transport !== 'remote-pdf') return problem(404, 'unknown-source');
-    if (!/^https:\/\/www\.diputados\.gob\.mx\/LeyesBiblio\/pdf\/[A-Za-z0-9_-]+\.pdf$/.test(source.originalUrl)
+    if ((!/^https:\/\/www\.diputados\.gob\.mx\/LeyesBiblio\/pdf\/[A-Za-z0-9_-]+\.pdf$/.test(source.originalUrl)
+        && !reviewedDofPdfs.has(source.originalUrl))
         || !/^[a-f0-9]{64}$/.test(source.sha256)) return problem(404, 'unknown-source');
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 20000);

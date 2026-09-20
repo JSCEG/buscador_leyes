@@ -1,0 +1,84 @@
+{
+  "fecha": "2026-09-20",
+  "instrumento": {
+    "id": "18ad866e-e9c9-58bd-8189-9ff6d4f06ae3",
+    "titulo": "Programa Institucional del Centro Nacional de Control de Energía 2026-2030",
+    "siglas": "PROGRAMA-CENACE",
+    "fecha_publicacion": "2026-04-30",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Planeación del sector",
+      "CENACE",
+      "Indicadores y metas"
+    ],
+    "url_original": "https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf",
+    "tipo": "programa"
+  },
+  "catalogo_antes": {
+    "leyes": 82,
+    "articulos": 4528,
+    "temas": 1236
+  },
+  "catalogo_despues": {
+    "leyes": 83,
+    "articulos": 4561,
+    "temas": 1242
+  },
+  "cotejo": {
+    "instrumento": "PROGRAMA-CENACE",
+    "fragmentos": 33,
+    "apartados_mapeados": 32,
+    "tablas_fuente": 20,
+    "celdas_fuente": 429,
+    "celdas_y_spans_identicos": true,
+    "bloques_integros": true,
+    "mapa_coincide": true
+  },
+  "fuente": {
+    "nombre": "PROGRAMA-CENACE",
+    "url": "https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf",
+    "sha256": "39fe5ad916c3f322183d5ee7f5ce4bf238699988ef67fbfd55f78afd4e51fea3",
+    "paginas": 52,
+    "fecha_publicacion": "2026-04-30",
+    "aviso_url": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+    "radar": "RAD-081"
+  },
+  "ejemplos": [
+    {
+      "titulo": "Mapas y diagnóstico",
+      "apartado": "6.1.3. Causas y efectos del problema",
+      "detalle": "Abre PDF original y selecciona la página 18 para consultar los mapas, o la 19 para ver la gráfica.",
+      "url": "https://buscador-leyes-jav.pages.dev/#art-aa9cd09c-e316-55d4-8a1f-98b319381958"
+    },
+    {
+      "titulo": "Gráficas y datos rotulados",
+      "apartado": "7.1. Relevancia del Objetivo",
+      "detalle": "Consulta las gráficas de las páginas 32 y 33. El texto incluye dos tablas auxiliares, identificadas como ayudas de lectura.",
+      "url": "https://buscador-leyes-jav.pages.dev/#art-ce28ae91-69e6-54ab-95dd-1e5799709d2d"
+    },
+    {
+      "titulo": "Indicadores completos",
+      "apartado": "Indicador 1.1 y sus metas",
+      "detalle": "La ficha y sus metas permanecen juntas. En Texto y PDF puedes recorrer sus dos páginas: 44 y 45.",
+      "url": "https://buscador-leyes-jav.pages.dev/#art-bf056dde-8c3b-5bba-a3e0-7606c12f24f5"
+    }
+  ],
+  "alcance": [
+    "El PDF oficial tiene 52 páginas. Se incorporaron 32 apartados y una nota editorial, con cinco estrategias y cuatro indicadores completos. La contraportada no contiene texto normativo.",
+    "Se cotejaron 20 tablas y 429 celdas, conservando las celdas combinadas y el texto extraíble. Los indicadores de dos páginas no se dividieron en fichas independientes.",
+    "Los mapas de la página 18 y las gráficas de las páginas 19, 32 y 33 se consultan en el PDF original. El detalle interno de los mapas y de la gráfica de la página 19 no tiene OCR. No se presenta como texto buscable todo el contenido de esas imágenes.",
+    "Las dos tablas auxiliares de las páginas 32 y 33 transcriben únicamente cifras rotuladas en las gráficas y están señaladas como ayudas editoriales. No se estiman valores de la serie TOTAL.",
+    "Los 32 apartados oficiales tienen páginas sincronizadas. La nota editorial no tiene página oficial. La LCNE conserva sus 48 fragmentos sincronizados: ahora hay dos fuentes y 80 correspondencias.",
+    "El lector consulta el PDF mediante la liga oficial y comprueba la huella de la edición. No se añadieron PDFs ni imágenes a Git. Si cambia el archivo, la sincronización se detiene para evitar un resaltado equivocado.",
+    "La fecha de la ficha corresponde al aviso de publicación del 30 de abril de 2026. Se enlazaron el aviso y el programa, y sólo se actualizó la nota editorial del aviso; el resto de los registros anteriores permanece idéntico. No se certifica vigencia ni se elabora un texto consolidado."
+  ],
+  "referencias_radar": {
+    "cargado": 73,
+    "pendiente": 62,
+    "antecedente": 13,
+    "portal": 10,
+    "no_localizado": 3,
+    "proyecto": 4
+  }
+}

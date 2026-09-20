@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 2,
-  "verifiedAt": "2026-09-19T07:41:55+00:00",
+  "revision": 3,
+  "verifiedAt": "2026-09-20T15:46:30Z",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -110,6 +110,278 @@
         },
         {
           "number": 20,
+          "width": 612.0,
+          "height": 792.0
+        }
+      ]
+    },
+    "cenace-39fe5ad916c3": {
+      "id": "cenace-39fe5ad916c3",
+      "title": "Programa Institucional del Centro Nacional de Control de Energía 2026-2030",
+      "lawId": "18ad866e-e9c9-58bd-8189-9ff6d4f06ae3",
+      "sha256": "39fe5ad916c3f322183d5ee7f5ce4bf238699988ef67fbfd55f78afd4e51fea3",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/cenace-39fe5ad916c3",
+      "originalUrl": "https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf",
+      "pageCount": 52,
+      "pages": [
+        {
+          "number": 1,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 2,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 3,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 4,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 5,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 6,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 7,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 8,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 9,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 10,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 11,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 12,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 13,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 14,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 15,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 16,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 17,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 18,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 19,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 20,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 21,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 22,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 23,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 24,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 25,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 26,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 27,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 28,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 29,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 30,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 31,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 32,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 33,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 34,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 35,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 36,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 37,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 38,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 39,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 40,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 41,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 42,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 43,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 44,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 45,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 46,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 47,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 48,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 49,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 50,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 51,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 52,
           "width": 612.0,
           "height": 792.0
         }
@@ -7104,6 +7376,914 @@
             443.3362121582031,
             529.06884765625,
             454.4416198730469
+          ]
+        }
+      ]
+    },
+    "bc4c40be-0abd-5e69-8b3d-77a015701f90": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Portada",
+      "contentSha256": "03637201e65923bbb54b29435b269fb57f5072e0353baa52aa0963c72a541783",
+      "pageNumbers": [
+        1
+      ],
+      "anchors": [
+        {
+          "page": 1,
+          "bbox": [
+            10.24,
+            38.39999999999998,
+            612,
+            301.714
+          ]
+        }
+      ]
+    },
+    "1357dac5-f62a-56c7-88cf-c8f19e63a3aa": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "1. Índice",
+      "contentSha256": "cd170ec5547accd2e9b6ff247bd7421dabce1504bdcd8dcaf4c96c2f0c4b7542",
+      "pageNumbers": [
+        2
+      ],
+      "anchors": [
+        {
+          "page": 2,
+          "bbox": [
+            83.104,
+            125.03999999999996,
+            531.88,
+            650.376
+          ]
+        }
+      ]
+    },
+    "4f9d0dab-8d3b-5f8f-9cbf-e5caf23bfa97": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "2. Siglas y acrónimos",
+      "contentSha256": "754b8b3aeb10cb5def6482f3fa4c7f02837a6a9d2083e2b5f0739f64a609cd71",
+      "pageNumbers": [
+        3,
+        4
+      ],
+      "anchors": [
+        {
+          "page": 3,
+          "bbox": [
+            83.104,
+            125.03999999999996,
+            532.14,
+            706.652
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.0500000000001,
+            381.406
+          ]
+        }
+      ]
+    },
+    "7b3d8606-207a-5ad1-b058-3e222bf2fba7": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "3. Conceptos básicos",
+      "contentSha256": "a2acbce9592335d11a9a9f2b98aa0a01a4160c397f634c228a2c2e02c473e5e4",
+      "pageNumbers": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "anchors": [
+        {
+          "page": 4,
+          "bbox": [
+            83.104,
+            411.53,
+            532.116,
+            703.412
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            706.292
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            709.892
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            531.9079999999998,
+            332.92600000000004
+          ]
+        }
+      ]
+    },
+    "43f070c3-8f00-59d7-8f4d-b09483aaf75e": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "4. Señalamiento del origen de los recursos del programa",
+      "contentSha256": "e5d8ceb6a5852634795514447ef6fac1ce70240699627a432743cb59c7745f6a",
+      "pageNumbers": [
+        7,
+        8
+      ],
+      "anchors": [
+        {
+          "page": 7,
+          "bbox": [
+            83.104,
+            343.34999999999997,
+            532.14,
+            696.096
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            83.1,
+            130.77599999999995,
+            532.1519999999999,
+            343.00600000000003
+          ]
+        }
+      ]
+    },
+    "a96f5bb5-45ae-56c4-96f4-8ff02930a705": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "5. Fundamento normativo",
+      "contentSha256": "218cde04bc52a7a4312aedd3a3599d5707f0cfc152f5ebf2034ff8b0dd58ec7a",
+      "pageNumbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "anchors": [
+        {
+          "page": 9,
+          "bbox": [
+            83.104,
+            125.03999999999996,
+            532.14,
+            709.292
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.1519999999999,
+            723.146
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            111.42,
+            129.93599999999992,
+            501.42,
+            701.732
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            111.42,
+            129.93599999999992,
+            501.088,
+            195.01599999999996
+          ]
+        }
+      ]
+    },
+    "f344f4fa-1a0e-579c-a5c7-1058b0b6d69a": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6. Diagnóstico · 6.1.1. Contexto general del sector eléctrico mexicano",
+      "contentSha256": "ce29f8ab18af94c64ef80574a36777c791dc80f2e581c197f0a14711678abb6a",
+      "pageNumbers": [
+        13,
+        14,
+        15
+      ],
+      "anchors": [
+        {
+          "page": 13,
+          "bbox": [
+            83.104,
+            125.03999999999996,
+            532.128,
+            710.852
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            713.612
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            646.776
+          ]
+        }
+      ]
+    },
+    "3afb5ff2-856b-50bd-8f30-c1259cccd803": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.2. Identificación del problema público",
+      "contentSha256": "8ab84e060887933512eb438f86867814470ffca02adf22bdac2f3f64b5815ba8",
+      "pageNumbers": [
+        16,
+        17
+      ],
+      "anchors": [
+        {
+          "page": 16,
+          "bbox": [
+            83.104,
+            129.05999999999995,
+            532.14,
+            723.386
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            118.5,
+            129.93599999999992,
+            531.8079999999999,
+            195.37599999999998
+          ]
+        }
+      ]
+    },
+    "aa9cd09c-e316-55d4-8a1f-98b319381958": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.3. Causas y efectos del problema",
+      "contentSha256": "54b7bfbeb66cf60ac947f99bc660cab80c0c60ca0b6d9546167b12dca77e19c2",
+      "pageNumbers": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "anchors": [
+        {
+          "page": 17,
+          "bbox": [
+            83.104,
+            210.05999999999995,
+            532.062,
+            709.172
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            710.972
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            531.92,
+            723.134
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            531.9459999999999,
+            419.206
+          ]
+        }
+      ]
+    },
+    "55db16c0-9fb0-5bb3-ab7c-b12c78c0db89": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.4. Orientación del marco normativo vigente y pertinencia institucional",
+      "contentSha256": "cfd52f5301857896ffbef112f535c17c8c4da8d811f6e74a6695fc5b5aa5169e",
+      "pageNumbers": [
+        20,
+        21
+      ],
+      "anchors": [
+        {
+          "page": 20,
+          "bbox": [
+            83.104,
+            432.71,
+            532.03,
+            721.652
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            227.65599999999995
+          ]
+        }
+      ]
+    },
+    "75cae054-2982-502c-9617-ce2f8747766e": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.5. Capacidad de control y monitoreo de red",
+      "contentSha256": "f2904827839284d70e7e5bbed5addf151aac94444992c7b009f116f0cb1ad1ec",
+      "pageNumbers": [
+        21,
+        22
+      ],
+      "anchors": [
+        {
+          "page": 21,
+          "bbox": [
+            83.104,
+            241.14,
+            532.14,
+            688.176
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            438.666
+          ]
+        }
+      ]
+    },
+    "7a787fbe-e77e-5fa7-bb5b-dd720e805ccd": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.6. Ciberseguridad en sistemas críticos",
+      "contentSha256": "eff2278b53e0507b0067fafec7cfc0c77dd31547fbee52f5ec6c0fdda835eb5b",
+      "pageNumbers": [
+        22
+      ],
+      "anchors": [
+        {
+          "page": 22,
+          "bbox": [
+            83.104,
+            453.34999999999997,
+            532.14,
+            643.1759999999999
+          ]
+        }
+      ]
+    },
+    "9e89dcba-60fa-592d-8e95-b678711b7cd1": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.7. Marco normativo y nuevo entorno de la planeación y del mercado",
+      "contentSha256": "534d6c8575ce593a51a3fc302c3b64b0df112d47d5d550f3540fc2e471e3f1ce",
+      "pageNumbers": [
+        23,
+        24
+      ],
+      "anchors": [
+        {
+          "page": 23,
+          "bbox": [
+            83.104,
+            128.93999999999994,
+            532.14,
+            711.092
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            535.14,
+            234.25599999999997
+          ]
+        }
+      ]
+    },
+    "f0352733-7869-57b0-b95c-70fbe4b26160": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.8. Talento humano y formación especializada",
+      "contentSha256": "3c23392069376e7089d016ba9ce3aef3906b1d906617c4ac03f4ed31f9d2d462",
+      "pageNumbers": [
+        24
+      ],
+      "anchors": [
+        {
+          "page": 24,
+          "bbox": [
+            83.104,
+            248.97000000000003,
+            532.14,
+            540.906
+          ]
+        }
+      ]
+    },
+    "39d3a68e-cc72-5b77-af8f-5b8c438d4b22": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.9. Estructura organizacional y procesos",
+      "contentSha256": "5b776f48b9a24141bf5113bb1251ac7254b23dc8d8dbe40ec003a9d294f65ebd",
+      "pageNumbers": [
+        24,
+        25
+      ],
+      "anchors": [
+        {
+          "page": 24,
+          "bbox": [
+            83.104,
+            555.59,
+            532.14,
+            721.772
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            464.226
+          ]
+        }
+      ]
+    },
+    "c3d92010-9927-56e7-8a31-631354fda125": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.1.10. Financiamiento institucional y restricciones presupuestales",
+      "contentSha256": "71a1d6172fb8369582bd4c10eda495a4bafe00d39663d8eb7f3f5db926a239e2",
+      "pageNumbers": [
+        25,
+        26
+      ],
+      "anchors": [
+        {
+          "page": 25,
+          "bbox": [
+            83.104,
+            478.90999999999997,
+            534.9319999999999,
+            703.892
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            403.36600000000004
+          ]
+        }
+      ]
+    },
+    "ce8263ed-3da2-5825-9224-e28cfb2c8a3e": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.2. Visión de Largo Plazo",
+      "contentSha256": "4de1c8fcd7ccdec50d405574993d591a674f31b85aa14cd87f72d6e7a3fc0c48",
+      "pageNumbers": [
+        27,
+        28
+      ],
+      "anchors": [
+        {
+          "page": 27,
+          "bbox": [
+            83.104,
+            131.45628,
+            532.14,
+            649.056
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            83.104,
+            130.05599999999993,
+            531.9939999999999,
+            248.29599999999994
+          ]
+        }
+      ]
+    },
+    "e7726e3c-30f3-5a18-ab85-c02406fa8d17": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "6.3. Misión",
+      "contentSha256": "698e7f669956d4deb1af99ea9fdf5c0de0887256d5078c5be7927ee4e112fbd3",
+      "pageNumbers": [
+        29
+      ],
+      "anchors": [
+        {
+          "page": 29,
+          "bbox": [
+            83.104,
+            131.45628,
+            532.14,
+            507.906
+          ]
+        }
+      ]
+    },
+    "d433e0a2-2b53-5a54-8684-3d0b90e4954a": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "7. Objetivo",
+      "contentSha256": "6addd865ea0c9999a54745ebe740356e82b11b373cd6518b444235dfca0c20fe",
+      "pageNumbers": [
+        30
+      ],
+      "anchors": [
+        {
+          "page": 30,
+          "bbox": [
+            83.104,
+            125.03999999999996,
+            532.1519999999999,
+            279.28599999999994
+          ]
+        }
+      ]
+    },
+    "ce28ae91-69e6-54ab-95dd-1e5799709d2d": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "7.1. Relevancia del Objetivo",
+      "contentSha256": "a0e8ba1bd3b2a419b90625ad70c314bc25f00fe14360c8238ea74bacbf3215ee",
+      "pageNumbers": [
+        30,
+        31,
+        32,
+        33
+      ],
+      "anchors": [
+        {
+          "page": 30,
+          "bbox": [
+            83.104,
+            333.92627999999996,
+            532.14,
+            717.452
+          ]
+        },
+        {
+          "page": 31,
+          "bbox": [
+            83.104,
+            128.93999999999994,
+            532.14,
+            709.21172
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            718.172
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            83.104,
+            129.93599999999992,
+            532.14,
+            514.2660000000001
+          ]
+        }
+      ]
+    },
+    "16a18b23-3a4b-56aa-a62a-8695ddf0576c": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "7.2. Vinculación de los objetivos del Programa Institucional del CENACE 2026-2030",
+      "contentSha256": "77b633202fa38eee8d39f7ec63858cb141c3bb15d931474b025ed669cd6ef073",
+      "pageNumbers": [
+        33,
+        34
+      ],
+      "anchors": [
+        {
+          "page": 33,
+          "bbox": [
+            83.104,
+            531.34628,
+            533.06088,
+            691.416
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            76.02,
+            129.93599999999992,
+            533.69,
+            530.106
+          ]
+        }
+      ]
+    },
+    "134bfeec-9b27-5427-ab1e-f0d357a11062": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "8. Estrategias y líneas de acción",
+      "contentSha256": "55570c2e4c1b70d736da8fdb6fc35974b5d0ea9fb4fc507545d30b4de65ec8a7",
+      "pageNumbers": [
+        35
+      ],
+      "anchors": [
+        {
+          "page": 35,
+          "bbox": [
+            83.104,
+            124.91999999999996,
+            532.14,
+            385.12600000000003
+          ]
+        }
+      ]
+    },
+    "89229e69-9c05-5c29-a834-5c513850a8ed": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Estrategia 1 y sus líneas de acción",
+      "contentSha256": "f6a81f15f343d44c5bd8a625caa7a88c4ec1dd9b9805dff211faca878167f381",
+      "pageNumbers": [
+        36
+      ],
+      "anchors": [
+        {
+          "page": 36,
+          "bbox": [
+            83.104,
+            130.65372000000002,
+            531.99,
+            702.6560099999999
+          ]
+        }
+      ]
+    },
+    "33d570f1-405a-5176-8e1f-ec8357451cef": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Estrategia 2 y sus líneas de acción",
+      "contentSha256": "5b75d5a67fb57c47b2c8031a79dbbc07e4b4a792a1bd7884f8d01040500a341a",
+      "pageNumbers": [
+        37,
+        38
+      ],
+      "anchors": [
+        {
+          "page": 37,
+          "bbox": [
+            83.104,
+            130.77372000000003,
+            532.14,
+            694.1360099999999
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            83.344,
+            125.81999999999994,
+            528.77999,
+            294.849995
+          ]
+        }
+      ]
+    },
+    "74cd5ae8-b2b1-5766-924f-e115653a4b99": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Estrategia 3 y sus líneas de acción",
+      "contentSha256": "d1df09d2e251697f7d167d6cf62e193e7a4bee4986183c804dcaacadc608b746",
+      "pageNumbers": [
+        39
+      ],
+      "anchors": [
+        {
+          "page": 39,
+          "bbox": [
+            83.104,
+            130.65372000000002,
+            532.14,
+            660.78001
+          ]
+        }
+      ]
+    },
+    "da2fc247-689c-5861-8766-d5743bbcaedd": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Estrategia 4 y sus líneas de acción",
+      "contentSha256": "fa76d309145ce367f1a681be57860cb6ca72dc408644c1a68b145e903969fa46",
+      "pageNumbers": [
+        40
+      ],
+      "anchors": [
+        {
+          "page": 40,
+          "bbox": [
+            83.104,
+            156.33371999999997,
+            532.128,
+            454.71001
+          ]
+        }
+      ]
+    },
+    "c047b549-cb8a-566a-9e6f-c6c3fdd4b4e4": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Estrategia 5 y sus líneas de acción",
+      "contentSha256": "08b13b18ab0a9be0fe1b9c71dce23a68b6b975b0b2d9188f4b266598e5688ce8",
+      "pageNumbers": [
+        41,
+        42
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            83.104,
+            130.65372000000002,
+            531.8739999999999,
+            704.2160100000001
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            83.344,
+            125.81999999999994,
+            528.77999,
+            190.29999499999997
+          ]
+        }
+      ]
+    },
+    "2835e483-eac6-500d-83fb-754d1ce77259": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "9. Indicadores y metas",
+      "contentSha256": "828ff1bdc01871cba5377697e521159a875253d023cb82d34dfa3b2e686b5013",
+      "pageNumbers": [
+        43
+      ],
+      "anchors": [
+        {
+          "page": 43,
+          "bbox": [
+            83.104,
+            124.91999999999996,
+            532.116,
+            367.48600000000005
+          ]
+        }
+      ]
+    },
+    "bf056dde-8c3b-5bba-a3e0-7606c12f24f5": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Indicador 1.1 y sus metas",
+      "contentSha256": "aed8bf74bdcdc193c48f6a5edefecb3e73ba12238751e2ad04ac55b9f64f0f25",
+      "pageNumbers": [
+        44,
+        45
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            80.82400000000001,
+            130.65372000000002,
+            531.29999,
+            686.69998
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            80.824,
+            125.81999999999994,
+            531.29999,
+            553.23001
+          ]
+        }
+      ]
+    },
+    "83f9bd8c-41d6-5fd3-b53f-cf7407026c24": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Indicador 1.2 y sus metas",
+      "contentSha256": "30b62c211b54b6505f2af329429f7c3d1b0ad12147f4869d6f96ee45665222ac",
+      "pageNumbers": [
+        46,
+        47
+      ],
+      "anchors": [
+        {
+          "page": 46,
+          "bbox": [
+            83.104,
+            130.65372000000002,
+            528.77999,
+            716.45601
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            83.344,
+            125.81999999999994,
+            528.77999,
+            456.15000999999995
+          ]
+        }
+      ]
+    },
+    "d4465de8-e02d-57f8-a0b6-4d2ef9aed180": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Indicador 2.1 y sus metas",
+      "contentSha256": "56ee3912a537682c64995e542e9e91c333ecab32b29f1982e31710c57abe0277",
+      "pageNumbers": [
+        48,
+        49
+      ],
+      "anchors": [
+        {
+          "page": 48,
+          "bbox": [
+            83.104,
+            130.65372000000002,
+            528.77999,
+            721.1360099999998
+          ]
+        },
+        {
+          "page": 49,
+          "bbox": [
+            83.34399999999998,
+            125.81999999999994,
+            528.77999,
+            576.75001
+          ]
+        }
+      ]
+    },
+    "6c319378-d272-5d22-9f35-bc884ffdabc7": {
+      "sourceId": "cenace-39fe5ad916c3",
+      "label": "Indicador 3.1 y sus metas",
+      "contentSha256": "c47dc4f3354e0c3879c55b6fdb80ddc34b2a3964190c9ee7891cc702b9920041",
+      "pageNumbers": [
+        50,
+        51
+      ],
+      "anchors": [
+        {
+          "page": 50,
+          "bbox": [
+            83.104,
+            130.65372000000002,
+            528.77999,
+            622.6199799999999
+          ]
+        },
+        {
+          "page": 51,
+          "bbox": [
+            83.344,
+            125.81999999999994,
+            528.77999,
+            653.10001
           ]
         }
       ]

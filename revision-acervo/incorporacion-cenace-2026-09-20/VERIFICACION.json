@@ -1,0 +1,30 @@
+{
+  "estado": "CARGADO_Y_COTEJADO",
+  "fecha_local": "2026-09-20",
+  "ley_id": "18ad866e-e9c9-58bd-8189-9ff6d4f06ae3",
+  "fragmentos": 33,
+  "estructura": 6,
+  "cotejo_exacto": true,
+  "catalogo_antes": {
+    "leyes": 82,
+    "articulos": 4528,
+    "temas": 1236
+  },
+  "catalogo_despues": {
+    "leyes": 83,
+    "articulos": 4561,
+    "temas": 1242
+  },
+  "cambio_editorial_aviso": "44e3e907-b18a-5b99-84b5-797e2ee5b813",
+  "resto_de_registros_anteriores_sin_cambios": true,
+  "fuente": {
+    "instrumento": "PROGRAMA-CENACE",
+    "fragmentos": 33,
+    "apartados_mapeados": 32,
+    "tablas_fuente": 20,
+    "celdas_fuente": 429,
+    "celdas_y_spans_identicos": true,
+    "bloques_integros": true,
+    "mapa_coincide": true
+  }
+}

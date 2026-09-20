@@ -23,6 +23,12 @@ revision-acervo/**/*.png
 /revision-acervo/incorporacion-*-2026-09-19/*-fuente-vista.html
 /revision-acervo/incorporacion-*-2026-09-19/*-revisado.json
 /revision-acervo/incorporacion-*-2026-09-19/*-aplicar.sql
+/revision-acervo/incorporacion-*-2026-09-20/fuentes/
+/revision-acervo/incorporacion-*-2026-09-20/antes/
+/revision-acervo/incorporacion-*-2026-09-20/despues-*/
+/revision-acervo/incorporacion-*-2026-09-20/*-fuente-vista.html
+/revision-acervo/incorporacion-*-2026-09-20/*-revisado.json
+/revision-acervo/incorporacion-*-2026-09-20/*-aplicar.sql
 __pycache__/
 *.pyc
 Leyes_en_pdf/*.pdf

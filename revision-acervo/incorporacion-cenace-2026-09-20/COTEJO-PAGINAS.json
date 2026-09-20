@@ -1,0 +1,366 @@
+[
+  {
+    "pagina": 1,
+    "caracteres_cotejados": 65,
+    "tablas": 0,
+    "bloques": 4,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 2,
+    "caracteres_cotejados": 2657,
+    "tablas": 0,
+    "bloques": 20,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 3,
+    "caracteres_cotejados": 1106,
+    "tablas": 0,
+    "bloques": 2,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 4,
+    "caracteres_cotejados": 1314,
+    "tablas": 0,
+    "bloques": 5,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 5,
+    "caracteres_cotejados": 1635,
+    "tablas": 0,
+    "bloques": 11,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 6,
+    "caracteres_cotejados": 1807,
+    "tablas": 0,
+    "bloques": 6,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 7,
+    "caracteres_cotejados": 1677,
+    "tablas": 0,
+    "bloques": 7,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 8,
+    "caracteres_cotejados": 456,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 9,
+    "caracteres_cotejados": 1551,
+    "tablas": 0,
+    "bloques": 13,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 10,
+    "caracteres_cotejados": 1648,
+    "tablas": 0,
+    "bloques": 14,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 11,
+    "caracteres_cotejados": 1707,
+    "tablas": 0,
+    "bloques": 1,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 12,
+    "caracteres_cotejados": 136,
+    "tablas": 0,
+    "bloques": 1,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 13,
+    "caracteres_cotejados": 1663,
+    "tablas": 0,
+    "bloques": 8,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 14,
+    "caracteres_cotejados": 1862,
+    "tablas": 0,
+    "bloques": 5,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 15,
+    "caracteres_cotejados": 1545,
+    "tablas": 0,
+    "bloques": 13,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 16,
+    "caracteres_cotejados": 1683,
+    "tablas": 0,
+    "bloques": 8,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 17,
+    "caracteres_cotejados": 1863,
+    "tablas": 0,
+    "bloques": 7,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 18,
+    "caracteres_cotejados": 1372,
+    "tablas": 0,
+    "bloques": 6,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 19,
+    "caracteres_cotejados": 1497,
+    "tablas": 0,
+    "bloques": 6,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 20,
+    "caracteres_cotejados": 1957,
+    "tablas": 0,
+    "bloques": 7,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 21,
+    "caracteres_cotejados": 1756,
+    "tablas": 0,
+    "bloques": 5,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 22,
+    "caracteres_cotejados": 1597,
+    "tablas": 0,
+    "bloques": 5,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 23,
+    "caracteres_cotejados": 1630,
+    "tablas": 0,
+    "bloques": 12,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 24,
+    "caracteres_cotejados": 1838,
+    "tablas": 0,
+    "bloques": 6,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 25,
+    "caracteres_cotejados": 1693,
+    "tablas": 0,
+    "bloques": 6,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 26,
+    "caracteres_cotejados": 928,
+    "tablas": 0,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 27,
+    "caracteres_cotejados": 1426,
+    "tablas": 0,
+    "bloques": 5,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 28,
+    "caracteres_cotejados": 404,
+    "tablas": 0,
+    "bloques": 2,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 29,
+    "caracteres_cotejados": 1016,
+    "tablas": 0,
+    "bloques": 5,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 30,
+    "caracteres_cotejados": 1262,
+    "tablas": 0,
+    "bloques": 7,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 31,
+    "caracteres_cotejados": 1611,
+    "tablas": 0,
+    "bloques": 6,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 32,
+    "caracteres_cotejados": 1047,
+    "tablas": 0,
+    "bloques": 17,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 33,
+    "caracteres_cotejados": 1085,
+    "tablas": 0,
+    "bloques": 18,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 34,
+    "caracteres_cotejados": 1131,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 35,
+    "caracteres_cotejados": 753,
+    "tablas": 0,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 36,
+    "caracteres_cotejados": 1573,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 37,
+    "caracteres_cotejados": 1359,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 38,
+    "caracteres_cotejados": 376,
+    "tablas": 1,
+    "bloques": 1,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 39,
+    "caracteres_cotejados": 1379,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 40,
+    "caracteres_cotejados": 665,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 41,
+    "caracteres_cotejados": 1729,
+    "tablas": 1,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 42,
+    "caracteres_cotejados": 159,
+    "tablas": 1,
+    "bloques": 1,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 43,
+    "caracteres_cotejados": 642,
+    "tablas": 0,
+    "bloques": 3,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 44,
+    "caracteres_cotejados": 2064,
+    "tablas": 1,
+    "bloques": 2,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 45,
+    "caracteres_cotejados": 1043,
+    "tablas": 1,
+    "bloques": 1,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 46,
+    "caracteres_cotejados": 2239,
+    "tablas": 1,
+    "bloques": 2,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 47,
+    "caracteres_cotejados": 821,
+    "tablas": 2,
+    "bloques": 4,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 48,
+    "caracteres_cotejados": 2353,
+    "tablas": 1,
+    "bloques": 2,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 49,
+    "caracteres_cotejados": 930,
+    "tablas": 2,
+    "bloques": 4,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 50,
+    "caracteres_cotejados": 1975,
+    "tablas": 1,
+    "bloques": 2,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 51,
+    "caracteres_cotejados": 1436,
+    "tablas": 2,
+    "bloques": 4,
+    "cobertura_exacta": true
+  },
+  {
+    "pagina": 52,
+    "caracteres_cotejados": 0,
+    "tablas": 0,
+    "bloques": 0,
+    "cobertura_exacta": true
+  }
+]

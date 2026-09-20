@@ -5,13 +5,14 @@ import { getReaderSource, loadReaderSources, resolveReaderSource } from '../src/
 
 const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json', 'utf8'));
 const loaded = JSON.parse(readFileSync('revision-acervo/incorporacion-7-2026-09-17/LCNE-carga.json', 'utf8'));
+const cenace = JSON.parse(readFileSync('revision-acervo/incorporacion-cenace-2026-09-20/PROGRAMA-CENACE-carga.json', 'utf8'));
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
 
 it('maps all 48 reviewed UUIDs to the exact official PDF without published page images', async () => {
     vi.stubGlobal('crypto', webcrypto);
-    expect(Object.keys(manifest.articles)).toHaveLength(48);
+    expect(Object.values(manifest.articles).filter(article => manifest.sources[article.sourceId].lawId === loaded.articulos[0].ley_id)).toHaveLength(48);
     for (const row of loaded.articulos) {
         const mapping = await getReaderSource(row.id, { articleText: row.contenido, manifest });
         expect(mapping.status, row.identificador).toBe('mapped');
@@ -31,6 +32,28 @@ it('maps all 48 reviewed UUIDs to the exact official PDF without published page 
     expect(source.pdfUrl).toBe(`/api/reader/${source.id}`);
     expect(source.pages).toHaveLength(20);
     for (const page of source.pages) expect(page.imageUrl).toBeUndefined();
+});
+
+it('maps all CENACE sections and keeps each indicator with its two original pages', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const source = Object.values(manifest.sources).find(s => s.lawId === cenace.ley.id);
+    expect(source.originalUrl).toBe('https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf');
+    expect(source.sha256).toBe(cenace.fuente.sha256);
+    expect(source.pages).toHaveLength(52);
+    expect(source.pages.every(page => !page.imageUrl)).toBe(true);
+    const rows = cenace.articulos.filter(a => a.tipo_articulo !== 'complementario');
+    expect(rows).toHaveLength(32);
+    for (const row of rows) {
+        const result = await getReaderSource(row.id, { articleText: row.contenido, manifest });
+        expect(result.status, row.identificador).toBe('mapped');
+        expect(result.contentVerified).toBe(true);
+        expect(result.source.lawId).toBe(cenace.ley.id);
+    }
+    const expectedPages = [[44, 45], [46, 47], [48, 49], [50, 51]];
+    const indicators = rows.filter(a => a.identificador.startsWith('Indicador '));
+    expect(indicators).toHaveLength(4);
+    indicators.forEach((row, index) => expect(resolveReaderSource(manifest, row.id).pages.map(p => p.number)).toEqual(expectedPages[index]));
+    expect(resolveReaderSource(manifest, cenace.articulos[0].id).status).toBe('unmapped');
 });
 
 it('keeps multi-page article boundaries and positions within each actual page dimensions', () => {

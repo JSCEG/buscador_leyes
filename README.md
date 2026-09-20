@@ -12,20 +12,23 @@ Validación: `npm test -- --run`, `npm run lint` y `npm run build`.
 
 ## Estado del acervo
 
-Al 18 de septiembre de 2026: **41 instrumentos, 3,300 fragmentos y 904 entradas de estructura** verificados en Supabase. Se incorporaron los requisitos de autoconsumo interconectado de 0.7 a 20 MW, su formato y la Ventanilla Única de Autoconsumo, preservando sus tablas, instrucciones y anexos. Las tres convocatorias de generación y sus diez modificaciones se conservan como publicaciones independientes, enlazadas mediante notas editoriales.
+Al 20 de septiembre de 2026: **83 instrumentos, 4,561 fragmentos y 1,242 entradas de estructura** verificados en Supabase. La entrega más reciente completa el Programa Institucional CENACE 2026-2030, con 20 tablas, cinco estrategias, cuatro indicadores y acceso al PDF oficial sincronizado. Se conserva el aviso como publicación independiente vinculada al programa.
+
+- [Inventario actual y sus límites](revision-acervo/inventario-radar-2026-09-20/INVENTARIO.md).
+- [Entrega CENACE y evidencia de cotejo](revision-acervo/incorporacion-cenace-2026-09-20/README.md).
 
 - [Contexto técnico y de las incorporaciones](CONTEXTO_BUSCADOR_RADAR.md).
 - [Inventario del radar y próximos bloques](revision-acervo/FALTANTES_Y_ORDEN_DE_CARGA.md).
 - [Evidencia y precauciones de reproducción](revision-acervo/README.md).
 - [Referencia de Supabase](SUPABASE.md), con información histórica que debe contrastarse con el contexto actualizado.
 
-El radar utilizado tiene corte del 14 de septiembre de 2026 (v4.17). Quedan 101 referencias por cotejar e incorporar; no equivalen necesariamente a 101 instrumentos nuevos. El siguiente bloque propuesto es cogeneración (DACG y formatos). La incorporación de instrumentos y la revisión de sus relaciones jurídicas continúan por bloques cotejados.
+El radar utilizado tiene corte documental del 18 de septiembre de 2026 (v4.18): 73 referencias cargadas y 62 pendientes de cotejo, sin referencias parcialmente incorporadas en este corte. Las 62 pendientes no equivalen necesariamente a 62 instrumentos nuevos. Antecedentes, portales, proyectos y publicaciones no localizadas se contabilizan por separado. Los informes anteriores conservan sus cifras históricas; para el estado vigente del acervo se utiliza el inventario del 20 de septiembre. La incorporación y la revisión de relaciones jurídicas continúan por bloques cotejados.
 
 ## Explorador y lector
 
 Desde el 19 de septiembre de 2026, **Temas Transversales** utiliza un catálogo parametrizable publicado en Supabase: **5 colecciones, 38 entidades y 33 relaciones editoriales**, con mapa/lista, búsqueda, fundamentos y enlaces a artículos. Los administradores pueden preparar borradores, revisar y publicar nuevas versiones con historial; el radar no publica cambios automáticamente. [Funcionamiento y permisos del explorador](docs/explorador-parametrizable.md).
 
-El lector comparte tamaño de letra, interlineado y fondo entre instrumentos y artículos, conservándolos en este navegador. Permite alternar **Texto / PDF original** y consultar ambos en pantallas amplias. La sincronización inicial cubre **48 fragmentos y 20 páginas de LCNE**, con verificación del texto actual antes de mostrar resaltados. Los demás instrumentos ofrecen su fuente oficial cuando está disponible; su mapeo preciso sigue pendiente. [Funcionamiento, cobertura y reproducción del lector](docs/lector-2026-09-19/README.md).
+El lector comparte tamaño de letra, interlineado y fondo entre instrumentos y artículos, conservándolos en este navegador. Permite alternar **Texto / PDF original** y consultar ambos en pantallas amplias. La sincronización cubre **48 fragmentos de LCNE y 32 apartados del Programa Institucional CENACE**, con verificación del texto y del PDF oficial antes de mostrar resaltados. Las cuatro fichas de indicadores CENACE conservan juntas sus dos páginas; mapas y gráficos se consultan en el original. Los demás instrumentos ofrecen su fuente oficial cuando está disponible; su mapeo preciso sigue pendiente. [Funcionamiento del lector](docs/lector-2026-09-19/README.md) · [Cobertura y cotejo CENACE](revision-acervo/incorporacion-cenace-2026-09-20/README.md).
 
 ## Publicación
 
@@ -37,4 +40,4 @@ Existe además un workflow de GitHub Actions que publica en la rama `gh-pages`. 
 
 ## Archivos locales
 
-Se excluyen credenciales, dependencias, compilados, cachés, logs, capturas temporales de revisión y PDF descargados de trabajo. Las fuentes oficiales, sus huellas y la evidencia textual de las incorporaciones se conservan en `revision-acervo/`. El lector publica expresamente su manifiesto, la copia PDF cotejada de LCNE y sus imágenes de página en `public/reader-sources/`. Graphify mantiene el grafo del código en `graphify-out/`; su caché es regenerable.
+Se excluyen credenciales, dependencias, compilados, cachés, logs, capturas temporales de revisión y PDF descargados de trabajo. Las fuentes oficiales, sus huellas y la evidencia textual de las incorporaciones se conservan en `revision-acervo/`. El lector publica su manifiesto de páginas y coordenadas en `public/reader-sources/`; obtiene los PDFs de Diputados y del DOF mediante fuentes permitidas y coteja su SHA-256, sin almacenar PDFs ni imágenes en Git. Graphify mantiene el grafo del código en `graphify-out/`; su caché es regenerable.

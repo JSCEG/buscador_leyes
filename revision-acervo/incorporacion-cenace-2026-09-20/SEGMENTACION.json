@@ -1,0 +1,182 @@
+{
+  "bloques": 291,
+  "cobertura_total": true,
+  "sin_solapamientos": true,
+  "apartados": 32,
+  "fragmentos": 33,
+  "tablas_fuente": 20,
+  "tablas_auxiliares_de_rotulos": 2,
+  "celdas_fuente": 429,
+  "indicadores_completos": 4,
+  "estrategias_completas": 5,
+  "mapas_originales_paginas": [
+    18
+  ],
+  "graficas_originales_paginas": [
+    19,
+    32,
+    33
+  ],
+  "rangos": [
+    {
+      "inicio": 0,
+      "fin": 4,
+      "titulo": "Portada"
+    },
+    {
+      "inicio": 4,
+      "fin": 24,
+      "titulo": "1. Índice"
+    },
+    {
+      "inicio": 24,
+      "fin": 27,
+      "titulo": "2. Siglas y acrónimos"
+    },
+    {
+      "inicio": 27,
+      "fin": 51,
+      "titulo": "3. Conceptos básicos"
+    },
+    {
+      "inicio": 51,
+      "fin": 58,
+      "titulo": "4. Señalamiento del origen de los recursos del programa"
+    },
+    {
+      "inicio": 58,
+      "fin": 87,
+      "titulo": "5. Fundamento normativo"
+    },
+    {
+      "inicio": 87,
+      "fin": 113,
+      "titulo": "6. Diagnóstico · 6.1.1. Contexto general del sector eléctrico mexicano"
+    },
+    {
+      "inicio": 113,
+      "fin": 123,
+      "titulo": "6.1.2. Identificación del problema público"
+    },
+    {
+      "inicio": 123,
+      "fin": 143,
+      "titulo": "6.1.3. Causas y efectos del problema"
+    },
+    {
+      "inicio": 143,
+      "fin": 148,
+      "titulo": "6.1.4. Orientación del marco normativo vigente y pertinencia institucional"
+    },
+    {
+      "inicio": 148,
+      "fin": 155,
+      "titulo": "6.1.5. Capacidad de control y monitoreo de red"
+    },
+    {
+      "inicio": 155,
+      "fin": 157,
+      "titulo": "6.1.6. Ciberseguridad en sistemas críticos"
+    },
+    {
+      "inicio": 157,
+      "fin": 170,
+      "titulo": "6.1.7. Marco normativo y nuevo entorno de la planeación y del mercado"
+    },
+    {
+      "inicio": 170,
+      "fin": 173,
+      "titulo": "6.1.8. Talento humano y formación especializada"
+    },
+    {
+      "inicio": 173,
+      "fin": 179,
+      "titulo": "6.1.9. Estructura organizacional y procesos"
+    },
+    {
+      "inicio": 179,
+      "fin": 184,
+      "titulo": "6.1.10. Financiamiento institucional y restricciones presupuestales"
+    },
+    {
+      "inicio": 184,
+      "fin": 191,
+      "titulo": "6.2. Visión de Largo Plazo"
+    },
+    {
+      "inicio": 191,
+      "fin": 196,
+      "titulo": "6.3. Misión"
+    },
+    {
+      "inicio": 196,
+      "fin": 199,
+      "titulo": "7. Objetivo"
+    },
+    {
+      "inicio": 199,
+      "fin": 240,
+      "titulo": "7.1. Relevancia del Objetivo"
+    },
+    {
+      "inicio": 240,
+      "fin": 247,
+      "titulo": "7.2. Vinculación de los objetivos del Programa Institucional del CENACE 2026-2030"
+    },
+    {
+      "inicio": 247,
+      "fin": 250,
+      "titulo": "8. Estrategias y líneas de acción"
+    },
+    {
+      "inicio": 250,
+      "fin": 253,
+      "titulo": "Estrategia 1 y sus líneas de acción"
+    },
+    {
+      "inicio": 253,
+      "fin": 257,
+      "titulo": "Estrategia 2 y sus líneas de acción"
+    },
+    {
+      "inicio": 257,
+      "fin": 260,
+      "titulo": "Estrategia 3 y sus líneas de acción"
+    },
+    {
+      "inicio": 260,
+      "fin": 263,
+      "titulo": "Estrategia 4 y sus líneas de acción"
+    },
+    {
+      "inicio": 263,
+      "fin": 267,
+      "titulo": "Estrategia 5 y sus líneas de acción"
+    },
+    {
+      "inicio": 267,
+      "fin": 270,
+      "titulo": "9. Indicadores y metas"
+    },
+    {
+      "inicio": 270,
+      "fin": 273,
+      "titulo": "Indicador 1.1 y sus metas"
+    },
+    {
+      "inicio": 273,
+      "fin": 279,
+      "titulo": "Indicador 1.2 y sus metas"
+    },
+    {
+      "inicio": 279,
+      "fin": 285,
+      "titulo": "Indicador 2.1 y sus metas"
+    },
+    {
+      "inicio": 285,
+      "fin": 291,
+      "titulo": "Indicador 3.1 y sus metas"
+    }
+  ]
+}

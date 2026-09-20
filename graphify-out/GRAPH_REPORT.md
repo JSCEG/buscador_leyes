@@ -1,16 +1,16 @@
-# Graph Report - 65.-Buscador de Leyes Energía  (2026-09-19)
+# Graph Report - 65.-Buscador de Leyes Energía  (2026-09-20)
 
 ## Corpus Check
-- 627 files · ~16,925,229 words
+- 655 files · ~17,074,042 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 13408 nodes · 13822 edges · 607 communities (551 shown, 56 thin omitted)
+- 14094 nodes · 14480 edges · 696 communities (636 shown, 60 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 32 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `78e6d748`
+- Built from commit: `d481f03a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -512,6 +512,89 @@
 - [[_COMMUNITY_Community 596|Community 596]]
 - [[_COMMUNITY_Community 605|Community 605]]
 - [[_COMMUNITY_Community 606|Community 606]]
+- [[_COMMUNITY_Community 607|Community 607]]
+- [[_COMMUNITY_Community 608|Community 608]]
+- [[_COMMUNITY_Community 609|Community 609]]
+- [[_COMMUNITY_Community 610|Community 610]]
+- [[_COMMUNITY_Community 611|Community 611]]
+- [[_COMMUNITY_Community 612|Community 612]]
+- [[_COMMUNITY_Community 613|Community 613]]
+- [[_COMMUNITY_Community 614|Community 614]]
+- [[_COMMUNITY_Community 615|Community 615]]
+- [[_COMMUNITY_Community 616|Community 616]]
+- [[_COMMUNITY_Community 617|Community 617]]
+- [[_COMMUNITY_Community 618|Community 618]]
+- [[_COMMUNITY_Community 619|Community 619]]
+- [[_COMMUNITY_Community 620|Community 620]]
+- [[_COMMUNITY_Community 621|Community 621]]
+- [[_COMMUNITY_Community 622|Community 622]]
+- [[_COMMUNITY_Community 623|Community 623]]
+- [[_COMMUNITY_Community 624|Community 624]]
+- [[_COMMUNITY_Community 625|Community 625]]
+- [[_COMMUNITY_Community 626|Community 626]]
+- [[_COMMUNITY_Community 627|Community 627]]
+- [[_COMMUNITY_Community 628|Community 628]]
+- [[_COMMUNITY_Community 629|Community 629]]
+- [[_COMMUNITY_Community 630|Community 630]]
+- [[_COMMUNITY_Community 631|Community 631]]
+- [[_COMMUNITY_Community 632|Community 632]]
+- [[_COMMUNITY_Community 633|Community 633]]
+- [[_COMMUNITY_Community 634|Community 634]]
+- [[_COMMUNITY_Community 635|Community 635]]
+- [[_COMMUNITY_Community 636|Community 636]]
+- [[_COMMUNITY_Community 637|Community 637]]
+- [[_COMMUNITY_Community 638|Community 638]]
+- [[_COMMUNITY_Community 639|Community 639]]
+- [[_COMMUNITY_Community 640|Community 640]]
+- [[_COMMUNITY_Community 641|Community 641]]
+- [[_COMMUNITY_Community 642|Community 642]]
+- [[_COMMUNITY_Community 643|Community 643]]
+- [[_COMMUNITY_Community 644|Community 644]]
+- [[_COMMUNITY_Community 645|Community 645]]
+- [[_COMMUNITY_Community 646|Community 646]]
+- [[_COMMUNITY_Community 647|Community 647]]
+- [[_COMMUNITY_Community 648|Community 648]]
+- [[_COMMUNITY_Community 649|Community 649]]
+- [[_COMMUNITY_Community 650|Community 650]]
+- [[_COMMUNITY_Community 651|Community 651]]
+- [[_COMMUNITY_Community 652|Community 652]]
+- [[_COMMUNITY_Community 653|Community 653]]
+- [[_COMMUNITY_Community 654|Community 654]]
+- [[_COMMUNITY_Community 655|Community 655]]
+- [[_COMMUNITY_Community 656|Community 656]]
+- [[_COMMUNITY_Community 657|Community 657]]
+- [[_COMMUNITY_Community 658|Community 658]]
+- [[_COMMUNITY_Community 659|Community 659]]
+- [[_COMMUNITY_Community 660|Community 660]]
+- [[_COMMUNITY_Community 661|Community 661]]
+- [[_COMMUNITY_Community 662|Community 662]]
+- [[_COMMUNITY_Community 663|Community 663]]
+- [[_COMMUNITY_Community 664|Community 664]]
+- [[_COMMUNITY_Community 665|Community 665]]
+- [[_COMMUNITY_Community 666|Community 666]]
+- [[_COMMUNITY_Community 667|Community 667]]
+- [[_COMMUNITY_Community 668|Community 668]]
+- [[_COMMUNITY_Community 669|Community 669]]
+- [[_COMMUNITY_Community 670|Community 670]]
+- [[_COMMUNITY_Community 671|Community 671]]
+- [[_COMMUNITY_Community 672|Community 672]]
+- [[_COMMUNITY_Community 673|Community 673]]
+- [[_COMMUNITY_Community 674|Community 674]]
+- [[_COMMUNITY_Community 675|Community 675]]
+- [[_COMMUNITY_Community 676|Community 676]]
+- [[_COMMUNITY_Community 677|Community 677]]
+- [[_COMMUNITY_Community 678|Community 678]]
+- [[_COMMUNITY_Community 679|Community 679]]
+- [[_COMMUNITY_Community 680|Community 680]]
+- [[_COMMUNITY_Community 681|Community 681]]
+- [[_COMMUNITY_Community 682|Community 682]]
+- [[_COMMUNITY_Community 683|Community 683]]
+- [[_COMMUNITY_Community 684|Community 684]]
+- [[_COMMUNITY_Community 685|Community 685]]
+- [[_COMMUNITY_Community 686|Community 686]]
+- [[_COMMUNITY_Community 687|Community 687]]
+- [[_COMMUNITY_Community 688|Community 688]]
+- [[_COMMUNITY_Community 689|Community 689]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `asignacion` - 499 edges
@@ -540,7 +623,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (607 total, 56 thin omitted)
+## Communities (696 total, 60 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -687,8 +770,8 @@ Cohesion: 0.50
 Nodes (3): comites, consejo_planeacion, planeacion_vinculante
 
 ### Community 47 - "Community 47"
-Cohesion: 0.19
-Nodes (7): execAsync, onRequest(), readerDevPlugin(), problem(), serveReaderPdf(), bytes, source
+Cohesion: 0.06
+Nodes (32): execAsync, onRequest(), id, lawId, originalUrl, pageCount, pages, pdfUrl (+24 more)
 
 ### Community 50 - "Community 50"
 Cohesion: 0.25
@@ -731,8 +814,8 @@ Cohesion: 0.05
 Nodes (42): Artículo 1, Artículo 10, Artículo 11, Artículo 12, Artículo 13, Artículo 14, Artículo 15, Artículo 16 (+34 more)
 
 ### Community 68 - "Community 68"
-Cohesion: 0.14
-Nodes (16): validateCatalog(), assertValid(), canPublishExplorer(), clearDraft(), createExplorerStore(), defaultStore, getDraft(), getExplorerRevision() (+8 more)
+Cohesion: 0.13
+Nodes (17): validateCatalog(), assertValid(), canPublishExplorer(), clearDraft(), createExplorerStore(), defaultStore, getDraft(), getExplorerRevision() (+9 more)
 
 ### Community 69 - "Community 69"
 Cohesion: 0.25
@@ -742,8 +825,8 @@ Nodes (7): ensureHeadingBoundaries(), extractLegalStructureFromMarkdown(), norma
 }, require
 
 ### Community 70 - "Community 70"
-Cohesion: 0.18
-Nodes (16): buildInstrumentTimeline(), complementDate(), editorialReferences(), months, normalize(), text(), timelineDate(), timelineSource() (+8 more)
+Cohesion: 0.21
+Nodes (15): buildInstrumentTimeline(), complementDate(), editorialReferences(), months, normalize(), text(), timelineDate(), timelineSource() (+7 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.28
@@ -778,8 +861,8 @@ Cohesion: 0.07
 Nodes (26): articulos, fuente, codDiario, code, familia, fecha, images, name (+18 more)
 
 ### Community 80 - "Community 80"
-Cohesion: 0.08
-Nodes (35): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, supabase, initAdminIngest(), initAdminManagement() (+27 more)
+Cohesion: 0.11
+Nodes (17): 3961528a-0292-47c4-a5b2-9cf99d653261, 40752873-fa9e-4dd2-a872-6f4ae0f382c3, 671132d4-7f16-4622-910a-18a90832cc79, 6b1e977c-ba0e-4e78-b396-68776945925c, d574ce36-1a91-48f5-8bfd-0ce28b0e8103, relatedDocumentLabel(), applyFilters(), getArticleById() (+9 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.13
@@ -814,8 +897,8 @@ Cohesion: 0.18
 Nodes (10): 12.1 Constitución, leyes, PND y reglamentos, 12.2 SENER: planeación, transición e información, 12.3 CNE, CRE y CENACE: electricidad, permisos, redes y mercado, 12.4 CENACE, 12.5 CFE, 12.6 PEMEX e IMP, 12.7 Hidrocarburos: CNH, CNE, CENAGAS y ASEA, 12.8 CONUEE, eficiencia energética y transición (+2 more)
 
 ### Community 89 - "Community 89"
-Cohesion: 0.21
-Nodes (12): fetchManifest(), getReaderSource(), has(), loadReaderSources(), officialUrl(), resolveReaderSource(), safeAsset(), sha256() (+4 more)
+Cohesion: 0.20
+Nodes (13): fetchManifest(), getReaderSource(), has(), loadReaderSources(), officialUrl(), resolveReaderSource(), safeAsset(), sha256() (+5 more)
 
 ### Community 90 - "Community 90"
 Cohesion: 0.24
@@ -826,8 +909,8 @@ Cohesion: 0.20
 Nodes (9): 1. Seis leyes del núcleo energético que faltan, 2. Cinco reglamentos principales que faltan, 3. Planeación y operación pendientes, 4. Primera ficha propuesta: LCNE, 5. Revisión de cada instrumento antes de subirlo, 6. Matriz detallada, 7. Avance de la primera revisión individual, Faltantes y orden de carga individual (+1 more)
 
 ### Community 92 - "Community 92"
-Cohesion: 0.08
-Nodes (41): e(), entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt (+33 more)
+Cohesion: 0.10
+Nodes (34): e(), ENTITY_TYPES, escapeHtml(), EXPLORER_LIMITS, getEntityReferences(), getNeighborhood(), normalize(), searchEntities() (+26 more)
 
 ### Community 93 - "Community 93"
 Cohesion: 0.07
@@ -1754,8 +1837,8 @@ Cohesion: 0.07
 Nodes (29): articulos, fuente, cobertura, codDiario, code, estado_radar, familia, fecha (+21 more)
 
 ### Community 403 - "Community 403"
-Cohesion: 0.18
-Nodes (11): id, lawId, originalUrl, pageCount, pages, pdfUrl, sha256, title (+3 more)
+Cohesion: 0.04
+Nodes (45): alcance, catalogo_antes, articulos, leyes, temas, catalogo_despues, articulos, leyes (+37 more)
 
 ### Community 404 - "Community 404"
 Cohesion: 0.29
@@ -1958,8 +2041,8 @@ Cohesion: 0.29
 Nodes (6): Assets publicados, Cobertura comprobada, Contrato de consumo, Mapa publicado y PDF remoto (revisión 2), Procedencia del lector: LCNE, Reproducibilidad y límites
 
 ### Community 454 - "Community 454"
-Cohesion: 0.40
-Nodes (4): articles, revision, schemaVersion, verifiedAt
+Cohesion: 0.14
+Nodes (14): anchors, contentSha256, label, pageNumbers, sourceId, anchors, contentSha256, label (+6 more)
 
 ### Community 459 - "Community 459"
 Cohesion: 0.18
@@ -1986,8 +2069,8 @@ Cohesion: 0.07
 Nodes (27): articulos, fuente, codDiario, code, familia, fecha, images, name (+19 more)
 
 ### Community 466 - "Community 466"
-Cohesion: 0.24
-Nodes (12): applyReaderPreferences(), DEFAULT_READER_PREFERENCES, getStorage(), loadReaderPreferences(), normalizeReaderPreferences(), READER_FONT_SIZE_OPTIONS, READER_FONT_SIZE_RANGE, READER_LINE_HEIGHT_OPTIONS (+4 more)
+Cohesion: 0.11
+Nodes (30): applyReaderPreferences(), DEFAULT_READER_PREFERENCES, getStorage(), loadReaderPreferences(), normalizeReaderPreferences(), READER_FONT_SIZE_OPTIONS, READER_FONT_SIZE_RANGE, READER_LINE_HEIGHT_OPTIONS (+22 more)
 
 ### Community 467 - "Community 467"
 Cohesion: 0.11
@@ -2317,22 +2400,338 @@ Nodes (4): Electricidad, redes y mercado · 19 septiembre 2026, Evidencia, Revis
 Cohesion: 0.67
 Nodes (4): commandWorks(), resolveMarkitdownBinary(), resolvePythonBinary(), runMarkitdownToMarkdown()
 
+### Community 607 - "Community 607"
+Cohesion: 0.04
+Nodes (45): alcance, catalogo_antes, articulos, leyes, temas, catalogo_despues, articulos, leyes (+37 more)
+
+### Community 608 - "Community 608"
+Cohesion: 0.08
+Nodes (25): cambio_editorial_aviso, catalogo_antes, articulos, leyes, temas, catalogo_despues, articulos, leyes (+17 more)
+
+### Community 609 - "Community 609"
+Cohesion: 0.10
+Nodes (20): articulos, fuente, aviso_url, fecha_publicacion, nombre, paginas, radar, sha256 (+12 more)
+
+### Community 610 - "Community 610"
+Cohesion: 0.12
+Nodes (17): resumen, convocatorias_generacion_originales, filas_proyectos_nom, filas_radar, fragmentos, incorporaciones_2026_09_19, incorporaciones_2026_09_20, instrumentos_cargados (+9 more)
+
+### Community 611 - "Community 611"
+Cohesion: 0.12
+Nodes (17): resumen, convocatorias_generacion_originales, filas_proyectos_nom, filas_radar, fragmentos, incorporaciones_2026_09_19, incorporaciones_2026_09_20, instrumentos_cargados (+9 more)
+
+### Community 612 - "Community 612"
+Cohesion: 0.13
+Nodes (14): alcance, catalogo, correcciones, corte_radar, familias, fecha_catalogo, filas, fuente_radar (+6 more)
+
+### Community 613 - "Community 613"
+Cohesion: 0.13
+Nodes (14): alcance, catalogo, correcciones, corte_radar, familias, fecha_catalogo, filas, fuente_radar (+6 more)
+
+### Community 614 - "Community 614"
+Cohesion: 0.14
+Nodes (13): apartados, bloques, celdas_fuente, cobertura_total, estrategias_completas, fragmentos, graficas_originales_paginas, indicadores_completos (+5 more)
+
+### Community 615 - "Community 615"
+Cohesion: 0.18
+Nodes (10): source, id, lawId, originalUrl, pageCount, pages, pdfUrl, sha256 (+2 more)
+
+### Community 616 - "Community 616"
+Cohesion: 0.22
+Nodes (8): apartados_mapeados, bloques_integros, celdas_fuente, celdas_y_spans_identicos, fragmentos, instrumento, mapa_coincide, tablas_fuente
+
+### Community 617 - "Community 617"
+Cohesion: 0.25
+Nodes (7): entities, migrationNotes, relations, revision, schemaVersion, topics, updatedAt
+
+### Community 618 - "Community 618"
+Cohesion: 0.25
+Nodes (7): aviso_url, fecha_publicacion, nombre, paginas, radar, sha256, url
+
+### Community 619 - "Community 619"
+Cohesion: 0.25
+Nodes (8): etiquetas_estado, antecedente, cargado, no_localizado, parcial, pendiente, portal, proyecto
+
+### Community 620 - "Community 620"
+Cohesion: 0.25
+Nodes (8): etiquetas_estado, antecedente, cargado, no_localizado, parcial, pendiente, portal, proyecto
+
+### Community 621 - "Community 621"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 33d570f1-405a-5176-8e1f-ec8357451cef
+
+### Community 622 - "Community 622"
+Cohesion: 0.29
+Nodes (7): antecedente, cargado, no_localizado, pendiente, portal, proyecto, estados_sin_repeticiones
+
+### Community 623 - "Community 623"
+Cohesion: 0.29
+Nodes (7): antecedente, cargado, no_localizado, pendiente, portal, proyecto, estados_todas_las_filas
+
+### Community 624 - "Community 624"
+Cohesion: 0.29
+Nodes (7): antecedente, cargado, no_localizado, pendiente, portal, proyecto, estados_sin_repeticiones
+
+### Community 625 - "Community 625"
+Cohesion: 0.29
+Nodes (7): antecedente, cargado, no_localizado, pendiente, portal, proyecto, estados_todas_las_filas
+
+### Community 627 - "Community 627"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 134bfeec-9b27-5427-ab1e-f0d357a11062
+
+### Community 628 - "Community 628"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 1357dac5-f62a-56c7-88cf-c8f19e63a3aa
+
+### Community 629 - "Community 629"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 16a18b23-3a4b-56aa-a62a-8695ddf0576c
+
+### Community 630 - "Community 630"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 2835e483-eac6-500d-83fb-754d1ce77259
+
+### Community 631 - "Community 631"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 39d3a68e-cc72-5b77-af8f-5b8c438d4b22
+
+### Community 632 - "Community 632"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 3afb5ff2-856b-50bd-8f30-c1259cccd803
+
+### Community 633 - "Community 633"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 43f070c3-8f00-59d7-8f4d-b09483aaf75e
+
+### Community 634 - "Community 634"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 4f9d0dab-8d3b-5f8f-9cbf-e5caf23bfa97
+
+### Community 635 - "Community 635"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 55db16c0-9fb0-5bb3-ab7c-b12c78c0db89
+
+### Community 636 - "Community 636"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 6c319378-d272-5d22-9f35-bc884ffdabc7
+
+### Community 637 - "Community 637"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 74cd5ae8-b2b1-5766-924f-e115653a4b99
+
+### Community 638 - "Community 638"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 75cae054-2982-502c-9617-ce2f8747766e
+
+### Community 639 - "Community 639"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 7a787fbe-e77e-5fa7-bb5b-dd720e805ccd
+
+### Community 640 - "Community 640"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 7b3d8606-207a-5ad1-b058-3e222bf2fba7
+
+### Community 641 - "Community 641"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 83f9bd8c-41d6-5fd3-b53f-cf7407026c24
+
+### Community 642 - "Community 642"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 89229e69-9c05-5c29-a834-5c513850a8ed
+
+### Community 643 - "Community 643"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 9e89dcba-60fa-592d-8e95-b678711b7cd1
+
+### Community 644 - "Community 644"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, a96f5bb5-45ae-56c4-96f4-8ff02930a705
+
+### Community 645 - "Community 645"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, aa9cd09c-e316-55d4-8a1f-98b319381958
+
+### Community 646 - "Community 646"
+Cohesion: 0.33
+Nodes (6): bc4c40be-0abd-5e69-8b3d-77a015701f90, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 647 - "Community 647"
+Cohesion: 0.33
+Nodes (6): bf056dde-8c3b-5bba-a3e0-7606c12f24f5, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 648 - "Community 648"
+Cohesion: 0.33
+Nodes (6): c047b549-cb8a-566a-9e6f-c6c3fdd4b4e4, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 649 - "Community 649"
+Cohesion: 0.33
+Nodes (6): c3d92010-9927-56e7-8a31-631354fda125, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 650 - "Community 650"
+Cohesion: 0.33
+Nodes (6): ce28ae91-69e6-54ab-95dd-1e5799709d2d, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 651 - "Community 651"
+Cohesion: 0.33
+Nodes (6): ce8263ed-3da2-5825-9224-e28cfb2c8a3e, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 652 - "Community 652"
+Cohesion: 0.33
+Nodes (6): d433e0a2-2b53-5a54-8684-3d0b90e4954a, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 653 - "Community 653"
+Cohesion: 0.33
+Nodes (6): d4465de8-e02d-57f8-a0b6-4d2ef9aed180, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 654 - "Community 654"
+Cohesion: 0.33
+Nodes (6): da2fc247-689c-5861-8766-d5743bbcaedd, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 655 - "Community 655"
+Cohesion: 0.33
+Nodes (6): e7726e3c-30f3-5a18-ab85-c02406fa8d17, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 656 - "Community 656"
+Cohesion: 0.33
+Nodes (6): f0352733-7869-57b0-b95c-70fbe4b26160, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 657 - "Community 657"
+Cohesion: 0.29
+Nodes (7): articles, f344f4fa-1a0e-579c-a5c7-1058b0b6d69a, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 658 - "Community 658"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 134bfeec-9b27-5427-ab1e-f0d357a11062
+
+### Community 659 - "Community 659"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 1357dac5-f62a-56c7-88cf-c8f19e63a3aa
+
+### Community 660 - "Community 660"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 39d3a68e-cc72-5b77-af8f-5b8c438d4b22
+
+### Community 661 - "Community 661"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 3afb5ff2-856b-50bd-8f30-c1259cccd803
+
+### Community 662 - "Community 662"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 43f070c3-8f00-59d7-8f4d-b09483aaf75e
+
+### Community 663 - "Community 663"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 4f9d0dab-8d3b-5f8f-9cbf-e5caf23bfa97
+
+### Community 664 - "Community 664"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 55db16c0-9fb0-5bb3-ab7c-b12c78c0db89
+
+### Community 665 - "Community 665"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 75cae054-2982-502c-9617-ce2f8747766e
+
+### Community 666 - "Community 666"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 7a787fbe-e77e-5fa7-bb5b-dd720e805ccd
+
+### Community 667 - "Community 667"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 7b3d8606-207a-5ad1-b058-3e222bf2fba7
+
+### Community 668 - "Community 668"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 89229e69-9c05-5c29-a834-5c513850a8ed
+
+### Community 669 - "Community 669"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, 9e89dcba-60fa-592d-8e95-b678711b7cd1
+
+### Community 670 - "Community 670"
+Cohesion: 0.33
+Nodes (6): anchors, contentSha256, label, pageNumbers, sourceId, aa9cd09c-e316-55d4-8a1f-98b319381958
+
+### Community 671 - "Community 671"
+Cohesion: 0.33
+Nodes (6): bc4c40be-0abd-5e69-8b3d-77a015701f90, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 672 - "Community 672"
+Cohesion: 0.33
+Nodes (6): c3d92010-9927-56e7-8a31-631354fda125, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 673 - "Community 673"
+Cohesion: 0.33
+Nodes (6): ce28ae91-69e6-54ab-95dd-1e5799709d2d, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 674 - "Community 674"
+Cohesion: 0.33
+Nodes (6): ce8263ed-3da2-5825-9224-e28cfb2c8a3e, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 675 - "Community 675"
+Cohesion: 0.33
+Nodes (6): d433e0a2-2b53-5a54-8684-3d0b90e4954a, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 676 - "Community 676"
+Cohesion: 0.33
+Nodes (6): e7726e3c-30f3-5a18-ab85-c02406fa8d17, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 677 - "Community 677"
+Cohesion: 0.33
+Nodes (6): f0352733-7869-57b0-b95c-70fbe4b26160, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 678 - "Community 678"
+Cohesion: 0.33
+Nodes (6): f344f4fa-1a0e-579c-a5c7-1058b0b6d69a, anchors, contentSha256, label, pageNumbers, sourceId
+
+### Community 679 - "Community 679"
+Cohesion: 0.40
+Nodes (4): Alcance y comprobaciones, Pendientes, Programa CENACE completo · 20 septiembre 2026, Prueba el lector
+
+### Community 680 - "Community 680"
+Cohesion: 0.40
+Nodes (4): Alcance y comprobaciones, Pendientes, Programa CENACE completo · 20 septiembre 2026, Prueba el lector
+
+### Community 681 - "Community 681"
+Cohesion: 0.50
+Nodes (3): antes, despues, id
+
+### Community 682 - "Community 682"
+Cohesion: 0.50
+Nodes (3): Evidencia, Programa Institucional CENACE · 20 septiembre 2026, Reproducción
+
+### Community 683 - "Community 683"
+Cohesion: 0.50
+Nodes (3): fecha_consulta, instrumentos, projectId
+
+### Community 684 - "Community 684"
+Cohesion: 0.50
+Nodes (3): Alcance, Inventario del acervo · 20 septiembre 2026, Pendientes de la aplicación
+
+### Community 685 - "Community 685"
+Cohesion: 0.50
+Nodes (3): fecha_consulta, instrumentos, projectId
+
+### Community 686 - "Community 686"
+Cohesion: 0.50
+Nodes (3): Alcance, Inventario del acervo · 20 septiembre 2026, Pendientes de la aplicación
+
 ## Knowledge Gaps
-- **11566 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+11561 more)
+- **12127 isolated node(s):** `{ createClient }`, `{ extractThemesFromText }`, `supabase`, `{ createClient }`, `supabase` (+12122 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **56 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **60 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `asignacion` connect `Community 159` to `Community 193`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `asignacion` connect `Community 176` to `Community 197`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `asignacion` connect `Community 230` to `Community 248`?**
+- **Why does `asignacion` connect `Community 175` to `Community 196`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `asignacion` connect `Community 177` to `Community 198`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `asignacion` connect `Community 229` to `Community 250`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `{ createClient }`, `{ extractThemesFromText }`, `supabase` to the rest of the system?**
-  _11619 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _12184 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.057539682539682536 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
