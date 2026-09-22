@@ -10,6 +10,27 @@ const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
 
+it('verifies all 207 live LSE fragments and their complete multi-page mappings', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const rows = JSON.parse(readFileSync('revision-acervo/sincronizacion-lse-2026-09-22/articulos-verificados.json', 'utf8'));
+    expect(rows).toHaveLength(207);
+    for (const row of rows) {
+        const first = await getReaderSource(row.id, { articleText: row.contenido, manifest });
+        expect(first.status, row.identificador).toBe('mapped');
+        expect(first.contentVerified).toBe(true);
+        expect(first.source.lawId).toBe(row.ley_id);
+        expect(first.source.transport).toBe('remote-pdf');
+        for (let pageIndex = 0; pageIndex < first.pages.length; pageIndex++) {
+            const page = resolveReaderSource(manifest, row.id, { pageIndex });
+            expect(page.status).toBe('mapped');
+            expect(page.highlights.length).toBeGreaterThan(0);
+        }
+    }
+    const first = rows.find(row => row.identificador === 'Artículo 1');
+    expect(resolveReaderSource(manifest, first.id).pages.map(page => page.number)).toEqual([1, 2]);
+    expect((await getReaderSource(first.id, { articleText: first.contenido + '.', manifest })).reason).toBe('content-mismatch');
+});
+
 it('maps all 48 reviewed UUIDs to the exact official PDF without published page images', async () => {
     vi.stubGlobal('crypto', webcrypto);
     expect(Object.values(manifest.articles).filter(article => manifest.sources[article.sourceId].lawId === loaded.articulos[0].ley_id)).toHaveLength(48);
