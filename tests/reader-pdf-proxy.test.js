@@ -10,6 +10,20 @@ const request = (path = 'lcne', method = 'GET') => new Request(`https://app.test
 const upstream = (body = bytes, headers = {}) => new Response(body, { headers: { 'Content-Type': 'application/pdf', ...headers } });
 afterEach(() => vi.unstubAllGlobals());
 
+it('serves reviewed Diputados regulations without accepting alternate hosts or paths', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LSE.pdf';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('rlse'), 'rlse', { sources: { rlse: { ...source, originalUrl } }, fetcher });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl + '?url=https://outside.test', originalUrl.replace('regley', 'other'), originalUrl.replace('www.diputados.gob.mx', 'www.diputados.gob.mx.evil.test'), originalUrl.replace('Reg_LSE.pdf', '../Reg_LSE.pdf')]) {
+        expect((await serveReaderPdf(request('rlse'), 'rlse', { sources: { rlse: { ...source, originalUrl: url } }, fetcher })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves the reviewed CENACE PDF but rejects other DOF URLs and URL overrides', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf';

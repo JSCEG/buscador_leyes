@@ -15,7 +15,7 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
     if (new URL(request.url).search) return problem(400, 'unexpected-parameters');
     const source = Object.hasOwn(sources, sourceId) ? sources[sourceId] : null;
     if (!source || source.transport !== 'remote-pdf') return problem(404, 'unknown-source');
-    if ((!/^https:\/\/www\.diputados\.gob\.mx\/LeyesBiblio\/pdf\/[A-Za-z0-9_-]+\.pdf$/.test(source.originalUrl)
+    if ((!/^https:\/\/www\.diputados\.gob\.mx\/LeyesBiblio\/(?:pdf|regley)\/[A-Za-z0-9_-]+\.pdf$/.test(source.originalUrl)
         && !reviewedDofPdfs.has(source.originalUrl))
         || !/^[a-f0-9]{64}$/.test(source.sha256)) return problem(404, 'unknown-source');
     const controller = new AbortController();
