@@ -110,6 +110,22 @@ describe('análisis conectado al acervo', () => {
     document.removeEventListener('analisis:openLaw', openLaw);
   });
 
+  it('draws the collection map on the fly and opens loaded laws from it', async () => {
+    ready();
+    const openLaw = vi.fn();
+    document.addEventListener('analisis:openLaw', openLaw);
+    await renderAnalisisView(container, { topicId: 'planeacion-vinculante' });
+    const graph = container.querySelector('[data-graph]');
+    expect(graph.querySelectorAll('.nx-node-entity')).toHaveLength(11);
+    expect(graph.querySelector('[data-node="law:lpte"]').classList.contains('is-external')).toBe(true);
+    graph.querySelector('[data-node="law:pladese"]').click();
+    expect(openLaw.mock.calls[0][0].detail).toEqual({ id: 'l-pladese' });
+    graph.querySelector('[data-node="pladese"]').click();
+    expect(container.querySelector('h2').textContent).toContain('Sector Eléctrico');
+    expect(graph.isConnected).toBe(true); // selecting inside the topic keeps the drawn map
+    document.removeEventListener('analisis:openLaw', openLaw);
+  });
+
   it('switches topics from the cards and lists acervo themes without editorial tags', async () => {
     ready();
     await renderAnalisisView(container);

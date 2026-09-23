@@ -4,7 +4,7 @@ import { ACERVO_GROUPS, getAcervoGroup } from './acervo-model.js';
 const EDITORIAL_TOPICS = new Set(['modificacion', 'texto original', 'leyes y reformas por completar']);
 
 const text = value => typeof value === 'string' ? value : '';
-const normalize = value => text(value).normalize('NFD').replace(/[̀-ͯ]/g, '').toLocaleLowerCase('es').trim().replace(/\s+/g, ' ');
+const normalize = value => text(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim().replace(/\s+/g, ' ');
 const isDay = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}/.test(value) && Number.isFinite(Date.parse(`${value.slice(0, 10)}T00:00:00Z`));
 const fragments = law => Math.max(0, Number(law?.articulos) || 0);
 

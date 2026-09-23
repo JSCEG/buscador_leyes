@@ -158,7 +158,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
     const search = root.querySelector('.st-search');
     const filter = root.querySelector('.st-filter');
     const table = { query: '', group: 'all', sort: 'fragments', dir: -1 };
-    const normalize = value => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const normalize = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     const sorters = {
         name: (a, b) => collator.compare(a.law.titulo, b.law.titulo),
         group: (a, b) => collator.compare(groupLabel.get(a.group), groupLabel.get(b.group)),

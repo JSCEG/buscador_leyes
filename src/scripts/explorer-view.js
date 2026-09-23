@@ -1,6 +1,6 @@
 import { escapeHtml as esc, searchEntities, getEntityReferences } from '../lib/explorer-model.js';
 import { loadExplorerCatalog, canPublishExplorer } from '../lib/explorer-store.js';
-import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink, normalize } from '../lib/analisis-model.js';
+import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink, normalize, topicGraph } from '../lib/analisis-model.js';
 import { getAcervoGroup, ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { openExplorerEditor } from './explorer-editor.js';
 import { onAuthChange } from './auth.js';
@@ -175,17 +175,136 @@ function drawSearch(state) {
   status.textContent = `${results.length} ${results.length === 1 ? 'resultado' : 'resultados'}`;
 }
 
+// ── Relationship map ────────────────────────────────────────────────────────
+// Built on the fly for the selected collection from real catalogue data (see topicGraph).
+// Columns: collection → its entities → the laws they cite or that document them.
+const GRAPH = { width: 900, top: 34, row: 44, node: 34, root: { x: 0, w: 190 }, entity: { x: 270, w: 290 }, law: { x: 690, w: 210 } };
+// Phones drop the collection column: the card above already names it.
+const GRAPH_NARROW = { width: 400, top: 30, row: 42, node: 34, root: null, entity: { x: 0, w: 220 }, law: { x: 272, w: 128 } };
+const edgeKinds = { member: 'Forma parte del recorrido', fundamento: 'Fundamento citado', documento: 'Documento en el acervo' };
+
+function graphLayout(graph, G) {
+  const pos = new Map();
+  const n = graph.entities.length;
+  let y = G.top, previousType = null;
+  graph.entities.forEach(entity => {
+    if (previousType && entity.type !== previousType) y += 12; // breathing room between entity types
+    pos.set(entity.id, y); previousType = entity.type; y += G.row;
+  });
+  const entityBottom = y;
+  // Laws sit at the mean height of the entities citing them, then are pushed apart to avoid overlap.
+  const desired = graph.laws.map(law => {
+    const ys = graph.edges.filter(edge => edge.to === law.id).map(edge => pos.get(edge.from)).filter(Number.isFinite);
+    return { law, y: ys.length ? ys.reduce((a, b) => a + b, 0) / ys.length : G.top };
+  }).sort((a, b) => a.y - b.y);
+  let cursor = G.top;
+  for (const item of desired) { item.y = Math.max(item.y, cursor); cursor = item.y + G.row; }
+  const overflow = cursor - Math.max(entityBottom, cursor);
+  desired.forEach(item => pos.set(item.law.id, item.y - Math.max(0, overflow)));
+  const height = Math.max(entityBottom, cursor) + 8;
+  pos.set('root', n ? (G.top + entityBottom - G.row) / 2 : G.top);
+  return { pos, height };
+}
+
+function graphMarkup(state) {
+  const graph = topicGraph(state.catalog, state.topicId, acervo);
+  if (!graph || !graph.entities.length) return '';
+  const G = isNarrow() ? GRAPH_NARROW : GRAPH;
+  if (!G.root) graph.edges = graph.edges.filter(edge => edge.kind !== 'member');
+  const { pos, height } = graphLayout(graph, G);
+  const pct = value => `${(value / G.width) * 100}%`;
+  const mid = G.node / 2;
+  const column = node => node === 'root' ? G.root : node.startsWith('law:') ? G.law : G.entity;
+  const entityIndex = new Map(graph.entities.map((entity, index) => [entity.id, index]));
+  const lawIndex = new Map(graph.laws.map((law, index) => [law.id, index]));
+  const edges = graph.edges.map((edge, index) => {
+    const a = column(edge.from), b = column(edge.to);
+    const x1 = a.x + a.w, y1 = pos.get(edge.from) + mid, x2 = b.x, y2 = pos.get(edge.to) + mid, cx = (x1 + x2) / 2;
+    const d = `M${x1},${y1} C${cx},${y1} ${cx},${y2} ${x2},${y2}`;
+    const delay = edge.kind === 'member' ? 200 + (entityIndex.get(edge.to) || 0) * 35 : 650 + index * 12;
+    const width = edge.kind === 'fundamento' ? Math.min(1.2 + edge.weight * 0.7, 4) : edge.kind === 'documento' ? 2.2 : 1.2;
+    const tip = edge.kind === 'member' ? '' : `${edgeKinds[edge.kind]}${edge.articles?.length ? `: ${edge.articles.join(', ')}` : ''}`;
+    return `<g class="nx-edge nx-edge-${edge.kind}" data-from="${esc(edge.from)}" data-to="${esc(edge.to)}" style="--d:${delay}ms;--w:${width}">${tip ? `<title>${esc(tip)}</title>` : ''}<path class="nx-edge-base" pathLength="1" d="${d}"/><path class="nx-edge-flow" d="${d}"/></g>`;
+  }).join('');
+  const node = (id, col, y, cls, inner, attrs, delay) => `<button class="nx-node ${cls}" data-node="${esc(id)}" ${attrs} style="left:${pct(col.x)};width:${pct(col.w)};top:${y}px;--d:${delay}ms">${inner}</button>`;
+  const rootNode = graph.root && G.root ? node('root', G.root, pos.get('root'), 'nx-node-root', `<span>${esc(graph.topic.title)}</span>`, `data-select-entity="${esc(graph.root.id)}" title="Presentación del recorrido"`, 0) : '';
+  const entityNodes = graph.entities.map((entity, index) => node(entity.id, G.entity, pos.get(entity.id), `nx-node-entity nx-node-${esc(entity.type)}`, `<i aria-hidden="true"></i><span>${esc(entity.label)}</span>`, `data-select-entity="${esc(entity.id)}" title="${esc(`${types[entity.type]}: ${entity.label}`)}"`, 120 + index * 35)).join('');
+  const lawNodes = graph.laws.map(law => node(law.id, G.law, pos.get(law.id), `nx-node-law ${law.lawId ? '' : 'is-external'} ${law.group ? `nx-group-${esc(law.group)}` : ''}`,
+    `<strong>${esc(law.label)}</strong>${law.lawId ? icon('open') : ''}`,
+    law.lawId ? `data-open-law="${esc(law.lawId)}" title="${esc(`Abrir ${law.title}`)}"` : `aria-disabled="true" title="${esc(`${law.title}: todavía no está en el acervo`)}"`, 700 + (lawIndex.get(law.id) || 0) * 45)).join('');
+  const citations = graph.edges.filter(edge => edge.kind !== 'member').length;
+  return `<section class="nx-graph" data-graph aria-label="Mapa de relaciones del recorrido">
+    <div class="nx-graph-head"><h3>Mapa del recorrido</h3><span class="nx-muted">${countLabel(graph.entities.length, 'elemento', 'elementos')} · ${countLabel(graph.laws.length, 'documento', 'documentos')} · ${countLabel(citations, 'conexión con fundamento', 'conexiones con fundamento')}</span>
+      <button class="nx-link nx-replay" data-replay-graph>Volver a trazar</button></div>
+    <div class="nx-graph-scroll" tabindex="0" aria-label="Mapa desplazable horizontalmente"><div class="nx-graph-canvas" style="height:${height}px">
+      <div class="nx-graph-cols" aria-hidden="true">${G.root ? `<span style="left:${pct(G.root.x)}">Recorrido</span>` : ''}<span style="left:${pct(G.entity.x)}">Elementos</span><span style="left:${pct(G.law.x)}">Leyes y documentos</span></div>
+      <svg class="nx-graph-edges" viewBox="0 0 ${G.width} ${height}" preserveAspectRatio="none" aria-hidden="true">${edges}</svg>
+      ${rootNode}${entityNodes}${lawNodes}
+    </div></div>
+    <ul class="nx-graph-legend" aria-label="Leyenda">${G.root ? '<li><i class="nx-lg-member"></i>Forma parte del recorrido</li>' : ''}<li><i class="nx-lg-fundamento"></i>Fundamento citado (grosor = artículos)</li><li><i class="nx-lg-documento"></i>Documento en el acervo</li><li><i class="nx-lg-external"></i>Ley aún no cargada</li></ul>
+  </section>`;
+}
+
+/** Light the paths through a node; everything else steps back. */
+function lightGraph(state, nodeId) {
+  const graphEl = state.container.querySelector('[data-graph]');
+  if (!graphEl) return;
+  const focus = nodeId || (state.entityId && state.entityId !== selectedTopic(state)?.rootEntityId ? state.entityId : '');
+  graphEl.classList.toggle('is-focus', Boolean(focus));
+  const lit = new Set(focus ? [focus] : []);
+  graphEl.querySelectorAll('.nx-edge').forEach(edge => {
+    const on = Boolean(focus) && (edge.dataset.from === focus || edge.dataset.to === focus || (focus === 'root' && edge.dataset.from === 'root'));
+    edge.classList.toggle('is-lit', on);
+    if (on) { lit.add(edge.dataset.from); lit.add(edge.dataset.to); }
+  });
+  // A law lights its citing entities; carry the path back to the collection.
+  if (focus?.startsWith('law:')) graphEl.querySelectorAll('.nx-edge-member').forEach(edge => { if (lit.has(edge.dataset.to)) { edge.classList.add('is-lit'); lit.add('root'); } });
+  graphEl.querySelectorAll('.nx-node').forEach(node => { node.classList.toggle('is-lit', lit.has(node.dataset.node)); node.classList.toggle('is-selected', node.dataset.node === state.entityId || (node.dataset.node === 'root' && state.entityId === selectedTopic(state)?.rootEntityId)); });
+}
+
+function animateGraph(state) {
+  const graphEl = state.container.querySelector('[data-graph]');
+  if (!graphEl) return;
+  graphEl.classList.remove('is-drawn', 'is-settled');
+  clearTimeout(state.settleTimer);
+  state.settleTimer = setTimeout(() => graphEl.classList.add('is-settled'), 1800);
+  void graphEl.offsetWidth; // restart transitions
+  const run = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : callback => callback();
+  run(() => graphEl.classList.add('is-drawn'));
+  lightGraph(state);
+  graphEl.onpointerover = event => { graphEl.classList.add('is-settled'); const node = event.target.closest('.nx-node'); if (node) lightGraph(state, node.dataset.node); };
+  graphEl.onfocusin = event => { const node = event.target.closest('.nx-node'); if (node) lightGraph(state, node.dataset.node); };
+  graphEl.onpointerleave = () => lightGraph(state);
+  graphEl.onfocusout = event => { if (!graphEl.contains(event.relatedTarget)) lightGraph(state); };
+}
+
+function drawEntity(state, focusHeading = false) {
+  const overview = topicOverview(state.catalog, state.topicId);
+  const body = state.container.querySelector('.nx-topic-body');
+  if (!overview || !body) return drawTopic(state, focusHeading);
+  body.innerHTML = `${membersMarkup(state, overview)}<div class="nx-ficha-wrap" data-explorer-detail>${fichaMarkup(state, overview)}</div>`;
+  lightGraph(state);
+  fillPreviews(state);
+  if (focusHeading) {
+    const heading = body.querySelector('#explorer-entity-title');
+    heading?.focus({ preventScroll: true });
+    heading?.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
+  }
+}
+
 function drawTopic(state, focusHeading = false) {
   const overview = topicOverview(state.catalog, state.topicId);
   const target = state.container.querySelector('[data-explorer-topic]');
   if (!target) return;
   if (!overview) { target.innerHTML = '<p class="nx-empty">Todavía no hay recorridos publicados.</p>'; return; }
   target.innerHTML = `<div class="nx-topic-head"><p class="nx-eyebrow">Recorrido</p><p class="nx-topic-name">${esc(overview.topic.title)}</p><span class="nx-muted">${countLabel(overview.members, 'entidad', 'entidades')}${overview.typedRelations.length ? ` · ${countLabel(overview.typedRelations.length, 'relación', 'relaciones')}` : ''}</span></div>
+    ${graphMarkup(state)}
     <div class="nx-topic-body">${membersMarkup(state, overview)}<div class="nx-ficha-wrap" data-explorer-detail>${fichaMarkup(state, overview)}</div></div>`;
   state.container.querySelectorAll('[data-select-topic]').forEach(button => {
     const active = button.dataset.selectTopic === state.topicId && !button.dataset.entity;
     if (button.classList.contains('nx-topic-card')) { button.classList.toggle('is-selected', active); button.setAttribute('aria-pressed', String(active)); }
   });
+  animateGraph(state);
   fillPreviews(state);
   if (focusHeading) {
     const heading = target.querySelector('#explorer-entity-title');
@@ -244,10 +363,15 @@ function draw(state) {
     const button = event.target.closest('button, [data-go-sources]');
     if (!button || !container.contains(button)) return;
     if (button.hasAttribute('data-select-entity')) {
+      const previousTopic = state.topicId;
       if (button.dataset.topic) state.topicId = button.dataset.topic;
       state.entityId = button.dataset.selectEntity;
       if (button.classList.contains('nx-result')) { state.query = ''; state.type = ''; container.querySelector('#explorer-search').value = ''; container.querySelector('#explorer-type').value = ''; drawSearch(state); }
-      normalizeSelection(state); drawTopic(state, true); notifyRoute(state);
+      normalizeSelection(state);
+      if (state.topicId === previousTopic) drawEntity(state, !button.classList.contains('nx-node')); else drawTopic(state, true);
+      notifyRoute(state);
+    } else if (button.hasAttribute('data-replay-graph')) {
+      animateGraph(state);
     } else if (button.hasAttribute('data-select-topic')) {
       state.topicId = button.dataset.selectTopic;
       state.entityId = button.dataset.entity || selectedTopic(state)?.rootEntityId;

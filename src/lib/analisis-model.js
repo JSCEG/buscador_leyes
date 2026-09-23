@@ -5,7 +5,7 @@ import { getAcervoGroup } from './acervo-model.js';
 // Curation tags on laws describe editorial state, not subject matter.
 const EDITORIAL_TAGS = new Set(['modificacion', 'texto original', 'leyes y reformas por completar']);
 const text = value => typeof value === 'string' ? value : '';
-export const normalize = value => text(value).normalize('NFD').replace(/[̀-ͯ]/g, '').toLocaleLowerCase('es').replace(/\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim();
+export const normalize = value => text(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim();
 const lawTopics = law => (Array.isArray(law?.temas_clave) ? law.temas_clave : []).map(normalize).filter(Boolean);
 const collator = new Intl.Collator('es', { sensitivity: 'base', numeric: true });
 const byTitle = (a, b) => collator.compare(text(a.titulo), text(b.titulo));
@@ -67,4 +67,61 @@ export function acervoThemes(summaries) {
     return [...themes.values()]
         .map(theme => ({ ...theme, count: theme.laws.length, laws: theme.laws.sort(byGroupThenTitle) }))
         .sort((a, b) => b.count - a.count || collator.compare(a.label, b.label));
+}
+
+const TYPE_ORDER = ['instrumento', 'autoridad', 'concepto'];
+/** "LSE · Artículo 12" and legacy "LCPE-Art-002" both cite the law by its acronym. */
+export const citedAcronym = label => text(label).split(' · ')[0].replace(/-Art-[\w-]*$/i, '').trim();
+
+/**
+ * Graph of a collection built from real catalogue data: membership, the laws each entity cites
+ * as fundamento, and the acervo document that *is* an instrument or organises an authority.
+ * Law nodes follow the barycentre of the entities citing them, which keeps crossings low.
+ */
+export function topicGraph(catalog, topicId, summaries = []) {
+    const overview = topicOverview(catalog, topicId);
+    if (!overview) return null;
+    const lawsBySigla = new Map((summaries || []).filter(law => law?.siglas).map(law => [normalize(law.siglas), law]));
+    const entities = TYPE_ORDER.flatMap(type => overview.groups[type]);
+    const laws = new Map();
+    const edges = [];
+    const lawNode = (key, label, law) => {
+        if (!laws.has(key)) laws.set(key, { id: `law:${key}`, kind: 'law', label, title: law?.titulo || label, lawId: law?.id || null, group: law ? getAcervoGroup(law) : null, links: [] });
+        return laws.get(key);
+    };
+    entities.forEach((entity, index) => {
+        if (overview.root) edges.push({ from: 'root', to: entity.id, kind: 'member', weight: 1 });
+        const cited = new Map();
+        for (const reference of entity.references || []) {
+            const acronym = citedAcronym(reference.label);
+            if (!acronym) continue;
+            const key = normalize(acronym);
+            const entry = cited.get(key) || { acronym, articles: [] };
+            entry.articles.push(reference.label);
+            cited.set(key, entry);
+        }
+        const documents = entity.type === 'concepto' ? [] : matchAcervo(entity, summaries).slice(0, 2);
+        for (const law of documents) {
+            const key = normalize(law.siglas || law.id);
+            const node = lawNode(key, law.siglas || law.titulo, law);
+            node.links.push(index);
+            edges.push({ from: entity.id, to: node.id, kind: 'documento', weight: 1, articles: cited.get(key)?.articles || [] });
+            cited.delete(key);
+        }
+        for (const [key, entry] of cited) {
+            const node = lawNode(key, entry.acronym, lawsBySigla.get(key));
+            node.links.push(index);
+            edges.push({ from: entity.id, to: node.id, kind: 'fundamento', weight: entry.articles.length, articles: entry.articles });
+        }
+    });
+    const lawNodes = [...laws.values()]
+        .map(node => ({ ...node, order: node.links.reduce((sum, i) => sum + i, 0) / node.links.length }))
+        .sort((a, b) => a.order - b.order || collator.compare(a.label, b.label));
+    return {
+        topic: overview.topic,
+        root: overview.root,
+        entities: entities.map(entity => ({ id: entity.id, kind: 'entity', type: entity.type, label: entity.title })),
+        laws: lawNodes,
+        edges,
+    };
 }

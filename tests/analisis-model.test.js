@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import seed from '../src/data/explorer-catalog.json';
-import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink } from '../src/lib/analisis-model.js';
+import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink, topicGraph, citedAcronym } from '../src/lib/analisis-model.js';
 
 const laws = [
     { id: 'pnd', titulo: 'Plan Nacional de Desarrollo 2025-2030', siglas: 'PND', tipo: 'plan', temas_clave: [] },
@@ -29,5 +29,29 @@ describe('analisis model', () => {
     it('builds topic and theme indexes from temas_clave, merging case and accents', () => {
         expect(topicAcervo(seed.topics[0], laws).map(law => law.id)).toEqual(['lcne', 'acuerdo-cne']);
         expect(acervoThemes(laws).map(theme => [theme.label, theme.count])).toEqual([['Planeación Vinculante', 2]]);
+    });
+});
+
+describe('topicGraph', () => {
+    it('derives membership, fundamento and document edges from the catalogue', () => {
+        const summaries = [
+            { id: 'lse', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'ley' },
+            { id: 'pladese', titulo: 'Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico', siglas: 'PLADESE', tipo: 'acuerdo' },
+        ];
+        const graph = topicGraph(seed, 'planeacion-vinculante', summaries);
+        expect(graph.entities).toHaveLength(11);
+        expect(graph.edges.filter(edge => edge.kind === 'member')).toHaveLength(11);
+        const pladese = graph.edges.filter(edge => edge.from === 'pladese');
+        expect(pladese.find(edge => edge.kind === 'documento').to).toBe('law:pladese');
+        expect(pladese.find(edge => edge.to === 'law:lse')).toMatchObject({ kind: 'fundamento', articles: ['LSE · Artículo 12'] });
+        expect(graph.laws.find(node => node.id === 'law:lse').lawId).toBe('lse');
+        // Laws not loaded in the acervo stay as plain nodes, never as broken links.
+        expect(graph.laws.find(node => node.id === 'law:lpte').lawId).toBeNull();
+    });
+
+    it('reads legacy acronyms in reference labels', () => {
+        expect(citedAcronym('LCPE-Art-002')).toBe('LCPE');
+        expect(citedAcronym('BME-Art-1-2-6')).toBe('BME');
+        expect(citedAcronym('LSE · Artículo 12')).toBe('LSE');
     });
 });
