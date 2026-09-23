@@ -1,0 +1,62 @@
+{
+  "ley": {
+    "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d233e",
+    "titulo": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+    "siglas": "PND-DECRETO",
+    "fecha_publicacion": "2025-04-15",
+    "fecha_ultima_reforma": null,
+    "vigente": null,
+    "temas_clave": [
+      "Planeación nacional",
+      "PND 2025-2030"
+    ],
+    "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5755161",
+    "tipo": "decreto"
+  },
+  "articulos": [
+    {
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2340",
+      "ley_id": "761b43cf-4d94-4eb5-809d-3d3a0a8d233e",
+      "identificador": "Preámbulo del decreto",
+      "tipo_articulo": "preambulo",
+      "orden": 0,
+      "contenido": "<p>DECRETO por el que se aprueba el Plan Nacional de Desarrollo 2025-2030.</p>\n<p>Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Presidencia de la República.</p>\n<p>CLAUDIA SHEINBAUM PARDO, Presidenta de los Estados Unidos Mexicanos, a sus habitantes sabed:</p>\n<p>Que la Cámara de Diputados del Honorable Congreso de la Unión, se ha servido dirigirme el siguiente</p>\n<p>DECRETO</p>\n<p>\"LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN, CON FUNDAMENTO EN LA FRACCIÓN VII DEL ARTÍCULO 74 DE LA CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS MEXICANOS, DECRETA:</p>",
+      "titulo_nombre": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2341",
+      "ley_id": "761b43cf-4d94-4eb5-809d-3d3a0a8d233e",
+      "identificador": "Primero",
+      "tipo_articulo": "ordinario",
+      "orden": 1,
+      "contenido": "<p>Primero.- La Cámara de Diputados del Honorable Congreso de la Unión aprueba el Plan Nacional de Desarrollo 2025-2030 enviado por la Titular del Ejecutivo Federal el día 28 de febrero de 2025, por incluir y cumplir a cabalidad los fines del proyecto nacional establecidos en la Constitución Política de los Estados Unidos Mexicanos.</p>",
+      "titulo_nombre": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2342",
+      "ley_id": "761b43cf-4d94-4eb5-809d-3d3a0a8d233e",
+      "identificador": "Segundo",
+      "tipo_articulo": "ordinario",
+      "orden": 2,
+      "contenido": "<p>Segundo.- Remítanse al Ejecutivo Federal el presente Acuerdo y el Plan Nacional de Desarrollo 2025-2030, para su publicación en el Diario Oficial de la Federación y su implementación integral.</p>",
+      "titulo_nombre": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2343",
+      "ley_id": "761b43cf-4d94-4eb5-809d-3d3a0a8d233e",
+      "identificador": "Firmas y promulgación",
+      "tipo_articulo": "anexo",
+      "orden": 3,
+      "contenido": "<p>SALÓN DE SESIONES DE LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN.- Ciudad de México, a 10 de abril de 2025.- Dip. Sergio Carlos Gutiérrez Luna, Presidente.- Dip. Julieta Villalpando Riquelme, Secretaria.- Rúbricas.\"</p>\n<p>En cumplimiento de lo dispuesto por la fracción I del Artículo 89 de la Constitución Política de los Estados Unidos Mexicanos, y para su debida publicación y observancia, expido el presente Decreto en la Residencia del Poder Ejecutivo Federal, en la Ciudad de México, a 14 de abril de 2025.- Claudia Sheinbaum Pardo, Presidenta de los Estados Unidos Mexicanos.- Rúbrica.- Lcda. Rosa Icela Rodríguez Velázquez, Secretaria de Gobernación.- Rúbrica.</p>",
+      "titulo_nombre": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    }
+  ]
+}

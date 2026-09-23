@@ -1,0 +1,58 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{JSDOM}=require('jsdom');
+const root=__dirname,read=f=>JSON.parse(fs.readFileSync(path.join(root,f),'utf8')),save=(f,v)=>fs.writeFileSync(path.join(root,f),JSON.stringify(v,null,2));
+const raw=read('fuentes/PND.bloques.json'),b=raw.bloques;
+if(b.length!==1373||raw.sha256!=='96d8a9dfa1a71026b2501820876ef71b4b48623d6219dd931474a9b6e0d3ea2b')throw Error('Fuente no revisada');
+if(!read('imagenes.json').every(i=>i.verificada))throw Error('Imágenes no verificadas');
+const starts=new Map();
+const add=(i,label,chapter)=>starts.set(i,{label,chapter});
+add(0,'Portada e índice','Presentación');
+for(const i of [18,30,46,51,53,55,58,60,62,64,66,70,72,74])add(i,b[i].texto,'Presentación');
+add(129,'Cien Compromisos para el Segundo Piso de la Transformación','Cien Compromisos');
+add(133,'Diagnóstico de la Nación: ¿Dónde estamos?','Diagnóstico');
+for(const i of [135,194,265,308,342,379,393])add(i,b[i].texto+' · '+b[i+1].texto,'Diagnóstico');
+add(406,'Rumbo al futuro: Objetivos y estrategias','Objetivos y estrategias');
+for(const i of [409,412,416,419,422,424,426])add(i,'Objetivos y estrategias · '+b[i].texto,'Objetivos y estrategias');
+add(429,'Medición del progreso: Indicadores de seguimiento','Indicadores de seguimiento');
+for(let i=432;i<1270;i++){
+ if(/^Eje (General|Transversal) \d$/.test(b[i].texto))add(i,'Indicadores · '+b[i].texto+' · '+b[i+1].texto,'Indicadores de seguimiento');
+ if(b[i].tipo==='parrafo'&&/^Objetivo (?:T)?\d+\.\d+:/.test(b[i].texto))add(i,'Seguimiento · '+b[i].texto,'Indicadores de seguimiento');
+}
+add(1270,b[1270].texto,'Plan México');
+for(const i of [1273,1278,1283,1287,1290])add(i,'Plan México · '+b[i].texto,'Plan México');
+add(1296,'Anexo 1 · Sistema Nacional de Planeación Democrática','Anexos');
+add(1356,'Anexo 2 · Resultados de la participación ciudadana','Anexos');
+add(1368,'Notas y referencias del plan','Referencias');
+const lid='2c8c7e74-a842-5e50-8d07-2558480ee262';
+const uid=s=>{const h=crypto.createHash('sha256').update('PND2025/'+s).digest('hex');return `${h.slice(0,8)}-${h.slice(8,12)}-5${h.slice(13,16)}-a${h.slice(17,20)}-${h.slice(20,32)}`;};
+const boundaries=[...starts.keys()].sort((a,c)=>a-c),coverage=[];
+const articles=boundaries.map((start,orden)=>{const end=boundaries[orden+1]??b.length,{label,chapter}=starts.get(start);coverage.push(...b.slice(start,end).map(x=>x.id));return {id:uid(label),ley_id:lid,identificador:label,contenido:b.slice(start,end).map(x=>x.html).join('\n'),tipo_articulo:start>=1296?'anexo':'ordinario',orden,titulo_nombre:chapter,capitulo_nombre:null,seccion_nombre:null};});
+if(coverage.some((v,i)=>v!==i)||coverage.length!==b.length||new Set(articles.map(a=>a.id)).size!==articles.length)throw Error('Cobertura/identificadores inválidos');
+const sourceDoc=new JSDOM(fs.readFileSync(path.join(root,'fuentes/PND.html'),'utf8')).window.document;
+sourceDoc.querySelectorAll('style,title').forEach(e=>e.remove());
+const output=new JSDOM(articles.map(a=>a.contenido).join('')).window.document;
+const compact=t=>t.replace(/\s/g,'');
+if(compact(sourceDoc.body.textContent)!==compact(output.body.textContent))throw Error('Pérdida textual');
+const cells=d=>[...d.querySelectorAll('td,th')].map(e=>[compact(e.textContent),e.getAttribute('colspan')||'',e.getAttribute('rowspan')||'']);
+if(JSON.stringify(cells(sourceDoc))!==JSON.stringify(cells(output)))throw Error('Tabla alterada');
+if(output.querySelectorAll('table').length!==122||output.querySelectorAll('img').length!==69)throw Error('Recursos incompletos');
+const ley={id:lid,titulo:'Plan Nacional de Desarrollo 2025-2030',siglas:'PND',fecha_publicacion:'2025-04-15',fecha_ultima_reforma:null,vigente:null,temas_clave:['Planeación nacional','Objetivos y estrategias','Indicadores de seguimiento','Plan México'],url_original:'https://sidof.segob.gob.mx/notas/docFuente/5755162',tipo:'plan'};
+const temas=[...new Set(articles.map(a=>a.titulo_nombre))].map((nombre,orden)=>({nivel:'titulo',nombre,orden}));
+const p={ley,articulos:articles,temas};save('PND-carga.json',p);
+save('COTEJO-PLAN.json',{sha256:raw.sha256,bloques:b.length,fragmentos:articles.length,tablas:122,celdas:cells(output).length,imagenes:69,texto_completo:true,celdas_y_combinaciones_identicas:true,cobertura_sin_solapamientos:true,imagenes_verificadas:true,alcance:'Cotejo contra HTML oficial; no implica sincronización o cotejo visual de todas las páginas PDF.'});
+const payload=JSON.stringify(p);if(payload.includes('$payload$'))throw Error('Delimitador inválido');
+const sql=`BEGIN;
+SET LOCAL statement_timeout='120s';
+DO $ingest$
+DECLARE p jsonb := $payload$${payload}$payload$::jsonb; lid uuid := '${lid}';
+BEGIN
+LOCK TABLE public.leyes,public.articulos,public.temas IN SHARE ROW EXCLUSIVE MODE;
+IF EXISTS(SELECT 1 FROM public.leyes WHERE id=lid OR siglas='PND' OR lower(titulo)=lower(p->'ley'->>'titulo') OR url_original=p->'ley'->>'url_original') THEN RAISE EXCEPTION 'PND ya existe'; END IF;
+INSERT INTO public.leyes(id,titulo,siglas,fecha_publicacion,fecha_ultima_reforma,vigente,temas_clave,url_original,tipo) SELECT id,titulo,siglas,fecha_publicacion,fecha_ultima_reforma,vigente,temas_clave,url_original,tipo FROM jsonb_populate_record(null::public.leyes,p->'ley');
+INSERT INTO public.articulos(id,ley_id,identificador,contenido,tipo_articulo,orden,titulo_nombre,capitulo_nombre,seccion_nombre) SELECT id,ley_id,identificador,contenido,tipo_articulo,orden,titulo_nombre,capitulo_nombre,seccion_nombre FROM jsonb_populate_recordset(null::public.articulos,p->'articulos');
+INSERT INTO public.temas(ley_id,nivel,nombre,orden) SELECT lid,t->>'nivel',t->>'nombre',(t->>'orden')::int FROM jsonb_array_elements(p->'temas')t;
+IF (SELECT count(*) FROM public.articulos WHERE ley_id=lid)<>jsonb_array_length(p->'articulos') OR EXISTS(SELECT 1 FROM jsonb_array_elements(p->'articulos') b LEFT JOIN public.articulos a ON a.id=(b->>'id')::uuid WHERE a.id IS NULL OR (to_jsonb(a)-'fts'-'created_at') IS DISTINCT FROM b OR a.fts IS NULL OR a.fts=''::tsvector) THEN RAISE EXCEPTION 'Cotejo fallido'; END IF;
+END $ingest$;
+COMMIT;
+SELECT id,siglas FROM public.leyes WHERE id='${lid}';`;
+fs.writeFileSync(path.join(root,'PND-aplicar.sql'),sql);
+console.log(JSON.stringify({id:lid,fragmentos:articles.length,temas:temas.length,bytes:Buffer.byteLength(sql),cotejo:true}));

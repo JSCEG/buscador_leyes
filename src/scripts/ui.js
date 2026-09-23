@@ -2916,9 +2916,25 @@ export function initUI() {
         if (existingFilters) existingFilters.remove();
 
         const total = cachedSummaries.reduce((sum, l) => sum + l.articulos, 0);
-        const leyes = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('ley'));
-        const reglamentos = cachedSummaries.filter(l => l.titulo.toLowerCase().startsWith('reglamento'));
-        const otros = cachedSummaries.filter(l => !l.titulo.toLowerCase().startsWith('ley') && !l.titulo.toLowerCase().startsWith('reglamento'));
+        const normalizeType = (law) => String(law.tipo || law.tipo_instrumento || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const typeGroups = [
+            ['Leyes', l => normalizeType(l).includes('ley') || l.titulo.toLowerCase().startsWith('ley')],
+            ['Reglamentos', l => normalizeType(l).includes('reglamento') || l.titulo.toLowerCase().startsWith('reglamento')],
+            ['Acuerdos', l => normalizeType(l).includes('acuerdo')],
+            ['DACG', l => normalizeType(l).includes('dacg') || normalizeType(l).includes('disposicion')],
+            ['Convocatorias', l => normalizeType(l).includes('convocatoria')],
+        ];
+        const classified = new Set();
+        const groups = typeGroups.map(([label, predicate]) => {
+            const items = cachedSummaries.filter(l => !classified.has(l.id) && predicate(l));
+            items.forEach(l => classified.add(l.id));
+            return { label, items };
+        });
+        const otros = cachedSummaries.filter(l => !classified.has(l.id));
+        if (otros.length) groups.push({ label: 'Otros', items: otros });
+        const leyes = groups.find(g => g.label === 'Leyes')?.items || [];
+        const reglamentos = groups.find(g => g.label === 'Reglamentos')?.items || [];
+        const lastUpdate = cachedSummaries.map(l => l.fecha_ultima_reforma || l.fecha_publicacion || l.fecha).filter(Boolean).sort().at(-1) || 'N/D';
         const sorted = [...cachedSummaries].sort((a, b) => b.articulos - a.articulos);
         const maxArticulos = sorted[0]?.articulos || 1;
 
@@ -2930,7 +2946,7 @@ export function initUI() {
                         <h2 class="text-3xl font-head font-bold text-gray-800">Estadísticas del Marco Jurídico</h2>
                     </div>
                     <div class="text-right">
-                        <span class="text-[11px] font-medium text-gray-400 block italic">Última actualización: Mayo 2025</span>
+                        <span class="text-[11px] font-medium text-gray-400 block italic">Último dato disponible: ${lastUpdate}</span>
                     </div>
                 </div>
 
@@ -2938,7 +2954,7 @@ export function initUI() {
                     <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-guinda/5 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
                         <span class="text-4xl font-head font-bold text-guinda block mb-1 relative">${cachedSummaries.length}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Total de Leyes</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Instrumentos totales</span>
                     </div>
                     <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-gris-claro/40 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
@@ -2948,12 +2964,12 @@ export function initUI() {
                     <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-verde/10 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
                         <span class="text-4xl font-head font-bold text-verde block mb-1 relative">${leyes.length}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Leyes Federales</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Leyes</span>
                     </div>
                     <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-dorado/10 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-head font-bold text-dorado block mb-1 relative">${reglamentos.length + otros.length}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Reglamentos y Otros</span>
+                        <span class="text-4xl font-head font-bold text-dorado block mb-1 relative">${groups.filter(g => g.items.length).length}</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Tipos de instrumento</span>
                     </div>
                 </div>
 
@@ -2964,8 +2980,9 @@ export function initUI() {
                     </h3>
                     <div class="space-y-5">
                         ${sorted.map(law => {
-                            const isLey = law.titulo.toLowerCase().startsWith('ley');
-                            const isReg = law.titulo.toLowerCase().startsWith('reglamento');
+                            const lawType = normalizeType(law);
+                            const isLey = lawType.includes('ley') || law.titulo.toLowerCase().startsWith('ley');
+                            const isReg = lawType.includes('reglamento') || law.titulo.toLowerCase().startsWith('reglamento');
                             const barColor = isLey ? 'bg-guinda' : isReg ? 'bg-verde' : 'bg-dorado';
                             const pct = Math.round((law.articulos / maxArticulos) * 100);
                             return `
@@ -2982,15 +2999,11 @@ export function initUI() {
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    ${[
-                        { label: 'Leyes Federales', items: leyes, colorClass: 'text-guinda' },
-                        { label: 'Reglamentos', items: reglamentos, colorClass: 'text-verde' },
-                        { label: 'Acuerdos y Otros', items: otros, colorClass: 'text-dorado' }
-                    ].map(cat => `
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                    ${groups.filter(g => g.items.length).map((cat, index) => `
                         <div class="bg-white p-7 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-50">
-                                <span class="text-[10px] font-black ${cat.colorClass} uppercase tracking-widest">${cat.label}</span>
+                                <span class="text-[10px] font-black ${['text-guinda','text-verde','text-dorado'][index % 3]} uppercase tracking-widest">${cat.label}</span>
                                 <span class="text-[10px] bg-gray-50 text-gray-500 font-bold px-2 py-0.5 rounded-full">${cat.items.length}</span>
                             </div>
                             <div class="space-y-3">

@@ -1,0 +1,18 @@
+[
+  {
+    "name": "MOG-SENER",
+    "original": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/27/MAT/sener_1_Cimg_0.png",
+    "url": "https://dof.gob.mx/imagenes_diarios/2026/04/27/MAT/sener_1_Cimg_0.png",
+    "sha256": "7018eb7cc49a7ecc40d24dc8044fef23a7467f518842d6d704ef27f27ccfa7fd",
+    "bytes": 112569,
+    "verificada": true
+  },
+  {
+    "name": "MOG-CNE",
+    "original": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/29/MAT/sener_1_Cimg_0.png",
+    "url": "https://dof.gob.mx/imagenes_diarios/2026/05/29/MAT/sener_1_Cimg_0.png",
+    "sha256": "83cddbf9d71358fdc98ebef751df7c0bd62535272eb551b5308f00382dbcb5af",
+    "bytes": 373902,
+    "verificada": true
+  }
+]

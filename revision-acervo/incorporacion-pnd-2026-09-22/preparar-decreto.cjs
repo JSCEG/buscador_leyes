@@ -1,0 +1,34 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{JSDOM}=require('jsdom');
+const root=__dirname,save=(name,data)=>fs.writeFileSync(path.join(root,name),JSON.stringify(data,null,2));
+const source=JSON.parse(fs.readFileSync(path.join(root,'fuentes.json'),'utf8')).find(s=>s.name==='PND-DECRETO');
+const raw=fs.readFileSync(path.join(root,'fuentes/PND-DECRETO.html'),'utf8');
+if(crypto.createHash('sha256').update(raw).digest('hex')!==source.sha256)throw Error('Fuente alterada');
+const doc=new JSDOM(raw).window.document;
+const blocks=[...doc.body.querySelectorAll('h1,h2,div,p')].filter(e=>!e.querySelector('h1,h2,div,p')).map(e=>e.textContent.replace(/\s+/g,' ').trim()).filter(Boolean);
+const first=blocks.findIndex(t=>t.startsWith('Primero.-')),second=blocks.findIndex(t=>t.startsWith('Segundo.-'));
+if(first<0||second!==first+1||blocks.length!==second+3)throw Error('Estructura inesperada');
+const groups=[['Preámbulo del decreto','preambulo',blocks.slice(0,first)],['Primero','ordinario',[blocks[first]]],['Segundo','ordinario',[blocks[second]]],['Firmas y promulgación','anexo',blocks.slice(second+1)]];
+const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const compact=t=>t.replace(/\s/g,'');
+if(compact(groups.flatMap(g=>g[2]).join(''))!==compact(doc.body.textContent))throw Error('Texto omitido');
+const lid='761b43cf-4d94-4eb5-809d-3d3a0a8d233e';
+const ley={id:lid,titulo:source.titulo.trim().replace(/\.$/,''),siglas:'PND-DECRETO',fecha_publicacion:'2025-04-15',fecha_ultima_reforma:null,vigente:null,temas_clave:['Planeación nacional','PND 2025-2030'],url_original:source.url,tipo:'decreto'};
+const articulos=groups.map(([identificador,tipo_articulo,texts],orden)=>({id:`761b43cf-4d94-4eb5-809d-3d3a0a8d234${orden}`,ley_id:lid,identificador,tipo_articulo,orden,contenido:texts.map(t=>'<p>'+esc(t)+'</p>').join('\n'),titulo_nombre:ley.titulo,capitulo_nombre:null,seccion_nombre:null}));
+const payload={ley,articulos};save('PND-DECRETO-carga.json',payload);
+save('COTEJO-DECRETO.json',{fuente:source.url,sha256:source.sha256,bloques:blocks.length,fragmentos:articulos.length,cobertura_textual_completa:true,tablas:0,imagenes:0,nota:'Firmas conservadas como sección del mismo decreto, no como documento relacionado. Cotejo textual contra HTML oficial; no se afirma sincronización PDF.'});
+const json=JSON.stringify(payload);if(json.includes('$payload$'))throw Error('Delimitador inesperado');
+const sql=`BEGIN;
+DO $ingest$
+DECLARE p jsonb := $payload$${json}$payload$::jsonb; lid uuid := '${lid}';
+BEGIN
+ LOCK TABLE public.leyes,public.articulos IN SHARE ROW EXCLUSIVE MODE;
+ IF EXISTS(SELECT 1 FROM public.leyes WHERE id=lid OR siglas='PND-DECRETO' OR url_original=p->'ley'->>'url_original' OR lower(titulo)=lower(p->'ley'->>'titulo')) THEN RAISE EXCEPTION 'Instrumento existente: no reemplazar'; END IF;
+ INSERT INTO public.leyes(id,titulo,siglas,fecha_publicacion,fecha_ultima_reforma,vigente,temas_clave,url_original,tipo) SELECT id,titulo,siglas,fecha_publicacion,fecha_ultima_reforma,vigente,temas_clave,url_original,tipo FROM jsonb_populate_record(null::public.leyes,p->'ley');
+ INSERT INTO public.articulos(id,ley_id,identificador,contenido,tipo_articulo,orden,titulo_nombre,capitulo_nombre,seccion_nombre) SELECT id,ley_id,identificador,contenido,tipo_articulo,orden,titulo_nombre,capitulo_nombre,seccion_nombre FROM jsonb_populate_recordset(null::public.articulos,p->'articulos');
+ INSERT INTO public.temas(ley_id,nivel,nombre,orden) VALUES(lid,'titulo',p->'ley'->>'titulo',0);
+ IF (SELECT count(*) FROM public.articulos WHERE ley_id=lid)<>4 OR EXISTS(SELECT 1 FROM jsonb_array_elements(p->'articulos') b LEFT JOIN public.articulos a ON a.id=(b->>'id')::uuid WHERE a.id IS NULL OR (to_jsonb(a)-'fts'-'created_at') IS DISTINCT FROM b OR a.fts IS NULL OR a.fts=''::tsvector) THEN RAISE EXCEPTION 'Cotejo fallido'; END IF;
+END $ingest$;
+COMMIT;
+SELECT siglas,id FROM public.leyes WHERE id='${lid}';`;
+fs.writeFileSync(path.join(root,'PND-DECRETO-aplicar.sql'),sql);
+console.log(JSON.stringify({id:lid,fragmentos:articulos.length,bloques:blocks.length,cotejo:true}));

@@ -1,0 +1,13 @@
+{
+  "sha256": "96d8a9dfa1a71026b2501820876ef71b4b48623d6219dd931474a9b6e0d3ea2b",
+  "bloques": 1373,
+  "fragmentos": 98,
+  "tablas": 122,
+  "celdas": 1440,
+  "imagenes": 69,
+  "texto_completo": true,
+  "celdas_y_combinaciones_identicas": true,
+  "cobertura_sin_solapamientos": true,
+  "imagenes_verificadas": true,
+  "alcance": "Cotejo contra HTML oficial; no implica sincronización o cotejo visual de todas las páginas PDF."
+}

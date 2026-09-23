@@ -1,0 +1,10 @@
+0	parrafo	DECRETO por el que se aprueba el Plan Nacional de Desarrollo 2025-2030.
+1	parrafo	Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Presidencia de la República.
+2	parrafo	CLAUDIA SHEINBAUM PARDO, Presidenta de los Estados Unidos Mexicanos, a sus habitantes sabed:
+3	parrafo	Que la Cámara de Diputados del Honorable Congreso de la Unión, se ha servido dirigirme el siguiente
+4	parrafo	DECRETO
+5	parrafo	"LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN, CON FUNDAMENTO EN LA FRACCIÓN VII DEL ARTÍCULO 74 DE LA CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS MEXICANOS, DECRETA:
+6	parrafo	Primero.- La Cámara de Diputados del Honorable Congreso de la Unión aprueba el Plan Nacional de Desarrollo 2025-2030 enviado por la Titular del Ejecutivo Federal el día 28 de febrero de 2025, por incluir y cumplir a cabalidad los fines del proyecto nacional establecidos en la Constitución Política de los Estados Unidos Mexicanos.
+7	parrafo	Segundo.- Remítanse al Ejecutivo Federal el presente Acuerdo y el Plan Nacional de Desarrollo 2025-2030, para su publicación en el Diario Oficial de la Federación y su implementación integral.
+8	parrafo	SALÓN DE SESIONES DE LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN.- Ciudad de México, a 10 de abril de 2025.- Dip. Sergio Carlos Gutiérrez Luna, Presidente.- Dip. Julieta Villalpando Riquelme, Secretaria.- Rúbricas."
+9	parrafo	En cumplimiento de lo dispuesto por la fracción I del Artículo 89 de la Constitución Política de los Estados Unidos Mexicanos, y para su debida publicación y observancia, expido el presente Decreto en la Residencia del Poder Ejecutivo Federal, en la Ciudad de México, a 14 de abril de 2025.- Claudia Sheinbaum Pardo, Presidenta de los Estados Unidos Mexicanos.- Rúbrica.- Lcda. Rosa Icela Rodríguez Velázquez, Secretaria de Gobernación.- Rúbrica.

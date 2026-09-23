@@ -1,0 +1,12 @@
+{
+  "id": "b872a637-08eb-55ed-a529-9822185c86f2",
+  "sha256": "768177fab8c83d576049d186fc3c5dc3d976865cbf42aec890a307d15f8a1091",
+  "bloques": 948,
+  "fragmentos": 41,
+  "temas": 42,
+  "tablas": 0,
+  "imagenes": 1,
+  "texto_completo": true,
+  "organigrama_verificado": true,
+  "alcance": "Cotejo íntegro contra HTML oficial; sin sincronización PDF."
+}

@@ -1,0 +1,4 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const file=path.join(__dirname,'imagenes.json'),images=JSON.parse(fs.readFileSync(file));
+(async()=>{let next=0;await Promise.all(Array.from({length:5},async()=>{while(next<images.length){const m=images[next++];m.url=m.original.replace('https://sidofqa.segob.gob.mx/','https://dof.gob.mx/');const r=await fetch(m.url,{signal:AbortSignal.timeout(60000)});const b=Buffer.from(await r.arrayBuffer());if(!r.ok||!r.headers.get('content-type')?.startsWith('image/'))throw Error('Imagen inválida '+m.url);m.sha256=crypto.createHash('sha256').update(b).digest('hex');m.bytes=b.length;m.verificada=true;}}));fs.writeFileSync(file,JSON.stringify(images,null,2));console.log('Imágenes verificadas: '+images.length);})().catch(e=>{console.error(e);process.exitCode=1;});
+

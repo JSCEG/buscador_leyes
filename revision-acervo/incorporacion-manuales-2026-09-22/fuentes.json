@@ -1,0 +1,44 @@
+[
+  {
+    "name": "MOG-SENER",
+    "code": "5785999",
+    "radar": "RAD-018",
+    "familia": "Organización institucional",
+    "pieza": "Manual de Organización General de la Secretaría de Energía",
+    "tipo": "manual",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5785999",
+    "sha256": "13b6c34c6f4c05ffbe0e57b199585b1f0893c6da2072545b79d9119eb2f126d3",
+    "fecha": "27-04-2026",
+    "titulo": "Manual de Organización General de la Secretaría de Energía.",
+    "codDiario": 326905,
+    "pagina": 191,
+    "tables": 0,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/04/27/MAT/sener_1_Cimg_0.png",
+        "alt": null
+      }
+    ]
+  },
+  {
+    "name": "MOG-CNE",
+    "code": "5788990",
+    "radar": "RAD-019",
+    "familia": "Organización institucional",
+    "pieza": "Manual de Organización General de la Comisión Nacional de Energía",
+    "tipo": "manual",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5788990",
+    "sha256": "768177fab8c83d576049d186fc3c5dc3d976865cbf42aec890a307d15f8a1091",
+    "fecha": "29-05-2026",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se expide el Manual de Organización General de la Comisión Nacional de Energía.",
+    "codDiario": 327605,
+    "pagina": 86,
+    "tables": 0,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2026/05/29/MAT/sener_1_Cimg_0.png",
+        "alt": null
+      }
+    ]
+  }
+]

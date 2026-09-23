@@ -1,0 +1,311 @@
+[
+  {
+    "name": "PND-DECRETO",
+    "code": "5755161",
+    "radar": "RAD-005",
+    "familia": "Planeación nacional",
+    "pieza": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+    "tipo": "decreto",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5755161",
+    "sha256": "1b16da2757ecd3e518eb2e98b86e46042f3c327ae640542ce5b661a01ee4067d",
+    "fecha": "15-04-2025",
+    "titulo": " Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030.",
+    "codDiario": 320563,
+    "pagina": 8,
+    "tables": 0,
+    "images": []
+  },
+  {
+    "name": "PND",
+    "code": "5755162",
+    "radar": "RAD-006",
+    "familia": "Planeación nacional",
+    "pieza": "Plan Nacional de Desarrollo 2025-2030",
+    "tipo": "plan",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5755162",
+    "sha256": "96d8a9dfa1a71026b2501820876ef71b4b48623d6219dd931474a9b6e0d3ea2b",
+    "fecha": "15-04-2025",
+    "titulo": " Plan Nacional de Desarrollo 2025-2030.",
+    "codDiario": 320563,
+    "pagina": 8,
+    "tables": 122,
+    "images": [
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_59778.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_71473.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_81389.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_92083.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_101207.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_109140.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_118296.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_127883.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_136570.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_149882.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_157541.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_165753.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_173600.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_187692.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_196248.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_207394.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_231268.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_239865.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_249533.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_258424.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_261512.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_268656.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_277097.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_286919.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_294207.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_302600.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_311217.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_316511.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_323424.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_330170.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_334013.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_337944.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_342329.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_350212.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_358128.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_376507.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_381881.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_388519.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_397054.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_406798.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_413666.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_424396.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_433479.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_443843.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_455080.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_465146.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_474822.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_481487.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_487112.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_493078.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_499511.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_507306.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_517923.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_528250.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_539219.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_547844.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_559621.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_574488.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_583039.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_592141.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_598285.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_605267.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_613594.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_623942.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_633692.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_646480.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_652543.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_660576.png",
+        "alt": null
+      },
+      {
+        "src": "https://sidofqa.segob.gob.mx/imagenes_diarios/2025/04/15/VES/PRESREP_6_Cimg_673181.png",
+        "alt": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "instrumento": "PND-DECRETO",
+  "sha256": "1b16da2757ecd3e518eb2e98b86e46042f3c327ae640542ce5b661a01ee4067d",
+  "tablas": 0,
+  "casillas": 0,
+  "graficos": 0,
+  "bloques": [
+    {
+      "id": 0,
+      "tipo": "parrafo",
+      "texto": "DECRETO por el que se aprueba el Plan Nacional de Desarrollo 2025-2030.",
+      "html": " DECRETO por el que se aprueba el Plan Nacional de Desarrollo 2025-2030."
+    },
+    {
+      "id": 1,
+      "tipo": "parrafo",
+      "texto": "Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Presidencia de la República.",
+      "html": " Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Presidencia de la República."
+    },
+    {
+      "id": 2,
+      "tipo": "parrafo",
+      "texto": "CLAUDIA SHEINBAUM PARDO, Presidenta de los Estados Unidos Mexicanos, a sus habitantes sabed:",
+      "html": "<div> CLAUDIA SHEINBAUM PARDO, Presidenta de los Estados Unidos Mexicanos, a sus habitantes sabed:</div>"
+    },
+    {
+      "id": 3,
+      "tipo": "parrafo",
+      "texto": "Que la Cámara de Diputados del Honorable Congreso de la Unión, se ha servido dirigirme el siguiente",
+      "html": "<div> Que la Cámara de Diputados del Honorable Congreso de la Unión, se ha servido dirigirme el siguiente</div>"
+    },
+    {
+      "id": 4,
+      "tipo": "parrafo",
+      "texto": "DECRETO",
+      "html": "<div> DECRETO<br> </div>"
+    },
+    {
+      "id": 5,
+      "tipo": "parrafo",
+      "texto": "\"LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN, CON FUNDAMENTO EN LA FRACCIÓN VII DEL ARTÍCULO 74 DE LA CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS MEXICANOS, DECRETA:",
+      "html": "<div> &quot;LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN, CON FUNDAMENTO EN LA FRACCIÓN VII DEL ARTÍCULO 74 DE LA CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS  MEXICANOS, DECRETA:</div>"
+    },
+    {
+      "id": 6,
+      "tipo": "parrafo",
+      "texto": "Primero.- La Cámara de Diputados del Honorable Congreso de la Unión aprueba el Plan Nacional de Desarrollo 2025-2030 enviado por la Titular del Ejecutivo Federal el día 28 de febrero de 2025, por incluir y cumplir a cabalidad los fines del proyecto nacional establecidos en la Constitución Política de los Estados Unidos Mexicanos.",
+      "html": "<div> Primero.- La Cámara de Diputados del Honorable Congreso de la Unión aprueba el Plan Nacional de Desarrollo 2025-2030 enviado por la Titular del Ejecutivo Federal el día 28 de febrero de 2025, por incluir y cumplir a cabalidad los fines del proyecto nacional establecidos en la Constitución Política de los Estados Unidos Mexicanos.</div>"
+    },
+    {
+      "id": 7,
+      "tipo": "parrafo",
+      "texto": "Segundo.- Remítanse al Ejecutivo Federal el presente Acuerdo y el Plan Nacional de Desarrollo 2025-2030, para su publicación en el Diario Oficial de la Federación y su implementación integral.",
+      "html": "<div> Segundo.- Remítanse al Ejecutivo Federal el presente Acuerdo y el Plan Nacional de Desarrollo 2025-2030, para su publicación en el Diario Oficial de la Federación y su implementación integral.</div>"
+    },
+    {
+      "id": 8,
+      "tipo": "parrafo",
+      "texto": "SALÓN DE SESIONES DE LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN.- Ciudad de México, a 10 de abril de 2025.- Dip. Sergio Carlos Gutiérrez Luna, Presidente.- Dip. Julieta Villalpando Riquelme, Secretaria.- Rúbricas.\"",
+      "html": "<div> SALÓN DE SESIONES DE LA CÁMARA DE DIPUTADOS DEL HONORABLE CONGRESO DE LA UNIÓN.- Ciudad de México, a 10 de abril de 2025.- Dip. Sergio Carlos Gutiérrez Luna, Presidente.- Dip. Julieta Villalpando Riquelme, Secretaria.- Rúbricas.&quot;</div>"
+    },
+    {
+      "id": 9,
+      "tipo": "parrafo",
+      "texto": "En cumplimiento de lo dispuesto por la fracción I del Artículo 89 de la Constitución Política de los Estados Unidos Mexicanos, y para su debida publicación y observancia, expido el presente Decreto en la Residencia del Poder Ejecutivo Federal, en la Ciudad de México, a 14 de abril de 2025.- Claudia Sheinbaum Pardo, Presidenta de los Estados Unidos Mexicanos.- Rúbrica.- Lcda. Rosa Icela Rodríguez Velázquez, Secretaria de Gobernación.- Rúbrica.",
+      "html": "<div> En cumplimiento de lo dispuesto por la fracción I del Artículo 89 de la Constitución Política de los Estados Unidos Mexicanos, y para su debida publicación y observancia, expido el presente Decreto en la Residencia del Poder Ejecutivo Federal, en la Ciudad de México, a 14 de abril de 2025.- Claudia Sheinbaum Pardo, Presidenta de los Estados Unidos Mexicanos.- Rúbrica.- Lcda. Rosa Icela Rodríguez Velázquez, Secretaria de Gobernación.- Rúbrica.</div>"
+    }
+  ],
+  "cotejo_textual_sin_perdida": true
+}
