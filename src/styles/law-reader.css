@@ -103,3 +103,12 @@ html.dark-mode .lr-btn-primary{color:#1e1c1a!important}
 #law-articles-list .result-item>div.flex:first-of-type>span:last-child{-webkit-line-clamp:1!important;line-clamp:1;min-width:0;flex:1;text-align:right}
 .lr-search input#law-search-input{padding-left:0!important;text-indent:0!important}
 html.dark-mode .lr-search input#law-search-input{background:transparent!important;border:0!important}
+/* Long official titles (agreements, decrees) must not take over the screen. */
+.lr-head-main{flex-wrap:wrap}
+.lr-head-text{flex:1 1 560px}
+.lr-title{max-width:34ch}
+.lr-title.lr-title-long{font-size:clamp(21px,2.1vw,27px);line-height:1.28;max-width:56ch;letter-spacing:-.01em}
+@media (max-width:760px){
+    .lr-head-text{flex:none;width:100%}
+    .lr-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+}

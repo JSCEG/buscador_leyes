@@ -1128,7 +1128,7 @@ export function initUI() {
                 <div class="lr-head-main">
                     <div class="lr-head-text">
                         <p class="lr-eyebrow" data-category="${lawGroup}"><span class="lr-eyebrow-ico">${collectionIcon(lawGroup, 16)}</span>${escapeHtml(lawGroupLabel)}${law.siglas ? ` · ${escapeHtml(law.siglas)}` : ''}</p>
-                        <h1 class="lr-title">${escapeHtml(law.titulo)}</h1>
+                        <h1 class="lr-title${law.titulo.length > 90 ? ' lr-title-long' : ''}">${escapeHtml(law.titulo)}</h1>
                         <ul class="lr-meta" aria-label="Datos del instrumento">
                             <li><span>Publicación</span><strong>${escapeHtml(formatLawDate(law.fecha_publicacion) || 'Sin fecha')}</strong></li>
                             ${law.fecha_ultima_reforma ? `<li><span>Última reforma</span><strong>${escapeHtml(formatLawDate(law.fecha_ultima_reforma))}</strong></li>` : ''}
