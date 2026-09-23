@@ -1,11 +1,10 @@
 import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
-import { renderAnalisisView } from './analisis.js';
-import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-presentation.js';
+// Heavy, rarely used views load on demand so the library opens fast.
+const loadPresentation = () => import('./law-presentation.js');
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
-import { renderStatsView } from './stats-view.js';
 import { renderSearchResults } from './search-results-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/law-reader.css';
@@ -271,6 +270,7 @@ export function initUI() {
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
     let statsView = null;
+    let statsViewRequest = 0;
     let lawOutlineSync = null;
     let lawOutlineObserver = null;
     const formatLawDate = value => {
@@ -336,209 +336,6 @@ export function initUI() {
         if (summary) openLawDetail(summary);
     });
 
-    // Lógica de clasificación avanzada de instrumentos
-    function classifyInstrument(s) {
-        const otherType = { id: 'otros', label: 'Otros instrumentos', color: 'gris', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
-        // Priorizar el campo 'tipo' si viene de la base de datos
-        if (s.tipo) {
-            const t = s.tipo.toLowerCase();
-            if (t === 'otros') return otherType;
-            if (t === 'ley') return { id: 'ley', label: 'Leyes Federales', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
-            if (t === 'reglamento') return { id: 'reglamento', label: 'Reglamentos', color: 'verde', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
-            if (t === 'acuerdo') return { id: 'acuerdo', label: 'Acuerdos', color: 'dorado', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
-            if (t === 'decreto') return { id: 'decreto', label: 'Decretos', color: 'purple-700', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
-            if (t === 'dacg') return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
-            if (t === 'nom') return { id: 'nom', label: 'NOMs', color: 'gris', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
-            if (t === 'permiso') return { id: 'permiso', label: 'Permisos', color: 'cyan-700', icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z' };
-            if (t === 'manual') return { id: 'manual', label: 'Manuales', color: 'slate-600', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
-        }
-
-        // Fallback a detección por texto en título
-        const t = (s.titulo || '').toLowerCase();
-        if (t.startsWith('ley ')) return { id: 'ley', label: 'Leyes', color: 'guinda', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' };
-        if (t.startsWith('reglamento ')) return { id: 'reglamento', label: 'Reglamentos', color: 'verde', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' };
-        if (t.includes('acuerdo')) return { id: 'acuerdo', label: 'Acuerdos', color: 'dorado', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
-        if (t.includes('decreto')) return { id: 'decreto', label: 'Decretos', color: 'purple-700', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' };
-        if (t.includes('disposiciones administrativas') || t.includes('dacg')) return { id: 'dacg', label: 'DACG\'s', color: 'blue-700', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' };
-        if (t.includes('norma oficial') || t.includes('nom-')) return { id: 'nom', label: 'NOMs', color: 'gris', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' };
-        return otherType;
-    }
-
-    function renderAcervoAnalytics(summaries) {
-        const dashboard = document.getElementById('acervo-visual-dashboard');
-        if (!dashboard) return;
-
-        dashboard.classList.remove('hidden', 'opacity-0');
-        dashboard.style.removeProperty('display');
-
-        // 1. Data Processing
-        const counts = summaries.reduce((acc, s) => {
-            const type = classifyInstrument(s).id;
-            acc[type] = (acc[type] || 0) + 1;
-            return acc;
-        }, {});
-
-        const total = summaries.length;
-        const categories = [
-            { id: 'ley', label: 'Leyes Federales', color: '#9B2247', count: counts['ley'] || 0 },
-            { id: 'reglamento', label: 'Reglamentos', color: '#1E5B4F', count: counts['reglamento'] || 0 },
-            { id: 'acuerdo', label: 'Acuerdos', color: '#A57F2C', count: counts['acuerdo'] || 0 },
-            { id: 'dacg', label: 'DACG\'s', color: '#2563eb', count: counts['dacg'] || 0 },
-            { id: 'nom', label: 'NOMs', color: '#7c3aed', count: counts['nom'] || 0 },
-            { id: 'otros', label: 'Otros', color: '#64748b', count: (counts['decreto'] || 0) + (counts['permiso'] || 0) + (counts['manual'] || 0) + (counts['otros'] || 0) }
-        ].filter(c => c.count > 0);
-
-        // Update Total Display
-        const totalDisplay = document.getElementById('total-count-display');
-        if (totalDisplay) {
-            let start = 0;
-            const duration = 2000;
-            const startTime = performance.now();
-            const animateTotal = (now) => {
-                const progress = Math.min((now - startTime) / duration, 1);
-                const value = Math.floor(total * progress);
-                totalDisplay.textContent = value;
-                if (progress < 1) requestAnimationFrame(animateTotal);
-            };
-            requestAnimationFrame(animateTotal);
-        }
-
-        // 2. Render Legend
-        const legendContainer = document.getElementById('analytics-legend');
-        if (legendContainer) {
-            legendContainer.innerHTML = categories.map(cat => `
-                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-white transition-colors cursor-default">
-                    <div class="w-2.5 h-2.5 rounded-full shadow-sm" style="background-color: ${cat.color}"></div>
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">${cat.label}</span>
-                </div>
-            `).join('');
-        }
-
-        // 3. D3 Donut Chart
-        renderDonutChart(categories, total);
-
-        // 4. D3 Bar Chart (Simplified rows with D3 logic)
-        renderBarCharts(categories, total);
-    }
-
-    function renderDonutChart(data, total) {
-        const container = document.getElementById('donut-chart-container');
-        if (!container) return;
-        container.innerHTML = '';
-
-        const width = container.clientWidth || 360;
-        const height = width;
-        const margin = 20;
-        const radius = Math.min(width, height) / 2 - margin;
-
-        const svg = d3.select('#donut-chart-container')
-            .append('svg')
-            .attr('width', '100%')
-            .attr('height', '100%')
-            .attr('viewBox', `0 0 ${width} ${height}`)
-            .append('g')
-            .attr('transform', `translate(${width / 2},${height / 2})`);
-
-        const pie = d3.pie()
-            .sort(null)
-            .value(d => d.count)
-            .padAngle(0.04);
-
-        const arc = d3.arc()
-            .innerRadius(radius * 0.75)
-            .outerRadius(radius)
-            .cornerRadius(8);
-
-        const arcHover = d3.arc()
-            .innerRadius(radius * 0.72)
-            .outerRadius(radius * 1.05)
-            .cornerRadius(12);
-
-        const path = svg.selectAll('path')
-            .data(pie(data))
-            .enter()
-            .append('path')
-            .attr('fill', d => d.data.color)
-            .attr('d', arc)
-            .attr('stroke', 'white')
-            .attr('stroke-width', '2')
-            .each(function(d) { this._current = d; });
-
-        // Entry Animation
-        path.transition()
-            .duration(1500)
-            .attrTween('d', function(d) {
-                const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
-                return (t) => arc(interpolate(t));
-            })
-            .ease(d3.easeElasticOut.amplitude(1).period(0.6));
-
-        // Interactivity
-        path.on('mouseenter', function(event, d) {
-            d3.select(this)
-                .transition()
-                .duration(400)
-                .attr('d', arcHover)
-                .style('filter', 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))');
-            
-            // Subtle pulse to total display
-            const totalDisplay = d3.select('#total-count-display');
-            totalDisplay.transition()
-                .duration(200)
-                .style('transform', 'scale(1.1)')
-                .style('color', d.data.color);
-        })
-        .on('mouseleave', function(event, d) {
-            d3.select(this)
-                .transition()
-                .duration(400)
-                .attr('d', arc)
-                .style('filter', 'none');
-            
-            const totalDisplay = d3.select('#total-count-display');
-            totalDisplay.transition()
-                .duration(300)
-                .style('transform', 'scale(1)')
-                .style('color', '#9B2247');
-        });
-    }
-
-    function renderBarCharts(data, total) {
-        const container = document.getElementById('bar-chart-container');
-        if (!container) return;
-        container.innerHTML = '';
-
-        data.sort((a, b) => b.count - a.count).forEach((cat, i) => {
-            const percentage = ((cat.count / total) * 100).toFixed(1);
-            const row = document.createElement('div');
-            row.className = 'group';
-            row.innerHTML = `
-                <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white shadow-sm" style="background-color: ${cat.color}">
-                            <span class="text-[10px] font-black">${cat.count}</span>
-                        </div>
-                        <span class="text-xs font-bold text-gray-700 uppercase tracking-widest">${cat.label}</span>
-                    </div>
-                    <span class="text-[11px] font-black text-gray-400 group-hover:text-guinda transition-colors">${percentage}%</span>
-                </div>
-                <div class="w-full bg-gray-50 h-2.5 rounded-full overflow-hidden border border-gray-100/50">
-                    <div class="bar-fill h-full rounded-full transition-all duration-[1500ms] ease-out-expo" 
-                         style="width: 0%; background-color: ${cat.color}; box-shadow: 0 0 15px ${cat.color}33">
-                    </div>
-                </div>
-            `;
-            container.appendChild(row);
-
-            // Animate width
-            setTimeout(() => {
-                const fill = row.querySelector('.bar-fill');
-                if (fill) fill.style.width = `${percentage}%`;
-            }, 100 + (i * 100));
-        });
-    }
-
-
     // Stats Listener
     window.addEventListener('search-ready', (e) => {
         const { summaries, relaciones } = e.detail;
@@ -551,7 +348,6 @@ export function initUI() {
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
 
         // No longer auto-rendering on home, user wants it only in stats
-        // renderAcervoAnalytics(summaries); 
 
         // Handle URL hash (deep link) once data is ready
         setTimeout(handleInitialHash, 0);
@@ -952,8 +748,7 @@ export function initUI() {
             'admin-ingest-container',
             'stats-minimal',
             'help-view-container',
-            'features-section',
-            'acervo-visual-dashboard'
+            'features-section'
         ];
         containers.forEach(id => {
             const el = document.getElementById(id);
@@ -1261,7 +1056,12 @@ export function initUI() {
         // Secondary panels render the first time they are opened: hidden containers have no size.
         const renderedPanels = new Set(['texto', 'linea']);
         const panelRenderers = {
-            presentacion: () => renderLawPresentationEmbed(document.getElementById('law-presentation-embed'), law, currentLawArticles, dbThemes),
+            presentacion: async () => {
+                const target = document.getElementById('law-presentation-embed');
+                target.innerHTML = '<p class="lr-panel-intro" role="status">Cargando presentación…</p>';
+                const { renderLawPresentationEmbed } = await loadPresentation();
+                if (target.isConnected) renderLawPresentationEmbed(target, law, currentLawArticles, dbThemes);
+            },
             estructura: () => renderLawStructureChart(currentLawArticles, dbThemes),
         };
         const showLawPanel = (name, { focusTab = false } = {}) => {
@@ -1746,12 +1546,13 @@ export function initUI() {
         document.getElementById('print-btn')?.addEventListener('click', () => window.print());
 
         const presentBtn = document.getElementById('present-law-btn');
-        presentBtn?.addEventListener('click', () => {
+        presentBtn?.addEventListener('click', async () => {
             const label = presentBtn.querySelector('.present-label');
             const originalLabel = label?.textContent || 'Presentar';
             try {
                 presentBtn.disabled = true;
                 if (label) label.textContent = 'Abriendo...';
+                const { openLawPresentationDeck } = await loadPresentation();
                 openLawPresentationDeck(law, currentLawArticles, dbThemes);
             } catch (error) {
                 console.error('[Presentation] Error:', error);
@@ -2984,9 +2785,13 @@ export function initUI() {
 
         resultsContainer.classList.remove('hidden', 'opacity-0');
         statsView?.destroy();
-        statsView = renderStatsView(resultsContainer, cachedSummaries, {
-            onOpenLaw: law => openLawDetail(law),
-            onOpenGroup: group => showLawsView({ ...acervoState, group, query: '' }),
+        const statsRequest = ++statsViewRequest;
+        import('./stats-view.js').then(({ renderStatsView }) => {
+            if (statsRequest !== statsViewRequest || activeNavId !== 'nav-stats') return;
+            statsView = renderStatsView(resultsContainer, cachedSummaries, {
+                onOpenLaw: law => openLawDetail(law),
+                onOpenGroup: group => showLawsView({ ...acervoState, group, query: '' }),
+            });
         });
     }
 
@@ -3641,6 +3446,7 @@ export function initUI() {
         analisisContainer.classList.remove('hidden');
         setTimeout(() => analisisContainer.classList.remove('opacity-0'), 50);
 
+        const { renderAnalisisView } = await import('./analisis.js');
         await renderAnalisisView(analisisContainer, state);
     }
     // ── Fin Análisis ─────────────────────────────────────────────────────────────

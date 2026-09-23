@@ -1,4 +1,4 @@
-import pptxgen from 'pptxgenjs';
+// pptxgenjs (~500 KB) is only needed to build a .pptx: load it on demand.
 
 const COLORS = {
     guinda: '9B2247',
@@ -36,6 +36,7 @@ export async function generateLawPresentation(law, articles = [], themes = []) {
     }
 
     const assets = await loadAssets();
+    const { default: pptxgen } = await import('pptxgenjs');
     const pptx = new pptxgen();
     pptx.layout = 'LAYOUT_WIDE';
     pptx.author = 'Secretaría de Energía';

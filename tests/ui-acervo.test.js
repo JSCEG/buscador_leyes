@@ -105,7 +105,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(results.classList.contains('opacity-0')).toBe(false);
   expect(cards()).toHaveLength(summaries.length);
   expect(globalSearch.classList.contains('hidden')).toBe(true);
-  expect(document.getElementById('acervo-visual-dashboard').closest('#admin-ingest-container')).toBeNull();
+  expect(document.getElementById('acervo-visual-dashboard')).toBeNull(); // retired in favour of Estadísticas
 
   // Drill into a collection, change its ordering, then return from a real law view.
   const lawsRow = results.querySelector('.ac-row[data-group="leyes"]');
