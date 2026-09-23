@@ -1,10 +1,18 @@
 import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib/acervo-model.js';
+import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/acervo.css';
 
 const mountedViews = new WeakMap();
 let nextViewId = 0;
 const number = value => new Intl.NumberFormat('es-MX').format(value);
 const countLabel = count => `${number(count)} ${count === 1 ? 'instrumento' : 'instrumentos'}`;
+const iconNode = (groupId, className = '') => {
+    const node = document.createElement('span');
+    node.className = `ac-icon ${className}`.trim();
+    node.setAttribute('aria-hidden', 'true');
+    node.innerHTML = collectionIcon(groupId); // static markup from collection-icons.js
+    return node;
+};
 const element = (tag, className, text) => {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -67,7 +75,9 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const filterButtons = new Map();
     for (const group of groups) {
         const button = element('button', 'ac-filter'); button.type = 'button'; button.dataset.group = group.id;
-        button.append(element('span', '', group.label), element('span', 'ac-filter-count'));
+        button.append(iconNode(group.id), element('span', '', group.label), element('span', 'ac-filter-count'));
+        // A collection with nothing loaded yet stays reachable by URL but does not take up the bar.
+        if (group.id !== 'all' && group.id !== state.group && !laws.some(law => getAcervoGroup(law) === group.id)) button.hidden = true;
         filters.append(button); filterButtons.set(group.id, button);
     }
     const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
@@ -158,6 +168,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
             const date = element('time', 'ac-latest-date', publicationDate(law.fecha_publicacion)); date.dateTime = law.fecha_publicacion;
             const text = element('span', 'ac-latest-text');
             text.append(element('span', 'ac-latest-sigla', law.siglas || ACERVO_GROUPS.find(group => group.id === getAcervoGroup(law))?.label || ''), element('span', 'ac-latest-name', law.titulo || 'Instrumento sin título'));
+            text.prepend(iconNode(getAcervoGroup(law), 'ac-latest-icon'));
             button.append(date, text);
             button.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
             item.append(button); list.append(item);
@@ -175,6 +186,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         card.dataset.category = groupId;
         const category = element('span', 'ac-card-category', law.tipo || ACERVO_GROUPS.find(group => group.id === groupId)?.label || 'Instrumento');
         category.title = category.textContent;
+        category.prepend(iconNode(groupId));
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
         acronym.title = acronym.textContent;
         const cardTitle = element('span', 'ac-card-title', title);
@@ -195,7 +207,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     function renderGroup(group) {
         const section = element('section', 'ac-group'); section.setAttribute('aria-labelledby', `${id}-${group.id}`); section.dataset.category = group.id;
         const groupHeader = element('div', 'ac-group-header');
-        const heading = element('h2', '', group.label); heading.id = `${id}-${group.id}`;
+        const heading = element('h2', '', group.label); heading.id = `${id}-${group.id}`; heading.prepend(iconNode(group.id, 'ac-group-icon'));
         heading.append(element('span', 'ac-group-count', String(group.items.length)));
         const all = element('button', 'ac-see-all', 'Ver todos'); all.type = 'button'; all.setAttribute('aria-label', `Ver todos: ${group.label}`);
         all.addEventListener('click', () => {

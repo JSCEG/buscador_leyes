@@ -236,3 +236,4 @@ html.dark-mode .nx-node-root{color:#1e1c1a!important}
 html.dark-mode .nx-explorer :is(.nx-topic,.nx-theme-detail){background:var(--nx-card)!important;border-color:var(--nx-border)!important}
 html.dark-mode .nx-explorer :is(.nx-graph,.nx-sources,.nx-block){background:transparent!important}
 @media (max-width:899px){.nx-graph-canvas{min-width:0}.nx-node{font-size:12px;padding:0 8px!important}}
+.nx-explorer .nx-search input{padding-left:0!important}

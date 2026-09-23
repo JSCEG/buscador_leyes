@@ -138,3 +138,23 @@ html.dark-mode .ac-library .ac-mix-seg[data-category=acuerdos]{background:#b06a8
 .ac-library .ac-mix-seg[data-category=dacg]{background:#5f9c8d}
 .ac-library .ac-overview-stats{align-content:space-between}
 .ac-library input[type=search],.ac-library input[type=search]::placeholder{text-align:left!important}
+
+/* Collection icons replace the colour dots */
+.ac-library .ac-icon{display:inline-flex;flex:0 0 auto;color:var(--ac-dot,var(--ac-faint))}
+.ac-library .ac-icon svg{display:block}
+.ac-library .ac-filter[data-group]::before,.ac-library .ac-card-category::before,.ac-library .ac-group .ac-group-header h2::before{display:none}
+.ac-library .ac-filter[data-group=all] .ac-icon{color:var(--ac-muted)}
+.ac-library .ac-filter[aria-pressed=true] .ac-icon{color:#fff}
+.ac-library .ac-filter .ac-icon svg{width:16px;height:16px}
+.ac-library .ac-group-icon{width:34px;height:34px;align-items:center;justify-content:center;border-radius:9px;background:var(--ac-card);border:1px solid var(--ac-border);box-shadow:var(--ac-shadow)}
+.ac-library .ac-group-icon svg{width:20px;height:20px}
+.ac-library .ac-card-category{gap:5px;padding:1px 8px 1px 6px}
+.ac-library .ac-card-category .ac-icon{color:var(--ac-accent)}
+.ac-library .ac-card-category .ac-icon svg{width:13px;height:13px}
+.ac-library .ac-latest-icon svg{width:14px;height:14px}
+.ac-library .ac-latest-text{align-items:center}
+@media(max-width:599px){.ac-library .ac-group-icon{width:30px;height:30px}.ac-library .ac-group-icon svg{width:18px;height:18px}}
+.ac-library .ac-filter[hidden]{display:none}
+.ac-library .ac-filters{gap:6px}
+.ac-library .ac-filter{padding:8px 12px;gap:8px}
+.ac-library .ac-search-box input[type=search]{padding-left:0!important}
