@@ -25,8 +25,8 @@ describe('explorador parametrizable en la vista pública', () => {
     services.load.mockResolvedValue({ catalog });
     await renderAnalisisView(container, { topicId: 'coleccion-prueba', entityId: 'concepto-prueba' });
     expect(container.querySelector('h2').textContent).toBe('Tema adicional de prueba');
-    expect(container.querySelector('#explorer-topic').value).toBe('coleccion-prueba');
-    expect(container.textContent).toContain('No hay relaciones registradas');
+    expect(container.querySelector('[data-select-topic="coleccion-prueba"]').getAttribute('aria-pressed')).toBe('true');
+    expect(container.textContent).toContain('Esta ficha todavía no tiene referencias');
     expect(container.querySelector('main')).toBeNull();
   });
 
@@ -89,5 +89,36 @@ describe('explorador parametrizable en la vista pública', () => {
     container.querySelector('[data-return-published]').click();
     expect(container.querySelector('h2').textContent).toBe(seed.entities[0].title);
     expect(container.querySelector('[data-return-published]')).toBeNull();
+  });
+});
+
+describe('análisis conectado al acervo', () => {
+  const laws = [
+    { id: 'l-pladese', titulo: 'Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico', siglas: 'PLADESE', tipo: 'acuerdo', temas_clave: ['Planeación vinculante'] },
+    { id: 'l-lse', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'ley', temas_clave: ['Planeación Vinculante', 'Interconexión', 'Texto original'] },
+  ];
+  const ready = () => window.dispatchEvent(new CustomEvent('search-ready', { detail: { summaries: laws } }));
+
+  it('hides boilerplate thematic links and opens matching acervo instruments', async () => {
+    ready();
+    const openLaw = vi.fn();
+    document.addEventListener('analisis:openLaw', openLaw);
+    await renderAnalisisView(container, { topicId: 'planeacion-vinculante', entityId: 'pladese' });
+    expect(container.textContent).not.toContain('recorrido editorial «Planeación Vinculante»');
+    container.querySelector('[data-open-law="l-pladese"]').click();
+    expect(openLaw.mock.calls[0][0].detail).toEqual({ id: 'l-pladese' });
+    document.removeEventListener('analisis:openLaw', openLaw);
+  });
+
+  it('switches topics from the cards and lists acervo themes without editorial tags', async () => {
+    ready();
+    await renderAnalisisView(container);
+    container.querySelector('[data-select-topic="justicia-energetica"]').click();
+    expect(container.querySelector('[data-select-topic="justicia-energetica"]').getAttribute('aria-pressed')).toBe('true');
+    container.querySelector('[data-tab="themes"]').click();
+    const themes = [...container.querySelectorAll('.nx-theme-label')].map(node => node.textContent);
+    expect(themes).toEqual(['Planeación vinculante', 'Interconexión']);
+    container.querySelector('[data-theme="planeacion vinculante"]').click();
+    expect(container.querySelectorAll('.nx-theme-detail [data-open-law]')).toHaveLength(2);
   });
 });

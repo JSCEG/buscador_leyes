@@ -232,6 +232,25 @@ export async function getArticleById(id) {
     }
 }
 
+/** Fetch many article excerpts in one request, keyed by the id the caller asked for. */
+export async function getArticlePreviews(ids) {
+    const requested = [...new Set((ids || []).filter(Boolean))];
+    const previews = new Map();
+    if (!requested.length) return previews;
+    const resolved = new Map(requested.map(id => [id, articleRedirects[id] || id]));
+    const { data, error } = await supabase
+        .from('articulos')
+        .select('id, identificador, contenido, leyes ( titulo, siglas )')
+        .in('id', [...new Set(resolved.values())]);
+    if (error) throw error;
+    const rows = new Map((data || []).map(row => [row.id, row]));
+    for (const [id, target] of resolved) {
+        const row = rows.get(target);
+        if (row) previews.set(id, { id: row.id, identificador: row.identificador, texto: row.contenido || '', ley: row.leyes?.titulo || '', siglas: row.leyes?.siglas || '' });
+    }
+    return previews;
+}
+
 export async function getArticlesByLaw(lawName) {
     if (!lawName) return [];
     try {

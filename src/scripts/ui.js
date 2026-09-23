@@ -591,6 +591,10 @@ export function initUI() {
         setHash(explorerViewHash);
     });
     document.addEventListener('analisis:goHome', () => showLawsView());
+    document.addEventListener('analisis:openLaw', (e) => {
+        const summary = summaryById(e.detail?.id);
+        if (summary) openLawDetail(summary);
+    });
 
     // Compare modal close
     document.getElementById('close-compare-modal')?.addEventListener('click', closeCompareModal);
