@@ -1,0 +1,105 @@
+/* Law reader: reading first, secondary material in tabs. Shares tokens with the other views. */
+#law-detail-container{
+    --lr-paper:#faf8f5;--lr-card:#fff;--lr-ink:#302b27;--lr-muted:#6a655e;--lr-faint:#9a938a;--lr-border:#e4ded5;--lr-line:#ece7df;
+    --lr-guinda:#9b2247;--lr-guinda-bg:#9b22470d;--lr-green:#1e5b4f;--lr-gold:#8c6925;--lr-shadow:0 1px 2px #302b2708,0 8px 24px #302b270a
+}
+html.dark-mode #law-detail-container{
+    --lr-paper:#1e1c1a;--lr-card:#262321;--lr-ink:#f4efe7;--lr-muted:#c1b9af;--lr-faint:#8f877d;--lr-border:#3d3833;--lr-line:#35302b;
+    --lr-guinda:#eeb0c2;--lr-guinda-bg:#eeb0c214;--lr-green:#98c6b6;--lr-gold:#d9bb75;--lr-shadow:0 1px 2px #0003
+}
+#law-detail-container :is(.lr-header,.lr-tabs,.lr-panel) :is(p,span,h1,h2,button,li){hyphens:manual!important}
+#law-detail-container [data-category=leyes]{--lr-dot:var(--lr-guinda)}
+#law-detail-container :is([data-category=reglamentos],[data-category=dacg]){--lr-dot:var(--lr-green)}
+#law-detail-container [data-category=acuerdos]{--lr-dot:var(--lr-guinda)}
+#law-detail-container :is([data-category=convocatorias],[data-category=normas]){--lr-dot:var(--lr-gold)}
+#law-detail-container [data-category=otros]{--lr-dot:var(--lr-muted)}
+
+/* Header */
+.lr-header{padding-bottom:20px;margin-bottom:0;border-bottom:3px solid var(--lr-guinda);color:var(--lr-ink)}
+.lr-crumbs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--lr-muted);margin-bottom:14px}
+.lr-crumbs button{background:none;border:0;padding:0;color:inherit;cursor:pointer}
+.lr-crumbs button:hover{color:var(--lr-guinda)}
+.lr-crumb-current{color:var(--lr-ink);font-weight:600;max-width:40ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lr-head-main{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.lr-head-text{min-width:0}
+.lr-eyebrow{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--lr-dot,var(--lr-guinda));letter-spacing:.02em;margin:0 0 8px!important;text-align:left!important}
+.lr-eyebrow-ico{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:8px;background:var(--lr-card);border:1px solid var(--lr-border)}
+.lr-title{font-family:Patria,Georgia,serif;font-weight:700;font-size:clamp(26px,3.4vw,38px);line-height:1.18;letter-spacing:-.02em;color:var(--lr-ink)!important;margin:0;max-width:30ch;overflow-wrap:anywhere}
+.lr-meta{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.lr-meta li{display:flex;flex-direction:column;gap:0}
+.lr-meta span{font-size:12px;color:var(--lr-muted)}
+.lr-meta strong{font-size:15px;font-weight:600;color:var(--lr-ink);font-variant-numeric:tabular-nums}
+.lr-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0}
+.lr-btn{display:inline-flex!important;align-items:center;gap:7px;min-height:40px;padding:8px 14px!important;border:1px solid var(--lr-border)!important;border-radius:8px!important;background:var(--lr-card)!important;color:var(--lr-ink)!important;font-size:14px!important;font-weight:500!important;cursor:pointer;list-style:none;text-decoration:none;box-shadow:none!important;white-space:nowrap}
+.lr-btn:hover{border-color:var(--lr-guinda)!important;color:var(--lr-guinda)!important}
+.lr-btn-primary{background:var(--lr-guinda)!important;border-color:var(--lr-guinda)!important;color:#fff!important}
+.lr-btn-primary:hover{color:#fff!important;filter:brightness(1.08)}
+html.dark-mode .lr-btn-primary{color:#1e1c1a!important}
+.lr-more{position:relative}
+.lr-more summary::-webkit-details-marker{display:none}
+.lr-more summary::after{content:'▾';font-size:11px;margin-left:2px}
+.lr-more-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:30;min-width:240px;padding:6px;background:var(--lr-card);border:1px solid var(--lr-border);border-radius:10px;box-shadow:0 12px 30px #302b271f;display:grid}
+.lr-more-item{display:block;width:100%;text-align:left;padding:10px 12px;border:0;border-radius:6px;background:none;color:var(--lr-ink);font-size:14px;cursor:pointer}
+.lr-more-item:hover{background:var(--lr-paper);color:var(--lr-guinda)}
+
+/* Tabs */
+.lr-tabs{display:flex;gap:4px;border-bottom:1px solid var(--lr-border);margin:0 0 24px;overflow-x:auto;scrollbar-width:none}
+.lr-tabs [role=tab]{display:inline-flex;align-items:center;min-height:48px;padding:10px 16px;margin-bottom:-1px;background:none;border:0;border-bottom:3px solid transparent;color:var(--lr-muted);font-weight:600;font-size:15px;white-space:nowrap;cursor:pointer}
+.lr-tabs [role=tab][aria-selected=true]{color:var(--lr-ink);border-bottom-color:var(--lr-guinda)}
+.lr-tabs [role=tab]:hover{color:var(--lr-ink)}
+.lr-tabs [role=tab]:focus-visible{outline:3px solid var(--lr-green);outline-offset:-3px}
+.lr-panel[hidden]{display:none!important}
+.lr-panel-intro{font-size:14px;color:var(--lr-muted);margin:0 0 14px!important;text-align:left!important}
+
+/* Reading layout */
+.lr-reading{display:grid;grid-template-columns:270px minmax(0,1fr);gap:36px;align-items:start}
+.lr-outline{position:sticky;top:96px;max-height:calc(100dvh - 116px);display:flex;flex-direction:column;min-width:0}
+.lr-outline-title{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--lr-muted);margin:0 0 8px!important}
+#law-outline{overflow:auto;display:grid;gap:1px;padding-right:6px;scrollbar-width:thin}
+.lr-outline-item{display:grid;gap:1px;width:100%;text-align:left;padding:7px 10px;border:0;border-radius:6px;background:none;color:var(--lr-ink);cursor:pointer;line-height:1.35}
+.lr-outline-item strong{font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--lr-muted)}
+.lr-outline-item span{font-size:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lr-outline-item.lr-level-2{padding-left:22px}
+.lr-outline-item.lr-level-2 span{font-size:12.5px;color:var(--lr-muted)}
+.lr-outline-item:hover{background:var(--lr-card)}
+.lr-outline-item.is-active{background:var(--lr-card);box-shadow:inset 3px 0 0 var(--lr-guinda)}
+.lr-outline-item.is-active span{color:var(--lr-ink);font-weight:600}
+.lr-body{min-width:0;max-width:860px}
+.lr-search{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;margin-bottom:14px;border:1px solid var(--lr-border);border-radius:10px;background:var(--lr-card);color:var(--lr-muted)}
+.lr-search:focus-within{border-color:var(--lr-guinda)}
+.lr-search input{flex:1;min-width:0;min-height:46px;border:0!important;background:transparent!important;color:var(--lr-ink)!important;font-size:15px;outline:none;padding:0!important;text-align:left!important;box-shadow:none!important}
+.lr-search input::placeholder{text-align:left!important}
+.lr-articles{display:grid;gap:12px}
+#law-articles-list .result-item{border-radius:10px!important;border-color:var(--lr-border)!important;background:var(--lr-card)!important;padding:20px 22px!important;scroll-margin-top:100px;transition:box-shadow .2s,border-color .15s}
+#law-articles-list .result-item:hover{border-color:var(--lr-guinda)!important;box-shadow:var(--lr-shadow)!important}
+#law-articles-list .result-item .reader-preview{margin-top:6px}
+.lr-read-more{display:inline-block;margin-top:8px;font-size:13.5px;font-weight:600;color:var(--lr-guinda)}
+@keyframes lr-flash{0%{box-shadow:0 0 0 3px var(--lr-guinda)}100%{box-shadow:0 0 0 3px transparent}}
+#law-articles-list .result-item.lr-flash{animation:lr-flash 1.6s ease-out}
+
+/* Structure panel */
+.lr-structure{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px}
+.lr-card{padding:20px 22px;background:var(--lr-card)!important;border:1px solid var(--lr-border);border-radius:12px;box-shadow:var(--lr-shadow)}
+.lr-card-title{font-family:Patria,Georgia,serif;font-weight:700;font-size:18px;color:var(--lr-ink)!important;margin:0 0 14px}
+.lr-theme{padding:6px 12px;border:1px solid var(--lr-border);border-radius:16px;background:var(--lr-paper);color:var(--lr-ink);font-size:13px;cursor:pointer}
+.lr-theme:hover{border-color:var(--lr-guinda);color:var(--lr-guinda)}
+
+/* The desktop outline replaces the floating index button */
+@media (min-width:1100px){body.law-reading #toc-toggle-btn{display:none!important}}
+@media (max-width:1099px){
+    .lr-reading{grid-template-columns:1fr}
+    .lr-outline{display:none}
+}
+@media (max-width:760px){
+    .lr-head-main{flex-direction:column;align-items:flex-start}
+    .lr-actions{justify-content:flex-start}
+    .lr-structure{grid-template-columns:1fr}
+    .lr-tabs [role=tab]{padding:10px 12px;font-size:14px}
+    #law-articles-list .result-item{padding:16px!important}
+}
+@media (prefers-reduced-motion:reduce){#law-articles-list .result-item.lr-flash{animation:none}}
+#law-articles-list .result-item>div.flex:first-of-type{gap:16px;align-items:baseline}
+#law-articles-list .result-item>div.flex:first-of-type>span:first-child{white-space:nowrap;font-size:14px;color:var(--lr-ink)}
+#law-articles-list .result-item>div.flex:first-of-type>span:last-child{-webkit-line-clamp:1!important;line-clamp:1;min-width:0;flex:1;text-align:right}
+.lr-search input#law-search-input{padding-left:0!important;text-indent:0!important}
+html.dark-mode .lr-search input#law-search-input{background:transparent!important;border:0!important}

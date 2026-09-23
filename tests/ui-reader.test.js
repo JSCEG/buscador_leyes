@@ -70,6 +70,14 @@ it('reads a real structured instrument, shares preferences, switches source lazi
     const law = document.getElementById('law-detail-container');
     expect(law.classList.contains('hidden')).toBe(false);
     expect(law.querySelectorAll('#law-articles-list .result-item')).toHaveLength(6);
+    // Reading comes first; secondary material waits behind tabs.
+    expect(law.querySelector('[data-law-tab="texto"]').getAttribute('aria-selected')).toBe('true');
+    expect(law.querySelector('[data-law-panel="linea"]').hidden).toBe(true);
+    expect(law.querySelectorAll('#law-outline .lr-outline-item').length).toBeGreaterThan(0);
+    law.querySelector('[data-law-tab="linea"]').click();
+    expect(law.querySelector('[data-law-panel="linea"]').hidden).toBe(false);
+    expect(law.querySelector('[data-law-panel="texto"]').hidden).toBe(true);
+    law.querySelector('[data-law-tab="texto"]').click();
     const increase = law.querySelector('[data-reader-size="2"]');
     increase.click(); increase.click(); increase.click();
     changeSelect('#law-detail-container [data-reader-spacing]', '2');

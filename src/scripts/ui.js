@@ -7,6 +7,8 @@ import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
 import { renderStatsView } from './stats-view.js';
 import { renderSearchResults } from './search-results-view.js';
+import { collectionIcon } from '../lib/collection-icons.js';
+import '../styles/law-reader.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
@@ -269,6 +271,14 @@ export function initUI() {
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
     let statsView = null;
+    let lawOutlineSync = null;
+    let lawOutlineObserver = null;
+    const formatLawDate = value => {
+        if (!/^\d{4}-\d{2}-\d{2}/.test(String(value || ''))) return '';
+        const date = new Date(`${String(value).slice(0, 10)}T00:00:00Z`);
+        return Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date);
+    };
+    const safeHttpUrl = url => { try { const parsed = new URL(url); return ['http:', 'https:'].includes(parsed.protocol) ? parsed.href : ''; } catch { return ''; } };
     let acervoReturnFocusId = null;
     let lawOpenRequest = 0;
     let searchDebounceTimer = null;
@@ -864,6 +874,9 @@ export function initUI() {
 
     // ── Limpieza global del TOC ────────────────────────────────────────────────
     function destroyTOC() {
+        lawOutlineObserver?.disconnect();
+        lawOutlineSync = null;
+        document.body.classList.remove('law-reading');
         document.getElementById('toc-toggle-btn')?.remove();
         const panel = document.getElementById('toc-panel');
         if (panel) {
@@ -1090,6 +1103,8 @@ export function initUI() {
         const dbCapitulos = dbThemes.filter(t => t.nivel === 'capitulo').length;
         const dbTitulos = dbThemes.filter(t => t.nivel === 'titulo').length;
         const chaptersCount = dbCapitulos > 0 ? dbCapitulos : chapters.length;
+        const lawGroup = getAcervoGroup(law);
+        const lawGroupLabel = ACERVO_GROUPS.find(group => group.id === lawGroup)?.label || 'Instrumento';
 
         // Hide other views
         resultsContainer.classList.add('hidden');
@@ -1104,33 +1119,33 @@ export function initUI() {
         if (updateHistory) setHash(`#ley-${encodeURIComponent(law.id)}`);
 
         lawDetailContainer.innerHTML = `
-            <div class="mb-8 animate-fade-in-up transition-colors duration-300" id="law-header-area">
-                <nav aria-label="Ruta de navegación" class="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
-                    <button id="crumb-inicio" class="hover:text-guinda transition-colors font-medium" aria-label="Ir al inicio">Inicio</button>
-                    <svg class="w-3 h-3 text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    <button id="crumb-categoria" class="hover:text-guinda transition-colors font-medium" aria-label="Volver al acervo">Acervo</button>
-                    <svg class="w-3 h-3 text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    <span class="text-gray-600 font-semibold truncate max-w-[180px] sm:max-w-xs" title="${law.titulo.replace(/"/g, '&quot;')}">${law.titulo}</span>
+            <div id="law-header-area" class="lr-header animate-fade-in-up">
+                <nav aria-label="Ruta de navegación" class="lr-crumbs">
+                    <button id="crumb-inicio" aria-label="Ir al inicio">Inicio</button><span aria-hidden="true">›</span>
+                    <button id="crumb-categoria" aria-label="Volver al acervo">Acervo</button><span aria-hidden="true">›</span>
+                    <span class="lr-crumb-current" title="${escapeHtml(law.titulo)}">${escapeHtml(law.siglas || law.titulo)}</span>
                 </nav>
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-100 pb-6">
-                    <div>
-                        <span class="text-xs font-bold text-guinda uppercase tracking-widest bg-guinda/5 px-2 py-1 rounded-full">Acervo normativo ${law.siglas ? `· ${law.siglas}` : ''}</span>
-                        <h1 class="text-2xl sm:text-3xl font-head font-bold text-gray-900 mt-2 mb-2">${law.titulo}</h1>
-                        <p class="text-sm text-gray-500 font-light">Publicado: <span class="font-bold text-gray-700">${law.fecha_publicacion || 'N/D'}</span> · Última reforma: <span class="font-bold text-gray-700">${law.fecha_ultima_reforma || 'N/D'}</span></p>
-                        ${law.resumen ? `<div class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100 text-sm text-gray-600 font-light leading-relaxed max-w-4xl">${law.resumen.split('\n\n')[0]}</div>` : ''}
+                <div class="lr-head-main">
+                    <div class="lr-head-text">
+                        <p class="lr-eyebrow" data-category="${lawGroup}"><span class="lr-eyebrow-ico">${collectionIcon(lawGroup, 16)}</span>${escapeHtml(lawGroupLabel)}${law.siglas ? ` · ${escapeHtml(law.siglas)}` : ''}</p>
+                        <h1 class="lr-title">${escapeHtml(law.titulo)}</h1>
+                        <ul class="lr-meta" aria-label="Datos del instrumento">
+                            <li><span>Publicación</span><strong>${escapeHtml(formatLawDate(law.fecha_publicacion) || 'Sin fecha')}</strong></li>
+                            ${law.fecha_ultima_reforma ? `<li><span>Última reforma</span><strong>${escapeHtml(formatLawDate(law.fecha_ultima_reforma))}</strong></li>` : ''}
+                            <li><span>Fragmentos</span><strong>${currentLawArticles.length}</strong></li>
+                            ${chaptersCount ? `<li><span>Capítulos</span><strong>${chaptersCount}</strong></li>` : ''}
+                            ${transitorios ? `<li><span>Transitorios</span><strong>${transitorios}</strong></li>` : ''}
+                        </ul>
                     </div>
-                    <div class="flex gap-2 flex-wrap">
-                        ${law.url_original ? `<a href="${law.url_original}" target="_blank" class="px-4 py-2 bg-guinda text-white text-xs font-semibold rounded-lg hover:bg-guinda/90 transition-all flex items-center gap-2 shadow-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            Ver en DOF
-                        </a>` : ''}
+                    <div class="lr-actions">
+                        ${safeHttpUrl(law.url_original) ? `<a href="${escapeHtml(safeHttpUrl(law.url_original))}" target="_blank" rel="noopener noreferrer" class="lr-btn lr-btn-primary">Fuente oficial <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>` : ''}
                         <!-- Share button for the law -->
                         <div class="relative" id="law-share-wrapper">
-                            <button id="law-share-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-green-500 hover:text-green-600 transition-all flex items-center gap-2 shadow-sm">
+                            <button id="law-share-btn" class="lr-btn">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                                 Compartir
                             </button>
-                            <div id="law-share-menu" class="hidden absolute bottom-full mb-2 right-0 bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden w-56 z-20">
+                            <div id="law-share-menu" class="hidden absolute top-full mt-2 right-0 bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden w-56 z-20">
                                 <div class="px-4 py-2 bg-gray-50/80 border-b border-gray-50">
                                     <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Compartir ley</span>
                                 </div>
@@ -1168,99 +1183,69 @@ export function initUI() {
                                 </button>
                             </div>
                         </div>
-                        <button id="export-csv-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-guinda hover:text-guinda transition-all flex items-center gap-2 shadow-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                            Exportar CSV
-                        </button>
-                        <button id="present-law-btn" class="px-4 py-2 bg-dorado text-white text-xs font-semibold rounded-lg hover:bg-dorado/90 transition-all flex items-center gap-2 shadow-sm disabled:opacity-60 disabled:cursor-not-allowed">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4h10a2 2 0 012 2v10M7 4a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2M7 4v16m4-11h5m-5 4h5m-5 4h3"></path></svg>
-                            <span class="present-label">Presentar</span>
-                        </button>
-                        <button id="print-btn" class="px-4 py-2 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg hover:border-guinda hover:text-guinda transition-all flex items-center gap-2 shadow-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                            Imprimir / PDF
-                        </button>
+                        <details class="lr-more">
+                            <summary class="lr-btn">Más</summary>
+                            <div class="lr-more-menu">
+                                <button id="present-law-btn" class="lr-more-item"><span class="present-label">Presentar en pantalla completa</span></button>
+                                <button id="export-csv-btn" class="lr-more-item">Exportar artículos (CSV)</button>
+                                <button id="print-btn" class="lr-more-item">Imprimir o guardar PDF</button>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
 
-            <div id="law-timeline"></div>
-            <section class="mb-8 animate-fade-in-up" style="animation-delay: 0.08s;">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-4">
-                    <div>
-                        <span class="text-[10px] font-bold text-guinda uppercase tracking-[0.22em]">Presentación interactiva</span>
-                        <h2 class="text-xl font-head font-bold text-gray-900 mt-1">Explorar este instrumento</h2>
+            <nav class="lr-tabs" role="tablist" aria-label="Secciones del instrumento">
+                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto">Texto</button>
+                <button role="tab" id="lr-tab-linea" aria-controls="lr-panel-linea" aria-selected="false" data-law-tab="linea">Línea del tiempo</button>
+                <button role="tab" id="lr-tab-presentacion" aria-controls="lr-panel-presentacion" aria-selected="false" data-law-tab="presentacion">Presentación</button>
+                <button role="tab" id="lr-tab-estructura" aria-controls="lr-panel-estructura" aria-selected="false" data-law-tab="estructura">Estructura y temas</button>
+            </nav>
+
+            <section id="lr-panel-texto" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-texto" data-law-panel="texto">
+                <div class="lr-reading">
+                    <aside class="lr-outline" aria-label="Índice del instrumento">
+                        <p class="lr-outline-title">Índice</p>
+                        <nav id="law-outline"></nav>
+                    </aside>
+                    <div class="lr-body">
+                        <div class="lr-search">
+                            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+                            <input type="text" id="law-search-input" autocomplete="off" placeholder="Buscar dentro de ${escapeHtml(law.siglas || 'este instrumento')}…" aria-label="Buscar dentro de ${escapeHtml(law.titulo)}">
+                        </div>
+                        <div class="reader-toolbar reader-law-toolbar">
+                            <span>Lectura del instrumento</span>
+                            ${readerControlsHtml()}
+                        </div>
+                        <div id="law-articles-list" class="lr-articles"></div>
+                        <div id="load-more-container" class="mt-8 mb-12 flex justify-center"></div>
                     </div>
-                    <p class="text-xs text-gray-500 max-w-lg">Use las flechas, haga click en tarjetas o bloques, y active pantalla completa cuando necesite presentar.</p>
                 </div>
+            </section>
+
+            <section id="lr-panel-linea" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-linea" data-law-panel="linea" hidden>
+                <div id="law-timeline"></div>
+            </section>
+
+            <section id="lr-panel-presentacion" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-presentacion" data-law-panel="presentacion" hidden>
+                <p class="lr-panel-intro">Recorrido visual del instrumento. Usa las flechas o haz clic en las tarjetas; activa pantalla completa para presentar.</p>
                 <div id="law-presentation-embed" class="w-full"></div>
             </section>
 
-            <!-- Stats & Structure Dashboard -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
-                 <!-- Metric Cards -->
-                 <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
-                     <span class="text-3xl font-head font-bold text-guinda">${currentLawArticles.length}</span>
-                     <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Fragmentos</span>
-                 </div>
-                 <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
-                     <span class="text-3xl font-head font-bold text-guinda">${chaptersCount}</span>
-                     <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Capítulos</span>
-                 </div>
-                 <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-center items-center hover:shadow-md transition-shadow">
-                     <span class="text-3xl font-head font-bold text-guinda">${transitorios}</span>
-                     <span class="text-xs text-gray-400 uppercase tracking-widest mt-1">Transitorios</span>
-                 </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10 animate-fade-in-up" style="animation-delay: 0.2s;">
-                <!-- Structure Chart (Expanded) -->
-                <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 class="font-head font-bold text-gray-800 mb-6 text-sm flex items-center gap-2">
-                        <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        Distribución de Contenido
-                    </h3>
-                    <div id="law-structure-chart" class="w-full h-64"></div>
-                </div>
-
-                <!-- Topics Cloud -->
-                <div class="lg:col-span-1 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 class="font-head font-bold text-gray-800 mb-6 text-sm flex items-center gap-2">
-                        <svg class="w-4 h-4 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                        Temas Principales
-                    </h3>
-                    <div class="flex flex-wrap gap-2 content-start" id="themes-container">
-                        ${law.temas_clave && law.temas_clave.length > 0 ? law.temas_clave.map(t => `<button class="theme-tag text-xs bg-guinda/5 text-guinda border border-guinda/10 px-3 py-1.5 rounded-lg shadow-sm font-medium hover:bg-guinda hover:text-white transition-all cursor-pointer" data-theme="${t}">${t}</button>`).join('') : '<span class="text-xs text-gray-400">Ingresa temas conceptuales al cargar la ley desde el Gestor</span>'}
+            <section id="lr-panel-estructura" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-estructura" data-law-panel="estructura" hidden>
+                <div class="lr-structure">
+                    <div class="lr-card">
+                        <h2 class="lr-card-title">Distribución del contenido</h2>
+                        <div id="law-structure-chart" class="w-full h-64"></div>
+                    </div>
+                    <div class="lr-card">
+                        <h2 class="lr-card-title">Temas principales</h2>
+                        <div class="flex flex-wrap gap-2 content-start" id="themes-container">
+                            ${law.temas_clave && law.temas_clave.length > 0 ? law.temas_clave.map(t => `<button class="theme-tag lr-theme" data-theme="${escapeHtml(t)}">${escapeHtml(t)}</button>`).join('') : '<span class="text-xs text-gray-400">Este instrumento todavía no tiene temas registrados.</span>'}
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Main Content Area -->
-            <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
-                <!-- Scoped Search -->
-                <div class="relative mb-6 group max-w-2xl mx-auto">
-                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <svg class="h-4 w-4 text-gray-400 group-focus-within:text-guinda transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
-                    <input type="text" id="law-search-input" 
-                        class="block w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-full text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-guinda/10 focus:border-guinda transition-all" 
-                        placeholder="Buscar dentro de ${law.titulo}...">
-                </div>
-
-                <div class="reader-toolbar reader-law-toolbar">
-                    <span>Lectura del instrumento</span>
-                    ${readerControlsHtml()}
-                </div>
-                <!-- Articles List -->
-                <div id="law-articles-list" class="space-y-4 max-w-4xl mx-auto">
-                    <!-- Render initial articles -->
-                </div>
-                
-                <!-- Load More -->
-                <div id="load-more-container" class="mt-8 mb-12 flex justify-center">
-                    <!-- Dynamic button -->
-                </div>
-            </div>
+            </section>
         `;
 
         renderInstrumentTimeline(document.getElementById('law-timeline'), {
@@ -1273,12 +1258,36 @@ export function initUI() {
             },
         });
 
-        renderLawPresentationEmbed(
-            document.getElementById('law-presentation-embed'),
-            law,
-            currentLawArticles,
-            dbThemes
-        );
+        // Secondary panels render the first time they are opened: hidden containers have no size.
+        const renderedPanels = new Set(['texto', 'linea']);
+        const panelRenderers = {
+            presentacion: () => renderLawPresentationEmbed(document.getElementById('law-presentation-embed'), law, currentLawArticles, dbThemes),
+            estructura: () => renderLawStructureChart(currentLawArticles, dbThemes),
+        };
+        const showLawPanel = (name, { focusTab = false } = {}) => {
+            lawDetailContainer.querySelectorAll('[data-law-tab]').forEach(tab => {
+                const active = tab.dataset.lawTab === name;
+                tab.setAttribute('aria-selected', String(active));
+                tab.tabIndex = active ? 0 : -1;
+                if (active && focusTab) tab.focus();
+            });
+            lawDetailContainer.querySelectorAll('[data-law-panel]').forEach(panel => { panel.hidden = panel.dataset.lawPanel !== name; });
+            if (!renderedPanels.has(name)) { renderedPanels.add(name); panelRenderers[name]?.(); }
+            document.body.classList.toggle('law-reading', name === 'texto');
+        };
+        const lawTabs = [...lawDetailContainer.querySelectorAll('[data-law-tab]')];
+        lawTabs.forEach((tab, index) => {
+            tab.tabIndex = index === 0 ? 0 : -1;
+            tab.addEventListener('click', () => showLawPanel(tab.dataset.lawTab));
+            tab.addEventListener('keydown', event => {
+                const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+                if (!step) return;
+                event.preventDefault();
+                showLawPanel(lawTabs[(index + step + lawTabs.length) % lawTabs.length].dataset.lawTab, { focusTab: true });
+            });
+        });
+        showLawPanel('texto');
+        window.scrollTo({ top: 0, behavior: 'instant' });
 
         // ── Tabla de contenidos (índice flotante) ──────────────────────────────
         const tocBtn = document.createElement('button');
@@ -1610,6 +1619,66 @@ export function initUI() {
         renderLawArticles(currentLawArticles.slice(0, articlesShown), '');
         updateLoadMore(currentLawArticles.length);
 
+        // ── Índice lateral: títulos y capítulos, con la sección en lectura resaltada ──
+        function buildLawOutline() {
+            const outline = document.getElementById('law-outline');
+            if (!outline) return;
+            const ordered = [...currentLawArticles.filter(a => !relatedDocumentLabel(a)), ...currentLawArticles.filter(a => relatedDocumentLabel(a))];
+            const entries = [];
+            const sectionOf = new Map();
+            let title = null, chapter = null, inTransitorios = false, inRelated = false;
+            const push = (level, label, id) => { entries.push({ level, label, id, key: String(entries.length) }); };
+            for (const article of ordered) {
+                if (relatedDocumentLabel(article)) {
+                    if (!inRelated) { inRelated = true; push(1, 'Documentos relacionados', article.id); }
+                } else if (article.tipo_articulo === 'transitorio') {
+                    if (!inTransitorios) { inTransitorios = true; push(1, 'Transitorios', article.id); }
+                } else {
+                    if ((article.titulo_nombre || null) !== title) { title = article.titulo_nombre || null; chapter = null; if (title) push(1, title, article.id); }
+                    if ((article.capitulo_nombre || null) !== chapter) { chapter = article.capitulo_nombre || null; if (chapter) push(title ? 2 : 1, chapter, article.id); }
+                }
+                if (entries.length) sectionOf.set(article.id, entries.at(-1).key);
+            }
+            // Instruments without titles or chapters get a plain article list instead.
+            if (entries.length < 2) {
+                entries.length = 0;
+                ordered.slice(0, 120).forEach(article => { push(1, article.articulo_label, article.id); sectionOf.set(article.id, entries.at(-1).key); });
+            }
+            const split = label => { const [head, ...rest] = String(label).split(/\s+[—–-]\s+/); return rest.length ? `<strong>${escapeHtml(head)}</strong><span>${escapeHtml(rest.join(' — '))}</span>` : `<span>${escapeHtml(head)}</span>`; };
+            outline.innerHTML = entries.map(entry => `<button class="lr-outline-item lr-level-${entry.level}" data-outline-id="${escapeHtml(entry.id)}" data-outline-key="${entry.key}">${split(entry.label)}</button>`).join('');
+            outline.onclick = event => {
+                const button = event.target.closest('[data-outline-id]');
+                if (!button) return;
+                const id = button.dataset.outlineId;
+                const lawSearch = document.getElementById('law-search-input');
+                if (lawSearch?.value) { lawSearch.value = ''; lawSearch.dispatchEvent(new Event('input')); }
+                const index = ordered.findIndex(article => article.id === id);
+                if (index >= articlesShown) {
+                    articlesShown = index + 20;
+                    renderLawArticles(currentLawArticles.slice(0, articlesShown), '');
+                    updateLoadMore(currentLawArticles.length);
+                }
+                const card = document.querySelector(`#law-articles-list .result-item[data-id="${CSS.escape(id)}"]`);
+                if (!card) return;
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                card.classList.remove('lr-flash'); void card.offsetWidth; card.classList.add('lr-flash');
+            };
+            lawOutlineSync = () => {
+                lawOutlineObserver?.disconnect();
+                if (typeof IntersectionObserver !== 'function') return;
+                lawOutlineObserver = new IntersectionObserver(items => {
+                    const visible = items.filter(item => item.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+                    if (!visible) return;
+                    const key = sectionOf.get(visible.target.dataset.id);
+                    outline.querySelectorAll('.lr-outline-item').forEach(item => item.classList.toggle('is-active', item.dataset.outlineKey === key));
+                    const active = outline.querySelector('.is-active');
+                    if (active && outline.scrollHeight > outline.clientHeight) active.scrollIntoView({ block: 'nearest' });
+                }, { rootMargin: '-90px 0px -65% 0px' });
+                document.querySelectorAll('#law-articles-list .result-item').forEach(card => lawOutlineObserver.observe(card));
+            };
+            lawOutlineSync();
+        }
+
         // Update pagination on search
         const lawSearchInput = document.getElementById('law-search-input');
         if (lawSearchInput) {
@@ -1632,10 +1701,7 @@ export function initUI() {
             });
         }
 
-        // Render D3 Chart
-        setTimeout(() => {
-            renderLawStructureChart(currentLawArticles, dbThemes);
-        }, 100);
+        buildLawOutline();
 
         readerControls.sync();
 
@@ -1868,7 +1934,7 @@ export function initUI() {
 
         const renderCard = item => {
             const relatedLabel = relatedDocumentLabel(item);
-            const highlightedText = highlightText(getTextPreview(item.texto), highlightQuery);
+            const highlightedText = highlightText(getTextPreview(item.texto, 900), highlightQuery);
             const hasNote = !!getNote(item.id);
             const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
             const bookmarkIcon = isFav
@@ -1890,7 +1956,7 @@ export function initUI() {
                     </span>
                     <span class="text-[10px] text-gray-400 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
                 </div>
-                <p class="reader-preview text-gray-600 line-clamp-3">${highlightedText}</p>
+                <p class="reader-preview text-gray-600">${highlightedText}</p>${getTextPreview(item.texto, 100000).length > 900 ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
                 <button class="bookmark-card-btn absolute top-3 right-9 p-1 ${loggedIn ? 'text-gray-300 hover:text-guinda' : 'text-guinda'} transition-colors" data-id="${item.id}" title="${favTitle}">${bookmarkIcon}</button>
                 <button class="compare-card-btn absolute top-3 right-3 p-1 ${compareColor} ${compareBg} rounded transition-colors" data-id="${item.id}" title="Comparar artículo">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
@@ -1908,6 +1974,7 @@ export function initUI() {
             </section>
         ` : '');
 
+        lawOutlineSync?.();
         document.querySelectorAll('#law-articles-list .result-item').forEach(el => {
             el.addEventListener('click', (e) => {
                 if (e.target.closest('.bookmark-card-btn') || e.target.closest('.compare-card-btn')) return;
