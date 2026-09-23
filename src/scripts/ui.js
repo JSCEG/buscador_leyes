@@ -5,6 +5,7 @@ import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-prese
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
+import { renderStatsView } from './stats-view.js';
 import { ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
@@ -266,6 +267,7 @@ export function initUI() {
     let activeNavId = 'nav-inicio';
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
+    let statsView = null;
     let acervoReturnFocusId = null;
     let lawOpenRequest = 0;
     let searchDebounceTimer = null;
@@ -2905,133 +2907,11 @@ export function initUI() {
             return;
         }
 
-        // Show the D3 Dashboard
-        renderAcervoAnalytics(cachedSummaries);
-        
-        // Also show the detailed stats below
-        resultsContainer.classList.remove('hidden');
-        setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
-
-        const existingFilters = document.getElementById('search-filters');
-        if (existingFilters) existingFilters.remove();
-
-        const total = cachedSummaries.reduce((sum, l) => sum + l.articulos, 0);
-        const normalizeType = (law) => String(law.tipo || law.tipo_instrumento || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        const typeGroups = [
-            ['Leyes', l => normalizeType(l).includes('ley') || l.titulo.toLowerCase().startsWith('ley')],
-            ['Reglamentos', l => normalizeType(l).includes('reglamento') || l.titulo.toLowerCase().startsWith('reglamento')],
-            ['Acuerdos', l => normalizeType(l).includes('acuerdo')],
-            ['DACG', l => normalizeType(l).includes('dacg') || normalizeType(l).includes('disposicion')],
-            ['Convocatorias', l => normalizeType(l).includes('convocatoria')],
-        ];
-        const classified = new Set();
-        const groups = typeGroups.map(([label, predicate]) => {
-            const items = cachedSummaries.filter(l => !classified.has(l.id) && predicate(l));
-            items.forEach(l => classified.add(l.id));
-            return { label, items };
-        });
-        const otros = cachedSummaries.filter(l => !classified.has(l.id));
-        if (otros.length) groups.push({ label: 'Otros', items: otros });
-        const leyes = groups.find(g => g.label === 'Leyes')?.items || [];
-        const reglamentos = groups.find(g => g.label === 'Reglamentos')?.items || [];
-        const lastUpdate = cachedSummaries.map(l => l.fecha_ultima_reforma || l.fecha_publicacion || l.fecha).filter(Boolean).sort().at(-1) || 'N/D';
-        const sorted = [...cachedSummaries].sort((a, b) => b.articulos - a.articulos);
-        const maxArticulos = sorted[0]?.articulos || 1;
-
-        resultsContainer.innerHTML = `
-            <div class="w-full max-w-5xl mx-auto mb-10 animate-fade-in-up">
-                <div class="flex items-end justify-between mb-8 border-b border-gray-100 pb-6">
-                    <div>
-                        <span class="text-[10px] font-black text-guinda uppercase tracking-[0.2em] mb-2 block">Visualización de Datos</span>
-                        <h2 class="text-3xl font-head font-bold text-gray-800">Estadísticas del Marco Jurídico</h2>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[11px] font-medium text-gray-400 block italic">Último dato disponible: ${lastUpdate}</span>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-12">
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-guinda/5 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-head font-bold text-guinda block mb-1 relative">${cachedSummaries.length}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Instrumentos totales</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-gris-claro/40 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-head font-bold text-gray-800 block mb-1 relative">${total.toLocaleString('es-MX')}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Artículos Totales</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-verde/10 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-head font-bold text-verde block mb-1 relative">${leyes.length}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Leyes</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-dorado/10 rounded-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
-                        <span class="text-4xl font-head font-bold text-dorado block mb-1 relative">${groups.filter(g => g.items.length).length}</span>
-                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative">Tipos de instrumento</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm mb-10">
-                    <h3 class="font-head font-bold text-xl text-gray-800 mb-8 flex items-center gap-3">
-                        <div class="w-1.5 h-6 bg-guinda rounded-full"></div>
-                        Densidad de Artículos por Documento
-                    </h3>
-                    <div class="space-y-5">
-                        ${sorted.map(law => {
-                            const lawType = normalizeType(law);
-                            const isLey = lawType.includes('ley') || law.titulo.toLowerCase().startsWith('ley');
-                            const isReg = lawType.includes('reglamento') || law.titulo.toLowerCase().startsWith('reglamento');
-                            const barColor = isLey ? 'bg-guinda' : isReg ? 'bg-verde' : 'bg-dorado';
-                            const pct = Math.round((law.articulos / maxArticulos) * 100);
-                            return `
-                            <div class="group cursor-pointer stat-law-row" data-titulo="${law.titulo.replace(/"/g, '&quot;')}">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="text-[13px] font-bold text-gray-700 group-hover:text-guinda transition-colors truncate max-w-[80%]" title="${law.titulo}">${law.titulo}</span>
-                                    <span class="text-xs font-black text-gray-400">${law.articulos} <span class="font-normal text-[10px] uppercase ml-1">arts.</span></span>
-                                </div>
-                                <div class="w-full h-2 bg-gray-50 rounded-full overflow-hidden">
-                                    <div class="h-full rounded-full transition-all duration-1000 ${barColor}" style="width:0%;" data-target="${pct}"></div>
-                                </div>
-                            </div>`;
-                        }).join('')}
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                    ${groups.filter(g => g.items.length).map((cat, index) => `
-                        <div class="bg-white p-7 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-50">
-                                <span class="text-[10px] font-black ${['text-guinda','text-verde','text-dorado'][index % 3]} uppercase tracking-widest">${cat.label}</span>
-                                <span class="text-[10px] bg-gray-50 text-gray-500 font-bold px-2 py-0.5 rounded-full">${cat.items.length}</span>
-                            </div>
-                            <div class="space-y-3">
-                                ${cat.items.map(l => `
-                                    <div class="text-xs text-gray-500 leading-relaxed hover:text-guinda cursor-pointer transition-colors stat-law-row flex items-start gap-2" data-titulo="${l.titulo.replace(/"/g, '&quot;')}" title="${l.titulo}">
-                                        <span class="mt-1.5 w-1 h-1 rounded-full bg-gray-200 flex-shrink-0"></span>
-                                        ${l.titulo}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-
-        // Animate bars after render
-        setTimeout(() => {
-            resultsContainer.querySelectorAll('[data-target]').forEach(bar => {
-                bar.style.width = bar.dataset.target + '%';
-            });
-        }, 100);
-
-        document.querySelectorAll('.stat-law-row').forEach(row => {
-            row.addEventListener('click', () => {
-                const law = cachedSummaries.find(l => l.titulo === row.dataset.titulo);
-                if (law) openLawDetail(law);
-            });
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        statsView?.destroy();
+        statsView = renderStatsView(resultsContainer, cachedSummaries, {
+            onOpenLaw: law => openLawDetail(law),
+            onOpenGroup: group => showLawsView({ ...acervoState, group, query: '' }),
         });
     }
 
