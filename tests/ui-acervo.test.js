@@ -1,11 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, expect, it, vi } from 'vitest';
-import { getArticlesByLaw, getThemesByLawName, performSearch } from '../src/scripts/search-engine.js';
+import { getArticlesByLaw, getThemesByLawName, searchArticles } from '../src/scripts/search-engine.js';
 
 vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
 vi.mock('../src/scripts/search-engine.js', () => ({
-  performSearch: vi.fn(), getArticleById: vi.fn(), getArticlesByLaw: vi.fn(),
-  getSearchCountsByLaw: vi.fn(), getThemesByLawName: vi.fn(), updateArticle: vi.fn(),
+  searchArticles: vi.fn(), searchCountsByLawId: vi.fn(), getArticleById: vi.fn(), getArticlesByLaw: vi.fn(),
+ getThemesByLawName: vi.fn(), updateArticle: vi.fn(),
 }));
 vi.mock('../src/scripts/law-presentation.js', () => ({
   openLawPresentationDeck: vi.fn(),
@@ -91,7 +91,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(history.length).toBe(historyLength);
   expect(document.getElementById('search-input').value).toBe('');
   expect(document.getElementById('search-filters')).toBeNull();
-  expect(performSearch).not.toHaveBeenCalled();
+  expect(searchArticles).not.toHaveBeenCalled();
   results.querySelector('.ac-clear').click();
   await settle();
 
@@ -157,7 +157,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(sortSelect().value).toBe('date-oldest');
   expect(results.querySelector('.ac-filter[data-group="convocatorias"]').getAttribute('aria-pressed')).toBe('true');
   expect(cardIds()).toEqual(['convocatoria']);
-  expect(performSearch).not.toHaveBeenCalled();
+  expect(searchArticles).not.toHaveBeenCalled();
 
   history.replaceState(null, '', '/');
   window.dispatchEvent(new PopStateEvent('popstate'));
@@ -175,13 +175,13 @@ it('loads the acervo once ready and preserves its independent route, filters and
 
   // Leaving global search before its debounce expires must cancel the scheduled request.
   const globalInput = document.getElementById('search-input');
-  performSearch.mockResolvedValue({ data: [], total: 0 });
+  searchArticles.mockResolvedValue({ data: [], total: 0 });
   globalInput.value = 'circular pendiente';
   globalInput.dispatchEvent(new Event('input', { bubbles: true }));
   document.getElementById('nav-leyes').click();
   const libraryHash = location.hash;
   await vi.advanceTimersByTimeAsync(300);
-  expect(performSearch).not.toHaveBeenCalled();
+  expect(searchArticles).not.toHaveBeenCalled();
   expect(results.querySelector('.ac-library')).not.toBeNull();
   expect(cardIds()).toEqual(['convocatoria']);
   expect(location.hash).toBe(libraryHash);
@@ -191,12 +191,12 @@ it('loads the acervo once ready and preserves its independent route, filters and
   document.getElementById('nav-inicio').click();
   await settle();
   let resolveGlobalSearch;
-  performSearch.mockReturnValueOnce(new Promise(resolve => { resolveGlobalSearch = resolve; }));
+  searchArticles.mockReturnValueOnce(new Promise(resolve => { resolveGlobalSearch = resolve; }));
   globalInput.value = 'generación pendiente';
   globalInput.dispatchEvent(new Event('input', { bubbles: true }));
   await vi.advanceTimersByTimeAsync(260);
-  expect(performSearch).toHaveBeenCalledTimes(1);
-  expect(performSearch.mock.calls[0][0]).toBe('generación pendiente');
+  expect(searchArticles).toHaveBeenCalledTimes(1);
+  expect(searchArticles.mock.calls[0][0]).toBe('generación pendiente');
   document.getElementById('nav-leyes').click();
   await settle();
   const visibleLibrary = results.querySelector('.ac-library');
@@ -222,7 +222,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(acervoSearch().value).toBe(longQuery);
   expect(routeParams().get('q')).toBe(longQuery);
   expect(results.querySelector('.ac-empty')).not.toBeNull();
-  expect(performSearch).toHaveBeenCalledTimes(1);
+  expect(searchArticles).toHaveBeenCalledTimes(1);
   expect(errors).toEqual([]);
   window.removeEventListener('error', onError);
 });

@@ -1,4 +1,4 @@
-import { performSearch, getArticleById, getArticlesByLaw, getSearchCountsByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
+import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 import { renderAnalisisView } from './analisis.js';
 import { openLawPresentationDeck, renderLawPresentationEmbed } from './law-presentation.js';
@@ -6,7 +6,8 @@ import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
 import { renderStatsView } from './stats-view.js';
-import { ACERVO_GROUPS } from '../lib/acervo-model.js';
+import { renderSearchResults } from './search-results-view.js';
+import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
@@ -2071,6 +2072,8 @@ export function initUI() {
             } else if (e.key === 'Enter' && activeIndex >= 0) {
                 e.preventDefault();
                 items[activeIndex]?.click();
+            } else if (e.key === 'Enter') {
+                closeAutocomplete(); // the search itself already runs as the user types
             } else if (e.key === 'Escape') {
                 closeAutocomplete();
             }
@@ -2991,302 +2994,34 @@ export function initUI() {
         
         if (loadingIndicator) loadingIndicator.classList.remove('hidden');
 
-        // RE-FETCH WITH CURRENT FILTERS & PAGE
-        const { data: results, total: totalResults } = await performSearch(query, currentPage, itemsPerPage, { ...currentFilters });
+        const filters = { ...currentFilters };
+        // Collection and instrument facets filter by law id; the acervo model decides collections.
+        const lawIds = filters.law !== 'all' ? [filters.law]
+            : filters.type !== 'all' ? cachedSummaries.filter(law => getAcervoGroup(law) === filters.type).map(law => law.id) : null;
+        const [{ data: results, total: totalResults, ranked }, lawCounts] = await Promise.all([
+            searchArticles(query, { page: currentPage, limit: itemsPerPage, lawIds, artNum: filters.artNum }),
+            searchCountsByLawId(query, { artNum: filters.artNum }),
+        ]);
         if (request !== searchRenderRequest) return;
         currentSearchResults = results;
-
+        currentModalList = results; // modal prev/next follows the visible page
         if (loadingIndicator) loadingIndicator.classList.add('hidden');
+        document.getElementById('search-filters')?.remove();
 
-        // Render Filter Controls 
-        const existingFilters = document.getElementById('search-filters');
-        if (existingFilters) existingFilters.remove();
-
-        const filterControls = document.createElement('div');
-        filterControls.id = 'search-filters';
-        filterControls.className = 'w-full max-w-5xl mx-auto mb-8 animate-fade-in-up';
-        
-        filterControls.innerHTML = `
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-guinda rounded-lg flex items-center justify-center text-white shadow-sm">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                    </div>
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-800 font-head">${query || 'Explorar'}</h2>
-                        <p class="text-xs text-gray-400">Explora la distribución de artículos y disposiciones</p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:items-end gap-3">
-                    <div class="flex flex-wrap gap-2">
-                        <button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${currentFilters.type === 'all' ? 'bg-verde text-white border-verde shadow-sm' : 'bg-white text-gray-500 border-gray-200 hover:border-dorado hover:text-guinda'}" data-type="all">TODOS</button>
-                        ${(() => {
-                            const typeLabels = {
-                                ley: 'LEYES',
-                                reglamento: 'REGLAMENTOS',
-                                acuerdo: 'ACUERDOS',
-                                dacg: "DACG's",
-                                nom: 'NOMs',
-                                permiso: 'PERMISOS',
-                                manual: 'MANUALES',
-                                otros: 'INSTITUCIONAL'
-                            };
-                            // Obtener tipos únicos presentes en el acervo
-                            const availableTypes = [...new Set(cachedSummaries.map(s => s.tipo).filter(Boolean))].sort();
-                            
-                            return availableTypes.map(t => {
-                                const label = typeLabels[t] || t.toUpperCase();
-                                const isActive = currentFilters.type === t;
-                                const activeClass = 'bg-verde text-white border-verde shadow-sm';
-                                const inactiveClass = 'bg-white text-gray-500 border-gray-200 hover:border-dorado hover:text-guinda';
-                                return `<button class="filter-btn px-5 py-2 text-xs font-bold rounded-full border transition-all ${isActive ? activeClass : inactiveClass}" data-type="${t}">${label}</button>`;
-                            }).join('');
-                        })()}
-                    </div>
-                    <div class="relative flex items-center w-full md:w-80 group">
-                        <svg class="absolute left-4 w-4 h-4 text-gray-300 group-hover:text-guinda transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                        <input type="text" id="art-number-filter" placeholder="Nº artículo o palabra clave local"
-                            value="${currentFilters.artNum}"
-                            class="text-xs border rounded-full pl-10 pr-4 py-2.5 w-full focus:outline-none focus:ring-2 focus:ring-guinda/10 focus:border-guinda/40 bg-gray-50/50 hover:bg-white transition-all ${currentFilters.artNum ? 'border-guinda text-guinda' : 'border-gray-200 text-gray-500'}">
-                    </div>
-                    ${(currentFilters.type !== 'all' || currentFilters.artNum) ? `
-                    <button id="clear-all-filters" class="text-[10px] font-bold text-red-500 hover:text-red-700 transition-colors uppercase tracking-widest flex items-center gap-1">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                        Limpiar filtros
-                    </button>` : ''}
-                </div>
-            </div>
-        `;
-        // Insert filters above results
-        resultsContainer.parentNode.insertBefore(filterControls, resultsContainer);
-        
-        // Attach filter events
-        filterControls.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                currentFilters.type = e.target.dataset.type;
+        renderSearchResults(resultsContainer, {
+            query, results, total: totalResults, ranked, lawCounts, summaries: cachedSummaries, filters,
+            favoriteState: id => { const { fav, title } = getFavoriteUiState(id); return { fav, title }; },
+            relationBadge: buildRelacionBadge,
+            onOpenArticle: id => openDetail(id),
+            onToggleFavorite: id => { if (toggleFavorite(id)) renderResults(); },
+            onFilter: next => {
+                currentFilters = { type: next.type, law: next.law, artNum: next.artNum };
                 currentPage = 1;
                 renderResults();
-            });
+            },
         });
-        const artNumInput = document.getElementById('art-number-filter');
-        if (artNumInput) {
-            let artNumTimer;
-            artNumInput.addEventListener('input', (e) => {
-                clearTimeout(artNumTimer);
-                artNumTimer = setTimeout(() => {
-                    if (request !== searchRenderRequest) return;
-                    currentFilters.artNum = e.target.value.trim();
-                    currentPage = 1;
-                    renderResults();
-                }, 400);
-            });
-        }
-        document.getElementById('clear-all-filters')?.addEventListener('click', () => {
-            currentFilters = { type: 'all', law: 'all', artNum: '' };
-            currentPage = 1;
-            renderResults();
-        });
-
-        if (results.length === 0) {
-            const isFiltered = currentFilters.type !== 'all' || currentFilters.artNum;
-            resultsContainer.innerHTML = `
-                <div class="text-center py-16 px-4">
-                    <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-10 h-10 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-head text-lg font-bold text-gray-700 mb-2">
-                        ${isFiltered ? 'Sin resultados con los filtros actuales' : `Sin resultados para "<span class="text-guinda">${query}</span>"`}
-                    </h3>
-                    <p class="text-sm text-gray-400 mb-6 max-w-xs mx-auto">
-                        ${isFiltered ? 'Prueba cambiando o eliminando los filtros aplicados.' : 'Intenta con otras palabras, un artículo específico o explora directamente las leyes.'}
-                    </p>
-                    ${!isFiltered ? `
-                    <div class="flex flex-wrap gap-2 justify-center mb-4">
-                        ${['Transmisión', 'Generación', 'CENACE', 'Distribución', 'Tarifas', 'Permisos'].map(s =>
-                `<button class="empty-suggestion px-4 py-1.5 bg-gray-50 border border-gray-100 rounded-full text-xs text-gray-500 hover:bg-guinda/5 hover:border-guinda/30 hover:text-guinda transition-all">${s}</button>`
-            ).join('')}
-                    </div>
-                    <button id="empty-browse-laws" class="text-xs font-semibold text-guinda hover:text-guinda/70 transition-colors underline underline-offset-2">Explorar todas las leyes →</button>
-                    ` : ''}
-                </div>`;
-                
-            resultsContainer.querySelectorAll('.empty-suggestion').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const searchInput = document.getElementById('law-search-input');
-                    if (searchInput) {
-                        searchInput.value = btn.textContent;
-                        searchInput.dispatchEvent(new Event('input'));
-                    }
-                });
-            });
-            document.getElementById('empty-browse-laws')?.addEventListener('click', () => { if (typeof showLawsView === 'function') showLawsView(); });
-            const existingNav = document.getElementById('results-container').nextElementSibling;
-            if (existingNav && existingNav.classList.contains('pagination-nav')) existingNav.remove();
-            return;
-        }
-
-        currentModalList = results; // full filtered list for modal prev/next nav
-
-        // DATA TABLES UI
-        // Fetch counts by law for summary bar (fire-and-forget, won't block table render)
-        const lawCounts = await getSearchCountsByLaw(query, currentFilters);
-        if (request !== searchRenderRequest) return;
-        const totalGlobal = lawCounts.reduce((s, l) => s + l.count, 0);
-        const badgeColors = [
-            'bg-guinda/10 text-guinda border-guinda/20',
-            'bg-verde/10 text-verde border-verde/20',
-            'bg-dorado/10 text-dorado border-dorado/20',
-            'bg-gris-claro/40 text-gray-700 border-gris-claro',
-            'bg-guinda/10 text-guinda border-guinda/20',
-            'bg-verde/10 text-verde border-verde/20',
-            'bg-dorado/10 text-dorado border-dorado/20',
-            'bg-gris-claro/40 text-gray-700 border-gris-claro'
-        ];
-
-        resultsContainer.innerHTML = `
-            <div class="w-full max-w-5xl mx-auto mb-10 animate-fade-in-up">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-5">
-                        <div class="w-11 h-11 bg-dorado/10 rounded-lg flex items-center justify-center text-dorado">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        </div>
-                        <div>
-                            <span class="text-sm font-bold text-gray-800"><span class="text-guinda text-lg">${totalResults}</span> coincidencias totales</span>
-                            <p class="text-xs text-gray-400">en ${lawCounts.length} documento${lawCounts.length !== 1 ? 's' : ''}</p>
-                        </div>
-                    </div>
-                    <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-center">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-[11px] font-bold text-guinda uppercase tracking-widest truncate max-w-[80%]">${lawCounts[0]?.ley || 'Leyes'}</span>
-                            <span class="text-[11px] font-bold text-gray-400">${lawCounts[0] ? Math.round((lawCounts[0].count / totalGlobal) * 100) : 0}%</span>
-                        </div>
-                        <div class="w-full bg-gray-50 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-guinda h-full rounded-full transition-all duration-1000" style="width: ${lawCounts[0] ? (lawCounts[0].count / totalGlobal) * 100 : 0}%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden w-full max-w-5xl mx-auto animate-fade-in-up">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xs border-collapse">
-                        <thead>
-                            <tr class="bg-guinda border-b border-guinda">
-                                <th class="px-5 py-3 font-bold text-white uppercase tracking-widest w-[20%]">Instrumento</th>
-                                <th class="px-4 py-3 font-bold text-white uppercase tracking-widest w-[15%]">Artículo</th>
-                                <th class="px-5 py-3 font-bold text-white uppercase tracking-widest w-[50%]">Extracto</th>
-                                <th class="px-5 py-3 font-bold text-white uppercase tracking-widest text-right w-[15%]">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-50">
-                            ${results.map(item => {
-                                const highlightedText = highlightText(getTextPreview(item.texto, 140), query);
-                                const highlightedLabel = highlightText(item.articulo_label, query);
-                                const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
-                                return `
-                                <tr class="group hover:bg-gray-50/50 transition-all duration-200 cursor-pointer result-item" data-id="${item.id}">
-                                    <td class="px-5 py-3 align-top">
-                                        <div class="flex flex-col gap-1">
-                                            <div class="flex items-center gap-2">
-                                                <div class="inline-block px-2 py-0.5 bg-guinda/5 border border-guinda/10 rounded text-[9px] font-black text-guinda uppercase tracking-widest shadow-sm" title="${item.ley_origen}">
-                                                    ${item.siglas_ley || (item.ley_origen.length > 15 ? item.ley_origen.substring(0, 15) + '...' : item.ley_origen)}
-                                                </div>
-                                                ${item.url_original ? `
-                                                <a href="${item.url_original}" target="_blank" class="text-gray-300 hover:text-guinda transition-colors" title="Ver en DOF">
-                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                                </a>` : ''}
-                                            </div>
-                                            <div class="text-[9px] text-gray-400 font-medium flex items-center gap-1">
-                                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                ${item.fecha_publicacion ? new Date(item.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }) : 'Fecha N/A'}
-                                            </div>
-                                            <div class="text-[10px] text-gray-400 font-medium truncate max-w-[120px] italic" title="${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}">
-                                                ${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ') || 'Disposiciones Generales'}
-                                            </div>
-                                            ${buildRelacionBadge(item.ley_id)}
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 align-top font-bold text-guinda text-[12px]">
-                                        ${highlightedLabel}
-                                    </td>
-                                    <td class="px-5 py-3 align-top text-gray-600 leading-relaxed text-[12px]">
-                                        ${highlightedText}
-                                    </td>
-                                    <td class="px-5 py-3 align-top text-right">
-                                        <div class="flex items-center justify-end gap-2">
-                                            <button class="bookmark-card-btn p-1.5 rounded-lg border border-gray-100 bg-white text-gray-300 hover:text-guinda hover:border-guinda/30 transition-all shadow-sm" data-id="${item.id}" title="${favTitle}">
-                                                ${isFav 
-                                                    ? '<svg class="w-3.5 h-3.5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'
-                                                    : '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>'}
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                `;
-                            }).join('')}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        `;
-
-        // Add pagination controls using the total count from backend
-        renderPaginationControls(totalResults, 'results-container', renderResults);
-
-        // Add click listeners
-        document.querySelectorAll('.result-item').forEach(el => {
-            el.addEventListener('click', (e) => {
-                if (e.target.closest('.bookmark-card-btn')) return;
-                if (e.target.closest('.rel-open-law')) return;
-                openDetail(el.dataset.id);
-            });
-        });
-        document.querySelectorAll('.bookmark-card-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (!toggleFavorite(btn.dataset.id)) return;
-                renderResults();
-            });
-        });
-        document.querySelectorAll('#results-container .compare-card-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const id = btn.dataset.id;
-                const idx = compareSelection.indexOf(id);
-                if (idx >= 0) compareSelection.splice(idx, 1);
-                else if (compareSelection.length < 2) compareSelection.push(id);
-                updateCompareBar();
-                refreshCompareButtons();
-            });
-        });
-        // Law badge filter click
-        document.querySelectorAll('.law-badge-filter').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const clickedLaw = btn.dataset.law;
-                // Toggle: if already active, remove filter; else apply it
-                if (currentFilters.law === clickedLaw) {
-                    currentFilters.law = 'all';
-                } else {
-                    currentFilters.law = clickedLaw;
-                }
-                currentPage = 1;
-                renderResults();
-            });
-        });
-
-        // Animate results
-        if (typeof anime !== 'undefined') {
-            anime({
-                targets: '#results-container .result-item',
-                translateX: [20, 0],
-                opacity: [0, 1],
-                easing: 'easeOutQuint',
-                duration: 600,
-                delay: anime.stagger(50)
-            });
-        }
+        if (results.length) renderPaginationControls(totalResults, 'results-container', renderResults);
+        else if (resultsContainer.nextElementSibling?.classList.contains('pagination-nav')) resultsContainer.nextElementSibling.remove();
     }
 
     async function openDetail(id, { updateHistory = true } = {}) {

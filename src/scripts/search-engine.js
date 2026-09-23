@@ -86,10 +86,75 @@ function applyFilters(q, filters) {
     if (filters.type && filters.type !== 'all') {
         q = q.eq('leyes.tipo', filters.type);
     }
+    if (Array.isArray(filters.lawIds) && filters.lawIds.length) {
+        q = q.in('ley_id', filters.lawIds);
+    }
     if (filters.artNum) {
         q = q.ilike('identificador', '%' + filters.artNum + '%');
     }
     return q;
+}
+
+// Ranked search lives in Postgres (supabase/migrations/202609230001_search_ranking.sql).
+// Until that migration is applied, callers transparently get the previous tiered search.
+let rankedSearchAvailable = null;
+const missingFunction = error => ['PGRST202', '42883'].includes(error?.code) || /could not find the function/i.test(error?.message || '');
+
+/**
+ * Relevance-ordered search. Returns { data, total, ranked } where each item may carry
+ * `fragmento` (matches wrapped in [[[ ]]]). Law metadata is left to the caller's catalogue.
+ */
+export async function searchArticles(query, { page = 1, limit = 20, lawIds = null, artNum = '' } = {}) {
+    const queryTrim = String(query || '').trim();
+    if (queryTrim.length < 3) return { data: [], total: 0, ranked: false };
+    if (rankedSearchAvailable !== false) {
+        const { data, error } = await supabase.rpc('buscar_articulos', {
+            q: queryTrim, p_ley_ids: lawIds?.length ? lawIds : null, p_articulo: artNum || null,
+            p_limit: limit, p_offset: (page - 1) * limit,
+        });
+        if (!error) {
+            rankedSearchAvailable = true;
+            const rows = data || [];
+            const ids = rows.map(row => row.id);
+            // Full text is still needed by the reader modal and favourites.
+            const { data: texts } = ids.length ? await supabase.from('articulos').select('id, contenido').in('id', ids) : { data: [] };
+            const byId = new Map((texts || []).map(row => [row.id, row.contenido]));
+            return {
+                ranked: true,
+                total: Number(rows[0]?.total || 0),
+                data: rows.map(row => ({ ...mapRowToLocalItem({ ...row, contenido: byId.get(row.id) || '' }), fragmento: row.fragmento || '', score: row.rank })),
+            };
+        }
+        if (missingFunction(error)) rankedSearchAvailable = false;
+        else console.warn('[Search] buscar_articulos falló; se usa la búsqueda anterior:', error.message);
+    }
+    const legacy = await performSearch(queryTrim, page, limit, { lawIds, artNum });
+    return { ...legacy, ranked: false };
+}
+
+/** Matches per instrument: [{ ley_id, count }]. */
+export async function searchCountsByLawId(query, { lawIds = null, artNum = '' } = {}) {
+    const queryTrim = String(query || '').trim();
+    if (queryTrim.length < 3) return [];
+    if (rankedSearchAvailable !== false) {
+        const { data, error } = await supabase.rpc('buscar_conteo_por_ley', { q: queryTrim, p_ley_ids: lawIds?.length ? lawIds : null, p_articulo: artNum || null });
+        if (!error) return (data || []).map(row => ({ ley_id: row.ley_id, count: Number(row.coincidencias) }));
+        if (missingFunction(error)) rankedSearchAvailable = false;
+    }
+    const filters = { lawIds, artNum };
+    for (const type of ['phrase', 'websearch', 'ilike']) {
+        let q = applyFilters(supabase.from('articulos').select('ley_id'), filters);
+        if (type === 'ilike') { for (const word of queryTrim.split(/\s+/)) if (word.length > 2) q = q.ilike('contenido', '%' + word + '%'); }
+        else q = q.textSearch('fts', queryTrim, { config: 'spanish', type });
+        const { data, error } = await q;
+        if (error) { console.warn('[Search] Conteo por instrumento:', error.message); continue; }
+        if (data?.length) {
+            const counts = new Map();
+            for (const row of data) counts.set(row.ley_id, (counts.get(row.ley_id) || 0) + 1);
+            return [...counts].map(([ley_id, count]) => ({ ley_id, count })).sort((a, b) => b.count - a.count);
+        }
+    }
+    return [];
 }
 
 export async function performSearch(query, page = 1, limit = 20, filters = {}) {
@@ -161,54 +226,6 @@ export async function performSearch(query, page = 1, limit = 20, filters = {}) {
     } catch (e) {
         console.error('[Search] Error en busqueda:', e.message);
         return { data: [], total: 0 };
-    }
-}
-
-export async function getSearchCountsByLaw(query, filters = {}) {
-    if (!query || query.trim().length < 3) return [];
-    try {
-        const queryTrim = query.trim();
-        
-        // REPLICAR LOGICA POR NIVELES PARA EL CONTEO
-        async function getCounts(type) {
-            let q = applyFilters(
-                supabase.from('articulos').select('ley_id, leyes!inner ( titulo )'),
-                filters
-            );
-            
-            if (type === 'phrase') q = q.textSearch('fts', queryTrim, { config: 'spanish', type: 'phrase' });
-            else if (type === 'websearch') q = q.textSearch('fts', queryTrim, { config: 'spanish', type: 'websearch' });
-            else {
-                for (const word of queryTrim.split(/\s+/)) {
-                    if (word.length > 2) q = q.ilike('contenido', '%' + word + '%');
-                }
-            }
-            
-            const { data, error } = await q;
-            if (error) throw error;
-            return data;
-        }
-
-        let data = [];
-        // Intentar niveles en orden
-        data = await getCounts('phrase');
-        if (data.length === 0) data = await getCounts('websearch');
-        if (data.length === 0) data = await getCounts('ilike');
-
-        if (!data || data.length === 0) return [];
-
-        // Count by ley
-        const counts = {};
-        for (const row of data) {
-            const titulo = row.leyes?.titulo || 'Desconocida';
-            counts[titulo] = (counts[titulo] || 0) + 1;
-        }
-        return Object.entries(counts)
-            .map(function([ley, count]) { return { ley: ley, count: count }; })
-            .sort(function(a, b) { return b.count - a.count; });
-    } catch (e) {
-        console.error('[Search] Error contando por ley:', e);
-        return [];
     }
 }
 

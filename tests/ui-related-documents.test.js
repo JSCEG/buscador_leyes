@@ -5,8 +5,8 @@ import { relatedDocumentLabel } from '../src/lib/related-document.js';
 
 vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
 vi.mock('../src/scripts/search-engine.js', () => ({
-    performSearch: vi.fn(), getArticleById: vi.fn(), getArticlesByLaw: vi.fn(),
-    getSearchCountsByLaw: vi.fn(), getThemesByLawName: vi.fn(), updateArticle: vi.fn(),
+    searchArticles: vi.fn(), searchCountsByLawId: vi.fn(), getArticleById: vi.fn(), getArticlesByLaw: vi.fn(),
+ getThemesByLawName: vi.fn(), updateArticle: vi.fn(),
 }));
 vi.mock('../src/scripts/analisis.js', () => ({ renderAnalisisView: vi.fn() }));
 vi.mock('../src/scripts/law-presentation.js', () => ({ openLawPresentationDeck: vi.fn(), renderLawPresentationEmbed: vi.fn() }));
