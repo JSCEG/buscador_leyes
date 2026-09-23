@@ -131,3 +131,6 @@ html.dark-mode .st-dashboard .st-table thead th{background:var(--st-paper)!impor
 html.dark-mode .st-dashboard .st-table td{background:transparent!important;border-color:var(--st-grid)!important}
 html.dark-mode .st-dashboard .st-table tbody tr:hover td{background:var(--st-paper)!important}
 html.dark-mode .st-dashboard .st-table thead tr{background:var(--st-paper)!important}
+.st-icon{display:inline-flex;flex:0 0 auto}
+.st-icon svg{display:block}
+.st-legend-item{grid-template-columns:18px 1fr auto auto}

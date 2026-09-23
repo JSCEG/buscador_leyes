@@ -237,3 +237,10 @@ html.dark-mode .nx-explorer :is(.nx-topic,.nx-theme-detail){background:var(--nx-
 html.dark-mode .nx-explorer :is(.nx-graph,.nx-sources,.nx-block){background:transparent!important}
 @media (max-width:899px){.nx-graph-canvas{min-width:0}.nx-node{font-size:12px;padding:0 8px!important}}
 .nx-explorer .nx-search input{padding-left:0!important}
+.nx-law-group{display:inline-flex;align-items:center;gap:4px}
+.nx-node-law{justify-content:flex-start}
+.nx-node-law strong{flex:1}
+.nx-node-ico{display:inline-flex;color:var(--nx-green)}
+.nx-node-law.nx-group-leyes .nx-node-ico{color:var(--nx-guinda)}
+.nx-node-law:is(.nx-group-acuerdos,.nx-group-convocatorias) .nx-node-ico{color:var(--nx-gold)}
+.nx-node-law .nx-node-ico svg{color:inherit;width:14px;height:14px}

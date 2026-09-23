@@ -2,6 +2,7 @@ import { escapeHtml as esc, searchEntities, getEntityReferences } from '../lib/e
 import { loadExplorerCatalog, canPublishExplorer } from '../lib/explorer-store.js';
 import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink, normalize, topicGraph } from '../lib/analisis-model.js';
 import { getAcervoGroup, ACERVO_GROUPS } from '../lib/acervo-model.js';
+import { collectionIcon } from '../lib/collection-icons.js';
 import { openExplorerEditor } from './explorer-editor.js';
 import { onAuthChange } from './auth.js';
 import '../styles/explorer.css';
@@ -76,7 +77,7 @@ function notifyRoute(state) {
 }
 
 const lawButton = law => `<li><button class="nx-law" data-open-law="${esc(law.id)}" title="${esc(law.titulo)}">
-  <span class="nx-law-meta"><span class="nx-law-group nx-group-${esc(getAcervoGroup(law))}">${esc(groupLabel.get(getAcervoGroup(law)) || 'Instrumento')}</span>${law.siglas ? `<span class="nx-law-sigla">${esc(law.siglas)}</span>` : ''}</span>
+  <span class="nx-law-meta"><span class="nx-law-group nx-group-${esc(getAcervoGroup(law))}">${collectionIcon(getAcervoGroup(law), 13)}${esc(groupLabel.get(getAcervoGroup(law)) || 'Instrumento')}</span>${law.siglas ? `<span class="nx-law-sigla">${esc(law.siglas)}</span>` : ''}</span>
   <span class="nx-law-title">${esc(law.titulo)}</span>${icon('open')}</button></li>`;
 
 function referencesMarkup(references, heading = 'Fundamentos') {
@@ -230,7 +231,7 @@ function graphMarkup(state) {
   const rootNode = graph.root && G.root ? node('root', G.root, pos.get('root'), 'nx-node-root', `<span>${esc(graph.topic.title)}</span>`, `data-select-entity="${esc(graph.root.id)}" title="Presentación del recorrido"`, 0) : '';
   const entityNodes = graph.entities.map((entity, index) => node(entity.id, G.entity, pos.get(entity.id), `nx-node-entity nx-node-${esc(entity.type)}`, `<i aria-hidden="true"></i><span>${esc(entity.label)}</span>`, `data-select-entity="${esc(entity.id)}" title="${esc(`${types[entity.type]}: ${entity.label}`)}"`, 120 + index * 35)).join('');
   const lawNodes = graph.laws.map(law => node(law.id, G.law, pos.get(law.id), `nx-node-law ${law.lawId ? '' : 'is-external'} ${law.group ? `nx-group-${esc(law.group)}` : ''}`,
-    `<strong>${esc(law.label)}</strong>${law.lawId ? icon('open') : ''}`,
+    `${law.group ? `<span class="nx-node-ico">${collectionIcon(law.group, 14)}</span>` : ''}<strong>${esc(law.label)}</strong>${law.lawId ? icon('open') : ''}`,
     law.lawId ? `data-open-law="${esc(law.lawId)}" title="${esc(`Abrir ${law.title}`)}"` : `aria-disabled="true" title="${esc(`${law.title}: todavía no está en el acervo`)}"`, 700 + (lawIndex.get(law.id) || 0) * 45)).join('');
   const citations = graph.edges.filter(edge => edge.kind !== 'member').length;
   return `<section class="nx-graph" data-graph aria-label="Mapa de relaciones del recorrido">

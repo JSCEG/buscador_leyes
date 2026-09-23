@@ -1,4 +1,5 @@
 import { computeStats } from '../lib/stats-model.js';
+import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/stats.css';
 
 const mounted = new WeakMap();
@@ -27,7 +28,7 @@ function composition(stats) {
         <div class="st-stack-block"><p class="st-stack-label">Fragmentos</p><div class="st-stack" role="img" aria-label="Fragmentos por colección">${segments('fragments')}</div></div>
         <ul class="st-legend">
             ${stats.groups.map(group => `<li><button type="button" class="st-legend-item" data-group="${group.id}" title="Ver ${escape(group.label)} en el acervo">
-                <span class="st-swatch" style="background:${color(group.id)}"></span>
+                <span class="st-icon" style="color:${color(group.id)}">${collectionIcon(group.id, 16)}</span>
                 <span class="st-legend-name">${escape(group.label)}</span>
                 <span class="st-legend-num">${number(group.count)}</span>
                 <span class="st-legend-pct">${percent(group.count, stats.total)}</span>
@@ -174,7 +175,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
             .sort((a, b) => sorters[table.sort](a, b) * table.dir || collator.compare(a.law.titulo, b.law.titulo));
         tbody.innerHTML = rows.map(row => `<tr data-law-id="${escape(row.law.id)}" tabindex="0">
             <td><span class="st-td-sigla">${escape(row.law.siglas || '')}</span><span class="st-td-title">${escape(row.law.titulo)}</span></td>
-            <td><span class="st-chip"><span class="st-swatch" style="background:${color(row.group)}"></span>${escape(groupLabel.get(row.group))}</span></td>
+            <td><span class="st-chip"><span class="st-icon" style="color:${color(row.group)}">${collectionIcon(row.group, 15)}</span>${escape(groupLabel.get(row.group))}</span></td>
             <td class="st-nowrap">${formatDay(row.day)}</td>
             <td class="st-num">${number(row.fragments)}</td>
         </tr>`).join('') || '<tr><td colspan="4" class="st-empty">Sin instrumentos que coincidan.</td></tr>';
