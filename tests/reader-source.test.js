@@ -10,6 +10,24 @@ const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
 
+it('verifies all 194 LSH fragments and their multi-page anchors', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const rows = JSON.parse(readFileSync('revision-acervo/sincronizacion-lsh-2026-09-23/articulos-verificados.json', 'utf8'));
+    expect(rows).toHaveLength(194);
+    for (const row of rows) {
+        const result = await getReaderSource(row.id, { articleText: row.contenido, manifest });
+        expect(result.status, row.identificador).toBe('mapped');
+        expect(result.contentVerified).toBe(true);
+        expect(result.source.lawId).toBe(row.ley_id);
+        for (let pageIndex = 0; pageIndex < result.pages.length; pageIndex++) {
+            expect(resolveReaderSource(manifest, row.id, { pageIndex }).highlights.length).toBeGreaterThan(0);
+        }
+    }
+    const article = rows.find(row => row.identificador === 'Artículo 3');
+    expect(resolveReaderSource(manifest, article.id).pages.map(p => p.number)).toEqual([1, 2]);
+    expect((await getReaderSource(article.id, { articleText: article.contenido + '.', manifest })).reason).toBe('content-mismatch');
+});
+
 it('verifies all 335 RLSE fragments against the reviewed regulation PDF', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const rows = JSON.parse(readFileSync('revision-acervo/sincronizacion-rlse-2026-09-22/articulos-verificados.json', 'utf8'));
