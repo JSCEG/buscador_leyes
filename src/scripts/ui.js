@@ -1030,6 +1030,7 @@ export function initUI() {
             return;
         }
         acervoView = renderAcervoView(resultsContainer, cachedSummaries, {
+            onOpenStats: () => showStatsView(),
             state: acervoState,
             onStateChange(next) {
                 acervoState = { ...next };

@@ -130,6 +130,20 @@ describe('Acervo library view', () => {
         expect(container.textContent).toContain('Sin conteo');
     });
 
+    it('summarises the library, lists the latest publications and hides the panel while filtering', () => {
+        const onOpenLaw = vi.fn(), onOpenStats = vi.fn();
+        view = renderAcervoView(container, summaries(), { onOpenLaw, onOpenStats });
+        const overview = container.querySelector('.ac-overview');
+        expect([...overview.querySelectorAll('.ac-stat strong')].map(node => node.textContent)).toEqual(['5', '446', '4']);
+        expect([...overview.querySelectorAll('[data-latest-id]')].map(node => node.dataset.latestId)).toEqual(['conv', 'rlse', 'lcne', 'lse', 'saee']);
+        overview.querySelector('[data-latest-id="conv"]').click();
+        expect(onOpenLaw.mock.calls[0][0].id).toBe('conv');
+        overview.querySelector('.ac-stats-link').click();
+        expect(onOpenStats).toHaveBeenCalled();
+        search('ley');
+        expect(overview.hidden).toBe(true);
+    });
+
     it('cleans up when remounted without letting an old destroy clear the new view', async () => {
         const old = renderAcervoView(container, summaries());
         view = renderAcervoView(container, [summaries()[0]]);

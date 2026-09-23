@@ -20,7 +20,7 @@ function publicationDate(value) {
 }
 
 /** A presentational library. Navigation and persistence remain owned by the app. */
-export function renderAcervoView(container, summaries, { state: initialState = {}, onStateChange = () => {}, onOpenLaw = () => {} } = {}) {
+export function renderAcervoView(container, summaries, { state: initialState = {}, onStateChange = () => {}, onOpenLaw = () => {}, onOpenStats = null } = {}) {
     if (!container || typeof container.replaceChildren !== 'function') throw new Error('Falta el contenedor del acervo.');
     mountedViews.get(container)?.destroy();
     const laws = selectAcervo(Array.isArray(summaries) ? summaries : []);
@@ -71,8 +71,9 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         filters.append(button); filterButtons.set(group.id, button);
     }
     const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
+    const overview = renderOverview();
     const body = element('div', 'ac-collections');
-    root.append(header, tools, filters, status, body);
+    root.append(header, tools, filters, status, overview, body);
     container.replaceChildren(root);
     let destroyed = false;
     let frame = null;
@@ -119,6 +120,53 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         });
     }
 
+    /** Summary and latest publications; shown only on the unfiltered library. */
+    function renderOverview() {
+        const panel = element('section', 'ac-overview');
+        panel.setAttribute('aria-label', 'Resumen del acervo');
+        const stats = element('div', 'ac-overview-stats');
+        const totalFragments = laws.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
+        const collections = groupAcervo(laws).filter(group => group.items.length).length;
+        for (const [value, label] of [[number(laws.length), laws.length === 1 ? 'instrumento' : 'instrumentos'], [number(totalFragments), 'fragmentos de texto'], [number(collections), collections === 1 ? 'colección' : 'colecciones']]) {
+            const stat = element('p', 'ac-stat');
+            stat.append(element('strong', '', value), element('span', '', label));
+            stats.append(stat);
+        }
+        const mix = element('div', 'ac-mix'); mix.setAttribute('role', 'img');
+        const populated = groupAcervo(laws).filter(group => group.items.length);
+        mix.setAttribute('aria-label', populated.map(group => `${group.label}: ${group.items.length}`).join(', '));
+        for (const group of populated) {
+            const segment = element('span', 'ac-mix-seg'); segment.dataset.category = group.id;
+            segment.style.flexGrow = String(group.items.length); segment.title = `${group.label}: ${group.items.length}`;
+            mix.append(segment);
+        }
+        const mixLabel = element('p', 'ac-mix-label', 'Distribución por colección');
+        stats.append(mixLabel, mix);
+        if (typeof onOpenStats === 'function') {
+            const more = element('button', 'ac-stats-link', 'Ver estadísticas'); more.type = 'button';
+            more.addEventListener('click', () => onOpenStats());
+            stats.append(more);
+        }
+        const recent = selectAcervo(laws, { sort: 'date-newest' }).filter(law => publicationDate(law.fecha_publicacion)).slice(0, 5);
+        const latest = element('div', 'ac-latest');
+        latest.append(element('h2', 'ac-latest-title', 'Publicados recientemente'));
+        const list = element('ol', 'ac-latest-list');
+        for (const law of recent) {
+            const item = element('li');
+            const button = element('button', 'ac-latest-item'); button.type = 'button'; button.dataset.latestId = law.id;
+            button.title = law.titulo || ''; button.dataset.category = getAcervoGroup(law);
+            const date = element('time', 'ac-latest-date', publicationDate(law.fecha_publicacion)); date.dateTime = law.fecha_publicacion;
+            const text = element('span', 'ac-latest-text');
+            text.append(element('span', 'ac-latest-sigla', law.siglas || ACERVO_GROUPS.find(group => group.id === getAcervoGroup(law))?.label || ''), element('span', 'ac-latest-name', law.titulo || 'Instrumento sin título'));
+            button.append(date, text);
+            button.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
+            item.append(button); list.append(item);
+        }
+        latest.append(list);
+        panel.append(stats, latest);
+        return panel;
+    }
+
     function makeCard(law) {
         const card = element('button', 'ac-card'); card.type = 'button'; card.dataset.lawId = law.id;
         const title = law.titulo || 'Instrumento sin título';
@@ -145,7 +193,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     }
 
     function renderGroup(group) {
-        const section = element('section', 'ac-group'); section.setAttribute('aria-labelledby', `${id}-${group.id}`);
+        const section = element('section', 'ac-group'); section.setAttribute('aria-labelledby', `${id}-${group.id}`); section.dataset.category = group.id;
         const groupHeader = element('div', 'ac-group-header');
         const heading = element('h2', '', group.label); heading.id = `${id}-${group.id}`;
         heading.append(element('span', 'ac-group-count', String(group.items.length)));
@@ -192,6 +240,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         }
         clear.hidden = !state.query;
         const grouped = !state.query.trim() && state.group === 'all';
+        overview.hidden = !grouped || !laws.length;
         body.replaceChildren();
         const groupLabel = ACERVO_GROUPS.find(group => group.id === state.group)?.label;
         status.textContent = grouped ? `${countLabel(selected.length)} para explorar por tipo de instrumento.` : `${countLabel(selected.length)}${groupLabel ? ` en ${groupLabel}` : ''}${state.query.trim() ? ` para «${state.query.trim()}»` : ''}.`;
