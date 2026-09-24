@@ -47,3 +47,12 @@ describe('search results view', () => {
         expect(container.querySelector('.sr-item[data-id="a1"] a').getAttribute('href')).toBe('https://dof.gob.mx/lse');
     });
 });
+
+describe('search summary under filters', () => {
+    it('counts only the instruments inside the active collection', () => {
+        document.body.innerHTML = '<div id="r"></div>';
+        const container = document.getElementById('r');
+        renderSearchResults(container, { query: 'red', results, total: 5, summaries, filters: { type: 'leyes', law: 'all', artNum: '' }, lawCounts: [{ ley_id: 'lse', count: 5 }, { ley_id: 'rlse', count: 2 }] });
+        expect(container.querySelector('.sr-summary').textContent).toBe('5 coincidencias en 1 instrumento');
+    });
+});

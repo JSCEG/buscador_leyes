@@ -30,6 +30,8 @@ export function renderSearchResults(container, {
     const shownLaws = facetLaws.filter(row => filters.type === 'all' || getAcervoGroup(row.law) === filters.type);
     const activeLaw = filters.law !== 'all' ? lawById.get(String(filters.law)) : null;
     const hasFilters = filters.type !== 'all' || filters.law !== 'all' || filters.artNum;
+    // The summary describes what is on screen; facet counts keep describing the whole query.
+    const summaryLaws = activeLaw ? 1 : shownLaws.length;
 
     const facetButton = (attrs, active, icon, label, count, title = '') => `<li><button type="button" class="sr-facet ${active ? 'is-active' : ''}" ${attrs} aria-pressed="${active}" ${title ? `title="${esc(title)}"` : ''}>${icon}<span class="sr-facet-label">${label}</span><span class="sr-facet-count">${number(count)}</span></button></li>`;
     const facets = `<aside class="sr-facets" aria-label="Filtrar resultados">
@@ -87,7 +89,7 @@ export function renderSearchResults(container, {
         <header class="sr-head">
             <p class="sr-eyebrow">Resultados de búsqueda</p>
             <h1 id="sr-heading">«${esc(query)}»</h1>
-            <p class="sr-summary" role="status">${total ? `${plural(total, 'coincidencia', 'coincidencias')}${facetLaws.length ? ` en ${plural(facetLaws.length, 'instrumento', 'instrumentos')}` : ''}${ranked ? ' · ordenadas por relevancia' : ''}` : 'Sin coincidencias'}</p>
+            <p class="sr-summary" role="status">${total ? `${plural(total, 'coincidencia', 'coincidencias')}${summaryLaws ? ` en ${plural(summaryLaws, 'instrumento', 'instrumentos')}` : ''}${ranked ? ' · ordenadas por relevancia' : ''}` : 'Sin coincidencias'}</p>
         </header>
         <div class="sr-layout">${facets}<div class="sr-main">${chips ? `<div class="sr-chips" aria-label="Filtros activos">${chips}</div>` : ''}${results.length ? `<ol class="sr-list">${items}</ol>` : empty}</div></div>
     </section>`;
