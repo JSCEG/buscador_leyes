@@ -130,18 +130,38 @@ describe('Acervo library view', () => {
         expect(container.textContent).toContain('Sin conteo');
     });
 
-    it('summarises the library, lists the latest publications and hides the panel while filtering', () => {
+    it('opens with collection tiles, the latest publications and key facts, and hides them while filtering', () => {
         const onOpenLaw = vi.fn(), onOpenStats = vi.fn();
         view = renderAcervoView(container, summaries(), { onOpenLaw, onOpenStats });
-        const overview = container.querySelector('.ac-overview');
-        expect([...overview.querySelectorAll('.ac-stat strong')].map(node => node.textContent)).toEqual(['5', '446', '4']);
-        expect([...overview.querySelectorAll('[data-latest-id]')].map(node => node.dataset.latestId)).toEqual(['conv', 'rlse', 'lcne', 'lse', 'saee']);
-        overview.querySelector('[data-latest-id="conv"]').click();
+        const root = container.querySelector('.ac-library');
+        expect(root.classList.contains('is-home')).toBe(true);
+        expect([...container.querySelectorAll('[data-tile-group]')].map(tile => tile.dataset.tileGroup)).toEqual(['leyes', 'reglamentos', 'dacg', 'convocatorias']);
+        expect([...container.querySelectorAll('[data-latest-id]')].map(node => node.dataset.latestId)).toEqual(['conv', 'rlse', 'lcne', 'lse']);
+        expect(container.querySelector('.ac-facts').textContent).toContain('446 artículos');
+        container.querySelector('[data-latest-id="conv"]').click();
         expect(onOpenLaw.mock.calls[0][0].id).toBe('conv');
-        overview.querySelector('.ac-stats-link').click();
+        container.querySelector('.ac-stats-link').click();
         expect(onOpenStats).toHaveBeenCalled();
-        search('ley');
-        expect(overview.hidden).toBe(true);
+        container.querySelector('[data-tile-group="reglamentos"]').click();
+        expect(view.captureState().group).toBe('reglamentos');
+        expect(root.classList.contains('is-home')).toBe(false);
+        expect(container.querySelector('.ac-overview').hidden).toBe(true);
+    });
+
+    it('leads long official titles with a readable name and keeps the full title', () => {
+        const long = { id: 'met', titulo: 'Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo de transmisión', siglas: 'MET', tipo: 'Acuerdo', fecha_publicacion: '2026-01-02', articulos: 4 };
+        view = renderAcervoView(container, [long]);
+        const card = container.querySelector('[data-law-id="met"]');
+        expect(card.querySelector('.ac-card-name').textContent).toBe('Metodología para la determinación del cargo de transmisión');
+        expect(card.querySelector('.ac-card-title').textContent).toBe(long.titulo);
+    });
+
+    it('searches a frequent topic from the hero', () => {
+        view = renderAcervoView(container, summaries());
+        const chip = container.querySelector('[data-topic="electricidad"]');
+        chip.click();
+        expect(view.captureState().query).toBe('electricidad');
+        expect(container.querySelector('input[type="search"]').value).toBe('electricidad');
     });
 
     it('cleans up when remounted without letting an old destroy clear the new view', async () => {

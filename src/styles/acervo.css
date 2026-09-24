@@ -158,3 +158,96 @@ html.dark-mode .ac-library .ac-mix-seg[data-category=acuerdos]{background:#b06a8
 .ac-library .ac-filters{gap:6px}
 .ac-library .ac-filter{padding:8px 12px;gap:8px}
 .ac-library .ac-search-box input[type=search]{padding-left:0!important}
+
+/* ── Home redesign (sept 2026): hero, collection tiles, latest, readable cards ── */
+#main-container:has(> #results-container > .ac-library){padding-top:24px!important}
+#results-container:has(> .ac-library){margin-top:0!important}
+
+.ac-library .ac-hero{position:relative;overflow:hidden;margin:0 0 28px;padding:40px 44px 30px;border-radius:20px;color:#fff;
+    background:
+        radial-gradient(120% 90% at 100% 0%,#b8375f 0%,transparent 55%),
+        radial-gradient(90% 80% at 0% 100%,#4a0d22 0%,transparent 60%),
+        linear-gradient(135deg,#7a1a38 0%,#9b2247 55%,#6d1631 100%);
+    box-shadow:0 18px 40px #9b224733}
+.ac-library .ac-hero::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.14;
+    background-image:radial-gradient(circle at 20% 30%,#fff 0 1.5px,transparent 2px),radial-gradient(circle at 70% 60%,#fff 0 1px,transparent 1.5px);background-size:44px 44px,28px 28px}
+.ac-library .ac-hero>*{position:relative;z-index:1}
+.ac-library .ac-hero .ac-header{border:0!important;padding:0 0 18px;background:transparent!important;color:#fff}
+.ac-library .ac-hero .ac-eyebrow{color:#f6d9a8;font-weight:600}
+.ac-library .ac-hero h1{color:#fff!important;font-size:clamp(30px,4.2vw,48px);max-width:18ch}
+.ac-library .ac-hero .ac-intro{color:#fbe9ee;font-size:17px;max-width:52ch}
+.ac-library .ac-hero .ac-tools{margin:6px 0 14px;align-items:flex-end}
+.ac-library .ac-hero .ac-label{color:#fbe9ee}
+.ac-library .ac-hero .ac-search-box{min-height:58px;border:0;border-radius:12px;box-shadow:0 8px 24px #2a071440;background:#fff}
+.ac-library .ac-hero .ac-search-box input{color:#302b27!important;font-size:17px}
+.ac-library .ac-hero select{border:0;border-radius:12px;min-height:58px;background:#ffffffeb;color:#302b27}
+.ac-library .ac-facts{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin:0 0 14px;font-size:14px;color:#fbe9ee}
+.ac-library .ac-facts p{margin:0;white-space:nowrap}
+.ac-library .ac-facts .ac-total{color:#fff;font-weight:700;font-size:14px}
+.ac-library .ac-facts>*+*::before{content:'·';margin-right:18px;opacity:.6}
+.ac-library .ac-hero .ac-stats-link{margin:0;padding:0;color:#fff;font-size:14px;text-decoration:underline;text-underline-offset:3px;background:none;border:0}
+.ac-library .ac-topics{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ac-library .ac-topics-label{font-size:13px;color:#fbe9ee;margin-right:2px}
+.ac-library .ac-topic{padding:6px 13px;border-radius:18px;border:1px solid #ffffff55;background:#ffffff1f;color:#fff;font-size:13px;transition:background-color .15s}
+.ac-library .ac-topic:hover{background:#ffffff3a}
+.ac-library .ac-hero :is(button,input,select):focus-visible{outline:3px solid #f6d9a8;outline-offset:3px}
+html.dark-mode .ac-library .ac-hero{background:radial-gradient(120% 90% at 100% 0%,#8a2748 0%,transparent 55%),linear-gradient(135deg,#4a0f24,#6d1631 60%,#3d0b1c)!important;box-shadow:none}
+html.dark-mode .ac-library .ac-hero .ac-search-box{background:#262321}
+html.dark-mode .ac-library .ac-hero .ac-search-box input{color:#f4efe7!important}
+html.dark-mode .ac-library .ac-hero select{background:#262321;color:#f4efe7}
+
+/* Home shows entry points; the filter bar and status return when filtering */
+.ac-library.is-home .ac-filters,.ac-library.is-home .ac-result-status{display:none}
+.ac-library .ac-section-title{font-family:Patria,Georgia,serif;font-size:24px!important;margin:0 0 14px!important;color:var(--ac-ink)}
+.ac-library .ac-overview{display:block;margin:0 0 36px}
+.ac-library .ac-tiles{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ac-library .ac-tile{display:grid;grid-template-columns:52px minmax(0,1fr) auto;grid-template-rows:auto auto;gap:2px 14px;align-items:center;width:100%;height:100%;padding:16px 18px;text-align:left;background:var(--ac-card);border:1px solid var(--ac-border);border-radius:14px;box-shadow:var(--ac-shadow);transition:transform .2s,box-shadow .2s,border-color .15s}
+.ac-library .ac-tile:hover{transform:translateY(-2px);border-color:var(--ac-dot);box-shadow:0 12px 28px #302b2716}
+.ac-library .ac-tile-icon{grid-row:1/3;width:52px;height:52px;align-items:center;justify-content:center;border-radius:14px;background:color-mix(in srgb,var(--ac-dot) 12%,transparent)}
+.ac-library .ac-tile-icon svg{width:26px;height:26px}
+.ac-library .ac-tile-name{font-family:Patria,Georgia,serif;font-weight:700;font-size:19px;color:var(--ac-ink)}
+.ac-library .ac-tile-blurb{grid-column:2;font-size:13.5px;color:var(--ac-muted);line-height:1.4}
+.ac-library .ac-tile-count{grid-row:1/3;grid-column:3;font-size:12.5px;font-weight:600;color:var(--ac-dot);white-space:nowrap}
+.ac-library .ac-recent{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ac-library .ac-recent-card{display:flex;flex-direction:column;gap:8px;width:100%;height:100%;padding:16px 18px;text-align:left;background:var(--ac-card);border:1px solid var(--ac-border);border-top:3px solid var(--ac-dot);border-radius:12px;box-shadow:var(--ac-shadow);transition:transform .2s,box-shadow .2s}
+.ac-library .ac-recent-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px #302b2716}
+.ac-library .ac-recent-top{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ac-muted)}
+.ac-library .ac-recent-icon{color:var(--ac-dot)}
+.ac-library .ac-recent-icon svg{width:14px;height:14px}
+.ac-library .ac-recent-group{font-weight:600;color:var(--ac-dot)}
+.ac-library .ac-recent-date{margin-left:auto;font-variant-numeric:tabular-nums}
+.ac-library .ac-recent-name{font-size:15px;font-weight:600;line-height:1.4;color:var(--ac-ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ac-library .ac-recent-sigla{margin-top:auto;font-size:12px;color:var(--ac-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Collection rows: arrows sit next to the heading, no repeated hint */
+.ac-library .ac-group{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"head arrows" "row row"}
+.ac-library .ac-group>.ac-group-header{grid-area:head}
+.ac-library .ac-group>.ac-row{grid-area:row}
+.ac-library .ac-group>.ac-row-footer{grid-area:arrows;margin:0 0 12px 12px;align-self:center}
+.ac-library .ac-row-hint{display:none}
+.ac-library .ac-arrow{width:38px;height:38px;font-size:17px}
+@media (hover:none){.ac-library .ac-row-hint{display:inline}}
+
+/* Cards: flexible stack so a readable name can lead */
+.ac-library .ac-card{display:flex!important;flex-direction:column;gap:6px;height:244px}
+.ac-library .ac-card-name{font-size:15.5px;font-weight:700;line-height:1.38;color:var(--ac-ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ac-library .ac-card-title{flex:1;min-height:0}
+.ac-library .ac-card.has-name .ac-card-title{font-size:12px;font-weight:400;color:var(--ac-muted);-webkit-line-clamp:2;flex:1}
+.ac-library .ac-card-meta{margin-top:auto}
+
+@media (max-width:1100px){.ac-library .ac-recent{grid-template-columns:repeat(2,minmax(0,1fr))}.ac-library .ac-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+    .ac-library .ac-hero{padding:26px 18px 20px;border-radius:16px}
+    .ac-library .ac-hero .ac-intro{font-size:15px}
+    .ac-library .ac-tiles,.ac-library .ac-recent{grid-template-columns:1fr}
+    .ac-library .ac-tile{grid-template-columns:44px minmax(0,1fr) auto;padding:12px 14px}
+    .ac-library .ac-tile-icon{width:44px;height:44px}
+    .ac-library .ac-facts>*+*::before{display:none}
+    .ac-library .ac-group>.ac-row-footer{display:none}
+}
+@media (prefers-reduced-motion:reduce){.ac-library :is(.ac-tile,.ac-recent-card):hover{transform:none}}
+@media (min-width:1101px){.ac-library .ac-row{grid-auto-columns:calc((100% - 42px) / 4)}}
+.ac-library .ac-card.has-name .ac-card-title{flex:0 0 auto;max-height:2.9em;line-height:1.45}
+.ac-library .ac-card.has-name .ac-card-meta{margin-top:auto}
+html.dark-mode .ac-library .ac-hero .ac-header{border-bottom:0!important}
+html.dark-mode .ac-library .ac-hero .ac-search-box input{background:transparent!important;border:0!important}

@@ -1,5 +1,7 @@
 import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib/acervo-model.js';
 import { collectionIcon } from '../lib/collection-icons.js';
+import { shortTitle } from '../lib/short-title.js';
+import { acervoThemes } from '../lib/analisis-model.js';
 import '../styles/acervo.css';
 
 const mountedViews = new WeakMap();
@@ -18,6 +20,17 @@ const element = (tag, className, text) => {
     if (className) node.className = className;
     if (text !== undefined) node.textContent = text;
     return node;
+};
+
+// Plain one-liners for the collection tiles on the home view.
+const COLLECTION_BLURBS = {
+    leyes: 'Las leyes del sector energético.',
+    reglamentos: 'Detallan cómo se aplica cada ley.',
+    acuerdos: 'Metodologías, formatos y criterios de las autoridades.',
+    dacg: 'Reglas administrativas de carácter general.',
+    convocatorias: 'Convocatorias y sus modificaciones.',
+    normas: 'Normas oficiales y referencias técnicas.',
+    otros: 'Planes, programas, decretos, manuales y avisos.',
 };
 
 function publicationDate(value) {
@@ -46,13 +59,33 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const id = `acervo-${++nextViewId}`;
     const root = element('section', 'ac-library');
     root.setAttribute('aria-labelledby', `${id}-title`);
+    const hero = element('div', 'ac-hero');
     const header = element('header', 'ac-header');
     const titleBlock = element('div', 'ac-title-block');
-    titleBlock.append(element('p', 'ac-eyebrow', 'Biblioteca normativa'));
-    const title = element('h1', '', 'Acervo regulatorio'); title.id = `${id}-title`;
-    titleBlock.append(title, element('p', 'ac-intro', 'Encuentra el instrumento que necesitas y explora su contenido.'));
+    titleBlock.append(element('p', 'ac-eyebrow', 'Secretaría de Energía · Acervo'));
+    const title = element('h1', '', 'Normativa del sector energético'); title.id = `${id}-title`;
+    titleBlock.append(title, element('p', 'ac-intro', 'Leyes, reglamentos, acuerdos y demás documentos oficiales, en un solo lugar.'));
+    header.append(titleBlock);
+    const facts = element('div', 'ac-facts');
     const total = element('p', 'ac-total', countLabel(laws.length));
-    header.append(titleBlock, total);
+    const totalFragments = laws.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
+    const newest = selectAcervo(laws, { sort: 'date-newest' }).find(law => publicationDate(law.fecha_publicacion));
+    facts.append(total, element('p', 'ac-fact', `${number(totalFragments)} artículos y fragmentos`));
+    if (newest) facts.append(element('p', 'ac-fact', `Última publicación: ${publicationDate(newest.fecha_publicacion)}`));
+    if (typeof onOpenStats === 'function') {
+        const more = element('button', 'ac-stats-link', 'Ver estadísticas'); more.type = 'button';
+        more.addEventListener('click', () => onOpenStats());
+        facts.append(more);
+    }
+    const topics = element('div', 'ac-topics');
+    const topThemes = acervoThemes(laws).slice(0, 6);
+    if (topThemes.length) {
+        topics.append(element('span', 'ac-topics-label', 'Temas frecuentes:'));
+        for (const theme of topThemes) {
+            const chip = element('button', 'ac-topic', theme.label); chip.type = 'button'; chip.dataset.topic = theme.label;
+            topics.append(chip);
+        }
+    }
 
     const tools = element('div', 'ac-tools');
     const searchForm = element('form', 'ac-search-form');
@@ -83,7 +116,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
     const overview = renderOverview();
     const body = element('div', 'ac-collections');
-    root.append(header, tools, filters, status, overview, body);
+    hero.append(header, tools, facts, topics);
+    root.append(hero, filters, status, overview, body);
     container.replaceChildren(root);
     let destroyed = false;
     let frame = null;
@@ -130,51 +164,39 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         });
     }
 
-    /** Summary and latest publications; shown only on the unfiltered library. */
+    /** Home entry points: collections as tiles and the latest publications. Hidden while filtering. */
     function renderOverview() {
         const panel = element('section', 'ac-overview');
-        panel.setAttribute('aria-label', 'Resumen del acervo');
-        const stats = element('div', 'ac-overview-stats');
-        const totalFragments = laws.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
-        const collections = groupAcervo(laws).filter(group => group.items.length).length;
-        for (const [value, label] of [[number(laws.length), laws.length === 1 ? 'instrumento' : 'instrumentos'], [number(totalFragments), 'fragmentos de texto'], [number(collections), collections === 1 ? 'colección' : 'colecciones']]) {
-            const stat = element('p', 'ac-stat');
-            stat.append(element('strong', '', value), element('span', '', label));
-            stats.append(stat);
-        }
-        const mix = element('div', 'ac-mix'); mix.setAttribute('role', 'img');
-        const populated = groupAcervo(laws).filter(group => group.items.length);
-        mix.setAttribute('aria-label', populated.map(group => `${group.label}: ${group.items.length}`).join(', '));
-        for (const group of populated) {
-            const segment = element('span', 'ac-mix-seg'); segment.dataset.category = group.id;
-            segment.style.flexGrow = String(group.items.length); segment.title = `${group.label}: ${group.items.length}`;
-            mix.append(segment);
-        }
-        const mixLabel = element('p', 'ac-mix-label', 'Distribución por colección');
-        stats.append(mixLabel, mix);
-        if (typeof onOpenStats === 'function') {
-            const more = element('button', 'ac-stats-link', 'Ver estadísticas'); more.type = 'button';
-            more.addEventListener('click', () => onOpenStats());
-            stats.append(more);
-        }
-        const recent = selectAcervo(laws, { sort: 'date-newest' }).filter(law => publicationDate(law.fecha_publicacion)).slice(0, 5);
-        const latest = element('div', 'ac-latest');
-        latest.append(element('h2', 'ac-latest-title', 'Publicados recientemente'));
-        const list = element('ol', 'ac-latest-list');
-        for (const law of recent) {
+        panel.setAttribute('aria-label', 'Explorar el acervo');
+        const tilesHead = element('h2', 'ac-section-title', 'Explora por colección');
+        const tiles = element('ul', 'ac-tiles');
+        for (const group of groupAcervo(laws).filter(item => item.items.length)) {
             const item = element('li');
-            const button = element('button', 'ac-latest-item'); button.type = 'button'; button.dataset.latestId = law.id;
-            button.title = law.titulo || ''; button.dataset.category = getAcervoGroup(law);
-            const date = element('time', 'ac-latest-date', publicationDate(law.fecha_publicacion)); date.dateTime = law.fecha_publicacion;
-            const text = element('span', 'ac-latest-text');
-            text.append(element('span', 'ac-latest-sigla', law.siglas || ACERVO_GROUPS.find(group => group.id === getAcervoGroup(law))?.label || ''), element('span', 'ac-latest-name', law.titulo || 'Instrumento sin título'));
-            text.prepend(iconNode(getAcervoGroup(law), 'ac-latest-icon'));
-            button.append(date, text);
+            const tile = element('button', 'ac-tile'); tile.type = 'button'; tile.dataset.tileGroup = group.id; tile.dataset.category = group.id;
+            const count = element('span', 'ac-tile-count', countLabel(group.items.length));
+            tile.append(iconNode(group.id, 'ac-tile-icon'), element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), count);
+            tile.addEventListener('click', () => {
+                captureRows(); state.group = group.id; renderBody(); notify();
+                filterButtons.get(group.id)?.focus({ preventScroll: true });
+                root.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
+            });
+            item.append(tile); tiles.append(item);
+        }
+        const recentHead = element('h2', 'ac-section-title', 'Lo más reciente');
+        const list = element('ol', 'ac-recent');
+        for (const law of selectAcervo(laws, { sort: 'date-newest' }).filter(item => publicationDate(item.fecha_publicacion)).slice(0, 4)) {
+            const item = element('li');
+            const button = element('button', 'ac-recent-card'); button.type = 'button'; button.dataset.latestId = law.id;
+            const groupId = getAcervoGroup(law);
+            button.dataset.category = groupId; button.title = law.titulo || '';
+            const top = element('span', 'ac-recent-top');
+            const date = element('time', 'ac-recent-date', publicationDate(law.fecha_publicacion)); date.dateTime = law.fecha_publicacion;
+            top.append(iconNode(groupId, 'ac-recent-icon'), element('span', 'ac-recent-group', ACERVO_GROUPS.find(group => group.id === groupId)?.label || ''), date);
+            button.append(top, element('span', 'ac-recent-name', shortTitle(law.titulo) || law.titulo || 'Instrumento sin título'), element('span', 'ac-recent-sigla', law.siglas || ''));
             button.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
             item.append(button); list.append(item);
         }
-        latest.append(list);
-        panel.append(stats, latest);
+        panel.append(tilesHead, tiles, recentHead, list);
         return panel;
     }
 
@@ -190,6 +212,9 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
         acronym.title = acronym.textContent;
         const cardTitle = element('span', 'ac-card-title', title);
+        const readable = shortTitle(title);
+        const cardName = readable ? element('span', 'ac-card-name', readable) : null;
+        if (cardName) card.classList.add('has-name');
         const metadata = element('span', 'ac-card-meta');
         const date = publicationDate(law.fecha_publicacion);
         const dateNode = element(date ? 'time' : 'span', '', date || 'Fecha no disponible');
@@ -199,7 +224,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         metadata.append(dateNode, element('span', '', fragments));
         const action = element('span', 'ac-card-action', 'Consultar');
         const arrow = element('span', '', '↗'); arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);
-        card.append(category, acronym, cardTitle, metadata, action);
+        card.append(category, acronym, ...(cardName ? [cardName] : []), cardTitle, metadata, action);
         card.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
         return card;
     }
@@ -253,6 +278,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         clear.hidden = !state.query;
         const grouped = !state.query.trim() && state.group === 'all';
         overview.hidden = !grouped || !laws.length;
+        root.classList.toggle('is-home', grouped && laws.length > 0);
         body.replaceChildren();
         const groupLabel = ACERVO_GROUPS.find(group => group.id === state.group)?.label;
         status.textContent = grouped ? `${countLabel(selected.length)} para explorar por tipo de instrumento.` : `${countLabel(selected.length)}${groupLabel ? ` en ${groupLabel}` : ''}${state.query.trim() ? ` para «${state.query.trim()}»` : ''}.`;
@@ -279,6 +305,11 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     searchInput.addEventListener('input', () => { state.query = searchInput.value; renderBody(); notify(); });
     clear.addEventListener('click', () => { state.query = ''; searchInput.value = ''; renderBody(); notify(); searchInput.focus(); });
     sortSelect.addEventListener('change', () => { state.sort = sortSelect.value; renderBody(); notify(); });
+    topics.addEventListener('click', event => {
+        const chip = event.target.closest('[data-topic]');
+        if (!chip) return;
+        state.query = chip.dataset.topic; searchInput.value = state.query; renderBody(); notify();
+    });
     filters.addEventListener('click', event => {
         const button = event.target.closest('button[data-group]');
         if (!button) return;
