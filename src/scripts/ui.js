@@ -7,6 +7,7 @@ import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
 import { renderSearchResults } from './search-results-view.js';
 import { renderFavoritesView } from './favorites-view.js';
+import { renderHelpView } from './help-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/law-reader.css';
 import '../styles/reader-modal.css';
@@ -2710,50 +2711,15 @@ export function initUI() {
         resultsContainer.classList.remove('hidden');
         setTimeout(() => resultsContainer.classList.remove('opacity-0'), 50);
 
-        resultsContainer.innerHTML = `
-            <div class="w-full max-w-4xl mx-auto animate-fade-in-up">
-                <div class="text-center mb-16">
-                    <span class="text-[10px] font-black text-guinda uppercase tracking-[0.3em] mb-4 block">Centro de Soporte y Guía</span>
-                    <h2 class="text-4xl font-head font-bold text-gray-800 mb-6">¿Cómo podemos ayudarle?</h2>
-                    <div class="w-20 h-1 bg-guinda mx-auto rounded-full opacity-20"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
-                        <div class="w-12 h-12 bg-guinda/5 rounded-lg flex items-center justify-center text-guinda mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-3">Búsqueda Avanzada</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Utilice operadores para refinar sus resultados. Use <span class="font-mono text-guinda px-1 bg-guinda/5 rounded">"frase exacta"</span> para coincidencias literales o <span class="font-mono text-guinda px-1 bg-guinda/5 rounded">termino1 & termino2</span> para artículos que contengan ambos.</p>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
-                        <div class="w-12 h-12 bg-verde/10 rounded-lg flex items-center justify-center text-verde mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-3">Descarga de Fichas</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Cada artículo y ley cuenta con una opción de <span class="font-bold text-gray-700 italic">"Ver Original"</span> que le dirigirá al documento PDF oficial del Diario Oficial de la Federación.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg p-10 text-gray-800 border border-gray-200 shadow-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-guinda/5 rounded-full -mr-32 -mt-32 blur-2xl"></div>
-                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-head font-bold mb-4">¿No encuentra lo que busca?</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Nuestro equipo técnico y jurídico está disponible para resolver dudas sobre el funcionamiento de la plataforma o la veracidad del corpus legal.</p>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="mailto:soporte@sener.gob.mx" class="px-6 py-3 bg-guinda text-xs font-black uppercase tracking-widest rounded-full hover:bg-guinda-dk transition-colors shadow-lg shadow-guinda/20 text-white">Contactar Soporte</a>
-                                <button class="px-6 py-3 border border-gray-200 text-xs font-black uppercase tracking-widest rounded-full hover:bg-gray-50 transition-colors text-gray-600">Manual de Usuario</button>
-                            </div>
-                        </div>
-                        <div class="w-32 h-32 bg-guinda/5 rounded-full flex items-center justify-center flex-shrink-0">
-                            <svg class="w-16 h-16 text-guinda/40" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path></svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        renderHelpView(resultsContainer, {
+            onGo: target => {
+                if (target === 'acervo') showLawsView();
+                else if (target === 'analisis') showAnalisisView();
+                else if (target === 'buscar') { resetToHero(); searchInput?.focus(); }
+            },
+            onShortcuts: () => showKeyboardHelp(),
+        });
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     // ...
@@ -3341,82 +3307,6 @@ export function initUI() {
     document.getElementById('keyboard-help-btn')?.addEventListener('click', showKeyboardHelp);
     
     // Wire Ayuda nav items to show the help modal
-    function showHelpView() {
-        hideLawDetail();
-        resetToHero();
-        heroSection.classList.add('hidden');
-        globalSearchWrapper.classList.add('hidden');
-        quickFilters.classList.add('hidden');
-        statsMinimal.classList.add('hidden');
-        resultsContainer.classList.add('hidden');
-
-        let helpContainer = document.getElementById('help-view-container');
-        if (!helpContainer) {
-            helpContainer = document.createElement('div');
-            helpContainer.id = 'help-view-container';
-            helpContainer.className = 'w-full max-w-4xl mx-auto py-12 px-6 fade-in';
-            mainContainer.appendChild(helpContainer);
-        }
-        helpContainer.classList.remove('hidden');
-        setActiveNav('nav-ayuda');
-
-        helpContainer.innerHTML = `
-            <div class="space-y-12">
-                <header class="text-center">
-                    <span class="text-[10px] font-bold tracking-[0.3em] text-guinda uppercase mb-3 block">Soporte Institucional</span>
-                    <h2 class="text-4xl font-head font-bold text-gray-800 mb-6">¿Cómo podemos ayudarle?</h2>
-                    <p class="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-                        Bienvenido al portal de ayuda del Marco Legal Energético. Aquí encontrará información sobre cómo utilizar las herramientas de búsqueda y análisis del sector energético.
-                    </p>
-                </header>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Card 1 -->
-                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                        <div class="w-10 h-10 bg-guinda/5 rounded-lg flex items-center justify-center text-guinda mb-5">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                        </div>
-                        <h3 class="font-bold text-gray-800 mb-3">Búsqueda Avanzada</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Utilice términos técnicos del sector como "CENACE", "Transmisión" o "Soberanía" para encontrar artículos y disposiciones en el acervo.</p>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                        <div class="w-10 h-10 bg-guinda/5 rounded-lg flex items-center justify-center text-guinda mb-5">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                        </div>
-                        <h3 class="font-bold text-gray-800 mb-3">Análisis Transversal</h3>
-                        <p class="text-xs text-gray-400 leading-relaxed">Visualice cómo se interconectan los temas clave a través de diferentes leyes y reglamentos mediante nuestras gráficas interactivas.</p>
-                    </div>
-                </div>
-
-                <section class="bg-[#1E1E1E] text-white p-10 rounded-lg relative overflow-hidden border border-dorado/30">
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-bold mb-4">Atajos de Teclado</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            <div class="flex items-center gap-2">
-                                <kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/20">/</kbd>
-                                <span class="text-[10px] opacity-70">Buscar</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/20">?</kbd>
-                                <span class="text-[10px] opacity-70">Esta guía</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/20">Esc</kbd>
-                                <span class="text-[10px] opacity-70">Cerrar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute -right-8 -bottom-8 opacity-10">
-                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                </section>
-            </div>
-        `;
-    }
-
-    document.getElementById('nav-ayuda')?.addEventListener('click', (e) => { e.preventDefault(); showHelpView(); });
-    document.getElementById('mobile-nav-ayuda')?.addEventListener('click', (e) => { e.preventDefault(); showHelpView(); toggleMobileMenu(false); });
 
     document.addEventListener('keydown', (e) => {
         const tag = e.target.tagName;

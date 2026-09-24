@@ -134,3 +134,4 @@ html.dark-mode .st-dashboard .st-table thead tr{background:var(--st-paper)!impor
 .st-icon{display:inline-flex;flex:0 0 auto}
 .st-icon svg{display:block}
 .st-legend-item{grid-template-columns:18px 1fr auto auto}
+#results-container .st-dashboard .st-table thead tr,html.dark-mode #results-container .st-dashboard .st-table thead tr{background:var(--st-paper)!important;color:inherit!important}
