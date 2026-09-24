@@ -1,0 +1,51 @@
+/* Article modal aligned with the law reader: same tokens, quieter chrome, text first.
+   Layers on top of reader.css (sizes, 44px targets and reading preferences stay there). */
+#detail-modal{
+    --rm-paper:#faf8f5;--rm-card:#fff;--rm-ink:#302b27;--rm-muted:#6a655e;--rm-border:#e4ded5;--rm-line:#ece7df;--rm-guinda:#9b2247;--rm-guinda-bg:#9b22470f
+}
+html.dark-mode #detail-modal{
+    --rm-paper:#1e1c1a;--rm-card:#262321;--rm-ink:#f4efe7;--rm-muted:#c1b9af;--rm-border:#3d3833;--rm-line:#35302b;--rm-guinda:#eeb0c2;--rm-guinda-bg:#eeb0c214
+}
+#detail-modal{background:#302b2766!important;backdrop-filter:blur(3px)}
+html.dark-mode #detail-modal{background:#0009!important}
+#detail-modal #modal-panel{background:var(--rm-card)!important;border:1px solid var(--rm-border)!important;border-radius:14px;box-shadow:0 24px 70px #302b2733!important;color:var(--rm-ink)}
+
+/* Header: instrument link over a plain title */
+#modal-panel > div:first-child{padding:18px 20px 14px 24px!important;border-bottom:1px solid var(--rm-line)!important;background:var(--rm-card)!important}
+#modal-panel #modal-ley{font-size:13px!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;color:var(--rm-guinda)!important;margin-bottom:4px!important;text-decoration:none}
+#modal-panel #modal-ley:hover{text-decoration:underline;text-underline-offset:3px}
+#modal-panel #modal-title{font-family:Patria,Georgia,serif!important;font-weight:700!important;color:var(--rm-ink)!important;border:0!important;padding:0!important;font-size:clamp(22px,2.2vw,30px)!important;letter-spacing:-.015em}
+#modal-panel > div:first-child button:not(#modal-ley){border-radius:10px!important;color:var(--rm-muted)!important}
+#modal-panel > div:first-child button:not(#modal-ley):hover{background:var(--rm-paper)!important;color:var(--rm-guinda)!important}
+
+/* Previous / next: one quiet row */
+#detail-modal .reader-article-nav{background:var(--rm-paper)!important;border-bottom:1px solid var(--rm-line)!important;padding:8px 20px!important;gap:8px}
+#detail-modal .reader-article-nav button{min-height:44px;border:1px solid transparent!important;background:transparent!important;color:var(--rm-ink)!important;border-radius:8px}
+#detail-modal .reader-article-nav button:hover:not(:disabled){background:var(--rm-card)!important;border-color:var(--rm-border)!important;color:var(--rm-guinda)!important}
+#detail-modal .reader-nav-destination small{color:var(--rm-muted);letter-spacing:.04em}
+#detail-modal .reader-nav-destination > span{font-weight:600;font-size:13.5px}
+#detail-modal .reader-nav-arrow{font-size:20px;color:var(--rm-guinda)}
+#detail-modal .reader-nav-counter{color:var(--rm-muted);font-variant-numeric:tabular-nums}
+
+/* Mode tabs and reading settings */
+#detail-modal .reader-toolbar{background:var(--rm-card)!important;border-color:var(--rm-line)!important;color:var(--rm-ink)!important;padding:6px 20px!important}
+#detail-modal .reader-modes{gap:2px}
+#detail-modal .reader-modes button{border-radius:0!important;background:transparent!important;color:var(--rm-muted)!important;border-bottom:3px solid transparent!important;font-weight:600}
+#detail-modal .reader-modes button[aria-pressed="true"]{color:var(--rm-ink)!important;border-bottom-color:var(--rm-guinda)!important}
+#detail-modal .reader-modes button:hover{color:var(--rm-ink)!important}
+
+/* Location breadcrumb */
+#modal-content .rm-location{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:0 0 18px;padding:0 0 14px;border-bottom:1px solid var(--rm-line);font-size:12.5px;line-height:1.45;color:var(--rm-muted)}
+#modal-content .rm-location span{text-align:left}
+#modal-content .rm-sep{color:var(--rm-border)}
+
+/* Footer actions as quiet pills */
+#modal-panel > div:last-child{background:var(--rm-paper)!important;border-top:1px solid var(--rm-line)!important;padding:8px 16px!important}
+#modal-panel > div:last-child button{border-radius:18px!important;padding:6px 12px!important;color:var(--rm-muted)!important;font-size:13px!important}
+#modal-panel > div:last-child button:hover{background:var(--rm-card)!important;color:var(--rm-guinda)!important}
+
+@media (max-width:640px){
+    #modal-panel > div:first-child{padding:14px 12px 10px 16px!important}
+    #detail-modal .reader-article-nav{padding:6px 10px!important}
+    #detail-modal .reader-toolbar{padding:4px 10px!important}
+}

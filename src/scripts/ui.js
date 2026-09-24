@@ -8,6 +8,7 @@ import { renderAcervoView } from './acervo-view.js';
 import { renderSearchResults } from './search-results-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/law-reader.css';
+import '../styles/reader-modal.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
@@ -1153,7 +1154,7 @@ export function initUI() {
                 ${relacionados.length ? `
                     <div class="related-documents-index">
                         <p class="related-documents-title">Documentos relacionados</p>
-                        <p class="related-documents-description">Complementos que acompañan al instrumento.</p>
+                        <p class="related-documents-description">Anexos y notas que vienen con este documento.</p>
                         <div class="toc-grid-layout" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(72px, 1fr)); gap:0.5rem;">
                             ${buildGrid(relacionados)}
                         </div>
@@ -1769,7 +1770,7 @@ export function initUI() {
             <section class="related-documents" aria-labelledby="related-documents-title">
                 <div class="related-documents-intro">
                     <h2 id="related-documents-title" class="related-documents-title">Documentos relacionados</h2>
-                    <p class="related-documents-description">Documentos complementarios que acompañan al instrumento. Se muestran separados de su articulado.</p>
+                    <p class="related-documents-description">Anexos, notas y otros documentos que vienen con esta ley. Aparecen aparte del texto principal.</p>
                 </div>
                 <div class="space-y-4">${related.map(renderCard).join('')}</div>
             </section>
@@ -2978,19 +2979,7 @@ export function initUI() {
         const locationParts = [tituloStr, capituloStr].filter(Boolean);
 
         modalContent.innerHTML = `
-            ${locationParts.length ? `
-            <div class="mb-5 pb-5 border-b border-gray-50">
-                <div class="flex items-center gap-1.5 text-[9px] font-bold text-guinda/60 uppercase tracking-[0.2em] mb-2">
-                    <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                    Ubicación en el documento
-                </div>
-                <div class="flex flex-wrap gap-x-2 gap-y-1">
-                    ${locationParts.map((p, i) => `
-                        <span class="text-xs text-gray-600 font-medium">${p}</span>
-                        ${i < locationParts.length - 1 ? '<span class="text-gray-200">›</span>' : ''}
-                    `).join('')}
-                </div>
-            </div>` : ''}
+            ${locationParts.length ? `<nav class="rm-location" aria-label="Ubicación en el documento">${locationParts.map(part => `<span>${escapeHtml(part)}</span>`).join('<span class="rm-sep" aria-hidden="true">›</span>')}</nav>` : ''}
             ${activeQuery ? `
             <div class="mb-5 flex items-center gap-2 text-[11px] text-guinda/70 bg-guinda/5 border border-guinda/10 px-3 py-2 rounded-lg">
                 <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>

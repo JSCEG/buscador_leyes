@@ -28,7 +28,7 @@ async function fetchManifest(fetcher) {
     const timer = setTimeout(() => controller.abort(), 10000);
     try {
         const response = await fetcher(READER_MANIFEST_URL, { cache: 'no-cache', signal: controller.signal });
-        if (!response.ok) throw new Error('No se pudo cargar la procedencia documental.');
+        if (!response.ok) throw new Error('No pudimos cargar de dónde viene este documento.');
         const manifest = await response.json();
         if (manifest?.schemaVersion !== 1 || !manifest.sources || !manifest.articles) throw new Error('Manifiesto no compatible.');
         return manifest;

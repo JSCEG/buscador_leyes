@@ -19,7 +19,7 @@ describe('instrument chronology', () => {
         expect(entries.map(e => e.date)).toEqual(['2026-05-15', '2026-05-26', '2026-07-10', '2026-09-02']);
         expect(entries.map(e => e.role)).toEqual(['Texto original', 'Modificación 1', 'Modificación 2', 'Modificación 3']);
         expect(entries.filter(e => e.current).map(e => e.id)).toEqual([data.law.id]);
-        expect(entries.some(e => /Firma|Nota editorial/.test(e.title))).toBe(false);
+        expect(entries.some(e => /Firma|Nota editorial|Guía/.test(e.title))).toBe(false);
     });
 
     it('distinguishes publication, notification and signature fragments in the LCNE', () => {
@@ -51,7 +51,7 @@ describe('instrument chronology', () => {
         const { entries } = buildInstrumentTimeline(data);
         expect(entries).toHaveLength(1);
         expect(entries[0].id).toBe(data.law.id);
-        expect(entries[0].role).toBe('Publicación del instrumento');
+        expect(entries[0].role).toBe('Publicación');
     });
 
     it('follows structured relations across types without duplicate events, missing links or infinite cycles', () => {
@@ -94,6 +94,6 @@ describe('instrument chronology', () => {
         expect(onOpenArticle).toHaveBeenCalledWith('extra');
         lawLink.dispatchEvent(new MouseEvent('click', { ctrlKey: true }));
         expect(onOpenLaw).toHaveBeenCalledTimes(1);
-        expect(container.textContent).toContain('Fecha no identificada');
+        expect(container.textContent).toContain('Sin fecha');
     });
 });

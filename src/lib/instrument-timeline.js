@@ -24,7 +24,7 @@ export function timelineSource(value) {
 function editorialReferences(articles) {
     const refs = [];
     for (const article of articles) {
-        if (article.tipo_articulo !== 'complementario' || !/^nota editorial\b/.test(normalize(article.articulo_label))) continue;
+        if (article.tipo_articulo !== 'complementario' || !/^(?:nota editorial|guia)\b/.test(normalize(article.articulo_label))) continue;
         for (const match of text(article.texto).matchAll(/<a\b[^>]*\bhref=["']\/?#ley-([\w-]+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
             const label = normalize(match[2].replace(/<[^>]*>/g, '').trim());
             const modification = label.match(/^modificacion\s+(\d+)\b/);
@@ -46,7 +46,7 @@ function complementDate(article) {
     const published = heading.match(/(?:^|\n)\s*publicad[ao]s? en el diario oficial de la federacion el (\d{1,2}) de ([a-z]+) de (\d{4})\s*(?:\n|$)/);
     const notified = heading.match(/(?:^|\n)\s*notificados al congreso de la union para efectos legales el (\d{1,2}) de ([a-z]+) de (\d{4})\s*(?:\n|$)/);
     const match = published || notified;
-    if (!match) return { date: null, dateLabel: 'Fecha no identificada' };
+    if (!match) return { date: null, dateLabel: 'Sin fecha' };
     return {
         date: timelineDate(`${match[3]}-${String(months.indexOf(match[2]) + 1).padStart(2, '0')}-${match[1].padStart(2, '0')}`),
         dateLabel: published ? 'Publicación en el DOF' : 'Notificación al Congreso',
@@ -82,11 +82,11 @@ export function buildInstrumentTimeline({ law, summaries = [], articles = [], re
         return {
             key: `law:${id}`, id, kind: 'instrument', title: record.titulo || 'Instrumento sin título',
             acronym: record.siglas || '', type: types[normalize(record.tipo)] || (getAcervoGroup(record) === 'convocatorias' ? 'Convocatoria' : 'Instrumento'),
-            role: roles.get(id) || 'Publicación del instrumento',
+            role: roles.get(id) || 'Publicación',
             date: timelineDate(record.fecha_publicacion), dateLabel: 'Publicación',
             current: id === law.id, source: timelineSource(record.url_original),
             sourceLabel: 'Fuente oficial',
-            context: relationsText.join(' · ') || (roles.has(id) ? 'Vínculo de la nota editorial del instrumento.' : ''),
+            context: relationsText.join(' · ') || (roles.has(id) ? 'Enlazado desde la guía de este documento.' : ''),
         };
     });
     for (const article of articles) {
@@ -99,7 +99,7 @@ export function buildInstrumentTimeline({ law, summaries = [], articles = [], re
             ...dated, current: false,
             // The instrument URL may be a compiled edition; never pretend it is this event's standalone publication.
             source: timelineSource(article.url_original || law.url_original), sourceLabel: 'Fuente del instrumento',
-            context: 'Incluido en el documento de origen; se consulta dentro de este instrumento.',
+            context: 'Viene dentro del mismo documento; puedes leerlo aquí.',
         });
     }
     entries.sort((a, b) => {

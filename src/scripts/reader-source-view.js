@@ -55,7 +55,7 @@ export function mountReaderSource(container, article) {
     const heading = el('h3', '', 'Documento original');
     heading.id = titleId;
     header.append(el('p', 'rs-eyebrow', 'Cotejo documental'), heading);
-    const status = el('p', 'rs-status', 'Abre el original para consultar las páginas vinculadas a este fragmento.');
+    const status = el('p', 'rs-status', 'Abre el original para ver las páginas de este texto.');
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
     const content = el('div', 'rs-content');
@@ -70,18 +70,18 @@ export function mountReaderSource(container, article) {
         content.replaceChildren();
         const box = el('div', 'rs-fallback');
         const message = reason === 'source-version-changed'
-            ? 'La fuente oficial tiene una edición distinta de la cotejada. El resaltado se pausó hasta revisar su correspondencia. Puedes abrir el PDF oficial actualizado.'
+            ? 'La fuente oficial publicó otra versión del PDF. Quitamos el resaltado hasta revisarla; puedes abrir el PDF oficial actualizado.'
             : reason === 'content-mismatch'
-            ? 'El texto de este fragmento cambió desde el último cotejo. Consulta la fuente original para verificarlo.'
+            ? 'Este texto cambió desde la última vez que lo revisamos contra el PDF. Revísalo en la fuente oficial.'
                 : reason === 'verification-unavailable'
-                    ? 'No se pudo comprobar que el texto corresponde a esta edición del documento. Consulta la fuente original para cotejarlo.'
+                    ? 'No pudimos confirmar que el texto coincide con esta versión del PDF. Revísalo en la fuente oficial.'
                 : error
                 ? 'No se pudo cargar la vista del documento. Puedes volver a intentarlo o consultar su fuente.'
-                : 'Este fragmento todavía no tiene páginas sincronizadas. Puedes consultar el documento en su fuente original.';
+                : 'Todavía no ubicamos este texto dentro del PDF. Puedes abrir el documento completo en la fuente oficial.';
         box.append(el('p', '', message));
         const link = sourceLink(result?.originalUrl || originalUrl, 'Abrir fuente oficial ↗');
         if (link) box.append(link);
-        else box.append(el('p', 'rs-muted', 'No hay un enlace de fuente disponible para este fragmento.'));
+        else box.append(el('p', 'rs-muted', 'No tenemos un enlace a la fuente de este texto.'));
         if (error) {
             const retry = el('button', 'rs-button', 'Volver a intentar');
             retry.type = 'button';
@@ -89,7 +89,7 @@ export function mountReaderSource(container, article) {
             box.append(retry);
         }
         content.append(box);
-        setStatus(error ? 'Vista del original no disponible.' : 'Sin sincronización de página para este fragmento.');
+        setStatus(error ? 'Vista del original no disponible.' : 'Aún no tenemos la página del PDF para este texto.');
     }
 
     async function renderPage(result, token) {
@@ -104,9 +104,9 @@ export function mountReaderSource(container, article) {
         toolbar.setAttribute('aria-label', 'Controles de la página original');
         const pages = el('div', 'rs-pages');
         const previous = el('button', 'rs-icon-button', '←');
-        previous.type = 'button'; previous.setAttribute('aria-label', 'Página vinculada anterior'); previous.disabled = pageIndex === 0;
+        previous.type = 'button'; previous.setAttribute('aria-label', 'Página anterior'); previous.disabled = pageIndex === 0;
         const next = el('button', 'rs-icon-button', '→');
-        next.type = 'button'; next.setAttribute('aria-label', 'Página vinculada siguiente'); next.disabled = pageIndex >= result.pages.length - 1;
+        next.type = 'button'; next.setAttribute('aria-label', 'Página siguiente'); next.disabled = pageIndex >= result.pages.length - 1;
         const selectLabel = el('label', 'rs-page-label');
         selectLabel.append(el('span', 'rs-sr-only', 'Página del documento original'));
         const select = document.createElement('select');
@@ -157,12 +157,12 @@ export function mountReaderSource(container, article) {
         }
         viewport.append(figure);
         const footer = el('footer', 'rs-footer');
-        footer.append(el('p', 'rs-caption', `Página ${page.number} del PDF · ${pageIndex + 1} de ${result.pages.length} páginas vinculadas${highlights.length ? ' · Fragmento resaltado' : ''}.`));
+        footer.append(el('p', 'rs-caption', `Página ${page.number} del PDF · ${pageIndex + 1} de ${result.pages.length} páginas${highlights.length ? ' · Fragmento resaltado' : ''}.`));
         const pdfLink = sourceLink(result.pdfUrl || result.source?.pdfUrl, 'Abrir PDF completo ↗');
         if (pdfLink) footer.append(pdfLink);
         footer.append(el('p', 'rs-muted', remote
-            ? 'PDF consultado en la fuente oficial y verificado contra la edición cotejada. El resaltado orienta la lectura.'
-            : 'Imagen de la página original. El resaltado orienta el cotejo; la fuente conserva el documento completo.'));
+            ? 'PDF de la fuente oficial, revisado contra el texto. El resaltado te ayuda a ubicarte.'
+            : 'Página del PDF original. El resaltado te ayuda a ubicar el texto; el documento completo está en la fuente oficial.'));
         content.append(toolbar, viewport, footer);
         if (result.source?.title) heading.textContent = result.source.title;
 

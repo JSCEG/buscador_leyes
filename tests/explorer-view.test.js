@@ -26,7 +26,7 @@ describe('explorador parametrizable en la vista pública', () => {
     await renderAnalisisView(container, { topicId: 'coleccion-prueba', entityId: 'concepto-prueba' });
     expect(container.querySelector('h2').textContent).toBe('Tema adicional de prueba');
     expect(container.querySelector('[data-select-topic="coleccion-prueba"]').getAttribute('aria-pressed')).toBe('true');
-    expect(container.textContent).toContain('Esta ficha todavía no tiene referencias');
+    expect(container.textContent).toContain('Todavía no hay artículos enlazados a esta ficha');
     expect(container.querySelector('main')).toBeNull();
   });
 
@@ -49,7 +49,7 @@ describe('explorador parametrizable en la vista pública', () => {
 
   it('keeps unlinked evidence visible and does not create broken article buttons', async () => {
     await renderAnalisisView(container, { topicId: 'consejos-comites', entityId: 'comite-cientifico' });
-    expect(container.textContent).toContain('Referencia por vincular al acervo');
+    expect(container.textContent).toContain('Aún no está enlazada al acervo');
     const articleIds = [...container.querySelectorAll('[data-open-article]')].map(button => button.dataset.openArticle);
     expect(articleIds.every(id => /^[0-9a-f-]{36}$/.test(id))).toBe(true);
   });

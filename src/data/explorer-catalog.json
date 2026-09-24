@@ -6,7 +6,7 @@
     {
       "id": "planeacion-vinculante",
       "title": "Planeación Vinculante",
-      "summary": "Explora los instrumentos, conceptos y autoridades reunidos en torno a la planeación vinculante del sector energético. Las conexiones temáticas son editoriales y cada ficha conserva sus referencias.",
+      "summary": "Explora los instrumentos, conceptos y autoridades reunidos en torno a la planeación vinculante del sector energético. Cada ficha incluye los artículos en que se apoya.",
       "entityIds": [
         "tema-planeacion-vinculante",
         "estrategia",
@@ -87,7 +87,7 @@
       "id": "tema-planeacion-vinculante",
       "type": "concepto",
       "title": "Planeación Vinculante",
-      "description": "Explora los instrumentos, conceptos y autoridades reunidos en torno a la planeación vinculante del sector energético. Las conexiones temáticas son editoriales y cada ficha conserva sus referencias.",
+      "description": "Explora los instrumentos, conceptos y autoridades reunidos en torno a la planeación vinculante del sector energético. Cada ficha incluye los artículos en que se apoya.",
       "aliases": [
         "Instrumento Rector del Estado"
       ],
@@ -180,7 +180,7 @@
       "id": "pnd",
       "type": "instrumento",
       "title": "Plan Nacional de Desarrollo",
-      "description": "Instrumento incluido en el recorrido editorial de planeación nacional. La referencia heredada a la LCNE se conserva para revisar el contexto de su relación con la política energética.",
+      "description": "Instrumento que forma parte de la planeación nacional. La referencia heredada a la LCNE se conserva para revisar el contexto de su relación con la política energética.",
       "aliases": [
         "Plan Nacional de Des."
       ],
@@ -316,7 +316,7 @@
       "id": "cfe",
       "type": "concepto",
       "title": "CFE y particulares en el sector eléctrico",
-      "description": "Agrupación editorial de los participantes del sector eléctrico para explorar referencias relacionadas con la planeación. La referencia heredada corresponde al programa de desarrollo de la CFE.",
+      "description": "Reúne a los participantes del sector eléctrico para explorar referencias relacionadas con la planeación. La referencia heredada corresponde al programa de desarrollo de la CFE.",
       "aliases": [
         "CFE y Privados (Luz)"
       ],
@@ -333,7 +333,7 @@
       "id": "pemex",
       "type": "concepto",
       "title": "Pemex y particulares en el sector hidrocarburos",
-      "description": "Agrupación editorial de los participantes del sector hidrocarburos para explorar referencias relacionadas con la planeación. La referencia heredada corresponde al programa de desarrollo de Petróleos Mexicanos.",
+      "description": "Reúne a los participantes del sector hidrocarburos para explorar referencias relacionadas con la planeación. La referencia heredada corresponde al programa de desarrollo de Petróleos Mexicanos.",
       "aliases": [
         "Pemex y Privados (Gas)"
       ],
@@ -427,7 +427,7 @@
       "id": "comite-cientifico",
       "type": "autoridad",
       "title": "Comité Científico",
-      "description": "Grupo de participación científica incluido en el recorrido editorial anterior. Su referencia específica permanece pendiente de verificación en el acervo.",
+      "description": "Grupo de participación científica incluido en este recorrido. Su referencia específica permanece pendiente de verificación en el acervo.",
       "aliases": [],
       "references": [
         {
@@ -440,7 +440,7 @@
       "id": "comite-transicion",
       "type": "autoridad",
       "title": "Comité de Transición",
-      "description": "Grupo de consulta sobre transición energética incluido en el recorrido editorial anterior. Su referencia específica permanece pendiente de verificación en el acervo.",
+      "description": "Grupo de consulta sobre transición energética incluido en este recorrido. Su referencia específica permanece pendiente de verificación en el acervo.",
       "aliases": [],
       "references": [
         {
@@ -453,7 +453,7 @@
       "id": "politicas-eval",
       "type": "concepto",
       "title": "Evaluación de los planes sectoriales",
-      "description": "Concepto editorial sobre seguimiento y evaluación de los instrumentos de planeación. La referencia heredada a lineamientos del Consejo requiere verificación.",
+      "description": "Tema sobre seguimiento y evaluación de los instrumentos de planeación. La referencia heredada a lineamientos del Consejo requiere verificación.",
       "aliases": [
         "Los Planes Sectoriales"
       ],
@@ -482,7 +482,7 @@
       "id": "recomendaciones",
       "type": "concepto",
       "title": "Recomendaciones",
-      "description": "Concepto editorial para organizar recomendaciones relacionadas con la planeación energética. La referencia heredada a lineamientos del Consejo requiere verificación.",
+      "description": "Tema para organizar recomendaciones relacionadas con la planeación energética. La referencia heredada a lineamientos del Consejo requiere verificación.",
       "aliases": [],
       "references": [
         {
@@ -495,7 +495,7 @@
       "id": "informes",
       "type": "concepto",
       "title": "Informes Públicos",
-      "description": "Concepto editorial para consultar referencias a información y reportes de la planeación energética.",
+      "description": "Tema para consultar referencias a información y reportes de la planeación energética.",
       "aliases": [],
       "references": [
         {
@@ -584,7 +584,7 @@
       "id": "mercado-limpio",
       "type": "concepto",
       "title": "Sustentabilidad en el sector eléctrico",
-      "description": "Agrupación editorial de referencias sobre sustentabilidad y finalidades del sector eléctrico. No representa por sí misma una regla de despacho.",
+      "description": "Reúne referencias sobre sustentabilidad y finalidades del sector eléctrico. No representa por sí misma una regla de despacho.",
       "aliases": [
         "Despacho CFE"
       ],
@@ -692,7 +692,7 @@
       "id": "redes-nacionales",
       "type": "concepto",
       "title": "Redes e infraestructura energética",
-      "description": "Agrupación editorial de infraestructura y redes para explorar su relación con la seguridad energética.",
+      "description": "Reúne infraestructura y redes para explorar su relación con la seguridad energética.",
       "aliases": [
         "Redes y Tuberías"
       ],
@@ -800,7 +800,7 @@
       "id": "pemex-social",
       "type": "concepto",
       "title": "Pemex y justicia energética",
-      "description": "Perspectiva temática de los fines de Petróleos Mexicanos y su relación editorial con el beneficio social.",
+      "description": "Perspectiva temática de los fines de Petróleos Mexicanos y su relación con el beneficio social.",
       "aliases": [
         "Pemex para el Pueblo"
       ],
@@ -817,7 +817,7 @@
       "id": "tarifas-justas",
       "type": "concepto",
       "title": "Tarifas y Electrificación",
-      "description": "Agrupación editorial de acceso a energía, electrificación y tarifas. La relación específica entre estos asuntos y las referencias heredadas requiere revisión.",
+      "description": "Reúne acceso a energía, electrificación y tarifas. La relación específica entre estos asuntos y las referencias heredadas requiere revisión.",
       "aliases": [],
       "references": [
         {
@@ -836,7 +836,7 @@
       "target": "estrategia",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Estrategia Nacional de Transición Energética forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Estrategia Nacional de Transición Energética forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "d43f4ccc-c71b-5c32-b087-4bedbe691384",
@@ -859,7 +859,7 @@
       "target": "pnd",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Plan Nacional de Desarrollo forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Plan Nacional de Desarrollo forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
@@ -876,7 +876,7 @@
       "target": "pse",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Programa Sectorial de Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Programa Sectorial de Energía forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "0459f193-721f-55af-9d51-e8d06b4d0505",
@@ -893,7 +893,7 @@
       "target": "sener",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Secretaría de Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Secretaría de Energía forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
@@ -910,7 +910,7 @@
       "target": "geobio",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Geotermia y biocombustibles forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Geotermia y biocombustibles forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "6894f5f3-e396-51c4-9841-fdb499c06a5c",
@@ -927,7 +927,7 @@
       "target": "platease",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Plan para la Transición Energética y el Aprovechamiento Sustentable de la Energía forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
@@ -944,7 +944,7 @@
       "target": "pladese",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Plan de Desarrollo del Sector Eléctrico forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Plan de Desarrollo del Sector Eléctrico forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
@@ -961,7 +961,7 @@
       "target": "pladeshi",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Plan de Desarrollo del Sector Hidrocarburos forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Plan de Desarrollo del Sector Hidrocarburos forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "de08db51-9fac-532c-a1b6-98ec84a03843",
@@ -978,7 +978,7 @@
       "target": "cfe",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "CFE y particulares en el sector eléctrico forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "CFE y particulares en el sector eléctrico forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "b3ab9131-aa88-58ac-bef6-cc8a0968352d",
@@ -995,7 +995,7 @@
       "target": "pemex",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Pemex y particulares en el sector hidrocarburos forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Pemex y particulares en el sector hidrocarburos forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "1f524037-1317-5ec5-a731-b2b29f42dddb",
@@ -1012,7 +1012,7 @@
       "target": "cne",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Comisión Nacional de Energía forma parte del recorrido editorial «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Comisión Nacional de Energía forma parte del recorrido «Planeación Vinculante». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "104581e9-3698-5eb4-b585-89ffe7589535",
@@ -1029,7 +1029,7 @@
       "target": "cpe-central",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Consejo de Planeación Energética forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Consejo de Planeación Energética forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "780cc8dc-3d74-4661-8419-73c05a13100d",
@@ -1050,7 +1050,7 @@
       "target": "comite-cientifico",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Comité Científico forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Comité Científico forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "legacyArticleId": "RCPE-Art-012",
@@ -1065,7 +1065,7 @@
       "target": "comite-transicion",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Comité de Transición forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Comité de Transición forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "legacyArticleId": "RCPE-Art-015",
@@ -1080,7 +1080,7 @@
       "target": "politicas-eval",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Evaluación de los planes sectoriales forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Evaluación de los planes sectoriales forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "legacyArticleId": "LCPE-Art-002",
@@ -1095,7 +1095,7 @@
       "target": "investigacion",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Innovación Tecnológica forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Innovación Tecnológica forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "legacyArticleId": "LPTE-Art-110",
@@ -1111,7 +1111,7 @@
       "target": "recomendaciones",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Recomendaciones forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Recomendaciones forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "legacyArticleId": "LCPE-Art-008",
@@ -1126,7 +1126,7 @@
       "target": "informes",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Informes Públicos forma parte del recorrido editorial «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Informes Públicos forma parte del recorrido «Participación y Especialistas». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "b637bf54-b3dd-4d5e-80cf-7872934d9af3",
@@ -1143,7 +1143,7 @@
       "target": "politica-sustentable",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Meta Nacional forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Meta Nacional forma parte del recorrido «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "cc0ff4c9-59ad-4f8c-acb3-906e691b33ae",
@@ -1160,7 +1160,7 @@
       "target": "biocombustibles",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Biocombustibles forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Biocombustibles forma parte del recorrido «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "28605ce3-bd02-5ee2-a506-4176083a24f7",
@@ -1177,7 +1177,7 @@
       "target": "geotermia",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Geotermia forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Geotermia forma parte del recorrido «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "1a600438-846a-5798-9a40-768b50c9bbea",
@@ -1194,7 +1194,7 @@
       "target": "mercado-limpio",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Sustentabilidad en el sector eléctrico forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Sustentabilidad en el sector eléctrico forma parte del recorrido «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
@@ -1211,7 +1211,7 @@
       "target": "cero-emisiones",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Reducción de Emisiones forma parte del recorrido editorial «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Reducción de Emisiones forma parte del recorrido «Transición y Sustentabilidad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "19d32204-bb0b-4674-b795-9ef2c715d0ac",
@@ -1228,7 +1228,7 @@
       "target": "seguridad-nacional",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Soberanía Nacional forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Soberanía Nacional forma parte del recorrido «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "c95901fe-c3b5-50e3-87ca-a5f71b123884",
@@ -1245,7 +1245,7 @@
       "target": "cfe-garante",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "CFE y seguridad energética forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "CFE y seguridad energética forma parte del recorrido «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
@@ -1262,7 +1262,7 @@
       "target": "pemex-garante",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Pemex y seguridad energética forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Pemex y seguridad energética forma parte del recorrido «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
@@ -1279,7 +1279,7 @@
       "target": "redes-nacionales",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Redes e infraestructura energética forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Redes e infraestructura energética forma parte del recorrido «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "f49edb38-6c7d-4007-9811-11b299ab1666",
@@ -1296,7 +1296,7 @@
       "target": "confiabilidad-final",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Confiabilidad y continuidad del suministro forma parte del recorrido editorial «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Confiabilidad y continuidad del suministro forma parte del recorrido «Soberanía y Seguridad». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "legacyArticleId": "BME-Art-1-2-6",
@@ -1311,7 +1311,7 @@
       "target": "justicia-base",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Justicia Energética forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Justicia Energética forma parte del recorrido «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
@@ -1328,7 +1328,7 @@
       "target": "utilidad-publica",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Utilidad Pública forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Utilidad Pública forma parte del recorrido «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "12d3f796-5f74-5f92-84aa-808d795f3b14",
@@ -1345,7 +1345,7 @@
       "target": "cfe-social",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "CFE y justicia energética forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "CFE y justicia energética forma parte del recorrido «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "62d16ca7-57e3-55bb-ac19-fc637231a624",
@@ -1362,7 +1362,7 @@
       "target": "pemex-social",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Pemex y justicia energética forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Pemex y justicia energética forma parte del recorrido «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "9a64b846-77b0-55e5-977e-bc816e2cafed",
@@ -1379,7 +1379,7 @@
       "target": "tarifas-justas",
       "type": "asociacion-tematica",
       "label": "Asociación temática",
-      "description": "Tarifas y Electrificación forma parte del recorrido editorial «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
+      "description": "Tarifas y Electrificación forma parte del recorrido «Justicia Energética». Esta conexión organiza la consulta; no afirma una relación de jerarquía jurídica.",
       "references": [
         {
           "articleId": "c95901fe-c3b5-50e3-87ca-a5f71b123884",

@@ -187,7 +187,7 @@ describe('Explorer catalog persistence', () => {
 
     it('does not read editorial history unless the server grants access', async () => {
         client.rpc.mockResolvedValue({ data: false, error: null });
-        await expect(store.listExplorerRevisions()).rejects.toThrow(/administradora autorizada/);
+        await expect(store.listExplorerRevisions()).rejects.toThrow(/cuenta de administrador/);
         expect(client.from).not.toHaveBeenCalled();
     });
 });

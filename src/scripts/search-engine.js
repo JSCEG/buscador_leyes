@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase.js';
 import articleRedirects from '../lib/article-redirects.json';
+import { friendlyLabel, friendlyText } from '../lib/friendly-text.js';
 
 function mapRowToLocalItem(row) {
     return {
@@ -8,11 +9,11 @@ function mapRowToLocalItem(row) {
         ley_origen: row.leyes?.titulo || 'Desconocida',
         siglas_ley: row.leyes?.siglas || null,
         fecha_publicacion: row.leyes?.fecha_publicacion || null,
-        articulo_label: row.identificador,
+        articulo_label: friendlyLabel(row.identificador),
         tipo_articulo: row.tipo_articulo || 'ordinario',
-        titulo_nombre: row.titulo_nombre || '',
-        capitulo_nombre: row.capitulo_nombre || '',
-        texto: row.contenido,
+        titulo_nombre: friendlyText(row.titulo_nombre || ''),
+        capitulo_nombre: friendlyText(row.capitulo_nombre || ''),
+        texto: friendlyText(row.contenido),
         url_original: row.leyes?.url_original || null,
         score: row.score || 1
     };
@@ -26,7 +27,7 @@ export async function getLeyRelaciones() {
             .from('ley_relaciones')
             .select('id, ley_afectada_id, ley_nueva_id, tipo, fecha');
         if (error) throw error;
-        return data || [];
+        return (data || []).map(theme => ({ ...theme, nombre: friendlyText(theme.nombre) }));
     } catch (e) {
         console.warn('[Search] ley_relaciones no disponible:', e.message);
         return [];
@@ -122,7 +123,7 @@ export async function searchArticles(query, { page = 1, limit = 20, lawIds = nul
             return {
                 ranked: true,
                 total: Number(rows[0]?.total || 0),
-                data: rows.map(row => ({ ...mapRowToLocalItem({ ...row, contenido: byId.get(row.id) || '' }), fragmento: row.fragmento || '', score: row.rank })),
+                data: rows.map(row => ({ ...mapRowToLocalItem({ ...row, contenido: byId.get(row.id) || '' }), fragmento: friendlyText(row.fragmento || ''), score: row.rank })),
             };
         }
         if (missingFunction(error)) rankedSearchAvailable = false;
@@ -263,7 +264,7 @@ export async function getArticlePreviews(ids) {
     const rows = new Map((data || []).map(row => [row.id, row]));
     for (const [id, target] of resolved) {
         const row = rows.get(target);
-        if (row) previews.set(id, { id: row.id, identificador: row.identificador, texto: row.contenido || '', ley: row.leyes?.titulo || '', siglas: row.leyes?.siglas || '' });
+        if (row) previews.set(id, { id: row.id, identificador: friendlyLabel(row.identificador), texto: friendlyText(row.contenido || ''), ley: row.leyes?.titulo || '', siglas: row.leyes?.siglas || '' });
     }
     return previews;
 }

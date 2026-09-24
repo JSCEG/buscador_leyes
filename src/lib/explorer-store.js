@@ -104,7 +104,7 @@ export function createExplorerStore({ client, adminCheck, storage, seed, now = (
     }
 
     async function listExplorerRevisions() {
-        if (!(await canPublishExplorer())) throw new Error('El historial editorial requiere una cuenta administradora autorizada.');
+        if (!(await canPublishExplorer())) throw new Error('Para ver el historial de cambios necesitas una cuenta de administrador.');
         let result;
         try {
             result = await client.from('explorer_revisions').select('revision, published_at').order('revision', { ascending: false }).limit(30);
@@ -114,7 +114,7 @@ export function createExplorerStore({ client, adminCheck, storage, seed, now = (
     }
 
     async function getExplorerRevision(revision) {
-        if (!(await canPublishExplorer())) throw new Error('La revisión requiere una cuenta administradora autorizada.');
+        if (!(await canPublishExplorer())) throw new Error('Para ver versiones anteriores necesitas una cuenta de administrador.');
         const { data, error } = await client.from('explorer_revisions').select('catalog').eq('revision', revision).single();
         if (error) throw persistenceError(error);
         assertValid(data?.catalog);

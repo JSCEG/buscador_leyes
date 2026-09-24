@@ -3,6 +3,7 @@ import { loadExplorerCatalog, canPublishExplorer } from '../lib/explorer-store.j
 import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink, normalize, topicGraph } from '../lib/analisis-model.js';
 import { getAcervoGroup, ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { collectionIcon } from '../lib/collection-icons.js';
+import { friendlyCatalog } from '../lib/friendly-text.js';
 import { openExplorerEditor } from './explorer-editor.js';
 import { onAuthChange } from './auth.js';
 import '../styles/explorer.css';
@@ -85,10 +86,10 @@ function referencesMarkup(references, heading = 'Fundamentos') {
     const url = safeUrl(ref.url);
     const action = ref.articleId ? `<button class="nx-link" data-open-article="${esc(ref.articleId)}">Leer artículo ${icon('arrow')}</button>`
       : url ? `<a class="nx-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Abrir fuente ${icon('open')}</a>`
-      : '<span class="nx-pending">Referencia por vincular al acervo</span>';
+      : '<span class="nx-pending">Aún no está enlazada al acervo</span>';
     const quote = ref.quote ? `<blockquote>${esc(excerpt(ref.quote, 320))}</blockquote>` : ref.articleId ? `<p class="nx-preview" data-preview-for="${esc(ref.articleId)}"><span class="nx-skeleton"></span><span class="nx-skeleton"></span></p>` : '';
     return `<li class="nx-source"><strong>${esc(ref.label || 'Referencia documental')}</strong>${quote}${action}</li>`;
-  }).join('')}</ul>` : '<p class="nx-muted">Esta ficha todavía no tiene referencias documentales vinculadas.</p>'}</section>`;
+  }).join('')}</ul>` : '<p class="nx-muted">Todavía no hay artículos enlazados a esta ficha.</p>'}</section>`;
 }
 
 function fillPreviews(state) {
@@ -128,15 +129,15 @@ function fichaMarkup(state, overview) {
   const typed = state.catalog.relations.filter(relation => !isThematicLink(relation) && (relation.source === entity.id || relation.target === entity.id));
   const laws = isRoot ? topicAcervo(overview.topic, acervo) : matchAcervo(entity, acervo);
   const alsoIn = state.catalog.topics.filter(topic => topic.id !== overview.topic.id && topic.entityIds.includes(entity.id));
-  const lawsHeading = isRoot ? `Instrumentos del acervo con el tema «${overview.topic.title}»` : entity.type === 'instrumento' ? 'Consultar en el acervo' : entity.type === 'autoridad' ? 'Normativa que la organiza' : 'Instrumentos del acervo con este tema';
+  const lawsHeading = isRoot ? `Instrumentos del acervo con el tema «${overview.topic.title}»` : entity.type === 'instrumento' ? 'Consultar en el acervo' : entity.type === 'autoridad' ? 'Leyes que la regulan' : 'Instrumentos del acervo con este tema';
   return `<article class="nx-ficha" aria-labelledby="explorer-entity-title">
-    <div class="nx-ficha-top">${typeTag(entity)}${isRoot ? '<span class="nx-muted">Presentación del recorrido</span>' : `<button class="nx-back-root" data-select-entity="${esc(overview.root?.id || '')}">${esc(overview.topic.title)}</button>`}</div>
+    <div class="nx-ficha-top">${typeTag(entity)}${isRoot ? '<span class="nx-muted">Introducción</span>' : `<button class="nx-back-root" data-select-entity="${esc(overview.root?.id || '')}">${esc(overview.topic.title)}</button>`}</div>
     <h2 id="explorer-entity-title" tabindex="-1">${esc(entity.title)}</h2>
     <p class="nx-description">${esc(entity.description)}</p>
     ${entity.aliases?.length ? `<p class="nx-aliases"><span>También se encuentra como</span> ${entity.aliases.map(alias => `<span class="nx-alias">${esc(alias)}</span>`).join('')}</p>` : ''}
     ${laws.length ? `<section class="nx-block"><h3>${esc(lawsHeading)}<span class="nx-count">${laws.length}</span></h3><ul class="nx-laws">${laws.slice(0, 8).map(lawButton).join('')}</ul>${laws.length > 8 ? `<p class="nx-muted">Y ${laws.length - 8} más en el acervo.</p>` : ''}</section>` : ''}
     ${typed.length ? `<section class="nx-block"><h3>Relaciones<span class="nx-count">${typed.length}</span></h3><ul class="nx-relations">${typed.map(relation => relationMarkup(state, relation)).join('')}</ul></section>`
-      : isRoot ? '' : '<p class="nx-note">No hay relaciones registradas con otras entidades; aparece aquí como parte del recorrido.</p>'}
+      : isRoot ? '' : '<p class="nx-note">Forma parte de este recorrido.</p>'}
     ${alsoIn.length ? `<p class="nx-also"><span>También en</span>${alsoIn.map(topic => `<button class="nx-alias nx-alias-link" data-select-topic="${esc(topic.id)}" data-entity="${esc(entity.id)}">${esc(topic.title)}</button>`).join('')}</p>` : ''}
     <div id="explorer-foundations" tabindex="-1">${referencesMarkup(references)}</div>
   </article>`;
@@ -182,7 +183,7 @@ function drawSearch(state) {
 const GRAPH = { width: 900, top: 34, row: 44, node: 34, root: { x: 0, w: 190 }, entity: { x: 270, w: 290 }, law: { x: 690, w: 210 } };
 // Phones drop the collection column: the card above already names it.
 const GRAPH_NARROW = { width: 400, top: 30, row: 42, node: 34, root: null, entity: { x: 0, w: 220 }, law: { x: 272, w: 128 } };
-const edgeKinds = { member: 'Forma parte del recorrido', fundamento: 'Fundamento citado', documento: 'Documento en el acervo' };
+const edgeKinds = { member: 'Forma parte del recorrido', fundamento: 'Artículos que lo sustentan', documento: 'Documento en el acervo' };
 
 function graphLayout(graph, G) {
   const pos = new Map();
@@ -242,7 +243,7 @@ function graphMarkup(state) {
       <svg class="nx-graph-edges" viewBox="0 0 ${G.width} ${height}" preserveAspectRatio="none" aria-hidden="true">${edges}</svg>
       ${rootNode}${entityNodes}${lawNodes}
     </div></div>
-    <ul class="nx-graph-legend" aria-label="Leyenda">${G.root ? '<li><i class="nx-lg-member"></i>Forma parte del recorrido</li>' : ''}<li><i class="nx-lg-fundamento"></i>Fundamento citado (grosor = artículos)</li><li><i class="nx-lg-documento"></i>Documento en el acervo</li><li><i class="nx-lg-external"></i>Ley aún no cargada</li></ul>
+    <ul class="nx-graph-legend" aria-label="Leyenda">${G.root ? '<li><i class="nx-lg-member"></i>Forma parte del recorrido</li>' : ''}<li><i class="nx-lg-fundamento"></i>Artículos que lo sustentan (más grueso = más artículos)</li><li><i class="nx-lg-documento"></i>Documento en el acervo</li><li><i class="nx-lg-external"></i>Aún no está en el acervo</li></ul>
   </section>`;
 }
 
@@ -337,12 +338,12 @@ function draw(state) {
   normalizeSelection(state);
   const themeCount = acervoThemes(acervo).length;
   container.innerHTML = `<div class="nx-explorer">
-    <div class="nx-header"><div><p class="nx-eyebrow">Análisis transversal</p><h1>Temas del marco normativo</h1><p class="nx-intro">Recorridos que conectan conceptos, instrumentos y autoridades con su fundamento, y el índice temático del acervo.</p></div>
-      <div class="nx-header-aside"><span>Contenido editorial · revisión ${esc(catalog.revision)}</span><span>Actualizado el ${esc(dateLabel(catalog.updatedAt))}</span><span data-editor-control>${state.canEdit ? editButton() : ''}</span></div></div>
+    <div class="nx-header"><div><p class="nx-eyebrow">Análisis por tema</p><h1>Temas del marco normativo</h1><p class="nx-intro">Explora por tema qué leyes, planes y autoridades intervienen y en qué artículos se apoyan.</p></div>
+      <div class="nx-header-aside"><span>Versión ${esc(catalog.revision)}</span><span>Actualizado el ${esc(dateLabel(catalog.updatedAt))}</span><span data-editor-control>${state.canEdit ? editButton() : ''}</span></div></div>
     ${state.preview ? '<div class="nx-notice" role="status"><span><strong>Vista previa de un borrador local.</strong> Estos cambios todavía no están publicados.</span><button class="nx-button" data-return-published>Volver al contenido publicado</button></div>' : ''}
     ${state.warning ? `<details class="nx-notice nx-catalog-notice"><summary>Se muestra la copia incluida del catálogo</summary><p>${esc(state.warning)}</p></details>` : ''}
     <div class="nx-tabs" role="tablist" aria-label="Tipo de análisis">
-      <button role="tab" id="nx-tab-routes" aria-controls="nx-panel-routes" aria-selected="${state.tab === 'routes'}" data-tab="routes">Recorridos editoriales<span class="nx-count">${catalog.topics.length}</span></button>
+      <button role="tab" id="nx-tab-routes" aria-controls="nx-panel-routes" aria-selected="${state.tab === 'routes'}" data-tab="routes">Recorridos por tema<span class="nx-count">${catalog.topics.length}</span></button>
       <button role="tab" id="nx-tab-themes" aria-controls="nx-panel-themes" aria-selected="${state.tab === 'themes'}" data-tab="themes">Temas del acervo<span class="nx-count">${themeCount || '…'}</span></button>
     </div>
     <div id="nx-panel-routes" role="tabpanel" aria-labelledby="nx-tab-routes" ${state.tab === 'routes' ? '' : 'hidden'}>
@@ -354,7 +355,7 @@ function draw(state) {
       <section class="nx-topic" data-explorer-topic aria-label="Recorrido seleccionado"></section>
     </div>
     <div id="nx-panel-themes" role="tabpanel" aria-labelledby="nx-tab-themes" data-acervo-themes ${state.tab === 'themes' ? '' : 'hidden'}></div>
-    <div class="nx-foot"><span>Las explicaciones son contenido editorial de apoyo. Consulta el fundamento y el documento original para conocer su alcance.</span><span>${catalog.entities.length} entidades · ${catalog.relations.length} relaciones registradas</span></div>
+    <div class="nx-foot"><span>Estas explicaciones son una guía. Para el alcance legal, revisa siempre el texto oficial.</span><span>${catalog.entities.length} entidades · ${catalog.relations.length} relaciones registradas</span></div>
   </div>`;
   drawSearch(state); drawTopic(state);
   if (state.tab === 'themes') drawThemes(state);
@@ -409,7 +410,7 @@ export async function renderAnalisisView(container, route = {}) {
     views.set(container, state);
     liveStates.add(state);
     container.innerHTML = '<div class="nx-explorer nx-loading" role="status">Cargando conceptos y relaciones…</div>';
-    state.pending = loadExplorerCatalog().then(result => { state.catalog = result.catalog; state.publishedCatalog = result.catalog; state.warning = result.warning || ''; });
+    state.pending = loadExplorerCatalog().then(result => { state.catalog = friendlyCatalog(result.catalog); state.publishedCatalog = state.catalog; state.warning = result.warning || ''; });
     onAuthChange(() => { if (container.isConnected) void refreshPermissions(state); });
   }
   state.requestedRoute = route;

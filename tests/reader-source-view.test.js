@@ -51,7 +51,7 @@ describe('Reader source view', () => {
         remote.render.mockRejectedValue(Object.assign(new Error(), { code: 'source-version-changed' }));
         getReaderSource.mockResolvedValue({ ...mapped(), source: { transport: 'remote-pdf' } });
         await mountReaderSource(container, article).open();
-        expect(container.textContent).toContain('edición distinta');
+        expect(container.textContent).toContain('otra versión del PDF');
         expect(container.querySelector('.rs-highlight')).toBeNull();
         expect(container.querySelector('a').href).toBe(article.url_original);
     });
@@ -84,7 +84,7 @@ describe('Reader source view', () => {
         await view.open();
         expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de este fragmento');
         expect(container.querySelector('select').selectedOptions[0].textContent).toBe('1 de 2 · Página 1 del PDF');
-        container.querySelector('[aria-label="Página vinculada siguiente"]').click();
+        container.querySelector('[aria-label="Página siguiente"]').click();
         await tick();
         expect(container.querySelector('img').getAttribute('src')).toBe(pages[1].imageUrl);
         expect(getReaderSource).toHaveBeenLastCalledWith(article.id, expect.objectContaining({ pageIndex: 1 }));
@@ -104,7 +104,7 @@ describe('Reader source view', () => {
         expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de este artículo');
         expect(container.querySelector('.rs-single-page').textContent).toBe('Página única · 1 del PDF');
         expect(container.querySelector('select')).toBeNull();
-        expect(container.querySelector('[aria-label="Página vinculada siguiente"]')).toBeNull();
+        expect(container.querySelector('[aria-label="Página siguiente"]')).toBeNull();
         expect(container.querySelector('[aria-label="Ampliar página original"]')).not.toBeNull();
     });
 
@@ -137,7 +137,7 @@ describe('Reader source view', () => {
     it('falls back to the official source when text fingerprint no longer matches', async () => {
         getReaderSource.mockResolvedValue({ status: 'unmapped', reason: 'content-mismatch', originalUrl: article.url_original });
         await mountReaderSource(container, article).open();
-        expect(container.textContent).toMatch(/cambió desde el último cotejo/);
+        expect(container.textContent).toMatch(/cambió desde la última vez/);
         expect(container.querySelector('a').href).toBe(article.url_original);
         expect(container.querySelector('img')).toBeNull();
     });
@@ -163,13 +163,13 @@ describe('Reader source view', () => {
         getReaderSource.mockResolvedValue({ ...mapped(), contentVerified: false });
         await mountReaderSource(container, article).open();
         expect(container.querySelector('img')).toBeNull();
-        expect(container.textContent).toMatch(/No se pudo comprobar/);
+        expect(container.textContent).toMatch(/No pudimos confirmar/);
         expect(container.querySelector('a').href).toBe(article.url_original);
     });
 
     it('retains keyboard focus on a usable control after page navigation', async () => {
         await mountReaderSource(container, article).open();
-        const next = container.querySelector('[aria-label="Página vinculada siguiente"]');
+        const next = container.querySelector('[aria-label="Página siguiente"]');
         next.focus(); next.click(); await tick();
         expect(document.activeElement).toBe(container.querySelector('select'));
         expect(document.activeElement.value).toBe('1');
