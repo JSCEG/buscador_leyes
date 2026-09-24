@@ -230,6 +230,20 @@ export async function performSearch(query, page = 1, limit = 20, filters = {}) {
     }
 }
 
+/** Several articles in one request, returned in the order asked for (missing ids are skipped). */
+export async function getArticlesByIds(ids) {
+    const requested = [...new Set((ids || []).filter(Boolean))];
+    if (!requested.length) return [];
+    const resolved = requested.map(id => articleRedirects[id] || id);
+    const { data, error } = await supabase
+        .from('articulos')
+        .select('id, identificador, contenido, tipo_articulo, titulo_nombre, capitulo_nombre, ley_id, leyes ( titulo, siglas, fecha_publicacion, url_original )')
+        .in('id', [...new Set(resolved)]);
+    if (error) throw error;
+    const byId = new Map((data || []).map(row => [row.id, mapRowToLocalItem(row)]));
+    return resolved.map(id => byId.get(id)).filter(Boolean);
+}
+
 export async function getArticleById(id) {
     if (!id) return null;
     // Cinco cortes falsos se reunieron con su disposición original en septiembre de 2026.

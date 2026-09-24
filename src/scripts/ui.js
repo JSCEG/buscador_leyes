@@ -1,4 +1,4 @@
-import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
+import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByIds, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -6,6 +6,7 @@ import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import { mountReaderSource } from './reader-source-view.js';
 import { renderAcervoView } from './acervo-view.js';
 import { renderSearchResults } from './search-results-view.js';
+import { renderFavoritesView } from './favorites-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/law-reader.css';
 import '../styles/reader-modal.css';
@@ -2241,20 +2242,20 @@ export function initUI() {
             return `
             <div style="margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #f0f0f0;page-break-inside:avoid;">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                    <span style="font-size:10px;font-weight:700;color:#9B2247;background:#fdf2f5;padding:2px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:0.08em;">${item.ley_origen}</span>
-                    ${item.titulo_nombre ? `<span style="font-size:10px;color:#6b7280;">${item.titulo_nombre}</span>` : ''}
+                    <span style="font-size:10px;font-weight:700;color:#9B2247;background:#fdf2f5;padding:2px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:0.08em;">${escapeHtml(item.ley_origen || '')}</span>
+                    ${item.titulo_nombre ? `<span style="font-size:10px;color:#6b7280;">${escapeHtml(item.titulo_nombre)}</span>` : ''}
                 </div>
-                <h3 style="font-size:15px;font-weight:700;color:#111;margin:0 0 8px;">${item.articulo_label}</h3>
+                <h3 style="font-size:15px;font-weight:700;color:#111;margin:0 0 8px;">${escapeHtml(item.articulo_label || '')}</h3>
                 <p style="font-size:13px;color:#374151;line-height:1.7;margin:0 0 ${note ? '10px' : '0'};">${escapeHtml(getTextPreview(item.texto, 800))}</p>
                 ${note ? `<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;margin-top:8px;">
                     <span style="font-size:10px;font-weight:700;color:#92400e;display:block;margin-bottom:4px;">📝 Mi nota</span>
-                    <p style="font-size:12px;color:#78350f;margin:0;line-height:1.6;">${note}</p>
+                    <p style="font-size:12px;color:#78350f;margin:0;line-height:1.6;white-space:pre-line;">${escapeHtml(note)}</p>
                 </div>` : ''}
             </div>`;
         }).join('');
 
         const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
-        <title>${title} — SENER</title>
+        <title>${escapeHtml(title)} — SENER</title>
         <style>
             body{font-family:'Noto Sans',Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 24px;color:#1f2937;}
             h1{font-size:22px;font-weight:700;color:#9B2247;margin-bottom:4px;}
@@ -2315,139 +2316,36 @@ export function initUI() {
         // La pagination-nav es sibling de results-container (no hijo), hay que limpiarla explícitamente
         document.querySelector('.pagination-nav')?.remove();
 
-        if (favIds.length === 0) {
-            resultsContainer.innerHTML = `<div class="text-center py-16 text-gray-400 text-sm">No tienes artículos guardados aún.</div>`;
-            return;
-        }
-        
-        resultsContainer.innerHTML = `<div class="w-full flex justify-center py-12"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
-        const promises = favIds.map(id => getArticleById(id));
-        const items = (await Promise.all(promises)).filter(Boolean);
-
-        currentModalList = items;
-        currentPage = 1;
-
-        // ── Render estático: cabecera + contenedor de tarjetas ─────────────────
-        resultsContainer.innerHTML = `
-            <div class="w-full mb-6 flex items-start justify-between gap-4 flex-wrap">
-                <div>
-                    <h2 class="text-xl font-head font-bold text-gray-800 mb-1 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-guinda" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
-                        Mis Favoritos
-                    </h2>
-                    <p class="text-xs text-gray-400">${items.length} artículo${items.length !== 1 ? 's' : ''} guardado${items.length !== 1 ? 's' : ''}</p>
-                </div>
-                <div class="flex gap-2 flex-wrap">
-                    <div class="relative group/export">
-                        <button class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-500 border border-gray-200 rounded-lg hover:border-guinda hover:text-guinda transition-all shadow-sm" id="export-favs-btn">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                            Exportar
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="export-favs-menu" class="hidden absolute right-0 top-full mt-1 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden w-52 z-20">
-                            <div class="px-4 py-2 bg-gray-50/80 border-b border-gray-50">
-                                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Exportar favoritos</span>
-                            </div>
-                            <button id="export-favs-html" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-xs text-gray-700 hover:bg-gray-50 transition-colors">
-                                <span class="w-6 h-6 rounded-lg flex items-center justify-center bg-blue-50"><svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></span>
-                                Descargar HTML (imprimible)
-                            </button>
-                            <button id="export-favs-csv" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-xs text-gray-700 hover:bg-gray-50 transition-colors">
-                                <span class="w-6 h-6 rounded-lg flex items-center justify-center bg-green-50"><svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 3v18M14 3v18"/></svg></span>
-                                Descargar CSV (Excel)
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="fav-cards" class="space-y-4"></div>
-        `;
-
-        // Wire export buttons (una sola vez)
-        const exportFavsBtn = document.getElementById('export-favs-btn');
-        const exportFavsMenu = document.getElementById('export-favs-menu');
-        if (exportFavsBtn && exportFavsMenu) {
-            exportFavsBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                exportFavsMenu.classList.toggle('hidden');
-            });
-            document.addEventListener('click', function hideExportMenu(e) {
-                if (!e.target.closest('#export-favs-btn') && !e.target.closest('#export-favs-menu')) {
-                    exportFavsMenu.classList.add('hidden');
-                    document.removeEventListener('click', hideExportMenu);
-                }
-            });
-        }
-        document.getElementById('export-favs-html')?.addEventListener('click', () => {
-            exportFavsMenu?.classList.add('hidden');
-            exportItemsAsHTML(items, 'Mis Favoritos SENER', false);
-            showToast('¡Exportando HTML!', '📄', 'bg-blue-600');
+        resultsContainer.innerHTML = '<div class="w-full flex justify-center py-12" role="status" aria-label="Cargando guardados"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>';
+        // Favourites and articles with a note live together; the filter separates them.
+        const ids = [...new Set([...favIds, ...Object.keys(getAllNotes())])];
+        let items = [];
+        try { items = await getArticlesByIds(ids); }
+        catch (error) { console.error('[Guardados]', error); showToast('No pudimos cargar tus guardados', '!', 'bg-gray-800'); }
+        if (activeNavId !== 'nav-favorites') return;
+        let filter = 'todos';
+        const draw = () => renderFavoritesView(resultsContainer, {
+            items: items.filter(item => isFavorite(item.id) || getNote(item.id)),
+            summaries: cachedSummaries, favoriteIds: new Set(getFavorites()), getNote, filter, compareIds: compareSelection,
+            onOpenArticle: (id, list) => { currentModalList = list; openDetail(id); },
+            onRemoveFavorite: id => { if (toggleFavorite(id)) draw(); },
+            onToggleCompare: id => {
+                const index = compareSelection.indexOf(id);
+                if (index >= 0) compareSelection.splice(index, 1);
+                else if (compareSelection.length < 2) compareSelection.push(id);
+                updateCompareBar(); draw();
+            },
+            onExport: (format, list) => {
+                if (format === 'csv') exportItemsAsCSV(list, 'guardados_SENER.csv', true);
+                else exportItemsAsHTML(list, 'Mis guardados SENER', true);
+                showToast(format === 'csv' ? 'Descargando hoja de cálculo' : 'Descargando documento', '⬇', 'bg-gray-800');
+            },
+            onFilter: next => { filter = next; draw(); },
+            onBrowse: () => showLawsView(),
         });
-        document.getElementById('export-favs-csv')?.addEventListener('click', () => {
-            exportFavsMenu?.classList.add('hidden');
-            exportItemsAsCSV(items, 'favoritos_SENER.csv', false);
-            showToast('¡Exportando CSV!', '📊', 'bg-green-700');
-        });
-
-        // ── Render paginado de tarjetas ────────────────────────────────────────
-        const renderFavPage = () => {
-            const favCards = document.getElementById('fav-cards');
-            if (!favCards) return;
-
-            const start = (currentPage - 1) * itemsPerPage;
-            const pageItems = items.slice(start, start + itemsPerPage);
-
-            favCards.innerHTML = pageItems.map(item => {
-                const isSelected = compareSelection.includes(item.id);
-                const cmpColor = isSelected
-                    ? 'text-guinda bg-guinda/10'
-                    : (compareSelection.length >= 2 ? 'text-gray-100 cursor-not-allowed' : 'text-gray-300 hover:text-guinda hover:bg-guinda/10');
-                const hasNote = !!getNote(item.id);
-                return `
-                <div class="group relative bg-white border border-transparent hover:border-gray-100 rounded-xl p-5 hover:shadow-lg transition-all duration-300 result-item" data-id="${item.id}">
-                    <div class="flex items-center gap-2 mb-2 flex-wrap">
-                        <span class="text-[10px] font-bold text-guinda uppercase tracking-wider bg-guinda/5 px-2 py-0.5 rounded-full">${item.ley_origen}</span>
-                        <span class="text-[10px] text-gray-400 truncate max-w-xs md:max-w-[180px]">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
-                        <div class="ml-auto flex items-center gap-1.5 flex-shrink-0">
-                            ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full" title="Tiene nota personal"></span>' : ''}
-                            <button class="compare-card-btn p-1.5 rounded-full transition-colors focus:outline-none ${cmpColor}" data-id="${item.id}" title="Seleccionar para comparar">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-serif font-bold text-gray-800 mb-2 group-hover:text-guinda transition-colors cursor-pointer">${item.articulo_label}</h3>
-                    <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3">${escapeHtml(getTextPreview(item.texto))}</p>
-                </div>`;
-            }).join('');
-
-            // Clic en tarjeta para abrir detalle
-            favCards.querySelectorAll('.result-item').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    if (e.target.closest('.compare-card-btn')) return;
-                    openDetail(el.dataset.id);
-                });
-            });
-
-            // Clic en botón de comparación
-            favCards.querySelectorAll('.compare-card-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const id = btn.dataset.id;
-                    const idx = compareSelection.indexOf(id);
-                    if (idx >= 0) compareSelection.splice(idx, 1);
-                    else if (compareSelection.length < 2) compareSelection.push(id);
-                    updateCompareBar();
-                    refreshCompareButtons();
-                });
-            });
-
-            renderPaginationControls(items.length, 'fav-cards', renderFavPage);
-        };
-
-        renderFavPage();
+        draw();
     }
 
-    // Compare helpers
     function updateCompareBar() {
         const rc = document.getElementById('reading-controls');
         let bar = document.getElementById('compare-bar');
