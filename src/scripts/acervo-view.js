@@ -1,6 +1,7 @@
 import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib/acervo-model.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { shortTitle } from '../lib/short-title.js';
+import { heroArt, collectionSpot } from '../lib/acervo-art.js';
 import { acervoThemes } from '../lib/analisis-model.js';
 import '../styles/acervo.css';
 
@@ -116,7 +117,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
     const overview = renderOverview();
     const body = element('div', 'ac-collections');
-    hero.append(header, tools, facts, topics);
+    const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = heroArt();
+    hero.append(header, tools, facts, topics, art);
     root.append(hero, filters, status, overview, body);
     container.replaceChildren(root);
     let destroyed = false;
@@ -174,7 +176,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
             const item = element('li');
             const tile = element('button', 'ac-tile'); tile.type = 'button'; tile.dataset.tileGroup = group.id; tile.dataset.category = group.id;
             const count = element('span', 'ac-tile-count', countLabel(group.items.length));
-            tile.append(iconNode(group.id, 'ac-tile-icon'), element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), count);
+            const spot = element('span', 'ac-tile-icon'); spot.setAttribute('aria-hidden', 'true'); spot.innerHTML = collectionSpot(group.id);
+            tile.append(spot, element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), count);
             tile.addEventListener('click', () => {
                 captureRows(); state.group = group.id; renderBody(); notify();
                 filterButtons.get(group.id)?.focus({ preventScroll: true });
