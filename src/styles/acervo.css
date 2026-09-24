@@ -251,3 +251,38 @@ html.dark-mode .ac-library .ac-hero select{background:#262321;color:#f4efe7}
 .ac-library .ac-card.has-name .ac-card-meta{margin-top:auto}
 html.dark-mode .ac-library .ac-hero .ac-header{border-bottom:0!important}
 html.dark-mode .ac-library .ac-hero .ac-search-box input{background:transparent!important;border:0!important}
+
+/* Focus ring belongs to the whole search box, not the bare input */
+.ac-library .ac-hero .ac-search-box input:focus-visible{outline:none!important}
+.ac-library .ac-hero .ac-search-box:focus-within{box-shadow:0 0 0 3px #f6d9a8,0 8px 24px #2a071440}
+
+/* Phones: a compact hero so the collections show up on the first screen */
+@media (max-width:640px){
+    .ac-library .ac-hero{padding:18px 16px 16px;border-radius:14px;margin-bottom:20px}
+    .ac-library .ac-hero .ac-header{padding-bottom:12px}
+    .ac-library .ac-hero .ac-eyebrow{font-size:11.5px;margin-bottom:4px}
+    .ac-library .ac-hero h1{font-size:25px;line-height:1.15}
+    .ac-library .ac-hero .ac-intro{font-size:14px;line-height:1.45;margin-top:6px}
+    .ac-library .ac-hero .ac-tools{margin:0 0 10px;gap:8px}
+    .ac-library .ac-hero .ac-search-form .ac-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    .ac-library .ac-hero .ac-search-box{min-height:48px;border-radius:10px}
+    .ac-library .ac-hero .ac-search-box input{font-size:16px;min-height:44px}
+    .ac-library.is-home .ac-hero .ac-sort-label{display:none}
+    .ac-library .ac-hero .ac-sort-label select{min-height:44px;border-radius:10px}
+    .ac-library .ac-facts{gap:2px 12px;margin-bottom:10px;font-size:12.5px}
+    .ac-library .ac-facts .ac-total{font-size:12.5px}
+    .ac-library .ac-facts>.ac-fact:nth-of-type(3){display:none}
+    .ac-library .ac-hero .ac-stats-link{font-size:12.5px}
+    .ac-library .ac-topics{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px 2px}
+    .ac-library .ac-topics::-webkit-scrollbar{display:none}
+    .ac-library .ac-topics-label{display:none}
+    .ac-library .ac-topic{flex:0 0 auto;padding:5px 11px;font-size:12.5px;white-space:nowrap}
+    .ac-library .ac-section-title{font-size:21px!important;margin-bottom:10px!important}
+    .ac-library .ac-tiles{gap:8px;margin-bottom:26px}
+    .ac-library .ac-tile-blurb{font-size:12.5px}
+    .ac-library .ac-tile-name{font-size:17px}
+}
+.ac-library .ac-hero .ac-header{padding:0 0 18px!important;position:static!important;box-shadow:none!important}
+.ac-library .ac-hero .ac-title-block{padding:0!important}
+@media (max-width:640px){.ac-library .ac-hero .ac-header{padding-bottom:12px!important}}
+@media (max-width:640px){.ac-library .ac-tile{grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:0}.ac-library .ac-tile-icon{grid-row:1/4}.ac-library .ac-tile-count{grid-row:auto;grid-column:2;font-size:12px;margin-top:2px}}
