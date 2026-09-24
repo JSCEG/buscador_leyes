@@ -6,7 +6,7 @@ vi.mock('../src/lib/reader-source.js', () => ({ getReaderSource }));
 vi.mock('../src/lib/reader-pdf.js', () => ({ createRemotePdf: () => remote }));
 import { mountReaderSource } from '../src/scripts/reader-source-view.js';
 
-const article = { id: '104581e9-3698-5eb4-b585-89ffe7589535', texto: 'Artículo 2. Texto de cotejo.', url_original: 'https://www.dof.gob.mx/documento' };
+const article = { id: '104581e9-3698-5eb4-b585-89ffe7589535', texto: 'Artículo 2. Texto de cotejo.', url_original: 'https://dof.gob.mx/documento' };
 const pages = [{ number: 1, width: 816, height: 1056, imageUrl: '/reader-sources/lcne/page-1.png' }, { number: 2, width: 816, height: 1056, imageUrl: '/reader-sources/lcne/page-2.png' }];
 const mapped = (index = 0) => ({ status: 'mapped', contentVerified: true, pageIndex: index, page: pages[index], pages, source: { title: 'Ley de la Comisión Nacional de Energía' }, originalUrl: article.url_original, pdfUrl: `/reader-sources/lcne/original.pdf#page=${index + 1}`, highlights: [{ x: 10, y: 20, width: 80, height: 15 }] });
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
@@ -110,14 +110,14 @@ describe('Reader source view', () => {
 
     it('does not render a stale asynchronous result after switching articles', async () => {
         let resolveFirst;
-        getReaderSource.mockImplementationOnce(() => new Promise(resolve => { resolveFirst = resolve; })).mockResolvedValueOnce({ status: 'unmapped', originalUrl: 'https://www.dof.gob.mx/nuevo' });
+        getReaderSource.mockImplementationOnce(() => new Promise(resolve => { resolveFirst = resolve; })).mockResolvedValueOnce({ status: 'unmapped', originalUrl: 'https://dof.gob.mx/nuevo' });
         const first = mountReaderSource(container, article);
         const pending = first.open();
         const second = mountReaderSource(container, { ...article, id: 'another' });
         await second.open();
         resolveFirst(mapped()); await pending;
         expect(container.querySelector('img')).toBeNull();
-        expect(container.querySelector('a').href).toBe('https://www.dof.gob.mx/nuevo');
+        expect(container.querySelector('a').href).toBe('https://dof.gob.mx/nuevo');
         first.destroy();
         expect(container.querySelector('a')).not.toBeNull();
     });

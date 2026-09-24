@@ -126,7 +126,7 @@
           "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
           "legacyArticleId": "LSE-Art-012",
           "label": "LSE · Artículo 12",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         },
         {
           "articleId": "de08db51-9fac-532c-a1b6-98ec84a03843",
@@ -280,7 +280,7 @@
           "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
           "legacyArticleId": "LSE-Art-012",
           "label": "LSE · Artículo 12",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         },
         {
           "articleId": "f3286a77-34de-419b-9dfa-a1a19a514950",
@@ -531,7 +531,7 @@
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
           "legacyArticleId": "LSE-Art-001",
           "label": "LSE · Artículo 1",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ]
     },
@@ -593,7 +593,7 @@
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
           "legacyArticleId": "LSE-Art-001",
           "label": "LSE · Artículo 1",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ]
     },
@@ -608,7 +608,7 @@
           "articleId": "19d32204-bb0b-4674-b795-9ef2c715d0ac",
           "legacyArticleId": "RLPTE-Art-005",
           "label": "RLPyTE · Artículo 5",
-          "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0"
+          "url": "https://dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025"
         }
       ]
     },
@@ -701,7 +701,7 @@
           "articleId": "f49edb38-6c7d-4007-9811-11b299ab1666",
           "legacyArticleId": "LSE-Art-002",
           "label": "LSE · Artículo 2",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ]
     },
@@ -739,7 +739,7 @@
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
           "legacyArticleId": "LSE-Art-001",
           "label": "LSE · Artículo 1",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         },
         {
           "articleId": "12d3f796-5f74-5f92-84aa-808d795f3b14",
@@ -760,7 +760,7 @@
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
           "legacyArticleId": "LSE-Art-001",
           "label": "LSE · Artículo 1",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ]
     },
@@ -950,7 +950,7 @@
           "articleId": "2938b70d-fd3e-4fc3-9941-6e2237a818d4",
           "legacyArticleId": "LSE-Art-012",
           "label": "LSE · Artículo 12",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ],
       "reviewStatus": "editorial"
@@ -1200,7 +1200,7 @@
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
           "legacyArticleId": "LSE-Art-001",
           "label": "LSE · Artículo 1",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ],
       "reviewStatus": "editorial"
@@ -1217,7 +1217,7 @@
           "articleId": "19d32204-bb0b-4674-b795-9ef2c715d0ac",
           "legacyArticleId": "RLPTE-Art-005",
           "label": "RLPyTE · Artículo 5",
-          "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025#gsc.tab=0"
+          "url": "https://dof.gob.mx/nota_detalle.php?codigo=5769157&fecha=03/10/2025"
         }
       ],
       "reviewStatus": "editorial"
@@ -1285,7 +1285,7 @@
           "articleId": "f49edb38-6c7d-4007-9811-11b299ab1666",
           "legacyArticleId": "LSE-Art-002",
           "label": "LSE · Artículo 2",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ],
       "reviewStatus": "editorial"
@@ -1317,7 +1317,7 @@
           "articleId": "f9806c08-5b44-466f-a3bf-eac66fe9a9ab",
           "legacyArticleId": "LSE-Art-001",
           "label": "LSE · Artículo 1",
-          "url": "https://www.diputados.gob.mx/LeyesBiblio/ref/lse/LSE_orig_18mar25.pdf"
+          "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSE.pdf"
         }
       ],
       "reviewStatus": "editorial"

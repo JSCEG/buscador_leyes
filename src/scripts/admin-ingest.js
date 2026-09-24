@@ -537,7 +537,7 @@ async function handleDofUrlImport() {
             fechaISO = `${fm[3]}-${fm[2]}-${fm[1]}`;
             fechaDof = `${fm[1]}/${fm[2]}/${fm[3]}`;
         }
-        const urlCanonica = `https://www.dof.gob.mx/nota_detalle.php?codigo=${codNota}` + (fechaDof ? `&fecha=${fechaDof}` : '');
+        const urlCanonica = `https://dof.gob.mx/nota_detalle.php?codigo=${codNota}` + (fechaDof ? `&fecha=${fechaDof}` : '');
         const tipo = detectTipo(`${nota.titulo || ''}\n${importedDofText.slice(0, 4000)}`);
 
         const filled = [];

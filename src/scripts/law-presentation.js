@@ -1,4 +1,5 @@
 // pptxgenjs (~500 KB) is only needed to build a .pptx: load it on demand.
+import { officialUrl } from '../lib/official-url.js';
 
 const COLORS = {
     guinda: '9B2247',
@@ -650,7 +651,8 @@ function renderInfo(label, value) {
     return `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
 }
 
-function renderOfficialSourceLink(url) {
+function renderOfficialSourceLink(value) {
+    const url = officialUrl(value);
     if (!url) {
         return `<small data-animate class="lp-source-link lp-source-link-muted">Fuente oficial no registrada en el acervo</small>`;
     }
@@ -1102,7 +1104,7 @@ function addClosingSlide(pptx, model, assets) {
         fontFace: FONT_BODY, fontSize: 15, color: 'E5E5E5',
         fit: 'shrink'
     });
-    slide.addText(model.law.url_original || 'Fuente oficial no registrada en el acervo', {
+    slide.addText(officialUrl(model.law.url_original) || 'Fuente oficial no registrada en el acervo', {
         x: 0.85, y: 5.35, w: 9.8, h: 0.38,
         fontFace: FONT_BODY, fontSize: 10, color: COLORS.doradoLight,
         fit: 'shrink'

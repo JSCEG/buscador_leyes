@@ -1,4 +1,5 @@
 import { relatedDocumentLabel } from './related-document.js';
+import { officialUrl } from './official-url.js';
 import { getAcervoGroup } from './acervo-model.js';
 
 const text = value => typeof value === 'string' ? value : '';
@@ -14,10 +15,7 @@ export function timelineDate(value) {
 }
 
 export function timelineSource(value) {
-    try {
-        const url = new URL(value);
-        return ['https:', 'http:'].includes(url.protocol) && !url.username && !url.password ? url.href : null;
-    } catch { return null; }
+    return officialUrl(value) || null;
 }
 
 /** Only explicit editorial links identify other records; ordinary legal citations do not. */

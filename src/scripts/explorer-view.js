@@ -22,7 +22,7 @@ const icons = {
 };
 const icon = name => `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${icons[name] || icons.book}</svg>`;
 const typeTag = entity => `<span class="nx-type nx-type-${esc(entity.type)}">${esc(types[entity.type] || entity.type)}</span>`;
-const safeUrl = url => { try { const parsed = new URL(url); return ['http:', 'https:'].includes(parsed.protocol) ? parsed.href : ''; } catch { return ''; } };
+import { officialUrl as safeUrl } from '../lib/official-url.js';
 const dateLabel = value => { const date = new Date(value); return Number.isNaN(date.getTime()) ? 'Sin fecha registrada' : new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date); };
 const editButton = () => `<button class="nx-button" data-edit-catalog>${icon('edit')}Gestionar contenido</button>`;
 const countLabel = (count, singular, pluralForm) => `${count} ${count === 1 ? singular : pluralForm}`;

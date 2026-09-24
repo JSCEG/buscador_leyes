@@ -1,4 +1,5 @@
 import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByIds, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
+import { officialUrl } from '../lib/official-url.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -281,7 +282,7 @@ export function initUI() {
         const date = new Date(`${String(value).slice(0, 10)}T00:00:00Z`);
         return Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date);
     };
-    const safeHttpUrl = url => { try { const parsed = new URL(url); return ['http:', 'https:'].includes(parsed.protocol) ? parsed.href : ''; } catch { return ''; } };
+    const safeHttpUrl = officialUrl;
     let acervoReturnFocusId = null;
     let lawOpenRequest = 0;
     let searchDebounceTimer = null;

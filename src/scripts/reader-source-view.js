@@ -1,4 +1,5 @@
 import { getReaderSource } from '../lib/reader-source.js';
+import { officialUrl } from '../lib/official-url.js';
 import { createRemotePdf } from '../lib/reader-pdf.js';
 import '../styles/reader-source.css';
 
@@ -22,7 +23,7 @@ function el(tag, className, text) {
 }
 
 function sourceLink(url, label) {
-    const target = safeUrl(url);
+    const target = safeUrl(officialUrl(url) || url);
     if (!target) return null;
     const link = el('a', 'rs-source-link', label);
     link.href = target;
