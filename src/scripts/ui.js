@@ -1,6 +1,8 @@
 import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByIds, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { officialUrl } from '../lib/official-url.js';
 import { withProgress } from '../lib/nav-progress.js';
+import { initDesk, pinButtonHtml, syncPinButtons } from './desk-view.js';
+import { getDesk, parseDeskHash, setDesk } from '../lib/desk-store.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -478,6 +480,16 @@ export function initUI() {
     async function handleInitialHash() {
         const hash = location.hash;
         if (!hash) return;
+        const sharedDesk = parseDeskHash(hash);
+        if (sharedDesk) {
+            history.replaceState(null, '', location.pathname + location.search);
+            const current = getDesk();
+            const same = current.length === sharedDesk.length && current.every((id, index) => id === sharedDesk[index]);
+            if (!same && current.length && !window.confirm(`Esta liga abre una mesa con ${sharedDesk.length} artículos y reemplazará la tuya (${current.length}). ¿Continuar?`)) return;
+            setDesk(sharedDesk);
+            desk.open();
+            return;
+        }
         const explorer = explorerRoute(hash);
         const acervo = acervoRoute(hash);
         if (hash === '#buscar') {
@@ -526,6 +538,14 @@ export function initUI() {
             if (law) await openLawDetail(law, { updateHistory: false });
         }
     }
+
+    // Mesa de consulta: several articles kept open while navigating.
+    const desk = initDesk({
+        loadArticles: ids => getArticlesByIds(ids),
+        onOpenArticle: (id, items) => { if (items.length) currentModalList = items; desk.close(); openDetail(id); },
+        lawFor: item => cachedSummaries.find(law => String(law.id) === String(item.ley_id)) || null,
+        notify: (message, icon) => showToast(message, icon),
+    });
 
     // Maneja el botón Atrás / Adelante del navegador.
     // Restaura la vista correcta según el hash de la URL.
@@ -1756,7 +1776,7 @@ export function initUI() {
             return `
             <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item${relatedLabel ? ' related-document-card' : ''}" data-id="${item.id}">
                 ${relatedLabel ? `<div class="related-document-badge-row"><span class="related-document-badge">${relatedLabel}</span></div>` : ''}
-                <div class="flex items-center justify-between mb-2 pr-14">
+                <div class="flex items-center justify-between mb-2 pr-24">
                     <span class="text-xs font-bold text-gray-700 flex items-center gap-1.5">
                         ${item.articulo_label}
                         ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
@@ -1765,6 +1785,7 @@ export function initUI() {
                 </div>
                 <p class="reader-preview text-gray-600">${highlightedText}</p>${getTextPreview(item.texto, 100000).length > 900 ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
                 <button class="bookmark-card-btn absolute top-3 right-9 p-1 ${loggedIn ? 'text-gray-300 hover:text-guinda' : 'text-guinda'} transition-colors" data-id="${item.id}" title="${favTitle}">${bookmarkIcon}</button>
+                ${pinButtonHtml(item.id, { compact: true }).replace('class="pin-btn', 'class="pin-btn lr-card-pin')}
                 <button class="compare-card-btn absolute top-3 right-3 p-1 ${compareColor} ${compareBg} rounded transition-colors" data-id="${item.id}" title="Comparar artículo">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
                 </button>
@@ -2896,6 +2917,13 @@ export function initUI() {
 
         // Bookmark button in modal header
         const bookmarkBtn = document.getElementById('modal-bookmark-btn');
+        let pinBtn = document.getElementById('modal-pin-btn');
+        if (!pinBtn && bookmarkBtn) {
+            bookmarkBtn.insertAdjacentHTML('beforebegin', pinButtonHtml(id, { compact: true }));
+            pinBtn = bookmarkBtn.previousElementSibling;
+            pinBtn.id = 'modal-pin-btn';
+        }
+        if (pinBtn) { pinBtn.dataset.pinArticle = id; syncPinButtons(pinBtn.parentElement); }
         if (bookmarkBtn) {
             const { loggedIn, fav, title: favTitle } = getFavoriteUiState(id);
             bookmarkBtn.innerHTML = fav

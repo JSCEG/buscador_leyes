@@ -1,4 +1,5 @@
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
+import { pinButtonHtml } from './desk-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { contextSnippet, highlightTerms, markedFragment } from '../lib/search-snippet.js';
 import '../styles/search.css';
@@ -74,6 +75,7 @@ export function renderSearchResults(container, {
             <div class="sr-actions">
                 ${relationBadge(item.ley_id)}
                 ${dof ? `<a class="sr-action" href="${esc(dof)}" target="_blank" rel="noopener noreferrer">Fuente oficial ${external}</a>` : ''}
+                ${pinButtonHtml(item.id)}
                 <button type="button" class="sr-action sr-fav ${fav ? 'is-fav' : ''}" data-favorite="${esc(item.id)}" title="${esc(title)}" aria-pressed="${fav}">${bookmark(fav)}<span>${fav ? 'Guardado' : 'Guardar'}</span></button>
             </div>
         </li>`;
