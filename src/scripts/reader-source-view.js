@@ -1,5 +1,6 @@
 import { getReaderSource } from '../lib/reader-source.js';
 import { officialUrl } from '../lib/official-url.js';
+import { withProgress } from '../lib/nav-progress.js';
 import { createRemotePdf } from '../lib/reader-pdf.js';
 import '../styles/reader-source.css';
 
@@ -198,7 +199,7 @@ export function mountReaderSource(container, article) {
             figure.style.visibility = 'hidden';
             remotePdf ||= createRemotePdf(result.source);
             try {
-                await remotePdf.render(image, page);
+                await withProgress(remotePdf.render(image, page));
                 if (!isCurrent(token)) return;
                 figure.style.visibility = '';
                 loaded();

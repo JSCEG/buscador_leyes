@@ -1,5 +1,6 @@
 import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByIds, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { officialUrl } from '../lib/official-url.js';
+import { withProgress } from '../lib/nav-progress.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -870,7 +871,8 @@ export function initUI() {
         });
     }
 
-    async function openLawDetail(law, { updateHistory = true } = {}) {
+    function openLawDetail(...args) { return withProgress(() => openLawDetailNow(...args)); }
+    async function openLawDetailNow(law, { updateHistory = true } = {}) {
         if (!lawDetailContainer) return;
         const request = ++lawOpenRequest;
         const originHash = location.hash;
@@ -1063,7 +1065,7 @@ export function initUI() {
             presentacion: async () => {
                 const target = document.getElementById('law-presentation-embed');
                 target.innerHTML = '<p class="lr-panel-intro" role="status">Cargando presentación…</p>';
-                const { renderLawPresentationEmbed } = await loadPresentation();
+                const { renderLawPresentationEmbed } = await withProgress(loadPresentation());
                 if (target.isConnected) renderLawPresentationEmbed(target, law, currentLawArticles, dbThemes);
             },
             estructura: () => renderLawStructureChart(currentLawArticles, dbThemes),
@@ -2296,7 +2298,8 @@ export function initUI() {
     }
     // ── Fin Exportar ───────────────────────────────────────────────────────────
 
-    async function showFavoritesView() {
+    function showFavoritesView(...args) { return withProgress(() => showFavoritesViewNow(...args)); }
+    async function showFavoritesViewNow() {
         setActiveNav('nav-favorites');
         setHash(null);
         destroyTOC();
@@ -2388,7 +2391,8 @@ export function initUI() {
         });
     }
 
-    async function openCompare(id1, id2) {
+    function openCompare(...args) { return withProgress(() => openCompareNow(...args)); }
+    async function openCompareNow(id1, id2) {
         const item1 = await getArticleById(id1);
         const item2 = await getArticleById(id2);
         if (!item1 || !item2) return;
@@ -2687,7 +2691,7 @@ export function initUI() {
         resultsContainer.classList.remove('hidden', 'opacity-0');
         statsView?.destroy();
         const statsRequest = ++statsViewRequest;
-        import('./stats-view.js').then(({ renderStatsView }) => {
+        withProgress(import('./stats-view.js')).then(({ renderStatsView }) => {
             if (statsRequest !== statsViewRequest || activeNavId !== 'nav-stats') return;
             statsView = renderStatsView(resultsContainer, cachedSummaries, {
                 onOpenLaw: law => openLawDetail(law),
@@ -2725,7 +2729,8 @@ export function initUI() {
 
     // ...
 
-    async function renderResults() {
+    function renderResults(...args) { return withProgress(() => renderResultsNow(...args)); }
+    async function renderResultsNow() {
         if (!resultsContainer) return;
         const request = ++searchRenderRequest;
         const query = currentSearchQuery;
@@ -2762,7 +2767,8 @@ export function initUI() {
         else if (resultsContainer.nextElementSibling?.classList.contains('pagination-nav')) resultsContainer.nextElementSibling.remove();
     }
 
-    async function openDetail(id, { updateHistory = true } = {}) {
+    function openDetail(...args) { return withProgress(() => openDetailNow(...args)); }
+    async function openDetailNow(id, { updateHistory = true } = {}) {
         const request = ++readerOpenRequest;
         // También preserva el regreso al usar Adelante del navegador desde el explorador.
         if (!explorerModalReturn && activeNavId === 'nav-analisis') {
@@ -3272,7 +3278,8 @@ export function initUI() {
     }
 
     // ── Análisis de Temas Transversales ──────────────────────────────────────────
-    async function showAnalisisView(state = {}, { updateHistory = true } = {}) {
+    function showAnalisisView(...args) { return withProgress(() => showAnalisisViewNow(...args)); }
+    async function showAnalisisViewNow(state = {}, { updateHistory = true } = {}) {
         if (searchInput) searchInput.value = '';
         currentSearchQuery = '';
         currentFilters = { type: 'all', law: 'all', artNum: '' };

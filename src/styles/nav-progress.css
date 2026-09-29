@@ -1,0 +1,27 @@
+/* Top progress bar for waits the user started */
+#nav-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:9999;pointer-events:none;opacity:0;transition:opacity .25s}
+#nav-progress .np-fill{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);
+    background:linear-gradient(90deg,#9b2247,#c2466d 60%,#e6b865);box-shadow:0 0 8px #9b224780;border-radius:0 2px 2px 0}
+#nav-progress.np-active{opacity:1}
+/* Creeps toward 90% while the answer is pending, then fills and fades when it arrives */
+#nav-progress.np-active .np-fill{animation:np-trickle 8s cubic-bezier(.08,.8,.2,1) forwards}
+#nav-progress.np-done .np-fill{animation:none;transform:scaleX(1);transition:transform .2s ease-out}
+#nav-progress.np-done{opacity:0;transition:opacity .3s .15s}
+@keyframes np-trickle{0%{transform:scaleX(0)}15%{transform:scaleX(.35)}50%{transform:scaleX(.7)}100%{transform:scaleX(.9)}}
+html.is-loading,html.is-loading *{cursor:progress}
+@media (prefers-reduced-motion:reduce){
+    #nav-progress.np-active .np-fill{animation:none;transform:scaleX(.6)}
+    #nav-progress.np-done .np-fill{transition:none}
+}
+
+/* Chip for waits longer than half a second: the bar alone blends with the page's top stripe */
+#nav-progress-pill{position:fixed;top:14px;left:50%;z-index:9999;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;
+    border-radius:999px;background:#fff;color:#5c1430;font:600 13.5px/1 "Noto Sans",system-ui,sans-serif;
+    box-shadow:0 8px 24px #2a07142e,0 0 0 1px #9b224722;pointer-events:none;opacity:0;transform:translate(-50%,-8px);transition:opacity .2s,transform .2s}
+#nav-progress-pill.np-active{opacity:1;transform:translate(-50%,0)}
+#nav-progress-pill .np-spinner{width:16px;height:16px;border-radius:50%;border:2px solid #9b224733;border-top-color:#9b2247;animation:np-spin .7s linear infinite}
+@keyframes np-spin{to{transform:rotate(360deg)}}
+html.dark-mode #nav-progress-pill{background:#262321;color:#f4d7e0;box-shadow:0 8px 24px #0008,0 0 0 1px #ffffff1f}
+html.dark-mode #nav-progress-pill .np-spinner{border-color:#ffffff33;border-top-color:#e8a3b9}
+#nav-progress{height:4px}
+@media (prefers-reduced-motion:reduce){#nav-progress-pill{transition:none}#nav-progress-pill .np-spinner{animation-duration:1.6s}}
