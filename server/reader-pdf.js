@@ -22,7 +22,10 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
         && !reviewedDofPdfs.has(source.originalUrl))
         || !/^[a-f0-9]{64}$/.test(source.sha256)) return problem(404, 'unknown-source');
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 20000);
+    // Large official issue PDFs can take longer to stream through the Worker
+    // than the smaller individual-law PDFs. Keep the upstream request alive
+    // long enough for the reviewed 20 MiB maximum.
+    const timer = setTimeout(() => controller.abort(), 60000);
     try {
         const upstream = await fetcher(source.originalUrl, {
             // Workers supports manual/follow; a 3xx fails the !ok check below.
