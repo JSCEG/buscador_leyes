@@ -58,6 +58,24 @@ it('serves only the reviewed September 7, 2026 DOF issue PDF for PLADESHi', asyn
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed April 15, 2025 DOF evening issue PDF for the PND', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('pnd'), 'pnd', { sources: { pnd: { ...source, originalUrl } }, fetcher });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [
+        originalUrl.replace('15042025-VES.pdf', '15042025-MAT.pdf'),
+        originalUrl.replace('dof.gob.mx', 'www.dof.gob.mx'),
+        originalUrl + '&url=https://outside.test',
+    ]) {
+        expect((await serveReaderPdf(request('pnd'), 'pnd', { sources: { pnd: { ...source, originalUrl: url } }, fetcher })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());

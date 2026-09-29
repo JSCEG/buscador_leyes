@@ -7,6 +7,7 @@ const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json
 const loaded = JSON.parse(readFileSync('revision-acervo/incorporacion-7-2026-09-17/LCNE-carga.json', 'utf8'));
 const cenace = JSON.parse(readFileSync('revision-acervo/incorporacion-cenace-2026-09-20/PROGRAMA-CENACE-carga.json', 'utf8'));
 const pladeshi = Object.values(manifest.sources).find(source => source.lawId === '48e6158c-c1a3-5b6d-811d-16e85b05ab64');
+const pnd = JSON.parse(readFileSync('revision-acervo/incorporacion-pnd-2026-09-22/PND-carga.json', 'utf8'));
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
@@ -134,6 +135,31 @@ it('maps the 80 official PLADESHi fragments to visible pages of the DOF edition'
             expect(mapping.highlights.length, `${article.label}, PDF ${mapping.page.number}`).toBeGreaterThan(0);
         }
     }
+});
+
+it('maps all 98 PND fragments to the correct official DOF evening issue pages', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const source = Object.values(manifest.sources).find(s => s.lawId === pnd.ley.id);
+    expect(source).toMatchObject({
+        id: 'pnd-a1f503c4229a',
+        pageCount: 104,
+        sha256: 'a1f503c4229a95e0fbe0f8d801760522017af262db0b6c4faa0296e2e2d6c764',
+        originalUrl: 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=',
+    });
+    expect(pnd.articulos).toHaveLength(98);
+    for (const article of pnd.articulos) {
+        const result = await getReaderSource(article.id, { articleText: article.contenido, manifest });
+        expect(result.status, article.identificador).toBe('mapped');
+        expect(result.contentVerified, article.identificador).toBe(true);
+        expect(result.source.lawId).toBe(pnd.ley.id);
+        for (const pageIndex of result.pages.map((_, index) => index)) {
+            const mapping = resolveReaderSource(manifest, article.id, { pageIndex });
+            expect(mapping.highlights.length, article.identificador).toBeGreaterThan(0);
+        }
+    }
+    const notes = pnd.articulos.find(article => article.identificador === 'Notas y referencias del plan');
+    expect(resolveReaderSource(manifest, notes.id).pages.map(page => page.number)).toEqual([75, 81, 85, 94, 98]);
+    expect(Object.values(manifest.articles).filter(article => article.sourceId === source.id)).toHaveLength(98);
 });
 
 it('keeps multi-page article boundaries and positions within each actual page dimensions', () => {
