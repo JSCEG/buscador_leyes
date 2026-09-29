@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 20,
-  "verifiedAt": "2026-09-29T20:25:10.786815+00:00",
+  "revision": 21,
+  "verifiedAt": "2026-09-29T20:36:59.894247+00:00",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -3782,7 +3782,7 @@
       "sha256": "d56aa56ec9750c758bcdc1173b3ddcc0033f6f037d9a856810805a9e51a8b84f",
       "transport": "remote-pdf",
       "pdfUrl": "/api/reader/pladeshi-d56aa56ec975",
-      "originalUrl": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=",
+      "originalUrl": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=",
       "officialPublicationUrl": "https://sidof.segob.gob.mx/notas/docFuente/5798065",
       "pageCount": 348,
       "pages": [
