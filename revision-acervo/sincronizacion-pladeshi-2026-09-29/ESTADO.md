@@ -8,7 +8,7 @@ El mapa liga 80 fragmentos por su UUID a los encabezados estructurales que apare
 
 La única entrada sin mapa es **“Nota editorial · documentos relacionados”**: es texto editorial del buscador, no una parte del acuerdo ni del plan. Su fuente oficial permanece accesible. Los otros fragmentos sí llevan a la edición del DOF: acuerdo y firmas (página 17), índice y presentación (18–23), secciones del plan (24–116), referencias/glosario (117–121), siglas (122–123), unidades (123–124) y notas (124).
 
-La edición rebasa el límite previo de 8 MiB del visor. Se amplió a 20 MiB para esta fuente, y el proxy sólo acepta la URL completa revisada del PDF del 7 de septiembre; no se guardó el PDF en el repositorio ni se escribieron datos en Supabase.
+La edición rebasa el límite previo de 8 MiB del visor. Se amplió a 20 MiB para esta fuente, y el proxy sólo acepta la URL canónica revisada del PDF del 7 de septiembre (`https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=`); no se guardó el PDF en el repositorio ni se escribieron datos en Supabase. Se usa el host canónico para evitar la redirección de `www.dof.gob.mx`.
 
 ## Reproducción
 

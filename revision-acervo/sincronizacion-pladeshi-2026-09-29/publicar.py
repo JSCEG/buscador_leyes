@@ -14,13 +14,16 @@ MANIFEST_PATH = Path("public/reader-sources/manifest.v1.json")
 manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 source = MAP["source"]
 
-assert source["id"] not in manifest["sources"]
 assert source["sha256"] == hashlib.sha256(PDF.read_bytes()).hexdigest()
 assert len(ARTICLES) == 81 and len(MAP["articles"]) == 80 and len(MISSING) == 1
 assert MISSING[0]["reason"] == "editorial-not-part-of-official-publication"
 current = {article["id"]: article for article in ARTICLES}
 assert set(MAP["articles"]).issubset(current)
-assert not (set(MAP["articles"]) & set(manifest["articles"]))
+existing_source = manifest["sources"].get(source["id"])
+assert existing_source is None or (existing_source["sha256"] == source["sha256"]
+                                    and existing_source["lawId"] == source["lawId"])
+assert all(article_id not in manifest["articles"] or manifest["articles"][article_id]["sourceId"] == source["id"]
+           for article_id in MAP["articles"])
 
 for article_id, trace in MAP["articles"].items():
     article = current[article_id]
@@ -33,9 +36,12 @@ for article_id, trace in MAP["articles"].items():
         x0, y0, x1, y1 = anchor["bbox"]
         assert 0 <= x0 < x1 <= page["width"] and 0 <= y0 < y1 <= page["height"]
 
-manifest["sources"][source["id"]] = source
-manifest["articles"].update(MAP["articles"])
-manifest["revision"] += 1
-manifest["verifiedAt"] = datetime.now(timezone.utc).isoformat()
-MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+changed = existing_source != source or any(manifest["articles"].get(article_id) != trace
+                                             for article_id, trace in MAP["articles"].items())
+if changed:
+    manifest["sources"][source["id"]] = source
+    manifest["articles"].update(MAP["articles"])
+    manifest["revision"] += 1
+    manifest["verifiedAt"] = datetime.now(timezone.utc).isoformat()
+    MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(f"Manifiesto {manifest['revision']}: {len(MAP['articles'])} fragmentos mapeados; la nota editorial conserva su fuente sin mapa.")

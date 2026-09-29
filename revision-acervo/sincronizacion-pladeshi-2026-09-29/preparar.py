@@ -16,7 +16,7 @@ WORK = Path(".local/pladeshi-sync")
 PDF = WORK / "07092026-MAT.pdf"
 ARTICLES = WORK / "articulos.json"
 LAW_ID = "48e6158c-c1a3-5b6d-811d-16e85b05ab64"
-PDF_URL = "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo="
+PDF_URL = "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo="
 DOF_URL = "https://sidof.segob.gob.mx/notas/docFuente/5798065"
 
 

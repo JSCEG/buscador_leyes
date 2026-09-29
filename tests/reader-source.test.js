@@ -120,7 +120,7 @@ it('maps the 80 official PLADESHi fragments to visible pages of the DOF edition'
         id: 'pladeshi-d56aa56ec975',
         pageCount: 348,
         sha256: 'd56aa56ec9750c758bcdc1173b3ddcc0033f6f037d9a856810805a9e51a8b84f',
-        originalUrl: 'https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=',
+        originalUrl: 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=',
     });
     const rows = Object.entries(manifest.articles).filter(([, article]) => article.sourceId === pladeshi.id);
     expect(rows).toHaveLength(80);

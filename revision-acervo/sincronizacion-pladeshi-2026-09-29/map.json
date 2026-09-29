@@ -6,7 +6,7 @@
     "sha256": "d56aa56ec9750c758bcdc1173b3ddcc0033f6f037d9a856810805a9e51a8b84f",
     "transport": "remote-pdf",
     "pdfUrl": "/api/reader/pladeshi-d56aa56ec975",
-    "originalUrl": "https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=",
+    "originalUrl": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=",
     "officialPublicationUrl": "https://sidof.segob.gob.mx/notas/docFuente/5798065",
     "pageCount": 348,
     "pages": [
