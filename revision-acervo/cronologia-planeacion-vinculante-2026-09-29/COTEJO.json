@@ -1,0 +1,1612 @@
+{
+  "generatedAt": "2026-09-29",
+  "sourceSnapshots": "temporary local HTML responses, not distributed",
+  "method": "strip HTML markup, normalize whitespace and soft hyphens, omit blank-square checkbox glyphs used as visual form controls; compare whole loaded fragment against official page and require unique occurrence.",
+  "instruments": [
+    {
+      "id": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "siglas": "DACG-Planeación Vinculante",
+      "title": "DACG para la planeación vinculante en la actividad de generación de energía eléctrica",
+      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5770298&fecha=17/10/2025",
+      "htmlSha256": "da0b1ac5dd3b50b3d953e76ccbfeecb14359267fb677beff42ed5d2ceb514b76",
+      "pages": "html",
+      "loaded": 11,
+      "exactMatches": 11,
+      "editorialNotes": 0,
+      "unmatched": 0
+    },
+    {
+      "id": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "siglas": "CONV-GEN-1",
+      "title": "Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 17/10/2025]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5770299",
+      "htmlSha256": "87c25b25a5b8c1befc973344fff1cde1e5f200f3a124576fd63ff8e3590e4e50",
+      "pages": "html",
+      "loaded": 19,
+      "exactMatches": 18,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "siglas": "CONV-GEN-1-M1",
+      "title": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025 [DOF 24/10/2025]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5770917",
+      "htmlSha256": "2ba34d3dd2419d324f5d160bafa9704439c09b9488b4703743d599291cb514cc",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "siglas": "CONV-GEN-1-M2",
+      "title": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/11/2025]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5772392",
+      "htmlSha256": "141762fa5c921f7dd01f107cf4eabb499bf198e3389f6e3d5526c28319548193",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "84446660-e33c-512f-9975-57527758c6c7",
+      "siglas": "CONV-GEN-1-M3",
+      "title": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 02/12/2025]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5774850",
+      "htmlSha256": "80ee13b6af8ee224200c33f18a6cb5426fff88a23f61ddcf90b1eec9e91debfe",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "siglas": "CONV-GEN-2",
+      "title": "Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 11/05/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
+      "htmlSha256": "178274967aec871f35d62c42ccb3cb151fedc2e4f933f1a7238d315c084f1bc7",
+      "pages": "html",
+      "loaded": 36,
+      "exactMatches": 35,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "siglas": "CONV-GEN-2-M1",
+      "title": "Acuerdo por el que se emite la modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 26/05/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5788509",
+      "htmlSha256": "0cf5044b5ca7356b4469a7d5c596f7533b554819ee77f52a3eb60b34768b26b6",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "siglas": "CONV-GEN-2-M2",
+      "title": "Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 08/06/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5789883",
+      "htmlSha256": "a6d76c2a17ef2860f6fc1dfd768d12a10ee36059a9c8375e9aeb0171672d436c",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "d026115a-998a-544f-bff0-39f93c04f444",
+      "siglas": "CONV-GEN-2-M3",
+      "title": "Acuerdo por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 18/06/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5790938",
+      "htmlSha256": "7d569774debc1e8531c3515e2383fa53eda266206a787855c156f817210bb5af",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "siglas": "CONV-GEN-2-M4",
+      "title": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/09/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5798361",
+      "htmlSha256": "5004e64965f5062570d859d7bb51dd0d0db748a0d224cb5bd7606df56dccf365",
+      "pages": "html",
+      "loaded": 5,
+      "exactMatches": 4,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "siglas": "CONV-ESTRATEGICOS",
+      "title": "Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 15/05/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5787666",
+      "htmlSha256": "e66b049a4c1687d31e1606e55db26413a01f542a06b6791b552988bd3d5036c0",
+      "pages": "html",
+      "loaded": 58,
+      "exactMatches": 57,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "siglas": "CONV-ESTRATEGICOS-M1",
+      "title": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 26/05/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5788508",
+      "htmlSha256": "1ac32a60c8f6aa1a4ccabaaf88c3c6018332d782eb7406ef80f3949681dc8b9b",
+      "pages": "html",
+      "loaded": 6,
+      "exactMatches": 5,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "title": "Acuerdo por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 10/07/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5793261",
+      "htmlSha256": "98316b040369fce7f60f4071726ff4712d6a9d045acf0f8609db5d3be343f70d",
+      "pages": "html",
+      "loaded": 28,
+      "exactMatches": 27,
+      "editorialNotes": 1,
+      "unmatched": 0
+    },
+    {
+      "id": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "siglas": "CONV-ESTRATEGICOS-M3",
+      "title": "Acuerdo por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 02/09/2026]",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5797703",
+      "htmlSha256": "0cfde031eb5619dc65a65ca97376feb1623841962fe7c4d5e4c120df1b2b6178",
+      "pages": "html",
+      "loaded": 5,
+      "exactMatches": 4,
+      "editorialNotes": 1,
+      "unmatched": 0
+    }
+  ],
+  "articles": [
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "629406b5-d6df-4323-8c53-835ebeec9216",
+      "label": "Preámbulo",
+      "status": "exact-normalized-match",
+      "contentSha256": "1bc5198335a333faa03e23c6481a56d81b91841b50a0ac7a817d769c63fc3dce"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "3ed837b8-9f10-4c1d-9b43-f4d42f9e5049",
+      "label": "Artículo 1",
+      "status": "exact-normalized-match",
+      "contentSha256": "ff855879a6a129b4987c92520f1640373267f451a1279896fad22e059550b0ba"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "22c75c49-cffc-4ca2-991e-80f40744a090",
+      "label": "Artículo 2",
+      "status": "exact-normalized-match",
+      "contentSha256": "4b61eec9d059d838eee8f3aff5a47d693283e78d7c366340dd6a28e1ec64984e"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "2362d5d2-3d52-4b61-8e3c-c76d7ae069fe",
+      "label": "Artículo 3",
+      "status": "exact-normalized-match",
+      "contentSha256": "84d8e08b702b83fe01fc03633767fb060f330240523084114b85a8311bb8369b"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "e29fc23f-1a1d-47c2-b941-dabab9df972b",
+      "label": "Artículo 4",
+      "status": "exact-normalized-match",
+      "contentSha256": "57d46141f4baa17e34ae81eae89d769419c84ecf4b001325b07aae28a88cb81c"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "c8079a72-c060-44f3-9307-09f344b07b2c",
+      "label": "Artículo 5",
+      "status": "exact-normalized-match",
+      "contentSha256": "fb8cdb3e39ae57fc2c3dc4fd10b95fc2ab2e8f78942fb727942a9a744d4c7d48"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "41340b18-dbf2-4e43-be27-20a6e34446ef",
+      "label": "Artículo 6",
+      "status": "exact-normalized-match",
+      "contentSha256": "fcf39388c5a69768a6ef1cfee5fbe68fc42b8ab40e1dc5a5a81e01827c9957ac"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "0055d94e-d58c-4c95-b68a-81af5793e8b0",
+      "label": "Artículo 7",
+      "status": "exact-normalized-match",
+      "contentSha256": "e117a3c388b9dedf3ad1758ba997f4ba7c16778f7f4ae4dbd4a2d75e0e43727d"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "a0a1d56b-0757-44d9-b319-3dcd802d3fbf",
+      "label": "Artículo 8",
+      "status": "exact-normalized-match",
+      "contentSha256": "af0a0ddd5272edfbe83c9cd8376c924c8a7e636d301a6916e1c896be552fd853"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "03f55d58-e36d-474f-906b-2980cef1f6cd",
+      "label": "Transitorio Único",
+      "status": "exact-normalized-match",
+      "contentSha256": "6d925bedad5ad5024d9c1d40156f7096e809ec937453781160b2ebf144551a11"
+    },
+    {
+      "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+      "articleId": "4eeef88a-2204-59b2-8b27-e5ca3a8849b4",
+      "label": "Firmas y promulgación",
+      "status": "exact-normalized-match",
+      "contentSha256": "98115bab1d5d1d23dc4cd44bd9208751afdf1815be3abc6b41bb55cc1ceb10f9"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "aaba7be7-27c0-5d68-9db8-5aa5b4bc2d3f",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "943c5d93a14d0c10140da7e086ed75c639cf2f14b95d561e5beb7365c6574c1c"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "ff0939ff-91c0-59d0-85dc-a31ae9aecdc3",
+      "label": "Preámbulo de la convocatoria",
+      "status": "exact-normalized-match",
+      "contentSha256": "d7c300868f2630b2ed12ffc30b669cf65aa9994a9d23fa4685c0a9c3b529b18c"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "50337b14-5ac2-5e1e-947b-f0b1c7353ce3",
+      "label": "Índice de la publicación",
+      "status": "exact-normalized-match",
+      "contentSha256": "7b5ee39d03ee1140eeab1b9e88ef63bffc53850ff3f546deef3c8703cd081587"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "77c65739-ae6b-5172-832b-22f8b899d34f",
+      "label": "Numeral 1",
+      "status": "exact-normalized-match",
+      "contentSha256": "f7a9ade0d9b2f242913d17f215da63c710d9615f3f0ac1159eace6c6eba68fba"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "39bd22b4-dce1-5f69-a22b-18b28387d1bf",
+      "label": "Numeral 2",
+      "status": "exact-normalized-match",
+      "contentSha256": "81da05a2b1d8b7917a4e396407a694341aa7b51bcd24dad026f70493e8f1243e"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "5f14a700-5ce9-5277-b929-325853c5c89f",
+      "label": "Numeral 3",
+      "status": "exact-normalized-match",
+      "contentSha256": "6664dd98458b9c6bd57d5df77fdd286b2bf98733799e6c99cfba0fa149b70360"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "576f6583-7dfc-5572-8c91-82e6b2c13956",
+      "label": "Numeral 4",
+      "status": "exact-normalized-match",
+      "contentSha256": "64bb9a5ffbc4f787683eb832752c554d2a77cf4b00bb7cffaac5676303b1b0a0"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "a587b39c-43fa-5509-83d7-0de2c56c110a",
+      "label": "Numeral 5",
+      "status": "exact-normalized-match",
+      "contentSha256": "83380e094d2ea24cf65f7d74d83f25fa08041d78931919d4fed6a419e6ff88e6"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "203ad777-ae10-59bb-8291-4f0a965ca711",
+      "label": "Numeral 6",
+      "status": "exact-normalized-match",
+      "contentSha256": "7ef262ce1fd59b801a771a30febfaa81daf2f336e3da2ecac46a3b71b8a39e59"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "66841059-17b2-503c-b5b0-2c917d6caebb",
+      "label": "Numeral 7",
+      "status": "exact-normalized-match",
+      "contentSha256": "a8bdd69e835348c974fde1024986794ac195a8bd4b68e0244b68bdf914cac044"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "2ef9cdd8-3780-52cb-a0d9-5628b18c30d9",
+      "label": "Numeral 8",
+      "status": "exact-normalized-match",
+      "contentSha256": "b908517d00ee639c4d54e93769953ce6bd6792b5fa72e6abe80e2ec95c4b60dd"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "4038058e-3c6d-500d-b091-fa2a2c03c062",
+      "label": "Numeral 9",
+      "status": "exact-normalized-match",
+      "contentSha256": "a4d3cb26e9bc4a1cf68c2eff693c24df3ce2e20138a4562dd1ea3b419a77dadb"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "0be69bdd-7e21-550d-9207-5be31ba1c1c7",
+      "label": "Numeral 10",
+      "status": "exact-normalized-match",
+      "contentSha256": "a0021cd6d7bbfdbbf696966e93d2f396c0a3d0231eda38b542ec8240c4b79171"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "f4488ada-0640-58f7-9fe7-4c9a3abcaa87",
+      "label": "Numeral 11",
+      "status": "exact-normalized-match",
+      "contentSha256": "6a3d905842ffc21f5dbefc725788aa288a453554363efa48ef44f8a69a601bf1"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "9931bc29-3772-5477-9c64-f11c40cbba68",
+      "label": "12.a · Anexo técnico",
+      "status": "exact-normalized-match",
+      "contentSha256": "6398ced486d83dc5521612c2b6a0304b8e2f4a7b7f43ced6a6b18f9094146a15"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "262706cb-e098-5901-8b03-9478ed815df4",
+      "label": "12.b · Referencia al formato en VUPE",
+      "status": "exact-normalized-match",
+      "contentSha256": "1f3f04442812fa8b9a68022c3f0af60d499e21f78be76e2f2950a02748f2f66f"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "a76b3f43-e931-5271-a0fc-e2b7a267410f",
+      "label": "12.c · Formato de trámite previo",
+      "status": "exact-normalized-match",
+      "contentSha256": "22e848d9ac7bd9676c7daf49cb0da203ec3d573b9b6dfcfcf66ef33cea91c2d5"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "08d6976b-fe81-5423-8f60-6e18f7484eac",
+      "label": "12.d · Formato de aceptación de obras",
+      "status": "exact-normalized-match",
+      "contentSha256": "48a4a31acc120acd033795a5022b97934c8dbad6ee2140654c9e4fcf60e11025"
+    },
+    {
+      "instrumentId": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "articleId": "ea8af6dc-6837-5f7c-b793-c3a42dbc8d67",
+      "label": "Firma de la convocatoria",
+      "status": "exact-normalized-match",
+      "contentSha256": "75184f5c24480e98bf9c218a4756c1f6d5dad3144a65a7cbb0e8ac22de955e63"
+    },
+    {
+      "instrumentId": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "articleId": "37f9d8db-2a9b-5b0a-9f6f-ca068a9bf17b",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "2365d3542eb0caf598dac07e6bcefd549a8526a10823a50e9e07e547f2f74fda"
+    },
+    {
+      "instrumentId": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "articleId": "bbc0d7ed-bacb-501b-b6e7-ecfe126b5edf",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "a62fd7c23820e0f4c391ae6792d6b843ed4a0ae1702d17b45bffca0b92405739"
+    },
+    {
+      "instrumentId": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "articleId": "fb326cd5-c412-56e2-a63c-5bf8c6b96077",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "a040d0b5c7655b59eb1ee514bde2491687046732bd1fbf1fae2a63bc8a478f79"
+    },
+    {
+      "instrumentId": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "articleId": "c2c13dfe-dec9-539c-8b81-0a668092e3c8",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "48cd127287823ce3253e089f8aadccc8be49647a86f66bff6c414d3b3f66f6a4"
+    },
+    {
+      "instrumentId": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "articleId": "440f35b5-9755-5d40-83c0-8ed9538ce19c",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "379f6600e7e8afd553aaedacf24e4959d1ddbc2e99fc16c60c8eaad3c815741d"
+    },
+    {
+      "instrumentId": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "articleId": "40c9b24d-2082-58d5-a5c6-c6fffbf38568",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "d659e5fb10e8266dd20f65d1aac6088d1ddc193729076edf2622fc4e7402850c"
+    },
+    {
+      "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "articleId": "79b52a67-0ffd-5577-a887-a114f0b057f8",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "7137905a7f494b2260150f713ae4b7c1f04d5b43ea36c1dcd4b20dbb980a94e3"
+    },
+    {
+      "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "articleId": "e8f3ea1e-56d0-549b-97aa-309bbc29495c",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "60526b979f59821e32905484ec9555b19cd74f4cf9d06be301b60cf277a10ad4"
+    },
+    {
+      "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "articleId": "aff838b2-a58c-5d56-8034-26314c81bff4",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "722ee4b57d5fdb1023a44bb9a8918d014b338d58d208f9652178b8e66773f76f"
+    },
+    {
+      "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "articleId": "a72f9272-b9c1-51a7-bc7c-0a6607c05e18",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "e774d6bb4d141d8e81bed7080c43dde3b89f9203e2169904344ec44f36d93fec"
+    },
+    {
+      "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "articleId": "0c498ce2-73f8-5496-85f8-121d2c40cb91",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "ac83577494034c09864aa8fcc307c69bf2be8a1510816276c0f20c3d9d14a251"
+    },
+    {
+      "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "articleId": "4f2a0342-6c6d-50e8-935b-c360581100cf",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "ba3b3b681c7b21caf523172d907b296b09b61cf8a4e0f25c00058d59582fbab6"
+    },
+    {
+      "instrumentId": "84446660-e33c-512f-9975-57527758c6c7",
+      "articleId": "111a3ab4-cb8b-5ddf-910c-caf05f0c0ca5",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "06295542579d7d003ddf03d773d030aa65c09a06dcc1ee290a6edc9bc5d4f52f"
+    },
+    {
+      "instrumentId": "84446660-e33c-512f-9975-57527758c6c7",
+      "articleId": "186a84a9-83f5-579b-ac80-2e38ce254804",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "e3a5856c0fa5db1cbc24bfe8e9aa565a4626352fbbcb95f2059fb809789dd544"
+    },
+    {
+      "instrumentId": "84446660-e33c-512f-9975-57527758c6c7",
+      "articleId": "e4d70979-4478-5c01-a3c6-6bcc7dc15106",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "13e475827c2ba889ed1a884851b4e363b9197b8541e836eee3bb70e743cf450a"
+    },
+    {
+      "instrumentId": "84446660-e33c-512f-9975-57527758c6c7",
+      "articleId": "0d103f90-8b3a-5a24-9a69-17cd48b6841a",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "a816b68adeebc38006fd21f504eb97a76553a41b7cc18eb86f40e682b23c24ca"
+    },
+    {
+      "instrumentId": "84446660-e33c-512f-9975-57527758c6c7",
+      "articleId": "cc999964-58c8-5269-8ad0-2bc033d70a7c",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "ac83577494034c09864aa8fcc307c69bf2be8a1510816276c0f20c3d9d14a251"
+    },
+    {
+      "instrumentId": "84446660-e33c-512f-9975-57527758c6c7",
+      "articleId": "fde20a9e-8665-5516-801c-10ab4b4e6d72",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "6c47612163822804a073e9a80083f06cab67c575e713b478f69189c27b829513"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "f4158b4d-3b25-51ee-8c3d-3f6dd8b31afe",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "b9c7e4218692359727f1f1e55556013897a58cdce8591df4b47a473beda1d72d"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "0441ff55-6384-5c61-9268-890422ebadfd",
+      "label": "Preámbulo de la convocatoria",
+      "status": "exact-normalized-match",
+      "contentSha256": "b824d2e23535dc46af9cbc78358165c74257b5b1a5064d710bba65f88ab250f5"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "be579f22-7d68-50f8-8b0b-cf9f8d7e0ce0",
+      "label": "Índice de la publicación",
+      "status": "exact-normalized-match",
+      "contentSha256": "d2cda9b13d84df3eeaf7a080b90cf152573bddc3f80f0d5914407c95dcefcc86"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "47787757-37a1-5eab-899d-9cce060e92ce",
+      "label": "Numeral 1.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "f8101a9453108c20e50b525d85a7332bad56f070ea8d692d75c381ddbbe4058c"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "21d0a1a7-460f-5832-8dc5-6a256bb599d6",
+      "label": "Numeral 1.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "64a35ee781031438bc37da71570bbd30f05f8dde8a1bff005a7ee021406a2587"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "01bb0a27-22e0-52d9-a320-8ba043c037f5",
+      "label": "Numeral 1.2.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "a623503cdc9acd4636c83ff8a5ae8804c5ca904e107d987d4c091a9ed6c552f7"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "558727e1-bf59-5577-9852-e2a338544706",
+      "label": "Numeral 1.2.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "736c4e9dafde4d75e726b52cdf743a280a1ff46feeb388a6d8582dd0af6be2d8"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "7884def8-c59f-57b7-b142-b2dd8f43af4f",
+      "label": "Numeral 2",
+      "status": "exact-normalized-match",
+      "contentSha256": "631e6fec222f2d7df2f31be72ec674b6ba4edbfc0479ef5e4178a7ca5215b15b"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "072ac4de-b3ea-5d21-a3c3-e7261f149258",
+      "label": "Numeral 3",
+      "status": "exact-normalized-match",
+      "contentSha256": "c73ee6966cdbeb48cbea00f443f547f72be3df4cbc00d994cc7e2dfc2d972935"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "284652c7-e2f7-5778-af36-67ad3b686ae9",
+      "label": "Numeral 4",
+      "status": "exact-normalized-match",
+      "contentSha256": "559890fa775879184b66aaf09cbe0da7366bd74380dd47c7147fd9528d86c6cb"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "a16f4232-ede3-52f5-8120-c2ca71635ba2",
+      "label": "Numeral 4.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "16c191459039d7521d564c6d01743bbb18936aca5f8039d6986ae2775637b9d8"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "60a0573a-d2d3-5c1a-9446-a66fe3ea821a",
+      "label": "Numeral 4.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "04f5e80c72e58c210ba15629ff6f5ef0d57756045ce74ca7a6d720b490291894"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "1ecf3b95-fb36-56b8-ab39-080c7bacd4e6",
+      "label": "Numeral 5.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "e76154e53e24d8d3648939de7f815d444dde930cba41c02b313608d52d347e09"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "dac0e6a1-73d0-5d99-8940-fae64ce3dd37",
+      "label": "Numeral 5.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "887283896cc10445e88ab6d2c44d19bb1ea355dca70cec9a1c53d039320e2f9d"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "7e307de8-3838-598b-a7be-1ae78fac69e3",
+      "label": "Numeral 5.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "3225faf95b8c839cb55cb70b3d0d82e875cc51f232ec1954e062b8cc61603cfe"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "c3e6c3c9-6aca-5250-95ed-24f5346a647f",
+      "label": "Numeral 6",
+      "status": "exact-normalized-match",
+      "contentSha256": "b79db58f5b77d7abc4c3745fcb51ee52513ca5f3379f23b7adf009cb2c1c9482"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "b17f7fa8-a4b1-5ca0-823f-0907932e24b6",
+      "label": "Numeral 6.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "f67dd46783cf8294dd938bb0ed68699b1cf4819b150a29476d32e61fbd5b2b09"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "6a418438-2993-5495-adbd-89de5525ccb2",
+      "label": "Numeral 6.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "55fbf31cf6b64693edc2d9133a6260a1ea10f48a6f5a25ec1300087e33287026"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "6ee5560e-21fa-507a-9f23-64bd06dfda3b",
+      "label": "Numeral 7",
+      "status": "exact-normalized-match",
+      "contentSha256": "225cecb2a56b210cb4ddb631c1a76bf2bd26a617709ceeeea9d000fb57c15c9f"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "e187d087-dc31-55b8-ba69-83d92b7171e0",
+      "label": "Numeral 8.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "f876981780261871ca460bef6efc37b56cc5dc3b0d9c37c86f6bf9d8134d2d16"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "a7b34a54-9cbe-590e-add6-66ad3365ed5f",
+      "label": "Numeral 8.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "de6a3ed26013c56a4f5e486797b4ccc3020abf9edff818fab07b3deb3a5b4101"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "cf6e3058-882a-5643-a339-4f5f87b86d5a",
+      "label": "Numeral 8.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "3963a2012cf6a27b865cf8609f44b25328a91c8855ba42184a39674e86686427"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "6f3ab2ca-2dd5-59eb-bf43-8cdb66d6af4b",
+      "label": "Numeral 9.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "bdec65360ce452c0a29c60aa9992c7349d5c3e5182b3a0802b3c377ef1a1f78c"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "3e7fb0d5-8413-5a8a-8cf4-c85867d398c6",
+      "label": "Numeral 9.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "4c4a081bf6d8bb7524e947221bcdee4525c3994c9e668978cda27b8a6a18be00"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "1e0a48d3-29ea-58b1-960e-cbb998b01fe6",
+      "label": "Numeral 9.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "89e8e6429817f544ad4f24887c2d252addf6c10fe4953e824c05798170143b66"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "fbdcc788-be14-5ae3-81f0-1cbe74618531",
+      "label": "Numeral 10.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "8322fc579a4b9252fa64c77470451c9b0dbb4f13836f679335dd78ec2a67b3dd"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "520772f4-d39b-56d4-a3af-ef843b3a3f42",
+      "label": "Numeral 10.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "2db8ff617ac93a12c45c19a41f66ba7954e67354146d7f03486d20df21caf5e6"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "f409f2c5-0b8d-5217-bf76-9fe7abc3382a",
+      "label": "Numeral 11",
+      "status": "exact-normalized-match",
+      "contentSha256": "40d6362f4ac159c0c507f1bd039963f72bef30d3930526b9856866ab6985fbc0"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "fb53c60e-eee0-5f2f-915a-c77b2bb28eb9",
+      "label": "Numeral 12.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "385477eb9483ca16f31695a6e34f9ce463017f523c63bab106a3ee69e704d10e"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "59b3cd4a-e039-57b9-af2c-b41713c0500d",
+      "label": "Numeral 12.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "b414554c3a0569dd53234510b4dfa2d5e6b1e7486da3af8b7f8963a4a2468bfe"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "96872ad6-6b80-5d3b-a6d0-59f54e5558fc",
+      "label": "Numeral 13",
+      "status": "exact-normalized-match",
+      "contentSha256": "8ec070b12eb5c593c5c809718672ffde389072776751086e010a1429168b6058"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "2cf2e7b4-e008-5a2b-a8b8-6ca27959c5c9",
+      "label": "Numeral 14.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "872eede69e539af45e90c6149a9a689bba28e45028a4e2d5604153fe1e5f8e10"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "1483acf1-e109-5ed6-9414-afb5b022d599",
+      "label": "Numeral 14.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "2538b54e6b55666ddc8b80010cdd5012d3ec9b5f37021ea1e99b916ecae20d96"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "6a0d26f7-e912-5adc-b5ce-b7fd6719bab9",
+      "label": "Numeral 14.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "0d069cce98fabe268d634967a0a462bd70f9467f152cf59263e4bf9d41a37969"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "ea2bd382-b972-5048-83ad-9bd14989b7d5",
+      "label": "Numeral 14.4",
+      "status": "exact-normalized-match",
+      "contentSha256": "0656514c8bbd26372e56ab2581b1119f8646a612c73819869073f6bc23143a5a"
+    },
+    {
+      "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "articleId": "1f582a86-825d-57f4-8c7e-b1fd737703d4",
+      "label": "Firma de la convocatoria",
+      "status": "exact-normalized-match",
+      "contentSha256": "43db9d566b03371b11ce5ab85ab66b9128f2dc7fdad14d34a131542f7afafedf"
+    },
+    {
+      "instrumentId": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "articleId": "3f2d1f60-26d4-5033-86ed-c33cbca9e79b",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "8a07849c0e0c927958b4be90b22320a7e7e517123d8225e0e0e217ce3da9090c"
+    },
+    {
+      "instrumentId": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "articleId": "3d282f0c-d8a2-5fa6-b89b-84814dcfc105",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "ae57d412f0f79364b503060b76f16345b41f0c00e6f882ef25f074f9e1aaeb0a"
+    },
+    {
+      "instrumentId": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "articleId": "50928d41-7a42-59d2-99bb-8c111ea0596f",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "f27b6c7873518fa2a453cccc708f02ea3e34775eeeffed8f451bd35b97bf01bb"
+    },
+    {
+      "instrumentId": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "articleId": "7c441bb7-a86e-512c-aef9-4189eb539aba",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "06fd2e88baa2df7bc6ad5b57c7fe357f0ec0f9eeaea16768233e30f14866e970"
+    },
+    {
+      "instrumentId": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "articleId": "5e05f07e-3d77-58c5-b542-88b0bed9cc92",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "f3e023b9cef37194149a65111af942e4ee6dd93c7cda10440e4faf80a6bfcc0e"
+    },
+    {
+      "instrumentId": "f7419b4e-49eb-5425-a439-562f25a4d581",
+      "articleId": "5c17b4cf-c94f-5423-896d-8a601c991bf1",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "fc6a2ee7a8b8251f2e39da05e75716961fe9613d22306b9db7578a372273d42a"
+    },
+    {
+      "instrumentId": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "articleId": "8f00a1f8-e0bc-552f-ad35-69c0032aa2d9",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "c49bf1b340e9b28119f08a36936f9d2c2013bdf71c5a4c053e0cdfc695c99166"
+    },
+    {
+      "instrumentId": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "articleId": "60e6a04f-5860-5f3b-ad9b-7592e278612b",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "11a48a1ee41fb22863cd865357cff52f483c463539849f63d831db09bc6828dc"
+    },
+    {
+      "instrumentId": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "articleId": "e4799d81-2922-5cd7-9399-5db56ce2a5ff",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "80265f58c9d69aeab9b7c5bd10d4f20effdf8140da5b59af1acac9d0492dc46e"
+    },
+    {
+      "instrumentId": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "articleId": "6b190019-2235-5e81-b016-367bfaeb3029",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "7ab039b9ec14f9b6d9211ae69fccc21922bb51004fc7623b8e611695be4a9c7f"
+    },
+    {
+      "instrumentId": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "articleId": "f1ea5330-e445-54ec-b731-7da8c52c6b8d",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "f3e023b9cef37194149a65111af942e4ee6dd93c7cda10440e4faf80a6bfcc0e"
+    },
+    {
+      "instrumentId": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "articleId": "3f2eb72f-d324-51f3-9951-8a9cc2841495",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "dd77ed76d0b49521e8e7fc2ff7b55e66ff9ca51977d4ee374b3b6d5f6b319bf4"
+    },
+    {
+      "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+      "articleId": "cbb60d66-5bfb-53b8-881b-1a05b80f92bd",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "595c8e404c61335c254c24726d1026ec8fc609f403cbe537edb21016f09e07fd"
+    },
+    {
+      "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+      "articleId": "07202d99-6aac-533f-a78e-3be85b5e6715",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "d4cb88c02c4ab9a10331c79e92786b5cbc75b92e43552691cc5023eab7dcd18f"
+    },
+    {
+      "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+      "articleId": "3934fece-91f3-5358-abb4-6911fd9f60c1",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "c9d48f0754ec1316a10c5cbf950c4f851ad5aef7caee4d32fdee70d12196fcff"
+    },
+    {
+      "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+      "articleId": "e55eadcf-3b3e-5ec3-89ee-dc23b7e19187",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "7ab039b9ec14f9b6d9211ae69fccc21922bb51004fc7623b8e611695be4a9c7f"
+    },
+    {
+      "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+      "articleId": "48d8eef0-6668-5e27-a0c3-9f0bb6e14764",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "f3e023b9cef37194149a65111af942e4ee6dd93c7cda10440e4faf80a6bfcc0e"
+    },
+    {
+      "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+      "articleId": "c60394bb-4059-5b43-8405-95369caa2cf0",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "dd77ed76d0b49521e8e7fc2ff7b55e66ff9ca51977d4ee374b3b6d5f6b319bf4"
+    },
+    {
+      "instrumentId": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "articleId": "980ecb93-84b6-5fb0-81fd-aae47fc19428",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "ebcab13085610565e01a5da90e033973609f348a83ee94912ca16c0f0f2ed59d"
+    },
+    {
+      "instrumentId": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "articleId": "eb737301-845e-5070-ae21-968f480dda1e",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "a5f96c482c36e56b59bf6511d562a6fc194cc64034338729a4102a3cf864e553"
+    },
+    {
+      "instrumentId": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "articleId": "8e5cfe26-f83f-56b3-bb0b-eb0535c0e060",
+      "label": "Resolutivo ÚNICO",
+      "status": "exact-normalized-match",
+      "contentSha256": "d560f9aa017c6e35224b63158c896cf74c00caeea74e9319cd03d57c7457f631"
+    },
+    {
+      "instrumentId": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "articleId": "ceee8ef5-4b1f-5a25-9221-f4a202a1763e",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "2ed1016e6b5cfd9f67868ede59bd6fd445ae5a8df6b0605ca135a378344a5be6"
+    },
+    {
+      "instrumentId": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "articleId": "91a2d8ef-90ac-54a5-863f-d833fe0dcfcb",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "be16d0cf6bd2e43317c1e4f9745eee9e6d2a6398e844553f708f08c168d18a75"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "0dd37bbb-fac0-5863-818d-2e7ecd4d6451",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "f2366497be33c71462365ce38f6fa117344f121f85a6e6ec00743932da8e2cb4"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "47e35491-f0c8-56e0-bdde-43e420e28407",
+      "label": "Preámbulo de la convocatoria",
+      "status": "exact-normalized-match",
+      "contentSha256": "4933aa677125868cf19d07ea0bb6608e36ff979bb2021e008e02e6d03c2f8149"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "8cd0663b-e736-58c0-8c30-c9f7b29a743d",
+      "label": "Índice de la publicación",
+      "status": "exact-normalized-match",
+      "contentSha256": "0761c8bd9a6c00818e4f1e2c97c878c9c14531fcdd423817b1962015a768c421"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "d479957f-3941-5636-b4b9-bf32729b207a",
+      "label": "Numeral 1.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "6e58de7d99e09a31cf8b4fa53b31e9d9f46aca32efb7f5f6aabc864d3a5ed13c"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "1046389e-eee6-5096-8304-a165a3c7a10c",
+      "label": "Numeral 1.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "01a3936dce770219e9e5321435d2e51d3ed673d1c7f229a1efd9d52be377d5d6"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "0706f058-128e-510f-9d92-e52bed9bfff8",
+      "label": "Numeral 1.2.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "918b24567dfff317c7ef75cee689dfd58ef0b24e4c3abb2b6e479f4417eca1e4"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "3f8192df-a3d4-5b41-96f2-934dd0bfe29f",
+      "label": "Numeral 1.2.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "1593daa4789fd9c468d6519b739ebe85ce535f1390e2b17f214b43579003d33e"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "3943b23c-dd0f-5bbd-8f16-23a230e32151",
+      "label": "Numeral 2",
+      "status": "exact-normalized-match",
+      "contentSha256": "7871abd12bec598f5a68f0a058c5667638bcc7c70f3b1f5a246f652ba15f527a"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "13f8a09e-0545-5309-a746-3d1e202e274f",
+      "label": "Numeral 3.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "408a5ee3f2df6cf88def07d6ad3552db307c41c3e05cf8b5aa88e5b1dd2f06f8"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "7508c2cd-752e-50b9-9a83-0b9d5641de21",
+      "label": "Numeral 4.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "7ba128759f20b74dd1ada473ef7d88c2e09f84f236c6210894707ea2912a6f93"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "563fe003-24de-57a1-820e-bc7ae5921f4a",
+      "label": "Numeral 4.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "ff76be01f449dbb2e07b986d623b1578696f42bbba2bbfbda6da5c9618d7103d"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "265c2df4-4203-5d7a-b9e3-ab7b5958f7a3",
+      "label": "Numeral 4.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "010bc11acb6de970bb8ed264f91157d83f3da02b759bd2e882594c6fdd2e7677"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "7b4d4eaa-693e-5f47-9180-29e9fa9bb584",
+      "label": "Numeral 5.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "2ae324c87ede060d80faea7819abf61495ac4ea6f8938a4b1660e0866a779d32"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "04d9694f-ff99-5346-9695-a609dfa70afc",
+      "label": "Numeral 5.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "46f3d4f9a328a55a0b1d92087bfd1166746729b70bdd1accc5276b5a4a3e4980"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "f84b94e9-1f2b-538d-98eb-2ee80efc9f3b",
+      "label": "Numeral 5.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "d9acb467f11e140eb114022ddbe76d5133b43710a246dd52b69c90229bc75a8b"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "d43e2220-fa0f-5d17-9502-6844efca5b1e",
+      "label": "Numeral 5.4",
+      "status": "exact-normalized-match",
+      "contentSha256": "97bf0c66a91878bb7ecda46f641889559e252ff11ee20060dc99199496f92c35"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "b4a21271-c917-5d6f-9417-028b7491572f",
+      "label": "Numeral 6.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "dabe892e96248aab5550b851b5bba2e9b8585781a72b23a470e164599f4f3a51"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "ace17649-c69d-59fe-ab25-b02348d2b428",
+      "label": "Numeral 6.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "75a84ef99060652d6299eb1267ad0d3357108c105a331761322fa098e4659b1a"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "059c1795-6820-535a-9eca-ac30e20183c4",
+      "label": "Numeral 7.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "b083b0a4bdf0f9b50596cdacf5663fde9010f48cad6f70ea2f395abc3a492fb6"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "40bfbc8d-45f7-54f1-9f97-56df4607178b",
+      "label": "Numeral 7.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "bc4819c91d4d90f427731204b9068ac3678f1a0a5730fe5072e2b2853f8e10ac"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "7990a9fd-4b4b-5d04-933d-86bb2f3fc937",
+      "label": "Numeral 7.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "62b500a21874b0047bb435171e10be23dc9aaf5d9bbfa190ed22e6b7f34721c4"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "f406692d-e671-55ba-a364-8477400dbeb2",
+      "label": "Numeral 7.4",
+      "status": "exact-normalized-match",
+      "contentSha256": "70c1bbf8461da3203f2e25bb8cf6141ac96d62716ed6313ca1382236c4fb1ee7"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "3cba867c-7491-5fb4-bc17-fc0da850d444",
+      "label": "Numeral 7.5",
+      "status": "exact-normalized-match",
+      "contentSha256": "cfa645dd2bf048ae5a1d596ec31c99f7eefabbe5783914d9a2f321d281684404"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "d6a03aba-b0fc-5b65-9b23-810df188d754",
+      "label": "Numeral 7.6",
+      "status": "exact-normalized-match",
+      "contentSha256": "f5d2eb16311494e9d135b0bacf5450dd35b20e6568d5b0d3506e0a42715204d1"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "b6d9bee0-4e85-5635-a854-4164dbd2d31d",
+      "label": "Numeral 7.7",
+      "status": "exact-normalized-match",
+      "contentSha256": "1b735befd6d118b4975faeb404e891f09681b6d0ba14b699d597717608f70f63"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "7487cd80-38c9-565b-afc8-c686b21f8b77",
+      "label": "Numeral 8.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "24b57b309a1a5f555316061578c7e905825a7c5c20487875fe1b103bb296c876"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "435d9960-6990-5112-88e4-dea8e5b84413",
+      "label": "Numeral 8.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "1b7fa885b9a9199a0e8a53acbd090cf111d413f955a4bf4fdbc458049aa38122"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "e4cbfb2d-9ec0-5195-a70e-74da1f643a45",
+      "label": "Numeral 8.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "ddea0aefc0aca20cf06455df2b9dc1786c89f9a218e5d1fa78e61f09dba9971f"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "dc77deea-254b-5938-b39f-aa30f9f67f6f",
+      "label": "Numeral 8.4",
+      "status": "exact-normalized-match",
+      "contentSha256": "d2acbd4c2664f6b79644c7bbfab559f2d7e020ff1e2512957278eb072f3dc1ea"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "ace05ca6-77bf-56bb-9f88-c782a3c6ebb2",
+      "label": "Numeral 9.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "477b904fe8dcbe2e752c74649a9ac5bc1a12dbcf33a66c303b3a7084d6e0aee3"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "925aa162-b908-517c-8424-8f56796f894a",
+      "label": "Numeral 10.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "22a19ffe492b20ee61f1ca90968b16b5a9f1030b3914f9743a222d0b8c85b90b"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "a99c467d-671e-5810-bbe7-20e8bb99e003",
+      "label": "Numeral 10.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "bb42278614b4047eeb3b96030b4df534783200e7598008b2f297f94208a5b216"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "3e320d99-d7a2-5b2f-b40e-d3a4db838dbd",
+      "label": "Numeral 10.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "6af8df0a165df3bb3709efef367a5751243b7d805d7dd7fd6d51019cdf914817"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "0684d383-c749-5440-ab9f-9bf18754a195",
+      "label": "Numeral 11.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "512e7c42d246e1d1151eb15c794960fb2fecbafaadb5070f91672fb08012152d"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "a4ecf0e9-3aab-54ac-8e65-2d18714a4fa1",
+      "label": "Numeral 12.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "5e38d31de4e98e2c856f8b382432379c17a5734a1f9606b2967b860c0535b107"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "362f32af-e1dc-562b-a685-092101d27b23",
+      "label": "Numeral 12.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "77872bc2e4243b2871f594d8e387c391d5fdb8b34d876785e7908784f27c1e07"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "defa84fa-279c-5ce3-9c2d-6b1377a9b0ce",
+      "label": "Numeral 12.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "db6902277396bfbd2fe31c5e908c60500bf6c0fac222fbf1dac8f5e94f800d06"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "5e983bfa-1185-5eaf-8269-cf67205da725",
+      "label": "Numeral 12.4",
+      "status": "exact-normalized-match",
+      "contentSha256": "92a1d570ea0a8d9640e41fd75de9380d79927733868c735a300eb967a6d02ff7"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "4d8700e7-8325-55b0-9eb5-62324b938ce6",
+      "label": "Numeral 13.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "3c24bd428cb61f494fdea89a774c9ad884b97af4d1c82cf52f9cacc6fc7f6eff"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "0af94caf-c0d0-5922-964d-9c19249b5706",
+      "label": "Numeral 13.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "c674a20d0ec259399b9762ad8ee7319685ded2b59875e96ac81e952a014b59b7"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "8aa4f6f6-b7e5-513d-96b9-3125234d458d",
+      "label": "Numeral 14",
+      "status": "exact-normalized-match",
+      "contentSha256": "fa8a7405e15eaeb2552e705f25212cdf8295d4eeee76771582539121aeed68b8"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "456e99aa-2b29-5ce5-aa71-464b6c0bb964",
+      "label": "Numeral 15.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "7b3fd0cdeba61eec2588ecd94004848d611fe14f6350fbcfde69ad2bf5e00123"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "10c5b7b4-c2c0-56f9-aab7-133d3ddc7cbd",
+      "label": "Numeral 15.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "1e622c1f404e3791fff41672d36800ea73fa122b41a2f9e2483958d00ead69ef"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "0e9b3143-b8f0-5b22-b289-98c2f50161fb",
+      "label": "Numeral 16.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "1d3695d420a896bbaa7b03a884eb34c360eac063c86c9584308141ad8f22ba6e"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "988b05c5-4642-5418-8773-83690d0b64e5",
+      "label": "Numeral 16.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "9bc14ca26f15e228528dc4fb768c9f99c7c5bb795d0db00404207572fb01db38"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "cb281c5a-a5a1-5f38-8ff3-63248483a679",
+      "label": "Numeral 17.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "4eb48508e6820c8d6a326dd00de76aeb6de5396d81572eb6256f24d73846365c"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "3a15fc4a-c2fb-51de-a8dd-97b72893dfa5",
+      "label": "Numeral 17.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "23f998aece33813c775d98acc9b0ec8f635672498a3ab3bb5fa8a319eb6fc07a"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "af074627-853f-54b0-b577-332ca3a262f0",
+      "label": "Numeral 17.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "85172abf41c752de4a3242109cf0994a6931690c52c70390371c26a8a987fc16"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "7fb19a85-b854-5530-a611-78295d4ae439",
+      "label": "Numeral 17.4 · primer bloque",
+      "status": "exact-normalized-match",
+      "contentSha256": "efc79c6b20ddd945e50134fa4da38e2322a73441f750072466f4a9f772c357b0"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "3d7c573c-e401-5d53-b16c-30e377aa1a7d",
+      "label": "Numeral 17.4 · segundo bloque",
+      "status": "exact-normalized-match",
+      "contentSha256": "9bf43f4193cce6ed06d25208266fe8da0774f9fc3557ca66372a4c7ecff7b4ab"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "88c5f3ba-7df1-53c1-b541-a0e046c61316",
+      "label": "Numeral 17.5",
+      "status": "exact-normalized-match",
+      "contentSha256": "b30b1f0e360f78abd47320293658999388a637915ffa6f44ee17c67d893d4b54"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "ffbfd591-d8c9-5f13-b288-3001700b98ec",
+      "label": "Numeral 18",
+      "status": "exact-normalized-match",
+      "contentSha256": "1aeaabbdb4945218844dae4378aa520037fc3702da6d5b3cd984be847be4e1c0"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "59bc5b71-0d96-5318-8659-0eff381afc42",
+      "label": "Numeral 18.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "174e4311e6079f944e8f609a812558337def5f18def960376ea73af5f2fac093"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "6cd822a3-cbaa-567e-a99b-bb7b833961e2",
+      "label": "Numeral 18.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "b49606ad7a2e3519fc333f4017626d28c0115fa56cdff7af239a4bcfc453c67c"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "5b3d2249-ede7-5526-8d3f-d8a57a79b887",
+      "label": "Numeral 19.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "76f32f2775d72069dcbb446f75f10f5c30637b8a5e2e30894d715fe57f4ad78b"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "7dff4ed3-14a8-563a-b231-2bae3727122e",
+      "label": "Numeral 19.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "929f523c8f569f0a2742b1e335fc3ba6f504beb788d017ef735503fc577e1707"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "5c20e3a3-a418-52db-bb10-d2a9279ca345",
+      "label": "Numeral 19.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "7e6c6e3b4a196ecc61acdec0787cd39dda75bcf6d1038782ecc949f04dc24275"
+    },
+    {
+      "instrumentId": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "articleId": "99a4219b-9d32-5d08-b408-b79732262800",
+      "label": "Firma de la convocatoria",
+      "status": "exact-normalized-match",
+      "contentSha256": "d53306a7175e8c9bc137702f8aff870fd08ac9c8838af156533d22756e676dd4"
+    },
+    {
+      "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "articleId": "2d20afe0-6f04-545b-bf6f-9251561c578b",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "b61a12e467471d66b1053b0cde62d28e8765a8b793714e49e78b74457793b93e"
+    },
+    {
+      "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "articleId": "3d055497-38c8-57d5-9c38-614a69fca4f8",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "d06b24d44c811f857f6b9c894d1e51af839e70f441104bab76c211f439ff21a5"
+    },
+    {
+      "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "articleId": "1946cddc-6318-5768-bc1c-8a59afa420ed",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "f6cab2b315d37fe3d4d43774c4f2de0bb1f8a29a2a8b4305f1dcd37ce601c488"
+    },
+    {
+      "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "articleId": "06901cca-b1f9-562c-bb97-f7c40d7ca08b",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "47648e8ddf147fbed46789d998764416e19711e31b3eb0224f40de831a4868ab"
+    },
+    {
+      "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "articleId": "6a0a2e89-c92d-5a57-bd28-d9511e2ddba4",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "f3e023b9cef37194149a65111af942e4ee6dd93c7cda10440e4faf80a6bfcc0e"
+    },
+    {
+      "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+      "articleId": "5c884b0d-aa9a-50da-8d53-8e0e913f1a66",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "fc6a2ee7a8b8251f2e39da05e75716961fe9613d22306b9db7578a372273d42a"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "22635122-f6db-5ea6-9241-e0e09c228814",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "49989422a1cae11b4bc4cad7d83eea53a39769e0d7dc0dd6493135d9fe077c34"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "4e69208e-0750-5a71-823a-65353b442ee6",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "9b2900ab76afae8c6bed6b1b13ed5586e1bd4c3687147b067abefa0cc3533e18"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "f0eb0333-b24e-59f0-9056-acdfbdcdf6eb",
+      "label": "PRIMERO · Alcance de las modificaciones",
+      "status": "exact-normalized-match",
+      "contentSha256": "987057f6b3c6e367d5ab0849857b19fa500f1928773e654c1a64e7bc2c1eb2f8"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "debba957-23f7-5437-8426-c7ad6b65a0ef",
+      "label": "PRIMERO · Texto citado del numeral 1",
+      "status": "exact-normalized-match",
+      "contentSha256": "d4ccbe36ca3b304ec8c8d55d1c2b8317e5d84f84457a377c9238d45170cfa58d"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "e1f3d3d3-2a5d-546b-a736-42676d6b6c29",
+      "label": "PRIMERO · Texto citado del numeral 2",
+      "status": "exact-normalized-match",
+      "contentSha256": "194b9dda0ee5fb72b1b47940f9511d488a2ac812a8fc54d85490cb49ac82c522"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "ef7fd98c-0659-55e8-9062-2b6d2dec1d85",
+      "label": "PRIMERO · Texto citado del numeral 3.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "9f30cd91e5f872c1931a711fed2dc86564138012c550a808f65ca28a7ad1c60d"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "0d2b15e2-8d88-5dd8-961c-0ad918173854",
+      "label": "PRIMERO · Texto citado del numeral 5.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "1430b17d22e5a4298e81051382ac06621416e962d3e45a1e8b7d545a69a22314"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "da2deaa4-bf51-5f2f-a31b-58d13cff0f4c",
+      "label": "PRIMERO · Texto citado del numeral 6.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "c40c0c5913fd160a31c5ef4d17ac961f80e315233e359018024feb4b42f44dbb"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "c8185c2f-1362-5fd8-b0ad-02821ea03a0a",
+      "label": "PRIMERO · Texto citado del numeral 8.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "3f412ed2b3b401b870238798919ee6ae83fd66b974421b1738f5998b9c67a82a"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "ae48e102-9adb-54b8-8d6a-7256b6d77a49",
+      "label": "PRIMERO · Texto citado del numeral 8.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "9b8c08e5ba7dd629a77d5e8d1d27d5f1c2231ddaa668fc50facd9c74d224c542"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "d84cec6a-0dc5-57b8-9df2-31cbceb48dec",
+      "label": "PRIMERO · Texto citado del numeral 9.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "7812adb179a17db18ba2eca8d1eea2aff194196818613aed75ae65008c956370"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "742f38a6-3cd3-5894-8953-ec74c4a003ee",
+      "label": "PRIMERO · Texto citado del numeral 10.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "08cc8b5cdfacf7e2fc83766288e0d0541e1c3861693907a2cb330287d0a72adf"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "2d5af28d-8023-5f97-b921-8e5555f40d9f",
+      "label": "PRIMERO · Texto citado del numeral 10.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "d5df6fc52e2f2c2e8e38cdcb41ce0cbc15f3b9acc87eceed3bc9958a11bece86"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "e7e8fc0f-f2ba-593e-8d9a-167a887ec6be",
+      "label": "PRIMERO · Texto citado del numeral 10.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "a5da418b484000bdbaa1f791aa6323b2c210f89da7e15ceb5271535c63e41d6d"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "54befe15-f49b-56d0-8e63-6da0c945c935",
+      "label": "PRIMERO · Texto citado del numeral 11.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "2d2828499c6e125fff59c3e867f9bbc28559d2e1e125932b5c23604ad066f2f2"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "179a0db8-7070-51aa-be39-d9d17cdd0b13",
+      "label": "PRIMERO · Texto citado del numeral 12.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "0adcd99f509e39327657f5b5de4301764acd74b7666605ff7a5accda3cadab5c"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "534c31ee-29fa-53db-9882-66677a41ca24",
+      "label": "PRIMERO · Texto citado del numeral 14",
+      "status": "exact-normalized-match",
+      "contentSha256": "78aaf14d7dea05f26b26063de74e5de3f58dce5c73512a34226c97f0953e5d93"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "fbed5ce0-0c02-5a9a-a4d6-11506d12a5b9",
+      "label": "PRIMERO · Texto citado del numeral 17.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "191480d3debb5221dbb98c14e553f0cc4d0175a4f06dd8273169fb9cf32e8b2d"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "2ee2f47a-0cfe-5f3e-84f1-154d89efb548",
+      "label": "PRIMERO · Texto citado del numeral 17.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "d483e485a3b205882fb876f072ff9b8d598883dd361bcd05775fd16c1c6b303d"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "41d2628f-bcb0-54f1-9af8-d5ff6acecf13",
+      "label": "PRIMERO · Texto citado del numeral 17.3",
+      "status": "exact-normalized-match",
+      "contentSha256": "6a3adf067396a40e8600d8937b7a47a3d88acc190e4e33c115791814131752ee"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "93f0f7e8-d5c9-5e10-a144-e09219222c50",
+      "label": "PRIMERO · Texto citado del numeral 17.4",
+      "status": "exact-normalized-match",
+      "contentSha256": "cbdedfcd7fb587e0b3bf367eed9efe51f247103812d58d650efb49689273533b"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "31199c7d-36ae-56e8-919e-de6d6724dbb2",
+      "label": "PRIMERO · Texto citado del numeral 17.4.1",
+      "status": "exact-normalized-match",
+      "contentSha256": "fa09964bed893182449e2fcce6de6ed5e807d22286dda3b9b6f21f97ded83f3d"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "aca19cd1-ba19-5ddf-a63d-798856366b86",
+      "label": "PRIMERO · Texto citado del numeral 18",
+      "status": "exact-normalized-match",
+      "contentSha256": "af870a88732d1f252f1458e278d56efd7a3e3df3ed1d01c58c2a6a71ccb0b0ff"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "005bb5c7-c2e7-5777-8201-20803f43db45",
+      "label": "PRIMERO · Texto citado del numeral 18.2",
+      "status": "exact-normalized-match",
+      "contentSha256": "a7c9c51d7dd3f5fcd31b2d6ce840a71663f62ab3316292e8ddd082b18f52781e"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "f01bebbb-7cbe-5047-902c-72e90f73580a",
+      "label": "Resolutivo SEGUNDO",
+      "status": "exact-normalized-match",
+      "contentSha256": "1bde01d1659f5abb994b99d48810b220feb6d61b1d99db98c8aa344f5dc5b8bb"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "fdd3f92f-2bc3-5c5b-842e-f4eea34e1a62",
+      "label": "Transitorio PRIMERO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "b0846a1a653e2c526d808c3ef0eea3a9c82d92a06cc1ba45ce3fce4015d0e92f"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "6d8df6c7-425d-5d26-8ea7-17dfbe59de76",
+      "label": "Transitorio SEGUNDO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "b1f3c55bcbfcefd5d4f7505973a39e34ade4bbd526f8de8e294964ae83c53b39"
+    },
+    {
+      "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "articleId": "886cc40d-45e2-5e2e-bae0-f136b718d008",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "4e2729d372f0f3a3b3ecb9c10c2bc17c6e79936f7f27f0a05daa9e363c6fc95d"
+    },
+    {
+      "instrumentId": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "articleId": "48ecb9f4-d1cc-59eb-a074-36b02a68f326",
+      "label": "Nota editorial · versiones relacionadas",
+      "status": "editorial-not-in-official-source",
+      "contentSha256": "70c63a385bfa42d903df7d13facbb6c93e4063c22e18110242f0d0fab9c83fd9"
+    },
+    {
+      "instrumentId": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "articleId": "159d80ed-9451-5237-b72e-3ee8fac96b19",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "status": "exact-normalized-match",
+      "contentSha256": "3d1b8bf2138cab0069d0b900acb9006fed31590bec48530c4bebd0e5f1baea7a"
+    },
+    {
+      "instrumentId": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "articleId": "6ee5efd4-df11-5569-9595-5242e6424685",
+      "label": "Resolutivo PRIMERO",
+      "status": "exact-normalized-match",
+      "contentSha256": "e6e1537bd1ad001b9a737e3f70cf0d0aa8557cdc0399aac49c898667c17a3966"
+    },
+    {
+      "instrumentId": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "articleId": "d9dbb611-d9b3-5c0d-a9ad-062065aa6e72",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "2ed1016e6b5cfd9f67868ede59bd6fd445ae5a8df6b0605ca135a378344a5be6"
+    },
+    {
+      "instrumentId": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "articleId": "a8ed3f99-725b-5c01-845a-65ca7cf3e66a",
+      "label": "Firma del acuerdo",
+      "status": "exact-normalized-match",
+      "contentSha256": "11c4b9a260dbd8bbf92067882faa844a0796698e79b11a880bf1624c74a75b9e"
+    }
+  ],
+  "summary": {
+    "instruments": 14,
+    "fragmentsLoaded": 204,
+    "officialMatches": 191,
+    "editorialNotes": 13,
+    "unmatched": 0
+  }
+}
