@@ -6,6 +6,7 @@ import { getReaderSource, loadReaderSources, resolveReaderSource } from '../src/
 const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json', 'utf8'));
 const loaded = JSON.parse(readFileSync('revision-acervo/incorporacion-7-2026-09-17/LCNE-carga.json', 'utf8'));
 const cenace = JSON.parse(readFileSync('revision-acervo/incorporacion-cenace-2026-09-20/PROGRAMA-CENACE-carga.json', 'utf8'));
+const pladeshi = Object.values(manifest.sources).find(source => source.lawId === '48e6158c-c1a3-5b6d-811d-16e85b05ab64');
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
@@ -112,6 +113,27 @@ it('maps all CENACE sections and keeps each indicator with its two original page
     expect(indicators).toHaveLength(4);
     indicators.forEach((row, index) => expect(resolveReaderSource(manifest, row.id).pages.map(p => p.number)).toEqual(expectedPages[index]));
     expect(resolveReaderSource(manifest, cenace.articulos[0].id).status).toBe('unmapped');
+});
+
+it('maps the 80 official PLADESHi fragments to visible pages of the DOF edition', () => {
+    expect(pladeshi).toMatchObject({
+        id: 'pladeshi-d56aa56ec975',
+        pageCount: 348,
+        sha256: 'd56aa56ec9750c758bcdc1173b3ddcc0033f6f037d9a856810805a9e51a8b84f',
+        originalUrl: 'https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=',
+    });
+    const rows = Object.entries(manifest.articles).filter(([, article]) => article.sourceId === pladeshi.id);
+    expect(rows).toHaveLength(80);
+    expect(manifest.articles['6174c2b1-2511-512c-966e-656ab85092fa']).toBeUndefined();
+    for (const [id, article] of rows) {
+        expect(article.pageNumbers[0]).toBeGreaterThanOrEqual(17);
+        expect(article.pageNumbers.at(-1)).toBeLessThanOrEqual(124);
+        for (let pageIndex = 0; pageIndex < article.pageNumbers.length; pageIndex++) {
+            const mapping = resolveReaderSource(manifest, id, { pageIndex });
+            expect(mapping.status, article.label).toBe('mapped');
+            expect(mapping.highlights.length, `${article.label}, PDF ${mapping.page.number}`).toBeGreaterThan(0);
+        }
+    }
 });
 
 it('keeps multi-page article boundaries and positions within each actual page dimensions', () => {

@@ -39,6 +39,25 @@ it('serves the reviewed CENACE PDF but rejects other DOF URLs and URL overrides'
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed September 7, 2026 DOF issue PDF for PLADESHi', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('pladeshi'), 'pladeshi', { sources: { pladeshi: { ...source, originalUrl } }, fetcher });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    expect(MAX_PDF_BYTES).toBe(20 * 1024 * 1024);
+    fetcher.mockClear();
+    for (const url of [
+        originalUrl.replace('07092026-MAT.pdf', '08092026-MAT.pdf'),
+        originalUrl.replace('www.dof.gob.mx', 'dof.gob.mx'),
+        originalUrl + '&url=https://outside.test',
+    ]) {
+        expect((await serveReaderPdf(request('pladeshi'), 'pladeshi', { sources: { pladeshi: { ...source, originalUrl: url } }, fetcher })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());

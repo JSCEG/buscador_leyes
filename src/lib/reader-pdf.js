@@ -1,4 +1,4 @@
-const MAX_BYTES = 8 * 1024 * 1024;
+const MAX_BYTES = 20 * 1024 * 1024;
 let byteCache;
 
 function failure(code) { return Object.assign(new Error(code), { code }); }

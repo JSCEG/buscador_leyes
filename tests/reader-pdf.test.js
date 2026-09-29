@@ -42,6 +42,20 @@ it('verifies bytes once, shares only temporary bytes across readers and releases
     second.destroy();
 });
 
+it('accepts a reviewed remote PDF larger than the former 8 MiB limit', async () => {
+    library();
+    const large = new Uint8Array(9 * 1024 * 1024);
+    large.set(new TextEncoder().encode('%PDF-1.7 reviewed source'));
+    const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', large))]
+        .map(byte => byte.toString(16).padStart(2, '0')).join('');
+    fetch.mockImplementation(async () => new Response(large, { headers: {
+        'Content-Type': 'application/pdf', 'Content-Length': String(large.length),
+    } }));
+    const reader = createRemotePdf({ ...source, sha256: hash });
+    await expect(reader.render(canvas(), mappedPage)).resolves.toBeUndefined();
+    reader.destroy();
+});
+
 it('never renders a changed PDF, incorrect page count or different page geometry', async () => {
     let lib = library({ pageCount: 19 });
     let reader = createRemotePdf(source);

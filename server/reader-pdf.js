@@ -1,7 +1,10 @@
 import manifest from '../public/reader-sources/manifest.v1.json';
 
-export const MAX_PDF_BYTES = 8 * 1024 * 1024;
-const reviewedDofPdfs = new Set(['https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf']);
+export const MAX_PDF_BYTES = 20 * 1024 * 1024;
+const reviewedDofPdfs = new Set([
+    'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf',
+    'https://www.dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=',
+]);
 
 function problem(status, code) {
     return new Response(JSON.stringify({ code }), {
