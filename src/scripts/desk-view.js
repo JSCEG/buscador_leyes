@@ -79,6 +79,7 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
                     </div>
                 </div>
                 <p class="desk-count" aria-live="polite"></p>
+                <div class="desk-sheet" hidden></div>
             </div>
             <button type="button" class="desk-close" data-desk-close aria-label="Cerrar la mesa">×</button>
         </header>
@@ -127,7 +128,8 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
 
     function renderToggle() {
         const count = getDesk().length;
-        toggle.hidden = count === 0 && !open;
+        toggle.hidden = false;
+        toggle.classList.toggle('is-empty', count === 0);
         const name = getActiveDesk().name;
         toggle.innerHTML = `${DESK_ICON}<span class="desk-toggle-label">${esc(name)}</span><span class="desk-badge">${count}</span>`;
         toggle.setAttribute('aria-label', `Mesa de consulta «${name}», ${count} ${count === 1 ? 'artículo' : 'artículos'}`);
@@ -246,6 +248,32 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         panel.querySelector('[data-desk-side]')?.focus();
     }
 
+    let sheetResolve = null;
+    /** Shows a small form or question inside the panel; resolves with the answer or null. */
+    function openSheet(html) {
+        closeSheet(null);
+        const sheet = panel.querySelector('.desk-sheet');
+        sheet.innerHTML = html;
+        sheet.hidden = false;
+        requestAnimationFrame(() => { const field = sheet.querySelector('input, button'); field?.focus(); field?.select?.(); });
+        return new Promise(resolve => { sheetResolve = resolve; });
+    }
+    function closeSheet(value) {
+        const sheet = panel.querySelector('.desk-sheet');
+        if (sheet) { sheet.hidden = true; sheet.innerHTML = ''; }
+        const resolve = sheetResolve; sheetResolve = null;
+        resolve?.(value);
+    }
+    const askName = (label, value, submit) => openSheet(`<form class="desk-form" data-sheet-form>
+        <label for="desk-name">${esc(label)}</label>
+        <div class="desk-form-row"><input id="desk-name" name="name" maxlength="80" required autocomplete="off" value="${esc(value)}">
+        <button type="submit" class="desk-tool desk-side">${esc(submit)}</button><button type="button" class="desk-tool" data-sheet-cancel>Cancelar</button></div>
+    </form>`);
+    const askConfirm = (question, yes) => openSheet(`<div class="desk-form desk-ask" role="alertdialog" aria-label="${esc(question)}"><p>${esc(question)}</p>
+        <div class="desk-form-row"><button type="button" class="desk-tool desk-danger" data-sheet-yes>${esc(yes)}</button><button type="button" class="desk-tool" data-sheet-cancel>Cancelar</button></div></div>`);
+    const showLink = url => openSheet(`<div class="desk-form"><label for="desk-link">Copia la liga de tu mesa</label>
+        <div class="desk-form-row"><input id="desk-link" readonly value="${esc(url)}"><button type="button" class="desk-tool" data-sheet-cancel>Listo</button></div></div>`);
+
     function toggleMenu(force) {
         const menu = panel.querySelector('.desk-menu');
         const button = panel.querySelector('[data-desk-menu]');
@@ -293,25 +321,33 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         else if (target.closest('.desk-menu')) {
             toggleMenu(false);
             const active = getActiveDesk();
+            const back = () => panel.querySelector('#desk-select')?.focus();
             if (target.matches('[data-desk-new]')) {
-                const name = window.prompt('Nombre de la nueva mesa:', '');
-                if (name === null) return;
-                const result = createDesk(name.trim() || undefined);
-                if (!result.ok) notify(`Puedes tener hasta ${DESKS_LIMIT} mesas.`, '!');
-                else { selected.clear(); notify(`Mesa «${result.desk.name}» creada; lo que fijes irá ahí.`, '✓'); }
+                askName('Nombre de la nueva mesa', '', 'Crear').then(name => {
+                    if (name === null) return back();
+                    const result = createDesk(name || undefined);
+                    if (!result.ok) notify(`Puedes tener hasta ${DESKS_LIMIT} mesas.`, '!');
+                    else { selected.clear(); notify(`Mesa «${result.desk.name}» creada; lo que fijes irá ahí.`, '✓'); }
+                    back();
+                });
             } else if (target.matches('[data-desk-rename]')) {
-                const name = window.prompt('Nuevo nombre de la mesa:', active.name);
-                if (name && renameDesk(active.id, name)) notify('Mesa renombrada', '✓');
+                askName('Nuevo nombre de la mesa', active.name, 'Guardar').then(name => {
+                    if (name && renameDesk(active.id, name)) notify('Mesa renombrada', '✓');
+                    back();
+                });
             } else if (target.matches('[data-desk-duplicate]')) {
                 const result = duplicateDesk(active.id);
                 if (result.ok) notify(`Se creó «${result.desk.name}»`, '✓');
+                back();
             } else if (target.matches('[data-desk-delete]')) {
-                if (window.confirm(`¿Borrar la mesa «${active.name}» y sus ${active.ids.length} artículos fijados? Los artículos siguen en el acervo.`)) {
-                    selected.clear(); deleteDesk(active.id); notify('Mesa borrada', '✓');
-                }
+                askConfirm(`¿Borrar la mesa «${active.name}» y sus ${active.ids.length} artículos fijados? Los artículos siguen en el acervo.`, 'Borrar mesa').then(yes => {
+                    if (yes) { selected.clear(); deleteDesk(active.id); notify('Mesa borrada', '✓'); }
+                    back();
+                });
             }
-            panel.querySelector('#desk-select')?.focus();
         }
+        else if (target.matches('[data-sheet-cancel]')) closeSheet(null);
+        else if (target.matches('[data-sheet-yes]')) closeSheet(true)
         else if (target.matches('[data-desk-remove]')) {
             const id = target.dataset.deskRemove;
             const next = target.closest('.desk-card')?.nextElementSibling?.dataset.id || target.closest('.desk-card')?.previousElementSibling?.dataset.id;
@@ -336,10 +372,17 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
             const url = `${location.origin}${location.pathname}${deskHash(getDesk(), getActiveDesk().name)}`;
             (navigator.clipboard?.writeText(url) || Promise.reject())
                 .then(() => notify('Liga de tu mesa copiada', '✓'))
-                .catch(() => { window.prompt('Copia la liga de tu mesa:', url); });
+                .catch(() => { showLink(url); });
         } else if (target.matches('[data-desk-clear]')) {
-            if (window.confirm(`¿Quitar todos los artículos de «${getActiveDesk().name}»?`)) { selected.clear(); clearDesk(); }
+            askConfirm(`¿Quitar todos los artículos de «${getActiveDesk().name}»?`, 'Vaciar mesa').then(yes => { if (yes) { selected.clear(); clearDesk(); } });
         }
+    });
+
+    panel.addEventListener('submit', event => {
+        const form = event.target.closest('[data-sheet-form]');
+        if (!form) return;
+        event.preventDefault();
+        closeSheet(form.elements.name.value.trim());
     });
 
     panel.addEventListener('change', event => {
@@ -378,7 +421,8 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
 
     document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
-        if (!panel.querySelector('.desk-menu').hidden) { event.stopPropagation(); toggleMenu(false); panel.querySelector('[data-desk-menu]').focus(); }
+        if (!panel.querySelector('.desk-sheet').hidden) { event.stopPropagation(); closeSheet(null); }
+        else if (!panel.querySelector('.desk-menu').hidden) { event.stopPropagation(); toggleMenu(false); panel.querySelector('[data-desk-menu]').focus(); }
         else if (!side.hidden) { event.stopPropagation(); closeSide(); }
         else if (open && panel.contains(document.activeElement)) { event.stopPropagation(); setOpen(false); }
     }, true);

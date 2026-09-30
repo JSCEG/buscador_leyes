@@ -1026,10 +1026,10 @@ export function initUI() {
             </div>
 
             <nav class="lr-tabs" role="tablist" aria-label="Secciones del instrumento">
-                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto">Texto</button>
-                <button role="tab" id="lr-tab-linea" aria-controls="lr-panel-linea" aria-selected="false" data-law-tab="linea">Línea del tiempo</button>
-                <button role="tab" id="lr-tab-presentacion" aria-controls="lr-panel-presentacion" aria-selected="false" data-law-tab="presentacion">Presentación</button>
-                <button role="tab" id="lr-tab-estructura" aria-controls="lr-panel-estructura" aria-selected="false" data-law-tab="estructura">Estructura y temas</button>
+                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Texto</span><span class="lr-tab-desc">Lee y busca en el documento</span></span></button>
+                <button role="tab" id="lr-tab-linea" aria-controls="lr-panel-linea" aria-selected="false" data-law-tab="linea"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Línea del tiempo</span><span class="lr-tab-desc">Publicación, reformas y relacionados</span></span></button>
+                <button role="tab" id="lr-tab-presentacion" aria-controls="lr-panel-presentacion" aria-selected="false" data-law-tab="presentacion"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Presentación</span><span class="lr-tab-desc">Resumen visual para exponer</span></span></button>
+                <button role="tab" id="lr-tab-estructura" aria-controls="lr-panel-estructura" aria-selected="false" data-law-tab="estructura"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Estructura y temas</span><span class="lr-tab-desc">Títulos, capítulos y temas</span></span></button>
             </nav>
 
             <section id="lr-panel-texto" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-texto" data-law-panel="texto">
@@ -1782,14 +1782,12 @@ export function initUI() {
                     ? `<span class="w-6 h-6 rounded-full bg-white border border-guinda/20 text-guinda flex items-center justify-center shadow-sm"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a1 1 0 00-1 1v5a2 2 0 002 2h8a2 2 0 002-2V9a1 1 0 00-1-1h-1V6a4 4 0 00-4-4zm-2 6V6a2 2 0 114 0v2H8z" clip-rule="evenodd"></path></svg></span>`
                     : `<svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`);
             const isSelected = compareSelection.includes(item.id);
-            const compareColor = isSelected ? 'text-guinda' : (compareSelection.length >= 2 ? 'text-gray-100' : 'text-gray-300 hover:text-guinda');
-            const compareBg = isSelected ? 'bg-guinda/10' : '';
 
             return `
             <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item${relatedLabel ? ' related-document-card' : ''}${isGuide(item) ? ' guide-card' : ''}" data-id="${item.id}">
                 ${relatedLabel ? `<div class="related-document-badge-row"><span class="related-document-badge">${relatedLabel}</span></div>` : ''}
                 ${isGuide(item) ? '<div class="related-document-badge-row"><span class="guide-badge">Guía de consulta · no es texto oficial</span></div>' : ''}
-                <div class="flex items-center justify-between mb-2 pr-24">
+                <div class="flex items-center justify-between mb-2">
                     <span class="text-xs font-bold text-gray-700 flex items-center gap-1.5">
                         ${item.articulo_label}
                         ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
@@ -1797,11 +1795,14 @@ export function initUI() {
                     <span class="text-[10px] text-gray-400 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
                 </div>
                 <p class="reader-preview text-gray-600">${highlightedText}</p>${getTextPreview(item.texto, 100000).length > 900 ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
-                <button class="bookmark-card-btn absolute top-3 right-9 p-1 ${loggedIn ? 'text-gray-300 hover:text-guinda' : 'text-guinda'} transition-colors" data-id="${item.id}" title="${favTitle}">${bookmarkIcon}</button>
-                ${pinButtonHtml(item.id, { compact: true }).replace('class="pin-btn', 'class="pin-btn lr-card-pin')}
-                <button class="compare-card-btn absolute top-3 right-3 p-1 ${compareColor} ${compareBg} rounded transition-colors" data-id="${item.id}" title="Comparar artículo">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
-                </button>
+                <div class="lr-card-actions">
+                    ${pinButtonHtml(item.id)}
+                    <button type="button" class="compare-card-btn lr-card-action${isSelected ? ' is-on' : ''}" data-id="${item.id}" aria-pressed="${isSelected}" ${!isSelected && compareSelection.length >= 2 ? 'disabled title="Ya elegiste dos artículos para comparar"' : 'title="Compara este artículo con otro, lado a lado"'}>
+                        <svg aria-hidden="true" width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
+                        <span>${isSelected ? 'En comparación' : 'Comparar'}</span>
+                    </button>
+                    <button type="button" class="bookmark-card-btn lr-card-action${isFav ? ' is-on' : ''}" data-id="${item.id}" title="${favTitle}" aria-pressed="${isFav}">${bookmarkIcon}<span>${isFav ? 'Guardado' : 'Guardar'}</span></button>
+                </div>
             </div>
             `;
         };
@@ -2932,7 +2933,7 @@ export function initUI() {
         const bookmarkBtn = document.getElementById('modal-bookmark-btn');
         let pinBtn = document.getElementById('modal-pin-btn');
         if (!pinBtn && bookmarkBtn) {
-            bookmarkBtn.insertAdjacentHTML('beforebegin', pinButtonHtml(id, { compact: true }));
+            bookmarkBtn.insertAdjacentHTML('beforebegin', pinButtonHtml(id));
             pinBtn = bookmarkBtn.previousElementSibling;
             pinBtn.id = 'modal-pin-btn';
         }

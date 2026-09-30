@@ -108,7 +108,6 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 @media (prefers-reduced-motion:reduce){.desk-panel,.desk-toggle.is-bump{animation:none}.desk-toggle{transition:none}}
 
 /* law reader card pin */
-#law-articles-list .lr-card-pin{position:absolute;top:9px;right:70px}
 .desk-toggle{z-index:55}
 .desk-card h3,.desk-column h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 #modal-pin-btn{align-self:center}
@@ -132,3 +131,30 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-status{margin:0;padding:10px 18px 14px;border-top:1px solid var(--dk-border);font-size:12px;color:var(--dk-muted)}
 .desk-panel[data-sync=account] .desk-status::before{content:'✓ ';color:var(--dk-green);font-weight:700}
 .desk-toggle-label{max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Inline forms and questions inside the panel */
+.desk-sheet{margin-top:10px}
+.desk-sheet[hidden]{display:none}
+.desk-form{padding:12px;border:1px solid var(--dk-border);border-radius:10px;background:var(--dk-card)}
+.desk-form label,.desk-ask p{display:block;margin:0 0 8px;font-size:13px;font-weight:700;color:var(--dk-ink)}
+.desk-form-row{display:flex;gap:8px;flex-wrap:wrap}
+.desk-form input{flex:1;min-width:140px;padding:8px 10px;border:1px solid var(--dk-border);border-radius:8px;background:var(--dk-paper);color:var(--dk-ink);font:500 14px/1.3 'Noto Sans',sans-serif}
+.desk-form input:focus-visible{outline:3px solid #f6d9a8;outline-offset:1px;border-color:var(--dk-guinda)}
+.desk-danger{background:#b3261e;border-color:#b3261e;color:#fff}
+.desk-danger:hover:not(:disabled){filter:brightness(1.08);color:#fff}
+
+/* Labeled actions under each law card: pin, compare, save */
+.lr-card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--dk-border)}
+.lr-card-action{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--dk-border);border-radius:999px;background:transparent;color:var(--dk-muted);font:600 12.5px/1 'Noto Sans',sans-serif;cursor:pointer;transition:color .15s,border-color .15s,background-color .15s}
+.lr-card-action:hover:not(:disabled){color:var(--dk-guinda);border-color:var(--dk-guinda)}
+.lr-card-action:disabled{opacity:.45;cursor:not-allowed}
+.lr-card-action.is-on{color:var(--dk-guinda);border-color:var(--dk-guinda);background:color-mix(in srgb,var(--dk-guinda) 9%,transparent)}
+.lr-card-action svg,.lr-card-action span.w-6{width:15px!important;height:15px!important}
+.lr-card-action:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
+.lr-card-actions .pin-btn:not(.is-pinned){color:var(--dk-guinda);border-color:color-mix(in srgb,var(--dk-guinda) 45%,transparent)}
+
+/* Empty desk: the button stays visible but quiet, so readers discover it */
+.desk-toggle.is-empty{background:var(--dk-card);color:var(--dk-guinda);border:1px solid color-mix(in srgb,var(--dk-guinda) 40%,transparent);box-shadow:0 6px 18px #2a07141a}
+.desk-toggle.is-empty .desk-badge{background:color-mix(in srgb,var(--dk-guinda) 12%,transparent);color:var(--dk-guinda)}
+#modal-pin-btn{white-space:nowrap;flex:0 0 auto}
+.pin-btn{white-space:nowrap}
