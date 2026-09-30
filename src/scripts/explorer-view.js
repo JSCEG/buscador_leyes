@@ -57,7 +57,7 @@ async function refreshPermissions(state) {
   state.permissionRequest = request;
   const allowed = await canPublishExplorer().catch(() => false);
   if (state.permissionRequest !== request) return;
-  state.canEdit = import.meta.env.DEV || allowed;
+  state.canEdit = allowed;
   const holder = state.container.querySelector('[data-editor-control]');
   if (holder && Boolean(holder.firstElementChild) !== state.canEdit) holder.innerHTML = state.canEdit ? editButton() : '';
 }
@@ -428,7 +428,7 @@ function draw(state) {
 export async function renderAnalisisView(container, route = {}) {
   let state = views.get(container);
   if (!state) {
-    state = { container, query: '', type: '', tab: route.topicId || route.entityId ? 'routes' : 'terms', themeQuery: '', themeKey: '', topicId: '', entityId: '', canEdit: import.meta.env.DEV, preview: false };
+    state = { container, query: '', type: '', tab: route.topicId || route.entityId ? 'routes' : 'terms', themeQuery: '', themeKey: '', topicId: '', entityId: '', canEdit: false, preview: false };
     views.set(container, state);
     liveStates.add(state);
     container.innerHTML = '<div class="nx-explorer nx-loading" role="status">Cargando conceptos y relaciones…</div>';

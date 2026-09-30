@@ -3761,13 +3761,8 @@ export function initUI() {
             // Gestor Visibility (Admin only)
             const navAdmin = document.getElementById('nav-admin');
             const mobileNavAdmin = document.getElementById('mobile-nav-admin');
-            // Gestor Visibility: allow @sener.gob.mx, admins, or any logged in user if force flag set
-            const showAdmin = user && (
-                user.email.endsWith('@sener.gob.mx') || 
-                user.app_metadata?.role === 'admin' || 
-                localStorage.getItem('force-admin') === 'true' ||
-                true // For now, let's allow ANY logged in user to see the admin link as requested
-            );
+            // Only accounts the database recognizes as admins see the Gestor.
+            const showAdmin = Boolean(user) && isAdmin();
             
             if (navAdmin) navAdmin.classList.toggle('hidden', !showAdmin);
             if (mobileNavAdmin) mobileNavAdmin.classList.toggle('hidden', !showAdmin);

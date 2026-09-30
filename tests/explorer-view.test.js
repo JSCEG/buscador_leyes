@@ -78,11 +78,19 @@ describe('explorador parametrizable en la vista pública', () => {
     expect(search.value).toBe('pla');
   });
 
+  it('hides content management from visitors the server does not recognize as admins', async () => {
+    await renderAnalisisView(container);
+    await Promise.resolve(); await Promise.resolve();
+    expect(container.querySelector('[data-edit-catalog]')).toBeNull();
+  });
+
   it('previews a local revision explicitly and returns to the published catalog', async () => {
+    services.allowed.mockResolvedValue(true);
     services.editor.mockImplementation(({ catalog, onPreview }) => {
       const draft = clone(catalog); draft.entities[0].title = 'Cambio en borrador'; onPreview(draft);
     });
     await renderAnalisisView(container);
+    await vi.waitFor(() => expect(container.querySelector('[data-edit-catalog]')).not.toBeNull());
     container.querySelector('[data-edit-catalog]').click(); await Promise.resolve();
     expect(container.querySelector('h2').textContent).toBe('Cambio en borrador');
     expect(container.textContent).toContain('Vista previa de un borrador local');

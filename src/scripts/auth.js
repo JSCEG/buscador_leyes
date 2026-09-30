@@ -6,6 +6,9 @@ let authSubscription = null;
 
 function notifyAuthListeners() {
     authListeners.forEach(cb => cb(currentUser));
+    // Listeners run again once the server confirms (or denies) admin rights.
+    const user = currentUser;
+    refreshAdmin().then(() => { if (currentUser === user) authListeners.forEach(cb => cb(currentUser)); });
 }
 
 export async function initAuth() {
@@ -35,12 +38,26 @@ export function isLoggedIn() {
     return currentUser !== null;
 }
 
+// Admin rights are decided by the database (explorer_is_admin: app_metadata role or
+// explorer_editors). user_metadata is editable by the user, so it never grants anything.
+let adminFor = null;
+let adminValue = false;
+
 export function isAdmin() {
-    // Si el usuario tiene un metadato is_admin o role: admin, o un email específico
-    if (!currentUser) return false;
-    const metadata = currentUser.user_metadata || {};
-    const adminEmails = ['admin@sener.gob.mx', 'javiereg3@gmail.com'];
-    return metadata.role === 'admin' || metadata.is_admin === true || adminEmails.includes(currentUser.email);
+    return Boolean(currentUser) && adminFor === currentUser.id && adminValue;
+}
+
+async function refreshAdmin() {
+    const user = currentUser;
+    if (!user) { adminFor = null; adminValue = false; return; }
+    let allowed = false;
+    try {
+        const { data, error } = await supabase.rpc('explorer_is_admin');
+        allowed = !error && data === true;
+    } catch { allowed = false; }
+    if (currentUser?.id !== user.id) return;
+    adminFor = user.id;
+    adminValue = allowed;
 }
 
 export function onAuthChange(cb) {
