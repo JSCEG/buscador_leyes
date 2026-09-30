@@ -1,0 +1,80 @@
+/* ── View headers as bands, like the acervo and law headers ─────────────────────────
+   Search and Análisis in guinda, Guardados in gold, Estadísticas and Ayuda in green. */
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head) {
+    --vb-a: #7a1a38; --vb-b: #9b2247; --vb-c: #b8375f;
+    position: relative;
+    margin: 0 0 24px !important;
+    padding: 28px 32px !important;
+    border: 0 !important;
+    border-radius: 20px;
+    color: #fff;
+    background:
+        radial-gradient(110% 90% at 100% 0%, var(--vb-c) 0%, transparent 55%),
+        radial-gradient(80% 90% at 0% 100%, #0000002e 0%, transparent 60%),
+        linear-gradient(135deg, var(--vb-a) 0%, var(--vb-b) 60%, var(--vb-a) 100%) !important;
+    box-shadow: 0 16px 36px color-mix(in srgb, var(--vb-b) 22%, transparent) !important;
+}
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head)::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .12;
+    background-image: radial-gradient(circle at 20% 30%, #fff 0 1.4px, transparent 2px), radial-gradient(circle at 70% 60%, #fff 0 1px, transparent 1.5px);
+    background-size: 44px 44px, 28px 28px;
+}
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head) > * { position: relative; z-index: 1; }
+
+.fv-view .fv-head { --vb-a: #5e4516; --vb-b: #8c6925; --vb-c: #b08a3c; }
+.st-dashboard .st-header, .hp-view .hp-head { --vb-a: #143f37; --vb-b: #1e5b4f; --vb-c: #2f7a6a; }
+
+/* Text on the band */
+:is(.sr-head, .st-header, .nx-header, .hp-head) :is(h1, .sr-summary, .st-intro, .nx-intro, .hp-intro) { color: #fff !important; }
+:is(.sr-head, .st-header, .nx-header, .hp-head) :is(.sr-summary, .st-intro, .nx-intro, .hp-intro) { opacity: .92; }
+:is(.sr-head .sr-eyebrow, .st-header .st-eyebrow, .nx-header .nx-eyebrow, .hp-head .hp-eyebrow) { color: #fde8ee !important; font-weight: 600; }
+.st-dashboard .st-header .st-eyebrow, .hp-view .hp-head .hp-eyebrow { color: #d7f0e8 !important; }
+.fv-view .fv-head .sr-eyebrow { color: #fbefd4 !important; }
+
+/* Side notes become translucent chips */
+.st-dashboard .st-updated, .nx-explorer .nx-header-aside > span:not([data-editor-control]) {
+    padding: 8px 14px; border-radius: 12px; background: #ffffff1f; border: 1px solid #ffffff2e; color: #ffffffd9 !important;
+}
+.st-dashboard .st-updated strong { color: #fff !important; }
+.nx-explorer .nx-header-aside { gap: 6px !important; }
+.nx-explorer .nx-header-aside > span:not([data-editor-control]) { padding: 4px 12px; border-radius: 999px; font-size: 12.5px; }
+.nx-explorer .nx-header .nx-button { background: #fff !important; color: var(--vb-b) !important; border-color: #fff !important; }
+
+/* Guardados export button on the band; its menu keeps the light look */
+.fv-view .fv-head .fv-export > summary { background: #fff !important; color: var(--vb-a) !important; border-color: #fff !important; }
+.fv-view .fv-head .fv-export-menu, .fv-view .fv-head .fv-export-menu * { color: #302b27 !important; }
+
+:is(.sr-head, .st-header, .nx-header, .hp-head) :is(button, a, summary):focus-visible { outline: 3px solid #f6d9a8 !important; outline-offset: 2px; }
+
+/* Dark mode: deeper bands */
+html.dark-mode :is(.sr-view .sr-head, .nx-explorer .nx-header) { --vb-a: #3d0b1c; --vb-b: #5e1430; --vb-c: #7a2344; box-shadow: none !important; }
+html.dark-mode .fv-view .fv-head { --vb-a: #3e2d0d; --vb-b: #5e4718; --vb-c: #7a5f26; }
+html.dark-mode :is(.st-dashboard .st-header, .hp-view .hp-head) { --vb-a: #0e2c26; --vb-b: #174a40; --vb-c: #236152; box-shadow: none !important; }
+
+/* Phones: tighter band */
+@media (max-width: 640px) {
+    :is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head) { padding: 20px 18px !important; border-radius: 16px; margin-bottom: 18px !important; }
+    :is(.sr-head, .st-header, .nx-header, .hp-head) h1 { font-size: 26px !important; }
+    .st-dashboard .st-updated { text-align: left !important; white-space: normal; }
+}
+
+/* Pinned state: white icon and label on guinda everywhere (the reader header styles its buttons gray) */
+.pin-btn.is-pinned, .pin-btn.is-pinned svg, .pin-btn.is-pinned .pin-label { color: #fff !important; }
+html.dark-mode .pin-btn.is-pinned, html.dark-mode .pin-btn.is-pinned svg, html.dark-mode .pin-btn.is-pinned .pin-label { color: #1e1c1a !important; }
+
+/* Views open right under the menu, like the acervo */
+#main-container:has(#results-container:not(.hidden) :is(.st-dashboard, .hp-view)), #main-container:has(#analisis-container:not(.hidden)) { padding-top: 20px !important; }
+#analisis-container:not(.hidden) { margin-top: 0 !important; }
+@media (max-width: 640px) {
+    .nx-explorer .nx-header-aside { flex-direction: row !important; flex-wrap: wrap; align-items: center !important; }
+    .nx-explorer .nx-header-aside > span:not([data-editor-control]) { padding: 3px 10px; font-size: 12px; }
+    .nx-explorer .nx-header .nx-button { margin-top: 4px !important; }
+}
+
+/* Reader header: its icon-button rule (44px, gray) must not squeeze the labeled pin */
+#modal-panel > div:first-child button#modal-pin-btn { width: auto !important; height: 36px !important; padding: 0 12px !important; border-radius: 999px !important; gap: 6px; }
+#modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: #9b2247 !important; border-color: #9b224766 !important; background: transparent !important; }
+#modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #fff !important; background: #9b2247 !important; border-color: #9b2247 !important; }
+html.dark-mode #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: #eeb0c2 !important; border-color: #eeb0c266 !important; }
+html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #1e1c1a !important; background: #eeb0c2 !important; border-color: #eeb0c2 !important; }
+@media (max-width: 640px) { #modal-panel > div:first-child button#modal-pin-btn .pin-label { display: none; } #modal-panel > div:first-child button#modal-pin-btn { width: 40px !important; padding: 0 !important; justify-content: center; } }

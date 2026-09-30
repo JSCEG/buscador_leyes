@@ -17,6 +17,7 @@ import { renderHelpView } from './help-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/law-reader.css';
 import '../styles/reader-modal.css';
+import '../styles/view-band.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';

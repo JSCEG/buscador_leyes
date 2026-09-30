@@ -9,6 +9,7 @@ const number = value => new Intl.NumberFormat('es-MX').format(value);
 const plural = (count, one, many) => `${number(count)} ${count === 1 ? one : many}`;
 const dateLabel = value => { const date = new Date(value); return value && !Number.isNaN(date.getTime()) ? new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date) : ''; };
 import { officialUrl as safeUrl } from '../lib/official-url.js';
+const lawName = (item, law) => (item.ley_origen && item.ley_origen !== 'Desconocida' ? item.ley_origen : law?.titulo) || '';
 const groupLabel = new Map(ACERVO_GROUPS.map(group => [group.id, group.label]));
 const bookmark = filled => `<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="${filled ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>`;
 const external = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
@@ -66,7 +67,7 @@ export function renderSearchResults(container, {
             <div class="sr-item-top">
                 <span class="sr-ico" data-category="${group}">${collectionIcon(group, 15)}</span>
                 <span class="sr-sigla">${esc(item.siglas_ley || law?.siglas || '')}</span>
-                <span class="sr-law" title="${esc(item.ley_origen || law?.titulo || '')}">${esc(item.ley_origen || law?.titulo || '')}</span>
+                <span class="sr-law" title="${esc(lawName(item, law) || '')}">${esc(lawName(item, law) || '')}</span>
                 ${dateLabel(item.fecha_publicacion || law?.fecha_publicacion) ? `<span class="sr-date">${dateLabel(item.fecha_publicacion || law?.fecha_publicacion)}</span>` : ''}
             </div>
             <h3 class="sr-title"><button type="button" class="sr-open" data-open-article="${esc(item.id)}">${highlightTerms(item.articulo_label || 'Fragmento', query)}</button></h3>
