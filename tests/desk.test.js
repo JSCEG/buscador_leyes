@@ -38,7 +38,7 @@ describe('desk store', () => {
         const hash = deskHash(['a b', 'c']);
         expect(parseDeskHash(hash)).toEqual(['a b', 'c']);
         expect(parseDeskHash('#art-1')).toBeNull();
-        setDesk(Array.from({ length: 20 }, (_, i) => `id${i}`));
+        setDesk(Array.from({ length: 30 }, (_, i) => `id${i}`));
         expect(getDesk()).toHaveLength(DESK_LIMIT);
     });
 });
@@ -82,7 +82,7 @@ describe('desk view', () => {
         const button = card.querySelector('[data-pin-article]');
         expect(button.getAttribute('aria-pressed')).toBe('true');
         expect(button.textContent).toContain('En mi mesa');
-        expect(notify).toHaveBeenCalledWith(expect.stringContaining('1 de 12'), expect.anything());
+        expect(notify).toHaveBeenCalledWith(expect.stringContaining('1 de 24'), expect.anything());
         expect(document.getElementById('desk-toggle').hidden).toBe(false);
     });
 

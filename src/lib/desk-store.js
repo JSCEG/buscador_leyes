@@ -2,7 +2,7 @@
  * "Mesa de consulta": the articles a reader keeps open side by side while they keep navigating.
  * Only ids are stored (in this browser); the text is fetched when the desk is shown.
  */
-export const DESK_LIMIT = 12;
+export const DESK_LIMIT = 24;
 export const SIDE_BY_SIDE_LIMIT = 3;
 const STORAGE_KEY = 'mesa-consulta-v1';
 const events = new EventTarget();

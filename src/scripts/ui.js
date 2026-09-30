@@ -1,6 +1,7 @@
 import { searchArticles, searchCountsByLawId, getArticleById, getArticlesByIds, getArticlesByLaw, getThemesByLawName, updateArticle } from './search-engine.js';
 import { officialUrl } from '../lib/official-url.js';
 import { withProgress } from '../lib/nav-progress.js';
+import { indexLabel, KIND_BADGE, isGuide } from '../lib/index-label.js';
 import { initDesk, pinButtonHtml, syncPinButtons } from './desk-view.js';
 import { getDesk, parseDeskHash, setDesk } from '../lib/desk-store.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
@@ -1127,26 +1128,16 @@ export function initUI() {
         document.body.appendChild(tocBtn);
 
         // Build grid buttons HTML (separated by type)
+        const guias = currentLawArticles.filter(a => isGuide(a));
         const relacionados = currentLawArticles.filter(a => relatedDocumentLabel(a));
-        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo !== 'transitorio' && !relatedDocumentLabel(a));
+        const ordinarios = currentLawArticles.filter(a => a.tipo_articulo !== 'transitorio' && !relatedDocumentLabel(a) && !isGuide(a));
+        const officialCount = currentLawArticles.length - guias.length;
         const transitoriosArr = currentLawArticles.filter(a => a.tipo_articulo === 'transitorio');
 
-        const buildGrid = (arr) => arr.map((art, i) => {
+        const buildGrid = (arr) => arr.map((art) => {
             const { loggedIn, fav: isFav } = getFavoriteUiState(art.id);
             const hasNote = !!getNote(art.id);
-            let label = '';
-            
-            if (art.tipo_articulo === 'preambulo') {
-                label = 'Pre.';
-            } else if (art.tipo_articulo === 'anexo' || art.tipo_articulo === 'complementario') {
-                label = art.tipo_articulo === 'anexo' ? `Anx.${i+1}` : `Comp.${i+1}`;
-            } else if (art.tipo_articulo === 'transitorio') {
-                const match = art.articulo_label.match(/(?:PRIMERO|SEGUNDO|TERCERO|CUARTO|QUINTO|SEXTO|S[ÉE]PTIMO|OCTAVO|NOVENO|D[ÉE]CIMO|UND[ÉE]CIMO|DUOD[ÉE]CIMO|VIG[ÉE]SIMO|[ÚU]NICO|\d+)/i);
-                label = match ? `T.${match[0].substring(0,3)}.` : `T.${i+1}`;
-            } else {
-                const num = art.articulo_label.match(/\d+/);
-                label = num ? `Art.${num[0]}` : `Art.${i+1}`;
-            }
+            const label = escapeHtml(indexLabel(art).short);
 
             return `<button class="toc-art-btn toc-art-grid-btn text-[10px] font-bold rounded-lg py-2 px-1 border transition-all text-center relative
                 ${isFav ? 'border-guinda/30 bg-guinda/5 text-guinda' : loggedIn ? 'border-gray-100 bg-white text-gray-600 hover:border-guinda hover:text-guinda hover:bg-guinda/5' : 'border-gray-200 bg-gray-50 text-gray-500 hover:border-guinda/40 hover:text-guinda'}"
@@ -1160,6 +1151,15 @@ export function initUI() {
 
         const gridHTML = `
             <div class="toc-grid-scroll space-y-6 px-5 pb-10 overflow-y-auto h-full scroll-smooth" style="width:100%; min-width:100%; max-width:100%; box-sizing:border-box;">
+                ${guias.length ? `
+                    <div class="toc-guide-group">
+                        <p class="toc-guide-title">Guía de consulta</p>
+                        <p class="toc-guide-note">No forma parte del texto oficial; la agregamos para orientarte.</p>
+                        <div class="toc-grid-layout" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(72px, 1fr)); gap:0.5rem;">
+                            ${buildGrid(guias)}
+                        </div>
+                    </div>
+                ` : ''}
                 ${ordinarios.length > 0 ? `
                     <div class="mb-6">
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Cuerpo Principal</p>
@@ -1193,10 +1193,7 @@ export function initUI() {
             const hasNote = !!getNote(art.id);
             const { loggedIn, fav: isFav } = getFavoriteUiState(art.id);
             const preview = escapeHtml(getTextPreview(art.texto, 100));
-            const typeLabel = art.tipo_articulo === 'transitorio' ? 'TRANS' : 
-                             art.tipo_articulo === 'preambulo' ? 'PREAM' :
-                             art.tipo_articulo === 'anexo' ? 'ANEXO' :
-                             art.tipo_articulo === 'complementario' ? 'COMPL' : 'ART';
+            const typeLabel = KIND_BADGE[indexLabel(art).kind] || 'SECC';
             
             return `<button class="toc-art-btn w-full flex flex-col gap-2 px-3 py-2.5 rounded-xl text-left transition-all hover:bg-guinda/5 group/item
                 ${isFav ? 'text-guinda' : loggedIn ? 'text-gray-700 hover:text-guinda' : 'text-gray-600'}"
@@ -1229,6 +1226,13 @@ export function initUI() {
 
         const listHTML = `
             <div class="space-y-4 px-5 pb-10 overflow-y-auto h-full scroll-smooth">
+                ${guias.length ? `
+                    <div class="toc-guide-group">
+                        <p class="toc-guide-title">Guía de consulta</p>
+                        <p class="toc-guide-note">No forma parte del texto oficial; la agregamos para orientarte.</p>
+                        <div class="flex flex-col gap-1">${buildList(guias)}</div>
+                    </div>
+                ` : ''}
                 ${ordinarios.length > 0 ? `
                     <div class="mb-4">
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Cuerpo Principal</p>
@@ -1263,7 +1267,7 @@ export function initUI() {
             <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0 border-b border-gray-50">
                 <div>
                     <p class="text-sm font-bold text-gray-800">Índice del instrumento</p>
-                    <p class="text-[10px] text-gray-400 mt-0.5">${currentLawArticles.length} fragmentos · clic para abrir</p>
+                    <p class="text-[10px] text-gray-400 mt-0.5">${officialCount} ${officialCount === 1 ? 'fragmento oficial' : 'fragmentos oficiales'}${guias.length ? ` · ${guias.length} ${guias.length === 1 ? 'guía' : 'guías'}` : ''} · clic para abrir</p>
                 </div>
                 <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5" aria-label="Cerrar índice">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1774,8 +1778,9 @@ export function initUI() {
             const compareBg = isSelected ? 'bg-guinda/10' : '';
 
             return `
-            <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item${relatedLabel ? ' related-document-card' : ''}" data-id="${item.id}">
+            <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item${relatedLabel ? ' related-document-card' : ''}${isGuide(item) ? ' guide-card' : ''}" data-id="${item.id}">
                 ${relatedLabel ? `<div class="related-document-badge-row"><span class="related-document-badge">${relatedLabel}</span></div>` : ''}
+                ${isGuide(item) ? '<div class="related-document-badge-row"><span class="guide-badge">Guía de consulta · no es texto oficial</span></div>' : ''}
                 <div class="flex items-center justify-between mb-2 pr-24">
                     <span class="text-xs font-bold text-gray-700 flex items-center gap-1.5">
                         ${item.articulo_label}
