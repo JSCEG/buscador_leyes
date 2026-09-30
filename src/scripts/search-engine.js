@@ -62,6 +62,8 @@ export async function initSearch() {
             tipo: l.tipo || null
         }));
 
+        // Views loaded later (Análisis) read the acervo from here; the event only reaches early listeners.
+        window.__acervoSummaries = summaries;
         window.dispatchEvent(new CustomEvent('search-ready', {
             detail: {
                 totalLeyes: uniqueLeyes.length,

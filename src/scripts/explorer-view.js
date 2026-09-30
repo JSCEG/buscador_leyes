@@ -1,4 +1,5 @@
 import { escapeHtml as esc, searchEntities, getEntityReferences } from '../lib/explorer-model.js';
+import { renderTermsView } from './terms-view.js';
 import { loadExplorerCatalog, canPublishExplorer } from '../lib/explorer-store.js';
 import { topicOverview, matchAcervo, topicAcervo, acervoThemes, isThematicLink, normalize, topicGraph } from '../lib/analisis-model.js';
 import { getAcervoGroup, ACERVO_GROUPS } from '../lib/acervo-model.js';
@@ -30,7 +31,7 @@ const excerpt = (value, max = 260) => { const clean = String(value || '').replac
 const isNarrow = () => typeof matchMedia === 'function' && matchMedia('(max-width: 899px)').matches;
 
 // The acervo arrives once through the app-wide `search-ready` event; views redraw when it lands.
-let acervo = [];
+let acervo = (typeof window !== 'undefined' && Array.isArray(window.__acervoSummaries)) ? window.__acervoSummaries : [];
 if (typeof window !== 'undefined') {
   window.addEventListener('search-ready', event => {
     acervo = Array.isArray(event.detail?.summaries) ? event.detail.summaries : [];
@@ -333,19 +334,37 @@ function drawThemes(state) {
   input.addEventListener('input', event => { state.themeQuery = event.target.value; drawThemes(state); const next = state.container.querySelector('#explorer-theme-search'); next.focus(); next.setSelectionRange(next.value.length, next.value.length); });
 }
 
+/** Automatic term map; built once per render of the panel. */
+function drawTerms(state) {
+  const panel = state.container.querySelector('#nx-panel-terms');
+  if (!panel || panel.dataset.ready === String(acervo.length)) return;
+  panel.dataset.ready = String(acervo.length);
+  state.termsDestroy?.();
+  void renderTermsView(panel, {
+    summaries: acervo,
+    selected: state.termId || '',
+    onSelect: id => { state.termId = id; },
+    onOpenLaw: id => document.dispatchEvent(new CustomEvent('analisis:openLaw', { detail: { id } })),
+    onOpenArticle: id => document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id, list: [id] } })),
+    onSearch: query => { if (query) document.dispatchEvent(new CustomEvent('analisis:search', { detail: { query } })); },
+  }).then(destroy => { state.termsDestroy = destroy; });
+}
+
 function draw(state) {
   const { container, catalog } = state;
   normalizeSelection(state);
   const themeCount = acervoThemes(acervo).length;
   container.innerHTML = `<div class="nx-explorer">
-    <div class="nx-header"><div><p class="nx-eyebrow">Análisis por tema</p><h1>Temas del marco normativo</h1><p class="nx-intro">Explora por tema qué leyes, planes y autoridades intervienen y en qué artículos se apoyan.</p></div>
+    <div class="nx-header"><div><p class="nx-eyebrow">Análisis del acervo</p><h1>Términos y relaciones del marco normativo</h1><p class="nx-intro">Los términos clave que definen las leyes, reglamentos y acuerdos, dónde se usan y cómo se conectan entre sí.</p></div>
       <div class="nx-header-aside"><span>Versión ${esc(catalog.revision)}</span><span>Actualizado el ${esc(dateLabel(catalog.updatedAt))}</span><span data-editor-control>${state.canEdit ? editButton() : ''}</span></div></div>
     ${state.preview ? '<div class="nx-notice" role="status"><span><strong>Vista previa de un borrador local.</strong> Estos cambios todavía no están publicados.</span><button class="nx-button" data-return-published>Volver al contenido publicado</button></div>' : ''}
     ${state.warning ? `<details class="nx-notice nx-catalog-notice"><summary>Se muestra la copia incluida del catálogo</summary><p>${esc(state.warning)}</p></details>` : ''}
     <div class="nx-tabs" role="tablist" aria-label="Tipo de análisis">
+      <button role="tab" id="nx-tab-terms" aria-controls="nx-panel-terms" aria-selected="${state.tab === 'terms'}" data-tab="terms">Mapa de términos</button>
       <button role="tab" id="nx-tab-routes" aria-controls="nx-panel-routes" aria-selected="${state.tab === 'routes'}" data-tab="routes">Recorridos por tema<span class="nx-count">${catalog.topics.length}</span></button>
       <button role="tab" id="nx-tab-themes" aria-controls="nx-panel-themes" aria-selected="${state.tab === 'themes'}" data-tab="themes">Temas del acervo<span class="nx-count">${themeCount || '…'}</span></button>
     </div>
+    <div id="nx-panel-terms" role="tabpanel" aria-labelledby="nx-tab-terms" data-terms ${state.tab === 'terms' ? '' : 'hidden'}></div>
     <div id="nx-panel-routes" role="tabpanel" aria-labelledby="nx-tab-routes" ${state.tab === 'routes' ? '' : 'hidden'}>
       <div class="nx-finder"><div class="nx-search">${icon('search')}<input id="explorer-search" type="search" placeholder="Buscar concepto, instrumento o autoridad" autocomplete="off" value="${esc(state.query)}" aria-label="Buscar en los recorridos"></div>
         <select id="explorer-type" aria-label="Tipo de entidad"><option value="">Todos los tipos</option>${Object.entries(types).map(([value, label]) => `<option value="${value}" ${state.type === value ? 'selected' : ''}>${label}</option>`).join('')}</select>
@@ -359,6 +378,7 @@ function draw(state) {
   </div>`;
   drawSearch(state); drawTopic(state);
   if (state.tab === 'themes') drawThemes(state);
+  if (state.tab === 'terms') drawTerms(state);
   container.querySelector('#explorer-search').addEventListener('input', event => { state.query = event.target.value; drawSearch(state); });
   container.querySelector('#explorer-type').addEventListener('change', event => { state.type = event.target.value; drawSearch(state); });
   container.onclick = async event => {
@@ -384,7 +404,9 @@ function draw(state) {
       container.querySelectorAll('[role=tab]').forEach(tab => tab.setAttribute('aria-selected', String(tab.dataset.tab === state.tab)));
       container.querySelector('#nx-panel-routes').hidden = state.tab !== 'routes';
       container.querySelector('#nx-panel-themes').hidden = state.tab !== 'themes';
+      container.querySelector('#nx-panel-terms').hidden = state.tab !== 'terms';
       if (state.tab === 'themes') drawThemes(state);
+      if (state.tab === 'terms') drawTerms(state);
     } else if (button.hasAttribute('data-theme')) {
       state.themeKey = state.themeKey === button.dataset.theme ? '' : button.dataset.theme;
       drawThemes(state);
@@ -406,7 +428,7 @@ function draw(state) {
 export async function renderAnalisisView(container, route = {}) {
   let state = views.get(container);
   if (!state) {
-    state = { container, query: '', type: '', tab: 'routes', themeQuery: '', themeKey: '', topicId: '', entityId: '', canEdit: import.meta.env.DEV, preview: false };
+    state = { container, query: '', type: '', tab: route.topicId || route.entityId ? 'routes' : 'terms', themeQuery: '', themeKey: '', topicId: '', entityId: '', canEdit: import.meta.env.DEV, preview: false };
     views.set(container, state);
     liveStates.add(state);
     container.innerHTML = '<div class="nx-explorer nx-loading" role="status">Cargando conceptos y relaciones…</div>';
