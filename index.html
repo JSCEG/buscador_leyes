@@ -12,12 +12,26 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="description"
-        content="Buscador jurídico del Marco Legal Energético de la Secretaría de Energía de México">
+        content="Leyes, reglamentos, acuerdos y demás disposiciones del sector energético en un solo lugar: busca, compara y consulta.">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Leyes SENER">
+    <meta name="apple-mobile-web-app-title" content="Buscador Jurídico">
     <link rel="manifest" href="/manifest.json">
-    <title>Buscador de Leyes · SENER</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/img/favicon-64.png">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <!-- Share preview (WhatsApp, Teams, correo). Update the domain when the custom one is live. -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Buscador Jurídico · Secretaría de Energía">
+    <meta property="og:title" content="Buscador Jurídico del sector energético">
+    <meta property="og:description" content="Leyes, reglamentos, acuerdos y demás disposiciones del sector energético en un solo lugar: busca, compara y consulta.">
+    <meta property="og:image" content="https://buscador-leyes-jav.pages.dev/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://buscador-leyes-jav.pages.dev/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://buscador-leyes-jav.pages.dev/img/og-image.png">
+    <title>Buscador Jurídico · Secretaría de Energía</title>
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
@@ -68,8 +82,8 @@
             scrollbar-width: thin;
         }
     </style>
-  <script type="module" crossorigin src="/assets/index-DyECFrxO.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Cxg5anng.css">
+  <script type="module" crossorigin src="/assets/index-DoZbUwD6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ZcSp_Wxn.css">
 </head>
 
 <body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
@@ -315,6 +329,7 @@
                     style="letter-spacing:0.01em;">
                     Encuentra coincidencias en el texto de todos los instrumentos del acervo: leyes, reglamentos, acuerdos y demás disposiciones.
                 </p>
+                <p class="sl-cutoff" id="acervo-cutoff" hidden></p>
             </div>
         </div>
 
@@ -658,10 +673,12 @@
                 <p class="footer-credit text-[11px] font-medium mb-0"><span class="opacity-70">© 2026 Secretaría de Energía. Todos los derechos reservados.</span><br><span class="footer-author">Diseño y desarrollo: <strong>Javier Sasso Celaya</strong></span></p>
             </div>
             <div class="flex gap-8 text-[11px] font-bold tracking-widest uppercase opacity-70">
-                <a href="#" class="hover:opacity-100 transition-opacity">Términos de uso</a>
-                <a href="#" class="hover:opacity-100 transition-opacity">Privacidad</a>
+                <button type="button" class="footer-feedback" data-feedback>Enviar comentario</button>
+                <a href="#" class="hover:opacity-100 transition-opacity" data-legal="terminos">Términos de uso</a>
+                <a href="#" class="hover:opacity-100 transition-opacity" data-legal="privacidad">Privacidad</a>
             </div>
         </div>
+        <p class="footer-legal">Herramienta de consulta y apoyo. El texto con validez jurídica es el publicado en el Diario Oficial de la Federación o en la fuente oficial de cada instrumento.</p>
     </footer>
 
 
