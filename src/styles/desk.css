@@ -112,3 +112,23 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-toggle{z-index:55}
 .desk-card h3,.desk-column h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 #modal-pin-btn{align-self:center}
+
+/* Several desks */
+.desk-head-main{flex:1;min-width:0}
+.desk-eyebrow{margin:0 0 4px!important;font:700 11px/1 'Noto Sans',sans-serif!important;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-guinda)!important}
+.desk-switch{position:relative;display:flex;align-items:center;gap:6px}
+.desk-switch select{flex:1;min-width:0;padding:6px 30px 6px 10px;border:1px solid var(--dk-border);border-radius:8px;background:var(--dk-card);color:var(--dk-ink);font:700 18px/1.25 Patria,Georgia,serif;text-overflow:ellipsis}
+.desk-switch select:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
+.desk-menu-btn{width:34px;height:34px;border:1px solid var(--dk-border)!important;font-size:18px}
+.desk-menu{position:absolute;top:calc(100% + 6px);right:0;z-index:2;min-width:180px;padding:6px;border:1px solid var(--dk-border);border-radius:10px;background:var(--dk-card);box-shadow:var(--dk-shadow);display:flex;flex-direction:column}
+.desk-menu[hidden]{display:none}
+.desk-menu button{padding:9px 12px;border:0;border-radius:6px;background:none;color:var(--dk-ink);font:600 13.5px/1.2 'Noto Sans',sans-serif;text-align:left;cursor:pointer}
+.desk-menu button:hover:not(:disabled),.desk-menu button:focus-visible{background:color-mix(in srgb,var(--dk-guinda) 10%,transparent);color:var(--dk-guinda);outline:none}
+.desk-menu button:disabled{opacity:.4;cursor:not-allowed}
+.desk-menu [data-desk-delete]{color:#b3261e}
+.desk-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.desk-copy{max-width:150px;padding:3px 6px;border:1px solid var(--dk-border);border-radius:6px;background:var(--dk-card);color:var(--dk-muted);font:600 12px/1.2 'Noto Sans',sans-serif}
+.desk-card-foot{align-items:center;flex-wrap:wrap}
+.desk-status{margin:0;padding:10px 18px 14px;border-top:1px solid var(--dk-border);font-size:12px;color:var(--dk-muted)}
+.desk-panel[data-sync=account] .desk-status::before{content:'✓ ';color:var(--dk-green);font-weight:700}
+.desk-toggle-label{max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

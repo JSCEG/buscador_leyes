@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
-    DESK_LIMIT, clearDesk, deskHash, getDesk, isPinned, moveInDesk, parseDeskHash, pin, reloadDesk, setDesk, togglePin, unpin,
+    DESK_LIMIT, DESKS_LIMIT, createDesk, deleteDesk, duplicateDesk, exportDesks, getActiveDesk, getDesks, markSynced, mergeRemoteDesks, renameDesk, setActiveDesk, clearDesk, deskHash, getDesk, isPinned, moveInDesk, parseDeskHash, pin, reloadDesk, setDesk, togglePin, unpin,
 } from '../src/lib/desk-store.js';
 import { articleHtml } from '../src/lib/article-html.js';
 import { initDesk, pinButtonHtml } from '../src/scripts/desk-view.js';
@@ -35,11 +35,70 @@ describe('desk store', () => {
     });
 
     it('shares a desk through the hash and trims shared lists to the limit', () => {
-        const hash = deskHash(['a b', 'c']);
-        expect(parseDeskHash(hash)).toEqual(['a b', 'c']);
+        expect(parseDeskHash(deskHash(['a b', 'c'], 'Revisión: DACG'))).toEqual({ name: 'Revisión: DACG', ids: ['a b', 'c'] });
+        expect(parseDeskHash('#mesa-x,y')).toEqual({ name: '', ids: ['x', 'y'] });
         expect(parseDeskHash('#art-1')).toBeNull();
         setDesk(Array.from({ length: 30 }, (_, i) => `id${i}`));
         expect(getDesk()).toHaveLength(DESK_LIMIT);
+    });
+});
+
+describe('several desks', () => {
+    beforeEach(() => { localStorage.clear(); reloadDesk(); });
+
+    it('moves the single-desk version into "Mi mesa"', () => {
+        localStorage.clear();
+        localStorage.setItem('mesa-consulta-v1', JSON.stringify(['a', 'b']));
+        reloadDesk();
+        expect(getDesks().map(d => [d.name, d.ids])).toEqual([['Mi mesa', ['a', 'b']]]);
+    });
+
+    it('creates, switches, renames, duplicates and deletes desks; pins go to the active one', () => {
+        pin('a');
+        const terralia = createDesk('Terralia').desk;
+        expect(getActiveDesk().id).toBe(terralia.id);
+        pin('b');
+        expect(getDesk()).toEqual(['b']);
+        expect(isPinned('a')).toBe(false);
+        pin('a', getDesks()[0].id);
+        expect(getDesks()[0].ids).toEqual(['a']);
+        expect(renameDesk(terralia.id, '  El Chorro  ')).toBe(true);
+        expect(getActiveDesk().name).toBe('El Chorro');
+        const copy = duplicateDesk(terralia.id).desk;
+        expect(copy.name).toBe('El Chorro (copia)');
+        expect(copy.ids).toEqual(['b']);
+        expect(deleteDesk(copy.id)).toBe(true);
+        expect(getDesks()).toHaveLength(2);
+        setActiveDesk(getDesks()[0].id);
+        expect(getDesk()).toEqual(['a']);
+        reloadDesk();
+        expect(getDesks().map(d => d.name)).toEqual(['Mi mesa', 'El Chorro']);
+        while (getDesks().length < DESKS_LIMIT) createDesk();
+        expect(createDesk('extra')).toEqual({ ok: false, reason: 'full' });
+    });
+
+    it('keeps the last desk and empties it instead of deleting it', () => {
+        pin('a');
+        deleteDesk(getActiveDesk().id);
+        expect(getDesks()).toHaveLength(1);
+        expect(getDesk()).toEqual([]);
+    });
+
+    it('merges an account copy: newer wins, local-only desks upload, deleted elsewhere disappear', () => {
+        pin('a');
+        const local = getActiveDesk();
+        const onlyHere = createDesk('Solo aquí', ['z']).desk;
+        const newer = new Date(Date.now() + 60000).toISOString();
+        const upload = mergeRemoteDesks([
+            { id: local.id, name: 'Mi mesa', ids: ['a', 'b'], updated: newer },
+            { id: 'r1', name: 'De otra compu', ids: ['c'], updated: newer },
+        ]);
+        expect(getDesks().find(d => d.id === local.id).ids).toEqual(['a', 'b']);
+        expect(getDesks().map(d => d.name)).toContain('De otra compu');
+        expect(upload).toEqual([onlyHere.id]);
+        markSynced(exportDesks().desks.map(d => d.id));
+        mergeRemoteDesks([{ id: local.id, name: 'Mi mesa', ids: ['a', 'b'], updated: newer }]);
+        expect(getDesks().map(d => d.name)).toEqual(['Mi mesa']);
     });
 });
 

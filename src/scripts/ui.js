@@ -3,7 +3,8 @@ import { officialUrl } from '../lib/official-url.js';
 import { withProgress } from '../lib/nav-progress.js';
 import { indexLabel, KIND_BADGE, isGuide } from '../lib/index-label.js';
 import { initDesk, pinButtonHtml, syncPinButtons } from './desk-view.js';
-import { getDesk, parseDeskHash, setDesk } from '../lib/desk-store.js';
+import { createDesk, deleteDesk, getDesks, parseDeskHash, setActiveDesk } from '../lib/desk-store.js';
+import { initDeskSync } from './desk-sync.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -484,10 +485,16 @@ export function initUI() {
         const sharedDesk = parseDeskHash(hash);
         if (sharedDesk) {
             history.replaceState(null, '', location.pathname + location.search);
-            const current = getDesk();
-            const same = current.length === sharedDesk.length && current.every((id, index) => id === sharedDesk[index]);
-            if (!same && current.length && !window.confirm(`Esta liga abre una mesa con ${sharedDesk.length} artículos y reemplazará la tuya (${current.length}). ¿Continuar?`)) return;
-            setDesk(sharedDesk);
+            const same = getDesks().find(d => d.ids.join('|') === sharedDesk.ids.join('|'));
+            const [onlyDesk, ...rest] = getDesks();
+            const untouched = !rest.length && !onlyDesk.ids.length ? onlyDesk.id : null;
+            if (same) setActiveDesk(same.id);
+            else if (!createDesk(sharedDesk.name || 'Mesa compartida', sharedDesk.ids).ok) {
+                showToast('Ya tienes 20 mesas; borra una para abrir la mesa compartida.', '!');
+                return;
+            }
+            // Someone opening a shared link with no desks of their own gets just that desk.
+            if (untouched && !same) deleteDesk(untouched);
             desk.open();
             return;
         }
@@ -547,6 +554,7 @@ export function initUI() {
         lawFor: item => cachedSummaries.find(law => String(law.id) === String(item.ley_id)) || null,
         notify: (message, icon) => showToast(message, icon),
     });
+    initDeskSync({ onStatus: status => desk.setStatus(status) });
 
     // Maneja el botón Atrás / Adelante del navegador.
     // Restaura la vista correcta según el hash de la URL.
