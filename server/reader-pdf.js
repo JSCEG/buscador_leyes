@@ -5,6 +5,7 @@ const reviewedDofPdfs = new Set([
     'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf',
     'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=',
+    'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22122025-MAT.pdf&repo=',
 ]);
 
 function problem(status, code) {

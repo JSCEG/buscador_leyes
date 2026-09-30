@@ -8,6 +8,8 @@ const loaded = JSON.parse(readFileSync('revision-acervo/incorporacion-7-2026-09-
 const cenace = JSON.parse(readFileSync('revision-acervo/incorporacion-cenace-2026-09-20/PROGRAMA-CENACE-carga.json', 'utf8'));
 const pladeshi = Object.values(manifest.sources).find(source => source.lawId === '48e6158c-c1a3-5b6d-811d-16e85b05ab64');
 const pnd = JSON.parse(readFileSync('revision-acervo/incorporacion-pnd-2026-09-22/PND-carga.json', 'utf8'));
+const prosener = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PROSENER-carga.json', 'utf8'));
+const prosenerDecree = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PROSENER-DECRETO-carga.json', 'utf8'));
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
@@ -160,6 +162,44 @@ it('maps all 98 PND fragments to the correct official DOF evening issue pages', 
     const notes = pnd.articulos.find(article => article.identificador === 'Notas y referencias del plan');
     expect(resolveReaderSource(manifest, notes.id).pages.map(page => page.number)).toEqual([75, 81, 85, 94, 98]);
     expect(Object.values(manifest.articles).filter(article => article.sourceId === source.id)).toHaveLength(98);
+});
+
+it('maps PROSENER and its decree separately, including distributed footnotes', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const expected = [
+        { data: prosener, pages: [6, 50], count: 50, title: 'Programa Sectorial de Energía 2025-2030' },
+        { data: prosenerDecree, pages: [5, 6], count: 8, title: 'Decreto de aprobación del Programa Sectorial de Energía 2025-2030' },
+    ];
+    for (const { data, pages, count, title } of expected) {
+        const source = Object.values(manifest.sources).find(s => s.lawId === data.ley.id);
+        expect(source).toMatchObject({
+            title,
+            pageCount: 278,
+            sha256: '8718317c5f2fd17c881067bc428b66cb2d1a5dd21ae17052a62937b0ce511196',
+            originalUrl: 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22122025-MAT.pdf&repo=',
+        });
+        const actualArticles = data.articulos.filter(article => !article.identificador.startsWith('Nota editorial'));
+        expect(actualArticles).toHaveLength(count);
+        for (const article of actualArticles) {
+            const result = await getReaderSource(article.id, { articleText: article.contenido, manifest });
+            expect(result.status, article.identificador).toBe('mapped');
+            expect(result.contentVerified, article.identificador).toBe(true);
+            expect(result.source.lawId).toBe(data.ley.id);
+            for (const pageIndex of result.pages.map((_, index) => index)) {
+                expect(resolveReaderSource(manifest, article.id, { pageIndex }).highlights.length).toBeGreaterThan(0);
+            }
+        }
+        expect(actualArticles.flatMap(article => resolveReaderSource(manifest, article.id).pages.map(page => page.number))
+            .every(page => page >= pages[0] && page <= pages[1])).toBe(true);
+        expect(Object.values(manifest.articles).filter(article => article.sourceId === source.id)).toHaveLength(count);
+    }
+    const notes = prosener.articulos.find(article => article.identificador === 'Notas del programa');
+    expect(resolveReaderSource(manifest, notes.id).pages.map(page => page.number))
+        .toEqual([9, 11, 12, 14, 15, 18, 20, 22, 23, 24, 25, 26, 27, 34]);
+    for (const data of [prosener, prosenerDecree]) {
+        const editorial = data.articulos.find(article => article.identificador.startsWith('Nota editorial'));
+        expect(resolveReaderSource(manifest, editorial.id).status).toBe('unmapped');
+    }
 });
 
 it('keeps multi-page article boundaries and positions within each actual page dimensions', () => {
