@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "install:pdf2md": "node install-pdf2md.js",
     "terminos": "node scripts/build-terms.mjs",
-    "correos": "node scripts/build-email-templates.mjs"
+    "correos": "node scripts/build-email-templates.mjs",
+    "correos:prueba": "node scripts/send-test-emails.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.99.3",
