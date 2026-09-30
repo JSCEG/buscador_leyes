@@ -86,3 +86,20 @@ html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { c
 html.dark-mode .modal-newtab{color:#c1b9af}
 html.dark-mode .modal-newtab:hover{color:#eeb0c2}
 #main-container:has(#results-container:not(.hidden) .ap-view){padding-top:20px!important}
+
+/* Search box docked inside the results band */
+#global-search-wrapper.is-docked{max-width:none!important;width:100%;margin:0 0 20px}
+#global-search-wrapper.is-docked input{padding-top:14px!important;padding-bottom:14px!important;border:0!important;border-radius:12px!important;background:#fff!important;font-size:16px!important;box-shadow:0 8px 24px #2a071440!important}
+#global-search-wrapper.is-docked input:focus{box-shadow:0 0 0 3px #f6d9a8,0 8px 24px #2a071440!important}
+#global-search-wrapper.is-docked svg{color:#9b2247}
+html.dark-mode #global-search-wrapper.is-docked input{background:#262321!important;color:#f4efe7!important}
+.sr-view .sr-head:has(#global-search-wrapper.is-docked) .sr-eyebrow{margin-top:2px}
+#main-container:has(#results-container:not(.hidden) .sr-view){padding-top:20px!important}
+@media (max-width:640px){#global-search-wrapper.is-docked{margin-bottom:14px}}
+#global-search-wrapper.is-docked input{color:#302b27!important;caret-color:#9b2247;outline:none!important}
+#global-search-wrapper.is-docked input::placeholder{color:#8a847c!important}
+#global-search-wrapper.is-docked>div{z-index:2}
+html.dark-mode #global-search-wrapper.is-docked input{color:#f4efe7!important}
+#global-search-wrapper.is-docked{padding:0!important;margin-left:0!important;margin-right:0!important}
+#global-search-wrapper.is-docked input{text-align:left!important;padding-left:44px!important}
+#global-search-wrapper.is-docked>div:first-child{padding-left:16px!important}

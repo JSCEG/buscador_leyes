@@ -749,6 +749,7 @@ export function initUI() {
     const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
+        undockSearch();
         cancelPendingSearch();
         if (activeId !== 'nav-leyes') releaseAcervo();
         activeNavId = activeId;
@@ -774,10 +775,33 @@ export function initUI() {
         });
     }
 
+    // On results the search box moves into the results band; everywhere else it sits on the page.
+    const searchWrapper = document.getElementById('global-search-wrapper');
+    const searchHome = searchWrapper ? document.createComment('global-search-home') : null;
+    if (searchWrapper) searchWrapper.before(searchHome);
+    function undockSearch() {
+        if (!searchWrapper || !searchHome?.isConnected || searchWrapper.previousSibling === searchHome) return;
+        const focused = document.activeElement === searchInput;
+        searchHome.after(searchWrapper);
+        searchWrapper.classList.remove('is-docked');
+        if (focused) searchInput.focus({ preventScroll: true });
+    }
+    function dockSearch() {
+        const slot = resultsContainer?.querySelector('.sr-head');
+        if (!searchWrapper || !slot) return;
+        const focused = document.activeElement === searchInput;
+        slot.prepend(searchWrapper);
+        searchWrapper.classList.add('is-docked');
+        searchWrapper.classList.remove('hidden', 'opacity-0');
+        if (focused) searchInput.focus({ preventScroll: true });
+    }
+
     function showGlobalSearch() {
+        undockSearch();
         document.getElementById('global-search-wrapper')?.classList.remove('hidden', 'opacity-0');
     }
     function hideGlobalSearch() {
+        undockSearch();
         document.getElementById('global-search-wrapper')?.classList.add('hidden');
         // Clear value so no stale query lingers
         if (searchInput) searchInput.value = '';
@@ -797,6 +821,7 @@ export function initUI() {
     }
 
     function hideAllViews() {
+        undockSearch();
         cancelPendingSearch();
         releaseAcervo();
         const containers = [
@@ -2813,6 +2838,7 @@ export function initUI() {
         if (loadingIndicator) loadingIndicator.classList.add('hidden');
         document.getElementById('search-filters')?.remove();
 
+        undockSearch();
         renderSearchResults(resultsContainer, {
             query, results, total: totalResults, ranked, lawCounts, summaries: cachedSummaries, filters,
             favoriteState: id => { const { fav, title } = getFavoriteUiState(id); return { fav, title }; },
@@ -2824,7 +2850,8 @@ export function initUI() {
                 currentPage = 1;
                 renderResults();
             },
-        });
+        });
+        dockSearch();
         if (results.length) renderPaginationControls(totalResults, 'results-container', renderResults);
         else if (resultsContainer.nextElementSibling?.classList.contains('pagination-nav')) resultsContainer.nextElementSibling.remove();
     }
