@@ -103,3 +103,9 @@ html.dark-mode #global-search-wrapper.is-docked input{color:#f4efe7!important}
 #global-search-wrapper.is-docked{padding:0!important;margin-left:0!important;margin-right:0!important}
 #global-search-wrapper.is-docked input{text-align:left!important;padding-left:44px!important}
 #global-search-wrapper.is-docked>div:first-child{padding-left:16px!important}
+
+/* Ayuda: tour and comment buttons on the band */
+.hp-head-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hp-view .hp-head-btn{padding:8px 16px;border:0;border-radius:999px;background:#fff;color:#1e5b4f;font:600 13.5px/1.2 'Noto Sans',sans-serif;cursor:pointer}
+.hp-view .hp-head-btn-ghost{background:#ffffff1f;color:#fff;border:1px solid #ffffff55}
+.hp-view .hp-head-btn:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}

@@ -7,6 +7,8 @@ import { createDesk, deleteDesk, getDesks, parseDeskHash, setActiveDesk } from '
 import { initDeskSync } from './desk-sync.js';
 import { renderArticlePage, articlePageHash, parseArticlePageHash } from './article-page-view.js';
 import { renderSearchLanding } from './search-landing.js';
+import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
+import { openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -360,6 +362,8 @@ export function initUI() {
         if (activeNavId === 'nav-leyes' && !location.hash) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
         if (activeNavId === 'nav-inicio') renderLanding();
+        // First visit: a short welcome tour once the page has settled.
+        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) setTimeout(() => { if (!document.getElementById('welcome-tour')) startWelcomeTour(); }, 900);
 
         // No longer auto-rendering on home, user wants it only in stats
 
@@ -583,6 +587,12 @@ export function initUI() {
             if (law) await openLawDetail(law, { updateHistory: false });
         }
     }
+
+    document.getElementById('institutional-footer')?.addEventListener('click', event => {
+        const legal = event.target.closest('[data-legal]');
+        if (legal) { event.preventDefault(); openLegalPage(legal.dataset.legal); return; }
+        if (event.target.closest('[data-feedback]')) openFeedback({ context: activeNavId || '' });
+    });
 
     // Mesa de consulta: several articles kept open while navigating.
     const desk = initDesk({
@@ -902,6 +912,13 @@ export function initUI() {
     }
 
     function renderLanding() {
+        const cutoff = document.getElementById('acervo-cutoff');
+        const latest = cachedSummaries.map(l => l.fecha_publicacion).filter(Boolean).sort().at(-1);
+        if (cutoff && latest) {
+            const date = new Date(`${String(latest).slice(0, 10)}T12:00:00`).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+            cutoff.innerHTML = `Acervo con <strong>${cachedSummaries.length} instrumentos</strong> · publicación más reciente: <strong>${date}</strong>`;
+            cutoff.hidden = false;
+        }
         if (!statsMinimal || heroSection?.classList.contains('hidden')) return;
         statsMinimal.classList.remove('hidden', 'opacity-0');
         void renderSearchLanding(statsMinimal, {
@@ -2857,6 +2874,8 @@ export function initUI() {
                 else if (target === 'buscar') { resetToHero(); searchInput?.focus(); }
             },
             onShortcuts: () => showKeyboardHelp(),
+            onTour: () => startWelcomeTour(),
+            onFeedback: () => openFeedback({ context: 'Ayuda' }),
         });
         window.scrollTo({ top: 0, behavior: 'instant' });
     }

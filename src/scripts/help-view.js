@@ -31,12 +31,13 @@ const FAQ = [
 ];
 
 /** Plain-language guide to the site. Navigation stays with the app through onGo. */
-export function renderHelpView(container, { onGo = () => {}, onShortcuts = () => {} } = {}) {
+export function renderHelpView(container, { onGo = () => {}, onShortcuts = () => {}, onTour = () => {}, onFeedback = () => {} } = {}) {
     container.innerHTML = `<section class="hp-view" aria-labelledby="hp-title">
         <header class="hp-head">
             <p class="hp-eyebrow">Ayuda</p>
             <h1 id="hp-title">Cómo usar el buscador</h1>
             <p class="hp-intro">Todo lo necesario para encontrar, leer y guardar la normativa del sector energético, en pocos pasos.</p>
+            <div class="hp-head-actions"><button type="button" class="hp-head-btn" data-tour>Ver el recorrido de bienvenida</button><button type="button" class="hp-head-btn hp-head-btn-ghost" data-feedback-help>Enviar comentario</button></div>
         </header>
 
         <h2 class="hp-h2">Para empezar</h2>
@@ -79,5 +80,7 @@ export function renderHelpView(container, { onGo = () => {}, onShortcuts = () =>
         const go = event.target.closest('[data-go]');
         if (go) onGo(go.dataset.go);
         if (event.target.closest('[data-shortcuts]')) onShortcuts();
+        if (event.target.closest('[data-tour]')) onTour();
+        if (event.target.closest('[data-feedback-help]')) onFeedback();
     });
 }
