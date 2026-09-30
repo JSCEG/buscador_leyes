@@ -8,6 +8,7 @@ const reviewedDofPdfs = new Set([
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22122025-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=17102025-VES.pdf&repo=',
     'https://sidof.segob.gob.mx/notas/getNewsletter/17-04-2025/Matutina/320604',
+    'https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685',
 ]);
 
 function problem(status, code) {

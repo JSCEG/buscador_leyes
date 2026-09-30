@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 25,
-  "verifiedAt": "2026-09-30T17:00:05.851504+00:00",
+  "revision": 26,
+  "verifiedAt": "2026-09-30T23:47:44.975Z",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -11049,6 +11049,1538 @@
       },
       {
         "number": 298,
+        "width": 612,
+        "height": 792
+      }
+    ]
+  },
+    "dacg-cogeneracion-aa23e284c9c9": {
+    "id": "dacg-cogeneracion-aa23e284c9c9",
+    "title": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones Administrativas de Carácter General para la generación de energía eléctrica en la modalidad de Cogeneración",
+    "lawId": "bb8c115e-4ccf-570d-9a06-d405aac070a2",
+    "sha256": "aa23e284c9c97542a96c8db5278f4694f38d0ad1f07b2081b6f0db268a93cba4",
+    "transport": "remote-pdf",
+    "pdfUrl": "/api/reader/dacg-cogeneracion-aa23e284c9c9",
+    "originalUrl": "https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685",
+    "pageCount": 304,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 2,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 3,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 4,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 5,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 6,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 7,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 8,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 9,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 10,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 11,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 12,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 13,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 14,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 15,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 16,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 17,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 18,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 19,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 20,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 21,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 22,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 23,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 24,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 25,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 26,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 27,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 28,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 29,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 30,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 31,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 32,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 33,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 34,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 35,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 36,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 37,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 38,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 39,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 40,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 41,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 42,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 43,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 44,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 45,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 46,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 47,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 48,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 49,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 50,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 51,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 52,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 53,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 54,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 55,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 56,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 57,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 58,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 59,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 60,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 61,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 62,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 63,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 64,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 65,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 66,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 67,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 68,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 69,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 70,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 71,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 72,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 73,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 74,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 75,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 76,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 77,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 78,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 79,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 80,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 81,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 82,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 83,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 84,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 85,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 86,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 87,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 88,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 89,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 90,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 91,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 92,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 93,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 94,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 95,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 96,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 97,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 98,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 99,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 100,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 101,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 102,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 103,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 104,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 105,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 106,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 107,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 108,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 109,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 110,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 111,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 112,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 113,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 114,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 115,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 116,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 117,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 118,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 119,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 120,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 121,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 122,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 123,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 124,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 125,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 126,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 127,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 128,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 129,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 130,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 131,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 132,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 133,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 134,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 135,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 136,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 137,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 138,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 139,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 140,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 141,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 142,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 143,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 144,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 145,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 146,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 147,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 148,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 149,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 150,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 151,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 152,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 153,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 154,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 155,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 156,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 157,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 158,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 159,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 160,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 161,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 162,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 163,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 164,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 165,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 166,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 167,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 168,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 169,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 170,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 171,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 172,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 173,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 174,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 175,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 176,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 177,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 178,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 179,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 180,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 181,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 182,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 183,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 184,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 185,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 186,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 187,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 188,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 189,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 190,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 191,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 192,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 193,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 194,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 195,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 196,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 197,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 198,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 199,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 200,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 201,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 202,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 203,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 204,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 205,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 206,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 207,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 208,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 209,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 210,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 211,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 212,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 213,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 214,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 215,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 216,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 217,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 218,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 219,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 220,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 221,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 222,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 223,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 224,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 225,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 226,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 227,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 228,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 229,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 230,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 231,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 232,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 233,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 234,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 235,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 236,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 237,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 238,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 239,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 240,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 241,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 242,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 243,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 244,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 245,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 246,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 247,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 248,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 249,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 250,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 251,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 252,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 253,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 254,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 255,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 256,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 257,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 258,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 259,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 260,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 261,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 262,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 263,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 264,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 265,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 266,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 267,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 268,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 269,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 270,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 271,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 272,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 273,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 274,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 275,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 276,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 277,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 278,
+        "width": 792,
+        "height": 612
+      },
+      {
+        "number": 279,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 280,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 281,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 282,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 283,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 284,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 285,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 286,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 287,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 288,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 289,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 290,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 291,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 292,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 293,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 294,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 295,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 296,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 297,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 298,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 299,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 300,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 301,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 302,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 303,
+        "width": 612,
+        "height": 792
+      },
+      {
+        "number": 304,
         "width": 612,
         "height": 792
       }
@@ -471023,6 +472555,5564 @@
           715.5419921875,
           287.5609130859375,
           725.5859985351562
+        ]
+      }
+    ]
+  },
+    "26acdda7-7b21-53ee-aa05-f373c50b27ee": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Preámbulo del acuerdo",
+    "type": "preambulo",
+    "contentSha256": "90c2f0bca51c3a817d0351ac2e02fad7a3c53459fb91b575f6ea87da006e94bb",
+    "pageNumbers": [
+      27,
+      28
+    ],
+    "anchors": [
+      {
+        "page": 27,
+        "lineId": 0,
+        "bbox": [
+          84.95999908447266,
+          57.92087936401367,
+          529.2899780273438,
+          67.88388061523438
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 1,
+        "bbox": [
+          84.95999145507812,
+          68.29789733886719,
+          437.94793701171875,
+          78.26089477539062
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 2,
+        "bbox": [
+          84.95999908447266,
+          84.2550277709961,
+          529.4495849609375,
+          94.29902648925781
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 3,
+        "bbox": [
+          84.95999908447266,
+          94.5749740600586,
+          134.00279235839844,
+          104.61897277832031
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 4,
+        "bbox": [
+          99.36000061035156,
+          110.53194427490234,
+          529.4808959960938,
+          120.57594299316406
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 5,
+        "bbox": [
+          84.95997619628906,
+          121.5749740600586,
+          529.4689331054688,
+          131.6189727783203
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 6,
+        "bbox": [
+          84.95999145507812,
+          132.6179962158203,
+          529.6124877929688,
+          142.66200256347656
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 7,
+        "bbox": [
+          84.95999145507812,
+          143.66102600097656,
+          529.4664306640625,
+          153.7050323486328
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 8,
+        "bbox": [
+          84.95999145507812,
+          154.7580108642578,
+          529.6603393554688,
+          164.80201721191406
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 9,
+        "bbox": [
+          84.96000671386719,
+          165.80104064941406,
+          529.5339965820312,
+          175.8450469970703
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 10,
+        "bbox": [
+          84.95999145507812,
+          176.8440704345703,
+          529.4791259765625,
+          186.88807678222656
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 11,
+        "bbox": [
+          84.95999145507812,
+          187.88710021972656,
+          529.4647216796875,
+          197.9311065673828
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 12,
+        "bbox": [
+          84.95999145507812,
+          198.9301300048828,
+          529.518798828125,
+          208.97413635253906
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 13,
+        "bbox": [
+          84.95999145507812,
+          209.97315979003906,
+          529.4932861328125,
+          220.0171661376953
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 14,
+        "bbox": [
+          84.95999145507812,
+          221.0701446533203,
+          529.5069580078125,
+          231.11415100097656
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 15,
+        "bbox": [
+          84.96000671386719,
+          232.11317443847656,
+          529.4979248046875,
+          242.1571807861328
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 16,
+        "bbox": [
+          84.96000671386719,
+          243.1562042236328,
+          369.701904296875,
+          253.20021057128906
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 17,
+        "bbox": [
+          268.9830322265625,
+          259.3652038574219,
+          345.1842956542969,
+          269.3282165527344
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 18,
+        "bbox": [
+          99.36003112792969,
+          275.376220703125,
+          529.3134155273438,
+          285.4201965332031
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 19,
+        "bbox": [
+          84.96002960205078,
+          286.4192199707031,
+          529.4627685546875,
+          296.46319580078125
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 20,
+        "bbox": [
+          84.96002197265625,
+          297.46221923828125,
+          529.7203979492188,
+          307.5061950683594
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 21,
+        "bbox": [
+          84.96002197265625,
+          308.5052185058594,
+          148.98777770996094,
+          318.5491943359375
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 22,
+        "bbox": [
+          99.36002349853516,
+          324.5882263183594,
+          529.4797973632812,
+          334.6322021484375
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 23,
+        "bbox": [
+          84.96002197265625,
+          335.6852111816406,
+          529.5457153320312,
+          345.72918701171875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 24,
+        "bbox": [
+          84.96003723144531,
+          346.72821044921875,
+          529.4464721679688,
+          356.7721862792969
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 25,
+        "bbox": [
+          84.96003723144531,
+          357.7712097167969,
+          529.4387817382812,
+          367.815185546875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 26,
+        "bbox": [
+          84.96003723144531,
+          368.814208984375,
+          529.4943237304688,
+          378.8581848144531
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 27,
+        "bbox": [
+          84.96003723144531,
+          379.8572082519531,
+          251.05496215820312,
+          389.90118408203125
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 28,
+        "bbox": [
+          99.36003875732422,
+          395.99420166015625,
+          529.5087280273438,
+          406.0381774902344
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 29,
+        "bbox": [
+          84.96003723144531,
+          407.0372009277344,
+          529.455810546875,
+          417.0811767578125
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 30,
+        "bbox": [
+          84.96005249023438,
+          418.0802001953125,
+          529.49072265625,
+          428.1241760253906
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 31,
+        "bbox": [
+          84.96005249023438,
+          429.1231994628906,
+          164.4804229736328,
+          439.16717529296875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 32,
+        "bbox": [
+          99.36005401611328,
+          445.2062072753906,
+          529.5153198242188,
+          455.25018310546875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 33,
+        "bbox": [
+          84.96006774902344,
+          456.3031921386719,
+          529.4664306640625,
+          466.34716796875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 34,
+        "bbox": [
+          84.96006774902344,
+          467.34619140625,
+          529.4953002929688,
+          477.3901672363281
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 35,
+        "bbox": [
+          84.96005249023438,
+          478.3891906738281,
+          529.4691772460938,
+          488.43316650390625
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 36,
+        "bbox": [
+          84.96005249023438,
+          489.43218994140625,
+          529.5430297851562,
+          499.4761657714844
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 37,
+        "bbox": [
+          84.96005249023438,
+          500.4751892089844,
+          529.5241088867188,
+          510.5191650390625
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 38,
+        "bbox": [
+          84.96005249023438,
+          511.5182189941406,
+          529.4735717773438,
+          521.5621948242188
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 39,
+        "bbox": [
+          84.96003723144531,
+          522.6151733398438,
+          529.4600830078125,
+          532.6591796875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 40,
+        "bbox": [
+          84.96002197265625,
+          533.658203125,
+          306.1150207519531,
+          543.7022094726562
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 41,
+        "bbox": [
+          99.36002349853516,
+          549.7412109375,
+          529.4422607421875,
+          559.7852172851562
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 42,
+        "bbox": [
+          84.96002197265625,
+          560.7841796875,
+          529.4890747070312,
+          570.8281860351562
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 43,
+        "bbox": [
+          84.96002197265625,
+          571.8271484375,
+          529.4683227539062,
+          581.8711547851562
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 44,
+        "bbox": [
+          84.96002197265625,
+          582.9241943359375,
+          529.4953002929688,
+          592.9682006835938
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 45,
+        "bbox": [
+          84.96002197265625,
+          593.9671630859375,
+          289.1447448730469,
+          604.0111694335938
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 46,
+        "bbox": [
+          99.36002349853516,
+          610.0501708984375,
+          529.5166625976562,
+          620.0941772460938
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 47,
+        "bbox": [
+          84.96002197265625,
+          621.0931396484375,
+          529.4649047851562,
+          631.1371459960938
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 48,
+        "bbox": [
+          84.96002197265625,
+          632.1361694335938,
+          529.5133666992188,
+          642.18017578125
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 49,
+        "bbox": [
+          84.95101928710938,
+          643.233154296875,
+          529.408935546875,
+          653.2771606445312
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 50,
+        "bbox": [
+          84.95101928710938,
+          654.2761840820312,
+          194.98403930664062,
+          664.3201904296875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 51,
+        "bbox": [
+          99.35102081298828,
+          670.3591918945312,
+          529.4429931640625,
+          680.4031982421875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 52,
+        "bbox": [
+          84.95101928710938,
+          681.4021606445312,
+          529.5087890625,
+          691.4461669921875
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 53,
+        "bbox": [
+          84.95101928710938,
+          692.4451904296875,
+          529.4862060546875,
+          702.4891967773438
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 54,
+        "bbox": [
+          84.9510498046875,
+          703.5421752929688,
+          529.4529418945312,
+          713.586181640625
+        ]
+      },
+      {
+        "page": 27,
+        "lineId": 55,
+        "bbox": [
+          84.9510498046875,
+          714.5851440429688,
+          333.1169738769531,
+          724.629150390625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 56,
+        "bbox": [
+          99.36000061035156,
+          58.09498977661133,
+          529.5086059570312,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 57,
+        "bbox": [
+          84.96000671386719,
+          68.89498138427734,
+          529.4814453125,
+          78.93898010253906
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 58,
+        "bbox": [
+          84.95999145507812,
+          79.6949691772461,
+          529.4500122070312,
+          89.73896789550781
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 59,
+        "bbox": [
+          84.95999145507812,
+          90.49495697021484,
+          262.517333984375,
+          100.53895568847656
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 60,
+        "bbox": [
+          99.35999298095703,
+          102.9779281616211,
+          529.5119018554688,
+          113.02192687988281
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 61,
+        "bbox": [
+          84.95999145507812,
+          113.77791595458984,
+          529.4270629882812,
+          123.82191467285156
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 62,
+        "bbox": [
+          84.96000671386719,
+          124.5779037475586,
+          529.4097900390625,
+          134.6219024658203
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 63,
+        "bbox": [
+          84.96000671386719,
+          135.3778839111328,
+          529.4845581054688,
+          145.42189025878906
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 64,
+        "bbox": [
+          84.96002197265625,
+          146.17787170410156,
+          529.4683227539062,
+          156.2218780517578
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 65,
+        "bbox": [
+          84.96000671386719,
+          156.9778594970703,
+          376.0270690917969,
+          167.02186584472656
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 66,
+        "bbox": [
+          99.3600082397461,
+          169.5148468017578,
+          529.458251953125,
+          179.55885314941406
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 67,
+        "bbox": [
+          84.96000671386719,
+          180.31483459472656,
+          529.5311889648438,
+          190.3588409423828
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 68,
+        "bbox": [
+          84.96000671386719,
+          191.1148223876953,
+          293.1208801269531,
+          201.15882873535156
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 69,
+        "bbox": [
+          99.3600082397461,
+          203.59779357910156,
+          529.48095703125,
+          213.6417999267578
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 70,
+        "bbox": [
+          84.96000671386719,
+          214.3977813720703,
+          316.14300537109375,
+          224.44178771972656
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 71,
+        "bbox": [
+          99.36001586914062,
+          226.88075256347656,
+          529.48193359375,
+          236.9247589111328
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 72,
+        "bbox": [
+          84.96000671386719,
+          237.6807403564453,
+          278.4977722167969,
+          247.72474670410156
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 73,
+        "bbox": [
+          99.3600082397461,
+          250.2177276611328,
+          529.570556640625,
+          260.26171875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 74,
+        "bbox": [
+          84.96002197265625,
+          261.0177307128906,
+          246.9932403564453,
+          271.06170654296875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 75,
+        "bbox": [
+          99.36002349853516,
+          273.500732421875,
+          529.4655151367188,
+          283.5447082519531
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 76,
+        "bbox": [
+          84.96002197265625,
+          284.30072021484375,
+          131.4927215576172,
+          294.3446960449219
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 77,
+        "bbox": [
+          99.36002349853516,
+          296.7837219238281,
+          529.497314453125,
+          306.82769775390625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 78,
+        "bbox": [
+          84.96002197265625,
+          307.5837097167969,
+          529.497802734375,
+          317.627685546875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 79,
+        "bbox": [
+          84.96002197265625,
+          318.3836975097656,
+          529.5032348632812,
+          328.42767333984375
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 80,
+        "bbox": [
+          84.96002197265625,
+          329.1836853027344,
+          529.5114135742188,
+          339.2276611328125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 81,
+        "bbox": [
+          84.96002197265625,
+          339.9836730957031,
+          226.00428771972656,
+          350.02764892578125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 82,
+        "bbox": [
+          99.36002349853516,
+          352.5206604003906,
+          529.419677734375,
+          362.56463623046875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 83,
+        "bbox": [
+          84.96002197265625,
+          363.3206481933594,
+          529.4697265625,
+          373.3646240234375
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 84,
+        "bbox": [
+          84.96002197265625,
+          374.1206359863281,
+          529.4540405273438,
+          384.16461181640625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 85,
+        "bbox": [
+          84.96003723144531,
+          384.9206237792969,
+          436.2336730957031,
+          394.964599609375
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 86,
+        "bbox": [
+          99.36003875732422,
+          397.40362548828125,
+          529.4933471679688,
+          407.4476013183594
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 87,
+        "bbox": [
+          84.96003723144531,
+          408.20361328125,
+          529.4586181640625,
+          418.2475891113281
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 88,
+        "bbox": [
+          84.96003723144531,
+          419.00360107421875,
+          529.4763793945312,
+          429.0475769042969
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 89,
+        "bbox": [
+          84.96002197265625,
+          429.8035888671875,
+          529.3845825195312,
+          439.8475646972656
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 90,
+        "bbox": [
+          84.96002197265625,
+          440.60357666015625,
+          529.4880981445312,
+          450.6475524902344
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 91,
+        "bbox": [
+          84.96003723144531,
+          451.403564453125,
+          446.7456359863281,
+          461.4475402832031
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 92,
+        "bbox": [
+          99.36003875732422,
+          463.8865661621094,
+          529.658203125,
+          473.9305419921875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 93,
+        "bbox": [
+          84.96003723144531,
+          474.6865539550781,
+          529.4808959960938,
+          484.73052978515625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 94,
+        "bbox": [
+          84.96002197265625,
+          485.4865417480469,
+          123.474609375,
+          495.530517578125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 95,
+        "bbox": [
+          99.36002349853516,
+          498.0235290527344,
+          529.417236328125,
+          508.0675048828125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 96,
+        "bbox": [
+          84.96002197265625,
+          508.8235168457031,
+          529.4386596679688,
+          518.8674926757812
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 97,
+        "bbox": [
+          84.96002197265625,
+          519.6234741210938,
+          529.4651489257812,
+          529.66748046875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 98,
+        "bbox": [
+          84.96002197265625,
+          530.4234619140625,
+          529.3406372070312,
+          540.4674682617188
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 99,
+        "bbox": [
+          84.96002197265625,
+          541.2235107421875,
+          529.5113525390625,
+          551.2675170898438
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 100,
+        "bbox": [
+          84.96003723144531,
+          552.0234985351562,
+          135.525634765625,
+          562.0675048828125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 101,
+        "bbox": [
+          124.02003479003906,
+          568.1065063476562,
+          492.4478759765625,
+          578.0694580078125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 102,
+        "bbox": [
+          115.8570327758789,
+          578.9695434570312,
+          500.5998840332031,
+          588.9324951171875
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 103,
+        "bbox": [
+          158.8770294189453,
+          589.76953125,
+          455.4415283203125,
+          599.7324829101562
+        ]
+      }
+    ]
+  },
+    "c84a7039-3988-558d-ab9a-9b6978054548": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Artículo Único · Expedición de las DACG",
+    "type": "ordinario",
+    "contentSha256": "e83ee43ffe9c83d07e0b5e79e61724737a4ae6619c46d94ee92f08258bfa7690",
+    "pageNumbers": [
+      28
+    ],
+    "anchors": [
+      {
+        "page": 28,
+        "lineId": 104,
+        "bbox": [
+          99.36003112792969,
+          601.9464721679688,
+          529.565673828125,
+          611.990478515625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 105,
+        "bbox": [
+          84.96005249023438,
+          612.7464599609375,
+          519.65576171875,
+          622.7904663085938
+        ]
+      }
+    ]
+  },
+    "b338ef2c-4fa2-5260-b107-b35a03fe5d14": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 1.1",
+    "type": "ordinario",
+    "contentSha256": "17dc3b32ffa6141f991fb03e4110065d8b0af657f327f45944896c8c79ab589a",
+    "pageNumbers": [
+      28
+    ],
+    "anchors": [
+      {
+        "page": 28,
+        "lineId": 106,
+        "bbox": [
+          117.54005432128906,
+          625.2835083007812,
+          499.5730285644531,
+          635.3275146484375
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 107,
+        "bbox": [
+          161.52305603027344,
+          636.08349609375,
+          453.01422119140625,
+          646.1275024414062
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 108,
+        "bbox": [
+          285.48004150390625,
+          648.5665283203125,
+          328.96002197265625,
+          658.6105346679688
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 109,
+        "bbox": [
+          252.47703552246094,
+          661.0494995117188,
+          361.99609375,
+          671.093505859375
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 110,
+        "bbox": [
+          99.36003112792969,
+          673.5864868164062,
+          116.86322021484375,
+          683.6304931640625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 111,
+        "bbox": [
+          124.56002807617188,
+          673.5864868164062,
+          529.49267578125,
+          683.6304931640625
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 112,
+        "bbox": [
+          124.56002807617188,
+          684.386474609375,
+          529.467529296875,
+          694.4304809570312
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 113,
+        "bbox": [
+          124.56001281738281,
+          695.1865234375,
+          532.063720703125,
+          705.2305297851562
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 114,
+        "bbox": [
+          124.55999755859375,
+          705.9865112304688,
+          529.461669921875,
+          716.030517578125
+        ]
+      },
+      {
+        "page": 28,
+        "lineId": 115,
+        "bbox": [
+          124.55999755859375,
+          716.7864990234375,
+          227.1104278564453,
+          726.8305053710938
+        ]
+      }
+    ]
+  },
+    "59e5ef97-bf14-5d5d-a38a-9460a219a8d1": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 1.2",
+    "type": "ordinario",
+    "contentSha256": "96bb2307fed5205e9e310ecbf3389f433b9a38e68dcc797358efe757169a88af",
+    "pageNumbers": [
+      29
+    ],
+    "anchors": [
+      {
+        "page": 29,
+        "lineId": 116,
+        "bbox": [
+          99.36000061035156,
+          58.09498977661133,
+          116.86318969726562,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 117,
+        "bbox": [
+          124.55999755859375,
+          58.09498977661133,
+          529.4765014648438,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 118,
+        "bbox": [
+          124.55999755859375,
+          68.95796966552734,
+          529.4917602539062,
+          79.00196838378906
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 119,
+        "bbox": [
+          124.55999755859375,
+          79.8209457397461,
+          529.4610595703125,
+          89.86494445800781
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 120,
+        "bbox": [
+          124.55998229980469,
+          90.7379379272461,
+          242.1324462890625,
+          100.78193664550781
+        ]
+      }
+    ]
+  },
+    "2b3490b2-1700-5ba0-98b7-5a4dabd317c3": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 1.3",
+    "type": "ordinario",
+    "contentSha256": "63f1b27a26bb4c6685c5932dcab5ca4bf1316387b91381b15865530615a79d43",
+    "pageNumbers": [
+      29
+    ],
+    "anchors": [
+      {
+        "page": 29,
+        "lineId": 121,
+        "bbox": [
+          99.3599853515625,
+          106.57796478271484,
+          116.86498260498047,
+          116.62196350097656
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 122,
+        "bbox": [
+          124.56178283691406,
+          106.57796478271484,
+          529.4896850585938,
+          116.62196350097656
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 123,
+        "bbox": [
+          124.55998229980469,
+          117.3779525756836,
+          529.484619140625,
+          127.42195129394531
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 124,
+        "bbox": [
+          124.55998229980469,
+          128.29493713378906,
+          391.18499755859375,
+          138.3389434814453
+        ]
+      }
+    ]
+  },
+    "164e4ecb-8291-5a6d-a5c3-ebf335b55593": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 1.4",
+    "type": "ordinario",
+    "contentSha256": "29005fe77949d6af7b5245eeaa3c799a485cad8908996b5be52d818d888f6301",
+    "pageNumbers": [
+      29,
+      30
+    ],
+    "anchors": [
+      {
+        "page": 29,
+        "lineId": 125,
+        "bbox": [
+          99.3599853515625,
+          144.1349639892578,
+          116.86498260498047,
+          154.17897033691406
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 126,
+        "bbox": [
+          124.56718444824219,
+          144.1349639892578,
+          529.5330200195312,
+          154.17897033691406
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 127,
+        "bbox": [
+          124.55998229980469,
+          154.99794006347656,
+          529.5439453125,
+          165.0419464111328
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 128,
+        "bbox": [
+          124.55998229980469,
+          165.8609161376953,
+          529.5079345703125,
+          175.90492248535156
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 129,
+        "bbox": [
+          124.55996704101562,
+          176.7779083251953,
+          193.06248474121094,
+          186.82191467285156
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 130,
+        "bbox": [
+          125.27996826171875,
+          192.61793518066406,
+          132.76437377929688,
+          202.6619415283203
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 131,
+        "bbox": [
+          161.4635772705078,
+          192.61793518066406,
+          529.5231323242188,
+          202.6619415283203
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 132,
+        "bbox": [
+          161.45997619628906,
+          203.4809112548828,
+          529.4683227539062,
+          213.52491760253906
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 133,
+        "bbox": [
+          161.45997619628906,
+          214.28089904785156,
+          529.5465698242188,
+          224.3249053955078
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 134,
+        "bbox": [
+          161.45997619628906,
+          225.1438751220703,
+          529.4170532226562,
+          235.18788146972656
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 135,
+        "bbox": [
+          161.45997619628906,
+          236.0608673095703,
+          357.61865234375,
+          246.10487365722656
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 136,
+        "bbox": [
+          125.27997589111328,
+          251.90089416503906,
+          135.27447509765625,
+          261.94488525390625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 137,
+        "bbox": [
+          161.45367431640625,
+          251.90089416503906,
+          529.4678344726562,
+          261.94488525390625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 138,
+        "bbox": [
+          161.45997619628906,
+          262.8179016113281,
+          450.1475524902344,
+          272.86187744140625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 139,
+        "bbox": [
+          125.27997589111328,
+          278.65789794921875,
+          137.74317932128906,
+          288.7018737792969
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 140,
+        "bbox": [
+          161.39968872070312,
+          278.65789794921875,
+          529.5088500976562,
+          288.7018737792969
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 141,
+        "bbox": [
+          161.45997619628906,
+          289.5209045410156,
+          529.5005493164062,
+          299.56488037109375
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 142,
+        "bbox": [
+          161.45997619628906,
+          300.4378967285156,
+          235.03233337402344,
+          310.48187255859375
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 143,
+        "bbox": [
+          125.27997589111328,
+          316.27789306640625,
+          138.76467895507812,
+          326.3218688964844
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 144,
+        "bbox": [
+          161.4644775390625,
+          316.27789306640625,
+          529.493408203125,
+          326.3218688964844
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 145,
+        "bbox": [
+          161.45994567871094,
+          327.077880859375,
+          529.5059204101562,
+          337.1218566894531
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 146,
+        "bbox": [
+          161.45993041992188,
+          337.994873046875,
+          479.6684875488281,
+          348.0388488769531
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 147,
+        "bbox": [
+          125.2799301147461,
+          353.8348693847656,
+          136.30313110351562,
+          363.87884521484375
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 148,
+        "bbox": [
+          161.46263122558594,
+          353.8348693847656,
+          529.484375,
+          363.87884521484375
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 149,
+        "bbox": [
+          161.45993041992188,
+          364.6978759765625,
+          529.4771728515625,
+          374.7418518066406
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 150,
+        "bbox": [
+          161.45993041992188,
+          375.6148681640625,
+          522.0322875976562,
+          385.6588439941406
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 151,
+        "bbox": [
+          125.2799301147461,
+          391.4548645019531,
+          138.767333984375,
+          401.49884033203125
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 152,
+        "bbox": [
+          161.46713256835938,
+          391.4548645019531,
+          529.4968872070312,
+          401.49884033203125
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 153,
+        "bbox": [
+          161.45993041992188,
+          402.31787109375,
+          529.528564453125,
+          412.3618469238281
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 154,
+        "bbox": [
+          161.45993041992188,
+          413.23486328125,
+          347.9903564453125,
+          423.2788391113281
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 155,
+        "bbox": [
+          125.2799301147461,
+          429.1378479003906,
+          141.2747344970703,
+          439.18182373046875
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 156,
+        "bbox": [
+          161.45452880859375,
+          429.1378479003906,
+          334.5299377441406,
+          439.18182373046875
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 157,
+        "bbox": [
+          125.27993774414062,
+          444.97784423828125,
+          143.7659454345703,
+          455.0218200683594
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 158,
+        "bbox": [
+          161.42575073242188,
+          444.97784423828125,
+          529.4786987304688,
+          455.0218200683594
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 159,
+        "bbox": [
+          161.45993041992188,
+          455.77783203125,
+          529.457275390625,
+          465.8218078613281
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 160,
+        "bbox": [
+          161.45993041992188,
+          466.69482421875,
+          299.8034973144531,
+          476.7389831542969
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 161,
+        "bbox": [
+          125.27999877929688,
+          482.5350036621094,
+          138.76199340820312,
+          492.5789794921875
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 162,
+        "bbox": [
+          161.45999145507812,
+          482.5350036621094,
+          529.5042114257812,
+          492.5789794921875
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 163,
+        "bbox": [
+          161.45999145507812,
+          493.39801025390625,
+          529.4944458007812,
+          503.4419860839844
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 164,
+        "bbox": [
+          161.45997619628906,
+          504.2610168457031,
+          529.47021484375,
+          514.3049926757812
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 165,
+        "bbox": [
+          161.45997619628906,
+          515.177978515625,
+          330.1398010253906,
+          525.2219848632812
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 166,
+        "bbox": [
+          125.27997589111328,
+          531.0179443359375,
+          136.2671661376953,
+          541.0619506835938
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 167,
+        "bbox": [
+          161.42666625976562,
+          531.0179443359375,
+          529.4900512695312,
+          541.0619506835938
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 168,
+        "bbox": [
+          161.45999145507812,
+          541.8809814453125,
+          529.4768676757812,
+          551.9249877929688
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 169,
+        "bbox": [
+          161.45999145507812,
+          552.73486328125,
+          511.9034118652344,
+          562.7880249023438
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 170,
+        "bbox": [
+          125.27688598632812,
+          568.5748901367188,
+          138.76158142089844,
+          578.618896484375
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 171,
+        "bbox": [
+          161.4613800048828,
+          568.5748901367188,
+          529.4374389648438,
+          578.618896484375
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 172,
+        "bbox": [
+          161.45687866210938,
+          579.4378662109375,
+          529.4892578125,
+          589.4818725585938
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 173,
+        "bbox": [
+          161.45687866210938,
+          590.3548583984375,
+          382.5373840332031,
+          602.37890625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 174,
+        "bbox": [
+          125.27687072753906,
+          606.1948852539062,
+          141.2500762939453,
+          616.2388916015625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 175,
+        "bbox": [
+          161.42987060546875,
+          606.1948852539062,
+          529.4715576171875,
+          616.2388916015625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 176,
+        "bbox": [
+          161.45687866210938,
+          617.1118774414062,
+          429.6009216308594,
+          627.1558837890625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 177,
+        "bbox": [
+          125.2768783569336,
+          632.951904296875,
+          143.78538513183594,
+          642.9959106445312
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 178,
+        "bbox": [
+          161.4451904296875,
+          632.951904296875,
+          529.5247802734375,
+          642.9959106445312
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 179,
+        "bbox": [
+          161.45687866210938,
+          643.8148803710938,
+          529.4624633789062,
+          653.85888671875
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 180,
+        "bbox": [
+          161.45687866210938,
+          654.73193359375,
+          516.7140502929688,
+          664.7759399414062
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 181,
+        "bbox": [
+          125.2768783569336,
+          670.5718994140625,
+          144.749267578125,
+          680.6159057617188
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 182,
+        "bbox": [
+          161.4514617919922,
+          670.5718994140625,
+          529.4739990234375,
+          680.6159057617188
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 183,
+        "bbox": [
+          161.45687866210938,
+          681.3718872070312,
+          529.4848022460938,
+          691.4158935546875
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 184,
+        "bbox": [
+          161.45687866210938,
+          692.2349243164062,
+          529.4994506835938,
+          702.2789306640625
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 185,
+        "bbox": [
+          161.45687866210938,
+          703.097900390625,
+          529.4288940429688,
+          713.1419067382812
+        ]
+      },
+      {
+        "page": 29,
+        "lineId": 186,
+        "bbox": [
+          161.45687866210938,
+          714.014892578125,
+          328.4681091308594,
+          724.0588989257812
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 187,
+        "bbox": [
+          125.27999877929688,
+          58.33498001098633,
+          142.252197265625,
+          68.37898254394531
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 188,
+        "bbox": [
+          161.41139221191406,
+          58.33498001098633,
+          529.4666137695312,
+          68.37898254394531
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 189,
+        "bbox": [
+          161.45999145507812,
+          69.37801361083984,
+          495.7056579589844,
+          79.42201232910156
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 190,
+        "bbox": [
+          125.27998352050781,
+          85.5150375366211,
+          144.7559814453125,
+          95.55903625488281
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 191,
+        "bbox": [
+          161.4581756591797,
+          85.5150375366211,
+          529.5032958984375,
+          95.55903625488281
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 192,
+        "bbox": [
+          161.45999145507812,
+          96.55806732177734,
+          529.5078125,
+          106.60206604003906
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 193,
+        "bbox": [
+          161.45997619628906,
+          107.6010971069336,
+          529.388916015625,
+          117.64509582519531
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 194,
+        "bbox": [
+          161.45997619628906,
+          118.64412689208984,
+          529.50146484375,
+          128.68812561035156
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 195,
+        "bbox": [
+          161.45997619628906,
+          129.68714904785156,
+          529.5231323242188,
+          139.7311553955078
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 196,
+        "bbox": [
+          161.45997619628906,
+          140.7301788330078,
+          529.4194946289062,
+          150.77418518066406
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 197,
+        "bbox": [
+          161.45997619628906,
+          151.82716369628906,
+          246.52529907226562,
+          161.8711700439453
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 198,
+        "bbox": [
+          125.27997589111328,
+          167.91017150878906,
+          147.2174530029297,
+          177.9541778564453
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 199,
+        "bbox": [
+          161.39694213867188,
+          167.91017150878906,
+          529.4969482421875,
+          177.9541778564453
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 200,
+        "bbox": [
+          161.45997619628906,
+          178.9532012939453,
+          529.407958984375,
+          188.99720764160156
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 201,
+        "bbox": [
+          161.45997619628906,
+          189.99623107910156,
+          529.5194091796875,
+          200.0402374267578
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 202,
+        "bbox": [
+          161.4599609375,
+          201.0392608642578,
+          529.4557495117188,
+          211.08326721191406
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 203,
+        "bbox": [
+          161.4599609375,
+          212.13624572753906,
+          501.6366271972656,
+          222.1802520751953
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 204,
+        "bbox": [
+          125.27996063232422,
+          228.21925354003906,
+          149.81216430664062,
+          238.2632598876953
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 205,
+        "bbox": [
+          161.47166442871094,
+          228.21925354003906,
+          365.524169921875,
+          238.2632598876953
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 206,
+        "bbox": [
+          125.27996063232422,
+          244.30226135253906,
+          144.78475952148438,
+          254.3462677001953
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 207,
+        "bbox": [
+          161.4842529296875,
+          244.30226135253906,
+          284.0318298339844,
+          254.3462677001953
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 208,
+        "bbox": [
+          125.27996063232422,
+          260.4393005371094,
+          142.29806518554688,
+          270.4832763671875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 209,
+        "bbox": [
+          161.45726013183594,
+          260.4393005371094,
+          306.44903564453125,
+          270.4832763671875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 210,
+        "bbox": [
+          125.27996063232422,
+          276.5223083496094,
+          144.75234985351562,
+          286.5662841796875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 211,
+        "bbox": [
+          161.45094299316406,
+          276.5223083496094,
+          529.459228515625,
+          286.5662841796875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 212,
+        "bbox": [
+          161.45994567871094,
+          287.5653076171875,
+          529.461669921875,
+          297.6092834472656
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 213,
+        "bbox": [
+          161.45994567871094,
+          298.6083068847656,
+          260.54083251953125,
+          308.65228271484375
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 214,
+        "bbox": [
+          125.27994537353516,
+          314.74530029296875,
+          147.28944396972656,
+          324.7892761230469
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 215,
+        "bbox": [
+          161.4689483642578,
+          314.74530029296875,
+          363.5989990234375,
+          324.7892761230469
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 216,
+        "bbox": [
+          125.27994537353516,
+          330.82830810546875,
+          149.77255249023438,
+          340.8722839355469
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 217,
+        "bbox": [
+          161.4320526123047,
+          330.82830810546875,
+          324.08544921875,
+          340.8722839355469
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 218,
+        "bbox": [
+          125.27994537353516,
+          346.91131591796875,
+          150.7679443359375,
+          356.9552917480469
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 219,
+        "bbox": [
+          161.46714782714844,
+          346.91131591796875,
+          308.499267578125,
+          356.9552917480469
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 220,
+        "bbox": [
+          125.27994537353516,
+          363.0483093261719,
+          148.30194091796875,
+          373.09228515625
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 221,
+        "bbox": [
+          161.27993774414062,
+          363.0483093261719,
+          529.46728515625,
+          373.09228515625
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 222,
+        "bbox": [
+          161.2799530029297,
+          374.09130859375,
+          529.4791870117188,
+          384.1352844238281
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 223,
+        "bbox": [
+          161.27996826171875,
+          385.1343078613281,
+          529.4808349609375,
+          395.17828369140625
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 224,
+        "bbox": [
+          161.2799835205078,
+          396.17730712890625,
+          529.4791870117188,
+          406.2212829589844
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 225,
+        "bbox": [
+          161.27999877929688,
+          407.2203063964844,
+          529.516845703125,
+          417.2642822265625
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 226,
+        "bbox": [
+          161.2799835205078,
+          418.2633056640625,
+          529.547607421875,
+          428.3072814941406
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 227,
+        "bbox": [
+          161.2799835205078,
+          429.3603210449219,
+          395.4265441894531,
+          439.404296875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 228,
+        "bbox": [
+          125.27998352050781,
+          445.4433288574219,
+          150.7589874267578,
+          455.4873046875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 229,
+        "bbox": [
+          161.45999145507812,
+          445.4433288574219,
+          297.52288818359375,
+          455.4873046875
+        ]
+      }
+    ]
+  },
+    "1fae9c81-fa89-54d4-9d9d-95708bae2ca6": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.1",
+    "type": "ordinario",
+    "contentSha256": "72304b2907199e403dd1e77ec6b9b13cd4901ea7cd2c4e8084bf796fe7e95eb4",
+    "pageNumbers": [
+      30,
+      31
+    ],
+    "anchors": [
+      {
+        "page": 30,
+        "lineId": 230,
+        "bbox": [
+          284.2200012207031,
+          461.5263366699219,
+          330.241455078125,
+          471.5703125
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 231,
+        "bbox": [
+          179.93701171875,
+          477.663330078125,
+          434.48638916015625,
+          487.7073059082031
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 232,
+        "bbox": [
+          99.3600082397461,
+          493.746337890625,
+          116.86500549316406,
+          503.7903137207031
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 233,
+        "bbox": [
+          124.56180572509766,
+          493.746337890625,
+          529.4539184570312,
+          503.7903137207031
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 234,
+        "bbox": [
+          124.56000518798828,
+          504.7893371582031,
+          529.5148315429688,
+          514.8333129882812
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 235,
+        "bbox": [
+          124.56001281738281,
+          515.832275390625,
+          529.4755859375,
+          525.8762817382812
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 236,
+        "bbox": [
+          124.56002807617188,
+          526.8753051757812,
+          529.5062866210938,
+          536.9193115234375
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 237,
+        "bbox": [
+          124.56001281738281,
+          537.9722900390625,
+          529.370361328125,
+          548.0162963867188
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 238,
+        "bbox": [
+          124.56001281738281,
+          549.0153198242188,
+          304.6805419921875,
+          559.059326171875
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 239,
+        "bbox": [
+          125.28001403808594,
+          565.0982666015625,
+          132.7626190185547,
+          575.1422729492188
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 240,
+        "bbox": [
+          161.28541564941406,
+          565.0982666015625,
+          529.5238647460938,
+          575.1422729492188
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 241,
+        "bbox": [
+          161.28001403808594,
+          576.1412963867188,
+          532.006103515625,
+          586.185302734375
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 242,
+        "bbox": [
+          161.280029296875,
+          587.184326171875,
+          529.5040893554688,
+          597.2283325195312
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 243,
+        "bbox": [
+          161.280029296875,
+          598.2813110351562,
+          529.4725952148438,
+          608.3253173828125
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 244,
+        "bbox": [
+          161.280029296875,
+          609.3242797851562,
+          529.5296630859375,
+          619.3682861328125
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 245,
+        "bbox": [
+          161.280029296875,
+          620.3673095703125,
+          529.4129638671875,
+          630.4113159179688
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 246,
+        "bbox": [
+          161.280029296875,
+          631.4102783203125,
+          255.30838012695312,
+          641.4542846679688
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 247,
+        "bbox": [
+          125.280029296875,
+          647.4932861328125,
+          135.25833129882812,
+          657.5372924804688
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 248,
+        "bbox": [
+          161.25482177734375,
+          647.4932861328125,
+          529.6021118164062,
+          657.5372924804688
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 249,
+        "bbox": [
+          161.280029296875,
+          658.5902709960938,
+          529.482666015625,
+          668.63427734375
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 250,
+        "bbox": [
+          161.28001403808594,
+          669.63330078125,
+          529.4825439453125,
+          679.6773071289062
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 251,
+        "bbox": [
+          161.28001403808594,
+          680.67626953125,
+          529.4783935546875,
+          690.7202758789062
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 252,
+        "bbox": [
+          161.28001403808594,
+          691.7192993164062,
+          529.40380859375,
+          701.7633056640625
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 253,
+        "bbox": [
+          161.28001403808594,
+          702.7622680664062,
+          529.4924926757812,
+          712.8062744140625
+        ]
+      },
+      {
+        "page": 30,
+        "lineId": 254,
+        "bbox": [
+          161.28001403808594,
+          713.8052978515625,
+          235.80174255371094,
+          723.8493041992188
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 255,
+        "bbox": [
+          124.56179809570312,
+          58.09498977661133,
+          529.484375,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 256,
+        "bbox": [
+          124.55999755859375,
+          68.89498138427734,
+          529.46923828125,
+          78.93898010253906
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 257,
+        "bbox": [
+          124.55999755859375,
+          79.6319808959961,
+          153.1079864501953,
+          89.67597961425781
+        ]
+      }
+    ]
+  },
+    "b4aca112-f33a-50a1-adf2-5b39707aecae": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.2",
+    "type": "ordinario",
+    "contentSha256": "c9f45e1fb47ebdd263fc24f43f8ae1da56555cc93bb41c5866a5fc49b23eb09c",
+    "pageNumbers": [
+      31
+    ],
+    "anchors": [
+      {
+        "page": 31,
+        "lineId": 258,
+        "bbox": [
+          99.36000061035156,
+          94.8149642944336,
+          116.86499786376953,
+          104.85896301269531
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 259,
+        "bbox": [
+          124.56450653076172,
+          94.8149642944336,
+          529.4970703125,
+          104.85896301269531
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 260,
+        "bbox": [
+          124.56002807617188,
+          105.61495208740234,
+          529.3485717773438,
+          115.65895080566406
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 261,
+        "bbox": [
+          124.56002807617188,
+          116.3519515991211,
+          283.1902770996094,
+          126.39595031738281
+        ]
+      }
+    ]
+  },
+    "dac45b24-2ba5-5fba-bf18-f45f8edca055": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.3",
+    "type": "ordinario",
+    "contentSha256": "7d7b7ebded54193f79ae7c8421a0b17eb08464a756b9a237e25a364dbfbaf534",
+    "pageNumbers": [
+      31
+    ],
+    "anchors": [
+      {
+        "page": 31,
+        "lineId": 262,
+        "bbox": [
+          99.36003112792969,
+          131.47193908691406,
+          116.86502838134766,
+          141.5159454345703
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 263,
+        "bbox": [
+          124.56182861328125,
+          131.47193908691406,
+          529.4520874023438,
+          141.5159454345703
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 264,
+        "bbox": [
+          124.56002807617188,
+          142.2719268798828,
+          529.4397583007812,
+          152.31593322753906
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 265,
+        "bbox": [
+          124.56002807617188,
+          153.00892639160156,
+          175.1372528076172,
+          163.0529327392578
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 266,
+        "bbox": [
+          125.280029296875,
+          168.19190979003906,
+          132.76443481445312,
+          178.2359161376953
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 267,
+        "bbox": [
+          161.28094482421875,
+          168.19190979003906,
+          529.5518798828125,
+          178.2359161376953
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 268,
+        "bbox": [
+          161.280029296875,
+          178.9918975830078,
+          529.4700317382812,
+          189.03590393066406
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 269,
+        "bbox": [
+          161.280029296875,
+          189.79188537597656,
+          529.4577026367188,
+          199.8358917236328
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 270,
+        "bbox": [
+          161.280029296875,
+          200.5918731689453,
+          529.4422607421875,
+          210.63587951660156
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 271,
+        "bbox": [
+          161.28004455566406,
+          211.39186096191406,
+          529.5050048828125,
+          221.4358673095703
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 272,
+        "bbox": [
+          161.28004455566406,
+          222.1288604736328,
+          519.0139770507812,
+          232.17286682128906
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 273,
+        "bbox": [
+          125.28004455566406,
+          237.3118438720703,
+          137.79815673828125,
+          247.35585021972656
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 274,
+        "bbox": [
+          161.274658203125,
+          237.3118438720703,
+          529.5285034179688,
+          247.35585021972656
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 275,
+        "bbox": [
+          161.28004455566406,
+          248.11183166503906,
+          529.5455932617188,
+          258.15582275390625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 276,
+        "bbox": [
+          161.280029296875,
+          258.9118347167969,
+          529.4498901367188,
+          268.955810546875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 277,
+        "bbox": [
+          161.280029296875,
+          269.7118225097656,
+          529.4627685546875,
+          279.75579833984375
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 278,
+        "bbox": [
+          161.280029296875,
+          280.4488220214844,
+          271.8377380371094,
+          290.4927978515625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 279,
+        "bbox": [
+          125.280029296875,
+          295.5688171386719,
+          140.26504516601562,
+          305.61279296875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 280,
+        "bbox": [
+          161.28726196289062,
+          295.5688171386719,
+          529.559814453125,
+          305.61279296875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 281,
+        "bbox": [
+          161.280029296875,
+          306.3688049316406,
+          529.529296875,
+          316.41278076171875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 282,
+        "bbox": [
+          161.280029296875,
+          317.1687927246094,
+          531.9466552734375,
+          327.2127685546875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 283,
+        "bbox": [
+          161.280029296875,
+          327.9687805175781,
+          529.5701293945312,
+          338.01275634765625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 284,
+        "bbox": [
+          161.280029296875,
+          338.7687683105469,
+          529.4747314453125,
+          348.812744140625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 285,
+        "bbox": [
+          161.280029296875,
+          349.5057678222656,
+          261.3455505371094,
+          359.54974365234375
+        ]
+      }
+    ]
+  },
+    "e138b258-9ec5-58b0-af89-e921b6bb222e": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.4",
+    "type": "ordinario",
+    "contentSha256": "33b71fc47d98a5003b527cbcad8360ecb9029027767302a3c6ebfa479b72a9e1",
+    "pageNumbers": [
+      31
+    ],
+    "anchors": [
+      {
+        "page": 31,
+        "lineId": 286,
+        "bbox": [
+          99.36003112792969,
+          364.68878173828125,
+          116.86502838134766,
+          374.7327575683594
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 287,
+        "bbox": [
+          124.56182861328125,
+          364.68878173828125,
+          529.453857421875,
+          374.7327575683594
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 288,
+        "bbox": [
+          124.56004333496094,
+          375.48876953125,
+          529.4285278320312,
+          385.5327453613281
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 289,
+        "bbox": [
+          124.56004333496094,
+          386.28875732421875,
+          529.5117797851562,
+          396.3327331542969
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 290,
+        "bbox": [
+          124.56005859375,
+          397.0887451171875,
+          529.392822265625,
+          407.1327209472656
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 291,
+        "bbox": [
+          124.56005859375,
+          407.88873291015625,
+          529.434814453125,
+          417.9327087402344
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 292,
+        "bbox": [
+          124.56005859375,
+          418.625732421875,
+          353.70989990234375,
+          428.6697082519531
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 293,
+        "bbox": [
+          125.28005981445312,
+          433.8087463378906,
+          132.7626495361328,
+          443.85272216796875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 294,
+        "bbox": [
+          161.28005981445312,
+          433.8087463378906,
+          529.4844360351562,
+          443.85272216796875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 295,
+        "bbox": [
+          161.28005981445312,
+          444.5457458496094,
+          342.3330383300781,
+          454.5897216796875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 296,
+        "bbox": [
+          125.28005981445312,
+          459.6027526855469,
+          135.28445434570312,
+          469.646728515625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 297,
+        "bbox": [
+          161.28005981445312,
+          459.6027526855469,
+          441.9143981933594,
+          469.646728515625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 298,
+        "bbox": [
+          125.28005981445312,
+          474.7227478027344,
+          137.80625915527344,
+          484.7667236328125
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 299,
+        "bbox": [
+          161.28005981445312,
+          474.7227478027344,
+          416.3760070800781,
+          484.7667236328125
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 300,
+        "bbox": [
+          125.28005981445312,
+          489.8427429199219,
+          138.76205444335938,
+          499.88671875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 301,
+        "bbox": [
+          161.28005981445312,
+          489.8427429199219,
+          395.8739929199219,
+          499.88671875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 302,
+        "bbox": [
+          125.28005981445312,
+          504.8997497558594,
+          136.3050537109375,
+          514.9437255859375
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 303,
+        "bbox": [
+          161.28005981445312,
+          504.8997497558594,
+          439.0372009277344,
+          514.9437255859375
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 304,
+        "bbox": [
+          125.28005981445312,
+          520.082763671875,
+          138.74044799804688,
+          530.1267700195312
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 305,
+        "bbox": [
+          161.28005981445312,
+          520.082763671875,
+          529.4466552734375,
+          530.1267700195312
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 306,
+        "bbox": [
+          161.2800750732422,
+          530.8197021484375,
+          229.32540893554688,
+          540.8637084960938
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 307,
+        "bbox": [
+          125.28007507324219,
+          546.0027465820312,
+          141.294677734375,
+          556.0467529296875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 308,
+        "bbox": [
+          161.2800750732422,
+          546.0027465820312,
+          529.4554443359375,
+          556.0467529296875
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 309,
+        "bbox": [
+          161.2800750732422,
+          556.802734375,
+          529.3902587890625,
+          566.8467407226562
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 310,
+        "bbox": [
+          161.2800750732422,
+          567.5397338867188,
+          352.40399169921875,
+          577.583740234375
+        ]
+      }
+    ]
+  },
+    "527d8789-ef18-5285-b709-cb0428986590": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.5",
+    "type": "ordinario",
+    "contentSha256": "6a95a364b586f11dc948d1d731468c170cdbff6b097f18f822e2a52b3c490755",
+    "pageNumbers": [
+      31
+    ],
+    "anchors": [
+      {
+        "page": 31,
+        "lineId": 311,
+        "bbox": [
+          99.36007690429688,
+          582.6597290039062,
+          116.86507415771484,
+          592.7037353515625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 312,
+        "bbox": [
+          124.56098175048828,
+          582.6597290039062,
+          529.36376953125,
+          592.7037353515625
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 313,
+        "bbox": [
+          124.56007385253906,
+          593.396728515625,
+          519.309326171875,
+          603.4407348632812
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 314,
+        "bbox": [
+          125.28007507324219,
+          608.5797119140625,
+          132.76266479492188,
+          618.6237182617188
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 315,
+        "bbox": [
+          161.2800750732422,
+          608.5797119140625,
+          529.4822998046875,
+          618.6237182617188
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 316,
+        "bbox": [
+          161.2800750732422,
+          619.3167114257812,
+          359.345703125,
+          629.3607177734375
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 317,
+        "bbox": [
+          125.28007507324219,
+          634.499755859375,
+          135.2844696044922,
+          644.5437622070312
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 318,
+        "bbox": [
+          161.2800750732422,
+          634.499755859375,
+          529.5115356445312,
+          644.5437622070312
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 319,
+        "bbox": [
+          161.28009033203125,
+          645.2997436523438,
+          529.4413452148438,
+          655.34375
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 320,
+        "bbox": [
+          161.28009033203125,
+          656.0997314453125,
+          529.5276489257812,
+          666.1437377929688
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 321,
+        "bbox": [
+          161.28009033203125,
+          666.8997192382812,
+          529.4952392578125,
+          676.9437255859375
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 322,
+        "bbox": [
+          161.2800750732422,
+          677.63671875,
+          290.9214782714844,
+          687.6807250976562
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 323,
+        "bbox": [
+          124.55828094482422,
+          692.7567138671875,
+          529.4627685546875,
+          702.8007202148438
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 324,
+        "bbox": [
+          124.56007385253906,
+          703.5567626953125,
+          529.449462890625,
+          713.6007690429688
+        ]
+      },
+      {
+        "page": 31,
+        "lineId": 325,
+        "bbox": [
+          124.56007385253906,
+          714.2937622070312,
+          332.2691955566406,
+          724.3377685546875
+        ]
+      }
+    ]
+  },
+    "f51fda18-db71-5d9f-987a-3378037a3301": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.6",
+    "type": "ordinario",
+    "contentSha256": "0ff3882e41b750728ca2ca62f490e1d0a58ccf382a3c689c6f460cb0db53152a",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 326,
+        "bbox": [
+          99.36000061035156,
+          58.09498977661133,
+          116.86318969726562,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 327,
+        "bbox": [
+          124.55999755859375,
+          58.09498977661133,
+          529.4915771484375,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 328,
+        "bbox": [
+          124.56001281738281,
+          68.89498138427734,
+          529.4180297851562,
+          78.93898010253906
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 329,
+        "bbox": [
+          124.56002807617188,
+          79.6949691772461,
+          529.4754638671875,
+          89.73896789550781
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 330,
+        "bbox": [
+          124.56002807617188,
+          90.43196868896484,
+          446.13470458984375,
+          100.47596740722656
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 331,
+        "bbox": [
+          124.56181335449219,
+          105.3089828491211,
+          529.474609375,
+          115.35298156738281
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 332,
+        "bbox": [
+          124.55999755859375,
+          116.10897064208984,
+          529.5206298828125,
+          126.15296936035156
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 333,
+        "bbox": [
+          124.56001281738281,
+          126.9089584350586,
+          529.4458618164062,
+          136.9529571533203
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 334,
+        "bbox": [
+          124.56002807617188,
+          137.7089385986328,
+          529.4843139648438,
+          147.75294494628906
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 335,
+        "bbox": [
+          124.56002807617188,
+          148.44593811035156,
+          469.0997314453125,
+          158.4899444580078
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 336,
+        "bbox": [
+          124.5582275390625,
+          163.26893615722656,
+          529.3370361328125,
+          173.3129425048828
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 337,
+        "bbox": [
+          124.56002807617188,
+          174.0689239501953,
+          529.5258178710938,
+          184.11293029785156
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 338,
+        "bbox": [
+          124.56002807617188,
+          184.80592346191406,
+          332.1999816894531,
+          194.8499298095703
+        ]
+      }
+    ]
+  },
+    "88b0c55c-33d4-5127-a7a0-27df72790b03": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.7",
+    "type": "ordinario",
+    "contentSha256": "677da7dee3f4204380765100aee7ff3bde4983be8fca0fbd572ac5a3d6450890",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 339,
+        "bbox": [
+          99.36001586914062,
+          199.6829376220703,
+          116.8650131225586,
+          209.72694396972656
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 340,
+        "bbox": [
+          124.56181335449219,
+          199.6829376220703,
+          529.563720703125,
+          209.72694396972656
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 341,
+        "bbox": [
+          124.56001281738281,
+          210.41993713378906,
+          487.2293395996094,
+          220.4639434814453
+        ]
+      }
+    ]
+  },
+    "004ee3cc-56d1-57aa-9dd5-9929f194461f": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.8",
+    "type": "ordinario",
+    "contentSha256": "f8fec7e71785dbfb26ba8d5306929aae66e8a2bb73eca9f8dca2571c78b08ea6",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 342,
+        "bbox": [
+          99.36001586914062,
+          225.2969512939453,
+          116.86320495605469,
+          235.34095764160156
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 343,
+        "bbox": [
+          124.56001281738281,
+          225.2969512939453,
+          529.4573974609375,
+          235.34095764160156
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 344,
+        "bbox": [
+          124.56001281738281,
+          236.09693908691406,
+          529.5439453125,
+          246.1409454345703
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 345,
+        "bbox": [
+          124.56001281738281,
+          246.8969268798828,
+          529.500732421875,
+          256.94091796875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 346,
+        "bbox": [
+          124.56001281738281,
+          257.6969299316406,
+          529.44140625,
+          267.74090576171875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 347,
+        "bbox": [
+          124.56001281738281,
+          268.4339294433594,
+          176.0579833984375,
+          278.4779052734375
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 348,
+        "bbox": [
+          125.28001403808594,
+          283.1939392089844,
+          132.76260375976562,
+          293.2379150390625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 349,
+        "bbox": [
+          161.28001403808594,
+          283.1939392089844,
+          482.4397888183594,
+          293.2379150390625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 350,
+        "bbox": [
+          125.280029296875,
+          298.0709533691406,
+          135.284423828125,
+          308.11492919921875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 351,
+        "bbox": [
+          161.280029296875,
+          298.0709533691406,
+          529.5205078125,
+          308.11492919921875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 352,
+        "bbox": [
+          161.28001403808594,
+          308.8079528808594,
+          222.3135528564453,
+          318.8519287109375
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 353,
+        "bbox": [
+          125.28001403808594,
+          323.6309509277344,
+          137.80621337890625,
+          333.6749267578125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 354,
+        "bbox": [
+          161.28001403808594,
+          323.6309509277344,
+          473.5026550292969,
+          333.6749267578125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 355,
+        "bbox": [
+          161.28182983398438,
+          338.3909606933594,
+          433.8729248046875,
+          348.4349365234375
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 356,
+        "bbox": [
+          161.28182983398438,
+          353.2139587402344,
+          406.9566955566406,
+          363.2579345703125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 357,
+        "bbox": [
+          161.28453063964844,
+          368.0909729003906,
+          529.4566040039062,
+          378.13494873046875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 358,
+        "bbox": [
+          161.280029296875,
+          378.8279724121094,
+          520.9949951171875,
+          388.8719482421875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 359,
+        "bbox": [
+          161.28182983398438,
+          393.5879821777344,
+          293.34063720703125,
+          403.6319580078125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 360,
+        "bbox": [
+          161.28182983398438,
+          408.4109802246094,
+          298.9125671386719,
+          418.4549560546875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 361,
+        "bbox": [
+          161.28182983398438,
+          423.2339782714844,
+          452.5109558105469,
+          433.2779541015625
+        ]
+      }
+    ]
+  },
+    "82c3150f-5f4e-5bc8-a2d7-9dea414c7f46": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.9",
+    "type": "ordinario",
+    "contentSha256": "6fa314536acffca227c1b74dc1119b52c52eeab08618632bfbe74de00f656ef8",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 362,
+        "bbox": [
+          99.36003112792969,
+          438.0569763183594,
+          529.452880859375,
+          448.1009521484375
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 363,
+        "bbox": [
+          124.56002807617188,
+          448.8569641113281,
+          529.439453125,
+          458.90093994140625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 364,
+        "bbox": [
+          124.56002807617188,
+          459.5939636230469,
+          477.22967529296875,
+          469.637939453125
+        ]
+      }
+    ]
+  },
+    "9aaf98fd-d650-569d-93ca-5f0b7dfe8d87": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.10",
+    "type": "ordinario",
+    "contentSha256": "45b3d9a54e63d2b4712ce659b9cdd5f9bd5e912ab3426ac0a5444baff945f2fa",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 365,
+        "bbox": [
+          99.36004638671875,
+          474.4709777832031,
+          529.5007934570312,
+          484.51495361328125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 366,
+        "bbox": [
+          124.56004333496094,
+          485.2709655761719,
+          529.4835815429688,
+          495.31494140625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 367,
+        "bbox": [
+          124.56005859375,
+          496.0709533691406,
+          529.4163208007812,
+          506.11492919921875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 368,
+        "bbox": [
+          124.56005859375,
+          506.8709411621094,
+          529.4745483398438,
+          516.9149169921875
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 369,
+        "bbox": [
+          124.56005859375,
+          517.60791015625,
+          441.1927795410156,
+          527.6519165039062
+        ]
+      }
+    ]
+  },
+    "3b758601-b185-5ee4-bff8-4db21f4ce15d": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.11",
+    "type": "ordinario",
+    "contentSha256": "41e32cd0cd68a6df9c6149a36dc51319b436c0099321107c0fd9f5bb72f1eaf5",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 370,
+        "bbox": [
+          99.36009216308594,
+          532.4849243164062,
+          529.4306030273438,
+          542.5289306640625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 371,
+        "bbox": [
+          124.56010437011719,
+          543.284912109375,
+          529.517822265625,
+          553.3289184570312
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 372,
+        "bbox": [
+          124.56010437011719,
+          554.0848999023438,
+          529.4817504882812,
+          564.12890625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 373,
+        "bbox": [
+          124.56010437011719,
+          564.8218994140625,
+          521.167724609375,
+          574.8659057617188
+        ]
+      }
+    ]
+  },
+    "7a9e924c-ba75-53b4-a6af-dfb00ab7ff77": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 2.12",
+    "type": "ordinario",
+    "contentSha256": "aff7879c2d2ad4df097b6f64f022c5701f9a8f8601fedb4b5c2ef5a7fa54b84e",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 374,
+        "bbox": [
+          99.360107421875,
+          579.6448974609375,
+          529.4000244140625,
+          589.6889038085938
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 375,
+        "bbox": [
+          124.56010437011719,
+          590.3818969726562,
+          336.7367858886719,
+          600.4259033203125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 376,
+        "bbox": [
+          124.55831146240234,
+          605.2589111328125,
+          529.4244384765625,
+          615.3029174804688
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 377,
+        "bbox": [
+          124.56010437011719,
+          615.9959106445312,
+          405.71099853515625,
+          626.0399169921875
+        ]
+      }
+    ]
+  },
+    "17c36353-6e19-56fa-b890-7332420d2a30": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.1",
+    "type": "ordinario",
+    "contentSha256": "51aca139c8ab5407453c0bc5f88ab378fbf38ee138b9e17278c1d626146497dc",
+    "pageNumbers": [
+      32
+    ],
+    "anchors": [
+      {
+        "page": 32,
+        "lineId": 378,
+        "bbox": [
+          282.9601135253906,
+          630.8189086914062,
+          331.50439453125,
+          640.8629150390625
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 379,
+        "bbox": [
+          120.42012023925781,
+          645.6419067382812,
+          496.5806579589844,
+          655.6859130859375
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 380,
+        "bbox": [
+          216.96311950683594,
+          656.37890625,
+          400.1120300292969,
+          666.4229125976562
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 381,
+        "bbox": [
+          99.36011505126953,
+          671.2559204101562,
+          116.86331176757812,
+          681.2999267578125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 382,
+        "bbox": [
+          124.56011199951172,
+          671.2559204101562,
+          529.4728393554688,
+          681.2999267578125
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 383,
+        "bbox": [
+          124.56011962890625,
+          682.055908203125,
+          529.521240234375,
+          692.0999145507812
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 384,
+        "bbox": [
+          124.56011962890625,
+          692.8558959960938,
+          529.489990234375,
+          702.89990234375
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 385,
+        "bbox": [
+          124.56010437011719,
+          703.6558837890625,
+          529.40087890625,
+          713.6998901367188
+        ]
+      },
+      {
+        "page": 32,
+        "lineId": 386,
+        "bbox": [
+          124.56010437011719,
+          714.3929443359375,
+          171.0811309814453,
+          724.4369506835938
+        ]
+      }
+    ]
+  },
+    "6110b6d7-d58f-5657-981a-4d0197b3f52d": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.2",
+    "type": "ordinario",
+    "contentSha256": "59387d82589bef9f2ce72f8a2ec65dc68af6ad015f2f983bafcabe5b50bd321b",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 387,
+        "bbox": [
+          99.36000061035156,
+          58.09498977661133,
+          116.86318969726562,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 388,
+        "bbox": [
+          124.55999755859375,
+          58.09498977661133,
+          529.4556274414062,
+          68.13899230957031
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 389,
+        "bbox": [
+          124.55999755859375,
+          68.89498138427734,
+          361.6650085449219,
+          78.93898010253906
+        ]
+      }
+    ]
+  },
+    "5c85c07b-69f9-50b5-813e-f1c753021393": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.3",
+    "type": "ordinario",
+    "contentSha256": "819e8e76a271f4d306ebf04645dbb3bc16d57f763ce78d8d9fcc3332105678b7",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 390,
+        "bbox": [
+          99.3599853515625,
+          84.7350082397461,
+          116.86317443847656,
+          94.77900695800781
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 391,
+        "bbox": [
+          124.55998229980469,
+          84.7350082397461,
+          529.4140625,
+          94.77900695800781
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 392,
+        "bbox": [
+          124.55998229980469,
+          95.53499603271484,
+          464.11737060546875,
+          105.57899475097656
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 393,
+        "bbox": [
+          125.27998352050781,
+          111.3750228881836,
+          132.7625732421875,
+          121.41902160644531
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 394,
+        "bbox": [
+          161.2799835205078,
+          111.3750228881836,
+          529.4935302734375,
+          121.41902160644531
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 395,
+        "bbox": [
+          161.27996826171875,
+          122.17501068115234,
+          532.0747680664062,
+          132.21900939941406
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 396,
+        "bbox": [
+          161.27996826171875,
+          132.97499084472656,
+          413.8866271972656,
+          143.0189971923828
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 397,
+        "bbox": [
+          125.27996826171875,
+          148.8780059814453,
+          135.28436279296875,
+          158.92201232910156
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 398,
+        "bbox": [
+          161.27996826171875,
+          148.8780059814453,
+          529.4769897460938,
+          158.92201232910156
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 399,
+        "bbox": [
+          161.27996826171875,
+          159.67799377441406,
+          259.81011962890625,
+          169.7220001220703
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 400,
+        "bbox": [
+          125.27996826171875,
+          175.5180206298828,
+          137.80616760253906,
+          185.56202697753906
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 401,
+        "bbox": [
+          161.27996826171875,
+          175.5180206298828,
+          529.4279174804688,
+          185.56202697753906
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 402,
+        "bbox": [
+          161.27996826171875,
+          186.31800842285156,
+          252.82066345214844,
+          196.3620147705078
+        ]
+      }
+    ]
+  },
+    "9bb7ba46-a9b5-55ed-969d-1dd13895b7a5": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.4",
+    "type": "ordinario",
+    "contentSha256": "ff456db5ddb86e35de425c929d54f7f07d1b2fc891f7569cb975d8f964c02c04",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 403,
+        "bbox": [
+          99.35997009277344,
+          202.1580352783203,
+          116.8631591796875,
+          212.20204162597656
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 404,
+        "bbox": [
+          124.55996704101562,
+          202.1580352783203,
+          529.4385986328125,
+          212.20204162597656
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 405,
+        "bbox": [
+          124.55996704101562,
+          212.95802307128906,
+          270.05291748046875,
+          223.0020294189453
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 406,
+        "bbox": [
+          125.27996826171875,
+          228.7980499267578,
+          132.76255798339844,
+          238.84205627441406
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 407,
+        "bbox": [
+          161.27996826171875,
+          228.7980499267578,
+          529.4257202148438,
+          238.84205627441406
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 408,
+        "bbox": [
+          161.27996826171875,
+          239.59803771972656,
+          352.8404541015625,
+          249.6420440673828
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 409,
+        "bbox": [
+          125.27996826171875,
+          255.4380645751953,
+          135.28436279296875,
+          265.4820556640625
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 410,
+        "bbox": [
+          161.27996826171875,
+          255.4380645751953,
+          526.44970703125,
+          265.4820556640625
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 411,
+        "bbox": [
+          125.27996826171875,
+          271.2781066894531,
+          137.80616760253906,
+          281.32208251953125
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 412,
+        "bbox": [
+          161.27996826171875,
+          271.2781066894531,
+          529.44091796875,
+          281.32208251953125
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 413,
+        "bbox": [
+          161.27996826171875,
+          282.0780944824219,
+          200.78094482421875,
+          292.1220703125
+        ]
+      }
+    ]
+  },
+    "8537bf2e-b133-5606-b8cf-50c5f3b279bb": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.5",
+    "type": "ordinario",
+    "contentSha256": "f04492052e18609d5fc1b969c3f43199c79d3d128cc5e66971f31bb0ad0af178",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 414,
+        "bbox": [
+          99.35997009277344,
+          297.9811096191406,
+          529.4232177734375,
+          308.02508544921875
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 415,
+        "bbox": [
+          124.55997467041016,
+          308.7810974121094,
+          529.5023193359375,
+          318.8250732421875
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 416,
+        "bbox": [
+          124.55998229980469,
+          319.5810852050781,
+          374.862548828125,
+          329.62506103515625
+        ]
+      }
+    ]
+  },
+    "0cfbee92-7c43-572a-868f-26096a9ad751": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.6",
+    "type": "ordinario",
+    "contentSha256": "e7f1f621117dd8e99819d02bc8f9b911b8a94235a15f3d72f9e22595c0b5eba7",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 417,
+        "bbox": [
+          99.3599853515625,
+          335.42108154296875,
+          116.86317443847656,
+          345.4650573730469
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 418,
+        "bbox": [
+          124.55998229980469,
+          335.42108154296875,
+          529.4674682617188,
+          345.4650573730469
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 419,
+        "bbox": [
+          124.55998229980469,
+          346.2210693359375,
+          529.4851684570312,
+          356.2650451660156
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 420,
+        "bbox": [
+          124.55998229980469,
+          357.02105712890625,
+          529.4257202148438,
+          367.0650329589844
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 421,
+        "bbox": [
+          124.55998229980469,
+          367.821044921875,
+          274.65289306640625,
+          377.8650207519531
+        ]
+      }
+    ]
+  },
+    "cec47613-0c48-5ac5-8a0e-ca30a8490d76": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Numeral 3.7",
+    "type": "ordinario",
+    "contentSha256": "159d60e2bbaba43750355bc46290dd45dcf0f8133980981a08345f9a10ab4aa4",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 422,
+        "bbox": [
+          99.3599853515625,
+          383.6610412597656,
+          116.86317443847656,
+          393.70501708984375
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 423,
+        "bbox": [
+          124.55998229980469,
+          383.6610412597656,
+          529.49169921875,
+          393.70501708984375
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 424,
+        "bbox": [
+          124.55998229980469,
+          394.4610290527344,
+          529.3351440429688,
+          404.5050048828125
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 425,
+        "bbox": [
+          124.55998229980469,
+          405.2610168457031,
+          529.4727783203125,
+          415.30499267578125
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 426,
+        "bbox": [
+          124.55999755859375,
+          416.0610046386719,
+          529.4690551757812,
+          426.10498046875
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 427,
+        "bbox": [
+          124.55999755859375,
+          426.8609924316406,
+          529.4050903320312,
+          436.90496826171875
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 428,
+        "bbox": [
+          124.55999755859375,
+          437.6609802246094,
+          405.829833984375,
+          447.7049560546875
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 429,
+        "bbox": [
+          125.27999877929688,
+          453.5009765625,
+          132.76258850097656,
+          463.5449523925781
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 430,
+        "bbox": [
+          161.27999877929688,
+          453.5009765625,
+          529.4214477539062,
+          463.5449523925781
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 431,
+        "bbox": [
+          161.27999877929688,
+          464.30096435546875,
+          529.4521484375,
+          474.3449401855469
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 432,
+        "bbox": [
+          161.27999877929688,
+          475.1009521484375,
+          336.401123046875,
+          485.1449279785156
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 433,
+        "bbox": [
+          125.27999877929688,
+          490.9409484863281,
+          135.28439331054688,
+          500.98492431640625
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 434,
+        "bbox": [
+          161.27999877929688,
+          490.9409484863281,
+          529.478271484375,
+          500.98492431640625
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 435,
+        "bbox": [
+          161.27999877929688,
+          501.7409362792969,
+          529.4701538085938,
+          511.784912109375
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 436,
+        "bbox": [
+          161.27999877929688,
+          512.5408935546875,
+          215.3034210205078,
+          522.5848999023438
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 437,
+        "bbox": [
+          125.27999877929688,
+          528.380859375,
+          137.8061981201172,
+          538.4248657226562
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 438,
+        "bbox": [
+          161.27999877929688,
+          528.380859375,
+          529.4736938476562,
+          538.4248657226562
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 439,
+        "bbox": [
+          161.27999877929688,
+          539.180908203125,
+          529.3892211914062,
+          549.2249145507812
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 440,
+        "bbox": [
+          161.27999877929688,
+          549.9808959960938,
+          205.3286590576172,
+          560.02490234375
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 441,
+        "bbox": [
+          125.27999877929688,
+          565.8839111328125,
+          138.76199340820312,
+          575.9279174804688
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 442,
+        "bbox": [
+          161.27999877929688,
+          565.8839111328125,
+          529.51416015625,
+          575.9279174804688
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 443,
+        "bbox": [
+          161.27999877929688,
+          576.6838989257812,
+          529.5093383789062,
+          586.7279052734375
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 444,
+        "bbox": [
+          161.27999877929688,
+          587.48388671875,
+          399.45794677734375,
+          597.5278930664062
+        ]
+      }
+    ]
+  },
+    "eadec42e-0d15-5b69-a6c6-9ec7619c9fa9": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio PRIMERO",
+    "type": "transitorio",
+    "contentSha256": "8f6d686331b69aca54540bcf8a4046dd9b24d0c74a178dcf075c07839f73e482",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 445,
+        "bbox": [
+          271.50299072265625,
+          603.6299438476562,
+          342.72723388671875,
+          613.5928955078125
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 446,
+        "bbox": [
+          99.3599853515625,
+          619.1639404296875,
+          529.52294921875,
+          629.2079467773438
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 447,
+        "bbox": [
+          84.96002197265625,
+          629.9639282226562,
+          134.9694366455078,
+          640.0079345703125
+        ]
+      }
+    ]
+  },
+    "741d7b9e-4ef6-5d9a-bfb8-2c51b1b65db3": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio SEGUNDO",
+    "type": "transitorio",
+    "contentSha256": "ec54d5882c7012b5861c5ee6f5cc933a910baf7c23cd480529ac2b64cd7105e2",
+    "pageNumbers": [
+      33
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 448,
+        "bbox": [
+          99.36002349853516,
+          645.8038940429688,
+          529.5185546875,
+          655.847900390625
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 449,
+        "bbox": [
+          84.96002197265625,
+          656.6038818359375,
+          401.1597900390625,
+          666.6478881835938
+        ]
+      }
+    ]
+  },
+    "444992bd-8407-54de-b17c-dfc68ecf9a9c": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio TERCERO",
+    "type": "transitorio",
+    "contentSha256": "af733a5ddd32b080439403f3aeef64eb31ffd5289cc4153daf328b6c2f68f994",
+    "pageNumbers": [
+      33,
+      34
+    ],
+    "anchors": [
+      {
+        "page": 33,
+        "lineId": 450,
+        "bbox": [
+          99.36001586914062,
+          672.4439086914062,
+          529.498779296875,
+          682.4879150390625
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 451,
+        "bbox": [
+          84.96000671386719,
+          683.243896484375,
+          529.4053344726562,
+          693.2879028320312
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 452,
+        "bbox": [
+          84.96002197265625,
+          694.0439453125,
+          529.47265625,
+          704.0879516601562
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 453,
+        "bbox": [
+          84.96000671386719,
+          704.8439331054688,
+          529.5003662109375,
+          714.887939453125
+        ]
+      },
+      {
+        "page": 33,
+        "lineId": 454,
+        "bbox": [
+          84.96000671386719,
+          715.6439208984375,
+          397.091064453125,
+          725.6879272460938
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 455,
+        "bbox": [
+          99.36000061035156,
+          58.15498733520508,
+          106.83899688720703,
+          68.19898986816406
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 456,
+        "bbox": [
+          124.56180572509766,
+          58.15498733520508,
+          500.7214050292969,
+          68.19898986816406
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 457,
+        "bbox": [
+          125.27999877929688,
+          73.9950180053711,
+          135.7595977783203,
+          84.03901672363281
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 458,
+        "bbox": [
+          146.8800048828125,
+          73.9950180053711,
+          529.501220703125,
+          84.03901672363281
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 459,
+        "bbox": [
+          146.8800048828125,
+          84.9120101928711,
+          186.40438842773438,
+          94.95600891113281
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 460,
+        "bbox": [
+          125.2800064086914,
+          100.81502532958984,
+          136.30320739746094,
+          110.85902404785156
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 461,
+        "bbox": [
+          146.8800048828125,
+          100.81502532958984,
+          271.350830078125,
+          110.85902404785156
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 462,
+        "bbox": [
+          99.36000061035156,
+          116.6550521850586,
+          109.36438751220703,
+          126.69905090332031
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 463,
+        "bbox": [
+          124.55999755859375,
+          116.6550521850586,
+          529.4880981445312,
+          126.69905090332031
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 464,
+        "bbox": [
+          124.55996704101562,
+          127.51802825927734,
+          529.3551635742188,
+          137.56202697753906
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 465,
+        "bbox": [
+          124.55996704101562,
+          138.4350128173828,
+          306.5929870605469,
+          148.47901916503906
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 466,
+        "bbox": [
+          99.35997009277344,
+          154.27503967285156,
+          111.87896728515625,
+          164.3190460205078
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 467,
+        "bbox": [
+          124.55547332763672,
+          154.27503967285156,
+          529.4944458007812,
+          164.3190460205078
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 468,
+        "bbox": [
+          124.55097961425781,
+          165.1380157470703,
+          436.28759765625,
+          175.18202209472656
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 469,
+        "bbox": [
+          99.35098266601562,
+          180.97804260253906,
+          112.8329849243164,
+          191.0220489501953
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 470,
+        "bbox": [
+          124.55097961425781,
+          180.97804260253906,
+          529.4796142578125,
+          191.0220489501953
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 471,
+        "bbox": [
+          124.55096435546875,
+          191.8410186767578,
+          529.5087890625,
+          201.88502502441406
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 472,
+        "bbox": [
+          124.55094909667969,
+          202.70399475097656,
+          529.416015625,
+          212.7480010986328
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 473,
+        "bbox": [
+          124.55094909667969,
+          213.5669708251953,
+          529.5584106445312,
+          223.61097717285156
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 474,
+        "bbox": [
+          124.55096435546875,
+          224.4839630126953,
+          375.78680419921875,
+          234.52796936035156
+        ]
+      }
+    ]
+  },
+    "8c66dbf0-72d6-59c9-a80e-a37d3d34b69e": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio CUARTO",
+    "type": "transitorio",
+    "contentSha256": "265944de81a74f3ec4c6cf314a89df5f6929108d190e007825a4b7ac1f062e82",
+    "pageNumbers": [
+      34
+    ],
+    "anchors": [
+      {
+        "page": 34,
+        "lineId": 475,
+        "bbox": [
+          99.35096740722656,
+          240.32398986816406,
+          529.5139770507812,
+          250.3679962158203
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 476,
+        "bbox": [
+          84.95097351074219,
+          251.1869659423828,
+          529.4721069335938,
+          261.23095703125
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 477,
+        "bbox": [
+          84.95097351074219,
+          261.9869689941406,
+          529.490478515625,
+          272.03094482421875
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 478,
+        "bbox": [
+          84.95098876953125,
+          272.8499755859375,
+          529.4854125976562,
+          282.8939514160156
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 479,
+        "bbox": [
+          84.95098876953125,
+          283.7669677734375,
+          519.6671752929688,
+          293.8109436035156
+        ]
+      }
+    ]
+  },
+    "03b3038f-6a7a-5a3d-a2b0-762e09b299ab": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio QUINTO",
+    "type": "transitorio",
+    "contentSha256": "9a07dbbc2e9dac1e2585dda81fcff0f345e18ac63541d6e69d7d3a48306c9a05",
+    "pageNumbers": [
+      34
+    ],
+    "anchors": [
+      {
+        "page": 34,
+        "lineId": 480,
+        "bbox": [
+          99.35099792480469,
+          299.6069641113281,
+          529.383544921875,
+          309.65093994140625
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 481,
+        "bbox": [
+          84.95099639892578,
+          310.469970703125,
+          529.44677734375,
+          320.5139465332031
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 482,
+        "bbox": [
+          84.95098876953125,
+          321.3329772949219,
+          529.590576171875,
+          331.376953125
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 483,
+        "bbox": [
+          84.95098876953125,
+          332.19598388671875,
+          529.4608154296875,
+          342.2399597167969
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 484,
+        "bbox": [
+          84.95097351074219,
+          343.0589904785156,
+          125.94598388671875,
+          353.10296630859375
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 485,
+        "bbox": [
+          99.3509750366211,
+          358.89898681640625,
+          106.82997131347656,
+          368.9429626464844
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 486,
+        "bbox": [
+          124.54647827148438,
+          358.89898681640625,
+          529.4566040039062,
+          368.9429626464844
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 487,
+        "bbox": [
+          124.55096435546875,
+          369.81597900390625,
+          205.09188842773438,
+          379.8599548339844
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 488,
+        "bbox": [
+          99.35096740722656,
+          385.6559753417969,
+          109.34996795654297,
+          395.699951171875
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 489,
+        "bbox": [
+          124.55277252197266,
+          385.6559753417969,
+          529.451171875,
+          395.699951171875
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 490,
+        "bbox": [
+          124.54197692871094,
+          396.51898193359375,
+          529.4608764648438,
+          406.5629577636719
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 491,
+        "bbox": [
+          124.54196166992188,
+          407.43597412109375,
+          224.0350341796875,
+          417.4799499511719
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 492,
+        "bbox": [
+          124.54467010498047,
+          423.2759704589844,
+          529.486328125,
+          433.3199462890625
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 493,
+        "bbox": [
+          124.54196166992188,
+          434.1929626464844,
+          304.1315612792969,
+          444.2369384765625
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 494,
+        "bbox": [
+          124.54646301269531,
+          450.032958984375,
+          529.4698486328125,
+          460.0769348144531
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 495,
+        "bbox": [
+          124.54197692871094,
+          460.8959655761719,
+          529.2665405273438,
+          470.93994140625
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 496,
+        "bbox": [
+          124.54197692871094,
+          471.6959533691406,
+          529.5023193359375,
+          481.73992919921875
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 497,
+        "bbox": [
+          124.5419921875,
+          482.5589599609375,
+          529.4539184570312,
+          492.6029357910156
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 498,
+        "bbox": [
+          124.5419921875,
+          493.4759521484375,
+          353.09967041015625,
+          503.5199279785156
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 499,
+        "bbox": [
+          99.34199523925781,
+          509.3159484863281,
+          111.86099243164062,
+          519.3599243164062
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 500,
+        "bbox": [
+          124.54019165039062,
+          509.3159484863281,
+          529.4765625,
+          519.3599243164062
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 501,
+        "bbox": [
+          124.53302001953125,
+          520.178955078125,
+          529.4180297851562,
+          530.2229614257812
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 502,
+        "bbox": [
+          124.53303527832031,
+          531.0419311523438,
+          529.3456420898438,
+          541.0859375
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 503,
+        "bbox": [
+          124.53303527832031,
+          541.9589233398438,
+          305.63812255859375,
+          552.0029296875
+        ]
+      }
+    ]
+  },
+    "fff4d104-7271-5e39-b3cf-eda69ac909fb": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio SEXTO",
+    "type": "transitorio",
+    "contentSha256": "c6f1e444602f9b6656372d7e9d7550d12ebf55f940ec9940efb2844ca58fef28",
+    "pageNumbers": [
+      34
+    ],
+    "anchors": [
+      {
+        "page": 34,
+        "lineId": 504,
+        "bbox": [
+          99.33303833007812,
+          557.7989501953125,
+          529.4432373046875,
+          567.8429565429688
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 505,
+        "bbox": [
+          84.93304443359375,
+          568.5989379882812,
+          529.414306640625,
+          578.6429443359375
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 506,
+        "bbox": [
+          84.93304443359375,
+          579.4619140625,
+          529.4861450195312,
+          589.5059204101562
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 507,
+        "bbox": [
+          84.93304443359375,
+          590.3789672851562,
+          331.64105224609375,
+          600.4229736328125
+        ]
+      }
+    ]
+  },
+    "ed136e4b-7a71-5acc-ac27-8ba0110b036e": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio SÉPTIMO",
+    "type": "transitorio",
+    "contentSha256": "819cbcc22a92d37b3c5767ae3c1c4d64b94635610a49a16b05456d72a136ff61",
+    "pageNumbers": [
+      34
+    ],
+    "anchors": [
+      {
+        "page": 34,
+        "lineId": 508,
+        "bbox": [
+          99.33304595947266,
+          606.2189331054688,
+          529.4539794921875,
+          616.262939453125
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 509,
+        "bbox": [
+          84.93305969238281,
+          617.0819702148438,
+          529.3926391601562,
+          627.1259765625
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 510,
+        "bbox": [
+          84.93305969238281,
+          627.9449462890625,
+          529.4789428710938,
+          637.9889526367188
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 511,
+        "bbox": [
+          84.93304443359375,
+          638.8079833984375,
+          529.4195556640625,
+          648.8519897460938
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 512,
+        "bbox": [
+          84.93304443359375,
+          649.6709594726562,
+          329.4845275878906,
+          659.7149658203125
+        ]
+      }
+    ]
+  },
+    "649edeb7-7552-5b75-a2c9-28bf80d6b658": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Transitorio OCTAVO",
+    "type": "transitorio",
+    "contentSha256": "abd1ce26774db84556a2a9f868101e6f657289a1d25d89d0fad9d6ae2a0047aa",
+    "pageNumbers": [
+      34
+    ],
+    "anchors": [
+      {
+        "page": 34,
+        "lineId": 513,
+        "bbox": [
+          99.33304595947266,
+          665.510986328125,
+          529.4755859375,
+          675.5549926757812
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 514,
+        "bbox": [
+          84.93304443359375,
+          676.3739624023438,
+          529.4474487304688,
+          686.41796875
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 515,
+        "bbox": [
+          84.93304443359375,
+          687.2369384765625,
+          529.3970336914062,
+          697.2809448242188
+        ]
+      },
+      {
+        "page": 34,
+        "lineId": 516,
+        "bbox": [
+          84.93304443359375,
+          698.1539916992188,
+          145.998046875,
+          708.197998046875
+        ]
+      }
+    ]
+  },
+    "a6d7368b-51ec-5322-85f5-c328adb8ce4b": {
+    "sourceId": "dacg-cogeneracion-aa23e284c9c9",
+    "label": "Firma del acuerdo",
+    "type": "complementario",
+    "contentSha256": "5e04e1c68c7d7ce31520fb24eaf40f25b9ad848d7cda50a15317a71b07925985",
+    "pageNumbers": [
+      34
+    ],
+    "anchors": [
+      {
+        "page": 34,
+        "lineId": 517,
+        "bbox": [
+          99.33304595947266,
+          714.0569458007812,
+          494.0658874511719,
+          724.1009521484375
         ]
       }
     ]

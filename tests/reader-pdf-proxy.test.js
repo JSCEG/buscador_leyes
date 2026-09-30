@@ -72,6 +72,24 @@ it('serves only the reviewed April 17, 2025 DOF morning issue PDF for RISENER', 
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed April 16, 2026 DOF morning issue PDF for the cogeneration DACG', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cogeneracion'), 'cogeneracion', {
+        sources: { cogeneracion: { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('326685', '326686'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('cogeneracion'), 'cogeneracion', {
+            sources: { cogeneracion: { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed April 15, 2025 DOF evening issue PDF for the PND', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=';
