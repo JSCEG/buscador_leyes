@@ -58,6 +58,20 @@ it('serves only the reviewed September 7, 2026 DOF issue PDF for PLADESHi', asyn
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed April 17, 2025 DOF morning issue PDF for RISENER', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/17-04-2025/Matutina/320604';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('risener'), 'risener', { sources: { risener: { ...source, originalUrl } }, fetcher });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('320604', '320605'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('risener'), 'risener', { sources: { risener: { ...source, originalUrl: url } }, fetcher })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed April 15, 2025 DOF evening issue PDF for the PND', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=';
