@@ -1,6 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { buildSearchGraph, GRAPH_MAX_LAWS } from '../src/lib/search-graph.js';
 import { parseArticlePageHash, articlePageHash } from '../src/scripts/article-page-view.js';
+
+vi.mock('../src/scripts/site-dialogs.js', () => ({ LEGAL_NOTE: 'Nota legal de prueba.' }));
 
 const summaries = [
     { id: 'lse', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'ley' },
