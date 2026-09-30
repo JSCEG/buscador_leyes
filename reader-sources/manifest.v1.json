@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 22,
-  "verifiedAt": "2026-09-29T23:48:17.503049+00:00",
+  "revision": 23,
+  "verifiedAt": "2026-09-30T01:22:11.961348+00:00",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -6056,6 +6056,2813 @@
         },
         {
           "number": 104,
+          "width": 612.0,
+          "height": 792.0
+        }
+      ]
+    }
+,
+    "prosener-decreto-8718317c5f2f": {
+      "id": "prosener-decreto-8718317c5f2f",
+      "title": "Decreto de aprobación del Programa Sectorial de Energía 2025-2030",
+      "lawId": "237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+      "sha256": "8718317c5f2fd17c881067bc428b66cb2d1a5dd21ae17052a62937b0ce511196",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/prosener-decreto-8718317c5f2f",
+      "originalUrl": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22122025-MAT.pdf&repo=",
+      "officialPublicationUrl": "https://sidof.segob.gob.mx/notas/docFuente/5776837",
+      "pageCount": 278,
+      "pages": [
+        {
+          "number": 1,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 2,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 3,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 4,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 5,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 6,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 7,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 8,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 9,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 10,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 11,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 12,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 13,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 14,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 15,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 16,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 17,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 18,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 19,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 20,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 21,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 22,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 23,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 24,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 25,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 26,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 27,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 28,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 29,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 30,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 31,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 32,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 33,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 34,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 35,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 36,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 37,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 38,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 39,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 40,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 41,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 42,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 43,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 44,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 45,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 46,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 47,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 48,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 49,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 50,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 51,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 52,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 53,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 54,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 55,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 56,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 57,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 58,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 59,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 60,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 61,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 62,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 63,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 64,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 65,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 66,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 67,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 68,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 69,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 70,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 71,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 72,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 73,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 74,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 75,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 76,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 77,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 78,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 79,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 80,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 81,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 82,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 83,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 84,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 85,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 86,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 87,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 88,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 89,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 90,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 91,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 92,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 93,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 94,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 95,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 96,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 97,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 98,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 99,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 100,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 101,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 102,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 103,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 104,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 105,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 106,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 107,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 108,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 109,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 110,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 111,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 112,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 113,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 114,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 115,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 116,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 117,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 118,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 119,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 120,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 121,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 122,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 123,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 124,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 125,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 126,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 127,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 128,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 129,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 130,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 131,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 132,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 133,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 134,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 135,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 136,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 137,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 138,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 139,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 140,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 141,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 142,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 143,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 144,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 145,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 146,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 147,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 148,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 149,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 150,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 151,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 152,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 153,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 154,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 155,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 156,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 157,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 158,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 159,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 160,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 161,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 162,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 163,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 164,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 165,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 166,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 167,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 168,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 169,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 170,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 171,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 172,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 173,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 174,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 175,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 176,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 177,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 178,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 179,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 180,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 181,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 182,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 183,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 184,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 185,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 186,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 187,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 188,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 189,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 190,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 191,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 192,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 193,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 194,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 195,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 196,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 197,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 198,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 199,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 200,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 201,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 202,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 203,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 204,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 205,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 206,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 207,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 208,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 209,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 210,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 211,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 212,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 213,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 214,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 215,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 216,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 217,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 218,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 219,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 220,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 221,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 222,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 223,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 224,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 225,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 226,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 227,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 228,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 229,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 230,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 231,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 232,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 233,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 234,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 235,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 236,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 237,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 238,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 239,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 240,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 241,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 242,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 243,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 244,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 245,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 246,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 247,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 248,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 249,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 250,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 251,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 252,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 253,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 254,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 255,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 256,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 257,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 258,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 259,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 260,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 261,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 262,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 263,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 264,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 265,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 266,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 267,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 268,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 269,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 270,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 271,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 272,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 273,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 274,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 275,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 276,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 277,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 278,
+          "width": 612.0,
+          "height": 792.0
+        }
+      ]
+    },
+    "prosener-8718317c5f2f": {
+      "id": "prosener-8718317c5f2f",
+      "title": "Programa Sectorial de Energía 2025-2030",
+      "lawId": "ff6459a0-eaeb-51ed-a578-73de837b3de1",
+      "sha256": "8718317c5f2fd17c881067bc428b66cb2d1a5dd21ae17052a62937b0ce511196",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/prosener-8718317c5f2f",
+      "originalUrl": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22122025-MAT.pdf&repo=",
+      "officialPublicationUrl": "https://sidof.segob.gob.mx/notas/docFuente/5776838",
+      "pageCount": 278,
+      "pages": [
+        {
+          "number": 1,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 2,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 3,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 4,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 5,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 6,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 7,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 8,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 9,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 10,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 11,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 12,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 13,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 14,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 15,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 16,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 17,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 18,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 19,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 20,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 21,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 22,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 23,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 24,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 25,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 26,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 27,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 28,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 29,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 30,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 31,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 32,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 33,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 34,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 35,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 36,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 37,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 38,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 39,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 40,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 41,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 42,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 43,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 44,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 45,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 46,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 47,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 48,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 49,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 50,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 51,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 52,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 53,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 54,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 55,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 56,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 57,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 58,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 59,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 60,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 61,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 62,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 63,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 64,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 65,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 66,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 67,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 68,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 69,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 70,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 71,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 72,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 73,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 74,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 75,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 76,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 77,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 78,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 79,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 80,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 81,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 82,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 83,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 84,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 85,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 86,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 87,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 88,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 89,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 90,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 91,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 92,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 93,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 94,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 95,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 96,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 97,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 98,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 99,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 100,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 101,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 102,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 103,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 104,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 105,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 106,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 107,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 108,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 109,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 110,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 111,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 112,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 113,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 114,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 115,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 116,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 117,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 118,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 119,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 120,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 121,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 122,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 123,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 124,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 125,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 126,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 127,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 128,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 129,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 130,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 131,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 132,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 133,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 134,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 135,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 136,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 137,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 138,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 139,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 140,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 141,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 142,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 143,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 144,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 145,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 146,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 147,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 148,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 149,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 150,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 151,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 152,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 153,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 154,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 155,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 156,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 157,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 158,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 159,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 160,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 161,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 162,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 163,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 164,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 165,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 166,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 167,
+          "width": 792.0,
+          "height": 612.0
+        },
+        {
+          "number": 168,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 169,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 170,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 171,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 172,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 173,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 174,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 175,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 176,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 177,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 178,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 179,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 180,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 181,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 182,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 183,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 184,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 185,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 186,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 187,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 188,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 189,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 190,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 191,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 192,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 193,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 194,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 195,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 196,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 197,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 198,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 199,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 200,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 201,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 202,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 203,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 204,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 205,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 206,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 207,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 208,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 209,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 210,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 211,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 212,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 213,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 214,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 215,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 216,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 217,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 218,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 219,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 220,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 221,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 222,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 223,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 224,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 225,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 226,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 227,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 228,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 229,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 230,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 231,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 232,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 233,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 234,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 235,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 236,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 237,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 238,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 239,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 240,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 241,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 242,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 243,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 244,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 245,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 246,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 247,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 248,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 249,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 250,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 251,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 252,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 253,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 254,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 255,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 256,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 257,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 258,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 259,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 260,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 261,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 262,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 263,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 264,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 265,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 266,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 267,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 268,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 269,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 270,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 271,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 272,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 273,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 274,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 275,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 276,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 277,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 278,
           "width": 612.0,
           "height": 792.0
         }
@@ -386114,6 +388921,4647 @@
             716.7899169921875,
             447.0097961425781,
             726.7011108398438
+          ]
+        }
+      ]
+    },
+    "63a0a8f0-da5f-5328-965f-7b1f2462cb43": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Preámbulo del decreto",
+      "type": "preambulo",
+      "contentSha256": "87a807a2554d5d8d489a8396943498669829e89301ba6848e14082c3a1e7dd51",
+      "pageNumbers": [
+        5
+      ],
+      "anchors": [
+        {
+          "page": 5,
+          "bbox": [
+            84.95999908447266,
+            97.94102478027344,
+            390.1087341308594,
+            107.90402221679688
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.95999908447266,
+            113.8349838256836,
+            529.4810180664062,
+            123.87898254394531
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.95999908447266,
+            124.2149887084961,
+            152.0261993408203,
+            134.2589874267578
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            99.36000061035156,
+            140.1719512939453,
+            529.4700317382812,
+            150.21595764160156
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.96000671386719,
+            151.3949737548828,
+            529.5294799804688,
+            161.43898010253906
+          ]
+        }
+      ]
+    },
+    "6f1ac604-09b8-5674-9e9b-f83c8efd71f1": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Artículo PRIMERO",
+      "type": "ordinario",
+      "contentSha256": "82a717b34df0c132fde61b234703e2caa0ef2dab50e50d581fd2fb20ab3a319d",
+      "pageNumbers": [
+        5
+      ],
+      "anchors": [
+        {
+          "page": 5,
+          "bbox": [
+            99.360107421875,
+            588.929931640625,
+            430.9451904296875,
+            598.9739379882812
+          ]
+        }
+      ]
+    },
+    "dce16aa4-c94a-5c42-99a1-9a0bbcb392ba": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Artículo SEGUNDO",
+      "type": "ordinario",
+      "contentSha256": "3e5c69ebe559c2e38083a545d3194a54c95feff9376877487ca18a48e49c9377",
+      "pageNumbers": [
+        5
+      ],
+      "anchors": [
+        {
+          "page": 5,
+          "bbox": [
+            99.360107421875,
+            605.19287109375,
+            529.5303344726562,
+            615.2368774414062
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.9601058959961,
+            616.3529052734375,
+            529.4485473632812,
+            626.3969116210938
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.9601058959961,
+            627.575927734375,
+            145.47340393066406,
+            637.6199340820312
+          ]
+        }
+      ]
+    },
+    "c861d0e2-69f7-5375-9dfd-9fd56c62171e": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Artículo TERCERO",
+      "type": "ordinario",
+      "contentSha256": "835d18aa81436e671d2af6565b05de0ac948dfe686f865dc8af3fa564927745c",
+      "pageNumbers": [
+        5
+      ],
+      "anchors": [
+        {
+          "page": 5,
+          "bbox": [
+            99.360107421875,
+            643.8388671875,
+            529.5044555664062,
+            653.8828735351562
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.9601058959961,
+            654.9989013671875,
+            529.4935913085938,
+            665.0429077148438
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.96011352539062,
+            666.221923828125,
+            529.5195922851562,
+            676.2659301757812
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.96011352539062,
+            677.4448852539062,
+            529.4749145507812,
+            687.4888916015625
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.96009826660156,
+            688.6049194335938,
+            481.1456604003906,
+            698.64892578125
+          ]
+        }
+      ]
+    },
+    "6b67a961-a077-5203-92a3-0773c206d323": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Artículo CUARTO",
+      "type": "ordinario",
+      "contentSha256": "8e1c016399f9c71f6a68289ca52de2368da6672e4323f90dc84c2e87dcb7ba18",
+      "pageNumbers": [
+        5
+      ],
+      "anchors": [
+        {
+          "page": 5,
+          "bbox": [
+            99.36009979248047,
+            704.867919921875,
+            529.5455932617188,
+            714.9119262695312
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            84.9600830078125,
+            716.0908813476562,
+            525.1881713867188,
+            726.1348876953125
+          ]
+        }
+      ]
+    },
+    "c96fa84f-8491-5ad0-b506-c2e88473c1d3": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Transitorio PRIMERO",
+      "type": "transitorio",
+      "contentSha256": "6ea0783663da7abea89dbaf2c8da70f69d1c0bc48212f4665bc64b01b3acf748",
+      "pageNumbers": [
+        6
+      ],
+      "anchors": [
+        {
+          "page": 6,
+          "bbox": [
+            99.35699462890625,
+            76.63790130615234,
+            532.063720703125,
+            86.68190002441406
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.95700073242188,
+            88.94087982177734,
+            157.01011657714844,
+            98.98487854003906
+          ]
+        }
+      ]
+    },
+    "6c26d5b7-fab2-5245-b006-337246592cfe": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Transitorio SEGUNDO",
+      "type": "transitorio",
+      "contentSha256": "c9d302697ec1886c1170afba58a61fd9d0ecc9f0327b7600a97d2f1e55420ad0",
+      "pageNumbers": [
+        6
+      ],
+      "anchors": [
+        {
+          "page": 6,
+          "bbox": [
+            99.35700225830078,
+            106.28389739990234,
+            529.4761352539062,
+            116.32789611816406
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.95700073242188,
+            118.58687591552734,
+            529.4922485351562,
+            128.63087463378906
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.95703125,
+            130.8898468017578,
+            529.430908203125,
+            140.93385314941406
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.95704650878906,
+            143.1928253173828,
+            374.61834716796875,
+            153.23683166503906
+          ]
+        }
+      ]
+    },
+    "1df3b965-eb9f-54bd-99b3-2b09a4af61d4": {
+      "sourceId": "prosener-decreto-8718317c5f2f",
+      "label": "Firma del decreto",
+      "type": "complementario",
+      "contentSha256": "9674db666038e61b37db5558373b4f78e540db461354cd165b18f268f6213cb1",
+      "pageNumbers": [
+        6
+      ],
+      "anchors": [
+        {
+          "page": 6,
+          "bbox": [
+            99.35704803466797,
+            160.5897979736328,
+            529.5038452148438,
+            170.63380432128906
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.95704650878906,
+            172.8927764892578,
+            529.5082397460938,
+            182.93678283691406
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.95703125,
+            185.1957550048828,
+            529.5228881835938,
+            195.23976135253906
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.94802856445312,
+            197.4987335205078,
+            507.5269470214844,
+            207.54273986816406
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.94805145263672,
+            249.11375427246094,
+            264.9210205078125,
+            259.0767517089844
+          ]
+        }
+      ]
+    },
+    "e5768f5e-17db-56ff-991a-e9c1dd3fdca2": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Presentación e índice del programa",
+      "type": "anexo",
+      "contentSha256": "547a9be778a8e64740c0f2d4c6d4156138face647698b47306d0fd1f586536e7",
+      "pageNumbers": [
+        6
+      ],
+      "anchors": [
+        {
+          "page": 6,
+          "bbox": [
+            84.94805145263672,
+            249.11375427246094,
+            264.9210205078125,
+            259.0767517089844
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            99.36000061035156,
+            282.5180969238281,
+            287.8324890136719,
+            291.42376708984375
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            288.0,
+            299.2350158691406,
+            326.5380554199219,
+            309.27899169921875
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            99.36001586914062,
+            316.8750305175781,
+            109.3536148071289,
+            326.91900634765625
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            120.95281219482422,
+            316.8750305175781,
+            149.4215850830078,
+            326.91900634765625
+          ]
+        }
+      ]
+    },
+    "90e025d7-29a3-598e-8193-dbbd3d8466bf": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "2. Señalamiento del origen de los recursos del programa",
+      "type": "ordinario",
+      "contentSha256": "e0defbd4ebf98005d5ceb52eca460604ca6cef6e3a42837259800274aa42ac06",
+      "pageNumbers": [
+        6
+      ],
+      "anchors": [
+        {
+          "page": 6,
+          "bbox": [
+            184.68002319335938,
+            647.12109375,
+            429.77349853515625,
+            657.1651000976562
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            99.36001586914062,
+            664.8240966796875,
+            529.3470458984375,
+            674.8681030273438
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.96001434326172,
+            677.4241333007812,
+            529.4198608398438,
+            687.4681396484375
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.96002197265625,
+            690.0241088867188,
+            529.5042724609375,
+            700.068115234375
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            84.96000671386719,
+            702.6240844726562,
+            529.5070190429688,
+            712.6680908203125
+          ]
+        }
+      ]
+    },
+    "cebe637d-6b00-5664-bb07-abc6369a88fc": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "3. Siglas y acrónimos",
+      "type": "ordinario",
+      "contentSha256": "9e93477040711215f11a44cc510e6aef0a813d2ccedaf4053fb66bb91851bb51",
+      "pageNumbers": [
+        7,
+        8
+      ],
+      "anchors": [
+        {
+          "page": 7,
+          "bbox": [
+            99.35700988769531,
+            74.35799407958984,
+            176.97116088867188,
+            84.40199279785156
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            99.35700988769531,
+            90.37801361083984,
+            250.91058349609375,
+            100.42201232910156
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            99.35700988769531,
+            106.46102142333984,
+            303.05303955078125,
+            116.50502014160156
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            99.35700988769531,
+            122.48104095458984,
+            328.5419616699219,
+            132.52503967285156
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            99.35701751708984,
+            138.5640411376953,
+            259.9655456542969,
+            148.60804748535156
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            99.36000061035156,
+            74.35799407958984,
+            190.87286376953125,
+            84.40199279785156
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            99.36000061035156,
+            90.37801361083984,
+            226.41029357910156,
+            100.42201232910156
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            99.36000061035156,
+            106.46102142333984,
+            267.037109375,
+            116.50502014160156
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            99.36000061035156,
+            122.48104095458984,
+            335.08349609375,
+            132.52503967285156
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            99.36000061035156,
+            138.5640411376953,
+            371.53253173828125,
+            148.60804748535156
+          ]
+        }
+      ]
+    },
+    "9c3b4124-1ec7-55d1-a474-ab2b66f422a5": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "4. Fundamento normativo",
+      "type": "ordinario",
+      "contentSha256": "231c0be6aab35a22e01a64e3ee7b31cd07e796c98230707fbe8773774e9d7dfd",
+      "pageNumbers": [
+        8,
+        9,
+        10
+      ],
+      "anchors": [
+        {
+          "page": 8,
+          "bbox": [
+            250.98300170898438,
+            604.026123046875,
+            363.4397277832031,
+            614.0701293945312
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            99.36000061035156,
+            620.109130859375,
+            529.4798583984375,
+            630.1531372070312
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            84.96000671386719,
+            631.089111328125,
+            529.4970703125,
+            641.1331176757812
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            84.96000671386719,
+            642.069091796875,
+            529.471923828125,
+            652.1130981445312
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            84.95999145507812,
+            653.112060546875,
+            286.9604797363281,
+            663.1560668945312
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.96000671386719,
+            68.89498138427734,
+            529.4844360351562,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.96000671386719,
+            79.6949691772461,
+            529.4476318359375,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.96000671386719,
+            90.49495697021484,
+            529.49853515625,
+            100.53895568847656
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.96000671386719,
+            101.2949447631836,
+            529.4428100585938,
+            111.33894348144531
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.96000671386719,
+            112.09493255615234,
+            529.5125122070312,
+            122.13893127441406
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.95999145507812,
+            69.79195404052734,
+            529.4888305664062,
+            79.83595275878906
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.95999145507812,
+            81.1319808959961,
+            529.5277099609375,
+            91.17597961425781
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.95999145507812,
+            92.4089584350586,
+            491.33721923828125,
+            102.45295715332031
+          ]
+        }
+      ]
+    },
+    "af51cac6-852b-58d8-b2a0-1eb6a0d9ad82": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5. Diagnóstico de la situación actual y visión de largo plazo",
+      "type": "ordinario",
+      "contentSha256": "912a6067ab9d7aac059e6270b19bccd855cfc9e6481994df23be33cf8e1588e1",
+      "pageNumbers": [
+        10
+      ],
+      "anchors": [
+        {
+          "page": 10,
+          "bbox": [
+            178.9829864501953,
+            108.7889633178711,
+            435.5737609863281,
+            118.83296203613281
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            99.3599853515625,
+            125.1059799194336,
+            529.4555053710938,
+            135.1499786376953
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.9599838256836,
+            136.38294982910156,
+            529.4591064453125,
+            146.4269561767578
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.9599838256836,
+            147.7229766845703,
+            209.07350158691406,
+            157.76698303222656
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            120.9671859741211,
+            164.0399932861328,
+            369.56524658203125,
+            174.08399963378906
+          ]
+        }
+      ]
+    },
+    "198c61f8-f11b-55e2-bcc8-2ee7c4f86730": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.1. Antecedentes",
+      "type": "ordinario",
+      "contentSha256": "bab01a789c95dc6a8fd923a35aa68e90f903ada0407e06464c3c0a7a472fd7a3",
+      "pageNumbers": [
+        10
+      ],
+      "anchors": [
+        {
+          "page": 10,
+          "bbox": [
+            99.3599853515625,
+            445.5870666503906,
+            178.3502655029297,
+            455.63104248046875
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            99.3599853515625,
+            461.904052734375,
+            529.5151977539062,
+            471.9480285644531
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.95997619628906,
+            473.2440490722656,
+            529.4598999023438,
+            483.28802490234375
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.95997619628906,
+            484.52105712890625,
+            529.4996948242188,
+            494.5650329589844
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            84.95997619628906,
+            495.7980651855469,
+            529.4835815429688,
+            505.842041015625
+          ]
+        }
+      ]
+    },
+    "c38a1a26-6feb-5d38-8de0-362f880f1980": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.1. Producción petrolera",
+      "type": "ordinario",
+      "contentSha256": "6f49fe7b27fcafc8645ca0407e28c00457a05148c7902c6ebf34ff6368439313",
+      "pageNumbers": [
+        11
+      ],
+      "anchors": [
+        {
+          "page": 11,
+          "bbox": [
+            99.36000061035156,
+            73.93502044677734,
+            217.3940887451172,
+            83.97901916503906
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            99.36000061035156,
+            89.7750473022461,
+            529.5196533203125,
+            99.81904602050781
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            84.968994140625,
+            100.57503509521484,
+            529.4970703125,
+            110.61903381347656
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            84.968994140625,
+            111.3750228881836,
+            529.4987182617188,
+            121.41902160644531
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            84.968994140625,
+            122.17501068115234,
+            504.1279296875,
+            132.21900939941406
+          ]
+        }
+      ]
+    },
+    "e0311ef8-0bea-53a6-8f7a-eca45963c6c5": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.2. Reservas de hidrocarburos",
+      "type": "ordinario",
+      "contentSha256": "1b5dc4420878962a5ed9cd921f6f6d632bd2075f918792429b126772113e62db",
+      "pageNumbers": [
+        12,
+        13
+      ],
+      "anchors": [
+        {
+          "page": 12,
+          "bbox": [
+            99.36000061035156,
+            75.4320297241211,
+            529.5346069335938,
+            85.47602844238281
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            84.96000671386719,
+            87.0150375366211,
+            529.5791015625,
+            97.05903625488281
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            84.95999145507812,
+            98.5980453491211,
+            529.4463500976562,
+            108.64204406738281
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            84.96000671386719,
+            110.23506927490234,
+            529.4077758789062,
+            120.27906799316406
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            84.96000671386719,
+            121.81807708740234,
+            529.4697875976562,
+            131.86207580566406
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            109.5,
+            69.67488861083984,
+            205.54798889160156,
+            79.71888732910156
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            150.77999877929688,
+            86.2350082397461,
+            164.256591796875,
+            96.27900695800781
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            354.8963928222656,
+            86.2350082397461,
+            377.3495788574219,
+            96.27900695800781
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            504.5249938964844,
+            86.2350082397461,
+            526.9782104492188,
+            96.27900695800781
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            150.77999877929688,
+            102.0749740600586,
+            164.256591796875,
+            112.11897277832031
+          ]
+        }
+      ]
+    },
+    "90a0ea8f-c319-5eea-b06a-c4804c6ef901": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.3. Producción petrolífera",
+      "type": "ordinario",
+      "contentSha256": "ba45fbcbb287060b63f43a4e518dab624da92d2be9463da68a471fd6ca43620b",
+      "pageNumbers": [
+        13,
+        14
+      ],
+      "anchors": [
+        {
+          "page": 13,
+          "bbox": [
+            99.36003875732422,
+            244.7038116455078,
+            222.88050842285156,
+            254.74781799316406
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            99.36003875732422,
+            261.6867980957031,
+            529.5096435546875,
+            271.73077392578125
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            84.96002197265625,
+            273.5668029785156,
+            529.4898681640625,
+            283.61077880859375
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            84.95098876953125,
+            285.4468078613281,
+            529.5422973632812,
+            295.49078369140625
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            84.95098876953125,
+            297.3268127441406,
+            529.51953125,
+            307.37078857421875
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96000671386719,
+            68.89498138427734,
+            529.5287475585938,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96000671386719,
+            79.6949691772461,
+            529.437744140625,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96002197265625,
+            90.49495697021484,
+            529.3585205078125,
+            100.53895568847656
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96002197265625,
+            101.2949447631836,
+            165.968994140625,
+            111.33894348144531
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            99.36002349853516,
+            117.13497161865234,
+            529.545654296875,
+            127.17897033691406
+          ]
+        }
+      ]
+    },
+    "e7a24f67-a8b6-5173-aa9a-9064e4162119": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.4. Petroquímica",
+      "type": "ordinario",
+      "contentSha256": "69abd03b6dda5fb49ace427b1cd91d2cc650806941de8c4825e01a3e572c0c92",
+      "pageNumbers": [
+        14,
+        15
+      ],
+      "anchors": [
+        {
+          "page": 14,
+          "bbox": [
+            99.36002349853516,
+            261.9179382324219,
+            183.92039489746094,
+            271.9619140625
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            99.36002349853516,
+            277.7579345703125,
+            529.49951171875,
+            287.8019104003906
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96002197265625,
+            288.55792236328125,
+            529.4888916015625,
+            298.6018981933594
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96002197265625,
+            299.35791015625,
+            529.3963012695312,
+            309.4018859863281
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.96002197265625,
+            310.15789794921875,
+            529.3450927734375,
+            320.2018737792969
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.96002197265625,
+            70.1550521850586,
+            529.4458618164062,
+            80.19905090332031
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.96002197265625,
+            81.61202239990234,
+            529.356689453125,
+            91.65602111816406
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.96002197265625,
+            93.13204193115234,
+            290.4875793457031,
+            103.17604064941406
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            99.36002349853516,
+            109.6920394897461,
+            529.543701171875,
+            119.73603820800781
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.95101928710938,
+            121.2120590209961,
+            529.4647827148438,
+            131.2560577392578
+          ]
+        }
+      ]
+    },
+    "fcf48453-7566-56dc-a895-a59e67adefc8": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.5. Fertilizantes",
+      "type": "ordinario",
+      "contentSha256": "aca4107f0ce84cf4ded6bc89985ef9f2d9a7fe5746dd380e9b7bc3da720ecf2c",
+      "pageNumbers": [
+        15,
+        16
+      ],
+      "anchors": [
+        {
+          "page": 15,
+          "bbox": [
+            99.35102081298828,
+            172.20606994628906,
+            179.37356567382812,
+            182.2500762939453
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            99.35102081298828,
+            188.7660675048828,
+            529.5484619140625,
+            198.81007385253906
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.95103454589844,
+            200.2860870361328,
+            529.4653930664062,
+            210.33009338378906
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.95103454589844,
+            211.8061065673828,
+            529.3502807617188,
+            221.85011291503906
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.95103454589844,
+            223.26307678222656,
+            529.4935913085938,
+            233.3070831298828
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.95999908447266,
+            68.89498138427734,
+            529.521240234375,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.95999908447266,
+            79.6949691772461,
+            375.1425476074219,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            99.36000061035156,
+            95.53499603271484,
+            529.4384765625,
+            105.57899475097656
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.95999908447266,
+            106.3349838256836,
+            529.5220947265625,
+            116.37898254394531
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.95999145507812,
+            117.13497161865234,
+            529.4593505859375,
+            127.17897033691406
+          ]
+        }
+      ]
+    },
+    "91698f48-9ac0-562c-849f-473fd4201554": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.6. Gas natural",
+      "type": "ordinario",
+      "contentSha256": "9662af91b0aa50f09e2d71f271a645d4041e26e94208d0806bf3f336e4a1bab9",
+      "pageNumbers": [
+        16,
+        17
+      ],
+      "anchors": [
+        {
+          "page": 16,
+          "bbox": [
+            99.35999298095703,
+            154.57496643066406,
+            176.41796875,
+            164.6189727783203
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            99.35999298095703,
+            170.4779815673828,
+            529.4611206054688,
+            180.52198791503906
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.95997619628906,
+            181.27796936035156,
+            529.5042114257812,
+            191.3219757080078
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.9599609375,
+            192.0779571533203,
+            529.4861450195312,
+            202.12196350097656
+          ]
+        },
+        {
+          "page": 16,
+          "bbox": [
+            84.9599609375,
+            202.87794494628906,
+            529.5203247070312,
+            212.9219512939453
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.96002197265625,
+            68.89498138427734,
+            529.4965209960938,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.96002197265625,
+            79.6949691772461,
+            529.4854736328125,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.96002197265625,
+            90.49495697021484,
+            529.43408203125,
+            100.53895568847656
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.96002197265625,
+            101.2949447631836,
+            443.2373962402344,
+            111.33894348144531
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            99.36002349853516,
+            117.13497161865234,
+            529.4716796875,
+            127.17897033691406
+          ]
+        }
+      ]
+    },
+    "c01b7406-48e4-5817-b9bb-c4f7ecb62404": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.7. Quema y venteo",
+      "type": "ordinario",
+      "contentSha256": "e05fff8f655e61b208ba62939d366062e18b447c000927b28bb12ca63d255190",
+      "pageNumbers": [
+        17,
+        18
+      ],
+      "anchors": [
+        {
+          "page": 17,
+          "bbox": [
+            99.35692596435547,
+            574.2779541015625,
+            196.43270874023438,
+            584.3219604492188
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            99.35692596435547,
+            590.117919921875,
+            529.4761352539062,
+            600.1619262695312
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.9569091796875,
+            600.91796875,
+            529.4482421875,
+            610.9619750976562
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.9569091796875,
+            611.7179565429688,
+            529.4950561523438,
+            621.761962890625
+          ]
+        },
+        {
+          "page": 17,
+          "bbox": [
+            84.95692443847656,
+            622.5179443359375,
+            529.3734741210938,
+            632.5619506835938
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.95999145507812,
+            68.89498138427734,
+            529.45654296875,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.95999145507812,
+            79.6949691772461,
+            456.0761413574219,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            99.3599853515625,
+            95.53499603271484,
+            529.5029296875,
+            105.57899475097656
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.96597290039062,
+            106.3349838256836,
+            529.4083862304688,
+            116.37898254394531
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.96597290039062,
+            117.13497161865234,
+            529.4354248046875,
+            127.17897033691406
+          ]
+        }
+      ]
+    },
+    "da7fa387-f88d-538e-be14-01f1669d0db5": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.8 Uso eficiente de la energía",
+      "type": "ordinario",
+      "contentSha256": "218b60861f71fe8db076f2223c45f70cf50c6f0cfaf566cf143d45fec754160f",
+      "pageNumbers": [
+        18,
+        19
+      ],
+      "anchors": [
+        {
+          "page": 18,
+          "bbox": [
+            99.36000061035156,
+            261.9150085449219,
+            237.90231323242188,
+            271.958984375
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            99.36000061035156,
+            277.7550048828125,
+            529.5042114257812,
+            287.7989807128906
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.96002197265625,
+            288.55499267578125,
+            529.5096435546875,
+            298.5989685058594
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.96002197265625,
+            299.35498046875,
+            529.475341796875,
+            309.3989562988281
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.96002197265625,
+            310.15496826171875,
+            529.5033569335938,
+            320.1989440917969
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.95999908447266,
+            75.13802337646484,
+            446.19232177734375,
+            85.18202209472656
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            99.36001586914062,
+            94.39803314208984,
+            529.48974609375,
+            104.44203186035156
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.96896362304688,
+            108.6810531616211,
+            529.5410766601562,
+            118.72505187988281
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.96896362304688,
+            122.9010238647461,
+            529.502197265625,
+            132.9450225830078
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.96896362304688,
+            137.1840362548828,
+            529.5185546875,
+            147.22804260253906
+          ]
+        }
+      ]
+    },
+    "197acef3-8f22-5562-a8ef-3e1da0448edf": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.9 Transición energética sustentable",
+      "type": "ordinario",
+      "contentSha256": "6846c5cb50cadcab04675fa951fe7b61486eb30785c32aa1e7faf3101074596d",
+      "pageNumbers": [
+        19,
+        20
+      ],
+      "anchors": [
+        {
+          "page": 19,
+          "bbox": [
+            99.36894989013672,
+            261.2760314941406,
+            269.8937683105469,
+            271.32000732421875
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            99.36894226074219,
+            280.5990295410156,
+            529.3923950195312,
+            290.64300537109375
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.96894073486328,
+            294.81903076171875,
+            529.55908203125,
+            304.8630065917969
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.96893310546875,
+            309.1020202636719,
+            529.4898071289062,
+            319.14599609375
+          ]
+        },
+        {
+          "page": 19,
+          "bbox": [
+            84.96893310546875,
+            323.322021484375,
+            529.4591064453125,
+            333.3659973144531
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            99.35699462890625,
+            346.7550048828125,
+            529.4580078125,
+            356.7989807128906
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            84.95700073242188,
+            362.5500183105469,
+            529.4869384765625,
+            372.8819885253906
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            84.95700073242188,
+            378.9720153808594,
+            404.642333984375,
+            389.0159912109375
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            99.35700225830078,
+            400.0950012207031,
+            529.5616455078125,
+            410.13897705078125
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            84.95698547363281,
+            415.8900146484375,
+            529.5419311523438,
+            426.22198486328125
+          ]
+        }
+      ]
+    },
+    "cf047cfb-ef9e-5609-9b2b-2f19013eac9e": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.2.10. Planeación energética vinculante",
+      "type": "ordinario",
+      "contentSha256": "75e5c4ec96c18100dbed315766eab78dd07161bede0ec8f44d3a2ae334772852",
+      "pageNumbers": [
+        21,
+        22
+      ],
+      "anchors": [
+        {
+          "page": 21,
+          "bbox": [
+            99.3600082397461,
+            78.97200775146484,
+            529.481689453125,
+            89.01600646972656
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            84.96002197265625,
+            92.5890121459961,
+            529.5293579101562,
+            102.63301086425781
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            84.96002197265625,
+            106.1520004272461,
+            529.4000854492188,
+            116.19599914550781
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            84.96002197265625,
+            119.76900482177734,
+            529.4512939453125,
+            129.81300354003906
+          ]
+        },
+        {
+          "page": 21,
+          "bbox": [
+            84.96002197265625,
+            133.38600158691406,
+            529.5978393554688,
+            143.4300079345703
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.95999145507812,
+            70.6920394897461,
+            529.5339965820312,
+            80.73603820800781
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.95999145507812,
+            82.45503997802734,
+            529.4403686523438,
+            92.49903869628906
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.95999145507812,
+            94.27205657958984,
+            529.4393920898438,
+            104.31605529785156
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.96000671386719,
+            106.08907318115234,
+            131.96701049804688,
+            116.13307189941406
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            99.3600082397461,
+            122.9460678100586,
+            529.6249389648438,
+            132.9900665283203
+          ]
+        }
+      ]
+    },
+    "4808a67c-99e3-59ae-a288-70cdcfd1c8f3": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.3.1. Contexto del sector eléctrico nacional",
+      "type": "ordinario",
+      "contentSha256": "14f181078be6f01ac712687d2c0a98dafce565a863e24dae81f0f9e8b51a6b25",
+      "pageNumbers": [
+        22
+      ],
+      "anchors": [
+        {
+          "page": 22,
+          "bbox": [
+            99.34204864501953,
+            239.2171173095703,
+            334.4454040527344,
+            249.26112365722656
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            99.34204864501953,
+            256.0741271972656,
+            289.5300598144531,
+            266.11810302734375
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            99.34204864501953,
+            272.9311218261719,
+            529.509521484375,
+            282.97509765625
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.94204711914062,
+            284.6941223144531,
+            529.4692993164062,
+            294.73809814453125
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.94203186035156,
+            296.5111083984375,
+            529.4016723632812,
+            306.5550842285156
+          ]
+        }
+      ]
+    },
+    "d94bbe1a-c116-5d80-ab2c-5c7e2204b133": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.3.2. Generación de electricidad y Transición Energética",
+      "type": "ordinario",
+      "contentSha256": "90d8bcf40a48f5e97d5448ff93e8b87b0feb0e7864f695dc2ecf7147785de2cf",
+      "pageNumbers": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "anchors": [
+        {
+          "page": 23,
+          "bbox": [
+            99.36000061035156,
+            77.8979721069336,
+            529.3674926757812,
+            87.94197082519531
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            84.95999908447266,
+            90.62999725341797,
+            302.8038024902344,
+            100.96498107910156
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            84.95999908447266,
+            708.6900024414062,
+            528.9909057617188,
+            718.6011962890625
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            84.96185302734375,
+            719.2891845703125,
+            114.13980865478516,
+            727.1234741210938
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            84.95999908447266,
+            69.61800384521484,
+            529.49853515625,
+            79.66200256347656
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            84.95999145507812,
+            80.7779769897461,
+            529.4544677734375,
+            90.82197570800781
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            84.95999145507812,
+            92.0009994506836,
+            529.4744873046875,
+            102.04499816894531
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            84.96002197265625,
+            103.2240219116211,
+            401.1660461425781,
+            113.26802062988281
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            99.36002349853516,
+            119.42403411865234,
+            529.4915161132812,
+            129.46803283691406
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            84.95999145507812,
+            68.89498138427734,
+            529.462890625,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            84.95999145507812,
+            79.41002655029297,
+            529.551025390625,
+            89.73902893066406
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            84.96000671386719,
+            90.4950180053711,
+            494.1990661621094,
+            100.53901672363281
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            99.3600082397461,
+            106.33504486083984,
+            529.5014038085938,
+            116.37904357910156
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            84.96000671386719,
+            117.1350326538086,
+            529.5350952148438,
+            127.17903137207031
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.95999908447266,
+            68.89498138427734,
+            529.4639892578125,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.96000671386719,
+            79.6949691772461,
+            529.495361328125,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.96002197265625,
+            90.49495697021484,
+            529.440185546875,
+            100.53895568847656
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.96002197265625,
+            101.2319564819336,
+            222.05337524414062,
+            111.27595520019531
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            99.36002349853516,
+            116.4149398803711,
+            529.4852905273438,
+            126.45893859863281
+          ]
+        }
+      ]
+    },
+    "66b421a3-d24c-5da7-ac96-39d5c6a30ec4": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.4. Justicia Energética",
+      "type": "ordinario",
+      "contentSha256": "26eb8d313a01a45393e2a7ec7e45024520d35af9560cb28946dd5921fc355db4",
+      "pageNumbers": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "anchors": [
+        {
+          "page": 26,
+          "bbox": [
+            99.36003875732422,
+            153.00892639160156,
+            201.4110107421875,
+            163.0529327392578
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            99.36003875732422,
+            168.19190979003906,
+            529.4752807617188,
+            178.2359161376953
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.96003723144531,
+            178.9918975830078,
+            529.5223388671875,
+            189.03590393066406
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.96003723144531,
+            189.79188537597656,
+            529.5277099609375,
+            199.8358917236328
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.96003723144531,
+            200.5918731689453,
+            529.3844604492188,
+            210.63587951660156
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.95999908447266,
+            68.71797943115234,
+            529.474609375,
+            78.76197814941406
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.96000671386719,
+            79.4549789428711,
+            529.4970092773438,
+            89.49897766113281
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.96002197265625,
+            90.1379623413086,
+            529.48876953125,
+            100.18196105957031
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.96002197265625,
+            100.8209457397461,
+            529.50634765625,
+            110.86494445800781
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.96002197265625,
+            111.27001190185547,
+            443.802001953125,
+            121.60194396972656
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            84.95999145507812,
+            68.89498138427734,
+            529.42236328125,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            84.95999145507812,
+            79.6949691772461,
+            141.51597595214844,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            99.35999298095703,
+            95.59798431396484,
+            529.4528198242188,
+            105.64198303222656
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            84.95999145507812,
+            106.51497650146484,
+            529.4871826171875,
+            116.55897521972656
+          ]
+        },
+        {
+          "page": 28,
+          "bbox": [
+            84.95999145507812,
+            117.43196868896484,
+            208.4777069091797,
+            127.47596740722656
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.95999145507812,
+            68.89498138427734,
+            529.5050659179688,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.95997619628906,
+            79.6949691772461,
+            529.4376220703125,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.95997619628906,
+            90.49495697021484,
+            474.6555480957031,
+            100.53895568847656
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            99.35997009277344,
+            105.67794036865234,
+            529.5114135742188,
+            115.72193908691406
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.9599609375,
+            116.4779281616211,
+            529.486083984375,
+            126.52192687988281
+          ]
+        }
+      ]
+    },
+    "90665f79-8ac7-55f9-ba63-1955511b5b3c": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "5.5 Visión de largo plazo",
+      "type": "ordinario",
+      "contentSha256": "4a19ca5761eea9704aa6f9b84e5f35e7a7d3432fc3c141c2e3f4ed67316d30a4",
+      "pageNumbers": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "anchors": [
+        {
+          "page": 29,
+          "bbox": [
+            99.35997772216797,
+            306.9177551269531,
+            206.88031005859375,
+            316.96173095703125
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            99.35997772216797,
+            322.10076904296875,
+            529.4644165039062,
+            332.1447448730469
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.95997619628906,
+            332.9007568359375,
+            529.5362548828125,
+            342.9447326660156
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.95997619628906,
+            343.70074462890625,
+            529.2970581054688,
+            353.7447204589844
+          ]
+        },
+        {
+          "page": 29,
+          "bbox": [
+            84.95997619628906,
+            354.500732421875,
+            186.0227508544922,
+            364.5447082519531
+          ]
+        },
+        {
+          "page": 30,
+          "bbox": [
+            99.36000061035156,
+            248.5349884033203,
+            529.427734375,
+            258.5789794921875
+          ]
+        },
+        {
+          "page": 30,
+          "bbox": [
+            84.95999908447266,
+            259.6949768066406,
+            529.441162109375,
+            269.73895263671875
+          ]
+        },
+        {
+          "page": 30,
+          "bbox": [
+            84.96000671386719,
+            270.9179992675781,
+            529.4593505859375,
+            280.96197509765625
+          ]
+        },
+        {
+          "page": 30,
+          "bbox": [
+            84.96000671386719,
+            282.1409912109375,
+            529.45556640625,
+            292.1849670410156
+          ]
+        },
+        {
+          "page": 30,
+          "bbox": [
+            84.96000671386719,
+            293.3009948730469,
+            380.1437683105469,
+            303.344970703125
+          ]
+        },
+        {
+          "page": 31,
+          "bbox": [
+            84.95999908447266,
+            69.07198333740234,
+            529.4044189453125,
+            79.11598205566406
+          ]
+        },
+        {
+          "page": 31,
+          "bbox": [
+            84.95999145507812,
+            79.9349594116211,
+            529.4647216796875,
+            89.97895812988281
+          ]
+        },
+        {
+          "page": 31,
+          "bbox": [
+            84.95997619628906,
+            90.8519515991211,
+            529.5670166015625,
+            100.89595031738281
+          ]
+        },
+        {
+          "page": 31,
+          "bbox": [
+            84.95997619628906,
+            101.7689437866211,
+            289.59100341796875,
+            111.81294250488281
+          ]
+        },
+        {
+          "page": 31,
+          "bbox": [
+            99.35997772216797,
+            117.67195892333984,
+            529.4429931640625,
+            127.71595764160156
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95999908447266,
+            69.1949691772461,
+            529.480712890625,
+            79.23896789550781
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95999145507812,
+            80.1119613647461,
+            529.3982543945312,
+            90.15596008300781
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95999145507812,
+            91.0289535522461,
+            310.60968017578125,
+            101.07295227050781
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            99.35999298095703,
+            107.0489730834961,
+            529.5087280273438,
+            117.09297180175781
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95997619628906,
+            118.0289535522461,
+            529.4375610351562,
+            128.0729522705078
+          ]
+        }
+      ]
+    },
+    "3245e9f4-3424-53d5-bdbc-b7c6b39d7efa": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "6. Objetivos",
+      "type": "ordinario",
+      "contentSha256": "2e52086b620d6b884d133e6ffd3aba91fc19698156b1dccfdd8dee526eaadf00",
+      "pageNumbers": [
+        32
+      ],
+      "anchors": [
+        {
+          "page": 32,
+          "bbox": [
+            280.4940490722656,
+            264.5308532714844,
+            334.0215148925781,
+            274.5748291015625
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            99.35104370117188,
+            280.55084228515625,
+            529.4879150390625,
+            290.5948181152344
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95103454589844,
+            291.46783447265625,
+            529.4818725585938,
+            301.5118103027344
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95101928710938,
+            302.4478454589844,
+            529.44140625,
+            312.4918212890625
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95101928710938,
+            313.3648376464844,
+            258.58245849609375,
+            323.4088134765625
+          ]
+        }
+      ]
+    },
+    "b4dbdb57-8bc3-5978-9976-110c8de28afd": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "6.1 Relevancia del objetivo 1: Fortalecer la autosuficiencia, soberanía y seguridad energética, a través de la planeación energética vinculante, así como el desarrollo sustentable para garantizar el acceso equitativo a la energía para la población, especialmente en regiones en rezago",
+      "type": "ordinario",
+      "contentSha256": "73d153a0e87be19fd5793837637dc1e26a093c0172d7f5781a08f03c5f93f8dc",
+      "pageNumbers": [
+        32,
+        33
+      ],
+      "anchors": [
+        {
+          "page": 32,
+          "bbox": [
+            99.35999298095703,
+            545.828857421875,
+            529.5017700195312,
+            555.8728637695312
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95997619628906,
+            556.808837890625,
+            529.581787109375,
+            566.8528442382812
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95997619628906,
+            567.7258911132812,
+            456.14947509765625,
+            577.7698974609375
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            99.35997772216797,
+            583.745849609375,
+            529.4638061523438,
+            593.7898559570312
+          ]
+        },
+        {
+          "page": 32,
+          "bbox": [
+            84.95997619628906,
+            594.7258911132812,
+            529.48095703125,
+            604.7698974609375
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.95997619628906,
+            68.89498138427734,
+            529.4967651367188,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.9599609375,
+            79.6949691772461,
+            529.48095703125,
+            89.73896789550781
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.9599609375,
+            90.49495697021484,
+            529.5232543945312,
+            100.53895568847656
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.95994567871094,
+            101.2949447631836,
+            529.522216796875,
+            111.33894348144531
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.95994567871094,
+            112.09493255615234,
+            228.5548095703125,
+            122.13893127441406
+          ]
+        }
+      ]
+    },
+    "96bb315f-020a-5450-a262-2a629a8dda51": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "6.2 Relevancia del objetivo 2: Impulsar proyectos estratégicos de energías renovables, el fomento a la eficiencia energética, y la innovación tecnológica para mitigar el impacto ambiental y reducir la dependencia de combustibles fósiles, priorizando regiones y sectores históricamente marginados",
+      "type": "ordinario",
+      "contentSha256": "56e5d7080afdaf2f9c53cea673ca4b1c56c062d4af86100be16a919959a74ece",
+      "pageNumbers": [
+        33,
+        34
+      ],
+      "anchors": [
+        {
+          "page": 33,
+          "bbox": [
+            99.36893463134766,
+            487.2777099609375,
+            529.622802734375,
+            497.3216857910156
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.96893310546875,
+            498.07769775390625,
+            529.4716186523438,
+            508.1216735839844
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.96893310546875,
+            508.8777160644531,
+            508.3270568847656,
+            518.9216918945312
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            99.36893463134766,
+            524.7806396484375,
+            529.5040283203125,
+            534.8246459960938
+          ]
+        },
+        {
+          "page": 33,
+          "bbox": [
+            84.96893310546875,
+            535.5806274414062,
+            395.25567626953125,
+            545.6246337890625
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            120.24180603027344,
+            72.3149642944336,
+            529.5006713867188,
+            82.35896301269531
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            120.96000671386719,
+            83.05196380615234,
+            529.4600219726562,
+            93.09596252441406
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            120.96000671386719,
+            93.73494720458984,
+            529.5232543945312,
+            103.77894592285156
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            120.96000671386719,
+            104.41793060302734,
+            529.5222778320312,
+            114.46192932128906
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            120.96000671386719,
+            115.1549301147461,
+            315.0485534667969,
+            125.19892883300781
+          ]
+        }
+      ]
+    },
+    "7cac8462-0e66-5ff6-a3aa-0a9bb8683373": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "6.3 Relevancia del objetivo 3: Garantizar la Justicia Energética para la población, acceso equitativo a energía asequible, distribución justa de beneficios de los proyectos energéticos y gestión participativa de las comunidades",
+      "type": "ordinario",
+      "contentSha256": "2aa4fdeba347d4836a64e16dbd38e71af82ef2201088e5b1c58d8eac9da8c412",
+      "pageNumbers": [
+        34,
+        35
+      ],
+      "anchors": [
+        {
+          "page": 34,
+          "bbox": [
+            99.3600845336914,
+            546.27294921875,
+            529.5836791992188,
+            556.3169555664062
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            84.96005249023438,
+            556.9559326171875,
+            529.53125,
+            566.9999389648438
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            84.96003723144531,
+            567.6389770507812,
+            229.0130615234375,
+            577.6829833984375
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            99.36003875732422,
+            581.8589477539062,
+            529.5404663085938,
+            591.9029541015625
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            84.96002197265625,
+            592.5419921875,
+            529.4566040039062,
+            602.5859985351562
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.96000671386719,
+            68.6579818725586,
+            529.5384521484375,
+            78.70198059082031
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.95999145507812,
+            79.2779769897461,
+            529.5275268554688,
+            89.32197570800781
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.96000671386719,
+            89.8979721069336,
+            529.4805908203125,
+            99.94197082519531
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.96000671386719,
+            100.5809555053711,
+            529.4751586914062,
+            110.62495422363281
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.95999145507812,
+            111.2009506225586,
+            529.4153442382812,
+            121.24494934082031
+          ]
+        }
+      ]
+    },
+    "a6e3bc51-996b-5538-8c21-724df3703580": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "6.4 Vinculación de los objetivos del Programa Sectorial de Energía 2025-2030",
+      "type": "ordinario",
+      "contentSha256": "cbc286f34d75dcd8e7e7606dea3096a0fcd02b6418e622fcb2f663892e551efe",
+      "pageNumbers": [
+        35
+      ],
+      "anchors": [
+        {
+          "page": 35,
+          "bbox": [
+            99.36006927490234,
+            468.7078857421875,
+            432.4914245605469,
+            478.7518615722656
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            99.36006927490234,
+            483.2248840332031,
+            529.4521484375,
+            493.26885986328125
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.96006774902344,
+            493.90789794921875,
+            529.3846435546875,
+            503.9518737792969
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.96006774902344,
+            504.5278625488281,
+            529.5491943359375,
+            514.5718383789062
+          ]
+        },
+        {
+          "page": 35,
+          "bbox": [
+            84.96005249023438,
+            515.2108764648438,
+            424.0873718261719,
+            525.2548828125
+          ]
+        }
+      ]
+    },
+    "a61f789d-2157-523e-a5c3-7200442afe22": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "7. Estrategias y líneas de acción",
+      "type": "ordinario",
+      "contentSha256": "a16a120ab570e1c8e31ad721f24ddf3801773ead5a91749ec7ceebc4ac40447d",
+      "pageNumbers": [
+        36
+      ],
+      "anchors": [
+        {
+          "page": 36,
+          "bbox": [
+            99.35700988769531,
+            73.93502044677734,
+            529.537109375,
+            83.97901916503906
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95700073242188,
+            84.7350082397461,
+            529.4804077148438,
+            94.77900695800781
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95700073242188,
+            95.53499603271484,
+            529.5266723632812,
+            105.57899475097656
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95700073242188,
+            106.3349838256836,
+            529.5464477539062,
+            116.37898254394531
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95698547363281,
+            117.13497161865234,
+            439.14862060546875,
+            127.17897033691406
+          ]
+        }
+      ]
+    },
+    "ac9b2120-9e03-595f-8109-4333a9cc82b3": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 1.1. Planificar de manera integral la participación de los actores del SEM guiados por el imperativo ético de promover un desarrollo integral y sustentable con justicia energética y respeto a la dignidad humana, bajo la rectoría del Estado",
+      "type": "ordinario",
+      "contentSha256": "ea910711bd90c202b0184ebc3dbe9636f332d2db9364311e2c1dcb5ea9113c85",
+      "pageNumbers": [
+        36
+      ],
+      "anchors": [
+        {
+          "page": 36,
+          "bbox": [
+            99.3570327758789,
+            261.9179382324219,
+            529.54541015625,
+            271.9619140625
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95701599121094,
+            272.7179260253906,
+            529.4501953125,
+            282.76190185546875
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95701599121094,
+            283.5179138183594,
+            422.97528076171875,
+            293.5618896484375
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            99.35701751708984,
+            299.35791015625,
+            529.6611938476562,
+            309.4018859863281
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95701599121094,
+            310.15789794921875,
+            529.5604248046875,
+            320.2018737792969
+          ]
+        }
+      ]
+    },
+    "486f5898-a852-5b0e-a6ba-a81184e44d17": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 1.2. Mantener e incrementar la producción de hidrocarburos, petrolíferos y petroquímicos para reducir la dependencia externa y asegurar el abastecimiento energético nacional",
+      "type": "ordinario",
+      "contentSha256": "b28926ecc307abda32c48c53002e370fa9bbdfb1204ae7010fe791821adf91c9",
+      "pageNumbers": [
+        36,
+        37
+      ],
+      "anchors": [
+        {
+          "page": 36,
+          "bbox": [
+            99.36003112792969,
+            582.375,
+            529.5367431640625,
+            592.4190063476562
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.96002960205078,
+            593.1749877929688,
+            519.072998046875,
+            603.218994140625
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            272.2200012207031,
+            609.074951171875,
+            342.24542236328125,
+            619.1189575195312
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95999908447266,
+            624.9149780273438,
+            529.435791015625,
+            634.958984375
+          ]
+        },
+        {
+          "page": 36,
+          "bbox": [
+            84.95999908447266,
+            635.7149658203125,
+            500.2019958496094,
+            645.7589721679688
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95700073242188,
+            73.93502044677734,
+            529.5210571289062,
+            83.97901916503906
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95700073242188,
+            84.7350082397461,
+            529.506591796875,
+            94.77900695800781
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95700073242188,
+            95.53499603271484,
+            456.21600341796875,
+            105.57899475097656
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999908447266,
+            111.3750228881836,
+            529.52685546875,
+            121.41902160644531
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999908447266,
+            122.17488861083984,
+            519.6959838867188,
+            132.21888732910156
+          ]
+        }
+      ]
+    },
+    "952ab279-28f6-5458-8edc-8bef420b7d1a": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 1.3. Ampliar las reservas de hidrocarburos de forma sustentable mediante proyectos estratégicos de exploración y producción para mantener la plataforma de producción nacional",
+      "type": "ordinario",
+      "contentSha256": "0ce41320a975996fe8d06ffbd92759524356ebbd84bfdfdfc79eadad28a6e188",
+      "pageNumbers": [
+        37
+      ],
+      "anchors": [
+        {
+          "page": 37,
+          "bbox": [
+            99.35999298095703,
+            309.43499755859375,
+            529.4989624023438,
+            319.4789733886719
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999145507812,
+            320.6579895019531,
+            529.5571899414062,
+            330.70196533203125
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999145507812,
+            331.8809814453125,
+            123.95699310302734,
+            341.9249572753906
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            272.2200012207031,
+            348.07501220703125,
+            342.24542236328125,
+            358.1189880371094
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999908447266,
+            364.33502197265625,
+            529.5105590820312,
+            374.3789978027344
+          ]
+        }
+      ]
+    },
+    "643b0933-efcc-5e83-a922-d37e292c7af4": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 1.4. Fortalecer las capacidades operativas y financieras de las Empresas Públicas del Estado, mediante procesos de reorganización institucional, mejorando la eficiencia y reduciendo su impacto ambiental.",
+      "type": "ordinario",
+      "contentSha256": "4705eed541f810747b7764214b7789e056e09594ffb5384580d11c149dd34a92",
+      "pageNumbers": [
+        37,
+        38
+      ],
+      "anchors": [
+        {
+          "page": 37,
+          "bbox": [
+            99.3599853515625,
+            485.36102294921875,
+            529.4180908203125,
+            495.4049987792969
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95997619628906,
+            496.5840148925781,
+            529.5267333984375,
+            506.62799072265625
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999145507812,
+            507.7440490722656,
+            233.07302856445312,
+            517.7880249023438
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            272.2200012207031,
+            523.9949951171875,
+            342.24542236328125,
+            534.0390014648438
+          ]
+        },
+        {
+          "page": 37,
+          "bbox": [
+            84.95999908447266,
+            539.9548950195312,
+            529.5062866210938,
+            549.9989013671875
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95700073242188,
+            74.3519515991211,
+            529.4276733398438,
+            84.39595031738281
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95700073242188,
+            85.15193939208984,
+            529.4842529296875,
+            95.19593811035156
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95700073242188,
+            95.9519271850586,
+            245.02200317382812,
+            105.99592590332031
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95999908447266,
+            111.79500579833984,
+            529.4915161132812,
+            121.83900451660156
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95999908447266,
+            122.5949935913086,
+            529.4791259765625,
+            132.6389923095703
+          ]
+        }
+      ]
+    },
+    "d10ce06e-f9cf-5c04-9046-299cf8f0cf5f": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 2.1. Fomentar la transición gradual de combustibles fósiles a energías renovables para fortalecer la sustentabilidad económica y ambiental",
+      "type": "ordinario",
+      "contentSha256": "18a71d01a94d85f85a0681fd8379369c56d859f39792e6c2f41099bb93e31311",
+      "pageNumbers": [
+        38
+      ],
+      "anchors": [
+        {
+          "page": 38,
+          "bbox": [
+            99.36001586914062,
+            266.6580505371094,
+            529.6115112304688,
+            276.7020263671875
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.96001434326172,
+            277.4580383300781,
+            529.4580078125,
+            287.50201416015625
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.96001434326172,
+            288.2580261230469,
+            437.6214904785156,
+            298.302001953125
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            99.36001586914062,
+            304.0980224609375,
+            529.56201171875,
+            314.1419982910156
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.96001434326172,
+            314.89801025390625,
+            380.073486328125,
+            324.9419860839844
+          ]
+        }
+      ]
+    },
+    "e156adf0-dce7-53f1-9dbf-678afef92063": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 2.2. Promover la integración de energías limpias y renovables en todas las etapas de las cadenas de valor de la economía mexicana para garantizar el suministro energético sustentable y competitivo",
+      "type": "ordinario",
+      "contentSha256": "2117424bc205c5555369a3394303e5024708e000941d250bfae28ae61b3325f4",
+      "pageNumbers": [
+        38,
+        39
+      ],
+      "anchors": [
+        {
+          "page": 38,
+          "bbox": [
+            99.36000061035156,
+            570.6178588867188,
+            529.5501708984375,
+            580.661865234375
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95999908447266,
+            581.4178466796875,
+            529.5795288085938,
+            591.4618530273438
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95999908447266,
+            592.2178955078125,
+            197.92977905273438,
+            602.2619018554688
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            272.2200012207031,
+            608.0549926757812,
+            342.24542236328125,
+            618.0989990234375
+          ]
+        },
+        {
+          "page": 38,
+          "bbox": [
+            84.95999908447266,
+            623.8948974609375,
+            529.4908447265625,
+            633.9389038085938
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95700073242188,
+            75.91500091552734,
+            442.5989990234375,
+            85.95899963378906
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            90.7350082397461,
+            529.5386352539062,
+            100.77900695800781
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            101.53499603271484,
+            529.4771118164062,
+            111.57899475097656
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            112.3349838256836,
+            204.52500915527344,
+            122.37898254394531
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.96000671386719,
+            127.1579818725586,
+            529.55126953125,
+            137.2019805908203
+          ]
+        }
+      ]
+    },
+    "d4a56564-3df0-5562-8589-2236a04abc5a": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 2.3. Fomentar el uso sustentable y estratégico de minerales críticos, como el litio, para fortalecer la industria energética y garantizar su aprovechamiento económico y social",
+      "type": "ordinario",
+      "contentSha256": "6db88184f784905cb54beca46d31bf1072d1a524559f0eb9f440745f2dd252a1",
+      "pageNumbers": [
+        39
+      ],
+      "anchors": [
+        {
+          "page": 39,
+          "bbox": [
+            99.36001586914062,
+            213.79493713378906,
+            529.6417846679688,
+            223.8389434814453
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.96002197265625,
+            224.5949249267578,
+            497.59100341796875,
+            234.63893127441406
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            272.2200012207031,
+            242.4148712158203,
+            342.24542236328125,
+            252.45887756347656
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            257.2348937988281,
+            529.5276489257812,
+            267.27886962890625
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            268.0348815917969,
+            523.7279663085938,
+            278.078857421875
+          ]
+        }
+      ]
+    },
+    "eb70698f-c1f5-537e-bd25-1c0f84054395": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 2.4. Impulsar la electrificación y el uso de energías limpias en el transporte público y de carga para mejorar su eficiencia y sustentabilidad",
+      "type": "ordinario",
+      "contentSha256": "6eb44ecaf6249e000153d619d351101b172e6fbdb23e5aa9456c02e4415772dc",
+      "pageNumbers": [
+        39
+      ],
+      "anchors": [
+        {
+          "page": 39,
+          "bbox": [
+            99.3599853515625,
+            358.69500732421875,
+            529.501708984375,
+            368.7389831542969
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.9599838256836,
+            369.4949951171875,
+            355.9373779296875,
+            379.5389709472656
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            272.2200012207031,
+            387.31500244140625,
+            342.24542236328125,
+            397.3589782714844
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            402.43499755859375,
+            529.5176391601562,
+            412.4789733886719
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            413.6549987792969,
+            508.1220397949219,
+            423.698974609375
+          ]
+        }
+      ]
+    },
+    "d74e6d1e-ff83-5f2a-834f-99cd90dd59d9": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 2.5 Impulsar la innovación y la formación de talento especializado para fortalecer el sector energético con tecnología de vanguardia",
+      "type": "ordinario",
+      "contentSha256": "216923cd2349008426c835ed0b30c379e29f8f664c69ec43bb1b5175acbddcd3",
+      "pageNumbers": [
+        39,
+        40
+      ],
+      "anchors": [
+        {
+          "page": 39,
+          "bbox": [
+            99.3599853515625,
+            585.6118774414062,
+            529.7109375,
+            595.6558837890625
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.9599838256836,
+            596.411865234375,
+            345.5990905761719,
+            606.4558715820312
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            272.2200012207031,
+            614.23486328125,
+            342.259033203125,
+            624.2788696289062
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            629.0549926757812,
+            529.4835205078125,
+            639.0989990234375
+          ]
+        },
+        {
+          "page": 39,
+          "bbox": [
+            84.95999908447266,
+            639.85498046875,
+            228.04200744628906,
+            649.8989868164062
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95700073242188,
+            72.9179916381836,
+            529.4884033203125,
+            82.96199035644531
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95700073242188,
+            83.71797943115234,
+            280.05902099609375,
+            93.76197814941406
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999908447266,
+            99.55501556396484,
+            529.5466918945312,
+            109.59901428222656
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999908447266,
+            110.3550033569336,
+            155.5019989013672,
+            120.39900207519531
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999908447266,
+            126.19503021240234,
+            529.4378662109375,
+            136.23902893066406
+          ]
+        }
+      ]
+    },
+    "b7f3c8ee-032b-5f80-91cd-7c56132ef439": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 2.6 Fomentar el aprovechamiento eficiente y sustentable de los recursos energéticos, en la transformación y en los usos finales de la energía para fortalecer la seguridad energética y reducir el impacto ambiental",
+      "type": "ordinario",
+      "contentSha256": "1be5aea83173c5657b7150dfbbdda48494f7d850b2ea0d5cfd135434eef2bc77",
+      "pageNumbers": [
+        40
+      ],
+      "anchors": [
+        {
+          "page": 40,
+          "bbox": [
+            99.36000061035156,
+            179.4750518798828,
+            529.464599609375,
+            189.51905822753906
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999908447266,
+            190.27503967285156,
+            529.5530395507812,
+            200.3190460205078
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999145507812,
+            201.0750274658203,
+            264.5189208984375,
+            211.11903381347656
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            272.2200012207031,
+            218.95497131347656,
+            342.24542236328125,
+            228.9989776611328
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999908447266,
+            233.71498107910156,
+            526.9609985351562,
+            243.7589874267578
+          ]
+        }
+      ]
+    },
+    "bcaa03fc-7d3a-5590-9e6e-daff4f228cc3": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 3.1 Desarrollar esquemas que amplíen el acceso a la energía en comunidades y regiones con hogares en condición de Pobreza Energética para garantizar un suministro confiable, asequible y sustentable",
+      "type": "ordinario",
+      "contentSha256": "2b99ae40f74a0012a2ee825f9d60c2fcdb2b446790fe1e04ee73fc0eefcb13a6",
+      "pageNumbers": [
+        40
+      ],
+      "anchors": [
+        {
+          "page": 40,
+          "bbox": [
+            99.35999298095703,
+            557.5980224609375,
+            529.6403198242188,
+            567.6420288085938
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999145507812,
+            568.3980102539062,
+            529.5365600585938,
+            578.4420166015625
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999145507812,
+            579.197998046875,
+            145.47329711914062,
+            589.2420043945312
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            99.35999298095703,
+            595.0380249023438,
+            529.4657592773438,
+            605.08203125
+          ]
+        },
+        {
+          "page": 40,
+          "bbox": [
+            84.95999145507812,
+            605.8380126953125,
+            529.6580200195312,
+            615.8820190429688
+          ]
+        }
+      ]
+    },
+    "f7e833dd-ea93-5537-b3d8-0664e97344db": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 3.2 Asegurar la asequibilidad y estabilidad de las tarifas eléctricas para un suministro equitativo de electricidad y combustibles a toda la población",
+      "type": "ordinario",
+      "contentSha256": "6b942b6c390dfbcd3bd3518ebe34d3adf49e992c43c489f620d27104e3b4e5fa",
+      "pageNumbers": [
+        41
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            84.95999145507812,
+            69.7319564819336,
+            396.0521545410156,
+            79.77595520019531
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            272.2200012207031,
+            85.9950180053711,
+            342.24542236328125,
+            96.03901672363281
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            102.31502532958984,
+            529.598876953125,
+            112.35902404785156
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            113.53499603271484,
+            529.4555053710938,
+            123.57899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            124.81502532958984,
+            188.50498962402344,
+            134.85902404785156
+          ]
+        }
+      ]
+    },
+    "8c1e078a-06ba-5e16-a264-4b180fa9ec0c": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 3.3 Promover el acceso a la energía e infraestructura energética confiable, asequible, segura y sustentable, para contribuir a la disminución de las desigualdades sociales y de género",
+      "type": "ordinario",
+      "contentSha256": "79198e320ea3899faac8445f311500b10919bd20e7f98abb8f5bdd9403e30914",
+      "pageNumbers": [
+        41
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            99.3599853515625,
+            184.93507385253906,
+            529.53759765625,
+            194.9790802001953
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95997619628906,
+            196.21205139160156,
+            529.524169921875,
+            206.2560577392578
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95997619628906,
+            207.43507385253906,
+            117.46977996826172,
+            217.4790802001953
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            272.2200012207031,
+            223.75502014160156,
+            342.24542236328125,
+            233.7990264892578
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            240.07496643066406,
+            529.4657592773438,
+            250.1189727783203
+          ]
+        }
+      ]
+    },
+    "2d036b4a-afa2-5632-92d1-2dd439f0f086": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 3.4 Establecer mecanismos de transición justa para acompañar a comunidades, trabajadores y sectores productivos afectados por la descarbonización, mediante capacitación, sustitución tecnológica, apoyos y reconversión laboral",
+      "type": "ordinario",
+      "contentSha256": "5ef40c792d15e9b70cb1724fd9936ff76de76182551138fea729114fe5231183",
+      "pageNumbers": [
+        41
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            99.36001586914062,
+            466.6319885253906,
+            529.4207153320312,
+            476.67596435546875
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.96001434326172,
+            477.90899658203125,
+            529.588623046875,
+            487.9529724121094
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.96002197265625,
+            489.1319885253906,
+            382.5828552246094,
+            499.17596435546875
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            272.2200012207031,
+            505.4549255371094,
+            342.24542236328125,
+            515.4989013671875
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            521.7750244140625,
+            529.5291748046875,
+            531.8190307617188
+          ]
+        }
+      ]
+    },
+    "9a89b236-974a-59da-a01e-78ae0641f125": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Estrategia prioritaria 3.5 Impulsar acciones afirmativas para garantizar la participación, liderazgo y acceso equitativo de mujeres, pueblos indígenas y grupos excluidos en beneficio del desarrollo energético",
+      "type": "ordinario",
+      "contentSha256": "83f99db97eff85d3be18dbfad79219b64e28e8b947ff667fd9b5136ab06629fd",
+      "pageNumbers": [
+        41
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            99.35995483398438,
+            631.9349975585938,
+            529.644775390625,
+            641.97900390625
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95997619628906,
+            643.2119750976562,
+            529.5835571289062,
+            653.2559814453125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            654.4349365234375,
+            132.9749755859375,
+            664.4789428710938
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            272.2200012207031,
+            670.7550048828125,
+            342.24542236328125,
+            680.7990112304688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            687.0748901367188,
+            529.4572143554688,
+            697.118896484375
+          ]
+        }
+      ]
+    },
+    "16d88748-5af9-58bf-b67d-1e5ac56d9020": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "8. Indicadores y metas",
+      "type": "ordinario",
+      "contentSha256": "ed053e0cfe10aac7358bd0dd3fd32dffdbbbf41d1472fa19bf73ec2ce1616dd2",
+      "pageNumbers": [
+        42
+      ],
+      "anchors": [
+        {
+          "page": 42,
+          "bbox": [
+            99.36300659179688,
+            73.93502044677734,
+            529.3857421875,
+            83.97901916503906
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.96300506591797,
+            84.7350082397461,
+            529.5134887695312,
+            94.77900695800781
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.96298217773438,
+            95.53499603271484,
+            529.5100708007812,
+            105.57899475097656
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.96298217773438,
+            106.3349838256836,
+            224.58534240722656,
+            116.37898254394531
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            99.36298370361328,
+            122.17501068115234,
+            248.48744201660156,
+            132.21900939941406
+          ]
+        }
+      ]
+    },
+    "f6c660a3-eb0e-5ea6-a163-781624bfb38e": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Indicador 1.1 Crecimiento de la producción nacional de hidrocarburos líquidos",
+      "type": "ordinario",
+      "contentSha256": "0348bc05b1da074d361674b401230d9b34b0687f6a90ec60cac862f49e8dbecf",
+      "pageNumbers": [
+        42
+      ],
+      "anchors": [
+        {
+          "page": 42,
+          "bbox": [
+            99.36298370361328,
+            266.2380676269531,
+            438.9670715332031,
+            276.28204345703125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            248.22000122070312,
+            286.5981140136719,
+            366.03021240234375,
+            295.5037841796875
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            122.45999908447266,
+            303.1581115722656,
+            154.9258270263672,
+            312.06378173828125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            209.4579620361328,
+            303.1581115722656,
+            517.1843872070312,
+            312.06378173828125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            121.55999755859375,
+            331.4781188964844,
+            155.77027893066406,
+            340.3837890625
+          ]
+        }
+      ]
+    },
+    "1aafb8cd-3c02-524c-b8ae-d7c1812de626": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Indicador 1.2 Crecimiento de las capacidades de producción eléctrica del Estado Mexicano.",
+      "type": "ordinario",
+      "contentSha256": "fd2d5958f78d990b7ce3fa1578a5afb1be498f7b3c03b7d7b7f8a1cb66667d0a",
+      "pageNumbers": [
+        43
+      ],
+      "anchors": [
+        {
+          "page": 43,
+          "bbox": [
+            248.22000122070312,
+            76.5381088256836,
+            366.03021240234375,
+            85.44378662109375
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95999908447266,
+            90.69808197021484,
+            117.42584228515625,
+            99.603759765625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            217.19656372070312,
+            90.69808197021484,
+            509.2403259277344,
+            99.603759765625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95999908447266,
+            114.21810150146484,
+            119.17025756835938,
+            123.123779296875
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            198.29994201660156,
+            104.73787689208984,
+            528.2665405273438,
+            113.6435546875
+          ]
+        }
+      ]
+    },
+    "770d8342-addc-5391-a193-2a278fe7965b": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Indicador 2.1 Porcentaje de participación de las energías limpias en la matriz de generación eléctrica.",
+      "type": "ordinario",
+      "contentSha256": "f28f74a264795eaf5d0c19e3b6d86111fce44f41d5ab436dfca54c2cfec2a068",
+      "pageNumbers": [
+        44
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            248.22000122070312,
+            77.0180892944336,
+            366.03021240234375,
+            85.92376708984375
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            122.45999908447266,
+            91.7780990600586,
+            154.9258270263672,
+            100.68377685546875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            206.3377685546875,
+            91.7780990600586,
+            520.258056640625,
+            100.68377685546875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            121.55999755859375,
+            121.47811126708984,
+            155.77027893066406,
+            130.3837890625
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            210.7843780517578,
+            106.4757308959961,
+            515.8276977539062,
+            115.38140869140625
+          ]
+        }
+      ]
+    },
+    "0059f46c-2050-5f04-8dbc-afeb65a63b71": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Indicador 2.2 Tasa de variación porcentual anual de la Intensidad Energética.",
+      "type": "ordinario",
+      "contentSha256": "e5b5b50b266df0d1c96ea61fb75835271222375ae6c34b183b983d5fc7522035",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            248.22000122070312,
+            75.6380844116211,
+            366.03021240234375,
+            84.54376220703125
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.95999908447266,
+            88.47811126708984,
+            117.42584228515625,
+            97.3837890625
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            197.27850341796875,
+            88.47811126708984,
+            438.25543212890625,
+            97.3837890625
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.95999908447266,
+            114.81807708740234,
+            159.25218200683594,
+            123.7237548828125
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            197.27850341796875,
+            101.3797836303711,
+            529.2799682617188,
+            110.28546142578125
+          ]
+        }
+      ]
+    },
+    "09bc551d-585e-59ec-9def-c12466563ba1": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Indicador 3.1. Porcentaje de la población con acceso al servicio eléctrico.",
+      "type": "ordinario",
+      "contentSha256": "676f857544751f8905dbaa0a73708272aadcaf25fdc6824a37843a28d7e8c4e9",
+      "pageNumbers": [
+        46
+      ],
+      "anchors": [
+        {
+          "page": 46,
+          "bbox": [
+            248.22000122070312,
+            76.83809661865234,
+            366.03021240234375,
+            85.7437744140625
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            101.81999969482422,
+            91.2981185913086,
+            134.28585815429688,
+            100.20379638671875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            230.4600067138672,
+            91.2981185913086,
+            454.9853515625,
+            100.20379638671875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            100.9800033569336,
+            110.6781234741211,
+            135.1902618408203,
+            119.58380126953125
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            176.22000122070312,
+            105.7580795288086,
+            509.233154296875,
+            114.66375732421875
+          ]
+        }
+      ]
+    },
+    "cbebc7e4-1672-5c68-9b87-b4626ba11faf": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Indicador 3.2 Capacidad de generación de energía eléctrica renovable instalada en proyectos para la reducción de la Pobreza Energética.",
+      "type": "ordinario",
+      "contentSha256": "6b139e06a4b076881eb4eaac606e3e8f26d10da6fe3c0119a2aebc055f8e3b4d",
+      "pageNumbers": [
+        47
+      ],
+      "anchors": [
+        {
+          "page": 47,
+          "bbox": [
+            84.95999145507812,
+            68.89498138427734,
+            252.15023803710938,
+            78.93898010253906
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            248.22000122070312,
+            86.6781234741211,
+            366.03021240234375,
+            95.58380126953125
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            104.0999984741211,
+            103.8980941772461,
+            136.56585693359375,
+            112.80377197265625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            171.05999755859375,
+            99.2780990600586,
+            518.8328857421875,
+            108.18377685546875
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            307.6199951171875,
+            108.5180892944336,
+            382.3207702636719,
+            117.42376708984375
+          ]
+        }
+      ]
+    },
+    "2801a819-ee17-5270-98e7-92ae39cd3580": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "9. Referencias",
+      "type": "anexo",
+      "contentSha256": "81bebb596d2b6d98de42be6fdf57f8787075e577bc110670745d97ff2fa20434",
+      "pageNumbers": [
+        48,
+        49,
+        50
+      ],
+      "anchors": [
+        {
+          "page": 48,
+          "bbox": [
+            99.35699462890625,
+            76.33797454833984,
+            529.5390014648438,
+            86.38197326660156
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95700073242188,
+            90.13497161865234,
+            506.09423828125,
+            100.17897033691406
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35699462890625,
+            108.9719467163086,
+            529.5165405273438,
+            119.01594543457031
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95700073242188,
+            122.7689437866211,
+            164.93096923828125,
+            132.8129425048828
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            181.99046325683594,
+            122.7689437866211,
+            230.0189971923828,
+            132.8129425048828
+          ]
+        },
+        {
+          "page": 49,
+          "bbox": [
+            120.95999145507812,
+            73.9320297241211,
+            246.04275512695312,
+            83.97602844238281
+          ]
+        },
+        {
+          "page": 49,
+          "bbox": [
+            99.35999298095703,
+            92.5890121459961,
+            529.522216796875,
+            102.63301086425781
+          ]
+        },
+        {
+          "page": 49,
+          "bbox": [
+            120.95999145507812,
+            106.1520004272461,
+            529.6314697265625,
+            116.19599914550781
+          ]
+        },
+        {
+          "page": 49,
+          "bbox": [
+            120.95999145507812,
+            119.76900482177734,
+            137.9321746826172,
+            129.81300354003906
+          ]
+        },
+        {
+          "page": 49,
+          "bbox": [
+            146.17437744140625,
+            119.76900482177734,
+            155.65316772460938,
+            129.81300354003906
+          ]
+        },
+        {
+          "page": 50,
+          "bbox": [
+            120.96005249023438,
+            74.8380355834961,
+            526.8870849609375,
+            84.88203430175781
+          ]
+        },
+        {
+          "page": 50,
+          "bbox": [
+            120.96005249023438,
+            88.9410629272461,
+            483.4019775390625,
+            98.98506164550781
+          ]
+        },
+        {
+          "page": 50,
+          "bbox": [
+            120.96005249023438,
+            103.0440902709961,
+            167.47657775878906,
+            113.08808898925781
+          ]
+        },
+        {
+          "page": 50,
+          "bbox": [
+            99.36005401611328,
+            122.18709564208984,
+            143.27105712890625,
+            132.23109436035156
+          ]
+        },
+        {
+          "page": 50,
+          "bbox": [
+            157.39385986328125,
+            122.18709564208984,
+            169.8822479248047,
+            132.23109436035156
+          ]
+        }
+      ]
+    },
+    "ebabb6aa-d5f2-5855-ad88-850b323d39b7": {
+      "sourceId": "prosener-8718317c5f2f",
+      "label": "Notas del programa",
+      "type": "anexo",
+      "contentSha256": "4381bac1e9a4a447f8c4ded581e38ebef514e782124b8fd66f08aaac6ce4bc84",
+      "pageNumbers": [
+        9,
+        11,
+        12,
+        14,
+        15,
+        18,
+        20,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        34
+      ],
+      "anchors": [
+        {
+          "page": 9,
+          "bbox": [
+            84.95999908447266,
+            613.2899780273438,
+            528.9934692382812,
+            623.201171875
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.95999908447266,
+            655.8298950195312,
+            528.9893188476562,
+            665.7410888671875
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.95999908447266,
+            674.1900024414062,
+            528.9976196289062,
+            684.1011962890625
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            84.95999908447266,
+            700.6500244140625,
+            528.9878540039062,
+            710.5612182617188
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            84.95999908447266,
+            700.6500244140625,
+            528.9891967773438,
+            710.5612182617188
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            84.95999908447266,
+            708.6900024414062,
+            528.9747924804688,
+            718.6011962890625
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            84.95999908447266,
+            708.6900024414062,
+            529.0053100585938,
+            718.6011962890625
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            84.95999908447266,
+            708.6900024414062,
+            528.9955444335938,
+            718.6011962890625
+          ]
+        },
+        {
+          "page": 18,
+          "bbox": [
+            84.95999908447266,
+            716.7899169921875,
+            454.1902160644531,
+            726.7011108398438
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            84.95999908447266,
+            679.9498901367188,
+            195.554931640625,
+            689.861083984375
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            84.95999908447266,
+            690.3298950195312,
+            504.8730163574219,
+            700.2410888671875
+          ]
+        },
+        {
+          "page": 20,
+          "bbox": [
+            84.95999908447266,
+            700.6500244140625,
+            528.9232788085938,
+            710.5612182617188
+          ]
+        },
+        {
+          "page": 22,
+          "bbox": [
+            84.95999908447266,
+            716.7899169921875,
+            452.49029541015625,
+            726.7011108398438
+          ]
+        },
+        {
+          "page": 23,
+          "bbox": [
+            84.95999908447266,
+            708.6900024414062,
+            528.9909057617188,
+            718.6011962890625
+          ]
+        },
+        {
+          "page": 24,
+          "bbox": [
+            84.95999908447266,
+            716.7899169921875,
+            345.82696533203125,
+            726.7011108398438
+          ]
+        },
+        {
+          "page": 25,
+          "bbox": [
+            84.95999908447266,
+            716.7899169921875,
+            478.46148681640625,
+            726.7011108398438
+          ]
+        },
+        {
+          "page": 26,
+          "bbox": [
+            84.95999908447266,
+            684.5698852539062,
+            528.9908447265625,
+            694.4810791015625
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.95999908447266,
+            696.0900268554688,
+            382.65179443359375,
+            706.001220703125
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.95999908447266,
+            706.4099731445312,
+            476.8491516113281,
+            716.3211669921875
+          ]
+        },
+        {
+          "page": 27,
+          "bbox": [
+            84.95999908447266,
+            716.7899169921875,
+            267.66571044921875,
+            726.7011108398438
+          ]
+        },
+        {
+          "page": 34,
+          "bbox": [
+            84.95999908447266,
+            692.6099243164062,
+            528.9986572265625,
+            702.5211181640625
           ]
         }
       ]
