@@ -6,6 +6,7 @@ import { initDesk, pinButtonHtml, syncPinButtons } from './desk-view.js';
 import { createDesk, deleteDesk, getDesks, parseDeskHash, setActiveDesk } from '../lib/desk-store.js';
 import { initDeskSync } from './desk-sync.js';
 import { renderArticlePage, articlePageHash, parseArticlePageHash } from './article-page-view.js';
+import { renderSearchLanding } from './search-landing.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -86,7 +87,8 @@ export function initUI() {
     // ── Auth DB caches (null = not loaded / user not logged in) ───────────────
     let dbFavoritesSet = null; // Set<string> when loaded
     let dbNotesMap = null;     // Map<string,string> when loaded
-    let searchHistory = [];
+    const HISTORY_KEY = 'busquedas-recientes';
+    let searchHistory = (() => { try { const v = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); return Array.isArray(v) ? v.filter(q => typeof q === 'string').slice(0, 10) : []; } catch { return []; } })();
     let openAuthModal = () => {};
     let closeAuthModal = () => {};
 
@@ -357,6 +359,7 @@ export function initUI() {
         // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
         if (activeNavId === 'nav-leyes' && !location.hash) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
+        if (activeNavId === 'nav-inicio') renderLanding();
 
         // No longer auto-rendering on home, user wants it only in stats
 
@@ -769,18 +772,42 @@ export function initUI() {
             if (isActive) {
                 el.classList.add('text-guinda', 'font-bold');
                 el.classList.remove('text-gray-500');
-                if (!id.startsWith('mobile-')) {
-                    el.style.borderBottom = '2px solid #9B2247';
-                    el.style.paddingBottom = '2px';
-                }
+                el.setAttribute('aria-current', 'page');
             } else {
+                el.removeAttribute('aria-current');
                 el.classList.remove('text-guinda', 'font-bold');
                 el.classList.add('text-gray-500');
                 el.style.borderBottom = 'none';
                 el.style.paddingBottom = '0';
             }
         });
+        document.querySelectorAll('#bottom-nav [data-nav]').forEach(button => {
+            if (button.dataset.nav === activeId) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
+        });
     }
+
+    // Phones: a fixed bar with the main destinations; "Más" opens the full menu.
+    (() => {
+        const items = [
+            ['nav-leyes', 'Acervo', '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'],
+            ['nav-inicio', 'Buscar', '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/>'],
+            ['nav-analisis', 'Análisis', '<circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="6" r="1.8"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="18" cy="18" r="1.8"/><path d="M10 10.4 6.4 7.2M14 10.4l3.6-3.2M10.2 13.9l-2.8 3.2M13.8 13.9l2.7 2.6"/>'],
+            ['nav-favorites', 'Guardados', '<path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/>'],
+            ['more', 'Más', '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>'],
+        ];
+        const bar = document.createElement('nav');
+        bar.id = 'bottom-nav';
+        bar.setAttribute('aria-label', 'Navegación principal');
+        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg><span>${label}</span></button>`).join('');
+        document.body.append(bar);
+        document.body.classList.add('has-bottom-nav');
+        bar.addEventListener('click', event => {
+            const button = event.target.closest('button');
+            if (!button) return;
+            if (button.hasAttribute('data-more')) document.getElementById('mobile-menu-btn')?.click();
+            else document.getElementById(button.dataset.nav)?.click();
+        });
+    })();
 
     // On results the search box moves into the results band; everywhere else it sits on the page.
     const searchWrapper = document.getElementById('global-search-wrapper');
@@ -871,6 +898,18 @@ export function initUI() {
 
         setActiveNav('nav-inicio');
         animateHero();
+        renderLanding();
+    }
+
+    function renderLanding() {
+        if (!statsMinimal || heroSection?.classList.contains('hidden')) return;
+        statsMinimal.classList.remove('hidden', 'opacity-0');
+        void renderSearchLanding(statsMinimal, {
+            summaries: cachedSummaries, history: getHistory(),
+            onSearch: query => { searchInput.value = query; searchInput.dispatchEvent(new Event('input')); },
+            onOpenLaw: id => { const law = cachedSummaries.find(l => String(l.id) === String(id)); if (law) openLawDetail(law); },
+            onOpenTerms: () => showAnalisisView({}),
+        });
     }
 
     function animateHero() {
@@ -1946,6 +1985,7 @@ export function initUI() {
         const history = getHistory().filter(q => q !== query);
         history.unshift(query);
         searchHistory = history.slice(0, 10);
+        try { localStorage.setItem(HISTORY_KEY, JSON.stringify(searchHistory)); } catch { /* private mode */ }
     }
 
     function getHistory() {
