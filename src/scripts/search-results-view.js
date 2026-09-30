@@ -20,7 +20,12 @@ const external = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24
  * favourites and navigation stay in the app and arrive as options/callbacks.
  */
 const MODE_KEY = 'buscador-vista';
-const readMode = () => { try { return localStorage.getItem(MODE_KEY) === 'mapa' ? 'mapa' : 'lista'; } catch { return 'lista'; } };
+// The map is the default view; a click inside it shows the list once without changing that choice.
+let listOnce = false;
+const readMode = () => {
+    if (listOnce) { listOnce = false; return 'lista'; }
+    try { return localStorage.getItem(MODE_KEY) === 'lista' ? 'lista' : 'mapa'; } catch { return 'mapa'; }
+};
 const GRAPH_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="18.5" r="2"/><path d="M9.6 10.3 6.2 7.3M14.4 10.3l3.4-3M10 14.2l-2.6 3.3M14 14.2l2.6 2.8"/></svg>';
 const LIST_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>';
 
@@ -142,7 +147,8 @@ export function renderSearchResults(container, {
         container.__srGraphDestroy = null;
         if (show) container.__srGraphDestroy = renderSearchGraph(host, {
             query, lawCounts, summaries, activeLaw: filters.law,
-            onSelectLaw: lawId => onFilter({ ...filters, law: String(filters.law) === String(lawId) ? 'all' : String(lawId) }),
+            onSelectLaw: lawId => { listOnce = true; onFilter({ ...filters, law: String(lawId) }); },
+            onSelectGroup: group => { listOnce = true; onFilter({ ...filters, type: group, law: 'all' }); },
         });
     }
     if (mode === 'mapa' && total) showGraph(true);

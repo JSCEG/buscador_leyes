@@ -51,3 +51,6 @@ html.dark-mode .sr-view .sr-view-switch button[aria-pressed=true]{color:#5e1430}
 .sg-node-law.is-minor .sg-label{opacity:0;transition:opacity .15s}
 .sg-node-law.is-minor.is-lit .sg-label,.sg-node-law.is-minor:focus-visible .sg-label,.sg-node-law.is-minor.is-active .sg-label{opacity:1}
 @media (max-width:640px){.sg-head{flex-direction:column;align-items:flex-start}}
+.sg-node-group{cursor:pointer}
+.sg-node-group:focus{outline:none}
+.sg-node-group:focus-visible circle{stroke-width:4}

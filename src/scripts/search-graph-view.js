@@ -12,7 +12,7 @@ const COLORS = {
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
 /** Returns a destroy function. */
-export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw = 'all', onSelectLaw = () => {} }) {
+export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw = 'all', onSelectLaw = () => {}, onSelectGroup = () => {} }) {
     const d3 = globalThis.d3;
     const graph = buildSearchGraph({ query, lawCounts, summaries });
     const laws = graph.nodes.filter(node => node.kind === 'law');
@@ -22,7 +22,7 @@ export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw
             <button type="button" class="sg-reset" data-sg-reset>Reacomodar</button>
         </div>
         <div class="sg-canvas" role="img" aria-label="Mapa de relaciones de «${esc(query)}»: ${laws.length} instrumentos agrupados por colección"></div>
-        <p class="sg-hint">Clic en un instrumento: filtra los resultados · Arrastra: mueve · Rueda o pellizco: acerca y aleja</p>`;
+        <p class="sg-hint">Clic en una colección o instrumento: ve sus resultados · Arrastra: mueve · Rueda o pellizco: acerca y aleja</p>`;
     const canvas = host.querySelector('.sg-canvas');
     if (!d3 || !laws.length) {
         canvas.innerHTML = `<p class="sg-empty">${laws.length ? 'El mapa no pudo cargarse.' : 'Sin instrumentos para mostrar.'}</p>`;
@@ -72,9 +72,9 @@ export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw
         .attr('class', d => `sg-link sg-link-${d.kind}`);
     const node = zoomLayer.append('g').attr('class', 'sg-nodes').selectAll('g').data(nodes).join('g')
         .attr('class', d => `sg-node sg-node-${d.kind}${d.kind === 'law' && d.weight < minorBelow ? ' is-minor' : ''}${d.lawId && String(d.lawId) === String(activeLaw) ? ' is-active' : ''}`)
-        .attr('tabindex', d => d.kind === 'law' ? 0 : null)
-        .attr('role', d => d.kind === 'law' ? 'button' : null)
-        .attr('aria-label', d => d.kind === 'law' ? `${d.title}: ${d.count} coincidencias. Filtrar resultados` : null);
+        .attr('tabindex', d => d.kind === 'term' ? null : 0)
+        .attr('role', d => d.kind === 'term' ? null : 'button')
+        .attr('aria-label', d => d.kind === 'law' ? `${d.title}: ${d.count} coincidencias. Ver sus resultados` : d.kind === 'group' ? `${d.label}: ${d.count} coincidencias. Ver sus resultados` : null);
     node.append('circle').attr('r', radius)
         .attr('fill', d => d.kind === 'term' ? '#302b27' : COLORS[d.group] || '#7a6f63')
         .attr('fill-opacity', d => d.kind === 'group' ? 0.18 : 1)
@@ -95,9 +95,10 @@ export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw
     };
     node.on('pointerenter', (_, d) => light(d)).on('pointerleave', () => light(null))
         .on('focus', (_, d) => light(d)).on('blur', () => light(null));
-    node.filter(d => d.kind === 'law')
-        .on('click', (event, d) => { if (!event.defaultPrevented) onSelectLaw(d.lawId); })
-        .on('keydown', (event, d) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelectLaw(d.lawId); } });
+    const select = d => (d.kind === 'law' ? onSelectLaw(d.lawId) : onSelectGroup(d.group));
+    node.filter(d => d.kind !== 'term')
+        .on('click', (event, d) => { if (!event.defaultPrevented) select(d); })
+        .on('keydown', (event, d) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); select(d); } });
     node.filter(d => d.kind !== 'term').call(d3.drag()
         .on('start', (event, d) => { if (!event.active) simulation.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
         .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
