@@ -1,5 +1,6 @@
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { pinButtonHtml } from './desk-view.js';
+import { renderSearchGraph } from './search-graph-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { contextSnippet, highlightTerms, markedFragment } from '../lib/search-snippet.js';
 import '../styles/search.css';
@@ -18,12 +19,19 @@ const external = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24
  * Search results with collection/instrument facets. Pure rendering: data fetching,
  * favourites and navigation stay in the app and arrive as options/callbacks.
  */
+const MODE_KEY = 'buscador-vista';
+const readMode = () => { try { return localStorage.getItem(MODE_KEY) === 'mapa' ? 'mapa' : 'lista'; } catch { return 'lista'; } };
+const GRAPH_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="18.5" r="2"/><path d="M9.6 10.3 6.2 7.3M14.4 10.3l3.4-3M10 14.2l-2.6 3.3M14 14.2l2.6 2.8"/></svg>';
+const LIST_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>';
+
 export function renderSearchResults(container, {
     query, results = [], total = 0, ranked = false, lawCounts = [], summaries = [],
     filters = { type: 'all', law: 'all', artNum: '' },
     favoriteState = () => ({ fav: false, title: 'Guardar' }), relationBadge = () => '',
     onOpenArticle = () => {}, onToggleFavorite = () => {}, onFilter = () => {},
 } = {}) {
+    const mode = readMode();
+    container.__srGraphDestroy?.();
     const lawById = new Map(summaries.map(law => [String(law.id), law]));
     const facetLaws = lawCounts.map(row => ({ law: lawById.get(String(row.ley_id)), count: row.count })).filter(row => row.law);
     const groupCounts = new Map();
@@ -93,8 +101,9 @@ export function renderSearchResults(container, {
             <p class="sr-eyebrow">Resultados de búsqueda</p>
             <h1 id="sr-heading">«${esc(query)}»</h1>
             <p class="sr-summary" role="status">${total ? `${plural(total, 'coincidencia', 'coincidencias')}${summaryLaws ? ` en ${plural(summaryLaws, 'instrumento', 'instrumentos')}` : ''}${ranked ? ' · ordenadas por relevancia' : ''}` : 'Sin coincidencias'}</p>
+            ${total ? `<div class="sr-view-switch" role="group" aria-label="Cómo ver los resultados"><button type="button" data-view-mode="lista" aria-pressed="${mode === 'lista'}">${LIST_ICON}Lista</button><button type="button" data-view-mode="mapa" aria-pressed="${mode === 'mapa'}">${GRAPH_ICON}Mapa de relaciones</button></div>` : ''}
         </header>
-        <div class="sr-layout">${facets}<div class="sr-main">${chips ? `<div class="sr-chips" aria-label="Filtros activos">${chips}</div>` : ''}${results.length ? `<ol class="sr-list">${items}</ol>` : empty}</div></div>
+        <div class="sr-layout">${facets}<div class="sr-main"><section class="sr-graph" aria-label="Mapa de relaciones" ${mode === 'mapa' && total ? '' : 'hidden'}></section>${chips ? `<div class="sr-chips" aria-label="Filtros activos">${chips}</div>` : ''}${results.length ? `<ol class="sr-list">${items}</ol>` : empty}</div></div>
     </section>`;
 
     const root = container.querySelector('.sr-view');
@@ -103,6 +112,12 @@ export function renderSearchResults(container, {
         const target = event.target.closest('button, a, .sr-item');
         if (!target || !root.contains(target)) return;
         if (target.matches('a')) return; // external source link
+        if (target.dataset.viewMode) {
+            try { localStorage.setItem(MODE_KEY, target.dataset.viewMode); } catch { /* ignore */ }
+            root.querySelectorAll('[data-view-mode]').forEach(b => b.setAttribute('aria-pressed', String(b === target)));
+            showGraph(target.dataset.viewMode === 'mapa');
+            return;
+        }
         if (target.dataset.favorite) { event.stopPropagation(); onToggleFavorite(target.dataset.favorite); return; }
         if (target.dataset.facetGroup) return onFilter({ ...filters, type: target.dataset.facetGroup, law: 'all' });
         if (target.dataset.facetLaw) return onFilter({ ...filters, law: String(filters.law) === target.dataset.facetLaw ? 'all' : target.dataset.facetLaw });
@@ -119,6 +134,19 @@ export function renderSearchResults(container, {
         const item = target.closest('.sr-item');
         if (item) onOpenArticle(item.dataset.id);
     });
+    function showGraph(show) {
+        const host = root.querySelector('.sr-graph');
+        if (!host) return;
+        host.hidden = !show;
+        container.__srGraphDestroy?.();
+        container.__srGraphDestroy = null;
+        if (show) container.__srGraphDestroy = renderSearchGraph(host, {
+            query, lawCounts, summaries, activeLaw: filters.law,
+            onSelectLaw: lawId => onFilter({ ...filters, law: String(filters.law) === String(lawId) ? 'all' : String(lawId) }),
+        });
+    }
+    if (mode === 'mapa' && total) showGraph(true);
+
     let timer;
     root.querySelector('#sr-art-filter')?.addEventListener('input', event => {
         clearTimeout(timer);

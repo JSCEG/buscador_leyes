@@ -5,6 +5,7 @@ import { indexLabel, KIND_BADGE, isGuide } from '../lib/index-label.js';
 import { initDesk, pinButtonHtml, syncPinButtons } from './desk-view.js';
 import { createDesk, deleteDesk, getDesks, parseDeskHash, setActiveDesk } from '../lib/desk-store.js';
 import { initDeskSync } from './desk-sync.js';
+import { renderArticlePage, articlePageHash, parseArticlePageHash } from './article-page-view.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -483,6 +484,31 @@ export function initUI() {
     async function handleInitialHash() {
         const hash = location.hash;
         if (!hash) return;
+        const pageId = parseArticlePageHash(hash);
+        if (pageId) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            destroyTOC();
+            hideAllViews();
+            setActiveNav(null);
+            mainContainer.classList.remove('justify-center', 'pt-24');
+            mainContainer.classList.add('pt-8');
+            resultsContainer.classList.remove('hidden', 'opacity-0');
+            resultsContainer.innerHTML = '<div class="w-full flex justify-center py-16" role="status" aria-label="Cargando artículo"><div class="animate-spin h-8 w-8 border-2 border-guinda border-t-transparent rounded-full"></div></div>';
+            const item = await withProgress(getArticleById(pageId));
+            if (parseArticlePageHash(location.hash) !== pageId) return;
+            if (!item) { resultsContainer.innerHTML = '<p class="text-center py-16 text-gray-500">No se encontró este artículo en el acervo.</p>'; return; }
+            const law = cachedSummaries.find(l => String(l.id) === String(item.ley_id)) || null;
+            renderArticlePage(resultsContainer, {
+                item, law, sourceUrl: safeHttpUrl(item.url_original || law?.url_original),
+                onOpenLaw: target => openLawDetail(target),
+                onOpenInApp: id => { history.pushState(null, '', `${location.pathname}#art-${encodeURIComponent(id)}`); handleInitialHash(); },
+            });
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            return;
+        }
         const sharedDesk = parseDeskHash(hash);
         if (sharedDesk) {
             history.replaceState(null, '', location.pathname + location.search);
@@ -2939,6 +2965,12 @@ export function initUI() {
             pinBtn.id = 'modal-pin-btn';
         }
         if (pinBtn) { pinBtn.dataset.pinArticle = id; syncPinButtons(pinBtn.parentElement); }
+        let tabLink = document.getElementById('modal-newtab-btn');
+        if (!tabLink && pinBtn) {
+            pinBtn.insertAdjacentHTML('beforebegin', '<a id="modal-newtab-btn" class="modal-newtab" target="_blank" rel="noopener" title="Abrir en una pestaña nueva, a pantalla completa" aria-label="Abrir en una pestaña nueva"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>');
+            tabLink = document.getElementById('modal-newtab-btn');
+        }
+        if (tabLink) tabLink.href = `${location.pathname}${articlePageHash(id)}`;
         if (bookmarkBtn) {
             const { loggedIn, fav, title: favTitle } = getFavoriteUiState(id);
             bookmarkBtn.innerHTML = fav

@@ -78,3 +78,11 @@ html.dark-mode .pin-btn.is-pinned, html.dark-mode .pin-btn.is-pinned svg, html.d
 html.dark-mode #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: #eeb0c2 !important; border-color: #eeb0c266 !important; }
 html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #1e1c1a !important; background: #eeb0c2 !important; border-color: #eeb0c2 !important; }
 @media (max-width: 640px) { #modal-panel > div:first-child button#modal-pin-btn .pin-label { display: none; } #modal-panel > div:first-child button#modal-pin-btn { width: 40px !important; padding: 0 !important; justify-content: center; } }
+
+/* Reader: open the article in its own tab */
+.modal-newtab{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#6a655e;transition:color .15s,background-color .15s}
+.modal-newtab:hover{color:#9b2247;background:#9b22470f}
+.modal-newtab:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
+html.dark-mode .modal-newtab{color:#c1b9af}
+html.dark-mode .modal-newtab:hover{color:#eeb0c2}
+#main-container:has(#results-container:not(.hidden) .ap-view){padding-top:20px!important}

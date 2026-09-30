@@ -158,3 +158,29 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-toggle.is-empty .desk-badge{background:color-mix(in srgb,var(--dk-guinda) 12%,transparent);color:var(--dk-guinda)}
 #modal-pin-btn{white-space:nowrap;flex:0 0 auto}
 .pin-btn{white-space:nowrap}
+
+/* ── Refreshed desk panel: band header, softer cards ── */
+.desk-panel{background:var(--dk-paper);border-left:0;box-shadow:-24px 0 60px #2a071433}
+.desk-head{position:relative;padding:20px 20px 16px;border-bottom:0;color:#fff;
+    background:radial-gradient(110% 120% at 100% 0%,#b8375f 0%,transparent 60%),linear-gradient(135deg,#7a1a38,#9b2247 60%,#7a1a38)}
+.desk-head::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(circle at 20% 30%,#fff 0 1.4px,transparent 2px);background-size:34px 34px}
+.desk-head>*{position:relative;z-index:1}
+.desk-head .desk-eyebrow{color:#fde8ee!important}
+.desk-head .desk-count{color:#ffffffc7}
+.desk-head .desk-switch select{background:#ffffff1f;border-color:#ffffff40;color:#fff;font-size:19px}
+.desk-head .desk-switch select option{color:#302b27}
+.desk-head .desk-menu-btn{background:#ffffff1f;border-color:#ffffff40!important;color:#fff}
+.desk-head .desk-close{background:#ffffff1f;border-color:#ffffff40;color:#fff}
+.desk-head .desk-close:hover{background:#ffffff33;color:#fff}
+.desk-head .desk-form{color:var(--dk-ink)}
+.desk-tools{padding:14px 20px 0}
+.desk-tool{border-radius:999px}
+.desk-list{padding:14px 20px 24px;gap:14px}
+.desk-card{border:1px solid var(--dk-border);border-left-width:4px;border-radius:14px;padding:14px 16px;box-shadow:0 1px 2px #302b270a,0 6px 18px #302b270d;transition:box-shadow .2s,transform .2s}
+.desk-card:hover{box-shadow:0 10px 26px #302b271a;transform:translateY(-1px)}
+.desk-card-law{display:inline-flex;padding:2px 8px 2px 6px;border-radius:999px;background:color-mix(in srgb,var(--dk-dot,var(--dk-faint)) 12%,transparent)}
+.desk-card h3{margin-top:6px;font-family:Patria,Georgia,serif}
+.desk-empty{margin:18px 20px;padding:28px 22px;border:1.5px dashed var(--dk-border);border-radius:14px;text-align:center}
+.desk-status{background:var(--dk-card)}
+html.dark-mode .desk-head{background:radial-gradient(110% 120% at 100% 0%,#7a2344 0%,transparent 60%),linear-gradient(135deg,#3d0b1c,#5e1430 60%,#3d0b1c)}
+@media (prefers-reduced-motion:reduce){.desk-card:hover{transform:none}}

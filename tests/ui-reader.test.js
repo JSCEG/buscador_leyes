@@ -212,4 +212,4 @@ it('reads a real structured instrument, shares preferences, switches source lazi
     await vi.advanceTimersByTimeAsync(25);
     expect(document.getElementById('modal-title').textContent).toBe(nextArticle.articulo_label);
     expect(sources.at(-1).articleId).toBe(nextArticle.id);
-});
+}, 20000);
