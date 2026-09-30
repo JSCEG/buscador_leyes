@@ -949,7 +949,7 @@ export function initUI() {
         if (updateHistory) setHash(`#ley-${encodeURIComponent(law.id)}`);
 
         lawDetailContainer.innerHTML = `
-            <div id="law-header-area" class="lr-header animate-fade-in-up">
+            <div id="law-header-area" class="lr-header animate-fade-in-up" data-category="${lawGroup}">
                 <nav aria-label="Ruta de navegación" class="lr-crumbs">
                     <button id="crumb-inicio" aria-label="Ir al inicio">Inicio</button><span aria-hidden="true">›</span>
                     <button id="crumb-categoria" aria-label="Volver al acervo">Acervo</button><span aria-hidden="true">›</span>
@@ -1788,7 +1788,7 @@ export function initUI() {
                 ${relatedLabel ? `<div class="related-document-badge-row"><span class="related-document-badge">${relatedLabel}</span></div>` : ''}
                 ${isGuide(item) ? '<div class="related-document-badge-row"><span class="guide-badge">Guía de consulta · no es texto oficial</span></div>' : ''}
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+                    <span class="lr-card-label text-xs font-bold text-gray-700 flex items-center gap-1.5">
                         ${item.articulo_label}
                         ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
                     </span>
