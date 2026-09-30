@@ -96,6 +96,26 @@ it('serves only the reviewed December 22, 2025 DOF morning issue PDF for PROSENE
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed October 17, 2025 DOF evening issue PDF for PLADESE', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=17102025-VES.pdf&repo=';
+    const fetcher = vi.fn(async () => upstream());
+    const source = { transport: 'remote-pdf', originalUrl,
+        sha256: createHash('sha256').update(bytes).digest('hex') };
+    const response = await serveReaderPdf(request('pladese'), 'pladese', { sources: { pladese: source }, fetcher });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [
+        originalUrl.replace('17102025-VES.pdf', '17102025-MAT.pdf'),
+        originalUrl.replace('dof.gob.mx', 'www.dof.gob.mx'),
+        originalUrl + '&url=https://outside.test',
+    ]) {
+        expect((await serveReaderPdf(request('pladese'), 'pladese', { sources: { pladese: { ...source, originalUrl: url } }, fetcher })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());

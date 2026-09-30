@@ -1,0 +1,611 @@
+[
+  {
+    "id": "4a4fec23-3d31-5ffc-9b30-57bd74e1aed7",
+    "label": "Preámbulo del acuerdo",
+    "page": 2,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "2a62003b-0a76-5604-94c3-80cfc841f657",
+    "label": "Artículo Único · Expedición del plan",
+    "page": 2,
+    "line": 48,
+    "prefixLength": 180
+  },
+  {
+    "id": "5ad3ecc8-ed73-5678-8d17-d05196dd853b",
+    "label": "Transitorio ÚNICO",
+    "page": 2,
+    "line": 49,
+    "prefixLength": 180
+  },
+  {
+    "id": "431f5250-9ede-5e9c-87b2-18026d303626",
+    "label": "Firma del acuerdo",
+    "page": 2,
+    "line": 51,
+    "prefixLength": 180
+  },
+  {
+    "id": "158319c9-c941-589e-9f68-236ee93738c8",
+    "label": "Presentación e índices del plan",
+    "page": 3,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "9b60465f-eef1-5b51-8cb6-06139471cb59",
+    "label": "Apartado 1.1. Marco jurídico",
+    "page": 9,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "7a90a1de-8d91-53ac-bc32-43231a98b6b1",
+    "label": "Apartado 1.2. Alcances",
+    "page": 10,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "d6efad91-7ce6-5f9a-bf1f-f2611658ad75",
+    "label": "Apartado 1.3. Acuerdos internacionales",
+    "page": 10,
+    "line": 39,
+    "prefixLength": 180
+  },
+  {
+    "id": "30515a70-b9a9-5543-bb76-084f4012c5e9",
+    "label": "Apartado 1.4. Evaluación de los impactos sociales de los proyectos del sector eléctrico",
+    "page": 12,
+    "line": 23,
+    "prefixLength": 180
+  },
+  {
+    "id": "28367c39-075f-572f-81bb-9176cccbe223",
+    "label": "Apartado 1.5. Innovación, desarrollo tecnológico y desarrollo de capacidades",
+    "page": 12,
+    "line": 51,
+    "prefixLength": 180
+  },
+  {
+    "id": "886841f5-4e48-5dc6-a35c-7ae1cc840dde",
+    "label": "Apartado 2. Diagnóstico del sector eléctrico",
+    "page": 13,
+    "line": 39,
+    "prefixLength": 180
+  },
+  {
+    "id": "29e28882-1b58-525d-9eb4-2ea4f56ac5f7",
+    "label": "Apartado 2.1. Evolución del consumo final y la demanda eléctrica",
+    "page": 14,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "62c14f9a-861b-57af-8d48-b7d686c71406",
+    "label": "Apartado 2.1.1. Consumo final de energía eléctrica",
+    "page": 14,
+    "line": 20,
+    "prefixLength": 180
+  },
+  {
+    "id": "13fa141d-f62a-55fa-83b8-904215a4bc3f",
+    "label": "Apartado 2.1.2. Pérdidas de energía eléctrica",
+    "page": 16,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "5ae14125-3381-5dae-b58b-e2e9b70f5272",
+    "label": "Apartado 2.1.3. Importación y exportación",
+    "page": 16,
+    "line": 28,
+    "prefixLength": 180
+  },
+  {
+    "id": "34d1ce03-cbba-5f59-8545-4673e5fcec36",
+    "label": "Apartado 2.1.4. Consumo bruto de energía eléctrica",
+    "page": 17,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "b5cf32d7-437a-551e-ab87-d8cf3798f7c0",
+    "label": "Apartado 2.1.5. Demanda máxima integrada bruta",
+    "page": 18,
+    "line": 22,
+    "prefixLength": 180
+  },
+  {
+    "id": "704cd987-b818-54e3-ae9b-57fef9813e1f",
+    "label": "Apartado 2.2.1. Capacidad de generación instalada",
+    "page": 19,
+    "line": 18,
+    "prefixLength": 180
+  },
+  {
+    "id": "a3510b27-af1a-5992-88f9-7c79535bb4fd",
+    "label": "Apartado 2.2.2. Generación de energía eléctrica",
+    "page": 20,
+    "line": 258,
+    "prefixLength": 180
+  },
+  {
+    "id": "206d2b4e-2660-597e-9b5d-20f3b1cc01c2",
+    "label": "Apartado 2.2.3. Generación Distribuida",
+    "page": 21,
+    "line": 256,
+    "prefixLength": 180
+  },
+  {
+    "id": "fdd54e8a-20c0-54e9-8737-0cc25580da00",
+    "label": "Apartado 2.3. Evolución de la infraestructura de transmisión y distribución",
+    "page": 22,
+    "line": 30,
+    "prefixLength": 180
+  },
+  {
+    "id": "3fc7f2cc-ba32-5eb5-a260-77701bd5839b",
+    "label": "Apartado 2.4. Evolución de la red nacional de gasoductos",
+    "page": 23,
+    "line": 212,
+    "prefixLength": 180
+  },
+  {
+    "id": "9fbfadc7-df4e-5971-a22d-0de6e1a2c0c8",
+    "label": "Apartado 2.4.1. Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural en México (SISTRANGAS)",
+    "page": 24,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "f3b3ed54-e13d-5ddd-ac15-6642f291f22f",
+    "label": "Apartado 2.4.2. Resto de red nacional de ductos",
+    "page": 26,
+    "line": 8,
+    "prefixLength": 180
+  },
+  {
+    "id": "b737f7ca-14b5-5c2f-bc57-58cd7344315a",
+    "label": "Apartado 2.4.3. Consumo en la red nacional de gasoductos",
+    "page": 26,
+    "line": 34,
+    "prefixLength": 180
+  },
+  {
+    "id": "a29837ae-4de6-5297-9be8-d1bb2901669a",
+    "label": "Apartado 2.5. Evolución de la cobertura nacional del Suministro Eléctrico",
+    "page": 27,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "129fd1a9-da5d-5de4-b6a9-cc90fae55cd3",
+    "label": "Apartado 2.5.1. GCR Central",
+    "page": 28,
+    "line": 10,
+    "prefixLength": 180
+  },
+  {
+    "id": "1043d847-a96f-57aa-a9bc-837cf99c40a9",
+    "label": "Apartado 2.5.2. GCR Oriental",
+    "page": 29,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "f11b4715-c855-527c-a93f-5a83a5b1c727",
+    "label": "Apartado 2.5.3. GCR Occidental",
+    "page": 30,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "7ea57107-d619-5950-9e2e-4ea2e5155fe8",
+    "label": "Apartado 2.5.4. GCR Noroeste",
+    "page": 31,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "35166d21-f791-5a6a-a220-9345219195f6",
+    "label": "Apartado 2.5.5. GCR Norte",
+    "page": 31,
+    "line": 17,
+    "prefixLength": 180
+  },
+  {
+    "id": "327a74f5-a8c4-5838-b6c1-faa87478e541",
+    "label": "Apartado 2.5.6. GCR Noreste",
+    "page": 32,
+    "line": 7,
+    "prefixLength": 180
+  },
+  {
+    "id": "fa7f716b-193c-557a-902f-784e5106acec",
+    "label": "Apartado 2.5.7. GCR Peninsular",
+    "page": 33,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "31f4bf81-26a9-52c3-bf1b-8e9b7f8c9df6",
+    "label": "Apartado 2.5.8. GCR de Baja California",
+    "page": 34,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "cdc84ea2-8084-5525-b157-94c93e7cf514",
+    "label": "Apartado 2.5.9. Fondo del Servicio Universal Eléctrico",
+    "page": 35,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "e842ea10-9377-50d8-968a-61d04809bfa4",
+    "label": "Apartado 2.6.1. Tarifas Reguladas",
+    "page": 35,
+    "line": 26,
+    "prefixLength": 180
+  },
+  {
+    "id": "6b04336a-f082-5ed7-97c4-c8baed6e6861",
+    "label": "Apartado 2.6.2. Tarifas Finales del Suministro Básico",
+    "page": 38,
+    "line": 11,
+    "prefixLength": 180
+  },
+  {
+    "id": "f21583e0-6907-5cda-a543-4e817c38d303",
+    "label": "Apartado 2.7. Emisiones de GEI y del factor de emisiones del sector eléctrico",
+    "page": 40,
+    "line": 28,
+    "prefixLength": 180
+  },
+  {
+    "id": "639406a7-2f61-5a40-9abc-6b7539dee400",
+    "label": "Apartado 3.1. Supuestos generales",
+    "page": 41,
+    "line": 14,
+    "prefixLength": 180
+  },
+  {
+    "id": "6eac05c4-5caf-558f-b1f4-8a8615e4fd2d",
+    "label": "Apartado 3.1.1. Proyección del Crecimiento poblacional y viviendas",
+    "page": 41,
+    "line": 25,
+    "prefixLength": 180
+  },
+  {
+    "id": "a8b1e3b8-db3a-556b-8cba-ab18e609a63d",
+    "label": "Apartado 3.1.2. Pronóstico del PIB",
+    "page": 43,
+    "line": 8,
+    "prefixLength": 180
+  },
+  {
+    "id": "3e0cb09a-359a-5ab7-905f-f2633b52637a",
+    "label": "Apartado 3.1.3. Costos de inversión y operación",
+    "page": 45,
+    "line": 24,
+    "prefixLength": 180
+  },
+  {
+    "id": "fb8ffd11-19f1-5e45-a64d-df71710b1a45",
+    "label": "Apartado 3.1.4. Costos de combustibles",
+    "page": 47,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "0b22ad2c-f067-5985-ae2c-50145438c5ac",
+    "label": "Apartado 3.2. Pronósticos del consumo bruto y la demanda eléctrica",
+    "page": 48,
+    "line": 41,
+    "prefixLength": 180
+  },
+  {
+    "id": "c0dbce73-78db-51d8-b852-7fbd5434c2b9",
+    "label": "Apartado 3.2.1. Pronósticos de pérdidas",
+    "page": 50,
+    "line": 17,
+    "prefixLength": 180
+  },
+  {
+    "id": "e2dd5f62-2f2a-5c6e-967f-73868f0d2c64",
+    "label": "Apartado 3.2.2. Pronósticos de generación distribuida",
+    "page": 51,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "f6d91393-e09f-5234-8a83-4bf4155e6961",
+    "label": "Apartado 3.3. Pronósticos de demanda máxima integrada",
+    "page": 52,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "a990cedd-79ef-53e7-89a3-92acbd3b44a6",
+    "label": "Apartado 3.4.1. Adiciones de capacidad instalada 2025 - 2039",
+    "page": 55,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "a9473daf-9c97-5844-a8ab-622befff45e8",
+    "label": "Apartado 3.4.2. Evolución estimada de la capacidad acumulada 2025 - 2039",
+    "page": 56,
+    "line": 44,
+    "prefixLength": 180
+  },
+  {
+    "id": "002e2279-4986-520a-8a65-7196d03f311f",
+    "label": "Apartado 3.4.3. Evolución de la Capacidad Instalada esperada al 2039",
+    "page": 58,
+    "line": 7,
+    "prefixLength": 180
+  },
+  {
+    "id": "41afe11e-e273-5c85-825e-65ed56f7f77c",
+    "label": "Apartado 3.5. Pronósticos de la generación neta inyectada al SEN",
+    "page": 58,
+    "line": 53,
+    "prefixLength": 180
+  },
+  {
+    "id": "3f1c7d3d-316b-5376-b88c-b00cec1ace25",
+    "label": "Apartado 3.5.1. Participación del estado",
+    "page": 59,
+    "line": 12,
+    "prefixLength": 180
+  },
+  {
+    "id": "7e862651-fcec-58f5-9d91-70fb41297f60",
+    "label": "Apartado 3.5.2. Participación de energías limpias",
+    "page": 60,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "b879f516-474d-593f-b87d-8dc54fb53c45",
+    "label": "Apartado 3.6. Plan de adición de capacidad de transmisión y transformación",
+    "page": 60,
+    "line": 19,
+    "prefixLength": 180
+  },
+  {
+    "id": "62bb9031-3fee-5639-910b-a4e9f69e7f22",
+    "label": "Apartado 3.7. Plan de adición de Sistemas de Almacenamiento de Energía (SAE)",
+    "page": 63,
+    "line": 5,
+    "prefixLength": 180
+  },
+  {
+    "id": "ce841c17-fe2f-5ea6-9784-7ad09714b19b",
+    "label": "Apartado 3.8. Margen de reserva y reserva de planeación",
+    "page": 64,
+    "line": 68,
+    "prefixLength": 180
+  },
+  {
+    "id": "7021ab6c-ab5c-5507-ba18-e215c623d9ed",
+    "label": "Apartado 3.9. Escenarios de sensibilidad a incremento en los precios de combustibles",
+    "page": 66,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "baa9130d-dc9a-5875-a847-ad9d64c67d9c",
+    "label": "Apartado 4.1.1. Requerimientos de la capacidad adicional correspondiente al PVIRCE",
+    "page": 69,
+    "line": 8,
+    "prefixLength": 180
+  },
+  {
+    "id": "317ab207-542e-5856-a890-d07937a69d18",
+    "label": "Apartado 4.1.2. Adiciones de capacidad del Estado",
+    "page": 72,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "cb82b5c3-18d9-5290-953e-68f1cdad08c8",
+    "label": "Apartado 4.1.3. Adiciones de capacidad por Particulares",
+    "page": 74,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "02b334d5-aaf3-5084-beb7-61bd98ccaaaa",
+    "label": "Apartado 4.1.4. Adiciones de capacidad 2031 - 2039",
+    "page": 76,
+    "line": 115,
+    "prefixLength": 180
+  },
+  {
+    "id": "b5e4956c-6aa6-5dc4-aaf2-7d3da33324a4",
+    "label": "Apartado 4.2.1. Ampliación y modernización de la RNT",
+    "page": 77,
+    "line": 7,
+    "prefixLength": 180
+  },
+  {
+    "id": "f70314be-ffbc-5540-9b12-45f9e05f252d",
+    "label": "Apartado 4.2.2. Principales Proyectos Instruidos de la RNT",
+    "page": 79,
+    "line": 60,
+    "prefixLength": 180
+  },
+  {
+    "id": "3a799ed2-0295-59cd-88c6-38b9bc559e82",
+    "label": "Apartado 4.2.3. Proyectos identificados de la RNT en el proceso de planeación de 2025",
+    "page": 84,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "b6b9e358-894b-5e12-a267-325a0aa008df",
+    "label": "Apartado 4.2.4. Proyectos de la RNT en estudio indicativos en el mediano y largo plazo",
+    "page": 85,
+    "line": 68,
+    "prefixLength": 180
+  },
+  {
+    "id": "0245da3e-8801-576c-9447-e9b2af5f111d",
+    "label": "Apartado 4.2.5. Ampliación de las RGD del MEM",
+    "page": 85,
+    "line": 122,
+    "prefixLength": 180
+  },
+  {
+    "id": "930c55b8-7d42-558a-830e-bde690548373",
+    "label": "Apartado 4.2.6. Proyectos Identificados de Ampliación de las RGD del MEM",
+    "page": 88,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "69a778cf-4085-56e6-8659-bce059bc4d16",
+    "label": "Apartado 4.3. Redes Eléctricas identificadas de refuerzo para los proyectos de Generación incluidos en el PVIRCE",
+    "page": 89,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "2af533ad-712c-5261-bc44-c00509b8d86c",
+    "label": "Apartado 4.3.1. Proyectos de planeación vinculante correspondientes a la CFE",
+    "page": 89,
+    "line": 31,
+    "prefixLength": 180
+  },
+  {
+    "id": "871fb1d8-eaa0-5f57-b0a1-cb4e035d76c4",
+    "label": "Apartado 4.3.2. Proyectos de planeación vinculante correspondientes a PEMEX",
+    "page": 92,
+    "line": 50,
+    "prefixLength": 180
+  },
+  {
+    "id": "235c2a41-214f-5f62-b362-dddf273f7229",
+    "label": "Apartado 4.3.3. Proyectos de planeación vinculante correspondientes a particulares",
+    "page": 93,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "7aff8936-5d52-5c4a-b1ef-5e3191d48a11",
+    "label": "Glosario",
+    "page": 95,
+    "line": 47,
+    "prefixLength": 180
+  },
+  {
+    "id": "1d047f98-1a67-55ae-8280-bdaf65a66fd0",
+    "label": "Siglas y acrónimos",
+    "page": 99,
+    "line": 31,
+    "prefixLength": 180
+  },
+  {
+    "id": "d5c88247-062a-545a-96f6-9684b61bc172",
+    "label": "Unidades",
+    "page": 101,
+    "line": 32,
+    "prefixLength": 180
+  },
+  {
+    "id": "eb2fd56f-c3c8-5b9d-8aee-41d2902001b8",
+    "label": "Anexo estadístico · Tabla A1.1",
+    "page": 102,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "24b15afd-6f50-5327-8e34-8412a987dde9",
+    "label": "Anexo estadístico · Tabla A1.2",
+    "page": 102,
+    "line": 218,
+    "prefixLength": 180
+  },
+  {
+    "id": "758ff5c0-ef20-5be0-8a06-2066e4c0c45c",
+    "label": "Anexo estadístico · Tabla A1.3",
+    "page": 103,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "72341d95-4008-5ef3-b225-b209fa691ec4",
+    "label": "Anexo estadístico · Tabla A1.4",
+    "page": 103,
+    "line": 70,
+    "prefixLength": 180
+  },
+  {
+    "id": "fccf4ff0-c18a-5484-896a-5e6e594ef50f",
+    "label": "Anexo estadístico · Tabla A1.5",
+    "page": 104,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "0ec54860-ffee-587a-9e22-06bd01912aca",
+    "label": "Anexo estadístico · Tabla A1.6",
+    "page": 104,
+    "line": 74,
+    "prefixLength": 180
+  },
+  {
+    "id": "2cf50be9-091b-51ce-b16f-f018ebcbc790",
+    "label": "Anexo estadístico · Tabla A1.7",
+    "page": 105,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "d12082b4-c31b-5608-aacd-7ab5514d8800",
+    "label": "Anexo estadístico · Tabla A1.8",
+    "page": 106,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "55ae122f-0f39-5f71-a456-92da36d85764",
+    "label": "Catálogo de generación · Tabla A2.1",
+    "page": 108,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "fe8bb9dc-2fe9-5cc5-950c-aa0f5fb03cdd",
+    "label": "Catálogo de generación · Tabla A2.2",
+    "page": 109,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "b3784815-2043-53e8-afb8-e8384c71153e",
+    "label": "Catálogo de generación · Tabla A2.3",
+    "page": 110,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "6196e85a-7533-5732-a365-2c7b93857893",
+    "label": "Anexo A3 · Catálogo de tecnologías de transmisión",
+    "page": 111,
+    "line": 3,
+    "prefixLength": 180
+  },
+  {
+    "id": "c7144ca4-a22f-5e7e-8318-d5bc750c5caa",
+    "label": "Firma del plan",
+    "page": 112,
+    "line": 120,
+    "prefixLength": 180
+  }
+]

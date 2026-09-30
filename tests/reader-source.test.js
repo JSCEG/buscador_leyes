@@ -8,6 +8,7 @@ const loaded = JSON.parse(readFileSync('revision-acervo/incorporacion-7-2026-09-
 const cenace = JSON.parse(readFileSync('revision-acervo/incorporacion-cenace-2026-09-20/PROGRAMA-CENACE-carga.json', 'utf8'));
 const pladeshi = Object.values(manifest.sources).find(source => source.lawId === '48e6158c-c1a3-5b6d-811d-16e85b05ab64');
 const pnd = JSON.parse(readFileSync('revision-acervo/incorporacion-pnd-2026-09-22/PND-carga.json', 'utf8'));
+const pladese = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PLADESE-carga.json', 'utf8'));
 const prosener = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PROSENER-carga.json', 'utf8'));
 const prosenerDecree = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PROSENER-DECRETO-carga.json', 'utf8'));
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
@@ -162,6 +163,37 @@ it('maps all 98 PND fragments to the correct official DOF evening issue pages', 
     const notes = pnd.articulos.find(article => article.identificador === 'Notas y referencias del plan');
     expect(resolveReaderSource(manifest, notes.id).pages.map(page => page.number)).toEqual([75, 81, 85, 94, 98]);
     expect(Object.values(manifest.articles).filter(article => article.sourceId === source.id)).toHaveLength(98);
+});
+
+it('maps all PLADESE fragments, including its tables and distributed footnotes', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const source = Object.values(manifest.sources).find(s => s.lawId === pladese.ley.id);
+    expect(source).toMatchObject({
+        id: 'pladese-82f15ac85c7d',
+        pageCount: 134,
+        sha256: '82f15ac85c7de97078a578dd5e5ac6ef2c5025d6f7af9d1a9a398a5a58b56787',
+        originalUrl: 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=17102025-VES.pdf&repo=',
+    });
+    expect(pladese.articulos).toHaveLength(89);
+    const officialArticles = pladese.articulos.filter(article => !article.identificador.startsWith('Nota editorial'));
+    expect(officialArticles).toHaveLength(88);
+    for (const article of officialArticles) {
+        const result = await getReaderSource(article.id, { articleText: article.contenido, manifest });
+        expect(result.status, article.identificador).toBe('mapped');
+        expect(result.contentVerified, article.identificador).toBe(true);
+        expect(result.source.lawId).toBe(pladese.ley.id);
+        for (const pageIndex of result.pages.map((_, index) => index)) {
+            const mapping = resolveReaderSource(manifest, article.id, { pageIndex });
+            expect(mapping.highlights.length, article.identificador).toBeGreaterThan(0);
+            expect(mapping.page.number).toBeGreaterThanOrEqual(2);
+            expect(mapping.page.number).toBeLessThanOrEqual(112);
+        }
+    }
+    const notes = pladese.articulos.find(article => article.identificador === 'Notas del plan');
+    expect(resolveReaderSource(manifest, notes.id).pages.map(page => page.number))
+        .toEqual([20, 22, 36, 43, 56, 57, 58, 65, 75]);
+    expect(resolveReaderSource(manifest, pladese.articulos[0].id).status).toBe('unmapped');
+    expect(Object.values(manifest.articles).filter(article => article.sourceId === source.id)).toHaveLength(88);
 });
 
 it('maps PROSENER and its decree separately, including distributed footnotes', async () => {
