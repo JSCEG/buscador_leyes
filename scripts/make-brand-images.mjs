@@ -30,28 +30,44 @@ const CREAM = '#faf6f0';
 const icon = (size, padding) => `<html><body style="margin:0"><div style="width:${size}px;height:${size}px;display:flex;align-items:center;justify-content:center;background:radial-gradient(90% 80% at 30% 20%,#fff 0%,${CREAM} 60%,#f1e8dc 100%)">
   <div style="width:${size * (1 - padding * 2)}px;height:${size * (1 - padding * 2)}px">${brandMarkSvg({ cut: CREAM, lens: '#b8892f' })}</div></div></body></html>`;
 
+// Share image (WhatsApp, Teams, LinkedIn…). Kept as a light JPEG: WhatsApp drops previews over ~300 KB.
+// Counts are the acervo at generation time; update ACERVO and rerun when it grows a lot.
+const ACERVO = { instrumentos: '87', articulos: '4,781' };
 const og = `<html><head><style>
-  body{margin:0;font-family:Georgia,serif}
-  .c{width:1200px;height:630px;position:relative;overflow:hidden;color:#fff;background:${dots},${band};background-size:44px 44px,28px 28px,auto,auto,auto}
-  .top{position:absolute;top:58px;left:64px;font:700 20px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#f6d9a8}
-  .mark{position:absolute;right:90px;top:165px;width:270px;height:300px;filter:drop-shadow(0 18px 40px #0000004d)}
-  h1{position:absolute;left:64px;top:172px;margin:0;font-size:66px;line-height:1.05;letter-spacing:-1px;max-width:720px}
+  @font-face{font-family:Patria;src:url(${patria})}
+  body{margin:0}
+  .c{width:1200px;height:630px;position:relative;overflow:hidden;color:#fff;font-family:Arial,sans-serif;background:radial-gradient(circle,#ffffff1a 1.3px,transparent 1.7px),radial-gradient(70% 90% at 100% 0%,#c2426b 0%,transparent 55%),radial-gradient(60% 80% at 0% 100%,#1e5b4f80 0%,transparent 60%),linear-gradient(135deg,#5e1530 0%,#8a1d40 55%,#6d1631 100%);background-size:34px 34px,auto,auto,auto}
+  .brand{position:absolute;top:52px;left:64px;display:flex;align-items:center;gap:14px}
+  .brand svg{width:44px;height:auto}
+  .brand b{font:700 30px/1 Patria,Georgia,serif;letter-spacing:-.3px}
+  .brand span{display:block;margin-top:6px;font:700 13px/1 Arial,sans-serif;letter-spacing:.24em;color:#f2c97a}
+  h1{position:absolute;left:64px;top:158px;margin:0;font:700 60px/1.06 Patria,Georgia,serif;letter-spacing:-1px;max-width:690px}
   h1 em{font-style:normal;color:#f6d9a8}
-  p{position:absolute;left:64px;top:372px;margin:0;font:500 28px/1.4 Arial,sans-serif;color:#fde8ee;max-width:700px}
-  .foot{position:absolute;left:64px;bottom:44px;font:700 20px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#f6d9a8}
+  .sub{position:absolute;left:64px;top:375px;margin:0;font:500 25px/1.4 Arial,sans-serif;color:#fde8ee;max-width:640px}
+  .stats{position:absolute;left:64px;bottom:58px;display:flex;gap:14px}
+  .stats div{padding:12px 18px;border-radius:14px;background:#ffffff1f;border:1px solid #ffffff38}
+  .stats strong{display:block;font:700 30px/1 Patria,Georgia,serif;color:#fff}
+  .stats small{display:block;margin-top:6px;font:700 13px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#f6d9a8}
+  .mark{position:absolute;right:86px;top:120px;width:300px;filter:drop-shadow(0 22px 44px #00000059)}
+  .url{position:absolute;right:70px;bottom:60px;font:700 22px/1 Arial,sans-serif;color:#f6d9a8}
+  .bar{position:absolute;left:0;right:0;bottom:0;height:10px;background:linear-gradient(90deg,#9b2247 0 40%,#1e5b4f 40% 70%,#a57f2c 70%)}
 </style></head><body><div class="c">
-  <div class="top">Consulta normativa</div>
-  <h1>Buscador Jurídico del <em>sector energético</em></h1>
-  <p>Leyes, reglamentos, acuerdos y demás disposiciones en un solo lugar: busca, compara y consulta.</p>
-  <div class="foot">Normativa del sector energético · México</div>
-  <div class="mark">${brandMarkSvg({ color: '#fff', cut: '#8f1f42', lens: '#f2c97a' })}</div>
+  <div class="brand">${brandMarkSvg({ color: '#fff', cut: '#8a1d40', lens: '#f2c97a' })}<div><b>Buscador Jurídico</b><span>SECTOR ENERGÉTICO</span></div></div>
+  <h1>Toda la normativa del <em>sector energético</em>, en un solo lugar</h1>
+  <p class="sub">Leyes, reglamentos, acuerdos, DACG y convocatorias: busca un término y llega al artículo.</p>
+  <div class="stats"><div><strong>${ACERVO.instrumentos}</strong><small>Instrumentos</small></div><div><strong>${ACERVO.articulos}</strong><small>Artículos</small></div><div><strong>Gratis</strong><small>Consulta abierta</small></div></div>
+  <div class="mark">${brandMarkSvg({ color: '#fff', cut: '#8a1d40', lens: '#f2c97a' })}</div>
+  <div class="url">buscador-juridico.com</div>
+  <div class="bar"></div>
 </div></body></html>`;
 
 const browser = await chromium.launch({ executablePath: exe });
 const shot = async (html, w, h, file) => {
     const page = await browser.newPage({ viewport: { width: w, height: h } });
     await page.setContent(html, { waitUntil: 'load' });
-    await page.screenshot({ path: path.join(out, file), clip: { x: 0, y: 0, width: w, height: h } });
+    await page.evaluate(() => document.fonts.ready);
+    const jpeg = file.endsWith('.jpg');
+    await page.screenshot({ path: path.join(out, file), clip: { x: 0, y: 0, width: w, height: h }, ...(jpeg ? { type: 'jpeg', quality: 86 } : {}) });
     await page.close();
     console.log('wrote', file);
 };
@@ -60,7 +76,7 @@ await shot(icon(512, 0.18), 512, 512, 'icon-512.png');
 await shot(icon(512, 0.26), 512, 512, 'icon-maskable-512.png');
 await shot(icon(180, 0.16), 180, 180, 'apple-touch-icon.png');
 await shot(icon(64, 0.12), 64, 64, 'favicon-64.png');
-await shot(og, 1200, 630, 'og-image.png');
+await shot(og, 1200, 630, 'og-buscador-juridico.jpg');
 // Mark for the web (white cuts read on any background) and lockups for email, PPTX and slides.
 fs.writeFileSync(path.join(out, 'b-mark.svg'), brandMarkSvg({ cut: '#ffffff', title: 'Buscador Jurídico' }));
 console.log('wrote b-mark.svg');
