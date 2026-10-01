@@ -363,7 +363,7 @@ export function initUI() {
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
         if (activeNavId === 'nav-inicio') renderLanding();
         // First visit: a short welcome tour once the page has settled.
-        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) setTimeout(() => { if (!document.getElementById('welcome-tour')) startWelcomeTour(); }, 900);
+        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) Promise.resolve(window.__introDone).then(() => setTimeout(() => { if (!document.getElementById('welcome-tour')) startWelcomeTour(); }, 600));
 
         // No longer auto-rendering on home, user wants it only in stats
 

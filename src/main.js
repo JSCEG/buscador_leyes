@@ -6,9 +6,11 @@ import { initUI } from './scripts/ui.js';
 import { initAdminIngest } from './scripts/admin-ingest.js';
 import { initAdminManagement } from './scripts/admin-management.js';
 import { initPasswordRecovery } from './scripts/password-recovery.js';
+import { shouldShowIntro, playIntro } from './scripts/site-intro.js';
 import { initAuth } from './scripts/auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (shouldShowIntro()) window.__introDone = playIntro();
   initPasswordRecovery();
   initAuth();
   initUI();
