@@ -22,7 +22,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll(['/img/logo_sener.png']).catch(() => {})
+      cache.addAll(['/img/b-mark.svg']).catch(() => {})
     )
   );
 });
