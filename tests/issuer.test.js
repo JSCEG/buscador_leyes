@@ -19,6 +19,8 @@ describe('issuerId', () => {
     it('uses acronyms and overrides, and never guesses', () => {
         expect(issuerId({ tipo: 'convocatoria', siglas: 'ASEA-CONV-GNC', titulo: 'Convocatoria dirigida a las Unidades de Inspección' })).toBe('asea');
         expect(issuerId({ tipo: 'acuerdo', siglas: 'CATALOGO-CONUEE', titulo: 'Acuerdo por el que se emiten las Disposiciones Reglamentarias para el Catálogo' })).toBe('conuee');
-        expect(issuerId({ tipo: 'acuerdo', siglas: 'CONV-GEN-2-M4', titulo: 'Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria' })).toBe('otra');
+        expect(issuerId({ tipo: 'acuerdo', siglas: 'CONV-GEN-2-M4', titulo: 'Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria' })).toBe('sener');
+        expect(issuerId({ tipo: 'convocatoria', siglas: 'CONV-SISTRANGAS', titulo: 'Convocatoria para el mecanismo de designación' })).toBe('cenagas');
+        expect(issuerId({ tipo: 'acuerdo', siglas: 'SIN-DATO', titulo: 'Acuerdo por el que se emiten los Lineamientos' })).toBe('otra');
     });
 });
