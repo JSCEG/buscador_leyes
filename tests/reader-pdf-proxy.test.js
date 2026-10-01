@@ -162,6 +162,24 @@ it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENT
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed September 11, 2026 DOF issue PDF for CATALOGO-CONUEE', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/11-09-2026/Matutina/329588';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('catalogo-conuee'), 'catalogo-conuee', {
+        sources: { 'catalogo-conuee': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('329588', '329589'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('catalogo-conuee'), 'catalogo-conuee', {
+            sources: { 'catalogo-conuee': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 30, 2026 DOF morning issue PDF for UPAC and the CNE modification', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925';

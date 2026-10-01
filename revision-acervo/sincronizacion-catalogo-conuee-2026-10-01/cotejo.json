@@ -1,0 +1,431 @@
+{
+  "fecha_cotejo": "2026-10-01",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/11-09-2026/Matutina/329588",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5798667",
+  "sha256_pdf": "cc69670d9b9bf822c80a37180326f88a794b74b698133fafaa379b515769a8e9",
+  "bytes_pdf": 7703962,
+  "paginas_pdf": 160,
+  "paginas_impresas_documento": [
+    26,
+    38
+  ],
+  "fragmentos_oficiales_mapeados": 31,
+  "fragmentos_con_formulario_imagen": 6,
+  "casillas_imagen_formulario": {
+    "1": {
+      "page": 33,
+      "bbox": [
+        84.96000671386719,
+        131.760009765625,
+        527.0859985351562,
+        693.47998046875
+      ],
+      "imageTiles": 22
+    },
+    "2": {
+      "page": 34,
+      "bbox": [
+        85.13999938964844,
+        89.280029296875,
+        527.0579833984375,
+        683.5800170898438
+      ],
+      "imageTiles": 22
+    },
+    "3": {
+      "page": 35,
+      "bbox": [
+        84.96000671386719,
+        89.16001892089844,
+        527.3920288085938,
+        674.6400146484375
+      ],
+      "imageTiles": 24
+    },
+    "4": {
+      "page": 36,
+      "bbox": [
+        85.13999938964844,
+        89.27999877929688,
+        526.9849853515625,
+        668.6400146484375
+      ],
+      "imageTiles": 25
+    },
+    "5": {
+      "page": 37,
+      "bbox": [
+        120.41999816894531,
+        84.17997741699219,
+        491.72900390625,
+        725.8200073242188
+      ],
+      "imageTiles": 35
+    },
+    "6": {
+      "page": 38,
+      "bbox": [
+        107.22000122070312,
+        73.43998718261719,
+        504.7969970703125,
+        710.0399780273438
+      ],
+      "imageTiles": 32
+    }
+  },
+  "nota_editorial_sin_mapa": [
+    "d0a347ce-65a9-5c23-9e35-22c955e1f2fe"
+  ],
+  "cotejo_visual": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo del acuerdo",
+      "id": "b883783b-cea4-5eed-9ae4-5c22651d1b85",
+      "paginas_impresas": [
+        26
+      ],
+      "anclas": 51,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Resolutivo ÚNICO · Expedición de disposiciones",
+      "id": "3f73d122-1ccf-55d9-bd5f-0cd9f1872965",
+      "paginas_impresas": [
+        26
+      ],
+      "anclas": 3,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 1",
+      "id": "8a986088-5216-52a6-a59a-5fdcc9f11041",
+      "paginas_impresas": [
+        27
+      ],
+      "anclas": 12,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 2",
+      "id": "6dead9d9-e423-5b1a-881c-b048240743cb",
+      "paginas_impresas": [
+        27
+      ],
+      "anclas": 23,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 3",
+      "id": "f644437c-e649-52b3-a941-1084ffe9c582",
+      "paginas_impresas": [
+        27
+      ],
+      "anclas": 4,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 4",
+      "id": "c0289ad1-9bb2-521f-9c82-c140d5dbdadb",
+      "paginas_impresas": [
+        27,
+        28
+      ],
+      "anclas": 19,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 5",
+      "id": "74d075fd-db55-5a46-acbb-6a5dd66c3047",
+      "paginas_impresas": [
+        28
+      ],
+      "anclas": 18,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 6",
+      "id": "5aea1034-f3fd-5dd5-a0f4-dbe31526a563",
+      "paginas_impresas": [
+        28
+      ],
+      "anclas": 13,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 7",
+      "id": "b17e10e9-2380-5cee-9b40-724356637d01",
+      "paginas_impresas": [
+        28,
+        29
+      ],
+      "anclas": 13,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 8",
+      "id": "3e7be9d8-d402-5a30-8aa0-591df2dd74a4",
+      "paginas_impresas": [
+        29
+      ],
+      "anclas": 17,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 9",
+      "id": "77d3e207-7fb1-5ec4-87f5-18543f1112f6",
+      "paginas_impresas": [
+        29
+      ],
+      "anclas": 20,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 10",
+      "id": "133b71cc-ff06-5b2b-aa85-41f808057293",
+      "paginas_impresas": [
+        30
+      ],
+      "anclas": 18,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 11",
+      "id": "256c95f5-bbfc-505a-bc97-4bdc142c0113",
+      "paginas_impresas": [
+        30
+      ],
+      "anclas": 6,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 12",
+      "id": "a83787b8-b4a9-5865-8da0-f4fc23e1363a",
+      "paginas_impresas": [
+        30
+      ],
+      "anclas": 9,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 13",
+      "id": "47f0aeda-2756-562f-a0d7-92b0f1ed6571",
+      "paginas_impresas": [
+        30
+      ],
+      "anclas": 12,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 14",
+      "id": "458f339d-be4e-5020-934a-52c768504c91",
+      "paginas_impresas": [
+        30
+      ],
+      "anclas": 5,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 15",
+      "id": "5d9ef5fd-af48-58de-a419-371fed8d3e3a",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 3,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 16",
+      "id": "385aa643-1489-58f7-b308-bc6d1763ed5b",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 29,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Artículo 17",
+      "id": "bf851979-c067-531c-b8b1-1505ee140107",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 6,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "8088b472-fbd8-57eb-a56b-cf4b8e82ba20",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 3,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "da4c361d-fa02-5a45-b5f0-a12785633101",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 5,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "8fbb8c62-eb0d-5132-b8e3-bf9807ee1181",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 4,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Transitorio Cuarto",
+      "id": "2f8dc942-eb2f-5082-be15-cfce58bd8749",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 2,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "fe958fdc-9ec8-583e-94cd-cc42f6357886",
+      "paginas_impresas": [
+        31
+      ],
+      "anclas": 2,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Apéndice A · Catálogo de equipos y aparatos",
+      "id": "2de4285b-570f-5417-bd3e-4c7b2c03f601",
+      "paginas_impresas": [
+        32
+      ],
+      "anclas": 92,
+      "ancla_visual_imagen": null
+    },
+    {
+      "fragmento": "Formato 1. Datos generales del Fabricante, Importador, Distribuidor o Comercializador y su Representante Legal",
+      "id": "a38a2f42-f9f5-51d1-86b6-694dbf016d39",
+      "paginas_impresas": [
+        33
+      ],
+      "anclas": 5,
+      "ancla_visual_imagen": {
+        "page": 33,
+        "bbox": [
+          84.96000671386719,
+          131.760009765625,
+          527.0859985351562,
+          693.47998046875
+        ],
+        "imageTiles": 22
+      }
+    },
+    {
+      "fragmento": "Formato 2. Consumo de energía eléctrica",
+      "id": "5562b1b8-249c-5894-b59e-9a04f4bd8158",
+      "paginas_impresas": [
+        34
+      ],
+      "anclas": 2,
+      "ancla_visual_imagen": {
+        "page": 34,
+        "bbox": [
+          85.13999938964844,
+          89.280029296875,
+          527.0579833984375,
+          683.5800170898438
+        ],
+        "imageTiles": 22
+      }
+    },
+    {
+      "fragmento": "Formato 3. Consumo de energía térmica (general)",
+      "id": "05efcf8c-bdef-5860-bd38-8c9db424f313",
+      "paginas_impresas": [
+        35
+      ],
+      "anclas": 2,
+      "ancla_visual_imagen": {
+        "page": 35,
+        "bbox": [
+          84.96000671386719,
+          89.16001892089844,
+          527.3920288085938,
+          674.6400146484375
+        ],
+        "imageTiles": 24
+      }
+    },
+    {
+      "fragmento": "Formato 4. Consumo de energía térmica (vehículo automotor de combustión interna)",
+      "id": "2d25482d-d372-5d60-afdb-a24c95c1a677",
+      "paginas_impresas": [
+        36
+      ],
+      "anclas": 2,
+      "ancla_visual_imagen": {
+        "page": 36,
+        "bbox": [
+          85.13999938964844,
+          89.27999877929688,
+          526.9849853515625,
+          668.6400146484375
+        ],
+        "imageTiles": 25
+      }
+    },
+    {
+      "fragmento": "Formato 5. Consumo de energía térmica y eléctrica (vehículo automotor híbrido conectable o enchufable)",
+      "id": "19d3793a-41ae-52c1-a87a-4020441fc386",
+      "paginas_impresas": [
+        37
+      ],
+      "anclas": 3,
+      "ancla_visual_imagen": {
+        "page": 37,
+        "bbox": [
+          120.41999816894531,
+          84.17997741699219,
+          491.72900390625,
+          725.8200073242188
+        ],
+        "imageTiles": 35
+      }
+    },
+    {
+      "fragmento": "Formato 6. Consumo de energía eléctrica (vehículo automotor eléctrico)",
+      "id": "ef85e946-60a0-5184-b0d8-4ed2ed429cc9",
+      "paginas_impresas": [
+        38
+      ],
+      "anclas": 2,
+      "ancla_visual_imagen": {
+        "page": 38,
+        "bbox": [
+          107.22000122070312,
+          73.43998718261719,
+          504.7969970703125,
+          710.0399780273438
+        ],
+        "imageTiles": 32
+      }
+    }
+  ]
+}
