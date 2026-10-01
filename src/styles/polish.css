@@ -61,3 +61,4 @@ body.reader-modal-open #bottom-nav,body.reader-modal-open #desk-toggle{display:n
   html #modal-content .reader-text :is(div,p,li,td,th,blockquote,span){text-align:left!important}
   html #modal-panel #modal-ley{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px!important;line-height:1.35}
 }
+.ra-lock{display:inline-block;vertical-align:-1px;margin-right:2px;opacity:.75}

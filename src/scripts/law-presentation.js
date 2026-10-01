@@ -1,5 +1,6 @@
 // pptxgenjs (~500 KB) is only needed to build a .pptx: load it on demand.
 import { officialUrl } from '../lib/official-url.js';
+import { requireAccount, lockLabel } from '../lib/require-account.js';
 
 const COLORS = {
     guinda: '9B2247',
@@ -57,7 +58,7 @@ export async function generateLawPresentation(law, articles = [], themes = []) {
     addCoverSlide(pptx, model, assets);
     addSummarySlide(pptx, model, assets);
     addStructureSlide(pptx, model, assets);
-    addThemesSlide(pptx, model, assets);
+    if (model.themeLabels.length) addThemesSlide(pptx, model, assets);
     addKeyArticlesSlides(pptx, model, assets);
     addClosingSlide(pptx, model, assets);
 
@@ -169,6 +170,7 @@ function initializePresentationRuntime(root, model, law, articles, themes, opts 
         else root.requestFullscreen?.();
     });
     download?.addEventListener('click', async () => {
+        if (!requireAccount('descargar la presentación')) return;
         download.disabled = true;
         download.textContent = 'Generando...';
         try {
@@ -452,13 +454,22 @@ function buildPresentationModel(law, articles, themes) {
         ? law.temas_clave
         : unique(themes.map(t => t.nombre).filter(Boolean)).slice(0, 12);
 
+    // Without a written summary, the article that states the instrument's purpose is the best stand-in.
+    const objeto = cleanArticles.slice(0, 8).find(a => !isFrontMatter(a) && /tiene por objeto|\bobjeto\b|\bfinalidad\b/i.test(a.cleanText));
+    // Some records store the title as the summary; that is not a summary.
+    const resumen = normalizeText(law.resumen || '');
+    const written = resumen.length > 80 && resumen.toLowerCase() !== normalizeText(law.titulo || '').toLowerCase() ? resumen : '';
+
     return {
         law,
         articles: cleanArticles,
-        keyArticles: selectKeyArticles(cleanArticles).slice(0, 8),
+        keyArticles: selectKeyArticles(cleanArticles.filter(a => !isFrontMatter(a))).slice(0, 6),
         fileBase: `Presentacion_${slugify(law.siglas || law.titulo || 'instrumento')}`,
         typeLabel: getTypeLabel(law),
-        summary: normalizeText(law.resumen || '').slice(0, 620),
+        summary: written ? written.slice(0, 620) : objeto ? excerpt(objeto.cleanText, 560) : '',
+        summaryLabel: written ? 'Resumen' : objeto ? `Objeto · ${objeto.articulo_label || 'Artículo 1'}` : '',
+        publishedLabel: formatDate(law.fecha_publicacion),
+        reformLabel: formatDate(law.fecha_ultima_reforma),
         metrics: {
             totalArticles: cleanArticles.length,
             titles: titles.length,
@@ -474,11 +485,12 @@ function buildPresentationModel(law, articles, themes) {
 }
 
 function renderWebDeck(model) {
-    const articleSlides = chunk(model.keyArticles, 2).map((items, index) => `
+    const articleChunks = chunk(model.keyArticles, 2);
+    const articleSlides = articleChunks.map((items, index) => `
         <section class="lp-slide">
             ${renderSlideShell('ARTÍCULOS CLAVE', `
-                <p class="lp-eyebrow">Selección ${index + 1}</p>
-                <h2>Artículos relevantes para revisar</h2>
+                <p class="lp-eyebrow">Artículos clave · ${index + 1} de ${articleChunks.length}</p>
+                <h2>Lo que conviene leer primero</h2>
                 <div class="lp-article-grid">
                     ${items.map(article => `
                         <article class="lp-article-card" data-animate data-lp-title="${escapeAttr(article.articulo_label || 'Artículo')}" data-lp-detail="${escapeAttr(buildArticleDetailText(article))}">
@@ -488,7 +500,7 @@ function renderWebDeck(model) {
                             </div>
                             <p>${escapeHtml(excerpt(article.cleanText, 300))}</p>
                             <small>${escapeHtml(article._keyReason || 'Artículo seleccionado por relevancia normativa')}</small>
-                            <em>Click para ver más</em>
+                            <em>Leer completo ›</em>
                         </article>
                     `).join('')}
                 </div>
@@ -505,14 +517,14 @@ function renderWebDeck(model) {
                     <img src="/img/logo_gob.png" alt="Gobierno de México">
                     <span></span>
                     <img src="/img/logo_sener.png" alt="SENER">
-                    <p>Subsecretaría de Electricidad · Dirección General de Modernización del Sector Eléctrico Nacional</p>
+                    <p>Secretaría de Energía<br>Buscador Jurídico</p>
                 </div>
                 <div class="lp-cover-body">
                     <p class="lp-eyebrow" data-animate>Marco Legal Energético</p>
                     <h1 data-animate data-lp-fit-height="300">${escapeHtml(model.law.titulo)}</h1>
                     <div class="lp-cover-rule" data-animate></div>
-                    <p class="lp-cover-meta" data-animate>${escapeHtml(model.typeLabel)} · ${escapeHtml(model.law.siglas || 'Sin siglas')}</p>
-                    <p class="lp-cover-date" data-animate>Publicación: ${escapeHtml(model.law.fecha_publicacion || 'N/D')} · Última reforma: ${escapeHtml(model.law.fecha_ultima_reforma || 'N/D')}</p>
+                    <p class="lp-cover-meta" data-animate>${escapeHtml(model.typeLabel)} · ${escapeHtml(model.law.siglas || '')}</p>
+                    ${model.publishedLabel ? `<p class="lp-cover-date" data-animate>Publicado el ${escapeHtml(model.publishedLabel)}${model.reformLabel ? ` · Última reforma: ${escapeHtml(model.reformLabel)}` : ''}</p>` : ''}
                 </div>
                 <div class="lp-cover-footer"><span></span><span></span><span></span></div>
             </section>
@@ -522,17 +534,15 @@ function renderWebDeck(model) {
                     <p class="lp-eyebrow" data-animate>${escapeHtml(model.law.siglas || model.typeLabel)}</p>
                     <h2 data-animate data-lp-fit-height="104">${escapeHtml(model.law.titulo)}</h2>
                     <div class="lp-summary-layout">
-                        <div class="lp-summary-text" data-animate data-lp-title="Resumen general" data-lp-detail="${escapeAttr(model.summary || 'No hay resumen cargado para este instrumento. La presentación se construye con metadatos, estructura y artículos disponibles en el acervo.')}">${escapeHtml(model.summary || 'No hay resumen cargado para este instrumento. La presentación se construye con metadatos, estructura y artículos disponibles en el acervo.')}</div>
+                        <div class="lp-summary-text" data-animate data-lp-title="Resumen general" data-lp-detail="${escapeAttr(model.summary || 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.')}">${model.summaryLabel ? `<span class="lp-summary-label">${escapeHtml(model.summaryLabel)}</span>` : ''}${escapeHtml(model.summary || 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.')}</div>
                         <div class="lp-kpis" data-animate>
-                            ${renderKpi(model.metrics.totalArticles, 'Artículos')}
-                            ${renderKpi(model.metrics.chapters, 'Capítulos')}
-                            ${renderKpi(model.metrics.transitorios, 'Transitorios')}
+                            ${[[model.metrics.totalArticles, 'Artículos'], [model.metrics.chapters, 'Capítulos'], [model.metrics.transitorios, 'Transitorios']].filter(([v]) => v > 0).map(([v, l]) => renderKpi(v, l)).join('')}
                         </div>
                     </div>
                     <div class="lp-info-strip">
                         ${renderInfo('Tipo', model.typeLabel)}
-                        ${renderInfo('Publicación', model.law.fecha_publicacion || 'N/D')}
-                        ${renderInfo('Fuente', model.law.url_original ? 'Fuente oficial registrada' : 'Sin URL registrada')}
+                        ${renderInfo('Publicación', model.publishedLabel || 'Sin fecha registrada')}
+                        ${renderInfo('Fuente', model.law.url_original ? 'Texto oficial enlazado' : 'Sin enlace oficial')}
                     </div>
                 `)}
             </section>
@@ -543,10 +553,7 @@ function renderWebDeck(model) {
                     <h2 data-animate>Mapa normativo del instrumento</h2>
                     <div class="lp-normative-map">
                         <div class="lp-normative-kpis" data-animate>
-                            ${renderStructureKpi(model.metrics.titles, 'Títulos', 'Nivel superior')}
-                            ${renderStructureKpi(model.metrics.chapters, 'Capítulos', 'Organización temática')}
-                            ${renderStructureKpi(model.metrics.sections, 'Secciones', 'Subdivisiones')}
-                            ${renderStructureKpi(model.metrics.transitorios, 'Transitorios', 'Régimen de entrada')}
+                            ${[[model.metrics.titles, 'Títulos', 'Nivel superior'], [model.metrics.chapters, 'Capítulos', 'Organización temática'], [model.metrics.sections, 'Secciones', 'Subdivisiones'], [model.metrics.transitorios, 'Transitorios', 'Entrada en vigor y transición']].filter(([v]) => v > 0).map(([v, l, c]) => renderStructureKpi(v, l, c)).join('')}
                         </div>
                         <div class="lp-normative-main">
                             ${renderNormativeFlow(model)}
@@ -559,27 +566,26 @@ function renderWebDeck(model) {
             <section class="lp-slide lp-treemap-slide">
                 ${renderSlideShell('MAPA COMPLETO', `
                     <p class="lp-eyebrow" data-animate>Vista integral</p>
-                    <h2 data-animate>Treemap del instrumento completo</h2>
+                    <h2 data-animate>Cómo se reparte el instrumento</h2>
                     <div class="lp-treemap-layout" data-animate>
                         <div class="lp-treemap-chart" aria-label="Treemap del instrumento"></div>
                         ${renderTreemapFallback(model)}
                     </div>
-                    <p class="lp-note lp-treemap-note" data-animate>El tamaño de cada bloque representa artículos o volumen de texto disponible. Click en un bloque para ver más detalle.</p>
+                    <p class="lp-note lp-treemap-note" data-animate>Cada bloque es un artículo; su tamaño refleja la extensión del texto. Haz clic en uno para leerlo.</p>
                 `)}
             </section>
 
-            <section class="lp-slide">
+            ${model.themeLabels.length ? `<section class="lp-slide">
                 ${renderSlideShell('TEMAS PRINCIPALES', `
-                    <p class="lp-eyebrow" data-animate>Temas cargados</p>
-                    <h2 data-animate>Temas del instrumento</h2>
+                    <p class="lp-eyebrow" data-animate>Temas</p>
+                    <h2 data-animate>De qué se ocupa</h2>
                     <div class="lp-theme-cloud" data-animate>
-                        ${(model.themeLabels.length ? model.themeLabels : ['Sin temas conceptuales cargados']).slice(0, 18).map((theme, i) => `
+                        ${model.themeLabels.slice(0, 18).map((theme, i) => `
                             <span class="lp-theme lp-theme-${i % 3}" data-lp-title="Tema principal" data-lp-detail="${escapeAttr(theme)}">${escapeHtml(theme)}</span>
                         `).join('')}
                     </div>
-                    <p class="lp-note" data-animate>Los temas se toman de los metadatos del acervo. Cuando no existen temas cargados, el visor conserva un estado neutral.</p>
                 `)}
-            </section>
+            </section>` : ''}
 
             ${articleSlides}
 
@@ -612,7 +618,7 @@ function renderWebDeck(model) {
             <span><b id="lp-current-slide">1</b>/<b id="lp-total-slides">1</b></span>
             <button id="lp-next-slide" type="button">›</button>
             <button id="lp-fullscreen" type="button">Pantalla completa</button>
-            <button id="lp-download-pptx" type="button">Descargar PPTX</button>
+            <button id="lp-download-pptx" type="button">${lockLabel('Descargar PPTX')}</button>
             <button id="lp-close" type="button">Cerrar</button>
         </div>
         <div class="lp-progress-track"><div id="lp-progress"></div></div>
@@ -700,7 +706,7 @@ function renderNormativeFlow(model) {
         { label: 'Capítulos', value: model.metrics.chapters, color: 'verde', note: 'Agrupan materias y obligaciones' },
         { label: 'Secciones', value: model.metrics.sections, color: 'dorado', note: 'Precisan reglas específicas' },
         { label: 'Transitorios', value: model.metrics.transitorios, color: 'gris', note: 'Definen vigencia y transición' }
-    ];
+    ].filter(item => item.value > 0);
     const max = Math.max(...items.map(item => item.value), 1);
 
     return `<div class="lp-normative-flow" data-animate>
@@ -787,7 +793,7 @@ function buildTreemapData(articles) {
         chapterNode.custom.count += 1;
         chapterNode.children.push({
             id: `${chapterId}-a-${index}`,
-            name: article.articulo_label || `Artículo ${index + 1}`,
+            name: shortArticleLabel(article.articulo_label) || `Art. ${index + 1}`,
             parent: chapterId,
             value: Math.max(1, Math.ceil((article.cleanText || article.texto || '').length / 850)),
             color: shadeHexColor(chapterNode.color || group.color, (index % 4) * 7 - 8),
@@ -902,6 +908,17 @@ function ensureWebDeckStyles() {
         .lp-interaction-detail{position:fixed;right:28px;top:28px;width:390px;max-height:calc(100vh - 120px);z-index:10003;background:rgba(255,255,255,.97);border:1px solid rgba(165,127,44,.35);border-left:5px solid #9B2247;box-shadow:0 18px 44px rgba(0,0,0,.28);border-radius:8px;padding:18px 20px;color:#2b2b2b;display:none;overflow:auto}.lp-interaction-detail.active{display:block}.lp-interaction-detail button{position:sticky;float:right;right:0;top:0;border:0;background:#fff;color:#9B2247;font-size:22px;cursor:pointer}.lp-interaction-detail strong{display:block;font-family:'Patria';font-size:20px;color:#9B2247;margin-bottom:8px;padding-right:28px}.lp-interaction-detail p{font-size:13px;line-height:1.55;color:#555;padding-right:8px;white-space:pre-line}
         .law-presentation-embed .lp-progress-track{position:absolute;z-index:6}
         .law-presentation-embed .lp-interaction-detail{position:absolute;right:18px;top:18px;max-height:calc(100% - 90px);z-index:7}
+        .lp-cover .lp-eyebrow{color:#F2C97A;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+        .lp-cover-top p{font-weight:700;color:#7A1A38}
+        .lp-summary-label{display:block;margin-bottom:10px;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#A57F2C}
+        .lp-kpis{align-content:start}
+        .lp-article-card{min-height:214px;max-height:232px}.lp-article-card p{font-size:17px;line-height:1.42}.lp-article-card strong{font-size:27px}
+        .lp-article-card em{background:#9B2247;color:#fff;border-color:#9B2247}
+        .lp-theme{font-size:14px;text-transform:none;letter-spacing:0;font-weight:700}
+        .law-presentation-embed{overflow:visible;margin-bottom:64px}
+        .law-presentation-embed .lp-slide-container{overflow:hidden;border-radius:10px}
+        .law-presentation-embed .lp-controls{bottom:-58px;background:#2b2326}
+        .law-presentation-embed .lp-progress-track{bottom:0;border-radius:0 0 10px 10px;overflow:hidden}
         @keyframes lpFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
         @media (max-width:700px){.law-presentation-embed{min-height:360px}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-controls button:nth-of-type(4){display:none}}
     `;
@@ -938,12 +955,12 @@ function addCoverSlide(pptx, model, assets) {
     });
     slide.addText([
         { text: model.typeLabel.toUpperCase(), options: { bold: true } },
-        { text: `  ·  ${model.law.siglas || 'SIN SIGLAS'}` }
+        ...(model.law.siglas ? [{ text: `  ·  ${model.law.siglas}` }] : [])
     ], {
         x: 0.7, y: 4.18, w: 6.8, h: 0.35,
         fontFace: FONT_BODY, fontSize: 11, color: COLORS.texto
     });
-    slide.addText(`Publicación: ${model.law.fecha_publicacion || 'N/D'}\nÚltima reforma: ${model.law.fecha_ultima_reforma || 'N/D'}`, {
+    slide.addText([model.publishedLabel && `Publicado el ${model.publishedLabel}`, model.reformLabel && `Última reforma: ${model.reformLabel}`].filter(Boolean).join('\n') || ' ', {
         x: 0.7, y: 4.75, w: 5.3, h: 0.7,
         fontFace: FONT_BODY, fontSize: 10, color: COLORS.muted,
         breakLine: false
@@ -960,7 +977,9 @@ function addSummarySlide(pptx, model, assets) {
     addContentShell(slide, assets, 'RESUMEN GENERAL');
     addSectionTitle(slide, model.law.siglas || model.typeLabel, model.law.titulo);
 
-    const summary = model.summary || 'No hay resumen cargado para este instrumento. La presentación se construye con metadatos, estructura y artículos disponibles en el acervo.';
+    const summary = model.summary
+        ? `${model.summaryLabel ? `${model.summaryLabel.toUpperCase()}\n` : ''}${model.summary}`
+        : 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.';
     slide.addText(summary, {
         x: 0.75, y: 1.65, w: 6.45, h: 2.15,
         fontFace: FONT_BODY, fontSize: 14, color: COLORS.texto,
@@ -972,12 +991,12 @@ function addSummarySlide(pptx, model, assets) {
         { value: model.metrics.totalArticles, label: 'ARTÍCULOS' },
         { value: model.metrics.chapters, label: 'CAPÍTULOS' },
         { value: model.metrics.transitorios, label: 'TRANSITORIOS' }
-    ];
+    ].filter(kpi => kpi.value > 0);
     kpis.forEach((kpi, i) => addKpiCard(slide, 7.75 + i * 1.65, 1.65, 1.42, 1.38, kpi.value, kpi.label));
 
     addInfoRow(slide, 0.75, 4.25, 'Tipo de instrumento', model.typeLabel);
-    addInfoRow(slide, 0.75, 4.82, 'Publicación', model.law.fecha_publicacion || 'N/D');
-    addInfoRow(slide, 0.75, 5.39, 'Última reforma', model.law.fecha_ultima_reforma || 'N/D');
+    addInfoRow(slide, 0.75, 4.82, 'Publicación', model.publishedLabel || 'Sin fecha registrada');
+    addInfoRow(slide, 0.75, 5.39, 'Última reforma', model.reformLabel || 'Sin reformas registradas');
     addInfoRow(slide, 0.75, 5.96, 'Fuente oficial', model.law.url_original ? 'Documento disponible en DOF / fuente original' : 'Sin URL original registrada');
 
     slide.addShape(SHAPE.rect, {
@@ -989,7 +1008,7 @@ function addSummarySlide(pptx, model, assets) {
         x: 8.05, y: 3.85, w: 4.0, h: 0.28,
         fontFace: FONT_HEAD, fontSize: 17, bold: true, color: COLORS.guinda
     });
-    slide.addText('Esta presentación sintetiza la estructura normativa, los temas cargados y una selección de artículos relevantes. No sustituye la consulta del texto oficial.', {
+    slide.addText('Esta presentación resume la estructura del instrumento y los artículos que conviene leer primero. No sustituye la consulta del texto oficial.', {
         x: 8.05, y: 4.35, w: 3.95, h: 1.05,
         fontFace: FONT_BODY, fontSize: 11, color: COLORS.muted,
         fit: 'shrink'
@@ -1041,9 +1060,9 @@ function addStructureSlide(pptx, model, assets) {
 function addThemesSlide(pptx, model, assets) {
     const slide = pptx.addSlide();
     addContentShell(slide, assets, 'TEMAS PRINCIPALES');
-    addSectionTitle(slide, 'Temas cargados', 'Temas del instrumento');
+    addSectionTitle(slide, 'Temas', 'De qué se ocupa');
 
-    const themes = model.themeLabels.length ? model.themeLabels.slice(0, 18) : ['Sin temas conceptuales cargados'];
+    const themes = model.themeLabels.slice(0, 18);
     themes.forEach((theme, i) => {
         const col = i % 3;
         const row = Math.floor(i / 3);
@@ -1064,15 +1083,6 @@ function addThemesSlide(pptx, model, assets) {
         });
     });
 
-    slide.addShape(SHAPE.rect, {
-        x: 0.82, y: 6.02, w: 11.7, h: 0.62,
-        fill: { color: 'F8F9FA' },
-        line: { color: COLORS.grisClaro }
-    });
-    slide.addText('Los temas se toman de los metadatos del acervo. Cuando no existen temas cargados, la presentación conserva el esquema y muestra un estado neutral.', {
-        x: 1.05, y: 6.19, w: 11.25, h: 0.22,
-        fontFace: FONT_BODY, fontSize: 9.5, color: COLORS.muted
-    });
 }
 
 function addKeyArticlesSlides(pptx, model, assets) {
@@ -1080,7 +1090,7 @@ function addKeyArticlesSlides(pptx, model, assets) {
     chunks.forEach((items, idx) => {
         const slide = pptx.addSlide();
         addContentShell(slide, assets, 'ARTÍCULOS CLAVE');
-        addSectionTitle(slide, `Selección ${idx + 1}`, 'Artículos relevantes para revisar');
+        addSectionTitle(slide, `Artículos clave · ${idx + 1} de ${chunks.length}`, 'Lo que conviene leer primero');
         items.forEach((article, i) => addArticleCard(slide, article, 0.82, 1.45 + i * 2.65, 11.7, 2.15));
     });
 }
@@ -1315,6 +1325,24 @@ function buildStructureRows(articles, themes) {
     unique(articles.map(a => a.capitulo_nombre).filter(Boolean)).forEach(name => rows.push({ nivel: 'CAP.', nombre: name }));
     unique(articles.map(a => a.seccion_nombre).filter(Boolean)).forEach(name => rows.push({ nivel: 'SECC.', nombre: name }));
     return rows.slice(0, 12);
+}
+
+/** Preamble, consultation guides and editorial notes are context, not provisions to highlight. */
+function isFrontMatter(article) {
+    return /pre[aá]mbulo|gu[ií]a|nota editorial/i.test(article.articulo_label || '')
+        || ['preambulo', 'guia', 'nota'].includes(article.tipo_articulo);
+}
+
+const MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+/** "2025-03-18" → "18 de marzo de 2025"; empty when unknown so callers can leave the line out. */
+function formatDate(value) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(value || ''));
+    return m ? `${Number(m[3])} de ${MONTHS[Number(m[2]) - 1]} de ${m[1]}` : '';
+}
+
+/** "Artículo 12" → "Art. 12" for small tiles. */
+function shortArticleLabel(label) {
+    return String(label || '').replace(/^Art[íi]culo\s+/i, 'Art. ');
 }
 
 function selectKeyArticles(articles) {

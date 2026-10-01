@@ -27,6 +27,7 @@ import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
+import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyArt } from '../lib/empty-art.js';
 
 export function initUI() {
@@ -1134,7 +1135,7 @@ export function initUI() {
                             <summary class="lr-btn">Más</summary>
                             <div class="lr-more-menu">
                                 <button id="present-law-btn" class="lr-more-item"><span class="present-label">Presentar en pantalla completa</span></button>
-                                <button id="export-csv-btn" class="lr-more-item">Exportar artículos (CSV)</button>
+                                <button id="export-csv-btn" class="lr-more-item">${lockLabel('Descargar artículos en Excel')}</button>
                                 <button id="print-btn" class="lr-more-item">Imprimir o guardar PDF</button>
                             </div>
                         </details>
@@ -1143,7 +1144,7 @@ export function initUI() {
             </div>
 
             <nav class="lr-tabs" role="tablist" aria-label="Secciones del instrumento">
-                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Texto</span><span class="lr-tab-desc">Lee y busca en el documento</span></span></button>
+                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Documento</span><span class="lr-tab-desc">Texto completo, artículo por artículo</span></span></button>
                 <button role="tab" id="lr-tab-linea" aria-controls="lr-panel-linea" aria-selected="false" data-law-tab="linea"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Línea del tiempo</span><span class="lr-tab-desc">Publicación, reformas y relacionados</span></span></button>
                 <button role="tab" id="lr-tab-presentacion" aria-controls="lr-panel-presentacion" aria-selected="false" data-law-tab="presentacion"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Presentación</span><span class="lr-tab-desc">Resumen visual para exponer</span></span></button>
                 <button role="tab" id="lr-tab-estructura" aria-controls="lr-panel-estructura" aria-selected="false" data-law-tab="estructura"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Estructura y temas</span><span class="lr-tab-desc">Títulos, capítulos y temas</span></span></button>
@@ -1737,6 +1738,7 @@ export function initUI() {
 
 
         document.getElementById('export-csv-btn').addEventListener('click', () => {
+            if (!requireAccount('descargar en Excel')) return;
             exportToCSV(currentLawArticles, `${law.titulo}.csv`);
         });
     }
@@ -2494,6 +2496,7 @@ export function initUI() {
                 updateCompareBar(); draw();
             },
             onExport: (format, list) => {
+                if (format === 'csv' && !requireAccount('descargar en Excel')) return;
                 if (format === 'csv') exportItemsAsCSV(list, 'guardados_SENER.csv', true);
                 else exportItemsAsHTML(list, 'Mis guardados SENER', true);
                 showToast(format === 'csv' ? 'Descargando hoja de cálculo' : 'Descargando documento', '⬇', 'bg-gray-800');
@@ -3630,6 +3633,17 @@ export function initUI() {
                 }
             }
         };
+
+        // Other modules (e.g. a locked download) ask for the sign-in modal on a given tab.
+
+        window.addEventListener('auth:open', event => {
+
+            document.querySelector(`.auth-tab[data-tab="${event.detail?.tab === 'register' ? 'register' : 'login'}"]`)?.click();
+
+            openAuthModal();
+
+        });
+
 
         closeAuthModal = function () {
             authModal.classList.add('hidden');
