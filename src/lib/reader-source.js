@@ -10,6 +10,26 @@ const positive = value => Number.isFinite(value) && value > 0;
 const safeAsset = value => typeof value === 'string'
     && /^\/reader-sources\/[a-z0-9/_\-.]+$/.test(value) && !value.includes('..');
 
+const FORMATOS_COGENERACION_PDF = 'https://sidof.segob.gob.mx/notas/getNewsletter/22-05-2026/Matutina/327465';
+const FORMATOS_COGENERACION_HTML = 'https://sidof.segob.gob.mx/notas/docFuente/5788271';
+
+function officialImageSource(source) {
+    return source?.transport === 'official-image-pages'
+        && source.id === 'formatos-cogeneracion-20260522-327465'
+        && source.pdfUrl === FORMATOS_COGENERACION_PDF
+        && source.originalUrl === FORMATOS_COGENERACION_HTML;
+}
+
+function officialImageUrl(source, value) {
+    if (!officialImageSource(source) || typeof value !== 'string') return false;
+    try {
+        const url = new URL(value);
+        return url.protocol === 'https:' && url.hostname === 'sidof.segob.gob.mx'
+            && !url.username && !url.password && !url.search && !url.hash
+            && /^\/imagenes_diarios\/Matutina\/20260522-\d{3}-[A-Z]-\d{3}\.jpg$/.test(url.pathname);
+    } catch { return false; }
+}
+
 function officialUrl(value) {
     try {
         if (typeof value !== 'string' || !/^https?:\/\//i.test(value)) return null;
@@ -52,19 +72,24 @@ export function resolveReaderSource(manifest, articleId, { pageIndex = 0, origin
     const source = has(manifest.sources, article?.sourceId) ? manifest.sources[article.sourceId] : null;
     const fallbackUrl = officialUrl(originalUrl) || officialUrl(source?.originalUrl);
     const remote = source?.transport === 'remote-pdf';
+    const officialImages = officialImageSource(source);
     const safePdf = remote
         ? /^[a-z0-9-]+$/.test(source.id) && source.pdfUrl === `/api/reader/${source.id}` && officialUrl(source.originalUrl)
-        : safeAsset(source?.pdfUrl);
+        : officialImages ? source.pdfUrl === FORMATOS_COGENERACION_PDF : safeAsset(source?.pdfUrl);
     if (!source || !sha256(source.sha256) || !sha256(article.contentSha256)
         || !safePdf || !Array.isArray(source.pages) || !source.pages.length
         || !Number.isInteger(source.pageCount) || source.pageCount !== source.pages.length
         || !Array.isArray(article.pageNumbers) || !article.pageNumbers.length
         || !Array.isArray(article.anchors) || !article.anchors.length) return unmapped('invalid-traceability', fallbackUrl);
+    if (officialImages && source.pages.some(page => !officialImageUrl(source, page?.imageUrl))) {
+        return unmapped('invalid-traceability', fallbackUrl);
+    }
 
     const pages = article.pageNumbers.map(number => source.pages.find(page => page?.number === number));
     if (new Set(article.pageNumbers).size !== pages.length || pages.some(page => !page
         || !Number.isInteger(page.number) || page.number < 1 || page.number > source.pageCount
-        || !positive(page.width) || !positive(page.height) || (!remote && !safeAsset(page.imageUrl)))) {
+        || !positive(page.width) || !positive(page.height)
+        || (!remote && !(officialImages ? officialImageUrl(source, page.imageUrl) : safeAsset(page.imageUrl))))) {
         return unmapped('invalid-traceability', fallbackUrl);
     }
     const validAnchor = anchor => {
