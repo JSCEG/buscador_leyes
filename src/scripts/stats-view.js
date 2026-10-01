@@ -113,6 +113,37 @@ function tableShell(stats) {
     </section>`;
 }
 
+/** "Uso del buscador": cumulative visits, visitors, searches, reads and accounts, plus 30 days of visits. */
+async function fillUsage(host) {
+    let data;
+    try {
+        const { fetchUsageSummary } = await import('../lib/usage.js');
+        data = await fetchUsageSummary();
+    } catch { return; } // counters not set up yet: the section stays hidden
+    if (!data || !host?.isConnected) return;
+    const totals = data.totales || {};
+    const todays = data.hoy || {};
+    const total = key => number(Number(totals[key] || 0));
+    const today = key => (Number(todays[key] || 0) ? `+${number(Number(todays[key]))} hoy` : 'Sin registros hoy');
+    const series = Array.isArray(data.serie) ? data.serie : [];
+    const max = Math.max(1, ...series.map(day => Number(day.visitas) || 0));
+    const bars = series.map(day => `<span class="st-usage-bar" style="height:${Math.max(6, (Number(day.visitas) / max) * 100)}%"
+        data-tip="${escape(`${formatDay(String(day.dia).slice(0, 10))}: ${number(Number(day.visitas))} visitas`)}"></span>`).join('');
+    const since = data.desde ? `Contando desde el ${escape(formatDay(String(data.desde).slice(0, 10), 'long'))}` : 'Contando desde hoy';
+    host.innerHTML = `<div class="st-usage-head"><div><p class="st-eyebrow">Uso del buscador</p><h2 id="st-usage-title">Cuánto se consulta</h2></div>
+            <p class="st-usage-since">${since}</p></div>
+        <div class="st-kpis st-usage-kpis">
+            ${kpi('Visitas acumuladas', total('visita'), today('visita'), 'var(--st-c-leyes)')}
+            ${kpi('Visitantes únicos', total('visitante'), 'Navegadores distintos', 'var(--st-c-reglamentos)')}
+            ${kpi('Búsquedas', total('busqueda'), today('busqueda'), 'var(--st-c-acuerdos)')}
+            ${kpi('Artículos consultados', total('lectura'), today('lectura'), 'var(--st-c-dacg)')}
+            ${kpi('Usuarios registrados', number(Number(data.usuarios || 0)), 'Cuentas confirmadas', 'var(--st-c-convocatorias)')}
+        </div>
+        ${series.length ? `<div class="st-usage-chart"><p class="st-stack-label">Visitas por día · últimos 30 días</p>
+            <div class="st-usage-bars" role="img" aria-label="Visitas por día en los últimos 30 días">${bars}</div></div>` : ''}`;
+    host.hidden = false;
+}
+
 /** Statistics dashboard. Navigation stays with the app via onOpenLaw/onOpenGroup. */
 export function renderStatsView(container, summaries, { onOpenLaw = () => {}, onOpenGroup = () => {}, today } = {}) {
     if (!container) throw new Error('Falta el contenedor de estadísticas.');
@@ -139,6 +170,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
             ${kpi('Publicados en 12 meses', number(stats.recent), `${percent(stats.recent, stats.total)} del acervo`, 'var(--st-c-acuerdos)')}
             ${kpi('Colección mayor', lead ? escape(lead.label) : '—', lead ? `${number(lead.count)} instrumentos` : '', 'var(--st-c-dacg)')}
         </div>
+        <section class="st-usage" aria-labelledby="st-usage-title" hidden></section>
         <div class="st-grid-layout">
             ${composition(stats)}
             ${timeline(stats)}
@@ -152,6 +184,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
         </div>
         <div class="st-tip" role="tooltip" hidden></div>`;
     container.replaceChildren(root);
+    fillUsage(root.querySelector('.st-usage'));
 
     const lawById = new Map(stats.rows.map(row => [String(row.law.id), row.law]));
     const tbody = root.querySelector('tbody');

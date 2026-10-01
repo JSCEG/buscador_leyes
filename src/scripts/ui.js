@@ -28,6 +28,7 @@ import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { authError } from '../lib/auth-errors.js';
+import { trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyArt } from '../lib/empty-art.js';
@@ -2899,6 +2900,7 @@ export function initUI() {
         if (!resultsContainer) return;
         const request = ++searchRenderRequest;
         const query = currentSearchQuery;
+        trackSearch(query);
         
         if (loadingIndicator) loadingIndicator.classList.remove('hidden');
 
@@ -2937,6 +2939,7 @@ export function initUI() {
     function openDetail(...args) { return withProgress(() => openDetailNow(...args)); }
     async function openDetailNow(id, { updateHistory = true } = {}) {
         const request = ++readerOpenRequest;
+        trackRead(id);
         // También preserva el regreso al usar Adelante del navegador desde el explorador.
         if (!explorerModalReturn && activeNavId === 'nav-analisis') {
             explorerModalReturn = explorerReturnContext(explorerViewHash);

@@ -19,6 +19,7 @@ import { initConnectionBanner } from './lib/connection-banner.js';
 import { initCardTip } from './lib/card-tip.js';
 import { initTocAttention } from './lib/toc-attention.js';
 import { initAccountPanel } from './scripts/account-panel.js';
+import { trackVisit } from './lib/usage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (shouldShowIntro()) window.__introDone = playIntro();
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardTip();
   initTocAttention();
   initAccountPanel();
+  trackVisit();
   initAuth();
   initUI();
   initSearch();

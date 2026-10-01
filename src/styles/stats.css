@@ -135,3 +135,17 @@ html.dark-mode .st-dashboard .st-table thead tr{background:var(--st-paper)!impor
 .st-icon svg{display:block}
 .st-legend-item{grid-template-columns:18px 1fr auto auto}
 #results-container .st-dashboard .st-table thead tr,html.dark-mode #results-container .st-dashboard .st-table thead tr{background:var(--st-paper)!important;color:inherit!important}
+
+/* Uso del buscador */
+.st-usage{margin:0 0 18px;padding:18px 18px 16px;border:1px solid var(--st-border,#e6e0d8);border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--st-c-leyes) 6%,transparent),transparent 60%),var(--st-card,#fff)}
+.st-usage[hidden]{display:none}
+.st-usage-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.st-usage-head h2{margin:2px 0 0;font:700 22px/1.15 Patria,Georgia,serif}
+.st-usage-since{margin:0;font-size:12.5px;color:var(--st-muted,#6b6460)}
+.st-usage-kpis{grid-template-columns:repeat(5,minmax(0,1fr));margin-bottom:12px}
+.st-usage-chart .st-stack-label{margin-bottom:6px}
+.st-usage-bars{display:flex;align-items:flex-end;gap:3px;height:70px;padding:4px 2px 0;border-bottom:1px solid var(--st-border,#e6e0d8)}
+.st-usage-bar{flex:1 1 0;min-width:3px;border-radius:4px 4px 0 0;background:linear-gradient(var(--st-c-leyes),color-mix(in srgb,var(--st-c-leyes) 60%,#fff));cursor:default;transition:filter .15s}
+.st-usage-bar:hover{filter:brightness(1.15)}
+@media (max-width:1024px){.st-usage-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.st-usage-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
