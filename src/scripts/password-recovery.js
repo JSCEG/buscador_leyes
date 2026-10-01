@@ -80,8 +80,8 @@ export function initPasswordRecovery() {
                 msg.textContent = '';
                 openDialog(`<header><h2 id="sd-title">Revisa tu correo</h2><button type="button" class="sd-x" data-sd-close aria-label="Cerrar">×</button></header>
                     <div class="sd-body">
-                        <p>Si <strong>${escapeHtml(email)}</strong> tiene cuenta, en unos minutos te llegará un correo con un enlace para crear tu contraseña nueva.</p>
-                        <p class="sd-intro">El enlace vence en 1 hora y sirve una sola vez. Si no lo ves, revisa Spam o pide otro en un minuto.</p>
+                        <p>Pedimos el enlace para <strong>${escapeHtml(email)}</strong>. Solo llega si ese correo tiene una cuenta registrada; por seguridad no confirmamos qué correos están registrados.</p>
+                        <p class="sd-intro">Si no te llega en unos minutos: revisa Spam, confirma que el correo esté bien escrito o crea tu cuenta en «Registrarse». El enlace vence en 1 hora y sirve una sola vez.</p>
                         <div class="sd-actions"><button type="button" class="sd-primary" data-sd-close>Entendido</button></div>
                     </div>`, 'sd-title');
             } catch (error) {
