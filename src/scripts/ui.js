@@ -8,7 +8,7 @@ import { initDeskSync } from './desk-sync.js';
 import { renderArticlePage, articlePageHash, parseArticlePageHash } from './article-page-view.js';
 import { renderSearchLanding } from './search-landing.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
-import { openFeedback, openLegalPage } from './site-dialogs.js';
+import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
@@ -3768,6 +3768,37 @@ export function initUI() {
             }
         }
 
+        // After sign-up: where the email went, that new senders often land in spam, and a resend.
+        function showSignupSent(email) {
+            const safe = escapeHtml(email);
+            const { wrap } = openDialog(`<header><h2 id="sd-title">Confirma tu correo</h2><button type="button" class="sd-x" data-sd-close aria-label="Cerrar">×</button></header>
+                <div class="sd-body">
+                    <p>Te enviamos un correo a <strong>${safe}</strong> para activar tu cuenta. Abre el mensaje «Confirma tu cuenta del Buscador Jurídico» y toca <strong>Confirmar mi cuenta</strong>.</p>
+                    <div class="signup-spam">
+                        <strong>¿No lo ves en unos minutos?</strong>
+                        <ul>
+                            <li>Revisa <strong>Spam</strong> o <strong>Correo no deseado</strong>; en Gmail, también «Promociones».</li>
+                            <li>Llega de <strong>avisos@buscador-juridico.com</strong>. Márcalo como «No es spam» para que los siguientes lleguen a tu bandeja.</li>
+                            <li>Revisa que el correo esté bien escrito.</li>
+                        </ul>
+                    </div>
+                    <p class="sd-status" role="status" aria-live="polite"></p>
+                    <div class="sd-actions"><button type="button" class="sd-secondary" data-resend>Reenviar correo</button><button type="button" class="sd-primary" data-sd-close>Entendido</button></div>
+                </div>`, 'sd-title');
+            const resend = wrap.querySelector('[data-resend]');
+            const status = wrap.querySelector('.sd-status');
+            resend.addEventListener('click', async () => {
+                resend.disabled = true; status.textContent = 'Enviando…';
+                try {
+                    await resendConfirmation(email);
+                    status.textContent = 'Listo, te lo enviamos de nuevo. Revisa también Spam.';
+                } catch (err) {
+                    status.textContent = authError(err).text;
+                    resend.disabled = false;
+                }
+            });
+        }
+
         function showAuthMsg(msg, isError = true) {
             authMsgEl.textContent = msg;
             authMsgEl.className = `mb-4 p-3 rounded-lg text-sm font-medium ${isError
@@ -3872,7 +3903,8 @@ export function initUI() {
                     setAuthTab('login');
                     authPasswordInput.value = '';
                     if (authNameInput) authNameInput.value = fullName;
-                    showAuthMsg('Cuenta creada. Revisa tu correo y luego vuelve a iniciar sesión.', false);
+                    closeAuthModal();
+                    showSignupSent(email);
                 }
             } catch (err) {
                 const { text, notConfirmed } = authError(err);

@@ -150,7 +150,7 @@ const notice = (title, body) => openDialog(`<header><h2 id="sd-title">${title}</
  * the app subscribes, so act on what the link said once the session is ready.
  */
 async function handleEmailReturn(openNewPassword) {
-    const { type, error, errorCode } = authReturn;
+    const { type, error, errorCode, tokenHash } = authReturn;
     if (!type && !error) return;
     const clean = () => history.replaceState(null, '', location.pathname);
     if (error) {
@@ -160,6 +160,15 @@ async function handleEmailReturn(openNewPassword) {
             ? '<p>Este enlace venció o ya se usó. Los enlaces sirven una sola vez y duran una hora.</p><p class="sd-intro">Si querías cambiar tu contraseña, pide otro con «Entrar» → «¿Olvidaste tu contraseña?». Si querías confirmar tu cuenta, intenta entrar con tu correo y contraseña: quizá ya estaba confirmada.</p>'
             : `<p>No pudimos completar la acción del enlace.</p><p class="sd-intro">${authError({ code: errorCode, message: error }).text}</p>`);
         return;
+    }
+    if (tokenHash && type) {
+        // Links in our emails carry a one-time token for this domain; exchange it for a session here.
+        const { error: verifyError } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type });
+        if (verifyError) {
+            clean();
+            notice('El enlace ya no es válido', `<p>${authError(verifyError).text}</p><p class="sd-intro">Los enlaces sirven una sola vez y duran una hora. Pide otro desde «Entrar».</p>`);
+            return;
+        }
     }
     const { data } = await supabase.auth.getSession();
     clean();

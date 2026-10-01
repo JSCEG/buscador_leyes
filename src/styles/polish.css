@@ -219,3 +219,7 @@ html.dark-mode #account-panel .ap-field input{background:#1a1517;border-color:#4
 #auth-panel{max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain}
 .auth-resend{margin-top:8px;padding:6px 12px;border:1px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:700 12.5px/1 'Noto Sans',sans-serif;cursor:pointer}
 .auth-resend:disabled{opacity:.6;cursor:wait}
+.signup-spam{margin:4px 0 6px;padding:12px 14px;border-radius:12px;background:#fbf3e3;border:1px solid #ecd6a6;font-size:13.5px;line-height:1.5;color:#4a3a1c}
+.signup-spam ul{margin:6px 0 0;padding-left:18px;list-style:disc}
+.signup-spam li+li{margin-top:3px}
+html.dark-mode .signup-spam{background:#2f2718;border-color:#5c4a24;color:#ecdcb8}

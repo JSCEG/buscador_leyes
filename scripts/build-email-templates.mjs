@@ -48,7 +48,10 @@ function layout({ preheader, eyebrow, title, body, action, note }) {
 
 const fallback = url => `<p style="margin:14px 0 0;font-size:12.5px;color:#8A847C">Si el botón no funciona, copia y pega esta liga en tu navegador:<br><span style="word-break:break-all;color:#6A655E">${url}</span></p>`;
 
-// Supabase variables: {{ .ConfirmationURL }}, {{ .Email }}, {{ .NewEmail }}
+// Supabase variables: {{ .SiteURL }}, {{ .TokenHash }}, {{ .Email }}, {{ .NewEmail }}.
+// Links point to our own domain (token_hash flow, verified in the app with verifyOtp) instead of
+// {{ .ConfirmationURL }} on supabase.co: sender and link domains match, which helps deliverability.
+const link = type => `{{ .SiteURL }}/?token_hash={{ .TokenHash }}&type=${type}`;
 const TEMPLATES = {
     'confirmar-registro': {
         subject: 'Confirma tu cuenta del Buscador Jurídico',
@@ -56,7 +59,7 @@ const TEMPLATES = {
             preheader: 'Un clic para activar tu cuenta y guardar artículos, notas y mesas de consulta.',
             eyebrow: 'Bienvenida', title: 'Confirma tu cuenta',
             body: '<p style="margin:0 0 12px">Gracias por registrarte en el Buscador Jurídico del sector energético.</p><p style="margin:0">Con tu cuenta podrás guardar artículos, escribir notas y conservar tus mesas de consulta en cualquier equipo.</p>',
-            action: button('{{ .ConfirmationURL }}', 'Confirmar mi cuenta') + fallback('{{ .ConfirmationURL }}'),
+            action: button(link('signup'), 'Confirmar mi cuenta') + fallback(link('signup')),
             note: 'Si no creaste esta cuenta, ignora este correo; no se activará nada.',
         }),
     },
@@ -66,7 +69,7 @@ const TEMPLATES = {
             preheader: 'Crea una contraseña nueva para tu cuenta.',
             eyebrow: 'Seguridad de tu cuenta', title: 'Restablece tu contraseña',
             body: '<p style="margin:0">Recibimos una solicitud para cambiar la contraseña de la cuenta <strong>{{ .Email }}</strong>. Usa el botón para crear una nueva.</p>',
-            action: button('{{ .ConfirmationURL }}', 'Crear contraseña nueva') + fallback('{{ .ConfirmationURL }}'),
+            action: button(link('recovery'), 'Crear contraseña nueva') + fallback(link('recovery')),
             note: 'Si no lo solicitaste, ignora este correo: tu contraseña actual sigue funcionando. La liga vence en una hora.',
         }),
     },
@@ -76,7 +79,7 @@ const TEMPLATES = {
             preheader: 'Entra con un clic, sin contraseña.',
             eyebrow: 'Acceso', title: 'Entra al Buscador Jurídico',
             body: '<p style="margin:0">Usa este enlace para iniciar sesión con <strong>{{ .Email }}</strong>.</p>',
-            action: button('{{ .ConfirmationURL }}', 'Entrar') + fallback('{{ .ConfirmationURL }}'),
+            action: button(link('magiclink'), 'Entrar') + fallback(link('magiclink')),
             note: 'El enlace funciona una sola vez y vence en una hora. Si no lo pediste, ignora este correo.',
         }),
     },
@@ -86,7 +89,7 @@ const TEMPLATES = {
             preheader: 'Confirma el cambio de correo de tu cuenta.',
             eyebrow: 'Seguridad de tu cuenta', title: 'Confirma tu nuevo correo',
             body: '<p style="margin:0">Pediste cambiar el correo de tu cuenta de <strong>{{ .Email }}</strong> a <strong>{{ .NewEmail }}</strong>.</p>',
-            action: button('{{ .ConfirmationURL }}', 'Confirmar el cambio') + fallback('{{ .ConfirmationURL }}'),
+            action: button(link('email_change'), 'Confirmar el cambio') + fallback(link('email_change')),
             note: 'Si no reconoces este cambio, no hagas clic y cambia tu contraseña.',
         }),
     },
@@ -108,7 +111,7 @@ const TEMPLATES = {
 };
 
 const samples = {
-    '{{ .ConfirmationURL }}': `${SITE}/#confirmar-ejemplo`, '{{ .Email }}': 'persona@ejemplo.com', '{{ .NewEmail }}': 'nuevo@ejemplo.com',
+    '{{ .SiteURL }}': SITE, '{{ .TokenHash }}': 'ejemplo', '{{ .Email }}': 'persona@ejemplo.com', '{{ .NewEmail }}': 'nuevo@ejemplo.com',
     '{{tipo}}': 'Falta un documento', '{{mensaje_corto}}': 'Falta el Reglamento de la Ley de…', '{{mensaje}}': 'Falta el Reglamento de la Ley de Planeación y Transición Energética publicado el 3 de octubre.',
     '{{correo}}': 'persona@ejemplo.com', '{{pagina}}': '/#buscar', '{{fecha}}': '30 sep 2026, 13:05', '{{liga}}': `${SITE}/#buscar`,
 };

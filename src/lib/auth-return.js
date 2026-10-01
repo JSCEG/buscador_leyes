@@ -13,6 +13,7 @@ function read() {
         type: pick('type'),                                   // recovery | signup | email_change | magiclink | invite
         error: pick('error_description') || pick('error'),
         errorCode: pick('error_code'),
+        tokenHash: query.get('token_hash'),                   // our own-domain links (verified with verifyOtp)
     };
 }
 
