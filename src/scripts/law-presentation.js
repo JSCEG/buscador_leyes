@@ -1,5 +1,6 @@
 // pptxgenjs (~500 KB) is only needed to build a .pptx: load it on demand.
 import { officialUrl } from '../lib/official-url.js';
+import { brandMarkSvg } from '../lib/brand-mark.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 
 const COLORS = {
@@ -14,16 +15,18 @@ const COLORS = {
     texto: '2B2B2B',
     muted: '666666',
     white: 'FFFFFF',
-    dark: '1E1E1E'
+    dark: '1E1E1E',
+    petroleo: '24607A'
 };
 
 const SLIDE = { w: 13.333, h: 7.5 };
 const FONT_HEAD = 'Patria';
 const FONT_BODY = 'Noto Sans';
-const LOGO_GOB = '/img/logo_gob.png';
-const LOGO_SENER = '/img/logo_sener.png';
-const COVER_IMAGE = '/img/mujer.png';
-const WEB_COVER_IMAGE = '/img/portada_ppt.png';
+const LOGO = '/img/logo-buscador.png';
+const LOGO_LIGHT = '/img/logo-buscador-claro.png';
+const LOGO_RATIO = 1426 / 228;
+const COVER_IMAGE = '/img/b-mark-blanco.png';
+const ACCENTS = ['guinda', 'verde', 'dorado', 'petroleo'];
 const ANIME_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js';
 const HIGHCHARTS_CDN = 'https://code.highcharts.com/highcharts.js';
 const HIGHCHARTS_TREEMAP_CDN = 'https://code.highcharts.com/modules/treemap.js';
@@ -41,8 +44,8 @@ export async function generateLawPresentation(law, articles = [], themes = []) {
     const { default: pptxgen } = await import('pptxgenjs');
     const pptx = new pptxgen();
     pptx.layout = 'LAYOUT_WIDE';
-    pptx.author = 'Secretaría de Energía';
-    pptx.company = 'SENER';
+    pptx.author = 'Buscador Jurídico';
+    pptx.company = 'Buscador Jurídico';
     pptx.subject = `Presentación del instrumento jurídico: ${law.titulo}`;
     pptx.title = law.titulo;
     pptx.lang = 'es-MX';
@@ -383,7 +386,7 @@ function animateWebSlide(slide, index) {
             easing: 'easeOutQuad'
         });
         anime({
-            targets: slide.querySelector('.lp-cover-bg'),
+            targets: slide.querySelector('.lp-cover-mark'),
             scale: [1.035, 1],
             duration: 1100,
             easing: 'easeOutQuad'
@@ -485,6 +488,7 @@ function buildPresentationModel(law, articles, themes) {
 }
 
 function renderWebDeck(model) {
+    shellCount = 0;
     const articleChunks = chunk(model.keyArticles, 2);
     const articleSlides = articleChunks.map((items, index) => `
         <section class="lp-slide">
@@ -511,13 +515,10 @@ function renderWebDeck(model) {
     return `
         <div id="lp-slide-container" class="lp-slide-container">
             <section class="lp-slide lp-cover active">
-                <img class="lp-cover-bg" src="${WEB_COVER_IMAGE}" alt="" aria-hidden="true">
+                <div class="lp-cover-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#7a1a38', lens: '#f2c97a' })}</div>
                 <div class="lp-cover-overlay"></div>
                 <div class="lp-cover-top">
-                    <img src="/img/logo_gob.png" alt="Gobierno de México">
-                    <span></span>
-                    <img src="/img/logo_sener.png" alt="SENER">
-                    <p>Secretaría de Energía<br>Buscador Jurídico</p>
+                    <img class="lp-lockup" src="${LOGO}" alt="Buscador Jurídico">
                 </div>
                 <div class="lp-cover-body">
                     <p class="lp-eyebrow" data-animate>Marco Legal Energético</p>
@@ -590,13 +591,11 @@ function renderWebDeck(model) {
             ${articleSlides}
 
             <section class="lp-slide lp-close-slide">
-                <img class="lp-close-bg" src="${WEB_COVER_IMAGE}" alt="" aria-hidden="true">
+                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#7a1a38', lens: '#f2c97a' })}</div>
                 <div class="lp-close-overlay"></div>
                 <div class="lp-close-panel">
                     <div class="lp-close-logos" data-animate>
-                        <img src="/img/logo_gob.png" alt="Gobierno de México">
-                        <span></span>
-                        <img src="/img/logo_sener.png" alt="SENER">
+                        <img class="lp-lockup" src="${LOGO}" alt="Buscador Jurídico">
                     </div>
                     <p class="lp-eyebrow" data-animate>Cierre</p>
                     <h2 data-animate data-lp-fit-height="190">${escapeHtml(model.law.titulo)}</h2>
@@ -625,13 +624,15 @@ function renderWebDeck(model) {
     `;
 }
 
+let shellCount = 0;
 function renderSlideShell(title, content) {
+    const accent = ACCENTS[shellCount++ % ACCENTS.length];
     return `
-        <div class="lp-shell">
+        <div class="lp-shell lp-accent-${accent}">
             <header class="lp-header">
-                <div class="lp-brand">SENER</div>
+                <div class="lp-brand">Buscador Jurídico</div>
                 <div class="lp-title">${escapeHtml(title)}</div>
-                <img src="/img/logo_sener.png" alt="SENER">
+                <img src="/img/b-mark.svg" alt="">
             </header>
             <main class="lp-content">${content}</main>
             <footer class="lp-footer"></footer>
@@ -919,6 +920,40 @@ function ensureWebDeckStyles() {
         .law-presentation-embed .lp-slide-container{overflow:hidden;border-radius:10px}
         .law-presentation-embed .lp-controls{bottom:-58px;background:#2b2326}
         .law-presentation-embed .lp-progress-track{bottom:0;border-radius:0 0 10px 10px;overflow:hidden}
+        .lp-cover-top .lp-lockup{height:46px;width:auto}
+        .lp-close-logos .lp-lockup{height:44px;width:auto}
+        .lp-header img[src$="b-mark.svg"]{height:40px}
+        .lp-brand{font-size:19px}
+        .lp-cover{background:radial-gradient(90% 120% at 100% 0%,#b8375f 0%,transparent 55%),radial-gradient(70% 90% at 0% 100%,#1e5b4f66 0%,transparent 60%),linear-gradient(135deg,#5e1530 0%,#8a1d40 55%,#6d1631 100%)}
+        .lp-cover:before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#ffffff1f 1.4px,transparent 1.8px);background-size:34px 34px;z-index:1}
+        .lp-cover-mark{position:absolute;right:80px;top:150px;width:330px;z-index:2;filter:drop-shadow(0 24px 50px rgba(0,0,0,.35))}
+        .lp-cover-overlay{display:none}
+        .lp-cover-body{padding:110px 470px 0 72px!important;max-width:none!important}
+        .lp-cover h1{font-size:54px}
+        .lp-cover-rule{width:360px;background:linear-gradient(90deg,#f2c97a,#d6b46a 60%,#1e5b4f)}
+        .lp-close-slide{background:linear-gradient(90deg,#fbf8f4 0 66%,#8a1d40 66% 100%)}
+        .lp-close-slide:after,.lp-close-overlay{display:none}
+        .lp-close-mark{position:absolute;right:120px;top:50%;width:240px;transform:translateY(-50%);z-index:2;filter:drop-shadow(0 18px 40px rgba(0,0,0,.3))}
+        .lp-shell{--acc:#9B2247;--acc-soft:#9B224714}
+        .lp-accent-verde{--acc:#1E5B4F;--acc-soft:#1E5B4F14}
+        .lp-accent-dorado{--acc:#A57F2C;--acc-soft:#A57F2C17}
+        .lp-accent-petroleo{--acc:#24607A;--acc-soft:#24607A14}
+        .lp-header{border-bottom:3px solid var(--acc);background:linear-gradient(180deg,#fff 0%,var(--acc-soft) 100%)}
+        .lp-brand{color:var(--acc)}.lp-brand:before{background:var(--acc)}
+        .lp-title:before,.lp-title:after{color:var(--acc)}
+        .lp-shell .lp-eyebrow{color:var(--acc)}
+        .lp-footer{height:10px;background:linear-gradient(90deg,#9B2247 0 25%,#1E5B4F 25% 50%,#A57F2C 50% 75%,#24607A 75% 100%)}
+        .lp-summary-text{border-left-color:var(--acc)}
+        .lp-kpi{border-top:4px solid #9B2247;border-radius:10px}.lp-kpi:nth-child(2){border-top-color:#1E5B4F}.lp-kpi:nth-child(2) strong{color:#1E5B4F}.lp-kpi:nth-child(3){border-top-color:#A57F2C}.lp-kpi:nth-child(3) strong{color:#A57F2C}
+        .lp-info-strip div{border-radius:10px}.lp-info-strip div:nth-child(2){border-top-color:#1E5B4F}.lp-info-strip div:nth-child(3){border-top-color:#24607A}
+        .lp-structure-kpi:nth-child(2){border-top-color:#1E5B4F}.lp-structure-kpi:nth-child(2) strong{color:#1E5B4F}.lp-structure-kpi:nth-child(3){border-top-color:#A57F2C}.lp-structure-kpi:nth-child(3) strong{color:#A57F2C}.lp-structure-kpi:nth-child(4){border-top-color:#24607A}.lp-structure-kpi:nth-child(4) strong{color:#24607A}
+        .lp-mini-head{background:var(--acc)}
+        .lp-article-card{border-radius:12px;border-left-color:var(--acc);background:linear-gradient(90deg,var(--acc-soft),#F8F9FA 40%)}.lp-article-card strong{color:var(--acc)}
+        .lp-article-card+.lp-article-card{border-left-color:#A57F2C}.lp-article-card+.lp-article-card strong{color:#8a6a22}
+        .lp-article-card em{background:var(--acc);border-color:var(--acc)}
+        .lp-theme{border-radius:999px;justify-content:center}.lp-theme-0{background:#9B224712}.lp-theme-1{background:#1E5B4F12}.lp-theme-2{background:#A57F2C14}
+        .lp-treemap-layout{border-radius:14px}
+        .lp-treemap-fallback{align-content:stretch}.lp-treemap-tile{height:auto;min-height:calc(var(--tile-size) * .72)}.lp-treemap-tile span{font-size:11px}
         @keyframes lpFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
         @media (max-width:700px){.law-presentation-embed{min-height:360px}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-controls button:nth-of-type(4){display:none}}
     `;
@@ -935,7 +970,7 @@ function addCoverSlide(pptx, model, assets) {
             fill: { color: COLORS.guinda, transparency: 8 },
             line: { color: COLORS.guinda }
         });
-        slide.addImage({ data: assets.cover, x: 8.65, y: 0.45, w: 3.85, h: 6.7, transparency: 16 });
+        slide.addImage({ data: assets.cover, x: 9.35, y: 1.75, w: 3.4, h: 3.74 });
     }
 
     addLogoPair(slide, assets, 0.55, 0.48);
@@ -965,7 +1000,7 @@ function addCoverSlide(pptx, model, assets) {
         fontFace: FONT_BODY, fontSize: 10, color: COLORS.muted,
         breakLine: false
     });
-    slide.addText('Presentación generada desde el Buscador Jurídico SENER', {
+    slide.addText('Presentación generada desde el Buscador Jurídico', {
         x: 0.7, y: 6.35, w: 6.5, h: 0.3,
         fontFace: FONT_BODY, fontSize: 9.5, color: COLORS.muted
     });
@@ -1099,6 +1134,7 @@ function addClosingSlide(pptx, model, assets) {
     const slide = pptx.addSlide();
     paintBase(slide, { cover: false, dark: true });
     addLogoPair(slide, assets, 0.7, 0.55, true);
+    if (assets.cover) slide.addImage({ data: assets.cover, x: 9.6, y: 2.0, w: 2.7, h: 2.97 });
     slide.addText('CIERRE', {
         x: 0.8, y: 1.75, w: 2.6, h: 0.3,
         fontFace: FONT_BODY, fontSize: 10, bold: true,
@@ -1198,9 +1234,9 @@ function addCoverFooter(slide) {
 }
 
 function addLogoPair(slide, assets, x, y, inverted = false) {
-    const opacity = inverted ? 18 : 0;
-    if (assets.gob) slide.addImage({ data: assets.gob, x, y, w: 1.65, h: 0.43, transparency: opacity });
-    if (assets.sener) slide.addImage({ data: assets.sener, x: x + 1.95, y, w: 1.55, h: 0.43, transparency: opacity });
+    const data = inverted ? assets.logoLight : assets.logo;
+    const h = 0.46;
+    if (data) slide.addImage({ data, x, y, w: h * LOGO_RATIO, h });
 }
 
 function addSectionTitle(slide, eyebrow, title) {
@@ -1375,12 +1411,12 @@ function selectKeyArticles(articles) {
 }
 
 async function loadAssets() {
-    const [gob, sener, cover] = await Promise.all([
-        imageToDataUri(LOGO_GOB),
-        imageToDataUri(LOGO_SENER),
+    const [logo, logoLight, cover] = await Promise.all([
+        imageToDataUri(LOGO),
+        imageToDataUri(LOGO_LIGHT),
         imageToDataUri(COVER_IMAGE)
     ]);
-    return { gob, sener, cover };
+    return { logo, logoLight, cover };
 }
 
 async function imageToDataUri(url) {

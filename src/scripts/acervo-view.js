@@ -63,7 +63,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const hero = element('div', 'ac-hero');
     const header = element('header', 'ac-header');
     const titleBlock = element('div', 'ac-title-block');
-    titleBlock.append(element('p', 'ac-eyebrow', 'Secretaría de Energía · Acervo'));
+    titleBlock.append(element('p', 'ac-eyebrow', 'Buscador Jurídico · Acervo'));
     const title = element('h1', '', 'Normativa del sector energético'); title.id = `${id}-title`;
     titleBlock.append(title, element('p', 'ac-intro', 'Leyes, reglamentos, acuerdos y demás documentos oficiales, en un solo lugar.'));
     header.append(titleBlock);

@@ -63,7 +63,7 @@ export function playIntro() {
             <div class="si-words">
                 <p class="si-name" aria-label="${NAME}">${letters(NAME)}</p>
                 <span class="si-rule"></span>
-                <p class="si-sub">Secretaría de Energía · Gobierno de México</p>
+                <p class="si-sub">Normativa del sector energético</p>
             </div>
         </div>
         <span class="si-ring" style="left:var(--ix);top:var(--iy)"></span>

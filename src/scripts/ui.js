@@ -751,6 +751,11 @@ export function initUI() {
             showLawsView();
         });
     }
+    // The brand in the header goes home, like "Acervo".
+    document.getElementById('brand-home')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLawsView();
+    });
 
     // ── Limpieza global del TOC ────────────────────────────────────────────────
     function destroyTOC() {
@@ -2414,7 +2419,7 @@ export function initUI() {
         }).join('');
 
         const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
-        <title>${escapeHtml(title)} — SENER</title>
+        <title>${escapeHtml(title)} — Buscador Jurídico</title>
         <style>
             body{font-family:'Noto Sans',Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 24px;color:#1f2937;}
             h1{font-size:22px;font-weight:700;color:#9B2247;margin-bottom:4px;}
@@ -2422,7 +2427,7 @@ export function initUI() {
             @media print{body{margin:16px;}h1{font-size:18px;}}
         </style></head><body>
         <h1>${title}</h1>
-        <div class="meta">Secretaría de Energía · Gobierno de México · Exportado el ${today} · ${items.length} artículo${items.length !== 1 ? 's' : ''}</div>
+        <div class="meta">Buscador Jurídico · Exportado el ${today} · ${items.length} artículo${items.length !== 1 ? 's' : ''}</div>
         ${rows}
         </body></html>`;
 
@@ -2497,8 +2502,8 @@ export function initUI() {
             },
             onExport: (format, list) => {
                 if (format === 'csv' && !requireAccount('descargar en Excel')) return;
-                if (format === 'csv') exportItemsAsCSV(list, 'guardados_SENER.csv', true);
-                else exportItemsAsHTML(list, 'Mis guardados SENER', true);
+                if (format === 'csv') exportItemsAsCSV(list, 'guardados_buscador_juridico.csv', true);
+                else exportItemsAsHTML(list, 'Mis guardados', true);
                 showToast(format === 'csv' ? 'Descargando hoja de cálculo' : 'Descargando documento', '⬇', 'bg-gray-800');
             },
             onFilter: next => { filter = next; draw(); },
@@ -2705,7 +2710,7 @@ export function initUI() {
         ctx.fillRect(0, canvas.height - 44, canvas.width, 44);
         ctx.fillStyle = 'rgba(255,255,255,0.8)';
         ctx.font = '12px system-ui, sans-serif';
-        ctx.fillText('Buscador de Leyes Energéticas · SENER', 40, canvas.height - 16);
+        ctx.fillText('Buscador Jurídico · Normativa del sector energético', 40, canvas.height - 16);
 
         return canvas.toDataURL('image/png');
     }
@@ -2774,7 +2779,7 @@ export function initUI() {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'Comparación de Artículos SENER',
+                    title: 'Comparación de artículos · Buscador Jurídico',
                     text: text
                 });
             } catch (err) {
@@ -2790,7 +2795,7 @@ export function initUI() {
         const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(item.id)}`;
         const title = `${item.articulo_label} · ${item.ley_origen}`;
         const body = `📋 *${item.articulo_label}*\n🏛️ ${item.ley_origen}\n\n${item.texto.substring(0, 500)}${item.texto.length > 500 ? '...' : ''}\n\n${artUrl}`;
-        const shortText = `${item.articulo_label} · ${item.ley_origen} — Marco Legal Energético SENER`;
+        const shortText = `${item.articulo_label} · ${item.ley_origen} — Buscador Jurídico`;
         const map = {
             telegram: `https://t.me/share/url?url=${encodeURIComponent(artUrl)}&text=${encodeURIComponent(title)}`,
             twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shortText)}&url=${encodeURIComponent(artUrl)}`,
@@ -2804,7 +2809,7 @@ export function initUI() {
         const title = law.titulo;
         const resumen = law.resumen ? law.resumen.split('\n\n')[0].substring(0, 400) : `${law.articulos} artículos`;
         const body = `🏛️ *${law.titulo}*\n📅 Publicado: ${law.fecha}\n📖 ${law.articulos} artículos\n\n${resumen}\n\n${lawUrl}`;
-        const shortText = `${law.titulo} — Marco Legal Energético SENER`;
+        const shortText = `${law.titulo} — Buscador Jurídico`;
 
         if (platform === 'whatsapp' && navigator.share) {
             try {
@@ -2921,7 +2926,7 @@ export function initUI() {
                 currentPage = 1;
                 renderResults();
             },
-        });
+        });
         dockSearch();
         if (results.length) renderPaginationControls(totalResults, 'results-container', renderResults);
         else if (resultsContainer.nextElementSibling?.classList.contains('pagination-nav')) resultsContainer.nextElementSibling.remove();
@@ -3272,7 +3277,7 @@ export function initUI() {
             citeBtn.onclick = () => {
                 const today = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
                 const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
-                const citation = `${item.articulo_label} de la ${item.ley_origen}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Secretaría de Energía, Gobierno de México. Consultado el ${today}. Disponible en: ${artUrl}`;
+                const citation = `${item.articulo_label} de la ${item.ley_origen}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Buscador Jurídico. Consultado el ${today}. Disponible en: ${artUrl}`;
 
                 // Try clipboard API; fall back to a selectable popover (required on mobile/HTTP)
                 const tryClipboard = navigator.clipboard && typeof navigator.clipboard.writeText === 'function'

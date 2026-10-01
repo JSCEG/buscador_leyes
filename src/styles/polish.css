@@ -75,12 +75,34 @@ html.dark-mode #mobile-menu-drawer #mobile-user-label{color:#e3dad1!important}
 /* The open menu sits above the floating desk button and the bottom bar. */
 body:has(#mobile-menu-drawer:not(.translate-x-full)) :is(#desk-toggle,#bottom-nav){display:none!important}
 
-/* Institutional logos are dark artwork: give them a light plate on dark surfaces. */
-html.dark-mode :is(header,#institutional-footer,#mobile-menu-drawer) img[src*="logo_gob"],
-html.dark-mode :is(header,#institutional-footer,#mobile-menu-drawer) img[src*="logo_sener"]{background:#f6f1ea;border-radius:8px;padding:3px 7px;box-sizing:content-box;filter:none!important}
 
 /* Reader breadcrumb separator */
 html.dark-mode #modal-content .rm-sep{color:#8a7f78}
 
 /* Análisis tabs never squeeze into each other on phones. */
 .nx-tabs [role=tab]{flex:none;white-space:nowrap}
+
+/* Brand lockup: the B mark with the name (header, menu, footer). */
+.brand-link{display:inline-flex;border-radius:10px;text-decoration:none}
+.brand-lockup{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{width:34px;height:auto;flex:none;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.brand-link:hover .brand-mark{transform:rotate(-4deg) scale(1.05)}
+.brand-text{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-name{font:700 21px/1.05 Patria,Georgia,serif;color:#2b2326;letter-spacing:-.01em;white-space:nowrap}
+.brand-sub{margin-top:4px;font:700 9.5px/1 'Noto Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#9b2247;white-space:nowrap}
+.brand-lockup-sm .brand-mark{width:24px}
+.brand-lockup-sm .brand-name{font-size:15px}
+.brand-lockup-sm .brand-sub{font-size:8px;letter-spacing:.18em}
+#institutional-footer .brand-mark{width:30px}
+#institutional-footer .brand-name{font-size:18px}
+html.dark-mode .brand-name{color:#f3ece4}
+html.dark-mode .brand-sub{color:#f2c97a}
+@media (max-width:420px){.brand-mark{width:30px}.brand-name{font-size:18px}.brand-sub{font-size:8.5px;letter-spacing:.16em}}
+
+/* Law header "Más" menu opens above the tab cards that overlap the header. */
+.lr-header:has(.lr-more[open]){position:relative;z-index:6}
+.lr-more-menu{z-index:40}
+
+/* Long article/section labels wrap at every width instead of running off the card. */
+html #law-articles-list .lr-card-label{white-space:normal!important;min-width:0;flex:1 1 auto;overflow-wrap:anywhere;line-height:1.25}
+html #law-articles-list>div>.flex:first-of-type,html #law-articles-list>div>div.flex{min-width:0;gap:10px}
