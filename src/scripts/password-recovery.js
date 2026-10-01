@@ -4,6 +4,8 @@
  */
 import { requestPasswordReset, updatePassword } from './auth.js';
 import { openDialog } from './site-dialogs.js';
+import { supabase } from '../lib/supabase.js';
+import { authReturn } from '../lib/auth-return.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -102,7 +104,10 @@ export function initPasswordRecovery() {
         sync();
     }
 
-    window.addEventListener('auth:recovery', () => {
+    let recoveryShown = false;
+    const openNewPassword = () => {
+        if (recoveryShown) return;
+        recoveryShown = true;
         const { wrap, close } = openDialog(`<header><h2 id="sd-title">Crea tu contraseña nueva</h2><button type="button" class="sd-x" data-sd-close aria-label="Cerrar">×</button></header>
             <form class="sd-body sd-form" novalidate>
                 <label class="sd-field">Contraseña nueva<input type="password" name="p1" minlength="8" autocomplete="new-password" required></label>
@@ -129,5 +134,37 @@ export function initPasswordRecovery() {
                 status.textContent = /same|different/i.test(error.message || '') ? 'Usa una contraseña distinta a la anterior.' : 'No se pudo guardar. Pide otro correo e intenta de nuevo.';
             }
         });
-    });
+    };
+    window.addEventListener('auth:recovery', openNewPassword);
+    handleEmailReturn(openNewPassword);
+}
+
+const notice = (title, body) => openDialog(`<header><h2 id="sd-title">${title}</h2><button type="button" class="sd-x" data-sd-close aria-label="Cerrar">×</button></header>
+    <div class="sd-body">${body}<div class="sd-actions"><button type="button" class="sd-primary" data-sd-close>Continuar</button></div></div>`, 'sd-title');
+
+/**
+ * Coming back from an auth email. Supabase has usually finished (and emitted its events) before
+ * the app subscribes, so act on what the link said once the session is ready.
+ */
+async function handleEmailReturn(openNewPassword) {
+    const { type, error, errorCode } = authReturn;
+    if (!type && !error) return;
+    const clean = () => history.replaceState(null, '', location.pathname);
+    if (error) {
+        clean();
+        const expired = /expired|invalid|otp/i.test(`${errorCode} ${error}`);
+        notice('El enlace ya no es válido', expired
+            ? '<p>Este enlace venció o ya se usó. Los enlaces sirven una sola vez y duran una hora.</p><p class="sd-intro">Si querías cambiar tu contraseña, pide otro con «Entrar» → «¿Olvidaste tu contraseña?». Si querías confirmar tu cuenta, intenta entrar con tu correo y contraseña: quizá ya estaba confirmada.</p>'
+            : `<p>No pudimos completar la acción del enlace.</p><p class="sd-intro">${error.replace(/[<>&]/g, '')}</p>`);
+        return;
+    }
+    const { data } = await supabase.auth.getSession();
+    clean();
+    if (!data.session) {
+        notice('El enlace ya no es válido', '<p>No pudimos iniciar tu sesión con este enlace. Puede que haya vencido o que ya se haya usado.</p><p class="sd-intro">Pide otro correo e inténtalo de nuevo.</p>');
+        return;
+    }
+    if (type === 'recovery') openNewPassword();
+    else if (type === 'signup' || type === 'invite') notice('¡Tu cuenta está confirmada!', '<p>Bienvenido al Buscador Jurídico. Ya tienes la sesión iniciada: tus guardados, notas y mesas de consulta se conservarán en cualquier equipo.</p>');
+    else if (type === 'email_change') notice('Correo actualizado', '<p>Tu nuevo correo quedó confirmado.</p>');
 }

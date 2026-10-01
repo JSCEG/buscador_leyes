@@ -1,3 +1,5 @@
+// Must run before anything imports the Supabase client, which consumes the auth link on load.
+import './lib/auth-return.js';
 import './styles/index.css';
 
 // Import Search Engine Logic

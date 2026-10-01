@@ -16,7 +16,7 @@ export function shouldShowIntro() {
     if (globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
     if (/^#(art-|lectura-|mesa-|ley-)/.test(location.hash)) return false;
     // Coming back from an auth email (reset, confirmation): go straight to the dialog.
-    if (/access_token|error_description|type=recovery/.test(location.hash) || /[?&]code=/.test(location.search)) return false;
+    if (/access_token|error_description|(^|[#&])type=/.test(location.hash) || /[?&](code|type)=/.test(location.search)) return false;
     try { return localStorage.getItem(KEY) !== today(); } catch { return false; }
 }
 
