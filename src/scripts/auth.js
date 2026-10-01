@@ -102,6 +102,11 @@ export async function updatePassword(password) {
     if (error) throw error;
 }
 
+export async function resendConfirmation(email) {
+    const { error } = await supabase.auth.resend({ type: 'signup', email, options: { emailRedirectTo: `${location.origin}/` } });
+    if (error) throw error;
+}
+
 /** Confirms the signed-in user's current password before a sensitive change. */
 export async function verifyCurrentPassword(password) {
     const email = currentUser?.email;

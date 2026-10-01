@@ -6,6 +6,7 @@ import { requestPasswordReset, updatePassword, logout } from './auth.js';
 import { openDialog } from './site-dialogs.js';
 import { supabase } from '../lib/supabase.js';
 import { authReturn } from '../lib/auth-return.js';
+import { authError } from '../lib/auth-errors.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -157,7 +158,7 @@ async function handleEmailReturn(openNewPassword) {
         const expired = /expired|invalid|otp/i.test(`${errorCode} ${error}`);
         notice('El enlace ya no es válido', expired
             ? '<p>Este enlace venció o ya se usó. Los enlaces sirven una sola vez y duran una hora.</p><p class="sd-intro">Si querías cambiar tu contraseña, pide otro con «Entrar» → «¿Olvidaste tu contraseña?». Si querías confirmar tu cuenta, intenta entrar con tu correo y contraseña: quizá ya estaba confirmada.</p>'
-            : `<p>No pudimos completar la acción del enlace.</p><p class="sd-intro">${error.replace(/[<>&]/g, '')}</p>`);
+            : `<p>No pudimos completar la acción del enlace.</p><p class="sd-intro">${authError({ code: errorCode, message: error }).text}</p>`);
         return;
     }
     const { data } = await supabase.auth.getSession();

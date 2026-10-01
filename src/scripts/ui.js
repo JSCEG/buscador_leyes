@@ -25,8 +25,9 @@ import '../styles/view-band.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
-import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
+import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
+import { authError } from '../lib/auth-errors.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyArt } from '../lib/empty-art.js';
 
@@ -3874,7 +3875,25 @@ export function initUI() {
                     showAuthMsg('Cuenta creada. Revisa tu correo y luego vuelve a iniciar sesión.', false);
                 }
             } catch (err) {
-                showAuthMsg(err.message || 'Error de autenticación');
+                const { text, notConfirmed } = authError(err);
+                showAuthMsg(text);
+                if (notConfirmed) {
+                    // Offer to send the confirmation email again from here.
+                    const resend = document.createElement('button');
+                    resend.type = 'button';
+                    resend.className = 'auth-resend';
+                    resend.textContent = 'Reenviar correo de confirmación';
+                    resend.addEventListener('click', async () => {
+                        resend.disabled = true; resend.textContent = 'Enviando…';
+                        try {
+                            await resendConfirmation(email);
+                            showAuthMsg(`Te enviamos de nuevo el correo de confirmación a ${email}. Revisa también Spam.`, false);
+                        } catch (resendErr) {
+                            showAuthMsg(authError(resendErr).text);
+                        }
+                    });
+                    authMsgEl.append(document.createElement('br'), resend);
+                }
             } finally {
                 authSubmitBtn.disabled = false;
                 authSubmitBtn.textContent = currentTab === 'login' ? 'Iniciar sesión' : 'Crear cuenta';
