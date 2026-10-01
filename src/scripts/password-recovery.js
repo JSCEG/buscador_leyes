@@ -110,15 +110,16 @@ export function initPasswordRecovery() {
     const openNewPassword = () => {
         if (recoveryShown) return;
         recoveryShown = true;
-        const { wrap, close } = openDialog(`<header><h2 id="sd-title">Crea tu contraseña nueva</h2><button type="button" class="sd-x" data-sd-close aria-label="Cerrar">×</button></header>
+        // Locked: a stray click outside or Esc must not throw away the one-time reset link.
+        const { wrap, close } = openDialog(`<header><h2 id="sd-title">Crea tu contraseña nueva</h2></header>
             <form class="sd-body sd-form" novalidate>
                 <label class="sd-field">Contraseña nueva<input type="password" name="p1" minlength="8" autocomplete="new-password" required></label>
                 <label class="sd-field">Repítela<input type="password" name="p2" minlength="8" autocomplete="new-password" required></label>
-                <p class="sd-intro">Usa al menos 8 caracteres.</p>
+                <p class="sd-intro">Mínimo 8 caracteres, con letras y números.</p>
                 <p class="sd-status" role="status" aria-live="polite"></p>
-                <p class="sd-intro">Si cierras esta ventana sin guardar, cerraremos la sesión por seguridad.</p>
-                <div class="sd-actions"><button type="submit" class="sd-primary">Guardar contraseña</button></div>
+                <div class="sd-actions"><button type="button" class="sd-secondary" data-cancel>Cancelar</button><button type="submit" class="sd-primary">Guardar contraseña</button></div>
             </form>`, 'sd-title', {
+            locked: true,
             // The reset link signs the reader in only to set a new password: leaving without one signs out.
             onClose: async () => {
                 if (saved) return;
@@ -131,9 +132,22 @@ export function initPasswordRecovery() {
         let saved = false;
         const f = wrap.querySelector('form');
         const status = wrap.querySelector('.sd-status');
+        // Cancel asks once: leaving signs out and the link cannot be reused.
+        const cancel = f.querySelector('[data-cancel]');
+        cancel.addEventListener('click', () => {
+            if (cancel.dataset.confirm) { close(); return; }
+            cancel.dataset.confirm = '1';
+            cancel.textContent = 'Sí, salir sin cambiarla';
+            status.textContent = '¿Salir sin cambiar tu contraseña? Cerraremos la sesión y tendrás que pedir otro enlace.';
+        });
+        f.addEventListener('input', () => {
+            if (!cancel.dataset.confirm) return;
+            delete cancel.dataset.confirm; cancel.textContent = 'Cancelar'; status.textContent = '';
+        });
         f.addEventListener('submit', async event => {
             event.preventDefault();
             if (f.p1.value.length < 8) { status.textContent = 'La contraseña debe tener al menos 8 caracteres.'; f.p1.focus(); return; }
+            if (!/[A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(f.p1.value) || !/\d/.test(f.p1.value)) { status.textContent = 'La contraseña debe combinar letras y números.'; f.p1.focus(); return; }
             if (f.p1.value !== f.p2.value) { status.textContent = 'Las contraseñas no coinciden.'; f.p2.focus(); return; }
             const button = f.querySelector('.sd-primary');
             button.disabled = true; status.textContent = 'Guardando…';

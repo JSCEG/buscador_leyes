@@ -78,6 +78,7 @@ export function initAccountPanel() {
         const { current, p1, p2 } = passForm;
         if (!current.value) { status.textContent = 'Escribe tu contraseña actual.'; current.focus(); return; }
         if (p1.value.length < 8) { status.textContent = 'La nueva debe tener al menos 8 caracteres.'; p1.focus(); return; }
+        if (!/[A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(p1.value) || !/\d/.test(p1.value)) { status.textContent = 'La nueva debe combinar letras y números.'; p1.focus(); return; }
         if (p1.value !== p2.value) { status.textContent = 'Las contraseñas nuevas no coinciden.'; p2.focus(); return; }
         if (p1.value === current.value) { status.textContent = 'Usa una contraseña distinta a la actual.'; p1.focus(); return; }
         const button = passForm.querySelector('.ap-btn');

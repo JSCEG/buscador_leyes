@@ -24,7 +24,8 @@ const PAGES = {
     },
 };
 
-export function openDialog(html, labelledby, { onClose } = {}) {
+/** `locked`: only the dialog's own buttons close it (no backdrop click, no Esc). */
+export function openDialog(html, labelledby, { onClose, locked = false } = {}) {
     document.getElementById('site-dialog')?.remove();
     const returnFocus = document.activeElement;
     const wrap = document.createElement('div');
@@ -36,9 +37,9 @@ export function openDialog(html, labelledby, { onClose } = {}) {
         wrap.remove(); document.removeEventListener('keydown', onKey, true); returnFocus?.focus?.({ preventScroll: true });
         onClose?.();
     };
-    const onKey = event => { if (event.key === 'Escape') { event.stopPropagation(); close(); } };
+    const onKey = event => { if (event.key === 'Escape') { event.stopPropagation(); if (!locked) close(); } };
     document.addEventListener('keydown', onKey, true);
-    wrap.addEventListener('click', event => { if (event.target === wrap || event.target.closest('[data-sd-close]')) close(); });
+    wrap.addEventListener('click', event => { if ((event.target === wrap && !locked) || event.target.closest('[data-sd-close]')) close(); });
     requestAnimationFrame(() => wrap.querySelector('input, textarea, select, [data-sd-close]')?.focus());
     return { wrap, close };
 }
