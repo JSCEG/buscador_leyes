@@ -3,29 +3,36 @@ import './styles/index.css';
 // Import Search Engine Logic
 import { initSearch } from './scripts/search-engine.js';
 import { initUI } from './scripts/ui.js';
-import { initAdminIngest } from './scripts/admin-ingest.js';
-import { initAdminManagement } from './scripts/admin-management.js';
 import { initPasswordRecovery } from './scripts/password-recovery.js';
 import { shouldShowIntro, playIntro } from './scripts/site-intro.js';
-import { initAuth, isAdmin } from './scripts/auth.js';
+import { initAuth, isAdmin, onAuthChange } from './scripts/auth.js';
+
+// The content manager (PDF parsing, editing) is only for admins: load it when the server says so.
+let adminReady = null;
+const loadAdmin = () => (adminReady ||= Promise.all([import('./scripts/admin-ingest.js'), import('./scripts/admin-management.js')])
+  .then(([ingest, management]) => { ingest.initAdminIngest(); management.initAdminManagement(); }));
 import { initMarquee } from './lib/marquee.js';
+import { initPrintBrand } from './lib/print-brand.js';
+import { initConnectionBanner } from './lib/connection-banner.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (shouldShowIntro()) window.__introDone = playIntro();
   initPasswordRecovery();
   initMarquee();
+  initPrintBrand();
+  initConnectionBanner();
   initAuth();
   initUI();
   initSearch();
-  initAdminIngest();
-  initAdminManagement();
+  onAuthChange(() => { if (isAdmin()) loadAdmin(); });
 
   // Setup Admin Nav Clicks (injecting directly into UI's existing navigation flow)
   const navAdminBtn = document.getElementById('nav-admin');
   const mobileNavAdminBtn = document.getElementById('mobile-nav-admin');
 
-  const showAdminView = () => {
+  const showAdminView = async () => {
       if (!isAdmin()) return;
+      await loadAdmin();
       document.getElementById('hero-section').classList.add('hidden');
       document.getElementById('global-search-wrapper').classList.add('hidden');
       document.getElementById('results-container').classList.add('hidden');

@@ -1,0 +1,40 @@
+/* Printing / "Guardar como PDF": a clean branded document, no app chrome. */
+#print-brand,#print-legal{display:none}
+@media print{
+  @page{margin:16mm 14mm 18mm}
+  html,body{background:#fff!important;color:#1f1b1c!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+
+  #print-brand{display:flex!important;align-items:flex-end;justify-content:space-between;gap:16px;padding:0 0 10px;margin:0 0 18px;border-bottom:2px solid #9b2247}
+  #print-brand img{height:30px;width:auto}
+  #print-brand p{margin:0;font:500 9pt/1.4 'Noto Sans',Arial,sans-serif;color:#5f5852;text-align:right}
+  #print-legal{display:block!important;margin-top:18px;padding-top:8px;border-top:1px solid #d9d3ca;font:400 8pt/1.4 'Noto Sans',Arial,sans-serif;color:#6f675f}
+
+  /* App chrome */
+  header,#institutional-footer,#bottom-nav,#desk-toggle,#desk-panel,#desk-side,#mobile-menu-drawer,#mobile-menu-overlay,
+  #nav-progress,#nav-progress-pill,#app-toast,#site-intro,.lr-tabs,.lr-actions,.lr-more,.lr-card-actions,.lr-breadcrumb,
+  .sr-actions,.sr-action,.sk-wrap,.ac-arrow,.ac-row-arrows,#law-toc-fab,[id*="toc-fab"],.law-presentation-embed,.lp-controls{display:none!important}
+  .lr-outline,.lr-search,.lr-read-more,.lr-crumbs,#reading-controls{display:none!important}
+  .lr-reading{display:block!important}
+  .lr-body,.lr-articles,#law-articles-list{width:100%!important;max-width:none!important;grid-template-columns:1fr!important}
+  #modal-newtab-btn{display:none!important}
+  #main-container{padding:0!important;max-width:none!important}
+
+  /* Law header: no colored band, ink only */
+  .lr-header{background:none!important;color:#1f1b1c!important;padding:0 0 10px!important;border:0!important;border-radius:0!important}
+  .lr-header *{color:#1f1b1c!important;background:none!important;border-color:#d9d3ca!important}
+  .lr-header .lr-title{color:#7a1a38!important;font-size:20pt!important}
+  #law-articles-list>div{break-inside:avoid;border:0!important;border-bottom:1px solid #e6e0d8!important;border-radius:0!important;padding:10px 0!important;background:none!important}
+
+  /* Gliding titles print whole */
+  .mq{white-space:normal!important;overflow:visible!important}
+  .mq>.mq-track{max-width:none!important;white-space:normal!important;overflow:visible!important;transform:none!important}
+
+  /* With the reader open, print just that article */
+  body.reader-modal-open>*:not(#detail-modal):not(#print-brand):not(#print-legal){display:none!important}
+  body.reader-modal-open #detail-modal{position:static!important;display:block!important;background:none!important;backdrop-filter:none!important;padding:0!important}
+  body.reader-modal-open #modal-panel{position:static!important;width:auto!important;max-width:none!important;height:auto!important;max-height:none!important;transform:none!important;opacity:1!important;border:0!important;border-radius:0!important}
+  body.reader-modal-open #modal-panel :is(button,.reader-article-nav,.reader-toolbar,.reader-settings){display:none!important}
+  body.reader-modal-open #modal-panel #modal-ley{display:block!important;color:#7a1a38!important;font-size:10pt!important;letter-spacing:.06em}
+  body.reader-modal-open #modal-content{max-height:none!important;overflow:visible!important;padding:0!important}
+}

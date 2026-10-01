@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sin conexión · Buscador Jurídico</title>
+<link rel="icon" href="/img/favicon-64.png">
+<style>
+  :root{--bg:#f7f5f2;--card:#fff;--ink:#2b2326;--muted:#6b6460;--guinda:#9b2247;--border:#e6e0d8}
+  @media (prefers-color-scheme:dark){:root{--bg:#141112;--card:#1f1a1c;--ink:#f3ece4;--muted:#b3a89e;--border:#3a3034}}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px 16px;background:var(--bg);color:var(--ink);font:400 16px/1.55 'Noto Sans',system-ui,sans-serif}
+  main{max-width:440px;width:100%;text-align:center;background:var(--card);border:1px solid var(--border);border-top:4px solid var(--guinda);border-radius:18px;padding:36px 28px}
+  svg{width:72px;height:auto;margin:0 auto 18px;display:block}
+  h1{margin:0 0 8px;font:700 26px/1.2 Georgia,serif}
+  p{margin:0 0 22px;color:var(--muted)}
+  button{border:0;border-radius:999px;padding:12px 22px;background:var(--guinda);color:#fff;font:700 15px/1 inherit;cursor:pointer}
+  button:focus-visible{outline:3px solid #f2c97a;outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <svg viewBox="190 190 810 890" aria-hidden="true"><rect x="217" y="211" width="175" height="841" rx="4" fill="#9b2247"/><path fill="#9b2247" d="M462 211 H710 A185 200 0 0 1 790 590 A230 230 0 0 1 745 1052 H683 V830 A140 140 0 0 0 543 690 H462 Z"/><rect x="550" y="330" width="242" height="24" rx="12" fill="#fff"/><rect x="550" y="398" width="242" height="24" rx="12" fill="#fff"/><circle cx="528" cy="817" r="56" fill="#d0a94e"/><path d="M572 858 L613 895" stroke="#d0a94e" stroke-width="14" stroke-linecap="round"/></svg>
+  <h1>Sin conexión</h1>
+  <p>No pudimos llegar al Buscador Jurídico. Revisa tu conexión a internet y vuelve a intentarlo.</p>
+  <button type="button" onclick="location.reload()">Reintentar</button>
+</main>
+</body>
+</html>

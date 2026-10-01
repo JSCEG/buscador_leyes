@@ -115,3 +115,25 @@ html .ac-library .ac-card .ac-card-title{display:block!important;-webkit-line-cl
 html .ac-library .ac-card .ac-card-title::-webkit-scrollbar{width:5px}
 html .ac-library .ac-card .ac-card-title::-webkit-scrollbar-thumb{background:#c9bfb4;border-radius:9px}
 html .ac-library .ac-card .ac-card-meta{margin-top:auto}
+
+/* Light-mode contrast fixes (scan: anything under 3.5:1) */
+#modal-content .rm-sep{color:#9a9089}
+.st-kpi-note,.st-legend-frag{color:#6f675f!important}
+html.dark-mode :is(.st-kpi-note,.st-legend-frag){color:#b3a89e!important}
+#mobile-menu-drawer p.text-gray-400{color:#6b6460!important}
+html.dark-mode #mobile-menu-drawer p.text-gray-400{color:#a89e95!important}
+
+/* Search terms: one highlight everywhere — a soft gold wash with a gold underline. */
+mark,mark.hl,.sr-view mark,#modal-content mark{background:linear-gradient(transparent 55%,#f2c97a66 55%)!important;color:inherit!important;font-weight:600;border-radius:2px;padding:0 1px;box-shadow:inset 0 -1.5px 0 #c9a04a}
+html.dark-mode :is(mark,mark.hl,.sr-view mark,#modal-content mark){background:linear-gradient(transparent 55%,#c9a04a40 55%)!important;box-shadow:inset 0 -1.5px 0 #f2c97a}
+
+/* Toasts: brand plum pill with a gold accent, same in light and dark. */
+#app-toast{background:#2b2326!important;color:#fbf6ef!important;border:1px solid #f2c97a40!important;box-shadow:0 14px 34px -10px #3a1a24aa!important;padding-left:18px!important}
+#app-toast::before{content:'';width:4px;align-self:stretch;margin:-6px 4px -6px -6px;border-radius:4px;background:linear-gradient(#f2c97a,#9b2247)}
+
+/* Offline / back-online bar */
+#net-banner{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:10040;max-width:min(560px,calc(100vw - 32px));padding:9px 16px;border-radius:12px;font:600 13px/1.4 'Noto Sans',sans-serif;text-align:center;box-shadow:0 10px 26px -10px #0006;animation:toast-in .25s ease-out}
+#net-banner[hidden]{display:none}
+#net-banner[data-kind=off]{background:#2b2326;color:#fbf6ef;border:1px solid #f2c97a55}
+#net-banner[data-kind=on]{background:#1e5b4f;color:#fff}
+@keyframes toast-in{from{opacity:0;transform:translate(-50%,-6px)}}

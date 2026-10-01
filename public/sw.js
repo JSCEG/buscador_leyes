@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Service Worker — Buscador Leyes SENER
+// Service Worker — Buscador Jurídico
 //
 // Estrategias de caché:
 //   • index.html / navegación  → network-first (siempre obtiene el HTML fresco)
@@ -22,7 +22,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll(['/img/b-mark.svg']).catch(() => {})
+      cache.addAll(['/img/b-mark.svg', '/offline.html', '/img/favicon-64.png']).catch(() => {})
     )
   );
 });
@@ -69,7 +69,9 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match(req).then((cached) => cached || caches.match('/index.html')))
+        .catch(() => caches.match(req)
+          .then((cached) => cached || caches.match('/index.html'))
+          .then((cached) => cached || caches.match('/offline.html')))
     );
     return;
   }
