@@ -1,0 +1,56 @@
+{
+  "instrumento": "CONV-GEN-2-M4",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/10-09-2026/Matutina/329565",
+  "archivo": "revision-acervo\\incorporacion-convocatorias-2026-09-17\\fuentes\\CONV-GEN-2-M4-edicion.pdf",
+  "sha256": "c0d21b4ac958faa59adff00f420b8c5f613c70884d25a9760c39954e4ef5ea7b",
+  "bytes": 9322154,
+  "paginasPdf": 274,
+  "paginasImpresasMapeadas": [
+    13,
+    14
+  ],
+  "fragmentosOficiales": 4,
+  "anclasGeometricas": 101,
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "id": "eb737301-845e-5070-ae21-968f480dda1e",
+      "paginas": [
+        13
+      ],
+      "anclas": 32,
+      "marcador": "acuerdoporelqueseemitelacuartamodificacionalasegundaconvocatoriaparalaatencionprioritariadesolicitudesdepermisosdegeneraciondeenergiaelectricaeinterconexionalsistemaelectriconacionalalineadosalaplaneacionvinculante"
+    },
+    {
+      "fragmento": "Resolutivo ÚNICO",
+      "id": "8e5cfe26-f83f-56b3-bb0b-eb0535c0e060",
+      "paginas": [
+        13,
+        14
+      ],
+      "anclas": 64,
+      "marcador": "unicosemodificanlasfechasdelasetapas8a17delcalendarioyladenominaciondelasetapas14y16delnumeral7"
+    },
+    {
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "id": "ceee8ef5-4b1f-5a25-9221-f4a202a1763e",
+      "paginas": [
+        14
+      ],
+      "anclas": 3,
+      "marcador": "transitoriosunicoelpresenteacuerdoentraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "fragmento": "Firma del acuerdo",
+      "id": "91a2d8ef-90ac-54a5-863f-d833fe0dcfcb",
+      "paginas": [
+        14
+      ],
+      "anclas": 2,
+      "marcador": "ciudaddemexicoa7deseptiembrede2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ],
+  "notaEditorialExcluida": [
+    "980ecb93-84b6-5fb0-81fd-aae47fc19428"
+  ]
+}
