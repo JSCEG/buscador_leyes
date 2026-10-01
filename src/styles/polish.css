@@ -187,3 +187,6 @@ html:not(.toc-used) #toc-toggle-btn svg{animation:toc-nudge 1.6s ease-in-out .6s
 @keyframes toc-ring-idle{0%{opacity:.75;transform:scale(1)}20%,100%{opacity:0;transform:scale(1.45,1.9)}}
 @keyframes toc-nudge{0%,100%{transform:none}30%{transform:scale(1.18)}60%{transform:scale(.95)}}
 @media (prefers-reduced-motion:reduce){html #toc-toggle-btn::before,html #toc-toggle-btn::after,html #toc-toggle-btn svg{animation:none!important}}
+/* "Índice" belongs to the Documento tab: always there (even next to the desktop sidebar), never on the other tabs. */
+@media (min-width:1100px){html body.law-reading #toc-toggle-btn{display:flex!important}}
+html body:has(#lr-tab-texto[aria-selected="false"]) #toc-toggle-btn{display:none!important}
