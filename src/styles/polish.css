@@ -62,3 +62,25 @@ body.reader-modal-open #bottom-nav,body.reader-modal-open #desk-toggle{display:n
   html #modal-panel #modal-ley{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px!important;line-height:1.35}
 }
 .ra-lock{display:inline-block;vertical-align:-1px;margin-right:2px;opacity:.75}
+
+/* ── Dark mode refinements ─────────────────────────────── */
+/* Mobile menu: one dark surface with readable links. */
+html.dark-mode #mobile-menu-drawer{background:#1c1719!important;border-left:1px solid #3a3034}
+html.dark-mode #mobile-menu-drawer :is(nav,div,a,button){background-color:transparent!important}
+html.dark-mode #mobile-menu-drawer>div:first-child{border-color:#3a3034!important}
+html.dark-mode #mobile-menu-drawer nav :is(a,button){color:#e3dad1!important}
+html.dark-mode #mobile-menu-drawer nav :is(a,button):hover{background-color:#ffffff0d!important;color:#f3c3d1!important}
+html.dark-mode #mobile-menu-drawer nav [aria-current=page]{color:#f2c97a!important;border-left-color:#f2c97a!important}
+html.dark-mode #mobile-menu-drawer #mobile-user-label{color:#e3dad1!important}
+/* The open menu sits above the floating desk button and the bottom bar. */
+body:has(#mobile-menu-drawer:not(.translate-x-full)) :is(#desk-toggle,#bottom-nav){display:none!important}
+
+/* Institutional logos are dark artwork: give them a light plate on dark surfaces. */
+html.dark-mode :is(header,#institutional-footer,#mobile-menu-drawer) img[src*="logo_gob"],
+html.dark-mode :is(header,#institutional-footer,#mobile-menu-drawer) img[src*="logo_sener"]{background:#f6f1ea;border-radius:8px;padding:3px 7px;box-sizing:content-box;filter:none!important}
+
+/* Reader breadcrumb separator */
+html.dark-mode #modal-content .rm-sep{color:#8a7f78}
+
+/* Análisis tabs never squeeze into each other on phones. */
+.nx-tabs [role=tab]{flex:none;white-space:nowrap}
