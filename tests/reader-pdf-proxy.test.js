@@ -108,6 +108,24 @@ it('serves only the reviewed August 6, 2025 DOF morning issue PDF for the autoco
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed May 8, 2026 DOF morning issue PDF for the Ventanilla agreement', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/08-05-2026/Matutina/327165';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('ventanilla-autoconsumo'), 'ventanilla-autoconsumo', {
+        sources: { 'ventanilla-autoconsumo': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('327165', '327166'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('ventanilla-autoconsumo'), 'ventanilla-autoconsumo', {
+            sources: { 'ventanilla-autoconsumo': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed April 16, 2026 DOF morning issue PDF for the cogeneration DACG', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685';
@@ -121,6 +139,24 @@ it('serves only the reviewed April 16, 2026 DOF morning issue PDF for the cogene
     for (const url of [originalUrl.replace('326685', '326686'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
         expect((await serveReaderPdf(request('cogeneracion'), 'cogeneracion', {
             sources: { cogeneracion: { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
+it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cfe-impedimentos'), 'cfe-impedimentos', {
+        sources: { 'cfe-impedimentos': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('329705', '329706'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('cfe-impedimentos'), 'cfe-impedimentos', {
+            sources: { 'cfe-impedimentos': { ...source, originalUrl: url } }, fetcher,
         })).status).toBe(404);
     }
     expect(fetcher).not.toHaveBeenCalled();

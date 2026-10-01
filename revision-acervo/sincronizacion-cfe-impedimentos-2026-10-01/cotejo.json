@@ -1,0 +1,283 @@
+{
+  "fecha_cotejo": "2026-10-01",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5799057",
+  "sha256_pdf": "37f3ebe292747ee4d2bdf0a720b9c67b940f1953347523eb9843e10f39aa446e",
+  "bytes_pdf": 8230822,
+  "paginas_pdf": 288,
+  "paginas_impresas_documento": [
+    213,
+    225
+  ],
+  "fragmentos_oficiales_mapeados": 31,
+  "nota_editorial_sin_mapa": [
+    "c232ec03-af82-5782-b974-b6d3d1fa1637"
+  ],
+  "cotejo_visual": [
+    213,
+    217,
+    221,
+    225
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo e introducción",
+      "id": "94eb7e40-7f46-54db-a3df-e9543430c07a",
+      "paginas_impresas": [
+        213,
+        214
+      ],
+      "anclas": 66
+    },
+    {
+      "fragmento": "Apartado 1. Objeto",
+      "id": "1a5e5339-f536-50c7-9be5-bbca369c4c11",
+      "paginas_impresas": [
+        214
+      ],
+      "anclas": 7
+    },
+    {
+      "fragmento": "Apartado 2. Alcance",
+      "id": "60e6e634-17c2-5cc0-a0f4-a1acea905ad4",
+      "paginas_impresas": [
+        214
+      ],
+      "anclas": 10
+    },
+    {
+      "fragmento": "Apartado 3. Definiciones y siglas",
+      "id": "facab1a1-04f3-527c-8e97-b8f1c91e6520",
+      "paginas_impresas": [
+        214,
+        215
+      ],
+      "anclas": 75
+    },
+    {
+      "fragmento": "Apartado 4. Marco normativo",
+      "id": "6627c571-eba8-5d22-9d43-52a59569b31e",
+      "paginas_impresas": [
+        215,
+        216
+      ],
+      "anclas": 50
+    },
+    {
+      "fragmento": "Apartado 5. Impedimentos para considerar ofertas o celebrar Contratos",
+      "id": "4b0f41c4-bf89-5f2c-bccf-c8e9fbf3f2bc",
+      "paginas_impresas": [
+        216,
+        217
+      ],
+      "anclas": 52
+    },
+    {
+      "fragmento": "Apartado 5.2 Acreditación de los supuestos",
+      "id": "589c7c02-36f8-5e2b-af1b-f1f42a3746df",
+      "paginas_impresas": [
+        217,
+        218,
+        219
+      ],
+      "anclas": 106
+    },
+    {
+      "fragmento": "Apartado 5.3 Manifestación bajo protesta de decir verdad",
+      "id": "55c0a152-0b0d-5a02-a467-a9062256436c",
+      "paginas_impresas": [
+        219,
+        220
+      ],
+      "anclas": 7
+    },
+    {
+      "fragmento": "Apartado 5.4 Presentación de constancias SAT, IMSS e INFONAVIT",
+      "id": "95945ea8-5c5d-554e-8283-01e7a3e4ba2a",
+      "paginas_impresas": [
+        220
+      ],
+      "anclas": 10
+    },
+    {
+      "fragmento": "Apartado 6. Del Procedimiento para determinar la actualización de los supuestos en los que la CFE se abstendrán de considerar ofertas o celebrar contratos",
+      "id": "dfd428cc-9358-5ab4-ac4c-8652c513bdd6",
+      "paginas_impresas": [
+        220
+      ],
+      "anclas": 14
+    },
+    {
+      "fragmento": "Apartado 6.2 Áreas competentes",
+      "id": "235de1e8-bffb-5983-ab80-23aeec93088a",
+      "paginas_impresas": [
+        220
+      ],
+      "anclas": 9
+    },
+    {
+      "fragmento": "Apartado 6.3 Inicio del procedimiento para determinar la actualización del supuesto de abstención para considerar ofertas o celebrar contratos",
+      "id": "5f9dbdbd-cf8e-5fa1-913c-4a614df27a4d",
+      "paginas_impresas": [
+        220
+      ],
+      "anclas": 17
+    },
+    {
+      "fragmento": "Apartado 6.4 De las Notificaciones",
+      "id": "1552e9e3-432c-5700-ad2e-a8ff355867f4",
+      "paginas_impresas": [
+        221,
+        222
+      ],
+      "anclas": 78
+    },
+    {
+      "fragmento": "Apartado 6.5 Manifestación y en su caso aportación de pruebas",
+      "id": "166e7eee-c6e6-5b7b-9beb-cc909b967fe6",
+      "paginas_impresas": [
+        222
+      ],
+      "anclas": 8
+    },
+    {
+      "fragmento": "Apartado 6.6 Determinación",
+      "id": "e49e3bcf-fb20-58b5-b471-39a1a42be1cf",
+      "paginas_impresas": [
+        222
+      ],
+      "anclas": 17
+    },
+    {
+      "fragmento": "Apartado 7. De los periodos por los cuales la CFE, se abstendrá de considerar ofertas o celebrar Contratos con Personas Concursantes, Proveedoras o Contratistas",
+      "id": "53414060-9a37-54a2-88a2-1fcd806fc27d",
+      "paginas_impresas": [
+        222,
+        223
+      ],
+      "anclas": 49
+    },
+    {
+      "fragmento": "Apartado 7.2 Periodos de abstención en materia de obra o servicios relacionados",
+      "id": "e5ee7e35-6412-519c-87fb-188d63265e56",
+      "paginas_impresas": [
+        223,
+        224
+      ],
+      "anclas": 39
+    },
+    {
+      "fragmento": "Apartado 7.3 Vigencia de periodos",
+      "id": "53598fe3-a996-5cf2-b91a-db3faee09915",
+      "paginas_impresas": [
+        224
+      ],
+      "anclas": 11
+    },
+    {
+      "fragmento": "Apartado 7.4 Publicación en el Padrón de Proveedores y Contratistas de la CFE",
+      "id": "1ecca59e-7c08-5ad4-9108-f747bc18530f",
+      "paginas_impresas": [
+        224
+      ],
+      "anclas": 18
+    },
+    {
+      "fragmento": "Apartado 7.5 Registro",
+      "id": "193cb3c2-0569-534d-bc57-a3ae79a1f080",
+      "paginas_impresas": [
+        224
+      ],
+      "anclas": 5
+    },
+    {
+      "fragmento": "Apartado 7.6 Conclusión del periodo",
+      "id": "8da0c107-b717-5f81-88e3-68b15a378d18",
+      "paginas_impresas": [
+        224
+      ],
+      "anclas": 8
+    },
+    {
+      "fragmento": "Apartado 8. Excepción a los impedimentos para considerar ofertas o celebrar Contratos con Personas Concursantes, Proveedoras o Contratistas",
+      "id": "9d709590-5046-5c3c-8475-1a6ef640b29c",
+      "paginas_impresas": [
+        224,
+        225
+      ],
+      "anclas": 15
+    },
+    {
+      "fragmento": "Apartado 8.2 Requisitos de la autorización",
+      "id": "97ba1735-15a9-5291-8fd5-25ee1c61d46b",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 9
+    },
+    {
+      "fragmento": "Apartado 8.3 Remisión de la autorización al Área Contratante correspondiente",
+      "id": "a995d9e1-23ff-5405-977f-98950d0197bd",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 5
+    },
+    {
+      "fragmento": "Apartado 9. Interpretación",
+      "id": "bcc42190-c65f-5850-9c5c-6fe9abe82d9e",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 3
+    },
+    {
+      "fragmento": "Apartado 10. Incumplimiento",
+      "id": "bb99f17b-ac33-5e98-97a0-ac351d4e657e",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 7
+    },
+    {
+      "fragmento": "Apartado 11. Legislación supletoria",
+      "id": "284f058a-553f-595e-83c4-b9e79198fbfd",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 3
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "bbaa15f0-d614-5b41-9b14-eab3edb44563",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 3
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "e36b1b18-7b6f-5e97-a083-41f6f1949ddc",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 4
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "e0dbef40-cacf-5cb5-afae-41de47e505ba",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 2
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "588fdae2-3c61-5247-9515-7cc328584f5a",
+      "paginas_impresas": [
+        225
+      ],
+      "anclas": 4
+    }
+  ]
+}
