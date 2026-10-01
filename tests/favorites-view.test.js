@@ -1,6 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderFavoritesView } from '../src/scripts/favorites-view.js';
 
+vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
+
 const summaries = [{ id: 'lse', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'ley' }];
 const items = [
     { id: 'a1', ley_id: 'lse', ley_origen: 'Ley del Sector Eléctrico', siglas_ley: 'LSE', articulo_label: 'Artículo 1', texto: 'Texto uno' },
