@@ -131,7 +131,7 @@ async function fillUsage(host, { lawById = new Map(), onOpenLaw = () => {} } = {
     const bars = series.map(day => `<span class="st-usage-bar" style="height:${Math.max(6, (Number(day.visitas) / max) * 100)}%"
         data-tip="${escape(`${formatDay(String(day.dia).slice(0, 10))}: ${number(Number(day.visitas))} visitas`)}"></span>`).join('');
     const since = data.desde ? `Contando desde el ${escape(formatDay(String(data.desde).slice(0, 10), 'long'))}` : 'Contando desde hoy';
-    host.innerHTML = `<div class="st-usage-head"><div><p class="st-eyebrow">Uso del buscador</p><h2 id="st-usage-title">Cuánto se consulta</h2></div>
+    host.innerHTML = `<div class="st-usage-head"><div><h2 id="st-usage-title">Cuánto se consulta</h2></div>
             <p class="st-usage-since">${since}</p></div>
         <div class="st-kpis st-usage-kpis">
             ${kpi('Visitas acumuladas', total('visita'), today('visita'), 'var(--st-c-leyes)')}
@@ -194,10 +194,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
                 <h1 id="st-title">Estadísticas</h1>
                 <p class="st-intro">Qué contiene el acervo regulatorio, cómo se distribuye y cuándo se publicó.</p>
             </div>
-            <div class="st-head-side">
-                <p class="st-updated">Publicación más reciente<br><strong>${formatDay(stats.latestDay, 'long')}</strong></p>
-                <a class="st-timeline-link" href="#cronologia">Ver la línea del tiempo →</a>
-            </div>
+            <p class="st-updated">Publicación más reciente<br><strong>${formatDay(stats.latestDay, 'long')}</strong></p>
         </div>
         <div class="st-kpis">
             ${kpi('Instrumentos', number(stats.total), `${stats.groups.length} colecciones`, 'var(--st-c-leyes)')}

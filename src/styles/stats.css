@@ -160,7 +160,3 @@ html.dark-mode .st-dashboard .st-table thead tr{background:var(--st-paper)!impor
 .st-top-count{font:700 13px/1 'Noto Sans',sans-serif;color:var(--st-ink,#2b2326);font-variant-numeric:tabular-nums}
 .st-top-empty{margin:14px 0 0;font-size:13px;color:var(--st-muted,#6b6460)}
 @media (max-width:760px){.st-top{grid-template-columns:minmax(0,1fr)}}
-.st-head-side{display:grid;gap:10px;justify-items:end}
-.st-timeline-link{display:inline-flex;padding:8px 14px;border-radius:999px;background:#ffffff26;border:1px solid #ffffff4d;color:#fff;font:700 13px/1 'Noto Sans',sans-serif;text-decoration:none}
-.st-timeline-link:hover{background:#ffffff40}
-@media (max-width:640px){.st-head-side{justify-items:start}}

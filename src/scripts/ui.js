@@ -783,7 +783,7 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
-    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
         undockSearch();
@@ -2878,7 +2878,7 @@ export function initUI() {
         if (updateHistory) setHash('#cronologia');
         destroyTOC();
         hideAllViews();
-        setActiveNav('nav-leyes');
+        setActiveNav('nav-cronologia');
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         resultsContainer.classList.remove('hidden', 'opacity-0');
@@ -2896,6 +2896,8 @@ export function initUI() {
     }
     // Other views and links ask for it by event or by link.
     document.addEventListener('app:timeline', () => showTimelineView());
+    // The mobile menu closes when its Cronología link is chosen.
+    document.getElementById('mobile-nav-cronologia')?.addEventListener('click', () => toggleMobileMenu(false));
 
     function showAyudaView() {
         setHash(null);
