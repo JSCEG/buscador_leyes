@@ -2,7 +2,7 @@
  * "¿Olvidaste tu contraseña?" in the sign-in form, and the new-password dialog shown when the
  * reader comes back from the reset email.
  */
-import { requestPasswordReset, updatePassword } from './auth.js';
+import { requestPasswordReset, updatePassword, logout } from './auth.js';
 import { openDialog } from './site-dialogs.js';
 import { supabase } from '../lib/supabase.js';
 import { authReturn } from '../lib/auth-return.js';
@@ -104,8 +104,19 @@ export function initPasswordRecovery() {
                 <label class="sd-field">Repítela<input type="password" name="p2" minlength="8" autocomplete="new-password" required></label>
                 <p class="sd-intro">Usa al menos 8 caracteres.</p>
                 <p class="sd-status" role="status" aria-live="polite"></p>
+                <p class="sd-intro">Si cierras esta ventana sin guardar, cerraremos la sesión por seguridad.</p>
                 <div class="sd-actions"><button type="submit" class="sd-primary">Guardar contraseña</button></div>
-            </form>`, 'sd-title');
+            </form>`, 'sd-title', {
+            // The reset link signs the reader in only to set a new password: leaving without one signs out.
+            onClose: async () => {
+                if (saved) return;
+                recoveryShown = false;
+                history.replaceState(null, '', location.pathname);
+                try { await logout(); } catch { /* already signed out */ }
+                notice('Sesión cerrada', '<p>No se creó una contraseña nueva, así que cerramos la sesión por seguridad.</p><p class="sd-intro">Si la necesitas, pide otro enlace con «Entrar» → «¿Olvidaste tu contraseña?».</p>');
+            },
+        });
+        let saved = false;
         const f = wrap.querySelector('form');
         const status = wrap.querySelector('.sd-status');
         f.addEventListener('submit', async event => {
@@ -116,6 +127,7 @@ export function initPasswordRecovery() {
             button.disabled = true; status.textContent = 'Guardando…';
             try {
                 await updatePassword(f.p1.value);
+                saved = true;
                 f.innerHTML = '<p class="sd-thanks"><strong>Listo.</strong> Tu contraseña se actualizó y ya tienes la sesión iniciada.</p><div class="sd-actions"><button type="button" class="sd-primary" data-sd-close>Continuar</button></div>';
                 history.replaceState(null, '', location.pathname);
                 setTimeout(() => { if (wrap.isConnected) close(); }, 4000);

@@ -102,6 +102,22 @@ export async function updatePassword(password) {
     if (error) throw error;
 }
 
+/** Confirms the signed-in user's current password before a sensitive change. */
+export async function verifyCurrentPassword(password) {
+    const email = currentUser?.email;
+    if (!email) throw new Error('Sin sesión');
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) throw error;
+}
+
+export async function updateDisplayName(fullName) {
+    const { data, error } = await supabase.auth.updateUser({ data: { full_name: fullName } });
+    if (error) throw error;
+    currentUser = data.user ?? currentUser;
+    authListeners.forEach(cb => cb(currentUser));
+    return currentUser;
+}
+
 export async function logout() {
     const { error } = await supabase.auth.signOut();
     if (error) throw error;

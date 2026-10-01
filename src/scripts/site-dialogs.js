@@ -24,14 +24,18 @@ const PAGES = {
     },
 };
 
-export function openDialog(html, labelledby) {
+export function openDialog(html, labelledby, { onClose } = {}) {
     document.getElementById('site-dialog')?.remove();
     const returnFocus = document.activeElement;
     const wrap = document.createElement('div');
     wrap.id = 'site-dialog';
     wrap.innerHTML = `<div class="sd-panel" role="dialog" aria-modal="true" aria-labelledby="${labelledby}">${html}</div>`;
     document.body.append(wrap);
-    const close = () => { wrap.remove(); document.removeEventListener('keydown', onKey, true); returnFocus?.focus?.({ preventScroll: true }); };
+    const close = () => {
+        if (!wrap.isConnected) return;
+        wrap.remove(); document.removeEventListener('keydown', onKey, true); returnFocus?.focus?.({ preventScroll: true });
+        onClose?.();
+    };
     const onKey = event => { if (event.key === 'Escape') { event.stopPropagation(); close(); } };
     document.addEventListener('keydown', onKey, true);
     wrap.addEventListener('click', event => { if (event.target === wrap || event.target.closest('[data-sd-close]')) close(); });
