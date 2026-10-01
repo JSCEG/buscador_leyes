@@ -9,3 +9,14 @@ html .mq{display:block!important;white-space:nowrap!important;overflow:hidden!im
   85%,100%{transform:translateX(0)}
 }
 @media (prefers-reduced-motion:reduce){.mq.mq-run>.mq-track{animation:none}}
+
+/* Vertical glide for clamped blocks (card descriptions). */
+html .mqy{display:block!important;overflow:hidden!important;-webkit-line-clamp:unset!important}
+.mqy>.mq-track{display:block}
+.mqy.mq-run>.mq-track{animation:mq-glide-y var(--mq-dur,8s) ease-in-out infinite;will-change:transform}
+@keyframes mq-glide-y{
+  0%,15%{transform:translateY(0)}
+  45%,55%{transform:translateY(var(--mq-shift,0))}
+  85%,100%{transform:translateY(0)}
+}
+@media (prefers-reduced-motion:reduce){.mqy.mq-run>.mq-track{animation:none}}
