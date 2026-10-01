@@ -90,6 +90,24 @@ it('serves only the reviewed October 7, 2025 DOF morning issue PDF for the autoc
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed August 6, 2025 DOF morning issue PDF for the autoconsumption requirements', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/06-08-2025/Matutina/322403';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('autoconsumo-requisitos'), 'autoconsumo-requisitos', {
+        sources: { 'autoconsumo-requisitos': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('322403', '322404'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('autoconsumo-requisitos'), 'autoconsumo-requisitos', {
+            sources: { 'autoconsumo-requisitos': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed April 16, 2026 DOF morning issue PDF for the cogeneration DACG', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685';
