@@ -4,6 +4,7 @@ import { renderSearchGraph } from './search-graph-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { contextSnippet, highlightTerms, markedFragment } from '../lib/search-snippet.js';
 import '../styles/search.css';
+import { emptyArt } from '../lib/empty-art.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const number = value => new Intl.NumberFormat('es-MX').format(value);
@@ -95,7 +96,7 @@ export function renderSearchResults(container, {
         </li>`;
     }).join('');
 
-    const empty = `<div class="sr-empty"><h2>${hasFilters ? 'Sin resultados con estos filtros' : `Sin resultados para «${esc(query)}»`}</h2>
+    const empty = `<div class="sr-empty">${emptyArt('search')}<h2>${hasFilters ? 'Sin resultados con estos filtros' : `Sin resultados para «${esc(query)}»`}</h2>
         <p>${hasFilters ? 'Quita algún filtro o busca en todas las colecciones.' : 'Prueba con otra palabra, un sinónimo o solo la raíz del término.'}</p>
         ${hasFilters ? '<button type="button" class="sr-clear" data-clear-filters>Quitar filtros</button>' : ''}</div>`;
 

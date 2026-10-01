@@ -3,6 +3,7 @@
  * plus a side-by-side view for up to three of them. Pin buttons anywhere in the app use
  * `data-pin-article="<id>"`; one delegated listener handles them all.
  */
+import { emptyArt } from '../lib/empty-art.js';
 import {
     DESK_LIMIT, DESKS_LIMIT, SIDE_BY_SIDE_LIMIT, getDesk, getDesks, getActiveDesk, setActiveDesk, createDesk, renameDesk,
     duplicateDesk, deleteDesk, isPinned, pin, togglePin, unpin, moveInDesk, clearDesk, onDeskChange, deskHash,
@@ -91,7 +92,7 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         <p class="desk-hint"></p>
         <ol class="desk-list"></ol>
         <div class="desk-empty">
-            <p><strong>Esta mesa está vacía.</strong></p>
+            ${emptyArt('desk')}<p><strong>Esta mesa está vacía.</strong></p>
             <p>Usa el botón <span class="desk-inline-pin">${PIN_ICON} Fijar</span> en un artículo para tenerlo a la mano mientras sigues consultando. Caben hasta ${DESK_LIMIT}.</p>
         </div>
         <p class="desk-status"></p>`;

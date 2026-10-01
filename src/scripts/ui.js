@@ -26,6 +26,8 @@ import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
+import { skeleton } from '../lib/skeleton.js';
+import { emptyArt } from '../lib/empty-art.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -510,10 +512,10 @@ export function initUI() {
             mainContainer.classList.remove('justify-center', 'pt-24');
             mainContainer.classList.add('pt-8');
             resultsContainer.classList.remove('hidden', 'opacity-0');
-            resultsContainer.innerHTML = '<div class="w-full flex justify-center py-16" role="status" aria-label="Cargando artículo"><div class="animate-spin h-8 w-8 border-2 border-guinda border-t-transparent rounded-full"></div></div>';
+            resultsContainer.innerHTML = skeleton('article', 'Cargando artículo');
             const item = await withProgress(getArticleById(pageId));
             if (parseArticlePageHash(location.hash) !== pageId) return;
-            if (!item) { resultsContainer.innerHTML = '<p class="text-center py-16 text-gray-500">No se encontró este artículo en el acervo.</p>'; return; }
+            if (!item) { resultsContainer.innerHTML = `<div class="sr-empty" style="max-width:640px;margin:40px auto">${emptyArt('missing')}<h2>No encontramos este artículo</h2><p>Quizá cambió de identificador o se retiró del acervo. Búscalo por su nombre o explora el acervo.</p><a href="#acervo" class="sr-clear">Ir al acervo</a></div>`; return; }
             const law = cachedSummaries.find(l => String(l.id) === String(item.ley_id)) || null;
             renderArticlePage(resultsContainer, {
                 item, law, sourceUrl: safeHttpUrl(item.url_original || law?.url_original),
@@ -984,7 +986,7 @@ export function initUI() {
         document.getElementById('search-filters')?.remove();
         document.querySelector('.pagination-nav')?.remove();
         if (!catalogLoaded) {
-            resultsContainer.innerHTML = '<div class="w-full flex justify-center py-12" role="status" aria-label="Cargando acervo"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>';
+            resultsContainer.innerHTML = skeleton('acervo', 'Cargando acervo');
             return;
         }
         acervoView = renderAcervoView(resultsContainer, cachedSummaries, {
@@ -2454,7 +2456,7 @@ export function initUI() {
         setActiveNav('nav-favorites');
         setHash(null);
         destroyTOC();
-        showGlobalSearch();
+        hideGlobalSearch();
         const favIds = getFavorites();
         heroSection.classList.add('hidden');
         quickFilters.classList.add('hidden');
@@ -2472,7 +2474,7 @@ export function initUI() {
         // La pagination-nav es sibling de results-container (no hijo), hay que limpiarla explícitamente
         document.querySelector('.pagination-nav')?.remove();
 
-        resultsContainer.innerHTML = '<div class="w-full flex justify-center py-12" role="status" aria-label="Cargando guardados"><div class="animate-spin h-6 w-6 border-2 border-guinda border-t-transparent rounded-full"></div></div>';
+        resultsContainer.innerHTML = skeleton('list', 'Cargando guardados');
         // Favourites and articles with a note live together; the filter separates them.
         const ids = [...new Set([...favIds, ...Object.keys(getAllNotes())])];
         let items = [];
@@ -2835,7 +2837,7 @@ export function initUI() {
         
         if (!catalogLoaded) {
             resultsContainer.classList.remove('hidden');
-            resultsContainer.innerHTML = `<div class="w-full flex justify-center py-16"><div class="animate-spin h-8 w-8 border-2 border-guinda border-t-transparent rounded-full"></div></div>`;
+            resultsContainer.innerHTML = skeleton('results', 'Cargando resultados');
             return;
         }
 

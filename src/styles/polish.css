@@ -1,0 +1,63 @@
+/* App-wide finish: type scale, empty states, view entrance and small interaction feedback. */
+
+/* Typography: Patria for display, Noto Sans for reading; numbers line up in tables and counters. */
+body{font-family:'Noto Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,.sr-empty h2{font-family:Patria,Georgia,serif;letter-spacing:-.01em;text-wrap:balance}
+p,li{text-wrap:pretty}
+:is(.sr-count,.st-num,.lr-count,[data-num],time){font-variant-numeric:tabular-nums}
+
+/* Empty states with illustration */
+.sr-empty{justify-items:center!important;text-align:center;padding:40px 26px!important;border-style:dashed!important}
+.sr-empty p{max-width:46ch}
+.sr-empty .sr-clear{margin-top:6px;justify-self:center}
+.sr-view .sr-empty h2{font-family:Patria,Georgia,serif!important;font-size:22px}
+.empty-art{display:block;margin:0 auto 4px;overflow:visible}
+.empty-art{animation:ea-float 5s ease-in-out infinite}
+html.dark-mode .empty-art{--ea-paper:#262022;--ea-bg:#2e2226}
+.desk-empty .empty-art{width:132px;height:88px}
+
+/* Press feedback and lift on interactive cards */
+:is(.sr-action,.sr-clear,.desk-tool,.sd-primary,.sd-secondary,.auth-forgot-btn):not(:disabled):active{transform:scale(.97)}
+:is(.sr-action,.sr-clear,.desk-tool,.sl-chip,.auth-forgot-btn){transition:transform .12s ease,background-color .15s,color .15s,border-color .15s,box-shadow .15s}
+:is(.sr-item,.sl-card,.lr-tab):not(.is-active){transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s,border-color .2s}
+@media (hover:hover){:is(.sr-item,.sl-card):hover{transform:translateY(-2px);box-shadow:0 10px 28px -14px #3a1a2466}}
+
+/* One clear keyboard focus ring everywhere */
+:focus-visible{outline:3px solid #9b224766;outline-offset:2px;border-radius:6px}
+html.dark-mode :focus-visible{outline-color:#eeb0c288}
+
+@keyframes ea-float{50%{transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){
+  .empty-art{animation:none!important}
+  :is(.sr-item,.sl-card):hover{transform:none}
+}
+
+/* Law text never wider than its column (long nowrap labels used to stretch the grid). */
+html #law-articles-list.lr-articles{grid-template-columns:minmax(0,1fr)}
+html #law-articles-list>*{min-width:0}
+
+/* Phones: a slightly smaller, left-aligned reading size and tighter gutters. */
+@media (max-width:640px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html #main-container{padding-left:14px;padding-right:14px}
+  html #law-articles-list .lr-card-label{white-space:normal!important;font-size:16px!important;line-height:1.25;min-width:0}
+  html #law-articles-list>div{padding:14px!important}
+  html #modal-content .reader-text,html #law-articles-list .reader-preview{font-size:calc(var(--reader-font-size,18px) * .88)!important;line-height:calc(var(--reader-line-height,1.8) * .94)!important;text-align:left!important}
+  html #reader-body #modal-content{padding:18px 16px}
+  html #modal-panel #modal-title{font-size:20px!important;line-height:1.2}
+  html .lr-header h1,html .lr-header h2{font-size:clamp(21px,6.2vw,26px)!important;line-height:1.15!important;overflow-wrap:anywhere}
+  html :is(.sr-head,.vb-head) h1,html .sr-head h2{font-size:clamp(22px,6.6vw,28px)!important;overflow-wrap:anywhere}
+  html .ap-body,html .ap-text{font-size:calc(var(--reader-font-size,18px) * .88)!important;text-align:left!important}
+}
+
+/* Empty desk: the illustration sits near the top instead of at the bottom of the panel. */
+#desk-panel .desk-list:empty{flex:0 0 auto;padding:0}
+#desk-panel .desk-list:empty~.desk-empty:not([hidden]){margin-bottom:auto}
+
+/* While the reader is open it owns the screen: no bottom bar or floating desk over the text. */
+body.reader-modal-open #bottom-nav,body.reader-modal-open #desk-toggle{display:none!important}
+@media (max-width:640px){
+  html .lr-header h1.lr-title-long{font-size:17.5px!important;line-height:1.28!important}
+  html #modal-content .reader-text :is(div,p,li,td,th,blockquote,span){text-align:left!important}
+  html #modal-panel #modal-ley{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px!important;line-height:1.35}
+}
