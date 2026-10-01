@@ -24,9 +24,11 @@ export async function initAuth() {
         authSubscription.subscription.unsubscribe();
     }
 
-    authSubscription = supabase.auth.onAuthStateChange((_event, session) => {
+    authSubscription = supabase.auth.onAuthStateChange((event, session) => {
         currentUser = session?.user ?? null;
         notifyAuthListeners();
+        // The reset-password email brings the reader back signed in for this purpose only.
+        if (event === 'PASSWORD_RECOVERY') window.dispatchEvent(new CustomEvent('auth:recovery'));
     });
 }
 
@@ -82,10 +84,22 @@ export async function register(email, password, fullName) {
         password,
         options: {
             data: metadata,
+            emailRedirectTo: `${location.origin}/`,
         },
     });
     if (error) throw error;
     return data.user;
+}
+
+/** Sends the branded reset-password email; the link returns to this site. */
+export async function requestPasswordReset(email) {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/` });
+    if (error) throw error;
+}
+
+export async function updatePassword(password) {
+    const { error } = await supabase.auth.updateUser({ password });
+    if (error) throw error;
 }
 
 export async function logout() {

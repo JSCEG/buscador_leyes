@@ -5,9 +5,11 @@ import { initSearch } from './scripts/search-engine.js';
 import { initUI } from './scripts/ui.js';
 import { initAdminIngest } from './scripts/admin-ingest.js';
 import { initAdminManagement } from './scripts/admin-management.js';
+import { initPasswordRecovery } from './scripts/password-recovery.js';
 import { initAuth } from './scripts/auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPasswordRecovery();
   initAuth();
   initUI();
   initSearch();

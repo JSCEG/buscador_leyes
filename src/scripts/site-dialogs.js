@@ -24,7 +24,7 @@ const PAGES = {
     },
 };
 
-function openDialog(html, labelledby) {
+export function openDialog(html, labelledby) {
     document.getElementById('site-dialog')?.remove();
     const returnFocus = document.activeElement;
     const wrap = document.createElement('div');
