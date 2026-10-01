@@ -24,5 +24,6 @@
   "CEL-INSUBSISTENCIA": "sener",
   "FORMATOS-BIOCOMBUSTIBLES": "sener",
   "DACG-PERMISOS-GA": "cne",
-  "CONV-SISTRANGAS": "cenagas"
+  "CONV-SISTRANGAS": "cenagas",
+  "MANUAL-SUSPENSION-MEM": "cenace"
 }
