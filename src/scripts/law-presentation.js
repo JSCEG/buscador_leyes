@@ -185,7 +185,7 @@ function initializePresentationRuntime(root, model, law, articles, themes, opts 
             await generateLawPresentation(law, articles, themes);
         } finally {
             download.disabled = false;
-            download.textContent = 'Descargar PPTX';
+            download.innerHTML = '<span class="lp-long">Descargar </span>PPTX';
         }
     });
 
@@ -625,8 +625,8 @@ function renderWebDeck(model) {
             <span><b id="lp-current-slide">1</b>/<b id="lp-total-slides">1</b></span>
             <button id="lp-next-slide" type="button">›</button>
             <button id="lp-fullscreen" type="button">Pantalla completa</button>
-            <button id="lp-download-pdf" type="button">${lockLabel('Descargar PDF')}</button>
-            <button id="lp-download-pptx" type="button">${lockLabel('Descargar PPTX')}</button>
+            <button id="lp-download-pdf" type="button">${lockLabel('<span class="lp-long">Descargar </span>PDF')}</button>
+            <button id="lp-download-pptx" type="button">${lockLabel('<span class="lp-long">Descargar </span>PPTX')}</button>
             <button id="lp-close" type="button">Cerrar</button>
         </div>
         <div class="lp-progress-track"><div id="lp-progress"></div></div>
@@ -904,7 +904,7 @@ function ensureWebDeckStyles() {
     style.id = 'law-presentation-web-style';
     style.innerHTML = `
         .law-presentation-overlay{--lp-scale:1;position:fixed;inset:0;z-index:9999;background:#1E1E1E;color:#2b2b2b;overflow:hidden;font-family:'Noto Sans','Outfit',sans-serif}
-        .law-presentation-embed{--lp-scale:1;position:relative;width:100%;height:auto;aspect-ratio:1333/750;min-height:420px;background:#fff;border:1px solid rgba(165,127,44,.35);border-radius:10px;box-shadow:0 16px 36px rgba(0,0,0,.16);overflow:hidden;font-family:'Noto Sans','Outfit',sans-serif}
+        .law-presentation-embed{--lp-scale:1;position:relative;width:100%;height:auto;aspect-ratio:1333/750;min-height:0;background:#fff;border:1px solid rgba(165,127,44,.35);border-radius:10px;box-shadow:0 16px 36px rgba(0,0,0,.16);overflow:hidden;font-family:'Noto Sans','Outfit',sans-serif}
         .law-presentation-embed.hidden{display:none}
         .lp-slide-container{width:1333px;height:750px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--lp-scale));transform-origin:center center;box-shadow:0 22px 60px rgba(0,0,0,.45);background:#fff}
         .lp-slide{position:absolute;inset:0;display:none;width:1333px;height:750px;background:#fff;opacity:0;transition:opacity .25s ease}
@@ -959,9 +959,10 @@ function ensureWebDeckStyles() {
         .lp-article-card{min-height:214px;max-height:232px}.lp-article-card p{font-size:17px;line-height:1.42}.lp-article-card strong{font-size:27px}
         .lp-article-card em{background:#9B2247;color:#fff;border-color:#9B2247}
         .lp-theme{font-size:14px;text-transform:none;letter-spacing:0;font-weight:700}
-        .law-presentation-embed{overflow:visible;margin-bottom:64px}
+        .law-presentation-embed{overflow:visible;margin-bottom:84px}
         .law-presentation-embed .lp-slide-container{overflow:hidden;border-radius:10px}
-        .law-presentation-embed .lp-controls{bottom:-58px;background:#2b2326}
+        .law-presentation-embed .lp-controls{bottom:-64px;background:#2b2326;max-width:calc(100% - 16px);overflow-x:auto;scrollbar-width:none}
+        .lp-controls button{white-space:nowrap}
         .law-presentation-embed .lp-progress-track{bottom:0;border-radius:0 0 10px 10px;overflow:hidden}
         .lp-cover-top .lp-lockup{height:46px;width:auto}
         .lp-close-logos .lp-lockup{height:44px;width:auto}
@@ -1011,7 +1012,7 @@ function ensureWebDeckStyles() {
           #lp-print-host [data-animate]{animation:none!important;opacity:1!important;transform:none!important}
         }
         @keyframes lpFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-        @media (max-width:700px){.law-presentation-embed{min-height:360px}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-controls button:nth-of-type(4){display:none}}
+        @media (max-width:700px){.law-presentation-embed{min-height:0}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-long{display:none}#lp-fullscreen{display:none}}
     `;
     document.head.appendChild(style);
 }
