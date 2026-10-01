@@ -9,7 +9,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = (process.argv[2] || 'https://buscador-leyes-jav.pages.dev').replace(/\/$/, '');
+const SITE = (process.argv[2] || 'https://buscador-juridico.com').replace(/\/$/, '');
 const out = path.join(root, 'supabase/templates');
 fs.mkdirSync(out, { recursive: true });
 

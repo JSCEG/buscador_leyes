@@ -22,7 +22,7 @@ if (!key || !from || !to) {
 }
 
 const subjects = JSON.parse(fs.readFileSync(path.join(dir, 'subjects.json'), 'utf8'));
-const site = 'https://buscador-leyes-jav.pages.dev';
+const site = 'https://buscador-juridico.com';
 const samples = {
     '{{ .ConfirmationURL }}': `${site}/#buscar`, '{{ .Email }}': to, '{{ .NewEmail }}': to,
     '{{tipo}}': 'Falta un documento', '{{mensaje_corto}}': 'Correo de prueba del Buscador Jurídico',
