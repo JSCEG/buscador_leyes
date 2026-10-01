@@ -1,0 +1,9 @@
+{
+  "instrumento": "MIGRACION-MODIFICACION",
+  "fragmentos_excluidos": [
+    {
+      "identificador": "Nota editorial · documentos relacionados",
+      "motivo": "Contenido editorial de la aplicación; no aparece en el ejemplar del DOF."
+    }
+  ]
+}

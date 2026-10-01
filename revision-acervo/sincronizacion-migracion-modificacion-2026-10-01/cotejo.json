@@ -1,0 +1,190 @@
+{
+  "instrumento": "MIGRACION-MODIFICACION",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/08-09-2026/Matutina/329525",
+  "archivo": "revision-acervo\\incorporacion-pendientes-2026-09-19\\fuentes\\MIGRACION-MODIFICACION-edicion.pdf",
+  "sha256": "f4ebc3cfc7aa62134ba0bd223bf6f2e747ba756eec187a408a5212f4e717f974",
+  "bytes": 5818850,
+  "paginasPdf": 314,
+  "paginasImpresasMapeadas": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "fragmentosOficiales": 18,
+  "anclasGeometricas": 429,
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "id": "18a8223c-7f5b-5272-a1ee-4c850b095b88",
+      "paginas": [
+        4
+      ],
+      "anclas": 42,
+      "prefijoCotejado": "acuerdoporelquesemodificaneliminanyadicionandiversasdisposicionesdeloslineamientosparalamigracionvoluntariayexpeditadeautoabastecimientoycogeneraciondeenergiaelectricaalasfigurasprevistasenlaleydelsectorelectricoalmargen"
+    },
+    {
+      "fragmento": "Artículo Único · Alcance de la modificación",
+      "id": "b2b9704d-4b2b-5de2-a018-d1f04654fe38",
+      "paginas": [
+        4
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulounicosemodificanlosarticulos5fraccionivparrafosegundo7parrafosegundo17fraccioniincisogsegundoparrafoyfraccionii18fraccionii40parrafoprimero44parrafoprimeroytransitoriodecimoparrafosprimeroysegundoseeliminaelparra"
+    },
+    {
+      "fragmento": "Modificación al artículo 5",
+      "id": "6dbc011b-6b3b-5e2a-8656-1e339c27d6c1",
+      "paginas": [
+        5
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "articulo5iaiiiiiparaelcasodecargaslocalesquepretendanmigrarpararecibirelsuministrocalificadoyquerequieranestudiosdeconexionlaspersonassolicitantesdebenpresentarlasolicitudcorrespondienteanteelcenacepreviamenteaingresarla"
+    },
+    {
+      "fragmento": "Modificación al artículo 7",
+      "id": "17a98f7e-067b-5b70-9b59-961c91bc84b4",
+      "paginas": [
+        5
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo7enestecasoenlasolicituddemigracionsedebepresentareloficioalquehacereferenciaelnumeral395fraccionidelasdisposicionesdepermisosconlosresultadosdelosestudiosdelcenaceenlosqueconstelaviabilidaddelaintegraciondeunsae"
+    },
+    {
+      "fragmento": "Modificación al artículo 15",
+      "id": "ca02ab3f-0c1e-5815-923d-be0123418a20",
+      "paginas": [
+        5
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo15iaiiiiiseeliminaivavi"
+    },
+    {
+      "fragmento": "Modificación al artículo 17",
+      "id": "4416b15f-ba3d-5388-982b-07209b6d98c6",
+      "paginas": [
+        5,
+        6,
+        7
+      ],
+      "anclas": 135,
+      "prefijoCotejado": "articulo17iaafglasgestionesparaelcumplimientodetalescondicionessepuedenrealizardemaneraparalelaporlaspersonassolicitantesysepuedeniniciardesdelaadmisiondelasolicituddemigraciontratandosedelarealizacionadelantadadelasprue"
+    },
+    {
+      "fragmento": "Modificación al artículo 18",
+      "id": "6d367a2f-b541-5dda-9a1d-78a7cf8afd55",
+      "paginas": [
+        7,
+        8
+      ],
+      "anclas": 77,
+      "prefijoCotejado": "articulo18iaahiicalendarioetapafechasaprimeraregistrodelamanifestaciondeinteresenparticiparenelprocedimientodemigracion19dejunioal18dediciembrede2026bsegundapresentaciondelasolicituddemigracion21deseptiembrede2026al15dee"
+    },
+    {
+      "fragmento": "Modificación al artículo 24",
+      "id": "4986e1e1-e71c-5c10-bf6a-8d73259d8b98",
+      "paginas": [
+        8
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "articulo24iaivvparaefectosdelafraccionivincisobydelafraccionvdelpresentearticulocuandoalafechadepresentaciondelasolicituddemigracionlapersonasolicitantenohaformalizadoelinstrumentocontractualconlaparticipantedelmercadoqu"
+    },
+    {
+      "fragmento": "Modificación al artículo 26",
+      "id": "80e77f5d-6abc-51c7-9d17-fc901835f131",
+      "paginas": [
+        8
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo26iaivloscentrosdecargaqueformenpartedeunafiguralegadaquenomigrenonoconcluyanelprocedimientodemigracioncontinuanrecibiendoelsuministrobasicoconformealcontratoquetenganvigentelascargaslocalesquecomoresultadodelpro"
+    },
+    {
+      "fragmento": "Modificación al artículo 40",
+      "id": "be2aff26-59e7-59d2-9f90-297db77576e9",
+      "paginas": [
+        9
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo40conformealoscalendariosprevistosenlosarticulos17y18deloslineamientoselcenacedeberealizarelregistrodeactivosfisicosasociadoalaparticipantedelmercadoquelarepresenteenelmem"
+    },
+    {
+      "fragmento": "Modificación al artículo 44",
+      "id": "1bda02f7-8327-5701-87b4-312d9ab861ae",
+      "paginas": [
+        9
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulo44loscentrosdecargaprevistosenlasfiguraslegadaseincluidasenunprocedimientodemigracioncondemandamenora1mwpuedenmigraryrecibirsuministrocalificadoconlosequiposdemedicionexistentesyenlascondicionesenqueseencuentrenp"
+    },
+    {
+      "fragmento": "Modificación al artículo 45",
+      "id": "f092aff2-c94a-57e0-95f5-1fee0743f92c",
+      "paginas": [
+        9
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "articulo45enloscasosenquelascentraleselectricasocentrosdecargacuentenconelementosdelsistemademedicionquecumplanlosrequisitosestablecidosenlasreglasdelmercadolaspersonassolicitantespuedencontinuarutilizandodichoselementos"
+    },
+    {
+      "fragmento": "Modificación al artículo 56",
+      "id": "ab6895ea-46e6-509b-9007-2bdf2078847f",
+      "paginas": [
+        9,
+        10
+      ],
+      "anclas": 45,
+      "prefijoCotejado": "articulo56enelsupuestoenqueloscentrosdecargaqueparticipenenelprocedimientodemigracionseencuentrenconectadosenunasubestacioncompartidalapersonasolicitantedebesenalardichacondicionenlasolicituddemigracionencuyocasolesesapl"
+    },
+    {
+      "fragmento": "Modificación al transitorio DÉCIMO de los lineamientos",
+      "id": "84995810-0ce2-5c52-b87e-4b9794715347",
+      "paginas": [
+        10
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "transitoriosprimeroanovenodecimolassolicitudesdemigracionpresentadasantelacomisionnacionaldeenergiarespectodefiguraslegadasconfechadevencimientopreviaalveintinuevedemarzodedosmilveintisietedebenresolversebajolascondicion"
+    },
+    {
+      "fragmento": "Transitorio PRIMERO",
+      "id": "de428ffe-3634-59f5-bbe2-dab0b14d3649",
+      "paginas": [
+        10
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresenteacuerdoentraenvigoraldiahabilsiguientedesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "fragmento": "Transitorio SEGUNDO",
+      "id": "97701d31-53dd-5cfc-aeda-e95d4ef9e544",
+      "paginas": [
+        10
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "segundotratandosedelaspersonaspermisionariasquehayanpresentadoelregistrodelamanifestaciondeinteresopresentadounasolicituddemigracionconanterioridadalapublicaciondeesteacuerdoenunplazonomayora10diashabilescontadosapartird"
+    },
+    {
+      "fragmento": "Transitorio TERCERO",
+      "id": "cbc18d8b-afce-5f81-ace5-0b641c378e41",
+      "paginas": [
+        10
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "tercerolaspersonassolicitantesquepresentenlasolicituddemigracionenterminosdeloslineamientosqueseemitenatravesdelpresenteacuerdodebenacreditaralapersonamoralyensucasoasusrepresentantesoapoderadoslegalesantelaoficialiadepa"
+    },
+    {
+      "fragmento": "Firma del acuerdo",
+      "id": "e020e1eb-02e4-56fc-855f-80b7f8c1c291",
+      "paginas": [
+        10
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa31deagostode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ],
+  "notaEditorialExcluida": [
+    "b3dcf507-0b02-54ff-9a04-a6414712b2cc"
+  ]
+}
