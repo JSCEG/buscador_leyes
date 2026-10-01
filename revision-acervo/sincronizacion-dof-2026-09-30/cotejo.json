@@ -1,0 +1,371 @@
+{
+  "fecha_cotejo": "2026-10-01",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925",
+  "fuente_sidof": {
+    "UPAC-SGE": "https://sidof.segob.gob.mx/notas/docFuente/5799963",
+    "CNE-MOD-CARGO-TRANSMISION": "https://sidof.segob.gob.mx/notas/docFuente/5799964"
+  },
+  "sha256_pdf": "598b6f92b41292cebf27dc3f0dce793b7d6a02477e56a3f0ca49866ce528334c",
+  "paginas_pdf": 344,
+  "paginas_impresas": {
+    "UPAC-SGE": [
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "CNE-MOD-CARGO-TRANSMISION": [
+      46,
+      47,
+      48
+    ]
+  },
+  "fragmentos_oficiales_mapeados": 28,
+  "notas_editoriales_sin_mapa": [
+    {
+      "siglas": "UPAC-SGE",
+      "id": "25c14d34-8c29-5746-94d2-dd9b2ae68a62",
+      "label": "Nota editorial · instrumento regulatorio",
+      "reason": "Nota editorial local; no forma parte del DOF."
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "id": "14c159c7-5271-548a-ae67-ba6d46e3d167",
+      "label": "Nota editorial · modificación relacionada",
+      "reason": "Nota editorial local; no forma parte del DOF."
+    }
+  ],
+  "detalle": [
+    {
+      "siglas": "UPAC-SGE",
+      "pagina_pdf": 41,
+      "inicio_texto": 0,
+      "fin_texto": 3372
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "pagina_pdf": 42,
+      "inicio_texto": 3372,
+      "fin_texto": 6405
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "pagina_pdf": 43,
+      "inicio_texto": 6405,
+      "fin_texto": 9862
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "pagina_pdf": 44,
+      "inicio_texto": 9862,
+      "fin_texto": 12620
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "pagina_pdf": 45,
+      "inicio_texto": 12620,
+      "fin_texto": 15825
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Preámbulo del acuerdo",
+      "id": "4db61a94-f364-5c9f-b3ea-915515d897c1",
+      "marker": "acuerdoporelqueseemitenlasdisposicionesadministrativasdecaractergeneralparaelregistro",
+      "paginas": [
+        41
+      ],
+      "anclas": 41
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Resolutivo ÚNICO · Expedición de disposiciones",
+      "id": "28df4259-b16b-569e-a13f-e138f774dd39",
+      "marker": "articulounicolacomisionnacionalparaelusoeficientedelaenergiaemite",
+      "paginas": [
+        41
+      ],
+      "anclas": 4
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 1",
+      "id": "d5372499-a4fc-561c-8a38-f092ea936df4",
+      "marker": "disposicionesadministrativasdecaractergeneralparaelregistrodelaspersonasusuariasdepatrondealtoconsumodeenergiaylaimplementaciondesistemasdegestiondelaenergiaarticulo1laspresentesdisposicionessonobligatorias",
+      "paginas": [
+        42
+      ],
+      "anclas": 8
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 2",
+      "id": "44e7258e-668d-5061-b4d1-f7288421f512",
+      "marker": "articulo2paraefectosdelainterpretacionyaplicaciondelaspresentesdisposiciones",
+      "paginas": [
+        42
+      ],
+      "anclas": 25
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 3",
+      "id": "2cef4852-b9d1-5827-be7b-7011f0135adc",
+      "marker": "articulo3lostercerosinformantesdebenpresentarlainformacionquepermitalaidentificaciondelasupac",
+      "paginas": [
+        42
+      ],
+      "anclas": 8
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 4",
+      "id": "6cff7beb-52c3-5c7c-9a49-864a61ab2609",
+      "marker": "articulo4paraefectosdelaspresentesdisposicioneslaspersonasfisicasomoralesadquierenlacalidaddeupac",
+      "paginas": [
+        42
+      ],
+      "anclas": 9
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 5",
+      "id": "6b549a1e-00c3-5f91-93d8-be27c7cf9823",
+      "marker": "articulo5elregistroupacesadministradoporlasecretariadeenergiaatravesdelaconuee",
+      "paginas": [
+        43
+      ],
+      "anclas": 8
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 6",
+      "id": "9964b486-53e7-526b-9437-834caa9a3cf7",
+      "marker": "articulo6lainscripcionenelregistroupacesobligatoria",
+      "paginas": [
+        43
+      ],
+      "anclas": 3
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 7",
+      "id": "96caf79a-2c9c-5cd1-a433-d869d40645e2",
+      "marker": "articulo7elregistroupacesgratuitoconfidencialysegestionaelectronicamente",
+      "paginas": [
+        43
+      ],
+      "anclas": 24
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 8",
+      "id": "94221cd2-d732-5523-9e31-16d1bd7bc606",
+      "marker": "articulo8concluidalainscripcionyrecibidaslainformacionydocumentacionprevistasenelarticuloanterior",
+      "paginas": [
+        43
+      ],
+      "anclas": 13
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 9",
+      "id": "57fbff9e-24c9-5aa1-8e33-be4524f765e3",
+      "marker": "articulo9elregistrodeinformacionporpartedelasupacserealizaduranteelperiodocomprendido",
+      "paginas": [
+        44
+      ],
+      "anclas": 3
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 10",
+      "id": "573038a5-de67-5190-853f-b97934c84d40",
+      "marker": "articulo10lasupacdebenreportaranualmentealregistroupacporcadainstalacion",
+      "paginas": [
+        44
+      ],
+      "anclas": 16
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 11",
+      "id": "f450e01f-0133-5ddf-98f3-7e4f249ffbd0",
+      "marker": "articulo11parasolicitarlabajadelregistroupac",
+      "paginas": [
+        44
+      ],
+      "anclas": 10
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 12",
+      "id": "ebe53773-da2f-530a-9dd8-fda15d4c33b1",
+      "marker": "articulo12lostercerosinformantesylasupacdebenproporcionaroactualizaranualmente",
+      "paginas": [
+        44
+      ],
+      "anclas": 3
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 13",
+      "id": "f258b127-10d3-5a8f-aca4-aa570b640ba0",
+      "marker": "articulo13enterminosdelosarticulos11fraccionxvdelaley",
+      "paginas": [
+        44,
+        45
+      ],
+      "anclas": 20
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Artículo 14",
+      "id": "a2f4f6a4-3792-53ae-a79a-b04a11c136a0",
+      "marker": "articulo14paracomprobareldebidocumplimientodelasobligacionesprevistas",
+      "paginas": [
+        45
+      ],
+      "anclas": 12
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Transitorio Primero",
+      "id": "4573368b-370a-5a35-89b5-527f43ab385a",
+      "marker": "transitoriosprimerolaspresentesdisposicionesentranenvigor",
+      "paginas": [
+        45
+      ],
+      "anclas": 3
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Transitorio Segundo",
+      "id": "e213370f-70dc-52f9-9723-e25c496cb83a",
+      "marker": "segundoseabroganlasdisposicionesadministrativasdecaractergeneral",
+      "paginas": [
+        45
+      ],
+      "anclas": 7
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Transitorio Tercero",
+      "id": "226d0404-851a-5802-9189-0b4afa8c8792",
+      "marker": "terceroentantosehabiliteelsistemaelectronico",
+      "paginas": [
+        45
+      ],
+      "anclas": 6
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Transitorio Cuarto",
+      "id": "f2b2a393-7cdb-577c-a1d6-1bd02bbf1aea",
+      "marker": "cuartolacomisionnacionalparaelusoeficientedelaenergiainiciaralaverificacion",
+      "paginas": [
+        45
+      ],
+      "anclas": 2
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Transitorio Quinto",
+      "id": "be107f32-1070-5044-a961-f40697c513b5",
+      "marker": "quintoamastardarenelmesdeenerode2028",
+      "paginas": [
+        45
+      ],
+      "anclas": 5
+    },
+    {
+      "siglas": "UPAC-SGE",
+      "fragmento": "Firma del acuerdo",
+      "id": "ad763da7-e1bc-50e8-8bda-9ec4f044a16c",
+      "marker": "ciudaddemexico21deseptiembrede2026",
+      "paginas": [
+        45
+      ],
+      "anclas": 2
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "pagina_pdf": 46,
+      "inicio_texto": 0,
+      "fin_texto": 4167
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "pagina_pdf": 47,
+      "inicio_texto": 4167,
+      "fin_texto": 8288
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "pagina_pdf": 48,
+      "inicio_texto": 8288,
+      "fin_texto": 11701
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "fragmento": "Preámbulo del acuerdo",
+      "id": "be3a843e-3014-5b0c-a01b-2842d7284efc",
+      "marker": "acuerdodelacomisionnacionaldeenergiaporelquesemodificaeldiverso",
+      "paginas": [
+        46,
+        47
+      ],
+      "anclas": 101
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "fragmento": "Artículo Único · modificación de transitorios",
+      "id": "cae6302d-2bea-51ee-87a6-8da400cf95c9",
+      "marker": "articulounicosemodificanlosarticulosterceroycuartotransitorios",
+      "paginas": [
+        47
+      ],
+      "anclas": 6
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "fragmento": "Transitorio Tercero · texto modificado",
+      "id": "cb074064-0ffd-5be8-b579-d5b642d1a467",
+      "marker": "terceroenelmarcodelprocedimientodemigracionvoluntariayexpedita",
+      "paginas": [
+        48
+      ],
+      "anclas": 26
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "fragmento": "Transitorio Cuarto · texto modificado",
+      "id": "e3b4acd1-4fa5-5a8d-8578-e1d708d8bae1",
+      "marker": "cuartoloestablecidoenelarticulotransitorioanteriorquedasinefectos",
+      "paginas": [
+        48
+      ],
+      "anclas": 22
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "fragmento": "Transitorios · ÚNICO · entrada en vigor",
+      "id": "c6abca30-8adf-50e9-a5b7-84b81d6e3125",
+      "marker": "unicoelpresenteacuerdoentraenvigoreldiadesupublicacion",
+      "paginas": [
+        48
+      ],
+      "anclas": 1
+    },
+    {
+      "siglas": "CNE-MOD-CARGO-TRANSMISION",
+      "fragmento": "Firma del acuerdo",
+      "id": "4e93a2cb-7b2a-5c92-9267-cf07ea3cb120",
+      "marker": "ciudaddemexicoa23deseptiembrede2026",
+      "paginas": [
+        48
+      ],
+      "anclas": 1
+    }
+  ]
+}

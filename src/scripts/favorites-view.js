@@ -64,7 +64,6 @@ export function renderFavoritesView(container, {
                 <summary class="sr-clear">Exportar</summary>
                 <div class="fv-export-menu">
                     <button type="button" data-export="html">Documento para imprimir (HTML)</button>
-                    <button type="button" data-export="csv">${lockLabel('Hoja de cálculo (Excel)')}</button>
                 </div>
             </details>` : ''}
         </header>

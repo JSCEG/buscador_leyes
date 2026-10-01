@@ -1,6 +1,7 @@
 // pptxgenjs (~500 KB) is only needed to build a .pptx: load it on demand.
 import { officialUrl } from '../lib/official-url.js';
 import { brandMarkSvg } from '../lib/brand-mark.js';
+import { shortTitle } from '../lib/short-title.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 
 const COLORS = {
@@ -171,6 +172,10 @@ function initializePresentationRuntime(root, model, law, articles, themes, opts 
     fullscreen?.addEventListener('click', () => {
         if (document.fullscreenElement) document.exitFullscreen?.();
         else root.requestFullscreen?.();
+    });
+    root.querySelector('#lp-download-pdf')?.addEventListener('click', () => {
+        if (!requireAccount('descargar la presentación')) return;
+        printDeckAsPdf(root, model);
     });
     download?.addEventListener('click', async () => {
         if (!requireAccount('descargar la presentación')) return;
@@ -469,6 +474,8 @@ function buildPresentationModel(law, articles, themes) {
         keyArticles: selectKeyArticles(cleanArticles.filter(a => !isFrontMatter(a))).slice(0, 6),
         fileBase: `Presentacion_${slugify(law.siglas || law.titulo || 'instrumento')}`,
         typeLabel: getTypeLabel(law),
+        shortName: shortTitle(law.titulo) || law.titulo || 'Instrumento',
+        officialTitle: law.titulo || '',
         summary: written ? written.slice(0, 620) : objeto ? excerpt(objeto.cleanText, 560) : '',
         summaryLabel: written ? 'Resumen' : objeto ? `Objeto · ${objeto.articulo_label || 'Artículo 1'}` : '',
         publishedLabel: formatDate(law.fecha_publicacion),
@@ -522,7 +529,8 @@ function renderWebDeck(model) {
                 </div>
                 <div class="lp-cover-body">
                     <p class="lp-eyebrow" data-animate>Marco Legal Energético</p>
-                    <h1 data-animate data-lp-fit-height="300">${escapeHtml(model.law.titulo)}</h1>
+                    <h1 data-animate data-lp-fit-height="230">${escapeHtml(model.shortName)}</h1>
+                    ${model.officialTitle !== model.shortName ? `<p class="lp-cover-official" data-animate>${escapeHtml(model.officialTitle)}</p>` : ''}
                     <div class="lp-cover-rule" data-animate></div>
                     <p class="lp-cover-meta" data-animate>${escapeHtml(model.typeLabel)} · ${escapeHtml(model.law.siglas || '')}</p>
                     ${model.publishedLabel ? `<p class="lp-cover-date" data-animate>Publicado el ${escapeHtml(model.publishedLabel)}${model.reformLabel ? ` · Última reforma: ${escapeHtml(model.reformLabel)}` : ''}</p>` : ''}
@@ -533,7 +541,7 @@ function renderWebDeck(model) {
             <section class="lp-slide">
                 ${renderSlideShell('RESUMEN GENERAL', `
                     <p class="lp-eyebrow" data-animate>${escapeHtml(model.law.siglas || model.typeLabel)}</p>
-                    <h2 data-animate data-lp-fit-height="104">${escapeHtml(model.law.titulo)}</h2>
+                    <h2 data-animate data-lp-fit-height="104">${escapeHtml(model.shortName)}</h2>
                     <div class="lp-summary-layout">
                         <div class="lp-summary-text" data-animate data-lp-title="Resumen general" data-lp-detail="${escapeAttr(model.summary || 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.')}">${model.summaryLabel ? `<span class="lp-summary-label">${escapeHtml(model.summaryLabel)}</span>` : ''}${escapeHtml(model.summary || 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.')}</div>
                         <div class="lp-kpis" data-animate>
@@ -598,7 +606,7 @@ function renderWebDeck(model) {
                         <img class="lp-lockup" src="${LOGO}" alt="Buscador Jurídico">
                     </div>
                     <p class="lp-eyebrow" data-animate>Cierre</p>
-                    <h2 data-animate data-lp-fit-height="190">${escapeHtml(model.law.titulo)}</h2>
+                    <h2 data-animate data-lp-fit-height="190">${escapeHtml(model.shortName)}</h2>
                     <p data-animate>Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.</p>
                     ${renderOfficialSourceLink(model.law.url_original)}
                 </div>
@@ -617,6 +625,7 @@ function renderWebDeck(model) {
             <span><b id="lp-current-slide">1</b>/<b id="lp-total-slides">1</b></span>
             <button id="lp-next-slide" type="button">›</button>
             <button id="lp-fullscreen" type="button">Pantalla completa</button>
+            <button id="lp-download-pdf" type="button">${lockLabel('Descargar PDF')}</button>
             <button id="lp-download-pptx" type="button">${lockLabel('Descargar PPTX')}</button>
             <button id="lp-close" type="button">Cerrar</button>
         </div>
@@ -625,6 +634,40 @@ function renderWebDeck(model) {
 }
 
 let shellCount = 0;
+/**
+ * PDF: every slide of the web deck on its own 16:9 page through the browser's print dialog
+ * ("Guardar como PDF"). Slides are cloned into a top-level host so the rest of the page stays out.
+ */
+function printDeckAsPdf(root, model) {
+    const source = root.querySelector('.lp-slide-container');
+    if (!source) return;
+    document.getElementById('lp-print-host')?.remove();
+    const host = document.createElement('div');
+    host.id = 'lp-print-host';
+    const deck = source.cloneNode(true);
+    deck.removeAttribute('id');
+    deck.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    host.append(deck);
+    document.body.append(host);
+    const title = document.title;
+    document.title = model.fileBase;
+    document.documentElement.classList.add('lp-print-mode');
+    // A 16:9 page while this deck prints; added last so it wins over the site's own @page.
+    const page = document.createElement('style');
+    page.id = 'lp-print-page';
+    page.textContent = '@page{size:13.333in 7.5in !important;margin:0 !important}';
+    document.head.append(page);
+    const done = () => {
+        window.removeEventListener('afterprint', done);
+        page.remove();
+        document.documentElement.classList.remove('lp-print-mode');
+        document.title = title;
+        host.remove();
+    };
+    window.addEventListener('afterprint', done);
+    setTimeout(() => window.print(), 80);
+}
+
 function renderSlideShell(title, content) {
     const accent = ACCENTS[shellCount++ % ACCENTS.length];
     return `
@@ -954,6 +997,19 @@ function ensureWebDeckStyles() {
         .lp-theme{border-radius:999px;justify-content:center}.lp-theme-0{background:#9B224712}.lp-theme-1{background:#1E5B4F12}.lp-theme-2{background:#A57F2C14}
         .lp-treemap-layout{border-radius:14px}
         .lp-treemap-fallback{align-content:stretch}.lp-treemap-tile{height:auto;min-height:calc(var(--tile-size) * .72)}.lp-treemap-tile span{font-size:11px}
+        .lp-content h2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .lp-summary-text{display:-webkit-box;-webkit-line-clamp:11;-webkit-box-orient:vertical;overflow:hidden}
+        .lp-close-panel h2{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+        .lp-cover h1{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+        .lp-cover-official{margin:-8px 0 22px;max-width:640px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.82);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+        #lp-print-host{display:none}
+        @media print{
+          html.lp-print-mode body>*:not(#lp-print-host){display:none!important}
+          html.lp-print-mode #lp-print-host{display:block!important}
+          #lp-print-host .lp-slide-container{position:static!important;transform:none!important;width:1333px!important;height:auto!important;box-shadow:none!important}
+          #lp-print-host .lp-slide{display:block!important;position:relative!important;opacity:1!important;break-after:page;width:1333px;height:750px;overflow:hidden}
+          #lp-print-host [data-animate]{animation:none!important;opacity:1!important;transform:none!important}
+        }
         @keyframes lpFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
         @media (max-width:700px){.law-presentation-embed{min-height:360px}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-controls button:nth-of-type(4){display:none}}
     `;
@@ -975,28 +1031,34 @@ function addCoverSlide(pptx, model, assets) {
 
     addLogoPair(slide, assets, 0.55, 0.48);
     slide.addText('MARCO LEGAL ENERGÉTICO', {
-        x: 0.7, y: 1.7, w: 6.8, h: 0.35,
+        x: 0.7, y: 1.4, w: 6.8, h: 0.3,
         fontFace: FONT_BODY, fontSize: 10, bold: true,
         color: COLORS.guinda, charSpace: 2.4
     });
-    slide.addText(model.law.titulo, {
-        x: 0.65, y: 2.14, w: 7.45, h: 1.45,
-        fontFace: FONT_HEAD, fontSize: fitTitleSize(model.law.titulo), bold: true,
-        color: COLORS.guinda, breakLine: false, fit: 'shrink'
+    slide.addText(model.shortName, {
+        x: 0.65, y: 1.75, w: 7.45, h: 1.6, valign: 'top',
+        fontFace: FONT_HEAD, fontSize: fitFont(model.shortName, 7.45, 1.6, 34, 12), bold: true,
+        color: COLORS.guinda, margin: 0
     });
+    if (model.officialTitle && model.officialTitle !== model.shortName) {
+        slide.addText(clip(model.officialTitle, 260), {
+            x: 0.7, y: 3.45, w: 7.3, h: 0.85, valign: 'top',
+            fontFace: FONT_BODY, fontSize: 10, color: COLORS.muted, margin: 0
+        });
+    }
     slide.addShape(SHAPE.rect, {
-        x: 0.7, y: 3.92, w: 5.9, h: 0.06,
+        x: 0.7, y: 4.42, w: 5.9, h: 0.06,
         fill: { color: COLORS.dorado }, line: { color: COLORS.dorado }
     });
     slide.addText([
         { text: model.typeLabel.toUpperCase(), options: { bold: true } },
         ...(model.law.siglas ? [{ text: `  ·  ${model.law.siglas}` }] : [])
     ], {
-        x: 0.7, y: 4.18, w: 6.8, h: 0.35,
+        x: 0.7, y: 4.6, w: 6.8, h: 0.35,
         fontFace: FONT_BODY, fontSize: 11, color: COLORS.texto
     });
     slide.addText([model.publishedLabel && `Publicado el ${model.publishedLabel}`, model.reformLabel && `Última reforma: ${model.reformLabel}`].filter(Boolean).join('\n') || ' ', {
-        x: 0.7, y: 4.75, w: 5.3, h: 0.7,
+        x: 0.7, y: 5.0, w: 5.3, h: 0.7,
         fontFace: FONT_BODY, fontSize: 10, color: COLORS.muted,
         breakLine: false
     });
@@ -1010,7 +1072,7 @@ function addCoverSlide(pptx, model, assets) {
 function addSummarySlide(pptx, model, assets) {
     const slide = pptx.addSlide();
     addContentShell(slide, assets, 'RESUMEN GENERAL');
-    addSectionTitle(slide, model.law.siglas || model.typeLabel, model.law.titulo);
+    addSectionTitle(slide, model.law.siglas || model.typeLabel, model.shortName);
 
     const summary = model.summary
         ? `${model.summaryLabel ? `${model.summaryLabel.toUpperCase()}\n` : ''}${model.summary}`
@@ -1140,10 +1202,10 @@ function addClosingSlide(pptx, model, assets) {
         fontFace: FONT_BODY, fontSize: 10, bold: true,
         color: COLORS.doradoLight, charSpace: 2.2
     });
-    slide.addText(model.law.titulo, {
-        x: 0.8, y: 2.22, w: 8.4, h: 1.3,
-        fontFace: FONT_HEAD, fontSize: 30, bold: true,
-        color: COLORS.white, fit: 'shrink'
+    slide.addText(model.shortName, {
+        x: 0.8, y: 2.22, w: 8.4, h: 1.4, valign: 'top', margin: 0,
+        fontFace: FONT_HEAD, fontSize: fitFont(model.shortName, 8.4, 1.4, 30, 12), bold: true,
+        color: COLORS.white
     });
     slide.addText('Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.', {
         x: 0.85, y: 4.0, w: 7.2, h: 0.72,
@@ -1246,9 +1308,9 @@ function addSectionTitle(slide, eyebrow, title) {
         color: COLORS.guinda, charSpace: 1.8
     });
     slide.addText(title, {
-        x: 0.75, y: 1.12, w: 11.4, h: 0.48,
-        fontFace: FONT_HEAD, fontSize: 25, bold: true,
-        color: COLORS.texto, fit: 'shrink'
+        x: 0.75, y: 1.12, w: 11.4, h: 0.5, valign: 'top', margin: 0,
+        fontFace: FONT_HEAD, fontSize: fitFont(title, 11.4, 0.5, 25, 11), bold: true,
+        color: COLORS.texto
     });
 }
 
@@ -1486,12 +1548,18 @@ function escapeAttr(value) {
     return escapeHtml(value).replace(/`/g, '&#96;');
 }
 
-function fitTitleSize(title) {
-    const len = String(title || '').length;
-    if (len > 115) return 24;
-    if (len > 80) return 28;
-    return 34;
+/** Largest font (pt) whose wrapped lines fit a w×h inch box; Patria bold averages ~0.55em per glyph. */
+function fitFont(text, w, h, max = 34, min = 12, lineHeight = 1.18) {
+    const len = String(text || '').length || 1;
+    for (let size = max; size > min; size -= 1) {
+        const perLine = Math.max(1, Math.floor((w * 72) / (size * 0.55)));
+        const lines = Math.ceil(len / perLine);
+        if (lines * size * lineHeight <= h * 72) return size;
+    }
+    return min;
 }
+
+const clip = (text, max) => (String(text || '').length > max ? `${String(text).slice(0, max - 1).trimEnd()}…` : String(text || ''));
 
 function slugify(value) {
     return String(value || 'instrumento')

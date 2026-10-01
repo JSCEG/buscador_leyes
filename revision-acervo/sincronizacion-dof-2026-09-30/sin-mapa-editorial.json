@@ -1,0 +1,14 @@
+[
+  {
+    "siglas": "UPAC-SGE",
+    "id": "25c14d34-8c29-5746-94d2-dd9b2ae68a62",
+    "label": "Nota editorial · instrumento regulatorio",
+    "reason": "Nota editorial local; no forma parte del DOF."
+  },
+  {
+    "siglas": "CNE-MOD-CARGO-TRANSMISION",
+    "id": "14c159c7-5271-548a-ae67-ba6d46e3d167",
+    "label": "Nota editorial · modificación relacionada",
+    "reason": "Nota editorial local; no forma parte del DOF."
+  }
+]

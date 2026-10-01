@@ -1150,7 +1150,6 @@ export function initUI() {
                             <summary class="lr-btn">Más</summary>
                             <div class="lr-more-menu">
                                 <button id="present-law-btn" class="lr-more-item"><span class="present-label">Presentar en pantalla completa</span></button>
-                                <button id="export-csv-btn" class="lr-more-item">${lockLabel('Descargar artículos en Excel')}</button>
                                 <button id="print-btn" class="lr-more-item">Imprimir o guardar PDF</button>
                             </div>
                         </details>
@@ -1749,13 +1748,6 @@ export function initUI() {
                 }
             });
         });
-
-
-
-        document.getElementById('export-csv-btn').addEventListener('click', () => {
-            if (!requireAccount('descargar en Excel')) return;
-            exportToCSV(currentLawArticles, `${law.titulo}.csv`);
-        });
     }
 
     function renderLawStructureChart(articles, themes = []) {
@@ -1988,32 +1980,6 @@ export function initUI() {
         if (ratio >= 0.6) return `<span class="text-[9px] font-bold text-guinda bg-guinda/10 px-1.5 py-0.5 rounded-full">Alta</span>`;
         if (ratio >= 0.25) return `<span class="text-[9px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full">Media</span>`;
         return `<span class="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded-full">Baja</span>`;
-    }
-
-    function exportToCSV(data, filename) {
-        const headers = ['Ley', 'Artículo', 'Texto'];
-        const rows = data.map(item => [
-            `"${item.ley_origen}"`,
-            `"${item.articulo_label}"`,
-            `"${item.texto.replace(/"/g, '""')}"` // Escape quotes
-        ]);
-
-        const csvContent = [
-            headers.join(';'),
-            ...rows.map(r => r.join(';'))
-        ].join('\n');
-
-        const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        if (link.download !== undefined) {
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', filename);
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
     }
 
     // Search History Helpers
@@ -2449,23 +2415,6 @@ export function initUI() {
         URL.revokeObjectURL(a.href);
     }
 
-    function exportItemsAsCSV(items, filename, includeNotes = false) {
-        const headers = ['Ley', 'Artículo', 'Título', 'Texto', ...(includeNotes ? ['Nota personal'] : [])];
-        const rows = items.map(item => [
-            `"${(item.ley_origen || '').replace(/"/g, '""')}"`,
-            `"${(item.articulo_label || '').replace(/"/g, '""')}"`,
-            `"${(item.titulo_nombre || '').replace(/"/g, '""')}"`,
-            `"${(item.texto || '').replace(/"/g, '""')}"`,
-            ...(includeNotes ? [`"${getNote(item.id).replace(/"/g, '""')}"`] : [])
-        ]);
-        const csvContent = [headers.join(';'), ...rows.map(r => r.join(';'))].join('\n');
-        const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = filename;
-        a.click();
-        URL.revokeObjectURL(a.href);
-    }
     // ── Fin Exportar ───────────────────────────────────────────────────────────
 
     function showFavoritesView(...args) { return withProgress(() => showFavoritesViewNow(...args)); }
@@ -2511,10 +2460,8 @@ export function initUI() {
                 updateCompareBar(); draw();
             },
             onExport: (format, list) => {
-                if (format === 'csv' && !requireAccount('descargar en Excel')) return;
-                if (format === 'csv') exportItemsAsCSV(list, 'guardados_buscador_juridico.csv', true);
-                else exportItemsAsHTML(list, 'Mis guardados', true);
-                showToast(format === 'csv' ? 'Descargando hoja de cálculo' : 'Descargando documento', '⬇', 'bg-gray-800');
+                exportItemsAsHTML(list, 'Mis guardados', true);
+                showToast('Descargando documento', '⬇', 'bg-gray-800');
             },
             onFilter: next => { filter = next; draw(); },
             onBrowse: () => showLawsView(),

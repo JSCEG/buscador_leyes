@@ -1,0 +1,5550 @@
+{
+  "source": {
+    "id": "dof-matutina-2026-09-30-598b6f92b412",
+    "title": "Edición matutina del Diario Oficial de la Federación · 30 de septiembre de 2026",
+    "instrumentIds": [
+      "9fb7ed56-1a34-5aa3-95c6-91a4553d0eab",
+      "cd03a15e-0f2c-53e7-b07f-207b3c9f3c12"
+    ],
+    "sha256": "598b6f92b41292cebf27dc3f0dce793b7d6a02477e56a3f0ca49866ce528334c",
+    "transport": "remote-pdf",
+    "pdfUrl": "/api/reader/dof-matutina-2026-09-30-598b6f92b412",
+    "originalUrl": "https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925",
+    "pageCount": 344,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 2,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 3,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 4,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 5,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 6,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 7,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 8,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 9,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 10,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 11,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 12,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 13,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 14,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 15,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 16,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 17,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 18,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 19,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 20,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 21,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 22,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 23,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 24,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 25,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 26,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 27,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 28,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 29,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 30,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 31,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 32,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 33,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 34,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 35,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 36,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 37,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 38,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 39,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 40,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 41,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 42,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 43,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 44,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 45,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 46,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 47,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 48,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 49,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 50,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 51,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 52,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 53,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 54,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 55,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 56,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 57,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 58,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 59,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 60,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 61,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 62,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 63,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 64,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 65,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 66,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 67,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 68,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 69,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 70,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 71,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 72,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 73,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 74,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 75,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 76,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 77,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 78,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 79,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 80,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 81,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 82,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 83,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 84,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 85,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 86,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 87,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 88,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 89,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 90,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 91,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 92,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 93,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 94,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 95,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 96,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 97,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 98,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 99,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 100,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 101,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 102,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 103,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 104,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 105,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 106,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 107,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 108,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 109,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 110,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 111,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 112,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 113,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 114,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 115,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 116,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 117,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 118,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 119,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 120,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 121,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 122,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 123,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 124,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 125,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 126,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 127,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 128,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 129,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 130,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 131,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 132,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 133,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 134,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 135,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 136,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 137,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 138,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 139,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 140,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 141,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 142,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 143,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 144,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 145,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 146,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 147,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 148,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 149,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 150,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 151,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 152,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 153,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 154,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 155,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 156,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 157,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 158,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 159,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 160,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 161,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 162,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 163,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 164,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 165,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 166,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 167,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 168,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 169,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 170,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 171,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 172,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 173,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 174,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 175,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 176,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 177,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 178,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 179,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 180,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 181,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 182,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 183,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 184,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 185,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 186,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 187,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 188,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 189,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 190,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 191,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 192,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 193,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 194,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 195,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 196,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 197,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 198,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 199,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 200,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 201,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 202,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 203,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 204,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 205,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 206,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 207,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 208,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 209,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 210,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 211,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 212,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 213,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 214,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 215,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 216,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 217,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 218,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 219,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 220,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 221,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 222,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 223,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 224,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 225,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 226,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 227,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 228,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 229,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 230,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 231,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 232,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 233,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 234,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 235,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 236,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 237,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 238,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 239,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 240,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 241,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 242,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 243,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 244,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 245,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 246,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 247,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 248,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 249,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 250,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 251,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 252,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 253,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 254,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 255,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 256,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 257,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 258,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 259,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 260,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 261,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 262,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 263,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 264,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 265,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 266,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 267,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 268,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 269,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 270,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 271,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 272,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 273,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 274,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 275,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 276,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 277,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 278,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 279,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 280,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 281,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 282,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 283,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 284,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 285,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 286,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 287,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 288,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 289,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 290,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 291,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 292,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 293,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 294,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 295,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 296,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 297,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 298,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 299,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 300,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 301,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 302,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 303,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 304,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 305,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 306,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 307,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 308,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 309,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 310,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 311,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 312,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 313,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 314,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 315,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 316,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 317,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 318,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 319,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 320,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 321,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 322,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 323,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 324,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 325,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 326,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 327,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 328,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 329,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 330,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 331,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 332,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 333,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 334,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 335,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 336,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 337,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 338,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 339,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 340,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 341,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 342,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 343,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 344,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ]
+  },
+  "articles": {
+    "4db61a94-f364-5c9f-b3ea-915515d897c1": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Preámbulo del acuerdo",
+      "type": "preambulo",
+      "contentSha256": "4776110e1ba5579ecbef9b979d8de936530d51f6b256050ec6dd1bb4e0aa9364",
+      "pageNumbers": [
+        41
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            80.00102233886719,
+            529.3221435546875,
+            89.96401977539062
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999145507812,
+            90.44102478027344,
+            526.9735717773438,
+            100.40402221679688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            106.3349838256836,
+            529.5258178710938,
+            116.37898254394531
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999908447266,
+            116.7149887084961,
+            346.1581115722656,
+            126.75898742675781
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            99.36000061035156,
+            134.5349884033203,
+            529.4717407226562,
+            144.57899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95997619628906,
+            148.0349884033203,
+            529.5023803710938,
+            158.07899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            161.5349884033203,
+            529.4157104492188,
+            171.57899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            175.0349884033203,
+            529.5330200195312,
+            185.07899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            188.5349884033203,
+            529.5095825195312,
+            198.57899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95999145507812,
+            202.0349884033203,
+            529.4972534179688,
+            212.07899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            215.5349884033203,
+            529.488037109375,
+            225.57899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            229.0349884033203,
+            529.433837890625,
+            239.07899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            242.5349884033203,
+            529.4988403320312,
+            252.57899475097656
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            256.0350036621094,
+            517.6017456054688,
+            266.0789794921875
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            268.98297119140625,
+            274.70098876953125,
+            345.1949157714844,
+            284.66400146484375
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            99.35997009277344,
+            293.1780090332031,
+            529.5347290039062,
+            303.22198486328125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            306.6780090332031,
+            529.4465942382812,
+            316.72198486328125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.9599609375,
+            320.1780090332031,
+            510.76275634765625,
+            330.22198486328125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            99.35995483398438,
+            338.718017578125,
+            529.5786743164062,
+            348.7619934082031
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95995330810547,
+            352.218017578125,
+            529.464599609375,
+            362.2619934082031
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            365.718017578125,
+            529.4608154296875,
+            375.7619934082031
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            379.218017578125,
+            262.5567626953125,
+            389.2619934082031
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            99.35993194580078,
+            397.7580261230469,
+            529.48974609375,
+            407.802001953125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            411.2580261230469,
+            529.500732421875,
+            421.302001953125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95994567871094,
+            424.7580261230469,
+            529.5384521484375,
+            434.802001953125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            438.2580261230469,
+            529.4907836914062,
+            448.302001953125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            451.7580261230469,
+            529.4998168945312,
+            461.802001953125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95994567871094,
+            465.2580261230469,
+            131.96694946289062,
+            475.302001953125
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            99.35994720458984,
+            483.79803466796875,
+            529.52197265625,
+            493.8420104980469
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95994567871094,
+            497.29803466796875,
+            529.4735107421875,
+            507.3420104980469
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95994567871094,
+            510.7980041503906,
+            529.5196533203125,
+            520.8419799804688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            524.2979736328125,
+            529.4395141601562,
+            534.3419799804688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95993041992188,
+            537.7979736328125,
+            448.6031494140625,
+            547.8419799804688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            99.35990905761719,
+            556.3380126953125,
+            529.4859619140625,
+            566.3820190429688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95989990234375,
+            569.8380126953125,
+            529.4915771484375,
+            579.8820190429688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95988464355469,
+            583.3380126953125,
+            529.5040893554688,
+            593.3820190429688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95989990234375,
+            596.8380126953125,
+            529.46826171875,
+            606.8820190429688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.95989990234375,
+            610.3380126953125,
+            125.95491027832031,
+            620.3820190429688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            103.97689819335938,
+            629.0040283203125,
+            510.1397399902344,
+            638.9669799804688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            98.15390014648438,
+            642.5040283203125,
+            518.2803955078125,
+            652.4669799804688
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            124.43389892578125,
+            656.0040283203125,
+            489.7593994140625,
+            665.9669799804688
+          ]
+        }
+      ]
+    },
+    "28df4259-b16b-569e-a13f-e138f774dd39": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Resolutivo ÚNICO · Expedición de disposiciones",
+      "type": "ordinario",
+      "contentSha256": "2b902d07df58c9393bba776336f0f3f66f0d07f15d3d9542248ac83b3094dfaa",
+      "pageNumbers": [
+        41
+      ],
+      "anchors": [
+        {
+          "page": 41,
+          "bbox": [
+            99.35089874267578,
+            674.48095703125,
+            529.506103515625,
+            684.5249633789062
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.94189453125,
+            687.98095703125,
+            529.5150146484375,
+            698.0249633789062
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.94189453125,
+            701.48095703125,
+            529.540283203125,
+            711.5249633789062
+          ]
+        },
+        {
+          "page": 41,
+          "bbox": [
+            84.94189453125,
+            714.98095703125,
+            232.559814453125,
+            725.0249633789062
+          ]
+        }
+      ]
+    },
+    "d5372499-a4fc-561c-8a38-f092ea936df4": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 1",
+      "type": "ordinario",
+      "contentSha256": "24f751b319b0ec0b5831692f1eef0cce70b255ef1604ce2bd5722ade6215dc19",
+      "pageNumbers": [
+        42
+      ],
+      "anchors": [
+        {
+          "page": 42,
+          "bbox": [
+            106.9800033569336,
+            58.39497756958008,
+            507.5143127441406,
+            68.43898010253906
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            99.48300170898438,
+            69.61800384521484,
+            517.6194458007812,
+            79.66200256347656
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            210.0030059814453,
+            80.7779769897461,
+            404.50201416015625,
+            90.82197570800781
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            99.35699462890625,
+            97.04097747802734,
+            529.4979248046875,
+            107.08497619628906
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.94802856445312,
+            108.26399993896484,
+            529.4761352539062,
+            118.30799865722656
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.94802856445312,
+            119.4239730834961,
+            529.4419555664062,
+            129.4679718017578
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95701599121094,
+            130.64698791503906,
+            529.4706420898438,
+            140.6909942626953
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95703125,
+            141.87001037597656,
+            141.96841430664062,
+            151.9140167236328
+          ]
+        }
+      ]
+    },
+    "44e7258e-668d-5061-b4d1-f7288421f512": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 2",
+      "type": "ordinario",
+      "contentSha256": "e091b510fc03b2eb405a26b08bcf7c7912cb4ea1eed43c9056f6e4e220cf3bdb",
+      "pageNumbers": [
+        42
+      ],
+      "anchors": [
+        {
+          "page": 42,
+          "bbox": [
+            99.3570327758789,
+            158.1330108642578,
+            529.487548828125,
+            168.17701721191406
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95703125,
+            169.29298400878906,
+            529.470458984375,
+            179.3369903564453
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95703125,
+            180.51600646972656,
+            301.6068115234375,
+            190.5600128173828
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703887939453,
+            196.7790069580078,
+            529.5130615234375,
+            206.82301330566406
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703887939453,
+            207.93898010253906,
+            529.494140625,
+            217.9829864501953
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            219.16200256347656,
+            213.0098419189453,
+            229.2060089111328
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            235.4250030517578,
+            529.4561767578125,
+            245.46900939941406
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            246.6480255126953,
+            529.5068969726562,
+            256.6920166015625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            257.8080139160156,
+            529.4979858398438,
+            267.85198974609375
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            269.0310363769531,
+            470.1335754394531,
+            279.07501220703125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            285.2940368652344,
+            529.4860229492188,
+            295.3380126953125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95706176757812,
+            296.45404052734375,
+            529.5670776367188,
+            306.4980163574219
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            307.6770324707031,
+            293.4860534667969,
+            317.72100830078125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            142.5570526123047,
+            323.9400329589844,
+            413.8539123535156,
+            333.9840087890625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            142.5570526123047,
+            340.2030334472656,
+            280.640380859375,
+            350.24700927734375
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            142.5570526123047,
+            356.4660339355469,
+            529.4402465820312,
+            366.510009765625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            142.55703735351562,
+            367.62603759765625,
+            298.07342529296875,
+            377.6700134277344
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            142.55703735351562,
+            383.8890380859375,
+            529.4767456054688,
+            393.9330139160156
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            142.55703735351562,
+            395.1120300292969,
+            253.58815002441406,
+            405.156005859375
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703887939453,
+            411.3750305175781,
+            529.5480346679688,
+            421.41900634765625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            422.5350341796875,
+            529.4869384765625,
+            432.5790100097656
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            433.7580261230469,
+            163.44065856933594,
+            443.802001953125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            450.0210266113281,
+            529.48681640625,
+            460.06500244140625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            461.1810302734375,
+            529.4814453125,
+            471.2250061035156
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            472.4040222167969,
+            440.186279296875,
+            482.447998046875
+          ]
+        }
+      ]
+    },
+    "2cef4852-b9d1-5827-be7b-7011f0135adc": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 3",
+      "type": "ordinario",
+      "contentSha256": "149bdd674f44ab3c30ae63a23ce9305007ee134fbe5dbaeb415b5c2d6574044e",
+      "pageNumbers": [
+        42
+      ],
+      "anchors": [
+        {
+          "page": 42,
+          "bbox": [
+            99.3570327758789,
+            488.6670227050781,
+            529.4852294921875,
+            498.71099853515625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95704650878906,
+            499.8900146484375,
+            142.0188446044922,
+            509.9339904785156
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            516.0899658203125,
+            284.55352783203125,
+            526.1339721679688
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            532.35302734375,
+            367.7225341796875,
+            542.3970336914062
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            548.615966796875,
+            529.43212890625,
+            558.6599731445312
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            559.8389892578125,
+            202.9955596923828,
+            569.8829956054688
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            576.1019897460938,
+            263.09027099609375,
+            586.14599609375
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95704650878906,
+            592.302001953125,
+            351.1068115234375,
+            602.3460083007812
+          ]
+        }
+      ]
+    },
+    "6cff7beb-52c3-5c7c-9a49-864a61ab2609": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 4",
+      "type": "ordinario",
+      "contentSha256": "4d8ce6a58f0fa6743440abc02c36c6163be61756d15132c7fe520d96ff4b8dba",
+      "pageNumbers": [
+        42
+      ],
+      "anchors": [
+        {
+          "page": 42,
+          "bbox": [
+            99.35704040527344,
+            608.5650024414062,
+            529.4977416992188,
+            618.6090087890625
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95703125,
+            619.7879638671875,
+            529.4227905273438,
+            629.8319702148438
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95703125,
+            631.010986328125,
+            131.9640350341797,
+            641.0549926757812
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            647.2109985351562,
+            474.62298583984375,
+            657.2550048828125
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            663.4739990234375,
+            529.5094604492188,
+            673.5180053710938
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            120.95703125,
+            674.6969604492188,
+            392.6021728515625,
+            684.740966796875
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            99.3570327758789,
+            690.9599609375,
+            529.641845703125,
+            701.0039672851562
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95703125,
+            702.1199951171875,
+            529.4795532226562,
+            712.1640014648438
+          ]
+        },
+        {
+          "page": 42,
+          "bbox": [
+            84.95701599121094,
+            713.3429565429688,
+            239.0729217529297,
+            723.386962890625
+          ]
+        }
+      ]
+    },
+    "6b549a1e-00c3-5f91-93d8-be27c7cf9823": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 5",
+      "type": "ordinario",
+      "contentSha256": "3e98774adde7571cb1386b6921d935142567754c65b765a080e37b8a3e41f7d7",
+      "pageNumbers": [
+        43
+      ],
+      "anchors": [
+        {
+          "page": 43,
+          "bbox": [
+            99.36000061035156,
+            59.29487991333008,
+            529.5096435546875,
+            69.33888244628906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.968994140625,
+            71.59786224365234,
+            529.4933471679688,
+            81.64186096191406
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.968994140625,
+            83.90084075927734,
+            529.505859375,
+            93.94483947753906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96897888183594,
+            96.20381927490234,
+            136.46697998046875,
+            106.24781799316406
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            99.36898040771484,
+            113.54683685302734,
+            529.4886474609375,
+            123.59083557128906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96897888183594,
+            125.84981536865234,
+            529.4232788085938,
+            135.89381408691406
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96896362304688,
+            138.1527862548828,
+            529.4170532226562,
+            148.19679260253906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96896362304688,
+            150.4557647705078,
+            133.9649658203125,
+            160.49977111816406
+          ]
+        }
+      ]
+    },
+    "9964b486-53e7-526b-9437-834caa9a3cf7": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 6",
+      "type": "ordinario",
+      "contentSha256": "d6e583860d55bb4917e73d9068e338fefac2e67a4cb75f2296ffb208689ba397",
+      "pageNumbers": [
+        43
+      ],
+      "anchors": [
+        {
+          "page": 43,
+          "bbox": [
+            99.36896514892578,
+            167.7987823486328,
+            529.473388671875,
+            177.84278869628906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96896362304688,
+            180.1017608642578,
+            529.5408935546875,
+            190.14576721191406
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96894836425781,
+            192.4047393798828,
+            275.5708312988281,
+            202.44874572753906
+          ]
+        }
+      ]
+    },
+    "96caf79a-2c9c-5cd1-a433-d869d40645e2": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 7",
+      "type": "ordinario",
+      "contentSha256": "2ab45b1ed0128451a251d5ce6f4a27580ed8093c20ed265d9c209974bfc4489c",
+      "pageNumbers": [
+        43
+      ],
+      "anchors": [
+        {
+          "page": 43,
+          "bbox": [
+            99.36894989013672,
+            209.8017120361328,
+            529.4807739257812,
+            219.84571838378906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.9599609375,
+            222.1046905517578,
+            492.6528015136719,
+            232.14869689941406
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            239.4477081298828,
+            529.5538330078125,
+            249.49171447753906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            251.7506866455078,
+            529.5077514648438,
+            261.794677734375
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            264.0536804199219,
+            529.496826171875,
+            274.09765625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            276.356689453125,
+            529.5159912109375,
+            286.4006652832031
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95997619628906,
+            288.6596984863281,
+            529.5151977539062,
+            298.70367431640625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            300.96270751953125,
+            529.5223388671875,
+            311.0066833496094
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            313.2657165527344,
+            493.2818298339844,
+            323.3096923828125
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            142.55996704101562,
+            330.60870361328125,
+            407.31390380859375,
+            340.6526794433594
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            142.55996704101562,
+            347.9516906738281,
+            471.8215637207031,
+            357.99566650390625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            142.55996704101562,
+            365.294677734375,
+            529.408935546875,
+            375.3386535644531
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            142.55996704101562,
+            377.5976867675781,
+            224.59848022460938,
+            387.64166259765625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95996856689453,
+            394.940673828125,
+            529.4302978515625,
+            404.9846496582031
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.9599609375,
+            407.2436828613281,
+            521.028076171875,
+            417.28765869140625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            424.64068603515625,
+            529.4616088867188,
+            434.6846618652344
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            436.9436950683594,
+            529.423828125,
+            446.9876708984375
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            449.2467041015625,
+            383.50152587890625,
+            459.2906799316406
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            466.5896911621094,
+            529.4107666015625,
+            476.6336669921875
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999908447266,
+            478.8927001953125,
+            529.4240112304688,
+            488.9366760253906
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            491.1957092285156,
+            529.498779296875,
+            501.23968505859375
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            503.49871826171875,
+            529.392578125,
+            513.542724609375
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            515.8016967773438,
+            529.5006713867188,
+            525.845703125
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            120.95999145507812,
+            528.1046752929688,
+            176.98764038085938,
+            538.148681640625
+          ]
+        }
+      ]
+    },
+    "94221cd2-d732-5523-9e31-16d1bd7bc606": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 8",
+      "type": "ordinario",
+      "contentSha256": "1d8cb87a65cfca89987f42299758acb5d71e32fecd3c8eea26c57624fb17f3fb",
+      "pageNumbers": [
+        43
+      ],
+      "anchors": [
+        {
+          "page": 43,
+          "bbox": [
+            99.35999298095703,
+            545.4476928710938,
+            529.4412841796875,
+            555.49169921875
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95999908447266,
+            557.7506713867188,
+            483.2649841308594,
+            567.794677734375
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            99.36000061035156,
+            575.0936889648438,
+            529.4736938476562,
+            585.1376953125
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.96002197265625,
+            587.3966674804688,
+            503.8238830566406,
+            597.440673828125
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            99.36001586914062,
+            604.7396850585938,
+            529.5095825195312,
+            614.78369140625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95999145507812,
+            617.0426635742188,
+            529.46923828125,
+            627.086669921875
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95999145507812,
+            629.345703125,
+            529.5096435546875,
+            639.3897094726562
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.9599609375,
+            641.648681640625,
+            348.1056213378906,
+            651.6926879882812
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            99.3599624633789,
+            658.99169921875,
+            529.4826049804688,
+            669.0357055664062
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.9599609375,
+            671.294677734375,
+            283.57635498046875,
+            681.3386840820312
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            99.3599624633789,
+            688.691650390625,
+            529.5185546875,
+            698.7356567382812
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95994567871094,
+            700.9946899414062,
+            529.40869140625,
+            711.0386962890625
+          ]
+        },
+        {
+          "page": 43,
+          "bbox": [
+            84.95994567871094,
+            713.2976684570312,
+            171.4976348876953,
+            723.3416748046875
+          ]
+        }
+      ]
+    },
+    "57fbff9e-24c9-5aa1-8e33-be4524f765e3": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 9",
+      "type": "ordinario",
+      "contentSha256": "c8e97f9c9de15f281263fb44a467ce6df338fdf5512098fbf4be39a841bc483e",
+      "pageNumbers": [
+        44
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            99.36000061035156,
+            59.95497512817383,
+            529.4190063476562,
+            69.99897766113281
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.95999908447266,
+            73.1579818725586,
+            529.4612426757812,
+            83.20198059082031
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.95999145507812,
+            86.41500091552734,
+            275.015625,
+            96.45899963378906
+          ]
+        }
+      ]
+    },
+    "573038a5-de67-5190-853f-b97934c84d40": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 10",
+      "type": "ordinario",
+      "contentSha256": "7c236623dd2314facbfdd8ebe3bf5f8186bd88b2db1e55c40cf723ce53091f37",
+      "pageNumbers": [
+        44
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            99.35999298095703,
+            104.5949935913086,
+            529.5097045898438,
+            114.63899230957031
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.95999145507812,
+            117.7979965209961,
+            529.4224243164062,
+            127.84199523925781
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.95999145507812,
+            131.0550079345703,
+            207.52099609375,
+            141.09901428222656
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.95999145507812,
+            149.23500061035156,
+            529.5653076171875,
+            159.2790069580078
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.95999908447266,
+            162.4920196533203,
+            256.9615478515625,
+            172.53602600097656
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.95999908447266,
+            180.67201232910156,
+            529.5238037109375,
+            190.7160186767578
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96000671386719,
+            193.9290313720703,
+            212.5025177001953,
+            203.97303771972656
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96000671386719,
+            212.17201232910156,
+            529.4277954101562,
+            222.2160186767578
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96000671386719,
+            225.4290313720703,
+            199.48500061035156,
+            235.47303771972656
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96000671386719,
+            243.60902404785156,
+            529.5221557617188,
+            253.6530303955078
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96000671386719,
+            256.8660583496094,
+            163.42919921875,
+            266.9100341796875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96000671386719,
+            275.0460510253906,
+            529.4790649414062,
+            285.09002685546875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96003723144531,
+            288.30303955078125,
+            210.04373168945312,
+            298.3470153808594
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            142.56004333496094,
+            306.5460510253906,
+            284.5665588378906,
+            316.59002685546875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            142.56004333496094,
+            324.7890625,
+            251.0764923095703,
+            334.8330383300781
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            142.56004333496094,
+            343.0320739746094,
+            234.1097869873047,
+            353.0760498046875
+          ]
+        }
+      ]
+    },
+    "f450e01f-0133-5ddf-98f3-7e4f249ffbd0": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 11",
+      "type": "ordinario",
+      "contentSha256": "d79a089dffc9c77a6005a8dbb0a4a9c1814fdd8e7c2fa00a8979f78d3a6e9538",
+      "pageNumbers": [
+        44
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            99.36004638671875,
+            361.27508544921875,
+            529.4935302734375,
+            371.3190612792969
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.96005249023438,
+            374.5320739746094,
+            420.7265930175781,
+            384.5760498046875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96005249023438,
+            392.7120666503906,
+            529.4702758789062,
+            402.75604248046875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96005249023438,
+            405.96905517578125,
+            256.042724609375,
+            416.0130310058594
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96005249023438,
+            424.1490478515625,
+            529.4808349609375,
+            434.1930236816406
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96005249023438,
+            437.4060363769531,
+            528.1903076171875,
+            447.45001220703125
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            99.36007690429688,
+            455.5860290527344,
+            529.484375,
+            465.6300048828125
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.96007537841797,
+            468.843017578125,
+            469.6920471191406,
+            478.8869934082031
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            99.36009216308594,
+            487.02301025390625,
+            529.4862060546875,
+            497.0669860839844
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.9600830078125,
+            500.2799987792969,
+            461.12701416015625,
+            510.323974609375
+          ]
+        }
+      ]
+    },
+    "ebe53773-da2f-530a-9dd8-fda15d4c33b1": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 12",
+      "type": "ordinario",
+      "contentSha256": "c6855bb17774688d8d35660ab3546e9fa180d04469bab2469bec056e16454998",
+      "pageNumbers": [
+        44
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            99.36007690429688,
+            518.4599609375,
+            529.509765625,
+            528.5039672851562
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.9600830078125,
+            531.6629638671875,
+            529.501708984375,
+            541.7069702148438
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.96006774902344,
+            544.9199829101562,
+            515.70458984375,
+            554.9639892578125
+          ]
+        }
+      ]
+    },
+    "f258b127-10d3-5a8f-aca4-aa570b640ba0": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 13",
+      "type": "ordinario",
+      "contentSha256": "439149dacdf28fec8a07a4f7989fd3434947d40b0e909d0c3c669132f2fca41c",
+      "pageNumbers": [
+        44,
+        45
+      ],
+      "anchors": [
+        {
+          "page": 44,
+          "bbox": [
+            99.36006927490234,
+            563.1629638671875,
+            529.5729370117188,
+            573.2069702148438
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.96006774902344,
+            576.365966796875,
+            529.5260009765625,
+            586.4099731445312
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.96005249023438,
+            589.5689697265625,
+            529.3919067382812,
+            599.6129760742188
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            84.96005249023438,
+            602.8259887695312,
+            405.0577087402344,
+            612.8699951171875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96003723144531,
+            621.0689697265625,
+            467.5824279785156,
+            631.1129760742188
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.968994140625,
+            639.2489624023438,
+            529.453125,
+            649.29296875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.968994140625,
+            652.5059814453125,
+            296.04583740234375,
+            662.5499877929688
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.968994140625,
+            670.6859741210938,
+            529.5283813476562,
+            680.72998046875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.968994140625,
+            683.9429931640625,
+            391.669189453125,
+            693.9869995117188
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.968994140625,
+            702.1229858398438,
+            529.4718017578125,
+            712.1669921875
+          ]
+        },
+        {
+          "page": 44,
+          "bbox": [
+            120.96897888183594,
+            715.3799438476562,
+            459.6517028808594,
+            725.4239501953125
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.95999908447266,
+            59.83498001098633,
+            529.5537719726562,
+            69.87898254394531
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96002197265625,
+            72.85799407958984,
+            529.4933471679688,
+            82.90199279785156
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96003723144531,
+            85.8180160522461,
+            161.4654083251953,
+            95.86201477050781
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96003723144531,
+            103.8810043334961,
+            529.5366821289062,
+            113.92500305175781
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96003723144531,
+            116.90401458740234,
+            529.4737548828125,
+            126.94801330566406
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96003723144531,
+            129.92701721191406,
+            215.50405883789062,
+            139.9710235595703
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            99.36003875732422,
+            147.92701721191406,
+            529.4188842773438,
+            157.9710235595703
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96003723144531,
+            160.9500274658203,
+            529.4539184570312,
+            170.99403381347656
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            173.97303771972656,
+            143.50863647460938,
+            184.0170440673828
+          ]
+        }
+      ]
+    },
+    "a2f4f6a4-3792-53ae-a79a-b04a11c136a0": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo 14",
+      "type": "ordinario",
+      "contentSha256": "58c284108fa71041f37a9d84414a34d1b00fa956fe2078c23f7eca684c129307",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            99.36005401611328,
+            192.03602600097656,
+            529.4304809570312,
+            202.0800323486328
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            204.9960479736328,
+            529.5294189453125,
+            215.04005432128906
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            218.01905822753906,
+            529.5169067382812,
+            228.0630645751953
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            231.0420684814453,
+            182.9996795654297,
+            241.08607482910156
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96005249023438,
+            249.0420684814453,
+            529.4107666015625,
+            259.0860595703125
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96005249023438,
+            262.0650939941406,
+            174.46591186523438,
+            272.10906982421875
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96005249023438,
+            280.1280822753906,
+            494.0116882324219,
+            290.17205810546875
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            120.96005249023438,
+            298.1910705566406,
+            519.68896484375,
+            308.23504638671875
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            99.36004638671875,
+            316.2540588378906,
+            529.4564208984375,
+            326.29803466796875
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96004486083984,
+            329.21405029296875,
+            529.501708984375,
+            339.2580261230469
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            342.237060546875,
+            529.4744873046875,
+            352.2810363769531
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96006774902344,
+            355.26007080078125,
+            348.54931640625,
+            365.3040466308594
+          ]
+        }
+      ]
+    },
+    "4573368b-370a-5a35-89b5-527f43ab385a": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Primero",
+      "type": "transitorio",
+      "contentSha256": "07597ebb28c1dac71503a266568b7f559811252b31233625d9c53deb5f2b7c04",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            271.5030517578125,
+            373.38604736328125,
+            342.738037109375,
+            383.34906005859375
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            99.36004638671875,
+            391.32305908203125,
+            529.46826171875,
+            401.3670349121094
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            404.3460693359375,
+            156.997802734375,
+            414.3900451660156
+          ]
+        }
+      ]
+    },
+    "e213370f-70dc-52f9-9723-e25c496cb83a": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Segundo",
+      "type": "transitorio",
+      "contentSha256": "d5b67d6a65b591cecd2fbc3b5234f7feb3635d6cad204e5728c60e606df61b0d",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            99.36002349853516,
+            422.4090576171875,
+            529.5224609375,
+            432.4530334472656
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            435.3690490722656,
+            529.4692993164062,
+            445.41302490234375
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            448.3920593261719,
+            529.3621215820312,
+            458.43603515625
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            461.4150695800781,
+            529.401611328125,
+            471.45904541015625
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            474.37506103515625,
+            529.4392700195312,
+            484.4190368652344
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            487.3980712890625,
+            529.4784545898438,
+            497.4420471191406
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            500.42108154296875,
+            255.11569213867188,
+            510.4650573730469
+          ]
+        }
+      ]
+    },
+    "226d0404-851a-5802-9189-0b4afa8c8792": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Tercero",
+      "type": "transitorio",
+      "contentSha256": "128899bcf243f388b6b358ab41d2a3863981684ae491eb94ee4a2b53da7e602f",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            99.36002349853516,
+            518.4840087890625,
+            529.6411743164062,
+            528.5280151367188
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            531.4440307617188,
+            529.506103515625,
+            541.488037109375
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            544.467041015625,
+            529.4494018554688,
+            554.5110473632812
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96000671386719,
+            557.4900512695312,
+            529.5023803710938,
+            567.5340576171875
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96002197265625,
+            570.4500732421875,
+            529.4707641601562,
+            580.4940795898438
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96000671386719,
+            583.4730224609375,
+            200.5038299560547,
+            593.5170288085938
+          ]
+        }
+      ]
+    },
+    "f2b2a393-7cdb-577c-a1d6-1bd02bbf1aea": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Cuarto",
+      "type": "transitorio",
+      "contentSha256": "629e6909c16b3ef8bd862cc2e7edd40d6acce1eddd74098f0bb66e076bb6fb57",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            99.3600082397461,
+            601.5360107421875,
+            529.4528198242188,
+            611.5800170898438
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96000671386719,
+            614.4960327148438,
+            452.5868225097656,
+            624.5400390625
+          ]
+        }
+      ]
+    },
+    "be107f32-1070-5044-a961-f40697c513b5": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Quinto",
+      "type": "transitorio",
+      "contentSha256": "d66fe71feb5b5d9b905e59cf2624b4aa5c15902ca18ff8f7dad0e74cf70b658d",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            99.36003112792969,
+            632.55908203125,
+            529.486083984375,
+            642.6030883789062
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96003723144531,
+            645.58203125,
+            529.4638671875,
+            655.6260375976562
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96003723144531,
+            658.6050415039062,
+            529.443115234375,
+            668.6490478515625
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            671.5650634765625,
+            529.4691162109375,
+            681.6090698242188
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            684.5880737304688,
+            419.1517028808594,
+            694.632080078125
+          ]
+        }
+      ]
+    },
+    "ad763da7-e1bc-50e8-8bda-9ec4f044a16c": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Firma del acuerdo",
+      "type": "complementario",
+      "contentSha256": "da2b699950e1dc15ea475278175e54d15c072fafe2d79a370c290f473720b45e",
+      "pageNumbers": [
+        45
+      ],
+      "anchors": [
+        {
+          "page": 45,
+          "bbox": [
+            99.36005401611328,
+            702.6510620117188,
+            529.4797973632812,
+            712.695068359375
+          ]
+        },
+        {
+          "page": 45,
+          "bbox": [
+            84.96005249023438,
+            715.6110229492188,
+            348.1669006347656,
+            725.655029296875
+          ]
+        }
+      ]
+    },
+    "be3a843e-3014-5b0c-a01b-2842d7284efc": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Preámbulo del acuerdo",
+      "type": "preambulo",
+      "contentSha256": "a731d11bdb9f57cd75a37f180292e9575bb6231f987df397c830786ddf5dc116",
+      "pageNumbers": [
+        46,
+        47
+      ],
+      "anchors": [
+        {
+          "page": 46,
+          "bbox": [
+            84.95999908447266,
+            57.92087936401367,
+            529.3243408203125,
+            67.88388061523438
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.96000671386719,
+            68.24388122558594,
+            529.2877807617188,
+            78.20687866210938
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.96000671386719,
+            78.62089538574219,
+            529.1806030273438,
+            88.58389282226562
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.96000671386719,
+            88.94389343261719,
+            529.2706909179688,
+            98.90689086914062
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.96000671386719,
+            99.38389587402344,
+            443.1005554199219,
+            109.34689331054688
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95999908447266,
+            115.2749252319336,
+            532.034423828125,
+            125.31892395019531
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95999908447266,
+            125.6549301147461,
+            134.00279235839844,
+            135.6989288330078
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.36000061035156,
+            142.09791564941406,
+            529.482666015625,
+            152.1419219970703
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95999145507812,
+            153.91493225097656,
+            529.4988403320312,
+            163.9589385986328
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.96000671386719,
+            165.73194885253906,
+            529.579833984375,
+            175.7759552001953
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.96000671386719,
+            177.4949493408203,
+            529.6328735351562,
+            187.53895568847656
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95098876953125,
+            189.3119659423828,
+            529.602294921875,
+            199.35597229003906
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95098876953125,
+            201.1289825439453,
+            529.5043334960938,
+            211.17298889160156
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95098876953125,
+            212.89198303222656,
+            529.4736938476562,
+            222.9359893798828
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            224.70899963378906,
+            529.5089111328125,
+            234.7530059814453
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            236.52601623535156,
+            529.5077514648438,
+            246.5700225830078
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            248.2890167236328,
+            505.7748107910156,
+            258.3330078125
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            268.9739685058594,
+            265.2720031738281,
+            345.1859130859375,
+            275.2350158691406
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.35096740722656,
+            282.0030212402344,
+            529.3889770507812,
+            292.0469970703125
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95096588134766,
+            293.82000732421875,
+            529.5078125,
+            303.8639831542969
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95096588134766,
+            305.5830078125,
+            529.408447265625,
+            315.6269836425781
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            317.3999938964844,
+            529.4053955078125,
+            327.4439697265625
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            329.21697998046875,
+            529.4376220703125,
+            339.2609558105469
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            340.97998046875,
+            139.45045471191406,
+            351.0239562988281
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.3509750366211,
+            357.83697509765625,
+            529.474609375,
+            367.8809509277344
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            369.6539611816406,
+            529.48193359375,
+            379.69793701171875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            381.470947265625,
+            529.4700927734375,
+            391.5149230957031
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            393.23394775390625,
+            159.95066833496094,
+            403.2779235839844
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.3509750366211,
+            410.0909423828125,
+            529.5302734375,
+            420.1349182128906
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            421.9079284667969,
+            529.5296630859375,
+            431.951904296875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            433.6709289550781,
+            529.4951171875,
+            443.71490478515625
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            445.4879150390625,
+            311.57989501953125,
+            455.5318908691406
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.35095977783203,
+            462.4709167480469,
+            529.34228515625,
+            472.514892578125
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95095825195312,
+            474.3509216308594,
+            529.4150390625,
+            484.3948974609375
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            486.2939147949219,
+            529.4789428710938,
+            496.337890625
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            498.1739196777344,
+            529.4537963867188,
+            508.2178955078125
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            510.0539245605469,
+            276.55908203125,
+            520.097900390625
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.3509750366211,
+            527.036865234375,
+            529.5062255859375,
+            537.0808715820312
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95097351074219,
+            538.9168701171875,
+            529.5376586914062,
+            548.9608764648438
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95098876953125,
+            550.796875,
+            529.4456787109375,
+            560.8408813476562
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95100402832031,
+            562.7398681640625,
+            529.5549926757812,
+            572.7838745117188
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95100402832031,
+            574.619873046875,
+            529.5050048828125,
+            584.6638793945312
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95100402832031,
+            586.4998779296875,
+            529.4441528320312,
+            596.5438842773438
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            598.44287109375,
+            462.6665344238281,
+            608.4868774414062
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.35102081298828,
+            615.2459106445312,
+            529.50048828125,
+            625.2899169921875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            627.0628662109375,
+            529.5520629882812,
+            637.1068725585938
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            638.8798828125,
+            529.4592895507812,
+            648.9238891601562
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            650.6428833007812,
+            529.486328125,
+            660.6868896484375
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            662.4598999023438,
+            335.69183349609375,
+            672.50390625
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            99.35102081298828,
+            679.31689453125,
+            529.5672607421875,
+            689.3609008789062
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95103454589844,
+            691.0798950195312,
+            529.5216064453125,
+            701.1239013671875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            702.8969116210938,
+            529.4485473632812,
+            712.94091796875
+          ]
+        },
+        {
+          "page": 46,
+          "bbox": [
+            84.95101928710938,
+            714.7139282226562,
+            529.4448852539062,
+            724.7579345703125
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95999908447266,
+            58.87501907348633,
+            529.46630859375,
+            68.91902160644531
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96000671386719,
+            70.6920394897461,
+            529.4457397460938,
+            80.73603820800781
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96002197265625,
+            82.45503997802734,
+            147.9708251953125,
+            92.49903869628906
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.36002349853516,
+            99.0780258178711,
+            529.473876953125,
+            109.12202453613281
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96002197265625,
+            110.5980453491211,
+            529.5016479492188,
+            120.64204406738281
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96002197265625,
+            122.1180648803711,
+            529.4520874023438,
+            132.1620635986328
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96002197265625,
+            133.5750274658203,
+            529.5072631835938,
+            143.61903381347656
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96003723144531,
+            145.0950469970703,
+            421.1549987792969,
+            155.13905334472656
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.36004638671875,
+            161.65504455566406,
+            529.4303588867188,
+            171.6990509033203
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96003723144531,
+            173.1120147705078,
+            529.4806518554688,
+            183.15602111816406
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96002197265625,
+            184.6320343017578,
+            529.4736938476562,
+            194.67604064941406
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96000671386719,
+            196.1520538330078,
+            529.4913940429688,
+            206.19606018066406
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95999145507812,
+            207.60902404785156,
+            529.4835815429688,
+            217.6530303955078
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95999145507812,
+            219.12904357910156,
+            529.4771118164062,
+            229.1730499267578
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96000671386719,
+            230.64906311035156,
+            154.44088745117188,
+            240.6930694580078
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.3600082397461,
+            247.2090606689453,
+            529.525634765625,
+            257.2530517578125
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96002197265625,
+            258.6660461425781,
+            529.4644775390625,
+            268.71002197265625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            270.1860656738281,
+            529.462890625,
+            280.23004150390625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96003723144531,
+            281.7060546875,
+            529.4790649414062,
+            291.7500305175781
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            293.1630554199219,
+            529.4107055664062,
+            303.20703125
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            304.68304443359375,
+            529.47265625,
+            314.7270202636719
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            316.2030334472656,
+            529.4952392578125,
+            326.24700927734375
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            327.6600341796875,
+            529.4340209960938,
+            337.7040100097656
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            339.1800231933594,
+            529.5008544921875,
+            349.2239990234375
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96006774902344,
+            350.70001220703125,
+            456.1111755371094,
+            360.7439880371094
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.36007690429688,
+            367.197021484375,
+            529.5203247070312,
+            377.2409973144531
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96006774902344,
+            378.7170104980469,
+            529.4647216796875,
+            388.760986328125
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96005249023438,
+            390.23699951171875,
+            529.4944458007812,
+            400.2809753417969
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96006774902344,
+            401.6940002441406,
+            529.4268798828125,
+            411.73797607421875
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.9600830078125,
+            413.2139892578125,
+            529.4663696289062,
+            423.2579650878906
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96006774902344,
+            424.7339782714844,
+            529.4564208984375,
+            434.7779541015625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96006774902344,
+            436.19097900390625,
+            493.1716003417969,
+            446.2349548339844
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.36007690429688,
+            452.7509765625,
+            529.4854125976562,
+            462.7949523925781
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96011352539062,
+            464.2709655761719,
+            529.4287109375,
+            474.31494140625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96011352539062,
+            475.79095458984375,
+            151.48629760742188,
+            485.8349304199219
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.36011505126953,
+            492.2879638671875,
+            529.3856201171875,
+            502.3319396972656
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96011352539062,
+            503.8079528808594,
+            507.5885925292969,
+            513.8519287109375
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            99.36013793945312,
+            520.367919921875,
+            529.5115356445312,
+            530.4119262695312
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96012878417969,
+            531.887939453125,
+            529.4177856445312,
+            541.9319458007812
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.96012878417969,
+            543.3449096679688,
+            212.0526580810547,
+            553.388916015625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            128.3401336669922,
+            560.0309448242188,
+            488.0018615722656,
+            569.993896484375
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            92.817138671875,
+            571.5509643554688,
+            521.369384765625,
+            581.513916015625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            94.68013000488281,
+            583.0079956054688,
+            519.5341186523438,
+            592.970947265625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            96.90310668945312,
+            594.5279541015625,
+            517.3101806640625,
+            604.4909057617188
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            92.34010314941406,
+            606.0479736328125,
+            521.7679443359375,
+            616.0109252929688
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            92.45709991455078,
+            617.5049438476562,
+            521.9641723632812,
+            627.4678955078125
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            112.37409973144531,
+            629.0249633789062,
+            501.9983825683594,
+            638.9879150390625
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            208.19711303710938,
+            640.5449829101562,
+            406.02532958984375,
+            650.5079345703125
+          ]
+        }
+      ]
+    },
+    "cae6302d-2bea-51ee-87a6-8da400cf95c9": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Artículo Único · modificación de transitorios",
+      "type": "ordinario",
+      "contentSha256": "4627f342a5486bbda63aeec1035356af7d5c792a42efa54cebab629cdfdaf6eb",
+      "pageNumbers": [
+        47
+      ],
+      "anchors": [
+        {
+          "page": 47,
+          "bbox": [
+            99.360107421875,
+            656.9789428710938,
+            529.508056640625,
+            667.02294921875
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95111083984375,
+            668.4359130859375,
+            529.4899291992188,
+            678.4799194335938
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95109558105469,
+            679.9559326171875,
+            529.5322875976562,
+            689.9999389648438
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95109558105469,
+            691.4759521484375,
+            529.3649291992188,
+            701.5199584960938
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95109558105469,
+            702.9329223632812,
+            529.5005493164062,
+            712.9769287109375
+          ]
+        },
+        {
+          "page": 47,
+          "bbox": [
+            84.95108032226562,
+            714.4529418945312,
+            284.6015625,
+            724.4969482421875
+          ]
+        }
+      ]
+    },
+    "cb074064-0ffd-5be8-b579-d5b642d1a467": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Tercero · texto modificado",
+      "type": "transitorio",
+      "contentSha256": "9a0a0653e56d3d85d9fffb57cbfd93b9e9139423d15cbb0a50a95e3b3ba3eba2",
+      "pageNumbers": [
+        48
+      ],
+      "anchors": [
+        {
+          "page": 48,
+          "bbox": [
+            99.36000061035156,
+            59.83498001098633,
+            529.4978637695312,
+            69.87898254394531
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95999145507812,
+            72.85799407958984,
+            529.5241088867188,
+            82.90199279785156
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95999145507812,
+            85.8180160522461,
+            529.4807739257812,
+            95.86201477050781
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95999145507812,
+            98.84102630615234,
+            529.5607299804688,
+            108.88502502441406
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95999145507812,
+            111.8640365600586,
+            529.4825439453125,
+            121.90803527832031
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            124.82405853271484,
+            211.5466766357422,
+            134.86805725097656
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35997772216797,
+            142.8870391845703,
+            109.3697738647461,
+            152.93104553222656
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.96897888183594,
+            142.8870391845703,
+            529.477294921875,
+            152.93104553222656
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95997619628906,
+            155.91004943847656,
+            367.0594177246094,
+            165.9540557861328
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35997772216797,
+            173.97303771972656,
+            111.88077545166016,
+            184.0170440673828
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.96357727050781,
+            173.97303771972656,
+            529.4945068359375,
+            184.0170440673828
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95997619628906,
+            186.9330596923828,
+            529.5294189453125,
+            196.97706604003906
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            199.95606994628906,
+            529.4913330078125,
+            210.0000762939453
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            212.9790802001953,
+            529.565673828125,
+            223.02308654785156
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            225.93910217285156,
+            170.0027618408203,
+            235.9831085205078
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.3599624633789,
+            244.00209045410156,
+            529.4745483398438,
+            254.0460968017578
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.9599609375,
+            257.0251159667969,
+            529.5095825195312,
+            267.069091796875
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.9599609375,
+            270.0481262207031,
+            518.2650146484375,
+            280.09210205078125
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.3599624633789,
+            288.0481262207031,
+            529.5093994140625,
+            298.09210205078125
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            301.0711364746094,
+            529.4465942382812,
+            311.1151123046875
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            314.0941467285156,
+            529.471923828125,
+            324.13812255859375
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            327.05413818359375,
+            529.4644775390625,
+            337.0981140136719
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            340.0771484375,
+            197.57872009277344,
+            350.1211242675781
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35997772216797,
+            358.14013671875,
+            529.4691162109375,
+            368.1841125488281
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.9599609375,
+            371.16314697265625,
+            529.459228515625,
+            381.2071228027344
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.9599609375,
+            384.1231384277344,
+            408.6108703613281,
+            394.1671142578125
+          ]
+        }
+      ]
+    },
+    "e3b4acd1-4fa5-5a8d-8578-e1d708d8bae1": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorio Cuarto · texto modificado",
+      "type": "transitorio",
+      "contentSha256": "d2bebfd91d6b8130fbf03760c01cb923ab6cc25a53b649107a2c13e746f88411",
+      "pageNumbers": [
+        48
+      ],
+      "anchors": [
+        {
+          "page": 48,
+          "bbox": [
+            99.35997009277344,
+            402.1861267089844,
+            529.4808349609375,
+            412.2301025390625
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95999145507812,
+            415.2091369628906,
+            456.0190124511719,
+            425.25311279296875
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35999298095703,
+            433.2721252441406,
+            109.3670883178711,
+            443.31610107421875
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.96359252929688,
+            433.2721252441406,
+            529.4609985351562,
+            443.31610107421875
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95997619628906,
+            446.23211669921875,
+            529.4698486328125,
+            456.2760925292969
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95997619628906,
+            459.255126953125,
+            393.1316833496094,
+            469.2991027832031
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35995483398438,
+            477.318115234375,
+            111.88346099853516,
+            487.3620910644531
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            477.318115234375,
+            529.4476318359375,
+            487.3620910644531
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95995330810547,
+            490.2781066894531,
+            529.413330078125,
+            500.32208251953125
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.95995330810547,
+            503.3011169433594,
+            529.462890625,
+            513.3450927734375
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            516.3240966796875,
+            201.99766540527344,
+            526.3681030273438
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.3599624633789,
+            534.3870849609375,
+            529.3485107421875,
+            544.4310913085938
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            547.3471069335938,
+            371.5657653808594,
+            557.39111328125
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.3599624633789,
+            565.4100952148438,
+            529.50244140625,
+            575.4541015625
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            120.9599609375,
+            578.43310546875,
+            401.10125732421875,
+            588.4771118164062
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            99.35995483398438,
+            596.49609375,
+            529.4033813476562,
+            606.5401000976562
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95995330810547,
+            609.4561157226562,
+            529.4991455078125,
+            619.5001220703125
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.9599609375,
+            622.4791259765625,
+            529.5220947265625,
+            632.5231323242188
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            635.5020751953125,
+            529.56005859375,
+            645.5460815429688
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            648.4620971679688,
+            529.4500732421875,
+            658.506103515625
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            84.95997619628906,
+            661.485107421875,
+            137.9591827392578,
+            671.5291137695312
+          ]
+        },
+        {
+          "page": 48,
+          "bbox": [
+            271.50299072265625,
+            679.6741333007812,
+            342.72723388671875,
+            689.6370849609375
+          ]
+        }
+      ]
+    },
+    "c6abca30-8adf-50e9-a5b7-84b81d6e3125": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Transitorios · ÚNICO · entrada en vigor",
+      "type": "transitorio",
+      "contentSha256": "65bcc6e0fe1afd2864f4403925c544d2fc7fb5623940dfd343e9c57577dc8214",
+      "pageNumbers": [
+        48
+      ],
+      "anchors": [
+        {
+          "page": 48,
+          "bbox": [
+            99.3599853515625,
+            697.611083984375,
+            519.0338134765625,
+            707.6550903320312
+          ]
+        }
+      ]
+    },
+    "4e93a2cb-7b2a-5c92-9267-cf07ea3cb120": {
+      "sourceId": "dof-matutina-2026-09-30-598b6f92b412",
+      "label": "Firma del acuerdo",
+      "type": "complementario",
+      "contentSha256": "73abece9f954be79824d29f4b111a68a195fd211062ccb90b17fbd2265aeeecf",
+      "pageNumbers": [
+        48
+      ],
+      "anchors": [
+        {
+          "page": 48,
+          "bbox": [
+            99.36000061035156,
+            715.611083984375,
+            521.6328125,
+            725.6550903320312
+          ]
+        }
+      ]
+    }
+  }
+}

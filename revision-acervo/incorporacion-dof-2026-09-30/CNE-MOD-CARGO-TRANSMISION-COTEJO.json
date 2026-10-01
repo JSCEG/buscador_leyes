@@ -1,0 +1,44 @@
+{
+  "instrumento": "CNE-MOD-CARGO-TRANSMISION",
+  "fecha_revision": "2026-10-01",
+  "estado": "cotejado",
+  "fuente_html": "https://sidof.segob.gob.mx/notas/docFuente/5799964",
+  "fuente_pdf_edicion": "https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925",
+  "sha256_pdf": "598b6f92b41292cebf27dc3f0dce793b7d6a02477e56a3f0ca49866ce528334c",
+  "paginas_impresas": [
+    46,
+    47,
+    48
+  ],
+  "paginas_pdf_cero_indexadas": [
+    45,
+    46,
+    47
+  ],
+  "bloques_html_capturados": 30,
+  "encabezados_html_capturados": [
+    "CONSIDERANDO",
+    "ACUERDO DE LA COMISIÓN NACIONAL DE ENERGÍA POR EL QUE SE MODIFICA EL DIVERSO POR EL QUE SE EMITE LA METODOLOGÍA PARA LA DETERMINACIÓN DEL CARGO CORRESPONDIENTE AL SERVICIO DE TRANSMISIÓN DE ENERGÍA ELÉCTRICA QUE PRESTE LA SUMINISTRADORA A LAS PERSONAS PERMISIONARIAS CON CENTRALES DE GENERACIÓN DE ENERGÍA ELÉCTRICA, QUE CUENTEN CON CONTRATO DE INTERCONEXIÓN Y CONVENIO PARA EL SERVICIO DE TRANSMISIÓN DE ENERGÍA ELÉCTRICA CELEBRADOS AL AMPARO DE LA LEY DEL SERVICIO PÚBLICO DE ENERGÍA ELÉCTRICA, PUBLICADO EL 18 DE JUNIO DE 2026 EN EL DIARIO OFICIAL DE LA FEDERACIÓN",
+    "TRANSITORIOS"
+  ],
+  "fragmentos_oficiales": 6,
+  "incluye_nota_editorial_separada": true,
+  "base_modificada": {
+    "id": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+    "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
+    "url": "https://sidof.segob.gob.mx/notas/docFuente/5790939"
+  },
+  "alcance": [
+    "Modifica sólo los transitorios Tercero y Cuarto del acuerdo original.",
+    "Conserva el resolutivo Artículo Único y cada texto transitorio reformado por separado.",
+    "El transitorio único de entrada en vigor y la firma quedan identificados como componentes de esta modificación.",
+    "No se combina con el texto original ni se presenta como versión consolidada."
+  ],
+  "verificaciones": [
+    "Transitorio Tercero conserva el periodo del 19/10/2026 al 06/10/2028 y las dos condiciones para acceder a la excepción.",
+    "La excepción surte efectos desde el día siguiente a cumplir ambas condiciones, sin retroactividad y nunca antes del 19/10/2026.",
+    "Transitorio Cuarto conserva los cuatro supuestos de terminación y la regla del siguiente periodo de facturación.",
+    "Entrada en vigor: el día de publicación en el DOF, 30/09/2026."
+  ],
+  "cambios_sin_confirmar": []
+}

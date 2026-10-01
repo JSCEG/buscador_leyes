@@ -1,0 +1,40 @@
+{
+  "instrumento": "UPAC-SGE",
+  "fecha_revision": "2026-10-01",
+  "estado": "cotejado",
+  "fuente_html": "https://sidof.segob.gob.mx/notas/docFuente/5799963",
+  "fuente_pdf_edicion": "https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925",
+  "sha256_pdf": "598b6f92b41292cebf27dc3f0dce793b7d6a02477e56a3f0ca49866ce528334c",
+  "paginas_impresas": [
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "paginas_pdf_cero_indexadas": [
+    40,
+    41,
+    42,
+    43,
+    44
+  ],
+  "bloques_html_capturados": 80,
+  "fragmentos_oficiales": 22,
+  "incluye_nota_editorial_separada": true,
+  "articulos": 14,
+  "articulo_unico": 1,
+  "transitorios": 5,
+  "tablas": 0,
+  "anexos": 0,
+  "verificaciones": [
+    "Orden: título y margen oficiales, preámbulo y considerandos, resolutivo, DACG, transitorios y firma.",
+    "Artículo 2 conserva sus cinco definiciones y subincisos a–d dentro del mismo artículo.",
+    "Artículo 7 conserva inscripción, mantenimiento y baja con sus documentos y plazos.",
+    "Artículo 10 conserva cinco rubros y tres estados de avance del sistema de gestión.",
+    "Artículo 13 conserva seis elementos mínimos y el plazo de certificación de un año.",
+    "El transitorio Segundo abroga las disposiciones de 15/11/2018; el Tercero conserva la operación provisional del registro.",
+    "El HTML divide \"efecto\" entre spans; cotejo puntual con PDF, página impresa 44, confirmó y restableció \"efecto\"."
+  ],
+  "cambios_sin_confirmar": []
+}

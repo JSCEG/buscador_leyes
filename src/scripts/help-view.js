@@ -26,7 +26,7 @@ const FAQ = [
     ['No encuentro una ley. ¿Qué hago?', 'Prueba con sus siglas (por ejemplo, <i>LSE</i>) o con una palabra de su nombre en el Acervo. Si aún no aparece, es probable que todavía no la hayamos cargado; seguimos agregando documentos.'],
     ['¿Qué es una “Guía” dentro de un documento?', 'Es una nota que agregamos para ayudarte a ubicarte: qué versiones existen, qué documentos van juntos o qué abarca la publicación. No es parte del texto oficial.'],
     ['¿El texto es oficial?', 'Los textos vienen de las publicaciones oficiales (principalmente el DOF). Para cualquier uso legal, revisa siempre el documento original con el botón <b>Fuente oficial</b>; en muchos artículos también puedes ver la página del PDF.'],
-    ['¿Puedo descargar o imprimir?', 'Sí. Dentro de cada documento, en <b>Más</b>, puedes imprimir o guardar en PDF, exportar los artículos a una hoja de cálculo o abrir la presentación. En Guardados puedes exportar tus artículos con tus notas.'],
+    ['¿Puedo descargar o imprimir?', 'Sí. Dentro de cada documento, en <b>Más</b>, puedes imprimir o guardar en PDF y abrir la presentación, que se descarga en PDF o PowerPoint con una cuenta. En Guardados puedes descargar tus artículos con tus notas como documento para imprimir.'],
     ['¿Necesito una cuenta?', 'No para leer ni buscar. Solo para guardar artículos y escribir notas.'],
 ];
 

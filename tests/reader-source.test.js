@@ -11,9 +11,44 @@ const pnd = JSON.parse(readFileSync('revision-acervo/incorporacion-pnd-2026-09-2
 const pladese = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PLADESE-carga.json', 'utf8'));
 const prosener = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PROSENER-carga.json', 'utf8'));
 const prosenerDecree = JSON.parse(readFileSync('revision-acervo/incorporacion-planeacion-2026-09-19/PROSENER-DECRETO-carga.json', 'utf8'));
+const upac = JSON.parse(readFileSync('revision-acervo/incorporacion-dof-2026-09-30/UPAC-SGE-carga.json', 'utf8'));
+const cneModification = JSON.parse(readFileSync('revision-acervo/incorporacion-dof-2026-09-30/CNE-MOD-CARGO-TRANSMISION-carga.json', 'utf8'));
 const article2 = loaded.articulos.find(row => row.identificador === 'Artículo 2');
 const copy = value => JSON.parse(JSON.stringify(value));
 afterEach(() => { vi.unstubAllGlobals(); });
+
+it('maps the two latest agreements to their exact pages in the reviewed September 30 DOF edition', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const source = Object.values(manifest.sources).find(item => item.id === 'dof-matutina-2026-09-30-598b6f92b412');
+    expect(source).toMatchObject({
+        transport: 'remote-pdf',
+        pageCount: 344,
+        sha256: '598b6f92b41292cebf27dc3f0dce793b7d6a02477e56a3f0ca49866ce528334c',
+        originalUrl: 'https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925',
+    });
+    expect(source.instrumentIds).toEqual([upac.ley.id, cneModification.ley.id]);
+    for (const [data, firstPage, lastPage] of [[upac, 41, 45], [cneModification, 46, 48]]) {
+        const official = data.articulos.filter(article => !article.identificador.startsWith('Nota editorial'));
+        expect(official).toHaveLength(data === upac ? 22 : 6);
+        for (const article of official) {
+            const result = await getReaderSource(article.id, { articleText: article.contenido, manifest });
+            expect(result.status, article.identificador).toBe('mapped');
+            expect(result.contentVerified, article.identificador).toBe(true);
+            expect(result.source.id).toBe(source.id);
+            expect(result.pages.every(page => page.number >= firstPage && page.number <= lastPage)).toBe(true);
+            expect(result.highlights.length, article.identificador).toBeGreaterThan(0);
+            for (const pageIndex of result.pages.map((_, index) => index)) {
+                expect(resolveReaderSource(manifest, article.id, { pageIndex }).highlights.length).toBeGreaterThan(0);
+            }
+        }
+        const editorial = data.articulos.find(article => article.identificador.startsWith('Nota editorial'));
+        expect(resolveReaderSource(manifest, editorial.id).status).toBe('unmapped');
+    }
+    expect(resolveReaderSource(manifest, upac.articulos.find(article => article.identificador === 'Artículo 13').id)
+        .pages.map(page => page.number)).toEqual([44, 45]);
+    expect(resolveReaderSource(manifest, cneModification.articulos.find(article => article.identificador === 'Preámbulo del acuerdo').id)
+        .pages.map(page => page.number)).toEqual([46, 47]);
+});
 
 it('verifies all 194 LSH fragments and their multi-page anchors', async () => {
     vi.stubGlobal('crypto', webcrypto);
