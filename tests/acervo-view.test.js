@@ -33,7 +33,7 @@ describe('Acervo library view', () => {
         const dacgCard = container.querySelector('[data-law-id="saee"]');
         expect(dacgCard.querySelector('.ac-card-category').textContent).toBe('Acuerdo');
         expect(dacgCard.getAttribute('aria-label')).toContain(summaries()[3].titulo);
-        expect(dacgCard.title).toBe(summaries()[3].titulo);
+        expect(dacgCard.dataset.tip).toBe(summaries()[3].titulo);
         expect(container.querySelector('.ac-total').textContent).toBe('5 instrumentos');
         expect(container.textContent).not.toMatch(/vigente/i);
         expect(container.querySelector('img')).toBeNull();

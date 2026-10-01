@@ -19,8 +19,8 @@ export const MARQUEE_Y_SELECTOR = '.ac-library .ac-card .ac-card-title';
 const HOSTS = '.ac-card, #law-articles-list > div, .desk-card';
 const ALL = `${MARQUEE_SELECTOR}, ${MARQUEE_Y_SELECTOR}`;
 
-const SPEED_X = 60;    // px per second
-const SPEED_Y = 18;    // px per second (reading pace)
+const SPEED_X = 45;    // px per second: a comfortable reading pace
+const SPEED_Y = 15;    // px per second for multi-line blocks
 const PAUSE = 1.2;     // seconds held at each end
 
 const reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -43,8 +43,9 @@ function start(el) {
     const vertical = el.classList.contains('mqy');
     const overflow = vertical ? track.scrollHeight - el.clientHeight : track.scrollWidth - el.clientWidth;
     if (overflow <= 4) { stop(el); return; }
-    // Keyframes: 30% of the loop holds at the ends, 60% moves (there and back).
-    const total = Math.max((2 * overflow) / (vertical ? SPEED_Y : SPEED_X) / 0.6, PAUSE / 0.15);
+    // Starts moving after 0.4 s; 79% of the loop moves (there and back), the rest holds at the ends.
+    const speed = vertical ? SPEED_Y : SPEED_X;
+    const total = Math.max((2 * overflow) / speed / 0.79, PAUSE / 0.16);
     el.style.setProperty('--mq-shift', `${-overflow - (vertical ? 2 : 6)}px`);
     el.style.setProperty('--mq-dur', `${total.toFixed(2)}s`);
     el.classList.add('mq-run');

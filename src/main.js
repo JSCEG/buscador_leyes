@@ -14,6 +14,7 @@ const loadAdmin = () => (adminReady ||= Promise.all([import('./scripts/admin-ing
 import { initMarquee } from './lib/marquee.js';
 import { initPrintBrand } from './lib/print-brand.js';
 import { initConnectionBanner } from './lib/connection-banner.js';
+import { initCardTip } from './lib/card-tip.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (shouldShowIntro()) window.__introDone = playIntro();
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
   initPrintBrand();
   initConnectionBanner();
+  initCardTip();
   initAuth();
   initUI();
   initSearch();

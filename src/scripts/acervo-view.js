@@ -206,14 +206,12 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     function makeCard(law) {
         const card = element('button', 'ac-card'); card.type = 'button'; card.dataset.lawId = law.id;
         const title = law.titulo || 'Instrumento sin título';
-        card.title = title; card.setAttribute('aria-label', `Abrir ${title}`);
+        card.dataset.tip = title; card.setAttribute('aria-label', `Abrir ${title}`);
         const groupId = getAcervoGroup(law);
         card.dataset.category = groupId;
         const category = element('span', 'ac-card-category', law.tipo || ACERVO_GROUPS.find(group => group.id === groupId)?.label || 'Instrumento');
-        category.title = category.textContent;
         category.prepend(iconNode(groupId));
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
-        acronym.title = acronym.textContent;
         const cardTitle = element('span', 'ac-card-title', title);
         const readable = shortTitle(title);
         const cardName = readable ? element('span', 'ac-card-name', readable) : null;
