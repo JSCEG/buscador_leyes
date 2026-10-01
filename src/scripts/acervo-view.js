@@ -78,6 +78,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         more.addEventListener('click', () => onOpenStats());
         facts.append(more);
     }
+    const timeline = element('a', 'ac-stats-link', 'Línea del tiempo'); timeline.href = '#cronologia';
+    facts.append(timeline);
     const topics = element('div', 'ac-topics');
     const topThemes = acervoThemes(laws).slice(0, 6);
     if (topThemes.length) {

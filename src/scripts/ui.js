@@ -547,7 +547,13 @@ export function initUI() {
         }
         const explorer = explorerRoute(hash);
         const acervo = acervoRoute(hash);
-        if (hash === '#buscar') {
+        if (hash === '#cronologia') {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showTimelineView({ updateHistory: false });
+        } else if (hash === '#buscar') {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
             detailModal.classList.remove('flex');
@@ -2864,6 +2870,32 @@ export function initUI() {
             });
         });
     }
+
+    let timelineView = null;
+    let timelineRequest = 0;
+    /** General timeline (#cronologia): every instrument by date, coloured by issuing authority. */
+    function showTimelineView({ updateHistory = true } = {}) {
+        if (updateHistory) setHash('#cronologia');
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('nav-leyes');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        if (!catalogLoaded) {
+            resultsContainer.innerHTML = skeleton('list', 'Cargando la línea del tiempo');
+            return;
+        }
+        timelineView?.destroy();
+        const request = ++timelineRequest;
+        withProgress(import('./timeline-view.js')).then(({ renderTimelineView }) => {
+            if (request !== timelineRequest || location.hash !== '#cronologia') return;
+            timelineView = renderTimelineView(resultsContainer, cachedSummaries, { onOpenLaw: law => openLawDetail(law) });
+            window.scrollTo({ top: 0 });
+        });
+    }
+    // Other views and links ask for it by event or by link.
+    document.addEventListener('app:timeline', () => showTimelineView());
 
     function showAyudaView() {
         setHash(null);

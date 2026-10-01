@@ -194,7 +194,10 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
                 <h1 id="st-title">Estadísticas</h1>
                 <p class="st-intro">Qué contiene el acervo regulatorio, cómo se distribuye y cuándo se publicó.</p>
             </div>
-            <p class="st-updated">Publicación más reciente<br><strong>${formatDay(stats.latestDay, 'long')}</strong></p>
+            <div class="st-head-side">
+                <p class="st-updated">Publicación más reciente<br><strong>${formatDay(stats.latestDay, 'long')}</strong></p>
+                <a class="st-timeline-link" href="#cronologia">Ver la línea del tiempo →</a>
+            </div>
         </div>
         <div class="st-kpis">
             ${kpi('Instrumentos', number(stats.total), `${stats.groups.length} colecciones`, 'var(--st-c-leyes)')}
