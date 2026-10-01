@@ -81,6 +81,7 @@ html.dark-mode header nav a[aria-current=page]{background:#eeb0c21f;color:#eeb0c
 .sl-card>*{margin-top:0!important}
 header nav a,header nav button#nav-favorites{font-weight:600!important;letter-spacing:.08em}
 header nav a,header nav button#nav-favorites{display:inline-flex!important;align-items:center;line-height:1.2!important;border-bottom:0!important;padding:7px 12px!important}
+header nav a.hidden,header nav button.hidden{display:none!important}
 header nav.lg\:flex{gap:2px!important}
 header nav a,header nav button#nav-favorites{padding:7px 10px!important;letter-spacing:.05em!important}
 @media (max-width:1280px){header nav a{font-size:12.5px!important;padding:7px 8px!important}}

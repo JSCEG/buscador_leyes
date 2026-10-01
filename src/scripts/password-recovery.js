@@ -7,6 +7,11 @@ import { openDialog } from './site-dialogs.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const withTimeout = (promise, ms) => Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
+]);
+
 export function initPasswordRecovery() {
     const form = document.getElementById('auth-form');
     const password = document.getElementById('auth-password');
@@ -24,11 +29,18 @@ export function initPasswordRecovery() {
                 return;
             }
             msg.textContent = 'Enviando…';
+            const button = row.querySelector('#auth-forgot');
+            button.disabled = true;
             try {
-                await requestPasswordReset(email);
+                await withTimeout(requestPasswordReset(email), 25000);
                 msg.textContent = `Si ${email} tiene cuenta, te enviamos un correo para crear una contraseña nueva. Revisa también Spam.`;
             } catch (error) {
-                msg.textContent = /rate|seconds/i.test(error.message || '') ? 'Espera un minuto antes de pedir otro correo.' : 'No se pudo enviar el correo. Intenta de nuevo.';
+                const text = error.message || '';
+                msg.textContent = /rate|seconds/i.test(text) ? 'Espera un minuto antes de pedir otro correo.'
+                    : /timeout|504|sending/i.test(text) ? 'El servicio de correo no respondió. Intenta más tarde o escríbenos con «Enviar comentario».'
+                        : 'No se pudo enviar el correo. Intenta de nuevo.';
+            } finally {
+                button.disabled = false;
             }
         });
         // Only the sign-in tab needs it.

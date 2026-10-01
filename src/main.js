@@ -7,7 +7,7 @@ import { initAdminIngest } from './scripts/admin-ingest.js';
 import { initAdminManagement } from './scripts/admin-management.js';
 import { initPasswordRecovery } from './scripts/password-recovery.js';
 import { shouldShowIntro, playIntro } from './scripts/site-intro.js';
-import { initAuth } from './scripts/auth.js';
+import { initAuth, isAdmin } from './scripts/auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (shouldShowIntro()) window.__introDone = playIntro();
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavAdminBtn = document.getElementById('mobile-nav-admin');
 
   const showAdminView = () => {
+      if (!isAdmin()) return;
       document.getElementById('hero-section').classList.add('hidden');
       document.getElementById('global-search-wrapper').classList.add('hidden');
       document.getElementById('results-container').classList.add('hidden');
