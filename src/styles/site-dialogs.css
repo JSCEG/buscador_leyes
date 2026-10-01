@@ -62,3 +62,5 @@ html.dark-mode .auth-forgot-send input{background:#1d1719;border-color:#4a3a3f;c
 .auth-forgot-msg:empty{display:none}
 #site-dialog input[type=password]{padding:9px 11px;border:1px solid #e4ded5;border-radius:10px;background:#faf8f5;color:#302b27;font:400 14.5px/1.45 'Noto Sans',sans-serif}
 html.dark-mode .auth-forgot{color:#eeb0c2}
+.auth-forgot-fix{padding:0;border:0;background:none;color:#9b2247;font:700 12.5px/1.4 'Noto Sans',sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+html.dark-mode .auth-forgot-fix{color:#eeb0c2}

@@ -7,7 +7,23 @@ import { openDialog } from './site-dialogs.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const withTimeout = (promise, ms) => Promise.race([
+const escapeHtml = value => String(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+// Frequent misspellings of the big mail domains.
+const DOMAIN_TYPOS = {
+    'gmial.com': 'gmail.com', 'gmal.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gamil.com': 'gmail.com', 'gnail.com': 'gmail.com', 'gmail.con': 'gmail.com', 'gmail.co': 'gmail.com',
+    'hotmial.com': 'hotmail.com', 'hotmal.com': 'hotmail.com', 'hotmai.com': 'hotmail.com', 'hotamil.com': 'hotmail.com', 'hotmail.con': 'hotmail.com',
+    'outlok.com': 'outlook.com', 'outloo.com': 'outlook.com', 'outlook.con': 'outlook.com',
+    'yahoo.con': 'yahoo.com', 'yaho.com': 'yahoo.com',
+    'energia.gob.mz': 'energia.gob.mx', 'energia.gob.m': 'energia.gob.mx',
+};
+export function suggestDomain(email) {
+    const [user, domain = ''] = email.toLowerCase().split('@');
+    const fix = DOMAIN_TYPOS[domain];
+    return fix ? `${user}@${fix}` : null;
+}
+
+const withTimeout =(promise, ms) => Promise.race([
     promise,
     new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
 ]);
@@ -47,11 +63,27 @@ export function initPasswordRecovery() {
         const request = async () => {
             const email = input.value.trim();
             if (!EMAIL_RE.test(email)) { msg.textContent = 'Escribe un correo válido.'; input.focus(); return; }
+            const fixed = suggestDomain(email);
+            if (fixed && send.dataset.checked !== email) {
+                send.dataset.checked = email;
+                msg.innerHTML = `¿Quisiste decir <button type="button" class="auth-forgot-fix">${fixed}</button>? Si tu correo está bien, presiona «Enviar enlace» otra vez.`;
+                msg.querySelector('.auth-forgot-fix').addEventListener('click', () => { input.value = fixed; msg.textContent = ''; input.focus(); });
+                return;
+            }
             msg.textContent = 'Enviando…';
             send.disabled = true;
             try {
                 await withTimeout(requestPasswordReset(email), 25000);
-                msg.textContent = `Listo. Si ${email} tiene cuenta, te llegará un correo en unos minutos. Revisa también Spam.`;
+                document.getElementById('close-auth-modal')?.click();
+                box.hidden = true;
+                toggle.setAttribute('aria-expanded', 'false');
+                msg.textContent = '';
+                openDialog(`<header><h2 id="sd-title">Revisa tu correo</h2><button type="button" class="sd-x" data-sd-close aria-label="Cerrar">×</button></header>
+                    <div class="sd-body">
+                        <p>Si <strong>${escapeHtml(email)}</strong> tiene cuenta, en unos minutos te llegará un correo con un enlace para crear tu contraseña nueva.</p>
+                        <p class="sd-intro">El enlace vence en 1 hora y sirve una sola vez. Si no lo ves, revisa Spam o pide otro en un minuto.</p>
+                        <div class="sd-actions"><button type="button" class="sd-primary" data-sd-close>Entendido</button></div>
+                    </div>`, 'sd-title');
             } catch (error) {
                 const text = error.message || '';
                 msg.textContent = /rate|seconds/i.test(text) ? 'Espera un minuto antes de pedir otro correo.'
