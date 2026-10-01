@@ -226,3 +226,6 @@ html.dark-mode .signup-spam{background:#2f2718;border-color:#5c4a24;color:#ecdcb
 .auth-pass-hint{margin:-12px 0 16px;font-size:12px;color:#6b6460}
 .auth-pass-hint[hidden]{display:none}
 html.dark-mode .auth-pass-hint{color:#b3a89e}
+
+/* Refining a search: current results dim while the new ones load (the box stays put). */
+.sr-view.is-refreshing>:not(.sr-head){opacity:.45;transition:opacity .15s;pointer-events:none}

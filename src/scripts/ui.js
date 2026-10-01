@@ -662,6 +662,14 @@ export function initUI() {
     }
 
     function showSkeletons(count = 5) {
+        // While the search box lives inside the results header, replacing the results would
+        // remove the box being typed in (it loses focus after one letter). Dim them instead.
+        const view = resultsContainer.querySelector('.sr-view');
+        const box = document.getElementById('global-search-wrapper');
+        if (view && box && view.contains(box)) {
+            view.classList.add('is-refreshing');
+            return;
+        }
         resultsContainer.innerHTML = Array(count).fill('').map(() => `
             <div class="animate-pulse rounded-xl p-5 border border-gray-50 bg-white">
                 <div class="flex gap-2 mb-3">
