@@ -114,11 +114,12 @@ function tableShell(stats) {
 }
 
 /** "Uso del buscador": cumulative visits, visitors, searches, reads and accounts, plus 30 days of visits. */
-async function fillUsage(host) {
+async function fillUsage(host, { lawById = new Map(), onOpenLaw = () => {} } = {}) {
     let data;
+    let top = null;
     try {
-        const { fetchUsageSummary } = await import('../lib/usage.js');
-        data = await fetchUsageSummary();
+        const { fetchUsageSummary, fetchTopConsulted } = await import('../lib/usage.js');
+        [data, top] = await Promise.all([fetchUsageSummary(), fetchTopConsulted(6).catch(() => null)]);
     } catch { return; } // counters not set up yet: the section stays hidden
     if (!data || !host?.isConnected) return;
     const totals = data.totales || {};
@@ -140,8 +141,39 @@ async function fillUsage(host) {
             ${kpi('Usuarios registrados', number(Number(data.usuarios || 0)), 'Cuentas confirmadas', 'var(--st-c-convocatorias)')}
         </div>
         ${series.length ? `<div class="st-usage-chart"><p class="st-stack-label">Visitas por día · últimos 30 días</p>
-            <div class="st-usage-bars" role="img" aria-label="Visitas por día en los últimos 30 días">${bars}</div></div>` : ''}`;
+            <div class="st-usage-bars" role="img" aria-label="Visitas por día en los últimos 30 días">${bars}</div></div>` : ''}
+        ${topLists(top)}`;
     host.hidden = false;
+    host.addEventListener('click', event => {
+        const lawButton = event.target.closest('[data-top-law]');
+        if (lawButton) { const law = lawById.get(lawButton.dataset.topLaw); if (law) onOpenLaw(law); return; }
+        const articleButton = event.target.closest('[data-top-article]');
+        if (articleButton) {
+            const id = articleButton.dataset.topArticle;
+            document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id, list: [id] } }));
+        }
+    });
+}
+
+/** "Lo más consultado": the most opened laws and articles, each one clickable. */
+function topLists(top) {
+    const laws = Array.isArray(top?.leyes) ? top.leyes : [];
+    const articles = Array.isArray(top?.articulos) ? top.articulos : [];
+    if (!laws.length && !articles.length) {
+        return '<p class="st-top-empty">Aquí aparecerán las leyes y los artículos más consultados en cuanto el buscador tenga uso.</p>';
+    }
+    const list = (items, render) => items.length
+        ? `<ol class="st-top-list">${items.map((item, i) => `<li>${render(item, i)}</li>`).join('')}</ol>`
+        : '<p class="st-top-empty">Todavía sin consultas.</p>';
+    const count = value => `<span class="st-top-count">${number(Number(value) || 0)}</span>`;
+    return `<div class="st-top">
+        <div class="st-top-col"><h3>Instrumentos más consultados</h3>
+            ${list(laws, (law, i) => `<button type="button" class="st-top-item" data-top-law="${escape(law.id)}" title="${escape(law.titulo)}">
+                <span class="st-top-rank">${i + 1}</span><span class="st-top-name"><strong>${escape(law.siglas || '')}</strong>${escape(law.titulo)}</span>${count(law.total)}</button>`)}</div>
+        <div class="st-top-col"><h3>Artículos más leídos</h3>
+            ${list(articles, (art, i) => `<button type="button" class="st-top-item" data-top-article="${escape(art.id)}" title="${escape(`${art.identificador} · ${art.ley || ''}`)}">
+                <span class="st-top-rank">${i + 1}</span><span class="st-top-name"><strong>${escape(art.identificador)}</strong>${escape(art.siglas || art.ley || '')}</span>${count(art.total)}</button>`)}</div>
+    </div>`;
 }
 
 /** Statistics dashboard. Navigation stays with the app via onOpenLaw/onOpenGroup. */
@@ -184,9 +216,8 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
         </div>
         <div class="st-tip" role="tooltip" hidden></div>`;
     container.replaceChildren(root);
-    fillUsage(root.querySelector('.st-usage'));
-
     const lawById = new Map(stats.rows.map(row => [String(row.law.id), row.law]));
+    fillUsage(root.querySelector('.st-usage'), { lawById, onOpenLaw });
     const tbody = root.querySelector('tbody');
     const status = root.querySelector('.st-table-status');
     const search = root.querySelector('.st-search');

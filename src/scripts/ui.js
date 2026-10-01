@@ -28,7 +28,7 @@ import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { authError } from '../lib/auth-errors.js';
-import { trackRead, trackSearch } from '../lib/usage.js';
+import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyArt } from '../lib/empty-art.js';
@@ -1031,6 +1031,7 @@ export function initUI() {
         if (!lawDetailContainer) return;
         const request = ++lawOpenRequest;
         const originHash = location.hash;
+        trackLaw(law);
         destroyTOC(); // Remove any previous TOC before building a new one
         hideGlobalSearch(); // Single search bar: use the scoped one inside the law view
 

@@ -34,16 +34,37 @@ export function trackSearch(query) {
     count('busqueda');
 }
 
+function countItem(tipo, id) {
+    if (!enabled()) return;
+    supabase.rpc('registrar_item', { p_tipo: tipo, p_id: String(id) }).then(() => {}, () => {});
+}
+
 const readThisSession = new Set();
-/** Counts an article read once per article per session. */
+/** Counts an article read once per article per session (daily total and "most read"). */
 export function trackRead(id) {
     if (!id || readThisSession.has(String(id))) return;
     readThisSession.add(String(id));
     count('lectura');
+    countItem('articulo', id);
+}
+
+const lawsThisSession = new Set();
+/** Counts a law opened once per law per session ("most consulted"). */
+export function trackLaw(law) {
+    const id = law && typeof law === 'object' ? law.id : null;
+    if (!id || lawsThisSession.has(String(id))) return;
+    lawsThisSession.add(String(id));
+    countItem('ley', id);
 }
 
 export async function fetchUsageSummary() {
     const { data, error } = await supabase.rpc('resumen_uso');
+    if (error) throw error;
+    return data;
+}
+
+export async function fetchTopConsulted(limit = 8) {
+    const { data, error } = await supabase.rpc('top_consultados', { p_limite: limit });
     if (error) throw error;
     return data;
 }
