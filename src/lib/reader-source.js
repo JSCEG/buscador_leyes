@@ -10,14 +10,21 @@ const positive = value => Number.isFinite(value) && value > 0;
 const safeAsset = value => typeof value === 'string'
     && /^\/reader-sources\/[a-z0-9/_\-.]+$/.test(value) && !value.includes('..');
 
-const FORMATOS_COGENERACION_PDF = 'https://sidof.segob.gob.mx/notas/getNewsletter/22-05-2026/Matutina/327465';
-const FORMATOS_COGENERACION_HTML = 'https://sidof.segob.gob.mx/notas/docFuente/5788271';
+const OFFICIAL_IMAGE_SOURCES = {
+    'formatos-cogeneracion-20260522-327465': {
+        pdfUrl: 'https://sidof.segob.gob.mx/notas/getNewsletter/22-05-2026/Matutina/327465',
+        originalUrl: 'https://sidof.segob.gob.mx/notas/docFuente/5788271',
+    },
+    'formatos-saee-20260522-327465': {
+        pdfUrl: 'https://sidof.segob.gob.mx/notas/getNewsletter/22-05-2026/Matutina/327465',
+        originalUrl: 'https://sidof.segob.gob.mx/notas/docFuente/5788270',
+    },
+};
 
 function officialImageSource(source) {
-    return source?.transport === 'official-image-pages'
-        && source.id === 'formatos-cogeneracion-20260522-327465'
-        && source.pdfUrl === FORMATOS_COGENERACION_PDF
-        && source.originalUrl === FORMATOS_COGENERACION_HTML;
+    const allowed = OFFICIAL_IMAGE_SOURCES[source?.id];
+    return source?.transport === 'official-image-pages' && allowed
+        && source.pdfUrl === allowed.pdfUrl && source.originalUrl === allowed.originalUrl;
 }
 
 function officialImageUrl(source, value) {
@@ -75,7 +82,7 @@ export function resolveReaderSource(manifest, articleId, { pageIndex = 0, origin
     const officialImages = officialImageSource(source);
     const safePdf = remote
         ? /^[a-z0-9-]+$/.test(source.id) && source.pdfUrl === `/api/reader/${source.id}` && officialUrl(source.originalUrl)
-        : officialImages ? source.pdfUrl === FORMATOS_COGENERACION_PDF : safeAsset(source?.pdfUrl);
+        : officialImages ? source.pdfUrl === OFFICIAL_IMAGE_SOURCES[source.id]?.pdfUrl : safeAsset(source?.pdfUrl);
     if (!source || !sha256(source.sha256) || !sha256(article.contentSha256)
         || !safePdf || !Array.isArray(source.pages) || !source.pages.length
         || !Number.isInteger(source.pageCount) || source.pageCount !== source.pages.length
