@@ -28,6 +28,7 @@ import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { authError } from '../lib/auth-errors.js';
+import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyArt } from '../lib/empty-art.js';
 
@@ -3878,7 +3879,9 @@ export function initUI() {
             const fullName = normalizeUserName(authNameInput?.value || '');
             const email = authEmailInput.value.trim();
             const password = authPasswordInput.value;
-            if (!email || !password) return;
+            if (!email) { showAuthMsg('Escribe tu correo.'); authEmailInput.focus(); return; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showAuthMsg('Revisa el correo: no tiene un formato válido (ejemplo: nombre@dominio.com).'); authEmailInput.focus(); return; }
+            if (!password) { showAuthMsg('Escribe tu contraseña.'); authPasswordInput.focus(); return; }
             if (currentTab === 'register') {
                 const nameError = validateUserName(fullName);
                 if (nameError) {
@@ -3887,6 +3890,22 @@ export function initUI() {
                     return;
                 }
                 renderNameValidation('');
+                // Common domain typos (gmial.com…): ask once before creating the account.
+                const fixed = suggestDomain(email);
+                if (fixed && authForm.dataset.checkedEmail !== email) {
+                    authForm.dataset.checkedEmail = email;
+                    showAuthMsg(`¿Quisiste decir ${fixed}? Corrígelo o presiona «Crear cuenta» otra vez si tu correo está bien.`);
+                    const fix = document.createElement('button');
+                    fix.type = 'button'; fix.className = 'auth-resend'; fix.textContent = `Usar ${fixed}`;
+                    fix.addEventListener('click', () => { authEmailInput.value = fixed; authMsgEl.classList.add('hidden'); authPasswordInput.focus(); });
+                    authMsgEl.append(document.createElement('br'), fix);
+                    return;
+                }
+                const passwordError = password.length < 8 ? 'La contraseña debe tener al menos 8 caracteres.'
+                    : !/[A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(password) || !/\d/.test(password) ? 'La contraseña debe combinar letras y números.'
+                        : password.toLowerCase() === email.toLowerCase() || password.toLowerCase().includes(email.split('@')[0].toLowerCase()) ? 'La contraseña no debe contener tu correo.'
+                            : '';
+                if (passwordError) { showAuthMsg(passwordError); authPasswordInput.focus(); return; }
             }
 
             authSubmitBtn.disabled = true;
@@ -3909,6 +3928,16 @@ export function initUI() {
             } catch (err) {
                 const { text, notConfirmed } = authError(err);
                 showAuthMsg(text);
+                if (err?.code === 'user_already_exists') {
+                    // Shortcuts: go to sign-in with the email ready, or recover the password.
+                    const toLogin = document.createElement('button');
+                    toLogin.type = 'button'; toLogin.className = 'auth-resend'; toLogin.textContent = 'Iniciar sesión';
+                    toLogin.addEventListener('click', () => { setAuthTab('login'); authMsgEl.classList.add('hidden'); authPasswordInput.value = ''; authPasswordInput.focus(); });
+                    const toForgot = document.createElement('button');
+                    toForgot.type = 'button'; toForgot.className = 'auth-resend'; toForgot.textContent = 'Recuperar contraseña';
+                    toForgot.addEventListener('click', () => document.getElementById('auth-forgot')?.click());
+                    authMsgEl.append(document.createElement('br'), toLogin, ' ', toForgot);
+                }
                 if (notConfirmed) {
                     // Offer to send the confirmation email again from here.
                     const resend = document.createElement('button');

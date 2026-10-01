@@ -88,6 +88,13 @@ export async function register(email, password, fullName) {
         },
     });
     if (error) throw error;
+    // With email confirmation on, Supabase answers an existing address with a look-alike user that
+    // has no identities (so the address is not revealed by an error). Surface it as a real error.
+    if (data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+        const exists = new Error('User already registered');
+        exists.code = 'user_already_exists';
+        throw exists;
+    }
     return data.user;
 }
 

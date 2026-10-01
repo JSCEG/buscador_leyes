@@ -90,7 +90,18 @@ export function initPasswordRecovery() {
         password.closest('div').after(row);
         row.querySelector('#auth-forgot').addEventListener('click', () => openForgotDialog(document.getElementById('auth-email')?.value.trim() || ''));
         // Only the sign-in tab needs it.
-        const sync = () => { row.hidden = !document.getElementById('auth-name-group')?.classList.contains('hidden'); };
+        // Registering: say what a valid password looks like, and let browsers suggest a new one.
+        const hint = document.createElement('p');
+        hint.id = 'auth-pass-hint';
+        hint.className = 'auth-pass-hint';
+        hint.textContent = 'Mínimo 8 caracteres, con letras y números.';
+        row.before(hint);
+        const sync = () => {
+            const registering = !document.getElementById('auth-name-group')?.classList.contains('hidden');
+            row.hidden = registering;
+            hint.hidden = !registering;
+            password.autocomplete = registering ? 'new-password' : 'current-password';
+        };
         new MutationObserver(sync).observe(document.getElementById('auth-name-group') || form, { attributes: true, attributeFilter: ['class'] });
         sync();
     }

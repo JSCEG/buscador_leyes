@@ -223,3 +223,6 @@ html.dark-mode #account-panel .ap-field input{background:#1a1517;border-color:#4
 .signup-spam ul{margin:6px 0 0;padding-left:18px;list-style:disc}
 .signup-spam li+li{margin-top:3px}
 html.dark-mode .signup-spam{background:#2f2718;border-color:#5c4a24;color:#ecdcb8}
+.auth-pass-hint{margin:-12px 0 16px;font-size:12px;color:#6b6460}
+.auth-pass-hint[hidden]{display:none}
+html.dark-mode .auth-pass-hint{color:#b3a89e}
