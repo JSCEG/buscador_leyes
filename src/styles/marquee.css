@@ -1,0 +1,11 @@
+/* One-line titles that glide when they do not fit (see src/lib/marquee.js). */
+html .mq{display:block!important;white-space:nowrap!important;overflow:hidden!important;min-width:0;max-width:100%;-webkit-line-clamp:unset!important}
+.mq>.mq-track{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;vertical-align:top;white-space:nowrap}
+.mq.mq-run{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 22px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 22px),transparent)}
+.mq.mq-run>.mq-track{max-width:none;overflow:visible;text-overflow:clip;animation:mq-glide var(--mq-dur,8s) ease-in-out infinite;will-change:transform}
+@keyframes mq-glide{
+  0%,15%{transform:translateX(0)}
+  45%,55%{transform:translateX(var(--mq-shift,0))}
+  85%,100%{transform:translateX(0)}
+}
+@media (prefers-reduced-motion:reduce){.mq.mq-run>.mq-track{animation:none}}

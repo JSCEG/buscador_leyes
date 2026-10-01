@@ -40,7 +40,7 @@ html #law-articles-list>*{min-width:0}
 @media (max-width:640px){
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   html #main-container{padding-left:14px;padding-right:14px}
-  html #law-articles-list .lr-card-label{white-space:normal!important;font-size:16px!important;line-height:1.25;min-width:0}
+  html #law-articles-list .lr-card-label{font-size:16px!important;line-height:1.3;min-width:0}
   html #law-articles-list>div{padding:14px!important}
   html #modal-content .reader-text,html #law-articles-list .reader-preview{font-size:calc(var(--reader-font-size,18px) * .88)!important;line-height:calc(var(--reader-line-height,1.8) * .94)!important;text-align:left!important}
   html #reader-body #modal-content{padding:18px 16px}
@@ -104,5 +104,14 @@ html.dark-mode .brand-sub{color:#f2c97a}
 .lr-more-menu{z-index:40}
 
 /* Long article/section labels wrap at every width instead of running off the card. */
-html #law-articles-list .lr-card-label{white-space:normal!important;min-width:0;flex:1 1 auto;overflow-wrap:anywhere;line-height:1.25}
+html #law-articles-list .lr-card-label{min-width:0;flex:1 1 auto}
 html #law-articles-list>div>.flex:first-of-type,html #law-articles-list>div>div.flex{min-width:0;gap:10px}
+
+/* Acervo cards: nothing overlaps. Name clamps to 3 lines; the description has a fixed height and
+   scrolls on its own when longer; date and "Consultar" stay pinned at the bottom. */
+html .ac-library .ac-card{height:auto!important;min-height:236px}
+html .ac-library .ac-card .ac-card-name{display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:none}
+html .ac-library .ac-card .ac-card-title{display:block!important;-webkit-line-clamp:unset!important;flex:none!important;height:auto;max-height:4.4em!important;overflow-y:auto!important;overflow-x:hidden;overscroll-behavior:contain;padding-right:6px;scrollbar-width:thin;scrollbar-color:#c9bfb4 transparent}
+html .ac-library .ac-card .ac-card-title::-webkit-scrollbar{width:5px}
+html .ac-library .ac-card .ac-card-title::-webkit-scrollbar-thumb{background:#c9bfb4;border-radius:9px}
+html .ac-library .ac-card .ac-card-meta{margin-top:auto}
