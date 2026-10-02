@@ -85,11 +85,14 @@ export function resolutionSortKey(row) {
 }
 
 const hex = n => Array.from({ length: n }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-/** Link to the permit title PDF, built the way the registry page builds it. */
-export function permitPdfUrl(permisoId) {
-    const token = `${hex(8)}-${hex(4)}-4${hex(3)}-${permisoId}-${hex(12)}`;
-    return `${DRIVE}Drive/ObtenerPermiso/?id=${encodeURIComponent(btoa(token))}`;
-}
+// The CNE drive wraps the record id in a random GUID-like token, the way its own pages build it.
+const driveUrl = (action, id) => `${DRIVE}Drive/${action}/?id=${encodeURIComponent(btoa(`${hex(8)}-${hex(4)}-4${hex(3)}-${id}-${hex(12)}`))}`;
+
+/** Link to the permit title PDF. */
+export const permitPdfUrl = permisoId => driveUrl('ObtenerPermiso', permisoId);
+
+/** Link to a resolution PDF (same link as the CNE resolutions search). */
+export const resolutionPdfUrl = resolucionId => (resolucionId ? driveUrl('ObtenerResolucion', resolucionId) : null);
 
 /** Public link of an annex when the registry publishes one; otherwise null. */
 export function annexUrl(annex) {

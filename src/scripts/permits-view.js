@@ -3,7 +3,7 @@
  * permit's card — data and status, its resolutions in order, annexes and the acervo instruments
  * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
  */
-import { searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
+import { searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
 import '../styles/permits.css';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -169,14 +169,18 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         const resHost = body.querySelector('.pm-res');
         fetchResolutions(row.ExpedienteId).then(list => {
             if (!alive || !resHost.isConnected) return;
-            resHost.innerHTML = list.length ? `<ol class="pm-timeline">${list.map((res, i) => `
+            resHost.innerHTML = list.length ? `<ol class="pm-timeline">${list.map((res, i) => {
+                const pdf = resolutionPdfUrl(res.REsolucionId);
+                return `
                 <li class="${i === 0 ? 'is-first' : ''}">
                     <time>${esc(dateLabel(res.FechaResolucion) || 'Sin fecha')}</time>
                     <div>
                         <p class="pm-res-type">${esc(res.TipoResolucion || 'Resolución')}</p>
                         <p class="pm-res-meta"><b>${esc(res.NumeroResolucion || '')}</b>${res.Acta ? ` · Acta ${esc(res.Acta)}` : ''}${res.Modalidad ? ` · ${esc(res.Modalidad)}` : ''}</p>
+                        ${pdf ? `<a class="pm-res-pdf" href="${esc(pdf)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(res.NumeroResolucion || '')} en PDF"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>Ver resolución (PDF)</a>` : ''}
                     </div>
-                </li>`).join('')}</ol>`
+                </li>`;
+            }).join('')}</ol>`
                 : '<p class="pm-note">El registro no muestra resoluciones para este expediente.</p>';
         }).catch(() => { if (resHost.isConnected) resHost.innerHTML = failure('las resoluciones'); });
 

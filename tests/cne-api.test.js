@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, searchPermits } from '../src/lib/cne-api.js';
+import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits } from '../src/lib/cne-api.js';
 
 describe('permitKind', () => {
     it('reads sector and activity from the permit number', () => {
@@ -42,6 +42,12 @@ describe('links', () => {
     it('embeds the permit id in the PDF token', () => {
         const id = new URL(permitPdfUrl(31120)).searchParams.get('id');
         expect(atob(id)).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-31120-[0-9a-f]{12}$/);
+    });
+    it('links resolutions by their id', () => {
+        const url = new URL(resolutionPdfUrl(30179));
+        expect(url.pathname).toBe('/Drive/ObtenerResolucion/');
+        expect(atob(url.searchParams.get('id'))).toMatch(/-30179-[0-9a-f]{12}$/);
+        expect(resolutionPdfUrl(undefined)).toBeNull();
     });
 });
 

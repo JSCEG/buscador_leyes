@@ -90,6 +90,8 @@ html.dark-mode .pm-estado.is-off{color:#cfc6bf;background:#3a3335}
 .pm-res-type{margin:0;font:700 15px/1.35 'Noto Sans',sans-serif;color:var(--pm-ink)}
 .pm-res-meta{margin:3px 0 0;font-size:13px;line-height:1.45;color:var(--pm-muted);overflow-wrap:anywhere}
 .pm-res-meta b{color:var(--pm-ink);font-weight:600}
+.pm-res-pdf{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 12px;border:1px solid color-mix(in srgb,var(--pm-accent) 35%,var(--pm-border));border-radius:999px;color:var(--pm-accent);font:600 12.5px/1.2 'Noto Sans',sans-serif;text-decoration:none;transition:background .15s}
+.pm-res-pdf:hover{background:color-mix(in srgb,var(--pm-accent) 10%,transparent)}
 .pm-annexes{list-style:none;display:grid;gap:8px;margin:0;padding:0}
 .pm-annexes li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 12px;border-radius:10px;background:var(--pm-soft);font-size:14px;overflow-wrap:anywhere}
 .pm-annexes a{color:var(--pm-accent);font-weight:600;text-decoration:underline;text-underline-offset:2px}
