@@ -28,6 +28,7 @@ import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
+import { decorateDefinitions } from '../lib/definitions.js';
 import { authError } from '../lib/auth-errors.js';
 import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
@@ -3062,6 +3063,15 @@ export function initUI() {
             </div>` : ''}
             <div class="reader-text">${hl(finalHtml)}</div>
         `;
+        // Defined terms of the instrument show their official definition on hover or tap.
+        const readerText = modalContent.querySelector('.reader-text');
+        decorateDefinitions(readerText, {
+            law: cachedSummaries.find(l => String(l.id) === String(item.ley_id))
+                || (item.ley_id ? { id: item.ley_id, titulo: item.ley_origen, siglas: item.siglas_ley } : null),
+            articleId: item.id,
+            summaries: cachedSummaries,
+            isCurrent: () => readerText.isConnected,
+        }).catch(() => {});
 
         // Prev/Next navigation
         const currentIndex = currentModalList.findIndex(a => a.id === id);
@@ -3261,7 +3271,8 @@ export function initUI() {
         }
         // Notes panel — append after article content
         const existingNote = getNote(id);
-        modalContent.innerHTML += `
+        // insertAdjacentHTML keeps the article nodes (and their defined-term marks) in place.
+        modalContent.insertAdjacentHTML('beforeend', `
             <div class="mt-8 pt-6 border-t border-gray-100 ${isLoggedIn() ? '' : 'bg-gradient-to-br from-white to-guinda/5 rounded-2xl px-4 pb-4'}" id="notes-section">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs font-bold text-gray-500 flex items-center gap-1.5">
@@ -3284,7 +3295,7 @@ export function initUI() {
                 </div>
                 ${isLoggedIn() ? '' : '<p class="mt-2 text-[11px] text-gray-500">Las notas se guardan solo en tu cuenta de Supabase.</p>'}
             </div>
-        `;
+        `);
 
         // Wire notes buttons
         const noteInput = document.getElementById('article-note-input');

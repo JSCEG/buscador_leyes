@@ -1,0 +1,13 @@
+/* Defined terms in the reader (src/lib/definitions.js) */
+.def-term{text-decoration:underline dotted color-mix(in srgb,#9b2247 70%,transparent);text-decoration-thickness:1.5px;text-underline-offset:3px;cursor:help;border-radius:3px}
+.def-term:hover,.def-term[aria-expanded="true"]{background:color-mix(in srgb,#9b2247 9%,transparent)}
+.def-term:focus-visible{outline:2px solid #9b2247;outline-offset:1px}
+.def-tip{position:fixed;z-index:1000;max-height:min(60vh,360px);overflow:auto;padding:12px 14px;border:1px solid #e6dccf;border-radius:12px;background:#fffdf9;color:#2b2326;box-shadow:0 16px 40px -18px rgba(0,0,0,.45);font:400 13.5px/1.55 'Noto Sans',sans-serif;text-align:left}
+.def-tip[hidden]{display:none}
+.def-tip-head{margin:0 0 6px;font:700 11px/1.3 'Noto Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#9b2247}
+.def-tip-body{margin:0}
+html.dark-mode .def-term{text-decoration-color:#eeb0c2}
+html.dark-mode .def-term:hover,html.dark-mode .def-term[aria-expanded="true"]{background:rgba(238,176,194,.14)}
+html.dark-mode .def-tip{border-color:#3a3034;background:#211b1d;color:#f3ece4}
+html.dark-mode .def-tip-head{color:#eeb0c2}
+@media print{.def-term{text-decoration:none;background:none}.def-tip{display:none}}
