@@ -180,6 +180,25 @@ it('serves only the reviewed September 11, 2026 DOF issue PDF for CATALOGO-CONUE
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed August 17, 2026 DOF issue PDF for CEL requirements', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/17-08-2026/Matutina/329125';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cel-requisitos-2025-2026'), 'cel-requisitos-2025-2026', {
+        sources: { 'cel-requisitos-2025-2026': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('329125', '329126'), originalUrl.replace('Matutina', 'Vespertina'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('cel-requisitos-2025-2026'), 'cel-requisitos-2025-2026', {
+            sources: { 'cel-requisitos-2025-2026': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed March 18, 2025 DOF evening issue PDF for FMP/LOAPF reforms', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-03-2025/Vespertina/320062';

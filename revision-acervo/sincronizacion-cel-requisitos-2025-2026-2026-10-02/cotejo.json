@@ -1,0 +1,69 @@
+{
+  "fecha_cotejo": "2026-10-02",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/17-08-2026/Matutina/329125",
+  "fuente_texto": "https://sidof.segob.gob.mx/notas/docFuente/5796405",
+  "sha256_pdf": "46b5daef3c0bafff1716c204d6e060580ad24b8ad1361fbb21e275deec9f8472",
+  "bytes_pdf": 14817170,
+  "paginas_pdf": 520,
+  "paginas_impresas_instrumento": [
+    44,
+    45
+  ],
+  "fragmentos_oficiales_mapeados": 5,
+  "nota_editorial_sin_mapa": [
+    "e1426797-ee9e-5574-bd9f-8d56bf4b3187"
+  ],
+  "cotejo_visual": [
+    44,
+    45
+  ],
+  "comprobacion_sustantiva": "La tabla oficial fija el requisito de CEL en 13.9 % para los periodos 2025 y 2026.",
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "id": "bcb7aff8-a4f0-51db-b08e-2e96d15bf477",
+      "paginas_pdf": [
+        44,
+        45
+      ],
+      "anclas": 79,
+      "texto_cotejado_sha256": "2bc7523cd87dcf4fb93bb3a430d444f26024c6087fdff7096d6c63af7c60ee20"
+    },
+    {
+      "fragmento": "Artículo Único · Requisitos CEL 2025–2026",
+      "id": "46ff0762-99e2-5dce-ab35-5980f1d244a1",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 8,
+      "texto_cotejado_sha256": "c81f0facf50e23e0e28b8fd260c1d57c359f97578f7bbcb744e4ce3cd14fa711"
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "54cc76d6-7cde-5d71-879e-b0408356f3fc",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 2,
+      "texto_cotejado_sha256": "2a946a489451cfb526ad8f7ab903c4efa856efa9f29466b1eef4982d8d84dd45"
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "7b6f4a14-6d8a-5a62-8894-68ff3ed34f06",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 5,
+      "texto_cotejado_sha256": "8b94e2d4a268810941b7e0f21e8c448affc36fc4ac8962c3b6d63f49a8cd6709"
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "5cd25a42-e966-51f8-9fc8-f2c411cad34b",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 1,
+      "texto_cotejado_sha256": "097a5817d566f0c207920f76810e729a853102385ffc436ad432b8f3b25f78c9"
+    }
+  ]
+}
