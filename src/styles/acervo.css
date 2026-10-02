@@ -326,3 +326,21 @@ html.dark-mode .ac-library .ac-hero .ac-search-box input{background:transparent!
 .ac-spot{transition:transform .2s}
 @media (max-width:640px){.ac-library .ac-tile-icon .ac-spot{width:30px;height:30px}}
 .ac-library .ac-facts>.ac-stats-link::before{display:none}
+
+/* Horizontal scroll of each collection row: a slim branded bar instead of the system one */
+.ac-library .ac-row{--ac-bar:var(--ac-guinda)}
+/* Chrome ignores ::-webkit-scrollbar when the standard properties are set, so those go to Firefox only. */
+@supports not selector(::-webkit-scrollbar){.ac-library .ac-row{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ac-bar) 55%,transparent) transparent}.ac-library .ac-row:hover{scrollbar-color:var(--ac-bar) transparent}}
+@supports selector(::-webkit-scrollbar){.ac-library .ac-row{scrollbar-width:auto;scrollbar-color:auto}}
+.ac-library .ac-row[data-group=reglamentos],.ac-library .ac-row[data-group=dacg]{--ac-bar:var(--ac-green)}
+.ac-library .ac-row[data-group=convocatorias],.ac-library .ac-row[data-group=normas]{--ac-bar:var(--ac-gold)}
+.ac-library .ac-row::-webkit-scrollbar{height:8px}
+.ac-library .ac-row::-webkit-scrollbar-button{display:none;width:0;height:0}
+.ac-library .ac-row::-webkit-scrollbar-track{margin-inline:6px;border-radius:999px;background:color-mix(in srgb,var(--ac-border) 45%,transparent)}
+.ac-library .ac-row::-webkit-scrollbar-thumb{border:2px solid transparent;border-radius:999px;background:color-mix(in srgb,var(--ac-bar) 55%,transparent) padding-box}
+.ac-library .ac-row:hover::-webkit-scrollbar-thumb{background:var(--ac-bar) padding-box}
+.ac-library .ac-row::-webkit-scrollbar-thumb:active{background:color-mix(in srgb,var(--ac-bar) 80%,#000) padding-box}
+html.dark-mode .ac-library .ac-row::-webkit-scrollbar-track{background:rgba(255,255,255,.07)}
+html.dark-mode .ac-library .ac-row{--ac-bar:#e07a9a}
+html.dark-mode .ac-library .ac-row[data-group=reglamentos],html.dark-mode .ac-library .ac-row[data-group=dacg]{--ac-bar:#6fc2ae}
+html.dark-mode .ac-library .ac-row[data-group=convocatorias],html.dark-mode .ac-library .ac-row[data-group=normas]{--ac-bar:#e0bd6d}

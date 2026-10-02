@@ -14,9 +14,9 @@ export const MARQUEE_SELECTOR = [
     '.ac-library .ac-card.has-name .ac-card-name',
 ].join(', ');
 // Vertical: a fixed number of lines at rest.
-export const MARQUEE_Y_SELECTOR = '.ac-library .ac-card .ac-card-title';
+export const MARQUEE_Y_SELECTOR = '.ac-library .ac-card .ac-card-title, .tl-view .tl-name';
 // Hovering anywhere on these starts the glide of the texts inside them.
-const HOSTS = '.ac-card, #law-articles-list > div, .desk-card';
+const HOSTS = '.ac-card, #law-articles-list > div, .desk-card, .tl-item';
 const ALL = `${MARQUEE_SELECTOR}, ${MARQUEE_Y_SELECTOR}`;
 
 const SPEED_X = 45;    // px per second: a comfortable reading pace
@@ -34,6 +34,8 @@ function prepare(el) {
     track.className = 'mq-track';
     track.append(...el.childNodes);
     el.append(track);
+    // Clamped blocks fade their last line at rest only when there is more text to show.
+    if (el.classList.contains('mqy')) requestAnimationFrame(() => el.classList.toggle('mq-more', track.scrollHeight - el.clientHeight > 4));
     return track;
 }
 

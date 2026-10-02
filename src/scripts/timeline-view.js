@@ -86,7 +86,7 @@ export function renderTimelineView(container, summaries = [], { onOpenLaw = () =
                     <li class="tl-item" style="--dep:${item.issuer.color}">
                         <time class="tl-date" datetime="${esc(item.day)}">${esc(dayLabel(item.day))}</time>
                         <button type="button" class="tl-main" data-law="${esc(item.law.id)}">
-                            <span class="tl-name" title="${esc(item.full)}">${esc(item.name)}</span>
+                            <span class="tl-name">${esc(item.name)}</span>
                             <span class="tl-meta"><span class="tl-dep"><i></i>${esc(item.issuer.short)}</span><span>${esc(groupLabel(item.group))}</span>${item.law.siglas ? `<span class="tl-sig">${esc(item.law.siglas)}</span>` : ''}</span>
                         </button>
                         <p class="tl-desc">${esc(item.full !== item.name ? item.full : item.issuer.label)}</p>
