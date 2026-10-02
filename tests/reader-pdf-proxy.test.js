@@ -310,6 +310,30 @@ it('serves only the reviewed October 17, 2025 DOF evening issue PDF for PLADESE'
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed August 31, 2026 DOF morning issue PDF for FORMATOS-BIOCOMBUSTIBLES', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/31-08-2026/Matutina/329365';
+    const fetcher = vi.fn(async () => upstream());
+    const source = { transport: 'remote-pdf', originalUrl,
+        sha256: createHash('sha256').update(bytes).digest('hex') };
+    const response = await serveReaderPdf(request('formatos-biocombustibles'), 'formatos-biocombustibles', {
+        sources: { 'formatos-biocombustibles': source }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [
+        originalUrl.replace('329365', '329366'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'),
+        originalUrl + '?url=https://outside.test',
+    ]) {
+        expect((await serveReaderPdf(request('formatos-biocombustibles'), 'formatos-biocombustibles', {
+            sources: { 'formatos-biocombustibles': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());
