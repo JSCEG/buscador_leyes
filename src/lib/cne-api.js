@@ -46,21 +46,47 @@ const TTL = 10 * 60 * 1000;
 const TIMEOUT = 20000;
 const cache = new Map();
 
+// Some phone networks cannot reach the CNE servers, so the site asks through its own domain first
+// (server/cne-proxy.js) and goes straight to the CNE only if that fails. Tests call the CNE URLs.
+const USE_PROXY = import.meta.env?.MODE !== 'test' && typeof location !== 'undefined';
+const PROXY_ROUTES = [
+    [`${API}api/Permisos/ObtenerPermisosPaginados`, '/api/cne/permisos'],
+    [`${PUBLIC_API}api/Resoluciones/`, '/api/cne/resoluciones'],
+    [`${PUBLIC_API}api/Permisos/Anexos`, '/api/cne/anexos'],
+];
+export function proxyUrl(url) {
+    const [base, local] = PROXY_ROUTES.find(([prefix]) => url.startsWith(prefix)) || [];
+    if (!base) return null;
+    const query = url.slice(base.length);
+    return `${local}${query.startsWith('?') ? query : ''}`;
+}
+
+async function fetchJson(url, options, timeout) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(url, { ...options, signal: controller.signal });
+        if (!response.ok) throw new Error(`CNE ${response.status}`);
+        return await response.json();
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
 async function request(url, options = {}) {
     const key = `${url}|${options.body || ''}`;
     const hit = cache.get(key);
     if (hit && Date.now() - hit.at < TTL) return hit.data;
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), TIMEOUT);
+    const local = USE_PROXY ? proxyUrl(url) : null;
+    let data;
     try {
-        const response = await fetch(url, { ...options, signal: controller.signal });
-        if (!response.ok) throw new Error(`CNE ${response.status}`);
-        const data = await response.json();
-        cache.set(key, { at: Date.now(), data });
-        return data;
-    } finally {
-        clearTimeout(timer);
+        data = local ? await fetchJson(local, options, TIMEOUT + 10000) : await fetchJson(url, options, TIMEOUT);
+    } catch (error) {
+        if (!local) throw error;
+        data = await fetchJson(url, options, TIMEOUT);
     }
+    cache.set(key, { at: Date.now(), data });
+    return data;
 }
 
 const COLUMNS = ['Numero', 'Estado', 'Persona', 'AliasProyecto', 'ResolucionesAsociadas', 'AnexosAsociados'];
