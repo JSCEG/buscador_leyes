@@ -4,8 +4,9 @@
  * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
  */
 import { pinButtonHtml } from './desk-view.js';
+import { tramiteForPermit } from '../data/tramites.js';
 import { permitPinId, permitsHash, searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
-import { esc, fold, number, plural, dateLabel, skeleton, failure as failureFor, lawBySiglas, PDF_ICON } from './cne-shared.js';
+import { esc, fold, number, plural, dateLabel, skeleton, failure as failureFor, lawBySiglas, PDF_ICON, guideLinkHtml } from './cne-shared.js';
 
 const PAGE = 20;
 const failure = what => failureFor(what, REGISTRY_URL);
@@ -105,6 +106,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         if (updateRoute) onRoute(row.Numero);
         const { sector, activity } = permitKind(row.Numero);
         const laws = lawsFor(sector);
+        const guide = tramiteForPermit(row.Numero);
         status.textContent = '';
         body.innerHTML = `
             <article class="pm-detail" data-sector="${sector?.id || 'otro'}" aria-labelledby="pm-detail-title">
@@ -141,6 +143,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                     ${laws.length ? `<p class="pm-note">Normativa del acervo que regula esta actividad (orientativo, según el tipo de permiso).</p>
                     <div class="pm-laws">${laws.map(law => `<button type="button" class="pm-law" data-law="${esc(law.id)}"><b>${esc(law.siglas || '')}</b><span>${esc(law.titulo)}</span></button>`).join('')}</div>`
                     : '<p class="pm-note">No identificamos la normativa aplicable a partir del número de este permiso.</p>'}
+                    ${guide ? guideLinkHtml(guide) : ''}
                 </section>
             </article>`;
         // The card starts where the results were, below the search form.

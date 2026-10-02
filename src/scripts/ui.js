@@ -29,6 +29,7 @@ import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, rese
 import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
 import { decorateDefinitions } from '../lib/definitions.js';
+import { tramitesForLaw } from '../data/tramites.js';
 import { authError } from '../lib/auth-errors.js';
 import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
@@ -1087,6 +1088,7 @@ export function initUI() {
         const dbTitulos = dbThemes.filter(t => t.nivel === 'titulo').length;
         const chaptersCount = dbCapitulos > 0 ? dbCapitulos : chapters.length;
         const lawGroup = getAcervoGroup(law);
+        const lawGuides = tramitesForLaw(law.siglas);
         const lawGroupLabel = ACERVO_GROUPS.find(group => group.id === lawGroup)?.label || 'Instrumento';
 
         // Hide other views
@@ -1195,6 +1197,10 @@ export function initUI() {
                             <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
                             <input type="text" id="law-search-input" autocomplete="off" placeholder="Buscar dentro de ${escapeHtml(law.siglas || 'este instrumento')}…" aria-label="Buscar dentro de ${escapeHtml(law.titulo)}">
                         </div>
+                        ${lawGuides.length ? `<nav class="lr-guide-strip" aria-label="Guías de trámite que usan este instrumento">
+                            <span class="lr-guide-strip-label">Guías de trámite</span>
+                            ${lawGuides.map(guide => `<a class="lr-guide-chip" href="#tramite=${encodeURIComponent(guide.id)}">${escapeHtml(guide.title)}</a>`).join('')}
+                        </nav>` : ''}
                         <div class="reader-toolbar reader-law-toolbar">
                             <span>Lectura del instrumento</span>
                             ${readerControlsHtml()}
@@ -1226,6 +1232,11 @@ export function initUI() {
                             ${law.temas_clave && law.temas_clave.length > 0 ? law.temas_clave.map(t => `<button class="theme-tag lr-theme" data-theme="${escapeHtml(t)}">${escapeHtml(t)}</button>`).join('') : '<span class="text-xs text-gray-400">Este instrumento todavía no tiene temas registrados.</span>'}
                         </div>
                     </div>
+                    ${lawGuides.length ? `<div class="lr-card lr-guides">
+                        <h2 class="lr-card-title">Guías de trámite</h2>
+                        <p class="lr-guides-note">Trámites que regula este instrumento, con su normativa, formatos y antecedentes de la CNE.</p>
+                        <div class="lr-guides-list">${lawGuides.map(guide => `<a class="lr-guide" href="#tramite=${encodeURIComponent(guide.id)}"><span>${escapeHtml(guide.title)}</span><b aria-hidden="true">→</b></a>`).join('')}</div>
+                    </div>` : ''}
                 </div>
             </section>
         `;

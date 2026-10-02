@@ -229,3 +229,20 @@ html.dark-mode .auth-pass-hint{color:#b3a89e}
 
 /* Refining a search: current results dim while the new ones load (the box stays put). */
 .sr-view.is-refreshing>:not(.sr-head){opacity:.45;transition:opacity .15s;pointer-events:none}
+
+/* Law page: trámite guides that cite the instrument */
+.lr-guides-note{margin:0 0 10px;font-size:12.5px;line-height:1.5;color:#6b6460}
+.lr-guides-list{display:grid;gap:8px}
+.lr-guide{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #ead9dd;border-radius:10px;background:linear-gradient(120deg,#fbf3f5,#fff);color:#2b2326;font-size:13.5px;font-weight:600;line-height:1.3;text-decoration:none;transition:border-color .15s,transform .15s}
+.lr-guide:hover{border-color:#9b2247;transform:translateY(-1px)}
+.lr-guide b{margin-left:auto;color:#9b2247}
+html.dark-mode .lr-guides-note{color:#b3a89e}
+html.dark-mode .lr-guide{border-color:#3a3034;background:linear-gradient(120deg,#2a2124,#211b1d);color:#f3ece4}
+html.dark-mode .lr-guide b{color:#eeb0c2}
+.lr-guide-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0 0 12px}
+.lr-guide-strip-label{font:700 10.5px/1.2 'Noto Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9b2247}
+.lr-guide-chip{padding:5px 11px;border:1px solid #ead9dd;border-radius:999px;background:#fbf3f5;color:#7d1b39;font-size:12.5px;font-weight:600;line-height:1.25;text-decoration:none;transition:background .15s,border-color .15s}
+.lr-guide-chip:hover{border-color:#9b2247;background:#f6e5ea}
+html.dark-mode .lr-guide-strip-label{color:#eeb0c2}
+html.dark-mode .lr-guide-chip{border-color:#4a3a3f;background:#2a2124;color:#f3d3dc}
+html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}

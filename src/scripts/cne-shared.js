@@ -38,3 +38,10 @@ export function lawByCitedName(summaries, name) {
 }
 
 export const PDF_ICON = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>';
+
+const GUIDE_ICON = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M9 8h6M9 12h4"/></svg>';
+
+/** Call to action that opens a trámite guide (#tramite=<id>). */
+export function guideLinkHtml(guide, label = 'Guía de trámite') {
+    return `<a class="pm-guide-link" href="#tramite=${encodeURIComponent(guide.id)}">${GUIDE_ICON}<span><small>${esc(label)}</small>${esc(guide.title)}</span><b aria-hidden="true">→</b></a>`;
+}

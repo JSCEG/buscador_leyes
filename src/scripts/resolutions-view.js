@@ -7,7 +7,8 @@ import {
     searchResolutions, fetchResolution, resolutionPdfUrl, parseFoundation, permitNumbersIn, permitsHash, RESOLUTIONS_URL,
 } from '../lib/cne-api.js';
 import { getArticleIdsByNumber } from './search-engine.js';
-import { esc, number, plural, dateLabel, skeleton, failure as failureFor, lawByCitedName, PDF_ICON } from './cne-shared.js';
+import { esc, number, plural, dateLabel, skeleton, failure as failureFor, lawByCitedName, PDF_ICON, guideLinkHtml } from './cne-shared.js';
+import { tramiteForResolution } from '../data/tramites.js';
 
 const PAGE = 20;
 const failure = what => failureFor(what, RESOLUTIONS_URL);
@@ -133,6 +134,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
     function showResolution(row, { updateRoute = true } = {}) {
         if (updateRoute) onRoute(row.NumeroResolucion);
         const permits = permitNumbersIn(row.Proemio);
+        const guide = tramiteForResolution(row);
         const pdf = resolutionPdfUrl(row.ResolucionId);
         status.textContent = '';
         body.innerHTML = `
@@ -160,6 +162,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
                     <h3 id="pm-res-found">Fundamento legal</h3>
                     <p class="pm-note">Artículos que cita la resolución. Los que están en el acervo se pueden abrir.</p>
                     <div class="pm-found-host">${foundationHtml(row.Fundamentacion || '')}</div>
+                    ${guide ? guideLinkHtml(guide, 'Guía de este tipo de trámite') : ''}
                 </section>
             </article>`;
         body.scrollIntoView({ behavior: 'smooth', block: 'start' });

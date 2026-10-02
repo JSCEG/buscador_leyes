@@ -136,3 +136,41 @@ export const TRAMITES = [
 ];
 
 export const tramiteById = id => TRAMITES.find(tramite => tramite.id === id) || null;
+
+const fold = value => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+/** Guides that cite an instrument (by acronym), in catalogue order. */
+export function tramitesForLaw(siglas) {
+    const wanted = fold(siglas);
+    if (!wanted) return [];
+    return TRAMITES.filter(t => [...t.base, ...t.rules, ...t.forms, ...t.calls].some(s => fold(s) === wanted));
+}
+
+/** Guide for a permit number: its sector and, for electricity, its activity code. */
+export function tramiteForPermit(numero) {
+    const parts = String(numero || '').toUpperCase().replace(/^CNE\//, '').split('/');
+    const codes = parts.slice(2);
+    if (parts[0] === 'PL') return tramiteById('petroliferos');
+    if (parts[0] === 'LP') return tramiteById('gaslp');
+    if (parts[0] === 'G') return tramiteById('gasnatural');
+    if (parts[0] !== 'E') return null;
+    if (codes.includes('COG')) return tramiteById('cogeneracion');
+    // Self-supply permits of the previous regime migrate to the current figures.
+    if (codes.some(code => code === 'AUT' || code === 'AUTC')) return tramiteById('migracion');
+    if (codes.some(code => code === 'ALM' || code === 'SAE')) return tramiteById('almacenamiento');
+    return tramiteById('generacion');
+}
+
+/** Guide for a CNE resolution, from its modality and proemio. */
+export function tramiteForResolution(row = {}) {
+    const text = fold(`${row.ModalidadResolucion || ''} ${row.Proemio || ''}`);
+    if (/migracion/.test(text) && /autoabastecimiento|cogeneracion/.test(text)) return tramiteById('migracion');
+    if (/autoconsumo/.test(text)) return tramiteById('autoconsumo');
+    if (/cogeneracion/.test(text)) return tramiteById('cogeneracion');
+    if (/almacenamiento de energia electrica/.test(text)) return tramiteById('almacenamiento');
+    if (/gas licuado/.test(text)) return tramiteById('gaslp');
+    if (/gas natural/.test(text)) return tramiteById('gasnatural');
+    if (/petrol/.test(text)) return tramiteById('petroliferos');
+    if (/electric|generacion/.test(text)) return tramiteById('generacion');
+    return null;
+}
