@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits } from '../src/lib/cne-api.js';
+import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, fetchPermit } from '../src/lib/cne-api.js';
 
 describe('permitKind', () => {
     it('reads sector and activity from the permit number', () => {
@@ -64,5 +64,19 @@ describe('searchPermits', () => {
         expect(parameters.columns.find(c => c.data === 'Numero').search.value).toBe('E/1439');
         expect(parameters.columns.find(c => c.data === 'Persona').search.value).toBe('pemex');
         expect(parameters.columns.find(c => c.data === 'Estado').search.value).toBe('');
+    });
+});
+
+describe('permits on a desk', () => {
+    afterEach(() => vi.unstubAllGlobals());
+    it('round-trips the pin id', () => {
+        expect(permitPinId('CNE/E/1439/GEN/2015')).toBe('cne:CNE/E/1439/GEN/2015');
+        expect(permitFromPinId('cne:CNE/E/1439/GEN/2015')).toBe('CNE/E/1439/GEN/2015');
+        expect(permitFromPinId('12345')).toBeNull();
+    });
+    it('finds the exact permit among partial matches', async () => {
+        const rows = [{ Numero: 'CNE/E/1439/GEN/2015-A' }, { Numero: 'CNE/E/1439/GEN/2015' }];
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ recordsFiltered: 2, data: rows }) }));
+        expect(await fetchPermit('cne/e/1439/gen/2015')).toEqual(rows[1]);
     });
 });

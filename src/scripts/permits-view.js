@@ -3,7 +3,8 @@
  * permit's card — data and status, its resolutions in order, annexes and the acervo instruments
  * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
  */
-import { searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
+import { pinButtonHtml } from './desk-view.js';
+import { permitPinId, searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
 import '../styles/permits.css';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -77,7 +78,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                     ${row.AnexosAsociados ? `<span>${plural(row.AnexosAsociados, 'anexo', 'anexos')}</span>` : ''}
                 </span>
             </button>
-            <a class="pm-card-pdf" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener" aria-label="Título de permiso ${esc(row.Numero)} en PDF" title="Título de permiso (PDF)">PDF</a></li>`;
+            <span class="pm-card-tools">${pinButtonHtml(permitPinId(row.Numero), { compact: true })}<a class="pm-card-pdf" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener" aria-label="Título de permiso ${esc(row.Numero)} en PDF" title="Título de permiso (PDF)">PDF</a></span></li>`;
     }
 
     function drawList() {
@@ -138,6 +139,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                     ${row.AliasProyecto ? `<p class="pm-alias">${esc(row.AliasProyecto)}</p>` : ''}
                     <div class="pm-actions">
                         <a class="pm-btn pm-btn-primary" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener">Ver título de permiso (PDF)</a>
+                        ${pinButtonHtml(permitPinId(row.Numero))}
                         <button type="button" class="pm-btn pm-share">Copiar enlace</button>
                     </div>
                 </div>

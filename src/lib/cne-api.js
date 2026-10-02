@@ -17,6 +17,11 @@ export function permitsRoute(hash = '') {
     try { return { permit: decodeURIComponent(m[1]) }; } catch { return null; }
 }
 
+/** Permits pinned to a desk are stored among article ids as 'cne:<permit number>'. */
+const PIN_PREFIX = 'cne:';
+export const permitPinId = numero => `${PIN_PREFIX}${numero}`;
+export const permitFromPinId = id => (String(id).startsWith(PIN_PREFIX) ? String(id).slice(PIN_PREFIX.length) : null);
+
 const TTL = 10 * 60 * 1000;
 const TIMEOUT = 20000;
 const cache = new Map();
@@ -63,6 +68,13 @@ export async function searchPermits({ numero = '', titular = '', proyecto = '', 
         body,
     });
     return { total: Number(data?.recordsFiltered) || 0, rows: Array.isArray(data?.data) ? data.data : [] };
+}
+
+/** The registry row of one permit by its exact number, or null when it is not in the registry. */
+export async function fetchPermit(numero) {
+    const { rows } = await searchPermits({ numero, length: 10 });
+    const wanted = String(numero).trim().toUpperCase();
+    return rows.find(row => String(row.Numero).trim().toUpperCase() === wanted) || null;
 }
 
 /** Resolutions of a permit's file (expediente), oldest first. */

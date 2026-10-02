@@ -5,6 +5,9 @@ html.dark-mode{--dk-paper:#1e1c1a;--dk-card:#282522;--dk-ink:#f4efe7;--dk-muted:
 [data-category=reglamentos],[data-category=dacg]{--dk-dot:var(--dk-green)}
 [data-category=convocatorias],[data-category=normas]{--dk-dot:var(--dk-gold)}
 [data-category=otros]{--dk-dot:var(--dk-faint)}
+[data-category=permisos]{--dk-dot:var(--dk-green)}
+.desk-permit .desk-check{width:17px}
+.desk-permit .desk-text b{font-weight:600}
 
 /* Pin buttons (lists, law reader, article reader) */
 .pin-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border:1px solid var(--dk-border);border-radius:999px;background:transparent;color:var(--dk-muted);font:600 12.5px/1 'Noto Sans',sans-serif;cursor:pointer;transition:color .15s,border-color .15s,background-color .15s}

@@ -12,6 +12,7 @@ import { articleHtml } from '../lib/article-html.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { getAcervoGroup } from '../lib/acervo-model.js';
 import { withProgress } from '../lib/nav-progress.js';
+import { fetchPermit, permitFromPinId, permitKind, permitPdfUrl } from '../lib/cne-api.js';
 import '../styles/desk.css';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -22,6 +23,7 @@ const DESK_ICON = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 2
 
 /** Pin button markup for any list or reader. */
 export function pinButtonHtml(id, { compact = false } = {}) {
+    // Permits and articles share the desk; the button reads the same for both.
     const pinned = isPinned(id);
     return `<button type="button" class="pin-btn${compact ? ' pin-compact' : ''}${pinned ? ' is-pinned' : ''}" data-pin-article="${esc(id)}" aria-pressed="${pinned}" title="${pinned ? 'Quitar de mi mesa' : 'Fijar en mi mesa de consulta'}">${PIN_ICON}<span class="pin-label">${pinned ? 'En mi mesa' : 'Fijar'}</span></button>`;
 }
@@ -93,7 +95,7 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         <ol class="desk-list"></ol>
         <div class="desk-empty">
             ${emptyArt('desk')}<p><strong>Esta mesa está vacía.</strong></p>
-            <p>Usa el botón <span class="desk-inline-pin">${PIN_ICON} Fijar</span> en un artículo para tenerlo a la mano mientras sigues consultando. Caben hasta ${DESK_LIMIT}.</p>
+            <p>Usa el botón <span class="desk-inline-pin">${PIN_ICON} Fijar</span> en un artículo o en un permiso de la CNE para tenerlo a la mano mientras sigues consultando. Caben hasta ${DESK_LIMIT}.</p>
         </div>
         <p class="desk-status"></p>`;
 
@@ -113,15 +115,21 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
 
     function sideIds() {
         const desk = getDesk();
-        const chosen = desk.filter(id => selected.has(id));
-        return (chosen.length >= 2 ? chosen : desk).slice(0, SIDE_BY_SIDE_LIMIT);
+        const chosen = desk.filter(id => selected.has(id) && !permitFromPinId(id));
+        return (chosen.length >= 2 ? chosen : desk.filter(id => !permitFromPinId(id))).slice(0, SIDE_BY_SIDE_LIMIT);
     }
+
+    // Pinned CNE permits are read from the registry; a failed lookup is retried next time.
+    const loadPermits = ids => Promise.all(ids.map(id => fetchPermit(permitFromPinId(id))
+        .then(row => ({ id, permit: true, row }), () => null)));
 
     async function ensureLoaded() {
         const missing = getDesk().filter(id => !cache.has(id));
         if (!missing.length) return;
-        loading ||= withProgress(loadArticles(missing))
-            .then(items => { for (const item of items) cache.set(item.id, item); })
+        const permits = missing.filter(id => permitFromPinId(id));
+        const articles = missing.filter(id => !permitFromPinId(id));
+        loading ||= withProgress(Promise.all([articles.length ? loadArticles(articles) : [], loadPermits(permits)]))
+            .then(([items, rows]) => { for (const item of [...items, ...rows].filter(Boolean)) cache.set(item.id, item); })
             .catch(() => notify('No se pudieron cargar los artículos de tu mesa.', '!'))
             .finally(() => { loading = null; });
         await loading;
@@ -133,11 +141,47 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         toggle.classList.toggle('is-empty', count === 0);
         const name = getActiveDesk().name;
         toggle.innerHTML = `${DESK_ICON}<span class="desk-toggle-label">${esc(name)}</span><span class="desk-badge">${count}</span>`;
-        toggle.setAttribute('aria-label', `Mesa de consulta «${name}», ${count} ${count === 1 ? 'artículo' : 'artículos'}`);
+        toggle.setAttribute('aria-label', `Mesa de consulta «${name}», ${count} ${count === 1 ? 'elemento fijado' : 'elementos fijados'}`);
         toggle.setAttribute('aria-expanded', String(open));
     }
 
+    function permitCard(id, index, total, others) {
+        const numero = permitFromPinId(id);
+        const item = itemFor(id);
+        const row = item?.row;
+        const { sector, activity } = permitKind(numero);
+        const isOpen = expanded.has(id);
+        const status = !item ? 'No se pudo consultar el registro de la CNE; se intentará de nuevo.' : !row ? 'Ya no aparece en el registro de la CNE.' : '';
+        return `<li class="desk-card desk-permit${isOpen ? ' is-open' : ''}" data-id="${esc(id)}" data-category="permisos">
+            <div class="desk-card-head">
+                <span class="desk-check" aria-hidden="true"></span>
+                <div class="desk-card-meta">
+                    <p class="desk-card-law">Permiso CNE${sector ? ` · ${esc(sector.label)}` : ''}</p>
+                    <h3>${esc(numero)}</h3>
+                    <p class="desk-card-source" title="${esc(row?.Persona || '')}">${esc(row?.Persona || status)}</p>
+                </div>
+                <div class="desk-card-actions">
+                    <button type="button" class="desk-icon-btn" data-desk-move="-1" data-id="${esc(id)}" aria-label="Subir" ${index === 0 ? 'disabled' : ''}>↑</button>
+                    <button type="button" class="desk-icon-btn" data-desk-move="1" data-id="${esc(id)}" aria-label="Bajar" ${index === total - 1 ? 'disabled' : ''}>↓</button>
+                    <button type="button" class="desk-icon-btn" data-desk-remove="${esc(id)}" aria-label="Quitar el permiso ${esc(numero)} de la mesa">×</button>
+                </div>
+            </div>
+            ${row ? `<div class="desk-text" id="desk-text-${esc(id)}">
+                <p><b>Estado:</b> ${esc(row.Estado || '—')}${activity ? ` · <b>Actividad:</b> ${esc(activity)}` : ''}</p>
+                ${row.AliasProyecto ? `<p><b>Proyecto:</b> ${esc(row.AliasProyecto)}</p>` : ''}
+                <p><b>Expediente:</b> ${esc(row.NumeroExpediente || '—')} · <b>Resoluciones:</b> ${Number(row.ResolucionesAsociadas || 0)} · <b>Anexos:</b> ${Number(row.AnexosAsociados || 0)}</p>
+            </div>` : ''}
+            <div class="desk-card-foot">
+                ${row ? `<button type="button" class="desk-link" data-desk-expand="${esc(id)}" aria-expanded="${isOpen}" aria-controls="desk-text-${esc(id)}">${isOpen ? 'Contraer' : 'Ver completo'}</button>` : ''}
+                ${others.length ? `<select class="desk-copy" data-desk-copy="${esc(id)}" aria-label="Copiar el permiso ${esc(numero)} a otra mesa"><option value="">Copiar a…</option>${others.map(d => `<option value="${esc(d.id)}">${esc(d.name)}</option>`).join('')}</select>` : ''}
+                ${row ? `<a class="desk-link" href="${esc(permitPdfUrl(row.PermisoId))}" target="_blank" rel="noopener">Título (PDF)</a>` : ''}
+                <button type="button" class="desk-link" data-desk-open-permit="${esc(numero)}">Abrir ficha</button>
+            </div>
+        </li>`;
+    }
+
     function card(id, index, total, others = []) {
+        if (permitFromPinId(id)) return permitCard(id, index, total, others);
         const item = itemFor(id);
         if (!item) {
             return `<li class="desk-card is-missing" data-id="${esc(id)}"><div class="desk-card-head"><div class="desk-card-meta"><h3>Artículo no disponible</h3><p>Ya no está en el acervo.</p></div>
@@ -181,11 +225,11 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         select.innerHTML = desks.map(d => `<option value="${esc(d.id)}"${d.id === active.id ? ' selected' : ''}>${esc(d.name)} (${d.ids.length})</option>`).join('');
         panel.querySelector('[data-desk-new]').disabled = desks.length >= DESKS_LIMIT;
         panel.querySelector('[data-desk-duplicate]').disabled = desks.length >= DESKS_LIMIT;
-        panel.querySelector('.desk-count').textContent = `${ids.length} de ${DESK_LIMIT} artículos · ${desks.length} ${desks.length === 1 ? 'mesa' : 'mesas'}`;
+        panel.querySelector('.desk-count').textContent = `${ids.length} de ${DESK_LIMIT} fijados · ${desks.length} ${desks.length === 1 ? 'mesa' : 'mesas'}`;
         panel.querySelector('.desk-empty').hidden = ids.length > 0;
         panel.querySelector('.desk-tools').hidden = ids.length === 0;
         const sideButton = panel.querySelector('[data-desk-side]');
-        sideButton.disabled = ids.length < 2;
+        sideButton.disabled = ids.filter(id => !permitFromPinId(id)).length < 2;
         sideButton.textContent = selected.size >= 2 ? `Ver lado a lado (${selected.size})` : 'Ver lado a lado';
         panel.querySelector('.desk-hint').textContent = ids.length >= 2
             ? (selected.size >= 2 ? '' : `Marca de 2 a ${SIDE_BY_SIDE_LIMIT} artículos para verlos lado a lado; si no marcas, se muestran los primeros ${SIDE_BY_SIDE_LIMIT}.`)
@@ -365,8 +409,11 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
             li.classList.toggle('is-open', expanded.has(id));
             target.textContent = expanded.has(id) ? 'Contraer' : 'Ver completo';
             target.setAttribute('aria-expanded', String(expanded.has(id)));
+        } else if (target.matches('[data-desk-open-permit]')) {
+            setOpen(false, { focus: false });
+            location.hash = `#permiso=${encodeURIComponent(target.dataset.deskOpenPermit)}`;
         } else if (target.matches('[data-desk-open]')) {
-            onOpenArticle(target.dataset.deskOpen, getDesk().map(id => cache.get(id)).filter(Boolean));
+            onOpenArticle(target.dataset.deskOpen, getDesk().map(id => cache.get(id)).filter(item => item && !item.permit));
         } else if (target.matches('[data-desk-side]')) {
             openSide();
         } else if (target.matches('[data-desk-share]')) {
