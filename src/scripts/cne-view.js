@@ -6,6 +6,7 @@
 import { renderPermitsView } from './permits-view.js';
 import { renderResolutionsView } from './resolutions-view.js';
 import { renderPanoramaView } from './cne-panorama-view.js';
+import { renderTramitesView } from './tramites-view.js';
 import { permitsHash } from '../lib/cne-api.js';
 import '../styles/permits.css';
 
@@ -23,6 +24,7 @@ const TABS = [
     { id: 'permisos', label: 'Permisos', intro: 'Consulta un permiso, su estado, las resoluciones que lo otorgan o modifican y sus anexos, junto con la normativa del acervo que lo regula.' },
     { id: 'resoluciones', label: 'Resoluciones', intro: 'Busca entre las resoluciones de la CNE por número, texto, año, tipo o modalidad, y abre el fundamento legal de cada una en el acervo.' },
     { id: 'panorama', label: 'Panorama', intro: 'Lo que la CNE ha resuelto: cifras por año, por tipo y por modalidad, y lo más reciente.' },
+    { id: 'tramites', label: 'Trámites', intro: 'Guías por tipo de permiso: la normativa que lo regula, sus formatos y convocatorias, los artículos clave y las resoluciones recientes de la CNE.' },
 ];
 
 /**
@@ -73,6 +75,8 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
                 resolution: next.resolution || null,
                 onRoute: number => setHash(permitsHash({ tab, resolution: number })),
             });
+        } else if (tab === 'tramites') {
+            current = renderTramitesView(host, catalog, { tramite: next.tramite || null, onOpenLaw });
         } else if (tab === 'panorama') {
             current = renderPanoramaView(host);
         } else {
@@ -89,6 +93,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         if (tab !== currentTab) { open(tab, next); return; }
         if (tab === 'permisos') { if (next.permit) current.openPermit(next.permit); else current.showList(); }
         else if (tab === 'resoluciones') { if (next.resolution) current.openResolution(next.resolution); else current.showList(); }
+        else if (tab === 'tramites') { if (next.tramite) current.openTramite(next.tramite); else current.showList(); }
     }
 
     go(route);

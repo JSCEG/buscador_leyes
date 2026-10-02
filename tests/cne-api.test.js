@@ -24,10 +24,12 @@ describe('permitsRoute', () => {
         expect(permitsRoute('#resoluciones')).toEqual({ tab: 'resoluciones' });
         expect(permitsRoute('#resolucion=CNE%2FRES%2F062%2F2026')).toEqual({ tab: 'resoluciones', resolution: 'CNE/RES/062/2026' });
         expect(permitsRoute('#panorama-cne')).toEqual({ tab: 'panorama' });
+        expect(permitsRoute('#tramites')).toEqual({ tab: 'tramites' });
+        expect(permitsRoute('#tramite=generacion')).toEqual({ tab: 'tramites', tramite: 'generacion' });
         expect(permitsRoute('#cronologia')).toBeNull();
     });
     it('builds the hash back', () => {
-        for (const hash of ['#permisos', '#resoluciones', '#panorama-cne', '#permiso=CNE%2FE%2F1439%2FGEN%2F2015', '#resolucion=CNE%2FRES%2F062%2F2026']) {
+        for (const hash of ['#permisos', '#resoluciones', '#panorama-cne', '#tramites', '#tramite=gaslp', '#permiso=CNE%2FE%2F1439%2FGEN%2F2015', '#resolucion=CNE%2FRES%2F062%2F2026']) {
             expect(permitsHash(permitsRoute(hash))).toBe(hash);
         }
     });

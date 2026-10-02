@@ -12,25 +12,29 @@ export const REGISTRY_URL = 'https://www.cne.gob.mx/Permisos/';
 export const RESOLUTIONS_URL = 'https://www.cne.gob.mx/Resoluciones/';
 
 /**
- * Route of the CNE section: { tab, permit?, resolution? } for #permisos, #permiso=<number>,
- * #resoluciones, #resolucion=<number> and #panorama-cne; otherwise null.
+ * Route of the CNE section: { tab, permit?, resolution?, tramite? } for #permisos, #permiso=<number>,
+ * #resoluciones, #resolucion=<number>, #panorama-cne, #tramites and #tramite=<id>; otherwise null.
  */
 export function permitsRoute(hash = '') {
     if (hash === '#permisos') return { tab: 'permisos' };
     if (hash === '#resoluciones') return { tab: 'resoluciones' };
     if (hash === '#panorama-cne') return { tab: 'panorama' };
-    const m = /^#(permiso|resolucion)=(.+)$/.exec(hash);
+    if (hash === '#tramites') return { tab: 'tramites' };
+    const m = /^#(permiso|resolucion|tramite)=(.+)$/.exec(hash);
     if (!m) return null;
     let value;
     try { value = decodeURIComponent(m[2]); } catch { return null; }
-    return m[1] === 'permiso' ? { tab: 'permisos', permit: value } : { tab: 'resoluciones', resolution: value };
+    if (m[1] === 'permiso') return { tab: 'permisos', permit: value };
+    if (m[1] === 'tramite') return { tab: 'tramites', tramite: value };
+    return { tab: 'resoluciones', resolution: value };
 }
 
 /** Hash of a CNE route (inverse of permitsRoute). */
-export function permitsHash({ tab = 'permisos', permit = null, resolution = null } = {}) {
+export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null } = {}) {
     if (permit) return `#permiso=${encodeURIComponent(permit)}`;
     if (resolution) return `#resolucion=${encodeURIComponent(resolution)}`;
-    return tab === 'resoluciones' ? '#resoluciones' : tab === 'panorama' ? '#panorama-cne' : '#permisos';
+    if (tramite) return `#tramite=${encodeURIComponent(tramite)}`;
+    return { resoluciones: '#resoluciones', panorama: '#panorama-cne', tramites: '#tramites' }[tab] || '#permisos';
 }
 
 /** Permits pinned to a desk are stored among article ids as 'cne:<permit number>'. */

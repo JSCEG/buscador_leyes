@@ -224,3 +224,22 @@ html.dark-mode .pn-bar{background:#6fc2ae}
 @keyframes pm-ring-idle{0%{opacity:.85;transform:scale(1)}20%,100%{opacity:0;transform:scale(1.25,1.7)}}
 @keyframes pm-nudge{0%,100%{transform:none}30%{transform:scale(1.2)}60%{transform:scale(.95)}}
 @media (prefers-reduced-motion:reduce){.pm-tab.is-new::before,.pm-tab.is-new::after,.pm-tab.is-new .pm-tab-new{animation:none}}
+
+/* Trámites */
+.tr-disclaimer{margin:4px 0 14px}
+.tr-sector{margin-bottom:18px}
+.tr-sector-title{margin:0 0 10px;font:700 19px/1.2 Patria,Georgia,serif;color:var(--pm-ink)}
+a.pm-card.tr-card{text-decoration:none}
+.tr-card .pm-holder{font-size:17px}
+.tr-skel{display:grid;gap:10px;padding:6px 0;min-height:0}
+.tr-article-list{list-style:none;display:grid;gap:8px;margin:0;padding:0}
+.tr-article{display:grid;gap:4px;width:100%;padding:12px 14px;border:1px solid var(--pm-border);border-radius:12px;background:var(--pm-card);color:var(--pm-ink);text-align:left;cursor:pointer;transition:border-color .15s}
+.tr-article:hover{border-color:var(--pm-accent)}
+.tr-article-top{font-size:14px;font-weight:600}
+.tr-article-top b{margin-right:4px;color:var(--pm-accent);letter-spacing:.04em}
+.tr-article-text{font-size:13px;line-height:1.5;color:var(--pm-muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tr-res-total{margin:10px 0 0}
+a.pm-back{display:inline-block;text-decoration:none}
+#pm-tab-tramites.is-new::before{animation-delay:2s,8s}
+#pm-tab-tramites.is-new::after{animation-delay:2.4s}
+#pm-tab-tramites.is-new .pm-tab-new{animation-delay:2s}

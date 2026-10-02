@@ -27,7 +27,7 @@ const FAQ = [
     ['¿Qué es una “Guía” dentro de un documento?', 'Es una nota que agregamos para ayudarte a ubicarte: qué versiones existen, qué documentos van juntos o qué abarca la publicación. No es parte del texto oficial.'],
     ['¿El texto es oficial?', 'Los textos vienen de las publicaciones oficiales (principalmente el DOF). Para cualquier uso legal, revisa siempre el documento original con el botón <b>Fuente oficial</b>; en muchos artículos también puedes ver la página del PDF.'],
     ['¿Puedo descargar o imprimir?', 'Sí. Dentro de cada documento, en <b>Más</b>, puedes imprimir o guardar en PDF y abrir la presentación, que se descarga en PDF o PowerPoint con una cuenta. En Guardados puedes descargar tus artículos con tus notas como documento para imprimir.'],
-    ['¿Puedo consultar permisos de la CNE?', 'Sí. En <b>Permisos</b> buscas por número, titular o proyecto en el Registro Público de la Comisión Nacional de Energía. La ficha muestra el estado del permiso, el título y cada resolución en PDF, sus anexos y la normativa del acervo que lo regula. Los datos se consultan en vivo en el registro de la CNE.'],
+    ['¿Puedo consultar permisos de la CNE?', 'Sí. En <b>Permisos</b> buscas por número, titular o proyecto en el Registro Público de la Comisión Nacional de Energía. La ficha muestra el estado del permiso, el título y cada resolución en PDF, sus anexos y la normativa del acervo que lo regula. Además puedes buscar resoluciones con su fundamento legal, ver el panorama de lo que ha resuelto la CNE y consultar guías de trámite por tipo de permiso. Los datos se consultan en vivo en el registro de la CNE.'],
     ['¿Necesito una cuenta?', 'No para leer ni buscar. Solo para guardar artículos y escribir notas.'],
 ];
 
