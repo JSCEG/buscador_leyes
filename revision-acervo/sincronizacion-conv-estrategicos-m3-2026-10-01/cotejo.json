@@ -1,0 +1,52 @@
+{
+  "instrumento": "CONV-ESTRATEGICOS-M3",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/02-09-2026/Matutina/329425",
+  "archivo": "revision-acervo\\incorporacion-convocatorias-2026-09-17\\fuentes\\CONV-ESTRATEGICOS-M3-edicion.pdf",
+  "sha256": "60b82ab476150ec4bf99072bafb345914e5a6407c1953c61cdfd57105c58da5c",
+  "bytes": 7593657,
+  "paginasPdf": 488,
+  "paginaImpresaMapeada": 20,
+  "fragmentosOficiales": 4,
+  "anclasGeometricas": 48,
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "id": "159d80ed-9451-5237-b72e-3ee8fac96b19",
+      "paginas": [
+        20
+      ],
+      "anclas": 30,
+      "prefijoCotejado": "acuerdoporelqueseemitelaterceramodificacionalaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculantealmargenunselloconelescudonacionalquediceestados"
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO",
+      "id": "6ee5efd4-df11-5569-9595-5242e6424685",
+      "paginas": [
+        20
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "primerosemodificalaetapa2delnumeral171delaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculanteparaquedarcomosigue171nodeetapaalcancefechasplazosdi"
+    },
+    {
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "id": "d9dbb611-d9b3-5c0d-a9ad-062065aa6e72",
+      "paginas": [
+        20
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosunicoelpresenteacuerdoentraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "fragmento": "Firma del acuerdo",
+      "id": "a8ed3f99-725b-5c01-845a-65ca7cf3e66a",
+      "paginas": [
+        20
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa31deagostode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ],
+  "notaEditorialExcluida": [
+    "48ecb9f4-d1cc-59eb-a074-36b02a68f326"
+  ]
+}

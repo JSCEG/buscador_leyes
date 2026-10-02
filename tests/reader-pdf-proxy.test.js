@@ -216,6 +216,24 @@ it('serves only the reviewed September 8, 2026 DOF issue PDF for MIGRACION-MODIF
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed September 2, 2026 DOF issue PDF for CONV-ESTRATEGICOS-M3', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/02-09-2026/Matutina/329425';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('estrategicos-m3'), 'estrategicos-m3', {
+        sources: { 'estrategicos-m3': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('329425', '329426'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('estrategicos-m3'), 'estrategicos-m3', {
+            sources: { 'estrategicos-m3': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 30, 2026 DOF morning issue PDF for UPAC and the CNE modification', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925';
