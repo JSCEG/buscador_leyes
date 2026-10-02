@@ -120,7 +120,7 @@ export function mountReaderSource(container, article) {
         selectLabel.append(select);
         const isArticle = article?.tipo_articulo === 'ordinario' || /^Artículo\s+\d/i.test(article?.articulo_label || '');
         const pageGroup = el('div', 'rs-page-group');
-        pageGroup.append(el('p', 'rs-page-scope', `Páginas de este ${isArticle ? 'artículo' : 'fragmento'}`));
+        pageGroup.append(el('p', 'rs-page-scope', `Páginas de ${isArticle ? 'este artículo' : 'esta disposición'}`));
         if (result.pages.length === 1) {
             pages.append(el('span', 'rs-single-page', `Página única · ${page.number} del PDF`));
         } else {
@@ -159,7 +159,7 @@ export function mountReaderSource(container, article) {
         }
         viewport.append(figure);
         const footer = el('footer', 'rs-footer');
-        footer.append(el('p', 'rs-caption', `Página ${page.number} del PDF · ${pageIndex + 1} de ${result.pages.length} páginas${highlights.length ? ' · Fragmento resaltado' : ''}.`));
+        footer.append(el('p', 'rs-caption', `Página ${page.number} del PDF · ${pageIndex + 1} de ${result.pages.length} páginas${highlights.length ? ' · Texto resaltado' : ''}.`));
         const pdfLink = sourceLink(result.pdfUrl || result.source?.pdfUrl, 'Abrir PDF completo ↗');
         if (pdfLink) footer.append(pdfLink);
         footer.append(el('p', 'rs-muted', remote
@@ -188,7 +188,7 @@ export function mountReaderSource(container, article) {
         select.addEventListener('change', () => requestPage(Number(select.value)));
         const loaded = () => {
             if (!isCurrent(token)) return;
-            setStatus(`Página ${page.number} del PDF cargada${highlights.length ? '. Fragmento resaltado.' : '.'}`);
+            setStatus(`Página ${page.number} del PDF cargada${highlights.length ? '. Texto resaltado.' : '.'}`);
             if (highlights.length) {
                 const top = Math.min(...highlights.map(box => box.y));
                 // Layout dimensions stay stable while the parent dialog animates its scale.

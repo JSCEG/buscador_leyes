@@ -65,6 +65,17 @@
           "sizes": "192x192"
         }
       ]
+    },
+    {
+      "name": "Permisos y resoluciones CNE",
+      "short_name": "Permisos",
+      "url": "/#permisos",
+      "icons": [
+        {
+          "src": "/img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

@@ -36,7 +36,7 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
     const state = { selected: byId.has(selected) ? selected : '', hidden: new Set(), query: '' };
 
     host.innerHTML = `<div class="tm-view">
-        <p class="tm-intro">Detectamos automáticamente <strong>${terms.length} términos</strong> que las leyes, reglamentos y acuerdos definen y que aparecen en varios instrumentos. Las líneas unen términos que suelen usarse juntos en los mismos artículos. <span class="tm-meta">Actualizado el ${esc(dateLabel(data.generatedAt))} · ${number(data.fragments)} fragmentos analizados</span></p>
+        <p class="tm-intro">Detectamos automáticamente <strong>${terms.length} términos</strong> que las leyes, reglamentos y acuerdos definen y que aparecen en varios instrumentos. Las líneas unen términos que suelen usarse juntos en los mismos artículos. <span class="tm-meta">Actualizado el ${esc(dateLabel(data.generatedAt))} · ${number(data.fragments)} disposiciones analizadas</span></p>
         <div class="tm-tools">
             <div class="tm-search"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
                 <input type="search" data-tm-search placeholder="Buscar un término (ej. almacenamiento)" aria-label="Buscar un término" autocomplete="off" list="tm-term-list">
@@ -66,10 +66,10 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
         const instruments = term.instruments.map(i => ({ ...i, law: lawById.get(String(i.lawId)) })).filter(i => i.law);
         detail.innerHTML = `<p class="tm-sector-tag" style="--c:${sector.color}"><i></i>${esc(sector.label)}</p>
             <h3 class="tm-title">${esc(term.label)}</h3>
-            <p class="tm-muted">Aparece en <strong>${instruments.length}</strong> instrumentos y <strong>${number(term.fragments)}</strong> fragmentos.</p>
+            <p class="tm-muted">Aparece en <strong>${instruments.length}</strong> instrumentos y <strong>${number(term.fragments)}</strong> disposiciones.</p>
             <button type="button" class="tm-primary" data-tm-searchterm>Buscar «${esc(term.label)}» en el acervo</button>
             ${definedIn.length ? `<p class="tm-label">Dónde se define</p><ul class="tm-defs">${definedIn.map(d => `<li><button type="button" data-tm-article="${esc(d.articleId)}"><strong>${esc(d.law.siglas || d.law.titulo)}</strong><span>Ver la definición →</span></button></li>`).join('')}</ul>` : ''}
-            ${term.related.length ? `<p class="tm-label">Términos relacionados</p><div class="tm-chips">${term.related.filter(r => byId.has(r.id)).map(r => { const t = byId.get(r.id); return `<button type="button" class="tm-chip" data-tm-term="${esc(t.id)}" style="--c:${SECTORS[t.sector]?.color}" title="Comparten ${r.shared} fragmentos">${esc(t.label)}</button>`; }).join('')}</div>` : ''}
+            ${term.related.length ? `<p class="tm-label">Términos relacionados</p><div class="tm-chips">${term.related.filter(r => byId.has(r.id)).map(r => { const t = byId.get(r.id); return `<button type="button" class="tm-chip" data-tm-term="${esc(t.id)}" style="--c:${SECTORS[t.sector]?.color}" title="Comparten ${r.shared} disposiciones">${esc(t.label)}</button>`; }).join('')}</div>` : ''}
             <p class="tm-label">Dónde se usa más</p>
             <ol class="tm-bars">${instruments.slice(0, 12).map(i => `<li><button type="button" data-tm-law="${esc(i.lawId)}" title="${esc(i.law.titulo)}"><span class="tm-bar-name">${esc(i.law.siglas || i.law.titulo)}</span><span class="tm-bar"><i style="width:${Math.max(4, (i.count / max) * 100)}%"></i></span><span class="tm-bar-n">${i.count}</span></button></li>`).join('')}</ol>
             ${instruments.length > 12 ? `<p class="tm-muted">y ${instruments.length - 12} instrumentos más.</p>` : ''}`;

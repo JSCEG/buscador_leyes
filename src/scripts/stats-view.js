@@ -23,9 +23,9 @@ function composition(stats) {
     const segments = key => stats.groups.map(group => `<span class="st-seg" style="flex-grow:${group[key]};background:${color(group.id)}"
         data-tip="${escape(`${group.label}: ${number(group[key])} (${percent(group[key], key === 'count' ? stats.total : stats.totalFragments)})`)}"></span>`).join('');
     return `<section class="st-card st-span-2" aria-labelledby="st-comp">
-        <div class="st-card-head"><h2 id="st-comp">Composición del acervo</h2><p>Proporción por colección, en instrumentos y en fragmentos de texto.</p></div>
+        <div class="st-card-head"><h2 id="st-comp">Composición del acervo</h2><p>Proporción por colección, en instrumentos y en disposiciones (artículos, numerales, anexos).</p></div>
         <div class="st-stack-block"><p class="st-stack-label">Instrumentos</p><div class="st-stack" role="img" aria-label="Instrumentos por colección">${segments('count')}</div></div>
-        <div class="st-stack-block"><p class="st-stack-label">Fragmentos</p><div class="st-stack" role="img" aria-label="Fragmentos por colección">${segments('fragments')}</div></div>
+        <div class="st-stack-block"><p class="st-stack-label">Disposiciones</p><div class="st-stack" role="img" aria-label="Disposiciones por colección">${segments('fragments')}</div></div>
         <ul class="st-legend">
             ${stats.groups.map(group => `<li><button type="button" class="st-legend-item" data-group="${group.id}" title="Ver ${escape(group.label)} en el acervo">
                 <span class="st-icon" style="color:${color(group.id)}">${collectionIcon(group.id, 16)}</span>
@@ -106,7 +106,7 @@ function tableShell(stats) {
                 <th scope="col"><button type="button" data-sort="name">Instrumento</button></th>
                 <th scope="col"><button type="button" data-sort="group">Colección</button></th>
                 <th scope="col"><button type="button" data-sort="day">Publicación</button></th>
-                <th scope="col" class="st-num"><button type="button" data-sort="fragments">Fragmentos</button></th>
+                <th scope="col" class="st-num"><button type="button" data-sort="fragments">Disposiciones</button></th>
             </tr></thead>
             <tbody></tbody>
         </table></div>
@@ -198,7 +198,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
         </div>
         <div class="st-kpis">
             ${kpi('Instrumentos', number(stats.total), `${stats.groups.length} colecciones`, 'var(--st-c-leyes)')}
-            ${kpi('Fragmentos de texto', number(stats.totalFragments), `${number(stats.averageFragments)} en promedio por instrumento`, 'var(--st-c-reglamentos)')}
+            ${kpi('Artículos y disposiciones', number(stats.totalFragments), `${number(stats.averageFragments)} en promedio por instrumento`, 'var(--st-c-reglamentos)')}
             ${kpi('Publicados en 12 meses', number(stats.recent), `${percent(stats.recent, stats.total)} del acervo`, 'var(--st-c-acuerdos)')}
             ${kpi('Colección mayor', lead ? escape(lead.label) : '—', lead ? `${number(lead.count)} instrumentos` : '', 'var(--st-c-dacg)')}
         </div>
@@ -206,7 +206,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
         <div class="st-grid-layout">
             ${composition(stats)}
             ${timeline(stats)}
-            ${barList('st-top', 'Instrumentos más extensos', 'Por número de fragmentos. Selecciona uno para abrirlo.', stats.top.map(row => ({
+            ${barList('st-top', 'Instrumentos más extensos', 'Por número de artículos y disposiciones. Selecciona uno para abrirlo.', stats.top.map(row => ({
                 label: shortName(row.law), title: row.law.titulo, value: row.fragments, color: color(row.group), lawId: String(row.law.id),
             })))}
             ${barList('st-topics', 'Temas más frecuentes', 'Número de instrumentos que incluyen cada tema clave.', stats.topics.map(topic => ({

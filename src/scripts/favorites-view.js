@@ -38,7 +38,7 @@ export function renderFavoritesView(container, {
                 <span class="sr-sigla">${esc(item.siglas_ley || law?.siglas || '')}</span>
                 <span class="sr-law" title="${esc(item.ley_origen || law?.titulo || '')}">${esc(item.ley_origen || law?.titulo || '')}</span>
             </div>
-            <h3 class="sr-title"><button type="button" class="sr-open" data-open-article="${esc(item.id)}">${esc(item.articulo_label || 'Fragmento')}</button></h3>
+            <h3 class="sr-title"><button type="button" class="sr-open" data-open-article="${esc(item.id)}">${esc(item.articulo_label || 'Disposición')}</button></h3>
             ${path ? `<p class="sr-path">${esc(path)}</p>` : ''}
             ${note ? `<div class="fv-note"><span>Tu nota</span><p>${esc(note)}</p></div>` : ''}
             <p class="sr-snippet">${contextSnippet(item.texto, '', 240)}</p>

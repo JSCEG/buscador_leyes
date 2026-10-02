@@ -18,6 +18,8 @@ import { initPrintBrand } from './lib/print-brand.js';
 import { initConnectionBanner } from './lib/connection-banner.js';
 import { initCardTip } from './lib/card-tip.js';
 import { initTocAttention } from './lib/toc-attention.js';
+import { initReadingProgress } from './lib/reading-progress.js';
+import { initInstallPrompt } from './lib/install-prompt.js';
 import { initAccountPanel } from './scripts/account-panel.js';
 import { trackVisit } from './lib/usage.js';
 
@@ -29,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initConnectionBanner();
   initCardTip();
   initTocAttention();
+  initReadingProgress();
+  initInstallPrompt();
   initAccountPanel();
   trackVisit();
   initAuth();

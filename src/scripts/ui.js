@@ -1124,7 +1124,7 @@ export function initUI() {
                         <ul class="lr-meta" aria-label="Datos del instrumento">
                             <li><span>Publicación</span><strong>${escapeHtml(formatLawDate(law.fecha_publicacion) || 'Sin fecha')}</strong></li>
                             ${law.fecha_ultima_reforma ? `<li><span>Última reforma</span><strong>${escapeHtml(formatLawDate(law.fecha_ultima_reforma))}</strong></li>` : ''}
-                            <li><span>Fragmentos</span><strong>${currentLawArticles.length}</strong></li>
+                            <li><span>Disposiciones</span><strong>${currentLawArticles.length}</strong></li>
                             ${chaptersCount ? `<li><span>Capítulos</span><strong>${chaptersCount}</strong></li>` : ''}
                             ${transitorios ? `<li><span>Transitorios</span><strong>${transitorios}</strong></li>` : ''}
                         </ul>
@@ -1445,7 +1445,7 @@ export function initUI() {
             <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0 border-b border-gray-50">
                 <div>
                     <p class="text-sm font-bold text-gray-800">Índice del instrumento</p>
-                    <p class="text-[10px] text-gray-400 mt-0.5">${officialCount} ${officialCount === 1 ? 'fragmento oficial' : 'fragmentos oficiales'}${guias.length ? ` · ${guias.length} ${guias.length === 1 ? 'guía' : 'guías'}` : ''} · clic para abrir</p>
+                    <p class="text-[10px] text-gray-400 mt-0.5">${officialCount} ${officialCount === 1 ? 'disposición oficial' : 'disposiciones oficiales'}${guias.length ? ` · ${guias.length} ${guias.length === 1 ? 'guía' : 'guías'}` : ''} · clic para abrir</p>
                 </div>
                 <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5" aria-label="Cerrar índice">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1956,7 +1956,7 @@ export function initUI() {
                         ${item.articulo_label}
                         ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
                     </span>
-                    <span class="text-[10px] text-gray-400 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
+                    <span class="text-[10px] text-gray-500 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
                 </div>
                 <p class="reader-preview text-gray-600">${highlightedText}</p>${getTextPreview(item.texto, 100000).length > 900 ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
                 <div class="lr-card-actions">

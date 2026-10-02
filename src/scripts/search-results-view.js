@@ -84,7 +84,7 @@ export function renderSearchResults(container, {
                 <span class="sr-law" title="${esc(lawName(item, law) || '')}">${esc(lawName(item, law) || '')}</span>
                 ${dateLabel(item.fecha_publicacion || law?.fecha_publicacion) ? `<span class="sr-date">${dateLabel(item.fecha_publicacion || law?.fecha_publicacion)}</span>` : ''}
             </div>
-            <h3 class="sr-title"><button type="button" class="sr-open" data-open-article="${esc(item.id)}">${highlightTerms(item.articulo_label || 'Fragmento', query)}</button></h3>
+            <h3 class="sr-title"><button type="button" class="sr-open" data-open-article="${esc(item.id)}">${highlightTerms(item.articulo_label || 'Disposición', query)}</button></h3>
             ${path ? `<p class="sr-path">${esc(path)}</p>` : ''}
             <p class="sr-snippet">${excerpt}</p>
             <div class="sr-actions">

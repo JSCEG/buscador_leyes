@@ -71,7 +71,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const total = element('p', 'ac-total', countLabel(laws.length));
     const totalFragments = laws.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
     const newest = selectAcervo(laws, { sort: 'date-newest' }).find(law => publicationDate(law.fecha_publicacion));
-    facts.append(total, element('p', 'ac-fact', `${number(totalFragments)} artículos y fragmentos`));
+    facts.append(total, element('p', 'ac-fact', `${number(totalFragments)} artículos y disposiciones`));
     if (newest) facts.append(element('p', 'ac-fact', `Última publicación: ${publicationDate(newest.fecha_publicacion)}`));
     if (typeof onOpenStats === 'function') {
         const more = element('button', 'ac-stats-link', 'Ver estadísticas'); more.type = 'button';
@@ -223,7 +223,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         const dateNode = element(date ? 'time' : 'span', '', date || 'Fecha no disponible');
         if (date) { dateNode.dateTime = law.fecha_publicacion; dateNode.title = `Fecha de publicación: ${date}`; }
         const rawCount = law.articulos;
-        const fragments = typeof rawCount === 'number' && Number.isFinite(rawCount) && rawCount >= 0 ? `${number(rawCount)} ${rawCount === 1 ? 'fragmento' : 'fragmentos'}` : 'Sin conteo';
+        const fragments = typeof rawCount === 'number' && Number.isFinite(rawCount) && rawCount >= 0 ? `${number(rawCount)} ${rawCount === 1 ? 'disposición' : 'disposiciones'}` : 'Sin conteo';
         metadata.append(dateNode, element('span', '', fragments));
         const action = element('span', 'ac-card-action', 'Consultar');
         const arrow = element('span', '', '↗'); arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);

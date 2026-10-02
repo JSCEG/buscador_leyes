@@ -1,0 +1,10 @@
+/* Reading progress lines (src/lib/reading-progress.js) */
+.read-progress{pointer-events:none;height:3px;background:transparent;overflow:hidden}
+.read-progress>span{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#9b2247,#c2416a);border-radius:0 3px 3px 0;transition:transform .08s linear}
+.read-progress.is-idle>span{opacity:0}
+#modal-panel .reader-toolbar{position:relative}
+.read-progress-reader{position:absolute;left:0;right:0;bottom:-2px}
+.read-progress-page{position:fixed;top:0;left:0;right:0;z-index:60}
+.read-progress-page[hidden]{display:none}
+html.dark-mode .read-progress>span{background:linear-gradient(90deg,#e07a9a,#f3b4c7)}
+@media print{.read-progress{display:none}}

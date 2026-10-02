@@ -82,7 +82,7 @@ describe('Reader source view', () => {
     it('navigates the linked pages and preserves page, zoom and scroll when reopened', async () => {
         const view = mountReaderSource(container, article);
         await view.open();
-        expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de este fragmento');
+        expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de esta disposición');
         expect(container.querySelector('select').selectedOptions[0].textContent).toBe('1 de 2 · Página 1 del PDF');
         container.querySelector('[aria-label="Página siguiente"]').click();
         await tick();
