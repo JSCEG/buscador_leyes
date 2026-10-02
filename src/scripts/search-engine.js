@@ -266,6 +266,22 @@ export async function getArticleById(id) {
     }
 }
 
+/**
+ * Ids of articles of one instrument by number: { '76': id, '5 Bis': id }. Numbers that the
+ * acervo does not have are left out. Used to link the articles cited by CNE resolutions.
+ */
+export async function getArticleIdsByNumber(lawId, numbers = []) {
+    const wanted = [...new Set(numbers.map(n => String(n).trim()).filter(Boolean))];
+    if (!lawId || !wanted.length) return {};
+    const { data, error } = await supabase
+        .from('articulos')
+        .select('id, identificador')
+        .eq('ley_id', lawId)
+        .in('identificador', wanted.map(n => `Artículo ${n}`));
+    if (error) return {};
+    return Object.fromEntries((data || []).map(row => [row.identificador.replace(/^Artículo\s+/, ''), row.id]));
+}
+
 /** Fetch many article excerpts in one request, keyed by the id the caller asked for. */
 export async function getArticlePreviews(ids) {
     const requested = [...new Set((ids || []).filter(Boolean))];

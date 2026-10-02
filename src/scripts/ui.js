@@ -27,7 +27,7 @@ import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
-import { permitsRoute } from '../lib/cne-api.js';
+import { permitsRoute, permitsHash } from '../lib/cne-api.js';
 import { authError } from '../lib/auth-errors.js';
 import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
@@ -409,6 +409,9 @@ export function initUI() {
         const originHash = location.hash;
         if (location.hash.startsWith('#explorar')) {
             explorerModalReturn = explorerReturnContext(location.hash);
+        } else if (permitsRoute(location.hash)) {
+            // Articles cited by a CNE resolution: closing the reader goes back to it.
+            explorerModalReturn = { hash: location.hash };
         }
         if (list && list.length) {
             const promises = list.map(lid => getArticleById(lid));
@@ -2862,15 +2865,15 @@ export function initUI() {
     // The mobile menu closes when its Cronología link is chosen.
     document.getElementById('mobile-nav-cronologia')?.addEventListener('click', () => toggleMobileMenu(false));
 
-    let permitsView = null;
-    let permitsRequest = 0;
-    /** Permisos CNE (#permisos, #permiso=<number>): live search of the CNE public registry. */
-    function showPermitsView({ permit = null, updateHistory = true } = {}) {
-        const hash = permit ? `#permiso=${encodeURIComponent(permit)}` : '#permisos';
-        if (updateHistory) setHash(hash);
-        // Back and forward inside the view keep its results instead of rebuilding it.
-        if (permitsView && activeNavId === 'nav-permisos' && resultsContainer.querySelector('.pm-view')) {
-            if (permit) permitsView.openPermit(permit); else permitsView.showList();
+    let cneView = null;
+    let cneRequest = 0;
+    /** CNE section (#permisos, #resoluciones, #panorama-cne and their details): live CNE data. */
+    function showPermitsView({ tab = 'permisos', permit = null, resolution = null, updateHistory = true } = {}) {
+        const route = { tab, permit, resolution };
+        if (updateHistory) setHash(permitsHash(route));
+        // Back and forward inside the section keep its tabs instead of rebuilding them.
+        if (cneView && activeNavId === 'nav-permisos' && resultsContainer.querySelector('.pm-view')) {
+            cneView.go(route);
             return;
         }
         destroyTOC();
@@ -2879,16 +2882,16 @@ export function initUI() {
         mainContainer.classList.remove('justify-center', 'pt-24');
         mainContainer.classList.add('pt-8');
         resultsContainer.classList.remove('hidden', 'opacity-0');
-        resultsContainer.innerHTML = skeleton('list', 'Cargando permisos');
-        permitsView?.destroy();
-        permitsView = null;
-        const request = ++permitsRequest;
-        withProgress(import('./permits-view.js')).then(({ renderPermitsView }) => {
-            if (request !== permitsRequest || !permitsRoute(location.hash)) return;
-            permitsView = renderPermitsView(resultsContainer, () => cachedSummaries, {
-                permit,
+        resultsContainer.innerHTML = skeleton('list', 'Cargando la sección de la CNE');
+        cneView?.destroy();
+        cneView = null;
+        const request = ++cneRequest;
+        withProgress(import('./cne-view.js')).then(({ renderCneView }) => {
+            if (request !== cneRequest || !permitsRoute(location.hash)) return;
+            cneView = renderCneView(resultsContainer, () => cachedSummaries, {
+                route,
                 onOpenLaw: law => openLawDetail(law),
-                onRoute: number => setHash(number ? `#permiso=${encodeURIComponent(number)}` : '#permisos'),
+                setHash,
             });
             window.scrollTo({ top: 0 });
         });

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, fetchPermit } from '../src/lib/cne-api.js';
+import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, fetchPermit, permitsHash, parseFoundation, permitNumbersIn, resolutionsQueryUrl, searchResolutions } from '../src/lib/cne-api.js';
 
 describe('permitKind', () => {
     it('reads sector and activity from the permit number', () => {
@@ -19,9 +19,17 @@ describe('permitKind', () => {
 
 describe('permitsRoute', () => {
     it('parses the list and permit hashes', () => {
-        expect(permitsRoute('#permisos')).toEqual({});
-        expect(permitsRoute('#permiso=CNE%2FE%2F1439%2FGEN%2F2015')).toEqual({ permit: 'CNE/E/1439/GEN/2015' });
+        expect(permitsRoute('#permisos')).toEqual({ tab: 'permisos' });
+        expect(permitsRoute('#permiso=CNE%2FE%2F1439%2FGEN%2F2015')).toEqual({ tab: 'permisos', permit: 'CNE/E/1439/GEN/2015' });
+        expect(permitsRoute('#resoluciones')).toEqual({ tab: 'resoluciones' });
+        expect(permitsRoute('#resolucion=CNE%2FRES%2F062%2F2026')).toEqual({ tab: 'resoluciones', resolution: 'CNE/RES/062/2026' });
+        expect(permitsRoute('#panorama-cne')).toEqual({ tab: 'panorama' });
         expect(permitsRoute('#cronologia')).toBeNull();
+    });
+    it('builds the hash back', () => {
+        for (const hash of ['#permisos', '#resoluciones', '#panorama-cne', '#permiso=CNE%2FE%2F1439%2FGEN%2F2015', '#resolucion=CNE%2FRES%2F062%2F2026']) {
+            expect(permitsHash(permitsRoute(hash))).toBe(hash);
+        }
     });
 });
 
@@ -78,5 +86,37 @@ describe('permits on a desk', () => {
         const rows = [{ Numero: 'CNE/E/1439/GEN/2015-A' }, { Numero: 'CNE/E/1439/GEN/2015' }];
         vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ recordsFiltered: 2, data: rows }) }));
         expect(await fetchPermit('cne/e/1439/gen/2015')).toEqual(rows[1]);
+    });
+});
+
+describe('resolutions', () => {
+    afterEach(() => vi.unstubAllGlobals());
+    it('puts filters in the legacy DataTables columns', () => {
+        const url = new URL(resolutionsQueryUrl({ numero: 'RES/062', fecha: '2026', texto: 'eólica', tipo: 'Otorgamiento', modalidad: 'Gas' }, { start: 40, length: 20 }));
+        const data = Object.fromEntries(JSON.parse(url.searchParams.get('aoData')).map(item => [item.name, item.value]));
+        expect(data.mDataProp_1).toBe('NumeroResolucion');
+        expect(data.sSearch_1).toBe('RES/062');
+        expect(data.sSearch_2).toBe('2026');
+        expect(data.sSearch_3).toBe('eólica');
+        expect(data.sSearch_4).toBe('Gas');
+        expect(data.sSearch_5).toBe('Otorgamiento');
+        expect(data.iDisplayStart).toBe(40);
+        expect(data.sSortDir_0).toBe('desc');
+    });
+    it('reads totals and rows', async () => {
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ iTotalDisplayRecords: 7, aaData: [{ NumeroResolucion: 'X' }] }) }));
+        expect(await searchResolutions({ fecha: '2025' })).toEqual({ total: 7, rows: [{ NumeroResolucion: 'X' }] });
+    });
+    it('splits a foundation into instruments and article numbers', () => {
+        const text = 'Con fundamento en lo previsto en los artículos 16 y 28 párrafo noveno de la Constitución Política de los Estados Unidos Mexicanos; 1, 3 fracción IV, 76, fracción II, inciso b), 87 y 166 de la Ley del Sector Hidrocarburos; 1, 6 y 85 del Reglamento de la Ley del Sector Hidrocarburos.';
+        expect(parseFoundation(text)).toEqual([
+            { law: 'Constitución Política de los Estados Unidos Mexicanos', articles: ['16', '28'] },
+            { law: 'Ley del Sector Hidrocarburos', articles: ['1', '3', '76', '87', '166'] },
+            { law: 'Reglamento de la Ley del Sector Hidrocarburos', articles: ['1', '6', '85'] },
+        ]);
+    });
+    it('finds permit numbers in a proemio, not resolution numbers', () => {
+        expect(permitNumbersIn('MODIFICACIÓN DEL PERMISO E/1439/AUT/2015 POR EL NÚMERO CNE/E/1439/GEN/2015; VER CNE/RES/062/2026'))
+            .toEqual(['E/1439/AUT/2015', 'CNE/E/1439/GEN/2015']);
     });
 });

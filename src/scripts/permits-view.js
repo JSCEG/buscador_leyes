@@ -4,21 +4,12 @@
  * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
  */
 import { pinButtonHtml } from './desk-view.js';
-import { permitPinId, searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
-import '../styles/permits.css';
+import { permitPinId, permitsHash, searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
+import { esc, fold, number, plural, dateLabel, skeleton, failure as failureFor, lawBySiglas, PDF_ICON } from './cne-shared.js';
 
-const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
-const fold = value => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const PAGE = 20;
+const failure = what => failureFor(what, REGISTRY_URL);
 const ESTADO_TONE = { 'Operando': 'ok', 'Por iniciar operaciones': 'info', 'En Construcción': 'info', 'Por iniciar obras': 'info' };
-const MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-const dateLabel = value => {
-    const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(String(value || '').trim());
-    return m ? `${Number(m[1])} ${MONTHS[Number(m[2]) - 1]} ${m[3]}` : '';
-};
-const number = n => Number(n || 0).toLocaleString('es-MX');
-const plural = (n, one, many) => `${number(n)} ${Number(n) === 1 ? one : many}`;
-const LAW_TITLES = { LSE: 'ley del sector electrico', LSH: 'ley del sector hidrocarburos', LCNE: 'ley de la comision nacional de energia' };
 
 export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {}, permit = null, onRoute = () => {} } = {}) {
     const state = { numero: '', titular: '', proyecto: '', start: 0 };
@@ -27,15 +18,9 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     let request = 0;
     let alive = true;
 
-    const root = document.createElement('section');
-    root.className = 'pm-view';
-    root.setAttribute('aria-labelledby', 'pm-title');
+    const root = document.createElement('div');
+    root.className = 'pm-panel';
     root.innerHTML = `
-        <div class="pm-head">
-            <p class="pm-eyebrow">Registro público · Comisión Nacional de Energía</p>
-            <h1 id="pm-title">Permisos CNE</h1>
-            <p class="pm-intro">Consulta un permiso, su estado, las resoluciones que lo otorgan o modifican y sus anexos, junto con la normativa del acervo que lo regula.</p>
-        </div>
         <form class="pm-form" role="search" novalidate>
             <label><span>Número de permiso</span><input name="numero" placeholder="Ej. E/1439/GEN/2015" autocomplete="off"></label>
             <label><span>Titular</span><input name="titular" placeholder="Razón social" autocomplete="off"></label>
@@ -53,13 +38,6 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     const form = root.querySelector('.pm-form');
     const status = root.querySelector('.pm-status');
     const body = root.querySelector('.pm-body');
-
-    const skeleton = n => `<div class="pm-list">${'<div class="pm-card pm-skel"><i></i><i></i><i></i></div>'.repeat(n)}</div>`;
-    const failure = what => `
-        <div class="pm-error">
-            <p><strong>No pudimos consultar ${what}.</strong> El registro de la CNE no respondió; intenta de nuevo en un momento.</p>
-            <a class="pm-btn" href="${REGISTRY_URL}" target="_blank" rel="noopener">Abrir el registro de la CNE</a>
-        </div>`;
 
     function estadoChip(estado) {
         return estado ? `<span class="pm-estado is-${ESTADO_TONE[estado] || 'off'}">${esc(estado)}</span>` : '';
@@ -119,8 +97,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         if (!sector) return [];
         // The catalogue may still be loading when the view opens, so it is read on demand.
         const summaries = typeof catalog === 'function' ? catalog() || [] : catalog;
-        return sector.laws.map(siglas => summaries.find(law => fold(law.siglas) === fold(siglas))
-            || (LAW_TITLES[siglas] && summaries.find(law => fold(law.titulo).startsWith(LAW_TITLES[siglas]))))
+        return sector.laws.map(siglas => lawBySiglas(summaries, siglas))
             .filter((law, i, list) => law && list.indexOf(law) === i);
     }
 
@@ -180,7 +157,10 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                     <div>
                         <p class="pm-res-type">${esc(res.TipoResolucion || 'Resolución')}</p>
                         <p class="pm-res-meta"><b>${esc(res.NumeroResolucion || '')}</b>${res.Acta ? ` · Acta ${esc(res.Acta)}` : ''}${res.Modalidad ? ` · ${esc(res.Modalidad)}` : ''}</p>
-                        ${pdf ? `<a class="pm-res-pdf" href="${esc(pdf)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(res.NumeroResolucion || '')} en PDF"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>Ver resolución (PDF)</a>` : ''}
+                        <div class="pm-res-links">
+                            ${pdf ? `<a class="pm-res-pdf" href="${esc(pdf)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(res.NumeroResolucion || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>` : ''}
+                            ${res.NumeroResolucion ? `<a class="pm-res-more" href="${permitsHash({ resolution: res.NumeroResolucion })}">Detalle y fundamento</a>` : ''}
+                        </div>
                     </div>
                 </li>`;
             }).join('')}</ol>`
