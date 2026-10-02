@@ -76,7 +76,8 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                     <span>${plural(row.ResolucionesAsociadas, 'resolución', 'resoluciones')}</span>
                     ${row.AnexosAsociados ? `<span>${plural(row.AnexosAsociados, 'anexo', 'anexos')}</span>` : ''}
                 </span>
-            </button></li>`;
+            </button>
+            <a class="pm-card-pdf" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener" aria-label="Título de permiso ${esc(row.Numero)} en PDF" title="Título de permiso (PDF)">PDF</a></li>`;
     }
 
     function drawList() {

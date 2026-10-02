@@ -41,6 +41,10 @@ html.dark-mode .pm-view [data-sector="otro"]{--sec:#b3a89e}
 .pm-num{font:700 12.5px/1.3 'Noto Sans',sans-serif;letter-spacing:.03em;color:var(--sec);overflow-wrap:anywhere}
 .pm-holder{margin:0;font:700 16px/1.3 Patria,Georgia,serif;color:var(--pm-ink);overflow-wrap:anywhere}
 .pm-alias{margin:0;font-size:13px;line-height:1.45;color:var(--pm-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.pm-list>li{position:relative}
+.pm-list .pm-card .pm-meta{padding-right:52px}
+.pm-card-pdf{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;padding:5px 10px;border:1px solid color-mix(in srgb,var(--pm-accent) 35%,var(--pm-border));border-radius:999px;background:var(--pm-card);color:var(--pm-accent);font:700 11px/1 'Noto Sans',sans-serif;letter-spacing:.04em;text-decoration:none;transition:background .15s}
+.pm-card-pdf:hover{background:color-mix(in srgb,var(--pm-accent) 10%,var(--pm-card))}
 .pm-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;font:600 11.5px/1 'Noto Sans',sans-serif;color:var(--pm-muted)}
 .pm-meta>span{padding:4px 8px;border-radius:999px;background:color-mix(in srgb,var(--pm-muted) 10%,transparent)}
 .pm-meta .pm-tag{color:var(--sec);background:color-mix(in srgb,var(--sec) 12%,transparent)}
