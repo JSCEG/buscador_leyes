@@ -810,6 +810,12 @@ export function initUI() {
         undockSearch();
         cancelPendingSearch();
         if (activeId !== 'nav-leyes') releaseAcervo();
+        // Moving to another section fades the page in instead of swapping it at once.
+        if (activeNavId && activeId !== activeNavId && mainContainer) {
+            mainContainer.classList.remove('view-fade');
+            void mainContainer.offsetWidth;
+            mainContainer.classList.add('view-fade');
+        }
         activeNavId = activeId;
         NAV_IDS.forEach(id => {
             const el = document.getElementById(id);
@@ -839,7 +845,8 @@ export function initUI() {
         const items = [
             ['nav-leyes', 'Acervo', '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'],
             ['nav-inicio', 'Buscar', '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/>'],
-            ['nav-analisis', 'Análisis', '<circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="6" r="1.8"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="18" cy="18" r="1.8"/><path d="M10 10.4 6.4 7.2M14 10.4l3.6-3.2M10.2 13.9l-2.8 3.2M13.8 13.9l2.7 2.6"/>'],
+            // The CNE section (permits, resolutions, trámites) earns a place on phones; Análisis stays under "Más".
+            ['nav-permisos', 'Permisos', '<path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/>'],
             ['nav-favorites', 'Guardados', '<path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/>'],
             ['more', 'Más', '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>'],
         ];
@@ -2880,8 +2887,8 @@ export function initUI() {
     let cneView = null;
     let cneRequest = 0;
     /** CNE section (#permisos, #resoluciones, #panorama-cne and their details): live CNE data. */
-    function showPermitsView({ tab = 'permisos', permit = null, resolution = null, tramite = null, updateHistory = true } = {}) {
-        const route = { tab, permit, resolution, tramite };
+    function showPermitsView({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, updateHistory = true } = {}) {
+        const route = { tab, permit, resolution, tramite, filters };
         if (updateHistory) setHash(permitsHash(route));
         // Back and forward inside the section keep its tabs instead of rebuilding them.
         if (cneView && activeNavId === 'nav-permisos' && resultsContainer.querySelector('.pm-view')) {

@@ -17,7 +17,7 @@ const TYPES = ['Otorgamiento de permiso', 'Modificación de permiso', 'Terminaci
 const MODES = ['Electricidad', 'Energía eléctrica', 'Hidrocarburos', 'Petrolíferos', 'Gas natural', 'Gas licuado de petróleo', 'Mercados de Hidrocarburos', 'Otros'];
 const FIRST_YEAR = 1995;
 
-export function renderResolutionsView(container, catalog = [], { resolution = null, onRoute = () => {} } = {}) {
+export function renderResolutionsView(container, catalog = [], { resolution = null, filters = null, onRoute = () => {} } = {}) {
     const state = { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', start: 0 };
     let rows = [];
     let total = 0;
@@ -227,9 +227,17 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
         if (row) showResolution(row);
     });
 
-    if (resolution) openByNumber(resolution); else load();
+    /** Runs a search with the given filters (e.g. from a panorama chart) and shows them in the form. */
+    function applyFilters(next = {}) {
+        Object.assign(state, { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', ...next, start: 0 });
+        for (const key of ['numero', 'texto', 'fecha', 'tipo', 'modalidad']) form[key].value = state[key] || '';
+        load();
+    }
+
+    if (resolution) openByNumber(resolution); else if (filters && Object.keys(filters).length) applyFilters(filters); else load();
     return {
         openResolution: numero => openByNumber(numero),
+        applyFilters,
         showList: () => { if (rows.length) drawList(); else load(); },
         destroy: () => { alive = false; root.remove(); },
     };

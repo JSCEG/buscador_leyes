@@ -25,6 +25,8 @@ describe('permitsRoute', () => {
         expect(permitsRoute('#resolucion=CNE%2FRES%2F062%2F2026')).toEqual({ tab: 'resoluciones', resolution: 'CNE/RES/062/2026' });
         expect(permitsRoute('#panorama-cne')).toEqual({ tab: 'panorama' });
         expect(permitsRoute('#tramites')).toEqual({ tab: 'tramites' });
+        expect(permitsRoute('#resoluciones?fecha=2025&tipo=Otorgamiento&x=1')).toEqual({ tab: 'resoluciones', filters: { fecha: '2025', tipo: 'Otorgamiento' } });
+        expect(permitsHash({ tab: 'resoluciones', filters: { fecha: '2025', modalidad: 'Gas natural' } })).toBe('#resoluciones?fecha=2025&modalidad=Gas+natural');
         expect(permitsRoute('#tramite=generacion')).toEqual({ tab: 'tramites', tramite: 'generacion' });
         expect(permitsRoute('#cronologia')).toBeNull();
     });

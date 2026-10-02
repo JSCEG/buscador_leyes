@@ -73,6 +73,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         if (tab === 'resoluciones') {
             current = renderResolutionsView(host, catalog, {
                 resolution: next.resolution || null,
+                filters: next.filters || null,
                 onRoute: number => setHash(permitsHash({ tab, resolution: number })),
             });
         } else if (tab === 'tramites') {
@@ -92,7 +93,11 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         const tab = next.tab || 'permisos';
         if (tab !== currentTab) { open(tab, next); return; }
         if (tab === 'permisos') { if (next.permit) current.openPermit(next.permit); else current.showList(); }
-        else if (tab === 'resoluciones') { if (next.resolution) current.openResolution(next.resolution); else current.showList(); }
+        else if (tab === 'resoluciones') {
+            if (next.resolution) current.openResolution(next.resolution);
+            else if (next.filters && Object.keys(next.filters).length) current.applyFilters(next.filters);
+            else current.showList();
+        }
         else if (tab === 'tramites') { if (next.tramite) current.openTramite(next.tramite); else current.showList(); }
     }
 

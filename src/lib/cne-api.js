@@ -10,6 +10,7 @@ const DRIVE = 'https://drive.cne.gob.mx/';
 export const REGISTRY_URL = 'https://www.cne.gob.mx/Permisos/';
 
 export const RESOLUTIONS_URL = 'https://www.cne.gob.mx/Resoluciones/';
+const RESOLUTION_FILTERS = ['numero', 'texto', 'fecha', 'tipo', 'modalidad'];
 
 /**
  * Route of the CNE section: { tab, permit?, resolution?, tramite? } for #permisos, #permiso=<number>,
@@ -18,6 +19,12 @@ export const RESOLUTIONS_URL = 'https://www.cne.gob.mx/Resoluciones/';
 export function permitsRoute(hash = '') {
     if (hash === '#permisos') return { tab: 'permisos' };
     if (hash === '#resoluciones') return { tab: 'resoluciones' };
+    // A filtered search, e.g. #resoluciones?fecha=2025&tipo=Otorgamiento (from the panorama charts).
+    if (hash.startsWith('#resoluciones?')) {
+        const params = new URLSearchParams(hash.slice('#resoluciones?'.length));
+        const filters = Object.fromEntries(RESOLUTION_FILTERS.filter(key => params.get(key)).map(key => [key, params.get(key).slice(0, 120)]));
+        return { tab: 'resoluciones', filters };
+    }
     if (hash === '#panorama-cne') return { tab: 'panorama' };
     if (hash === '#tramites') return { tab: 'tramites' };
     const m = /^#(permiso|resolucion|tramite)=(.+)$/.exec(hash);
@@ -30,10 +37,12 @@ export function permitsRoute(hash = '') {
 }
 
 /** Hash of a CNE route (inverse of permitsRoute). */
-export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null } = {}) {
+export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null } = {}) {
     if (permit) return `#permiso=${encodeURIComponent(permit)}`;
     if (resolution) return `#resolucion=${encodeURIComponent(resolution)}`;
     if (tramite) return `#tramite=${encodeURIComponent(tramite)}`;
+    const query = filters ? new URLSearchParams(RESOLUTION_FILTERS.filter(key => filters[key]).map(key => [key, filters[key]])).toString() : '';
+    if (tab === 'resoluciones' && query) return `#resoluciones?${query}`;
     return { resoluciones: '#resoluciones', panorama: '#panorama-cne', tramites: '#tramites' }[tab] || '#permisos';
 }
 

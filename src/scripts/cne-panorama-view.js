@@ -66,12 +66,15 @@ export function renderPanoramaView(container) {
     const status = root.querySelector('.pm-status');
     const body = root.querySelector('.pn-body');
 
-    const bars = (items, unit) => {
+    // Each bar opens the resolutions it counts.
+    const bars = (items, unit, filtersOf) => {
         const max = Math.max(1, ...items.map(item => item.count));
-        return `<ul class="pn-bars">${items.filter(item => item.count > 0).sort((a, b) => b.count - a.count).map(item => `
-            <li><span class="pn-bar-label">${esc(item.label)}</span>
+        return `<ul class="pn-bars">${items.filter(item => item.count > 0).sort((a, b) => b.count - a.count).map((item, i) => `
+            <li><a class="pn-bar-row" href="${permitsHash({ tab: 'resoluciones', filters: filtersOf(item) })}" data-tip="${esc(`${item.label}: ${number(item.count)} ${unit}. Ver cuáles`)}" style="--i:${i}">
+                <span class="pn-bar-label">${esc(item.label)}</span>
                 <span class="pn-bar-track"><span class="pn-bar" style="width:${Math.max(2, Math.round(item.count / max * 100))}%"></span></span>
-                <span class="pn-bar-value">${number(item.count)}<span class="sr-only"> ${unit}</span></span></li>`).join('')}</ul>`;
+                <span class="pn-bar-value">${number(item.count)}<span class="sr-only"> ${unit}</span></span>
+            </a></li>`).join('')}</ul>`;
     };
 
     function draw(data, latest, session) {
@@ -86,17 +89,17 @@ export function renderPanoramaView(container) {
             </div>
             <section class="pm-section pn-years" aria-labelledby="pn-years-title">
                 <h3 id="pn-years-title">Resoluciones por año</h3>
-                <ol class="pn-columns">${data.perYear.map(item => `
-                    <li title="${item.year}: ${number(item.count)} resoluciones">
+                <ol class="pn-columns">${data.perYear.map((item, i) => `
+                    <li><a href="${permitsHash({ tab: 'resoluciones', filters: { fecha: String(item.year) } })}" data-tip="${esc(`${item.year}: ${number(item.count)} resoluciones. Ver cuáles`)}" style="--i:${i}">
                         <span class="pn-col-value">${number(item.count)}</span>
                         <span class="pn-col" style="height:${Math.max(2, Math.round(item.count / max * 100))}%"></span>
                         <span class="pn-col-label">${item.year === data.year ? `${item.year}*` : item.year}</span>
-                    </li>`).join('')}</ol>
-                <p class="pm-note">* ${data.year} va en curso.</p>
+                    </a></li>`).join('')}</ol>
+                <p class="pm-note">* ${data.year} va en curso. Toca un año o una barra para ver sus resoluciones.</p>
             </section>
             <div class="pn-grid">
-                <section class="pm-section" aria-labelledby="pn-type-title"><h3 id="pn-type-title">${data.year} por tipo</h3>${bars(data.byType, 'resoluciones')}</section>
-                <section class="pm-section" aria-labelledby="pn-mode-title"><h3 id="pn-mode-title">${data.year} por modalidad</h3>${bars(data.byMode, 'resoluciones')}</section>
+                <section class="pm-section" aria-labelledby="pn-type-title"><h3 id="pn-type-title">${data.year} por tipo</h3>${bars(data.byType, 'resoluciones', item => ({ fecha: String(data.year), tipo: item.label }))}</section>
+                <section class="pm-section" aria-labelledby="pn-mode-title"><h3 id="pn-mode-title">${data.year} por modalidad</h3>${bars(data.byMode, 'resoluciones', item => ({ fecha: String(data.year), modalidad: MODES.find(mode => mode.label === item.label)?.filter || item.label }))}</section>
             </div>
             <section class="pm-section" aria-labelledby="pn-latest-title">
                 <h3 id="pn-latest-title">Lo más reciente</h3>

@@ -246,3 +246,8 @@ html.dark-mode .lr-guide b{color:#eeb0c2}
 html.dark-mode .lr-guide-strip-label{color:#eeb0c2}
 html.dark-mode .lr-guide-chip{border-color:#4a3a3f;background:#2a2124;color:#f3d3dc}
 html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
+
+/* Section changes fade in (ui.js setActiveNav). Opacity only, so fixed elements inside keep their place. */
+#main-container.view-fade{animation:view-fade-in .22s ease-out}
+@keyframes view-fade-in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#main-container.view-fade{animation:none}}
