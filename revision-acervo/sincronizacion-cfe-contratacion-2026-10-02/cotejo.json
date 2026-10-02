@@ -1,0 +1,1104 @@
+{
+  "fecha_cotejo": "2026-10-02",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/19-08-2026/Matutina/329166",
+  "fuente_texto": "https://sidof.segob.gob.mx/notas/docFuente/5796647",
+  "sha256_pdf": "a7c206cad00cf89d19750bca7faa09470526fff07c0874d31ff3941dca605c55",
+  "bytes_pdf": 7821940,
+  "paginas_pdf": 542,
+  "paginas_impresas_documento": [
+    89,
+    149
+  ],
+  "fragmentos_oficiales_mapeados": 115,
+  "nota_editorial_sin_mapa": [
+    "6d4e6f3e-aefd-5e49-b270-5b5df27e55b5"
+  ],
+  "cotejo_visual": [
+    89,
+    90,
+    92,
+    93,
+    106,
+    149
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "id": "241830de-57c2-530b-94fe-7449606fe59b",
+      "paginas_pdf": [
+        89
+      ],
+      "anclas": 27,
+      "prefijo_cotejado": "disposicionesgeneralesenmateriadeadquisicionesarrendamientoscontrataciondeserviciosyejecuciondeobrasdelacomisionfederaldeelectricidadalmargenunselloconelescudonacionalquediceestadosunidosmexicanosgobiernodemexicocomisionfederaldeelectricidaddisposicionesgeneralesenmateriadeadquisicionesarrendamiento"
+    },
+    {
+      "fragmento": "Índice de disposiciones",
+      "id": "0a7c388e-4849-552d-8560-97c693fd9436",
+      "paginas_pdf": [
+        89,
+        90,
+        91,
+        92
+      ],
+      "anclas": 136,
+      "prefijo_cotejado": "comoconsecuenciadeloanteriorsepublicaeldocumentoenlossiguientesterminostituloprimerodisposicionescomunescapituloinormasgeneralesdisposicion1ambitodeaplicaciondisposicion2materiadeaplicaciondisposicion3principiosgeneralesrelativosalascontratacionesyalaadministracionderecursosdisposicion4definicionesd"
+    },
+    {
+      "fragmento": "Disposición 1.- Ámbito de aplicación",
+      "id": "c763bf88-6571-59a9-a08d-370d6a5924b4",
+      "paginas_pdf": [
+        92
+      ],
+      "anclas": 23,
+      "prefijo_cotejado": "tituloprimerodisposicionescomunescapituloinormasgeneralesdisposicion1ambitodeaplicacionelpresentedocumentoseemiteenterminosdelosarticulos5fraccioniii15fraccionix80y81delaleydelaempresapublicadelestadocomisionfederaldeelectricidadyestablecelasdisposicionesgeneralesalasquedeberasujetarselacomisionfede"
+    },
+    {
+      "fragmento": "Disposición 2.- Materia de aplicación",
+      "id": "d5dca5cd-8eeb-50f5-b183-c6fb93484de1",
+      "paginas_pdf": [
+        93,
+        94
+      ],
+      "anclas": 118,
+      "prefijo_cotejado": "disposicion2materiadeaplicacionparalosefectosdeestasdisposicionesgeneralesseentenderancomoicontrataciondebienesalaadquisicionyelarrendamientodebienesmueblesblaadquisiciondebienesmueblesquedebanincorporarseadherirseodestinarseauninmueblequesuministrelacomisionfederaldeelectricidadalaspersonascontrati"
+    },
+    {
+      "fragmento": "Disposición 3.- Principios generales relativos a las Contrataciones y a la administración de recursos.",
+      "id": "1bdbde64-b9be-527f-a569-79deaf24afb3",
+      "paginas_pdf": [
+        94,
+        95
+      ],
+      "anclas": 23,
+      "prefijo_cotejado": "disposicion3principiosgeneralesrelativosalascontratacionesyalaadministracionderecursoslosrecursoseconomicosdelacomisionfederaldeelectricidadparalacontrataciondebienesserviciosobrasyserviciosrelacionadosseranadministradosconeconomiaeficienciaeficaciaimparcialidadhonradezytransparenciaparasatisfacerlo"
+    },
+    {
+      "fragmento": "Disposición 4.- Definiciones",
+      "id": "f5055c15-bb54-59b9-b178-96cd2d6e1c02",
+      "paginas_pdf": [
+        95,
+        96,
+        97,
+        98
+      ],
+      "anclas": 222,
+      "prefijo_cotejado": "disposicion4definicionesparalosefectosdelaspresentesdisposicionesgeneralesseentenderaporiagentecontratantelapersonaservidorapublicahabilitadaporelareacontratantecentralparaoperarelsistemaelectronicodecontratacionesconducirlasdiferentesetapasdelosprocedimientosdecontratacionconexcepciondelavisitaalsi"
+    },
+    {
+      "fragmento": "Disposición 5.- Niveles de decisión y responsabilidad de las personas servidoras públicas",
+      "id": "70a7f66a-bc03-5c2c-a15e-dfeea4affb3c",
+      "paginas_pdf": [
+        98,
+        99,
+        100,
+        101
+      ],
+      "anclas": 188,
+      "prefijo_cotejado": "disposicion5nivelesdedecisionyresponsabilidaddelaspersonasservidoraspublicasparalosefectosdeestasdisposicionesgeneraleslosnivelesdedecisionyresponsabilidaddelaspersonasservidoraspublicasseranlossiguientesiadministraciondelcontratolapersonatitulardelarearequirentedesignaraporescritoalapersonaadminist"
+    },
+    {
+      "fragmento": "Disposición 6.- Área Contratante y Área especializada de Inteligencia de Mercado",
+      "id": "65306a32-a165-5fe5-9337-f87d3dbef468",
+      "paginas_pdf": [
+        101,
+        102
+      ],
+      "anclas": 60,
+      "prefijo_cotejado": "disposicion6areacontratanteyareaespecializadadeinteligenciademercadoacorresponderaalareacontratantecentralyalareaespecializadadeinteligenciademercadocentralseguncorrespondaydeformaexclusivalassiguientesfuncionesielareacontratantecentralrendirauninformetrimestralalconsejoconsultivotecnicorespectodelo"
+    },
+    {
+      "fragmento": "Disposición 7.- Prevalencia de las Disposiciones Generales",
+      "id": "d11c5c62-00d3-5ce4-89a9-b7b83d6204a1",
+      "paginas_pdf": [
+        102
+      ],
+      "anclas": 4,
+      "prefijo_cotejado": "disposicion7prevalenciadelasdisposicionesgeneralesestasdisposicionesgeneralesformanpartedelregimenespecialenmateriadecontrataciondebienesserviciosobrasyserviciosrelacionadosprevistoenlaleyyprevaleceranparaelcasodelacfesinperjuiciodeloestablecidoenlaleyyenlostratados"
+    },
+    {
+      "fragmento": "Disposición 8.- Supletoriedad",
+      "id": "26dd727a-b2b4-5752-97f7-9af4c6043784",
+      "paginas_pdf": [
+        102
+      ],
+      "anclas": 3,
+      "prefijo_cotejado": "disposicion8supletoriedadelderechoadministrativomercantilycivilseransupletoriosdeestasdisposicionesgeneralesenloquecorrespondadependiendodelanaturalezadelactoenlosterminosquedisponeelarticulo6delaley"
+    },
+    {
+      "fragmento": "Disposición 9.- Naturaleza jurídica de los procedimientos de Contratación y de los contratos",
+      "id": "717dfde7-aeb2-5ee2-aedb-7103d232f9c3",
+      "paginas_pdf": [
+        102
+      ],
+      "anclas": 6,
+      "prefijo_cotejado": "disposicion9naturalezajuridicadelosprocedimientosdecontratacionydeloscontratosenlosterminosdelarticulo85delaleytodoslosactosquesedesarrollendentrodelprocedimientodecontratacionhastaelmomentodelfalloasicomotodoslosactostendientesalacelebraciondelcontratosondenaturalezaadministrativaunavezfirmadoelcon"
+    },
+    {
+      "fragmento": "Disposición 10.- Interpretación de las Disposiciones Generales",
+      "id": "1b370b32-1048-5f32-bf57-834c65b5ff43",
+      "paginas_pdf": [
+        102
+      ],
+      "anclas": 8,
+      "prefijo_cotejado": "disposicion10interpretaciondelasdisposicionesgeneraleselareacontratantecentralconsiderandoensucasolaopiniondeladireccionjuridicaseralaresponsabledeinterpretarestasdisposicionesgeneralesenunplazomaximodediezdiashabilescontadosapartirdelarecepciondelaconsultacorrespondienteparalocualemitiracriteriosge"
+    },
+    {
+      "fragmento": "Disposición 11.- Integración del Consejo Consultivo Técnico del Proceso de Suministro y Contratación",
+      "id": "9d578b10-6041-565b-92b9-e6141e84dce2",
+      "paginas_pdf": [
+        102,
+        103
+      ],
+      "anclas": 17,
+      "prefijo_cotejado": "disposicion11integraciondelconsejoconsultivotecnicodelprocesodesuministroycontratacionlacfecontaraconunconsejoconsultivotecnicoelcualseintegraraporlassiguientespersonasservidoraspublicasconderechoavozyvotoilapersonatitulardeladirecciondeadministracionquienlopresidiraiilapersonatitulardeladireccionde"
+    },
+    {
+      "fragmento": "Disposición 12.- Funciones del Consejo Consultivo Técnico del Proceso de Contratación",
+      "id": "0db0af1e-65a3-5e19-9109-efec31206a63",
+      "paginas_pdf": [
+        103
+      ],
+      "anclas": 34,
+      "prefijo_cotejado": "disposicion12funcionesdelconsejoconsultivotecnicodelprocesodecontratacionelconsejoconsultivotecnicotendralassiguientesfuncionesisometerapropuestadelareacontratantecentralparalaaprobaciondelcomitelametodologiaparalaelaboraciondelprogramaanualdecontratacionesiirecomendaralcomiteelcatalogobasicodebiene"
+    },
+    {
+      "fragmento": "Disposición 13.- Características Generales de las Contrataciones",
+      "id": "f56cf901-25b4-583c-ad6c-f332bb10efa0",
+      "paginas_pdf": [
+        103,
+        104
+      ],
+      "anclas": 24,
+      "prefijo_cotejado": "disposicion13caracteristicasgeneralesdelascontratacioneslacfedeconformidadconlaspresentesdisposicionesgeneralesseleccionaraelprocedimientodecontratacionquedeacuerdoconlosrequerimientosycaracteristicasdelobjetodelacontratacionasegurelasmejorescondicionesdisponiblesencuantoapreciocalidadfinanciamiento"
+    },
+    {
+      "fragmento": "Disposición 14.- De los medios para el desarrollo del procedimiento de Contratación",
+      "id": "27c2b1ec-faad-5c60-8dbb-82b9a9c41c19",
+      "paginas_pdf": [
+        104,
+        105
+      ],
+      "anclas": 111,
+      "prefijo_cotejado": "disposicion14delosmediosparaeldesarrollodelprocedimientodecontratacionlosconcursosabiertosconcursosabiertossimplificadosinvitacionesrestringidasyadjudicacionesdirectasporreglageneraldeberanllevarseacaboatravesdelsistemaelectronicodecontratacionesparaelloseutilizaranmediosdeidentificacionelectronicac"
+    },
+    {
+      "fragmento": "Disposición 15.- Impedimentos para considerar ofertas o celebrar contratos",
+      "id": "8cd5cdd2-ddf0-5812-bf42-12db1082a9aa",
+      "paginas_pdf": [
+        106,
+        107
+      ],
+      "anclas": 94,
+      "prefijo_cotejado": "disposicion15impedimentosparaconsiderarofertasocelebrarcontratoslacfeseabstendradeconsiderarofertasocelebrarcontratosconpersonasqueseencuentrenencualquieradelossiguientessupuestositenganconflictodeinteresesconlacfeosusempresasfilialesiidesempenenunempleocargoocomisionenelserviciopublicoobiendesocied"
+    },
+    {
+      "fragmento": "Disposición 16.- Testigos Sociales",
+      "id": "b682cf53-f7b7-54e1-9a61-5efc75d549f3",
+      "paginas_pdf": [
+        107,
+        108
+      ],
+      "anclas": 69,
+      "prefijo_cotejado": "capituloiiintegridadytransparenciaenlascontratacionesdisposicion16testigossocialeselconsejodeadministracionporconductodelcomitedeterminaralosmontosapartirdeloscualeslosconcursosabiertosdebancontarconlaparticipaciondeunapersonatestigosocialconformealosiguienteielsubcomitedetestigossocialespreviaconvo"
+    },
+    {
+      "fragmento": "Disposición 17.- Compromiso ético",
+      "id": "28c60904-424e-5513-b44b-dd73c7075fd7",
+      "paginas_pdf": [
+        108
+      ],
+      "anclas": 7,
+      "prefijo_cotejado": "disposicion17compromisoeticoelareacontratantecentralalmomentoderealizarelregistrodepersonasproveedorasocontratistasharadesuconocimientoelcompromisoeticodelacfeenelcualseindicaranlascondicioneseticasylegalesqueseobservaranentodoslosprocedimientosdecontratacionsusactospreviosyaquellosquederivendelacel"
+    },
+    {
+      "fragmento": "Disposición 18.- Declaración de integridad",
+      "id": "01a53665-f3a4-57c6-ad45-531827494502",
+      "paginas_pdf": [
+        108
+      ],
+      "anclas": 7,
+      "prefijo_cotejado": "disposicion18declaraciondeintegridadenlosconcursosabiertosconcursosabiertossimplificadosinvitacionesrestringidasyadjudicacionesdirectaslaspersonasagentescontratantesylaspersonasservidoraspublicasdelarearequirentequeintervenganencualquieradesusetapasyenlaejecuciondelcontratoasicomolaspersonasrepresen"
+    },
+    {
+      "fragmento": "Disposición 19.- Declaración ética",
+      "id": "90888c86-c603-5dbc-8102-15296d3da908",
+      "paginas_pdf": [
+        108
+      ],
+      "anclas": 6,
+      "prefijo_cotejado": "disposicion19declaracioneticalacfeatravesdelareacontratanteprocuraranquelaspersonasproveedorasycontratistasasicomolapersonaservidorapublicadelarearequirentealmomentodelafirmadelcontratosuscribantambienunadeclaracioneticaenlaquequededemanifiestoqueelprocedimientodecontratacionsedesarrolloenestrictoap"
+    },
+    {
+      "fragmento": "Disposición 20.- Testimonio electrónico de las sesiones de los Subcomités",
+      "id": "cd64a362-ca28-5b4e-ace2-9b40900aaea4",
+      "paginas_pdf": [
+        108
+      ],
+      "anclas": 4,
+      "prefijo_cotejado": "disposicion20testimonioelectronicodelassesionesdelossubcomiteslassesionesdelossubcomitesdeexcepcionesalconcursoabiertodetestigossocialesydeticsisegrabaranporaudioycuandoseconsiderenecesarioporvideoafindecontarconuntestimonioelectronicoquedecertezaalasareascontratantesyrequirentes"
+    },
+    {
+      "fragmento": "Disposición 21.- Encuestas a Personas Concursantes",
+      "id": "9838a022-e6e8-50de-b9e7-3dd96f4b5a23",
+      "paginas_pdf": [
+        108
+      ],
+      "anclas": 4,
+      "prefijo_cotejado": "disposicion21encuestasapersonasconcursanteselareacontratanteatravesdelsistemaelectronicodecontratacioneslevantaraencuestasalaspersonasconcursantesrespectodelatransparenciaquepercibieronenelprocedimientodecontratacionparaensucasopromoveroadoptarlasaccionesdemejoraqueseconsiderenpertinentes"
+    },
+    {
+      "fragmento": "Disposición 22.- Medios alternativos de solución de controversias",
+      "id": "accc29c3-ec28-52e7-8d92-5311e43bff76",
+      "paginas_pdf": [
+        109
+      ],
+      "anclas": 5,
+      "prefijo_cotejado": "capituloiiisoluciondecontroversiasdisposicion22mediosalternativosdesoluciondecontroversiasparalasoluciondelascontroversiasderivadasdelainterpretaciondeloscontratosformalizadosodecuestionesrelacionadasconsuejecucionycumplimientosepodranconvenirmediosalternativosdesoluciondecontroversiasdeacuerdoconla"
+    },
+    {
+      "fragmento": "Disposición 23.- Recurso de Reconsideración",
+      "id": "26837d0e-1e0d-57fa-8348-4a7bd57bfdcf",
+      "paginas_pdf": [
+        109
+      ],
+      "anclas": 10,
+      "prefijo_cotejado": "capituloivrecursodereconsideraciondisposicion23recursodereconsideracionelrecursodereconsideracionaqueserefierenelarticulo86fraccionidelaleyyelcapitulotercerodeltitulocuartoreglamentodelaleyelcualprocederacontradelfalloodeladeterminacionquedeclaredesiertototaloparcialmenteelconcursoolainvitacionrestr"
+    },
+    {
+      "fragmento": "Disposición 24.- Sanciones",
+      "id": "7dc4bb71-716c-53f4-a64a-4fbb219b11ef",
+      "paginas_pdf": [
+        109
+      ],
+      "anclas": 6,
+      "prefijo_cotejado": "capitulovsancionesdisposicion24sancioneslaspersonasservidoraspublicaslaspersonasconcursantesproveedorasocontratistasqueinfrinjanloestablecidoenestasdisposicionesgeneralesseharanacreedoresalassancionesprevistasenlaleygeneralderesponsabilidadesadministrativasestasdisposicionesgeneralesydemasordenamien"
+    },
+    {
+      "fragmento": "Disposición 25.- Programa Anual de Contrataciones en Materia de Adquisiciones, Arrendamientos y Servicios",
+      "id": "26da79c7-7070-54ae-86cc-d787373fa449",
+      "paginas_pdf": [
+        109
+      ],
+      "anclas": 21,
+      "prefijo_cotejado": "titulosegundoadquisicionesarrendamientosyservicioscapituloiprogramaanualdecontratacionesdisposicion25programaanualdecontratacionesenmateriadeadquisicionesarrendamientosyservicioselareaespecializadadeinteligenciademercadocentralconsolidaraelprogramaanualdecontratacionesenmateriadeadquisicionesarrenda"
+    },
+    {
+      "fragmento": "Disposición 26.- Modificaciones al Programa Anual de Contrataciones en Materia de Adquisiciones, Arrendamientos y Servicios",
+      "id": "3ceeaa6f-dedd-5bf3-9300-f1664ef72fd6",
+      "paginas_pdf": [
+        109
+      ],
+      "anclas": 14,
+      "prefijo_cotejado": "disposicion26modificacionesalprogramaanualdecontratacionesenmateriadeadquisicionesarrendamientosyservicioslasmodificacionesalosalcancesoriginalmentedeterminadosadicionescancelacionesyosustitucionesalprogramaanualdecontratacionesenmateriadeadquisicionesarrendamientosyserviciosseranautorizadasporperso"
+    },
+    {
+      "fragmento": "Disposición 27.- Resumen del Programa Anual de Contrataciones en Materia de Adquisiciones, Arrendamientos y Servicios",
+      "id": "d2de652e-0368-5efd-bbff-922f0774b45d",
+      "paginas_pdf": [
+        110
+      ],
+      "anclas": 11,
+      "prefijo_cotejado": "disposicion27resumendelprogramaanualdecontratacionesenmateriadeadquisicionesarrendamientosyservicioselprogramaanualdecontratacionesenmateriadeadquisicionesarrendamientosyservicioscontieneinformacionestrechamentevinculadaconelprogramadedesarrollodelacfeporloquesudifusionpudieracomprometeroponerenries"
+    },
+    {
+      "fragmento": "Disposición 28.- Investigación de Condiciones de Mercado",
+      "id": "1d237a0a-a59b-571e-aa2d-0e19f63e7b52",
+      "paginas_pdf": [
+        110
+      ],
+      "anclas": 48,
+      "prefijo_cotejado": "disposicion28investigaciondecondicionesdemercadoelarearequirentetantoparaelregistrodebienesyoserviciosenlaelaboraciondelprogramaanualdecontratacionesenmateriadeadquisicionesarrendamientosyservicioscomoparasolicitaralareacontratanteeldesarrollodeunprocedimientodecontrataciondeberadecontarconunainvest"
+    },
+    {
+      "fragmento": "Disposición 29.- Nivel de Inventario",
+      "id": "7c86e2d6-d76b-5fde-b26c-f0555ed71026",
+      "paginas_pdf": [
+        111
+      ],
+      "anclas": 7,
+      "prefijo_cotejado": "disposicion29niveldeinventarioprevioaliniciodecualquierprocedimientodecontrataciondebieneselarearequirentedeberaverificarelniveldeinventarioemitidoporelmodulodealmacendelsistemaelectronicodecontratacionesdeacuerdoconloscriteriosquealrespectoemitaelareacontratantecentralenninguncasoprocederalacontrat"
+    },
+    {
+      "fragmento": "Disposición 30.- Tipos y carácter de los procedimientos de Contratación",
+      "id": "eb088c24-e3df-5b62-bdd8-f45bc49e1ab8",
+      "paginas_pdf": [
+        111
+      ],
+      "anclas": 18,
+      "prefijo_cotejado": "capituloiiprocedimientosdecontrataciondisposicion30tiposycaracterdelosprocedimientosdecontratacionlostiposdeprocedimientosdecontratacionseraniconcursoabiertoiiconcursoabiertosimplificadoiiiinvitacionrestringidayivadjudicaciondirectalosprocedimientosdecontratacionaqueserefiereestadisposicionpodranten"
+    },
+    {
+      "fragmento": "Disposición 31.- Convocatoria",
+      "id": "c0b6e99f-f47e-5889-abdd-df93bb583f52",
+      "paginas_pdf": [
+        111
+      ],
+      "anclas": 15,
+      "prefijo_cotejado": "disposicion31convocatorialaconvocatoriaalconcursoabiertoalconcursoabiertosimplificadooinvitacionrestringidadeberaelaborarseconformealmodeloaprobadoporelconsejoconsultivotecnicoycontendraalmenoslasiguienteinformaciongeneralidescripcionbrevedelosbienesoserviciosiicalendariodelasetapasdelprocedimientoi"
+    },
+    {
+      "fragmento": "Disposición 32.- Pliego de Requisitos",
+      "id": "63119779-381e-5b4f-b7bd-9da640f60e71",
+      "paginas_pdf": [
+        111,
+        112
+      ],
+      "anclas": 35,
+      "prefijo_cotejado": "disposicion32pliegoderequisitosparaelcasodelconcursoabiertoconcursoabiertosimplificadoinvitacionrestringidaoadjudicaciondirectaelareaespecializadadeinteligenciademercadoconapoyodelareacontratanteydelarearequirentedisenaraelpliegoderequisitosconbaseenelresultadodelainvestigaciondecondicionesdemercado"
+    },
+    {
+      "fragmento": "Disposición 33.- Mecanismos de Contratación",
+      "id": "980b37c7-3680-59e2-b626-6a2525e2e39a",
+      "paginas_pdf": [
+        112,
+        113
+      ],
+      "anclas": 62,
+      "prefijo_cotejado": "disposicion33mecanismosdecontratacionenlascontratacionessepodranutilizarentreotroslossiguientesmecanismosiconsolidacionunprocedimientodecontratacionquesatisfacelasnecesidadesdedosomasareasrequirentesrespectodebienesyoserviciosconcaracteristicastecnicashomologadasconelpropositodegenerareconomiasdeesc"
+    },
+    {
+      "fragmento": "Disposición 34.- Oferta conjunta",
+      "id": "e6f13090-281a-5b65-944e-dc8ed7a58ccc",
+      "paginas_pdf": [
+        113
+      ],
+      "anclas": 30,
+      "prefijo_cotejado": "disposicion34ofertaconjuntadosomaspersonaspodranpresentarunaofertaconjuntasinnecesidaddeconstituirunasociedadunicamenteencasodequeasilopreveaelpliegoderequisitoslaspersonasquedecidanpresentarunaofertaconjuntadeberanconformarseenlosterminosestablecidosenelpliegoderequisitoslaofertaconjuntacontenidaen"
+    },
+    {
+      "fragmento": "Disposición 35.- Subastas",
+      "id": "9ac0f93a-d914-5c4e-ac1a-1dada7def2f3",
+      "paginas_pdf": [
+        113,
+        114
+      ],
+      "anclas": 35,
+      "prefijo_cotejado": "disposicion35subastasenlosconcursosabiertosconcursosabiertossimplificadosyeninvitacionesrestringidassepodrautilizarcuandoasiconvengaalacfeelmecanismodesubastasparalacontrataciondebienesyserviciosconformealosdiferentestiposdesubastassenaladosenelarticulo82delaleyenestesupuestolossobrescerradosdelasof"
+    },
+    {
+      "fragmento": "Disposición 36.- Suministro simultáneo",
+      "id": "eada1523-7bc6-5883-b3d4-dc38deda3333",
+      "paginas_pdf": [
+        114
+      ],
+      "anclas": 32,
+      "prefijo_cotejado": "disposicion36suministrosimultaneolacfepodrautilizarelmecanismodesuministrosimultaneoaefectodedistribuirentredosomaspersonasproveedoraslaspartidasdebienesoservicioscuandoasisehayaestablecidoenelpliegoderequisitosconbaseenelresultadodelainvestigaciondecondicionesdemercadoyodelaactualizaciondecondicion"
+    },
+    {
+      "fragmento": "Disposición 37.- Procedimiento de concurso abierto",
+      "id": "ed830e03-cf69-55b8-a136-076385f53382",
+      "paginas_pdf": [
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anclas": 263,
+      "prefijo_cotejado": "disposicion37procedimientodeconcursoabiertoelprocedimientodeconcursoabiertoiniciaconlapublicaciondelaconvocatoriayconcluyeconlapublicaciondelfallolacualharalasvecesdenotificacionpersonalensucasoesteprocedimientodecontratacionpodraconcluirconladeclaraciondeconcursodesiertooconsucancelacionencualquier"
+    },
+    {
+      "fragmento": "Disposición 38.- Concurso abierto simplificado",
+      "id": "b75b0376-58bf-5d02-8d30-307eceb11acc",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 19,
+      "prefijo_cotejado": "disposicion38concursoabiertosimplificadoelarearequirentepodraoptarporelconcursoabiertosimplificadoparalacontrataciondebienesoservicioscuandoelimporteestimadodelacontratacionseainferioralmontodelumbralcomunicadosemestralmenteporlasecretariaanticorrupcionybuengobiernoparalascontratacionessujetasalostr"
+    },
+    {
+      "fragmento": "Disposición 39.- Adquisiciones o servicios menores",
+      "id": "1b58a330-7022-565d-aacf-e7e6f36d5c09",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 19,
+      "prefijo_cotejado": "disposicion39adquisicionesoserviciosmenoreslaadquisiciondebienesocontrataciondeservicioscuyomontonoexcedaelequivalenteanovecientasunidadesdemedidayactualizaciondiarianorequeriranlaformalizaciondeuncontratoparaqueelpagoprocedalaoperaciondeberaregistrarseenelsistemainstitucionalcorrespondienteycontarc"
+    },
+    {
+      "fragmento": "Disposición 40.- Fraccionamiento de operaciones",
+      "id": "a651de1c-9ad5-53fb-ab8e-0909c53daebd",
+      "paginas_pdf": [
+        120
+      ],
+      "anclas": 20,
+      "prefijo_cotejado": "disposicion40fraccionamientodeoperacionesparaefectosdeloestablecidoenelarticulo39delreglamentodelaleyyenladisposicion39seentenderaqueexistefraccionamientodeoperacionescuandosepresentenconjuntamentelassiguientescircunstanciasitodasestenfundadasenelarticulo39delreglamentodelaleyoenladisposicion39segun"
+    },
+    {
+      "fragmento": "Disposición 41.- Procedimiento de invitación restringida derivado de los supuestos del artículo 83 de la Ley",
+      "id": "a945e581-b674-5b7d-b85b-22f187e09763",
+      "paginas_pdf": [
+        120
+      ],
+      "anclas": 30,
+      "prefijo_cotejado": "disposicion41procedimientodeinvitacionrestringidaderivadodelossupuestosdelarticulo83delaleylasetapasquesecontemplanenunprocedimientodecontratacionatravesdeinvitacionrestringidaseranilainvitacionalaspersonasconcursantesiivisitaalsitiocuandoseanecesarioiiiaclaracionessobrelosdocumentosdelainvitacionla"
+    },
+    {
+      "fragmento": "Disposición 42.- Procedimiento de Adjudicación Directa derivado de los supuestos del artículo 83 de la Ley",
+      "id": "1ebebc8b-3d2d-519f-be20-334db3d422a4",
+      "paginas_pdf": [
+        120
+      ],
+      "anclas": 10,
+      "prefijo_cotejado": "disposicion42procedimientodeadjudicaciondirectaderivadodelossupuestosdelarticulo83delaleylasetapasquesecontemplanenunprocedimientodeadjudicaciondirectasonlasolicitudpresentacionaperturayevaluaciondelaofertayladecisiondelaadjudicacionalaadjudicaciondirectaleresultaranaplicableslasprevisionesestableci"
+    },
+    {
+      "fragmento": "Disposición 43.- Etapa de negociación",
+      "id": "473178bc-0659-58b5-abbb-771427f836b8",
+      "paginas_pdf": [
+        121
+      ],
+      "anclas": 45,
+      "prefijo_cotejado": "disposicion43etapadenegociacionenlosprocedimientosdecontratacionsepodraestablecerunaetapadenegociacioncuandodelainvestigaciondecondicionesdemercadoyodelaactualizaciondecondicionesdemercadoseconsiderequesuinclusioncoadyuvariaaobtenermejorescondicionesdecontratacionlainclusiondelaetapadenegociacionasi"
+    },
+    {
+      "fragmento": "Disposición 44.- Criterios de evaluación de las ofertas",
+      "id": "059d4f36-b667-55c9-b567-1833e3db0d97",
+      "paginas_pdf": [
+        121,
+        122
+      ],
+      "anclas": 31,
+      "prefijo_cotejado": "disposicion44criteriosdeevaluaciondelasofertasparalavaloraciondelasofertassedeberautilizarelcriterioindicadoenelpliegoderequisitosquepodraseralgunodelossiguientesevaluacionporcostobeneficioevaluacionporpreciooevaluacionporpuntoselareacontratantecentralemitiradisposicionesespecificasparalaaplicaciond"
+    },
+    {
+      "fragmento": "Disposición 45.- Justificación de excepciones al concurso abierto, en los supuestos del artículo 83 de la Ley",
+      "id": "3a186fd3-64a6-5f03-9af3-68c04f366a8f",
+      "paginas_pdf": [
+        122,
+        123
+      ],
+      "anclas": 38,
+      "prefijo_cotejado": "disposicion45justificaciondeexcepcionesalconcursoabiertoenlossupuestosdelarticulo83delaleyelescritoenelqueconstelajustificaciondelasrazonesenlasquesesustentelaexcepcionalconcursoabiertoquesepresenteparasudictamendeberacontenerlosiguienteidescripciondelosbienesoserviciosobjetodelprocedimientodecontra"
+    },
+    {
+      "fragmento": "Disposición 46.- Propuestas No Solicitadas",
+      "id": "e44447d3-bf3b-5e78-bf81-1fe62c7ddc59",
+      "paginas_pdf": [
+        123
+      ],
+      "anclas": 21,
+      "prefijo_cotejado": "disposicion46propuestasnosolicitadaslacfepodrarecibiryensucasoanalizarpropuestasnosolicitadasporpartedecualquiertercerotantonacionalcomoextranjerorespectodebienesoservicioslaspropuestasnosolicitadasporreglageneraldeberandepresentarseanteelareacontratantecentralencasodequelaspropuestasnosolicitadasse"
+    },
+    {
+      "fragmento": "Disposición 47.- Contenido de los Contratos",
+      "id": "b36ba0f9-56c6-5314-b40a-eb2cb4339b6c",
+      "paginas_pdf": [
+        123
+      ],
+      "anclas": 23,
+      "prefijo_cotejado": "capituloiiicontratosdisposicion47contenidodeloscontratosloscontratosseelaborarantomandocomoguiaelmodeloquealrespectoapruebeelconsejoconsultivotecnicoapropuestadelareacontratantecentralloscontratoscontendrancomominimoenloqueresulteaplicablelosiguienteiladescripciondelosbienesarrendamientososervicioso"
+    },
+    {
+      "fragmento": "Disposición 48.- Formalización del Contrato",
+      "id": "fa75d8d5-e2bf-5eb3-bcaa-ed0616cac603",
+      "paginas_pdf": [
+        124
+      ],
+      "anclas": 37,
+      "prefijo_cotejado": "disposicion48formalizaciondelcontratoelarearequirenteylapersonaconcursanteganadoradeberanformalizarelcontratoderivadodeunprocedimientodecontrataciondentrodelplazoprevistoenelpliegoderequisitoselcualnopodraserinferioraseisdiashabilescontadosapartirdeldiahabilsiguienteaaquelenquesenotifiqueelfalloalas"
+    },
+    {
+      "fragmento": "Disposición 49.- Cesión de derechos y obligaciones",
+      "id": "17be3302-f13a-568f-bab1-2671824c8fcd",
+      "paginas_pdf": [
+        124
+      ],
+      "anclas": 15,
+      "prefijo_cotejado": "disposicion49cesiondederechosyobligacioneslapersonaproveedoranopodracederlosderechosyobligacionesderivadosdecontratoscelebradosconlacfeenfavordecualquierotrapersonasalvolosderechosdecobroquepodrancederseprevioconsentimientoporescritodelapersonaadministradoradelcontratoquientendraunplazomaximode5dias"
+    },
+    {
+      "fragmento": "Disposición 50.- Responsabilidades de la persona Administradora del Contrato",
+      "id": "7deaed1e-b50d-5a5d-8caf-b94184f5876f",
+      "paginas_pdf": [
+        125
+      ],
+      "anclas": 6,
+      "prefijo_cotejado": "disposicion50responsabilidadesdelapersonaadministradoradelcontratolapersonaadministradoradelcontratoseralaresponsabledesupervisaryverificarelcumplimientodelasobligacionesprevistasenloscontratosasicomoenlasespecificacionestecnicasylosanexosdelosmismoslascualesseledaranaconoceralmomentodesunotificacio"
+    },
+    {
+      "fragmento": "Disposición 51.- Subcontratación",
+      "id": "933d4304-1aa2-5ed2-bb66-cbbc87bb7316",
+      "paginas_pdf": [
+        125
+      ],
+      "anclas": 19,
+      "prefijo_cotejado": "disposicion51subcontratacioncuandoasiseespecifiqueenelpliegoderequisitoslapersonaproveedorapodrasubcontrataralaspersonasfisicasomoralesquerequieraparadarpuntualcumplimientoalasobligacionesderivadasdeuncontratoformalizadoconlacfesiempreycuandoelmontoacumuladodeloscontratosacelebrarconlossubcontratist"
+    },
+    {
+      "fragmento": "Disposición 52.- Contratos Bajo demanda",
+      "id": "395327b0-cb71-59af-a7c3-fa79e5a4ed5d",
+      "paginas_pdf": [
+        125
+      ],
+      "anclas": 18,
+      "prefijo_cotejado": "disposicion52contratosbajodemandalacfepodracelebrarcontratosbajodemandaenmateriadebienesoserviciosquerequierandemanerareiteradaconformealosiguienteiseestableceralacantidadminimaymaximadelosbienesoserviciosacontratarobienelmontominimoymaximoquepodraejercerselacantidadomontominimonopodraserinferioralc"
+    },
+    {
+      "fragmento": "Disposición 53.- Contratación por límites",
+      "id": "65394c45-4e30-509e-9b1c-65badbccb0d6",
+      "paginas_pdf": [
+        125,
+        126
+      ],
+      "anclas": 23,
+      "prefijo_cotejado": "disposicion53contratacionporlimitesparaqueprocedaelusodelmecanismodecontratacionporlimitessedeberandesatisfacerlascondicionesqueseindicanacontinuacionilapersonatitulardelarearequirenteconnivelminimodesubgerenciaojefaturadeunidaddeberajustificarporescritolascircunstanciasdehechoqueleimpidenprecisarel"
+    },
+    {
+      "fragmento": "Disposición 54.- Convenios Marco",
+      "id": "a8e18df8-a7d5-5cd5-b45f-2b52ba109a50",
+      "paginas_pdf": [
+        126,
+        127
+      ],
+      "anclas": 44,
+      "prefijo_cotejado": "disposicion54conveniosmarcolacfepodracelebrarconveniosmarcoconunaomasposiblespersonasproveedorasparalaadquisiciondebienesyserviciosqueseandeusogeneralizadoynoseanespecialmenteproducidosuotorgadosdeacuerdoconladescripciondelarearequirenteenlosconveniosmarcoseestablecerandemaneragenerallasespecificaci"
+    },
+    {
+      "fragmento": "Disposición 55.- Anticipo",
+      "id": "51a0c686-0b09-5215-acd3-8e56fb611dbd",
+      "paginas_pdf": [
+        127
+      ],
+      "anclas": 23,
+      "prefijo_cotejado": "disposicion55anticipoelareaespecializadadeinteligenciademercadoeneldisenodelpliegoderequisitospodraincluirelotorgamientodeunanticipocuandoderivadodelainvestigaciondecondicionesdemercadoyodelaactualizaciondecondicionesdemercadoseidentifiquequeestaprevisionpermitiraalacfeobtenermejorescondicionesenlas"
+    },
+    {
+      "fragmento": "Disposición 56.- Garantías",
+      "id": "8289ca0b-3cfe-58de-99ba-1d9508553b02",
+      "paginas_pdf": [
+        127
+      ],
+      "anclas": 12,
+      "prefijo_cotejado": "disposicion56garantiaslaspersonasconcursantesyproveedorasdeberanentregarseguncorrespondadeacuerdoconlascaracteristicasdelacontratacionycuandoasisehayaestablecidoenelpliegoderequisitosentreotraslassiguientesgarantiasigarantiadelsostenimientodeofertaiigarantiadelanticipoiiigarantiadelcumplimientodelco"
+    },
+    {
+      "fragmento": "Disposición 57.- Pagos en exceso",
+      "id": "84869b7a-de81-5dff-bdd9-a270c26354ae",
+      "paginas_pdf": [
+        127
+      ],
+      "anclas": 10,
+      "prefijo_cotejado": "disposicion57pagosenexcesocuandolacfehayarealizadopagosenexcesoalapersonaproveedoraestadeberareintegrarlascantidadespagadasenexcesomaslosinteresescorrespondientesconformealatasaqueparatalefectoseestablezcaenelcontratoqueseraigualalaestablecidaporlaleydeingresosdelafederacionvigenteenelejerciciodeque"
+    },
+    {
+      "fragmento": "Disposición 58.- Modificaciones a los Contratos",
+      "id": "05e87df4-e0c2-5a67-a464-e02b5d1c6b53",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 5,
+      "prefijo_cotejado": "disposicion58modificacionesaloscontratoselareacontratanteasolicitudybajoresponsabilidaddelarearequirenteporrazonesfundadasyexplicitaselaboradasdeacuerdoconloscriteriosqueemitaelareacontratantecentralpodrarealizarmodificacionesaloscontratosparalocualseformalizaraporescritoelconveniocorrespondientedeb"
+    },
+    {
+      "fragmento": "Disposición 59.- Modificaciones al monto, plazo o vigencia de los Contratos",
+      "id": "cbdfc351-276c-544f-8cf4-d4fb5c8bcc4a",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 19,
+      "prefijo_cotejado": "disposicion59modificacionesalmontoplazoovigenciadeloscontratosloscontratossepodranmodificarparaincrementarodisminuirelmontoplazoovigenciaoriginalmentepactadosloscontratosdeadquisicionoarrendamientodebienesasicomodeprestaciondeserviciossepodranincrementarhastaenuncincuentaporcientodesumontototalsiemp"
+    },
+    {
+      "fragmento": "Disposición 60.- Cancelación de partidas",
+      "id": "2b788f20-8ad9-5900-bda4-55efd47d4540",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 8,
+      "prefijo_cotejado": "disposicion60cancelaciondepartidascuandolaspersonasproveedorasdentrodelplazodeentregaprevistoenelcontratoacreditenlaexistenciadecausasjustificadasquelesimpidancumplirconlaentregatotaldelosbienesoconlaprestaciontotaldelosserviciospactadosenelcontratoelareacontratanteasolicituddelarearequirentepodramo"
+    },
+    {
+      "fragmento": "Disposición 61.- Diferimiento de la fecha de inicio del cumplimiento de las obligaciones contractuales",
+      "id": "71d273dd-6478-579c-a229-c35d9e497ab4",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 5,
+      "prefijo_cotejado": "disposicion61diferimientodelafechadeiniciodelcumplimientodelasobligacionescontractualescuandoporcausasimputablesalacfeexistalaimposibilidadparainiciarelcumplimientodelasobligacionescontractualesenlafechaoriginalmenteestablecidalacfeylapersonaproveedoracelebraranunconvenioparadiferirlafechadeiniciode"
+    },
+    {
+      "fragmento": "Disposición 62.- Prórroga de obligaciones contractuales",
+      "id": "a6fc006b-abad-58e9-b2aa-dea1a96555a3",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 5,
+      "prefijo_cotejado": "disposicion62prorrogadeobligacionescontractualeslacfeylapersonaproveedorapodranmedianteconvenioprorrogarelplazooriginalmentepactadocuandoporcasofortuitoodefuerzamayorporhechosajenosalaspartesoporcausasimputablesalacfeserequieradeuntiempomayoraloriginalmenteestablecidoparadarcumplimientoalaobligacion"
+    },
+    {
+      "fragmento": "Disposición 63.- Suspensión de obligaciones contractuales",
+      "id": "3a741ec3-88af-50fe-ace1-808d7c54c6fe",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 8,
+      "prefijo_cotejado": "disposicion63suspensiondeobligacionescontractualescuandosepresenteuncasofortuitoofuerzamayorqueimpidaalacfeoalapersonaproveedoraelcumplimientodesusobligacionessepodrasuspendertotaloparcialmentesucumplimientoduranteeltiempoqueduredichoimpedimentoenestecasoningunadelaspartescontratantesestaraobligadaa"
+    },
+    {
+      "fragmento": "Disposición 64.- Penas convencionales, deducciones y/o daños y perjuicios",
+      "id": "ac51c498-12e9-56b7-91ab-a68f3c656707",
+      "paginas_pdf": [
+        129
+      ],
+      "anclas": 15,
+      "prefijo_cotejado": "disposicion64penasconvencionalesdeduccionesyodanosyperjuicioselarearequirentetomandoencuentaeltipodecontratoydeobligacionespactadasybuscandosiemprelasmejorescondicionespodraoptarentreestablecerenelcontratopenasconvencionalesyodeduccionesolaprevisionderesarcirdanosyperjuicioslaspenasconvencionalesres"
+    },
+    {
+      "fragmento": "Disposición 65.- Sustitución de bienes durante la vigencia del Contrato",
+      "id": "04771fb4-c262-59e5-8eb5-0668738e44d5",
+      "paginas_pdf": [
+        129
+      ],
+      "anclas": 9,
+      "prefijo_cotejado": "disposicion65sustituciondebienesdurantelavigenciadelcontratolacfepodraaceptarqueunapersonaproveedorasustituyatotaloparcialmentelosbienesobjetodeuncontratocuandoesteporcircunstanciasajenasasuvoluntadseencuentrematerialmenteimposibilitadoparasuministrarlosenlascondicionesoriginalmentepactadasenestosca"
+    },
+    {
+      "fragmento": "Disposición 66.- Terminación anticipada",
+      "id": "85c7de75-1559-5578-9198-0ecc9d63572e",
+      "paginas_pdf": [
+        129
+      ],
+      "anclas": 27,
+      "prefijo_cotejado": "disposicion66terminacionanticipadaenloscontratosseestableceranlascausasporlascualeslosmismospodrandarseporterminadosdeformaanticipadaentreotrossupuestoscuandoasepresenteuncasofortuitoodefuerzamayorconsecuenciadelcualseextingalanecesidaddelacfeobiencuandolacfeolapersonaproveedoraquedaranimposibilitad"
+    },
+    {
+      "fragmento": "Disposición 67.- Rescisión de los contratos",
+      "id": "13d38ea8-dd26-55c2-9885-c508ee92316c",
+      "paginas_pdf": [
+        130
+      ],
+      "anclas": 22,
+      "prefijo_cotejado": "disposicion67rescisiondeloscontratoslacfepodraencualquiermomentorescindirloscontratossinnecesidadderesolucionjudicialoarbitralcuandolapersonaproveedoraincurraenincumplimientodesusobligacionesenlosterminosestablecidosenlosrespectivoscontratosobservandoelsiguienteprocedimientoilacfenotificaraporescrit"
+    },
+    {
+      "fragmento": "Disposición 68.- Programa Anual de Contrataciones en Materia de Obras y Servicios Relacionados",
+      "id": "83bed082-5a0c-52dd-b2af-77e6c3e2e112",
+      "paginas_pdf": [
+        130
+      ],
+      "anclas": 40,
+      "prefijo_cotejado": "tituloterceroobrasyserviciosrelacionadoscapituloiprogramaanualdecontratacionesdisposicion68programaanualdecontratacionesenmateriadeobrasyserviciosrelacionadoselareaespecializadadeinteligenciademercadocentralconsolidaraelprogramaanualdecontratacionesenmateriadeobrasyserviciosrelacionadosdelacfeelregi"
+    },
+    {
+      "fragmento": "Disposición 69.- Modificaciones al Programa Anual de Contrataciones en Materia de Obras y Servicios Relacionados",
+      "id": "f9102b0a-f124-5d3e-b124-eb57b64fb788",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 10,
+      "prefijo_cotejado": "disposicion69modificacionesalprogramaanualdecontratacionesenmateriadeobrasyserviciosrelacionadoslasmodificacionesalosalcancesoriginalmentedeterminadosadicionescancelacionesyosustitucionesalprogramaanualdecontratacionesenmateriadeobrasyserviciosrelacionadosseranautorizadasporlaspersonasservidoraspubl"
+    },
+    {
+      "fragmento": "Disposición 70.- Resumen del Programa Anual de Contrataciones en Materia de Obras y Servicios Relacionados",
+      "id": "cc40a9ad-2359-5376-a103-7b08c64e92bd",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 11,
+      "prefijo_cotejado": "disposicion70resumendelprogramaanualdecontratacionesenmateriadeobrasyserviciosrelacionadoselprogramaanualdecontratacionesenmateriadeobrasyserviciosrelacionadoscontieneinformacionestrechamentevinculadaconsuprogramadedesarrollodelacfeporloquesudifusionpudieracomprometeroponerenriesgoelcumplimientodesu"
+    },
+    {
+      "fragmento": "Disposición 71.- Investigación de Condiciones de Mercado",
+      "id": "e8909afc-f28e-5305-b236-71c28bf3ddee",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 31,
+      "prefijo_cotejado": "disposicion71investigaciondecondicionesdemercadolacfedeberarealizarinvestigacionesdecondicionesdemercadodelasobrasyoserviciosrelacionadosparalaelaboraciondelprogramaanualdecontratacionesyactualizarlascondicionesdemercadoprevioaliniciodelprocedimientodecontratacioncorrespondienteelareaespecializadade"
+    },
+    {
+      "fragmento": "Disposición 72.- Tipos y carácter de los procedimientos de Contratación",
+      "id": "2a6c2fcc-7cb0-599f-ac99-2cd132570257",
+      "paginas_pdf": [
+        132
+      ],
+      "anclas": 11,
+      "prefijo_cotejado": "capituloiiprocedimientosdecontrataciondisposicion72tiposycaracterdelosprocedimientosdecontratacionlostiposdeprocedimientosdecontratacionseraniconcursoabiertoiiconcursoabiertosimplificadoiiiinvitacionrestringidayivadjudicaciondirectalosprocedimientosdecontratacionaqueserefiereestadisposicionpodranten"
+    },
+    {
+      "fragmento": "Disposición 73.- Convocatoria",
+      "id": "c166f856-3526-574f-96ff-fc785e74fbcd",
+      "paginas_pdf": [
+        132
+      ],
+      "anclas": 11,
+      "prefijo_cotejado": "disposicion73convocatorialaconvocatoriaalconcursoabiertoconcursoabiertosimplificadooinvitacionrestringidadeberaelaborarseconformealmodeloaprobadoporelconsejoconsultivotecnicoycontendraalmenoslasiguienteinformaciongeneralidescripcionbrevedelasobrasyoserviciosrelacionadosiicalendariodelasetapasdelproc"
+    },
+    {
+      "fragmento": "Disposición 74.- Pliego de Requisitos",
+      "id": "33337568-11b2-5537-b091-9bae09157ddd",
+      "paginas_pdf": [
+        132,
+        133
+      ],
+      "anclas": 42,
+      "prefijo_cotejado": "disposicion74pliegoderequisitosparaelcasodelconcursoabiertoconcursoabiertosimplificadoinvitacionrestringidaoadjudicaciondirectalasareascontratantesconapoyodelasareasrequirenteselaboraranelpliegoderequisitosconbaseenelresultadodelainvestigaciondecondicionesdemercadoyodelaactualizaciondecondicionesdem"
+    },
+    {
+      "fragmento": "Disposición 75.- Mecanismos de Contratación",
+      "id": "5a7ef343-66d4-54f9-905f-c544275db261",
+      "paginas_pdf": [
+        133
+      ],
+      "anclas": 27,
+      "prefijo_cotejado": "disposicion75mecanismosdecontratacionenlascontratacionessepodranutilizarentreotroslossiguientesmecanismosicontratacionesdeanosiguientefavorecelaoportunidadenlascontratacionespuesalcomenzarelprocedimientodecontratacionenelejerciciofiscalprevioaaquelenelqueiniciarasuvigenciaelcontratopermitequelasobli"
+    },
+    {
+      "fragmento": "Disposición 76.- Oferta conjunta",
+      "id": "05d877bc-1f90-57ed-9dc7-30378182efb0",
+      "paginas_pdf": [
+        133,
+        134
+      ],
+      "anclas": 30,
+      "prefijo_cotejado": "disposicion76ofertaconjuntadosomaspersonaspodranpresentarunaofertaconjuntasinnecesidaddeconstituirunasociedadunicamenteencasodequeasilopreveaelpliegoderequisitoslaspersonasquedecidanpresentarunaofertaconjuntadeberanconformarseenlosterminosestablecidosenelpliegoderequisitoslaofertaconjuntacontenidaen"
+    },
+    {
+      "fragmento": "Disposición 77.- Procedimiento de concurso abierto",
+      "id": "2239acda-76e0-51ea-8b08-7721d5ec2db0",
+      "paginas_pdf": [
+        134,
+        135,
+        136,
+        137
+      ],
+      "anclas": 164,
+      "prefijo_cotejado": "disposicion77procedimientodeconcursoabiertoelprocedimientodeconcursoabiertoiniciaconlapublicaciondelaconvocatoriayconcluyeconlapublicaciondelfallolacualharalasvecesdenotificacionpersonalensucasoesteprocedimientodecontratacionpodraconcluirconladeclaraciondeconcursodesiertooconsucancelacionencualquier"
+    },
+    {
+      "fragmento": "Disposición 78.- Concurso abierto simplificado",
+      "id": "833cab28-70a7-5d5d-accc-fa26bedaebd0",
+      "paginas_pdf": [
+        137
+      ],
+      "anclas": 17,
+      "prefijo_cotejado": "disposicion78concursoabiertosimplificadoelarearequirentepodraoptarporelconcursoabiertosimplificadoparalacontrataciondeobrasoserviciosrelacionadoscuandoelimporteestimadodelacontratacionseainferioralmontodelumbralcomunicadosemestralmenteporlasecretariadeanticorrupcionybuengobiernoparalascontrataciones"
+    },
+    {
+      "fragmento": "Disposición 79.- Obras o servicios relacionados menores",
+      "id": "6ffc2af1-2def-5327-af25-20e9e78c8af3",
+      "paginas_pdf": [
+        137
+      ],
+      "anclas": 17,
+      "prefijo_cotejado": "disposicion79obrasoserviciosrelacionadosmenoreslacontrataciondeobrasoserviciosrelacionadoscuyomontonoexcedaelequivalenteanovecientasunidadesdemedidayactualizaciondiarianorequeriranlaformalizaciondeuncontratoparaqueelpagoprocedalaoperaciondeberaregistrarseenelsistemainstitucionalcorrespondienteyconta"
+    },
+    {
+      "fragmento": "Disposición 80.- Fraccionamiento de operaciones",
+      "id": "fee2b924-3490-5d59-8053-68a5c3580e79",
+      "paginas_pdf": [
+        138
+      ],
+      "anclas": 11,
+      "prefijo_cotejado": "disposicion80fraccionamientodeoperacionesparaefectosdeloestablecidoenelarticulo39delreglamentodelaleyyenladisposicion79seentenderaqueexistefraccionamientodeoperacionescuandosepresentenconjuntamentelassiguientescircunstanciasitodasestenfundadasenelarticulo39delreglamentodelaleyoenladisposicion79segun"
+    },
+    {
+      "fragmento": "Disposición 81.- Procedimiento de invitación restringida derivado de los supuestos del artículo 83 de la Ley",
+      "id": "b9d8c669-d405-599b-96c8-d3e315fe0dc2",
+      "paginas_pdf": [
+        138
+      ],
+      "anclas": 22,
+      "prefijo_cotejado": "disposicion81procedimientodeinvitacionrestringidaderivadodelossupuestosdelarticulo83delaleylasetapasquesecontemplanenunprocedimientodecontratacionatravesdeinvitacionrestringidaseranilainvitacionalaspersonasconcursantesiivisitaalsitiocuandoseanecesarioiiiaclaracionessobrelosdocumentosdelainvitacionla"
+    },
+    {
+      "fragmento": "Disposición 82.- Procedimiento de adjudicación directa derivado de los supuestos del artículo 83 de la Ley",
+      "id": "8595ef60-04af-5a81-b252-945dba149707",
+      "paginas_pdf": [
+        138
+      ],
+      "anclas": 10,
+      "prefijo_cotejado": "disposicion82procedimientodeadjudicaciondirectaderivadodelossupuestosdelarticulo83delaleylasetapasquesecontemplanenunprocedimientodeadjudicaciondirectasonlasolicitudpresentacionaperturayevaluaciondelaofertayladecisiondelaadjudicacionalaadjudicaciondirectaleresultaranaplicableslasprevisionesestableci"
+    },
+    {
+      "fragmento": "Disposición 83.- Etapa de negociación",
+      "id": "20f9d1a7-22db-52b7-8dec-8a655a7c356a",
+      "paginas_pdf": [
+        138,
+        139
+      ],
+      "anclas": 44,
+      "prefijo_cotejado": "disposicion83etapadenegociacionenlosprocedimientosdecontratacionsepodraestablecerunaetapadenegociacioncuandodelainvestigaciondecondicionesdemercadoyodelaactualizaciondecondicionesdemercadoseconsiderequesuinclusioncoadyuvariaaobtenermejorescondicionesdecontratacionlainclusiondelaetapadenegociacionasi"
+    },
+    {
+      "fragmento": "Disposición 84.- Criterios de evaluación de las ofertas",
+      "id": "d1e9b62b-56bf-5a8e-8338-5a667d43bbe8",
+      "paginas_pdf": [
+        139,
+        140
+      ],
+      "anclas": 27,
+      "prefijo_cotejado": "disposicion84criteriosdeevaluaciondelasofertasparalavaloraciondelasofertassedeberautilizarelcriterioindicadoenelpliegoderequisitosquepodraseralgunodelossiguientesevaluacionporcostodelciclodevidaevaluacionporpreciooevaluacionporpuntoselareacontratantecentralemitiradisposicionesespecificasparalaaplica"
+    },
+    {
+      "fragmento": "Disposición 85.- Justificación de excepciones al concurso abierto, en los supuestos del artículo 83 de la Ley",
+      "id": "78c55bed-cb9b-54d0-b0ae-9c99bfd75c60",
+      "paginas_pdf": [
+        140
+      ],
+      "anclas": 34,
+      "prefijo_cotejado": "disposicion85justificaciondeexcepcionesalconcursoabiertoenlossupuestosdelarticulo83delaleyelescritoenelqueconstelajustificaciondelasrazonesenlasquesesustentelaexcepcionalconcursoabiertoquesepresenteparasudictamendeberacontenerlosiguienteidescripciondelasobrasoserviciosrelacionadosobjetodelprocedimie"
+    },
+    {
+      "fragmento": "Disposición 86.- Propuestas No Solicitadas",
+      "id": "b183519e-7347-5045-89f9-ee59aaa23df6",
+      "paginas_pdf": [
+        140,
+        141
+      ],
+      "anclas": 22,
+      "prefijo_cotejado": "disposicion86propuestasnosolicitadaslacfepodrarecibiryensucasoanalizarunapropuestanosolicitadaporpartedecualquiertercerotantonacionalcomoextranjerorespectodeobrasoserviciosrelacionadoslaspropuestasnosolicitadasporreglageneraldeberandepresentarseanteelareacontratantecentralresponsabledelprocesoparael"
+    },
+    {
+      "fragmento": "Disposición 87.- Contenido de los contratos",
+      "id": "2d2f75c4-8d17-53ee-87ca-8a32fdf21cd6",
+      "paginas_pdf": [
+        141
+      ],
+      "anclas": 29,
+      "prefijo_cotejado": "capituloiiicontratosdisposicion87contenidodeloscontratosloscontratosseelaborarantomandocomoguiaelmodeloquealrespectoapruebeelconsejoconsultivotecnicoapropuestadelareacontratantecentralloscontratoscontendrancomominimoenloqueresulteaplicablelosiguienteiladescripciondelasobrasoserviciosrelacionadosobje"
+    },
+    {
+      "fragmento": "Disposición 88.- Formalización del contrato",
+      "id": "667fe63a-7774-54e5-999a-cd9d82eb7bf1",
+      "paginas_pdf": [
+        141,
+        142
+      ],
+      "anclas": 39,
+      "prefijo_cotejado": "disposicion88formalizaciondelcontratoelarearequirenteylapersonaconcursanteganadoradeberanformalizarelcontratoderivadodeunprocedimientodecontrataciondentrodelplazoprevistoenelpliegoderequisitoselcualnopodraserinferioraseisdiashabilescontadosapartirdeldiahabilsiguienteaaquelenquesenotifiqueelfalloalas"
+    },
+    {
+      "fragmento": "Disposición 89.- Cesión de derechos y obligaciones",
+      "id": "5f75f317-9308-5653-8d25-af4064a78f06",
+      "paginas_pdf": [
+        142
+      ],
+      "anclas": 15,
+      "prefijo_cotejado": "disposicion89cesiondederechosyobligacioneslapersonacontratistanopodracederlosderechosyobligacionesderivadosdelcontratocelebradoconlacfeenfavordecualquierotrapersonasalvolosderechosdecobroquepodrancederseprevioconsentimientoporescritodelapersonajefadeproyectoquientendraunplazomaximode5diashabilespara"
+    },
+    {
+      "fragmento": "Disposición 90.- Responsabilidades de la persona jefe de proyecto, residente de obra, persona coordinador de pruebas y de la persona supervisora",
+      "id": "f3f5f298-d454-51e2-8c78-5a2b85c020e0",
+      "paginas_pdf": [
+        142
+      ],
+      "anclas": 8,
+      "prefijo_cotejado": "disposicion90responsabilidadesdelapersonajefedeproyectoresidentedeobrapersonacoordinadordepruebasydelapersonasupervisoralapersonajefadeproyectoelresidentedeobraelcoordinadordepruebasyelsupervisorseranlosresponsablesdeadministrarsupervisaryverificarrespectivamenteelcumplimientodelasobligacionesprevis"
+    },
+    {
+      "fragmento": "Disposición 91.- Subcontratación",
+      "id": "e00c2e69-4ffc-5257-b02b-bb2e17c4ce96",
+      "paginas_pdf": [
+        142,
+        143
+      ],
+      "anclas": 17,
+      "prefijo_cotejado": "disposicion91subcontratacioncuandoasiseespecifiqueenelpliegoderequisitoslapersonacontratistapodrasubcontrataralaspersonasfisicasomoralesquerequieraparadarpuntalcumplimientoalasobligacionesderivadasdeuncontratoformalizadoconlacfesiempreycuandoelmontoacumuladodeloscontratosacelebrarconlossubcontratist"
+    },
+    {
+      "fragmento": "Disposición 92.- Anticipo",
+      "id": "f1c198b8-3e78-5a28-8f47-aabf08679467",
+      "paginas_pdf": [
+        143
+      ],
+      "anclas": 30,
+      "prefijo_cotejado": "disposicion92anticipoelarearequirentepodrasolicitaralareacontratanteestablecerenelpliegoderequisitoselotorgamientodeunanticipoelcualparaelcasodelacontrataciondeobraspodraserdehastaeltreintaporcientodelmontototaldelcontratotratandosedelacontrataciondeserviciosrelacionadossepodrapreverelotorgamientode"
+    },
+    {
+      "fragmento": "Disposición 93.- Bitácora Electrónica",
+      "id": "89f400e3-96b0-5336-be06-9dafce87f9bc",
+      "paginas_pdf": [
+        143,
+        144
+      ],
+      "anclas": 44,
+      "prefijo_cotejado": "disposicion93bitacoraelectronicaseraobligatorioelusodelabitacoraelectronicalacualdeberaserabiertaaliniciodelostrabajosporlapersonaresidentedeobraparaelregistrooportunodealmenoslossiguienteseventosialapersonaresidentedeobralecorresponderaregistraralaentregadelossitiosdelostrabajosblasmodificacionesal"
+    },
+    {
+      "fragmento": "Disposición 94.- Entrega de inmuebles para inicio de los trabajos",
+      "id": "41e240ae-a299-5173-85f9-da30eea17242",
+      "paginas_pdf": [
+        144
+      ],
+      "anclas": 6,
+      "prefijo_cotejado": "disposicion94entregadeinmueblesparainiciodelostrabajoslaejecuciondelostrabajosdeberainiciarseenlafechasenaladaenelcontratorespectivoylacfeoportunamenteentregaraporescritoalapersonacontratistaelolosinmueblesenquedebanllevarseacaboelincumplimientoenlaentregadelolosinmueblesporpartedelacfediferiralasfe"
+    },
+    {
+      "fragmento": "Disposición 95.- Garantías",
+      "id": "e533c4ae-fbff-5403-a406-f0355614f68e",
+      "paginas_pdf": [
+        144
+      ],
+      "anclas": 12,
+      "prefijo_cotejado": "disposicion95garantiaslaspersonasconcursantesycontratistasdeberanentregarseguncorrespondadeacuerdoconlascaracteristicasdelacontratacionycuandoasisehayaestablecidoenelpliegoderequisitosentreotraslassiguientesgarantiasigarantiadesostenimientodeofertaiigarantiadelanticipoiiigarantiadecumplimientodelcon"
+    },
+    {
+      "fragmento": "Disposición 96.- Pago de estimaciones o de contraprestación",
+      "id": "04a657bf-c393-512b-86cf-3ca0ce5e2154",
+      "paginas_pdf": [
+        145
+      ],
+      "anclas": 10,
+      "prefijo_cotejado": "disposicion96pagodeestimacionesodecontraprestacionelarearequirenteindicaraenelcontratoatendiendoalamodalidadquecorrespondaelprocedimientoparaelpagodelasestimacionesodelacontraprestaciondeacuerdoconloestablecidoenelpliegoderequisitoslospagosporreglageneralseefectuaranenelplazoqueestablezcaladireccion"
+    },
+    {
+      "fragmento": "Disposición 97.- Procedimiento de Ajuste de Costos",
+      "id": "eb142981-6d26-599b-ad4f-0175f632508c",
+      "paginas_pdf": [
+        145
+      ],
+      "anclas": 21,
+      "prefijo_cotejado": "disposicion97procedimientodeajustedecostoselprocedimientodeajustedecostossoloprocederacuandoasiseestipuleenelpliegoderequisitosparaloscontratosabasedepreciosunitariosolapartedelosmixtosdeestanaturalezaysedeberaaplicarconformealosperiodosderevisionestablecidosdesdedichopliegoelprocedimientodeajustede"
+    },
+    {
+      "fragmento": "Disposición 98.- Pagos en exceso",
+      "id": "a5ee6e3e-4968-5aee-ae5e-aef142f2a31c",
+      "paginas_pdf": [
+        145
+      ],
+      "anclas": 13,
+      "prefijo_cotejado": "disposicion98pagosenexcesocuandolacfehayarealizadopagosenexcesoalapersonacontratistaestadeberareintegrarlascantidadespagadasenexcesomaslosinteresescorrespondientesconformealatasaqueparatalefectoseestablezcaenelcontratoqueseraigualalaestablecidaporlaleydeingresosdelafederacionvigenteenelejerciciodequ"
+    },
+    {
+      "fragmento": "Disposición 99.- Modificaciones a los contratos",
+      "id": "368953ee-5573-5eb1-ae69-a13d84ef9fe2",
+      "paginas_pdf": [
+        145,
+        146
+      ],
+      "anclas": 34,
+      "prefijo_cotejado": "disposicion99modificacionesaloscontratoselareacontratanteasolicitudybajoresponsabilidaddelapersonajefadeproyectodesignadaporelarearequirenteporrazonesfundadasyexplicitaselaboradasdeacuerdoconloscriteriosqueemitaelareacontratantecentralpodrarealizarmodificacionesaloscontratosparalocualseformalizarapo"
+    },
+    {
+      "fragmento": "Disposición 100.- Diferimiento de la fecha de inicio del cumplimiento de las obligaciones contractuales",
+      "id": "d1374e11-ec56-5d6d-92c9-34fae33fdc74",
+      "paginas_pdf": [
+        146
+      ],
+      "anclas": 5,
+      "prefijo_cotejado": "disposicion100diferimientodelafechadeiniciodelcumplimientodelasobligacionescontractualescuandoporcausasimputablesalacfeexistalaimposibilidadparainiciarelcumplimientodelasobligacionescontractualesenlafechaoriginalmenteestablecidalacfeylapersonacontratistacelebraranunconvenioparadiferirlafechadeinicio"
+    },
+    {
+      "fragmento": "Disposición 101.- Prórroga de obligaciones contractuales",
+      "id": "3be0b28f-00cf-5ecb-a0b0-1340b469854e",
+      "paginas_pdf": [
+        146
+      ],
+      "anclas": 7,
+      "prefijo_cotejado": "disposicion101prorrogadeobligacionescontractualeslacfeylapersonacontratistapodranmedianteconvenioprorrogarlasfechasdeterminacionocualquierotraestablecidaenelcontratocuandoporcasofortuitoodefuerzamayorporhechosajenosalaspartesoporcausasimputablesalacfeseimpidaalapersonacontratistalaejecuciondelostrab"
+    },
+    {
+      "fragmento": "Disposición 102.- Suspensión del plazo de ejecución de los trabajos",
+      "id": "a4e5c626-c70f-5942-9d74-ae036a4b3e1e",
+      "paginas_pdf": [
+        146
+      ],
+      "anclas": 8,
+      "prefijo_cotejado": "disposicion102suspensiondelplazodeejecuciondelostrabajoscuandosepresenteuncasofortuitoofuerzamayorqueimpidaalacfeoalapersonacontratistaelcumplimientodelplazodeejecuciondelostrabajossepodrasuspendertotaloparcialmenteduranteeltiempoqueduredichoimpedimentoenestecasoningunadelaspartescontratantesestarao"
+    },
+    {
+      "fragmento": "Disposición 103.- Trabajos extraordinarios en contratos de obras",
+      "id": "8c4930d3-225b-55b9-884f-006fbe12939c",
+      "paginas_pdf": [
+        146,
+        147
+      ],
+      "anclas": 33,
+      "prefijo_cotejado": "disposicion103trabajosextraordinariosencontratosdeobraslacfepodrareconocerlostrabajosextraordinariosnoconsideradosenlosalcancesdeloscontratosaprecioalzadoocontratollaveenmanoaprecioalzadocuandoestosresultennecesariosparalaconclusiondelasobrassiempreycuandosepresentenlossiguientessupuestosisetratedet"
+    },
+    {
+      "fragmento": "Disposición 104.- Penas convencionales o daños y perjuicios",
+      "id": "0d3c69f8-9ce6-567a-a9b4-440e393de64e",
+      "paginas_pdf": [
+        147
+      ],
+      "anclas": 22,
+      "prefijo_cotejado": "disposicion104penasconvencionalesodanosyperjuicioselarearequirenteporcausasimputablesalapersonacontratistaytomandoencuentaeltipodecontratoydeobligacionespactadasybuscandosiemprelasmejorescondicionespodraestablecerenelcontratocualquieradelassiguientespenasconvencionalesatendiendoeltipodecontrataciond"
+    },
+    {
+      "fragmento": "Disposición 105.- Retención económica",
+      "id": "a0cf99a7-0797-5819-97e4-f1a6fa5a3d64",
+      "paginas_pdf": [
+        147,
+        148
+      ],
+      "anclas": 20,
+      "prefijo_cotejado": "disposicion105retencioneconomicacuandoasiseespecifiqueenelpliegoderequisitosdecontratacionesqueconsiderenelpagodeestimacionesseaplicaranretencioneseconomicasmismasquesecalcularanconbaseenloprevistoenelcontratocelebradoporlaspartesyenelgradodeatrasoquesedeterminedeacuerdoconelavancefisicoenrelacionco"
+    },
+    {
+      "fragmento": "Disposición 106.- Terminación anticipada",
+      "id": "5f5e1208-1491-5674-afee-da5a70e7cb5d",
+      "paginas_pdf": [
+        148
+      ],
+      "anclas": 28,
+      "prefijo_cotejado": "disposicion106terminacionanticipadaenloscontratosseestableceranlascausasporlascualeslosmismossepodrandarporterminadosdeformaanticipadaentreotrossupuestoscuandoasepresenteuncasofortuitoodefuerzamayorconsecuenciadelcualseextingalanecesidaddelacfeocuandoresulteimposibledarcumplimientoalasobligacionesob"
+    },
+    {
+      "fragmento": "Disposición 107.- Rescisión de los contratos",
+      "id": "03b51555-4dd1-5dba-a025-bc94dce9abba",
+      "paginas_pdf": [
+        148,
+        149
+      ],
+      "anclas": 29,
+      "prefijo_cotejado": "disposicion107rescisiondeloscontratoslacfepodraencualquiermomentorescindirloscontratossinnecesidadderesolucionjudicialoarbitralcuandolapersonacontratistaincurraenincumplimientodesusobligacionesenlosterminosestablecidosenlosrespectivoscontratosobservandoelsiguienteprocedimientoilacfenotificaraporescr"
+    },
+    {
+      "fragmento": "Disposición 108.- Cierre de los contratos",
+      "id": "d3f48110-2c56-59ab-96c5-6ad35053c393",
+      "paginas_pdf": [
+        149
+      ],
+      "anclas": 31,
+      "prefijo_cotejado": "disposicion108cierredeloscontratoselcierredelcontratoiniciaconlanotificacionporescritodeconclusiondelostrabajosporpartedelapersonacontratistayconcluyeconlaformalizaciondelfiniquitodelcontratoodelactadeextinciondederechosyobligacionesdeestesinperjuiciodelasaccionesquederivendelagarantiadeviciosoculto"
+    },
+    {
+      "fragmento": "Transitorio Primero · Disposiciones generales",
+      "id": "8843c8a8-5293-507b-b427-330832bd799d",
+      "paginas_pdf": [
+        149
+      ],
+      "anclas": 3,
+      "prefijo_cotejado": "transitoriosprimerolaspresentesdisposicionesgeneralesentraranenvigoraldiasiguientedesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "fragmento": "Transitorio Segundo · Disposiciones generales",
+      "id": "43f0a3c2-db53-55bf-b13f-9628bb0a8f66",
+      "paginas_pdf": [
+        149
+      ],
+      "anclas": 4,
+      "prefijo_cotejado": "segundoseabroganlasdisposicionesgeneralesenmateriadeadquisicionesarrendamientoscontrataciondeserviciosyejecuciondeobrasdelacomisionfederaldeelectricidadysusempresasproductivassubsidiariasaprobadasporelconsejodeadministracionensusesion4ordinariade27deenerode2015ypublicadaseneldiariooficialdelafederac"
+    },
+    {
+      "fragmento": "Transitorio Tercero · Disposiciones generales",
+      "id": "319a5d52-d011-5ca9-9490-a7f52c5b45a8",
+      "paginas_pdf": [
+        149
+      ],
+      "anclas": 3,
+      "prefijo_cotejado": "tercerolosprocedimientosdecontratacionyloscontratosquesehayaniniciadoocelebradoconanterioridadalaentradaenvigordeestaseregiranporlasnormasvigentesaplicablesalmomentodesuinicioocelebracion"
+    },
+    {
+      "fragmento": "Transitorio Cuarto · Disposiciones generales",
+      "id": "e1404c47-cfb3-57f8-8851-aeeba418de59",
+      "paginas_pdf": [
+        149
+      ],
+      "anclas": 2,
+      "prefijo_cotejado": "cuartoentantoseimplementaelsistemaelectronicodecontratacioneslosprocedimientosdecontrataciondelacfesedesarrollaranatravesdelaherramientadenominadamicrositiodeconcursos"
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "40b955d8-47e9-5010-8c2e-18afea47d3f2",
+      "paginas_pdf": [
+        149
+      ],
+      "anclas": 4,
+      "prefijo_cotejado": "enlaciudaddemexicoaldiaveintedejuliodedosmilveintiseisladirectoradeadministraciondelacomisionfederaldeelectricidadmtrayesicalunaespinoconfundamentoenelarticulo29fraccionesviiyxvdelestatutoorganicodelaempresapublicadelestadocomisionfederaldeelectricidadrubricar579399"
+    }
+  ]
+}

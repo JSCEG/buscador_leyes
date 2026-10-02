@@ -131,7 +131,7 @@ async function fillUsage(host, { lawById = new Map(), onOpenLaw = () => {} } = {
     const bars = series.map(day => `<span class="st-usage-bar" style="height:${Math.max(6, (Number(day.visitas) / max) * 100)}%"
         data-tip="${escape(`${formatDay(String(day.dia).slice(0, 10))}: ${number(Number(day.visitas))} visitas`)}"></span>`).join('');
     const since = data.desde ? `Contando desde el ${escape(formatDay(String(data.desde).slice(0, 10), 'long'))}` : 'Contando desde hoy';
-    host.innerHTML = `<div class="st-usage-head"><div><h2 id="st-usage-title">Cuánto se consulta</h2></div>
+    host.innerHTML = `<div class="st-usage-head">
             <p class="st-usage-since">${since}</p></div>
         <div class="st-kpis st-usage-kpis">
             ${kpi('Visitas acumuladas', total('visita'), today('visita'), 'var(--st-c-leyes)')}
@@ -202,7 +202,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
             ${kpi('Publicados en 12 meses', number(stats.recent), `${percent(stats.recent, stats.total)} del acervo`, 'var(--st-c-acuerdos)')}
             ${kpi('Colección mayor', lead ? escape(lead.label) : '—', lead ? `${number(lead.count)} instrumentos` : '', 'var(--st-c-dacg)')}
         </div>
-        <section class="st-usage" aria-labelledby="st-usage-title" hidden></section>
+        <section class="st-usage" aria-label="Uso del buscador" hidden></section>
         <div class="st-grid-layout">
             ${composition(stats)}
             ${timeline(stats)}
