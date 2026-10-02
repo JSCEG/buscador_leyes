@@ -207,3 +207,20 @@ html.dark-mode .pn-bar{background:#6fc2ae}
   .pn-col-label{font-size:9.5px;writing-mode:vertical-rl;transform:rotate(180deg)}
   .pm-tab{padding:7px 12px;font-size:12.5px}
 }
+
+/* Tabs not opened yet: a ring pulses around them and a "Nuevo" tag sits on top */
+.pm-tab{position:relative;display:inline-flex;align-items:center;gap:6px}
+.pm-tab-new{display:none;padding:2px 6px;border-radius:999px;background:#f6d9a8;color:#5a3d06;font:800 9.5px/1.2 'Noto Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.pm-tab.is-new .pm-tab-new{display:inline-block}
+.pm-tab.is-new{border-color:#f6d9a8;color:#fff}
+.pm-tab.is-new::before,.pm-tab.is-new::after{content:'';position:absolute;inset:-1px;border-radius:inherit;border:2px solid #f6d9a8;pointer-events:none;opacity:0}
+.pm-tab.is-new::before{animation:pm-ring 1.6s cubic-bezier(.2,.7,.3,1) .8s 3,pm-ring-idle 7s cubic-bezier(.2,.7,.3,1) 6s infinite}
+.pm-tab.is-new::after{animation:pm-ring 1.6s cubic-bezier(.2,.7,.3,1) 1.2s 3}
+.pm-tab.is-new .pm-tab-new{animation:pm-nudge 1.6s ease-in-out .8s 3}
+#pm-tab-panorama.is-new::before{animation-delay:1.4s,7s}
+#pm-tab-panorama.is-new::after{animation-delay:1.8s}
+#pm-tab-panorama.is-new .pm-tab-new{animation-delay:1.4s}
+@keyframes pm-ring{0%{opacity:.85;transform:scale(1)}100%{opacity:0;transform:scale(1.25,1.7)}}
+@keyframes pm-ring-idle{0%{opacity:.85;transform:scale(1)}20%,100%{opacity:0;transform:scale(1.25,1.7)}}
+@keyframes pm-nudge{0%,100%{transform:none}30%{transform:scale(1.2)}60%{transform:scale(.95)}}
+@media (prefers-reduced-motion:reduce){.pm-tab.is-new::before,.pm-tab.is-new::after,.pm-tab.is-new .pm-tab-new{animation:none}}

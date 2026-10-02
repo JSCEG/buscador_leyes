@@ -9,6 +9,16 @@ import { renderPanoramaView } from './cne-panorama-view.js';
 import { permitsHash } from '../lib/cne-api.js';
 import '../styles/permits.css';
 
+// Tabs a visitor has not opened yet pulse and say "Nuevo" until they do (remembered per browser).
+const SEEN_KEY = 'cne-pestanas-vistas';
+const readSeen = () => { try { return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || '[]')); } catch { return new Set(); } };
+function markSeen(tab) {
+    const seen = readSeen();
+    if (seen.has(tab)) return;
+    seen.add(tab);
+    try { localStorage.setItem(SEEN_KEY, JSON.stringify([...seen])); } catch { /* private mode */ }
+}
+
 const TABS = [
     { id: 'permisos', label: 'Permisos', intro: 'Consulta un permiso, su estado, las resoluciones que lo otorgan o modifican y sus anexos, junto con la normativa del acervo que lo regula.' },
     { id: 'resoluciones', label: 'Resoluciones', intro: 'Busca entre las resoluciones de la CNE por número, texto, año, tipo o modalidad, y abre el fundamento legal de cada una en el acervo.' },
@@ -33,7 +43,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             <h1 id="pm-title">CNE: permisos y resoluciones</h1>
             <p class="pm-intro"></p>
             <nav class="pm-tabs" role="tablist" aria-label="Secciones de la CNE">
-                ${TABS.map(tab => `<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel">${tab.label}</a>`).join('')}
+                ${TABS.map(tab => `<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel">${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}
             </nav>
         </div>
         <div id="pm-tabpanel" class="pm-tabpanel" role="tabpanel"></div>`;
@@ -43,6 +53,13 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
     function open(tab, next) {
         current?.destroy();
         currentTab = tab;
+        markSeen(tab);
+        const seen = readSeen();
+        root.querySelectorAll('.pm-tab').forEach(link => {
+            const fresh = !seen.has(link.dataset.tab) && link.dataset.tab !== 'permisos';
+            link.classList.toggle('is-new', fresh);
+            if (fresh) link.setAttribute('aria-description', 'Nueva sección'); else link.removeAttribute('aria-description');
+        });
         const info = TABS.find(item => item.id === tab) || TABS[0];
         root.querySelector('.pm-intro').textContent = info.intro;
         root.querySelectorAll('.pm-tab').forEach(link => {
