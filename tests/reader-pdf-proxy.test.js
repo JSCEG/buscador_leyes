@@ -180,6 +180,25 @@ it('serves only the reviewed September 11, 2026 DOF issue PDF for CATALOGO-CONUE
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed March 18, 2025 DOF evening issue PDF for FMP/LOAPF reforms', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-03-2025/Vespertina/320062';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('reformas-fmp-loapf'), 'reformas-fmp-loapf', {
+        sources: { 'reformas-fmp-loapf': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('320062', '320063'), originalUrl.replace('Vespertina', 'Matutina'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('reformas-fmp-loapf'), 'reformas-fmp-loapf', {
+            sources: { 'reformas-fmp-loapf': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 10, 2026 DOF issue PDF for CONV-GEN-2-M4', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/10-09-2026/Matutina/329565';

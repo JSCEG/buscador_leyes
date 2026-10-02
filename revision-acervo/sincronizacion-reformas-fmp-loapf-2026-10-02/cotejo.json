@@ -1,0 +1,411 @@
+{
+  "fecha_cotejo": "2026-10-02",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/18-03-2025/Vespertina/320062",
+  "fuente_texto": "https://sidof.segob.gob.mx/notas/docFuente/5752329",
+  "sha256_pdf": "ed57fbef06b46f37d53ca1caea856f4eb3b0d2d316c6e7bb7e837daa001708a3",
+  "bytes_pdf": 2571878,
+  "paginas_pdf": 270,
+  "paginas_impresas_documento": [
+    254,
+    259
+  ],
+  "fragmentos_oficiales_mapeados": 31,
+  "nota_editorial_sin_mapa": [
+    "ac24c1a5-2fe9-5baf-84ce-c7b01389003a"
+  ],
+  "cotejo_visual": [
+    254,
+    255,
+    256,
+    257,
+    258,
+    259
+  ],
+  "detalle": [
+    {
+      "fragmento": "Artículo Noveno · Disposición reformadora",
+      "id": "4a8dd828-24d9-5d53-be60-42c47cd9ba9a",
+      "paginas_pdf": [
+        254
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "articulonovenosereformanlafraccionidelarticulo4losincisosdyfdelafraccioniidelart"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 4 · FMP",
+      "id": "601adaec-661d-50cb-a23a-da19f346488b",
+      "paginas_pdf": [
+        254
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 4,
+      "prefijos_cotejados": [
+        "ilosingresosderivadosdelasasignacionesyloscontratosaqueserefiereelarticulo1deest"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 8 · FMP",
+      "id": "4d0c0f5c-f10a-54c1-804f-bdefd63b979a",
+      "paginas_pdf": [
+        254
+      ],
+      "pasajes_cotejados": 2,
+      "anclas": 17,
+      "prefijos_cotejados": [
+        "daprobarapropuestadelcoordinadorejecutivoloslineamientosparalaaperturadelascuent",
+        "fconoceryrequeriralcoordinadorejecutivolainformacionrelativaalosflujosesperadosp"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 9 · FMP",
+      "id": "97cbfcfa-51d1-529c-84b6-1d9e975b829d",
+      "paginas_pdf": [
+        254
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 5,
+      "prefijos_cotejados": [
+        "viinohabersidoaccionistasociooduenofuncionariodirectivorepresentantelegaloasesor"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 16 · FMP",
+      "id": "cd087299-3deb-50d3-8ed9-b785ceb44148",
+      "paginas_pdf": [
+        254
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 7,
+      "prefijos_cotejados": [
+        "ienterminosdelaleydeingresossobrehidrocarburoselfiduciariodeberealizarlospagosde"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 22 · FMP",
+      "id": "13e11752-5973-501a-9300-97707bb7d533",
+      "paginas_pdf": [
+        254
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 6,
+      "prefijos_cotejados": [
+        "ademasdeloanteriorelauditoraqueserefiereelpresentearticulopuederevisarelcumplimi"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 24 · FMP",
+      "id": "ad23d009-f1ca-5c13-8542-ae8d0ab6728c",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "articulo24elfondomexicanodelpetroleodebecoordinarseconlasecretariadeenergiaquien"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Primero · Ley del Fondo Mexicano del Petróleo",
+      "id": "0f64d467-ba34-5c05-8f42-c80e3ad48bda",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "transitoriosprimeroelpresentedecretoentraraenvigoraldiasiguientedesupublicacione"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Segundo · Ley del Fondo Mexicano del Petróleo",
+      "id": "83bba2ce-3966-5e0c-861b-e7941284aec3",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 4,
+      "prefijos_cotejados": [
+        "segundoenlosinstrumentosdecoordinacionycolaboracionadministrativaparaelintercamb"
+      ]
+    },
+    {
+      "fragmento": "Artículo Décimo · Disposición reformadora",
+      "id": "154bbd75-aee1-5bd4-8949-3a00e1481eb5",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 7,
+      "prefijos_cotejados": [
+        "articulodecimosereformanelsegundoparrafodelarticulo1oarticulo2oelarticulo17quate"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 1o · LOAPF",
+      "id": "1688cdb6-b6b4-5422-b2b7-f1eb2792d7b9",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 2,
+      "prefijos_cotejados": [
+        "laoficinadelapresidenciadelarepublicalassecretariasdeestadoylaconsejeriajuridica"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 2o · LOAPF",
+      "id": "d3796c23-f3bd-5420-ae61-e1935f84d44d",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 7,
+      "prefijos_cotejados": [
+        "articulo2oenelejerciciodesusatribucionesyparaeldespachodelosnegociosdelordenadmi"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 3o · LOAPF",
+      "id": "aa59ebec-84e3-5a0b-ba03-157bdd5b9b33",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 7,
+      "prefijos_cotejados": [
+        "iiempresasdeparticipacionestatalinstitucionesnacionalesdecreditoorganizacionesau"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 17 Quáter · LOAPF",
+      "id": "3b16ac08-c880-5cb0-9147-93256dc26d25",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 4,
+      "prefijos_cotejados": [
+        "articulo17quaterlasdependenciasincluyendosusorganosadministrativosdesconcentrado"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 20 · LOAPF",
+      "id": "6fbafdb7-e82f-59b2-8db9-697da632df7f",
+      "paginas_pdf": [
+        255
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "lasdisposicionesdeestearticulonosonaplicablesalassecretariasdemarinaydeladefensa"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 33 · LOAPF",
+      "id": "ca565745-c70b-516f-aff9-d912de64a3be",
+      "paginas_pdf": [
+        256,
+        257
+      ],
+      "pasajes_cotejados": 9,
+      "anclas": 107,
+      "prefijos_cotejados": [
+        "iiiplaneardisenarestablecerconducircoordinarysupervisarlageneraciondeenergianucl",
+        "viiicoordinaratodaslasautoridadesqueintegranelsectorenergeticoparapropiciarquesu",
+        "xiregularypromovereldesarrolloyusodefuentesdeenergiaalternasaloscombustiblesfosi",
+        "xivllevarlosregistrosdegeotermiaydebiocombustiblesenterminosdelasleyesaplicables",
+        "xviiiestablecerlapoliticaderestituciondereservasdehidrocarburosygeotermiaasicomo",
+        "xxregistrarydaraconocerlasreservasdehidrocarburosconformealosestudiosdeevaluacio",
+        "xxvprocurarfomentaryvigilareladecuadosuministrodeelectricidadyloscombustiblesene",
+        "xxviiestablecerlosterminosdeestrictaseparacionlegalqueserequierenparafomentarela",
+        "xxxillevarlaregulaciontecnicayeconomicaasicomosancionarenmateriaenergeticaydehid"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 37 · LOAPF",
+      "id": "4f4f7e64-cfca-5bbe-8966-cc4e0be8363e",
+      "paginas_pdf": [
+        257,
+        258
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 18,
+      "prefijos_cotejados": [
+        "xxxixcrearasignarcoordinaryensucasoextinguirlosorganosinternosdecontrolenlasdepe"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 43 Ter · LOAPF",
+      "id": "ce62e8cf-b412-53e4-bc98-e89a9e112c0a",
+      "paginas_pdf": [
+        258
+      ],
+      "pasajes_cotejados": 2,
+      "anclas": 1,
+      "prefijos_cotejados": [
+        "articulo43ter",
+        "sederoga"
+      ]
+    },
+    {
+      "fragmento": "Modificación · Artículo 44 · LOAPF",
+      "id": "fb317332-7856-5b08-bf9f-4ea4ccd7b6d7",
+      "paginas_pdf": [
+        258
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 13,
+      "prefijos_cotejados": [
+        "articulo44laspersonastitularesdelosorganosinternosdecontrolenlasdependenciasincl"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Primero · Ley Orgánica de la Administración Pública Federal",
+      "id": "9aff31a6-5105-5f31-9b6a-7053020dc290",
+      "paginas_pdf": [
+        258
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "transitoriosprimeroelpresentedecretoentraraenvigoraldiasiguientedesupublicacione"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Segundo · Ley Orgánica de la Administración Pública Federal",
+      "id": "6db377c5-d7ac-5dd7-aaa7-1eaf8a6ad4dd",
+      "paginas_pdf": [
+        258
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 4,
+      "prefijos_cotejados": [
+        "segundotodaslasdisposicionesnormaslineamientospoliticascriteriosydemasnormativid"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Tercero · Ley Orgánica de la Administración Pública Federal",
+      "id": "99009e6a-2d0a-5c68-bade-71640d474404",
+      "paginas_pdf": [
+        258
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "terceroelejerciciodelasfacultadesqueporvirtuddeestaleysetransfierenalasecretaria"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Cuarto · Ley Orgánica de la Administración Pública Federal",
+      "id": "87e60544-3331-5e8c-b31c-e951525e25f6",
+      "paginas_pdf": [
+        258,
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 23,
+      "prefijos_cotejados": [
+        "cuartoparadarcertezajuridicaalatransferenciaycontinuidadenlosactossolicitudesasu"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Quinto · Ley Orgánica de la Administración Pública Federal",
+      "id": "b6925280-3a8c-5c88-9963-64182286a0cb",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 6,
+      "prefijos_cotejados": [
+        "quintoentantonoentrenenvigorlasdisposicionesadministrativasdecaractergeneralynor"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Sexto · Ley Orgánica de la Administración Pública Federal",
+      "id": "add967ee-9871-572f-ba68-174a560b5533",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 5,
+      "prefijos_cotejados": [
+        "sextoalaentradaenvigordelpresentedecretolascomisionesreguladoradeenergiaynaciona"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Séptimo · Ley Orgánica de la Administración Pública Federal",
+      "id": "64f8639e-6a17-54a7-9c75-b09d419edac7",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 4,
+      "prefijos_cotejados": [
+        "septimolospagosdederechosaprovechamientosoingresospropiosestablecidosenfavordela"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Octavo · Ley Orgánica de la Administración Pública Federal",
+      "id": "72ca82e7-9152-5615-896e-bfd3fb31fd6e",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "octavolospagosdederechosqueenmateriadebiocombustiblesseestablecenenfavordelacomi"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Noveno · Ley Orgánica de la Administración Pública Federal",
+      "id": "a5e0cf72-2a58-5b40-b2a1-cd4a3efeb2e8",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "novenolosrecursoshumanosfinancierosymaterialesconquecuentenlascomisionesregulado"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Primero · Decreto general",
+      "id": "1c2780dc-dd70-5acb-a041-d4a0939068bd",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 3,
+      "prefijos_cotejados": [
+        "transitoriosprimeroelpresentedecretoentraraenvigoreldiasiguientealdesupublicacio"
+      ]
+    },
+    {
+      "fragmento": "Transitorio Segundo · Decreto general",
+      "id": "d8e828a8-9a87-5bc1-adb8-3a19f46888b9",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 2,
+      "prefijos_cotejados": [
+        "segundolacamaradediputadosdeberealizarlasprevisionespresupuestalesnecesariaspara"
+      ]
+    },
+    {
+      "fragmento": "Firma y publicación del decreto",
+      "id": "27ad314a-95db-51fc-8344-69235bb3540f",
+      "paginas_pdf": [
+        259
+      ],
+      "pasajes_cotejados": 1,
+      "anclas": 8,
+      "prefijos_cotejados": [
+        "ciudaddemexicoa12demarzode2025sengerardofernandeznoronapresidentedipsergiocarlos"
+      ]
+    }
+  ]
+}
