@@ -20,6 +20,7 @@ const reviewedDofPdfs = new Set([
     'https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925',
     'https://sidof.segob.gob.mx/notas/getNewsletter/19-08-2026/Matutina/329166',
     'https://sidof.segob.gob.mx/notas/getNewsletter/31-08-2026/Matutina/329365',
+    'https://sidof.segob.gob.mx/notas/getNewsletter/14-08-2026/Matutina/329086',
 ]);
 
 function problem(status, code) {

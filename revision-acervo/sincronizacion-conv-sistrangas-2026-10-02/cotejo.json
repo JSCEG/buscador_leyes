@@ -1,0 +1,77 @@
+{
+  "fecha_cotejo": "2026-10-02",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/14-08-2026/Matutina/329086",
+  "fuente_texto": "https://sidof.segob.gob.mx/notas/docFuente/5796317",
+  "sha256_pdf": "5ec39d45cbcdef191fbeae7caf31049fcf7d72fe37999f3f33dfa10ae73317d8",
+  "bytes_pdf": 8455984,
+  "paginas_pdf": 440,
+  "paginas_impresas_documento": [
+    406,
+    407
+  ],
+  "fragmentos_oficiales_mapeados": 6,
+  "nota_editorial_sin_mapa": [
+    "8f8e6cbb-d703-5672-bf32-9a2fa14f7e8e"
+  ],
+  "cotejo_visual": [
+    406,
+    407
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y objeto de la convocatoria",
+      "id": "7eb3bd6f-03b0-5fbf-ad92-faa15d8c3124",
+      "paginas_pdf": [
+        406
+      ],
+      "anclas": 18,
+      "prefijo_cotejado": "convocatoriaparaelmecanismodedesignacionparalarenovaciondelosrepresentantesdelaspersonasusuariasyusuariasfinalesdelsistemadetransporteyalmacenamientonacionalintegradodegasnaturalsistrangasalmargenunselloconelescudonacionalquediceestadosunidosmexicanosenergiase"
+    },
+    {
+      "fragmento": "A. REQUISITOS",
+      "id": "4b99287d-509d-5037-8cc4-dd937c4cc722",
+      "paginas_pdf": [
+        406,
+        407
+      ],
+      "anclas": 61,
+      "prefijo_cotejado": "arequisitosielcomiteconsultivoestaconformadoporlossiguientesmiembroseinvitadospermanentesmiembros1unrepresentantedelcenagasgestorquienlopresidiraytendravotodecalidad2unrepresentantedecadaunodelossistemasdetransporteyalmacenamientointegradosalsistrangasincluyen"
+    },
+    {
+      "fragmento": "B. CRITERIOS DE SELECCIÓN",
+      "id": "1f52d7b3-5cc9-5667-91d2-b5450e443ef5",
+      "paginas_pdf": [
+        407
+      ],
+      "anclas": 26,
+      "prefijo_cotejado": "bcriteriosdeseleccioniparalaselecciondelosinteresadoselcenagasseguiraelsiguienteprocedimiento1verificaciondelapresentaciondelainformacionydocumentacionestablecidaenlafraccioniiidelapartadoarequisitos2analisisyevaluaciondelainformacionydocumentacionpresentadapo"
+    },
+    {
+      "fragmento": "C. DIFUSIÓN DE RESULTADOS",
+      "id": "c009199a-6a91-5e1e-8339-52a66da28410",
+      "paginas_pdf": [
+        407
+      ],
+      "anclas": 12,
+      "prefijo_cotejado": "cdifusionderesultadosilosresultadosdelaselecciondelosrepresentantesdelaspersonasusuariasyusuariasfinalesintegrantesdelcomiteconsultivoseranpublicadosamastardarel02deoctubrede2026enlapaginadelboletinelectronicodelgestorindependientedelsistrangasenlasiguientelig"
+    },
+    {
+      "fragmento": "D. DISPOSICIONES FINALES",
+      "id": "f17c7e92-ecbb-5cab-a713-ea9e92f7f6ec",
+      "paginas_pdf": [
+        407
+      ],
+      "anclas": 12,
+      "prefijo_cotejado": "ddisposicionesfinalesilosrepresentantesdelaspersonasusuariasyusuariasfinalesdelsistrangasduraranensucargopor1unanoprorrogableporelmismolapsoporunasolaocasioniielcargodemiembroesatitulohonorificoynogenerarelacionlaboralalgunaiiielcorreoelectronicoyeldomiciliode"
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "147526f1-e6d6-5fa1-bbde-1877125b49e9",
+      "paginas_pdf": [
+        407
+      ],
+      "anclas": 2,
+      "prefijo_cotejado": "ciudaddemexicoa05deagostode2026eldirectorgeneralcuitlahuacgarciajimenezrubricar579410"
+    }
+  ]
+}
