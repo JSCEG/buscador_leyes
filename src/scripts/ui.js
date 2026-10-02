@@ -27,6 +27,7 @@ import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
+import { permitsRoute } from '../lib/cne-api.js';
 import { authError } from '../lib/auth-errors.js';
 import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
@@ -547,7 +548,14 @@ export function initUI() {
         }
         const explorer = explorerRoute(hash);
         const acervo = acervoRoute(hash);
-        if (hash === '#cronologia') {
+        const permits = permitsRoute(hash);
+        if (permits) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showPermitsView({ ...permits, updateHistory: false });
+        } else if (hash === '#cronologia') {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
             detailModal.classList.remove('flex');
@@ -791,7 +799,7 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
-    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
         undockSearch();
@@ -2853,6 +2861,39 @@ export function initUI() {
     document.addEventListener('app:timeline', () => showTimelineView());
     // The mobile menu closes when its Cronología link is chosen.
     document.getElementById('mobile-nav-cronologia')?.addEventListener('click', () => toggleMobileMenu(false));
+
+    let permitsView = null;
+    let permitsRequest = 0;
+    /** Permisos CNE (#permisos, #permiso=<number>): live search of the CNE public registry. */
+    function showPermitsView({ permit = null, updateHistory = true } = {}) {
+        const hash = permit ? `#permiso=${encodeURIComponent(permit)}` : '#permisos';
+        if (updateHistory) setHash(hash);
+        // Back and forward inside the view keep its results instead of rebuilding it.
+        if (permitsView && activeNavId === 'nav-permisos' && resultsContainer.querySelector('.pm-view')) {
+            if (permit) permitsView.openPermit(permit); else permitsView.showList();
+            return;
+        }
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('nav-permisos');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        resultsContainer.innerHTML = skeleton('list', 'Cargando permisos');
+        permitsView?.destroy();
+        permitsView = null;
+        const request = ++permitsRequest;
+        withProgress(import('./permits-view.js')).then(({ renderPermitsView }) => {
+            if (request !== permitsRequest || !permitsRoute(location.hash)) return;
+            permitsView = renderPermitsView(resultsContainer, () => cachedSummaries, {
+                permit,
+                onOpenLaw: law => openLawDetail(law),
+                onRoute: number => setHash(number ? `#permiso=${encodeURIComponent(number)}` : '#permisos'),
+            });
+            window.scrollTo({ top: 0 });
+        });
+    }
+    document.getElementById('mobile-nav-permisos')?.addEventListener('click', () => toggleMobileMenu(false));
 
     function showAyudaView() {
         setHash(null);
