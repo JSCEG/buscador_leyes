@@ -1,0 +1,367 @@
+{
+  "instrumento": "CONV-ESTRATEGICOS-M2",
+  "instrumentId": "29886758-c194-5db4-86eb-8c96347f7aba",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5793261",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/10-07-2026/Matutina/328425",
+  "archivoTemporal": "tmp\\conv-estrategicos-m2.pdf",
+  "sha256": "69f4f71a5bbf216f3b6b0249aa75c285dda23f197734d073ce13be80f2a52437",
+  "bytes": 5386587,
+  "paginasPdf": 324,
+  "paginasImpresasDelAcuerdo": [
+    11,
+    20
+  ],
+  "fragmentosOficiales": 27,
+  "anclasGeometricas": 676,
+  "tablasVisibles": 3,
+  "fragmentos": [
+    {
+      "id": "4e69208e-0750-5a71-823a-65353b442ee6",
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "paginasPdf": [
+        11
+      ],
+      "paginasImpresas": [
+        11
+      ],
+      "anclas": 30,
+      "prefijoCotejado": "acuerdoporelqueseemitelasegundamodificacionalaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculantealmargen"
+    },
+    {
+      "id": "f0eb0333-b24e-59f0-9056-acdfbdcdf6eb",
+      "fragmento": "PRIMERO · Alcance de las modificaciones",
+      "paginasPdf": [
+        11
+      ],
+      "paginasImpresas": [
+        11
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "primerosemodificanlosnumerales1fraccionesivyv2fraccionv31fraccionesxiyxii5181segundoparrafo83fraccioniiyseptimoparrafo91fraccionii101primerparrafoyfraccionesiyii102103111primerparr"
+    },
+    {
+      "id": "debba957-23f7-5437-8426-c7ad6b65a0ef",
+      "fragmento": "PRIMERO · Texto citado del numeral 1",
+      "paginasPdf": [
+        11,
+        12
+      ],
+      "paginasImpresas": [
+        11,
+        12
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "ivestablecerlacapacidadrequeridaparalaconvocatoriadeproyectosestrategicosparalosproyectosquesepresentenconformealosterminosdelaconvocatoriadeproyectosestrategicosconsiderandolasnec"
+    },
+    {
+      "id": "e1f3d3d3-2a5d-546b-a736-42676d6b6c29",
+      "fragmento": "PRIMERO · Texto citado del numeral 2",
+      "paginasPdf": [
+        12,
+        13
+      ],
+      "paginasImpresas": [
+        12,
+        13
+      ],
+      "anclas": 71,
+      "prefijoCotejado": "vcapacidadrequeridaparalaconvocatoriadeproyectosestrategicosparalosefectosdelapresenteconvocatoriadeproyectosestrategicoslacapacidadrequeridaexpresadaenmwcomprendelacapacidaddegene"
+    },
+    {
+      "id": "ef7fd98c-0659-55e8-9062-2b6d2dec1d85",
+      "fragmento": "PRIMERO · Texto citado del numeral 3.1",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "xielcenacenodebeconsiderarproyectosquecorrespondanaregionesdondenoexistacapacidadrequeridaparalaconvocatoriadeproyectosestrategicosoqueestahayasidocubiertaxiilosproyectosasociadosa"
+    },
+    {
+      "id": "0d2b15e2-8d88-5dd8-961c-0ad918173854",
+      "fragmento": "PRIMERO · Texto citado del numeral 5.1",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "51lasenerlacneelcenaceylacfeenelambitodesusatribucionesdebenrealizarlasgestionesnecesariasparaatenderlassolicitudesestudiosyprocedimientosconformealosplazosdelapresenteconvocatoria"
+    },
+    {
+      "id": "da2deaa4-bf51-5f2f-a31b-58d13cff0f4c",
+      "fragmento": "PRIMERO · Texto citado del numeral 6.2",
+      "paginasPdf": [
+        13,
+        14
+      ],
+      "paginasImpresas": [
+        13,
+        14
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "lasetapasyplazosprevistosenestaconvocatoriasonsecuencialesysudesarrolloseencuentrasujetoalcumplimientodecadaetapainmediataanteriorcorrespondienteporloqueencasodenocumplirsealgunade"
+    },
+    {
+      "id": "c8185c2f-1362-5fd8-b0ad-02821ea03a0a",
+      "fragmento": "PRIMERO · Texto citado del numeral 8.1",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "presentadoelformatoalquehacereferenciaelparrafoanteriorycelebradoelcontratooinstrumentojuridicoqueformaliceelproyectoenasociacionconlacfeenterminosdelanormatividadaplicablelaperson"
+    },
+    {
+      "id": "ae48e102-9adb-54b8-8d6a-7256b6d77a49",
+      "fragmento": "PRIMERO · Texto citado del numeral 8.3",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "iicostoestimadoenpesosmexicanosdelasobrasderefuerzocuandoestasseancomunesadosomasproyectosloscostosseasignandemaneraproporcionalalapotenciaenmwdecadaproyectodegeneracionoalmacenami"
+    },
+    {
+      "id": "d84cec6a-0dc5-57b8-9df2-31cbceb48dec",
+      "fragmento": "PRIMERO · Texto citado del numeral 9.1",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "iialcenacelosestudiostecnicosreferidosenlaconvocatoriadeproyectosestrategicosincluyendolainformacionnecesariaparaverificarelcumplimientodeloscriteriosdeplaneacionvinculantesegunlec"
+    },
+    {
+      "id": "742f38a6-3cd3-5894-8953-ec74c4a003ee",
+      "fragmento": "PRIMERO · Texto citado del numeral 10.1",
+      "paginasPdf": [
+        14,
+        15
+      ],
+      "paginasImpresas": [
+        14,
+        15
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "101lasenerdebesometeraconsideraciondelgrupodeanalisistecnicolaevaluaciondelosproyectosquecumplanconlosrequisitosestablecidosenlalseelrlselalpteelrlptelaconvocatoriadeproyectosestra"
+    },
+    {
+      "id": "2d5af28d-8023-5f97-b921-8e5555f40d9f",
+      "fragmento": "PRIMERO · Texto citado del numeral 10.2",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "102lasenerdebenotificarlaopiniondelgatalacfealacneyalaspersonassolicitantesatravesdelavupeparaqueensucasosecontinueconloprevistoenelnumeral173deestaconvocatoria"
+    },
+    {
+      "id": "e7e8fc0f-f2ba-593e-8d9a-167a887ec6be",
+      "fragmento": "PRIMERO · Texto citado del numeral 10.3",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "103unavezemitidalaopiniondelgatencasodenocontinuarconelprocedimientolaspersonassolicitantespuedenpresentarporlasviasordinariaslassolicitudesparalaobtenciondelosdiversospermisosauto"
+    },
+    {
+      "id": "54befe15-f49b-56d0-8e63-6da0c945c935",
+      "fragmento": "PRIMERO · Texto citado del numeral 11.1",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "111unavezemitidalaopiniontecnicaporpartedelgrupodeanalisistecnicolasenerdebeproporcionaralacfeelexpedientedelproyectoatravesdelavupeparaqueensucasosecontinueelprocedimientoconforme"
+    },
+    {
+      "id": "179a0db8-7070-51aa-be39-d9d17cdd0b13",
+      "fragmento": "PRIMERO · Texto citado del numeral 12.1",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "121lacnedeberesolversobrelasolicituddepermisopresentadaporlapersonasolicitanteconsiderandolosplazosestablecidosenelnumeral174delapresenteconvocatoriaydeconformidadconloprevistoenla"
+    },
+    {
+      "id": "534c31ee-29fa-53db-9882-66677a41ca24",
+      "fragmento": "PRIMERO · Texto citado del numeral 14",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "14publicacionperiodicadecapacidadesyresultadosdelaconvocatoriadeproyectosestrategicoslasenerpuedepublicaryensucasoactualizarlacapacidadrequeridaparalaconvocatoriadeproyectosestrate"
+    },
+    {
+      "id": "fbed5ce0-0c02-5a9a-a4d6-11506d12a5b9",
+      "fragmento": "PRIMERO · Texto citado del numeral 17.1",
+      "paginasPdf": [
+        15,
+        16,
+        17
+      ],
+      "paginasImpresas": [
+        15,
+        16,
+        17
+      ],
+      "anclas": 191,
+      "prefijoCotejado": "171paraeldesarrollodelaconvocatoriadeproyectosestrategicoselprocedimientoderegistrodemanifestaciondeinteresysolicituddeestudiosdeconexioneinterconexionquedasujetoalasetapasplazosya"
+    },
+    {
+      "id": "2ee2f47a-0cfe-5f3e-84f1-154d89efb548",
+      "fragmento": "PRIMERO · Texto citado del numeral 17.2",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "172lasenerdebenotificaratravesdelavupelaopinionemitidaporelgrupodeanalisistecnicoalaqueserefierelaetapa10previstaenelnumeral171delaconvocatoriadeproyectosestrategicosalapersonasoli"
+    },
+    {
+      "id": "41d2628f-bcb0-54f1-9af8-d5ff6acecf13",
+      "fragmento": "PRIMERO · Texto citado del numeral 17.3",
+      "paginasPdf": [
+        17,
+        18
+      ],
+      "paginasImpresas": [
+        17,
+        18
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "173emitidalaopiniondelgrupodeanalisistecnicoalaqueserefierelaetapa10previstaenelnumeral171lacfedebeiniciarelprocedimientocorrespondienteparaqueensucasoformaliceelproyectoenasociaci"
+    },
+    {
+      "id": "93f0f7e8-d5c9-5e10-a144-e09219222c50",
+      "fragmento": "PRIMERO · Texto citado del numeral 17.4",
+      "paginasPdf": [
+        18,
+        19,
+        20
+      ],
+      "paginasImpresas": [
+        18,
+        19,
+        20
+      ],
+      "anclas": 209,
+      "prefijoCotejado": "174formalizadoelproyectoenasociacionconlacfelapersonasolicitanteolacfedebepresentarlasolicituddelpermisoquecorrespondadeconformidadconlasetapasplazosyactividadessiguientesnodeetapa"
+    },
+    {
+      "id": "31199c7d-36ae-56e8-919e-de6d6724dbb2",
+      "fragmento": "PRIMERO · Texto citado del numeral 17.4.1",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "1741paraefectosdelprocedimientodeotorgamientodepermisosenterminosdelaconvocatoriadeproyectosestrategicoslosplazosyetapasparasuatencioncorrespondenalossenaladosenlamisma"
+    },
+    {
+      "id": "aca19cd1-ba19-5ddf-a63d-798856366b86",
+      "fragmento": "PRIMERO · Texto citado del numeral 18",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "18referenciasdecapacidadrequeridaparalaconvocatoriadeproyectosestrategicosdesistemasdealmacenamientodeenergiaelectricaygeneraciondeenergiaelectricalareferenciadecapacidadrequeridap"
+    },
+    {
+      "id": "005bb5c7-c2e7-5777-8201-20803f43db45",
+      "fragmento": "PRIMERO · Texto citado del numeral 18.2",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 28,
+      "prefijoCotejado": "gerenciadecontrolregionalcapacidadrequeridaparalaconvocatoriadeproyectosestrategicosmwhorasdealmacenamientobajacalifornia1403horasbajacaliforniasur503horasnorte2453horasnoroeste160"
+    },
+    {
+      "id": "f01bebbb-7cbe-5047-902c-72e90f73580a",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "segundolosplazosyreferenciascontenidosenlaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculantedebenentende"
+    },
+    {
+      "id": "fdd3f92f-2bc3-5c5b-842e-f4eea34e1a62",
+      "fragmento": "Transitorio PRIMERO · acuerdo",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresenteacuerdoentraraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "6d8df6c7-425d-5d26-8ea7-17dfbe59de76",
+      "fragmento": "Transitorio SEGUNDO · acuerdo",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "segundoparaelcasodeaquellaspersonassolicitantesquehayanpresentadoregistrosdemanifestaciondeinteresysolicitudesdeestudiosdeinterconexionyconexionprevioalafechadepublicaciondeesteacu"
+    },
+    {
+      "id": "886cc40d-45e2-5e2e-bae0-f136b718d008",
+      "fragmento": "Firma del acuerdo",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa7dejuliode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ],
+  "notasEditorialesExcluidas": [
+    {
+      "id": "22635122-f6db-5ea6-9241-e0e09c228814",
+      "label": "Nota editorial · versiones relacionadas"
+    }
+  ]
+}
