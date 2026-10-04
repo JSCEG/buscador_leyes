@@ -458,6 +458,26 @@ it('serves only the reviewed August 14, 2026 DOF morning issue PDF for CONV-SIST
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed June 26, 2026 DOF issue PDF for the migration clarification', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/26-06-2026/Matutina/328125';
+    const fetcher = vi.fn(async () => upstream());
+    const reviewed = { ...source, originalUrl };
+    const response = await serveReaderPdf(request('migracion-aclaracion'), 'migracion-aclaracion', {
+        sources: { 'migracion-aclaracion': reviewed }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('328125', '328126'), originalUrl.replace('26-06-2026', '27-06-2026'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('migracion-aclaracion'), 'migracion-aclaracion', {
+            sources: { 'migracion-aclaracion': { ...reviewed, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());

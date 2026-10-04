@@ -1,0 +1,45 @@
+{
+  "instrumento": "MIGRACION-ACLARACION",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/26-06-2026/Matutina/328125",
+  "pdfLocal": "revision-acervo\\incorporacion-pendientes-2026-09-19\\fuentes\\MIGRACION-ACLARACION-edicion.pdf",
+  "sha256": "2d99cb2a77fdc34e7f8f39187ab4d00b105f9b33466b07c66fb7df7e69e53470",
+  "bytes": 5117372,
+  "paginasPdf": 274,
+  "paginaImpreso": 107,
+  "fragmentosMapeados": [
+    {
+      "fragmento": "Presentación de la nota aclaratoria",
+      "id": "63e0a41f-5ecd-58f2-a831-b13d5950d686",
+      "pagina": 107,
+      "anclas": 18,
+      "regionY": [
+        70,
+        342
+      ]
+    },
+    {
+      "fragmento": "Aclaración al artículo 18 · Dice y debe decir",
+      "id": "8f223d51-5f31-5657-be7e-9be836c24a4f",
+      "pagina": 107,
+      "anclas": 16,
+      "regionY": [
+        342,
+        570
+      ]
+    },
+    {
+      "fragmento": "Firma de la nota aclaratoria",
+      "id": "19c63719-5fb1-53e3-979b-e1a0ba790b68",
+      "pagina": 107,
+      "anclas": 2,
+      "regionY": [
+        570,
+        605
+      ]
+    }
+  ],
+  "notaEditorialExcluida": "3e5d22a1-8b7f-5637-8532-d25e7069cf82",
+  "avisoDOFExcluido": true,
+  "diferenciaHTMLPDF": "La fuente HTML repite el encabezado con una variante de redacción; se conserva el texto cargado cotejado y los anclajes señalan la edición PDF oficial.",
+  "criterio": "Coordenadas cotejadas con la página impresa 107; la firma concluye antes del AVISO de cuotas del propio DOF."
+}
