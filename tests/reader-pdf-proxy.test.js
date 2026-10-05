@@ -199,6 +199,24 @@ it('serves only the reviewed October 23, 2025 DOF morning issue PDF for the CNE 
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed April 27, 2026 DOF morning issue PDF for the SENER organization manual', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/27-04-2026/Matutina/326905';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('manual-sener'), 'manual-sener', {
+        sources: { 'manual-sener': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('326905', '326906'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('manual-sener'), 'manual-sener', {
+            sources: { 'manual-sener': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';

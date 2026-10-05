@@ -1,0 +1,917 @@
+{
+  "instrumento": "Manual de Organización General de la Secretaría de Energía",
+  "instrumentoId": "3b9afd47-4363-5938-acce-300432d8575a",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/27-04-2026/Matutina/326905",
+  "fuenteHtml": "https://sidof.segob.gob.mx/notas/docFuente/5785999",
+  "pdfTemporal": "tmp\\dof-2026-04-27-matutina-326905.pdf",
+  "sha256": "1036c19a6f74f6bd1a5a5abc9fb1a4468f823c8e1d45c6a164317e8805067852",
+  "bytes": 11002574,
+  "paginasPdf": 456,
+  "paginasDelInstrumento": [
+    191,
+    332
+  ],
+  "fragmentosCargados": 77,
+  "fragmentosMapeados": 77,
+  "anclasGeometricas": 9044,
+  "fragmentos": [
+    {
+      "id": "f8911139-9604-5793-a82d-5c6870f5e064",
+      "fragmento": "Portada y acta de autorización",
+      "paginas": [
+        191
+      ],
+      "anclas": 13,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "manualdeorganizaciongeneraldelasecretariadeenergiaalmargenunselloconelescudonacionalquediceestadosunidosmexicanosenergiasecretariadeenergiamanualdeorganizaciongeneralactadeautorizacionlasecretariadeenergiaencumplimientoa"
+    },
+    {
+      "id": "5981ccde-8230-5096-ab97-36155d1849fc",
+      "fragmento": "Índice",
+      "paginas": [
+        191
+      ],
+      "anclas": 23,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "indicepresen"
+    },
+    {
+      "id": "865383ba-c38e-5a93-acb5-1ae0ba28e7e4",
+      "fragmento": "PRESENTACIÓN.",
+      "paginas": [
+        191,
+        192
+      ],
+      "anclas": 29,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "presentacionderivadodelasreformasconstitucionalespublicadasel31deoctubrey20dediciembrede2024alosarticulos25parrafoquinto27parrafossextoyseptimoy28parrafoscuartoyoctavoenmateriadeareasyempresasestrategicasydesimplificacio"
+    },
+    {
+      "id": "22854905-ea0c-5e1b-a207-14f159903dd6",
+      "fragmento": "1. OBJETIVO DEL MANUAL.",
+      "paginas": [
+        192
+      ],
+      "anclas": 7,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "1objetivodelmanualestablecerconprecisionlasfuncionesyresponsabilidadesquecorrespondenacadaunadelasunidadesadministrativasdelasecretariaconformealosorganigramasespecificosautorizadosyregistradosporlasecretariaanticorrupci"
+    },
+    {
+      "id": "ab9629ec-6b23-5760-ad2c-ad21d78d3b2d",
+      "fragmento": "2. CONCEPTOS ESTRATÉGICOS.",
+      "paginas": [
+        192
+      ],
+      "anclas": 10,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "2conceptosestrategicosmisionconducirlapoliticaenergeticadelpaisconbaseenelmarcoconstitucionalvigenteparagarantizarelsuministrocompetitivosuficientedealtacalidadeconomicamenteviableyambientalmentesustentabledelosenergetic"
+    },
+    {
+      "id": "ca6bd5c6-253c-5718-a8bb-42c2389427c4",
+      "fragmento": "3. ANTECEDENTES.",
+      "paginas": [
+        192,
+        193,
+        194
+      ],
+      "anclas": 130,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "3antecedentesparalaadministraciondelgobiernodelmexicoindependientesepublicaporlaregenciadelimperiomexicanoel8denoviembrede1821elreglamentoprovisionalparaelgobiernointerioryexteriordelassecretariasdeestadoydeldespachouniv"
+    },
+    {
+      "id": "de0d45f9-10ad-5420-a476-612eb00baf2b",
+      "fragmento": "4. MARCO JURÍDICO.",
+      "paginas": [
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216
+      ],
+      "anclas": 1085,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "4marcojuridicoconstitucionpoliticadelosestadosunidosmexicanosdof05021917ultimareformadof15042025tratadosinternacionalesconvencionamericanasobrederechoshumanosdof07051981convenciondevienasobreelderechodelostratadosdof1402"
+    },
+    {
+      "id": "4e58960d-2318-582e-ad3f-6be17628c519",
+      "fragmento": "5. ATRIBUCIONES.",
+      "paginas": [
+        216,
+        217,
+        218
+      ],
+      "anclas": 161,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "5atribucionesleyorganicadelaadministracionpublicafederalarticulo33alasecretariadeenergialecorrespondeeldespachodelossiguientesasuntosiestablecerconducirycoordinarlapoliticaenergeticadelpaisasicomosupervisarsucumplimiento"
+    },
+    {
+      "id": "3c754d77-34a6-51ec-a7e1-155b63e4926d",
+      "fragmento": "6. ESTRUCTURA ORGÁNICA.",
+      "paginas": [
+        219,
+        220,
+        221
+      ],
+      "anclas": 134,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "6estructuraorganicaaoficinadelapersonatitulardelasecretariaiunidaddeasuntosjuridicosi1direcciongeneraldeloconsultivoi2direcciongeneraldenormatividadi3direcciongeneralderepresentacionlegalydelocontenciosoiiunidaddeenlacel"
+    },
+    {
+      "id": "2326d66e-14e9-53cc-a7c2-444a2d190576",
+      "fragmento": "7. ORGANIGRAMA.",
+      "paginas": [
+        221
+      ],
+      "anclas": 2,
+      "metodo": "bloque(s) gráfico(s) del organigrama en la página oficial 221"
+    },
+    {
+      "id": "54162db9-fc2b-59c5-ad5f-da88b2497506",
+      "fragmento": "8. OBJETIVOS Y FUNCIONES.",
+      "paginas": [
+        222
+      ],
+      "anclas": 1,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "8objetivosyfunciones"
+    },
+    {
+      "id": "577e2078-5871-57e5-a2ab-29c3e630adf6",
+      "fragmento": "8.1. OFICINA DE LA PERSONA TITULAR DE LA SECRETARÍA.",
+      "paginas": [
+        222
+      ],
+      "anclas": 1,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "81oficinadelapersonatitulardelasecretaria"
+    },
+    {
+      "id": "e3664d7b-fb4d-56c0-aa7d-dc8d506f971a",
+      "fragmento": "100. SECRETARIA DE ENERGÍA.",
+      "paginas": [
+        222,
+        223
+      ],
+      "anclas": 128,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "100secretariadeenergiaobjetivogarantizarlaimplementacionyconducciondelapoliticaenergeticanacionalconformealasmetasdedesarrolloestablecidasalsectorporpartedelapersonatitulardelejecutivofederalenapegoaloestipuladoenelprece"
+    },
+    {
+      "id": "b64b8d1e-eb14-5b8e-a6bf-d5dd1ba7a9cf",
+      "fragmento": "111. Dirección General de Asuntos Internacionales.",
+      "paginas": [
+        224
+      ],
+      "anclas": 46,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "111direcciongeneraldeasuntosinternacionalesobjetivoestablecerunaadecuadarepresentacionyparticipaciondelsectorenergeticomexicanoenelambitointernacionalafindepromoveryconcretarlosinteresesdemexicoenelmundocontribuyendoalde"
+    },
+    {
+      "id": "f2241581-da9c-5e0d-a555-bdfb410226de",
+      "fragmento": "112. Dirección General de Comunicación Social.",
+      "paginas": [
+        224,
+        225,
+        226
+      ],
+      "anclas": 127,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "112direcciongeneraldecomunicacionsocialobjetivoasegurarlaaplicaciondelapoliticadecomunicacionsocialconformealosordenamientoslegalesydemasnormasjuridicasvigentesafindegarantizarladifusionalapoblacionengeneraldelasactivida"
+    },
+    {
+      "id": "46e82cb2-2151-5861-a511-3bb9c32e3c58",
+      "fragmento": "114. Unidad de Enlace Legislativo.",
+      "paginas": [
+        226,
+        227
+      ],
+      "anclas": 65,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "114unidaddeenlacelegislativoobjetivoestablecervinculoscomoenlaceestrategicoycoordinadorprincipalentrelasecretariadeenergiayelpoderlegislativoensusambitosfederalylocalparaimpulsargestionarydarseguimientoalosasuntoslegisla"
+    },
+    {
+      "id": "4ad440b6-28b7-5fa1-a541-d624cb032622",
+      "fragmento": "117. Dirección General de Impacto Social, Consulta Previa y Ocupación Superficial.",
+      "paginas": [
+        227,
+        228,
+        229
+      ],
+      "anclas": 130,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "117direcciongeneraldeimpactosocialconsultapreviayocupacionsuperficialobjetivoasegurarelcumplimientolegalylaaplicaciondelasdisposicionesvigentesenlasaccionesemprendidasporlasecretariadeenergiaenmateriadeevaluaciondeimpact"
+    },
+    {
+      "id": "772b0880-3859-5b8d-a626-c8dfdd7eec01",
+      "fragmento": "118. Dirección General de Transparencia y Protección de Datos Personales.",
+      "paginas": [
+        229,
+        230
+      ],
+      "anclas": 57,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "118direcciongeneraldetransparenciayprotecciondedatospersonalesobjetivodirigirlasaccionesencaminadasalcumplimientodelasdisposicionesdelaleygeneraldetransparenciayaccesoalainformacionpublicaasicomodelaleygeneraldeproteccio"
+    },
+    {
+      "id": "2df9153a-98ce-56ba-a936-375beab89c3e",
+      "fragmento": "120. Unidad de Asuntos Jurídicos.",
+      "paginas": [
+        230,
+        231,
+        232
+      ],
+      "anclas": 142,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "120unidaddeasuntosjuridicosobjetivoadministrarlosserviciosjuridicosproporcionadosalasunidadesadministrativasqueintegranlasecretariadeenergiayasesoraraentidadesparaestatalesempresaspublicasdelestadoyorganosadministrativos"
+    },
+    {
+      "id": "7f02a110-affb-595f-a59e-bf131dcee08d",
+      "fragmento": "121. Dirección General de lo Consultivo.",
+      "paginas": [
+        232,
+        233
+      ],
+      "anclas": 101,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "121direcciongeneraldeloconsultivoobjetivoestablecerlosprocesosrelacionadosconlaatencionalasconsultasasesoriasyseguimientodelaelaboraciondeinstrumentosjuridicosqueleseanrequeridosporpartedelapersonatitulardelasecretariade"
+    },
+    {
+      "id": "1eb13c74-f5c3-59df-a524-a4104b0dbf10",
+      "fragmento": "122. Dirección General de Normatividad.",
+      "paginas": [
+        233,
+        234
+      ],
+      "anclas": 60,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "122direcciongeneraldenormatividadobjetivogarantizarlaadecuadaformulacionrevisionactualizacionyarmonizaciondelmarcojuridicodelsectorenergeticomediantelacoordinacionydesarrollodeanalisisjuridicoselaboracionymodificacionded"
+    },
+    {
+      "id": "32a1d044-162b-553e-a71f-d0fd3617d0c2",
+      "fragmento": "123. Dirección General de Representación Legal y de lo Contencioso.",
+      "paginas": [
+        234,
+        235,
+        236
+      ],
+      "anclas": 112,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "123direcciongeneralderepresentacionlegalydelocontenciosoobjetivodefinirydirigirlasestrategiasdedefensajuridicaqueimpulsenlarepresentacionproteccionysalvaguardadelosinteresesdelasecretariadeenergiasusunidadesadministrativ"
+    },
+    {
+      "id": "4db02f5e-4d24-5247-a063-4b29a14576ac",
+      "fragmento": "130. Unidad de Estrategia, Vinculación Interinstitucional y Seguimiento de Proyectos e Inversiones.",
+      "paginas": [
+        236,
+        237
+      ],
+      "anclas": 98,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "130unidaddeestrategiavinculacioninterinstitucionalyseguimientodeproyectoseinversionesobjetivoadministrareldiagnosticosobrelaprefactibilidaddelosproyectosestrategicosydeinfraestructuradelsectorenergeticoydeterminarsuinclu"
+    },
+    {
+      "id": "2e724205-45b5-5ddb-ab9b-5bd937dd6854",
+      "fragmento": "131. Dirección General de Evaluación, Análisis y Seguimiento de Proyectos.",
+      "paginas": [
+        237,
+        238
+      ],
+      "anclas": 60,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "131direcciongeneraldeevaluacionanalisisyseguimientodeproyectosobjetivoevaluarlaprefactibilidadtecnicaviabilidadfinancieraeconomicayensucasopresupuestaldelosproyectosestrategicosydeinfraestructuradelsectorenergeticoasicom"
+    },
+    {
+      "id": "1a14d6ac-5032-5038-ac2d-e3195256c25c",
+      "fragmento": "132. Dirección General de Estrategia y Vinculación Interinstitucional.",
+      "paginas": [
+        238,
+        239
+      ],
+      "anclas": 62,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "132direcciongeneraldeestrategiayvinculacioninterinstitucionalobjetivodisenareimplementarlaestrategiainstitucionaldeanalisisyseguimientodelosplanesyprogramasdetrabajorelacionadosconlapoliticaenergeticanacionalasicomoforta"
+    },
+    {
+      "id": "75c53b19-d6bd-5c93-af57-0a59c6588690",
+      "fragmento": "133. Dirección General de Innovación y Gobierno Ágil.",
+      "paginas": [
+        239,
+        240
+      ],
+      "anclas": 65,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "133direcciongeneraldeinnovacionygobiernoagilobjetivocoordinarydesarrollarlasestrategiasprogramasysolucionesdeinnovacioninterinstitucionalesdelsectorenergeticoparalaimplementaciondelaventanilladigitalyelseguimientodelospr"
+    },
+    {
+      "id": "d9f8bf4d-79df-58dd-a4a8-e908bbb229fb",
+      "fragmento": "8.2. SUBSECRETARÍA DE PLANEACIÓN Y TRANSICIÓN ENERGÉTICA.",
+      "paginas": [
+        240
+      ],
+      "anclas": 1,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "82subsecretariadeplaneacionytransicionenergetica"
+    },
+    {
+      "id": "bd14b334-2b5f-5272-a86a-cc3554c93c27",
+      "fragmento": "200. Subsecretaría de Planeación y Transición Energética.",
+      "paginas": [
+        240,
+        241,
+        242
+      ],
+      "anclas": 172,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "200subsecretariadeplaneacionytransicionenergeticaobjetivodirigirlaplaneacionylaconducciondelatransicionenergeticadelpaisarticulandopoliticasinstrumentosyproyectosestrategicosconbaseenevidenciayencoordinacioninterinstituc"
+    },
+    {
+      "id": "6e4ea592-6d1d-5127-abe7-b44210de7974",
+      "fragmento": "210. Dirección General de Planeación e Integración Energética.",
+      "paginas": [
+        243,
+        244
+      ],
+      "anclas": 104,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "210direcciongeneraldeplaneacioneintegracionenergeticaobjetivodirigirlaaplicaciondelosordenamientoslegaleslasnormasjuridicasquedeestosderivenylasdisposicionesqueregulenlaplaneacioneinformacionenergeticaselprocesamientodel"
+    },
+    {
+      "id": "39e91753-4757-5087-ae9e-dbb61f50528b",
+      "fragmento": "211. Dirección General de Energías Renovables.",
+      "paginas": [
+        244,
+        245,
+        246
+      ],
+      "anclas": 126,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "211direcciongeneraldeenergiasrenovablesobjetivoimpulsarlapoliticaenergeticadelpaisatravesdeldesarrollodetareasyproyectosrelacionadosconelsubsectordeplaneaciondelsectorenergeticonacionalyelfomentoalatransicionenergeticaat"
+    },
+    {
+      "id": "54d2472b-e87e-5d99-a8ca-1149abb93eb9",
+      "fragmento": "212. Dirección General de Eficiencia y Sustentabilidad Energética.",
+      "paginas": [
+        246,
+        247
+      ],
+      "anclas": 83,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "212direcciongeneraldeeficienciaysustentabilidadenergeticaobjetivoasegurarlacoordinaciondelasaccionesconjuntasdelsectorenergeticoorientadasapromoverelahorroelusoeficienteyelaprovechamientoracionaldelaenergiabajounenfoqued"
+    },
+    {
+      "id": "2b48168b-98ae-5fa3-adcc-0ec2bd80f031",
+      "fragmento": "213. Dirección General de Desarrollo Tecnológico y Acceso a la Energía.",
+      "paginas": [
+        247,
+        248
+      ],
+      "anclas": 77,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "213direcciongeneraldedesarrollotecnologicoyaccesoalaenergiaobjetivocolaborarenlaconducciondelaspoliticasenergeticasdelpaisatravesdeldesarrollodeestrategiasprogramasyproyectosrelacionadosconlainvestigaciondesarrollotecnol"
+    },
+    {
+      "id": "7d7aaf38-4f96-53dd-a49d-62b15d31405a",
+      "fragmento": "214. Dirección General de Transición Energética.",
+      "paginas": [
+        248,
+        249
+      ],
+      "anclas": 82,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "214direcciongeneraldetransicionenergeticaobjetivodirigirlaformulacionrevisionypromocionderegulacionesypoliticaspublicasqueimpulsenlatransicionenergeticaasegurandolafactibilidadtecnicaylaalineacionconlasmejorespracticasin"
+    },
+    {
+      "id": "4e758e3b-b8b3-5202-a5d4-a63bdfd9a992",
+      "fragmento": "220. Unidad del Sistema Nacional de Información Energética.",
+      "paginas": [
+        250,
+        251
+      ],
+      "anclas": 80,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "220unidaddelsistemanacionaldeinformacionenergeticaobjetivocoordinarlaoperacioneficientedelsistemanacionaldeinformacionenergeticamedianteelestablecimientodeaccioneslaemisiondedisposicionesylasupervisiondemecanismosparalai"
+    },
+    {
+      "id": "c4c7b0e4-ee64-5714-a4bc-76450872fab7",
+      "fragmento": "221. Dirección General de Registros e Información Geoespacial del Sistema Nacional de Información Energética.",
+      "paginas": [
+        251,
+        252
+      ],
+      "anclas": 84,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "221direcciongeneralderegistroseinformaciongeoespacialdelsistemanacionaldeinformacionenergeticaobjetivodirigirlaintegracionresguardoactualizacionanalisisydifusiondelosregistroseinformaciongeoespacialdelsistemanacionaldein"
+    },
+    {
+      "id": "28a892f8-1e8d-5600-a7bf-3dbaeae108c1",
+      "fragmento": "222. Dirección General de Metodologías y Estadísticas del Sistema Nacional de Información Energética.",
+      "paginas": [
+        252,
+        253
+      ],
+      "anclas": 72,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "222direcciongeneraldemetodologiasyestadisticasdelsistemanacionaldeinformacionenergeticaobjetivodesarrollarlasmetodologiasparaelanalisisestadisticodelainformaciondelsistemaenergeticopublicardeformaoportunayconfiablelasest"
+    },
+    {
+      "id": "e0a11f3c-90d2-5ec1-a1cb-c97d9d9cbe10",
+      "fragmento": "8.3. SUBSECRETARÍA DE ELECTRICIDAD.",
+      "paginas": [
+        253
+      ],
+      "anclas": 1,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "83subsecretariadeelectricidad"
+    },
+    {
+      "id": "c06f52de-3291-54c3-a995-5a8660852d4b",
+      "fragmento": "300. Subsecretaría de Electricidad.",
+      "paginas": [
+        253,
+        254,
+        255,
+        256
+      ],
+      "anclas": 210,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "300subsecretariadeelectricidadobjetivogarantizarelestablecimientoylaejecuciondelapoliticaenergeticaenmateriadeenergiaelectricaynucleardelpaisconformealosprincipiosdesoberaniayjusticiaenergeticasestablecidosenlasdisposici"
+    },
+    {
+      "id": "1db0f6e8-08c4-5637-a212-8d1a60fd9326",
+      "fragmento": "311. Dirección General de Generación y Transmisión de Energía Eléctrica.",
+      "paginas": [
+        256,
+        257,
+        258
+      ],
+      "anclas": 131,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "311direcciongeneraldegeneracionytransmisiondeenergiaelectricaobjetivoestablecerestrategiasymecanismosdecoordinacionenlosprocesosdeplaneacionyejecuciondelosprogramasdegeneracionytransmisiondeenergiaelectricaasicomodelaexp"
+    },
+    {
+      "id": "0f9373f6-4270-5450-a3d8-f058649d3e1d",
+      "fragmento": "314. Dirección General de Distribución, Usos Finales de Energía Eléctrica y Vinculación Social.",
+      "paginas": [
+        258,
+        259,
+        260,
+        261
+      ],
+      "anclas": 167,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "314direcciongeneraldedistribucionusosfinalesdeenergiaelectricayvinculacionsocialobjetivocoordinarsupervisarypromoverlapoliticaenergeticanacionalenmateriadedistribuciondeenergiaelectricausosfinalesyvinculacionsocialparaas"
+    },
+    {
+      "id": "eb0c346d-4599-5a06-a7ea-f32f163338fd",
+      "fragmento": "315. Dirección General de Análisis y Evaluación del Mercado Eléctrico Mayorista.",
+      "paginas": [
+        261,
+        262
+      ],
+      "anclas": 96,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "315direcciongeneraldeanalisisyevaluaciondelmercadoelectricomayoristaobjetivodirigirelanalisisyevaluaciondeldesempenoylastendenciasdelmercadoelectricomayoristaydelsectorelectricoafindegenerarinsumostecnicosquefortalezcanl"
+    },
+    {
+      "id": "c28f06f6-99e0-5d5b-a470-f63df196f947",
+      "fragmento": "316. Unidad del Sistema Eléctrico Nacional y Política Nuclear.",
+      "paginas": [
+        262,
+        263,
+        264,
+        265,
+        266
+      ],
+      "anclas": 255,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "316unidaddelsistemaelectriconacionalypoliticanuclearobjetivodirigirlasaccionesestrategicasparaeldisenoimplementacionevaluacionymejoradelaspoliticaspublicasvinculadasconelsistemaelectriconacionalylosaspectosnuclearesasico"
+    },
+    {
+      "id": "eade24a4-cc76-5922-a721-79681ace8f30",
+      "fragmento": "317. Dirección General de Confiabilidad y Seguridad del Sector Eléctrico.",
+      "paginas": [
+        266,
+        267,
+        268
+      ],
+      "anclas": 152,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "317direcciongeneraldeconfiabilidadyseguridaddelsectorelectricoobjetivoevaluarlascondicionesdeseguridadyconfiabilidaddelsectorelectricoysusprocesosrelacionadosconlafinalidaddeincidirenelsectorparaincrementarlaconfiabilida"
+    },
+    {
+      "id": "afc37428-3b3f-5ed9-a937-8ee2cc572632",
+      "fragmento": "319. Dirección General de Evaluación Financiera de la Unidad del Sistema Eléctrico Nacional y Política Nuclear.",
+      "paginas": [
+        268,
+        269
+      ],
+      "anclas": 79,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "319direcciongeneraldeevaluacionfinancieradelaunidaddelsistemaelectriconacionalypoliticanuclearobjetivocoordinarlaelaboracioneimplementaciondelasestrategiaseconomicofinancierasdelosproyectosdeinversionengeneraciontransmis"
+    },
+    {
+      "id": "fdf0db22-10b0-518b-a0e7-5027185bbe63",
+      "fragmento": "8.4. UNIDAD DE ADMINISTRACIÓN Y FINANZAS.",
+      "paginas": [
+        270
+      ],
+      "anclas": 1,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "84unidaddeadministracionyfinanzas"
+    },
+    {
+      "id": "6be40fbe-0c42-5b41-af4a-32a605021878",
+      "fragmento": "400. Unidad de Administración y Finanzas.",
+      "paginas": [
+        270,
+        271,
+        272
+      ],
+      "anclas": 155,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "400unidaddeadministracionyfinanzasobjetivodirigirycoordinarelprocesodeejecuciondelosserviciosdeapoyoadministrativoenmateriadeplaneacionprogramacionpresupuestotecnologiasdelainformacionrecursoshumanosrecursosmaterialescon"
+    },
+    {
+      "id": "24f332f9-f624-5782-a415-af5ade2d37e8",
+      "fragmento": "411. Dirección General de Programación y Presupuesto.",
+      "paginas": [
+        272,
+        273,
+        274
+      ],
+      "anclas": 148,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "411direcciongeneraldeprogramacionypresupuestoobjetivodirigirlaplaneacionprogramaciongestioncontrolyevaluaciondelosrecursosfinancierosdelasecretariadeenergiasusorganosadministrativosdesconcentradosylasentidadessectorizada"
+    },
+    {
+      "id": "8732b3e3-1acf-57a5-a785-6e65de4bd8f4",
+      "fragmento": "410. Dirección General de Recursos Humanos.",
+      "paginas": [
+        274,
+        275,
+        276
+      ],
+      "anclas": 135,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "410direcciongeneralderecursoshumanosobjetivoadministrarlosrecursoshumanosdeconformidadconelmarconormativoemitidoporlasinstanciasglobalizadorasenlamateriaparacontribuiralaoperacionfuncionamientoyenellogrodelosobjetivosyes"
+    },
+    {
+      "id": "ff51e0c1-167d-5737-ae97-b5881fb48ed7",
+      "fragmento": "414. Dirección General de Recursos Materiales y Servicios Generales.",
+      "paginas": [
+        276,
+        277
+      ],
+      "anclas": 85,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "414direcciongeneralderecursosmaterialesyserviciosgeneralesobjetivoadministrarlosrecursosmaterialesyserviciosgeneralesdelasecretariadeconformidadconelmarconormativoaplicableparacontribuiralfuncionamientodelasunidadesadmin"
+    },
+    {
+      "id": "ec9aaf73-7d2b-5314-abc7-fc1038605432",
+      "fragmento": "412. Dirección General de Desarrollo de Sistemas, Infraestructura y Comunicaciones.",
+      "paginas": [
+        277,
+        278,
+        279
+      ],
+      "anclas": 102,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "412direcciongeneraldedesarrollodesistemasinfraestructuraycomunicacionesobjetivoasegurarlosprocesosserviciosysolucionesenmateriadetecnologiasdelainformacionycomunicacionesenapegoacriteriosdeeficienciacalidadintegridadyopt"
+    },
+    {
+      "id": "6c13d516-fb59-551d-a410-11c5b950fa3c",
+      "fragmento": "8.5. SUBSECRETARÍA DE HIDROCARBUROS.",
+      "paginas": [
+        279
+      ],
+      "anclas": 1,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "85subsecretariadehidrocarburos"
+    },
+    {
+      "id": "61aa6b4f-b7b4-507a-a88d-f271e9bf8f57",
+      "fragmento": "500. Subsecretaría de Hidrocarburos.",
+      "paginas": [
+        279,
+        280,
+        281,
+        282,
+        283
+      ],
+      "anclas": 266,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "500subsecretariadehidrocarburosobjetivoasegurarquelosprocesosrelacionadosconelsectordehidrocarburosenlasecretariadeenergiaserealicenconformealosobjetivosestrategiaspoliticasyalplannacionaldedesarrolloderivadosdelmarconac"
+    },
+    {
+      "id": "d01e60ea-06cb-5fc8-a9ec-ad0fe0a25a90",
+      "fragmento": "530. Unidad de Políticas de Transformación Industrial.",
+      "paginas": [
+        283,
+        284,
+        285
+      ],
+      "anclas": 135,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "530unidaddepoliticasdetransformacionindustrialobjetivodirigirlosprocesosrelacionadosconlaspoliticasdetransformacionindustrialylosproyectosrespectivosdeconformidadconlosordenamientoslegalesylasdisposicionesquelasregulenoe"
+    },
+    {
+      "id": "a04fe74b-12f6-5477-a436-9c9d1c618e53",
+      "fragmento": "531. Dirección General de Gas Natural y Petroquímicos.",
+      "paginas": [
+        285,
+        286
+      ],
+      "anclas": 99,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "531direcciongeneraldegasnaturalypetroquimicosobjetivodeterminarlasestrategiasyaccionesenmateriadepoliticaenergeticadegasnaturalpetroquimicosyfertilizantesdemexicoconlafinalidaddequeseangarantesdelaseguridadylaautosuficie"
+    },
+    {
+      "id": "1ab6da17-d1a0-5d89-a79d-fc02aac2c0d2",
+      "fragmento": "532. Dirección General de Petrolíferos.",
+      "paginas": [
+        286,
+        287,
+        288
+      ],
+      "anclas": 138,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "532direcciongeneraldepetroliferosobjetivocoordinarlaplaneacionregulacionygestiondelasactividadesrelacionadasconeltratamientorefinacionalmacenamientotransportecomercializacionysuministrodepetroleoypetroliferosasicomoeldes"
+    },
+    {
+      "id": "9a07f46a-644a-5a45-a89f-1d57d06807bd",
+      "fragmento": "533. Dirección General de Permisos de Importación y Exportación de Hidrocarburos, Petroquímicos y Petrolíferos.",
+      "paginas": [
+        288,
+        289,
+        290
+      ],
+      "anclas": 96,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "533direcciongeneraldepermisosdeimportacionyexportaciondehidrocarburospetroquimicosypetroliferosobjetivoadministrarmecanismosdecontrolrelacionadosconlospermisosdeimportacionyexportaciondehidrocarburospetroquimicosypetroli"
+    },
+    {
+      "id": "91bd3585-99ef-51b8-aed8-4534a7aa7cbc",
+      "fragmento": "540. Unidad de Desarrollo de Modelos Contractuales y de Asignaciones, Proyectos Regulatorios y Argumentación Técnica.",
+      "paginas": [
+        290,
+        291,
+        292,
+        293
+      ],
+      "anclas": 240,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "540unidaddedesarrollodemodeloscontractualesydeasignacionesproyectosregulatoriosyargumentaciontecnicaobjetivodirigirlaaplicaciondelmarcojuridicoenmateriadehidrocarburosasegurandolaargumentaciontecnicayladefensajuridicadel"
+    },
+    {
+      "id": "4f61c88a-4570-50a2-aefd-1a551e3723a0",
+      "fragmento": "541. Dirección General de Diseño, Desarrollo e Implementación de Asignaciones y Contratos de Exploración y Extracción.",
+      "paginas": [
+        294,
+        295
+      ],
+      "anclas": 122,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "541direcciongeneraldedisenodesarrolloeimplementaciondeasignacionesycontratosdeexploracionyextraccionobjetivodirigirlasestrategiasparaproponerelmodelobajoelcualelestadootorgaraasignacionesalaempresapublicadelestadoasicomo"
+    },
+    {
+      "id": "71a0b978-8070-522d-a5b1-a1d481c41461",
+      "fragmento": "542. Dirección General de Proyectos de Regulación, Normas Oficiales Mexicanas y Estándares.",
+      "paginas": [
+        295,
+        296,
+        297
+      ],
+      "anclas": 96,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "542direcciongeneraldeproyectosderegulacionnormasoficialesmexicanasyestandaresobjetivodirigirlasestrategiasregulatoriasaplicablesalsectorhidrocarburosasicomoconducirelanalisisdisenoyrevisionmediantelaelaboraciontecnicayju"
+    },
+    {
+      "id": "b9873275-963d-5cd2-aee0-a0a476129490",
+      "fragmento": "543. Dirección General de Desarrollo de Argumentación Técnica para la Implementación de la Política Regulatoria del Sector Hidrocarburos.",
+      "paginas": [
+        297,
+        298
+      ],
+      "anclas": 95,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "543direcciongeneraldedesarrollodeargumentaciontecnicaparalaimplementaciondelapoliticaregulatoriadelsectorhidrocarburosobjetivodefinirlosargumentostecnicojuridicosparaladefensadelasnormasyactosadministrativosemitidosporla"
+    },
+    {
+      "id": "79dbb98f-d248-5be7-aff3-5ef80bdab5a3",
+      "fragmento": "550. Unidad Técnica de Exploración.",
+      "paginas": [
+        298,
+        299,
+        300,
+        301,
+        302
+      ],
+      "anclas": 258,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "550unidadtecnicadeexploracionobjetivodirigirysupervisarlosprocesosrelacionadosconlosproyectosexploratoriosdehidrocarburosasegurandolaaplicaciondetecnologiadevanguardiaylasmejorespracticastecnicasyoperativasenlaevaluacion"
+    },
+    {
+      "id": "916883bc-579b-53e4-a5da-e2b5ac13e599",
+      "fragmento": "551. Dirección General de Registro de Recursos Energéticos y Prospectivos de la Nación.",
+      "paginas": [
+        302,
+        303
+      ],
+      "anclas": 94,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "551direcciongeneralderegistroderecursosenergeticosyprospectivosdelanacionobjetivodirigirysupervisarlosprocesosrelacionadosconlosproyectosexploratoriosdehidrocarburosasimismosupervisarlosasegurandolaaplicaciondetecnologia"
+    },
+    {
+      "id": "86e63f6b-ac58-50d3-a97f-4f747eb1f52f",
+      "fragmento": "552. Dirección General de Evaluación del Potencial de Hidrocarburos.",
+      "paginas": [
+        304,
+        305
+      ],
+      "anclas": 106,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "552direcciongeneraldeevaluaciondelpotencialdehidrocarburosobjetivodirigirlosprocesosdelaevaluaciondelpotencialdehidrocarburosmedianteelanalisiseintegraciondeinformaciondeexploracionlaevaluacionderecursosprospectivoslaeva"
+    },
+    {
+      "id": "9fd21237-56aa-5cac-a65a-1922b4fec646",
+      "fragmento": "553. Dirección General de Autorizaciones de Estudios y Pozos Exploratorios.",
+      "paginas": [
+        305,
+        306
+      ],
+      "anclas": 88,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "553direcciongeneraldeautorizacionesdeestudiosypozosexploratoriosobjetivoproponerlasautorizacionesdeexploracionmedianteelanalisisgeologicoygeofisicodelosestudiosdeexploracionsuperficialasicomoestablecerlasycoordinarlasafi"
+    },
+    {
+      "id": "788022c9-9c96-5b57-a525-1446a731c2d9",
+      "fragmento": "554. Dirección General de Planes de Exploración y Programas de Evaluación.",
+      "paginas": [
+        307,
+        308
+      ],
+      "anclas": 112,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "554direcciongeneraldeplanesdeexploracionyprogramasdeevaluacionobjetivodirigirlosprocesosrelacionadosconlaelaboraciondelaspropuestasdelosdictamenesuopinionestecnicasparalosplanesdeexploracionasociadosaasignacionesdedesarr"
+    },
+    {
+      "id": "6f2827bc-b847-5e04-adaa-4c3f7fdaec83",
+      "fragmento": "560. Unidad Técnica de Extracción de Hidrocarburos.",
+      "paginas": [
+        308,
+        309,
+        310,
+        311,
+        312
+      ],
+      "anclas": 264,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "560unidadtecnicadeextracciondehidrocarburosobjetivoestablecerydirigirlosprocesosrelacionadosconlaextracciondehidrocarburosasegurandoelaprovechamientoeficientedelosrecursosylaseguridadenergeticanacionalasicomolaaplicacion"
+    },
+    {
+      "id": "32b36b0c-e78d-52c3-a486-f0d75ddbeb98",
+      "fragmento": "561. Dirección General de Medición y Balances de la Producción.",
+      "paginas": [
+        312,
+        313,
+        314
+      ],
+      "anclas": 115,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "561direcciongeneraldemedicionybalancesdelaproduccionobjetivodirigirlosprocesosdemedicionoperacionycomercializaciondelaextracciondehidrocarburosdelasubsecretariadehidrocarburosmedianteelanalisisycontroldelainformaciondeme"
+    },
+    {
+      "id": "64725e4f-3205-573b-a552-1d89f2aeeaf2",
+      "fragmento": "562. Dirección General de Reservas de Hidrocarburos.",
+      "paginas": [
+        314,
+        315,
+        316
+      ],
+      "anclas": 144,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "562direcciongeneraldereservasdehidrocarburosobjetivodirigiryestablecerlasfuncionesencaminadasalprocesodecuantificacioncertificacionylaadministraciondereservasdehidrocarburosdelanacionparaconsolidarlasreservasquecuantifiq"
+    },
+    {
+      "id": "2dd25a2a-272d-5b41-a19c-36dc723460bf",
+      "fragmento": "563. Dirección General de Planes y Programas de Extracción.",
+      "paginas": [
+        316,
+        317
+      ],
+      "anclas": 99,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "563direcciongeneraldeplanesyprogramasdeextraccionobjetivodirigirlasfuncionesencaminadasalosprocesosdeanalisisyevaluaciondeplanesyprogramasdeextraccionsusmodificacionesasicomodelotorgamientosustitucionrevocacionmodificaci"
+    },
+    {
+      "id": "665766dd-5256-5d15-a1a6-a1cc3f90be54",
+      "fragmento": "564. Dirección General de Administración de Campos de Extracción.",
+      "paginas": [
+        318,
+        319
+      ],
+      "anclas": 131,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "564direcciongeneraldeadministraciondecamposdeextraccionobjetivodirigirysupervisarelseguimientotecnicodelasactividadesdeextraccionenmateriadeplanesyprogramaspozosdedesarrolloeinfraestructuraderecolecciondehidrocarburosmed"
+    },
+    {
+      "id": "d0a365f4-d89e-5255-a3db-4159f1a0081f",
+      "fragmento": "570. Unidad de Seguimiento y Supervisión de Asignaciones, Contratos y Permisos.",
+      "paginas": [
+        320,
+        321,
+        322
+      ],
+      "anclas": 185,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "570unidaddeseguimientoysupervisiondeasignacionescontratosypermisosobjetivodirigiryautorizarlasestrategiasyprocesosdeseguimientosupervisioninspeccionyverificaciondeasignacionescontratosypermisosincluyendolosprogramasdecap"
+    },
+    {
+      "id": "08b59239-f7eb-5b86-a37b-4e0a8b494ef5",
+      "fragmento": "571. Dirección General de Evaluación del Cumplimiento de Obligaciones de las Asignaciones y Contratos.",
+      "paginas": [
+        322,
+        323,
+        324
+      ],
+      "anclas": 103,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "571direcciongeneraldeevaluaciondelcumplimientodeobligacionesdelasasignacionesycontratosobjetivoaseguraryvigilarlosprocesosdeevaluaciondelcumplimientodelasobligacionesdelosasignatariosycontratistasdesdelaexploracionhastal"
+    },
+    {
+      "id": "d9788905-ab09-5279-aa24-c2647db4d5bc",
+      "fragmento": "572. Dirección General de Seguimiento de Asignaciones.",
+      "paginas": [
+        324,
+        325
+      ],
+      "anclas": 103,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "572direcciongeneraldeseguimientodeasignacionesobjetivodisenareimplementarlosprocesosrelacionadosconlasactividadesdeseguimientoyverificaciondelcumplimientodelasobligacionesdelasasignacionesasicomodelseguimientodelaejecuci"
+    },
+    {
+      "id": "1c5def56-d305-555d-aebd-b4501466a3e5",
+      "fragmento": "573. Dirección General de Seguimiento de Contratos.",
+      "paginas": [
+        325,
+        326,
+        327
+      ],
+      "anclas": 98,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "573direcciongeneraldeseguimientodecontratosobjetivodisenareimplementarlosprocesosrelacionadosconlasactividadesdeseguimientoyverificaciondelcumplimientodelasobligacionescontractualesasicomodelseguimientodelaejecuciondelas"
+    },
+    {
+      "id": "b8839a61-31ee-506a-a6af-996f4af10640",
+      "fragmento": "574. Dirección General de Supervisión Técnica.",
+      "paginas": [
+        327,
+        328,
+        329
+      ],
+      "anclas": 144,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "574direcciongeneraldesupervisiontecnicaobjetivoaseguraryadministrarlosprocesosrelacionadosconlasactividadesdesupervisiontecnicaverificacioneinspeccionrespectodelasactividadesreguladasporlasecretariaasicomoparticiparenlos"
+    },
+    {
+      "id": "9cfcb986-1d5e-5b6b-ac75-484af5bd5e70",
+      "fragmento": "8.6. ÓRGANOS ADMINISTRATIVOS DESCONCENTRADOS.",
+      "paginas": [
+        329,
+        330,
+        331,
+        332
+      ],
+      "anclas": 257,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "86organosadministrativosdesconcentradoscomisionnacionaldeseguridadnuclearysalvaguardiascnsnsobjetivoconduciryadministrarlasactividadesdelacomisionnacionaldeseguridadnuclearysalvaguardiasparaelcumplimientodelasatribucione"
+    },
+    {
+      "id": "a1d54b10-7141-52a9-a3cf-1e70ea4ae382",
+      "fragmento": "9. Disposiciones transitorias",
+      "paginas": [
+        332
+      ],
+      "anclas": 8,
+      "metodo": "prefijo textual y coordenadas de span",
+      "prefijoCotejado": "9disposicionestransitoriasprimeroelpresentemanualentraraenvigoreldiahabilsiguienteasupublicacioneneldiariooficialdelafederacionsegundoseabrogaelmanualdeorganizaciongeneraldelasecretariadeenergiaquefuepublicadoeneldiarioo"
+    }
+  ]
+}
