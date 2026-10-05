@@ -1,0 +1,480 @@
+{
+  "instrumento": "CONV-GEN-2",
+  "instrumentId": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/11-05-2026/Vespertina/327245",
+  "archivoTemporal": "tmp\\conv-gen-2.pdf",
+  "sha256": "f441289bcfc269955d8f63020cb1c25e8cd3bdfa9b65eefd6061a7481bce7a2f",
+  "bytes": 3072199,
+  "paginasPdf": 30,
+  "paginasImpresasDelInstrumento": [
+    2,
+    19
+  ],
+  "fragmentosOficiales": 34,
+  "fragmentosExcluidos": [
+    {
+      "id": "f4158b4d-3b25-51ee-8c3d-3f6dd8b31afe",
+      "identificador": "Nota editorial · versiones relacionadas"
+    },
+    {
+      "id": "be579f22-7d68-50f8-8b0b-cf9f8d7e0ce0",
+      "identificador": "Índice de la publicación"
+    }
+  ],
+  "anclasGeometricas": 1268,
+  "grafica": {
+    "fragmento": "Numeral 14.4",
+    "paginaPdf": 19,
+    "bbox": [
+      84.96,
+      316.56,
+      527.28,
+      502.62
+    ]
+  },
+  "fragmentos": [
+    {
+      "id": "0441ff55-6384-5c61-9268-890422ebadfd",
+      "fragmento": "Preámbulo de la convocatoria",
+      "paginasPdf": [
+        2,
+        3
+      ],
+      "paginasImpresas": [
+        2,
+        3
+      ],
+      "anclas": 94,
+      "prefijoCotejado": "segundaconvocatoriaparalaatencionprioritariadesolicitudesdepermisosdegeneraciondeenergiaelectricaeinterconexionalsistemaelectriconacionalalineadosalaplaneacionvinculantealmargenuns"
+    },
+    {
+      "id": "47787757-37a1-5eab-899d-9cce060e92ce",
+      "fragmento": "Numeral 1.1",
+      "paginasPdf": [
+        3,
+        4
+      ],
+      "paginasImpresas": [
+        3,
+        4
+      ],
+      "anclas": 30,
+      "prefijoCotejado": "1objetivosyalcance11objetivoslasegundaconvocatoriatienelossiguientesobjetivosiestablecerelmecanismoparalaatencionprioritariadelassolicitudesparalaobtenciondelospermisosdegeneracion"
+    },
+    {
+      "id": "21d0a1a7-460f-5832-8dc5-6a256bb599d6",
+      "fragmento": "Numeral 1.2",
+      "paginasPdf": [
+        4
+      ],
+      "paginasImpresas": [
+        4
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "12alcancelasegundaconvocatoriaestadirigidaatodaslaspersonassolicitantesinteresadasendesarrollarnuevosproyectosdegeneraciondeenergiaelectricaconcapacidadigualomayora07mwquepretendan"
+    },
+    {
+      "id": "01bb0a27-22e0-52d9-a320-8ba043c037f5",
+      "fragmento": "Numeral 1.2.1",
+      "paginasPdf": [
+        4
+      ],
+      "paginasImpresas": [
+        4
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "121losproyectosysolicitudesqueseanpresentadosporlaspersonassolicitantesparaobtenerunpermisodegeneraciondeenergiaelectricaenlosterminosdeestaconvocatoriadebencumplirconlassiguientes"
+    },
+    {
+      "id": "558727e1-bf59-5577-9852-e2a338544706",
+      "fragmento": "Numeral 1.2.2",
+      "paginasPdf": [
+        4,
+        5
+      ],
+      "paginasImpresas": [
+        4,
+        5
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "122quedanexcluidosdeparticiparenlasegundaconvocatorialossiguientesproyectosigeneraciondistribuidaiiautoconsumoensusdiferentesmodalidadesiiicogeneracionivproyectosdegeneraciondeener"
+    },
+    {
+      "id": "7884def8-c59f-57b7-b142-b2dd8f43af4f",
+      "fragmento": "Numeral 2",
+      "paginasPdf": [
+        5
+      ],
+      "paginasImpresas": [
+        5
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "2fundamentolegallasegundaconvocatoriasefundamentaenloestablecidoporlosarticulos14y33parrafoprimerofraccionesiivyxxxiiiyparrafosegundodelaleyorganicadelaadministracionpublicafederal"
+    },
+    {
+      "id": "072ac4de-b3ea-5d21-a3c3-e7261f149258",
+      "fragmento": "Numeral 3",
+      "paginasPdf": [
+        5,
+        6
+      ],
+      "paginasImpresas": [
+        5,
+        6
+      ],
+      "anclas": 41,
+      "prefijoCotejado": "3reglasgeneralesydeinterpretacionlasegundaconvocatoriaestasujetaalassiguientesreglasgeneralesydeinterpretacioniparaefectosdelasegundaconvocatorialosterminosdefinidosenelglosarioapl"
+    },
+    {
+      "id": "284652c7-e2f7-5778-af36-67ad3b686ae9",
+      "fragmento": "Numeral 4",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "4ventanillaunicadeproyectosestrategicosdelsectorenergeticoatravesdelavupeseintegranlosexpedientesdelosproyectosquesedebenrevisarporelgrupodeanalisistecnicoyqueensucasosedebensomete"
+    },
+    {
+      "id": "a16f4232-ede3-52f5-8120-c2ca71635ba2",
+      "fragmento": "Numeral 4.1",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "41lacnedebeutilizarlavupeparadarseguimientoalasdistintasetapasdelasegundaconvocatoriaconformealosiguienteilaspersonassolicitantesinteresadasenobtenerunpermisodegeneraciondeenergiae"
+    },
+    {
+      "id": "60a0573a-d2d3-5c1a-9446-a66fe3ea821a",
+      "fragmento": "Numeral 4.2",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "42laspersonassolicitantesqueparticipenenlasdistintasetapasdelasegundaconvocatoriaaceptanqueatravesdelavupepuedanpresentarpromocionesasicomooiryrecibirnotificacionesrelacionadasconl"
+    },
+    {
+      "id": "1ecf3b95-fb36-56b8-ab39-080c7bacd4e6",
+      "fragmento": "Numeral 5.1",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "5participaciondelasdistintasautoridadesenlasegundaconvocatoriayconsideracionessobresustramites51lacnedeberealizarlasgestionesnecesariasparaatenderlassolicitudesdepermisosdegeneraci"
+    },
+    {
+      "id": "dac0e6a1-73d0-5d99-8940-fae64ce3dd37",
+      "fragmento": "Numeral 5.2",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "52lostramitesrelacionadosconlosestudiosdeinterconexionquesehayaniniciadopreviamenteoserecibandurantelasdiversasetapasdelasegundaconvocatoriacontinuansujetosalosplazosyterminosprevi"
+    },
+    {
+      "id": "7e307de8-3838-598b-a7be-1ae78fac69e3",
+      "fragmento": "Numeral 5.3",
+      "paginasPdf": [
+        6,
+        7
+      ],
+      "paginasImpresas": [
+        6,
+        7
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "53losestudiosrealizadosporelcenacecomopartedelprocedimientoprevistoenestaconvocatoriaunicamentesonvalidosparalamismaporloqueencasodequealgunapersonasolicitantepretendautilizarenlav"
+    },
+    {
+      "id": "c3e6c3c9-6aca-5250-95ed-24f5346a647f",
+      "fragmento": "Numeral 6",
+      "paginasPdf": [
+        7
+      ],
+      "paginasImpresas": [
+        7
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "6requisitosycondicionesparaobtenerpermisosdegeneraciondeenergiaelectricabajolasegundaconvocatoriaelotorgamientodeunpermisodegeneraciondeenergiaelectricaenterminosdelapresenteconvoc"
+    },
+    {
+      "id": "b17f7fa8-a4b1-5ca0-823f-0907932e24b6",
+      "fragmento": "Numeral 6.1",
+      "paginasPdf": [
+        7,
+        8
+      ],
+      "paginasImpresas": [
+        7,
+        8
+      ],
+      "anclas": 69,
+      "prefijoCotejado": "61requisitosgeneraleslaspersonassolicitantesquepretendanobtenerunpermisodegeneraciondeenergiaelectricaenterminosdelasegundaconvocatoriadebenipresentaratravesdelavupelamanifestacion"
+    },
+    {
+      "id": "6a418438-2993-5495-adbd-89de5525ccb2",
+      "fragmento": "Numeral 6.2",
+      "paginasPdf": [
+        8,
+        9
+      ],
+      "paginasImpresas": [
+        8,
+        9
+      ],
+      "anclas": 47,
+      "prefijoCotejado": "62requisitodeaceptaciondeobrasdeinterconexionyobrasderefuerzoselcenaceatravesdelavupedebehacerdelconocimientodecadapersonasolicitantepormediodeunsolodocumentolosresultadosdelosestu"
+    },
+    {
+      "id": "6ee5560e-21fa-507a-9f23-64bd06dfda3b",
+      "fragmento": "Numeral 7",
+      "paginasPdf": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "paginasImpresas": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "anclas": 410,
+      "prefijoCotejado": "7calendarioparaladeterminaciondelotorgamientodepermisosdegeneraciondeenergiaelectricaderivadosdelasegundaconvocatorialasegundaconvocatoriasedesarrollaconbaseenloestablecidoenelsigu"
+    },
+    {
+      "id": "e187d087-dc31-55b8-ba69-83d92b7171e0",
+      "fragmento": "Numeral 8.1",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        12
+      ],
+      "anclas": 31,
+      "prefijoCotejado": "8evaluaciondelosproyectosasociadosalassolicitudesdegeneraciondeenergiaelectrica81verificaciondelcumplimientoderequisitoslacneyelcenaceenelambitodesusrespectivasatribucionesdebenrev"
+    },
+    {
+      "id": "a7b34a54-9cbe-590e-add6-66ad3365ed5f",
+      "fragmento": "Numeral 8.2",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        12
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "82alineacionalaplaneacionvinculantelacnedebecorroborarquesecuenteconloselementosnecesariosparadeterminarquelosproyectosquepretendanobtenerunpermisodegeneraciondeenergiaelectricabaj"
+    },
+    {
+      "id": "cf6e3058-882a-5643-a339-4f5f87b86d5a",
+      "fragmento": "Numeral 8.3",
+      "paginasPdf": [
+        12,
+        13
+      ],
+      "paginasImpresas": [
+        12,
+        13
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "83evaluaciondelosproyectosporpartedelgrupodeanalisistecnicolacnedeberemitiralgrupodeanalisistecnicolosexpedientesadministrativosdelosproyectosquecumplanconlosrequisitosestablecidos"
+    },
+    {
+      "id": "6f3ab2ca-2dd5-59eb-bf43-8cdb66d6af4b",
+      "fragmento": "Numeral 9.1",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "9aprobacionyemisiondepermisosdegeneraciondeenergiaelectricaypublicaciondelosresultados91aprobaciondepermisoselcomitetecnicodelacnedeberesolversobrelaaprobaciondelassolicitudesquese"
+    },
+    {
+      "id": "3e7fb0d5-8413-5a8a-8cf4-c85867d398c6",
+      "fragmento": "Numeral 9.2",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "92emisiondelostitulosdepermisoslacnedebeemitirynotificarlostitulosdepermisosaprobadosporelcomitetecnicodelacnerespectodepermisosdegeneraciondeenergiaelectricael18deagostode2026lost"
+    },
+    {
+      "id": "1e0a48d3-29ea-58b1-960e-cbb998b01fe6",
+      "fragmento": "Numeral 9.3",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "93publicaciondelosresultadosdelasegundaconvocatorialacnedebepublicarensupaginadeinternetyenlavupelasiguienteinformacioniellistadodeproyectosquecumplieronconlosrequisitoscorrespondi"
+    },
+    {
+      "id": "fbdcc788-be14-5ae3-81f0-1cbe74618531",
+      "fragmento": "Numeral 10.1",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "10presentacionydevoluciondelasgarantiasfinancierasasociadasaloscontratosdeinterconexionderivadosdepermisosdegeneraciondeenergiaelectricaotorgadosbajolasegundaconvocatoria101aquella"
+    },
+    {
+      "id": "520772f4-d39b-56d4-a3af-ef843b3a3f42",
+      "fragmento": "Numeral 10.2",
+      "paginasPdf": [
+        13,
+        14
+      ],
+      "paginasImpresas": [
+        13,
+        14
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "102ademasdelossupuestosprevistosenlasdisposicionesaplicableslasgarantiasfinancieraspresentadasporlaspersonassolicitantesquehayanobtenidounpermisodegeneraciondeenergiaelectricaalamp"
+    },
+    {
+      "id": "f409f2c5-0b8d-5217-bf76-9fe7abc3382a",
+      "fragmento": "Numeral 11",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "11suscripciondelcontratodeinterconexionasociadoalospermisosdegeneraciondeenergiaelectricaotorgadosbajolasegundaconvocatoriaconformealoprevistoenlasegundaconvocatoriaunavezpresentad"
+    },
+    {
+      "id": "fb53c60e-eee0-5f2f-915a-c77b2bb28eb9",
+      "fragmento": "Numeral 12.1",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "12seguimientodepermisosdegeneraciondeenergiaelectricahastasuentradaenoperacioncomercial121laseneratravesdelconsejodeplaneacionenergeticaasicomolacneyelcenacedebendarseguimientoypue"
+    },
+    {
+      "id": "59b3cd4a-e039-57b9-af2c-b41713c0500d",
+      "fragmento": "Numeral 12.2",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "122anteelincumplimientodealgunodelosterminosyplazosestablecidosenlostitulosdepermisosdegeneraciondeenergiaelectricaqueseotorguenbajolasegundaconvocatoriadeconformidadconlanormativi"
+    },
+    {
+      "id": "96872ad6-6b80-5d3b-a6d0-59f54e5558fc",
+      "fragmento": "Numeral 13",
+      "paginasPdf": [
+        14,
+        15
+      ],
+      "paginasImpresas": [
+        14,
+        15
+      ],
+      "anclas": 41,
+      "prefijoCotejado": "13glosarioicenacecentronacionaldecontroldeenergiaiicnecomisionnacionaldeenergiaiiidisposicionesdelaplaneacionvinculantedisposicionesadministrativasdecaractergeneralparalaplaneacion"
+    },
+    {
+      "id": "2cf2e7b4-e008-5a2b-a8b8-6ca27959c5c9",
+      "fragmento": "Numeral 14.1",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "14anexos141formatodemanifestaciondeinteresysolicituddeestudiosdeinterconexiondelcenacedisponibleenlavupemediantelaligaelectronicahttpsventanillaunicaenergiagobmx"
+    },
+    {
+      "id": "1483acf1-e109-5ed6-9414-afb5b022d599",
+      "fragmento": "Numeral 14.2",
+      "paginasPdf": [
+        15,
+        16
+      ],
+      "paginasImpresas": [
+        15,
+        16
+      ],
+      "anclas": 51,
+      "prefijoCotejado": "142formatosolicitudesdepermisocontramiteprevioinumerodeturnoofoliodelasolicitudpreviamentepresentadanumerodeturnosofoliospresentadosantelaextintacomisionreguladoradeenergiaolacomis"
+    },
+    {
+      "id": "6a0d26f7-e912-5adc-b5ce-b7fd6719bab9",
+      "fragmento": "Numeral 14.3",
+      "paginasPdf": [
+        16,
+        17
+      ],
+      "paginasImpresas": [
+        16,
+        17
+      ],
+      "anclas": 50,
+      "prefijoCotejado": "143formatoaceptaciondeobrascartadeaceptaciondeobrasciudaddemexicoafechadepresentacionaquiencorrespondaelsuscriptordelapresentecenmicaracterderepresentantelegalapoderadodelapersonam"
+    },
+    {
+      "id": "ea2bd382-b972-5048-83ad-9bd14989b7d5",
+      "fragmento": "Numeral 14.4",
+      "paginasPdf": [
+        17,
+        18,
+        19
+      ],
+      "paginasImpresas": [
+        17,
+        18,
+        19
+      ],
+      "anclas": 170,
+      "prefijoCotejado": "144funcionestecnicasyoperativasdelossistemasdealmacenamientodeenergiaelectricaconbateriasfunciondescripcionmododegestiondesenalesporniveleselsistemadebesercapazdeadministrarsenales"
+    },
+    {
+      "id": "1f582a86-825d-57f4-8c7e-b1fd737703d4",
+      "fragmento": "Firma de la convocatoria",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa07demayode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ]
+}
