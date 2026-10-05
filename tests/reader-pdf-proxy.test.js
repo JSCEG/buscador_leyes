@@ -235,6 +235,24 @@ it('serves only the reviewed May 29, 2026 DOF morning issue PDF for the CNE orga
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed May 26, 2026 DOF morning issue PDF for strategic-projects call amendment 1', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/26-05-2026/Matutina/327526';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('conv-estrategicos-m1'), 'conv-estrategicos-m1', {
+        sources: { 'conv-estrategicos-m1': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('327526', '327527'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('conv-estrategicos-m1'), 'conv-estrategicos-m1', {
+            sources: { 'conv-estrategicos-m1': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';

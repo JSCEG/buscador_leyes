@@ -1,0 +1,77 @@
+{
+  "instrumento": "CONV-ESTRATEGICOS-M1",
+  "instrumentId": "373ce6df-4e78-59d9-aae5-54007a446c59",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5788508",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/26-05-2026/Matutina/327526",
+  "archivoTemporal": "tmp\\conv-estrategicos-m1.pdf",
+  "sha256": "1a28d5fb75ec9451422ff890b18ba71cec4a3cd92b2d4c47b90fde9c6253ed38",
+  "bytes": 8562053,
+  "paginasPdf": 620,
+  "paginasImpresasDelInstrumento": [
+    45
+  ],
+  "fragmentosOficiales": 5,
+  "anclasGeometricas": 54,
+  "fragmentos": [
+    {
+      "id": "3d055497-38c8-57d5-9c38-614a69fca4f8",
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "paginasPdf": [
+        45
+      ],
+      "paginasImpresas": [
+        45
+      ],
+      "anclas": 25,
+      "prefijoCotejado": "acuerdoporelqueseemitelamodificacionalaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculantealmargenunsello"
+    },
+    {
+      "id": "1946cddc-6318-5768-bc1c-8a59afa420ed",
+      "fragmento": "Resolutivo PRIMERO",
+      "paginasPdf": [
+        45
+      ],
+      "paginasImpresas": [
+        45
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "primerosemodificalaetapa2delnumeral171delaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculanteparaquedaren"
+    },
+    {
+      "id": "06901cca-b1f9-562c-bb97-f7c40d7ca08b",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginasPdf": [
+        45
+      ],
+      "paginasImpresas": [
+        45
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "segundolosplazosyreferenciascontenidasenlaconvocatoriaparalaatenciondeproyectosestrategicosdegeneracionyalmacenamientodeenergiaelectricaalineadosalaplaneacionvinculantedebenentende"
+    },
+    {
+      "id": "6a0a2e89-c92d-5a57-bd28-d9511e2ddba4",
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "paginasPdf": [
+        45
+      ],
+      "paginasImpresas": [
+        45
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriounicoelpresenteacuerdoentraraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "5c884b0d-aa9a-50da-8d53-8e0e913f1a66",
+      "fragmento": "Firma del acuerdo",
+      "paginasPdf": [
+        45
+      ],
+      "paginasImpresas": [
+        45
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa22demayode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ]
+}
