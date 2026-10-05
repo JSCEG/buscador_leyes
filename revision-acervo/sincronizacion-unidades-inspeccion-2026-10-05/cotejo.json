@@ -1,0 +1,773 @@
+{
+  "instrumento": "UNIDADES-INSPECCION",
+  "instrumentId": "40ca1503-43de-5551-b655-704cbeeee109",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5727366",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/20-05-2024/Matutina/313401",
+  "archivoTemporal": "tmp\\units-inspection-dof.pdf",
+  "sha256": "ff2228046bb3d69539afcb8e5e12ce20e28b5e03c657807452db5d88f20e8131",
+  "bytes": 6150267,
+  "paginasPdf": 302,
+  "paginasImpresasDelAcuerdo": [
+    79,
+    117
+  ],
+  "fragmentosOficiales": 56,
+  "anclasGeometricas": 2398,
+  "tablasVisibles": 3,
+  "fragmentos": [
+    {
+      "id": "204a1e5b-bd4f-5163-935e-1122033a69b2",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "paginasImpresas": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "anclas": 206,
+      "prefijoCotejado": "acuerdonuma0542024delacomisionreguladoradeenergiaporelqueseexpidenlasdisposicionesadministrativasdecaractergeneralqueestablecenlasbasesnormativasparaautorizarunidadesdeinspeccionde"
+    },
+    {
+      "id": "ea051413-dc48-516e-9ffb-9c46b983f8f9",
+      "fragmento": "Resolutivo PRIMERO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "primeroseexpidenlasdisposicionesadministrativasdecaractergeneralqueestablecenlasbasesnormativasparaautorizarunidadesdeinspeccionderequerimientosparacentrosdecargaydelaindustriaelec"
+    },
+    {
+      "id": "4145178b-a646-5622-9a79-428ca030cee6",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "segundoseabroganlasdisposicionesadministrativasdecaractergeneralqueestablecenlasbasesnormativasparaautorizarunidadesdeinspecciondelaindustriaelectricaenlasareasdegeneraciontransmis"
+    },
+    {
+      "id": "628fa2c1-0d04-5a2f-ab03-14ef988b96f0",
+      "fragmento": "Resolutivo TERCERO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "tercerolassolicitudesdeautorizacionyrenovacionparalasunidadesdeinspeccionqueestanentramiteseatenderanconformealanormatividadvigentealmomentodesupresentacion"
+    },
+    {
+      "id": "85a2062b-98b0-5de8-a8cd-1be217d4a6ac",
+      "fragmento": "Resolutivo CUARTO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "cuartotodaslasautorizacionesvigentessemantendranensusterminosparalarenovaciondelaautorizaciondeberanajustarsealosenaladoenlaspresentesdisposiciones"
+    },
+    {
+      "id": "965c644b-b216-5f30-929c-c60760e42dde",
+      "fragmento": "Resolutivo QUINTO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "quintopubliqueseelpresenteacuerdoysusanexoseneldiariooficialdelafederacionloscualesentraranenvigoreldiasiguientealdesupublicacionendichomediodedifusionoficial"
+    },
+    {
+      "id": "1126abed-b0a2-51ed-9337-365c908f1cb4",
+      "fragmento": "Resolutivo SEXTO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "sextoelpresenteactoadministrativopodraimpugnarseatravesdeljuiciodeamparoindirectoconformealodispuestoporelarticulo27delaleydelosorganosreguladorescoordinadosenmateriaenergeticaante"
+    },
+    {
+      "id": "4cc0d774-fbdd-55a3-9cf1-487c98f9a719",
+      "fragmento": "Resolutivo SÉPTIMO",
+      "paginasPdf": [
+        82
+      ],
+      "paginasImpresas": [
+        82
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "septimoinscribaseelpresenteacuerdobajoelnumeroa0542024enelregistroalqueserefierenlosarticulos22fraccionxxviincisosayey25fraccionxdelaleydelosorganosreguladorescoordinadosenmateriae"
+    },
+    {
+      "id": "a801c729-c073-5a6c-b900-fd138a203f19",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        82,
+        83
+      ],
+      "paginasImpresas": [
+        82,
+        83
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "ciudaddemexicoa26demarzode2024comisionadopresidenteleopoldovicentemelchigarciarubricacomisionadoswalterjulianangeljimenezhermilocejalucasguadalupeescalantebenitezluislinareszapatar"
+    },
+    {
+      "id": "bb8f24d3-9f0c-58ce-9baa-35fa1ac7e841",
+      "fragmento": "Presentación e índice",
+      "paginasPdf": [
+        83
+      ],
+      "paginasImpresas": [
+        83
+      ],
+      "anclas": 32,
+      "prefijoCotejado": "anexodelacuerdonuma0542024disposicionesadministrativasdecaractergeneralqueestablecenlasbasesnormativasparaautorizarunidadesdeinspeccionderequerimientosparacentrosdecargaydelaindust"
+    },
+    {
+      "id": "d20d4e9e-16fd-564a-af9e-559392cd7e3c",
+      "fragmento": "Disposición Primera",
+      "paginasPdf": [
+        83,
+        84,
+        85
+      ],
+      "paginasImpresas": [
+        83,
+        84,
+        85
+      ],
+      "anclas": 110,
+      "prefijoCotejado": "capituloidisposicionesgeneralesprimeradelalcanceyobjetolaspresentesdisposicionesadministrativasdecaractergeneralestablecenlasbasesnormativasparaautorizarunidadesdeinspecciondereque"
+    },
+    {
+      "id": "8f74e83e-8336-51cb-b220-011be652fe55",
+      "fragmento": "Disposición Segunda",
+      "paginasPdf": [
+        85
+      ],
+      "paginasImpresas": [
+        85
+      ],
+      "anclas": 29,
+      "prefijoCotejado": "segundadelostiposdeunidaddeinspeccionlasunidadesdeinspecciondelaindustriaelectricaqueautorizaralacreparalosfinesdescritosenladisposicionprimerasonlassiguientesiunidaddeinspeccionde"
+    },
+    {
+      "id": "0d1df6b9-8f99-52a5-8603-4be98696946c",
+      "fragmento": "Disposición Tercera",
+      "paginasPdf": [
+        85,
+        86
+      ],
+      "paginasImpresas": [
+        85,
+        86
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "terceradelascondicionesgeneraleslasunidadesdeinspecciondeberancumplirconlascondicionessiguientesilasunidadesdeinspeccionysupersonalinspectornodebentenerconflictodeinteresesenlasact"
+    },
+    {
+      "id": "4acfb20f-c068-5304-a749-801bd00ac2ef",
+      "fragmento": "Disposición Cuarta",
+      "paginasPdf": [
+        86
+      ],
+      "paginasImpresas": [
+        86
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "cuartadelconflictodeinteresseentenderaporconflictodeinterescuandoexistaunarelacionlaboralpersonalprofesionalfamiliarparentescoporconsanguineidadyafinidadodenegociosdelpersonalinspe"
+    },
+    {
+      "id": "ae4f8427-1904-5e91-b444-f378b56588ce",
+      "fragmento": "Capítulo II · Acrónimos y definiciones",
+      "paginasPdf": [
+        86,
+        87,
+        88
+      ],
+      "paginasImpresas": [
+        86,
+        87,
+        88
+      ],
+      "anclas": 149,
+      "prefijoCotejado": "capituloiiacronimosydefinicionesparaefectosdelaspresentesdacgseutilizaranlossiguientesacronimoscenacecentronacionaldecontroldeenergiacrecomisionreguladoradeenergiadacgdisposiciones"
+    },
+    {
+      "id": "2abfa0cb-249f-53f4-b8e3-1d2bbe0ffe94",
+      "fragmento": "Disposición Quinta",
+      "paginasPdf": [
+        88
+      ],
+      "paginasImpresas": [
+        88
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "capituloiiirequisitosquedebencumplirlosinteresadosparasolicitarlaautorizacioncomounidaddeinspeccionseccionidelosrequisitosdocumentalesquintaelinteresadopodraingresarsusolicitudylad"
+    },
+    {
+      "id": "03a18cda-f6b1-5a0a-bd4c-1aaddd7a9a5c",
+      "fragmento": "Disposición Sexta",
+      "paginasPdf": [
+        88,
+        89,
+        90
+      ],
+      "paginasImpresas": [
+        88,
+        89,
+        90
+      ],
+      "anclas": 131,
+      "prefijoCotejado": "sextalosinteresadosquerequieranserautorizadosparacualquiertipouideberanpresentarycumplirensusolicitudconlosrequisitosgenericossiguientesveranexoaiescritolibredelasolicitudparasueva"
+    },
+    {
+      "id": "a6da3eae-ba36-5243-9cea-8ca6dcf8878b",
+      "fragmento": "Disposición Séptima",
+      "paginasPdf": [
+        90
+      ],
+      "paginasImpresas": [
+        90
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "septimalosinteresadosaobtenerunaautorizacioncomounidaddeinspecciondeinterconexiondecentraleselectricasyconexiondecentrosdecargauiicenconcordanciaconlorequeridoenladisposicionsextad"
+    },
+    {
+      "id": "a138b4a2-6150-55a0-be49-a5b9ce53a163",
+      "fragmento": "Disposición Octava",
+      "paginasPdf": [
+        90,
+        91
+      ],
+      "paginasImpresas": [
+        90,
+        91
+      ],
+      "anclas": 29,
+      "prefijoCotejado": "octavalosinteresadosenobtenerunaautorizacioncomounidaddeinspecciondepruebasdecomportamientodecentraleselectricasycentrosdecargauipicenconcordanciaconlainformacionrequeridaenladispo"
+    },
+    {
+      "id": "ddd8a917-f047-5b6d-a802-38832ef8740f",
+      "fragmento": "Disposición Novena",
+      "paginasPdf": [
+        91
+      ],
+      "paginasImpresas": [
+        91
+      ],
+      "anclas": 27,
+      "prefijoCotejado": "novenalosinteresadosenobtenerunaautorizacioncomounidaddeinspeccionderequerimientostecnicosdelcodigoderedparacentrosdecargauicrccenconcordanciaconlainformacionrequeridaenladisposici"
+    },
+    {
+      "id": "0d473e38-e321-5b71-8a67-942c39066ab3",
+      "fragmento": "Disposición Décima",
+      "paginasPdf": [
+        91,
+        92
+      ],
+      "paginasImpresas": [
+        91,
+        92
+      ],
+      "anclas": 41,
+      "prefijoCotejado": "decimacomopartedelaevaluaciondelasuilosaspirantesaserinspectoresparatodoslostiposdeuideberanacreditartenerlosconocimientosdelmarconormativoyregulatoriovigenteresaltandodeformaenunc"
+    },
+    {
+      "id": "0b8b1d86-eb54-518d-8391-9704ddeda6d2",
+      "fragmento": "Disposición Decimoprimera",
+      "paginasPdf": [
+        92,
+        93
+      ],
+      "paginasImpresas": [
+        92,
+        93
+      ],
+      "anclas": 98,
+      "prefijoCotejado": "decimoprimeralosaspirantesaserinspectoresdelauideberandemostrarmediantedocumentacionfehacientequecuentanconlosconocimientostecnicosrequeridosparaellopodranpresentarconstanciasdiplo"
+    },
+    {
+      "id": "8f52150a-f238-5332-a563-736e399598d6",
+      "fragmento": "Disposición Decimosegunda",
+      "paginasPdf": [
+        93,
+        94
+      ],
+      "paginasImpresas": [
+        93,
+        94
+      ],
+      "anclas": 67,
+      "prefijoCotejado": "capituloivmecanismodeevaluaciondelassolicitudesdeautorizacionymodificaciondecimosegundaelprocesodeevaluaciondelassolicitudesparacadatipodeuisellevaraacaboconformealosiguienteilaeva"
+    },
+    {
+      "id": "629436cb-12db-521a-b8b9-b4d544ebfcbf",
+      "fragmento": "Disposición Decimotercera",
+      "paginasPdf": [
+        94
+      ],
+      "paginasImpresas": [
+        94
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "capitulovcondicionesdeoperacionparalasunidadesdeinspecciondecimoterceradelavalidezdelaautorizacionlavalidezdelaautorizaciondelasuiseradetres3anoscontadosapartirdelanotificaciondela"
+    },
+    {
+      "id": "fff83762-706d-5d86-89f2-62304a8d1ed6",
+      "fragmento": "Disposición Decimocuarta",
+      "paginasPdf": [
+        94,
+        95,
+        96
+      ],
+      "paginasImpresas": [
+        94,
+        95,
+        96
+      ],
+      "anclas": 163,
+      "prefijoCotejado": "decimocuartadelascondicionesdeoperaciondelasuiunavezautorizadalauideberacumplirconlassiguientescondicionesdeoperacionicumplirconloestablecidoenlaresoluciondeautorizacionemitidaporl"
+    },
+    {
+      "id": "cd1f6c6b-fbed-5282-add5-fa6f8ab75f73",
+      "fragmento": "Disposición Decimoquinta",
+      "paginasPdf": [
+        96,
+        97
+      ],
+      "paginasImpresas": [
+        96,
+        97
+      ],
+      "anclas": 27,
+      "prefijoCotejado": "decimoquintadelasobligacioneslasuideberancumplirconlassiguientesobligacionesimantenervigentelapolizadeseguroderesponsabilidadcivilporloqueunavezquehayarenovadodichapolizatendraquei"
+    },
+    {
+      "id": "7373c4bb-64da-5177-9619-6bab8127fff5",
+      "fragmento": "Disposición Decimosexta",
+      "paginasPdf": [
+        97
+      ],
+      "paginasImpresas": [
+        97
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "decimosextadelavigilanciaduranteelperiododevigenciayhastacinco5anosposterioralavigenciadelaautorizacionlacrepodravigilarelcumplimientodeestascondicionesdeoperacionasicomodelasoblig"
+    },
+    {
+      "id": "119d0912-2e10-5f83-b6cc-208af34003d6",
+      "fragmento": "Disposición Decimoséptima",
+      "paginasPdf": [
+        97,
+        98
+      ],
+      "paginasImpresas": [
+        97,
+        98
+      ],
+      "anclas": 68,
+      "prefijoCotejado": "decimoseptimadelassancionesenloscasosdeviolacionalasdisposicionesjuridicasaplicablesentrelosqueseincluyenconductasindebidasconflictosdeintereseincumplimientodeestascondicionesdeope"
+    },
+    {
+      "id": "8dbc3b19-490c-5c90-974c-870e7635a7fe",
+      "fragmento": "Disposición Decimoctava",
+      "paginasPdf": [
+        98
+      ],
+      "paginasImpresas": [
+        98
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "decimoctavalassancionesalasquehacereferenciaelpresentecapitulosesubstanciarandeconformidadconloprevistoenlalieydemasnormatividadaplicable"
+    },
+    {
+      "id": "331c1e55-5490-5279-ba6e-be416c0acd87",
+      "fragmento": "Disposición Decimonovena",
+      "paginasPdf": [
+        98
+      ],
+      "paginasImpresas": [
+        98
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "capitulovimodificaciondelaautorizaciondecimonovenasupuestodemodificacionseconsideracomounicosupuestodemodificaciondelaautorizacionelsiguienteaelaumentoosustitucionenlaplantilladein"
+    },
+    {
+      "id": "02f333a7-7f44-5c35-b736-e604085b39f8",
+      "fragmento": "Disposición Vigésima",
+      "paginasPdf": [
+        98,
+        99
+      ],
+      "paginasImpresas": [
+        98,
+        99
+      ],
+      "anclas": 71,
+      "prefijoCotejado": "vigesimarequisitosdelasolicitudencasodeestarenalgunsupuestodemodificacionlauideberaingresarlasolicitudlacualdeberaincluirseguncorrespondalossiguientesrequisitosveranexoaiescritolib"
+    },
+    {
+      "id": "725d89a2-2a5f-56e5-8241-f75f0b46b36c",
+      "fragmento": "Disposición Vigésimo primera",
+      "paginasPdf": [
+        99
+      ],
+      "paginasImpresas": [
+        99
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "vigesimoprimeralamodificaciondelascondicionesoriginalesdelaautorizacionconbaseenloindicadoenladisposicionanteriornoimplicanlaampliaciondelplazodevigenciadelamisma"
+    },
+    {
+      "id": "b9e22b25-55e3-5a55-aee4-a6f96305b2f5",
+      "fragmento": "Disposición Vigésimo segunda",
+      "paginasPdf": [
+        99
+      ],
+      "paginasImpresas": [
+        99
+      ],
+      "anclas": 30,
+      "prefijoCotejado": "capituloviiactualizaciondelaautorizacionvigesimosegundasupuestosdeactualizacionseconsiderarasupuestodeactualizacioncuandoloscambiosnoconstituyenunamodificacionsustancialdelostermin"
+    },
+    {
+      "id": "b81b37e7-4629-5fee-8521-440849c14b25",
+      "fragmento": "Disposición Vigésimo tercera",
+      "paginasPdf": [
+        99,
+        100
+      ],
+      "paginasImpresas": [
+        99,
+        100
+      ],
+      "anclas": 26,
+      "prefijoCotejado": "vigesimoterceraencasodeestarenalgunsupuestodeactualizacionlauideberaingresarlasolicitudlacualdeberaincluirseguncorrespondalossiguientesrequisitosveranexoaiescritolibreelcualdebeinc"
+    },
+    {
+      "id": "6754e5c0-b0cd-5dcd-8d51-e145bc81fd43",
+      "fragmento": "Disposición Vigésimo cuarta",
+      "paginasPdf": [
+        100
+      ],
+      "paginasImpresas": [
+        100
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "vigesimocuartalaueconbaseensusatribucionesseralaresponsabledellevaracaboelanalisisvalidaciontecnicaasicomodeevaluarlaprocedenciadecualquiertramiterequeridoconformeestecapitulolasac"
+    },
+    {
+      "id": "e4e3d365-1f0c-568d-a572-4d4cacfd58fb",
+      "fragmento": "Disposición Vigésimo quinta",
+      "paginasPdf": [
+        100,
+        101
+      ],
+      "paginasImpresas": [
+        100,
+        101
+      ],
+      "anclas": 65,
+      "prefijoCotejado": "capituloviiirenovaciondelaautorizacionvigesimoquintalauipodrasolicitarlarenovaciondesuautorizacionsujetaalcumplimientodelosrequisitoslegalesqueseindicanacontinuacionipresentarlasol"
+    },
+    {
+      "id": "e7d7c20e-3a3d-50f0-9169-54938bd055b3",
+      "fragmento": "Disposición Vigésimo sexta",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 23,
+      "prefijoCotejado": "vigesimosextaunavezingresadalasolicitudmismaquedeberacontenertodaladocumentacionindicadaenladisposicionanteriorseatenderaconformealosiguienteilacrellevaraacabounarevisiondelestatus"
+    },
+    {
+      "id": "ac7df750-ff21-5b66-aa6e-372d459ce96f",
+      "fragmento": "Disposición Vigésimo séptima",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "vigesimoseptimalaautorizaciondelarenovacionseraportres3anosyestarasujetaalarevisiondeladocumentacionasicomoalanalisisdelcumplimientodelasdacgduranteelperiododeoperacionlacretomarae"
+    },
+    {
+      "id": "71be7f32-4f7a-5b46-8201-081f44998a3c",
+      "fragmento": "Disposición Vigésimo octava",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "vigesimooctavaunavezvencidalavigenciadelaautorizaciondeunauiestaultimanopodraemitircertificadosdecumplimientoodocumentosdeevaluaciondelcodigodered"
+    },
+    {
+      "id": "4bb13bf0-006a-5154-8ca0-405ee3c498ab",
+      "fragmento": "Disposición Vigésima novena",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "capituloixprocedimientodeinspeccionvigesimanovenalainspeccionsellevaraacaboconformeelpresenteprocedimientodeinspeccionpiporunauiautorizadaacordealareaoactividadainspeccionaryapetic"
+    },
+    {
+      "id": "525d756f-26fb-51d8-b401-9cb45bf30789",
+      "fragmento": "Disposición Trigésima",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "trigesimaduranteelprocesodeinspeccionnodeberaexistirconflictodeinteresentreningunadelaspartesconbaseenloestablecidoenladisposicioncuartadeestasdacg"
+    },
+    {
+      "id": "19c07e3d-e883-50b2-9f6e-8675b712c2e7",
+      "fragmento": "Disposición Trigésima primera",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "trigesimaprimeraloscertificadosdecumplimientoqueemitanlasuiseranreconocidosenlosterminosestablecidosenlalieelrlieylaspresentesdacgeldocumentodeevaluaciondelcodigoderedserareconocid"
+    },
+    {
+      "id": "c440d020-677d-58c9-8736-d4eeb1b7956a",
+      "fragmento": "Disposición Trigésima segunda",
+      "paginasPdf": [
+        101
+      ],
+      "paginasImpresas": [
+        101
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "trigesimasegundaelincumplimientoalodispuestoenestepiydemasdisposicioneslegalesreglamentariasynormativaspodrasersancionadodeconformidadconloindicadoenladisposiciondecimoseptimadeest"
+    },
+    {
+      "id": "5119d6ba-6d3a-5219-8778-8f68ab28c686",
+      "fragmento": "Disposición Trigésima tercera",
+      "paginasPdf": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "paginasImpresas": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "anclas": 291,
+      "prefijoCotejado": "trigesimaterceralasactividadesdeinspeccionsedeberanllevaracaboconbaseenelsiguienteprocedimientodeinspeccionientodosloscasossedeberainiciarconlasolicituddelainspeccionconformealoest"
+    },
+    {
+      "id": "156be6e7-9165-5e4c-8065-746aa92edc88",
+      "fragmento": "Disposición Trigésima cuarta",
+      "paginasPdf": [
+        105,
+        106
+      ],
+      "paginasImpresas": [
+        105,
+        106
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "trigesimacuartalosgastosqueseoriginenporlasactividadesdeinspecciondeberansercubiertosporelsolicitant"
+    },
+    {
+      "id": "0bb811fd-3347-5e38-8ce6-d81147743358",
+      "fragmento": "Disposición Trigésima quinta",
+      "paginasPdf": [
+        106,
+        107
+      ],
+      "paginasImpresas": [
+        106,
+        107
+      ],
+      "anclas": 104,
+      "prefijoCotejado": "trigesimaquintaparauiicsedeberaconsiderarquecomorequisitominimoparallevaracabolainspeccionelsolicitantedelainspeccionoelresponsabledelainstalaciondebeentregaralauiiclamemoriatecnic"
+    },
+    {
+      "id": "b88d6281-760c-5d39-b6f7-ce56d839fc0c",
+      "fragmento": "Disposición Trigésima sexta",
+      "paginasPdf": [
+        107
+      ],
+      "paginasImpresas": [
+        107
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "trigesimasextaparalasuipicsedeberaconsiderarquelosaspectostecnicosespecificosdelasinstalacionesylaspruebasquevaainspeccionarserandeacuerdoconlosapartadoscorrespondientesalaspruebas"
+    },
+    {
+      "id": "fb41ec26-3879-5190-a9c2-fbcb59e2ecfc",
+      "fragmento": "Disposición Trigésima séptima",
+      "paginasPdf": [
+        107
+      ],
+      "paginasImpresas": [
+        107
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "trigesimaseptimaparalasuicrccsedeberaconsiderarquelosaspectostecnicosespecificosdelasinstalacionesquevaainspeccionarserandeacuerdoconelmanualregulatorioderequerimientostecnicospara"
+    },
+    {
+      "id": "8d7ace95-5815-53dc-aa19-e5938a0b3548",
+      "fragmento": "Disposición Trigésima octava",
+      "paginasPdf": [
+        107,
+        108
+      ],
+      "paginasImpresas": [
+        107,
+        108
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "trigesimaoctavaparalasuiqueauxilienenlavalidaciondelprogramadeinicioyterminaciondeobrasdelospermisosdegeneraciondeenergiaelectricaotorgadosporlacreadicionalmentedeberaconsiderarsee"
+    },
+    {
+      "id": "272ececd-ad3a-5aaf-9d30-157457a829ec",
+      "fragmento": "Anexo A · Formato completo",
+      "paginasPdf": [
+        108,
+        109,
+        110
+      ],
+      "paginasImpresas": [
+        108,
+        109,
+        110
+      ],
+      "anclas": 72,
+      "prefijoCotejado": "anexoaformatodesolicituddeautorizacionactualizacionmodificacionorenovacioncomounidaddeinspeccionelcualestaradisponibleenlaope1datosdelinteresado11informaciondelinteresadodenominaci"
+    },
+    {
+      "id": "9f695545-17d7-551a-a931-1a7059d0572a",
+      "fragmento": "Anexo B · Formato completo",
+      "paginasPdf": [
+        110,
+        111,
+        112
+      ],
+      "paginasImpresas": [
+        110,
+        111,
+        112
+      ],
+      "anclas": 61,
+      "prefijoCotejado": "anexobformatodeactadeinspeccionlogodelauinombredelaunidaddeinspeccionunidaddeinspeccioninstalacionfechaactadeinspeccionformatoxxxxrevisionpagina39dexsiendolasxxxxhorasdeldiaxxdexxx"
+    },
+    {
+      "id": "ef0b8a26-efa7-5926-9f69-9574ddc96d5f",
+      "fragmento": "Anexo C · Formato completo",
+      "paginasPdf": [
+        112,
+        113
+      ],
+      "paginasImpresas": [
+        112,
+        113
+      ],
+      "anclas": 47,
+      "prefijoCotejado": "anexocformatodelistadeinspeccionlogodelaunidaddeinspeccionnombredelaunidaddeinspeccionproyectoresponsabledelainstalacionfechadireccionpagina1dexxlistadeinspeccionincisorequisitoexi"
+    },
+    {
+      "id": "c33693a5-e7a9-521f-b2b1-38ccdf7b855d",
+      "fragmento": "Anexo D · Formato completo",
+      "paginasPdf": [
+        113,
+        114
+      ],
+      "paginasImpresas": [
+        113,
+        114
+      ],
+      "anclas": 46,
+      "prefijoCotejado": "anexodformatodereporteotestificaciondepruebaslogodelauinombredelaunidaddeinspeccionunidaddeinspeccioninstalaciondocumentalatestiguamientoreportedepruebaformatoxxxxfechapagina41de1d"
+    },
+    {
+      "id": "602d387d-089d-57f2-ad1c-8e40c503b944",
+      "fragmento": "Anexo E · Formato completo",
+      "paginasPdf": [
+        114,
+        115
+      ],
+      "paginasImpresas": [
+        114,
+        115
+      ],
+      "anclas": 76,
+      "prefijoCotejado": "anexoeformatodereportedehallazgologodelauinombredelaunidaddeinspeccionunidaddeinspeccionhallazgonoinstalacionreportedehallazgoformatoxxxxfechapagina1de1tipodeinspecciondocumentaloc"
+    },
+    {
+      "id": "70fb590f-fdf6-5445-a2a8-dad742e24eb0",
+      "fragmento": "Anexo F · Formato completo",
+      "paginasPdf": [
+        115,
+        116,
+        117
+      ],
+      "paginasImpresas": [
+        115,
+        116,
+        117
+      ],
+      "anclas": 85,
+      "prefijoCotejado": "anexofformatodecartadeconfidencialidadydeprotecciondedatospersonalesyoindicarelnombreencasodeserautorizadocomoinspectorporlacrecomopartedelaunidaddeinspeccionindicarnombreyeltipode"
+    },
+    {
+      "id": "fda35f53-56cb-5a6b-8dac-2eaf33d151f3",
+      "fragmento": "Anexo G · Formato completo",
+      "paginasPdf": [
+        117
+      ],
+      "paginasImpresas": [
+        117
+      ],
+      "anclas": 36,
+      "prefijoCotejado": "anexogformatodecodigodeconductayoindicarelnombreencasodeserautorizadocomoinspectorporlacrecomopartedelaunidaddeinspeccionindicarelnombreytipodeuireconozcomicompromisoparaobservarle"
+    }
+  ],
+  "notasEditorialesExcluidas": [
+    {
+      "id": "2a53eb65-b2e1-5681-ac74-e8d740aa73ab",
+      "label": "Nota editorial · alcance de la publicación"
+    }
+  ]
+}

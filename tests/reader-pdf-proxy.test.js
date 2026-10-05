@@ -591,6 +591,24 @@ it('serves only the reviewed May 15, 2026 DOF evening issue PDF for the original
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed May 20, 2024 DOF morning issue PDF for DACG inspection units', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/20-05-2024/Matutina/313401';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('inspection-units'), 'inspection-units', {
+        sources: { 'inspection-units': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('313401', '313402'), originalUrl.replace('Matutina', 'Vespertina'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('inspection-units'), 'inspection-units', {
+            sources: { 'inspection-units': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('rejects changed editions, non-PDF responses, redirects and oversized streams', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const options = fetcher => ({ sources: { lcne: source }, fetcher });
