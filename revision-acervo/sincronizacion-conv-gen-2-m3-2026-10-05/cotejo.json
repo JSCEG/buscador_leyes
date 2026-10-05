@@ -1,0 +1,85 @@
+{
+  "instrumento": "Acuerdo por el que se emite la tercera modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 18/06/2026]",
+  "instrumentId": "d026115a-998a-544f-bff0-39f93c04f444",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5790938",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/18-06-2026/Matutina/327985",
+  "archivoTemporal": "tmp\\cargo-transmision-2026-06-18.pdf",
+  "sha256": "4fb0664039a940ee5f281059d741aa8bafff6b713ff969e60af49ed248331c49",
+  "bytes": 5584306,
+  "paginasPdf": 324,
+  "paginasImpresasDelInstrumento": [
+    27,
+    30
+  ],
+  "fragmentosOficiales": 5,
+  "anclasGeometricas": 461,
+  "notaAlcance": "El acuerdo modificatorio y su tabla calendario se cotejaron en las páginas impresas 27–30. El siguiente acuerdo independiente de SENER empieza en la página 31 y queda fuera del mapa. Se reutiliza la misma fuente oficial SIDOF del otro instrumento ya registrado; el PDF sólo se descargó temporalmente para cotejar.",
+  "fragmentos": [
+    {
+      "id": "07202d99-6aac-533f-a78e-3be85b5e6715",
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "paginasPdf": [
+        27
+      ],
+      "paginasImpresas": [
+        27
+      ],
+      "anclas": 42,
+      "prefijoCotejado": "acuerdoporelqueseemitelaterceramodificacionalasegundaconvocatoriaparalaatencionprioritariadesolicitudesdepermisosdegeneraciondeenergiaelectricaeinterconexionalsistemaelectriconacio"
+    },
+    {
+      "id": "3934fece-91f3-5358-abb4-6911fd9f60c1",
+      "fragmento": "Resolutivo PRIMERO",
+      "paginasPdf": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "paginasImpresas": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "anclas": 410,
+      "prefijoCotejado": "primerosemodificanlasetapas3a17delcalendarioprevistoenelnumeral7elsegundoparrafodelnumeral82elprimerparrafodelosnumerales91y92delasegundaconvocatoriaparalaatencionprioritariadesoli"
+    },
+    {
+      "id": "e55eadcf-3b3e-5ec3-89ee-dc23b7e19187",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginasPdf": [
+        30
+      ],
+      "paginasImpresas": [
+        30
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "segundolosplazosyreferenciascontenidasenlasegundaconvocatoriaparalaatencionprioritariadesolicitudesdepermisosdegeneraciondeenergiaelectricaeinterconexionalsistemaelectriconacionala"
+    },
+    {
+      "id": "48d8eef0-6668-5e27-a0c3-9f0bb6e14764",
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "paginasPdf": [
+        30
+      ],
+      "paginasImpresas": [
+        30
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriounicoelpresenteacuerdoentraraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "c60394bb-4059-5b43-8405-95369caa2cf0",
+      "fragmento": "Firma del acuerdo",
+      "paginasPdf": [
+        30
+      ],
+      "paginasImpresas": [
+        30
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa04dejuniode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ]
+}
