@@ -478,6 +478,26 @@ it('serves only the reviewed June 26, 2026 DOF issue PDF for the migration clari
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed June 18, 2026 DOF issue PDF for the migration lineaments', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-06-2026/Matutina/327985';
+    const fetcher = vi.fn(async () => upstream());
+    const reviewed = { ...source, originalUrl };
+    const response = await serveReaderPdf(request('migracion-permisos'), 'migracion-permisos', {
+        sources: { 'migracion-permisos': reviewed }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('327985', '327986'), originalUrl.replace('18-06-2026', '19-06-2026'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('migracion-permisos'), 'migracion-permisos', {
+            sources: { 'migracion-permisos': { ...reviewed, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('returns only the reviewed bytes, disables storage, and does not forward request headers', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const fetcher = vi.fn().mockResolvedValue(upstream());

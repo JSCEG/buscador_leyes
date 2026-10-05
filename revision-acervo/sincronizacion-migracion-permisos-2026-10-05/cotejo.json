@@ -1,0 +1,742 @@
+{
+  "instrumento": "MIGRACION-PERMISOS",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/18-06-2026/Matutina/327985",
+  "pdfLocal": "revision-acervo\\incorporacion-pendientes-2026-09-19\\fuentes\\MIGRACION-PERMISOS-edicion.pdf",
+  "sha256": "4fb0664039a940ee5f281059d741aa8bafff6b713ff969e60af49ed248331c49",
+  "bytes": 5584306,
+  "paginasPdf": 324,
+  "paginasImpresasMapeadas": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "fragmentosOficiales": 77,
+  "anclasGeometricas": 1156,
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo del acuerdo",
+      "id": "21aedcc3-bef9-5762-bd4d-d1b029f54e14",
+      "paginas": [
+        5,
+        6
+      ],
+      "anclas": 75,
+      "prefijoCotejado": "acuerdoporelqueseemitenloslineamientosparalamigracionvoluntariayexpeditadeautoabastecimientoycogeneraciondeenergiaelectricaalasfigurasprevistasenlaleydelsectorelectricoalmargenunselloconelescudonacionalquediceestadosunid"
+    },
+    {
+      "fragmento": "Artículo Único · Expedición de los lineamientos",
+      "id": "e5331c67-f132-5c7f-b5ed-5aefcc995f93",
+      "paginas": [
+        6
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulounicolasecretariadeenergiaemiteloslineamientosparalamigracionvoluntariayexpeditadeautoabastecimientoycogeneraciondeenergiaelectricaalasfigurasprevistasenlaleydelsectorelectricoparaquedarenlosterminossiguientes"
+    },
+    {
+      "fragmento": "Artículo 1",
+      "id": "579ee902-78af-532e-b3fa-3d2caaee44ae",
+      "paginas": [
+        6
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "lineamientosparalamigracionvoluntariayexpeditadeautoabastecimientoycogeneraciondeenergiaelectricaalasfigurasprevistasenlaleydelsectorelectricocapituloprimerodisposicionesgeneralesarticulo1lospresenteslineamientostienenpo"
+    },
+    {
+      "fragmento": "Artículo 2",
+      "id": "00583965-e052-5598-9a32-17dd4c95701b",
+      "paginas": [
+        6
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo2elregistrodelamanifestaciondeinteresenparticiparenelprocedimientodemigracionexpeditoylassolicitudesdemigracionquesepresentenenterminosdeestoslineamientosseincorporanaunprogramademigracionconcaractertemporalyexce"
+    },
+    {
+      "fragmento": "Artículo 3",
+      "id": "cd9a8592-9b3d-5744-96fe-34c83d7d6535",
+      "paginas": [
+        6,
+        7,
+        8
+      ],
+      "anclas": 74,
+      "prefijoCotejado": "articulo3paraefectosdelaaplicacioneinterpretaciondelospresenteslineamientossedebenentenderlasdefinicionesensingularopluralprevistasenlaleydelsectorelectricoysureglamentoasicomolassiguientesicfecomisionfederaldeelectricid"
+    },
+    {
+      "fragmento": "Artículo 4",
+      "id": "8defcb11-0f1d-5685-a930-1b1549e9dc69",
+      "paginas": [
+        8
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo4lasactividadesrealizadasalamparodefiguraslegadasvigentesalmomentoderegistrarlamanifestaciondeinteresenparticiparenelprocedimientodemigracionpuedencontinuarsininterrupcionduranteelprocedimientodemigracionyhastasu"
+    },
+    {
+      "fragmento": "Artículo 5",
+      "id": "56162e71-ef48-5281-ab82-8ca4092fa7d0",
+      "paginas": [
+        8,
+        9
+      ],
+      "anclas": 63,
+      "prefijoCotejado": "articulo5lapersonasolicitanteenfunciondelamodalidaddemigracionsolicitadaenterminosdelarticulo15deestoslineamientosasicomolasinstitucionesresponsablessesujetanenloquelesresulteaplicablealassiguientescondicionesparagaranti"
+    },
+    {
+      "fragmento": "Artículo 6",
+      "id": "17aa14d0-6e7e-52e2-975e-c8408cae90a8",
+      "paginas": [
+        9
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo6elprocedimientodemigracionnodebeincluirincrementosenlacapacidadinstaladadelascentraleselectricastodavezquelasinstalacionesprevistasenlasfiguraslegadasdebencorresponderconlascondicionesdelpermisoqueseotorgueenelp"
+    },
+    {
+      "fragmento": "Artículo 7",
+      "id": "3ae62722-5bdf-5521-97c5-c98a449371a5",
+      "paginas": [
+        10
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo7lapersonasolicitantepuedesolicitarlaintegraciondeunsaeeenlasolicituddemigracionsiemprequesetratedeunacentralelectricadeenergiarenovableynoseincrementelacapacidadinstaladadelacentralelectricanimodifiquelacapacida"
+    },
+    {
+      "fragmento": "Artículo 8",
+      "id": "b1d8daf3-6547-5260-93af-4962b3992643",
+      "paginas": [
+        10
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo8lasnotificacionesdelprocedimientodemigracionsedebenrealizarpormediodelaventanillademigracionesymedianteloscorreoselectronicosautorizadosporlapersonasolicitantelasnotificacionesefectuadasporestosmediostienenplena"
+    },
+    {
+      "fragmento": "Artículo 9",
+      "id": "a6e1ec85-8080-5c2f-b3bf-5c6c06e455c8",
+      "paginas": [
+        10
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo9paraefectosdeloslineamientosseconsiderandiasinhabileslosprevistosenelarticulo28delaleyfederaldeprocedimientoadministrativolosplazosestablecidosendiassedebenconsiderarhabilesylosreferidosenmesesconcluyenenelmismo"
+    },
+    {
+      "fragmento": "Artículo 10",
+      "id": "30a9d297-8edc-5972-a819-0fd44d717f40",
+      "paginas": [
+        10
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo10correspondealasecretarialainterpretacionparaefectosadministrativosdeloslineamientosafaltadedisposicionexpresayencuantonoseopongaaloestablecidoenloslineamientossedebeestarenloqueresulteaplicablealodispuestoenlal"
+    },
+    {
+      "fragmento": "Artículo 11",
+      "id": "72d975c2-11ad-5518-9f39-05ee177207b0",
+      "paginas": [
+        10
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "articulo11correspondealasecretariapromoverelprocedimientodemigracioneinstruiralasinstitucionesresponsablesaimplementardemaneracoordinadalaventanillademigracionesparasutramitacionexpeditaenterminosdelarticulotransitoriose"
+    },
+    {
+      "fragmento": "Artículo 12",
+      "id": "7f5ac2f3-fd82-5038-8204-715de27e026d",
+      "paginas": [
+        10,
+        11
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "capitulosegundodelamigracionarticulo12lasfiguraslegadaspuedenserobjetodemigracionvoluntariatotalydefinitivaaalgunadelasfigurasestablecidasenlalseconformealospresenteslineamientosylasdemasdisposicionesaplicablesenterminos"
+    },
+    {
+      "fragmento": "Artículo 13",
+      "id": "a17daba3-70a8-507e-998f-dff785d02d9f",
+      "paginas": [
+        11
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo13lasusuariasfinalesintegrantesdeunasociedaddeautoabastecimientoolosestablecimientosasociadosalacogeneraciondeenergiaelectricaysuscentrosdecargaprevistosenlasfiguraslegadaspuedenoptarpormigrarcomousuariocalificad"
+    },
+    {
+      "fragmento": "Artículo 14",
+      "id": "a5d18468-55b1-5eff-a495-3ad1d1d2647b",
+      "paginas": [
+        11
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo14lasfiguraslegadasmigranaalgunadelassiguientesfigurasdegeneracionprevistasenlalseiautoconsumodeformaaisladaiiautoconsumodeformainterconectadaoiiigeneracionparaelmemlaactividaddegeneracionatravesdelasfigurasantes"
+    },
+    {
+      "fragmento": "Artículo 15",
+      "id": "ea5cdf58-a54c-5c10-ab91-0cbc4f71c198",
+      "paginas": [
+        11
+      ],
+      "anclas": 29,
+      "prefijoCotejado": "articulo15lapersonasolicitantepuedeoptarporlamigracionenalgunadelassiguientesmodalidadesimigraciondecentralelectricaaplicableaunacentralelectricaprevistaenunaomasfiguraslegadasiimigracionconjuntadecentralelectricaycentro"
+    },
+    {
+      "fragmento": "Artículo 16",
+      "id": "5f492fda-e01d-56b2-ae80-1d5dabc658ad",
+      "paginas": [
+        12
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "capitulotercerodelprocedimientodemigracionseccionidelasetapasyelcalendariodelprocedimientodemigracionarticulo16paraconcretarlamigracionexpeditadelasfiguraslegadasalalseenterminosdeestoslineamientoselprocedimientodemigrac"
+    },
+    {
+      "fragmento": "Artículo 17",
+      "id": "a4c26319-8b1f-50ed-8d64-13c55f8cbbff",
+      "paginas": [
+        12,
+        13
+      ],
+      "anclas": 149,
+      "prefijoCotejado": "articulo17elprocedimientodemigracionparalasmodalidadesprevistasenlasfraccionesiiivyvidelarticulo15deloslineamientoscomprendelassiguientesetapasycalendarioietapasaprimeraregistrodelamanifestaciondeinteresenparticiparenelp"
+    },
+    {
+      "fragmento": "Artículo 18",
+      "id": "33a40649-ded6-5d00-a011-8ee8927e019c",
+      "paginas": [
+        14,
+        15
+      ],
+      "anclas": 103,
+      "prefijoCotejado": "articulo18losprocedimientosdemigracionbajolasmodalidadesprevistasenlasfraccionesiiiyivdelarticulo15deloslineamientoscomprendenlassiguientesetapasycalendarioietapasaprimeraregistrodelamanifestaciondeinteresenparticiparene"
+    },
+    {
+      "fragmento": "Artículo 19",
+      "id": "6ca4fec4-a800-5139-b944-234a3258b5ee",
+      "paginas": [
+        15
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "seccioniidelaspersonassolicitantesylaventanillademigracionesarticulo19laspersonassolicitantespuedenrealizarelregistrodelamanifestaciondeinteresylasolicitudparaparticiparenelprocedimientodemigraciondemaneraconjuntaoindivi"
+    },
+    {
+      "fragmento": "Artículo 20",
+      "id": "2193ab35-5fee-5679-bdef-201f24224ddf",
+      "paginas": [
+        15
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo20laspersonassolicitantespuedenrealizarlasgestionesrelacionadasconelprocedimientodemigraciondeformadirectaodesignaralassiguientespersonasacreditadasilaparticipantedelmercadoenmodalidaddegeneradoraparalarepresenta"
+    },
+    {
+      "fragmento": "Artículo 21",
+      "id": "f1ae478e-46c4-5c9b-b2a6-5d655fdea309",
+      "paginas": [
+        16
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "articulo21duranteelprocedimientodemigracionlapersonasolicitantepuedesolicitarporunaunicaocasionatravesdelaventanillademigracioneslasustituciondelaparticipantedelmercadoregistradaenlasolicituddemigracionelcenacedeberesolv"
+    },
+    {
+      "fragmento": "Artículo 22",
+      "id": "b1a9f28b-9d9b-5407-805d-d443c0368058",
+      "paginas": [
+        16
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo22laventanillademigracioneseselunicomedioparalatramitaciondelassolicitudesdemigracionlacualseencuentradisponibleenladireccionelectronicahttpsventanillaunicaenergiagobmx"
+    },
+    {
+      "fragmento": "Artículo 23",
+      "id": "cf7e169b-cfd1-54c8-ba94-9ea8cfbd0105",
+      "paginas": [
+        16
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "seccioniiidelregistrodelamanifestaciondeinteresydelasolicituddemigracionarticulo23laspersonastitularesdelasfiguraslegadasconinteresdeparticiparenelprocedimientodemigraciondebenregistrarsumanifestaciondeinteresparamigrarm"
+    },
+    {
+      "fragmento": "Artículo 24",
+      "id": "cdabac89-41ca-5206-9b8d-770bfa9bbc07",
+      "paginas": [
+        16,
+        17
+      ],
+      "anclas": 53,
+      "prefijoCotejado": "articulo24lassolicitudesdelprocedimientodemigraciondebenrealizarseenlaventanillademigracionesatravesdelformatounicoautorizadoelcualdebeconteneralmenoslosiguienteilainformaciondelapersonasolicitanteyensucasodelaspersonasa"
+    },
+    {
+      "fragmento": "Artículo 25",
+      "id": "d7b6f708-de83-5af0-8438-570b6aba3f8a",
+      "paginas": [
+        17,
+        18
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "articulo25enlasolicituddemigraciondefiguraslegadasconcentraleselectricascuyoprocedimientodemigracionserealizaenterminosdelarticulo17deloslineamientossedebeconsiderarelultimoestadodeavancedelprogramadeobrasinformadoalacne"
+    },
+    {
+      "fragmento": "Artículo 26",
+      "id": "2154e22c-1dd9-5b54-b014-2a96f67a02d2",
+      "paginas": [
+        18
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "articulo26lassolicitudesdemigracionpresentadasporpersonasintegrantesdelassociedadesdeautoabastecimientoodelosestablecimientosasociadosalacogeneraciondeenergiaelectricaoporlausuariafinalconcentrosdecargaasociadosaestosade"
+    },
+    {
+      "fragmento": "Artículo 27",
+      "id": "4859ceca-d77e-5e08-9292-fa382ee271a0",
+      "paginas": [
+        18
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "articulo27elexpedienteunicoseconstituyeapartirdelapresentaciondelregistrodelamanifestaciondeinteresalqueserefiereelarticulo23deloslineamientosypuedeconsultarseporlapersonasolicitanteasicomoporlasinstitucionesresponsables"
+    },
+    {
+      "fragmento": "Artículo 28",
+      "id": "1dab1614-05e6-58b8-b4d3-b6a544daf9df",
+      "paginas": [
+        18
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo28elingresoalaventanillademigracionesdebesermediantefirmaelectronicaavanzadaollavemxloscambiosdelaspersonasrepresentantesapoderadaslegalesoacreditadasenunprocedimientodemigracionestansujetosalavalidaciondelasinst"
+    },
+    {
+      "fragmento": "Artículo 29",
+      "id": "1380e004-7f54-5f67-ac05-72934d4b74a1",
+      "paginas": [
+        19
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo29laexclusiondeloscentrosdecargadelasfiguraslegadaspermitealasusuariasfinaleselegirelsuministrobasicooelsuministrocalificadodeacuerdoconsusinteresesenterminosdelarticulo13deloslineamientoscuandolaspersonasintegra"
+    },
+    {
+      "fragmento": "Artículo 30",
+      "id": "0b0e27c1-9275-5d33-8073-d53ce2296e2f",
+      "paginas": [
+        19
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo30cuandolapersonasolicitantesealatitulardelafiguralegadaessuresponsabilidadnotificaralaspersonasintegrantesdelassociedadesdeautoabastecimientoodelosestablecimientosasociadosalacogeneraciondeenergiaelectricaquereg"
+    },
+    {
+      "fragmento": "Artículo 31",
+      "id": "ad8c51df-9290-55a5-95e4-76777c7e7381",
+      "paginas": [
+        19
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo31cuandolapersonapermisionariaasicomounaomasusuariasfinalesconcentrosdecarganocontinuenconelprocedimientodemigraciondemaneraconjuntaenterminosdelamodalidadprevistaenlafraccioniidelarticulo15deestoslineamientoslap"
+    },
+    {
+      "fragmento": "Artículo 32",
+      "id": "c1a8c340-774c-5874-8363-733dd4b23904",
+      "paginas": [
+        19
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo32esresponsabilidaddelaspersonassolicitanteslaatencionentiempoyformadelosrequisitosycondicionesestablecidosparacadaunadelasetapasprevistasdelprocedimientodemigracionseguncorrespondaasicomodelcumplimientodelosrequ"
+    },
+    {
+      "fragmento": "Artículo 33",
+      "id": "41b5d2d9-a236-530e-845e-21e2047fb4e6",
+      "paginas": [
+        19
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "seccionivdelaadmisiondelasolicitudarticulo33losactosadministrativosdelasinstitucionesresponsablesconcernientesalaadmisionoalaprevencionprevistosenlosarticulos34y35deloslineamientosrespectivamentedebensernotificadosmedian"
+    },
+    {
+      "fragmento": "Artículo 34",
+      "id": "d39e648e-0762-5a4f-8f4f-f8bba37d546f",
+      "paginas": [
+        20
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "articulo34enelcasodequeseconsidereprocedenteunasolicituddemigracionsedebeemitirunoficiodeadmisionatramiteenelqueconstelosiguienteielcumplimientodelosrequisitosdemigracionprevistosenloslineamientosiielreconocimientodelaca"
+    },
+    {
+      "fragmento": "Artículo 35",
+      "id": "53f203dd-fcaa-5325-a4a5-3145bc098bcf",
+      "paginas": [
+        20
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo35cuandolasolicituddemigracionpresentadanocontengalatotalidaddelainformacionrequeridaobiennocumplaconlosrequisitosestablecidosenloslineamientoslasinstitucionesresponsablesdebenprevenirporunicaocasionalapersonasol"
+    },
+    {
+      "fragmento": "Artículo 36",
+      "id": "30f9674d-78c8-5441-9f46-bf998e2d2f11",
+      "paginas": [
+        20
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "seccionvdelospermisosyelregistrodeusuarioscalificadosarticulo36admitidalasolicituddemigracionlacnedeberesolversobreelotorgamientodeltitulodepermisodegeneracionbajoalgunadelasfigurasdelalseencasoderesolverelnootorgamiento"
+    },
+    {
+      "fragmento": "Artículo 37",
+      "id": "4ef4cc25-1c50-5e91-815c-65aa0d97852c",
+      "paginas": [
+        20
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo37enelcasodequelasusuariasfinalesconcentrosdecargasolicitenlamigracionasuministrobasicolacnedeberesolversobrelaexclusiondetodoslospermisosenlosqueseencuentrenincluidosdentrodelplazoquerefierelacuartaetapadelcalen"
+    },
+    {
+      "fragmento": "Artículo 38",
+      "id": "88fef78a-828a-51f6-8ca3-f6ed36ad35e5",
+      "paginas": [
+        20
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo38eltitulodepermisootorgadoporlacnebajolafiguradelalsedeconformidadconlodispuestoporloslineamientosdebeestablecerensusterminosycondicioneslaobligaciondecumplirconloprevistoenelarticulo5fraccionesviviiyixdelosline"
+    },
+    {
+      "fragmento": "Artículo 39",
+      "id": "5a9e7c3c-c32f-5342-8d4c-7bffb12124f1",
+      "paginas": [
+        20
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo39elincumplimientoporpartedelapersonapermisionariadelasobligacionesestablecidasenelpermisootorgadoenterminosdeestoslineamientosdebesersancionadoporlacneconformealodispuestoporlalseelrlseydemasnormatividadaplicabl"
+    },
+    {
+      "fragmento": "Artículo 40",
+      "id": "3f100a7b-a13c-5d82-b42b-53c1d76ce5a1",
+      "paginas": [
+        21
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "seccionvidelregistrodeactivosfisicosarticulo40conformealoscalendariosprevistosenlosarticulos17y18deloslineamientoselcenacedeberealizarelregistrodeactivosfisicosasociadoalaparticipantedelmercadoacreditadaenlaadmisiondelas"
+    },
+    {
+      "fragmento": "Artículo 41",
+      "id": "a58fcfb8-b3c4-5d10-87d7-a8ca022a44a3",
+      "paginas": [
+        21
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo41enelregistropreviodeactivosfisicosalqueserefierelaetapasextadelarticulo17delospresenteslineamientosdemanerapreliminarlascentraleselectricasenoperacionseregistranconelestatusdedespachableconreconocimientodedispo"
+    },
+    {
+      "fragmento": "Artículo 42",
+      "id": "e800c801-51d6-5791-9792-89270bce31df",
+      "paginas": [
+        21
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "seccionviidelcumplimientodelascondicionesparalascentraleselectricasenoperacionyloscentrosdecargaarticulo42laspersonaspermisionariasquesolicitanlamigracionafigurasdegeneracionparaelmemyparaelautoconsumointerconectadoconve"
+    },
+    {
+      "fragmento": "Artículo 43",
+      "id": "a4902ea2-35ae-5935-961d-f938cdd4ac60",
+      "paginas": [
+        21
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "articulo43laspersonassolicitantesqueoptenporlamigracionafigurasdegeneracionparaelmemyparaelautoconsumointerconectadoconventadeexcedentesdebenrealizarlasgestionesnecesariasanteelcenaceparacumplirlosrequisitosdelestatusdes"
+    },
+    {
+      "fragmento": "Artículo 44",
+      "id": "0fbed6aa-da52-561a-8b7a-50bfffdf0e18",
+      "paginas": [
+        21
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo44loscentrosdecargaprevistosenlasfiguraslegadaseincluidasenunprocedimientodemigracioncondemandamenora1mwpuedenmigraryrecibirsuministrocalificadoconlosequiposdemedicionexistentesyenlascondicionesenqueseencuentrenp"
+    },
+    {
+      "fragmento": "Artículo 45",
+      "id": "373b8e3b-551d-5ce6-9bd4-d78bdc1794c6",
+      "paginas": [
+        21
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo45lascentraleselectricasyloscentrosdecargacondemandacontratadaigualomayora1mwprevistosenlasfiguraslegadaseincluidasenunprocedimientodemigracionparamigrarasuministrocalificadodebencumplirconlosrequisitosdelossiste"
+    },
+    {
+      "fragmento": "Artículo 46",
+      "id": "e9deacdf-b88c-55f0-b868-06b940145d6c",
+      "paginas": [
+        22
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo46afindedarseguimientoaldebidocumplimientoenlasfraccionesviviiyixdelarticulo5deestoslineamientoslacnepuederequeririnformacionyreportestecnicosalaspersonassolicitantesalaspersonastitularesdelospermisosalcenacealat"
+    },
+    {
+      "fragmento": "Artículo 47",
+      "id": "3570efca-0f7f-5c5b-8354-fd78c76ae8a3",
+      "paginas": [
+        22
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "seccionviiidelaformalizaciondeloscontratosarticulo47elcenacedebeinstruiralatransportistaoladistribuidoralaformalizaciondelcontratodeinterconexionodeconexionoambosatravesdelaventanillademigracionesdentrodelosplazosyetapas"
+    },
+    {
+      "fragmento": "Artículo 48",
+      "id": "2ef45d5d-04a5-5f55-98ca-2f9c8dbd8c67",
+      "paginas": [
+        22
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "articulo48enlosprocedimientosdemigracionrealizadosenterminosdelarticulo17deloslineamientosydespuesdequelasinstitucionesresponsablesconfirmenelcumplimientodeloprevistoenelarticulo5fraccionesviviiyixdeloslineamientosenlave"
+    },
+    {
+      "fragmento": "Artículo 49",
+      "id": "61ffa507-2cce-5864-adc2-612204521c99",
+      "paginas": [
+        22
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo49enelcasodequelasusuariasfinalesconcentrosdecargaprevistosenfiguraslegadassolicitenlamigracioncfeintermediaciondecontratoslegadossadecvdeberealizarlaexclusiondeloscentrosdecargadelcontratolegadoydelosconveniosas"
+    },
+    {
+      "fragmento": "Artículo 50",
+      "id": "f17d3b2c-5e85-51f4-a9d6-0f01bed7c6cf",
+      "paginas": [
+        22
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo50encasodemigraralafiguradegeneraciondeenergiaelectricaparaelautoconsumodeformainterconectadaelcenacedebeinstruiralatransportistayladistribuidoralafirmadelcontratodeinterconexionyconexionconlapersonatitulardelper"
+    },
+    {
+      "fragmento": "Artículo 51",
+      "id": "480d2505-7a4b-550c-bafb-5a5c8c69b199",
+      "paginas": [
+        22
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo51alconcluirelprogramademigracioneselcenacedebeactualizarensucasoelestudiodelosserviciosdetransmisiondeloscontratoslegadosvigentesderivadodelaexclusiondeloscentrosdecargadeestosylacfedeberealizarlamodificacionalo"
+    },
+    {
+      "fragmento": "Artículo 52",
+      "id": "18dcb668-4f7a-5cc0-b886-cebdc5f1cdb4",
+      "paginas": [
+        23
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "seccionixdelestatusenelregistrodeactivosfisicosylaoperacionenelmercadoelectricomayoristaarticulo52dentrodelosplazosestablecidosenloscalendariosprevistosenlosarticulos17y18deestoslineamientoselcenaceycfeintermediaciondeco"
+    },
+    {
+      "fragmento": "Artículo 53",
+      "id": "459c4cc8-02eb-5152-b130-f4a310cdf19c",
+      "paginas": [
+        23
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo53apartirdelestatushabilitadoenelregistrodeactivosfisicosdelaparticipantedelmercadoalascentraleselectricasselesreconocelacapacidadcondisponibilidaddeentregafisicayacreditanpotenciaenterminosdeloestablecidoenelman"
+    },
+    {
+      "fragmento": "Artículo 54",
+      "id": "f44cbef1-9235-5834-92ae-ed51cf4557da",
+      "paginas": [
+        23
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "capitulocuartodelossistemasdemedicionseccionidelarevisiondelafuncionalidaddemedicionarticulo54previoalaetapapararealizarelregistrodeactivosfisicosenelmemdelascentraleselectricasydeloscentrosdecargaqueparticipenenelproced"
+    },
+    {
+      "fragmento": "Artículo 55",
+      "id": "5bb235d2-368b-5023-971c-ccc4de30194f",
+      "paginas": [
+        23
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo55latransportistaoladistribuidoraseguncorrespondadebecomunicaratravesdelaventanillademigracionesloscasosenlosqueenlarevisiondelafuncionalidaddemediciondetectencondicionesqueimpidanelaccesoalainfraestructuraoalose"
+    },
+    {
+      "fragmento": "Artículo 56",
+      "id": "c374a666-1798-58e8-ba90-8294e23fe0a2",
+      "paginas": [
+        23
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo56duranteelprocedimientodemigracionyhastaentantosedecumplimientoalosrequisitossobrelossistemasdemedicionlaspersonaspermisionariasylasusuariasfinalesconcentrosdecargadebengarantizarymantenerelcumplimientodelafunci"
+    },
+    {
+      "fragmento": "Artículo 57",
+      "id": "9cd598da-922d-5550-a588-31fd6990a0e4",
+      "paginas": [
+        23
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo57encasodequelatransportistaoladistribuidoraenterminosdesusatribucionesidentifiquealgunafallaenloselementosdelosequiposdemediciondealguncentrodecargaocentralelectricaquemigrenconformealoslineamientosdebennotifica"
+    },
+    {
+      "fragmento": "Artículo 58",
+      "id": "f06586f9-0471-55d7-8c3a-eaa316d9fc6b",
+      "paginas": [
+        24
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "seccioniidelcumplimientodelossistemasdemedicionparaelmemarticulo58latransportistaoladistribuidoraoambasseguncorrespondaantesdeconcluirlosplazosprevistosenlosarticulos17y18deloslineamientosdebenintegrarunprogramaparalarev"
+    },
+    {
+      "fragmento": "Artículo 59",
+      "id": "d9a52876-c130-55cf-a0df-0fa70434306d",
+      "paginas": [
+        24
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo59latransportistaoladistribuidoraseguncorrespondapuedenagendardosvisitasderevisionalacentralelectricaoaloscentrosdecargapararevisarelcumplimientodeloprevistoenelarticulo45deestoslineamientoslaprimeravisitaderevis"
+    },
+    {
+      "fragmento": "Artículo 60",
+      "id": "27e6716c-900a-5a68-84fc-5e92fc91a29b",
+      "paginas": [
+        24
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo60latransportistaoladistribuidoraencasodequedetectenquelossistemasdemediciondeloscentrosdecargacondemandamaximaigualomayora1mwnocumplenloestablecidoenlasreglasdelmercadoyunavezconcluidoelperiododemigracionpuedens"
+    },
+    {
+      "fragmento": "Artículo 61",
+      "id": "b117d5cf-f27d-5603-81f4-4beba6af6b95",
+      "paginas": [
+        24
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo61encasodequealgunincumplimientouomisionenelsistemademedicioncontinueunavezconcluidoelperiododemigracionlacnedebeprocederdeconformidadconloprevistoenlasdisposicionesadministrativasaplicablesylosterminosycondicion"
+    },
+    {
+      "fragmento": "Transitorio PRIMERO",
+      "id": "a9726118-0160-5729-a63c-b64767ee2eea",
+      "paginas": [
+        24
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresenteacuerdoentraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "fragmento": "Transitorio SEGUNDO",
+      "id": "e5c8188e-844e-5dde-a0cf-e6fc51f66781",
+      "paginas": [
+        24
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "segundolacomisionnacionaldeenergiaelcentronacionaldecontroldeenergialacomisionfederaldeelectricidadycfeintermediaciondecontratoslegadossadecvenelambitodesusrespectivascompetenciasyatribucionesdebencoordinarseyensucasorea"
+    },
+    {
+      "fragmento": "Transitorio TERCERO",
+      "id": "7efc99b7-3511-5790-b76f-b185162d33f5",
+      "paginas": [
+        24
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "tercerolacomisionnacionaldeenergiadebeexcluirdelasfiguraslegadasaloscentrosdecargaprevistosenlasmismasyqueasuvezseencuentrenincluidosenelregistrodeusuarioscalificadossinqueestoimpliqueuntramiteadicionalloanteriorsedebere"
+    },
+    {
+      "fragmento": "Transitorio CUARTO",
+      "id": "25590957-c717-5c48-9e69-af7442656361",
+      "paginas": [
+        24
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "cuartoparaelcasodelascentraleselectricasasociadasapermisosdeautoabastecimientoodecogeneraciondeenergiaelectricaqueademastengancapacidadasociadaaunpermisodeproduccionindependientedeenergiaotorgadobajolaleydelserviciopubli"
+    },
+    {
+      "fragmento": "Transitorio QUINTO",
+      "id": "ed981b8c-43f6-52bb-a67c-e7f9870ec23d",
+      "paginas": [
+        25
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "quintolasacreditacionesdecogeneracioneficienteotorgadasalascentraleselectricasconsistemasdecogeneracionquemigrenenterminosdeloslineamientosqueseemitenatravesdelpresenteacuerdocontinuansurtiendosusefectoshastaelterminodes"
+    },
+    {
+      "fragmento": "Transitorio SEXTO",
+      "id": "df5d06c0-4017-5c65-a7d4-2a4260321278",
+      "paginas": [
+        25
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "sextoenaquelloscasosenlosquesehayasolicitadolamigraciondepermisosdeautoabastecimientoydecogeneraciondeenergiaelectricaotorgadosbajolaleydelserviciopublicodeenergiaelectricaalasfigurasdelaleydelaindustriaelectricaoalaleyd"
+    },
+    {
+      "fragmento": "Transitorio SÉPTIMO",
+      "id": "c0188b0b-e6d5-5321-a47a-0c33c68590d5",
+      "paginas": [
+        25
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "septimoaquellaspersonastitularesdepermisosmigradosalasfigurasprevistasenlaleydelsectorelectricoquealaentradaenvigordelpresenteacuerdocuentenconcontratosyconveniosvigentesvinculadosalasfiguraslegadaspuedenmanifestarsuinte"
+    },
+    {
+      "fragmento": "Transitorio OCTAVO",
+      "id": "47e157df-9f02-5a0f-bbce-8d3d1011886c",
+      "paginas": [
+        25
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "octavolasusuariasfinalesconcentrosdecargaquehayansidointegrantesdeunasociedaddeautoabastecimientoodeunpermisodecogeneraciondeenergiaelectricaenloscasosenquenoseencuentreconcluidalaexclusiondetodaslasfiguraslegadaspuedenm"
+    },
+    {
+      "fragmento": "Transitorio NOVENO",
+      "id": "d2adbf62-6d17-5d7c-8ba7-4435cd6ff849",
+      "paginas": [
+        25
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "novenolacomisionnacionaldeenergiayelcentronacionaldecontroldeenergiadebendaratencionprioritariaalassolicitudesdetramiterelacionadasconlaacreditaciondeparticipantesdelmercadoquefueroniniciadasprevioalassolicitudesdemigrac"
+    },
+    {
+      "fragmento": "Transitorio DÉCIMO",
+      "id": "8c0813a0-afce-5813-a4ae-dc532e65978c",
+      "paginas": [
+        25,
+        26
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "decimolassolicitudesparamigraralafiguradegeneracionparaelmercadoelectricomayoristapresentadasantelacomisionnacionaldeenergiarespectodefiguraslegadasconfechadevencimientopreviaalveintiochodediciembrededosmilveintiseisdebe"
+    },
+    {
+      "fragmento": "Transitorio DÉCIMO PRIMERO",
+      "id": "9ef538fd-769e-570c-960e-988f5b3614ac",
+      "paginas": [
+        26
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "decimoprimeroencasodequeunavezotorgadounpermisoconformealoslineamientosqueseemitenatravesdelpresenteacuerdolavigenciadelcontratodeinterconexionasociadoalmismotermineenunafechapreviaalaestablecidaenlaoctavaetapadelcalenda"
+    },
+    {
+      "fragmento": "Transitorio DÉCIMO SEGUNDO",
+      "id": "7e585e5c-376e-5d7a-b178-bca29d2ef752",
+      "paginas": [
+        26
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "decimosegundolaspersonastitularesdefiguraslegadasdeimportacionoexportaciondeenergiaelectricaalamparodelaleydelserviciopublicodeenergiaelectricaqueseencuentrenvigentespuedensolicitarvoluntariamentemigraralasfigurasdelaley"
+    },
+    {
+      "fragmento": "Transitorio DÉCIMO TERCERO",
+      "id": "23e19759-3fc8-5748-9380-5bb1419cd4ec",
+      "paginas": [
+        26
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "decimotercerotratandosedelasempresaspublicasdelestadoencongruenciaconlosarticulos2527y28delaconstitucionpoliticadelosestadosunidosmexicanosyconrelacionalarticulotransitoriotercerodelaleydelsectorelectricolaevaluaciondere"
+    },
+    {
+      "fragmento": "Firma del acuerdo",
+      "id": "c4e6a079-8dcd-5053-8d4e-d09f6f474e68",
+      "paginas": [
+        26
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa15dejuniode2026lasecretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ],
+  "notaEditorialExcluida": [
+    "939a71bb-76bd-5ad7-8251-026a71b544a3"
+  ]
+}
