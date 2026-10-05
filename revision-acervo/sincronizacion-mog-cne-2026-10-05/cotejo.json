@@ -1,0 +1,615 @@
+{
+  "instrumento": "MOG-CNE",
+  "instrumentId": "b872a637-08eb-55ed-a529-9822185c86f2",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5788990",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/29-05-2026/Matutina/327605",
+  "archivoTemporal": "tmp\\mog-cne.pdf",
+  "sha256": "bc50921ecb6b6c7df79d6715d3c10eeb460ab7904667c2fcf4c4799c37258a1e",
+  "bytes": 5812858,
+  "paginasPdf": 292,
+  "paginasImpresasDelInstrumento": [
+    86,
+    135
+  ],
+  "fragmentosOficiales": 41,
+  "anclasGeometricas": 3282,
+  "organigramaGrafico": {
+    "fragmento": "8. ORGANIGRAMA",
+    "paginaPdf": 96,
+    "bbox": [
+      60,
+      96,
+      735,
+      512
+    ],
+    "tipoAncla": "graphic"
+  },
+  "fragmentos": [
+    {
+      "id": "e9c99838-95b5-50ad-a423-9c5e3edf4698",
+      "fragmento": "Preámbulo y considerandos del acuerdo",
+      "paginasPdf": [
+        86
+      ],
+      "paginasImpresas": [
+        86
+      ],
+      "anclas": 45,
+      "prefijoCotejado": "acuerdodelacomisionnacionaldeenergiaporelqueseexpideelmanualdeorganizaciongeneraldelacomisionnacionaldeenergiaalmargenunselloconelescudonacionalquediceestadosunidosmexicanoscomisio"
+    },
+    {
+      "id": "653f961d-d1e3-5752-a065-fa83467ce706",
+      "fragmento": "Primero · Expedición del manual",
+      "paginasPdf": [
+        86,
+        87
+      ],
+      "paginasImpresas": [
+        86,
+        87
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "acuerdodelacomisionnacionaldeenergiaporelqueseexpideelmanualdeorganizaciongeneraldelacomisionnacionaldeenergiaprimerosedaaconoceralaspersonasservidoraspublicasdelacomisionnacionald"
+    },
+    {
+      "id": "0a59bc39-c538-54a5-a613-1e5905ba40d1",
+      "fragmento": "Portada e índice del manual",
+      "paginasPdf": [
+        87
+      ],
+      "paginasImpresas": [
+        87
+      ],
+      "anclas": 75,
+      "prefijoCotejado": "manualdeorganizaciongeneraldelacomisionnacionaldeenergiaindicedecontenido1introduccion2mision3vision4objetivoinstitucional5antecedentes6marcojuridico7estructuraorganica8organigrama"
+    },
+    {
+      "id": "2e66d28b-9d58-5d8d-abf4-dfdb4fdb2e9e",
+      "fragmento": "1. INTRODUCCIÓN",
+      "paginasPdf": [
+        87,
+        88
+      ],
+      "paginasImpresas": [
+        87,
+        88
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "1introduccionlacomisionnacionaldeenergiaesunorganodecaractertecnicosectorizadoalasecretariadeenergiacuentaconindependenciatecnicaoperativaydegestiontieneporobjetoregularsupervisare"
+    },
+    {
+      "id": "5e326c0c-3141-5a7e-a11a-1e598bff16c2",
+      "fragmento": "2. MISIÓN",
+      "paginasPdf": [
+        88
+      ],
+      "paginasImpresas": [
+        88
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "2misionregularsupervisarysancionarlasactividadesdelsectorenergeticodesucompetenciaydeconformidadconlaplaneacionvinculantepromoverlasoberaniayseguridadenergeticademexicohaciaunatran"
+    },
+    {
+      "id": "c58f1f90-b640-5aa5-af54-4137764cdaae",
+      "fragmento": "3. VISIÓN",
+      "paginasPdf": [
+        88
+      ],
+      "paginasImpresas": [
+        88
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "3visionfortalecerelsectorenergeticobajolosprincipiosdesoberaniayjusticiaenergeticaenlasactividadesreguladasdesucompetenciaconsolidarsecomoelbrazotecnicodelapoliticaenergeticadelpai"
+    },
+    {
+      "id": "8af0b88d-65e2-5e78-a9ee-3366fe9f327c",
+      "fragmento": "4. OBJETIVO INSTITUCIONAL",
+      "paginasPdf": [
+        88
+      ],
+      "paginasImpresas": [
+        88
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "4objetivoinstitucionalotorgarpermisosestablecertarifasyemitircertificacionesqueimpulseneldesarrolloordenadoysegurodelsectorenergeticoencoordinacionconlasecretariadeenergiayotrasins"
+    },
+    {
+      "id": "e2f3d37e-ea9f-53ab-a9b8-3e02da93b4d0",
+      "fragmento": "5. ANTECEDENTES",
+      "paginasPdf": [
+        88,
+        89
+      ],
+      "paginasImpresas": [
+        88,
+        89
+      ],
+      "anclas": 70,
+      "prefijoCotejado": "5antecedentesel28dediciembrede1994comoresultadodelareformaalaleyorganicadelaadministracionpublicafederalpropuestaporelejecutivofederalyaprobadaporelhcongresodelaunionlasecretariade"
+    },
+    {
+      "id": "4b4a0247-066e-5f63-a795-1fbd561e7378",
+      "fragmento": "6. MARCO JURÍDICO",
+      "paginasPdf": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "paginasImpresas": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "anclas": 295,
+      "prefijoCotejado": "6marcojuridicoconstitucionpoliticadelosestadosunidosmexicanosconstitucionpoliticadelosestadosunidosmexicanosdof05ii1917ultimareforma15x2025tratadosyconveniosaclaracionalprotocolopa"
+    },
+    {
+      "id": "1ef88147-8aa1-5483-a8e9-18af60d8fa75",
+      "fragmento": "7. ESTRUCTURA ORGÁNICA",
+      "paginasPdf": [
+        95
+      ],
+      "paginasImpresas": [
+        95
+      ],
+      "anclas": 54,
+      "prefijoCotejado": "7estructuraorganicalacomisionnacionaldeenergiacuentaconunadirecciongeneralylassiguientesunidadesadministrativasisecretariatecnicaadirecciongeneraldeasuntosdelcomitetecnicoyexternos"
+    },
+    {
+      "id": "76d7d291-36e5-5260-a90d-0ec36717da1c",
+      "fragmento": "8. ORGANIGRAMA",
+      "paginasPdf": [
+        96
+      ],
+      "paginasImpresas": [
+        96
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "8organigrama"
+    },
+    {
+      "id": "077695e3-753a-50ea-aa28-ed484dc4dd2b",
+      "fragmento": "9. OBJETIVO Y FUNCIONES",
+      "paginasPdf": [
+        97
+      ],
+      "paginasImpresas": [
+        97
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "9objetivoyfunciones"
+    },
+    {
+      "id": "cef3ee77-1c3f-5ec2-a024-15cb3b42157e",
+      "fragmento": "I. DIRECCIÓN GENERAL DE LA COMISIÓN NACIONAL DE ENERGÍA",
+      "paginasPdf": [
+        97,
+        98,
+        99
+      ],
+      "paginasImpresas": [
+        97,
+        98,
+        99
+      ],
+      "anclas": 150,
+      "prefijoCotejado": "idirecciongeneraldelacomisionnacionaldeenergiaobjetivodirigirlosactosadministrativosenmateriaderegulaciondeelectricidadsistemaselectricosyenergiaslimpiasasicomodelsectordehidrocarb"
+    },
+    {
+      "id": "7baea915-f7e1-5518-a9a1-581a466704c4",
+      "fragmento": "II. SECRETARÍA TÉCNICA",
+      "paginasPdf": [
+        99,
+        100
+      ],
+      "paginasImpresas": [
+        99,
+        100
+      ],
+      "anclas": 120,
+      "prefijoCotejado": "iisecretariatecnicaobjetivoasegurarlaorganizacionyseguimientodelosacuerdosresolucionesydocumentossometidosalcomitetecnicodelacomisionnacionaldeenergiaasicomoelfuncionamientointegra"
+    },
+    {
+      "id": "8492cbe2-50e0-548c-aa44-43505869ba26",
+      "fragmento": "a) DIRECCIÓN GENERAL DE ASUNTOS DEL COMITÉ TÉCNICO Y EXTERNOS",
+      "paginasPdf": [
+        100,
+        101
+      ],
+      "paginasImpresas": [
+        100,
+        101
+      ],
+      "anclas": 69,
+      "prefijoCotejado": "adirecciongeneraldeasuntosdelcomitetecnicoyexternosobjetivocoordinarlasactividadesinherentesalapresentaciondeacuerdosresolucionesdocumentosasicomoelanalisisydisenodelainformacionre"
+    },
+    {
+      "id": "df9ae12f-0162-5e4f-a164-a862e25adb2c",
+      "fragmento": "III. DIRECCIÓN GENERAL DE ESTRATEGIA Y VINCULACIÓN",
+      "paginasPdf": [
+        101,
+        102,
+        103
+      ],
+      "paginasImpresas": [
+        101,
+        102,
+        103
+      ],
+      "anclas": 120,
+      "prefijoCotejado": "iiidirecciongeneraldeestrategiayvinculacionobjetivocoordinareldisenoyejecuciondeprogramasyproyectosestrategicosdelacomisionincluyendolapoliticadevinculacionconorganismoseinstitucio"
+    },
+    {
+      "id": "3376fdaa-c6e9-55f0-a2f5-f45c05be6e3e",
+      "fragmento": "IV. UNIDAD DE ADMINISTRACIÓN Y FINANZAS",
+      "paginasPdf": [
+        103,
+        104,
+        105,
+        106
+      ],
+      "paginasImpresas": [
+        103,
+        104,
+        105,
+        106
+      ],
+      "anclas": 169,
+      "prefijoCotejado": "ivunidaddeadministracionyfinanzasobjetivoadministrarlosrecursoshumanosmaterialesfinancierosydetecnologiasdelainformaciondelacomisionnacionaldeenergiamediantelaemisionimplementacion"
+    },
+    {
+      "id": "09c8ad9e-e7ba-5d46-a590-fec193793f26",
+      "fragmento": "a) DIRECCIÓN GENERAL DE PRESUPUESTO Y RECURSOS FINANCIEROS",
+      "paginasPdf": [
+        106,
+        107
+      ],
+      "paginasImpresas": [
+        106,
+        107
+      ],
+      "anclas": 86,
+      "prefijoCotejado": "adirecciongeneraldepresupuestoyrecursosfinancierosobjetivoadministrarelejerciciodelpresupuestodeconformidadconlanormativaestablecidaypropiciartransparenciayrendiciondecuentasenlaap"
+    },
+    {
+      "id": "70beabc7-0bf4-5e51-a4da-1cfb3efc2daa",
+      "fragmento": "b) DIRECCIÓN GENERAL DE RECURSOS HUMANOS Y ORGANIZACIÓN",
+      "paginasPdf": [
+        107,
+        108
+      ],
+      "paginasImpresas": [
+        107,
+        108
+      ],
+      "anclas": 92,
+      "prefijoCotejado": "bdirecciongeneralderecursoshumanosyorganizacionobjetivocoordinarelregistrodelaestructuraorganizacionalylaadministraciondelosrecursoshumanosdelacomisionnacionaldeenergiamediantelaap"
+    },
+    {
+      "id": "98ef048f-ec60-5541-a0e2-d738b7bae8e1",
+      "fragmento": "c) DIRECCIÓN GENERAL DE RECURSOS MATERIALES Y SERVICIOS GENERALES",
+      "paginasPdf": [
+        108,
+        109
+      ],
+      "paginasImpresas": [
+        108,
+        109
+      ],
+      "anclas": 84,
+      "prefijoCotejado": "cdirecciongeneralderecursosmaterialesyserviciosgeneralesobjetivoconducirlosprocesosdecontratacionabastecimientoydistribuciondebienesyservicioslaimplementaciondemecanismosdecontrolm"
+    },
+    {
+      "id": "deecaa55-6bca-52cd-a184-71ad0e6c6a25",
+      "fragmento": "d) DIRECCIÓN GENERAL DE TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES",
+      "paginasPdf": [
+        109,
+        110,
+        111
+      ],
+      "paginasImpresas": [
+        109,
+        110,
+        111
+      ],
+      "anclas": 87,
+      "prefijoCotejado": "ddirecciongeneraldetecnologiasdelainformacionycomunicacionesobjetivocoordinareldesarrolloimplementacionyusodesistemascomputarizadosmediantelaautomatizaciondelosprocesossustantivosy"
+    },
+    {
+      "id": "75b2fa5f-28a7-5c32-ac1b-31a220184a50",
+      "fragmento": "V. UNIDAD DE ASUNTOS JURÍDICOS",
+      "paginasPdf": [
+        111,
+        112
+      ],
+      "paginasImpresas": [
+        111,
+        112
+      ],
+      "anclas": 108,
+      "prefijoCotejado": "vunidaddeasuntosjuridicosobjetivoorientarjuridicamentealadirecciongeneralalcomitetecnicoyalasunidadesadministrativasdelacomisionnacionaldeenergiamedianteelanalisisalmarcojuridicovi"
+    },
+    {
+      "id": "94c765fe-d3dd-5838-a4cb-715e9e71d94c",
+      "fragmento": "a) DIRECCIÓN GENERAL DE LO CONTENCIOSO",
+      "paginasPdf": [
+        112,
+        113,
+        114
+      ],
+      "paginasImpresas": [
+        112,
+        113,
+        114
+      ],
+      "anclas": 98,
+      "prefijoCotejado": "adirecciongeneraldelocontenciosoobjetivodeterminarlasestrategiasjuridicasparadefenderlosactosadministrativoseinteresesjuridicosdelacomisionatravesdeldesarrollodelosprocedimientosad"
+    },
+    {
+      "id": "988b5617-0daf-5233-ac6b-0b2ea247b945",
+      "fragmento": "VI. UNIDAD DE ELECTRICIDAD",
+      "paginasPdf": [
+        114,
+        115
+      ],
+      "paginasImpresas": [
+        114,
+        115
+      ],
+      "anclas": 117,
+      "prefijoCotejado": "viunidaddeelectricidadobjetivogarantizareldesarrolloylaactualizaciondelmarcoregulatorioenmateriadeelectricidadasicomolasupervisiondelasactividadesdemonitoreoseguimientoyvigilanciad"
+    },
+    {
+      "id": "11107fcc-4bb4-57f7-ad8d-20cabf946ca2",
+      "fragmento": "a) DIRECCIÓN GENERAL DE ANÁLISIS Y EVALUACIÓN REGULATORIA DEL SECTOR ELÉCTRICO",
+      "paginasPdf": [
+        115,
+        116
+      ],
+      "paginasImpresas": [
+        115,
+        116
+      ],
+      "anclas": 63,
+      "prefijoCotejado": "adirecciongeneraldeanalisisyevaluacionregulatoriadelsectorelectricoobjetivodirigiryproponerelprocesodeformulacionyactualizaciondelosinstrumentosregulatoriosenmateriadeenergiaelectr"
+    },
+    {
+      "id": "9f8b2f46-81ac-5ee7-afc0-b9969a4e5075",
+      "fragmento": "b) DIRECCIÓN GENERAL DE ANÁLISIS Y EVALUACIÓN ECONÓMICA DEL SECTOR ELÉCTRICO",
+      "paginasPdf": [
+        116,
+        117
+      ],
+      "paginasImpresas": [
+        116,
+        117
+      ],
+      "anclas": 78,
+      "prefijoCotejado": "bdirecciongeneraldeanalisisyevaluacioneconomicadelsectorelectricoobjetivoconducirlaelaboraciondelasmetodologiasdecalculoevaluacionrevisionyajustedelastarifasycontraprestacionesenma"
+    },
+    {
+      "id": "cd3db1b1-f7b6-5979-af58-3f7a71fe334b",
+      "fragmento": "c) DIRECCIÓN GENERAL DE MERCADOS ELÉCTRICOS",
+      "paginasPdf": [
+        117,
+        118,
+        119
+      ],
+      "paginasImpresas": [
+        117,
+        118,
+        119
+      ],
+      "anclas": 89,
+      "prefijoCotejado": "cdirecciongeneraldemercadoselectricosobjetivocoordinarlavigilanciadelaoperacionyeldesarrollodelmercadoelectricomayoristamemasicomolasdeterminacionesdelcentronacionaldecontroldeener"
+    },
+    {
+      "id": "58e81ac3-a3bc-577e-a9d4-3280494de3f3",
+      "fragmento": "d) DIRECCIÓN GENERAL DE OPERACIÓN, PERMISOS Y REGISTROS DE ELECTRICIDAD",
+      "paginasPdf": [
+        119,
+        120
+      ],
+      "paginasImpresas": [
+        119,
+        120
+      ],
+      "anclas": 79,
+      "prefijoCotejado": "ddirecciongeneraldeoperacionpermisosyregistrosdeelectricidadobjetivodirigirycoordinarlosprocedimientosdeevaluaciondelassolicitudesasociadasconpermisosenmateriaelectricaregistrodelo"
+    },
+    {
+      "id": "c239e7e5-b136-5ef4-ab79-3d7c87fca2cb",
+      "fragmento": "e) DIRECCIÓN GENERAL DE ANÁLISIS Y EVALUACIÓN TÉCNICA DEL SECTOR ELÉCTRICO",
+      "paginasPdf": [
+        120,
+        121
+      ],
+      "paginasImpresas": [
+        120,
+        121
+      ],
+      "anclas": 76,
+      "prefijoCotejado": "edirecciongeneraldeanalisisyevaluaciontecnicadelsectorelectricoobjetivoconducireldesarrolloplanteamientoyactualizaciondelmarcoregulatoriodelsectorelectricoatravesdelainvestigaciony"
+    },
+    {
+      "id": "ac5a3be3-c3b2-52d2-a2a2-7d6efaea8371",
+      "fragmento": "VII. UNIDAD DE HIDROCARBUROS",
+      "paginasPdf": [
+        121,
+        122,
+        123
+      ],
+      "paginasImpresas": [
+        121,
+        122,
+        123
+      ],
+      "anclas": 140,
+      "prefijoCotejado": "viiunidaddehidrocarburosobjetivoasegurarlaactualizacioneimplementaciondelmarcoregulatorioenactividadespermisionadasenmateriadehidrocarburosincluyendoladeterminaciondetarifasycontra"
+    },
+    {
+      "id": "95d60eac-7146-588d-a354-39be4ca08672",
+      "fragmento": "a) DIRECCIÓN GENERAL DEL SECTOR GAS NATURAL",
+      "paginasPdf": [
+        123,
+        124,
+        125
+      ],
+      "paginasImpresas": [
+        123,
+        124,
+        125
+      ],
+      "anclas": 126,
+      "prefijoCotejado": "adirecciongeneraldelsectorgasnaturalobjetivosupervisaryvigilareldesarrollodelasactividadespermisionadasdetransportealmacenamientodistribucioncompresiondescompresionregasificacionli"
+    },
+    {
+      "id": "fc2b6300-598a-51b2-a604-454834b468f1",
+      "fragmento": "b) DIRECCIÓN GENERAL DE INTEGRACIÓN REGULATORIA DE HIDROCARBUROS",
+      "paginasPdf": [
+        125,
+        126
+      ],
+      "paginasImpresas": [
+        125,
+        126
+      ],
+      "anclas": 76,
+      "prefijoCotejado": "bdirecciongeneraldeintegracionregulatoriadehidrocarburosobjetivocoordinarlavalidacionyvigilanciadelosprocesosdeelaboracionrevisionyactualizaciondelosinstrumentosregulatoriosdisposi"
+    },
+    {
+      "id": "95a90d3e-51b7-5356-a363-398c127fb6b4",
+      "fragmento": "c) DIRECCIÓN GENERAL DEL SECTOR DE GAS LICUADO DE PETRÓLEO",
+      "paginasPdf": [
+        126,
+        127
+      ],
+      "paginasImpresas": [
+        126,
+        127
+      ],
+      "anclas": 99,
+      "prefijoCotejado": "cdirecciongeneraldelsectordegaslicuadodepetroleoobjetivodirigirlasestrategiasypoliticasderegulaciondelasactividadespermisionadasenmateriadegaslicuadodepetroleoasicomodisenarypropon"
+    },
+    {
+      "id": "c1bc473e-f947-558c-a321-094cea917e08",
+      "fragmento": "d) DIRECCIÓN GENERAL DE MERCADOS DE HIDROCARBUROS",
+      "paginasPdf": [
+        127,
+        128,
+        129
+      ],
+      "paginasImpresas": [
+        127,
+        128,
+        129
+      ],
+      "anclas": 112,
+      "prefijoCotejado": "ddirecciongeneraldemercadosdehidrocarburosobjetivocoordinarelmonitoreodelcomportamientodelosmercadosydelastransaccionescomercialesdehidrocarburosdetectareinformarsobrelaposibleexis"
+    },
+    {
+      "id": "eb309699-6976-5c47-a2cc-00bb7079e7f7",
+      "fragmento": "e) DIRECCIÓN GENERAL DEL SECTOR PETROLÍFEROS",
+      "paginasPdf": [
+        129,
+        130,
+        131
+      ],
+      "paginasImpresas": [
+        129,
+        130,
+        131
+      ],
+      "anclas": 146,
+      "prefijoCotejado": "edirecciongeneraldelsectorpetroliferosobjetivocoordinarysupervisarlasactividadesdeexpendioalpublicoydespachodeautoconsumoalmacenamientotransportedistribucionycomercializaciondepetr"
+    },
+    {
+      "id": "3028b7f3-8f8b-5fff-a0ee-38b907d85119",
+      "fragmento": "f) DIRECCIÓN GENERAL DEL SECTOR PETROQUÍMICOS",
+      "paginasPdf": [
+        131,
+        132
+      ],
+      "paginasImpresas": [
+        131,
+        132
+      ],
+      "anclas": 73,
+      "prefijoCotejado": "fdirecciongeneraldelsectorpetroquimicosobjetivoimpulsareldesarrolloeficienteysustentabledelaindustriapetroquimicaenmexicoasegurandoelcumplimientodelmarcoregulatorioenlasactividades"
+    },
+    {
+      "id": "bd33dbc0-e826-5a82-a9ad-df1bac79bc28",
+      "fragmento": "VIII. UNIDAD DE VERIFICACIÓN",
+      "paginasPdf": [
+        132,
+        133
+      ],
+      "paginasImpresas": [
+        132,
+        133
+      ],
+      "anclas": 74,
+      "prefijoCotejado": "viiiunidaddeverificacionobjetivoasegurarlosprocesosdeverificacionysanciondelasactividadesreguladasdeaprobacionautorizacionysupervisiondetercerosespecialistasorganismosdeevaluaciond"
+    },
+    {
+      "id": "df02af29-c521-5431-a10a-235fff6955f3",
+      "fragmento": "a) DIRECCIÓN GENERAL DE VERIFICACIÓN DEL SECTOR HIDROCARBUROS",
+      "paginasPdf": [
+        133,
+        134
+      ],
+      "paginasImpresas": [
+        133,
+        134
+      ],
+      "anclas": 95,
+      "prefijoCotejado": "adirecciongeneraldeverificaciondelsectorhidrocarburosobjetivodirigirlosprocedimientosdeverificacionysanciondelasactividadesreguladasenmateriadehidrocarburospetroliferosypetroquimic"
+    },
+    {
+      "id": "a663444c-d340-5ac5-a0fa-f635ed194135",
+      "fragmento": "b) DIRECCIÓN GENERAL DE VERIFICACIÓN DEL SECTOR ELÉCTRICO",
+      "paginasPdf": [
+        134,
+        135
+      ],
+      "paginasImpresas": [
+        134,
+        135
+      ],
+      "anclas": 76,
+      "prefijoCotejado": "bdirecciongeneraldeverificaciondelsectorelectricoobjetivodirigirlosprocedimientosdesupervisionyvigilanciamediantelaimplementaciondeestrategiasprogramasdeverificacionrespectodelasac"
+    },
+    {
+      "id": "6a61b9e6-eb49-5d8a-a90a-b99411f7bc58",
+      "fragmento": "Transitorio Único",
+      "paginasPdf": [
+        135
+      ],
+      "paginasImpresas": [
+        135
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosunicoelpresenteacuerdoentraenvigoreldiasiguientedesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "851ce45f-eb9a-5f41-aec5-9b7de3006ffa",
+      "fragmento": "Firma del acuerdo",
+      "paginasPdf": [
+        135
+      ],
+      "paginasImpresas": [
+        135
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "ciudaddemexicoa27deabrilde2026eldirectorgeneraljuancarlossolisavilarubrica"
+    }
+  ]
+}
