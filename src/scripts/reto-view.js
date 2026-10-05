@@ -2,9 +2,14 @@
  * Reto Jurídico (#reto): five questions a day generated from the acervo (src/lib/reto-engine.js),
  * the same for everyone, with a streak and a shareable result. After each answer the source opens
  * in the reader. A practice round with other questions does not count for the streak.
+ * #reto-ley=<id> is a practice round on one law ("Ponte a prueba" on each law page).
  */
-import { buildReto, planPassages, isCorrect, resultLine, retoNumber, dayKey, streakFrom, seededRandom, RETO_LENGTH } from '../lib/reto-engine.js';
+import {
+    buildReto, buildLawPractice, planPassages, planComplete, isCorrect, resultLine, retoNumber, dayKey, streakFrom, seededRandom, RETO_LENGTH,
+} from '../lib/reto-engine.js';
 import { loadAllDefinitions, loadArticlesOf } from './reto-data.js';
+import { TRAMITES } from '../data/tramites.js';
+import { shortTitle } from '../lib/short-title.js';
 import '../styles/reto.css';
 
 const STORE = 'reto-resultados';
@@ -33,20 +38,23 @@ function saveResult(day, marks) {
     try { localStorage.setItem(STORE, JSON.stringify(all)); } catch { /* private mode */ }
 }
 
-export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}) {
+export function renderRetoView(container, catalog, { onOpenLaw = () => {}, lawId = null } = {}) {
     let alive = true;
     const summaries = () => (typeof catalog === 'function' ? catalog() || [] : catalog || []);
     const today = dayKey();
     const number = retoNumber(today);
+    // Practice on one law: no streak, no daily result.
+    const lawMode = lawId ? summaries().find(item => String(item.id) === String(lawId)) || null : null;
+    const lawName = lawMode ? shortTitle(lawMode.titulo) || lawMode.titulo : '';
 
     const root = document.createElement('section');
     root.className = 'rt-view';
     root.setAttribute('aria-labelledby', 'rt-title');
     root.innerHTML = `
         <div class="rt-head">
-            <p class="rt-eyebrow">Reto Jurídico <span>#${number}</span></p>
-            <h1 id="rt-title">¿Cuánto sabes de las leyes de energía?</h1>
-            <p class="rt-intro">Un reto nuevo cada día.</p>
+            <p class="rt-eyebrow">${lawMode ? 'Práctica por ley' : `Reto Jurídico <span>#${number}</span>`}</p>
+            <h1 id="rt-title">${lawMode ? '¿Cuánto sabes de esta ley?' : '¿Cuánto sabes de las leyes de energía?'}</h1>
+            <p class="rt-intro">${lawMode ? `${esc(lawName)}. No cuenta para tu racha.` : 'Un reto nuevo cada día.'}</p>
             <div class="rt-stats" aria-live="polite"></div>
         </div>
         <div class="rt-stage"><div class="rt-card rt-loading"><i></i><i></i><i></i></div></div>`;
@@ -67,10 +75,15 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
     async function prepare(seed) {
         const laws = summaries().filter(law => law?.titulo);
         const glossary = await loadAllDefinitions(laws);
+        if (lawMode) return buildLawPractice({ law: lawMode, rows: await loadArticlesOf(lawMode.id), glossary, seed });
         // The plan depends only on the seed and the catalogue, so every visitor gets the same reto.
         const plan = planPassages(seededRandom(`plan:${seed}`), laws, today);
-        const passages = await Promise.all(plan.map(async law => ({ law, rows: await loadArticlesOf(law.id) })));
-        return buildReto({ laws, glossary, passages, seed });
+        const completeLaw = planComplete(seededRandom(`completa:${seed}`), laws, glossary);
+        const [passages, completeRows] = await Promise.all([
+            Promise.all(plan.map(async law => ({ law, rows: await loadArticlesOf(law.id) }))),
+            completeLaw ? loadArticlesOf(completeLaw.id) : [],
+        ]);
+        return buildReto({ laws, glossary, passages, seed, tramites: TRAMITES, complete: completeLaw ? { law: completeLaw, rows: completeRows } : null });
     }
 
     function start({ seed, practice }) {
@@ -79,7 +92,12 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         stage.innerHTML = '<div class="rt-card rt-loading"><i></i><i></i><i></i></div>';
         prepare(seed).then(questions => {
             if (!alive) return;
-            if (questions.length < 3) { stage.innerHTML = '<div class="rt-card"><p>No pudimos preparar el reto de hoy. Intenta en un rato.</p></div>'; return; }
+            if (questions.length < 3) {
+                stage.innerHTML = lawMode
+                    ? '<div class="rt-card"><p>Esta ley todavía no tiene suficientes preguntas. Prueba el reto del día.</p><a class="rt-btn" href="#reto">Ir al reto del día</a></div>'
+                    : '<div class="rt-card"><p>No pudimos preparar el reto de hoy. Intenta en un rato.</p></div>';
+                return;
+            }
             play(questions, { practice });
         }).catch(() => {
             if (alive) stage.innerHTML = '<div class="rt-card"><p>No pudimos cargar las preguntas. Revisa tu conexión e intenta de nuevo.</p><button type="button" class="rt-btn rt-retry">Reintentar</button></div>';
@@ -169,11 +187,13 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
                 <div class="rt-feedback-actions">
                     ${q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="article">Ver dónde lo dice</button>' : ''}
                     ${q.link?.lawId && !q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="law">Ver la ley completa</button>' : ''}
+                    ${q.link?.tramite ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="tramite">Ver la guía del trámite</button>' : ''}
                     <button type="button" class="rt-btn rt-next">${last ? 'Ver resultado' : 'Siguiente'}</button>
                 </div>`;
             stage.querySelector('.rt-q-top').innerHTML = `${dots()}<span class="rt-count">${index + 1} de ${questions.length}</span>`;
             stage.querySelector('.rt-source')?.addEventListener('click', () => {
-                if (q.link.articleId) document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id: q.link.articleId, list: [q.link.articleId] } }));
+                if (q.link.tramite) location.hash = `#tramite=${encodeURIComponent(q.link.tramite)}`;
+                else if (q.link.articleId) document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id: q.link.articleId, list: [q.link.articleId] } }));
                 else { const law = summaries().find(item => String(item.id) === String(q.link.lawId)); if (law) onOpenLaw(law); }
             });
             const next = stage.querySelector('.rt-next');
@@ -198,16 +218,21 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         const score = marks.filter(Boolean).length;
         const line = resultLine(marks);
         const text = `Hice el Reto Jurídico #${number}: ${score}/${marks.length}\n${line}\n¿Cuánto sabes de las leyes de energía? Juega aquí: https://buscador-juridico.com/#reto`;
-        const message = score === marks.length ? '¡Perfecto! Sabes mucho de energía.' : score >= marks.length - 1 ? '¡Muy bien! Casi perfecto.' : score >= Math.ceil(marks.length / 2) ? '¡Bien! Mañana puedes mejorar.' : 'Cada reto te enseña algo nuevo. ¡Vuelve mañana!';
+        const streakNow = streakFrom(Object.keys(readResults()), today);
+        const message = score === marks.length ? '¡Perfecto! Sabes mucho de energía.'
+            : score >= marks.length - 1 ? '¡Muy bien! Casi perfecto.'
+            : score >= Math.ceil(marks.length / 2) ? (practice ? '¡Bien! Otra ronda y lo dominas.' : '¡Bien! Mañana puedes mejorar.')
+            : (practice ? 'Cada ronda te enseña algo nuevo. ¡Sigue practicando!' : 'Cada reto te enseña algo nuevo. ¡Vuelve mañana!');
         stage.innerHTML = `
             <div class="rt-card rt-result">
-                ${practice ? '<p class="rt-kind"><span class="rt-practice">Práctica · no cuenta para tu racha</span></p>' : ''}
+                ${practice ? `<p class="rt-kind"><span class="rt-practice">${lawMode ? esc(lawName) : 'Práctica'} · no cuenta para tu racha</span></p>` : ''}
                 <p class="rt-score"><b>${score}</b><span>/${marks.length}</span></p>
                 <p class="rt-message">${message}</p>
                 <p class="rt-line" aria-label="${score} de ${marks.length} correctas">${line}</p>
                 <div class="rt-result-actions">
-                    ${practice ? '' : '<button type="button" class="rt-btn rt-share">Compartir resultado</button>'}
-                    <button type="button" class="rt-btn rt-ghost rt-practice-btn">Jugar una ronda de práctica</button>
+                    ${practice ? '' : '<button type="button" class="rt-btn rt-share-image">Compartir imagen</button><button type="button" class="rt-btn rt-ghost rt-share">Compartir texto</button>'}
+                    <button type="button" class="rt-btn rt-ghost rt-practice-btn">${lawMode ? 'Otra ronda de esta ley' : 'Jugar una ronda de práctica'}</button>
+                    ${lawMode ? '<button type="button" class="rt-btn rt-ghost rt-back-law">Volver a la ley</button>' : ''}
                 </div>
                 ${practice ? '' : `<p class="rt-next-day">Mañana hay un reto nuevo. Sale en <b class="rt-countdown"></b>.</p>`}
             </div>`;
@@ -220,6 +245,22 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
             }
         });
         stage.querySelector('.rt-practice-btn').addEventListener('click', () => start({ seed: `practica-${Date.now()}`, practice: true }));
+        stage.querySelector('.rt-back-law')?.addEventListener('click', () => onOpenLaw(lawMode));
+        stage.querySelector('.rt-share-image')?.addEventListener('click', async event => {
+            const button = event.currentTarget;
+            button.disabled = true;
+            button.textContent = 'Preparando imagen…';
+            try {
+                const { drawResultImage, shareResultImage } = await import('../lib/reto-share-image.js');
+                const blob = await drawResultImage({ number, score, total: marks.length, marks, streak: streakNow });
+                const outcome = await shareResultImage(blob, text);
+                button.textContent = outcome === 'downloaded' ? 'Imagen descargada' : 'Compartir imagen';
+            } catch {
+                button.textContent = 'No se pudo crear la imagen';
+            } finally {
+                button.disabled = false;
+            }
+        });
         const countdown = stage.querySelector('.rt-countdown');
         if (countdown) {
             const tick = () => {
@@ -236,6 +277,16 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
     }
 
     function intro() {
+        if (lawMode) {
+            stage.innerHTML = `
+                <div class="rt-card rt-start">
+                    <p class="rt-start-title">Ponte a prueba</p>
+                    <p class="rt-start-meta">Hasta ${RETO_LENGTH} preguntas · 2 minutos</p>
+                    <button type="button" class="rt-btn rt-go">Empezar</button>
+                </div>`;
+            stage.querySelector('.rt-go').addEventListener('click', () => start({ seed: `${today}-${Date.now()}`, practice: true }));
+            return;
+        }
         const done = readResults()[today];
         if (done) { result(done.marks); return; }
         stage.innerHTML = `

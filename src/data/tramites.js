@@ -10,11 +10,13 @@
  * - calls: calls (convocatorias) and their amendments
  * - articles: search in the acervo for the articles about the procedure, limited to `in`
  * - resolutions: filters for the CNE resolutions search (text of the proemio, type)
+ * - scenario: an everyday situation that calls for this procedure (used by the Reto Jurídico)
  */
 export const TRAMITES = [
     {
         id: 'generacion',
         title: 'Permiso de generación de energía eléctrica',
+        scenario: 'Quieres construir una planta solar para vender su electricidad en el mercado eléctrico.',
         sector: 'electricidad',
         base: ['LSE', 'RLSE', 'LCNE'],
         rules: ['DACG-PERMISOS-GA', 'DACG-Planeación Vinculante', 'MODELOS-INTERCONEXION', 'DACG-ACCESO-REDES'],
@@ -26,6 +28,7 @@ export const TRAMITES = [
     {
         id: 'almacenamiento',
         title: 'Almacenamiento de energía eléctrica',
+        scenario: 'Quieres instalar un gran banco de baterías conectado a la red para guardar electricidad y entregarla después.',
         sector: 'electricidad',
         base: ['LSE', 'RLSE', 'LCNE'],
         rules: ['DACG-PERMISOS-GA', 'ACUERDO-CNE-16/04/2026-DACG-SAE'],
@@ -37,6 +40,7 @@ export const TRAMITES = [
     {
         id: 'autoconsumo',
         title: 'Generación para autoconsumo',
+        scenario: 'Tu fábrica quiere instalar una planta solar de 5 MW, conectada a la red, para usar su propia electricidad.',
         sector: 'electricidad',
         base: ['LSE', 'RLSE', 'LCNE'],
         rules: ['AUTOCONSUMO-0.7-20', 'VENTANILLA-AUTOCONSUMO'],
@@ -48,6 +52,7 @@ export const TRAMITES = [
     {
         id: 'cogeneracion',
         title: 'Generación en la modalidad de cogeneración',
+        scenario: 'Tu planta industrial quiere producir al mismo tiempo la electricidad y el calor (vapor) que usa en su proceso.',
         sector: 'electricidad',
         base: ['LSE', 'RLSE', 'LCNE'],
         rules: ['DACG-COGENERACION'],
@@ -59,6 +64,7 @@ export const TRAMITES = [
     {
         id: 'migracion',
         title: 'Migración de permisos de autoabastecimiento y cogeneración',
+        scenario: 'Tu empresa tiene un permiso antiguo de autoabastecimiento y quiere pasarlo a las figuras de la ley nueva.',
         sector: 'electricidad',
         base: ['LSE', 'RLSE'],
         rules: ['MIGRACION-PERMISOS', 'MIGRACION-ACLARACION', 'MIGRACION-MODIFICACION'],
@@ -70,6 +76,7 @@ export const TRAMITES = [
     {
         id: 'electromovilidad',
         title: 'Electromovilidad: infraestructura de carga',
+        scenario: 'Quieres instalar cargadores para autos eléctricos conectados a la red.',
         sector: 'electricidad',
         base: ['LSE', 'RLSE'],
         rules: ['DACG-ELECTROMOVILIDAD'],
@@ -81,6 +88,7 @@ export const TRAMITES = [
     {
         id: 'petroliferos',
         title: 'Permisos de petrolíferos',
+        scenario: 'Quieres abrir una gasolinera para vender gasolina y diésel al público.',
         sector: 'petroliferos',
         base: ['LSH', 'RLSH', 'LCNE'],
         rules: [],
@@ -92,6 +100,7 @@ export const TRAMITES = [
     {
         id: 'gaslp',
         title: 'Permisos de gas licuado de petróleo',
+        scenario: 'Quieres repartir gas LP en cilindros o con pipas a domicilio.',
         sector: 'gaslp',
         base: ['LSH', 'RLSH', 'LCNE'],
         rules: [],
@@ -103,6 +112,7 @@ export const TRAMITES = [
     {
         id: 'gasnatural',
         title: 'Permisos de gas natural',
+        scenario: 'Quieres construir un gasoducto para llevar gas natural a un parque industrial.',
         sector: 'gasnatural',
         base: ['LSH', 'RLSH', 'LCNE'],
         rules: [],
@@ -114,6 +124,7 @@ export const TRAMITES = [
     {
         id: 'biocombustibles',
         title: 'Permisos de biocombustibles',
+        scenario: 'Quieres producir biodiésel o etanol para venderlo.',
         sector: 'otro',
         base: ['LBio', 'RLBio'],
         rules: [],
@@ -125,6 +136,7 @@ export const TRAMITES = [
     {
         id: 'geotermia',
         title: 'Geotermia',
+        scenario: 'Quieres aprovechar el calor del subsuelo para generar electricidad.',
         sector: 'otro',
         base: ['LGeo', 'RLGeo'],
         rules: [],

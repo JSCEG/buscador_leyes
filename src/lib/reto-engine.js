@@ -267,7 +267,7 @@ export function planPassages(rng, laws, day) {
  * The reto: up to five questions of the four kinds, in a seeded order.
  * @param {{ laws: object[], glossary: object[], passages: Array<{ law, rows }>, seed: string }} data
  */
-export function buildReto({ laws, glossary, passages, seed }) {
+export function buildReto({ laws, glossary, passages, seed, tramites = [], complete = null }) {
     const rng = seededRandom(`reto:${seed}`);
     const [fresh, other] = passages.map(({ law, rows }) => passageQuestion(rng, law, choosePassage(rng, rows), laws));
     const asked = new Set();
@@ -276,24 +276,150 @@ export function buildReto({ laws, glossary, passages, seed }) {
         if (q) asked.add(q.options[q.answer]);
         return q;
     };
+    const usedLaws = new Set(passages.map(({ law }) => law?.id));
+    const issuer = () => issuerQuestion(rng, laws, { exclude: usedLaws });
+    // From easy to hard: acronyms, an everyday situation, a word or definition, dates or authorities,
+    // and last the passage from something published recently.
+    const first = acronymQuestion(rng, glossary);
+    const middle = (complete && completeQuestion(rng, complete.law, complete.rows, glossary)) || term();
+    const fourth = first ? (rng() < 0.5 ? orderQuestion(rng, laws) : issuer()) : orderQuestion(rng, laws);
     const questions = [
-        fresh && { ...fresh, isNew: true },
-        term(),
-        // Not about an instrument the passages already used today.
-        issuerQuestion(rng, laws, { exclude: new Set(passages.map(({ law }) => law?.id)) }),
-        orderQuestion(rng, laws),
-        other || term(),
+        first || issuer(),
+        scenarioQuestion(rng, tramites),
+        middle,
+        fourth,
+        fresh ? { ...fresh, isNew: true } : other,
     ].filter(Boolean);
     // Always five when there is material: definitions fill any gap.
     for (let tries = 0; questions.length < RETO_LENGTH && tries < 5; tries++) {
         const extra = term();
-        if (extra) questions.push(extra);
+        if (extra) questions.splice(questions.length - 1, 0, extra);
     }
-    // Keep the timeline question in the middle and shuffle the rest around it.
-    const order = questions.find(q => q.kind === 'order');
-    const rest = shuffle(rng, questions.filter(q => q !== order));
-    if (order) rest.splice(Math.min(2, rest.length), 0, order);
-    return rest.slice(0, RETO_LENGTH);
+    return questions.slice(0, RETO_LENGTH);
+}
+
+/** 5. Acronym → its meaning (easy opener). */
+export function acronymQuestion(rng, glossary) {
+    const isAcronym = term => /^[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ0-9-]{1,11}$/.test(term);
+    const seen = new Set();
+    const usable = glossary.filter(entry => {
+        if (!isAcronym(entry.term) || entry.definition.length < 8 || entry.definition.length > 150) return false;
+        const key = fold(entry.definition);
+        if (seen.has(key) || seen.has(entry.term)) return false;
+        seen.add(key); seen.add(entry.term);
+        return true;
+    });
+    if (usable.length < 4) return null;
+    const entry = pick(rng, usable);
+    const meaning = item => item.definition.replace(/^(el|la|los|las)\s+/i, '').replace(/^./, ch => ch.toUpperCase());
+    const { options, answer } = withAnswer(rng, meaning(entry), sample(rng, usable.filter(other => other !== entry), 3).map(meaning));
+    return {
+        kind: 'acronym', label: 'Siglas', prompt: '¿Qué significan estas siglas?', body: entry.term, options, answer,
+        answerText: `${entry.term}: ${meaning(entry)}`,
+        details: [`Así lo dice: ${entry.sourceName || entry.source}.`],
+        why: 'Las leyes usan siglas para no repetir nombres largos y explican al inicio qué significa cada una.',
+        explain: `${entry.term}: ${meaning(entry)}.`, link: entry.lawId ? { lawId: entry.lawId, articleId: entry.articleId } : null,
+    };
+}
+
+/** 6. Everyday situation → which procedure applies (from the trámite guides). */
+export function scenarioQuestion(rng, tramites) {
+    const usable = tramites.filter(item => item.scenario);
+    if (usable.length < 4) return null;
+    const item = pick(rng, usable);
+    const { options, answer } = withAnswer(rng, item.title, sample(rng, usable.filter(other => other !== item), 3).map(other => other.title));
+    return {
+        kind: 'scenario', label: '¿Qué trámite necesito?', prompt: '¿Qué trámite te corresponde?', body: item.scenario, options, answer,
+        answerText: item.title,
+        details: ['En la guía de este trámite están las leyes, reglas y formatos que aplican.'],
+        why: 'Cada actividad del sector necesita su propio permiso o seguir reglas específicas.',
+        explain: `Te corresponde: ${item.title}.`, link: { tramite: item.id },
+    };
+}
+
+// Capitalised only because they open a sentence: not part of a proper name.
+const STARTERS = new Set(['el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'toda', 'todo', 'todas', 'todos', 'cada', 'dicha', 'dicho',
+    'esta', 'este', 'estas', 'estos', 'su', 'sus', 'a', 'en', 'por', 'para', 'con', 'sin', 'al', 'del', 'de', 'cuando', 'si', 'que', 'la', 'ninguna', 'ningun']);
+
+// Energy laws whose defined terms other instruments of the sector reuse.
+const ENERGY_SOURCES = new Set(['LSE', 'RLSE', 'LSH', 'RLSH', 'LCNE', 'LGeo', 'RLGeo', 'LBio', 'RLBio', 'LPTE', 'RLPyTE']);
+
+/** 7. A sentence of a provision with a defined term hidden → which word is missing. */
+export function completeQuestion(rng, law, rows, glossary, { anySource = false } = {}) {
+    if (!law || !rows?.length) return null;
+    // Terms the law defines itself; for laws without definitions, terms other laws define (multi-word only).
+    const own = glossary.filter(entry => (anySource ? entry.term.includes(' ') && ENERGY_SOURCES.has(entry.source) : String(entry.lawId) === String(law.id))
+        && entry.term.length >= 4 && entry.term.length <= 40 && !/^[A-ZÁÉÍÓÚÑ0-9-]+$/.test(entry.term));
+    if (own.length < 4) return null;
+    const escape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const clean = text => String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const found = [];
+    for (const row of rows) {
+        if (SKIP.test(String(row.identificador || '')) || /se entiende|se entender[aá]/i.test(row.contenido || '')) continue;
+        const sentences = clean(row.contenido).split(/(?<=[.;:])\s+/).filter(sentence => sentence.length >= 70 && sentence.length <= 320);
+        for (const sentence of sentences) {
+            for (const entry of own) {
+                const match = new RegExp(`(?<![\\p{L}\\p{N}])${escape(entry.term)}(?![\\p{L}\\p{N}])`, 'u').exec(sentence);
+                if (!match) continue;
+                // Part of a longer proper name ("Sistema Nacional de Información…") is a different thing.
+                const after = sentence.slice(match.index + match[0].length);
+                const before = sentence.slice(0, match.index);
+                const previous = /([A-ZÁÉÍÓÚÑ][\p{L}]*)\s+(?:de\s+|del\s+)?$/u.exec(before.slice(-30))?.[1];
+                if (/^\s+(de|del|de la|para el|para la)\s+[A-ZÁÉÍÓÚÑ]/.test(after) || /^\s+[A-ZÁÉÍÓÚÑ]/.test(after)
+                    || (previous && !STARTERS.has(fold(previous)))) continue;
+                found.push({ row, sentence, entry });
+            }
+        }
+        if (found.length > 40) break;
+    }
+    if (!found.length) return null;
+    // Multi-word terms ("Central Eléctrica") make better blanks than generic single words ("Bases").
+    const multiword = found.filter(item => item.entry.term.includes(' '));
+    const { row, sentence, entry } = pick(rng, multiword.length ? multiword : found);
+    const body = sentence.replace(new RegExp(`(?<![\\p{L}\\p{N}])${escape(entry.term)}(?![\\p{L}\\p{N}])`, 'u'), '_____');
+    const wrong = sample(rng, own.filter(other => other.term !== entry.term && !sentence.includes(other.term)), 3).map(other => other.term);
+    if (wrong.length < 3) return null;
+    const { options, answer } = withAnswer(rng, entry.term, wrong);
+    return {
+        kind: 'complete', label: 'Completa la ley', prompt: '¿Qué palabra falta?', body, options, answer,
+        answerText: entry.term,
+        details: [placeOf(row.identificador), `Viene de: ${nameOf(law)}.`].filter(Boolean),
+        why: anySource
+            ? `«${entry.term}» es un término que define ${entry.sourceName || entry.source}.`
+            : 'Las palabras que empiezan con mayúscula a media frase suelen ser términos que la propia ley define.',
+        explain: `Faltaba «${entry.term}».`, link: { lawId: law.id, articleId: row.id },
+    };
+}
+
+/** Which instrument gives today's "Completa la ley": one that defines its own terms. */
+export function planComplete(rng, laws, glossary) {
+    const withTerms = new Set(glossary.filter(entry => !/^[A-ZÁÉÍÓÚÑ0-9-]+$/.test(entry.term)).map(entry => String(entry.lawId)));
+    const candidates = laws.filter(law => withTerms.has(String(law.id)));
+    return candidates.length ? pick(rng, candidates) : null;
+}
+
+/**
+ * Practice on one instrument ("Ponte a prueba"): its words, definitions and acronyms.
+ * Returns fewer than three questions when the instrument has too little material.
+ */
+export function buildLawPractice({ law, rows, glossary, seed }) {
+    const rng = seededRandom(`ley:${law.id}:${seed}`);
+    const own = glossary.filter(entry => String(entry.lawId) === String(law.id));
+    const asked = new Set();
+    const out = [];
+    // Neither the same text nor the same answer twice in a round.
+    const add = q => {
+        const answerKey = `answer:${q?.options[q.answer]}`;
+        if (q && !asked.has(q.body) && !asked.has(answerKey)) { asked.add(q.body); asked.add(answerKey); out.push(q); }
+    };
+    const definesTerms = own.filter(entry => !/^[A-ZÁÉÍÓÚÑ0-9-]+$/.test(entry.term)).length >= 4;
+    for (let i = 0; i < 3; i++) add(completeQuestion(rng, law, rows, glossary));
+    // Instruments that define no terms of their own still use those of the laws they apply.
+    for (let i = 0; i < 5 && !definesTerms && out.length < RETO_LENGTH; i++) add(completeQuestion(rng, law, rows, glossary, { anySource: true }));
+    const acronym = acronymQuestion(rng, own.length >= 4 ? own : glossary.filter(entry => entry.source === own[0]?.source));
+    if (acronym && own.some(entry => entry.term === acronym.body)) add(acronym);
+    for (let i = 0; i < 4 && out.length < RETO_LENGTH; i++) add(termQuestion(rng, own));
+    return shuffle(rng, out).slice(0, RETO_LENGTH);
 }
 
 /** Whether an answer is right: an option index, or for the timeline an array of indexes. */

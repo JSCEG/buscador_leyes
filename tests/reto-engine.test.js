@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
     seededRandom, retoNumber, dayKey, termQuestion, passageQuestion, choosePassage, maskPassage, issuerQuestion,
-    orderQuestion, buildReto, isCorrect, resultLine, streakFrom, planPassages,
+    orderQuestion, buildReto, isCorrect, resultLine, streakFrom, planPassages, acronymQuestion, scenarioQuestion, completeQuestion,
 } from '../src/lib/reto-engine.js';
 
 const laws = [
@@ -86,5 +86,45 @@ describe('daily reto', () => {
         expect(streakFrom(['2026-10-02', '2026-10-03', '2026-10-04'], '2026-10-04')).toBe(3);
         expect(streakFrom(['2026-10-01', '2026-10-03', '2026-10-04'], '2026-10-04')).toBe(2);
         expect(streakFrom([], '2026-10-04')).toBe(0);
+    });
+});
+
+describe('new question kinds', () => {
+    const acronyms = ['CENACE', 'ASEA', 'CEL', 'MEM', 'SENER'].map((term, i) => ({
+        term, definition: `Nombre completo número ${i} de la institución`, source: 'LSE', sourceName: 'Ley del Sector Eléctrico', lawId: 'lse', articleId: `s${i}`,
+    }));
+    it('asks what an acronym means', () => {
+        const q = acronymQuestion(seededRandom('a'), acronyms);
+        expect(q.kind).toBe('acronym');
+        expect(acronyms.map(e => e.term)).toContain(q.body);
+        expect(q.options).toHaveLength(4);
+        expect(new Set(q.options).size).toBe(4);
+    });
+    it('asks which procedure fits an everyday situation', async () => {
+        const { TRAMITES } = await import('../src/data/tramites.js');
+        const q = scenarioQuestion(seededRandom('s'), TRAMITES);
+        const item = TRAMITES.find(t => t.scenario === q.body);
+        expect(q.options[q.answer]).toBe(item.title);
+        expect(q.link).toEqual({ tramite: item.id });
+    });
+    it('hides a defined term of the law in one of its sentences', () => {
+        const terms = ['Central Eléctrica', 'Suministro Eléctrico', 'Usuario Final', 'Red Nacional de Transmisión', 'Generador'].map((term, i) => ({
+            term, definition: `Definición ${i} suficientemente larga para el reto`, source: 'LSE', lawId: 'lse', articleId: `d${i}`,
+        }));
+        const rowsLse = [{ id: 'r1', identificador: 'Artículo 17', contenido: 'Las Centrales Eléctricas y toda Central Eléctrica con capacidad mayor a 0.7 MW requieren permiso para generar energía eléctrica en territorio nacional.' }];
+        const q = completeQuestion(seededRandom('c'), laws[0], rowsLse, terms);
+        expect(q.kind).toBe('complete');
+        expect(q.body).toContain('_____');
+        expect(q.options[q.answer]).toBe('Central Eléctrica');
+        expect(q.options).toHaveLength(4);
+    });
+    it('builds the daily reto from easy to hard, ending with the recent passage', async () => {
+        const { TRAMITES } = await import('../src/data/tramites.js');
+        const plan = planPassages(seededRandom('plan:x'), laws, '2026-10-04');
+        const qs = buildReto({ laws, glossary: [...glossary, ...acronyms], passages: plan.map(law => ({ law, rows })), seed: 'x', tramites: TRAMITES });
+        expect(qs).toHaveLength(5);
+        expect(qs[0].kind).toBe('acronym');
+        expect(qs[1].kind).toBe('scenario');
+        expect(qs.at(-1).isNew).toBe(true);
     });
 });

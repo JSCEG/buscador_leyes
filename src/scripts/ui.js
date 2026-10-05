@@ -411,7 +411,7 @@ export function initUI() {
         const originHash = location.hash;
         if (location.hash.startsWith('#explorar')) {
             explorerModalReturn = explorerReturnContext(location.hash);
-        } else if (permitsRoute(location.hash) || location.hash === '#reto') {
+        } else if (permitsRoute(location.hash) || location.hash === '#reto' || location.hash.startsWith('#reto-ley=')) {
             // Articles opened from a CNE resolution or the reto: closing the reader goes back to it.
             explorerModalReturn = { hash: location.hash };
         }
@@ -560,12 +560,12 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             showPermitsView({ ...permits, updateHistory: false });
-        } else if (hash === '#reto') {
+        } else if (hash === '#reto' || hash.startsWith('#reto-ley=')) {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
             detailModal.classList.remove('flex');
             releaseReader();
-            showRetoView({ updateHistory: false });
+            showRetoView({ updateHistory: false, lawId: hash.startsWith('#reto-ley=') ? decodeURIComponent(hash.slice('#reto-ley='.length)) : null });
         } else if (hash === '#cronologia') {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -1136,6 +1136,7 @@ export function initUI() {
                         </ul>
                     </div>
                     <div class="lr-actions">
+                        <a href="#reto-ley=${encodeURIComponent(law.id)}" class="lr-btn lr-btn-quiz" id="law-quiz-btn" title="Preguntas rápidas sobre esta ley" hidden>Ponte a prueba</a>
                         ${safeHttpUrl(law.url_original) ? `<a href="${escapeHtml(safeHttpUrl(law.url_original))}" target="_blank" rel="noopener noreferrer" class="lr-btn lr-btn-primary">Fuente oficial <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>` : ''}
                         <!-- Share button for the law -->
                         <div class="relative" id="law-share-wrapper">
@@ -1253,6 +1254,8 @@ export function initUI() {
                 </div>
             </section>
         `;
+
+        revealLawQuiz(law, currentLawArticles);
 
         renderInstrumentTimeline(document.getElementById('law-timeline'), {
             law, summaries: cachedSummaries, articles: currentLawArticles, relations: cachedRelaciones,
@@ -2925,10 +2928,25 @@ export function initUI() {
 
     let retoView = null;
     let retoRequest = 0;
-    /** Reto Jurídico (#reto): the daily quiz built from the acervo. */
-    function showRetoView({ updateHistory = true } = {}) {
-        if (updateHistory) setHash('#reto');
-        if (retoView && activeNavId === 'nav-reto' && resultsContainer.querySelector('.rt-view')) return;
+    /** "Ponte a prueba" appears on a law page only when the law gives at least three questions. */
+    function revealLawQuiz(law, articles) {
+        const button = document.getElementById('law-quiz-btn');
+        if (!button || !articles?.length) return;
+        Promise.all([import('../lib/reto-engine.js'), import('./reto-data.js')]).then(async ([engine, data]) => {
+            const glossary = await data.loadAllDefinitions(cachedSummaries);
+            const rows = articles.map(item => ({ id: item.id, identificador: item.articulo_label, contenido: item.texto }));
+            const questions = engine.buildLawPractice({ law, rows, glossary, seed: 'disponible' });
+            if (questions.length >= 3 && button.isConnected) button.hidden = false;
+        }).catch(() => {});
+    }
+
+    let retoHash = '';
+    /** Reto Jurídico (#reto) and the practice on one law (#reto-ley=<id>), built from the acervo. */
+    function showRetoView({ updateHistory = true, lawId = null } = {}) {
+        const hash = lawId ? `#reto-ley=${encodeURIComponent(lawId)}` : '#reto';
+        if (updateHistory) setHash(hash);
+        if (retoView && retoHash === hash && activeNavId === 'nav-reto' && resultsContainer.querySelector('.rt-view')) return;
+        retoHash = hash;
         destroyTOC();
         hideAllViews();
         setActiveNav('nav-reto');
@@ -2943,8 +2961,8 @@ export function initUI() {
         retoView = null;
         const request = ++retoRequest;
         withProgress(import('./reto-view.js')).then(({ renderRetoView }) => {
-            if (request !== retoRequest || location.hash !== '#reto') return;
-            retoView = renderRetoView(resultsContainer, () => cachedSummaries, { onOpenLaw: law => openLawDetail(law) });
+            if (request !== retoRequest || location.hash !== hash) return;
+            retoView = renderRetoView(resultsContainer, () => cachedSummaries, { onOpenLaw: law => openLawDetail(law), lawId });
             window.scrollTo({ top: 0 });
         });
     }

@@ -251,3 +251,8 @@ html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
 #main-container.view-fade{animation:view-fade-in .22s ease-out}
 @keyframes view-fade-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){#main-container.view-fade{animation:none}}
+
+/* "Ponte a prueba" on the law page (practice of the Reto Jurídico on that law) */
+.lr-actions .lr-btn-quiz[hidden]{display:none!important}
+.lr-header .lr-actions .lr-btn-quiz{background:#f6d9a8!important;border-color:#f6d9a8!important;color:#5a3d06!important;font-weight:700}
+.lr-header .lr-actions .lr-btn-quiz:hover{background:#f1cc8d!important;border-color:#f1cc8d!important}
