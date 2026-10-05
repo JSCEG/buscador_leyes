@@ -9,6 +9,7 @@ const reviewedDofPdfs = new Set([
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=17102025-VES.pdf&repo=',
     'https://sidof.segob.gob.mx/notas/getNewsletter/17-04-2025/Matutina/320604',
     'https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685',
+    'https://sidof.segob.gob.mx/notas/getNewsletter/23-01-2024/Matutina/311101',
     'https://sidof.segob.gob.mx/notas/getNewsletter/07-10-2025/Matutina/323403',
     'https://sidof.segob.gob.mx/notas/getNewsletter/06-08-2025/Matutina/322403',
     'https://sidof.segob.gob.mx/notas/getNewsletter/08-05-2026/Matutina/327165',

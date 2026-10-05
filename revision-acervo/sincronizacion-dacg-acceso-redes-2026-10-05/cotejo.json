@@ -1,0 +1,1359 @@
+{
+  "instrumento": "Acuerdo A/025/2023 · modificaciones a DACG de acceso abierto a redes eléctricas",
+  "instrumentoId": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/23-01-2024/Matutina/311101",
+  "fuenteHtml": "https://sidof.segob.gob.mx/notas/docFuente/5714880",
+  "pdfTemporal": "tmp\\dof-2024-01-23-matutina-311101.pdf",
+  "sha256": "69abcd4beaa791bbde64666099c23ba394e7db0f9a23ab0ef09717a34e014743",
+  "bytes": 14913571,
+  "paginasPdf": 466,
+  "paginasDelInstrumento": [
+    189,
+    304
+  ],
+  "fragmentosEnSupabase": 123,
+  "fragmentosEditorialesExcluidos": 1,
+  "fragmentosOficialesMapeados": 122,
+  "anclasGeometricas": 6479,
+  "anexosImagen": [
+    {
+      "id": "6868bcb8-e80f-5736-993e-cad2a9d219f2",
+      "pagina": 298,
+      "geometriaCotejada": true
+    },
+    {
+      "id": "1ae34e5d-56a2-5c7c-9913-31eb0435cae0",
+      "pagina": 299,
+      "geometriaCotejada": true
+    },
+    {
+      "id": "e7218085-b8f1-5784-bc25-1628cf6a6ea8",
+      "pagina": 300,
+      "geometriaCotejada": true
+    },
+    {
+      "id": "9ecf87dc-1503-5a5d-8138-572e196ea480",
+      "pagina": 301,
+      "geometriaCotejada": true
+    }
+  ],
+  "fragmentos": [
+    {
+      "id": "4dfc6fa7-d2a6-5b3e-88da-10af33aa564d",
+      "position": 27,
+      "marker": "acuerdonuma0252023porelquelacomisionreguladoradeenergiamodificalaresolucionnumres9482015porlaqueseexpidenlasdisposicionesadministrativasdecaractergeneralenmateriadeaccesoabiertoyprestaciondelosserviciosenlarednacionaldet",
+      "fragmento": "Preámbulo y considerandos",
+      "paginas": [
+        189,
+        190,
+        191,
+        192,
+        193,
+        194
+      ],
+      "anclas": 337
+    },
+    {
+      "id": "c0fa381c-7be9-5237-ae2f-3a59ade1d588",
+      "position": 20515,
+      "marker": "primeroseemiteelpresenteacuerdoporelquelacomisionreguladoradeenergiamodificalaresolucionnumres9482015porlaqueseexpidenlasdisposicionesadministrativasdecaractergeneralenmateriadeaccesoabiertoyprestaciondelosserviciosenlar",
+      "fragmento": "Resolutivo PRIMERO",
+      "paginas": [
+        194
+      ],
+      "anclas": 6
+    },
+    {
+      "id": "e5020a81-e27d-5c5d-bb63-eeadf197fbcc",
+      "position": 20916,
+      "marker": "segundolamodificacionreferidaenelacuerdoprimerocomprendelareformaenelapartado1disposicionesgeneralesdeltitulodelarticulo4definicionesnumeral419enelapartado2disposicionesenmateriadeserviciopublicouniversalyaccesoabiertose",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginas": [
+        194
+      ],
+      "anclas": 38
+    },
+    {
+      "id": "36c885fa-4529-5ee3-819e-2c7e0569d806",
+      "position": 23678,
+      "marker": "tercerosederogaelnumeral13fraccioniidelasdacgdesuministroelectricorelativoalosplazosdeconexionparaelsuministroelectrico",
+      "fragmento": "Resolutivo TERCERO",
+      "paginas": [
+        195
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "30c8f7ff-8389-5029-b939-2fadbd5abd1f",
+      "position": 23797,
+      "marker": "cuartoseabrogalaresolucionnumres2722017porlaquelacomisionreguladoradeenergiaestableceuncriteriotransitoriodeestimacionderegistrosdemedicioncincominutaldeenergiaelectricaparaloscontratosdeinterconexionlegadosafindequeeltr",
+      "fragmento": "Resolutivo CUARTO",
+      "paginas": [
+        195
+      ],
+      "anclas": 6
+    },
+    {
+      "id": "5cf94525-3331-58e5-a5d3-73376d4af639",
+      "position": 24210,
+      "marker": "quintopubliqueseelpresenteacuerdoysuanexounicoeneldiariooficialdelafederacionmismosqueentraranenvigoraldiahabilsiguientedesupublicacion",
+      "fragmento": "Resolutivo QUINTO",
+      "paginas": [
+        195
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "f6dafb57-b46a-5f4e-b649-d2bf8eff112d",
+      "position": 24345,
+      "marker": "sextomientrasquelacomisionnonotifiquealcenacelafechadeiniciodelcomputodelplazoparaquelosusuariosconlascaracteristicasparaserusuarioscalificadosdemaneraobligatoriaobtenganlacontrataciondelserviciodesuministrodeenergiaelec",
+      "fragmento": "Resolutivo SEXTO",
+      "paginas": [
+        195
+      ],
+      "anclas": 11
+    },
+    {
+      "id": "be9e6390-2a52-5fd0-88ec-984a70458822",
+      "position": 25056,
+      "marker": "septimoseotorgaunplazodedieciochomesesparaquelosusuariosdesuministrobasicoenaltaymediatensioncumplanconlosrequisitosenmateriademedicionycomunicacionestablecidosenlasreglasdemercadoyelnumeral112delanexounicodelpresenteacu",
+      "fragmento": "Resolutivo SÉPTIMO",
+      "paginas": [
+        195
+      ],
+      "anclas": 4
+    },
+    {
+      "id": "21c3f4b5-43ee-50e3-8126-9e9d6b47fc9c",
+      "position": 25280,
+      "marker": "octavoelnumeral11310previstoenelanexounicodelpresenteacuerdorespectoalaadquisiciondedatosdetelemetriaentiemporealentraraenvigorunavezquetransportistaydistribuidorhayannotificadoalacomisionlaimplementaciondelmediooreddeco",
+      "fragmento": "Resolutivo OCTAVO",
+      "paginas": [
+        195
+      ],
+      "anclas": 8
+    },
+    {
+      "id": "bcd5fc06-354a-5d10-8a2f-143ae7ed3d61",
+      "position": 25806,
+      "marker": "novenolacomisioncontaraconunplazomaximodedocemesesapartirdelapublicaciondelpresenteacuerdoparaemitirelmodelodecontratodeserviciosparalainstalacionypuestaenserviciodelossistemasdemedicionasicomoaprobarloscostosdelosservic",
+      "fragmento": "Resolutivo NOVENO",
+      "paginas": [
+        195
+      ],
+      "anclas": 5
+    },
+    {
+      "id": "2c801357-1929-57dc-9adf-407ead85471e",
+      "position": 26072,
+      "marker": "decimoeltransportistaydistribuidortendranunplazodedocemesesapartirdelapublicaciondelpresenteacuerdoparapresentaralacomisionelmecanismoocriterioparaseleccionarelnumeromaximodeusuariosdesuministrobasicoqueseranincluidosenl",
+      "fragmento": "Resolutivo DÉCIMO",
+      "paginas": [
+        195
+      ],
+      "anclas": 5
+    },
+    {
+      "id": "5f49cae0-30cc-5e72-ad32-377d6e13449d",
+      "position": 26342,
+      "marker": "undecimohagasedelconocimientoqueelpresenteactoadministrativopodraimpugnarseatravesdeljuiciodeamparoindirectoconformealodispuestoporelarticulo27delaleydelosorganosreguladorescoordinadosenmateriaenergeticaantelosorganosjur",
+      "fragmento": "Resolutivo UNDÉCIMO",
+      "paginas": [
+        195
+      ],
+      "anclas": 8
+    },
+    {
+      "id": "28dc1837-1e3f-5590-bef5-58008fd0f441",
+      "position": 26938,
+      "marker": "duodecimoinscribaseelpresenteacuerdobajoelnumeroa0252023enelregistroalqueserefierenlosarticulos22fraccionxxviincisoayey25fraccionxdelaleydelosorganosreguladorescoordinadosenmateriaenergeticay4y16ultimoparrafodelreglament",
+      "fragmento": "Resolutivo DUODÉCIMO",
+      "paginas": [
+        195
+      ],
+      "anclas": 7
+    },
+    {
+      "id": "4c14eccd-3a53-5005-b1a1-63a46b3b085d",
+      "position": 27197,
+      "marker": "ciudaddemexicoa30deagostode2023presidenteleopoldovicentemelchigarciarubricacomisionadoswalterjulianangeljimeneznormaleticiacamposaragonhermilocejalucasguadalupeescalantebenitezluislinareszapatarubricas",
+      "fragmento": "Firma y publicación",
+      "paginas": [
+        195
+      ],
+      "anclas": 10
+    },
+    {
+      "id": "234fbd18-c6e2-579a-9bfb-fcc44316c3c4",
+      "position": 27398,
+      "marker": "anexounicomodificacionalasdisposicionesadministrativasdecaractergeneralenmateriadeaccesoabiertoyprestaciondelosserviciosenlarednacionaldetransmisionylasredesgeneralesdedistribuciondeenergiaelectricacontenidoanexosaladisp",
+      "fragmento": "Anexo único · Presentación e índice",
+      "paginas": [
+        196
+      ],
+      "anclas": 14
+    },
+    {
+      "id": "b9cee809-96a4-579a-8a29-10d8d98c45ff",
+      "position": 27997,
+      "marker": "apartado1disposicionesgeneralesarticulo1",
+      "fragmento": "Anexo único · Modificación al artículo 1",
+      "paginas": [
+        196
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "62611355-63ea-5699-8846-f2eda669a799",
+      "position": 28037,
+      "marker": "articulo2",
+      "fragmento": "Anexo único · Modificación al artículo 2",
+      "paginas": [
+        196
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "f879b243-37d3-5a14-be27-bf29ebc64ed1",
+      "position": 28046,
+      "marker": "articulo3",
+      "fragmento": "Anexo único · Modificación al artículo 3",
+      "paginas": [
+        196
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "0c1d5036-5be1-5ec3-8c46-cebeebe063d5",
+      "position": 28055,
+      "marker": "articulo4definicionesyacronimo",
+      "fragmento": "Anexo único · Modificación al artículo 4",
+      "paginas": [
+        196,
+        197,
+        198
+      ],
+      "anclas": 120
+    },
+    {
+      "id": "2cb4a42e-1430-536a-b65f-0cfd2dbc4d5c",
+      "position": 33479,
+      "marker": "articulo5",
+      "fragmento": "Anexo único · Modificación al artículo 5",
+      "paginas": [
+        198
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "3c0d4152-a0a7-5f20-88ca-98ee9ef7e399",
+      "position": 33488,
+      "marker": "articulo6apartado2",
+      "fragmento": "Anexo único · Modificación al artículo 6",
+      "paginas": [
+        198
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "a19bd0b6-fd88-525b-b634-080f087e8152",
+      "position": 33506,
+      "marker": "articulo7secciona",
+      "fragmento": "Anexo único · Modificación al artículo 7",
+      "paginas": [
+        198
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "5334d1c2-9cda-5435-8637-e400aaa0a489",
+      "position": 33523,
+      "marker": "articulo8conveniosentreelcenacetransportistaydistribuidorelcenacetransportistaydistribuidordebenmanteneractualizadossusconveniospararegirlaprestacionyfacturaciondelserviciopublicodetransmisionydistribucionseguncorrespond",
+      "fragmento": "Anexo único · Modificación al artículo 8",
+      "paginas": [
+        198
+      ],
+      "anclas": 23
+    },
+    {
+      "id": "bea28630-ea9f-5743-8fc2-eee8b95cd873",
+      "position": 34579,
+      "marker": "articulo9",
+      "fragmento": "Anexo único · Modificación al artículo 9",
+      "paginas": [
+        199
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "22666059-e96c-5c5b-ab82-7739f183509c",
+      "position": 34588,
+      "marker": "articulo10seccionb",
+      "fragmento": "Anexo único · Modificación al artículo 10",
+      "paginas": [
+        199
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "3eb85b75-5198-5b3a-abc9-7863690ba90b",
+      "position": 34606,
+      "marker": "articulo11",
+      "fragmento": "Anexo único · Modificación al artículo 11",
+      "paginas": [
+        199
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "4ed8c12d-8cb0-50be-b828-a715a2694cac",
+      "position": 34616,
+      "marker": "articulo12",
+      "fragmento": "Anexo único · Modificación al artículo 12",
+      "paginas": [
+        199
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "412a7f21-8dda-58f4-a18c-1992e88ec0c1",
+      "position": 34626,
+      "marker": "articulo13seccioncsecciond",
+      "fragmento": "Anexo único · Modificación al artículo 13",
+      "paginas": [
+        199
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "8a90b25c-64b3-5364-b08b-2f9e2ffa803a",
+      "position": 34652,
+      "marker": "articulo14iiiiiiivelcenaceconelapoyodeltransportistaydistribuidordebepresentaralasecretariayalacomisionamastardarelultimodiadefebrerodecadaanolainformacionrelativaalprogramadeampliacionymodernizaciondelarednacionaldetran",
+      "fragmento": "Anexo único · Modificación al artículo 14",
+      "paginas": [
+        199,
+        200
+      ],
+      "anclas": 77
+    },
+    {
+      "id": "870ff552-2cbc-58ca-9325-77c707318778",
+      "position": 38483,
+      "marker": "articulo15seccionesederoga",
+      "fragmento": "Anexo único · Modificación al artículo 15",
+      "paginas": [
+        200
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "628bbb6d-c2cb-5a7f-8f8b-a4d8fb915f58",
+      "position": 38509,
+      "marker": "articulo16sederoga",
+      "fragmento": "Anexo único · Modificación al artículo 16",
+      "paginas": [
+        200
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "91486f6a-942b-5420-ac5f-dac55abff041",
+      "position": 38527,
+      "marker": "articulo17sederogaapartado3laprestaciondelserviciopublicodetransmisionydedistribuciondeenergiaelectricadeberealizarsebajoprincipiosquegaranticenlacalidadconfiabilidadcontinuidadyseguridadtantodelasinstalacionesyequiposqu",
+      "fragmento": "Anexo único · Modificación al artículo 17",
+      "paginas": [
+        200
+      ],
+      "anclas": 14
+    },
+    {
+      "id": "d1b81d7f-a9a2-507c-949b-cc1d8b8f8084",
+      "position": 38838,
+      "marker": "asgerenciasregionalesdetransmisi",
+      "fragmento": "Anexo único · Modificación al artículo 18",
+      "paginas": [
+        200,
+        201,
+        202
+      ],
+      "anclas": 84
+    },
+    {
+      "id": "604478b8-5679-5472-adf8-c41baee267a1",
+      "position": 41155,
+      "marker": "articulo19conobjetodellevarunmonitoreouniformeparaeldistribuidorestedeberegistraryentregaralacomisioncadaunodelosindicadoresrequeridosconformealosformatosqueseestablecenenelapendicec1formatosdeindicadoresdedisponibilidad",
+      "fragmento": "Anexo único · Modificación al artículo 19",
+      "paginas": [
+        202,
+        203,
+        204,
+        205,
+        206,
+        207
+      ],
+      "anclas": 232
+    },
+    {
+      "id": "97e0bab9-f134-5a67-aedc-dfe3e68040b0",
+      "position": 49966,
+      "marker": "articulo20",
+      "fragmento": "Anexo único · Modificación al artículo 20",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "0422027c-adcc-5d6b-8d4f-54864a7522f3",
+      "position": 49976,
+      "marker": "articulo21",
+      "fragmento": "Anexo único · Modificación al artículo 21",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "ede20893-7646-5aee-bcb1-730b2ed429b0",
+      "position": 49986,
+      "marker": "apendiceacondicionesgeneralesparalaprestaciondelosserviciosdetransmisionydistribuciondeenergiaelectricaarticulo1",
+      "fragmento": "Apéndice A · Artículo 1. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "918895a8-0e90-54a7-a7fc-818423fd1bf4",
+      "position": 50098,
+      "marker": "articulo2",
+      "fragmento": "Apéndice A · Artículo 2. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "d27c28a4-2fa4-58a2-8ac4-9abed7032637",
+      "position": 50107,
+      "marker": "articulo3",
+      "fragmento": "Apéndice A · Artículo 3. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "06ab8f9c-14a5-56b7-948d-1f748fc54968",
+      "position": 50116,
+      "marker": "articulo4",
+      "fragmento": "Apéndice A · Artículo 4. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "2a7d0a5a-81e0-59b6-b8d7-ffac5bfea6b9",
+      "position": 50125,
+      "marker": "articulo5",
+      "fragmento": "Apéndice A · Artículo 5. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "1baebbfb-0882-5626-8f24-9fb8bec5fb84",
+      "position": 50134,
+      "marker": "articulo6",
+      "fragmento": "Apéndice A · Artículo 6. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "052b5a2a-b2e8-5115-a3b6-584cfe894623",
+      "position": 50143,
+      "marker": "articulo7",
+      "fragmento": "Apéndice A · Artículo 7. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "0c12e0d5-0f2b-5dd3-a993-8151ec65ddbf",
+      "position": 50152,
+      "marker": "articulo8",
+      "fragmento": "Apéndice A · Artículo 8. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "a185a3e1-514d-5b07-92ea-b5633484b5d8",
+      "position": 50161,
+      "marker": "articulo9",
+      "fragmento": "Apéndice A · Artículo 9. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "8b132798-c7c1-5e9e-b6f6-4a500b9b8e48",
+      "position": 50170,
+      "marker": "articulo10",
+      "fragmento": "Apéndice A · Artículo 10. [...]",
+      "paginas": [
+        207
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "aebea351-5442-5ee0-969d-e29d3790bdb3",
+      "position": 50180,
+      "marker": "articulo11enestearticuloylosnumeralessiguientesseestablecenlascondicionesquedebenobservarseenelsuministrobasicoelsuministrocalificadoylaactividaddegeneraciondeenergiaelectricaenelmemconlafinalidaddegarantizarlacorrectaop",
+      "fragmento": "Apéndice A · Artículo 11 · Derogaciones publicadas",
+      "paginas": [
+        207
+      ],
+      "anclas": 8
+    },
+    {
+      "id": "735bf13e-d29c-5a9a-bfb9-b59f6894bc25",
+      "position": 50548,
+      "marker": "111bismedicionensuministrobasicobajatension1111instalaciondelossistemasdemedicionoequiposdemedicionparaelsuministrobasicoenbajatensionelusuariodesuministrobasicodebecontarconlascondicionesnecesariaspararecibirenformasegu",
+      "fragmento": "Apéndice A · Numeral 11.1.1 Instalación de los Sistemas de Medición o equipos de medición para el Suministro Básico en baja tensión",
+      "paginas": [
+        207,
+        208
+      ],
+      "anclas": 54
+    },
+    {
+      "id": "d87a761b-817b-5cb9-81c5-8be76e6fec7d",
+      "position": 53807,
+      "marker": "1112lecturadelosregistrosdemedicionparaelsuministrobasicoenbajatensioneldistribuidordeberealizarlaslecturasyrecabarperiodicamentelosregistrosdemedicionmedianteloscualesseobtendranlosconsumosdeenergiaactivaenergiareactiva",
+      "fragmento": "Apéndice A · Numeral 11.1.2 Lectura de los registros de medición para el Suministro Básico en baja tensión",
+      "paginas": [
+        208,
+        209
+      ],
+      "anclas": 21
+    },
+    {
+      "id": "73a902d4-43df-5daa-b93a-ec0f71a83805",
+      "position": 55323,
+      "marker": "1113sustituciondelossistemasdemedicionoequiposdemedicionparaelsuministrobasicoenbajatensionlapropiedaddelossistemasdemedicionamioequiposdemedicionasicomosusaccesorioscorrespondenaldistribuidorquiendeberealizarsusustituci",
+      "fragmento": "Apéndice A · Numeral 11.1.3 Sustitución de los Sistemas de Medición o equipos de medición para el Suministro Básico en baja tensión",
+      "paginas": [
+        209,
+        210
+      ],
+      "anclas": 104
+    },
+    {
+      "id": "01bc49a3-99f4-5adc-b7b3-522cda5a5373",
+      "position": 61104,
+      "marker": "1114revisionlossistemasdemedicionequiposdemedicionylainstalacionelectricaparaelsuministrobasicoenbajatensioneldistribuidorrealizalarevisiondelosequiposdemedicionodelsistemademedicionamiylasinstalacioneselectricasasociada",
+      "fragmento": "Apéndice A · Numeral 11.1.4 Revisión los Sistemas de Medición, equipos de medición y la Instalación Eléctrica para el Suministro Básico en baja tensión",
+      "paginas": [
+        210
+      ],
+      "anclas": 6
+    },
+    {
+      "id": "27496dc5-c62a-51cf-83d0-056abee48658",
+      "position": 61543,
+      "marker": "ssistemasdemedicionoequiposdemed",
+      "fragmento": "Apéndice A · Numeral 11.1.5 Verificación de los Sistemas de Medición o Equipos de Medición en baja tensión realizadas por una Unidad de Verificación Acreditada y Aprobada",
+      "paginas": [
+        210,
+        211,
+        212,
+        213,
+        214
+      ],
+      "anclas": 251
+    },
+    {
+      "id": "29a1df0e-4a40-53ff-8069-d32d2a62488e",
+      "position": 77227,
+      "marker": "1116estimacionesparaelsuministrobasicoenbajatensionelsuministradordeberealizarelcobrodelservicioconbaseenlaestimaciondelconsumodeenergiaelectricaquerealiceeldistribuidordeconformidadconlametodologiaparalaestimaciondecons",
+      "fragmento": "Apéndice A · Numeral 11.1.6 Estimaciones para el Suministro Básico en baja tensión",
+      "paginas": [
+        214,
+        215,
+        216,
+        217
+      ],
+      "anclas": 120
+    },
+    {
+      "id": "83094800-5500-5ce2-bad7-9b89654dabf0",
+      "position": 83983,
+      "marker": "medicionparaelsuministrobasicoen",
+      "fragmento": "Apéndice A · Numeral 11.2.1 Instalación de los Sistemas de Medición para el Suministro Básico en alta y media tensión",
+      "paginas": [
+        217
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "ec459331-3fd4-5ec4-900d-508dece96914",
+      "position": 84061,
+      "marker": "icionparaelsuministrobasicoenalt",
+      "fragmento": "Apéndice A · Numeral 11.2.2 Lectura de los registros de medición para el Suministro Básico en alta y media tensión",
+      "paginas": [
+        217,
+        218
+      ],
+      "anclas": 88
+    },
+    {
+      "id": "adb5d7bd-2caf-59fd-af76-f495555cdf23",
+      "position": 89365,
+      "marker": "medicionparaelsuministrobasicoen",
+      "fragmento": "Apéndice A · Numeral 11.2.3 Sustitución de los Sistemas de Medición para el Suministro Básico en alta y media tensión",
+      "paginas": [
+        218,
+        219,
+        220
+      ],
+      "anclas": 88
+    },
+    {
+      "id": "9767ed51-37fd-592f-a9f7-23e00b686bf5",
+      "position": 94135,
+      "marker": "evisiondelossistemasdemedicionyl",
+      "fragmento": "Apéndice A · Numeral 11.2.4 Revisión de los Sistemas de Medición y la Instalación Eléctrica para Suministro Básico en alta y media tensión",
+      "paginas": [
+        220
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "585fc1af-1767-55ae-93e6-8e544d9ccdba",
+      "position": 94189,
+      "marker": "arasuministrobasicoenaltaymediat",
+      "fragmento": "Apéndice A · Numeral 11.2.5 Verificación de los Sistemas de Medición para Suministro Básico en alta y media tensión realizadas por una Unidad de Verificación Acreditada y",
+      "paginas": [
+        220,
+        221,
+        222,
+        223,
+        224
+      ],
+      "anclas": 253
+    },
+    {
+      "id": "ee7ac099-e2b7-5df5-848d-c345463debab",
+      "position": 111070,
+      "marker": "delasactividadesparalapuestaense",
+      "fragmento": "Apéndice A · Numeral 11.2.6 Costos de las actividades para la puesta en servicio y correcta operación de los Sistemas de Medición",
+      "paginas": [
+        224
+      ],
+      "anclas": 6
+    },
+    {
+      "id": "fac27856-07dc-5689-b758-d7683e5ca3f5",
+      "position": 111390,
+      "marker": "cionesparaelsuministrobasicoenal",
+      "fragmento": "Apéndice A · Numeral 11.2.7 Estimaciones para el Suministro Básico en alta y media tensión",
+      "paginas": [
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "anclas": 248
+    },
+    {
+      "id": "494f184e-8785-557e-be2a-f5eb58047e34",
+      "position": 125835,
+      "marker": "1131registrosdemedicionparaelmercadoelectricomayoristaeltransportistayeldistribuidordebenenviaralcenacelosregistrosdemedicionrealesoestimadosparaliquidacionesenlosplazosestablecidosenlasreglasdelmercado",
+      "fragmento": "Apéndice A · Numeral 11.3.1 Registros de Medición para el Mercado Eléctrico Mayorista",
+      "paginas": [
+        230
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "48d2bc62-dfab-5669-b52d-6f4221ec264d",
+      "position": 126037,
+      "marker": "1132propiedaddelossistemasdemedicionparaelmercadoelectricomayoristalainstalacionosustituciondelossistemasdemedicioncorrespondealosusuarioscalificadosusuarioscalificadosparticipantesdelmercadoycentraleselectricasquienesde",
+      "fragmento": "Apéndice A · Numeral 11.3.2 Propiedad de los Sistemas de Medición para el Mercado Eléctrico Mayorista",
+      "paginas": [
+        230,
+        231
+      ],
+      "anclas": 69
+    },
+    {
+      "id": "79292a29-b58e-52c1-a210-4e7b3970226b",
+      "position": 130842,
+      "marker": "1133instalacioninicialypuestaenserviciodelossistemasdemedicionparaelmercadoelectricomayoristaenestaseccionseestablecenlosprocedimientosquesedebenobservarparalainstalacioninicialypuestaenserviciodelossistemasdemedicionpor",
+      "fragmento": "Apéndice A · Numeral 11.3.3 Instalación inicial y puesta en servicio de los Sistemas de Medición para el Mercado Eléctrico Mayorista",
+      "paginas": [
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237
+      ],
+      "anclas": 311
+    },
+    {
+      "id": "1f04ab51-de33-5aa3-af89-175056aaf347",
+      "position": 148600,
+      "marker": "daciondelosregistrosdemedicionen",
+      "fragmento": "Apéndice A · Numeral 11.3.4 Procedimiento de alta de los Sistemas de Medición utilizados para las Liquidaciones del Mercado Eléctrico Mayorista",
+      "paginas": [
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247
+      ],
+      "anclas": 380
+    },
+    {
+      "id": "e6c83df2-9961-5e6e-baab-823c76ec487d",
+      "position": 169747,
+      "marker": "1135sustitucionporfalladeloselementosdelsistemasdemediciondelmercadoelectricomayoristalasustitucionporfalladeloselementosdelsistemasdemediciondebeserrealizadaporeltransportistaodistribuidorunavezquelosusuarioscalificados",
+      "fragmento": "Apéndice A · Numeral 11.3.5 Sustitución por falla de los elementos del Sistemas de Medición del Mercado Eléctrico Mayorista",
+      "paginas": [
+        247
+      ],
+      "anclas": 19
+    },
+    {
+      "id": "254f3e06-c2f4-5606-90b5-d6a17aa70316",
+      "position": 171248,
+      "marker": "neltransportistaydistribuidordeb",
+      "fragmento": "Apéndice A · Numeral 11.3.6 Revisión de los Sistemas de Medición en el Mercado Eléctrico Mayorista",
+      "paginas": [
+        247
+      ],
+      "anclas": 2
+    },
+    {
+      "id": "02fc3edc-2fad-51c4-bbc6-0ba7a2e912f4",
+      "position": 171321,
+      "marker": "suariocalificadoparticipantedelm",
+      "fragmento": "Apéndice A · Numeral 11.3.7 Verificación de los Sistemas de Medición para el Mercado Eléctrico Mayorista",
+      "paginas": [
+        247
+      ],
+      "anclas": 21
+    },
+    {
+      "id": "ca6c758c-7554-5c56-9d4d-da30366a3649",
+      "position": 173025,
+      "marker": "emasdemedicionparaelmercadoelect",
+      "fragmento": "Apéndice A · Numeral 11.3.8 Costo de las actividades para la puesta en servicio y correcta operación de los Sistemas de Medición en el MEM",
+      "paginas": [
+        247,
+        248
+      ],
+      "anclas": 28
+    },
+    {
+      "id": "a742f75f-18ee-5796-92f4-0425b717698e",
+      "position": 175058,
+      "marker": "cioneltransportistaydistribuidor",
+      "fragmento": "Apéndice A · Numeral 11.3.9 Liquidaciones en el Mercado Eléctrico Mayorista",
+      "paginas": [
+        248,
+        249,
+        250
+      ],
+      "anclas": 107
+    },
+    {
+      "id": "cdcdbc51-c646-5097-8819-1402f88513fa",
+      "position": 181777,
+      "marker": "11310adquisiciondedatosdetelemetriaentiemporealparaelcumplimientodelcodigoderedlosusuarioscalificadosyusuarioscalificadosparticipantesdelmercadopuedensolicitaraltransportistaodistribuidorlosregistrosdemediciondelasvariab",
+      "fragmento": "Apéndice A · Numeral 11.3.10 Adquisición de datos de telemetría en tiempo real para el cumplimiento del Código de Red",
+      "paginas": [
+        250,
+        251
+      ],
+      "anclas": 132
+    },
+    {
+      "id": "b474cae8-98d8-598b-9292-49070e061fdc",
+      "position": 185799,
+      "marker": "11311estratificaciondelossistemasdemedicionportipodeusuarioacontinuacionseincluyenlosrequisitosgeneralesenmateriademedicionparaelmemportipodeusuariotablabrequerimientosgeneralesenmateriademedicionparacentrosdecarga1infor",
+      "fragmento": "Apéndice A · Numeral 11.3.11 Estratificación de los Sistemas de Medición por tipo de usuario",
+      "paginas": [
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ],
+      "anclas": 488
+    },
+    {
+      "id": "b69cc576-dc66-5e86-9225-1b38ac560bf8",
+      "position": 192379,
+      "marker": "114sederoga115sederoga116sederoga117sederoga118sederoga119sederoga",
+      "fragmento": "Apéndice A · Numerales 11.4 a 11.9 · Derogaciones",
+      "paginas": [
+        257
+      ],
+      "anclas": 6
+    },
+    {
+      "id": "c106bf61-0275-59b8-bef9-7323ae7fb1ab",
+      "position": 192445,
+      "marker": "articulo12",
+      "fragmento": "Apéndice A · Artículo 12. [...]",
+      "paginas": [
+        257
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "085bac23-6d41-5858-a091-af99a56bef49",
+      "position": 192455,
+      "marker": "articulo13",
+      "fragmento": "Apéndice A · Artículo 13. [...]",
+      "paginas": [
+        257
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "42da919e-a297-5e9f-9c44-40dfb53d003c",
+      "position": 192465,
+      "marker": "articulo14",
+      "fragmento": "Apéndice A · Artículo 14. [...]",
+      "paginas": [
+        257
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "57e1ee52-bfca-54e7-822d-9664b023737c",
+      "position": 192492,
+      "marker": "odesuspensionesdelserviciopublic",
+      "fragmento": "Apéndice A · Artículo 15. [...]",
+      "paginas": [
+        257
+      ],
+      "anclas": 13
+    },
+    {
+      "id": "6b1e0511-8fb3-5f50-b26f-f006bc339299",
+      "position": 193554,
+      "marker": "articulo16",
+      "fragmento": "Apéndice A · Artículo 16. [...]",
+      "paginas": [
+        257
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "9c69b1ea-9a42-5bee-80d6-3eca976cee46",
+      "position": 193564,
+      "marker": "articulo17",
+      "fragmento": "Apéndice A · Artículo 17. [...]",
+      "paginas": [
+        257
+      ],
+      "anclas": 3
+    },
+    {
+      "id": "7cb2e412-e098-5f99-8df4-2341270a9c2a",
+      "position": 193591,
+      "marker": "sfortuitosydefuerzamayorqueimpos",
+      "fragmento": "Apéndice A · Artículo 18. [...]",
+      "paginas": [
+        257,
+        258
+      ],
+      "anclas": 40
+    },
+    {
+      "id": "ca412b7c-328f-5fcc-bdf1-af7d00943890",
+      "position": 196539,
+      "marker": "articulo19",
+      "fragmento": "Apéndice A · Artículo 19. [...]",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "fc45743b-5313-5e2f-b11c-9fb7bf74d7a7",
+      "position": 196549,
+      "marker": "articulo20",
+      "fragmento": "Apéndice A · Artículo 20. [...]",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "abf2083e-332d-5348-afcf-dc778c888c63",
+      "position": 196559,
+      "marker": "articulo21",
+      "fragmento": "Apéndice A · Artículo 21. [...]",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "7169a9d2-cad4-580c-b9be-1cc532d91933",
+      "position": 196569,
+      "marker": "articulo22",
+      "fragmento": "Apéndice A · Artículo 22. [...]",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "e2bd60b2-f731-540c-852b-273a547a270c",
+      "position": 196579,
+      "marker": "articulo23",
+      "fragmento": "Apéndice A · Artículo 23. [...]",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "4d86219a-08ef-56e1-aed1-0d42e833c155",
+      "position": 196589,
+      "marker": "articulo24",
+      "fragmento": "Apéndice A · Artículo 24. [...]",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "824a1b1b-5a24-5720-9fde-5652a234c6e4",
+      "position": 196599,
+      "marker": "apendicebsederoga",
+      "fragmento": "Apéndice B · Derogación",
+      "paginas": [
+        258
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "aa208a94-e6a5-52a4-987d-a0cc5e9c73d6",
+      "position": 196616,
+      "marker": "apendiceb1lineamientosqueestablecenelpgrocedimientoparalaatenciondesolicitudesyquejasdelserviciopublicodetransmisionydistribuciondeenergiaelectricaylorelativoalosinformespublicosydedesempenodeltransportistayeldistribuido",
+      "fragmento": "Apéndice B1 · Introducción e índice",
+      "paginas": [
+        258,
+        259
+      ],
+      "anclas": 41
+    },
+    {
+      "id": "595237db-3caa-547f-a643-108851236f4e",
+      "position": 198941,
+      "marker": "b11generaleselcumplimientodelpresenteapendiceesdecaracterobligatorioparaeltransportistayeldistribuidorlasmetricasreferidassondecaracterminimoynolimitativoporloqueeltransportistayeldistribuidorquedanenlibertaddedefinirmed",
+      "fragmento": "Apartado B1.1 Generales",
+      "paginas": [
+        259
+      ],
+      "anclas": 12
+    },
+    {
+      "id": "952f95e9-324e-5d9f-9a2d-9f8a3f505b20",
+      "position": 199751,
+      "marker": "b12sobrelosplazosparalaatenciondesolicitudesdelserviciopublicodetransmisionydistribuciondeenergiaelectricaseconsiderasolicitudesalapeticiondeprestaciondelserviciopublicodetrasmisionydistribuciondeenergiaelectricadeunusua",
+      "fragmento": "Apartado B1.2. Sobre los plazos para la atención de solicitudes del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "paginas": [
+        259,
+        260
+      ],
+      "anclas": 136
+    },
+    {
+      "id": "0266d62e-d83e-5b0b-b6b4-a29c03fe1d5d",
+      "position": 201786,
+      "marker": "b13sobrelatrazabilidaddelaatenciondesolicitudesenelserviciopublicodetransmisionydistribuciondeenergiaelectricaquedebenllevaracabolosprestadoresdedichosserviciosiparaefectosdelpresenteapartadoseentiendeportrazabilidadalco",
+      "fragmento": "Apartado B1.3. Sobre la trazabilidad de la atención de Solicitudes en el Servicio Público de Transmisión y Distribución de Energía Eléctrica que deben llevar a",
+      "paginas": [
+        261
+      ],
+      "anclas": 35
+    },
+    {
+      "id": "89070534-48b2-5b78-b35b-8f99a18c46b2",
+      "position": 203782,
+      "marker": "b14sobreloslineamientosyelprocedimientoparalaatenciondequejaslaatencionaquejasquepresentenlossuministradoresyoelcenaceanteeltransportistaoeldistribuidordebeobservarlosplazosyobligacionesestablecidasenelarticulo119delregl",
+      "fragmento": "Apartado B1.4. Sobre los lineamientos y el procedimiento para la atención de quejas",
+      "paginas": [
+        261
+      ],
+      "anclas": 28
+    },
+    {
+      "id": "c28dfbfc-5119-5e28-ad85-8dac1449eb18",
+      "position": 205571,
+      "marker": "b15causalesparalapresentaciondequejassoncausalesdequejasinperjuiciodequepuedanexistirotrascausaleslassiguientesiinterrupcionesenelsuministrodelaenergialossuministradorespuedenpresentarsusquejasanteeltransportistaoeldistr",
+      "fragmento": "Apartado B1.5. Causales para la presentación de quejas",
+      "paginas": [
+        262
+      ],
+      "anclas": 27
+    },
+    {
+      "id": "056ab338-5142-5b4c-828b-f4110ba72b3f",
+      "position": 207320,
+      "marker": "b16sobrelosplazosparalaatenciondequejasdelserviciopublicodetransmisionydistribuciondeenergiaelectricatransportistaydistribuidordebencumplirademasdelosplazosyobligacionesestablecidasenleyyelarticulo119delreglamentoconloss",
+      "fragmento": "Apartado B1.6. Sobre los plazos para la atención de quejas del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "paginas": [
+        262
+      ],
+      "anclas": 58
+    },
+    {
+      "id": "6b29d3fa-2a28-5b4d-985b-083dd54317aa",
+      "position": 208375,
+      "marker": "b17sobrelatrazabilidaddelaatenciondequejasenelserviciopublicodetransmisionydistribuciondeenergiaelectricaquedebenllevaracabolosprestadoresdedichosserviciosiparaefectosdelpresenteapartadoseentiendeportrazabilidadalconjunt",
+      "fragmento": "Apartado B1.7. Sobre la Trazabilidad de la atención de quejas en el Servicio Público de Transmisión y Distribución de Energía Eléctrica que deben llevar a cabo",
+      "paginas": [
+        263
+      ],
+      "anclas": 42
+    },
+    {
+      "id": "899514fa-6af0-57bf-a240-8c9d620eb1ce",
+      "position": 210700,
+      "marker": "b18sobrelosindicadoresdedesempenolatabla3contienelosindicadoresdedesempenodelaprestaciondelosserviciopublicodetransmisionydistribuciondeenergiaelectricaquedebenpresentarsealacomisiondeconformidadconelapartado3delpresente",
+      "fragmento": "Apartado B1.8. Sobre los indicadores de desempeño",
+      "paginas": [
+        263,
+        264,
+        265
+      ],
+      "anclas": 175
+    },
+    {
+      "id": "8a198519-f486-50a6-82fa-ac10a307a2ba",
+      "position": 214130,
+      "marker": "b19sobrelasmetricasdecalidaddelserviciopublicodetransmisionydistribuciondeenergiaelectricaeltransportistayeldistribuidordebenmantenerregistrosdesagregadosdelaatencionbrindadaalossuministradoresyelcenaceconelfindeconocere",
+      "fragmento": "Apartado B1.9. Sobre las métricas de calidad del Servicio Público de Transmisión y Distribución de Energía Eléctrica",
+      "paginas": [
+        265,
+        266
+      ],
+      "anclas": 58
+    },
+    {
+      "id": "dc49ab49-6d84-5096-bb23-fdf690299ed1",
+      "position": 215853,
+      "marker": "b110sobreelinformepublicoydedesempenosobreelinformepublicoeltransportistayeldistribuidordebenelaborarypublicarenlosportalesdeinternetqueasuefectoponganadisposicionconformealapartado3articulo183incisody194incisoddelaspres",
+      "fragmento": "Apartado B1.10. Sobre el Informe Público y de Desempeño",
+      "paginas": [
+        266,
+        267,
+        268,
+        269
+      ],
+      "anclas": 224
+    },
+    {
+      "id": "e3cd5095-91fa-55ab-9130-0557b531dd01",
+      "position": 223246,
+      "marker": "b111evaluacionanualdelosinformesdedesempenolacomisiondebeemitirunaevaluacionanualdelosplazosdeentregalasuficienciaidoneidadydesempenodelainformacioncontenidaenlosinformespublicosydedesempenodeltransportistayeldistribuido",
+      "fragmento": "Apartado B1.11 Evaluación anual de los informes de desempeño",
+      "paginas": [
+        269,
+        270,
+        271
+      ],
+      "anclas": 56
+    },
+    {
+      "id": "99e3057e-dd59-5a53-bfaa-406c8a732211",
+      "position": 225999,
+      "marker": "b112boletinelectronicoelcenaceasicomoeltransportistayeldistribuidordebendesarrollarymantenerpermanentementeactualizadounboletinelectronicoqueconstituiralaplataformainformaticaaccesibleviaremotaparadifundirentrelospartici",
+      "fragmento": "Apartado B1.12 Boletín Electrónico",
+      "paginas": [
+        271
+      ],
+      "anclas": 19
+    },
+    {
+      "id": "ffb60b18-d7bf-52e0-89ce-af4a1f470651",
+      "position": 227506,
+      "marker": "b113publicidaddelainformacionacontinuacionsedescribelainformacionquecomominimodebeincluirseenlosboletineselectronicosdeltransportistaydistribuidornumeraldescripcioniladescripciongeneraldelasredesinformaciongeneralserequi",
+      "fragmento": "Apartado B1.13. Publicidad de la Información",
+      "paginas": [
+        271
+      ],
+      "anclas": 25
+    },
+    {
+      "id": "746a08d6-81e5-5c4a-b9a2-3267897751c0",
+      "position": 228476,
+      "marker": "apendicecsederoga",
+      "fragmento": "Apéndice C · Derogación",
+      "paginas": [
+        272
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "408620b5-f27c-55e7-82ba-6b4b40f789f3",
+      "position": 228493,
+      "marker": "apendicec1formatosdeindicadoresdedisponibilidadcalidadycontinuidadcont",
+      "fragmento": "Apéndice C1 · Índice de formatos",
+      "paginas": [
+        272
+      ],
+      "anclas": 14
+    },
+    {
+      "id": "9fe97af5-aca7-5fd7-8f8a-dd3b9896fee8",
+      "position": 229185,
+      "marker": "1indicededisponibilidaddeloselementosdelarntidatosdelindicador1nombredelindicadorindicededisponibilidaddeloselementosdelarnt2siglas3grupo4subgrupo5fechadecreacionidt2015iicaracteristicasdelindicador6descripciondelindicad",
+      "fragmento": "Apéndice C1 · Formato 1. Índice de Disponibilidad de los elementos de la RNT",
+      "paginas": [
+        272,
+        273,
+        274,
+        275
+      ],
+      "anclas": 224
+    },
+    {
+      "id": "b15d4054-a390-5182-9fac-9c532353e6cd",
+      "position": 232705,
+      "marker": "2indicedelafrecuenciapromediodeinterrupcionesenlarntidatosdelindicador1nombredelindicadorindicedelafrecuenciapromediodeinterrupcionesenelsistema2siglas3grupo4subgrupo5fechadecreacionsaifi2015iicaracteristicasdelindicador",
+      "fragmento": "Apéndice C1 · Formato 2. Índice de la Frecuencia Promedio de Interrupciones en la RNT",
+      "paginas": [
+        275,
+        276,
+        277
+      ],
+      "anclas": 103
+    },
+    {
+      "id": "d1e4ac20-b137-5336-8a41-6d85364713d6",
+      "position": 234739,
+      "marker": "3indicedeladuracionpromediodeinterrupcionesenlarntidatosdelindicador1nombredelindicadorindicedeladuracionpromediodeinterrupciones2siglas3grupo4subgrupo5fechadecreacionsaidit2015iicaracteristicasdelindicador6descripcionde",
+      "fragmento": "Apéndice C1 · Formato 3. Índice de la Duración Promedio de Interrupciones en la RNT",
+      "paginas": [
+        277,
+        278,
+        279
+      ],
+      "anclas": 145
+    },
+    {
+      "id": "30d792a1-b57e-5a47-b6d4-fe9ae1b504f6",
+      "position": 237380,
+      "marker": "4energianosuministradaensenlarntidatosdelindicador1nombredelindicadorenergianosuministrada2siglas3grupo4subgrupo5fechadecreacionens2015iicaracteristicasdelindicador6descripciondelindicadorlaenseslaenergiaquesedejadesumin",
+      "fragmento": "Apéndice C1 · Formato 4. Energía No Suministrada (ENS) en la RNT",
+      "paginas": [
+        280,
+        281,
+        282
+      ],
+      "anclas": 119
+    },
+    {
+      "id": "1bc49cec-1480-5a36-80b7-0dd0d6adad20",
+      "position": 239615,
+      "marker": "5indicedelafrecuenciapromediodeinterrupcionesenlasrgdidatosdelindicador1nombredelindicadorindicedelafrecuenciapromediodeinterrupcionesenelsistema2siglas3grupo4subgrupo5fechadecreacionsaifid2015iicaracteristicasdelindicad",
+      "fragmento": "Apéndice C1 · Formato 5. Índice de la Frecuencia Promedio de Interrupciones en las RGD",
+      "paginas": [
+        282,
+        283,
+        284
+      ],
+      "anclas": 104
+    },
+    {
+      "id": "dc3f77af-8ef0-5fe4-beeb-5a8f7db0f1ee",
+      "position": 241661,
+      "marker": "6indicedeladuracionpromediodeinterrupcionesenlargdidatosdelindicador1nombredelindicadorindicedeladuracionpromediodeinterrupciones2siglas3grupo4subgrupo5fechadecreacionsaidid2015iicaracteristicasdelindicador6descripcionde",
+      "fragmento": "Apéndice C1 · Formato 6. Índice de la Duración Promedio de Interrupciones en la RGD",
+      "paginas": [
+        284,
+        285,
+        286
+      ],
+      "anclas": 158
+    },
+    {
+      "id": "e213408a-71ed-5902-8f0e-00ac93005272",
+      "position": 244327,
+      "marker": "7indicededuracionpromediodelasinterrupcionesalosusuariosfinalesidatosdelindicador1nombredelindicadorindicededuracionpromediodelasinterrupcionesalosusuariosfinales2siglas3grupo4subgrupo5fechadecreacioncaidi2015iicaracteri",
+      "fragmento": "Apéndice C1 · Formato 7. Índice de duración promedio de las interrupciones a los Usuarios finales",
+      "paginas": [
+        287,
+        288
+      ],
+      "anclas": 79
+    },
+    {
+      "id": "ffe3cbc0-71de-5bff-891c-ab07be460afd",
+      "position": 246054,
+      "marker": "8indicederestablecimientodelsuministroelectricoindividualenrgdidatosdelindicador1nombredelindicadorindicederestablecimientodelsuministroelectricoindividualenrgd2siglas3grupo4subgrupo5fechadecreacionrrgd2015iicaracteristi",
+      "fragmento": "Apéndice C1 · Formato 8. Índice de Restablecimiento del Suministro Eléctrico individual en RGD",
+      "paginas": [
+        288,
+        289,
+        290
+      ],
+      "anclas": 85
+    },
+    {
+      "id": "522f83d1-5212-5a8a-8882-1a3cc82b5ff4",
+      "position": 247877,
+      "marker": "9indicederestablecimientodesuministroelectricosectorialporfallaidatosdelindicador1nombredelindicadorindicederestablecimientodesuministroelectricosectorialporfalla2siglas3grupo4subgrupo5fechadecreacionrsesf2015iicaracteri",
+      "fragmento": "Apéndice C1 · Formato 9. Índice de Restablecimiento de Suministro Eléctrico Sectorial por Falla",
+      "paginas": [
+        290,
+        291
+      ],
+      "anclas": 84
+    },
+    {
+      "id": "d3edbf59-10ea-5e90-8494-b87ec5d4db58",
+      "position": 249594,
+      "marker": "10indicedeconexiondenuevossuministrosidatosdelindicador1nombredelindicadorindicedeconexiondenuevossuministros2siglas3grupo4subgrupo5fechadecreacioncns2015iicaracteristicasdelindicador6descripciondelindicadordescribeelpor",
+      "fragmento": "Apéndice C1 · Formato 10. Índice de Conexión de Nuevos Suministros",
+      "paginas": [
+        292,
+        293
+      ],
+      "anclas": 82
+    },
+    {
+      "id": "a2da9bcd-bd2f-51ec-a35d-986e3f189014",
+      "position": 251275,
+      "marker": "11indicedereconexiondeserviciossuspendidosporfaltadepagoidatosdelindicador1nombredelindicadorindicedereconexiondeserviciossuspendidosporfaltadepago2siglas3grupo4subgrupo5fechadecreacionrssfp2015iicaracteristicasdelindica",
+      "fragmento": "Apéndice C1 · Formato 11. Índice de Reconexión de Servicios Suspendidos por Falta de Pago",
+      "paginas": [
+        293,
+        294,
+        295
+      ],
+      "anclas": 86
+    },
+    {
+      "id": "24f39eab-bdc9-5cd9-b8fc-d6bc15079b22",
+      "position": 253022,
+      "marker": "12porcentajedecumplimientoenlacalidaddelserviciodesuministroelectricoidatosdelindicador1nombredelindicadorporcentajedecumplimiento2siglas3grupo4subgrupo5fechadecreacion2015iicaracteristicasdelindicador6descripciondelindi",
+      "fragmento": "Apéndice C1 · Formato 12. Porcentaje de cumplimiento en la Calidad del Servicio de Suministro Eléctrico",
+      "paginas": [
+        295,
+        296
+      ],
+      "anclas": 98
+    },
+    {
+      "id": "2e350730-205b-5dce-a92c-a67eec1488e4",
+      "position": 254983,
+      "marker": "apendicedcontratomarcodistribuidorconelsuministrador",
+      "fragmento": "Apéndice D · Referencia en la modificación",
+      "paginas": [
+        297
+      ],
+      "anclas": 1
+    },
+    {
+      "id": "753a51d9-c93c-5ba5-b90f-a193fef5f4ea",
+      "position": 255035,
+      "marker": "anexosaladisposicionanexo1requerimientosdemedicioncontransformadoresdemedidaaplicablealtransportistaanexo2requerimientosdemedicionenbajatensionautocontenidoaplicablealdistribuidoranexo3requerimientosdemedicionenbajatensi",
+      "fragmento": "Anexos de medición · Relación",
+      "paginas": [
+        297
+      ],
+      "anclas": 7
+    },
+    {
+      "id": "6868bcb8-e80f-5736-993e-cad2a9d219f2",
+      "fragmento": "Anexo 1 · Requerimientos de medición",
+      "paginas": [
+        298
+      ],
+      "anclas": 1,
+      "metodo": "bloque de imagen; relación de aspecto cotejada con el recurso oficial",
+      "position": -1
+    },
+    {
+      "id": "1ae34e5d-56a2-5c7c-9913-31eb0435cae0",
+      "fragmento": "Anexo 2 · Requerimientos de medición",
+      "paginas": [
+        299
+      ],
+      "anclas": 1,
+      "metodo": "bloque de imagen; relación de aspecto cotejada con el recurso oficial",
+      "position": -1
+    },
+    {
+      "id": "e7218085-b8f1-5784-bc25-1628cf6a6ea8",
+      "fragmento": "Anexo 3 · Requerimientos de medición",
+      "paginas": [
+        300
+      ],
+      "anclas": 1,
+      "metodo": "bloque de imagen; relación de aspecto cotejada con el recurso oficial",
+      "position": -1
+    },
+    {
+      "id": "9ecf87dc-1503-5a5d-8138-572e196ea480",
+      "fragmento": "Anexo 4 · Requerimientos de medición",
+      "paginas": [
+        301
+      ],
+      "anclas": 1,
+      "metodo": "bloque de imagen; relación de aspecto cotejada con el recurso oficial",
+      "position": -1
+    },
+    {
+      "id": "a9fef46f-5210-5667-a630-06222ae28715",
+      "position": 255415,
+      "marker": "anexo5resultadodeldiagnosticodelsistemademediciondatosgeneralesrazonsocialdireccionmodalidaddelsolicitante1demandacapacidadcapacidadencontrato2niveldetensiondesuministroniveldetensiondelpuntodemedicionzonadecargagerencia",
+      "fragmento": "Anexo 5 · Resultado del diagnóstico completo",
+      "paginas": [
+        302,
+        303,
+        304
+      ],
+      "anclas": 212
+    },
+    {
+      "id": "e7f2ca28-1fe7-5bcd-84ff-5d765d4d63a5",
+      "fragmento": "Nota al pie de los anexos",
+      "paginas": [
+        251
+      ],
+      "anclas": 1,
+      "metodo": "nota al pie ubicada en página impresa 251; texto fuente preservado con caracteres de reemplazo"
+    }
+  ]
+}
