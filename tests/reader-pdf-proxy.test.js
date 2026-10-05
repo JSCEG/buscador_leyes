@@ -609,6 +609,24 @@ it('serves only the reviewed May 20, 2024 DOF morning issue PDF for DACG inspect
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed May 8, 2025 DOF morning issue PDF for the CNE Interior Regulation', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/08-05-2025/Matutina/320943';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('ricne'), 'ricne', {
+        sources: { ricne: { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('320943', '320944'), originalUrl.replace('Matutina', 'Vespertina'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('ricne'), 'ricne', {
+            sources: { ricne: { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('rejects changed editions, non-PDF responses, redirects and oversized streams', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const options = fetcher => ({ sources: { lcne: source }, fetcher });
