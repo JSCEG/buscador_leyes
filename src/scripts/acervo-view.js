@@ -80,6 +80,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     }
     const timeline = element('a', 'ac-stats-link', 'Línea del tiempo'); timeline.href = '#cronologia';
     facts.append(timeline);
+    const reto = element('a', 'ac-stats-link ac-reto-link', 'Reto del día'); reto.href = '#reto';
+    facts.append(reto);
     const topics = element('div', 'ac-topics');
     const topThemes = acervoThemes(laws).slice(0, 6);
     if (topThemes.length) {

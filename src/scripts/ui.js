@@ -411,8 +411,8 @@ export function initUI() {
         const originHash = location.hash;
         if (location.hash.startsWith('#explorar')) {
             explorerModalReturn = explorerReturnContext(location.hash);
-        } else if (permitsRoute(location.hash)) {
-            // Articles cited by a CNE resolution: closing the reader goes back to it.
+        } else if (permitsRoute(location.hash) || location.hash === '#reto') {
+            // Articles opened from a CNE resolution or the reto: closing the reader goes back to it.
             explorerModalReturn = { hash: location.hash };
         }
         if (list && list.length) {
@@ -560,6 +560,12 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             showPermitsView({ ...permits, updateHistory: false });
+        } else if (hash === '#reto') {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showRetoView({ updateHistory: false });
         } else if (hash === '#cronologia') {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -804,7 +810,7 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
-    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
         undockSearch();
@@ -2916,6 +2922,33 @@ export function initUI() {
         });
     }
     document.getElementById('mobile-nav-permisos')?.addEventListener('click', () => toggleMobileMenu(false));
+
+    let retoView = null;
+    let retoRequest = 0;
+    /** Reto Jurídico (#reto): the daily quiz built from the acervo. */
+    function showRetoView({ updateHistory = true } = {}) {
+        if (updateHistory) setHash('#reto');
+        if (retoView && activeNavId === 'nav-reto' && resultsContainer.querySelector('.rt-view')) return;
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('nav-reto');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        if (!catalogLoaded) {
+            resultsContainer.innerHTML = skeleton('list', 'Preparando el reto');
+            return;
+        }
+        retoView?.destroy();
+        retoView = null;
+        const request = ++retoRequest;
+        withProgress(import('./reto-view.js')).then(({ renderRetoView }) => {
+            if (request !== retoRequest || location.hash !== '#reto') return;
+            retoView = renderRetoView(resultsContainer, () => cachedSummaries, { onOpenLaw: law => openLawDetail(law) });
+            window.scrollTo({ top: 0 });
+        });
+    }
+    document.getElementById('mobile-nav-reto')?.addEventListener('click', () => toggleMobileMenu(false));
 
     function showAyudaView() {
         setHash(null);
