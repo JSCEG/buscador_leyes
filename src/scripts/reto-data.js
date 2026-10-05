@@ -4,6 +4,7 @@
  */
 import { supabase } from '../lib/supabase.js';
 import { parseDefinitions } from '../lib/definitions.js';
+import { shortTitle } from '../lib/short-title.js';
 
 let glossaryPromise = null;
 
@@ -22,12 +23,13 @@ export function loadAllDefinitions(summaries = []) {
                 const terms = parseDefinitions(row.contenido);
                 if (terms.size < 3) continue;
                 const law = summaries.find(item => String(item.id) === String(row.ley_id));
-                const source = law?.siglas || law?.titulo || 'el acervo';
+                const source = law?.siglas || law?.titulo || 'la ley';
+                const sourceName = law ? shortTitle(law.titulo) || law.titulo : source;
                 for (const [term, definition] of terms) {
                     const key = `${term}|${source}`;
                     if (seen.has(key)) continue;
                     seen.add(key);
-                    entries.push({ term, definition, source, lawId: row.ley_id, articleId: row.id });
+                    entries.push({ term, definition, source, sourceName, lawId: row.ley_id, articleId: row.id });
                 }
             }
             return entries;

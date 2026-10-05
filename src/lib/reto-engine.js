@@ -13,6 +13,9 @@ export const RETO_LENGTH = 5;
 
 const fold = value => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const DAY = 864e5;
+const MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+/** "2025-03-18" → "18 mar 2025". */
+export const friendlyDate = iso => { const [y, m, d] = String(iso).slice(0, 10).split('-').map(Number); return y ? `${d} ${MONTHS[m - 1]} ${y}` : ''; };
 
 /** Local calendar day, "YYYY-MM-DD". */
 export const dayKey = (date = new Date()) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -92,8 +95,8 @@ export function termQuestion(rng, glossary, { exclude = new Set() } = {}) {
     const pool = sameSource.length >= 3 ? sameSource : usable.filter(other => other.term !== entry.term);
     const { options, answer } = withAnswer(rng, entry.term, sample(rng, pool, 3).map(other => other.term));
     return {
-        kind: 'term', label: 'Definición', prompt: '¿Qué término se define así?', body: entry.definition, options, answer,
-        explain: `Definición oficial de «${entry.term}» en ${entry.source}.`, link: entry.lawId ? { lawId: entry.lawId, articleId: entry.articleId } : null,
+        kind: 'term', label: '¿Qué significa?', prompt: '¿A qué palabra corresponde esta definición?', body: entry.definition, options, answer,
+        explain: `«${entry.term}» se define así en: ${entry.sourceName || entry.source}.`, link: entry.lawId ? { lawId: entry.lawId, articleId: entry.articleId } : null,
     };
 }
 
@@ -153,8 +156,8 @@ export function passageQuestion(rng, law, passage, laws) {
     if (wrong.length < 3) return null;
     const { options, answer } = withAnswer(rng, optionName(law), wrong.map(optionName));
     return {
-        kind: 'passage', label: 'Pasaje', prompt: '¿De qué instrumento es este pasaje?', body, options, answer,
-        explain: `Es «${passage.identificador || 'este texto'}» de ${nameOf(law)}.`, link: { lawId: law.id, articleId: passage.id },
+        kind: 'passage', label: '¿De qué ley es?', prompt: 'Este texto es parte de una ley o regla. ¿De cuál?', body, options, answer,
+        explain: `Viene de: ${nameOf(law)}${passage.identificador ? ` (${passage.identificador.replace(/\s+/g, ' ').trim()})` : ''}.`, link: { lawId: law.id, articleId: passage.id },
     };
 }
 
@@ -177,8 +180,8 @@ export function issuerQuestion(rng, laws, { exclude = new Set() } = {}) {
     const pool = preferred.length >= 3 ? preferred : wrong;
     const { options, answer } = withAnswer(rng, correct.label, sample(rng, pool, 3).map(item => item.label));
     return {
-        kind: 'issuer', label: 'Emisor', prompt: '¿Quién emite este instrumento?', body: law.titulo, options, answer,
-        explain: `${nameOf(law)} lo emite: ${correct.label}.`, link: { lawId: law.id },
+        kind: 'issuer', label: '¿Quién la publicó?', prompt: '¿Quién publicó esta ley o regla?', body: law.titulo, options, answer,
+        explain: `La publicó: ${correct.label}.`, link: { lawId: law.id },
     };
 }
 
@@ -196,10 +199,10 @@ export function orderQuestion(rng, laws) {
     const sorted = [...chosen].sort((a, b) => a.fecha_publicacion.localeCompare(b.fecha_publicacion));
     const shown = shuffle(rng, chosen);
     return {
-        kind: 'order', label: 'Cronología', prompt: 'Ordénalos del más antiguo al más reciente', body: 'Toca los instrumentos en orden de publicación.',
-        options: shown.map(optionName), dates: shown.map(law => law.fecha_publicacion.slice(0, 10)),
+        kind: 'order', label: '¿Cuál salió primero?', prompt: 'Ordénalas de la más antigua a la más nueva', body: 'Tócalas una por una, empezando por la que se publicó primero.',
+        options: shown.map(optionName), dates: shown.map(law => friendlyDate(law.fecha_publicacion)),
         answerOrder: sorted.map(law => shown.indexOf(law)),
-        explain: sorted.map(law => `${optionName(law)} (${law.fecha_publicacion.slice(0, 10)})`).join(' → '), link: null,
+        explain: `Orden correcto: ${sorted.map(law => `${optionName(law)} (${friendlyDate(law.fecha_publicacion)})`).join(' → ')}.`, link: null,
     };
 }
 

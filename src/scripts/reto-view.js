@@ -10,6 +10,7 @@ import '../styles/reto.css';
 const STORE = 'reto-resultados';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const LETTERS = ['A', 'B', 'C', 'D'];
+const pick = list => list[Math.floor(Math.random() * list.length)];
 
 const readResults = () => { try { return JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch { return {}; } };
 function saveResult(day, marks) {
@@ -33,8 +34,8 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
     root.innerHTML = `
         <div class="rt-head">
             <p class="rt-eyebrow">Reto Jurídico <span>#${number}</span></p>
-            <h1 id="rt-title">El reto del día</h1>
-            <p class="rt-intro">Cinco preguntas armadas con el acervo: definiciones oficiales, pasajes de artículos, quién emite cada instrumento y cuándo se publicó. Cambia cada día y es el mismo para todos.</p>
+            <h1 id="rt-title">¿Cuánto sabes de las leyes de energía?</h1>
+            <p class="rt-intro">Cinco preguntas rápidas sobre las leyes y reglas de energía en México. Todas salen del texto oficial. Cada día hay un reto nuevo, el mismo para todos.</p>
             <div class="rt-stats" aria-live="polite"></div>
         </div>
         <div class="rt-stage"><div class="rt-card rt-loading"><i></i><i></i><i></i></div></div>`;
@@ -47,7 +48,7 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         const streak = streakFrom(days, today) || streakFrom(days, dayKey(new Date(Date.now() - 864e5)));
         const perfect = days.filter(day => results[day].marks.every(Boolean)).length;
         root.querySelector('.rt-stats').innerHTML = `
-            <span><b>${streak}</b> ${streak === 1 ? 'día seguido' : 'días seguidos'}</span>
+            <span>🔥 <b>${streak}</b> ${streak === 1 ? 'día seguido' : 'días seguidos'}</span>
             <span><b>${days.length}</b> ${days.length === 1 ? 'reto jugado' : 'retos jugados'}</span>
             <span><b>${perfect}</b> ${perfect === 1 ? 'perfecto' : 'perfectos'}</span>`;
     }
@@ -67,10 +68,10 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         stage.innerHTML = '<div class="rt-card rt-loading"><i></i><i></i><i></i></div>';
         prepare(seed).then(questions => {
             if (!alive) return;
-            if (questions.length < 3) { stage.innerHTML = '<div class="rt-card"><p>No pudimos armar el reto de hoy. Intenta más tarde.</p></div>'; return; }
+            if (questions.length < 3) { stage.innerHTML = '<div class="rt-card"><p>No pudimos preparar el reto de hoy. Intenta en un rato.</p></div>'; return; }
             play(questions, { practice });
         }).catch(() => {
-            if (alive) stage.innerHTML = '<div class="rt-card"><p>No pudimos cargar el acervo para el reto. Revisa tu conexión e intenta de nuevo.</p><button type="button" class="rt-btn rt-retry">Reintentar</button></div>';
+            if (alive) stage.innerHTML = '<div class="rt-card"><p>No pudimos cargar las preguntas. Revisa tu conexión e intenta de nuevo.</p><button type="button" class="rt-btn rt-retry">Reintentar</button></div>';
             stage.querySelector('.rt-retry')?.addEventListener('click', () => start({ seed, practice }));
         });
     }
@@ -87,7 +88,7 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
             stage.innerHTML = `
                 <article class="rt-card rt-question" aria-labelledby="rt-q-prompt">
                     <div class="rt-q-top">${dots()}<span class="rt-count">${index + 1} de ${questions.length}</span></div>
-                    <p class="rt-kind"><span>${esc(q.label)}</span>${q.isNew ? '<span class="rt-new">Nuevo en el acervo</span>' : ''}${practice ? '<span class="rt-practice">Práctica</span>' : ''}</p>
+                    <p class="rt-kind"><span>${esc(q.label)}</span>${q.isNew ? '<span class="rt-new">Recién publicado</span>' : ''}${practice ? '<span class="rt-practice">Práctica</span>' : ''}</p>
                     <h2 id="rt-q-prompt" class="rt-prompt">${esc(q.prompt)}</h2>
                     ${order ? `<p class="rt-hint">${esc(q.body)}</p>` : `<blockquote class="rt-body">${esc(q.body)}</blockquote>`}
                     <div class="rt-options${order ? ' is-order' : ''}" role="group" aria-label="Opciones">
@@ -152,11 +153,11 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
             stage.querySelector('.rt-order-actions')?.remove();
             const last = index === questions.length - 1;
             stage.querySelector('.rt-feedback').innerHTML = `
-                <p class="rt-verdict ${ok ? 'is-ok' : 'is-bad'}">${ok ? '¡Correcto!' : 'No esta vez.'}</p>
+                <p class="rt-verdict ${ok ? 'is-ok' : 'is-bad'}">${ok ? pick(['¡Correcto!', '¡Exacto!', '¡Muy bien!']) : 'Casi. La respuesta correcta está en verde.'}</p>
                 <p class="rt-explain">${esc(q.explain)}</p>
                 <div class="rt-feedback-actions">
-                    ${q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="article">Ver el artículo</button>' : ''}
-                    ${q.link?.lawId && !q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="law">Abrir el instrumento</button>' : ''}
+                    ${q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="article">Ver dónde lo dice</button>' : ''}
+                    ${q.link?.lawId && !q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="law">Ver la ley completa</button>' : ''}
                     <button type="button" class="rt-btn rt-next">${last ? 'Ver resultado' : 'Siguiente'}</button>
                 </div>`;
             stage.querySelector('.rt-q-top').innerHTML = `${dots()}<span class="rt-count">${index + 1} de ${questions.length}</span>`;
@@ -185,8 +186,8 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         root.classList.remove('is-playing');
         const score = marks.filter(Boolean).length;
         const line = resultLine(marks);
-        const text = `Reto Jurídico #${number} · ${score}/${marks.length}\n${line}\nJuega el reto de hoy: https://buscador-juridico.com/#reto`;
-        const message = score === marks.length ? '¡Reto perfecto!' : score >= marks.length - 1 ? '¡Muy bien!' : score >= Math.ceil(marks.length / 2) ? 'Buen resultado' : 'Mañana hay revancha';
+        const text = `Hice el Reto Jurídico #${number}: ${score}/${marks.length}\n${line}\n¿Cuánto sabes de las leyes de energía? Juega aquí: https://buscador-juridico.com/#reto`;
+        const message = score === marks.length ? '¡Perfecto! Sabes mucho de energía.' : score >= marks.length - 1 ? '¡Muy bien! Casi perfecto.' : score >= Math.ceil(marks.length / 2) ? '¡Bien! Mañana puedes mejorar.' : 'Cada reto te enseña algo nuevo. ¡Vuelve mañana!';
         stage.innerHTML = `
             <div class="rt-card rt-result">
                 ${practice ? '<p class="rt-kind"><span class="rt-practice">Práctica · no cuenta para tu racha</span></p>' : ''}
@@ -195,9 +196,9 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
                 <p class="rt-line" aria-label="${score} de ${marks.length} correctas">${line}</p>
                 <div class="rt-result-actions">
                     ${practice ? '' : '<button type="button" class="rt-btn rt-share">Compartir resultado</button>'}
-                    <button type="button" class="rt-btn rt-ghost rt-practice-btn">Practicar con otras preguntas</button>
+                    <button type="button" class="rt-btn rt-ghost rt-practice-btn">Jugar una ronda de práctica</button>
                 </div>
-                ${practice ? '' : `<p class="rt-next-day">El próximo reto sale en <b class="rt-countdown"></b>.</p>`}
+                ${practice ? '' : `<p class="rt-next-day">Mañana hay un reto nuevo. Sale en <b class="rt-countdown"></b>.</p>`}
             </div>`;
         stage.querySelector('.rt-share')?.addEventListener('click', async event => {
             try {
@@ -228,13 +229,13 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         if (done) { result(done.marks); return; }
         stage.innerHTML = `
             <div class="rt-card rt-start">
-                <p class="rt-start-title">Reto #${number}</p>
+                <p class="rt-start-title">El reto de hoy</p>
                 <ul class="rt-rules">
-                    <li><b>${RETO_LENGTH} preguntas</b> sobre leyes, reglamentos y acuerdos del acervo.</li>
-                    <li>Una sale de lo <b>publicado recientemente</b>.</li>
-                    <li>Después de cada una puedes <b>abrir la fuente</b> y leerla.</li>
+                    <li><b>${RETO_LENGTH} preguntas</b>, unos 2 minutos.</li>
+                    <li>Una es sobre algo que se <b>publicó hace poco</b>.</li>
+                    <li>Después de cada respuesta te mostramos <b>dónde lo dice</b> la ley.</li>
                 </ul>
-                <button type="button" class="rt-btn rt-go">Empezar el reto</button>
+                <button type="button" class="rt-btn rt-go">Empezar</button>
             </div>`;
         stage.querySelector('.rt-go').addEventListener('click', () => start({ seed: today, practice: false }));
     }

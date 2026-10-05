@@ -62,8 +62,11 @@ describe('questions', () => {
     it('orders four instruments published far enough apart', () => {
         const q = orderQuestion(seededRandom('o'), laws);
         expect(q.options).toHaveLength(4);
-        const sortedDates = q.answerOrder.map(i => q.dates[i]);
-        expect([...sortedDates].sort()).toEqual(sortedDates);
+        // Shown dates read like "18 mar 2025"; the answer follows the real publication dates.
+        expect(q.dates.every(date => /^\d{1,2} [a-z]{3} \d{4}$/.test(date))).toBe(true);
+        const byName = new Map(laws.map(law => [law.titulo, law.fecha_publicacion]));
+        const ordered = q.answerOrder.map(i => byName.get(q.options[i]) || '');
+        expect(ordered.filter(Boolean)).toEqual([...ordered.filter(Boolean)].sort());
         expect(isCorrect(q, q.answerOrder)).toBe(true);
         expect(isCorrect(q, [...q.answerOrder].reverse())).toBe(false);
     });
