@@ -1,0 +1,1440 @@
+{
+  "instrumento": "ACUERDO-CNE-16/04/2026-DACG-SAE",
+  "instrumentoId": "d5562ad3-7682-4add-8cc9-7ee5994fdc1c",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/16-04-2026/Matutina/326685",
+  "pdfTemporal": "tmp\\dof-2026-04-16-matutina-326685.pdf",
+  "sha256": "aa23e284c9c97542a96c8db5278f4694f38d0ad1f07b2081b6f0db268a93cba4",
+  "bytes": 6748589,
+  "paginasPdf": 304,
+  "paginasImpresasMapeadas": [
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57
+  ],
+  "fragmentosOficiales": 154,
+  "anclasGeometricas": 1438,
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo",
+      "id": "cf248663-cb6b-4756-a3b7-2f00a2145bf2",
+      "paginas": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "anclas": 195,
+      "prefijoCotejado": "acuerdodelacomisionnacionaldeenergiaporelqueseemitenlasdisposicionesadministrativasdecaractergeneralparalaintegraciondesistemasdealmacenamientodeenergiaelectricaalsistemaelectriconacionalalmargenunselloconelescudonaciona"
+    },
+    {
+      "fragmento": "1.1.",
+      "id": "66b9f4fc-34ed-487d-ba3e-967a8b8619fb",
+      "paginas": [
+        38
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "objetivolaspresentesdisposicionestienenporobjetoestablecerlosrequisitosquesedebencumplirparalaintegraciondesistemasdealmacenamientodeenergiaelectricaalsistemaelectriconacionalloslineamientosdelosserviciosquepuedenproveer"
+    },
+    {
+      "fragmento": "1.2.",
+      "id": "ecdc72e6-1c39-48f6-8059-1bdac3e3170b",
+      "paginas": [
+        38
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "alcancelaspresentesdisposicionessondeordenpublicointeresgeneralyobservanciaobligatoriaentodoelterritorionacionalelcentronacionaldecontroldeenergialasgeneradoraslassuministradoraslasalmacenadoraslatransportistaladistribui"
+    },
+    {
+      "fragmento": "1.3.",
+      "id": "723df0fa-33dd-4744-8635-b811b90b52c1",
+      "paginas": [
+        38
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "modificacioneslamodificaciondelaspresentesdisposicionesasicomodelosinstrumentoscomplementariosqueensucasoseemitancorrespondealacomisionnacionaldeenergiaencoordinacionconlasecretarialacomisionnacionaldeenergiapuedemodific"
+    },
+    {
+      "fragmento": "1.4.",
+      "id": "b6a6138f-0ea2-4c9f-9494-56b25e92403e",
+      "paginas": [
+        38,
+        39,
+        40
+      ],
+      "anclas": 174,
+      "prefijoCotejado": "definicionessiglasyacronimosparalacorrectainterpretacionyaplicaciondelaspresentesdisposicionesademasdelasdefinicionescontenidasenlaleydelsectorelectricosureglamentoylasreglasdelmercadodebenemplearseensingularoplurallassi"
+    },
+    {
+      "fragmento": "1.5.",
+      "id": "559dcf69-e1a2-4a6e-904f-f2cca5656159",
+      "paginas": [
+        40,
+        41
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "referenciasnormativasparalosfinesdelasdisposicionesdebenaplicarsedemaneraenunciativamasnolimitativalasnormasoficialesmexicanasnormasinternacionalesynormasextranjerasqueseindicanacontinuacionoaquellasquelasmodifiquenosust"
+    },
+    {
+      "fragmento": "1.6.",
+      "id": "7da006de-c7b3-4391-983b-36bed77fd94e",
+      "paginas": [
+        41
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "supervisionyvigilanciaparafinesdesupervisionyvigilanciadelasdisposicioneslacnepuedeordenaryrealizarvisitasdeverificacionrequerirlapresentaciondeinformacionycitaracompareceralosintegrantesdelsectorelectricoconformealoesta"
+    },
+    {
+      "fragmento": "1.7.",
+      "id": "7382830a-96ae-4a22-90ba-f329d4fd48db",
+      "paginas": [
+        41
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "sancioneslasinfraccionesalasdisposicionesdebensersancionadasdeconformidadconloestablecidoenlalseyelrlsesinperjuiciodelassancionesquederivendeotrosinstrumentosregulatoriosaplicablesnidelaresponsabilidadcivilopenalqueresul"
+    },
+    {
+      "fragmento": "1.8.",
+      "id": "5801e2bc-4671-4947-9552-6805bdba85f1",
+      "paginas": [
+        41
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "controversiaslascontroversiasquesederivendelainterpretacionoaplicaciondelasdisposicionesdebensustanciarseconformealalseelrlselasreglasdelmercadoydemasdisposicionesaplicablessinperjuiciodelasatribucionesdelacneenelambitod"
+    },
+    {
+      "fragmento": "2.1.",
+      "id": "cca256a4-b9d1-4538-b017-e3bda0eaaeef",
+      "paginas": [
+        41
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lossaeepuedenintegrarsecomoinfraestructuracomplementariaenlasactividadesdelsectorelectricosuintegracionnoimplicaporsimismalarealizaciondelaactividadreguladadealmacenamientoporlotantosutratamientoregulatoriosedeterminacon"
+    },
+    {
+      "fragmento": "2.2.",
+      "id": "4e21fe63-5e96-429d-89f6-21dcff483e09",
+      "paginas": [
+        41
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "laintegraciondelossaeealsendeberealizarseconsiderandolosinstrumentosocriteriosdeplaneacionvinculantedelsenypuedeserbajoalgunadelassiguientesmodalidadesdeparticipacionsaeecesaeeccsaeeautoconsumosaeerntrgdosaeenoasociadoco"
+    },
+    {
+      "fragmento": "2.3.",
+      "id": "e131ccfb-7858-4290-bafc-2c68187f6c09",
+      "paginas": [
+        41
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lasmodalidadesdeparticipacionprevistasenlasdisposicionesdebencumplirseguncorrespondaconlosrequerimientostecnicosestablecidosenelcodigoderedlanom001sede2012lasespecificacionestecnicasaplicablesydemasnormatividadqueresulte"
+    },
+    {
+      "fragmento": "2.4.",
+      "id": "fd2483ce-57b0-458c-9d08-ac0a321b1862",
+      "paginas": [
+        41
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "laintegraciondeunsaeeenunacentralelectricaocentrodecargaexistentesseconsideraunamodificaciontecnicaenconsecuencialarepresentantedelacentralelectricaodelcentrodecargadebeingresarunasolicituddeestudiosanteelcenaceparalaate"
+    },
+    {
+      "fragmento": "2.5.",
+      "id": "35a218da-15aa-4bd1-83d2-9d7ea38b11f4",
+      "paginas": [
+        41
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ladeclaraciondeentradaenoperacioncomercialdelossaeequeparticipenenelmemdebeobtenerseconformealpoc"
+    },
+    {
+      "fragmento": "2.6.",
+      "id": "a5229b99-d6c9-4b38-94c9-f20c4ef761e3",
+      "paginas": [
+        41
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "lasinstruccionesparadarcumplimientoaloprevistoenelarticulo64delrlsepuedenemitirseatravesdeloperadordelsistemaomediantelosautomatismosdelossistemasdecontroldelsaee"
+    },
+    {
+      "fragmento": "2.7.",
+      "id": "718c0a0b-1697-4a31-b802-93dd9874ae28",
+      "paginas": [
+        41
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elcenaceconformealoestablecidoenlasreglasdelmercadopuedeemitirinstruccionesdeoperacionalossaeeconelfindemantenerlaconfiabilidaddelsenindependientementedelestadooperativoenelqueseencuentreelsen"
+    },
+    {
+      "fragmento": "2.8.",
+      "id": "6013643e-8bd0-4c22-97ac-b03bb3909dc1",
+      "paginas": [
+        42
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "lamitigaciondelosefectosenlaconfiabilidaddelsenasociadosalainterconexiondeunacentralelectricacuyafuenteprimariadeenergiapresentecondicionesdevariabilidaddebenatendersedemaneraprioritariamediantelosrecursossistemicoslosse"
+    },
+    {
+      "fragmento": "2.8.1.",
+      "id": "7eaa8e89-60a2-456c-82de-a707ca733a7a",
+      "paginas": [
+        42
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "elmecanismoqueensucasosedeterminedebejustificarseatendiendolaubicaciondelproyectolatopologiadelaredladisponibilidadderecursosflexiblesexistentesoprevistosylaconfiabilidaddelsen"
+    },
+    {
+      "fragmento": "2.8.2.",
+      "id": "ba82ca0a-9316-462a-b636-ce3d0f46a163",
+      "paginas": [
+        42
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "lossaeeintegradosparacontribuiralaconfiabilidadymitigarlosefectosasociadosalavariabilidaddelafuenteprimariadeenergiadeunacentralelectricadebenmantenerdurantelavigenciadelpermisodegeneraciondeenergiaelectricalacapacidadde"
+    },
+    {
+      "fragmento": "2.9.",
+      "id": "1964e158-b09d-49d5-8ebd-c2fe5feba4b6",
+      "paginas": [
+        42
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lossaeealosqueserefierenlasdisposicionespuedendemaneraenunciativamasnolimitativaempleartecnologiastalescomoalmacenamientoelectroquimicoobateriasalmacenamientomecanicoalmacenamientoporrebombeohidraulicoalmacenamientoporvo"
+    },
+    {
+      "fragmento": "2.10.",
+      "id": "f8db8798-ee5e-4cda-bd3f-1b9f85c2a324",
+      "paginas": [
+        42
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lossaeecuyatecnologiadependadedispositivosdeelectronicadepotenciaparainyectarenergiaalarntolasrgddebenimplementartecnologiaformadoraderedgridformingcomopartedelosrequerimientostecnicosdelproyecto"
+    },
+    {
+      "fragmento": "2.11.",
+      "id": "6df57d73-cde3-4537-8f26-374081117e9f",
+      "paginas": [
+        42,
+        43
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "todoslossaeequepretendanofrecerenergiaelectricayproductosasociadosenelmemdebenpresentarunasolicituddeestudiosdeinterconexionasimismotodosaeequepretendaretirarenergiaelectricadelarntodelasrgddebepresentarlasolicituddeestu"
+    },
+    {
+      "fragmento": "2.11.1.",
+      "id": "fec7d581-2e76-44f2-a4e4-21de46f2639e",
+      "paginas": [
+        43
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lascentraleselectricasycentrosdecargaexistentesqueintegrensaeeyconelloincrementensucapacidadinstaladanetademandacontratadaodemandamaximaseguncorrespondadebensolicitarlarealizaciondenuevosestudiosalcenace"
+    },
+    {
+      "fragmento": "2.11.2.",
+      "id": "956978ae-3ed5-45a0-9f32-876cc116ea1a",
+      "paginas": [
+        43
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "elcenacedeberealizarunestudiorapidoparadeterminarsilaintegraciondeunsaeeceunsaeeccounsaeeautoconsumorequiererealizarelestudioindicativoelestudiodeimpactooelestudiodeinstalacionesosoloalgunodeellososilosincrementosdecapac"
+    },
+    {
+      "fragmento": "2.11.3.",
+      "id": "353c7afb-c975-4a0f-b566-8351e3c1c951",
+      "paginas": [
+        43
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "elcenacedeberealizarelanalisisdevariabilidadconunenfoquesistemicoempleandolametodologiavigenteparadichoanalisisyconsiderandolascondicionesoperativasdelsistemaelectricoenlazonaenlaquesesolicitelainterconexiondelacentralel"
+    },
+    {
+      "fragmento": "2.11.4.",
+      "id": "3db7027d-d209-445f-ba3a-5f25faddaa9c",
+      "paginas": [
+        43
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "paratodoslosestudiosdebeconsiderarseunacorrientedefallaparaelsaeedealmenosdosveceslacorrientenominalsostenidadurantelafallaenunperiodominimode700msenlasterminalesdelequipodelsaeeconformeseintegrenalsennuevascentraleselec"
+    },
+    {
+      "fragmento": "2.12.",
+      "id": "ec823410-ad59-4080-95d9-b21f24324621",
+      "paginas": [
+        43,
+        44
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "lossaeequeseintegrenencualquieradelasmodalidadesdescritasenelnumeral14fraccionesxxvaxxixdelasdisposicionesdebencumplirconlasnormasindicadasenlatabla1oenlatabla2siguientesseguncorre"
+    },
+    {
+      "fragmento": "2.13.",
+      "id": "62a22de7-4d90-4a14-b9f4-23356af72244",
+      "paginas": [
+        44
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "consideracionesgeneralesparalaoperacionenelmem"
+    },
+    {
+      "fragmento": "2.13.1.",
+      "id": "daabf36f-6516-4fbc-836d-4666e2c7c46d",
+      "paginas": [
+        44
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "paralaoperacionenelmemlasdiversasmodalidadesdeparticipaciondelossaeedebencontarconunsistemademedicionenelpuntodeinterconexionopuntodeconexionelcualdebecumplirconlaregulacionvigente"
+    },
+    {
+      "fragmento": "2.13.2.",
+      "id": "ec98df30-41d4-4982-bf42-6ae02965ef17",
+      "paginas": [
+        44
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "lossaeequeparticipenenelmempuedenpresentarofertasdecomprayofertasdeventadeenergiaelectricayproductosasociadosenelmercadodeenergiadecortoplazoconformealoprevistoenlasreglasdelmercadoydemasdisposicionesaplicablesconsideran"
+    },
+    {
+      "fragmento": "2.13.3.",
+      "id": "5e6d321a-a6fb-4158-a5ae-5779f6bb2793",
+      "paginas": [
+        44
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "lossaeequeparticipenenelmemcomounrecursodespachablenoadquierenlasobligacionesdeunaentidadresponsabledecargacuandoretirenenergiadelaredysololedebenaplicarloscargosporenergiaytarifasreguladasporelusodelaredycostodeoperacio"
+    },
+    {
+      "fragmento": "2.13.4.",
+      "id": "e8b708a3-3cc3-4734-9182-b50a0203409a",
+      "paginas": [
+        44
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "laliquidaciondelossaeedebesujetarsealprocesoquesedefineenelmanualdeliquidacionesoaquelquelomodifiqueosustituyaincluyendolastarifasreguladasasicomoloscargosycompensacionesprevistasenlasreglasdelmercado"
+    },
+    {
+      "fragmento": "2.13.5.",
+      "id": "260ab61d-6d3c-407a-8c01-e39c4ebedd8a",
+      "paginas": [
+        44
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "lastarifasreguladasparaelserviciopublicodedistribuciondeenergiaelectricaporelusodelasrgddebenaplicarsealossaeeunicamenteporelretirodeenergiaelectricalastarifasreguladasparaelserviciopublicodetransmisiondeenergiaelectrica"
+    },
+    {
+      "fragmento": "2.13.6.",
+      "id": "e97eed58-af95-43ed-9afc-82f1218d7485",
+      "paginas": [
+        44
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lasreglasdelmercadodebenestablecerlamaneraenquesedebendeterminaryrealizarlospagosquecompensenloscargosestablecidosenlosnumerales2132y2135anteriorescuandocorresponda"
+    },
+    {
+      "fragmento": "2.13.7.",
+      "id": "1ff9b73a-d30e-4352-a8c8-3b3b2d52d5ce",
+      "paginas": [
+        44
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "lossaeequeparticipenenelmemencualquieradesusmodalidadespuedencelebrarcontratosbilateralesdelargoplazodepotenciaocualquierotroproductoquegaranticelasuficienciaderecursosparasatisfacerlademandaelectricaconentidadesresponsa"
+    },
+    {
+      "fragmento": "2.13.8.",
+      "id": "3ba0247f-94b3-416c-b9fc-92c123685544",
+      "paginas": [
+        44
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "lossaeeenlasmodalidadesdesaeeceysaeenoasociadospuedencelebrarcontratosdecoberturaelectricaconlasentidadesresponsablesdecargasujetasaobligacionesdeadquisicionanticipadadeenergiaelectricapotenciaycelparaofrecerenergiaypote"
+    },
+    {
+      "fragmento": "2.13.9.",
+      "id": "2a64e69b-d81c-489c-ae7a-6b251585b6c4",
+      "paginas": [
+        44
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "loscostosdeoportunidadaplicablesalossaeedebendeterminarseconformealoprevistoenelmanualdecostosdeoportunidademitidoporelcenaceoaquelquelomodifiqueolosustituyaconsiderandosunaturalezacomorecursosdeenergialimitadadichoscost"
+    },
+    {
+      "fragmento": "2.13.10.",
+      "id": "e4af924e-268f-4cf2-b55d-e25870b884d6",
+      "paginas": [
+        44
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lossaeequecuentenconunaduraciondealmacenamientoigualomayoratreshoraspuedenacreditarpotenciaparaefectosdelmercadoparaelbalancedepotenciaconformealoestablecidoenlasreglasdelmercadoyelmanualdelmercadoparaelbalancedepotencia"
+    },
+    {
+      "fragmento": "2.14.",
+      "id": "13f9c615-a84c-4ea0-8e60-17f94b543852",
+      "paginas": [
+        44,
+        45
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "enlasmodalidadesdelossaeeendondeserealicecomprayventadeenergiaelectricalasliquidacionesocompensacionesdelosprocesosdeinyeccionyretirodeenergiadebenestarbasadosenelmismoesquemayaseaporestructuratarifariaopreciodelmercados"
+    },
+    {
+      "fragmento": "3.1.",
+      "id": "db55e739-a470-41cf-b05e-4bcc25ec5fcf",
+      "paginas": [
+        45
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lossaeecepuedenserintegradosexclusivamenteporcentraleselectricasdeenergiasrenovablessuutilizacionesdecisiondelrepresentantedelapropiacentralelectricaylasofertaspresentadasenelmemquedansujetasalasindicacionesdedespachodef"
+    },
+    {
+      "fragmento": "3.2.",
+      "id": "d1ff556b-4dc3-43e9-a5ff-6f84ba7d22c9",
+      "paginas": [
+        45
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "lossaeeceseconsideranparteintegraldelasinstalacionesyequiposdelacentralelectricaenconsecuenciayconformealarticulo193tercerparrafodelrlsenorequierenpermisodealmacenamientodeenergiaelectricarespectoalpermisodegeneracionsed"
+    },
+    {
+      "fragmento": "3.3.",
+      "id": "1f3f0cff-680c-4681-a243-bc3cf9be924f",
+      "paginas": [
+        45
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "lossaeecepuedenoperaradisposiciondelcenaceconformealoscriteriosprevistosenelnumeral2133delasdisposicionesoadisposiciondelapropiaparticipantedelmercadoquelosrepresentedeconformidadconloscriteriosdelnumeral2134delasdisposi"
+    },
+    {
+      "fragmento": "3.4.",
+      "id": "33d0bf6c-8c0e-40a0-93e0-58e384c37767",
+      "paginas": [
+        45
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lascentraleselectricasquedeclarenquelaoperaciondesusaeeceserealizabajosutotaldisposiciondebenadministrarintegramenteelsistemaenestecasolasofertasquepresenteenelmemquedansujetasalasinstruccionesdedespachoqueemitaelcenace"
+    },
+    {
+      "fragmento": "3.5.",
+      "id": "293a6386-0851-44f5-a222-f6d15def0402",
+      "paginas": [
+        45
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "consideracionesparalaelaboraciondelosestudiosdeinterconexion"
+    },
+    {
+      "fragmento": "3.5.1.",
+      "id": "825674ae-4e1b-4330-b99a-51896cec32d6",
+      "paginas": [
+        45
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "cuandoelsaeedebacompensarlosefectosasociadosalavariabilidaddelafuenteprimariadeenergiadelacentrallosescenariosquedebenestudiarsesonlossiguientesicasosbasededemandaminimamediaymaximadefinidosconformealcriteriocorrespondie"
+    },
+    {
+      "fragmento": "3.5.2.",
+      "id": "3c264fd0-93d0-46e5-9e63-b022b0da2858",
+      "paginas": [
+        45
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "lapersonasolicitantepuedeelegirentrelossiguientesmodosdeoperacionparalaelaboraciondelosestudioscorrespondientesacentraleselectricasicompensaciondelosefectosasociadosalavariabilidaddelafuenteprimariadeenergiaiioperacionen"
+    },
+    {
+      "fragmento": "3.5.3.",
+      "id": "e4b136c2-e82d-4b12-a7cc-027cdce97c7d",
+      "paginas": [
+        45,
+        46
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "integraciondesaeeencentraleselectricasexistentesdebeatendersecomounamodificaciontecnicamedianteelprocedimientoestablecidoenelnumeral2112delasdisposicioneselcenacedebedeterminareldimensionamientodelsaeeelcualdebeconsidera"
+    },
+    {
+      "fragmento": "3.5.4.",
+      "id": "21092da0-c6dd-4c57-9f37-5e2997b0c910",
+      "paginas": [
+        46
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "integraciondesaeeencentraleselectricasnuevassedeberealizarelestudioindicativoelestudiodeimpactoyelestudiodeinstalacionesconformealoestablecidoenelmanualdeinterconexionyconexionyconsiderandoadicionalmenteloprevistoenlasdi"
+    },
+    {
+      "fragmento": "3.6.",
+      "id": "25ee5d8d-71a1-417b-80b3-d86aef04bf31",
+      "paginas": [
+        46
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lossaeecedebensujetarsealprocesodeinterconexionprevistoenelmanualdeinterconexionyconexionincluidalapresentaciondelasolicituddeinterconexionanteelcenaceatravesdelsiasicycumplirconlascondicionesdeoperacionmediciondespachoy"
+    },
+    {
+      "fragmento": "3.7.",
+      "id": "2f1260be-0c18-4f7e-9eae-baa0830d40f8",
+      "paginas": [
+        46
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "lasolicituddeinterconexionparalaintegraciondesaeecedebeincluirelperfildepotenciahorarioconelcualseplaneaoperarelsaeeasociadoalacentralconsiderandoalmenosiestimaciondelperfildegeneraciondelacentralelectricaiilapotenciades"
+    },
+    {
+      "fragmento": "3.8.",
+      "id": "9713d84e-308b-4982-9692-248aceca69b5",
+      "paginas": [
+        46
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lasnuevascentraleselectricasquesolicitenunpermisodegeneraciondeenergiaelectricabajolafiguradegeneracionparaelmempuedenintegrarsaeecomopartedeldisenooriginaldesusinstalacionesyequipos"
+    },
+    {
+      "fragmento": "3.9.",
+      "id": "e6b06bfe-f0a4-4ef6-8832-306a87d95015",
+      "paginas": [
+        46
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lascentraleselectricasexistentesquecuentenconunpermisodegeneraciondeenergiaelectricavigenteotorgadoenterminosdelalseyquepretendenintegrarunsaeeomodificarlascaracteristicasdeunsaeepreviamenteasociadodebensolicitarlamodifi"
+    },
+    {
+      "fragmento": "3.10.",
+      "id": "06c7b988-25df-4705-a48c-2833593a178c",
+      "paginas": [
+        46
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "lascentraleselectricasexistentesquecuentenconunpermisodegeneracionvigenteotorgadoalamparodelaleydelserviciopublicodeenergiaelectricaodelaleydelaindustriaelectricaypretendanintegrarunsaeedebensolicitarlamigraciondesupermi"
+    },
+    {
+      "fragmento": "3.11.",
+      "id": "5c17450e-2b5a-4e03-a269-aa67d563ae82",
+      "paginas": [
+        46
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "lascentraleselectricasquecuentenconunsaeepuedenrealizarlacargadedichosistemautilizandolaenergiageneradaporlapropiacentraloensucasoapartirdeenergiaprovenientedelarntcuandoseopteporestaultimaopcionelrepresentantedelacentra"
+    },
+    {
+      "fragmento": "3.12.",
+      "id": "398c21fe-8157-4b80-8a8e-fafaf6335ded",
+      "paginas": [
+        46
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "tratandosedesaeecequepretendancargarsedesdelarntlasolicituddeconexiondebeincluirelperfildepotenciahorarioconelquesepreveaoperarelsaeeenausenciadedichainformacionocuandoestaseainsuficienteelcenacepuedeparaefectosdelosestu"
+    },
+    {
+      "fragmento": "3.13.",
+      "id": "89994faa-472c-45f2-88f9-0b6516162225",
+      "paginas": [
+        47
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "soloenaquelloscasosenloscualeselrepresentantedelacentralelectricaconformealosenaladoenelnumeral312delasdisposicioneshayadeterminadoquelacargadelsaeeserealiceapartirdeenergiaelectricaprovenientedelarntpuedepresentaroferta"
+    },
+    {
+      "fragmento": "3.14.",
+      "id": "26439a67-e8e7-4216-ab28-958ee5cf152c",
+      "paginas": [
+        47
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "lacapacidadmaximadeinyeccionalarntoalasrgdporpartedelascentraleselectricasqueintegrenunsaeenopuedeexcederlacapacidadestablecidaensucontratodeinterconexiondemodoquesidichascentraleselectricaspretendenquesucapacidadmaximad"
+    },
+    {
+      "fragmento": "3.15.",
+      "id": "1b642d33-58c5-4992-8d91-ef509273be3a",
+      "paginas": [
+        47
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "lascentraleselectricasqueintegrenunsaeepuedenacreditarpotenciadeconformidadconloestablecidoenelnumeral21310delasdisposicionesyelvalordedefquehayansolicitadoevaluarenlosestudiosdeinterconexioneltipodeofertadeenergiaelectr"
+    },
+    {
+      "fragmento": "4.1.",
+      "id": "e39250c9-57c3-4170-934e-048a47a8fb50",
+      "paginas": [
+        47
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "enestamodalidadelsaeeseconsiderapartedelasinstalacionesyequiposdelcentrodecargaconelqueseasociaporlotantonorequieredepermisodealmacenamientodeenergiaelectricasuutilizacionyoperacionesdecisiondelcentrodecarga"
+    },
+    {
+      "fragmento": "4.2.",
+      "id": "18cdc6c7-006f-4a33-a20d-5b818ea9c63e",
+      "paginas": [
+        47
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "loscentrosdecargaqueintegrenunsaeepuedenadquirirelsuministroelectricoparasucargaatravesdeunasuministradoraoparticipardirectamenteenelmemcomousuariocalificadoparticipantedelmercadoparatalesefectoslapotenciasaeedebesercons"
+    },
+    {
+      "fragmento": "4.3.",
+      "id": "200fd120-ae88-4973-9a49-d604c82c174c",
+      "paginas": [
+        47
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "loscentrosdecargaqueintegrenunsaeedebendestinarlaenergiaalmacenadaparasatisfacerlasnecesidadesensitiodelcentrodecargadichaenergianodebeserinyectadaalarntolasrgdniserobjetodeventaloanteriorsinperjuiciodelaposibleparticipa"
+    },
+    {
+      "fragmento": "4.4.",
+      "id": "05a3f13f-3bd3-4be7-bc1c-ed9664c51bd3",
+      "paginas": [
+        48
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "losnuevoscentrosdecargaqueintegrensaeecomopartedeldisenooriginaldesusinstalacionesyequiposdebenmanifestarloenlasolicituddeconexionpresentadaanteelcenaceoladistribuidoraseguncorrespondaconformealprocedimientoestablecidoen"
+    },
+    {
+      "fragmento": "4.5.",
+      "id": "01da39f2-c622-4733-b63c-d15d0096a110",
+      "paginas": [
+        48
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "laintegraciondeunsaeeenuncentrodecargaexistenteconectadoenlarntseconsideraunamodificaciontecnicaporloqueelrepresentantedelcentrodecargadebenotificaralcenaceconelfindeevaluarlanecesidadderealizarnuevosestudiosconformealma"
+    },
+    {
+      "fragmento": "4.6.",
+      "id": "9c2cb4a0-a5e0-4abf-9d90-fa3ab0b95fc8",
+      "paginas": [
+        48
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "consideracionesparalaelaboraciondelosestudiosdeconexion"
+    },
+    {
+      "fragmento": "4.6.1.",
+      "id": "49e64f4d-98ac-4ef4-b64b-9cc24426e800",
+      "paginas": [
+        48
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "losescenariosquedebenestudiarsecorrespondenaloscasosbasededemandaminimamediaymaximadefinidosconformealcriteriocorrespondienteestablecidoenelcodigodered"
+    },
+    {
+      "fragmento": "4.6.2.",
+      "id": "f04e8a77-262e-444e-9f69-015926a1d55e",
+      "paginas": [
+        48
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elsaeeasociadoalcentrodecarganodebeinyectarenergiaelectricaalarntoalasrgdenelpuntodeconexion"
+    },
+    {
+      "fragmento": "4.6.3.",
+      "id": "4b504fae-47f6-4a53-862c-dc9e9af2acab",
+      "paginas": [
+        48
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lapotenciasaeedebeserigualomenorquelademandadelcentrodecargaelsaeeunicamentepuedecargarsedesdeelpuntodeconexionynodebeexcederlacargacontratadadelcentrodecarga"
+    },
+    {
+      "fragmento": "4.6.4.",
+      "id": "fb94adf8-b6cd-4a8f-8627-93ec2dc14e08",
+      "paginas": [
+        48
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elestudiodeconexiondebeconsiderarelimpactoenlarntoenlasrgdderivadodelacargadelsaee"
+    },
+    {
+      "fragmento": "4.6.5.",
+      "id": "adddd936-3996-43d8-92a6-29846c085968",
+      "paginas": [
+        48
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "lassolicitudesdeestudiosparalaintegraciondesaeeencentrosdecargadebenatenderseconformealosiguienteicentrosdecargaexistentesdebeatendersecomounamodificaciontecnicaconformealprocedimientodelnumeral2112delasdisposicionesyiic"
+    },
+    {
+      "fragmento": "5.1.",
+      "id": "9443f361-4bdf-4730-b9c1-c610fc6de724",
+      "paginas": [
+        48
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ademasdeloprevistoenlasdisposicionesdeautoconsumocuandoalafiguradeautoconsumoseintegreunsaeesedebeobservarseguncorrespondaloestablecidoenelpresentecapitulo"
+    },
+    {
+      "fragmento": "5.2.",
+      "id": "ca87ae84-9cac-4ff4-840e-3d63e5fee0b9",
+      "paginas": [
+        48
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lacapacidadinstaladadelossaeeintegradosporlasusuariasdeautoconsumooporlapersonatitulardeunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumoencualquieradesusmodalidadesnodebeadicionarsealacapacidadinstaladaen"
+    },
+    {
+      "fragmento": "5.3.",
+      "id": "7fd7a71a-5c8f-4331-83ce-57eaa5a2900c",
+      "paginas": [
+        48
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "saeeintegradosporlasusuariasdeautoconsumo"
+    },
+    {
+      "fragmento": "5.3.1.",
+      "id": "3460c5ed-02cc-42af-82d9-437e14d10a8e",
+      "paginas": [
+        48
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "lasusuariasdeautoconsumoligadasaunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumoencualquieradesusmodalidadespuedeninstalarsaeecomoparteintegraldelasinstalacionesyequiposdesuscentrosdeconsumosinqueellorequ"
+    },
+    {
+      "fragmento": "5.3.2.",
+      "id": "d486a4e3-dda2-485a-bd6e-95a717dc7dcf",
+      "paginas": [
+        48,
+        49
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "laintegraciondelsaeepuederealizarsedemaneraaisladaalaredparticularencuyocasosucargadeberealizarseconlosrecursosdelospropioscentrosdeconsumoasimismoelsaeepuedeinterconectarsealaredparticularpararealizarsucargaenestesupues"
+    },
+    {
+      "fragmento": "5.3.3.",
+      "id": "a8f43877-32a7-4015-a6c6-98465d23fd28",
+      "paginas": [
+        49
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "laintegraciondeunsaeeconstituyeunamodificacionenlasinstalacionesdelasusuariasdeautoconsumoasimismocuandodichaintegracionimpliqueuncambioenlademandadeenergiaelectricadelasusuariasdeautoconsumodebeefectuarselaactualizacion"
+    },
+    {
+      "fragmento": "5.3.4.",
+      "id": "d0df283d-3544-4dba-aca5-a609f5b06c54",
+      "paginas": [
+        49
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "cuandouncentrodeconsumonosatisfagasusnecesidadespropiasatravesdelacentralelectricadelgrupodeautoconsumoydecidarealizaralgunadelasaccionesprevistasenelnumeral32o47delasdisposicionesdeautoconsumolaoperaciondelsaeedebesujet"
+    },
+    {
+      "fragmento": "5.4.",
+      "id": "63d05b09-2702-40dc-9d06-420e2be48068",
+      "paginas": [
+        49
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "saeeintegradosporcentraleselectricasconpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumo"
+    },
+    {
+      "fragmento": "5.4.1.",
+      "id": "ddd0f9f0-fa30-4c78-b6ab-04e598c4e629",
+      "paginas": [
+        49
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "laspersonastitularesdeunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumoasociadoacentraleselectricasdeenergiasrenovablespuedenintegrarsaeecomoparteintegraldelasinstalacionesyequiposdesucentralelectricasinqu"
+    },
+    {
+      "fragmento": "5.4.2.",
+      "id": "1beaf755-8183-4a9b-9d77-aa82cdc207ad",
+      "paginas": [
+        49
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "cuandounanuevacentralelectricadeenergiasrenovablesinteresadaenobtenerunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumoencualquieradesusmodalidadesdecidaintegrarunsaeecomopartedeldisenooriginaldesusinstalac"
+    },
+    {
+      "fragmento": "5.5.",
+      "id": "b5f74793-fa94-4521-831f-e147473fd10e",
+      "paginas": [
+        49
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "saeeintegradosporcentraleselectricascuyafuenteprimariadeenergiapresentecondicionesdevariabilidadconpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumointerconectadoconventadeexcedentes"
+    },
+    {
+      "fragmento": "5.5.1.",
+      "id": "058a679e-edcd-4c8d-9f90-3fa633178056",
+      "paginas": [
+        49
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "laenergiaalmacenadaenestossaeepuedeserdestinadaasatisfacerlasnecesidadespropiasdelapersonatitulardelpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumoodelgrupodeautoconsumooensucasoserinyectadaalarntoalasrgdc"
+    },
+    {
+      "fragmento": "5.5.2.",
+      "id": "a14e7d19-52bd-4e44-8eca-df7706546c6f",
+      "paginas": [
+        49
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "laspersonastitularesdeunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumointerconectadoconventadeexcedentescuyacentralelectricapresentecondicionesdevariabilidadensufuenteprimariadeenergiadebencumplirconelcri"
+    },
+    {
+      "fragmento": "5.5.3.",
+      "id": "421a53df-a8c0-4e2f-b4b6-c7046da8b9f9",
+      "paginas": [
+        49
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "unavezqueelcenacedetermineeldimensionamientoylascaracteristicastecnicasdelsaeerequeridoparadarcumplimientoalcriterioderespaldopropiolapersonatitulardelpermisopuedeoptarporicontratarunacoberturaderespaldoenlosterminosprev"
+    },
+    {
+      "fragmento": "5.5.4.",
+      "id": "f759fa63-70da-406d-a4a4-5ab66f2db075",
+      "paginas": [
+        49
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "cuandolapersonatitulardelpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumointerconectadoconventadeexcedentesopteporcumplirelrequisitoderespaldopropiomediantelaintegraciondeunsaeecomopartedelasinstalacionesye"
+    },
+    {
+      "fragmento": "5.5.5.",
+      "id": "9348535b-6351-4ad3-b7e9-48d475dde076",
+      "paginas": [
+        49
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lascentraleselectricasobligadasacumplirelcriterioderespaldopropiopuedenintegrarcapacidaddealmacenamientoadicionalalarequeridaparacumplircondichocriteriolautilizaciondeestacapacidaddealmacenamientoadicionalesdecisiondelap"
+    },
+    {
+      "fragmento": "5.6.",
+      "id": "3aaafcf6-7258-4ed8-8fee-2ed2d22ed8f3",
+      "paginas": [
+        50
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "saeeintegradosporcentraleselectricasconpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumointerconectadosinventadeexcedentes"
+    },
+    {
+      "fragmento": "5.6.1.",
+      "id": "5741d622-990c-4320-992e-bd2fb0eedaba",
+      "paginas": [
+        50
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "laintegraciondelsaeedebenotificarsealcenacealmomentodesolicitarsuinterconexionafindequeelcenaceconsiderelascaracteristicasdelsaeeenlarealizaciondelosestudioscorrespondienteslossaeeintegradosbajoestamodalidaddeautoconsumo"
+    },
+    {
+      "fragmento": "5.6.2.",
+      "id": "14e2b50d-8ea0-4ea3-9545-6f3c3f4b228f",
+      "paginas": [
+        50
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "encasodequelaintegraciondelsaeeserealiceunavezquelacentralelectricayaseencuentreenoperacionlapersonatitulardelpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumodebeingresaranteelcenacelasolicituddeestudioscor"
+    },
+    {
+      "fragmento": "5.7.",
+      "id": "b5755e51-dc2e-4ea1-9ef7-f8cbdee91e01",
+      "paginas": [
+        50
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "consideracionesparalaelaboraciondelosestudiosdeinterconexionylosestudiosdeconexion"
+    },
+    {
+      "fragmento": "5.7.1.",
+      "id": "6b6ebf0b-59f5-44cd-b79f-8ec950417181",
+      "paginas": [
+        50
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "losescenariosquedebenestudiarsesonlossiguientesicasosbasededemandaminimamediaymaximadefinidosconformealcriteriocorrespondienteestablecidoenelcodigoderedyiiencasodequeelpermisodegeneraciondeenergiaelectricabajolafiguradea"
+    },
+    {
+      "fragmento": "5.7.2.",
+      "id": "2db225c3-4e77-4766-a6c2-76887571a284",
+      "paginas": [
+        50
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "integraciondesaeeenlafiguradeautoconsumosininyecciondeenergiaelectricaalaredestossaeenodebeninyectarenergiaelectricaalarntnialasrgdenelpuntodeinterconexionenestamodalidadlademandadelcentrodeconsumodebesermayoralacapacida"
+    },
+    {
+      "fragmento": "5.7.3.",
+      "id": "b8470333-b98d-4674-978d-d0b5e212545e",
+      "paginas": [
+        50
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "integraciondesaeebajolafiguradeautoconsumoconinyecciondeenergiaelectricaalaredestossaeepuedeninyectarenergiaelectricaalarntoalasrgdenelpuntodeinterconexionenestamodalidadlacentralelectricadebecontarconunacapacidadmayorqu"
+    },
+    {
+      "fragmento": "5.7.4.",
+      "id": "d42f5a69-129f-4ecd-a1e8-16b6bb4b51f6",
+      "paginas": [
+        50,
+        51
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lassolicitudesdeestudiosparalaintegraciondesaeeasociadosalafiguradeautoconsumoexistentessedebeconsiderarcomounamodificaciontecnica"
+    },
+    {
+      "fragmento": "6.1.",
+      "id": "d4aab7b0-a64c-458c-980c-5b48c6b453d8",
+      "paginas": [
+        51
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "enestamodalidadelsaeeconstituyeunelementointegraldelainfraestructuradelarntodelasrgdsuutilizaciondebeorientarseafortalecerlaprestaciondelserviciopublicodetransmisionodistribuciondeenergiaelectricaasicomoaaquellasacciones"
+    },
+    {
+      "fragmento": "6.2.",
+      "id": "6f170da5-c947-4aff-b228-126493721ab6",
+      "paginas": [
+        51
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "lossaeerntrgdsondepropiedadexclusivadelatransportistaoladistribuidoraseguncorrespondaelcenaceylacfedebenestablecerunprotocolodeintercambiodeinformacionquepermitaevaluareldesempenodeestosactivosydeterminarloscostosevitado"
+    },
+    {
+      "fragmento": "6.3.",
+      "id": "027eac96-117f-4ed9-bf9c-6dcdf43a93fc",
+      "paginas": [
+        51
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "laenergiaquelossaeerntrgdcarguenalmacenenydescarguennoestasujetaapagosniacontraprestacionalgunatodavezquelaenergiaelectricaylosproductosasociadosdeestamodalidaddesaeesedestinaexclusivamenteafinessistemicosdeconfiabilidad"
+    },
+    {
+      "fragmento": "6.4.",
+      "id": "2d47c2eb-b611-4d5f-989c-a75114b3fbc5",
+      "paginas": [
+        51
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "elcenaceconelapoyodelatransportistaycomopartedelprocesodeplaneacionvinculantedebedeterminaryproponeralasecretarialosnodosdelsenenloscualesresultefavorableintegrarsaeequeformenpartedelainfraestructuradelarntparalaprestaci"
+    },
+    {
+      "fragmento": "6.5.",
+      "id": "5be6a67b-4131-47e9-95da-0b65494904e7",
+      "paginas": [
+        51
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "lossaeerntrgdenningunmomentopuedenformarpartedeunaredparticularoencontrarseasociadosaunacentralelectricaoauncentrodecarga"
+    },
+    {
+      "fragmento": "6.6.",
+      "id": "d89da3bd-f995-4bf2-afdb-446fe290b6ce",
+      "paginas": [
+        51
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "latransportistayladistribuidorapuedenintegrarsaeerntrgdconcaracteristicastecnicasquepermitansureubicacionendistintasubicacionesdelsencuandoasisedetermineviableconformealosinstrumentosocriteriosdeplaneacionvinculante"
+    },
+    {
+      "fragmento": "7.1.",
+      "id": "2636b57c-5740-4d57-8d7d-a56674545981",
+      "paginas": [
+        51
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "bajoestamodalidadlossaeenodebenestarasociadosacentraleselectricasocentrosdecarganiserintegradoscomopartedelainfraestructuraparaelserviciopublicodetransmisionydistribuciondeenergiaelectricaparaefectosdesuoperacioncuandoel"
+    },
+    {
+      "fragmento": "7.2.",
+      "id": "85b6dba5-e96d-46ee-8469-7bbc4b3d80e6",
+      "paginas": [
+        51
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "lossaeenoasociadosdebenintegrarsealsenconformeainstrumentosocriteriosquesedeterminencomoresultadodelprocesodeplaneacionvinculante"
+    },
+    {
+      "fragmento": "7.3.",
+      "id": "d33a7fad-79f7-40c3-b15e-166faf3c30ae",
+      "paginas": [
+        51
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lossaeenoasociadosintegradosporlaempresapublicadelestadopuedenserdesplazadosadistintasubicacionesdelsencuandolosinstrumentosocriteriosdelaplaneacionvinculantelodeterminenviable"
+    },
+    {
+      "fragmento": "7.4.",
+      "id": "953a9abe-5a7b-4aa2-906d-bde8a6aa3404",
+      "paginas": [
+        51
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "todoslossaeenoasociadosquepretendanparticiparenelmemdebensolicitarantelacneelpermisodealmacenamientodeenergiaelectricaelcualdebeindicarlosserviciosqueelsaeepuedeproveer"
+    },
+    {
+      "fragmento": "7.5.",
+      "id": "013ed76b-fed9-469d-bc80-e72a9043d137",
+      "paginas": [
+        52
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lossaeenoasociadosrealizanlaactividadreguladadealmacenamientoporloquepuedenparticipardeformadirectaenelmembajolamodalidaddealmacenadoraoserrepresentadosporunaparticipantedelmercadoenlamodalidaddegeneradoraosuministradora"
+    },
+    {
+      "fragmento": "7.6.",
+      "id": "9654c7c8-2f57-4b73-9bf7-c56445c804c8",
+      "paginas": [
+        52
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "todoslossaeenoasociadosdebenpresentaralcenaceunasolasolicituddeinterconexionyconexionconformealoestablecidoenelnumeral211delasdisposicioneslossaeenoasociadospuedenacreditarpotenciadeacuerdoconelvalordeladefquehayasolicit"
+    },
+    {
+      "fragmento": "7.7.",
+      "id": "58c9a4fb-515a-4129-b6dc-4fd047b32715",
+      "paginas": [
+        52
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "lautilizaciondelossaeenoasociadosesdecisiondelaalmacenadoraconsiderandoloprevistoenelnumeral76delasdisposicioneslacomercializaciondeenergiaelectricapotenciayserviciosconexossedeberealizarconformealosmecanismoscontemplado"
+    },
+    {
+      "fragmento": "7.8.",
+      "id": "cd23c0e2-187c-436a-bc54-12e13755f170",
+      "paginas": [
+        52
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "cuandolosinstrumentosocriteriosdeplaneacionvinculantelodeterminenenterminosdelarticulo32fraccioniiidelalseodelnumeral28delasdisposicioneslossaeenoasociadospuedenproveeracentraleselectricasquedecidannointegrarunsaeeyquete"
+    },
+    {
+      "fragmento": "7.8.1.",
+      "id": "d5603570-58a9-4e9f-a066-f6ea570a4451",
+      "paginas": [
+        52
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "elsaeenoasociadoqueproveaesteserviciodebecontarconpermisodealmacenamientoyserrepresentadoenlosterminosdelnumeral75delasdisposicionesasicomogestionarsucargadeenergiaelectricaprovenientedelarntodelasrgdatravesdeunpuntodeco"
+    },
+    {
+      "fragmento": "7.8.2.",
+      "id": "08ee531d-5c88-42bb-9696-46b2c23a4d73",
+      "paginas": [
+        52
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "paraproveerestacoberturalossaeenoasociadosdebenacatartodaslasespecificacionestecnicasquehayansidodeterminadasporelcenaceatravesdelanalisisdevariabilidadrealizadocomopartedelosestudiosdeinterconexiondelacentralelectrica"
+    },
+    {
+      "fragmento": "7.8.3.",
+      "id": "cc56c16e-a7d4-45cb-ba47-9be9b209c4d1",
+      "paginas": [
+        52
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "adicionalalosrequisitosyespecificacionesreferidasenelnumeral782delasdisposicioneselsaeenoasociadoquepretendaproveerlacoberturadebepresentaralcenacelasolicituddeinterconexionylasolicituddeconexioncorrespondientesdeacuerdo"
+    },
+    {
+      "fragmento": "7.8.4.",
+      "id": "4781e73f-23d9-4d82-9feb-9ab52270c458",
+      "paginas": [
+        52
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lossaeenoasociadosquefirmenuncontratoprivadoparalacoberturaderespaldopuedencomercializarenergiaelectricapotenciayserviciosconexosenlosterminosdelosnumerales76y77delasdisposicionessiemprequeinstalencapacidaddealmacenamien"
+    },
+    {
+      "fragmento": "7.8.5.",
+      "id": "1fe24ad9-b170-412b-8a7e-e583ba69d1ea",
+      "paginas": [
+        52
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "pararealizarloestablecidoenelnumeralanteriorelsaeenoasociadoenningunmomentopuedecomercializarenergiaelectricapotenciaoserviciosconexosatravesdelpuntodeconexionopuntodeinterconexionatravesdelcualbrindelacoberturaderespald"
+    },
+    {
+      "fragmento": "7.8.6.",
+      "id": "c7ac0023-f109-412e-b546-7cd6dac203be",
+      "paginas": [
+        52
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lascondicionesdecontraprestacionporelrespaldoqueelsaenoasociadoproveaalacentralelectricasepactandemutuoacuerdoentrelosinteresadosmedianteuncontratolacentralelectricadebereportarelcontratoalcenaceparafinesoperativos"
+    },
+    {
+      "fragmento": "7.9.",
+      "id": "67674563-d264-4f57-afc6-03dabb00a086",
+      "paginas": [
+        52,
+        53
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "elcenacepuedecelebrarcontratosdecortomedianoylargoplazoconlosrepresentantesdesaeenoasociadoscuandocomoresultadodelprocesodeplaneacionvinculanteseidentifiquequelaintegraciondeunsaeeconstituyeunaalternativamaseficientepara"
+    },
+    {
+      "fragmento": "7.9.1.",
+      "id": "8dd7fbf3-073c-4226-a9ce-b74913cc9c25",
+      "paginas": [
+        53
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "elcenacecomopartedelprocesodeplaneacionvinculantedeberealizarlosestudiosnecesariosparaidentificarlaszonasregionesynodosdelsenenlosqueresulteeficientelaintegraciondesaeenoasociadosparasuoperacionmediantecontratosdichosest"
+    },
+    {
+      "fragmento": "7.9.2.",
+      "id": "1efe8c29-11de-45bf-9e02-f33c724e5393",
+      "paginas": [
+        53
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "conbaseenlosestudiosaqueserefiereelnumeralanteriorelcenacedebedeterminarlafuncionoperativaquedebencumplirlossaeenoasociadosencadanodoozonadelsenasicomolosserviciosespecificosqueresultennecesariosentreellosiregulaciondefr"
+    },
+    {
+      "fragmento": "7.9.3.",
+      "id": "53cb1e0b-79c7-44f4-a832-a3dee01c35ba",
+      "paginas": [
+        53,
+        54
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "elcenacedebedefinirlascaracteristicastecnicasminimasquedebensatisfacerlossaeenoasociadosidentificadosenlosestudiosconsiderandoalmenosipotenciasaeerequeridaenelnodomwiicapacidaddealmacenamientoyduracionminimamwhyhorasiiit"
+    },
+    {
+      "fragmento": "7.10.",
+      "id": "78ae93eb-db2a-4b48-9677-8e01c26da060",
+      "paginas": [
+        54
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "consideracionesparalaelaboraciondelosestudiosdeconexionyestudiosdeinterconexion"
+    },
+    {
+      "fragmento": "7.10.1.",
+      "id": "fbd5d7eb-346b-4ce5-899d-dd2d38fe07a2",
+      "paginas": [
+        54
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "elescenarioquesedebeestudiareseldecasobasededemandaminimamediaymaximadefinidoconformealcriteriocorrespondienteestablecidoenelcodigoderedapeticiondelapersonasolicitantepuedeincluirseendichoestudioelanalisiscondef"
+    },
+    {
+      "fragmento": "7.10.2.",
+      "id": "f6d13b48-185c-4ffe-88b1-52dc5c0a08eb",
+      "paginas": [
+        54
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "sedebenrealizarlosestudiosdeinterconexionconformealoprevistoenelmanualdeinterconexionyconexionyenlasdisposicionesasimismosedebenrealizarlosestudiosdeconexionquecontemplenelanalisisparacargarelsaeedesdelarnt"
+    },
+    {
+      "fragmento": "7.10.3.",
+      "id": "1334647a-060a-46c2-af05-6f2c5f1c8257",
+      "paginas": [
+        54
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "losestudiosdeinterconexionsedebendesarrollarconlacapacidadestablecidaporlapersonasolicitanteydebeconsiderarlacargaydescargadesdelarnt"
+    },
+    {
+      "fragmento": "7.10.4.",
+      "id": "cb6b8f4a-0fc0-4544-b182-3acc0f428c7e",
+      "paginas": [
+        54
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "paralossaeenoasociadosconunapotenciasaeede07mwa20mwaplicaelestudiodeimpactoversionrapidaasicomoelestudiodeinstalacionesconformealasdisposicionesaplicables"
+    },
+    {
+      "fragmento": "8.1.",
+      "id": "35a5728c-700a-4f65-b386-83bbc0de0ffb",
+      "paginas": [
+        54
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "seentiendeporagrupacionalaintegraciondesaeecuyapropiedadybeneficiossoncompartidosporaquellosquedemaneraconjuntallevanacabolainversioneintegraciondedichosistemaesdecirlaagrupaciondelasgeneradorasusuariasfinalesolaspersona"
+    },
+    {
+      "fragmento": "8.2.",
+      "id": "59b265cf-111d-4282-9093-7d57ad13a420",
+      "paginas": [
+        54
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "laagrupaciondeinteresadosenintegrarsaeesolopuederealizarsecuandosecumplaconlosinstrumentosocriteriosdeplaneacionvinculanteyunicamentepuedenasociarseentresipersonasquecompartanelmismocaractergeneradorausuariadesuministrob"
+    },
+    {
+      "fragmento": "8.3.",
+      "id": "4555d592-dc33-44d4-bc03-60cf9199cc25",
+      "paginas": [
+        54
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "losrepresentantesinvolucradosenlaintegraciondesaeedeformaagrupadadebensolicitaralcenacequerealicelosestudiosdeinterconexionolosestudiosdeconexionsimultaneamenteydeterminelascaracteristicasespecificasdelainfraestructurare"
+    },
+    {
+      "fragmento": "8.4.",
+      "id": "f2c97234-fb4e-48f9-8747-b56bcb68f10e",
+      "paginas": [
+        54
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elcenacedebedeterminaratravesdeestudiosdeinterconexiondelasinstalacionesdelosinteresadosenagruparseparainstalarsaeesisusubicacionesenlaredelectricayladelpropiosaeesonadecuadasycumplenconlosinstrumentoocriteriosdelaplanea"
+    },
+    {
+      "fragmento": "8.5.",
+      "id": "15690ac9-e439-4c8c-9b41-c632ad57d6c0",
+      "paginas": [
+        54
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "laagrupaciondeinteresadosenintegrarsaeesolopuederealizarseenlamismasubestacionelectricanodooareaelectricaqueelcenacedeterminetecnicamenteadecuadaparacumplirlafinalidaddelsaeeyparamantenerlaconfiabilidaddelsen"
+    },
+    {
+      "fragmento": "8.6.",
+      "id": "9ba285bb-3883-4645-89ca-a68c124d206c",
+      "paginas": [
+        54
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "loscostosasociadosaobrasespecificasrelacionadasconlaintegraciondelossaeedemaneraagrupadadebensersocializadosentrelosbeneficiariosdeconformidadconlosacuerdosqueentreellospactenconbaseenlosresultadosdeinfraestructuradelose"
+    },
+    {
+      "fragmento": "8.7.",
+      "id": "9e32457a-a393-4501-80cd-b4c99c258cff",
+      "paginas": [
+        54
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "encasodequeunsaeeagrupadoopteporparticiparenelmemdeberegistrarsemediantelafiguraquecorrespondadeconformidadconloestablecidoenlasdisposicionesloanteriorenfunciondeltipodefiguraquesehayaasociadoparasuinstalacionasimismodic"
+    },
+    {
+      "fragmento": "8.8.",
+      "id": "30f9d12a-58d9-4187-aa85-aef7c1c7c4e3",
+      "paginas": [
+        54
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "losrecursosdelossaeeagrupadospuedenofreceralmemsuscapacidadesdeformavoluntariaapegadosalacapacidadregistradaanteelcenaceydeacuerdoconelperfildepotenciahorario"
+    },
+    {
+      "fragmento": "8.9.",
+      "id": "60c6419c-04ac-4f53-9ef4-e1eae5fd7c5f",
+      "paginas": [
+        55
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "larepresentaciondelsaeeagrupadocompeteaunadelasparticipantesasociadasocuandocorrespondaaunaalmacenadoraquienesresponsabledepresentarlasofertasyatenderlasinstruccionesoperativasconformealregimendeclarado"
+    },
+    {
+      "fragmento": "8.10.",
+      "id": "42bf522b-63b3-406e-8c3b-caebf80df027",
+      "paginas": [
+        55
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "laagrupaciondesaeedebedesignarademasdeunrepresentantecomercialunresponsabletecnicosolidarioanteladistribuidoraolatransportistadichoresponsableeselinterlocutorvalidopararecibirordenesdemaniobraporpartedelcenaceyseconsider"
+    },
+    {
+      "fragmento": "8.11.",
+      "id": "10849310-a1a3-4d18-8619-726bca75db70",
+      "paginas": [
+        55
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "paraelcasodelascentraleselectricasexistentesynuevasquedecidanagruparseparalaintegraciondeunsaeeelcenacedebeatenderlosestudiosrespectivosdesdeelestudioindicativoelpuntodeinterconexiondelsaeeaestudiardebedeterminarseconsid"
+    },
+    {
+      "fragmento": "8.12.",
+      "id": "ef082d99-da84-463f-ad75-ebf03e224d56",
+      "paginas": [
+        55
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "paraelcasodeloscentrosdecargaexistentesquedecidanagruparseelcenacedebeatenderlosestudiosrespectivosatravesdeunestudiorapidoyparaelcasodecentrosdecarganuevossedebeiniciardesdeelestudiodeimpactoelpuntodeinterconexiondelsae"
+    },
+    {
+      "fragmento": "9.1.",
+      "id": "035cf4e9-fa5e-4dfe-b7a6-52b224e0956f",
+      "paginas": [
+        55
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lapersonaquesoliciteunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumodebemanifestaralmomentodesolicitarlosipretendecontarconrespaldopropioobiensipretendecontratarloconcfeoatravesdeunterceroencasoderequerir"
+    },
+    {
+      "fragmento": "9.2.",
+      "id": "658a23e6-2bad-4d26-a42d-c36bfc7d530c",
+      "paginas": [
+        55
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "lapersonatitulardeunpermisodegeneraciondeenergiaelectricabajolafiguradeautoconsumointerconectadoconventadeexcedentesquedeseerecibirunacontraprestacionporinyectarsusexcedentespuedepresentarunasolicitudderespaldopropioante"
+    },
+    {
+      "fragmento": "9.3.",
+      "id": "3aebafd4-b589-4ab1-9a42-b9965c343124",
+      "paginas": [
+        55
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "paraefectosdelacontratacionderespaldopropioenlafiguradeautoconsumointerconectadoconventadeexcedentesseentiendeporterceroaaquellasparticipantesdelmercadoenlasmodalidadesdesuministradoradeservicioscalificadosalmacenadorayg"
+    },
+    {
+      "fragmento": "9.4.",
+      "id": "daa2d54e-0ebd-4a90-ae0b-46dc6758babe",
+      "paginas": [
+        55
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "esresponsabilidaddelrepresentantedecadasaeequepresteelservicioderespaldoenlafiguradeautoconsumointerconectadoconventadeexcedentesconsiderarladegradaciondelsaeeconelpasodeltiempoporloquelecorrespondeaestemantenerlosrequer"
+    },
+    {
+      "fragmento": "9.5.",
+      "id": "56dee51c-fb71-4601-a482-86724dc1bf41",
+      "paginas": [
+        55
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "elusodelservicioderespaldodeberealizarsedetalformaquenoafectelaoperaciondelsenencumplimientodeloscriteriosdeconfiabilidadqueemitaelcenace"
+    },
+    {
+      "fragmento": "9.6.",
+      "id": "c373946f-01c8-456e-af8f-d2098b81c3c2",
+      "paginas": [
+        55
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "cuandoelrespaldosecontrateconlacfeelpagoporelservicioderespaldosedeberealizarconformealaclausulanovenadelmodelodecontratoparalaventadeexcedentesdeautoconsumoyproductosasociadosincluidoenlasdisposicionesdeautoconsumo"
+    },
+    {
+      "fragmento": "9.7.",
+      "id": "35f49f41-18dd-42f9-b00d-95c3f6cfe367",
+      "paginas": [
+        55
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "sielrespaldosecontrataconunterceroelpagopordichoserviciosedeberealizarconformealacuerdoquesehayacelebradoentrelaspartesinvolucradas"
+    },
+    {
+      "fragmento": "9.8.",
+      "id": "59d47dcb-efba-45d8-a649-f78588cbffb1",
+      "paginas": [
+        55
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "elrespaldoimplicalasuscripciondeunacoberturaelectricacelebradaentrelapersonapermisionariabajolafiguradeautoconsumoylacfeounterceromediantelacualsedefineelcompromisodecompraventadeunacantidaddeterminadadeenergiaelectricao"
+    },
+    {
+      "fragmento": "9.9.",
+      "id": "6e98ba80-0304-4134-aff4-283c337b9743",
+      "paginas": [
+        55
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "alpresentarsusolicituddeestudiosalcenacelapersonasolicitantepuedeproponerlaubicacionylascaracteristicasdesurespaldoparamitigarlosefectosasociadosalavariabilidaddesufuenteprimariadeenergiaafindequeseaevaluadoporelcenace"
+    },
+    {
+      "fragmento": "9.10.",
+      "id": "d0a22af3-52fb-466f-aa14-b52b80e103f1",
+      "paginas": [
+        55,
+        56
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "elcenacedebedeterminaratravesdeestudiosdeinterconexiondelainstalaciondeautoconsumosilaubicacionenlaredelectricadelrespaldocontratadoyaseaconcfeoconunterceroesadecuadaenterminosdelamitigaciondelosefectosasociadosalavariab"
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "b505f3f6-56c4-468a-af88-da62b567fb6c",
+      "paginas": [
+        56
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elpresenteacuerdoentraenvigoraldiahabilsiguientedesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "e13c0223-3981-41d9-81d3-8e6ba46c3176",
+      "paginas": [
+        56
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "quedasinefectoselacuerdonumeroa1132024porelqueseemitenlasdisposicionesadministrativasdecaractergeneralparalaintegraciondesistemasdealmacenamientodeenergiaelectricaalsistemaelectriconacionalpublicadoeneldiariooficialdelaf"
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "5870c9e1-f7cb-46ec-b975-2ed7e65b76dc",
+      "paginas": [
+        56
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "entantosemodificanlasreglasdelmercadoparaincluirlascaracteristicasycriteriosaplicablesalossistemasdealmacenamientodeenergiaelectricaenlonoprevistoenlasdisposicionesqueseemitenatravesdelpresenteacuerdoeltratoqueselesdebed"
+    },
+    {
+      "fragmento": "Transitorio Cuarto",
+      "id": "3b9dde3e-ec32-425d-a528-14e0a85f4617",
+      "paginas": [
+        56
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "entantonoserealicenlasadecuacionesalmanualparalainterconexiondecentraleselectricasyconexiondecentrosdecargaaefectodeincorporarlasdisposicionescriteriostecnicosycaracteristicasoperativasaplicablesalossistemasdealmacenamie"
+    },
+    {
+      "fragmento": "Transitorio Quinto",
+      "id": "3eb6fb6d-319d-49bc-b31e-2a3e5ee12692",
+      "paginas": [
+        56,
+        57
+      ],
+      "anclas": 51,
+      "prefijoCotejado": "entantonosemodifiqueelmanualparalainterconexiondecentraleselectricasyconexiondecentrosdecargaparaincluirlosprocesosyprocedimientosaplicablesalaatenciondesolicitudesdeinterconexionysolicitudesdeconexiondelossistemasdealma"
+    },
+    {
+      "fragmento": "Transitorio Sexto",
+      "id": "16304864-9678-4695-93df-db1e489a6563",
+      "paginas": [
+        57
+      ],
+      "anclas": 37,
+      "prefijoCotejado": "entantonoseencuentrenhabilitadosenlosmodelosdelmercadodeenergiadecortoplazolasfuncionalidadesparaprocesarofertasdelossistemasdealmacenamientodeenergiaelectricalasparticipantesdelmercadoquelosrepresentendebenpresentaralce"
+    },
+    {
+      "fragmento": "Transitorio Séptimo",
+      "id": "3c42506e-a683-4e9f-b63d-ce21ac21197a",
+      "paginas": [
+        57
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "apartirdelaentradaenvigordelpresenteacuerdoelcentronacionaldecontroldeenergiadebepublicarenunplazonomayoranoventadiasnaturaleslametodologiadelanalisisdevariabilidadaqueserefiereelnumeral2113delasdisposicionesqueseemitena"
+    },
+    {
+      "fragmento": "Transitorio Octavo",
+      "id": "50ff36c8-8f48-475f-a688-5f552cf3068b",
+      "paginas": [
+        57
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "dentrodelostreintadiasnaturalessiguientesaqueentreenvigorelpresenteacuerdolacomisionnacionaldeenergiadebepublicarensupaginaelectronicayeneldiariooficialdelafederacionlosformatosautorizadosparasolicitarlospermisosdealmace"
+    },
+    {
+      "fragmento": "Transitorio Noveno",
+      "id": "2ce5ffed-6337-4467-838c-65958cb6be1d",
+      "paginas": [
+        57
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elnumeral2133delasdisposicionesqueseemitenmedianteesteacuerdoesaplicablehastaentantonoseactualicenlasreglasdelmercadoqueregulenloscriteriosaplicablesalossistemasdealmacenamientodeenergiaelectrica"
+    },
+    {
+      "fragmento": "Firmas y promulgación",
+      "id": "eea799f6-3cf6-5206-b7ff-2336bbf4aeef",
+      "paginas": [
+        57
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "ciudaddemexicoa08deabrilde2026eldirectorgeneraljuancarlossolisavilarubrica"
+    }
+  ]
+}
