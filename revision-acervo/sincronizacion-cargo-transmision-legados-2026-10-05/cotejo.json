@@ -1,0 +1,172 @@
+{
+  "instrumento": "Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo correspondiente al servicio de transmisión de energía eléctrica que preste la Suministradora a las Personas Permisionarias con centrales de generación de energía eléctrica, que cuenten con contrato de interconexión y convenio para el servicio de transmisión de energía eléctrica celebrados al amparo de la Ley del Servicio Público de Energía Eléctrica",
+  "instrumentId": "6be7cf44-0134-5950-b9d0-a898d4ec5ced",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5790939",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/18-06-2026/Matutina/327985",
+  "ligaOficialAlternaDeDescarga": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=18062026-MAT.pdf&repo=",
+  "archivoTemporal": "tmp\\cargo-transmision-2026-06-18.pdf",
+  "sha256": "4fb0664039a940ee5f281059d741aa8bafff6b713ff969e60af49ed248331c49",
+  "bytes": 5584306,
+  "paginasPdf": 324,
+  "paginasImpresasDelInstrumento": [
+    31,
+    35
+  ],
+  "fragmentosOficiales": 12,
+  "anclasGeometricas": 287,
+  "notaAlcance": "El acuerdo, su metodología y los transitorios se cotejaron en las páginas impresas 31–35. El siguiente instrumento comienza en la página 36. La edición ya tenía un mapa publicado para otro instrumento; se reutiliza la misma fuente tras verificar que SIDOF y DOF entregan idénticos bytes. El PDF sólo se descargó temporalmente para cotejar.",
+  "fragmentos": [
+    {
+      "id": "617a073b-4e48-5c60-a5d3-558b4e967632",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        31,
+        32,
+        33
+      ],
+      "paginasImpresas": [
+        31,
+        32,
+        33
+      ],
+      "anclas": 124,
+      "prefijoCotejado": "acuerdodelacomisionnacionaldeenergiaporelqueseemitelametodologiaparaladeterminaciondelcargocorrespondientealserviciodetransmisiondeenergiaelectricaqueprestelasuministradoraalaspers"
+    },
+    {
+      "id": "1d31fdfd-fffb-5e1a-aa5a-dd943f462bd4",
+      "fragmento": "Artículo Único · Expedición de metodología",
+      "paginasPdf": [
+        33
+      ],
+      "paginasImpresas": [
+        33
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulounicolacomisionnacionaldeenergiaemitelametodologiaparaladeterminaciondelcargocorrespondientealserviciodetransmisionqueprestelasuministradoraalaspersonaspermisionariasconcen"
+    },
+    {
+      "id": "2d364038-ae89-569b-ac1d-8ab8bbaaa61b",
+      "fragmento": "Apartado 1. Alcance y objetivos",
+      "paginasPdf": [
+        33
+      ],
+      "paginasImpresas": [
+        33
+      ],
+      "anclas": 23,
+      "prefijoCotejado": "metodologiaparaladeterminaciondelcargocorrespondientealserviciodetransmisiondeenergiaelectricaqueprestelasuministradoraalaspersonaspermisionariasconcentralesdegeneraciondeenergiael"
+    },
+    {
+      "id": "b40c5f28-abef-5e97-ae90-25d0a170e20c",
+      "fragmento": "Apartado 2. Acrónimos y Definiciones",
+      "paginasPdf": [
+        33,
+        34
+      ],
+      "paginasImpresas": [
+        33,
+        34
+      ],
+      "anclas": 32,
+      "prefijoCotejado": "2acronimosydefiniciones21paraefectosdelametodologiadetransmisionademasdelasdefinicionescontenidasenlaleydelsectorelectricoelreglamentodelaleydelsectorelectricoylasbasesdelmercadoel"
+    },
+    {
+      "id": "b049791f-1776-5ad3-b510-ed8e2bad63e8",
+      "fragmento": "Apartado 3. Determinación del Cargo por el Servicio de Transmisión",
+      "paginasPdf": [
+        34
+      ],
+      "paginasImpresas": [
+        34
+      ],
+      "anclas": 35,
+      "prefijoCotejado": "3determinaciondelcargoporelserviciodetransmision31elcargoporelserviciodetransmisionparacadapersonapermisionariasecalculaapartirdelasumadelosimportesdeterminadosporelcenacealasumini"
+    },
+    {
+      "id": "dae6f05c-3646-51aa-bee5-6ca6f48da7e7",
+      "fragmento": "Transitorio PRIMERO",
+      "paginasPdf": [
+        34
+      ],
+      "paginasImpresas": [
+        34
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "transitoriosprimeroelpresenteacuerdoentraenvigorapartirdel19deoctubrede2026"
+    },
+    {
+      "id": "afc99578-dc27-5e33-9bd2-449fa14b84e6",
+      "fragmento": "Transitorio SEGUNDO",
+      "paginasPdf": [
+        34,
+        35
+      ],
+      "paginasImpresas": [
+        34,
+        35
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "segundoapartirdelaentradaenvigordelpresenteacuerdoquedansinefectostodaslasdisposicionesadministrativasacuerdosresolucionesoactosadministrativosqueresultenaplicablessobreladetermina"
+    },
+    {
+      "id": "7ffc167a-9fde-579a-aae6-931ac9b57465",
+      "fragmento": "Transitorio TERCERO",
+      "paginasPdf": [
+        35
+      ],
+      "paginasImpresas": [
+        35
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "terceroduranteelprocedimientodemigracionvoluntariayexpeditaalquehacereferenciaelarticulosextotransitoriodelaleydelsectorelectricoyconsiderandoloslineamientosdereferenciaqueparatale"
+    },
+    {
+      "id": "144d29b1-56d2-5efa-9e66-3a1e92e7f1aa",
+      "fragmento": "Transitorio CUARTO",
+      "paginasPdf": [
+        35
+      ],
+      "paginasImpresas": [
+        35
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "cuartoloestablecidoenelarticulotransitorioanteriorquedasinefectoscuandolaspersonaspermisionariasconcentralesdegeneraciondeenergiaelectricaquecuentenconuncontratodeinterconexionyunc"
+    },
+    {
+      "id": "02e1f78a-3ba1-51f8-b148-d75eb3d40622",
+      "fragmento": "Transitorio QUINTO",
+      "paginasPdf": [
+        35
+      ],
+      "paginasImpresas": [
+        35
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "quintoparalaspersonaspermisionariasquetienencelebradoscontratosdeinterconexionparacentraleselectricasconenergiasrenovablesocogeneracioneficientealamparodelaleydelserviciopublicodee"
+    },
+    {
+      "id": "b936182d-8083-5538-9942-35c2d0302338",
+      "fragmento": "Transitorio SEXTO",
+      "paginasPdf": [
+        35
+      ],
+      "paginasImpresas": [
+        35
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "sextolasecretariadeenergialacomisionnacionaldeenergiaelcentronacionaldecontroldeenergiaylacomisionfederaldeelectricidadenelambitodesusrespectivascompetenciasyatribucionesdebencoord"
+    },
+    {
+      "id": "56fd582a-ef67-5e03-9c87-e1a269c78d2c",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        35
+      ],
+      "paginasImpresas": [
+        35
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "ciudaddemexicoa15dejuniode2026eldirectorgeneraljuancarlossolisavilarubrica"
+    }
+  ]
+}
