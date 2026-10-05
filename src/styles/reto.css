@@ -18,7 +18,8 @@ html.dark-mode .rt-view{--rt-ink:#f3ece4;--rt-muted:#b3a89e;--rt-card:#211b1d;--
 .rt-loading i:nth-child(2){height:60px}
 .rt-loading i:nth-child(3){width:70%}
 @keyframes rt-shine{to{background-position:-200% 0}}
-.rt-start-title{margin:0 0 10px;font:700 22px/1.2 Patria,Georgia,serif}
+.rt-start-meta{margin:0 0 16px;font-size:15px;color:var(--rt-muted)}
+.rt-start-title{margin:0 0 4px;font:700 22px/1.2 Patria,Georgia,serif}
 .rt-rules{margin:0 0 18px;padding-left:22px;list-style:disc;line-height:1.7;color:var(--rt-ink)}
 .rt-rules li::marker{color:var(--rt-accent)}
 .rt-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border:1px solid #9b2247;border-radius:999px;background:#9b2247;color:#fff;font:700 14.5px/1.2 'Noto Sans',sans-serif;cursor:pointer;transition:transform .15s,background .15s}

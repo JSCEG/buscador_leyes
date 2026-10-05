@@ -46,7 +46,7 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         <div class="rt-head">
             <p class="rt-eyebrow">Reto Jurídico <span>#${number}</span></p>
             <h1 id="rt-title">¿Cuánto sabes de las leyes de energía?</h1>
-            <p class="rt-intro">Cinco preguntas rápidas sobre las leyes y reglas de energía en México. Todas salen del texto oficial. Cada día hay un reto nuevo, el mismo para todos.</p>
+            <p class="rt-intro">Un reto nuevo cada día.</p>
             <div class="rt-stats" aria-live="polite"></div>
         </div>
         <div class="rt-stage"><div class="rt-card rt-loading"><i></i><i></i><i></i></div></div>`;
@@ -241,11 +241,7 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
         stage.innerHTML = `
             <div class="rt-card rt-start">
                 <p class="rt-start-title">El reto de hoy</p>
-                <ul class="rt-rules">
-                    <li><b>${RETO_LENGTH} preguntas</b>, unos 2 minutos.</li>
-                    <li>Una es sobre algo que se <b>publicó hace poco</b>.</li>
-                    <li>Después de cada respuesta te mostramos <b>dónde lo dice</b> la ley.</li>
-                </ul>
+                <p class="rt-start-meta">${RETO_LENGTH} preguntas · 2 minutos</p>
                 <button type="button" class="rt-btn rt-go">Empezar</button>
             </div>`;
         stage.querySelector('.rt-go').addEventListener('click', () => start({ seed: today, practice: false }));
