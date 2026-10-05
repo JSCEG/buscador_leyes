@@ -1,0 +1,551 @@
+{
+  "instrumento": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
+  "instrumentId": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+  "fuenteEdicionDOF": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=03042026-MAT.pdf&repo=",
+  "copiaOficialCENACE": "https://www.cenace.gob.mx/Docs/16_MARCOREGULATORIO/SENyMEM/%28DOF%202026-04-03%20SENER%29%20DACG%20Criterios%20para%20aplicaci%C3%B3n%20Mecanismos_Competitivos_Confiabilidad%20SEN.pdf",
+  "archivoTemporal": "tmp\\cenace-dacg.pdf",
+  "sha256": "d48705b079e9742cd38b920870a45d2100ebffa043b30bcff78432b54f40191e",
+  "bytes": 555364,
+  "paginasPdf": 26,
+  "paginaImpresadeInicio": 54,
+  "paginasImpresasDelInstrumento": [
+    54,
+    79
+  ],
+  "fragmentosOficiales": 40,
+  "anclasGeometricas": 1495,
+  "notaAlcance": "Cotejados los 40 fragmentos oficiales, en orden, contra la copia PDF publicada por CENACE de las DACG del DOF del 3 de abril de 2026. Cada página asociada corresponde al PDF de 26 páginas alojado por CENACE (páginas impresas 54–79). Se excluyó una nota editorial de Supabase. El archivo PDF se usó temporalmente y no se agrega a Git.",
+  "fragmentos": [
+    {
+      "id": "d6a88d07-d3ce-5801-a646-b5270a559d0e",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        1,
+        2,
+        3
+      ],
+      "paginasImpresas": [
+        54,
+        55,
+        56
+      ],
+      "anclas": 100,
+      "prefijoCotejado": "acuerdodelacomisionnacionaldeenergiaporelqueseemitenlasdisposicionesadministrativasdecaractergeneralqueestablecenloscriteriosquedebeobservarelcentronacionaldecontroldeenergiaenlaaplicaciondemecanismos"
+    },
+    {
+      "id": "5a80de3f-6e23-54df-86c7-d71ef46b9a86",
+      "fragmento": "Artículo Único · Expedición de las DACG",
+      "paginasPdf": [
+        3
+      ],
+      "paginasImpresas": [
+        56
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulounicolacomisionnacionaldeenergiaemitelasdisposicionesadministrativasdecaractergeneralqueestablecenloscriteriosquedebeobservarelcentronacionaldecontroldeenergiaenlaaplicaciondemecanismoscompeti"
+    },
+    {
+      "id": "09dbb9d5-3bde-525b-a467-8093d358d454",
+      "fragmento": "Presentación e índice",
+      "paginasPdf": [
+        3,
+        4
+      ],
+      "paginasImpresas": [
+        56,
+        57
+      ],
+      "anclas": 57,
+      "prefijoCotejado": "disposicionesadministrativasdecaractergeneralqueestablecenloscriteriosquedebeobservarelcentronacionaldecontroldeenergiaenlaaplicaciondemecanismoscompetitivosparaadquirirpotenciaenergiaelectricaservici"
+    },
+    {
+      "id": "ec2e43bd-bd6e-504c-bb18-b21c4b967eb7",
+      "fragmento": "Apartado 1.1 Objeto y ámbito de aplicación",
+      "paginasPdf": [
+        4
+      ],
+      "paginasImpresas": [
+        57
+      ],
+      "anclas": 25,
+      "prefijoCotejado": "1disposicionesgenerales11objetoyambitodeaplicacion111objetivolaspresentesdisposicionestienenporobjetivoestablecerloscriteriosyactividadesquedebeseguirelcentronacionaldecontroldeenergiaparalaaplicacion"
+    },
+    {
+      "id": "4351dac7-1336-56d6-9bb8-d740b228c466",
+      "fragmento": "Apartado 1.2 Definiciones y Acrónimos",
+      "paginasPdf": [
+        4,
+        5,
+        6
+      ],
+      "paginasImpresas": [
+        57,
+        58,
+        59
+      ],
+      "anclas": 81,
+      "prefijoCotejado": "12definicionesyacronimosparaefectosdeinterpretacionyaplicaciondelaspresentesdisposicionesademasdelascontenidasenlaleydelsectorelectricosusreglamentoslasdisposicionesadministrativasdecaractergeneralpre"
+    },
+    {
+      "id": "651b5823-613a-52b6-92aa-020622c94182",
+      "fragmento": "Apartado 1.3 Reglas de interpretación",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        59
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "13reglasdeinterpretacion131lainterpretaciondelasdisposicionesesatribucionexclusivadelacneencoordinac"
+    },
+    {
+      "id": "764bd74d-7dea-54da-b767-af4adb183c27",
+      "fragmento": "Apartado 2.1 Consideraciones Generales",
+      "paginasPdf": [
+        6,
+        7
+      ],
+      "paginasImpresas": [
+        59,
+        60
+      ],
+      "anclas": 77,
+      "prefijoCotejado": "2criteriosdeactivaciondelosmecanismosdeadquisicionporconfiabilidad21consideracionesgenerales211previanotificacionalacneyautorizaciondelasecretariaafindeasegurarlaseguridadyconfiabilidaddelsenelcenacep"
+    },
+    {
+      "id": "b6f080f2-8679-58d3-a4d8-8c21055dffe7",
+      "fragmento": "Apartado 2.2 Proceso de activación de los Mecanismos de Adquisición por Confiabilidad",
+      "paginasPdf": [
+        7,
+        8,
+        9
+      ],
+      "paginasImpresas": [
+        60,
+        61,
+        62
+      ],
+      "anclas": 75,
+      "prefijoCotejado": "22procesodeactivaciondelosmecanismosdeadquisicionporconfiabilidad221elcenacedeberealizarestudiosenelhorizontedeplaneacionoperativademedianoplazotomandocomoinsumolosvaloresdedemandayreservasdeanosanter"
+    },
+    {
+      "id": "a8fd21dc-47d7-5110-a32a-a3e32c94b8ed",
+      "fragmento": "Apartado 3.1 Generalidades",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        62
+      ],
+      "anclas": 23,
+      "prefijoCotejado": "3sobrelosmecanismosdeadquisicionporconfiabilidad31generalidades311unavezobtenidalaautorizaciondelasecretariaelcenacedebeiniciarlosprocesosdeadquisiciondeenergiaelectricayproductosasociadosconformealas"
+    },
+    {
+      "id": "d6166756-342a-5227-b8ee-d3ed4a72f7b9",
+      "fragmento": "Apartado 3.2 Presentación de Ofertas Monómicas por Confiabilidad",
+      "paginasPdf": [
+        9,
+        10
+      ],
+      "paginasImpresas": [
+        62,
+        63
+      ],
+      "anclas": 56,
+      "prefijoCotejado": "32presentaciondeofertasmonomicasporconfiabilidad321laspersonasinteresadasqueparticipenenlosmecanismosdeadquisicionporconfiabilidadpuedenpresentarofertasmonomicasporconfiabilidadunavezqueseapublicadala"
+    },
+    {
+      "id": "111d85ef-7229-5125-8424-80adf358515a",
+      "fragmento": "Apartado 3.3 Obligaciones de los Vendedores",
+      "paginasPdf": [
+        10,
+        11
+      ],
+      "paginasImpresas": [
+        63,
+        64
+      ],
+      "anclas": 53,
+      "prefijoCotejado": "33obligacionesdelosvendedores331losvendedoresdebencumplirconlosiguienteitodaslascaracteristicasyespecificacionestecnicasasicomoloshorariosyplazosdeentregadelaenergiaelectricayproductosasociadospactado"
+    },
+    {
+      "id": "4f65bb20-eb46-55c9-9822-e9e72d53d5a9",
+      "fragmento": "Apartado 3.4 Implementación de los Mecanismos de Adquisición por Confiabilidad",
+      "paginasPdf": [
+        11,
+        12
+      ],
+      "paginasImpresas": [
+        64,
+        65
+      ],
+      "anclas": 27,
+      "prefijoCotejado": "34implementaciondelosmecanismosdeadquisicionporconfiabilidad341celebradoelcontratoyencualquiermomentoprevioaliniciodelaentregadelaenergiaelectricayproductosasociadosenterminosdelcontratoelvendedoryelc"
+    },
+    {
+      "id": "3f4ab932-889d-541e-8179-f1077c7210aa",
+      "fragmento": "Apartado 3.5 Asignación y despacho",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        65
+      ],
+      "anclas": 36,
+      "prefijoCotejado": "35asignacionydespacho351durantelavigenciadelcontratoelvendedordebeoperarymantenersuuceosaeedeconformidadconlaspracticasprudentesdedesempenoloscriteriosminimosoperativosestablecidosporelcenacelasespeci"
+    },
+    {
+      "id": "1de9e9c7-6822-56d7-ae60-29fe50740e33",
+      "fragmento": "Apartado 4.1 Consideraciones Generales",
+      "paginasPdf": [
+        12,
+        13
+      ],
+      "paginasImpresas": [
+        65,
+        66
+      ],
+      "anclas": 23,
+      "prefijoCotejado": "4consideracionesrespectodelasreglasdelmercado41consideracionesgenerales411pararealizarlaliquidacionenelmemdelaenergiaasociadaaloscontratoslosvendedoresdebenrealizarlasetapasdelprocesoderegistrodeparti"
+    },
+    {
+      "id": "6479993d-fe28-51dc-a893-cd35fbcfd357",
+      "fragmento": "Apartado 4.2 Registro de Participante del Mercado Temporal",
+      "paginasPdf": [
+        13,
+        14
+      ],
+      "paginasImpresas": [
+        66,
+        67
+      ],
+      "anclas": 64,
+      "prefijoCotejado": "42registrodeparticipantedelmercadotemporal421losvendedoresquehayansuscritoelcontratodebendeentregaralcenaceescritolibrequecumplaconlosarticulos15y19delaleyfederaldeprocedimientoadministrativoelcualdeb"
+    },
+    {
+      "id": "5a1f9d2d-832b-53e9-a2d9-53c993a0fda7",
+      "fragmento": "Apartado 4.3 Acreditación de Participante Temporal del Mercado",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        67
+      ],
+      "anclas": 53,
+      "prefijoCotejado": "43acreditaciondeparticipantetemporaldelmercado431parainiciarelperiododepruebasylaliquidacionenelmemesnecesarioquelaparticipantedelmercadotemporallleveacabounprocesodeacreditacionmedianteelcualelcenace"
+    },
+    {
+      "id": "99e88cad-41ac-52c2-a541-939ab35626ed",
+      "fragmento": "Apartado 4.4 Registro de Activos Físicos",
+      "paginasPdf": [
+        14,
+        15
+      ],
+      "paginasImpresas": [
+        67,
+        68
+      ],
+      "anclas": 64,
+      "prefijoCotejado": "44registrodeactivosfisicos441elvendedorosurepresentanteenelmemparallevaracaboelregistrodeactivosfisicosenelmemdebepresentaranteelcenaceunescritolibrequecumplaconlosarticulos15y19delaleyfederaldeproced"
+    },
+    {
+      "id": "6738c7cf-2eca-53f5-bee7-99596785abda",
+      "fragmento": "Apartado 4.5 Garantías de Cumplimiento",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        68
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "45garantiasdecumplimiento451lasgarantiasdecumplimientoalasquehacemencionelmanualdegarantiasdecumplimientonosonaplicablesalosvendedoresnoobstantesedebeobservarlo"
+    },
+    {
+      "id": "55c21a29-d0a2-524c-8bdb-1783f84a48d7",
+      "fragmento": "Apartado 4.6 Acceso al Sistema Eléctrico Nacional",
+      "paginasPdf": [
+        15,
+        16
+      ],
+      "paginasImpresas": [
+        68,
+        69
+      ],
+      "anclas": 52,
+      "prefijoCotejado": "46accesoalsistemaelectriconacional461elcenacepuedesolicitaralacneyalasecretariaconbaseenloestablecidoenlalseylaleydeplaneacionytransicionenergeticaquedichaautoridadgestioneanteotrasautoridadesfederale"
+    },
+    {
+      "id": "09154706-f413-519c-8e3b-caed0404ced6",
+      "fragmento": "Apartado 4.7 Modelado de Activos",
+      "paginasPdf": [
+        16
+      ],
+      "paginasImpresas": [
+        69
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "47modeladodeactivos471elcenacepuedemodelaralasuceysaeecomoindirectamentemodeladasodirectamentemodeladasconbaseenlascondicionesydisposiciondelaredelectricaexiste"
+    },
+    {
+      "id": "129f75a4-08c5-50d4-b2e0-146f9823885e",
+      "fragmento": "Apartado 4.8 Operaciones en el Mercado de Energía de Corto Plazo",
+      "paginasPdf": [
+        16,
+        17
+      ],
+      "paginasImpresas": [
+        69,
+        70
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "48operacionesenelmercadodeenergiadecortoplazo481lasuceylossaeedebenserconsideradascomofirmesnodespachableselcenacepuedemodificarelprogramadegeneracionunicamenteporcasofortuitoofuerzamayoroanteeventosq"
+    },
+    {
+      "id": "9e83ee3b-4f16-56ba-b560-6bb6fbac872e",
+      "fragmento": "Apartado 4.9 Mercado para el Balance de Potencia",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        70
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "49mercadoparaelbalancedepotencia491paralasuceylossaeederivadosdelosmecanismosdeadquisicionporconfiabilidadseconsideraqueladefesigualacero0puestoquenolessonrequeridosestudiosdeinterconexiondeacuerdocon"
+    },
+    {
+      "id": "ab694044-0d8e-537d-b6ed-db54ee3a49ef",
+      "fragmento": "Apartado 4.10 Certificados de Energías Limpias del Mercado",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        70
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "410certificadosdeenergiaslimpiasdelmercado4101lasucequeseutilicendurantelavigenciadelosmecanismosdeadquisicionporconfiabilidadnosonacreedorasacertificadosdeenergiaslimpiasporsupartelossaeequeseutilice"
+    },
+    {
+      "id": "8b115d6b-2f9d-5be7-82ed-84c54cf49601",
+      "fragmento": "Apartado 4.11 Derechos Financieros de Transmisión",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        70
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "411derechosfinancierosdetransmision4111nosedebencalcularderechosfinancierosdetransmisionparalasuceylossaeederivadosdelos"
+    },
+    {
+      "id": "2e2547b0-b805-5178-899a-79c9f1acdc16",
+      "fragmento": "Apartado 4.12 Unidades de Central Eléctrica Móviles",
+      "paginasPdf": [
+        17,
+        18
+      ],
+      "paginasImpresas": [
+        70,
+        71
+      ],
+      "anclas": 66,
+      "prefijoCotejado": "412unidadesdecentralelectricamoviles4121paracumplirconloestablecidoenlafraccionidelnumeral211delasdisposicionesdebenserconsideradaslasucemqueseencuentrendisponiblesparareubicarseohabilitarseenlospunto"
+    },
+    {
+      "id": "64cc82d9-55de-5f5b-952e-190d79eab5dc",
+      "fragmento": "Apartado 4.13 Mediciones para Liquidaciones",
+      "paginasPdf": [
+        18,
+        19,
+        20
+      ],
+      "paginasImpresas": [
+        71,
+        72,
+        73
+      ],
+      "anclas": 76,
+      "prefijoCotejado": "413medicionesparaliquidaciones4131lasupervisiondelainstalacionycalibraciondelosequiposdemedicionproporcionadosporelvendedorquienmantienelapropiedaddelosequiposdemedicionalfinalizarlavigenciadelcontrat"
+    },
+    {
+      "id": "bb0c9130-4af5-5008-b00b-24b3a8069a22",
+      "fragmento": "Apartado 4.14 Despacho de capacidad excedente interconectada",
+      "paginasPdf": [
+        20,
+        21
+      ],
+      "paginasImpresas": [
+        73,
+        74
+      ],
+      "anclas": 63,
+      "prefijoCotejado": "414despachodecapacidadexcedenteinterconectada4141enloscasosdondelascentraleselectricasqueseencuentraninterconectadaspermanentementealsenrealicenmantenimientosmayoresobienrepotenciacionesalasmismasquel"
+    },
+    {
+      "id": "47dac22a-11cd-5d20-bbd4-65501c3a6dcd",
+      "fragmento": "Apartado 5.1 Definición de los costos y Precio Monómico",
+      "paginasPdf": [
+        21
+      ],
+      "paginasImpresas": [
+        74
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "5consideracionesasociadasalasliquidacionesfacturacionypagos51definiciondeloscostosypreciomonomico511elpreciodelaenergiaelectricayproductosasociadosdelasuceolossaeeseleccionadosparaparticiparenlosmecan"
+    },
+    {
+      "id": "27b09254-b0f5-539c-bd46-a076ccc80073",
+      "fragmento": "Apartado 5.2 Liquidaciones",
+      "paginasPdf": [
+        21,
+        22
+      ],
+      "paginasImpresas": [
+        74,
+        75
+      ],
+      "anclas": 23,
+      "prefijoCotejado": "52liquidaciones521lasliquidacionesdelaenergiaelectricayproductosasociadoscontratadosmediantelosmecanismosdeadquisicionporconfiabilidadalosvendedoressedebenrealizardeacuerdoconloestablecidoenlasdisposi"
+    },
+    {
+      "id": "0922dac9-e60a-52a7-8933-803cb8c80c9b",
+      "fragmento": "Apartado 5.3 Estados de Cuenta, Facturación, Cobros y Pagos",
+      "paginasPdf": [
+        22
+      ],
+      "paginasImpresas": [
+        75
+      ],
+      "anclas": 39,
+      "prefijoCotejado": "53estadosdecuentafacturacioncobrosypagos531elvendedordebeseguirlostiemposestablecidosenelmanualdeestadosdecuentafacturacionypagosparapresentarsusfacturassinembargoencasoquenocuenteconunsistemainformat"
+    },
+    {
+      "id": "88d561df-04e8-58d1-88e0-99b828eef204",
+      "fragmento": "Apartado 5.4 Liquidación de las Unidades de Central Eléctrica y Sistemas de Almacenamiento de Energía Eléctrica contratados mediante los Mecanismos de Adquisic",
+      "paginasPdf": [
+        22,
+        23,
+        24
+      ],
+      "paginasImpresas": [
+        75,
+        76,
+        77
+      ],
+      "anclas": 73,
+      "prefijoCotejado": "54liquidaciondelasunidadesdecentralelectricaysistemasdealmacenamientodeenergiaelectricacontratadosmediantelosmecanismosdeadquisicionporconfiabilidad541laliquidacionalasuceylossaeecontratadasenlosmecan"
+    },
+    {
+      "id": "57c371bc-3d6e-597f-858c-022e6be51123",
+      "fragmento": "Apartado 5.5 Liquidación para socializar el costo de la aplicación de los Mecanismos de Adquisición por Confiabilidad",
+      "paginasPdf": [
+        24
+      ],
+      "paginasImpresas": [
+        77
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "55liquidacionparasocializarelcostodelaaplicaciondelosmecanismosdeadquisicionporconfiabilidad551elcostooingresoasociadoalaaplicaciondelosmecanismosdeadquisicionporconfiabilidaddebesersocializadoentrela"
+    },
+    {
+      "id": "c5edde43-4a95-5013-8b5a-a8059d1f4720",
+      "fragmento": "Apartado 5.6 Liquidación del desplazamiento o habilitación de Unidades de Central Eléctrica Móviles",
+      "paginasPdf": [
+        24,
+        25
+      ],
+      "paginasImpresas": [
+        77,
+        78
+      ],
+      "anclas": 36,
+      "prefijoCotejado": "56liquidaciondeldesplazamientoohabilitaciondeunidadesdecentralelectricamoviles561lasucemdebendeterminarsusingresosconformealoprevistoenlasreglasdelmercadoyaquesuoperacionserealizacomocualquierotracent"
+    },
+    {
+      "id": "8088f30b-9518-5016-aadd-6f9b53f074ee",
+      "fragmento": "Apartado 5.7 Términos relativos a las fórmulas aplicables a los numerales 5.4, 5.5 y 5.7 de las Disposiciones",
+      "paginasPdf": [
+        25,
+        26
+      ],
+      "paginasImpresas": [
+        78,
+        79
+      ],
+      "anclas": 124,
+      "prefijoCotejado": "57terminosrelativosalasformulasaplicablesalosnumerales5455y57delasdisposicionescargodiarioalaparticipantedelmercadoporlauceelconjuntodelasucesosaeequerepresentaeneldiaporladiferenciaentreloscostosofre"
+    },
+    {
+      "id": "a762d4c8-eddd-5977-965d-07b96c92e5e9",
+      "fragmento": "Apartado 6.1 Presentación de la Garantía",
+      "paginasPdf": [
+        26
+      ],
+      "paginasImpresas": [
+        79
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "6garantias61presentaciondelagarantiaparagarantizarelcumplimientodelasobligacionesdelcontratoelvendedordebeentregarlagarantiaalcenaceamastardaralafechadefirmadelcontratolacualpuedeserunatransferenciaba"
+    },
+    {
+      "id": "c881c8f5-ad69-5b5b-b664-ba7512ab24fa",
+      "fragmento": "Apartado 6.2 Ejecución o devolución de la Garantía",
+      "paginasPdf": [
+        26
+      ],
+      "paginasImpresas": [
+        79
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "62ejecucionodevoluciondelagarantiaelcenacepuedeejecutarlagarantiaencasodequeelvendedorincumplacualquieradesusobligacionesprevistasensucontratosenalandodemaneraenunciativamasnolimitativaentreotraselinc"
+    },
+    {
+      "id": "4ef1fee4-3845-595b-9a3d-703eca5fd2a3",
+      "fragmento": "Transitorio PRIMERO",
+      "paginasPdf": [
+        26
+      ],
+      "paginasImpresas": [
+        79
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresenteacuerdoentraenvigoreldiahabilsiguientealdesupublicacioneneldiariooficia"
+    },
+    {
+      "id": "8d4e5f97-95ef-557b-8537-b84919db6aa6",
+      "fragmento": "Transitorio SEGUNDO",
+      "paginasPdf": [
+        26
+      ],
+      "paginasImpresas": [
+        79
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "segundosedejasinefectoselacuerdonumeroa0202018porelquelacomisionreguladoradeenergiaemitecriteriosquedeberaobservarelcentronacionaldecontroldeenergiaparalaadquisiciondepotenciapormediodesubastasporconf"
+    },
+    {
+      "id": "018969a2-75d6-5a36-8108-e482b35e8901",
+      "fragmento": "Transitorio TERCERO",
+      "paginasPdf": [
+        26
+      ],
+      "paginasImpresas": [
+        79
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "terceroelcentronacionaldecontroldeenergiadebeimplementarelcalculodelosfoliosdeliquidacionprevistosenelnumeral5delasdisposicionesqueseemitenatravesdelpresenteacuerdoenlosestadosdecuentadiariosenunperio"
+    },
+    {
+      "id": "75826f0c-5a5d-5a5c-b617-86ca2625b395",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        26
+      ],
+      "paginasImpresas": [
+        79
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "ciudaddemexicoa25demarzode2026eldirectorgeneraljuancarlossol"
+    }
+  ]
+}

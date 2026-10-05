@@ -39,6 +39,28 @@ it('serves the reviewed CENACE PDF but rejects other DOF URLs and URL overrides'
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the exact official CENACE copy of the April 3, 2026 competitive mechanisms DACG', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://www.cenace.gob.mx/Docs/16_MARCOREGULATORIO/SENyMEM/%28DOF%202026-04-03%20SENER%29%20DACG%20Criterios%20para%20aplicaci%C3%B3n%20Mecanismos_Competitivos_Confiabilidad%20SEN.pdf';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cenace-dacg-mecanismos'), 'cenace-dacg-mecanismos', {
+        sources: { 'cenace-dacg-mecanismos': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [
+        originalUrl.replace('www.cenace.gob.mx', 'cenace.gob.mx'),
+        originalUrl.replace('Mecanismos_Competitivos', 'other'),
+        `${originalUrl}?url=https://outside.test`,
+    ]) {
+        expect((await serveReaderPdf(request('cenace-dacg-mecanismos'), 'cenace-dacg-mecanismos', {
+            sources: { 'cenace-dacg-mecanismos': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed April 30, 2026 DOF issue PDF for the CENACE notice', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=30042026-MAT.pdf&repo=';
