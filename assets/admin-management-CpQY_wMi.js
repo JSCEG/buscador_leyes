@@ -1,0 +1,36 @@
+import{g as w,u as E,d as L}from"./index-RbD1y75l.js";function I(){const s=document.getElementById("admin-tab-ingest"),i=document.getElementById("admin-tab-manage"),m=document.getElementById("admin-ingest-view"),g=document.getElementById("admin-manage-view"),r=document.getElementById("admin-laws-list"),p=document.getElementById("admin-refresh-laws"),n=document.getElementById("edit-law-modal"),o=document.getElementById("edit-law-form"),y=document.getElementById("close-edit-law-modal"),v=document.getElementById("cancel-edit-law");if(!s||!i)return;s.addEventListener("click",()=>{s.classList.add("bg-white","shadow-sm","text-guinda"),s.classList.remove("text-gray-500"),i.classList.remove("bg-white","shadow-sm","text-guinda"),i.classList.add("text-gray-500"),m.classList.remove("hidden"),g.classList.add("hidden")}),i.addEventListener("click",async()=>{i.classList.add("bg-white","shadow-sm","text-guinda"),i.classList.remove("text-gray-500"),s.classList.remove("bg-white","shadow-sm","text-guinda"),s.classList.add("text-gray-500"),g.classList.remove("hidden"),m.classList.add("hidden"),await d()}),p.addEventListener("click",d);async function d(){r.innerHTML='<tr><td colspan="5" class="py-12 text-center text-gray-400">Actualizando lista de instrumentos...</td></tr>';const a=await w();if(a.length===0){r.innerHTML='<tr><td colspan="5" class="py-12 text-center text-gray-400">No se encontraron instrumentos.</td></tr>';return}r.innerHTML=a.map(e=>`
+            <tr class="hover:bg-gray-50/50 transition-colors group">
+                <td class="px-6 py-4">
+                    <div class="font-bold text-gray-900 leading-tight mb-1">${e.titulo}</div>
+                    <div class="text-[10px] text-gray-400 flex items-center gap-2">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            ${e.url_original?`<a href="${e.url_original}" target="_blank" class="hover:text-guinda truncate max-w-[200px]">Ver en DOF</a>`:"Sin enlace"}
+                        </span>
+                        <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <span>ID: ${e.id.substring(0,8)}...</span>
+                    </div>
+                </td>
+                <td class="px-4 py-4">
+                    <span class="px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-[10px] font-bold uppercase">${e.siglas||"—"}</span>
+                </td>
+                <td class="px-4 py-4 text-center">
+                    <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase ${x(e.tipo)}">
+                        ${e.tipo||"otros"}
+                    </span>
+                </td>
+                <td class="px-4 py-4 text-gray-500 font-mono text-[10px]">
+                    ${e.fecha_publicacion||"N/D"}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button class="edit-btn p-1.5 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-lg transition-all" data-id="${e.id}" title="Editar">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </button>
+                        <button class="delete-btn p-1.5 text-gray-300 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all" data-id="${e.id}" title="Eliminar">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `).join(""),document.querySelectorAll(".edit-btn").forEach(e=>{e.addEventListener("click",()=>h(e.dataset.id,a))}),document.querySelectorAll(".delete-btn").forEach(e=>{e.addEventListener("click",()=>f(e.dataset.id))})}function x(a){switch(a==null?void 0:a.toLowerCase()){case"ley":return"bg-guinda/10 text-guinda";case"reglamento":return"bg-emerald-50 text-emerald-700";case"acuerdo":return"bg-amber-50 text-amber-700";case"decreto":return"bg-purple-50 text-purple-700";case"dacg":return"bg-blue-50 text-blue-700";case"nom":return"bg-gray-50 text-gray-700";default:return"bg-gray-100 text-gray-500"}}function h(a,e){const t=e.find(u=>u.id===a);t&&(document.getElementById("edit-law-id").value=t.id,document.getElementById("edit-law-title").value=t.titulo,document.getElementById("edit-law-siglas").value=t.siglas||"",document.getElementById("edit-law-tipo").value=t.tipo||"otros",document.getElementById("edit-law-url").value=t.url_original||"",document.getElementById("edit-law-temas").value=(t.temas_clave||[]).join(", "),document.getElementById("edit-law-fecha-pub").value=t.fecha_publicacion||"",document.getElementById("edit-law-fecha-ref").value=t.fecha_ultima_reforma||"",n.classList.remove("hidden"),n.classList.add("flex"),setTimeout(()=>{n.querySelector("div").classList.remove("scale-95","opacity-0"),n.querySelector("div").classList.add("scale-100","opacity-100")},10))}function c(){n.querySelector("div").classList.remove("scale-100","opacity-100"),n.querySelector("div").classList.add("scale-95","opacity-0"),setTimeout(()=>{n.classList.add("hidden"),n.classList.remove("flex"),o.reset()},300)}y.addEventListener("click",c),v.addEventListener("click",c),o.addEventListener("submit",async a=>{a.preventDefault();const e=document.getElementById("edit-law-id").value,t=o.querySelector('button[type="submit"]'),u=t.innerText,b={titulo:document.getElementById("edit-law-title").value.trim(),siglas:document.getElementById("edit-law-siglas").value.trim()||null,tipo:document.getElementById("edit-law-tipo").value,url_original:document.getElementById("edit-law-url").value.trim()||null,temas_clave:document.getElementById("edit-law-temas").value.split(",").map(l=>l.trim()).filter(l=>l!==""),fecha_publicacion:document.getElementById("edit-law-fecha-pub").value||null,fecha_ultima_reforma:document.getElementById("edit-law-fecha-ref").value||null};try{t.disabled=!0,t.innerText="Guardando...",await E(e,b),t.innerText="¡Guardado!",setTimeout(()=>{c(),d()},500)}catch(l){alert("Error al actualizar: "+l.message),t.disabled=!1,t.innerText=u}});async function f(a){if(confirm("¿Estás seguro de que deseas eliminar este instrumento? Se eliminarán todos sus artículos asociados si el sistema lo permite."))try{await L(a),await d()}catch{alert("No se pudo eliminar el instrumento. Posiblemente tenga artículos vinculados. Debe eliminarlos primero o contactar a soporte DB.")}}}export{I as initAdminManagement};
