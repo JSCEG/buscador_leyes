@@ -1,0 +1,841 @@
+{
+  "instrumento": "DACG para permisos de generación y almacenamiento de energía eléctrica",
+  "instrumentoId": "37c89350-82df-5021-8dbe-94e8e31e1d3e",
+  "fuente": "https://sidof.segob.gob.mx/notas/getNewsletter/23-10-2025/Matutina/323704",
+  "fuenteHtml": "https://sidof.segob.gob.mx/notas/docFuente/5770667",
+  "pdfTemporal": "tmp\\dof-2025-10-23-matutina-323704.pdf",
+  "sha256": "0314af26eb12f95ba3de3f838b7bf8821f5a1900f5ad76fd11e42d2e7bc66a7d",
+  "bytes": 6614526,
+  "paginasPdf": 364,
+  "paginasDelInstrumento": [
+    13,
+    69
+  ],
+  "fragmentosCargados": 86,
+  "fragmentosMapeados": 85,
+  "fragmentosNoMapeables": [
+    {
+      "id": "35bac1e8-52b3-50aa-bf28-4209291bfe09",
+      "fragmento": "Índice de las disposiciones",
+      "razon": "Índice de navegación sintético; la edición oficial no lo reproduce como bloque. Los títulos referenciados sí se mapean en sus fragmentos."
+    }
+  ],
+  "anclasGeometricas": 3712,
+  "fragmentos": [
+    {
+      "id": "d412723e-8736-507e-8834-e27b9f128db7",
+      "fragmento": "Preámbulo y acuerdo",
+      "paginas": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "anclas": 222,
+      "prefijoCotejado": "acuerdodelacomisionnacionaldeenergiaporelqueseemitenlasdisposicionesadministrativasdecaractergeneralqueestablecenlosterminoslegalestecnicosyfinancierosparasolicitarelotorgamientoylamodificaciondepermisosdegeneracionyalma"
+    },
+    {
+      "id": "7172efc7-89b1-5bac-93b8-fa747f839ac0",
+      "fragmento": "Numeral 1.1",
+      "paginas": [
+        17
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "alcanceyobjetolaspresentesdisposicionestienenporobjetoestablecerlosterminosyrequisitosparapresentarantelacomisionnacionaldeenergialassolicitudesparaobtenerlospermisosdegeneracionyalmacenamientodeenergiaelectricaasicomopa"
+    },
+    {
+      "id": "49823cd2-36a2-5aa2-9f9a-6e427a276d72",
+      "fragmento": "Numeral 1.2",
+      "paginas": [
+        17
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "delambitodeaplicacionlaspresentesdisposicionessondecaractergeneralobligatorioyaplicablesentodoelterritorionacionalparatodaslaspersonasfisicasymoralesconstituidasconformealasleyesmexicanasylasentidadesodependenciasdelgobi"
+    },
+    {
+      "id": "93010af3-dd44-5e5e-bfab-3687e461aa9c",
+      "fragmento": "Numeral 1.3",
+      "paginas": [
+        17
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "delaobligatoriedaddeobtenerunpermisodegeneraciondeenergiaelectricaodealmacenamientodeenergiaelectricalageneraciondeenergiaelectricapuederealizarseporunageneradoraexentaoporlostitularesdeunpermisodegeneracionnoobstantelos"
+    },
+    {
+      "id": "8903567d-19ce-537a-9bfe-551625a2b0a0",
+      "fragmento": "Numeral 1.4",
+      "paginas": [
+        17
+      ],
+      "anclas": 32,
+      "prefijoCotejado": "acronimoscenacecentronacionaldecontroldeenergiadofdiariooficialdelafederacionlieleydelaindustriaelectricalseleydelsectorelectricolspeeleydelserviciopublicodeenergiaelectricaopeoficialiadeparteselectronicarlsereglamentode"
+    },
+    {
+      "id": "dacb6193-4d4c-5a72-b128-a3795731a238",
+      "fragmento": "Numeral 1.5",
+      "paginas": [
+        17
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "definiciones"
+    },
+    {
+      "id": "f66860b9-678e-5ee4-855a-8cf6a0538243",
+      "fragmento": "Numeral 1.5.1",
+      "paginas": [
+        17
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "capacidadinstaladacantidaddepotenciaquetieneunacentralelectricaunsistemadealmacenamientodeenergiaelectricaounrecursodedemandacontrolabletambienesidentificadacomolacapacidaddeplaca"
+    },
+    {
+      "id": "c86790ac-6afc-5c8c-96fe-eec1d7d3ca14",
+      "fragmento": "Numeral 1.5.2",
+      "paginas": [
+        17
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "centralelectricainstalacionesyequiposqueenunsitiodeterminadopermitengenerarenergiaelectricayproductosasociados"
+    },
+    {
+      "id": "b68a1cf6-5ba0-5e8a-a971-6cb22941bfc4",
+      "fragmento": "Numeral 1.5.3",
+      "paginas": [
+        17,
+        18
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "comisioncomisionnacionaldeenergia"
+    },
+    {
+      "id": "49a2a5d5-da7a-51c2-8ab7-5e2cb28a8f88",
+      "fragmento": "Numeral 1.5.4",
+      "paginas": [
+        18
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "diahabillosdiaslaboralesdelacomisionqueseestablezcanconformealcalendarioaprobadoporelcomitetecnicodelacomisionypublicadoeneldoflosdiasnoconsideradosenelcalendariooficialseentiendencomodiasinhabilesparalosefectoslegalesya"
+    },
+    {
+      "id": "dac72a39-5537-56f0-9d2d-7d9b200b3f0b",
+      "fragmento": "Numeral 1.5.5",
+      "paginas": [
+        18
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "disposicioneslaspresentesdisposicionesadministrativasdecaractergeneralqueestablecenlosterminoslegalestecnicosyfinancierosparasolicitarelotorgamientoylamodificaciondepermisosdegeneracionyalmacenamientodeenergiaelectrica"
+    },
+    {
+      "id": "963406f7-42a0-5f61-8e9a-ca6815b5e622",
+      "fragmento": "Numeral 1.5.6",
+      "paginas": [
+        18
+      ],
+      "anclas": 36,
+      "prefijoCotejado": "estatusdelpermisodegeneraciondeenergiaelectricaencasodeotorgamientodelpermisodegeneraciondeenergiaelectricaseconsideranlossiguientesestatusdelpermisoiactividadespreviasdeacuerdoconlodefinidoenelnumeral1513iiporiniciarobr"
+    },
+    {
+      "id": "c436c17a-a6d5-581b-a6d4-8b17d091a8e7",
+      "fragmento": "Numeral 1.5.7",
+      "paginas": [
+        18,
+        19
+      ],
+      "anclas": 34,
+      "prefijoCotejado": "estatusdelpermisodealmacenamientodeenergiaelectricaencasodeotorgamientodelpermisodealmacenamientodeenergiaelectricaseconsideranlossiguientesestatusdelpermisoiactividadespreviasdeacuerdoconlodefinidoenelnumeral1513iiporin"
+    },
+    {
+      "id": "59b7ba7f-646e-5380-aae2-de9143a8dc3c",
+      "fragmento": "Numeral 1.5.8",
+      "paginas": [
+        19
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "estudiodeimpactodocumentoelaboradoporelcenaceparadeterminarlascaracteristicasespecificasdelainfraestructurarequeridaparalainterconexiondecentraleselectricasoconexiondecentrosdecargaparacumplirconladisponibilidaddeentrega"
+    },
+    {
+      "id": "789defce-3021-57e6-8fa4-f85ed6b34bea",
+      "fragmento": "Numeral 1.5.9",
+      "paginas": [
+        19
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "estudiodeimpactoversionrapidadocumentoelaboradoporelcenaceparadeterminarlascaracteristicasespecificasdelainfraestructurarequeridaparalainterconexiondecentraleselectricasde05a10mwyparacumplirconelcriterioparagarantizarlad"
+    },
+    {
+      "id": "03997dba-5ba8-5c26-8098-6ecdad746930",
+      "fragmento": "Numeral 1.5.10",
+      "paginas": [
+        19
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "grupodeintereseconomicoconjuntodepersonasfisicasomoralesquetienenobjetivoscomercialesyfinancierosafinesycoordinansusactividadesparalograrundeterminadoobjetivocomunconformealodispuestoenelreglamentoydisposicionesadministr"
+    },
+    {
+      "id": "77b84b82-33a9-5213-89ec-639e20c0a146",
+      "fragmento": "Numeral 1.5.11",
+      "paginas": [
+        19
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "grupoempresarialconjuntodesociedadesjuridicamenteindependientesperounidasbajouncontrolunicoyunadireccionunificadaquelassometeaunaestrategiacomungeneralmenteexisteunaempresamatrizoholdingqueejercecontrolsobrelasempresasfi"
+    },
+    {
+      "id": "08b26195-ad21-5a4d-9763-d9c3d2cd88f7",
+      "fragmento": "Numeral 1.5.12",
+      "paginas": [
+        19
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "productosasociadosproductosvinculadosalaoperacionydesarrollodelsectorelectriconecesariosparalaeficienciacalidadconfiabilidadcontinuidadseguridadysostenibilidaddelsistemaelectriconacionalentrelosqueseencuentranpotenciaser"
+    },
+    {
+      "id": "68dbc1cc-0246-5dd6-aa82-40551cb6598d",
+      "fragmento": "Numeral 1.5.13",
+      "paginas": [
+        19,
+        20
+      ],
+      "anclas": 36,
+      "prefijoCotejado": "programadeobrasserieordenadadeactividadesnecesariasparallevaracaboelproyectoamparadoporunpermisodegeneracionodealmacenamientodeenergiaelectricaprevistoenlalseapartirdelasactividadespreviasyhastalaentradaenoperacioncomerc"
+    },
+    {
+      "id": "a9d9c34e-be73-5202-83fe-64dd06b9ab79",
+      "fragmento": "Numeral 1.5.14",
+      "paginas": [
+        20
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "unidaddecentralelectricamovilcentralelectricaquepuedetrasladarseadiferentespuntosdeinterconexiondelsensindesensambledeequiposprincipales"
+    },
+    {
+      "id": "bc5336b4-9bd5-5f7a-8bc8-7bd7be83c77a",
+      "fragmento": "Numeral 2.1",
+      "paginas": [
+        20
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "objetivolaspersonasinteresadasensolicitarunpermisoparalageneraciondeenergiaelectricaodealmacenamientodeenergiaelectricadebenexhibiratravesdelaopedelacomisionlasolicituddepermisomediantelapresentacionyllenadobajoprotestad"
+    },
+    {
+      "id": "fa11e870-1af4-5385-84fb-10416a94e4d9",
+      "fragmento": "Numeral 2.2",
+      "paginas": [
+        20,
+        21
+      ],
+      "anclas": 68,
+      "prefijoCotejado": "requisitosgeneralesdeconformidadconlosarticulos23y24delrlsetodapersonaquepresentaunasolicituddebeacreditarlosiguienteenelmismoformatodesolicitudsegunseaelcasoademasdeloprevistoenestasdisposicionesinombredenominacionorazo"
+    },
+    {
+      "id": "ac3ca3d9-215a-55f6-8a3d-bf3c47ea1c82",
+      "fragmento": "Numeral 2.2.1",
+      "paginas": [
+        21,
+        22
+      ],
+      "anclas": 84,
+      "prefijoCotejado": "lasolicituddepermisodegeneraciondeenergiaelectricadebeincluiradicionalmentealosrequisitosestablecidosenlosarticulos23y24delrlseeindependientementedelafigurayesquemaquedeseenimplementarlosiguienteiladescripciondelproyecto"
+    },
+    {
+      "id": "ea9f4f3e-fc14-58e7-bb86-b7053d12cdae",
+      "fragmento": "Numeral 2.2.2",
+      "paginas": [
+        22,
+        23
+      ],
+      "anclas": 47,
+      "prefijoCotejado": "parapermisosdegeneraciondeenergiaelectricaquedesarrollenlafiguradeautoconsumoadicionalmentealoestablecidoenelnumeral221delasdisposicionesdebenpresentarenelformatodebidamenterequisitadoyanexandoladocumentacioncorrespondie"
+    },
+    {
+      "id": "54a0f05d-a39b-576b-92fb-c80d3dfa545d",
+      "fragmento": "Numeral 2.2.3",
+      "paginas": [
+        23
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "paracentraleselectricasconcapacidadinstaladaentre07a20mwquedesarrollenlafiguradeautoconsumointerconectadodebenpresentarlosrequisitosestablecidosenelacuerdodelacomisionnacionaldeenergiaporelqueseestablecenlosrequisitospar"
+    },
+    {
+      "id": "c3ac0964-d43f-5abc-9825-8e7d31762ffa",
+      "fragmento": "Numeral 2.2.4",
+      "paginas": [
+        23
+      ],
+      "anclas": 27,
+      "prefijoCotejado": "parapermisosdegeneraciondeenergiaelectricaquedesarrollenlafiguradegeneracionparaelmercadoelectricomayoristaadicionalmentealoestablecidoenelnumeral221delasdisposicionesdebenpresentarlosiguienteenelformatodebidamenterequis"
+    },
+    {
+      "id": "e24d744c-3808-5561-a604-cc272ddb92d7",
+      "fragmento": "Numeral 2.2.5",
+      "paginas": [
+        23
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "parapermisosdegeneraciondeenergiaelectricasolicitadosparacentraleselectricasqueseanexclusivamentedesarrolladasparalaexportaciondeenergiaelectricaadicionalmentealoestablecidoenelnumeral221delasdisposicionessedebepresentar"
+    },
+    {
+      "id": "1ea06ba5-5bb9-5ae5-b881-a8017e488318",
+      "fragmento": "Numeral 2.2.6",
+      "paginas": [
+        23,
+        24,
+        25
+      ],
+      "anclas": 73,
+      "prefijoCotejado": "parapermisosdealmacenamientodeenergiaelectricasedebepresentarenelformatodebidamenterequisitadoyanexandoladocumentacioncorrespondienteiacreditarlacapacidadtecnicadelapersonasolicitantedelgrupodeintereseconomicoogrupoempre"
+    },
+    {
+      "id": "5b684989-0519-562b-acad-fec64e4f9b06",
+      "fragmento": "Numeral 3.1",
+      "paginas": [
+        25
+      ],
+      "anclas": 34,
+      "prefijoCotejado": "alcanceelpresentecapitulotieneporpropositoestablecerlosrequisitosparatramitarantelacomisionlasmodificacionesenlossiguientespermisosenmateriadeelectricidadipermisosotorgadosbajoelregimendelalspeeausospropioscontinuosbauto"
+    },
+    {
+      "id": "18d312f4-2274-5a4f-bd52-cd8ade60c6b9",
+      "fragmento": "Numeral 3.2",
+      "paginas": [
+        25
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "delaobligatoriedadlamodificaciondelospermisosreguladosporlaspresentesdisposicionesnoeximedelcumplimientodelasobligacionesylaobtenciondelasautorizacionesypermisosestablecidosenlanormatividadqueresulteaplicablelaspersonasp"
+    },
+    {
+      "id": "748d1bf4-eefb-5c68-ba67-9f1790e7476c",
+      "fragmento": "Numeral 3.3",
+      "paginas": [
+        25
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "actualizacionesseconsideranactualizacionesdelpermisolosenaladoenelacuerdovigenteporelqueseestablecenlossupuestosqueconstituyenunaactualizaciondepermisoobienelquelosustituyaporloqueencasodeactualizacionessedebeseguirelpro"
+    },
+    {
+      "id": "367c724b-e83f-5127-b2e7-c45479c5e17f",
+      "fragmento": "Numeral 3.4",
+      "paginas": [
+        25,
+        26
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "restriccionesnoresultaprocedentelamodificaciondelospermisosdegeneraciondeenergiaelectricaqueseencuentrenenalgunodelossiguientessupuestosicambiosenlaubicaciondelacentralelectricacuandosemodifiquelaentidadfederativaelmunic"
+    },
+    {
+      "id": "00ab47ac-0f18-5f96-a4e5-45554bf0c746",
+      "fragmento": "Numeral 3.5",
+      "paginas": [
+        26
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "solicituddemodificacionlaspersonasinteresadasenobtenerlamodificaciondelospermisosalosqueserefiereelnumeral31debenrealizarsusolicitudmediantelosformatosautorizadosfirmadosporelapoderadoorepresentantelegalacreditadoantelao"
+    },
+    {
+      "id": "cc391758-1223-5f82-af06-929717133e1d",
+      "fragmento": "Numeral 3.6",
+      "paginas": [
+        26,
+        27
+      ],
+      "anclas": 39,
+      "prefijoCotejado": "requisitosgeneralesademasdeloindicadoenlosarticulos23y24delrlseyelnumeral32delaspresentesdisposicioneslosinteresadosenmodificarunpermisoenelformatoautorizadodebenrealizarladescripciongeneraldelamodificacionlajustificacio"
+    },
+    {
+      "id": "a996cf7d-2c4f-5bf7-8ad4-3e7810d4d50d",
+      "fragmento": "Numeral 3.7",
+      "paginas": [
+        27
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "modificaciondepermisoslspeelaspersonasinteresadasenmodificarunpermisodegeneracionotorgadoenlosterminosdelalspeeseguncorrespondadebenproporcionarlasiguienteinformacion"
+    },
+    {
+      "id": "f1ccf5a2-45f0-561e-bc92-bb7eac5ddab8",
+      "fragmento": "Numeral 3.7.1",
+      "paginas": [
+        27
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "fechasdelprogramadeobrasiinformacionfehacientequepermitaalacomisioncorroborarquelasactividadesrelativasaldesarrollodelacentralelectricadeconformidadconelprogramadeobrasvigenteseiniciarondentrodelplazodeseismesescontadosa"
+    },
+    {
+      "id": "af300ab3-c6d2-5c41-a30b-ffd5292c82bd",
+      "fragmento": "Numeral 3.7.2",
+      "paginas": [
+        27
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "caracteristicasdelosequiposdegeneracioneinclusiondeenergeticosijustificaciontecnicaquedetallelosmotivosporloscualesseconsideranecesarioelcambiodelosequiposdegeneracionautorizadospreviamenteporlosquesepretendaninstalariil"
+    },
+    {
+      "id": "0fd0ee07-3d9a-555f-8f40-23ba67e4c8a2",
+      "fragmento": "Numeral 3.7.3",
+      "paginas": [
+        27
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "ubicaciondelacentralelectricailascaracteristicasdelareageograficasenalandoelpoligonodelimitadoporcoordenadasgeodesicasenelsistemawgs84ysenalizadasenunarchivoconformatokmziilaslicenciaspermisosautorizacionesconcesioneseva"
+    },
+    {
+      "id": "fd7a033b-b687-5a77-8536-e4a45d00d0ef",
+      "fragmento": "Numeral 3.7.4",
+      "paginas": [
+        27,
+        28
+      ],
+      "anclas": 28,
+      "prefijoCotejado": "cambiodelaspersonasautorizadascomobeneficiariosdelaenergiaelectricaoestablecimientosasociadosalacogeneracionisisetratadepersonasnuevasdiferentesalasautorizadaspreviamenteenelpermisolasolicituddeinclusionenlosplanesdeexpa"
+    },
+    {
+      "id": "183f219a-d641-5666-b87f-eaa4b70e6f47",
+      "fragmento": "Numeral 3.7.5",
+      "paginas": [
+        28
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "cambiodelaempresaqueproveelaenergiaelectricaparalospermisosdeimportacionydelaquecompralaenergiaelectricaparalospermisosdeexportacionipresentarlosactosjuridicoscelebradosdirectamenteentreelabastecedordelaelectricidadyelco"
+    },
+    {
+      "id": "9c805d9c-f18f-57c1-a7e8-ce4cf195ffbe",
+      "fragmento": "Numeral 3.8",
+      "paginas": [
+        28
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "modificaciondepermisoslielaspersonasinteresadasenmodificarunpermisodegeneracionotorgadoenlosterminosdelalieseguncorrespondadebenproporcionarlasiguienteinformacion"
+    },
+    {
+      "id": "7025962b-3812-5c9f-bdd5-185a07fb3e8c",
+      "fragmento": "Numeral 3.8.1",
+      "paginas": [
+        28
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "fechasdelprogramadeobrasiinformacionfehacientequelepermitacorroboraralacomisionquelasactividadesrelativasaldesarrollodelacentralelectricadeconformidadconelprogramadeobrasvigenteseiniciarondentrodelplazodetresmesescontado"
+    },
+    {
+      "id": "094e1228-c231-57e5-8eec-be38244e85ec",
+      "fragmento": "Numeral 3.8.2",
+      "paginas": [
+        28
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "caracteristicasdelosequiposdegeneracioneinclusiondeenergeticosijustificaciontecnicaquedetallelosmotivosporloscualesseconsideranecesarioelcambiodelosequiposdegeneracionautorizadospreviamenteporlosquesepretendaninstalariil"
+    },
+    {
+      "id": "b5f0cdc3-ccee-54c2-a3b5-31265fba57ab",
+      "fragmento": "Numeral 3.8.3",
+      "paginas": [
+        28,
+        29
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "ubicaciondelacentralelectricailascaracteristicasdelareageograficasenalandoelpoligonodelimitadoporcoordenadasgeodesicasenelsistemawgs84ysenalizadasenunarchivoconformatokmziilaslicenciaspermisosautorizacionesconcesioneseva"
+    },
+    {
+      "id": "8edf9e35-2bdb-5014-b793-5ce8f9b91ff1",
+      "fragmento": "Numeral 3.8.4",
+      "paginas": [
+        29
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "interconexionalsendecentraleselectricasaisladasielnumerodeoficioemitidoporelcenacedondesesenaleelresultadoolaconfirmaciondeexenciondelosestudiosdeinterconexionseguncorrespondaconelprocedimientodelaatenciondelasolicitudde"
+    },
+    {
+      "id": "d41f9b72-ce36-5d10-82ea-d39cb53b380a",
+      "fragmento": "Numeral 3.9",
+      "paginas": [
+        29
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "modificaciondepermisosdegeneracionlselaspersonasinteresadasenmodificarunpermisodegeneracionotorgadoenlosterminosdelalseseguncorrespondadebenproporcionarlasiguienteinformacion"
+    },
+    {
+      "id": "b9c77965-0fc7-55c1-a7b3-b36f286e1c77",
+      "fragmento": "Numeral 3.9.1",
+      "paginas": [
+        29
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "fechasdelprogramadeobrasiinformacionfehacientequelepermitacorroboraralacomisionquelasactividadesrelativasaldesarrollodelacentralelectricadeconformidadconelprogramadeobrasvigenteseiniciarondentrodelplazodetresmesescontado"
+    },
+    {
+      "id": "2b23a6c0-68e0-5ee0-b4f9-8fa2d65f2be0",
+      "fragmento": "Numeral 3.9.2",
+      "paginas": [
+        29
+      ],
+      "anclas": 25,
+      "prefijoCotejado": "caracteristicasdelosequiposdegeneracionoalmacenamientoijustificaciontecnicaquedetallelosmotivosporloscualesseconsideranecesarioelcambiodelosequiposdegeneracionoalmacenamientopreviamenteautorizadosporlosquesepretendaninst"
+    },
+    {
+      "id": "d8e6e4d0-0d25-599f-b832-9cb9ce3c0d41",
+      "fragmento": "Numeral 3.9.3",
+      "paginas": [
+        29,
+        30
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "ubicaciondelacentralelectricailascaracteristicasdelareageograficasenalandoelpoligonodelimitadoporcoordenadasgeodesicasenelsistemawgs84ysenalizadasenunarchivoconformatokmziilaslicenciaspermisosautorizacionesconcesioneseva"
+    },
+    {
+      "id": "21500e10-326c-5c2d-9165-65f53fd16e7e",
+      "fragmento": "Numeral 3.9.4",
+      "paginas": [
+        30
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "interconexionalsendecentraleselectricasaisladasielnumerodeoficioemitidoporelcenacedondesesenaleelresultadoolaconfirmaciondeexenciondelosestudiosdeinterconexionseguncorrespondaconelprocedimientodelaatenciondelasolicitudde"
+    },
+    {
+      "id": "3a18dc4a-9849-5723-b9cd-f4b31031155b",
+      "fragmento": "Numeral 3.9.5",
+      "paginas": [
+        30
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "incorporaciondeunsistemadealmacenamientodeenergiaelectricaielnumerodeoficioemitidoporelcenacedondesesenaleviabilidadsobrelaincorporaciondeunsistemadealmacenamientodeenergiaelectricadichooficiodebeestaremitidoalnombredeno"
+    },
+    {
+      "id": "ddc69e9b-f59e-5e2f-9106-b554cf367f84",
+      "fragmento": "Numeral 3.10",
+      "paginas": [
+        30
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "modificaciondepermisosdealmacenamientolaspersonasinteresadasenmodificarunpermisodealmacenamientodeenergiaelectricaademasdeproporcionarlainformacionindicadaenlasdisposicionescorrespondientesseguncorrespondadebenproporcion"
+    },
+    {
+      "id": "5dbce08c-0034-53ce-a09b-d55d9d1fa878",
+      "fragmento": "Numeral 3.10.1",
+      "paginas": [
+        30
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "fechasdelprogramadeobrasiinformacionfehacientequelepermitacorroboraralacomisionquelasactividadesrelativasaldesarrollolasobrasdealmacenamientodeenergiaelectricadeconformidadconelprogramadeobrasvigenteseiniciarondentrodelp"
+    },
+    {
+      "id": "274f8709-3c8e-5fc1-afbf-86ffbcb1f247",
+      "fragmento": "Numeral 3.10.2",
+      "paginas": [
+        30,
+        31
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "capacidadinstaladaijustificaciontecnicaquedetallelosmotivosdelamodificacioniilamemoriatecnicodescriptivadelproyectoquedescribalascaracteristicastecnicasdelosequiposdelsistemadealmacenamientodeenergiaelectricaasicomodelos"
+    },
+    {
+      "id": "c5da604c-6b89-5236-b7c9-6d0d98c02e6b",
+      "fragmento": "Numeral 3.10.3",
+      "paginas": [
+        31
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "ubicaciondelsistemadealmacenamientodeenergiaelectricailascaracteristicasdelareageograficasenalandoelpoligonodelimitadoporcoordenadasgeodesicasenelsistemawgs84ysenalizadasenunarchivoconformatokmziilaslicenciaspermisosauto"
+    },
+    {
+      "id": "4fab8ef6-4200-56ed-b505-b38dbd2da07c",
+      "fragmento": "Numeral 3.11",
+      "paginas": [
+        31
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "particularidadesdelamodificaciondelprogramadeobrasparaloscasosdemodificacionalprogramadeobraselplazooriginalmentepropuestoporlapersonasolicitanteysumodificaciondebeserevaluadoporlacomisionpudiendoimplicarmodificacionesre"
+    },
+    {
+      "id": "64047dc0-0a6b-5e3b-990f-a72012a3db80",
+      "fragmento": "Numeral 3.12",
+      "paginas": [
+        31
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "delacesiondelospermisosdegeneracionoalmacenamientolapersonapermisionariayquienpretendaadquirirelpermisocorrespondientedebenestarregistradosenlaopedelacomisionlasolicitudsetieneporpresentadahastacontarconlosformulariosaut"
+    },
+    {
+      "id": "008753d2-5d35-56a6-bc0a-b5edb318c2bc",
+      "fragmento": "Numeral 3.12.1",
+      "paginas": [
+        31,
+        32
+      ],
+      "anclas": 65,
+      "prefijoCotejado": "paratodoslospermisosdegeneracionsinimportarelregimenconelquefueronotorgadosyparalospermisosdealmacenamientoilapersonapermisionariadebepresentarenelformatoautorizadoymediantesuopeinformacionrespectoaamanifestacionbajoprot"
+    },
+    {
+      "id": "bdb8e0cc-d8b2-5fb8-8a36-5bb8b4156cdb",
+      "fragmento": "Numeral 3.12.2",
+      "paginas": [
+        32,
+        33
+      ],
+      "anclas": 67,
+      "prefijoCotejado": "paralospermisosotorgadosenelmarcodelalieolalseadicionalmentealosrequisitossenaladosenelnumeral3121delasdisposicionessedebepresentarlosiguienteilapersonapermisionariadebeacreditaraelcumplimientodelplandenegociospresentado"
+    },
+    {
+      "id": "c7d71120-7a95-5405-ae68-ba155ff928c5",
+      "fragmento": "Numeral 3.13",
+      "paginas": [
+        33
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "defusionoescisiondelospermisosdegeneracionoalmacenamiento"
+    },
+    {
+      "id": "63d5e64b-dabf-541d-ab37-5625b7ebe400",
+      "fragmento": "Numeral 3.13.1",
+      "paginas": [
+        33
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "enelcasoquesesolicitelafusionoescisiondelaempresaqueostentaelpermisosedebeentregarelinstrumentonotarialenelcualconstelafusionoescisiondebidamenteinscritoanteelregistropublicodecomercioenoriginalocopiacertificadadentrodel"
+    },
+    {
+      "id": "fc888170-755e-5efe-82cc-8a77192b85ed",
+      "fragmento": "Numeral 3.13.2",
+      "paginas": [
+        33,
+        34,
+        35
+      ],
+      "anclas": 97,
+      "prefijoCotejado": "enloscasosenquederivadodelafusionoescisiondelapersonapermisionariaestadesaparezcaademasdelosenaladoenelnumeral3131delasdisposicioneselnuevotitulardelpermisodebepresentariconstanciadesituacionfiscalconlaopiniondelcumplimi"
+    },
+    {
+      "id": "682f526c-1e70-5848-aea6-8c861c05d5f1",
+      "fragmento": "Numeral 3.14",
+      "paginas": [
+        35,
+        36
+      ],
+      "anclas": 82,
+      "prefijoCotejado": "migracioneslaspersonasinteresadasenmodificarunpermisodegeneracionotorgadoenlosterminosdelalspeeolalieporunpermisoenterminosdelalsedebeexhibirlosiguienteielnumerodepermisodelquesetrataylafiguraalaquesolicitanmigrarconform"
+    },
+    {
+      "id": "6e0c522b-2332-5e79-a9b2-7a5b7992b819",
+      "fragmento": "Numeral 4.1",
+      "paginas": [
+        36
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "listadodeformatosautorizadosacontinuacionseindicanlosdiversosformatosparalosdistintostramitesdescritosenlaspresentesdisposicionesdescripciondelformatonombresolicituddepermisodegeneraciondeenergiaelectricacneelectricidad0"
+    },
+    {
+      "id": "83f495db-b31a-520b-87b6-934fa76b3cdd",
+      "fragmento": "Numeral 4.2",
+      "paginas": [
+        36,
+        37
+      ],
+      "anclas": 41,
+      "prefijoCotejado": "procedimientodeevaluacionlacomisiondebeanalizaryevaluarlassolicitudessenaladasenlasdisposicionesobservandolasdisposicionesadministrativasdecaractergeneralparalaplaneacionvinculanteenelsectorelectricodeconformidadconloste"
+    },
+    {
+      "id": "58a57130-efa9-5b1f-8633-27f82016baf3",
+      "fragmento": "Numeral 4.3",
+      "paginas": [
+        37
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "informacionadicionalfueradelplazocuandolapersonainteresadapresenteinformacionadicionalquetengaporobjetomodificarlasolicituddelacualsedesprendaunnuevoprocesodeevaluacionporpartedelacomisionesnecesarioeldesistimientodelaso"
+    },
+    {
+      "id": "1264af5c-636f-5bb5-8b94-f2a36bc0ddc0",
+      "fragmento": "Numeral 5.1",
+      "paginas": [
+        37
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "criteriosparaladeterminaciondelperiododevigenciaparaladeterminaciondelperiododevigenciadelospermisosdegeneracionelectricaydealmacenamientodeenergiaelectricalacomisionconsiderolainformacionfinancieraytecnicaquehistoricame"
+    },
+    {
+      "id": "14d660d3-2437-554c-8117-066d5c6adf34",
+      "fragmento": "Numeral 5.1.1",
+      "paginas": [
+        37,
+        38
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "aspectosfinancieroselobjetivodelanalisisfinancierodelosproyectosdeinversioncomoeselcasodelaconstrucciondeunacentralelectricaesdeterminarlaviabilidadfinancieralarentabilidadylaamortizaciondelainversioninicialparalograrest"
+    },
+    {
+      "id": "faac1162-fcbe-5b29-ad35-23aeeeaa20ae",
+      "fragmento": "Numeral 5.1.2",
+      "paginas": [
+        38
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "aspectostecnicosenlascentraleselectricaslatransformaciondelafuenteprimariadependedelatecnologiaqueseutiliceloquedeterminalavidautildeunacentralelectricaycontribuyealadelimitaciondelavigenciadeunpermisodegeneraciondeenerg"
+    },
+    {
+      "id": "b112d503-5861-5c37-8d2d-21c412e67349",
+      "fragmento": "Numeral 5.1.3",
+      "paginas": [
+        38
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "delamigraciondelospermisosreguladosenelmarcodelalspeeydelalielamigraciondelospermisosvigentesenunmarcoregulatorioanterioraldelalseeselmecanismomedianteelcualsebuscalahomogeneizaciondelsectorelectriconacionalafindequelaac"
+    },
+    {
+      "id": "4e8d994a-44e5-5454-9d74-814bf80e8718",
+      "fragmento": "Numeral 5.1.4",
+      "paginas": [
+        38,
+        39,
+        40
+      ],
+      "anclas": 78,
+      "prefijoCotejado": "finalidaddelproyectoenelmarcodelseseestablecequelaactividaddegeneraciondeenergiaelectricapuederealizarseatravesdelasfigurasdegeneraciondistribuidaautoconsumoygeneracionparaelmercadoelectricomayoristayqueparalasfigurasdea"
+    },
+    {
+      "id": "fb556afa-8d79-534d-9af0-50a58c18b076",
+      "fragmento": "Numeral 5.2",
+      "paginas": [
+        40
+      ],
+      "anclas": 31,
+      "prefijoCotejado": "vigenciadepermisosderivadodelosenaladoenelnumeral51anteriorlavigenciadelospermisosdegeneraciondeenergiaelectricadebentenerlavigenciasiguientemodelovigenciamaximaanosautoconsumo20mercadoelectricomayoristadistintoalosesque"
+    },
+    {
+      "id": "e448322a-beb3-5216-abb8-c65fb70df2fd",
+      "fragmento": "Transitorio Primero · acuerdo",
+      "paginas": [
+        40
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "elpresenteacuerdoentraenvigoreldiahabilsiguientedesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "7176f199-9b82-5780-91de-ba69615bd2c7",
+      "fragmento": "Transitorio Segundo · acuerdo",
+      "paginas": [
+        40
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "seabroganlossiguientesinstrumentosemitidosporlaextintacomisionregulado"
+    },
+    {
+      "id": "ad494eb9-fa6d-5f41-b7a9-35210c0a69bb",
+      "fragmento": "Transitorio Tercero · acuerdo",
+      "paginas": [
+        40
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "sederogalaresolucionnumerores3902017porlaquelacomisionreguladoradeenergiaexpidelasdisposicionesadministrativasdecaractergeneralqueestablecenlosterminosparasolicitarlaautorizacionparalamodificacionotransferenciadepermisos"
+    },
+    {
+      "id": "36b2188c-f923-57d1-b347-187c0a53e9eb",
+      "fragmento": "Transitorio Cuarto · acuerdo",
+      "paginas": [
+        40
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "sederogaelacuerdonumeroa0622023delacomisionreguladoradeenergiaporelquesemodificalaresolucionnumerores3902017porlaqueseexpidieronlasdisposicionesadministrativasdecaractergeneralqueestablecenlosterminosparasolicitarlaautor"
+    },
+    {
+      "id": "8ae53682-5d86-587f-93b4-777a5c614aca",
+      "fragmento": "Transitorio Quinto · acuerdo",
+      "paginas": [
+        40
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "estacomisionnacionaldeenergiadebepublicarmensualmenteensupaginaelectronicalassolicitudesrecibidasquesehacenreferenciaenelpresenteacuerdo"
+    },
+    {
+      "id": "3d12721e-658c-5a5f-aca3-5d18e214ec00",
+      "fragmento": "Anexo Único · Instrucciones de llenado",
+      "paginas": [
+        41
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "anexounicoformatosautorizadosinstruccionesdel"
+    },
+    {
+      "id": "2586d1a6-1088-5ebd-a9cd-2dec0abd379c",
+      "fragmento": "CNE_ELECTRICIDAD_01 · Formato",
+      "paginas": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "anclas": 424,
+      "prefijoCotejado": "cneelectricidad01formatoparalasolicituddepermisodegeneraciondeenergiaelectricadatosdelapersonasolicitantecompletelaseccioncorrespondienteseguneltipodepersonasolicitantefisicaomoralaseguresedeadjuntarlosdocumentosrequerid"
+    },
+    {
+      "id": "e8cf8fa6-cc8a-5224-919e-d8b4b734ad8d",
+      "fragmento": "CNE_ELECTRICIDAD_02 · Formato",
+      "paginas": [
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "anclas": 293,
+      "prefijoCotejado": "cneelectricidad02formatoparalasolicituddepermisodealmacenamientodeenergiaelectricadatosdelapersonasolicitantecompletelaseccioncorrespondienteseguneltipodepersonasolicitantefisicaomoralaseguresedeadjuntarlosdocumentosrequ"
+    },
+    {
+      "id": "dace0cc0-2061-5f39-8b74-cb5c9a17ddcb",
+      "fragmento": "CNE_ELECTRICIDAD_03 · Formato",
+      "paginas": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "anclas": 552,
+      "prefijoCotejado": "cneelectricidad03modificaciondepermisosirequisitosgeneralesdatosdelape"
+    },
+    {
+      "id": "733e4b6f-74f1-513c-bb13-429a3e65469b",
+      "fragmento": "CNE_ELECTRICIDAD_04 · Formato",
+      "paginas": [
+        61,
+        62,
+        63,
+        64
+      ],
+      "anclas": 285,
+      "prefijoCotejado": "cneelectricidad04cesionotransferenciadepermis"
+    },
+    {
+      "id": "84eeab42-2ec5-5e5e-8d59-bcc6d13fa7da",
+      "fragmento": "CNE_ELECTRICIDAD_05 · Formato",
+      "paginas": [
+        65,
+        66,
+        67
+      ],
+      "anclas": 222,
+      "prefijoCotejado": "cneelectricidad05fusionoescisi"
+    },
+    {
+      "id": "e597d1f8-8f02-5e57-b648-7bc86b5cde86",
+      "fragmento": "CNE_ELECTRICIDAD_06 · Formato",
+      "paginas": [
+        68,
+        69
+      ],
+      "anclas": 95,
+      "prefijoCotejado": "cneelectricidad06formatodesolicituddemigraciondatosdelapersonasolicitantecompletelaseccioncorrespondienteseguneltipodefiguraamigraraseguresedeadjuntarlosdocumentosrequeridosconlosqueseacreditelomanifestadoinumerodepermis"
+    },
+    {
+      "id": "6a546265-c50a-5b6e-bd01-935205875261",
+      "fragmento": "Firma del acuerdo",
+      "paginas": [
+        69
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "ciudaddemexicoa8deoctubrede2025eldirectorgeneraljuancarlossolisavilarubrica"
+    }
+  ]
+}
