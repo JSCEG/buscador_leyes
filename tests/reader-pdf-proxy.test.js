@@ -271,6 +271,24 @@ it('serves only the reviewed May 11, 2026 DOF evening issue PDF for the second g
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed November 10, 2025 DOF morning issue PDF for generation call amendment 2', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/10-11-2025/Matutina/324043';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('conv-gen-1-m2'), 'conv-gen-1-m2', {
+        sources: { 'conv-gen-1-m2': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('324043', '324044'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('conv-gen-1-m2'), 'conv-gen-1-m2', {
+            sources: { 'conv-gen-1-m2': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';

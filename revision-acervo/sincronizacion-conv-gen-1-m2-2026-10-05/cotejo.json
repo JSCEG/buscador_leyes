@@ -1,0 +1,83 @@
+{
+  "instrumento": "CONV-GEN-1-M2",
+  "instrumentId": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5772392",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/10-11-2025/Matutina/324043",
+  "archivoTemporal": "tmp\\conv-gen-1-m2.pdf",
+  "sha256": "7f5b3270512bace265139239071a007dd150e184e7a24f869055da27afba2360",
+  "bytes": 8117931,
+  "paginasPdf": 438,
+  "paginasImpresasDelInstrumento": [
+    142
+  ],
+  "fragmentosOficiales": 5,
+  "fragmentosExcluidos": [
+    {
+      "id": "79b52a67-0ffd-5577-a887-a114f0b057f8",
+      "identificador": "Nota editorial · versiones relacionadas"
+    }
+  ],
+  "anclasGeometricas": 76,
+  "fragmentos": [
+    {
+      "id": "e8f3ea1e-56d0-549b-97aa-309bbc29495c",
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 34,
+      "prefijoCotejado": "acuerdoporelqueseemitelamodificacionalaconvocatoriaparalaatencionprioritariadesolicitudesdepermisosdegeneracionelectricaeinterconexionalsistemaelectriconacionalalineadosalaplaneaci"
+    },
+    {
+      "id": "aff838b2-a58c-5d56-8034-26314c81bff4",
+      "fragmento": "Resolutivo PRIMERO",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 35,
+      "prefijoCotejado": "primerosemodificaelnumeral6calendarioparaladeterminaciondelotorgamientodepermisosdegeneraciondeenergiaelectricaderivadosdelaconvocatorianumeral4paraquedarenlossiguientesterminos6ca"
+    },
+    {
+      "id": "a72f9272-b9c1-51a7-bc7c-0a6607c05e18",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "segundolasfechasdelaetapa4ysusreferenciasestablecidasalolargodelaconvocatoriasedebenentenderconformealoprevistoenlamodificacionaqueserefiereelnumeralanterior"
+    },
+    {
+      "id": "0c498ce2-73f8-5496-85f8-121d2c40cb91",
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriounicoelpresenteacuerdoentraenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "4f2a0342-6c6d-50e8-935b-c360581100cf",
+      "fragmento": "Firma del acuerdo",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa5denoviembrede2025secretariadeenergialuzelenagonzalezescobarrubrica"
+    }
+  ]
+}

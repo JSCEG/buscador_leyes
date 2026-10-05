@@ -1,0 +1,3023 @@
+{
+  "source": {
+    "id": "dof-matutina-2025-11-10-7f5b3270512b",
+    "title": "Edición matutina del Diario Oficial de la Federación · 10 de noviembre de 2025",
+    "instrumentIds": [
+      "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637"
+    ],
+    "sha256": "7f5b3270512bace265139239071a007dd150e184e7a24f869055da27afba2360",
+    "transport": "remote-pdf",
+    "pdfUrl": "/api/reader/dof-matutina-2025-11-10-7f5b3270512b",
+    "originalUrl": "https://sidof.segob.gob.mx/notas/getNewsletter/10-11-2025/Matutina/324043",
+    "pageCount": 438,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 2,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 3,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 4,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 5,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 6,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 7,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 8,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 9,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 10,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 11,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 12,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 13,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 14,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 15,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 16,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 17,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 18,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 19,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 20,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 21,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 22,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 23,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 24,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 25,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 26,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 27,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 28,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 29,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 30,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 31,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 32,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 33,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 34,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 35,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 36,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 37,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 38,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 39,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 40,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 41,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 42,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 43,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 44,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 45,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 46,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 47,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 48,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 49,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 50,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 51,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 52,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 53,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 54,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 55,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 56,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 57,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 58,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 59,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 60,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 61,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 62,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 63,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 64,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 65,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 66,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 67,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 68,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 69,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 70,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 71,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 72,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 73,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 74,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 75,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 76,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 77,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 78,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 79,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 80,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 81,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 82,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 83,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 84,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 85,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 86,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 87,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 88,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 89,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 90,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 91,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 92,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 93,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 94,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 95,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 96,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 97,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 98,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 99,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 100,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 101,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 102,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 103,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 104,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 105,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 106,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 107,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 108,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 109,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 110,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 111,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 112,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 113,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 114,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 115,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 116,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 117,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 118,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 119,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 120,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 121,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 122,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 123,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 124,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 125,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 126,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 127,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 128,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 129,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 130,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 131,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 132,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 133,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 134,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 135,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 136,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 137,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 138,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 139,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 140,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 141,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 142,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 143,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 144,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 145,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 146,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 147,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 148,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 149,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 150,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 151,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 152,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 153,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 154,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 155,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 156,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 157,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 158,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 159,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 160,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 161,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 162,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 163,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 164,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 165,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 166,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 167,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 168,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 169,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 170,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 171,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 172,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 173,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 174,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 175,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 176,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 177,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 178,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 179,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 180,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 181,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 182,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 183,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 184,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 185,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 186,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 187,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 188,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 189,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 190,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 191,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 192,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 193,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 194,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 195,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 196,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 197,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 198,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 199,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 200,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 201,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 202,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 203,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 204,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 205,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 206,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 207,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 208,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 209,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 210,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 211,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 212,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 213,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 214,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 215,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 216,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 217,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 218,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 219,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 220,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 221,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 222,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 223,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 224,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 225,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 226,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 227,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 228,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 229,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 230,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 231,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 232,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 233,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 234,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 235,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 236,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 237,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 238,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 239,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 240,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 241,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 242,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 243,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 244,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 245,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 246,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 247,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 248,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 249,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 250,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 251,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 252,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 253,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 254,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 255,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 256,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 257,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 258,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 259,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 260,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 261,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 262,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 263,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 264,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 265,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 266,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 267,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 268,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 269,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 270,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 271,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 272,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 273,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 274,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 275,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 276,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 277,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 278,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 279,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 280,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 281,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 282,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 283,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 284,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 285,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 286,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 287,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 288,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 289,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 290,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 291,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 292,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 293,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 294,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 295,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 296,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 297,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 298,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 299,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 300,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 301,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 302,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 303,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 304,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 305,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 306,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 307,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 308,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 309,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 310,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 311,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 312,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 313,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 314,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 315,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 316,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 317,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 318,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 319,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 320,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 321,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 322,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 323,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 324,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 325,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 326,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 327,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 328,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 329,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 330,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 331,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 332,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 333,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 334,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 335,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 336,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 337,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 338,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 339,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 340,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 341,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 342,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 343,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 344,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 345,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 346,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 347,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 348,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 349,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 350,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 351,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 352,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 353,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 354,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 355,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 356,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 357,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 358,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 359,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 360,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 361,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 362,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 363,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 364,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 365,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 366,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 367,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 368,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 369,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 370,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 371,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 372,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 373,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 374,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 375,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 376,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 377,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 378,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 379,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 380,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 381,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 382,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 383,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 384,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 385,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 386,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 387,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 388,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 389,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 390,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 391,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 392,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 393,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 394,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 395,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 396,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 397,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 398,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 399,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 400,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 401,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 402,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 403,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 404,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 405,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 406,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 407,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 408,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 409,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 410,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 411,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 412,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 413,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 414,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 415,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 416,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 417,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 418,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 419,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 420,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 421,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 422,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 423,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 424,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 425,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 426,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 427,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 428,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 429,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 430,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 431,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 432,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 433,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 434,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 435,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 436,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 437,
+        "width": 792.0,
+        "height": 612.0
+      },
+      {
+        "number": 438,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ]
+  },
+  "articles": {
+    "e8f3ea1e-56d0-549b-97aa-309bbc29495c": {
+      "sourceId": "dof-matutina-2025-11-10-7f5b3270512b",
+      "label": "Preámbulo del acuerdo modificatorio",
+      "type": "preambulo",
+      "contentSha256": "60526b979f59821e32905484ec9555b19cd74f4cf9d06be301b60cf277a10ad4",
+      "pageNumbers": [
+        142
+      ],
+      "anchors": [
+        {
+          "page": 142,
+          "lineId": 4,
+          "bbox": [
+            84.95999908447266,
+            80.00102233886719,
+            529.281982421875,
+            89.96401977539062
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 5,
+          "bbox": [
+            84.95999145507812,
+            90.37803649902344,
+            529.3143310546875,
+            100.34103393554688
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 6,
+          "bbox": [
+            84.95999145507812,
+            100.75505065917969,
+            129.4281005859375,
+            110.71804809570312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 7,
+          "bbox": [
+            84.95999908447266,
+            116.6549301147461,
+            509.7584228515625,
+            126.69892883300781
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 8,
+          "bbox": [
+            99.36000061035156,
+            131.71498107910156,
+            529.5123291015625,
+            141.7589874267578
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 9,
+          "bbox": [
+            84.96002197265625,
+            141.7320098876953,
+            529.4880981445312,
+            151.77601623535156
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 10,
+          "bbox": [
+            84.96002197265625,
+            151.74903869628906,
+            529.578369140625,
+            161.7930450439453
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 11,
+          "bbox": [
+            84.96002197265625,
+            161.71205139160156,
+            529.455810546875,
+            171.7560577392578
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 12,
+          "bbox": [
+            84.96002197265625,
+            171.7290802001953,
+            532.0890502929688,
+            181.77308654785156
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 13,
+          "bbox": [
+            84.96000671386719,
+            181.74610900878906,
+            279.09527587890625,
+            191.7901153564453
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 14,
+          "bbox": [
+            268.9830322265625,
+            192.8520965576172,
+            345.1949768066406,
+            202.81509399414062
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 15,
+          "bbox": [
+            99.36003112792969,
+            203.70606994628906,
+            529.50341796875,
+            213.7500762939453
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 16,
+          "bbox": [
+            84.96005249023438,
+            213.7230987548828,
+            529.5285034179688,
+            223.76710510253906
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 17,
+          "bbox": [
+            84.96005249023438,
+            223.74012756347656,
+            529.5341186523438,
+            233.7841339111328
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 18,
+          "bbox": [
+            84.96005249023438,
+            233.70314025878906,
+            529.5232543945312,
+            243.7471466064453
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 19,
+          "bbox": [
+            84.96005249023438,
+            243.7201690673828,
+            529.4241333007812,
+            253.76417541503906
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 20,
+          "bbox": [
+            84.96006774902344,
+            253.73719787597656,
+            264.62872314453125,
+            263.78118896484375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 21,
+          "bbox": [
+            99.36006927490234,
+            264.7171936035156,
+            529.474853515625,
+            274.76116943359375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 22,
+          "bbox": [
+            84.96006774902344,
+            274.73419189453125,
+            529.3909912109375,
+            284.7781677246094
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 23,
+          "bbox": [
+            84.96006774902344,
+            284.69720458984375,
+            529.4412231445312,
+            294.7411804199219
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 24,
+          "bbox": [
+            84.96006774902344,
+            294.7142028808594,
+            529.4754028320312,
+            304.7581787109375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 25,
+          "bbox": [
+            84.96006774902344,
+            304.731201171875,
+            529.4573364257812,
+            314.7751770019531
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 26,
+          "bbox": [
+            84.96006774902344,
+            314.6942138671875,
+            142.96505737304688,
+            324.7381896972656
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 27,
+          "bbox": [
+            99.36006927490234,
+            325.7372131347656,
+            529.5044555664062,
+            335.78118896484375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 28,
+          "bbox": [
+            84.96006774902344,
+            335.7002258300781,
+            529.4935302734375,
+            345.74420166015625
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 29,
+          "bbox": [
+            84.9600830078125,
+            345.71722412109375,
+            532.0574951171875,
+            355.7611999511719
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 30,
+          "bbox": [
+            84.9600830078125,
+            355.7342224121094,
+            177.98492431640625,
+            365.7781982421875
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 31,
+          "bbox": [
+            99.3600845336914,
+            366.7142333984375,
+            529.4755249023438,
+            376.7582092285156
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 32,
+          "bbox": [
+            84.96006774902344,
+            376.7312316894531,
+            529.4629516601562,
+            386.77520751953125
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 33,
+          "bbox": [
+            84.96006774902344,
+            386.6942443847656,
+            529.532958984375,
+            396.73822021484375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 34,
+          "bbox": [
+            84.96006774902344,
+            396.71124267578125,
+            213.9830780029297,
+            406.7552185058594
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 35,
+          "bbox": [
+            90.65706634521484,
+            407.8172302246094,
+            523.5374145507812,
+            417.7802429199219
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 36,
+          "bbox": [
+            84.9600830078125,
+            417.834228515625,
+            529.2885131835938,
+            427.7972412109375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 37,
+          "bbox": [
+            128.4570770263672,
+            427.8512268066406,
+            485.703125,
+            437.8142395019531
+          ]
+        }
+      ]
+    },
+    "aff838b2-a58c-5d56-8034-26314c81bff4": {
+      "sourceId": "dof-matutina-2025-11-10-7f5b3270512b",
+      "label": "Resolutivo PRIMERO",
+      "type": "ordinario",
+      "contentSha256": "722ee4b57d5fdb1023a44bb9a8918d014b338d58d208f9652178b8e66773f76f",
+      "pageNumbers": [
+        142
+      ],
+      "anchors": [
+        {
+          "page": 142,
+          "lineId": 38,
+          "bbox": [
+            99.36007690429688,
+            438.70526123046875,
+            529.4107666015625,
+            448.7492370605469
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 39,
+          "bbox": [
+            84.96007537841797,
+            448.7222595214844,
+            529.5025024414062,
+            458.7662353515625
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 40,
+          "bbox": [
+            84.96006774902344,
+            458.6852722167969,
+            126.9675521850586,
+            468.729248046875
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 41,
+          "bbox": [
+            99.36006927490234,
+            469.728271484375,
+            529.743408203125,
+            479.7722473144531
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 42,
+          "bbox": [
+            84.96006774902344,
+            479.6912841796875,
+            254.5939483642578,
+            489.7352600097656
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 45,
+          "bbox": [
+            132.60000610351562,
+            512.5579833984375,
+            161.03915405273438,
+            521.4636840820312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 46,
+          "bbox": [
+            190.3800048828125,
+            512.5579833984375,
+            251.77340698242188,
+            521.4636840820312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 47,
+          "bbox": [
+            280.9200134277344,
+            512.5579833984375,
+            413.39910888671875,
+            521.4636840820312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 48,
+          "bbox": [
+            450.7200012207031,
+            503.5580139160156,
+            518.2754516601562,
+            512.4636840820312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 49,
+          "bbox": [
+            441.8399963378906,
+            512.6179809570312,
+            527.1654052734375,
+            521.523681640625
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 50,
+          "bbox": [
+            456.4800109863281,
+            521.55810546875,
+            512.5011596679688,
+            530.4638061523438
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 51,
+          "bbox": [
+            92.16000366210938,
+            578.8580932617188,
+            98.8169174194336,
+            587.7637939453125
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 52,
+          "bbox": [
+            118.55784606933594,
+            565.3558959960938,
+            174.9924774169922,
+            574.2615966796875
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 53,
+          "bbox": [
+            125.03760528564453,
+            574.3573608398438,
+            168.5980682373047,
+            583.2630615234375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 54,
+          "bbox": [
+            111.41574096679688,
+            583.3587646484375,
+            182.1393585205078,
+            592.2644653320312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 55,
+          "bbox": [
+            121.01567840576172,
+            592.29638671875,
+            172.54576110839844,
+            601.2020874023438
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 56,
+          "bbox": [
+            202.37176513671875,
+            574.3573608398438,
+            239.67588806152344,
+            583.2630615234375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 57,
+          "bbox": [
+            201.23062133789062,
+            583.294921875,
+            240.79864501953125,
+            592.2006225585938
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 58,
+          "bbox": [
+            274.4870300292969,
+            533.3162231445312,
+            419.7696838378906,
+            542.221923828125
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 59,
+          "bbox": [
+            269.1484069824219,
+            542.37353515625,
+            425.1314392089844,
+            551.2792358398438
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 60,
+          "bbox": [
+            261.10455322265625,
+            551.3749389648438,
+            433.15032958984375,
+            560.2806396484375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 61,
+          "bbox": [
+            275.5643310546875,
+            560.3763427734375,
+            418.6940002441406,
+            569.2820434570312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 62,
+          "bbox": [
+            259.7878723144531,
+            569.3778076171875,
+            434.4557800292969,
+            578.2835083007812
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 63,
+          "bbox": [
+            276.2266845703125,
+            578.3792724609375,
+            418.021484375,
+            587.2849731445312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 64,
+          "bbox": [
+            322.2473449707031,
+            587.3168334960938,
+            372.02655029296875,
+            596.2225341796875
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 65,
+          "bbox": [
+            262.6686706542969,
+            597.3955688476562,
+            431.65472412109375,
+            606.30126953125
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 66,
+          "bbox": [
+            261.7669372558594,
+            606.3970336914062,
+            432.4635314941406,
+            615.302734375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 67,
+          "bbox": [
+            261.5834045410156,
+            615.3984375,
+            432.7160339355469,
+            624.3041381835938
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 68,
+          "bbox": [
+            317.1401672363281,
+            624.3360595703125,
+            377.1250305175781,
+            633.2417602539062
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 69,
+          "bbox": [
+            461.85748291015625,
+            556.3544311523438,
+            507.1520690917969,
+            565.2601318359375
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 70,
+          "bbox": [
+            443.6152038574219,
+            565.3558349609375,
+            525.3736572265625,
+            574.2615356445312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 71,
+          "bbox": [
+            444.9319152832031,
+            574.3572998046875,
+            523.9931030273438,
+            583.2630004882812
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 72,
+          "bbox": [
+            454.468017578125,
+            583.3587646484375,
+            514.4910278320312,
+            592.2644653320312
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 73,
+          "bbox": [
+            441.57232666015625,
+            592.3601684570312,
+            527.3533325195312,
+            601.265869140625
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 74,
+          "bbox": [
+            471.3935852050781,
+            601.2977905273438,
+            497.6119079589844,
+            610.2034912109375
+          ]
+        }
+      ]
+    },
+    "a72f9272-b9c1-51a7-bc7c-0a6607c05e18": {
+      "sourceId": "dof-matutina-2025-11-10-7f5b3270512b",
+      "label": "Resolutivo SEGUNDO",
+      "type": "ordinario",
+      "contentSha256": "e774d6bb4d141d8e81bed7080c43dde3b89f9203e2169904344ec44f36d93fec",
+      "pageNumbers": [
+        142
+      ],
+      "anchors": [
+        {
+          "page": 142,
+          "lineId": 77,
+          "bbox": [
+            99.36000061035156,
+            655.1549072265625,
+            529.5150756835938,
+            665.1989135742188
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 78,
+          "bbox": [
+            84.96002197265625,
+            664.514892578125,
+            461.1978759765625,
+            674.5588989257812
+          ]
+        }
+      ]
+    },
+    "0c498ce2-73f8-5496-85f8-121d2c40cb91": {
+      "sourceId": "dof-matutina-2025-11-10-7f5b3270512b",
+      "label": "Transitorio ÚNICO · acuerdo",
+      "type": "transitorio",
+      "contentSha256": "ac83577494034c09864aa8fcc307c69bf2be8a1510816276c0f20c3d9d14a251",
+      "pageNumbers": [
+        142
+      ],
+      "anchors": [
+        {
+          "page": 142,
+          "lineId": 79,
+          "bbox": [
+            273.96002197265625,
+            674.9639282226562,
+            340.21630859375,
+            684.9268798828125
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 80,
+          "bbox": [
+            99.36003112792969,
+            685.21484375,
+            532.0474853515625,
+            695.2588500976562
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 81,
+          "bbox": [
+            84.96002197265625,
+            694.5118408203125,
+            157.0131378173828,
+            704.5558471679688
+          ]
+        }
+      ]
+    },
+    "4f2a0342-6c6d-50e8-935b-c360581100cf": {
+      "sourceId": "dof-matutina-2025-11-10-7f5b3270512b",
+      "label": "Firma del acuerdo",
+      "type": "complementario",
+      "contentSha256": "ba3b3b681c7b21caf523172d907b296b09b61cf8a4e0f25c00058d59582fbab6",
+      "pageNumbers": [
+        142
+      ],
+      "anchors": [
+        {
+          "page": 142,
+          "lineId": 82,
+          "bbox": [
+            99.36002349853516,
+            704.8888549804688,
+            529.5259399414062,
+            714.932861328125
+          ]
+        },
+        {
+          "page": 142,
+          "lineId": 83,
+          "bbox": [
+            84.96000671386719,
+            714.2489013671875,
+            164.46778869628906,
+            724.2929077148438
+          ]
+        }
+      ]
+    }
+  }
+}
