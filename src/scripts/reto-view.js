@@ -12,6 +12,17 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp
 const LETTERS = ['A', 'B', 'C', 'D'];
 const pick = list => list[Math.floor(Math.random() * list.length)];
 
+/** After an answer: the answer, the facts behind it and, in plain words, why. */
+function explanationHtml(q) {
+    const answer = q.kind === 'order'
+        ? `<p class="rt-answer-label">Así salieron, de la más antigua a la más nueva:</p>
+           <ol class="rt-steps">${(q.steps || []).map(step => `<li><span>${esc(step.name)}</span><time>${esc(step.date)}</time></li>`).join('')}</ol>`
+        : `<p class="rt-answer"><span>Respuesta:</span> <b>${esc(q.answerText || q.options[q.answer])}</b></p>`;
+    const details = (q.details || []).map(line => `<p class="rt-explain">${esc(line)}</p>`).join('');
+    const why = q.why ? `<p class="rt-why"><span aria-hidden="true">💡</span> ${esc(q.why)}</p>` : '';
+    return `<div class="rt-explanation">${answer}${details}${why}</div>`;
+}
+
 const readResults = () => { try { return JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch { return {}; } };
 function saveResult(day, marks) {
     const all = readResults();
@@ -153,8 +164,8 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
             stage.querySelector('.rt-order-actions')?.remove();
             const last = index === questions.length - 1;
             stage.querySelector('.rt-feedback').innerHTML = `
-                <p class="rt-verdict ${ok ? 'is-ok' : 'is-bad'}">${ok ? pick(['¡Correcto!', '¡Exacto!', '¡Muy bien!']) : 'Casi. La respuesta correcta está en verde.'}</p>
-                <p class="rt-explain">${esc(q.explain)}</p>
+                <p class="rt-verdict ${ok ? 'is-ok' : 'is-bad'}">${ok ? pick(['¡Correcto!', '¡Exacto!', '¡Muy bien!']) : 'Casi. La correcta está marcada en verde.'}</p>
+                ${explanationHtml(q)}
                 <div class="rt-feedback-actions">
                     ${q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="article">Ver dónde lo dice</button>' : ''}
                     ${q.link?.lawId && !q.link?.articleId ? '<button type="button" class="rt-btn rt-ghost rt-source" data-source="law">Ver la ley completa</button>' : ''}
@@ -238,6 +249,14 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {} } = {}
                 <button type="button" class="rt-btn rt-go">Empezar</button>
             </div>`;
         stage.querySelector('.rt-go').addEventListener('click', () => start({ seed: today, practice: false }));
+    }
+
+    // "?reiniciar-reto" lets today's reto be played again in this browser (results only live here).
+    if (new URLSearchParams(location.search).has('reiniciar-reto')) {
+        const all = readResults();
+        delete all[today];
+        try { localStorage.setItem(STORE, JSON.stringify(all)); } catch { /* private mode */ }
+        history.replaceState(null, '', `${location.pathname}${location.hash}`);
     }
 
     drawStats();

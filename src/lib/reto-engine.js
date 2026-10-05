@@ -69,6 +69,39 @@ export function familyKey(law) {
         .replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
 }
 
+// What each authority does, in plain words, to explain the answers.
+const ISSUER_WHY = {
+    congreso: 'Las leyes las aprueban los diputados y senadores del Congreso de la Unión.',
+    ejecutivo: 'Los reglamentos, decretos y planes nacionales los expide el Presidente de la República.',
+    sener: 'La Secretaría de Energía (SENER) fija la política energética del país y emite reglas para aplicarla.',
+    cne: 'La Comisión Nacional de Energía (CNE) regula el sector: otorga permisos y emite reglas técnicas.',
+    cre: 'La Comisión Reguladora de Energía (CRE) regulaba el sector hasta 2025; hoy esa tarea es de la Comisión Nacional de Energía.',
+    cenace: 'El CENACE opera la red eléctrica nacional y el mercado eléctrico.',
+    cenagas: 'El CENAGAS opera la red nacional de gasoductos de gas natural.',
+    asea: 'La ASEA vigila la seguridad industrial y el cuidado del medio ambiente en petróleo y gas.',
+    cfe: 'La CFE es la empresa del Estado que genera, transmite y distribuye electricidad.',
+    pemex: 'PEMEX es la empresa del Estado del petróleo y el gas.',
+    conuee: 'La CONUEE promueve que se use la energía de forma eficiente.',
+};
+const issuerWhy = law => ISSUER_WHY[issuerId(law)] || '';
+
+/** "La publicó la Secretaría de Energía el 18 mar 2025." */
+function publishedBy(law) {
+    const issuer = ISSUERS.find(item => item.id === issuerId(law));
+    const who = issuer && issuer.id !== 'otra' ? issuer.label.replace(/\s*\(.*\)\s*/, '') : '';
+    const when = dated(law) ? friendlyDate(law.fecha_publicacion) : '';
+    if (who && when) return `La publicó: ${who}, el ${when}.`;
+    if (when) return `Se publicó el ${when}.`;
+    return who ? `La publicó: ${who}.` : '';
+}
+
+/** Where the passage sits: "Es el Artículo 12." or "Está en la parte «D. Disposiciones finales»." */
+function placeOf(identificador) {
+    const place = String(identificador || '').replace(/\s+/g, ' ').trim();
+    if (!place) return '';
+    return /^(artículo|articulo|numeral|lineamiento|regla|disposición|disposicion)/i.test(place) ? `Es el ${place}.` : `Está en la parte «${place}».`;
+}
+
 /** Up to n instruments of distinct families, none of the excluded family. */
 function distinctLaws(rng, pool, n, exclude) {
     const seen = new Set([exclude]);
@@ -96,6 +129,9 @@ export function termQuestion(rng, glossary, { exclude = new Set() } = {}) {
     const { options, answer } = withAnswer(rng, entry.term, sample(rng, pool, 3).map(other => other.term));
     return {
         kind: 'term', label: '¿Qué significa?', prompt: '¿A qué palabra corresponde esta definición?', body: entry.definition, options, answer,
+        answerText: entry.term,
+        details: [`Así la define: ${entry.sourceName || entry.source}.`],
+        why: 'Las leyes traen una lista de definiciones al inicio para que todos entiendan igual sus palabras clave.',
         explain: `«${entry.term}» se define así en: ${entry.sourceName || entry.source}.`, link: entry.lawId ? { lawId: entry.lawId, articleId: entry.articleId } : null,
     };
 }
@@ -157,6 +193,9 @@ export function passageQuestion(rng, law, passage, laws) {
     const { options, answer } = withAnswer(rng, optionName(law), wrong.map(optionName));
     return {
         kind: 'passage', label: '¿De qué ley es?', prompt: 'Este texto es parte de una ley o regla. ¿De cuál?', body, options, answer,
+        answerText: nameOf(law),
+        details: [placeOf(passage.identificador), publishedBy(law)].filter(Boolean),
+        why: issuerWhy(law),
         explain: `Viene de: ${nameOf(law)}${passage.identificador ? ` (${passage.identificador.replace(/\s+/g, ' ').trim()})` : ''}.`, link: { lawId: law.id, articleId: passage.id },
     };
 }
@@ -181,6 +220,9 @@ export function issuerQuestion(rng, laws, { exclude = new Set() } = {}) {
     const { options, answer } = withAnswer(rng, correct.label, sample(rng, pool, 3).map(item => item.label));
     return {
         kind: 'issuer', label: '¿Quién la publicó?', prompt: '¿Quién publicó esta ley o regla?', body: law.titulo, options, answer,
+        answerText: correct.label,
+        details: [dated(law) ? `Se publicó el ${friendlyDate(law.fecha_publicacion)}.` : ''].filter(Boolean),
+        why: issuerWhy(law),
         explain: `La publicó: ${correct.label}.`, link: { lawId: law.id },
     };
 }
@@ -202,6 +244,8 @@ export function orderQuestion(rng, laws) {
         kind: 'order', label: '¿Cuál salió primero?', prompt: 'Ordénalas de la más antigua a la más nueva', body: 'Tócalas una por una, empezando por la que se publicó primero.',
         options: shown.map(optionName), dates: shown.map(law => friendlyDate(law.fecha_publicacion)),
         answerOrder: sorted.map(law => shown.indexOf(law)),
+        steps: sorted.map(law => ({ name: optionName(law), date: friendlyDate(law.fecha_publicacion) })),
+        why: 'Ver las fechas ayuda a entender cómo se fue armando, paso a paso, la regulación de la energía.',
         explain: `Orden correcto: ${sorted.map(law => `${optionName(law)} (${friendlyDate(law.fecha_publicacion)})`).join(' → ')}.`, link: null,
     };
 }

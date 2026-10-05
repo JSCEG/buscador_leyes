@@ -87,3 +87,18 @@ html.dark-mode .rt-option.is-picked .rt-letter,html.dark-mode .rt-option.is-righ
 .rt-view.is-playing .rt-head h1{font-size:clamp(22px,3vw,28px)}
 .rt-view.is-playing .rt-stats{margin-top:10px}
 @media (max-width:560px){.rt-view.is-playing .rt-stats{display:none}.rt-view.is-playing .rt-head{padding:14px 18px}}
+
+/* Explanation after each answer */
+.rt-explanation{display:grid;gap:6px;margin:6px 0 14px;padding:14px 16px;border-radius:14px;background:var(--rt-soft)}
+.rt-answer{margin:0;font-size:15px;line-height:1.45;color:var(--rt-ink)}
+.rt-answer span{color:var(--rt-muted)}
+.rt-answer b{color:var(--rt-ink)}
+.rt-answer-label{margin:0;font-size:14px;font-weight:600;color:var(--rt-ink)}
+.rt-steps{display:grid;gap:6px;margin:2px 0 0;padding:0;list-style:none;counter-reset:rt-step}
+.rt-steps li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:8px;font-size:14px;line-height:1.4;color:var(--rt-ink);counter-increment:rt-step}
+.rt-steps li::before{content:counter(rt-step);display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--rt-ok);color:#fff;font:800 12px/1 'Noto Sans',sans-serif}
+html.dark-mode .rt-steps li::before{color:#14090c}
+.rt-steps time{color:var(--rt-muted);font-size:12.5px;white-space:nowrap}
+.rt-explanation .rt-explain{margin:0;font-size:14px;line-height:1.5;color:var(--rt-ink)}
+.rt-why{margin:4px 0 0;padding-top:8px;border-top:1px dashed var(--rt-border);font-size:13.5px;line-height:1.5;color:var(--rt-muted)}
+@media (max-width:560px){.rt-steps li{grid-template-columns:auto minmax(0,1fr)}.rt-steps time{grid-column:2}}
