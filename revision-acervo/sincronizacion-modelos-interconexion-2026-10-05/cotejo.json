@@ -1,0 +1,615 @@
+{
+  "instrumento": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
+  "instrumentId": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+  "fuenteEdicion": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=17032026-MAT.pdf&repo=",
+  "archivoTemporal": "tmp\\modelos-interconexion-2026-03-17.pdf",
+  "sha256": "3ae8c9b91d329d0508aafcd558e552fa7361c90c01d8ca3ac839a721175dcc34",
+  "bytes": 4902977,
+  "paginasPdf": 186,
+  "paginasImpresasDelInstrumento": [
+    4,
+    20
+  ],
+  "fragmentosOficiales": 47,
+  "anclasGeometricas": 960,
+  "notaAlcance": "El acuerdo, el modelo de contrato, las cláusulas, firmas, artículos y transitorios se cotejaron en las páginas impresas 4–20. Una publicación independiente empieza en la página 21. El PDF sólo se descargó temporalmente para cotejar.",
+  "fragmentos": [
+    {
+      "id": "1eed8302-3802-586b-846c-91191eb1728e",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        4,
+        5
+      ],
+      "paginasImpresas": [
+        4,
+        5
+      ],
+      "anclas": 110,
+      "prefijoCotejado": "acuerdoporelquelacomisionnacionaldeenergiaexpideelmodelodecontratoparalainterconexionconexionoambasalarednacionaldetransmisionoalasredesgeneralesdedistribucionparacentraleselectric"
+    },
+    {
+      "id": "c9b4f9db-088b-5bb5-822a-0cba5c829fdb",
+      "fragmento": "Artículo Primero · Expedición del modelo",
+      "paginasPdf": [
+        5,
+        6
+      ],
+      "paginasImpresas": [
+        5,
+        6
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articuloprimerolacomisionnacionaldeenergiaexpideelmodelodecontratoparalainterconexionconexionoambasalarednacionaldetransmisionoalasredesgeneralesdedistribucionparacentraleselectric"
+    },
+    {
+      "id": "034669c9-9d3d-58dc-9408-6c9dab578be3",
+      "fragmento": "Modelo de contrato · Presentación",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "modelodecontratoparalainterconexionconexionoambasalarednacionaldetransmisionoalasredesgeneralesdedistribucionparacentraleselectricassistemasdealmacenamientodeenergiaelectricaycentr"
+    },
+    {
+      "id": "c0d994f5-8c68-5748-8f7b-c676e9d4b15e",
+      "fragmento": "Declaración I · Transportista o distribuidora",
+      "paginasPdf": [
+        6
+      ],
+      "paginasImpresas": [
+        6
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "declaracionesideclaralatransportistadistribuidoraqueaconformealarticulo27parrafosextodelaconstitucionpoliticadelosestadosunidosmexicanoscpeumyalarticulo3fraccionesxixxxxlviiiylxiii"
+    },
+    {
+      "id": "a18e6898-b8f0-5b95-a0ad-47ff7e92f143",
+      "fragmento": "Declaración II · Solicitante",
+      "paginasPdf": [
+        6,
+        7,
+        8
+      ],
+      "paginasImpresas": [
+        6,
+        7,
+        8
+      ],
+      "anclas": 91,
+      "prefijoCotejado": "iideclaralasolicitantequeaopcion1personafisicaesunapersonafisicaconcapacidadjuridicaparacontrataryobligarseenterminosdelpresentecontratoidentificandoseconeldocumentooficialqueseagr"
+    },
+    {
+      "id": "dccda6c9-bab0-507a-a5d4-a9b4b2d608ff",
+      "fragmento": "Declaración III · Ambas partes",
+      "paginasPdf": [
+        8,
+        9
+      ],
+      "paginasImpresas": [
+        8,
+        9
+      ],
+      "anclas": 50,
+      "prefijoCotejado": "iiideclaranyacuerdanlaspartesqueadebencumplirconlacpeumlalseenloqueresulteaplicablelalepecfeylaleydelacomisionnacionaldeenergialcneysusreglamentoslasreglasdelmercadoylasdisposicion"
+    },
+    {
+      "id": "6fe14c9b-d7af-5c2a-b733-eff4935718bf",
+      "fragmento": "Cláusula Primera",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "clausulasprimeraobjetodelcontratoasegurarlaconstrucciondelainfraestructurarequeridaparalainterconexionconexiondelacentralelectricayelsistemadealmacenamientodeenergiaelectricayelcen"
+    },
+    {
+      "id": "5c7f3dea-a743-5964-944b-ec3a9002a042",
+      "fragmento": "Cláusula Segunda",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "segundavigenciaelpresentecontratosurtesusefectosapartirdesufirmaelectronicapormediodenombredelsistemahabilitadoparatalfinyterminadeformaautomaticacuandoposterioraldesarrollodelainf"
+    },
+    {
+      "id": "9b804221-2788-55e2-b726-b2f43fe82cd6",
+      "fragmento": "Cláusula Tercera",
+      "paginasPdf": [
+        9,
+        10
+      ],
+      "paginasImpresas": [
+        9,
+        10
+      ],
+      "anclas": 51,
+      "prefijoCotejado": "terceraterminacionadicionalmentealoprevistoenlaclausulasegundadelcontratoestepuededarseporterminadoporlascausassiguientesacuandolasolicitanteincurriereencontumaciaconformealarticul"
+    },
+    {
+      "id": "5bd473c1-4496-58b5-9590-154251334bfe",
+      "fragmento": "Cláusula Cuarta",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "cuartamodificacionelpresenteinstrumentopuedesermodificadooadicionadodecomunacuerdoporlaspartessiempreycuandonosealterelaestructuradelmodelodecontratomedianteadendasoconveniosmodifi"
+    },
+    {
+      "id": "afed125b-f6ae-5ad4-8e97-29e8663976a4",
+      "fragmento": "Cláusula Quinta",
+      "paginasPdf": [
+        10,
+        11
+      ],
+      "paginasImpresas": [
+        10,
+        11
+      ],
+      "anclas": 33,
+      "prefijoCotejado": "quintasolicitudesdeinformacionycomunicacioneslasolicitantedebeenviaralatransportistadistribuidoralainformacionquelesoliciteyviceversaatravesdemedioselectronicosestablecidosmediohab"
+    },
+    {
+      "id": "30cb4ab9-af36-590f-a336-6bdeaf1b25bc",
+      "fragmento": "Cláusula Sexta",
+      "paginasPdf": [
+        11
+      ],
+      "paginasImpresas": [
+        11
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "sextapersonascoordinadorascadaunadelaspartesdebedesignaraunapersonacoordinadoraysucorrespondientesuplenteconformealoestablecidoenlaclausulaquintadeestecontratoparallevaracabolasact"
+    },
+    {
+      "id": "6ab4089e-e25f-5644-a4d4-3ecb764ebc33",
+      "fragmento": "Cláusula Séptima",
+      "paginasPdf": [
+        11,
+        12
+      ],
+      "paginasImpresas": [
+        11,
+        12
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "septimaconfidencialidaddelainformacionlainformacionqueconmotivodelacelebraciondeestecontratoysusanexosobtengaunaparteacercadelaotranopuedeserdadaaconoceratercerosniserutilizadapara"
+    },
+    {
+      "id": "a1f30651-41b4-597e-af8c-7e1696264f65",
+      "fragmento": "Cláusula Octava",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        12
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "octavadelainfraestructurarequeridaparalainterconexionconexionlaspartesacuerdanqueparaeldesarrolloconstruccioncesionointerconexionconexionfisicadelainfraestructurarequeridaparalaint"
+    },
+    {
+      "id": "828178d7-4d19-5a47-b9a4-ae6c3195289b",
+      "fragmento": "Cláusula Novena",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        12
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "novenamodificacionesdelpuntodeinterconexionconexionencasodequelasolicitanterequieramodificaralgunaoalgunasdesuscaracteristicasquehaganecesariouncambioenlainfraestructuradelarntolas"
+    },
+    {
+      "id": "0b0c21bb-3084-51f3-a159-5c7e6008855c",
+      "fragmento": "Cláusula Décima",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        12
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "decimaobrasderefuerzolaspartesacuerdanqueparaeldesarrolloconstruccioncesionointerconexionfisicadelasobrasderefuerzorequeridasparalainterconexionconexionsedebeobservarloestablecidoe"
+    },
+    {
+      "id": "c862000c-8670-5cc2-8005-1b2b97204a99",
+      "fragmento": "Cláusula Décima Primera",
+      "paginasPdf": [
+        12,
+        13
+      ],
+      "paginasImpresas": [
+        12,
+        13
+      ],
+      "anclas": 26,
+      "prefijoCotejado": "decimaprimerainstalaciondelsistemademedicioncomprendetodosistemademedicionquedebeserinstaladoparalaliquidacionofacturacionconcargoalasolicitantemismoquedebeestarsujetoalascondicion"
+    },
+    {
+      "id": "fe1d47d5-3e61-5f2f-8c12-9782da4b7f6e",
+      "fragmento": "Cláusula Décima Segunda",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 38,
+      "prefijoCotejado": "decimasegundaprorrogaselpresentecontratoestasujetoalascondicionesoriginalmenteprevistasporloquelasmodificacionesqueacuerdenlaspartesdebencumplirlosrespectivosprocedimientoselmanual"
+    },
+    {
+      "id": "7cd02164-2ed3-58b4-843d-e2f8a6a3169c",
+      "fragmento": "Cláusula Décima Tercera",
+      "paginasPdf": [
+        13,
+        14
+      ],
+      "paginasImpresas": [
+        13,
+        14
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "decimaterceraterminacionanticipadadelasobrasdeinterconexionconexionsilasolicitanteterminaanticipadamentelasobrasdeinterconexionconexionyporendesolicitaadelantarlafechaestimadadeope"
+    },
+    {
+      "id": "4b022b8c-4b25-5a79-b972-82d5b6bbbb84",
+      "fragmento": "Cláusula Décima Cuarta",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 50,
+      "prefijoCotejado": "decimacuartamedicionymantenimientolamedicionymantenimientodebeestarsujetaalosiguienteadelmedidorparaliquidacionofacturacionmflaspartesacuerdancumplirconloindicadoenlasbasesdelmerca"
+    },
+    {
+      "id": "31ccffc9-41ce-502f-ac6e-b1482baa1e28",
+      "fragmento": "Cláusula Décima Quinta",
+      "paginasPdf": [
+        14,
+        15
+      ],
+      "paginasImpresas": [
+        14,
+        15
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "decimaquintanotificacionesalcenacelaspartesdebenmantenercomunicacionconelcenaceparalanotificaciondeprogramasdemantenimientorutinarioodeemergenciaquedeterminenenconcordanciaconloest"
+    },
+    {
+      "id": "2e9f1c66-6b88-58fb-b272-378dfc910c3c",
+      "fragmento": "Cláusula Décima Sexta",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "decimasextaprocedimientoderesoluciondecontroversiaslaspartesacuerdanquelascontroversiasquesepresentenentrelatransportistadistribuidoraylasolicitantesedebensujetaraloprevistoenlasre"
+    },
+    {
+      "id": "5bf26e9a-ff19-5ab7-a289-d773fac541ef",
+      "fragmento": "Cláusula Décima Séptima",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "decimaseptimaotrasresponsabilidadeslatransportistadistribuidoraesresponsabledesuspropiosactosuomisionesporloqueconvieneenmanteneralasolicitantelibredetodaresponsabilidadenpazyasalv"
+    },
+    {
+      "id": "90cb78cd-5db4-5428-b265-da97c956fbad",
+      "fragmento": "Cláusula Décima Octava",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "decimaoctavadelincumplimientodelasobligacionessinperjuiciodelosenaladoenlaclausulaterceraincisoddelpresentecontratolapartequeincumplaalgunadelasobligacionesestablecidasenelcontrato"
+    },
+    {
+      "id": "d2e75a6b-686c-5b08-a46b-61d397a229c8",
+      "fragmento": "Cláusula Décima Novena",
+      "paginasPdf": [
+        15,
+        16
+      ],
+      "paginasImpresas": [
+        15,
+        16
+      ],
+      "anclas": 57,
+      "prefijoCotejado": "decimanovenacasofortuitoofuerzamayorconexcepciondelasobligacionespecuniariasningunadelaspartesesresponsableporelincumplimientodesusobligacionesaltenordelcontratosiemprequedichoincu"
+    },
+    {
+      "id": "1b706ff6-b830-52f7-83b3-8ecb011bb9c7",
+      "fragmento": "Cláusula Vigésima",
+      "paginasPdf": [
+        16,
+        17
+      ],
+      "paginasImpresas": [
+        16,
+        17
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "vigesimaobligaciondenotificarelcasofortuitoofuerzamayorencasodequeocurraelcasofortuitoofuerzamayorlapartecuyocumplimientoseveafectadodebenotificarloalaotraparteenunplazonomayoradie"
+    },
+    {
+      "id": "8fd9b2bb-c4e5-5c8c-a9b5-08bbbc72a5cb",
+      "fragmento": "Cláusula Vigésima Primera",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "vigesimaprimeracesiondederechoslatransportistadistribuidoraseobligaanocederaterceraspersonasfisicasomoraleslosderechosyobligacionesquesederivendelpresentecontratosalvoloprevistopor"
+    },
+    {
+      "id": "313a4f1e-b843-525f-ac12-714de68f5d57",
+      "fragmento": "Cláusula Vigésima Segunda",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "vigesimasegundainterrupciondelosservicioslosserviciosobjetodeestecontratopuedensuspendersesinresponsabilidadparalatransportistadistribuidoracuandoseponganopuedanponerseenriesgolasi"
+    },
+    {
+      "id": "1a3b4d32-209f-5e20-80a5-0506dda70623",
+      "fragmento": "Cláusula Vigésima Tercera",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "vigesimaterceraobligacionesfiscalescadaunadelaspartesdebehacerelpagodelosimpuestosderechosproductosyaprovechamientosrecargosmultasycualquiercargodenaturalezafiscalquelecorrespondae"
+    },
+    {
+      "id": "44ad5ef5-1542-5540-b3b4-e1c2dad9fdcf",
+      "fragmento": "Cláusula Vigésima Cuarta",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "vigesimacuartanotransferenciadelcontratoelpresentecontratoysusanexosasicomolosderechosyobligacionesquedeellossederivannosonsusceptiblesdesertransferidosporningunadelaspartessalvopo"
+    },
+    {
+      "id": "a8339c21-cb53-5ced-a75e-9cfa723fc440",
+      "fragmento": "Cláusula Vigésima Quinta",
+      "paginasPdf": [
+        17,
+        18
+      ],
+      "paginasImpresas": [
+        17,
+        18
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "vigesimaquintatotalidaddelcontratolaspartesestandeacuerdoenqueelpresentecontratosustituyetodosloscontratosyconveniosanterioresescritosoralesyaquellosrealizadospormedioselectronicos"
+    },
+    {
+      "id": "38693e48-58f0-50ba-a597-96843533113a",
+      "fragmento": "Cláusula Vigésima Sexta",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "vigesimasextaejecuciondelasgarantiasencasodequelasolicitantedecidanorealizarlainfraestructurarequeridaincluyendoensucasolasobrasderefuerzoalarntoalasrgdolasobrasampliacionesomodifi"
+    },
+    {
+      "id": "cdba44e4-a2c3-56e0-aed6-546fd801949d",
+      "fragmento": "Cláusula Vigésima Séptima",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "vigesimaseptimapenasconvencionalesdeconformidadconloestablecidoenelarticulo107delreglamentolaspartesacuerdanyaceptanqueparaaquelloscasosenquenosepermitallevaracabolarevisiondelossi"
+    },
+    {
+      "id": "3060904e-e69d-58a2-9a76-91f218adb3fc",
+      "fragmento": "Cláusula Vigésima Octava",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "vigesimaoctavarelacionentrelasparteslaspartesconvienenenqueningunadeellasadquiereporvirtuddelacelebraciondelpresentecontratoresponsabilidadlaboralocivilalgunaconrespectoalosemplead"
+    },
+    {
+      "id": "14a37100-c04e-5e0f-83d3-ef18e9d9c736",
+      "fragmento": "Cláusula Vigésima Novena",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "vigesimanovenacambiodeleyyactualizaciondedocumentosencasodequeocurrieseuncambiodeleylaspartesacuerdanencelebrarelconveniomodificatoriopararealizarlasmodificacionesqueseannecesarias"
+    },
+    {
+      "id": "98fc2652-209c-5655-9889-10e3a75a6317",
+      "fragmento": "Cláusula Trigésima",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "trigesimadomiciliosconvencionalesparalosefectosquesederivendelaaplicaciondelpresentecontratolaspartessenalancomosusdomicilioslossiguienteslatransportistadistribuidoracondomicilioen"
+    },
+    {
+      "id": "ab630092-0f1a-5fb8-9b48-5b015697ac33",
+      "fragmento": "Cláusula Trigésima Primera",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "trigesimaprimerarestriccionenningunacircunstancialaspartespuedendarengarantialosbienesdeldominiopublico"
+    },
+    {
+      "id": "34a84b4e-f959-5d7f-b132-961441f1e577",
+      "fragmento": "Cláusula Trigésima Segunda",
+      "paginasPdf": [
+        18,
+        19
+      ],
+      "paginasImpresas": [
+        18,
+        19
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "trigesimasegundalegislacionaplicabletodolonoexpresamenteprevistoenelpresentecontratoserigeporlalseelcodigodecomerciolalepecfeyensucasosusreglamentosysupletoriamenteporelcodigocivil"
+    },
+    {
+      "id": "6d66a87a-b3cd-5e81-9191-4d997051fc85",
+      "fragmento": "Modelo de contrato · Campos de firmas",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "unavezleidoelpresentecontratoyenteradaslaspartesdesucontenidoyalcanceslofirmanentantosdemaneraelectronicapormediodelnombredelsistemahabilitadoparatalfinendemarcacionterritorialmuni"
+    },
+    {
+      "id": "d9f244b2-8490-5d9c-86ba-9249adff1403",
+      "fragmento": "Artículo Segundo",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "articulosegundoelmodelodecontratoparalainterconexionconexionoambasalarednacionaldetransmisionoalasredesgeneralesdedistribucionparacentraleselectricassistemasdealmacenamientodeenerg"
+    },
+    {
+      "id": "d906cf00-dbc2-563f-8903-aab01cb59b45",
+      "fragmento": "Artículo Tercero",
+      "paginasPdf": [
+        19,
+        20
+      ],
+      "paginasImpresas": [
+        19,
+        20
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "articuloterceroparalossupuestosaplicablesaquehacereferenciaelarticuloanteriorseestablecelosiguienteisilainstalacionrequieresincronizarsealsistemaelectriconacionaloinyectarenergiael"
+    },
+    {
+      "id": "b0b2b371-0a1f-5845-a9b5-16b90d822ffb",
+      "fragmento": "Artículo Cuarto",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulocuartoloscontratosdeinterconexionconexioneinterconexionconexionalarednacionaldetransmisionoalasredesgeneralesdedistribucionasicomosusadendasoconveniosmodificatoriospuedense"
+    },
+    {
+      "id": "eb261907-4689-531e-ac67-354fca82ec94",
+      "fragmento": "Artículo Quinto",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articuloquintolascentraleselectricasquepretendanoperarbajolafiguradegeneraciondistribuidaconcapacidadinstaladamenora07mwnorequierenlasuscripciondeuncontratodeinterconexionconformea"
+    },
+    {
+      "id": "f127b022-0d35-572c-a75b-a36b385e2ded",
+      "fragmento": "Transitorio PRIMERO",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresenteacuerdoentraenvigoreldiahabilsiguientealdesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "58808b4a-adba-575f-828c-749c51ed5707",
+      "fragmento": "Transitorio SEGUNDO",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "segundoseabroganlossiguientesinstrumentosnormativosemitidosporlaextintacomisionreguladoradeenergiairesolucionnumres9492015porlaquelacomisionreguladoradeenergiaexpideelmodelodecontr"
+    },
+    {
+      "id": "5acc3cc3-21cf-5736-94df-27fd01ea98cc",
+      "fragmento": "Transitorio TERCERO",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "terceroparaelcasodelascentraleselectricasbajolafiguradegeneracionexentaasociadasalaredparticulardeloscentrosdecargaquehayancelebradoocelebrenuncontratodeconexionalarednacionaldetra"
+    },
+    {
+      "id": "58e710df-3686-587a-a8b6-58378ca87076",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "ciudaddemexicoa02demarzode2026eldirectorgeneraljuancarlossolisavilarubrica"
+    }
+  ]
+}

@@ -325,6 +325,24 @@ it('serves only the reviewed April 8, 2024 DOF morning issue PDF for CEL-ASIGNAC
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed March 17, 2026 DOF PDF issue for MODELOS-INTERCONEXION', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=17032026-MAT.pdf&repo=';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('modelos-interconexion'), 'modelos-interconexion', {
+        sources: { 'modelos-interconexion': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('17032026-MAT.pdf', '18032026-MAT.pdf'), originalUrl.replace('dof.gob.mx', 'outside.test')]) {
+        expect((await serveReaderPdf(request('modelos-interconexion'), 'modelos-interconexion', {
+            sources: { 'modelos-interconexion': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';
