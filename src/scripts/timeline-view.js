@@ -5,6 +5,7 @@
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { ISSUERS, issuerOf } from '../lib/issuer.js';
 import { shortTitle } from '../lib/short-title.js';
+import { PLANNING_FILTER, isPlanning } from '../lib/planning.js';
 import '../styles/timeline.css';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -44,7 +45,7 @@ export function renderTimelineView(container, summaries = [], { onOpenLaw = () =
             <label class="tl-search"><span class="sr-only">Buscar en la línea del tiempo</span>
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
                 <input type="search" placeholder="Buscar por nombre, siglas o dependencia" autocomplete="off"></label>
-            <select class="tl-group" aria-label="Colección"><option value="all">Todas las colecciones</option>${presentGroups.map(group => `<option value="${group.id}">${esc(group.label)}</option>`).join('')}</select>
+            <select class="tl-group" aria-label="Colección"><option value="all">Todas las colecciones</option>${presentGroups.map(group => `<option value="${group.id}">${esc(group.label)}</option>`).join('')}${items.some(item => isPlanning(item.law)) ? `<option value="${PLANNING_FILTER.id}">${PLANNING_FILTER.label} (planes y programas)</option>` : ''}</select>
             <button type="button" class="tl-order" aria-pressed="true">Más recientes primero</button>
         </div>
         <div class="tl-issuers" role="group" aria-label="Filtrar por dependencia">
@@ -63,7 +64,7 @@ export function renderTimelineView(container, summaries = [], { onOpenLaw = () =
         const terms = fold(state.query).split(/\s+/).filter(Boolean);
         const rows = items
             .filter(item => !state.issuers.size || state.issuers.has(item.issuer.id))
-            .filter(item => state.group === 'all' || item.group === state.group)
+            .filter(item => state.group === 'all' || (state.group === PLANNING_FILTER.id ? isPlanning(item.law) : item.group === state.group))
             .filter(item => terms.every(term => item.haystack.includes(term)))
             .sort((a, b) => (state.newest ? -1 : 1) * a.day.localeCompare(b.day) || a.name.localeCompare(b.name, 'es'));
         visible.clear();

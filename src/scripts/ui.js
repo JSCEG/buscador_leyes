@@ -481,7 +481,7 @@ export function initUI() {
         return {
             ...acervoState,
             query: (params.get('q') || '').slice(0, 500),
-            group: ACERVO_GROUPS.some(group => group.id === params.get('grupo')) ? params.get('grupo') : 'all',
+            group: params.get('grupo') === 'planeacion' || ACERVO_GROUPS.some(group => group.id === params.get('grupo')) ? params.get('grupo') : 'all',
             sort: ['date-newest', 'date-oldest'].includes(params.get('orden')) ? params.get('orden') : 'title',
         };
     }

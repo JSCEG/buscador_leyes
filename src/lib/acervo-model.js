@@ -1,3 +1,4 @@
+import { PLANNING_FILTER, isPlanning, planningRank } from './planning.js';
 /** Navigation collections; these do not replace an instrument's legal `tipo` metadata. */
 export const ACERVO_GROUPS = Object.freeze([
     { id: 'leyes', label: 'Leyes', description: 'Legislación para consultar por instrumento.' },
@@ -71,10 +72,12 @@ function publicationDay(law) {
 
 /** Return a fresh filtered/sorted list; retain original objects and every legal metadata field. */
 export function selectAcervo(summaries, { query = '', group = 'all', sort = 'title' } = {}) {
-    if (!Array.isArray(summaries) || (group !== 'all' && !GROUP_IDS.has(group))) return [];
+    if (!Array.isArray(summaries) || (group !== 'all' && group !== PLANNING_FILTER.id && !GROUP_IDS.has(group))) return [];
     const terms = normalize(query).split(' ').filter(Boolean);
     const selected = summaries.filter(law => {
-        if (!isSummary(law) || (group !== 'all' && getAcervoGroup(law) !== group)) return false;
+        if (!isSummary(law)) return false;
+        // «Planeación» cuts across collections; the others are collections.
+        if (group === PLANNING_FILTER.id ? !isPlanning(law) : group !== 'all' && getAcervoGroup(law) !== group) return false;
         const themes = Array.isArray(law.temas_clave) ? law.temas_clave.filter(item => typeof item === 'string').join(' ') : text(law.temas_clave);
         const haystack = normalize(`${text(law.titulo)} ${text(law.siglas)} ${themes}`);
         return terms.every(term => haystack.includes(term));
@@ -91,6 +94,8 @@ export function selectAcervo(summaries, { query = '', group = 'all', sort = 'tit
             return (a !== null && b !== null ? (a - b) * direction : 0) || titleOrder(left, right);
         });
     }
+    // Planning instruments read best in their hierarchy (plan, programme, sector plans…).
+    if (group === PLANNING_FILTER.id) return selected.sort((left, right) => planningRank(left) - planningRank(right) || titleOrder(left, right));
     return selected.sort(titleOrder);
 }
 

@@ -1,3 +1,4 @@
+import { PLANNING_FILTER, isPlanning } from '../lib/planning.js';
 import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib/acervo-model.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { shortTitle } from '../lib/short-title.js';
@@ -48,7 +49,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const laws = selectAcervo(Array.isArray(summaries) ? summaries : []);
     const state = {
         query: typeof initialState.query === 'string' ? initialState.query.slice(0, 500) : '',
-        group: initialState.group === 'all' || ACERVO_GROUPS.some(group => group.id === initialState.group) ? initialState.group : 'all',
+        group: initialState.group === 'all' || initialState.group === PLANNING_FILTER.id || ACERVO_GROUPS.some(group => group.id === initialState.group) ? initialState.group : 'all',
         sort: ['title', 'date-newest', 'date-oldest'].includes(initialState.sort) ? initialState.sort : 'title',
         rowScroll: {},
         scrollY: Math.max(0, Number(initialState.scrollY) || 0),
@@ -109,13 +110,15 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     }
     sortLabel.append(sortSelect); tools.append(searchForm, sortLabel);
     const filters = element('div', 'ac-filters'); filters.setAttribute('role', 'group'); filters.setAttribute('aria-label', 'Tipo de instrumento');
-    const groups = [{ id: 'all', label: 'Todos' }, ...ACERVO_GROUPS];
+    // «Planeación» right after «Todos», so it is seen without scrolling the bar.
+    const groups = [{ id: 'all', label: 'Todos' }, PLANNING_FILTER, ...ACERVO_GROUPS];
     const filterButtons = new Map();
     for (const group of groups) {
         const button = element('button', 'ac-filter'); button.type = 'button'; button.dataset.group = group.id;
         button.append(iconNode(group.id), element('span', '', group.label), element('span', 'ac-filter-count'));
         // A collection with nothing loaded yet stays reachable by URL but does not take up the bar.
-        if (group.id !== 'all' && group.id !== state.group && !laws.some(law => getAcervoGroup(law) === group.id)) button.hidden = true;
+        if (group.id === PLANNING_FILTER.id) button.classList.add('ac-filter-cross');
+        if (group.id !== 'all' && group.id !== state.group && !laws.some(law => (group.id === PLANNING_FILTER.id ? isPlanning(law) : getAcervoGroup(law) === group.id))) button.hidden = true;
         filters.append(button); filterButtons.set(group.id, button);
     }
     const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
@@ -276,7 +279,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         const queryMatches = selectAcervo(laws, { query: state.query, sort: state.sort });
         for (const group of groups) {
             const button = filterButtons.get(group.id);
-            const count = group.id === 'all' ? queryMatches.length : queryMatches.filter(law => getAcervoGroup(law) === group.id).length;
+            const count = group.id === 'all' ? queryMatches.length : queryMatches.filter(law => (group.id === PLANNING_FILTER.id ? isPlanning(law) : getAcervoGroup(law) === group.id)).length;
             button.setAttribute('aria-pressed', String(state.group === group.id));
             button.querySelector('.ac-filter-count').textContent = String(count);
         }
@@ -285,7 +288,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         overview.hidden = !grouped || !laws.length;
         root.classList.toggle('is-home', grouped && laws.length > 0);
         body.replaceChildren();
-        const groupLabel = ACERVO_GROUPS.find(group => group.id === state.group)?.label;
+        const groupLabel = [...ACERVO_GROUPS, PLANNING_FILTER].find(group => group.id === state.group)?.label;
         status.textContent = grouped ? `${countLabel(selected.length)} para explorar por tipo de instrumento.` : `${countLabel(selected.length)}${groupLabel ? ` en ${groupLabel}` : ''}${state.query.trim() ? ` para «${state.query.trim()}»` : ''}.`;
         if (!selected.length) {
             const empty = element('div', 'ac-empty');

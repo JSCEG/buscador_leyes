@@ -1,0 +1,5 @@
+{
+  "_nota": "Instrumentos que el filtro «Planeación» del acervo incluye o excluye además de la detección automática (planes y programas por tipo o título; ver src/lib/planning.js). Se identifican por sus siglas.",
+  "incluir": ["LPTE", "RLPyTE", "DACG-Planeación Vinculante"],
+  "excluir": []
+}

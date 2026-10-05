@@ -344,3 +344,10 @@ html.dark-mode .ac-library .ac-row::-webkit-scrollbar-track{background:rgba(255,
 html.dark-mode .ac-library .ac-row{--ac-bar:#e07a9a}
 html.dark-mode .ac-library .ac-row[data-group=reglamentos],html.dark-mode .ac-library .ac-row[data-group=dacg]{--ac-bar:#6fc2ae}
 html.dark-mode .ac-library .ac-row[data-group=convocatorias],html.dark-mode .ac-library .ac-row[data-group=normas]{--ac-bar:#e0bd6d}
+
+/* «Planeación»: a cross-cutting filter (plans and programmes keep their own collection) */
+.ac-library .ac-filter.ac-filter-cross{margin-right:6px;border-color:#d8b56a;background:#fbf5e8;color:#5a3d06}
+.ac-library .ac-filter.ac-filter-cross[aria-pressed="true"]{border-color:#a57f2c;background:#a57f2c;color:#fff}
+.ac-library .ac-filter.ac-filter-cross[aria-pressed="true"] .ac-filter-count{color:#fff}
+html.dark-mode .ac-library .ac-filter.ac-filter-cross{border-color:#7a6230;background:#2e2615;color:#f0d69c}
+html.dark-mode .ac-library .ac-filter.ac-filter-cross[aria-pressed="true"]{border-color:#e0bd6d;background:#e0bd6d;color:#2b1d03}

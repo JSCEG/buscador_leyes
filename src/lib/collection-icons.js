@@ -15,6 +15,8 @@ const PATHS = Object.freeze({
     normas: '<path d="M12 2.5 4.5 5.5v5.8c0 4.6 3.2 8.4 7.5 10.2 4.3-1.8 7.5-5.6 7.5-10.2V5.5Z"/><path d="m8.8 12 2.3 2.3 4.2-4.6"/>',
     // Carpeta: otros instrumentos
     otros: '<path d="M3 6.5a2 2 0 0 1 2-2h4.2l2 2.2H19a2 2 0 0 1 2 2v9.8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
+    // Mapa plegado: la planeación, la ruta a seguir (filtro transversal)
+    planeacion: '<path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6Z"/><path d="M9 4v14M15 6v14"/>',
 });
 
 export function collectionIcon(groupId, size = 16) {
