@@ -1,0 +1,157 @@
+{
+  "instrumento": "DACG para la planeación vinculante en la actividad de generación de energía eléctrica",
+  "instrumentId": "1a4e15a0-cb72-4195-9d96-fe1d939db0e2",
+  "fuenteInstrumento": "https://dof.gob.mx/nota_detalle.php?codigo=5770298&fecha=17/10/2025",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/17-10-2025/Vespertina/323603",
+  "archivoTemporal": "tmp\\dacg-planeacion.pdf",
+  "sha256": "82f15ac85c7de97078a578dd5e5ac6ef2c5025d6f7af9d1a9a398a5a58b56787",
+  "bytes": 9901233,
+  "paginasPdf": 134,
+  "paginasImpresasDelInstrumento": [
+    113,
+    116
+  ],
+  "fragmentosOficiales": 11,
+  "anclasGeometricas": 249,
+  "notaAlcance": "El artículo 8, transitorio y firmas se cotejaron en la página 116; la convocatoria independiente que sigue empieza en la 117.",
+  "fragmentos": [
+    {
+      "id": "629406b5-d6df-4323-8c53-835ebeec9216",
+      "fragmento": "Preámbulo",
+      "paginasPdf": [
+        113,
+        114
+      ],
+      "paginasImpresas": [
+        113,
+        114
+      ],
+      "anclas": 84,
+      "prefijoCotejado": "disposicionesadministrativasdecaractergeneralparalaplaneacionvinculanteenlaactividaddegeneraciondeenergiaelectricaluzelenagonzalezescobarsecretariadeenergiaconfundamentoenlosarticu"
+    },
+    {
+      "id": "3ed837b8-9f10-4c1d-9b43-f4d42f9e5049",
+      "fragmento": "Artículo 1",
+      "paginasPdf": [
+        114
+      ],
+      "paginasImpresas": [
+        114
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "laspresentesdisposicionesadministrativasdecaractergeneraltienenporobjetoestablecerloscriteriosdeplaneacionvinculanteparalaevaluacionyelotorgamientodepermisosdegeneraciondeenergiael"
+    },
+    {
+      "id": "22c75c49-cffc-4ca2-991e-80f40744a090",
+      "fragmento": "Artículo 2",
+      "paginasPdf": [
+        114
+      ],
+      "paginasImpresas": [
+        114
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "loscriteriosestablecidosenlaspresentesdisposicionesadministrativasdecaractergeneralresultanaplicablesalaevaluaciondelosproyectosasociadosalassolicitudesdepermisosaqueserefiereelart"
+    },
+    {
+      "id": "2362d5d2-3d52-4b61-8e3c-c76d7ae069fe",
+      "fragmento": "Artículo 3",
+      "paginasPdf": [
+        114,
+        115
+      ],
+      "paginasImpresas": [
+        114,
+        115
+      ],
+      "anclas": 32,
+      "prefijoCotejado": "paraefectosdelainterpretacionyaplicaciondelaspresentesdisposicionesadministrativasdecaractergeneralsedebenentenderlosconceptosylasdefinicionesensingularopluralprevistasenlaleydelse"
+    },
+    {
+      "id": "e29fc23f-1a1d-47c2-b941-dabab9df972b",
+      "fragmento": "Artículo 4",
+      "paginasPdf": [
+        115,
+        116
+      ],
+      "paginasImpresas": [
+        115,
+        116
+      ],
+      "anclas": 87,
+      "prefijoCotejado": "loscriteriosdeplaneacionvinculanteestablecidosenlasdisposicionessonlosquelacnedebeconsiderarparaevaluarquelosproyectosasociadosalassolicitudesdepermisosdegeneraciondeenergiaelectri"
+    },
+    {
+      "id": "c8079a72-c060-44f3-9307-09f344b07b2c",
+      "fragmento": "Artículo 5",
+      "paginasPdf": [
+        116
+      ],
+      "paginasImpresas": [
+        116
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "lasecretariapuedecrearelgatcuyoobjetoesrevisarlainformaciontecnicaintegradadelosprocesosderivadosdelasconvocatoriasaqueserefiereelarticulo57delreglamentodelaleydeplaneacionytransic"
+    },
+    {
+      "id": "41340b18-dbf2-4e43-be27-20a6e34446ef",
+      "fragmento": "Artículo 6",
+      "paginasPdf": [
+        116
+      ],
+      "paginasImpresas": [
+        116
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "lacnedebedeterminarqueunproyectoasociadoalasolicituddeunpermisodegeneraciondeenergiaelectricacumpleconlaplaneacionvinculantecuandoatiendecadaunodeloscriteriosestablecidosenelarticu"
+    },
+    {
+      "id": "0055d94e-d58c-4c95-b68a-81af5793e8b0",
+      "fragmento": "Artículo 7",
+      "paginasPdf": [
+        116
+      ],
+      "paginasImpresas": [
+        116
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "laobservanciadeestasdisposicionesnoeximeelcumplimientodeloprevistoenotrosordenamientosjuridicosaplicablesalotorgamientodepermisosenelsectorelectricoynoconstituyeunrequisitoadiciona"
+    },
+    {
+      "id": "a0a1d56b-0757-44d9-b319-3dcd802d3fbf",
+      "fragmento": "Artículo 8",
+      "paginasPdf": [
+        116
+      ],
+      "paginasImpresas": [
+        116
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "lainterpretacionparaefectosadministrativosdelaspresentesdisposicionescorrespondealasecretarialasecretariadeberevisaryensucasoactualizarlaspresentesdisposicionesdemaneraanual"
+    },
+    {
+      "id": "03f55d58-e36d-474f-906b-2980cef1f6cd",
+      "fragmento": "Transitorio Único",
+      "paginasPdf": [
+        116
+      ],
+      "paginasImpresas": [
+        116
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "laspresentesdisposicionesentranenvigorelmismodiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "4eeef88a-2204-59b2-8b27-e5ca3a8849b4",
+      "fragmento": "Firmas y promulgación",
+      "paginasPdf": [
+        116
+      ],
+      "paginasImpresas": [
+        116
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa14deoctubrede2025secretariadeenergiamtraluzelenagonzalezescobarrubrica"
+    }
+  ]
+}

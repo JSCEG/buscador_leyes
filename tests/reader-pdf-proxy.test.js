@@ -289,6 +289,24 @@ it('serves only the reviewed November 10, 2025 DOF morning issue PDF for generat
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed October 17, 2025 DOF evening issue PDF for the binding-planning DACG', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/17-10-2025/Vespertina/323603';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('dacg-planeacion-vinculante'), 'dacg-planeacion-vinculante', {
+        sources: { 'dacg-planeacion-vinculante': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('323603', '323604'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('dacg-planeacion-vinculante'), 'dacg-planeacion-vinculante', {
+            sources: { 'dacg-planeacion-vinculante': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';
