@@ -3,6 +3,7 @@ import manifest from '../public/reader-sources/manifest.v1.json';
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
     'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf',
+    'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=30042026-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22122025-MAT.pdf&repo=',
@@ -107,3 +108,4 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
         return problem(controller.signal.aborted ? 504 : 502, 'source-unavailable');
     } finally { clearTimeout(timer); }
 }
+

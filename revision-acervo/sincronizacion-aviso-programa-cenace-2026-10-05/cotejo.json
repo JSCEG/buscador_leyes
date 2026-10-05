@@ -1,0 +1,67 @@
+{
+  "instrumento": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
+  "instrumentId": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+  "fuenteEdicion": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=30042026-MAT.pdf&repo=",
+  "archivoTemporal": "tmp\\dof-2026-04-30-matutina.pdf",
+  "sha256": "8c7956f18f1e1c92ae928fba2e72ab33ca5a86565116b83cf869a39ab1b2de8b",
+  "bytes": 6641594,
+  "paginasPdf": 314,
+  "paginasImpresasDelInstrumento": [
+    189,
+    189
+  ],
+  "fragmentosOficiales": 4,
+  "anclasGeometricas": 31,
+  "notaAlcance": "Los cuatro fragmentos oficiales se cotejaron con la página impresa 189 de la edición matutina. Se excluyó la nota editorial del buscador. El PDF temporal no se incluye en el repositorio.",
+  "fragmentos": [
+    {
+      "id": "5f19daaf-29da-5d78-95e3-cf32c45d3b4f",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        189
+      ],
+      "paginasImpresas": [
+        189
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "avisomedianteelcualseinformalapublicaciondelprogramainstitucional20262030delcentronacionaldecontroldeenergiaalmargenunselloconelescudonacionalquediceestadosunidosmexicanoscentronac"
+    },
+    {
+      "id": "b49782a9-2449-5ff2-9e5a-2a0f6e4df52e",
+      "fragmento": "Aviso · Identificación y medios de consulta",
+      "paginasPdf": [
+        189
+      ],
+      "paginasImpresas": [
+        189
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "denominacionprogramainstitucional20262030delcentronacionaldecontroldeenergiaemisorcentronacionaldecontroldeenergiafechadeemision13deabrilde2026mediosdeconsultaeldocumentoestapublic"
+    },
+    {
+      "id": "b184e3d3-a491-5154-99c5-298c84e4351e",
+      "fragmento": "Transitorio Único",
+      "paginasPdf": [
+        189
+      ],
+      "paginasImpresas": [
+        189
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "transitoriounicoelpresenteavisoentraraenvigoreldiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "b1fba549-79eb-5b90-aff3-c3d66efa8d61",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        189
+      ],
+      "paginasImpresas": [
+        189
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "ciudaddemexicoa13deabrilde2026directorgeneraldelcentronacionaldecontroldeenergiaricardooctavioarturomotapalominorubrica"
+    }
+  ]
+}

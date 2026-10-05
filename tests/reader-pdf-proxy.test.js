@@ -39,6 +39,28 @@ it('serves the reviewed CENACE PDF but rejects other DOF URLs and URL overrides'
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed April 30, 2026 DOF issue PDF for the CENACE notice', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=30042026-MAT.pdf&repo=';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cenace-notice'), 'cenace-notice', {
+        sources: { 'cenace-notice': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [
+        originalUrl.replace('30042026-MAT.pdf', '01052026-MAT.pdf'),
+        originalUrl.replace('dof.gob.mx', 'evil.test'),
+        originalUrl + '&url=https://outside.test',
+    ]) {
+        expect((await serveReaderPdf(request('cenace-notice'), 'cenace-notice', {
+            sources: { 'cenace-notice': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 7, 2026 DOF issue PDF for PLADESHi', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07092026-MAT.pdf&repo=';
