@@ -2,6 +2,7 @@ import manifest from '../public/reader-sources/manifest.v1.json';
 
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
+    'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22052025-VES.pdf&repo=',
     'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf',
     'https://www.cenace.gob.mx/Docs/16_MARCOREGULATORIO/SENyMEM/%28DOF%202026-04-03%20SENER%29%20DACG%20Criterios%20para%20aplicaci%C3%B3n%20Mecanismos_Competitivos_Confiabilidad%20SEN.pdf',
     'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=30042026-MAT.pdf&repo=',

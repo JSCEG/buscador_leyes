@@ -815,6 +815,24 @@ it('serves only the reviewed May 8, 2025 DOF morning issue PDF for the CNE Inter
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed May 22, 2025 DOF evening issue PDF for PODECOBI lineamientos', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22052025-VES.pdf&repo=';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('podecobi'), 'podecobi', {
+        sources: { podecobi: { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('22052025-VES.pdf', '22052024-VES.pdf'), originalUrl.replace('VES.pdf', 'MAT.pdf'), originalUrl + '?other=1']) {
+        expect((await serveReaderPdf(request('podecobi'), 'podecobi', {
+            sources: { podecobi: { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('rejects changed editions, non-PDF responses, redirects and oversized streams', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const options = fetcher => ({ sources: { lcne: source }, fetcher });

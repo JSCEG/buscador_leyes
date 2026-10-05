@@ -1,0 +1,621 @@
+{
+  "instrumento": "Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar.",
+  "instrumentId": "c05debf0-3748-4dac-9619-f1216a5fbd88",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5758079",
+  "fuenteEdicionDOF": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22052025-VES.pdf&repo=",
+  "archivoTemporal": "tmp\\podecobi-dof-22052025.pdf",
+  "sha256": "0c10b942c45598463323464bcd2ba3fba8fb28cfd3eee2cebd31071829b6e5f4",
+  "bytes": 595380,
+  "paginasPdf": 20,
+  "paginasImpresasDelInstrumento": [
+    9,
+    20
+  ],
+  "fragmentosOficiales": 42,
+  "anclasGeometricas": 781,
+  "notaAlcance": "Se cotejó completo el texto normalizado de cada uno de los 39 lineamientos, el preámbulo, el transitorio único y las firmas contra las páginas impresas 9–20 del PDF oficial de la edición vespertina del DOF del 22 de mayo de 2025. El mapa corresponde a esa edición original; el PDF temporal no se agrega al repositorio.",
+  "fragmentos": [
+    {
+      "id": "5d91c753-13fd-4f18-bd3d-ea0729aaff02",
+      "fragmento": "Preámbulo",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 9,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 531,
+      "prefijoCotejado": "acuerdoporelqueseemitenloslineamientosparalospolosdedesarrolloeconomicoparaelbienestaralmargenunselloconelescudonacionalquediceestadosunidosmexicanoselcomiteintersecretarialdepromocionconfundamentoenlosarticulosprimeropa"
+    },
+    {
+      "id": "a26978ce-76fa-4e48-a145-c40179469c4a",
+      "fragmento": "Lineamiento 1",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 11,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 954,
+      "prefijoCotejado": "lospresenteslineamientostienenporobjetoestablecerlaintegracionatribucionesquorumdesarrollodesesionesdecisionesydemasaspectosrelativosalcomiteintersecretarialdepromocionsenaladoenelarticulodecimodeldecretoporelqueseotorga"
+    },
+    {
+      "id": "c42b4c7d-b929-43cd-b4fb-0e2ec215459f",
+      "fragmento": "Lineamiento 2",
+      "paginasPdf": [
+        9,
+        10
+      ],
+      "paginasImpresas": [
+        9,
+        10
+      ],
+      "anclas": 113,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 3945,
+      "prefijoCotejado": "paraefectosdelospresenteslineamientosseentenderaporiactividadeseconomicasproductivasaquellasactividadesquelasecretariadetermineenladeclaratoriaiiasignaciondirectaprocedimientomedianteelcuallaentidadfederativaconsiderando"
+    },
+    {
+      "id": "b45ff9da-93c0-48d7-afab-3d046d64e8e0",
+      "fragmento": "Lineamiento 3",
+      "paginasPdf": [
+        10,
+        11
+      ],
+      "paginasImpresas": [
+        10,
+        11
+      ],
+      "anclas": 54,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 3042,
+      "prefijoCotejado": "elcomiteintersecretarialdepromocionestaraintegradoporilapersonatitulardelasubsecretariadeindustriaycomerciodelasecretariaquienfungiracomopersonatitulardelapresidenciadelcomiteintersecretarialdepromocionytendraderechoavoz"
+    },
+    {
+      "id": "580df8d0-2dfd-41b8-b47a-66f40c3f948a",
+      "fragmento": "Lineamiento 4",
+      "paginasPdf": [
+        11,
+        12
+      ],
+      "paginasImpresas": [
+        11,
+        12
+      ],
+      "anclas": 51,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 1780,
+      "prefijoCotejado": "elcomiteintersecretarialdepromociontendralassiguientesatribucionesiaprobarlasmodificacionesalospresenteslineamientosiiemitirdictamenescolegiadosenlosquesedeterminenlaviabilidaddelospolosdedesarrolloeconomicoparaelbienest"
+    },
+    {
+      "id": "f81214a4-3a2d-4e4b-8bd9-ba844cb24e6b",
+      "fragmento": "Lineamiento 5",
+      "paginasPdf": [
+        12
+      ],
+      "paginasImpresas": [
+        12
+      ],
+      "anclas": 35,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 1482,
+      "prefijoCotejado": "lapersonatitulardelapresidenciadelcomiteintersecretarialdepromociontendralassiguientesfacultadesipresidirlassesionesdelcomiteintersecretarialdepromocioniiconvocarasesionesordinariasalosintegrantesdelcomiteintersecretaria"
+    },
+    {
+      "id": "a705377c-7bd9-457a-a7d5-255746bea403",
+      "fragmento": "Lineamiento 6",
+      "paginasPdf": [
+        12,
+        13
+      ],
+      "paginasImpresas": [
+        12,
+        13
+      ],
+      "anclas": 23,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 867,
+      "prefijoCotejado": "lapersonatitulardelasecretariatecnicatendralasfuncionessiguientesiauxiliaralapersonatitulardelapresidenciadelcomiteintersecretarialdepromocioneneldesarrollodesusfacultadesiillevarelcontroldelaspropuestasrecibidasporelcom"
+    },
+    {
+      "id": "5c445ba6-22bd-49b6-b5ef-456878a2937f",
+      "fragmento": "Lineamiento 7",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 3,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 225,
+      "prefijoCotejado": "lasecretarialashcplasenerlasedatuylasemarnattendranatribucionesparaverificarcadaunaenelambitodesucompetenciaelcumplimientodelosrequisitosyloscriteriosdeseleccionparaladeclaratoriadelospolosdedesarrolloeconomicoparaelbien"
+    },
+    {
+      "id": "594a311a-2796-4ec6-b52a-a5394eb9d3cf",
+      "fragmento": "Lineamiento 8",
+      "paginasPdf": [
+        13
+      ],
+      "paginasImpresas": [
+        13
+      ],
+      "anclas": 59,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 2631,
+      "prefijoCotejado": "elcomiteintersecretarialdepromocionemitiradictamenescolegiadosconsiderandolosdictamenesdeviabilidademitidosporsusintegrantesobservandolossiguientescriteriosdeseleccionicriteriodemacrolocalizacionelpolodedesarrolloeconomi"
+    },
+    {
+      "id": "4d8733d0-a052-52f0-9a0c-38519bf1e9be",
+      "fragmento": "Lineamiento 9",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 6,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 502,
+      "prefijoCotejado": "unavezquelapresidenciadelcomiteintersecretarialdepromocionatravesdelapersonatitulardelasecretariatecnicarecibalapropuestaparaladeterminaciondelpolodedesarrolloeconomicoparaelbienestarpresentadaporlaentidadfederativaenunp"
+    },
+    {
+      "id": "03b044ec-96f2-41e6-aba9-bc829a931a49",
+      "fragmento": "Lineamiento 10",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 12,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 846,
+      "prefijoCotejado": "unavezquelosintegrantesdelcomiteintersecretarialdepromocionemitaneldictamendeviabilidadaqueserefiereellineamientoanteriorconfirmandocadaunoenelambitodesucompetenciaquelaentidadfederativacumpleconloscriteriosdeseleccionaq"
+    },
+    {
+      "id": "76b68daa-66ac-4342-8956-a5fee66a7172",
+      "fragmento": "Lineamiento 11",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 24,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 1264,
+      "prefijoCotejado": "lasentidadesfederativasquehayanpresentadolapropuestadesuperficiedeterrenoaqueserefiereellineamiento9delospresenteslineamientoslacualhayasidodeterminadacomopolodedesarrolloeconomicoparaelbienestarytengaemitidaladeclarator"
+    },
+    {
+      "id": "8f262dfb-135a-42ba-8320-ff7909e05348",
+      "fragmento": "Lineamiento 12",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 164,
+      "prefijoCotejado": "lainterpretacionyejecuciondelconveniodecoordinacionserealizaraconformealasreglasestablecidasenelpropioconvenioasegurandoquelaspartescomprendanycumplanconsusterminos"
+    },
+    {
+      "id": "de832eeb-61fd-5d0b-8b74-f9ad68bb24f2",
+      "fragmento": "Lineamiento 13",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 163,
+      "prefijoCotejado": "lasmodificacionesalconveniodecoordinacionserealizaranconformealosprocedimientosestablecidosdentrodelmismoincluyendolaposibilidaddeagregarlasadendascorrespondientes"
+    },
+    {
+      "id": "a64e4c6a-47c6-5fb7-93b6-2703981458be",
+      "fragmento": "Lineamiento 14",
+      "paginasPdf": [
+        14
+      ],
+      "paginasImpresas": [
+        14
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 121,
+      "prefijoCotejado": "elconveniodecoordinaciontendravalidezunavezquehayasidofirmadoporlaspartesypublicadoconformealosprocedimientosestablecidos"
+    },
+    {
+      "id": "a47455c0-71b0-4b86-a23e-18953100ee10",
+      "fragmento": "Lineamiento 15",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 26,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 1041,
+      "prefijoCotejado": "lasentidadesfederativasquecelebrenunconveniodecoordinacionenterminosdelodispuestoenlaseccionprimeradeestecapitulocuartotendranlassiguientesatribucionesiemitirlaconvocatoriapublicaparaelotorgamientodelasautorizacionesalos"
+    },
+    {
+      "id": "ce538dc3-1742-5c60-aeec-44d831f9ab86",
+      "fragmento": "Lineamiento 16",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 9,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 343,
+      "prefijoCotejado": "elvehiculodepropositoespecialaqueserefiereelarticulodecimosegundodeldecretodebeconsiderarlossiguienteselementosideterminaciondelainstitucionfinancieraprivadaobancadedesarrolloiisenalamientodelgobiernoestataliiiconformaci"
+    },
+    {
+      "id": "2121da13-5f2f-4399-950f-d505dbbd4817",
+      "fragmento": "Lineamiento 17",
+      "paginasPdf": [
+        15
+      ],
+      "paginasImpresas": [
+        15
+      ],
+      "anclas": 14,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 425,
+      "prefijoCotejado": "elvehiculodepropositoespecialdebeprevercomominimolossiguientesaspectosireglasdeoperacionenlasqueseespecifiquenlasatribucionesdecadaunodesusintegrantesaefectodeasegurarintegridadeficienciayelcumplimientonormativoiifinalid"
+    },
+    {
+      "id": "20a94404-a1b1-41f3-ac0b-2dbbb6434a0c",
+      "fragmento": "Lineamiento 18",
+      "paginasPdf": [
+        15,
+        16
+      ],
+      "paginasImpresas": [
+        15,
+        16
+      ],
+      "anclas": 36,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 1914,
+      "prefijoCotejado": "laspersonasmoralesinteresadasenobtenerlaautorizacionparalaconstrucciondesarrolloyadministraciondeunpolodedesarrolloeconomicoparaelbienestardebencumplirconlossiguientescriteriosicontarconexperienciaenproyectosinmobiliario"
+    },
+    {
+      "id": "dea77404-8eb3-42f0-857a-4528fee424cf",
+      "fragmento": "Lineamiento 19",
+      "paginasPdf": [
+        16,
+        17
+      ],
+      "paginasImpresas": [
+        16,
+        17
+      ],
+      "anclas": 80,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 3334,
+      "prefijoCotejado": "paraefectosdellineamientonumeralanteriorlaspersonasmoralesinteresadasenobtenerlaautorizacionparalaconstrucciondesarrolloyadministraciondeunpolodedesarrolloeconomicoparaelbienestarqueparticipenenelconcursopublicoaqueseref"
+    },
+    {
+      "id": "02bd0a80-6625-4f46-bb2f-be18f089ad85",
+      "fragmento": "Lineamiento 20",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 1,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 76,
+      "prefijoCotejado": "laentidadfederativadebepublicarlaconvocatoriaeneldiariooficialdelafederacion"
+    },
+    {
+      "id": "09ecdfe7-04d7-4e25-b6b4-6b93303331b1",
+      "fragmento": "Lineamiento 21",
+      "paginasPdf": [
+        17
+      ],
+      "paginasImpresas": [
+        17
+      ],
+      "anclas": 13,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 352,
+      "prefijoCotejado": "laconvocatoriadebeconteneralmenoslosiguienteilascaracteristicasylocalizaciondelpolodedesarrolloeconomicoparaelbienestariilaentidadfederativaqueconvocaiiilafundamentaciondelconcursopublicoivelprocedimientoparaaccederalasb"
+    },
+    {
+      "id": "97f5db9e-e887-47c3-873c-2fbf9c99c2e2",
+      "fragmento": "Lineamiento 22",
+      "paginasPdf": [
+        17,
+        18
+      ],
+      "paginasImpresas": [
+        17,
+        18
+      ],
+      "anclas": 28,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 976,
+      "prefijoCotejado": "enlasbasesseestableceranrequisitosclarossencillosobjetivoseimparcialestalescomoielobjetodelconcursopublicoiilasetapasyelcalendariodelconcursopublicoiiilosmecanismosparaquelosconcursantessolicitenaclaracioneslascualespodr"
+    },
+    {
+      "id": "3ba3c96e-9e43-4694-b649-808c71d3fe56",
+      "fragmento": "Lineamiento 23",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 95,
+      "prefijoCotejado": "lasbasesnopodransermodificadasdespuesdelafechalimiteestablecidaenelcalendariodelconcursopublico"
+    },
+    {
+      "id": "f01641c3-5c96-488d-b3a7-d8b987431521",
+      "fragmento": "Lineamiento 24",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 161,
+      "prefijoCotejado": "laintegraciondelaspropuestasypresentaciondelasmismassellevaraacabodeacuerdoconloestablecidoenlaconvocatoriaolasbasesdelconcursopublicoyenlospresenteslineamientos"
+    },
+    {
+      "id": "3a783814-7229-49f7-9ed3-e17ebfc93e87",
+      "fragmento": "Lineamiento 25",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 3,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 184,
+      "prefijoCotejado": "elfallodelconcursopublicodebellevarseacaboenlafechaquesenaleelcalendariodelaconvocatoriaolasbaseselcualdebedarseaconoceratodoslosparticipantesypublicarseeneldiariooficialdelafederacion"
+    },
+    {
+      "id": "ea430fa0-6029-45e5-8b44-814a0d1ded80",
+      "fragmento": "Lineamiento 26",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 14,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 634,
+      "prefijoCotejado": "laentidadfederativaconsiderandolaopiniondelasecretariaemitiraelfallodeconcursopublicocorrespondienteelcualcontendraentreotrosaspectoslosiguienteiresultadosdelconcursopublicoyensucasolaspropuestasquenoseaceptaroniinombred"
+    },
+    {
+      "id": "3143bad7-fc13-4363-b583-4c17a299e81e",
+      "fragmento": "Lineamiento 27",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 10,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 332,
+      "prefijoCotejado": "laentidadfederativapodradeclarardesiertoelprocesodelconcursopublicocuandoinosepresentenpropuestasenelprocesodeconcursopublicoiilosconcursantesnocompruebenlapropiedadofuentedelosrecursosysulicitaprocedenciaiiisehayadesech"
+    },
+    {
+      "id": "4011d4db-9a7a-45e5-b527-f5d4c5d0c8f1",
+      "fragmento": "Lineamiento 28",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 5,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 398,
+      "prefijoCotejado": "laentidadfederativapodradeterminarlacancelacionosuspensiondelconcursoporcasofortuitofuerzamayorocuandosepongaenriesgolaseguridadlaeficienciaolacontinuidaddelasoperacionesenelpolodedesarrolloeconomicoparaelbienestarencaso"
+    },
+    {
+      "id": "c3f458f6-9b97-405f-afc5-59637db29eb6",
+      "fragmento": "Lineamiento 29",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 9,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 677,
+      "prefijoCotejado": "elconcursopublicoenterminosdelarticulodecimoprimerosegundoparrafodeldecretoseracoordinadoporlaentidadfederativadeacuerdoconsusfuncionesenterminosdelospresenteslineamientosyatravesdemedioselectronicosdeconformidadconlanor"
+    },
+    {
+      "id": "7db89b66-0918-4b14-a45b-0f1399256313",
+      "fragmento": "Lineamiento 30",
+      "paginasPdf": [
+        18
+      ],
+      "paginasImpresas": [
+        18
+      ],
+      "anclas": 5,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 368,
+      "prefijoCotejado": "losactosrelacionadosconlosprocedimientosdelconcursopublicosepublicaranenlapaginadeinternetdelasecretariaasicomoenlosmedioselectronicosoescritosqueseestablezcanenlasbasessinperjuiciodelapublicaciondelaconvocatoriaeneldiar"
+    },
+    {
+      "id": "cad4f4ab-3a33-4ea6-b640-a5e9c950bd51",
+      "fragmento": "Lineamiento 31",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 17,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 296,
+      "prefijoCotejado": "elconcursopublicodebeconteneralmenoslassiguientesetapasipublicaciondelaconvocatoriaiiemisiondelasbasesparaelconcursopublicoiiiregistrodeconcursantesivaccesoalcuartodedatosvetapadeaclaracionesvievaluaciondelaspropuestasvi"
+    },
+    {
+      "id": "82e439e3-a803-4344-b374-0b6b5681a5bb",
+      "fragmento": "Lineamiento 32",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 162,
+      "prefijoCotejado": "unavezquesetengaelfallodelconcursopublicolaentidadfederativaotorgaralaautorizacionparaconstruirdesarrollaryadministrarlospolosdedesarrolloeconomicoparaelbienestar"
+    },
+    {
+      "id": "2151d677-b1b1-4e01-8b71-0d22a5d2134e",
+      "fragmento": "Lineamiento 33",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 10,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 747,
+      "prefijoCotejado": "lasentidadesfederativasbajosuresponsabilidadpodranoptarporotorgarautorizacionesatravesdelprocedimientodeasignaciondirectalaentidadfederativadeberafundarymotivarlaasignaciondirectasegunlascircunstanciasqueconcurranencadac"
+    },
+    {
+      "id": "35019865-6564-4cdc-956b-0338c947bff6",
+      "fragmento": "Lineamiento 34",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 18,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 790,
+      "prefijoCotejado": "lasentidadesfederativasbajosuresponsabilidadpodranllevaracabolaasignaciondirectamenteenlosterminosdeestecapitulocuandoinoexistanpersonasmoralesinteresadasenobtenerlaautorizacionparalaconstrucciondesarrolloyadministracion"
+    },
+    {
+      "id": "3952be3b-923c-4eda-8a7c-b34b5dc1fc99",
+      "fragmento": "Lineamiento 35",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 3,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 185,
+      "prefijoCotejado": "parallevaracabolasasignacionesdirectasalasqueserefiereestecapitulonoseautorizaranrecursosadicionalesynoseincrementaraelpresupuestodelaentidadfederativaduranteelejerciciofiscalrespectivo"
+    },
+    {
+      "id": "b533dc65-4bd3-4b49-a12e-274e2505a702",
+      "fragmento": "Lineamiento 36",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 6,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 405,
+      "prefijoCotejado": "elprocedimientodeasignaciondirectainiciaconlaconfirmaciondelainformacionobtenidaenlainvestigacionreferidaenelultimoparrafodellineamiento33delospresenteslineamientosyterminaconlanotificacionalsujetoasignadoobienconladeter"
+    },
+    {
+      "id": "630143b9-d43e-48f3-a47b-d4ebdb09fa84",
+      "fragmento": "Lineamiento 37",
+      "paginasPdf": [
+        19
+      ],
+      "paginasImpresas": [
+        19
+      ],
+      "anclas": 4,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 295,
+      "prefijoCotejado": "lasentidadesfederativasdeberanrecabaralmenostrespropuestasdeposiblesdesarrolladoresderivadodelasinvestigacionesrealizadasconlasmismascondicionesyparaefectosdelaasignaciondirectapodracontarseminimoconunapropuestaencasoden"
+    },
+    {
+      "id": "ab6e4d84-9c6a-47fa-b10f-8299556fe1cc",
+      "fragmento": "Lineamiento 38",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 3,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 184,
+      "prefijoCotejado": "enlosprocedimientosdeasignaciondirectaconlanotificaciondelaasignaciondirectasetendraporotorgadalaautorizaciondirectaaldesarrolladorquehayasidoasignadoporlaentidadfederativadequesetrate"
+    },
+    {
+      "id": "790a1fb5-fd8e-4900-a26b-8c6ad3bc32c4",
+      "fragmento": "Lineamiento 39",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 35,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 1996,
+      "prefijoCotejado": "laautorizacionparalosdesarrolladoresdelospolosdedesarrolloeconomicoparaelbienestarpodraserrevocadaporcualquieradelascausassiguientesinoiniciarlasactividadesdeconstruccionydesarrolloenelpolodedesarrolloeconomicoparaelbien"
+    },
+    {
+      "id": "17449b07-e821-4ebc-96f3-38c1b2dfbc49",
+      "fragmento": "Transitorio Único",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 90,
+      "prefijoCotejado": "lospresenteslineamientosentraranenvigoreldiadesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "f4b19bce-0f24-5c4a-afcb-521a918d47b1",
+      "fragmento": "Firmas y promulgación",
+      "paginasPdf": [
+        20
+      ],
+      "paginasImpresas": [
+        20
+      ],
+      "anclas": 18,
+      "textoCompletoCotejado": true,
+      "caracteresFuenteNormalizados": 707,
+      "prefijoCotejado": "ciudaddemexicoaveintidosdemayode2025elrepresentantetitulardelasecretariadeeconomiaypresidentedelcomitesubsecretariodeindustriaycomerciovidalllerenasmoralesrubricaelrepresentantetitulardelasecretariadehaciendaycreditopubl"
+    }
+  ]
+}
