@@ -307,6 +307,24 @@ it('serves only the reviewed October 17, 2025 DOF evening issue PDF for the bind
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed April 8, 2024 DOF morning issue PDF for CEL-ASIGNACION-2022', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('cel-asignacion-2022'), 'cel-asignacion-2022', {
+        sources: { 'cel-asignacion-2022': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('312601', '312602'), originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('cel-asignacion-2022'), 'cel-asignacion-2022', {
+            sources: { 'cel-asignacion-2022': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 18, 2026 DOF issue PDF for CFE-IMPEDIMENTOS', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705';

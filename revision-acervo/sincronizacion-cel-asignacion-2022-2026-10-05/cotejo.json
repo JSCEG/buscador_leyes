@@ -1,0 +1,137 @@
+{
+  "instrumento": "CEL-ASIGNACION-2022",
+  "instrumentId": "15fcb1e0-8cd8-5215-9be6-727be3002b3b",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5722482",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601",
+  "archivoTemporal": "tmp\\cel-asignacion-2022.pdf",
+  "sha256": "fd0f00ae1f140ae00bca0e33184f51904b2522221f7d27e82219a9b952c942e8",
+  "bytes": 2859203,
+  "paginasPdf": 202,
+  "paginasImpresasDelInstrumento": [
+    139,
+    144
+  ],
+  "fragmentosOficiales": 9,
+  "anclasGeometricas": 289,
+  "notaAlcance": "El acuerdo, los resolutivos, las firmas y los anexos A y B se cotejaron en las páginas 139–144. El siguiente instrumento de la CRE empieza en la página 145. El Anexo B incluye su fórmula en la propia página 143; el PDF sólo se descargó temporalmente para el cotejo.",
+  "fragmentos": [
+    {
+      "id": "5b4a54b6-2107-5c2d-af3b-830553630480",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        139,
+        140,
+        141
+      ],
+      "paginasImpresas": [
+        139,
+        140,
+        141
+      ],
+      "anclas": 141,
+      "prefijoCotejado": "acuerdonuma0072024delacomisionreguladoradeenergiaporelqueseestableceelcriterioparalaasignaciondecertificadosdeenergiaslimpiasdisponiblesenlacuentadelacomisionreguladoradeenergiacor"
+    },
+    {
+      "id": "13098314-1cfe-56ce-a9fc-b6edf7368565",
+      "fragmento": "Resolutivo PRIMERO",
+      "paginasPdf": [
+        141
+      ],
+      "paginasImpresas": [
+        141
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "primeroseemiteelcriterioparalaasignaciondeloscertificadosdeenergiaslimpiascorrespondientesalanodeobligacion2022disponiblesenlacuentadelacomisionreguladoradeenergiaalaquehacereferen"
+    },
+    {
+      "id": "66641d9c-f15e-5917-ac00-f03fadf55204",
+      "fragmento": "Resolutivo SEGUNDO",
+      "paginasPdf": [
+        141,
+        142
+      ],
+      "paginasImpresas": [
+        141,
+        142
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "segundoenejerciciodelafacultadestablecidaenelarticulo18fraccionesxviiiyxliiidelreglamentointernodelacomisionreguladoradeenergiaseinstruyealaunidaddeelectricidadparaqueenejerciciode"
+    },
+    {
+      "id": "7fc1157e-fdda-5387-bead-b88a146d832a",
+      "fragmento": "Resolutivo TERCERO",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "terceropubliqueseelpresenteacuerdoysusanexoseneldiariooficialdelafederacionmismosqueentraranenvigoraldiahabilsiguientedesupublicacionenelmediodedifusionsenalado"
+    },
+    {
+      "id": "dbc1746c-5a21-572b-9b88-c4560e8e9bf7",
+      "fragmento": "Resolutivo CUARTO",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "cuartohagasedeconocimientopublicoqueelpresenteactoadministrativopodraimpugnarseatravesdeljuiciodeamparoindirectoconformealodispuestoporelarticulo27delaleydeorganosreguladorescoordi"
+    },
+    {
+      "id": "f3d7d0eb-9bef-55c2-9eee-0c6f7646fa5a",
+      "fragmento": "Resolutivo QUINTO",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "quintoinscribaseelpresenteacuerdobajoelnumeroa0072024enelregistroaqueserefierenlosarticulos22fraccionxxviincisosaeyfy25fraccionxdelaleydeorganosreguladorescoordinadosenmateriaenerg"
+    },
+    {
+      "id": "72c5c24d-8b0d-5b8a-93fd-1770617627a2",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        142
+      ],
+      "paginasImpresas": [
+        142
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "ciudaddemexicoa30deenerode2024comisionadopresidenteleopoldovicentemelchigarciarubricacomisionadoswalterjulianangeljimenezhermilocejalucasguadalupeescalantebenitezluislinareszapatar"
+    },
+    {
+      "id": "3e8022b4-5fbc-5959-a96e-8d4019dec960",
+      "fragmento": "Anexo A · Definiciones",
+      "paginasPdf": [
+        142,
+        143
+      ],
+      "paginasImpresas": [
+        142,
+        143
+      ],
+      "anclas": 39,
+      "prefijoCotejado": "anexoacriterioporelcualserealizolaasignaciondecertificadosdeenergiaslimpiasdisponiblesenlacuentadelacomisioncorrespondientesalanodeobligacion2021determinaciondelremanentedeceldelac"
+    },
+    {
+      "id": "fe0f6434-f1c6-5165-bba5-aa9c006ed922",
+      "fragmento": "Anexo B · Fórmula y condiciones de asignación",
+      "paginasPdf": [
+        143,
+        144
+      ],
+      "paginasImpresas": [
+        143,
+        144
+      ],
+      "anclas": 67,
+      "prefijoCotejado": "anexobcriterioparalaasignaciondecertificadosdeenergiaslimpiasdisponiblesenlacuentadelacomisioncorrespondientesalanodeobligacion20221deacuerdoconloestablecidoenladisposicion34delasd"
+    }
+  ]
+}
