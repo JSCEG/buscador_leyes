@@ -1,0 +1,322 @@
+{
+  "instrumento": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica",
+  "instrumentId": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5714631",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/18-01-2024/Matutina/311042",
+  "archivoTemporal": "tmp\\pdfs\\beneficio-redes-dof-2024-01-18.pdf",
+  "sha256": "f19d7306421896e2fb023a6d97b156233714ffb65876177c9849330f13bd1abe",
+  "bytes": 6871809,
+  "paginasPdf": 646,
+  "paginasPdfInstrumento": [
+    517,
+    547
+  ],
+  "fragmentosOficiales": 25,
+  "anclasGeometricas": 1504,
+  "notaAlcance": "Se mapearon los 25 fragmentos oficiales del Acuerdo A/051/2023 a la edición matutina oficial del DOF del 18 de enero de 2024, páginas PDF 517–547. El Anexo I se conserva como formulario tabular página a página; el Anexo II incluye el diagrama raster oficial; las notas al pie se enlazan en sus páginas impresas discontinuas. Se excluyó la nota editorial del buscador.",
+  "fragmentos": [
+    {
+      "id": "a976c3f4-5371-5830-b796-70c83eb11e98",
+      "fragmento": "Preámbulo y considerandos",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        517,
+        518,
+        519
+      ],
+      "anclas": 117,
+      "hashTexto": "333e599915bdc8296b85cf63e955a0469e31533f7f122ea51fdb980378f5730d",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "53e89007-8ef7-5832-8fd6-025195e52e1b",
+      "fragmento": "Resolutivo PRIMERO",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        519
+      ],
+      "anclas": 5,
+      "hashTexto": "d393949e3469dc935eb14490da87bb00e9683430cd254c311b40c1fcd9862c9b",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "74a95080-beef-5c6c-a004-9bb90f9f067a",
+      "fragmento": "Resolutivo SEGUNDO",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        519
+      ],
+      "anclas": 3,
+      "hashTexto": "8484c51e0ba631ced5e62c8535139e2b7419f7530a9fe051047fc0ead2b27468",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "5c8c1c86-4bba-50c5-9423-aaa1a6733dce",
+      "fragmento": "Resolutivo TERCERO",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        519
+      ],
+      "anclas": 5,
+      "hashTexto": "5fb99ecd96ba1232a4707220c1d04a62e4ba09aeab256bdead23d6f041914980",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "0b028e61-c644-5529-b687-72eb8ac33178",
+      "fragmento": "Firma y publicación",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        519
+      ],
+      "anclas": 3,
+      "hashTexto": "83b5283dc551de83e065faf6648ba29024f3d7af5905f0673a6a1c60f7d13439",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "e9e60ce5-29fe-55dc-ad69-43a86fa0858d",
+      "fragmento": "Presentación e índice",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        520
+      ],
+      "anclas": 59,
+      "hashTexto": "82b7c20883aada4da12e202ba9636e421deebdcf6b090d893b8164b297355607",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "9d4b566c-bef9-5468-8fa0-e5d3f0a67d27",
+      "fragmento": "Apartado 1 · Introducción",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        520,
+        521
+      ],
+      "anclas": 13,
+      "hashTexto": "1277e4548bbfb368a755e94769a4c263c0669bce8a099c02984b33bf42ec7731",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "7d604303-4189-5c31-ae4e-75e4834e013d",
+      "fragmento": "Apartado 2.1 Objetivo general",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        521
+      ],
+      "anclas": 8,
+      "hashTexto": "fabb5e3a36ad0ab687275304c5d58264ab6e9c5d3b4913f6e92462cc6b7a0f98",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "97cf6506-f50a-59a9-8106-fb5c4b9b746c",
+      "fragmento": "Apartado 2.2 Objetivos específicos",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        521
+      ],
+      "anclas": 8,
+      "hashTexto": "3c20ad3209fd920c9a2f2a80de00901ea3dc7f391ed71ca814aa3c2e13376917",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "52d38d19-dc82-5706-95c7-9d1ee748210e",
+      "fragmento": "Apartado 2.3 Aplicación",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        521
+      ],
+      "anclas": 12,
+      "hashTexto": "9e3be12f82a878c5f6db55fdb30b04a88038ffc76e94972672fb22a73bed9902",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "e0500b84-8abb-5481-84e5-dea494a86715",
+      "fragmento": "Apartado 2.4 Definiciones",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        521,
+        522
+      ],
+      "anclas": 38,
+      "hashTexto": "ceac0503551f1f6b20ad8e33d7d30cb0d0396a83dd11189800714906f6c94d1c",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "2eded83e-50b5-5fc4-8d38-896fc3006c8f",
+      "fragmento": "Apartado 2.5 Marco legal",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        522
+      ],
+      "anclas": 18,
+      "hashTexto": "804a19e86ba6e5c54888c9d068f8e815ef7cbc85a77b4b17f8e6c955f43f4c0d",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "8cd72789-35b0-5f2d-bebf-637401d4b5d7",
+      "fragmento": "Apartado 2.6 Abreviaturas y acrónimos",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        522,
+        523
+      ],
+      "anclas": 96,
+      "hashTexto": "9850686d3d866afacbe783f16fb657de4be8fd36d6e9afa30bcdc80f98445686",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "3a5c6e2a-c768-59e0-9408-de6d4d2196a2",
+      "fragmento": "Apartado 2.7 Consideraciones para evaluación del Beneficio Neto",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        524
+      ],
+      "anclas": 44,
+      "hashTexto": "cb3c1c81bf44b3875d7a9b8a9c213ecf45934a3b7bd7331aefc7670f373688fd",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "86df9030-585e-580d-b1ca-16930489c5b9",
+      "fragmento": "Apartado 2.8 Solicitud de no objeción de Adquisición o Cesión",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        524,
+        525
+      ],
+      "anclas": 41,
+      "hashTexto": "ec2d81ff87fb96a438a2b8623a0a469cc9e37e0f44f3000c2d4176a7f3c30af6",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "2a289447-f97d-5266-9c8a-e9d0cf074473",
+      "fragmento": "Apartado 3.1 Costos y beneficios",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        525,
+        526
+      ],
+      "anclas": 88,
+      "hashTexto": "156dcee32c180d2f807efdcb9afcc5cc5ad3ee9fe46c9503e6352907659f0c8f",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "95b24eac-01aa-5716-93dc-df0d66bfd33d",
+      "fragmento": "Apartado 3.2 Caso Base Sin Proyecto",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        527
+      ],
+      "anclas": 18,
+      "hashTexto": "9e502e8a0fcd99a38db5c30812aeee476b967a64b65968d73967892b88b446dd",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "a3fccd3f-3c57-5057-8be1-dd445b6dad3a",
+      "fragmento": "Apartado 3.3 Caso Base Con Proyecto",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        527,
+        528
+      ],
+      "anclas": 13,
+      "hashTexto": "3dff9dc911435a69b8728b2823346d15bbd40733ce57304170f1c0ada45e9d3d",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "b7ad7a60-8e2d-59b6-98c7-787ec01f62fb",
+      "fragmento": "Apartado 3.4 Cálculo del Costo Total del proyecto",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        528,
+        529
+      ],
+      "anclas": 41,
+      "hashTexto": "84573bfdeee88278141ca283abfb3a66d127cc9d583e3ed414d93e79a3cb3b46",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "326f77ce-878a-5feb-8326-8b83db89c396",
+      "fragmento": "Apartado 3.5 Cálculo del Beneficio Total del Proyecto.",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        529,
+        530,
+        531
+      ],
+      "anclas": 64,
+      "hashTexto": "2dcb1310fe549070f9544bbdd8acceaccfa549b1e35138069c16a60e17593bc9",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "25a43513-5122-5e31-9a77-143700160da2",
+      "fragmento": "Apartado 4.1 Análisis de sensibilidad",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        531
+      ],
+      "anclas": 34,
+      "hashTexto": "fdb0d9283f93f50c46845b77d6de7a1507bc4dc38d92a3df22423791fb5823ef",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "7d371668-7c03-5215-a41f-0747a5f36ccc",
+      "fragmento": "Apartado 5 · Información complementaria",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        531
+      ],
+      "anclas": 11,
+      "hashTexto": "ddaf4e3260463f7d244197b3df09769f0a27b166baa47b73b8904786c0aad56f",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "f4fcf5f4-7818-58a6-a09a-903bd7147156",
+      "fragmento": "Anexo I · Formulario de solicitud",
+      "metodoCotejo": "formulario-tabular-paginas-completas",
+      "paginasPdf": [
+        532,
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543,
+        544,
+        545
+      ],
+      "anclas": 675,
+      "hashTexto": "e6509c0acc093aad5d5ad605647b79acab102a5e3fcd4007b19bd8bfbbf4fbbb",
+      "textoCompletoCotejado": false
+    },
+    {
+      "id": "2990b4b0-f7b8-5822-9de7-e34dc79117c3",
+      "fragmento": "Anexo II · Costos de evaluación",
+      "metodoCotejo": "texto-completo-secuencial",
+      "paginasPdf": [
+        546,
+        547
+      ],
+      "anclas": 77,
+      "hashTexto": "277a5c9eb110a034df4bddc87826e95e90eda9873390b807765d31d51e89c90a",
+      "textoCompletoCotejado": true
+    },
+    {
+      "id": "f0dd2734-5ebb-578e-b847-c856c8aa81fb",
+      "fragmento": "Notas al pie de los criterios y anexos",
+      "metodoCotejo": "notas-al-pie-cotejadas-por-pagina",
+      "paginasPdf": [
+        526,
+        531,
+        544,
+        547
+      ],
+      "anclas": 13,
+      "hashTexto": "80c2f52c5a344a54684d8c362c1e5a27848896f854c77fa9cb69686eb8a7a91b",
+      "textoCompletoCotejado": true
+    }
+  ]
+}
