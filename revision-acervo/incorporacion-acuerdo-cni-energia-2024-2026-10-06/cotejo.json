@@ -1,0 +1,68 @@
+{
+  "instrumento": "CNI-ENERGIA-2024",
+  "instrumentId": "6140ced6-da1b-5e8f-9124-9db9a94bb4c5",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5722488",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601",
+  "archivoTemporal": "C:\\Users\\User\\AppData\\Local\\Temp\\buscador-cni-2024\\dof-2024-04-08.pdf",
+  "sha256": "fd0f00ae1f140ae00bca0e33184f51904b2522221f7d27e82219a9b952c942e8",
+  "bytes": 2859203,
+  "paginasPdf": 202,
+  "paginasImpresasDelAcuerdo": [
+    146,
+    147
+  ],
+  "fragmentosOficiales": 4,
+  "anclasGeometricas": 85,
+  "tablasPreservadas": 1,
+  "filasDeDatosEnTabla": 2,
+  "fragmentos": [
+    {
+      "id": "0d632032-ea82-560a-87f8-d34c89e50852",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        146
+      ],
+      "paginasImpresas": [
+        146
+      ],
+      "anclas": 59,
+      "prefijoCotejado": "acuerdoporelqueseadicionaunconjuntodeindicadoresclaveenmateriadelsectorenergeticoalcatalogonacionaldeindicadoresalmargenunselloconelescudonacionalquediceestados"
+    },
+    {
+      "id": "14c4d1b6-207b-5444-adc3-ef804be67395",
+      "fragmento": "Resolutivo Primero · Indicadores 19 y 20",
+      "paginasPdf": [
+        147
+      ],
+      "paginasImpresas": [
+        147
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "porloanteriorlajuntadegobiernohatenidoabienemitirelsiguienteacuerdoporelqueseadicionaunconjuntodeindicadoresclaveenmateriadelsectorenergeticoalcatalogonacionald"
+    },
+    {
+      "id": "aa4744a5-2713-53a8-aa90-39e7806e1ab6",
+      "fragmento": "Resolutivo Segundo · Responsabilidad de SENER",
+      "paginasPdf": [
+        147
+      ],
+      "paginasImpresas": [
+        147
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "segundocorresponderaalasecretariadeenergiagenerardemaneraregularyperiodicalosindicadoresenlaformayterminosquedetermineelcomitetecnicoespecializadodeinformaciond"
+    },
+    {
+      "id": "c1ad6c39-ed03-51b3-9c16-f3a8c92698b2",
+      "fragmento": "Transitorio Único · Vigencia y aprobación",
+      "paginasPdf": [
+        147
+      ],
+      "paginasImpresas": [
+        147
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "transitoriounicoelpresenteacuerdoentraraenvigoraldiasiguientedesupublicacioneneldiariooficialdelafederacionelpresenteacuerdoseaproboenterminosdelacuerdo5aiv2024"
+    }
+  ]
+}
