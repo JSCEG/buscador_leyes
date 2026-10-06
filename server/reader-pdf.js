@@ -29,6 +29,7 @@ const reviewedDofPdfs = new Set([
     'https://sidof.segob.gob.mx/notas/getNewsletter/02-10-2026/Matutina/329985',
     'https://sidof.segob.gob.mx/notas/getNewsletter/03-10-2025/Vespertina/323363',
     'https://sidof.segob.gob.mx/notas/getNewsletter/28-01-2026/Matutina/325425',
+    'https://sidof.segob.gob.mx/notas/getNewsletter/20-12-2024/Vespertina/318281',
     'https://sidof.segob.gob.mx/notas/getNewsletter/15-05-2026/Vespertina/327345',
     'https://sidof.segob.gob.mx/notas/getNewsletter/20-05-2024/Matutina/313401',
     'https://sidof.segob.gob.mx/notas/getNewsletter/08-05-2025/Matutina/320943',
@@ -112,4 +113,3 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
         return problem(controller.signal.aborted ? 504 : 502, 'source-unavailable');
     } finally { clearTimeout(timer); }
 }
-

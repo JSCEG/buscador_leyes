@@ -1,0 +1,383 @@
+{
+  "instrumento": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Constitución Política de los Estados Unidos Mexicanos, en materia de simplificación orgánica",
+  "instrumentId": "6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5745905",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/20-12-2024/Vespertina/318281",
+  "archivoTemporal": "tmp\\pdfs\\reforma-simplificacion-dof-2024-12-20.pdf",
+  "sha256": "878e180516f11559603f1c361026978b42ec475e50d0a3628cfae4ec61de9ee6",
+  "bytes": 11283977,
+  "paginasPdf": 168,
+  "paginasImpresasDelInstrumento": [
+    2,
+    10
+  ],
+  "fragmentosOficiales": 29,
+  "anclasGeometricas": 393,
+  "notaAlcance": "Se mapearon los 29 fragmentos oficiales (preámbulo, artículo único, modificaciones constitucionales, 12 transitorios y firma) contra la edición vespertina oficial del DOF del 20 de diciembre de 2024, páginas impresas 2–10. La nota editorial de Supabase se excluyó.",
+  "fragmentos": [
+    {
+      "id": "9cf6fb17-1bf3-518c-93af-bfd1bc3018a1",
+      "fragmento": "Preámbulo del decreto",
+      "paginasPdf": [
+        2
+      ],
+      "paginasImpresas": [
+        2
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "decretoporelquesereformanadicionanyderogandiversasdisposicionesdelaconstitucionpoliticadelosestadosunidosmexicanosenmateriadesimplificacionorganicaalmargenunselloconelescudonacionalquediceestadosunidosmexicanospresidenci"
+    },
+    {
+      "id": "f6eb63b5-5636-52a2-87ce-ca25c823c5c7",
+      "fragmento": "Artículo Único · Disposición reformadora",
+      "paginasPdf": [
+        2
+      ],
+      "paginasImpresas": [
+        2
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulounicosereformanlosarticulos6oparrafoterceroylasfraccionesiiparrafoprimeroivylosparrafosprimerosegundoytercerodelafraccionviiidelapartadoa27parrafosexto28parrafosnovenoydeldecimoquintoalvigesimo41fraccionvapartado"
+    },
+    {
+      "id": "e0c9899d-f98b-52af-a1d7-a316d42c23a4",
+      "fragmento": "Modificación al artículo 3o.",
+      "paginasPdf": [
+        2
+      ],
+      "paginasImpresas": [
+        2
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo3oiaviiiixsederogax"
+    },
+    {
+      "id": "00fc8d60-41cf-5fb5-a334-0b8dcc1c8a25",
+      "fragmento": "Modificación al artículo 6o.",
+      "paginasPdf": [
+        2,
+        3
+      ],
+      "paginasImpresas": [
+        2,
+        3
+      ],
+      "anclas": 53,
+      "prefijoCotejado": "articulo6oelestadogarantizaraelderechodeaccesoalastecnologiasdelainformacionycomunicacionasicomoalosserviciosderadiodifusionytelecomunicacionesincluidoeldebandaanchaeinternetparatalesefectoselejecutivofederalatravesdelad"
+    },
+    {
+      "id": "c1636b53-051d-51e7-a53e-03aa52d2cc60",
+      "fragmento": "Modificación al artículo 26",
+      "paginasPdf": [
+        3,
+        4
+      ],
+      "paginasImpresas": [
+        3,
+        4
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "articulo26ab"
+    },
+    {
+      "id": "8982d4ce-2340-5254-9674-9c0317e8f498",
+      "fragmento": "Modificación al artículo 27",
+      "paginasPdf": [
+        4
+      ],
+      "paginasImpresas": [
+        4
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "articulo27enloscasosaqueserefierenlosdosparrafosanterioreseldominiodelanacionesinalienableeimprescriptibleylaexplotacionelusooelaprovechamientodelosrecursosdequesetrataporlosparticularesoporsociedadesconstituidasconforme"
+    },
+    {
+      "id": "87b215c4-ed48-594e-a354-33783acdeb7e",
+      "fragmento": "Modificación al artículo 28",
+      "paginasPdf": [
+        4,
+        5,
+        6
+      ],
+      "paginasImpresas": [
+        4,
+        5,
+        6
+      ],
+      "anclas": 82,
+      "prefijoCotejado": "articulo28elpoderejecutivofederalporconductodeladependenciaencargadadeconducirysupervisarlapoliticaenergeticadelpaiscontaraconlasatribucionesparallevaracabolaregulaciontecnicayeconomicaasicomolafacultadsancionadoraenmate"
+    },
+    {
+      "id": "bb59996b-cb2d-597e-9ff3-f229d8b7aaac",
+      "fragmento": "Modificación al artículo 41",
+      "paginasPdf": [
+        6,
+        7
+      ],
+      "paginasImpresas": [
+        6,
+        7
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "articulo41ielinstitutonacionalelectoraltendracompetenciaparaconocerdelosasuntosrelacionadosconelaccesoalainformacionpublicaylaprotecciondedatospersonalesacargodelospartidospoliticostambienconoceradelosrecursosderevisionq"
+    },
+    {
+      "id": "064aaa56-5398-5e6e-9df3-c9ab4c9e4397",
+      "fragmento": "Modificación al artículo 76",
+      "paginasPdf": [
+        7
+      ],
+      "paginasImpresas": [
+        7
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulo76sonfacultadesexclusivasdelsenadoiiiratificarlosnombramientosqueelmismofuncionariohagadelossecretariosdeestadoencasodequeesteopteporungobiernodecoalicionconexcepciondelostitularesdelosramosdedefensanacionalymari"
+    },
+    {
+      "id": "357a063e-4b03-55a7-9523-5ce4ffddf794",
+      "fragmento": "Modificación al artículo 78",
+      "paginasPdf": [
+        7
+      ],
+      "paginasImpresas": [
+        7
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo78iaviviiratificarlosnombramientosqueelpresidentehagadeembajadoresconsulesgeneralesempleadossuperioresdehaciendacoronelesydemasjefessuperioresdelejercitoarmadayfuerzaaereanacionalesenlosterminosquelaleydispongayv"
+    },
+    {
+      "id": "17defe6b-4a71-540b-a70e-a4f72cdb65e8",
+      "fragmento": "Modificación al artículo 89",
+      "paginasPdf": [
+        7
+      ],
+      "paginasImpresas": [
+        7
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo89iyiiiiinombrarconaprobaciondelsenadoalosembajadoresconsulesgeneralesyempleadossuperioresdehaciendaivaxviiixixsederogaxx"
+    },
+    {
+      "id": "2d088315-a073-53df-9e59-8c0ac59a5653",
+      "fragmento": "Modificación al artículo 105",
+      "paginasPdf": [
+        7,
+        8
+      ],
+      "paginasImpresas": [
+        7,
+        8
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo105iiiaaghsederogaiiii"
+    },
+    {
+      "id": "dbf29c53-5017-5a4f-9ce4-2f1917095580",
+      "fragmento": "Modificación al artículo 113",
+      "paginasPdf": [
+        8
+      ],
+      "paginasImpresas": [
+        8
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo113ielsistemacontaraconuncomitecoordinadorqueestaraintegradoporlostitularesdelaauditoriasuperiordelafederaciondelafiscaliaespecializadaencombatealacorrupciondelasecretariadelejecutivofederalresponsabledelcontroli"
+    },
+    {
+      "id": "13278998-ba3d-5632-aba8-7afe74bb7840",
+      "fragmento": "Modificación al artículo 116",
+      "paginasPdf": [
+        8
+      ],
+      "paginasImpresas": [
+        8
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo116iaviiviiilasconstitucionesdelosestadosenterminosdelaleygeneraldefiniranlacompetenciadelosorganosencargadosdelacontraloriauhomologosdelospoderesejecutivolegislativoyjudicialydemassujetosobligadosresponsablesdeg"
+    },
+    {
+      "id": "090b9cee-33ab-5c33-9e28-e2c89971cde2",
+      "fragmento": "Modificación al artículo 123",
+      "paginasPdf": [
+        8,
+        9
+      ],
+      "paginasImpresas": [
+        8,
+        9
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "articulo123aiaxixxxelorganismodescentralizadofederaltambientendracompetenciaparaconocerdelosasuntosrelacionadosconelaccesoalainformacionpublicadelossindicatosyconoceradelosrecursosderevisionqueinterponganlosparticularesr"
+    },
+    {
+      "id": "0902326b-d516-5c4d-8fb7-7c63d2dee919",
+      "fragmento": "Modificación al artículo 134",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo134losentespublicosajustaransusestructurasorganicasyocupacionalesdeconformidadconlosprincipiosderacionalidadyausteridadrepublicanaeliminandotodotipodeduplicidadesfuncionalesuorganizacionalesatendiendoalasnecesida"
+    },
+    {
+      "id": "76ca83b8-44d4-5d91-86e7-04750719f5a5",
+      "fragmento": "Transitorio Primero",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresentedecretoentraraenvigoraldiasiguientedesupublicacioneneldiariooficialdelafederacionsalvolodispuestoenelarticulodecimotransitorio"
+    },
+    {
+      "id": "a01c505e-88a4-55dc-9e5c-7355068cb437",
+      "fragmento": "Transitorio Segundo",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "segundoelcongresodelauniontendraunplazodenoventadiasnaturalesapartirdelaentradaenvigordelpresentedecretopararealizarlasadecuacionesnecesariasalasleyesquecorrespondanparadarcumplimientoaestesalvolodispuestoenelarticulodec"
+    },
+    {
+      "id": "0cfdbc8d-9c19-5e2b-8f3d-054a692daf9c",
+      "fragmento": "Transitorio Tercero",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "tercerolaseconomiasyahorrosquesegenerenconlaextinciondelosentespublicosmateriadelpresentedecretosedestinaranalfondodepensionesparaelbienestarenterminosdelalegislacionaplicable"
+    },
+    {
+      "id": "40f5dbb5-5ebe-5393-bd54-8c6c9ce5f523",
+      "fragmento": "Transitorio Cuarto",
+      "paginasPdf": [
+        9
+      ],
+      "paginasImpresas": [
+        9
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "cuartolaslegislaturasdelasentidadesfederativasenelambitodesucompetenciatendranelplazomaximodenoventadiasnaturalescontadosapartirdelaexpediciondelalegislacionalaquealudeelarticulosegundotransitorioparaarmonizarsumarcojuri"
+    },
+    {
+      "id": "0453444d-44f1-58f2-b3a5-2f379a7c5938",
+      "fragmento": "Transitorio Quinto",
+      "paginasPdf": [
+        9,
+        10
+      ],
+      "paginasImpresas": [
+        9,
+        10
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "quintounavezqueentreenvigorlalegislacionalaquehacereferenciaelarticulosegundotransitorioseentenderanextintoslosentespublicosalosquehacereferenciaelpresentedecretosalvolodispuestoenlosarticulosdecimoydecimoprimerotransito"
+    },
+    {
+      "id": "00f92f0b-5339-5976-b321-66c6c26e856d",
+      "fragmento": "Transitorio Sexto",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "sextoloscomisionadosdelacomisionreguladoradeenergiaydelacomisionnacionaldehidrocarburosdelinstitutonacionaldetransparenciaaccesoalainformacionyprotecciondedatospersonalesydelosorganismosgarantesdelasentidadesfederativasq"
+    },
+    {
+      "id": "4456a24c-a54e-52dc-b8ea-acda3365a98a",
+      "fragmento": "Transitorio Séptimo",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "septimolosderechoslaboralesdelaspersonasservidoraspublicasseranrespetadosensutotalidadenterminosdelalegislacionaplicablelosrecursoshumanosconquecuentenlosentespublicosqueseextinguenaconsecuenciadelpresentedecretopasarana"
+    },
+    {
+      "id": "5314faea-e99f-5fec-aa0f-946b043f7472",
+      "fragmento": "Transitorio Octavo",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "octavoquedanderogadastodaslasdisposicionesqueseoponganaestedecreto"
+    },
+    {
+      "id": "6b5a16c0-a64a-58b0-85c2-238afaef2a73",
+      "fragmento": "Transitorio Noveno",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "novenolostituloshabilitantesotorgadosporelinstitutofederaldetelecomunicacionescontinuaranvigentesensusterminossinperjuiciodequelosconcesionariosdebancumplirconlasobligacionesycontraprestacionesqueensucasolesimpongaelejec"
+    },
+    {
+      "id": "9bd5f8a4-3a13-51cd-9aba-6f0cd80606e5",
+      "fragmento": "Transitorio Décimo",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "decimolasmodificacionesalosparrafosdecimoquintoavigesimodelarticulo28quesereformanenelpresentedecretoentraranenvigorenunplazodecientoochentadiascontadosapartirdelaentradaenvigordelalegislacionsecundariaaquehacereferencia"
+    },
+    {
+      "id": "4165132a-48e3-5e00-941a-db4ebbc4c904",
+      "fragmento": "Transitorio Décimo Primero",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "decimoprimerolacomisionfederaldecompetenciaeconomicayelinstitutofederaldetelecomunicacionesseextinguiranalmomentodelaentradaenvigordelpresentedecretodeconformidadconelarticulodecimotransitoriolosactosemitidospordichosorg"
+    },
+    {
+      "id": "cd6198b0-1a26-570c-9783-b0b5c3df9d92",
+      "fragmento": "Transitorio Décimo Segundo",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "decimosegundoapartirdelaentradaenvigordelpresentedecretolaentidadparaestataldenominadaorganismopromotordeinversionesentelecomunicacionesquedarasectorizadaalasecretariadeinfraestructuracomunicacionesytransportes"
+    },
+    {
+      "id": "b0269524-d6d8-5ef3-b7e9-0269f905c37a",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        10
+      ],
+      "paginasImpresas": [
+        10
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "ciudaddemexicoa10dediciembrede2024sengerardofernandeznoronapresidentedipsergiocarlosgutierrezlunapresidentesenveronicanoemicaminofarjatsecretariadipjoseluismontalvolunasecretariorubricasencumplimientodelodispuestoporlafr"
+    }
+  ]
+}

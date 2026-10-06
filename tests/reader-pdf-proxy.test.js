@@ -886,3 +886,22 @@ it('rejects changed editions, non-PDF responses, redirects and oversized streams
     const large = await serveReaderPdf(request(), 'lcne', options(async () => upstream(new Uint8Array(MAX_PDF_BYTES + 1))));
     expect(await large.json()).toEqual({ code: 'source-too-large' });
 });
+
+it('serves only the reviewed December 20, 2024 DOF evening issue PDF for REFORMA-SIMPLIFICACION', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/20-12-2024/Vespertina/318281';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('reforma-simplificacion'), 'reforma-simplificacion', {
+        sources: { 'reforma-simplificacion': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('318281', '318280'), originalUrl.replace('Vespertina', 'Matutina'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('reforma-simplificacion'), 'reforma-simplificacion', {
+            sources: { 'reforma-simplificacion': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
