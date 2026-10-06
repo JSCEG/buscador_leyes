@@ -1,4 +1,4 @@
-import manifest from '../public/reader-sources/manifest.v1.json';
+import sourcesById from './reader-pdf-sources.json';
 
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
@@ -56,7 +56,7 @@ function problem(status, code) {
 }
 
 /** Fixed, reviewed sources only. Nothing from the request becomes an upstream URL. */
-export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.fetch, sources = manifest.sources } = {}) {
+export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.fetch, sources = sourcesById } = {}) {
     if (request.method !== 'GET') return problem(405, 'method-not-allowed');
     if (new URL(request.url).search) return problem(400, 'unexpected-parameters');
     const source = Object.hasOwn(sources, sourceId) ? sources[sourceId] : null;
