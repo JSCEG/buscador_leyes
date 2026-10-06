@@ -98,6 +98,8 @@ const additions = ids.map((id) => {
 }).join(',\n');
 const insertion = lastEntryClose + '\n    }'.length;
 raw = `${raw.slice(0, insertion)},\n${additions}${raw.slice(insertion)}`;
+raw = raw.replace(`"revision": ${manifest.revision}`, `"revision": ${manifest.revision + 1}`);
+raw = raw.replace(/("verifiedAt":\s*)"[^"]+"/, (_, prefix) => `${prefix}"${new Date().toISOString()}"`);
 JSON.parse(raw);
 writeFileSync(manifestPath, raw, 'utf8');
-console.log(`Mapa CNI incorporado: ${ids.length} fragmentos, páginas 146–147 de la edición DOF cotejada.`);
+console.log(`Manifiesto ${manifest.revision} → ${manifest.revision + 1}; mapa CNI con ${ids.length} fragmentos en páginas 146–147.`);
