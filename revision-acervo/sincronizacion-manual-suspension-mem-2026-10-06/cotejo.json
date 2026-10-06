@@ -1,0 +1,314 @@
+{
+  "instrumento": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+  "instrumentId": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/12-01-2024/Vespertina/310942",
+  "archivoTemporal": "tmp\\pdfs\\manual-suspension-mem-dof-2024-01-12.pdf",
+  "sha256": "e140498db008332e78d1773e5bb87a89a2420e2b518547e7457a6f23820eceb2",
+  "bytes": 498213,
+  "paginasPdf": 16,
+  "paginasPdfCotejadas": [
+    2,
+    16
+  ],
+  "fragmentosOficiales": 26,
+  "anclasGeometricas": 979,
+  "notaAlcance": "Se mapearon los 26 fragmentos oficiales (preámbulo, artículo único, transitorio, firma, portada/índice y 21 apartados del Manual) a la edición vespertina oficial del DOF del 12 de enero de 2024, páginas PDF 2–16. Se excluyó la nota editorial del buscador.",
+  "fragmentos": [
+    {
+      "id": "bbb4de14-34bb-5f81-b8d2-20dbb109b5ed",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        2,
+        3,
+        4
+      ],
+      "anclas": 111,
+      "textoCompletoCotejado": true,
+      "hashTexto": "c0afac5e23ca386dc4fcce42cafaa1907b25be473fae711e9835526b1eb6b6dd",
+      "prefijoCotejado": "acuerdoporelquesepublicaelmanualparalasuspensiondeoperacionesdelmercadodeenergiadecortoplazoalmargenunselloconelescudonacionalquediceestadosunidosmexicanoscentronacionaldecontroldeenergiaricardooctavioarturomotapalominod"
+    },
+    {
+      "id": "9894492f-323b-50a7-821b-10fcbf86df7e",
+      "fragmento": "Artículo Único · Publicación del manual",
+      "paginasPdf": [
+        4
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "hashTexto": "a2f23991dca5e934bdaaa3a62383fc3df766ee02c9464df43f3f0989633827c3",
+      "prefijoCotejado": "articulounicoelcentronacionaldecontroldeenergiapublicaelmanualparalasuspensiondeoperacionesdelmercadodeenergiadecortoplazo"
+    },
+    {
+      "id": "5f6940a2-db13-51ec-a4cc-faf75626fa88",
+      "fragmento": "Transitorio ÚNICO",
+      "paginasPdf": [
+        4
+      ],
+      "anclas": 3,
+      "textoCompletoCotejado": true,
+      "hashTexto": "52875d80556eb5d86eb2543258dc7380bd5ce8eaa452a51b377c1e0aa1adb048",
+      "prefijoCotejado": "transitoriounicoelmanualparalasuspensiondeoperacionesdelmercadodeenergiadecortoplazoentraraenvigorconformealoindicadoenelcapitulo8tituladodisposicionestransitoriasdelreferidomanual"
+    },
+    {
+      "id": "9d69a8f6-ddb2-5fe1-a48b-41569c242307",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        4
+      ],
+      "anclas": 2,
+      "textoCompletoCotejado": true,
+      "hashTexto": "5ae0e674c2c1470f8d1cd4ee9171f4fac1b5e915d686858f0904a48a78d70c7d",
+      "prefijoCotejado": "ciudaddemexicoa23denoviembrede2023eldirectorgeneraldelcentronacionaldecontroldeenergiaricardooctavioarturomotapalominorubrica"
+    },
+    {
+      "id": "c5fce3af-06a1-5753-ab5d-38d207521021",
+      "fragmento": "Presentación e índice",
+      "paginasPdf": [
+        4
+      ],
+      "anclas": 54,
+      "textoCompletoCotejado": true,
+      "hashTexto": "21220e62d04a4a9d107435eabb05cd0c15f9c3bee845ef8502b19998038f1897",
+      "prefijoCotejado": "manualparalasuspensiondeoperacionesdelmercadodeenergiadecortoplazoindicecapitulo1introduccion11propositodelosmanualesdepracticasdemercado12propositoycontenidodeestemanual13terminosdefinidos14reglasdeinterpretacioncapitul"
+    },
+    {
+      "id": "aa092c45-dc39-57b1-af41-7de051b82850",
+      "fragmento": "Apartado 1.1. Propósito de los Manuales de Prácticas de Mercado",
+      "paginasPdf": [
+        5
+      ],
+      "anclas": 16,
+      "textoCompletoCotejado": true,
+      "hashTexto": "ca60825e215c26324f1ccdc5c7a724f3bf4043d5200178a961aa6aabb0cf234d",
+      "prefijoCotejado": "introduccion11propositodelosmanualesdepracticasdemercado111lasreglasdelmercadoquerigenalmercadoelectricomayoristaseintegranporlasbasesdelmercadoelectricoylasdisposicionesoperativasdelmercado112lasdisposicionesoperativasd"
+    },
+    {
+      "id": "dcbea5e2-b7c9-59c1-a5a6-ecbd833b4e1b",
+      "fragmento": "Apartado 1.2. Propósito y contenido de este Manual",
+      "paginasPdf": [
+        5
+      ],
+      "anclas": 21,
+      "textoCompletoCotejado": true,
+      "hashTexto": "a9d7c424ef28c29ef741584d68de974268bcde745821272108715d8c5bb7a16b",
+      "prefijoCotejado": "12propositoycontenidodeestemanual121estemanualdescribeloscriteriosparalasuspensionyelreiniciodeoperacionesdelmercadodeenergiadecortoplazolaoportunidadymediosparaanunciaralosparticipantesdelmercadoeltransportistayeldistri"
+    },
+    {
+      "id": "b331c3ab-33e6-5c89-a713-089efcad4d5e",
+      "fragmento": "Apartado 1.3. Términos definidos",
+      "paginasPdf": [
+        5,
+        6,
+        7
+      ],
+      "anclas": 109,
+      "textoCompletoCotejado": true,
+      "hashTexto": "61417a5d2287a6861148928d1ae326643fceec235dd24b3a0deb5d19f7e4fe3d",
+      "prefijoCotejado": "13terminosdefinidosparalosefectosdeestemanualsedeberantenerencuentalosterminosydefinicionesestablecidosenelarticulo3delaleydelaindustriaelectricaelarticulo2desureglamentolasbasesdelmercadoelectricomayoristaylosmanualesde"
+    },
+    {
+      "id": "46a7980f-3eed-539f-a1b8-a413537341be",
+      "fragmento": "Apartado 1.4. Reglas de interpretación",
+      "paginasPdf": [
+        7
+      ],
+      "anclas": 18,
+      "textoCompletoCotejado": true,
+      "hashTexto": "02360bc29088ae46108968fbd3f6f1eb232e54dca96f77b7d54d7ebdefc93b3c",
+      "prefijoCotejado": "14reglasdeinterpretacion141losterminosdefinidosenestemanualpuedenserutilizadosenpluralosingularsinalterarsusignificadosiemprequeelcontextolopermita142lainterpretacionadministrativadeestemanualcorrespondealacreenelambitod"
+    },
+    {
+      "id": "226a6cfe-c48c-55b1-961d-4d5278155959",
+      "fragmento": "Apartado 2.1. Condiciones para Declarar la Suspensión del Mercado",
+      "paginasPdf": [
+        7
+      ],
+      "anclas": 47,
+      "textoCompletoCotejado": true,
+      "hashTexto": "245c056ca12896979591d91f40ad536e0a2dc63eadc402949a739fb8458ae60c",
+      "prefijoCotejado": "capitulo2condicionesycriteriosparadeclararlasuspensiondeoperacionesdelmercado21condicionesparadeclararlasuspensiondelmercado211elcenaceseralaunicaautoridadparadeclararlasuspensionparcialototaldelmercadodeenergiadecortopl"
+    },
+    {
+      "id": "611234fe-a970-51f3-8b31-676fd4b69156",
+      "fragmento": "Apartado 2.2. Criterios para Declarar la Suspensión del Mercado",
+      "paginasPdf": [
+        8
+      ],
+      "anclas": 67,
+      "textoCompletoCotejado": true,
+      "hashTexto": "149c609fe22bc35424b58220a63a33ab321c6c9cee63ccb9890164e9faa58e50",
+      "prefijoCotejado": "22criteriosparadeclararlasuspensiondelmercado221elcenacedeberaevaluarunaposiblesuspensiondelmercadoparcialototalentodooenalgunaporcionelsistemaelectricoydeterminarasisucapacidadparaoperarelmercadodeenergiadecortoplazodec"
+    },
+    {
+      "id": "53cde6d7-9cf0-5b71-978e-c33b34e079c4",
+      "fragmento": "Apartado 3.1. Declaratoria de Suspensión del Mercado",
+      "paginasPdf": [
+        9,
+        10
+      ],
+      "anclas": 74,
+      "textoCompletoCotejado": true,
+      "hashTexto": "aeca4e736cfb5d068d006f0e5b055779f5141b19cabd87c6e3a8d0b750003ccd",
+      "prefijoCotejado": "capitulo3procedimientoparadeclararlasuspensiondelmercado31declaratoriadesuspensiondelmercado311lasuspensiondelmercadoserallevadaacabosiguiendolosprocedimientosestablecidosenestemanualysuejecucionoperacionylevantamientose"
+    },
+    {
+      "id": "8c7978cc-e8d6-56b5-8c48-a0ded3e3ea6c",
+      "fragmento": "Apartado 3.2. Características de los comunicados de Suspensión del Mercado",
+      "paginasPdf": [
+        10
+      ],
+      "anclas": 56,
+      "textoCompletoCotejado": true,
+      "hashTexto": "d5a3f1fb6d3a2f6c194894898ac0f3bdd01c49712701beabce5ac0a788d1d653",
+      "prefijoCotejado": "32caracteristicasdeloscomunicadosdesuspensiondelmercado321unahoradespuesdeemitidaladeclaratoriadesuspensionlasunidadesdecentralelectricaenviaranalcenaceatravesdelosmediosdecomunicaciondefinidosenladeclaratoriadesuspensio"
+    },
+    {
+      "id": "d330b191-dc64-5c28-b144-734a76547bb6",
+      "fragmento": "Apartado 4.1. Actuación del CENACE",
+      "paginasPdf": [
+        10,
+        11
+      ],
+      "anclas": 55,
+      "textoCompletoCotejado": true,
+      "hashTexto": "e4f1b92a1f06646a724db6bb37c0d321c673f2835cf6d49cb89959b413d70b91",
+      "prefijoCotejado": "capitulo4actuaciondelcenacedelosparticipantesdelmercadoydelostransportistasydistribuidoresdurantelasuspensiondelmercado41actuaciondelcenace411durantelasuspensiondelmercadolecorresponderaalcenacearestableceralamayorbreved"
+    },
+    {
+      "id": "646057a4-0fab-5e13-8c26-9ee28880b81b",
+      "fragmento": "Apartado 4.2. Actuación de los Participantes del Mercado",
+      "paginasPdf": [
+        11,
+        12
+      ],
+      "anclas": 28,
+      "textoCompletoCotejado": true,
+      "hashTexto": "f5188865bf37b4befcbe4fc0bbf12c43ec338abd4401dcced70ec1bd13e92a18",
+      "prefijoCotejado": "42actuaciondelosparticipantesdelmercado421durantelasuspensiondelmercadolecorresponderaalosparticipantesdelmercadoadarcumplimientoalosavisosdesuspensiondelmercadoycualesquieraotrasinstruccionesqueemitaelcenacelascualesten"
+    },
+    {
+      "id": "16ce97ca-653c-5897-9fce-ab67455d918c",
+      "fragmento": "Apartado 4.3. Actuación del Transportista y el Distribuidor",
+      "paginasPdf": [
+        12
+      ],
+      "anclas": 22,
+      "textoCompletoCotejado": true,
+      "hashTexto": "067f8981231ae834e25129247dfc7b821b2c759ffb0691288d0a0af04652242a",
+      "prefijoCotejado": "43actuaciondeltransportistayeldistribuidor431durantelasuspensiondelmercadolecorresponderaaltransportistayaldistribuidoraactuarconformealosmanualesderestablecimientodelsistemaelectriconacionalbllevaracabosusoperacionesein"
+    },
+    {
+      "id": "5cd1da49-bf87-542d-b658-0415f6a292b0",
+      "fragmento": "Apartado 5.1. Procedimiento para el Reinicio de Operaciones del Mercado",
+      "paginasPdf": [
+        12
+      ],
+      "anclas": 39,
+      "textoCompletoCotejado": true,
+      "hashTexto": "40947e84630dc20017c5cac8edf6da25d929cbe600907a6590401f1318d9e662",
+      "prefijoCotejado": "capitulo5reiniciodeoperacionesdelmercado51procedimientoparaelreiniciodeoperacionesdelmercado511unavezsuperadaslascausasquedieronlugaraladeclaratoriadesuspensiondelmercadoosepreveaconcertezacuandoserafactiblereiniciaroper"
+    },
+    {
+      "id": "45ddbfdf-8ec4-5578-8495-0a4b963b804e",
+      "fragmento": "Apartado 5.2. Acciones posteriores al Reinicio de Operaciones del Mercado",
+      "paginasPdf": [
+        13,
+        14
+      ],
+      "anclas": 76,
+      "textoCompletoCotejado": true,
+      "hashTexto": "3b2d176427aec56b62b0528ac600b5e68dd4e27e1f8053c8a609361b2a8323e0",
+      "prefijoCotejado": "52accionesposterioresalreiniciodeoperacionesdelmercado521dentrodeunplazodecincodiashabilesposterioresalreiniciodelasoperacionesdelmercadolosparticipantesdelmercadoafectadosporlasuspensionenviaranalcenaceatravesdelsistema"
+    },
+    {
+      "id": "04f85d33-db41-5706-86d6-26d8a37f1b50",
+      "fragmento": "Apartado 6.1. Ámbito de aplicación",
+      "paginasPdf": [
+        14
+      ],
+      "anclas": 35,
+      "textoCompletoCotejado": true,
+      "hashTexto": "52a75554a8c799f1fd4e0e0e5a9565547aa2374977a6d8c073e5faf6111a8cf2",
+      "prefijoCotejado": "capitulo6preciosdeenergiayserviciosconexosdurantelasuspensiondelmercadodeenergiadecortoplazo61ambitodeaplicacion611durantelasuspensiondelmercadoelcenaceidentificaraypublicaraunalistadenodosafectadosporlasuspensiondelmerc"
+    },
+    {
+      "id": "c35ba654-509f-54aa-8345-8e9173f150a3",
+      "fragmento": "Apartado 6.2. Definición del Periodo durante la Suspensión del Mercado",
+      "paginasPdf": [
+        14
+      ],
+      "anclas": 7,
+      "textoCompletoCotejado": true,
+      "hashTexto": "4d1f50fd5af55ea79353cc399ff583a6b11a8e5bfa56fa107c44644224e1b94e",
+      "prefijoCotejado": "62definiciondelperiododurantelasuspensiondelmercado621elperiododesuspensiondelmercadoseaplicaraenhorasredondeandofraccionesahorascompletasporejemplosiladeclaratoriadesuspensiondelmercadocomienzaalas0015hyterminaalas0245h"
+    },
+    {
+      "id": "62fcc0ee-dccf-5324-aba8-76383441e568",
+      "fragmento": "Apartado 6.3. Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Unidades de Central Eléctrica",
+      "paginasPdf": [
+        14,
+        15
+      ],
+      "anclas": 74,
+      "textoCompletoCotejado": true,
+      "hashTexto": "516150c275d6a929a6cc47f690a70d1a50c6bb507d82d0f6d7a2103918c59d88",
+      "prefijoCotejado": "63preciosdelaenergiayserviciosconexosdurantelasuspensiondelmercadoparalasunidadesdecentralelectrica631paralosperiodosdesuspensiondelmercadoelcenacepagaraalosgeneradoresconbaseenlassiguientescondicionesypremisasaelcenaced"
+    },
+    {
+      "id": "ee1fc705-dab9-59d4-a70a-a5aeb7516593",
+      "fragmento": "Apartado 6.4. Precios de la Energía y Servicios Conexos durante la Suspensión del Mercado para las Entidades Responsables de Carga",
+      "paginasPdf": [
+        15
+      ],
+      "anclas": 8,
+      "textoCompletoCotejado": true,
+      "hashTexto": "7db7cd2f1da63cf2d519c69e212d48202c501374fc12ae1c77bef315108166f8",
+      "prefijoCotejado": "64preciosdelaenergiayserviciosconexosdurantelasuspensiondelmercadoparalasentidadesresponsablesdecarga641duranteeltiempoquedurelasuspensiondelmercadolospreciosmarginalesasociadosalasentidadesresponsablesdecargaquehubieran"
+    },
+    {
+      "id": "e295cdf2-567b-58b5-bc85-060ac335e67f",
+      "fragmento": "Apartado 6.5. Derechos Financieros de Transmisión y Contratos de Cobertura Eléctrica durante la Suspensión del Mercado",
+      "paginasPdf": [
+        16
+      ],
+      "anclas": 14,
+      "textoCompletoCotejado": true,
+      "hashTexto": "af1e643bfea39a21d90703d05b319241239bdcc559cb7069dedbd67cdb2aee52",
+      "prefijoCotejado": "65derechosfinancierosdetransmisionycontratosdecoberturaelectricadurantelasuspensiondelmercado651durantelasuspensiondelmercadoyunicamenteenelcasodequenoexistanpreciosdelmercadodeldiaenadelantoseutilizaranlospreciosmargina"
+    },
+    {
+      "id": "7f4ced74-b836-5ad3-8859-20fdba2a8fa5",
+      "fragmento": "Apartado 6.6. Mercados para el Balance de Potencia y Certificados de Energía Limpia durante la Suspensión del Mercado",
+      "paginasPdf": [
+        16
+      ],
+      "anclas": 28,
+      "textoCompletoCotejado": true,
+      "hashTexto": "5e85cb6879fe0ca8ddaa01236f14fec95cd29a641561bdb95d2f8ed2da21aab3",
+      "prefijoCotejado": "66mercadosparaelbalancedepotenciaycertificadosdeenergialimpiadurantelasuspensiondelmercado661lasuspensiondealgunodelosprocesosdelmercadodeenergiadecortoplazobajolossupuestosdelnumeral212deestemanualnogeneraraindeterminac"
+    },
+    {
+      "id": "ec3aadb5-4ba0-520a-95b7-9ae27c63b14b",
+      "fragmento": "Manual · Capítulo 7 · Medios de impugnación",
+      "paginasPdf": [
+        16
+      ],
+      "anclas": 5,
+      "textoCompletoCotejado": true,
+      "hashTexto": "c42038a79db07353ae37c2875cd59cd5a1343239e0349dd177403f4c0c85d078",
+      "prefijoCotejado": "capitulo7mediosdeimpugnacion711lascontroversiasquepudieranderivarsedeestemanualseresolveranenlosterminosdelmanualdesoluciondecontroversias"
+    },
+    {
+      "id": "71ba3856-a632-5e9d-b635-5a6dc9a98026",
+      "fragmento": "Manual · Capítulo 8 · Disposiciones transitorias",
+      "paginasPdf": [
+        16
+      ],
+      "anclas": 8,
+      "textoCompletoCotejado": true,
+      "hashTexto": "b159a1642e2d26624ac0286d7afeec1052b1d0dcbb34c89b271184901deb795c",
+      "prefijoCotejado": "capitulo8disposicionestransitorias811elpresentemanualentraraenvigorapartirdeldiahabilsiguientedesupublicacionenelsistemadeinformaciondelmercadoyunavezqueelcenacenotifiquealosparticipantesdelmercadoatravesdelbuzondenotifi"
+    }
+  ]
+}
