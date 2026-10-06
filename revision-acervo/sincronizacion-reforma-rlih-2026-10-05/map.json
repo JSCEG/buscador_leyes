@@ -1,0 +1,3681 @@
+{
+  "source": {
+    "id": "dof-vespertina-2025-10-03-70701a5e439e",
+    "title": "Diario Oficial de la Federación · edición vespertina del 3 de octubre de 2025",
+    "instrumentIds": [
+      "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210"
+    ],
+    "sha256": "70701a5e439eb90fd61b55250c5802c26a6f695cfd81b1b4da2719ba2478907b",
+    "transport": "remote-pdf",
+    "pdfUrl": "/api/reader/dof-vespertina-2025-10-03-70701a5e439e",
+    "originalUrl": "https://sidof.segob.gob.mx/notas/getNewsletter/03-10-2025/Vespertina/323363",
+    "pageCount": 334,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 2,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 3,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 4,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 5,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 6,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 7,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 8,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 9,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 10,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 11,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 12,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 13,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 14,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 15,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 16,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 17,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 18,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 19,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 20,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 21,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 22,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 23,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 24,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 25,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 26,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 27,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 28,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 29,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 30,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 31,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 32,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 33,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 34,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 35,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 36,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 37,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 38,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 39,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 40,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 41,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 42,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 43,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 44,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 45,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 46,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 47,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 48,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 49,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 50,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 51,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 52,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 53,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 54,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 55,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 56,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 57,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 58,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 59,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 60,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 61,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 62,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 63,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 64,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 65,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 66,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 67,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 68,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 69,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 70,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 71,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 72,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 73,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 74,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 75,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 76,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 77,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 78,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 79,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 80,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 81,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 82,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 83,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 84,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 85,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 86,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 87,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 88,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 89,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 90,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 91,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 92,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 93,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 94,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 95,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 96,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 97,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 98,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 99,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 100,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 101,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 102,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 103,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 104,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 105,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 106,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 107,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 108,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 109,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 110,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 111,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 112,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 113,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 114,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 115,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 116,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 117,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 118,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 119,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 120,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 121,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 122,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 123,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 124,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 125,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 126,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 127,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 128,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 129,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 130,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 131,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 132,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 133,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 134,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 135,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 136,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 137,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 138,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 139,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 140,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 141,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 142,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 143,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 144,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 145,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 146,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 147,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 148,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 149,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 150,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 151,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 152,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 153,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 154,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 155,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 156,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 157,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 158,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 159,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 160,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 161,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 162,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 163,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 164,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 165,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 166,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 167,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 168,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 169,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 170,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 171,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 172,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 173,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 174,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 175,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 176,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 177,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 178,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 179,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 180,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 181,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 182,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 183,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 184,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 185,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 186,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 187,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 188,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 189,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 190,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 191,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 192,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 193,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 194,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 195,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 196,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 197,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 198,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 199,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 200,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 201,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 202,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 203,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 204,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 205,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 206,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 207,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 208,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 209,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 210,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 211,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 212,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 213,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 214,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 215,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 216,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 217,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 218,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 219,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 220,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 221,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 222,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 223,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 224,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 225,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 226,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 227,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 228,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 229,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 230,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 231,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 232,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 233,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 234,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 235,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 236,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 237,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 238,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 239,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 240,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 241,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 242,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 243,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 244,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 245,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 246,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 247,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 248,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 249,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 250,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 251,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 252,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 253,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 254,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 255,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 256,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 257,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 258,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 259,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 260,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 261,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 262,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 263,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 264,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 265,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 266,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 267,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 268,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 269,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 270,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 271,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 272,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 273,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 274,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 275,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 276,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 277,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 278,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 279,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 280,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 281,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 282,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 283,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 284,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 285,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 286,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 287,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 288,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 289,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 290,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 291,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 292,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 293,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 294,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 295,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 296,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 297,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 298,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 299,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 300,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 301,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 302,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 303,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 304,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 305,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 306,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 307,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 308,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 309,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 310,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 311,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 312,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 313,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 314,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 315,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 316,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 317,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 318,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 319,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 320,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 321,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 322,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 323,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 324,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 325,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 326,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 327,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 328,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 329,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 330,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 331,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 332,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 333,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 334,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ]
+  },
+  "articles": {
+    "f49617b5-da30-5493-9e73-02bc459e8656": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Preámbulo del decreto",
+      "type": "preambulo",
+      "contentSha256": "50e5f66dc7589f0a6cd913c6b395b3a512b4717cc205e12067aa5f2d3aeecf0a",
+      "pageNumbers": [
+        232
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 3,
+          "bbox": [
+            84.95999908447266,
+            57.92087936401367,
+            529.2918701171875,
+            67.88388061523438
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 4,
+          "bbox": [
+            84.96002197265625,
+            68.29789733886719,
+            146.96104431152344,
+            78.26089477539062
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 5,
+          "bbox": [
+            84.95999908447266,
+            84.2550277709961,
+            529.4810180664062,
+            94.29902648925781
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 6,
+          "bbox": [
+            84.95999908447266,
+            94.5749740600586,
+            152.0261993408203,
+            104.61897277832031
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 7,
+          "bbox": [
+            99.36000061035156,
+            112.8719711303711,
+            529.4700317382812,
+            122.91596984863281
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 8,
+          "bbox": [
+            84.96000671386719,
+            126.84896087646484,
+            529.4140014648438,
+            136.89295959472656
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 9,
+          "bbox": [
+            84.96000671386719,
+            140.88893127441406,
+            529.5167236328125,
+            150.9329376220703
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 10,
+          "bbox": [
+            84.96002197265625,
+            154.8659210205078,
+            444.98504638671875,
+            164.90992736816406
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 11,
+          "bbox": [
+            99.36002349853516,
+            173.88294982910156,
+            529.5115966796875,
+            183.9269561767578
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 12,
+          "bbox": [
+            84.96002197265625,
+            187.9229278564453,
+            384.08319091796875,
+            197.96693420410156
+          ]
+        }
+      ]
+    },
+    "dd89130f-2784-5baa-a17d-e4da19688432": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Artículo Único · Disposición reformadora",
+      "type": "ordinario",
+      "contentSha256": "fb7e5f1c18ef5dd744f4050fb298d858c21ccf404632f2c2ecf383d742eab7f2",
+      "pageNumbers": [
+        232
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 13,
+          "bbox": [
+            99.36002349853516,
+            206.93995666503906,
+            529.5159912109375,
+            216.9839630126953
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 14,
+          "bbox": [
+            84.96002197265625,
+            220.9799346923828,
+            529.4710693359375,
+            231.02394104003906
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 15,
+          "bbox": [
+            84.96002197265625,
+            234.95692443847656,
+            529.5556640625,
+            245.0009307861328
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 16,
+          "bbox": [
+            84.96002197265625,
+            248.9339141845703,
+            529.540283203125,
+            258.9779052734375
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 17,
+          "bbox": [
+            84.96005249023438,
+            262.9739074707031,
+            474.7365417480469,
+            273.01788330078125
+          ]
+        }
+      ]
+    },
+    "8347607d-7f64-5793-a886-5e098f1f40d2": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 2",
+      "type": "ordinario",
+      "contentSha256": "21de3e49e8df391400e216786b81db0ca9e13c8bba92e298b1c070fc1ca13cc9",
+      "pageNumbers": [
+        232
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 18,
+          "bbox": [
+            99.36005401611328,
+            281.99090576171875,
+            529.5426025390625,
+            292.0348815917969
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 19,
+          "bbox": [
+            84.96005249023438,
+            295.9678955078125,
+            529.521728515625,
+            306.0118713378906
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 20,
+          "bbox": [
+            84.96006774902344,
+            310.0079040527344,
+            279.5596923828125,
+            320.0518798828125
+          ]
+        }
+      ]
+    },
+    "92c33b22-e011-5df0-8b0a-ba0876d5726a": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 4",
+      "type": "ordinario",
+      "contentSha256": "b927b9698fa9a146c30cadb7ecb8eea3690f1a8778a645b7233cf988c1684121",
+      "pageNumbers": [
+        232
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 21,
+          "bbox": [
+            99.36006927490234,
+            348.1048889160156,
+            529.6068115234375,
+            358.14886474609375
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 22,
+          "bbox": [
+            84.96006774902344,
+            362.0818786621094,
+            529.515869140625,
+            372.1258544921875
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 23,
+          "bbox": [
+            84.96908569335938,
+            376.0588684082031,
+            439.64813232421875,
+            386.10284423828125
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 24,
+          "bbox": [
+            99.36908721923828,
+            395.13885498046875,
+            529.5205078125,
+            405.1828308105469
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 25,
+          "bbox": [
+            84.96908569335938,
+            409.1158447265625,
+            379.1341247558594,
+            419.1598205566406
+          ]
+        }
+      ]
+    },
+    "ebed7292-1e56-5453-ae10-db037b42a070": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 5",
+      "type": "ordinario",
+      "contentSha256": "5a82f45554c32d5cf9f547d5377e0b91a9744cf93c665f3d393ba1488166f1b1",
+      "pageNumbers": [
+        232
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 26,
+          "bbox": [
+            99.36908721923828,
+            447.21282958984375,
+            529.467529296875,
+            457.2568054199219
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 27,
+          "bbox": [
+            84.96908569335938,
+            461.2528381347656,
+            529.5276489257812,
+            471.29681396484375
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 28,
+          "bbox": [
+            84.96908569335938,
+            475.2298278808594,
+            358.184814453125,
+            485.2738037109375
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 29,
+          "bbox": [
+            99.36909484863281,
+            494.246826171875,
+            139.36509704589844,
+            504.2908020019531
+          ]
+        }
+      ]
+    },
+    "c3c87889-e66a-55ab-a62b-a6285ab78fc2": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 7",
+      "type": "ordinario",
+      "contentSha256": "ab713d543007ddca79c779a6f798d3e8e90b79677c46b2dadda49fc50875b65b",
+      "pageNumbers": [
+        232
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 30,
+          "bbox": [
+            99.36009979248047,
+            513.3267822265625,
+            160.36209106445312,
+            523.3707885742188
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 31,
+          "bbox": [
+            99.36009216308594,
+            532.34375,
+            529.5081787109375,
+            542.3877563476562
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 32,
+          "bbox": [
+            84.96011352539062,
+            546.3837890625,
+            529.5159912109375,
+            556.4277954101562
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 33,
+          "bbox": [
+            84.96011352539062,
+            560.3607788085938,
+            529.4932861328125,
+            570.40478515625
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 34,
+          "bbox": [
+            84.96011352539062,
+            574.3377685546875,
+            429.1292419433594,
+            584.3817749023438
+          ]
+        }
+      ]
+    },
+    "debdf564-1272-5504-be9a-487f6701b205": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 9",
+      "type": "ordinario",
+      "contentSha256": "cd22016841b9d6ec1171e134c660edbf810d04afdae7588a4faf518fe24b5ccd",
+      "pageNumbers": [
+        232,
+        233
+      ],
+      "anchors": [
+        {
+          "page": 232,
+          "lineId": 35,
+          "bbox": [
+            99.360107421875,
+            593.4177856445312,
+            160.3621063232422,
+            603.4617919921875
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 36,
+          "bbox": [
+            99.360107421875,
+            631.5147705078125,
+            529.4575805664062,
+            641.5587768554688
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 37,
+          "bbox": [
+            84.96009826660156,
+            645.4918212890625,
+            529.4967651367188,
+            655.5358276367188
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 38,
+          "bbox": [
+            84.96009826660156,
+            659.5317993164062,
+            529.5259399414062,
+            669.5758056640625
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 39,
+          "bbox": [
+            84.9600830078125,
+            673.5087890625,
+            529.540283203125,
+            683.5527954101562
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 40,
+          "bbox": [
+            84.9600830078125,
+            687.4857788085938,
+            529.4736938476562,
+            697.52978515625
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 41,
+          "bbox": [
+            84.9600830078125,
+            701.5257568359375,
+            529.5107421875,
+            711.5697631835938
+          ]
+        },
+        {
+          "page": 232,
+          "lineId": 42,
+          "bbox": [
+            84.9600830078125,
+            715.5028076171875,
+            447.7139587402344,
+            725.5468139648438
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 43,
+          "bbox": [
+            99.36000061035156,
+            35.54099655151367,
+            207.37258911132812,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 44,
+          "bbox": [
+            273.59100341796875,
+            35.54099655151367,
+            345.1788024902344,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 45,
+          "bbox": [
+            414.27001953125,
+            35.54099655151367,
+            516.4864501953125,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 46,
+          "bbox": [
+            99.36000061035156,
+            61.99501419067383,
+            529.4967651367188,
+            72.03901672363281
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 47,
+          "bbox": [
+            84.95999908447266,
+            77.7180404663086,
+            529.4664306640625,
+            87.76203918457031
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 48,
+          "bbox": [
+            84.9599609375,
+            93.37801361083984,
+            529.5112915039062,
+            103.42201232910156
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 49,
+          "bbox": [
+            84.9599609375,
+            109.10103607177734,
+            529.4442138671875,
+            119.14503479003906
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 50,
+          "bbox": [
+            84.9599609375,
+            124.82405853271484,
+            343.10784912109375,
+            134.86805725097656
+          ]
+        }
+      ]
+    },
+    "7442085a-c34f-5275-b27e-f9c1f3dd35db": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 10",
+      "type": "ordinario",
+      "contentSha256": "f3dc00deac4e381971f4994e79b48886cdb25ee40b0815b2464de378be5ad05e",
+      "pageNumbers": [
+        233
+      ],
+      "anchors": [
+        {
+          "page": 233,
+          "lineId": 51,
+          "bbox": [
+            99.3599624633789,
+            145.52406311035156,
+            529.4462890625,
+            155.5680694580078
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 52,
+          "bbox": [
+            84.95996856689453,
+            161.24708557128906,
+            529.4989624023438,
+            171.2910919189453
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 53,
+          "bbox": [
+            84.9599609375,
+            176.97010803222656,
+            529.493408203125,
+            187.0141143798828
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 54,
+          "bbox": [
+            84.9599609375,
+            192.6300811767578,
+            138.4658660888672,
+            202.67408752441406
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 55,
+          "bbox": [
+            99.3599624633789,
+            213.39308166503906,
+            529.49072265625,
+            223.4370880126953
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 56,
+          "bbox": [
+            84.9599609375,
+            229.11610412597656,
+            395.5714416503906,
+            239.1601104736328
+          ]
+        }
+      ]
+    },
+    "6060cd86-13ee-5fb1-96c0-862724b7579f": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 11",
+      "type": "ordinario",
+      "contentSha256": "c3d9c8c545a4a87888dc78d3cea7741cc7d39a85267032b7b8f379ed1cea87f8",
+      "pageNumbers": [
+        233
+      ],
+      "anchors": [
+        {
+          "page": 233,
+          "lineId": 57,
+          "bbox": [
+            99.3599624633789,
+            270.6421203613281,
+            529.5031127929688,
+            280.68609619140625
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 58,
+          "bbox": [
+            84.9599609375,
+            286.3021240234375,
+            529.4376220703125,
+            296.3460998535156
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 59,
+          "bbox": [
+            84.9599609375,
+            302.0251159667969,
+            260.1422424316406,
+            312.069091796875
+          ]
+        }
+      ]
+    },
+    "8acfed4b-b6d5-58d9-8491-b3c1e9ff3a31": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 12",
+      "type": "ordinario",
+      "contentSha256": "566b2651850efaca574b32b7d3770a91bbd4dd9ee34c63d916d558811e2f4e08",
+      "pageNumbers": [
+        233
+      ],
+      "anchors": [
+        {
+          "page": 233,
+          "lineId": 60,
+          "bbox": [
+            99.3599624633789,
+            343.5511169433594,
+            529.3880004882812,
+            353.5950927734375
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 61,
+          "bbox": [
+            84.95996856689453,
+            359.21112060546875,
+            529.4968872070312,
+            369.2550964355469
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 62,
+          "bbox": [
+            84.95997619628906,
+            374.9341125488281,
+            529.423095703125,
+            384.97808837890625
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 63,
+          "bbox": [
+            84.95997619628906,
+            390.6571044921875,
+            123.98308563232422,
+            400.7010803222656
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 64,
+          "bbox": [
+            99.35997772216797,
+            411.35711669921875,
+            529.470947265625,
+            421.4010925292969
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 65,
+          "bbox": [
+            84.95997619628906,
+            427.0801086425781,
+            529.462890625,
+            437.12408447265625
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 66,
+          "bbox": [
+            84.95997619628906,
+            442.8031005859375,
+            529.5205688476562,
+            452.8470764160156
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 67,
+          "bbox": [
+            84.9599609375,
+            458.4631042480469,
+            529.4733276367188,
+            468.507080078125
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 68,
+          "bbox": [
+            84.9599609375,
+            474.18609619140625,
+            245.02395629882812,
+            484.2300720214844
+          ]
+        }
+      ]
+    },
+    "04944150-b5c9-5585-aaed-752925d22b9b": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 14",
+      "type": "ordinario",
+      "contentSha256": "8f81ddf14a290101893efabb31ad69e9abc538b3ab84bb06fc80e6f2cce6108b",
+      "pageNumbers": [
+        233
+      ],
+      "anchors": [
+        {
+          "page": 233,
+          "lineId": 69,
+          "bbox": [
+            99.3599624633789,
+            515.7120361328125,
+            529.547607421875,
+            525.7560424804688
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 70,
+          "bbox": [
+            84.9599609375,
+            531.3720703125,
+            529.474365234375,
+            541.4160766601562
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 71,
+          "bbox": [
+            84.95997619628906,
+            547.0950927734375,
+            529.5123901367188,
+            557.1390991210938
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 72,
+          "bbox": [
+            84.95997619628906,
+            562.8180541992188,
+            529.5149536132812,
+            572.862060546875
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 73,
+          "bbox": [
+            84.95997619628906,
+            578.47802734375,
+            529.4627685546875,
+            588.5220336914062
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 74,
+          "bbox": [
+            84.95997619628906,
+            594.2010498046875,
+            213.51768493652344,
+            604.2450561523438
+          ]
+        }
+      ]
+    },
+    "003d7030-5adc-5c8b-9198-e403fafb9ab5": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 16",
+      "type": "ordinario",
+      "contentSha256": "bb16d109baee9c2c5e8a7634430836b1aa4aa7c351fd215ed3467c8ad9669b87",
+      "pageNumbers": [
+        233
+      ],
+      "anchors": [
+        {
+          "page": 233,
+          "lineId": 75,
+          "bbox": [
+            99.35997772216797,
+            614.9640502929688,
+            529.500732421875,
+            625.008056640625
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 76,
+          "bbox": [
+            84.95997619628906,
+            630.68701171875,
+            529.5096435546875,
+            640.7310180664062
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 77,
+          "bbox": [
+            84.9599609375,
+            646.3470458984375,
+            422.6920471191406,
+            656.3910522460938
+          ]
+        }
+      ]
+    },
+    "b5d78849-710f-5f8e-8270-e6db69014737": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 20",
+      "type": "ordinario",
+      "contentSha256": "0c341ce01f6fa514ffa1e3c890d6662f9cc3273f75b17d9044eb7462efd3cdde",
+      "pageNumbers": [
+        233,
+        234
+      ],
+      "anchors": [
+        {
+          "page": 233,
+          "lineId": 78,
+          "bbox": [
+            99.3599624633789,
+            667.1100463867188,
+            529.4050903320312,
+            677.154052734375
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 79,
+          "bbox": [
+            84.95996856689453,
+            682.8330688476562,
+            529.4662475585938,
+            692.8770751953125
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 80,
+          "bbox": [
+            84.95997619628906,
+            698.4930419921875,
+            529.4916381835938,
+            708.5370483398438
+          ]
+        },
+        {
+          "page": 233,
+          "lineId": 81,
+          "bbox": [
+            84.9599609375,
+            714.216064453125,
+            519.7464599609375,
+            724.2600708007812
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 82,
+          "bbox": [
+            99.36000061035156,
+            35.54099655151367,
+            201.49378967285156,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 83,
+          "bbox": [
+            273.4830017089844,
+            35.54099655151367,
+            345.06536865234375,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 84,
+          "bbox": [
+            408.39300537109375,
+            35.54099655151367,
+            516.4053955078125,
+            45.503997802734375
+          ]
+        }
+      ]
+    },
+    "62055cb7-c4fc-5bcf-b25b-cdd2722f656b": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 21",
+      "type": "ordinario",
+      "contentSha256": "fb7de142019eb54d44114f1c2ab39cd0d584751232c11e2095fb97e1919c2cf7",
+      "pageNumbers": [
+        234
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 85,
+          "bbox": [
+            99.36000061035156,
+            61.21498489379883,
+            163.90621948242188,
+            71.25898742675781
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 86,
+          "bbox": [
+            99.36000061035156,
+            80.8979721069336,
+            529.4547119140625,
+            90.94197082519531
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 87,
+          "bbox": [
+            84.95999145507812,
+            95.5949935913086,
+            529.4503173828125,
+            105.63899230957031
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 88,
+          "bbox": [
+            84.95999145507812,
+            110.2920150756836,
+            529.453125,
+            120.33601379394531
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 89,
+          "bbox": [
+            84.95999145507812,
+            125.0520248413086,
+            404.1549072265625,
+            135.0960235595703
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 90,
+          "bbox": [
+            99.3599853515625,
+            144.73500061035156,
+            529.448486328125,
+            154.7790069580078
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 91,
+          "bbox": [
+            84.95997619628906,
+            159.43202209472656,
+            529.52197265625,
+            169.4760284423828
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 92,
+          "bbox": [
+            84.95999145507812,
+            174.19203186035156,
+            334.1626892089844,
+            184.2360382080078
+          ]
+        }
+      ]
+    },
+    "80796520-3a34-50a5-8021-26dfe7791962": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 22",
+      "type": "ordinario",
+      "contentSha256": "0ea6eb3a004ca38d608f4309066bd179acc6edf3c71bd9de9d6facb699bff2ca",
+      "pageNumbers": [
+        234
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 93,
+          "bbox": [
+            99.35999298095703,
+            193.87501525878906,
+            529.5843505859375,
+            203.9190216064453
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 94,
+          "bbox": [
+            84.95999145507812,
+            208.57203674316406,
+            529.3718872070312,
+            218.6160430908203
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 95,
+          "bbox": [
+            84.95999145507812,
+            223.26905822753906,
+            529.535888671875,
+            233.3130645751953
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 96,
+          "bbox": [
+            84.96000671386719,
+            237.96607971191406,
+            529.5042114257812,
+            248.0100860595703
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 97,
+          "bbox": [
+            84.95999145507812,
+            252.66310119628906,
+            529.4734497070312,
+            262.70709228515625
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 98,
+          "bbox": [
+            84.95999145507812,
+            267.4231262207031,
+            287.613037109375,
+            277.46710205078125
+          ]
+        }
+      ]
+    },
+    "20bdee3e-9b5f-5813-b75f-97391215140f": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 23",
+      "type": "ordinario",
+      "contentSha256": "556202e74f210f14688409585edb73910db3636ccdc92e911163f7b09f07f3fa",
+      "pageNumbers": [
+        234
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 99,
+          "bbox": [
+            99.35999298095703,
+            287.1601257324219,
+            529.477294921875,
+            297.2041015625
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 100,
+          "bbox": [
+            84.95999145507812,
+            301.85711669921875,
+            529.4476928710938,
+            311.9010925292969
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 101,
+          "bbox": [
+            84.95999145507812,
+            316.5541076660156,
+            529.4881591796875,
+            326.59808349609375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 102,
+          "bbox": [
+            84.95999145507812,
+            331.3141174316406,
+            295.11346435546875,
+            341.35809326171875
+          ]
+        }
+      ]
+    },
+    "11ac4df7-4eb3-5407-9c08-b72f11718695": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 24",
+      "type": "ordinario",
+      "contentSha256": "5ed21d127a0f5bb4cb661456b392dafcc904add2d30b235090eba5f368a2e022",
+      "pageNumbers": [
+        234
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 103,
+          "bbox": [
+            99.35999298095703,
+            350.99713134765625,
+            529.5313110351562,
+            361.0411071777344
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 104,
+          "bbox": [
+            84.968994140625,
+            365.6941223144531,
+            529.4293823242188,
+            375.73809814453125
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 105,
+          "bbox": [
+            84.968994140625,
+            380.39111328125,
+            529.465576171875,
+            390.4350891113281
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 106,
+          "bbox": [
+            84.968994140625,
+            395.0881042480469,
+            529.4943237304688,
+            405.132080078125
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 107,
+          "bbox": [
+            84.95999145507812,
+            409.78509521484375,
+            529.4663696289062,
+            419.8290710449219
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 108,
+          "bbox": [
+            84.96000671386719,
+            424.4820861816406,
+            529.5736694335938,
+            434.52606201171875
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 109,
+          "bbox": [
+            84.96002197265625,
+            439.2420959472656,
+            144.9711151123047,
+            449.28607177734375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 110,
+          "bbox": [
+            99.36002349853516,
+            458.92510986328125,
+            529.4810180664062,
+            468.9690856933594
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 111,
+          "bbox": [
+            84.96002197265625,
+            473.68511962890625,
+            340.62835693359375,
+            483.7290954589844
+          ]
+        }
+      ]
+    },
+    "9d42e856-a661-5ad8-afb4-05188b11e95a": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 25",
+      "type": "ordinario",
+      "contentSha256": "7ee1f46b2c11d9f204643f50b9c312ca7e0cb6fa9fb0d69b75ddb889bf484761",
+      "pageNumbers": [
+        234
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 112,
+          "bbox": [
+            99.36002349853516,
+            493.3681335449219,
+            529.47705078125,
+            503.412109375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 113,
+          "bbox": [
+            84.95100402832031,
+            508.0650939941406,
+            529.5088500976562,
+            518.1090698242188
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 114,
+          "bbox": [
+            84.95100402832031,
+            522.8250732421875,
+            162.49676513671875,
+            532.8690795898438
+          ]
+        }
+      ]
+    },
+    "0eaa4f3a-585e-57fe-bac1-93b206c000a9": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 26",
+      "type": "ordinario",
+      "contentSha256": "3450b05757426d4e1d6f1c8877b5602aedeb27ea949d1dbaf11b00abac42ad29",
+      "pageNumbers": [
+        234
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 115,
+          "bbox": [
+            99.35100555419922,
+            542.5621337890625,
+            506.0503234863281,
+            552.6061401367188
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 116,
+          "bbox": [
+            99.35099792480469,
+            562.299072265625,
+            135.8730010986328,
+            572.3430786132812
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 117,
+          "bbox": [
+            99.35099792480469,
+            582.0361328125,
+            529.3973999023438,
+            592.0801391601562
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 118,
+          "bbox": [
+            84.95099639892578,
+            596.7330932617188,
+            529.4703369140625,
+            606.777099609375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 119,
+          "bbox": [
+            84.95099639892578,
+            611.4931030273438,
+            416.66766357421875,
+            621.537109375
+          ]
+        }
+      ]
+    },
+    "842c48a6-cf89-5f7b-a876-25992b2fce9b": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 27",
+      "type": "ordinario",
+      "contentSha256": "a49ab1b918ce8f72777a8ff7d0295308475b2ee6d5d0c196aa3851725e211029",
+      "pageNumbers": [
+        234,
+        235
+      ],
+      "anchors": [
+        {
+          "page": 234,
+          "lineId": 120,
+          "bbox": [
+            99.35099792480469,
+            631.1760864257812,
+            529.5042724609375,
+            641.2200927734375
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 121,
+          "bbox": [
+            84.95100402832031,
+            645.8731079101562,
+            529.48095703125,
+            655.9171142578125
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 122,
+          "bbox": [
+            84.95100402832031,
+            660.5701293945312,
+            529.477294921875,
+            670.6141357421875
+          ]
+        },
+        {
+          "page": 234,
+          "lineId": 123,
+          "bbox": [
+            84.95100402832031,
+            675.330078125,
+            129.43801879882812,
+            685.3740844726562
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 124,
+          "bbox": [
+            99.36000061035156,
+            35.54099655151367,
+            207.37258911132812,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 125,
+          "bbox": [
+            273.59100341796875,
+            35.54099655151367,
+            345.1788024902344,
+            45.503997802734375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 126,
+          "bbox": [
+            414.27001953125,
+            35.54099655151367,
+            516.4864501953125,
+            45.503997802734375
+          ]
+        }
+      ]
+    },
+    "2c608182-4f7b-543d-ade4-d7f28fed8557": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 29",
+      "type": "ordinario",
+      "contentSha256": "35702f766ff074c74ce355f60d6a19192ee408807c3c63dfb6461517603758d6",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 127,
+          "bbox": [
+            99.36000061035156,
+            60.55501174926758,
+            529.47705078125,
+            70.59901428222656
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 128,
+          "bbox": [
+            84.95100402832031,
+            74.47798919677734,
+            529.4977416992188,
+            84.52198791503906
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 129,
+          "bbox": [
+            84.95098876953125,
+            88.33797454833984,
+            311.80853271484375,
+            98.38197326660156
+          ]
+        }
+      ]
+    },
+    "bc18a89a-ec82-5422-983e-be77e1cbbe0f": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 30",
+      "type": "ordinario",
+      "contentSha256": "12ae39128e0b17e738dbb4a4ab6aab3b5f19132ff4aecd255e4eabf3bc6fa3c5",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 130,
+          "bbox": [
+            99.35099029541016,
+            107.30098724365234,
+            198.42294311523438,
+            117.34498596191406
+          ]
+        }
+      ]
+    },
+    "7def0738-3ac8-50b4-80a9-b741792707d4": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 31",
+      "type": "ordinario",
+      "contentSha256": "6ff4bbcbe3b8eba17b553ad7c358e8fad15e4b6185d7b8a51223be3bfeadcb7d",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 131,
+          "bbox": [
+            99.35098266601562,
+            126.26399993896484,
+            529.5257568359375,
+            136.30799865722656
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 132,
+          "bbox": [
+            84.94198608398438,
+            140.1869659423828,
+            529.4862060546875,
+            150.23097229003906
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 133,
+          "bbox": [
+            84.94200134277344,
+            154.0469512939453,
+            315.60113525390625,
+            164.09095764160156
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 134,
+          "bbox": [
+            99.34200286865234,
+            173.0099639892578,
+            529.3883666992188,
+            183.05397033691406
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 135,
+          "bbox": [
+            84.94200134277344,
+            186.9329376220703,
+            529.4613647460938,
+            196.97694396972656
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 136,
+          "bbox": [
+            84.94200134277344,
+            200.7929229736328,
+            253.04037475585938,
+            210.83692932128906
+          ]
+        }
+      ]
+    },
+    "f69d5d0b-937a-52a6-9b7b-331d8331ae97": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 34",
+      "type": "ordinario",
+      "contentSha256": "62e20381cbe94ab54829e33970c7b3109d0422f478f002b63d08c0c587a1604a",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 137,
+          "bbox": [
+            99.34200286865234,
+            219.7559356689453,
+            529.4871826171875,
+            229.79994201660156
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 138,
+          "bbox": [
+            84.9420166015625,
+            233.6789093017578,
+            529.4342041015625,
+            243.72291564941406
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 139,
+          "bbox": [
+            84.9420166015625,
+            247.6018829345703,
+            457.9749450683594,
+            257.6458740234375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 140,
+          "bbox": [
+            99.3420181274414,
+            285.4649353027344,
+            529.4730834960938,
+            295.5089111328125
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 141,
+          "bbox": [
+            84.94200134277344,
+            299.387939453125,
+            341.629150390625,
+            309.4319152832031
+          ]
+        }
+      ]
+    },
+    "114d488a-5c7c-5071-95e3-820d5e9f6833": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Modificación al artículo 36",
+      "type": "ordinario",
+      "contentSha256": "452b354f74a43edb3c8ee5b3ed1f19fb1049d9bc0abe1011aed62619000bda80",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 142,
+          "bbox": [
+            99.34200286865234,
+            318.3509521484375,
+            529.4654541015625,
+            328.3949279785156
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 143,
+          "bbox": [
+            84.94200134277344,
+            332.2109375,
+            529.4998168945312,
+            342.2549133300781
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 144,
+          "bbox": [
+            84.94198608398438,
+            346.1339416503906,
+            449.6543884277344,
+            356.17791748046875
+          ]
+        }
+      ]
+    },
+    "46d29247-bf08-5c89-82fd-28f612b753e1": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Transitorio Primero",
+      "type": "transitorio",
+      "contentSha256": "e9e6a831b099bcf6b65c79c4ce5d2880fa7afac19f5ed36610e0d7d030ab5bc7",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 145,
+          "bbox": [
+            271.4849853515625,
+            365.2229309082031,
+            342.709228515625,
+            375.1859436035156
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 146,
+          "bbox": [
+            99.34197998046875,
+            384.0599670410156,
+            532.0223388671875,
+            394.10394287109375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 147,
+          "bbox": [
+            84.95095825195312,
+            397.9199523925781,
+            157.0040740966797,
+            407.96392822265625
+          ]
+        }
+      ]
+    },
+    "2669c2ea-2a60-519c-9cd8-56b948c15441": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Transitorio Segundo",
+      "type": "transitorio",
+      "contentSha256": "ef114df15c551129be3035a185870052c55ee02ae6c58378603cf62ebd6df25c",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 148,
+          "bbox": [
+            99.35095977783203,
+            416.8829650878906,
+            529.4104614257812,
+            426.92694091796875
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 149,
+          "bbox": [
+            84.95097351074219,
+            430.80596923828125,
+            529.5025634765625,
+            440.8499450683594
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 150,
+          "bbox": [
+            84.95097351074219,
+            444.7289733886719,
+            529.4781494140625,
+            454.77294921875
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 151,
+          "bbox": [
+            84.95097351074219,
+            458.5889587402344,
+            529.5430908203125,
+            468.6329345703125
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 152,
+          "bbox": [
+            84.95097351074219,
+            472.511962890625,
+            529.4708862304688,
+            482.5559387207031
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 153,
+          "bbox": [
+            84.95098876953125,
+            486.4349670410156,
+            279.5506286621094,
+            496.47894287109375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 154,
+          "bbox": [
+            99.35099029541016,
+            505.3349914550781,
+            529.3601684570312,
+            515.3789672851562
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 155,
+          "bbox": [
+            84.95098876953125,
+            519.2579345703125,
+            420.6211853027344,
+            529.3019409179688
+          ]
+        }
+      ]
+    },
+    "27cdd139-1b54-58f0-9479-dfec57760806": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Transitorio Tercero",
+      "type": "transitorio",
+      "contentSha256": "663f4d416908a73e65c460e235ab35809852e84657ae3c01251fd543d0ed9b5f",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 156,
+          "bbox": [
+            99.35099029541016,
+            538.220947265625,
+            529.502197265625,
+            548.2649536132812
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 157,
+          "bbox": [
+            84.95098876953125,
+            552.1439208984375,
+            529.3324584960938,
+            562.1879272460938
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 158,
+          "bbox": [
+            84.95098876953125,
+            566.00390625,
+            529.4429321289062,
+            576.0479125976562
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 159,
+          "bbox": [
+            84.95098876953125,
+            579.9269409179688,
+            374.6385803222656,
+            589.970947265625
+          ]
+        }
+      ]
+    },
+    "965e734a-b3c3-54fa-8214-b95d4778df43": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Transitorio Cuarto",
+      "type": "transitorio",
+      "contentSha256": "c1a78f9aa3ff1c512d485ad33e0ba3fff1a24c56c4aa932fee45f8886af67a05",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 160,
+          "bbox": [
+            99.35098266601562,
+            598.8899536132812,
+            529.4396362304688,
+            608.9339599609375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 161,
+          "bbox": [
+            84.95097351074219,
+            612.7499389648438,
+            529.416015625,
+            622.7939453125
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 162,
+          "bbox": [
+            84.95097351074219,
+            626.6729736328125,
+            529.4996948242188,
+            636.7169799804688
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 163,
+          "bbox": [
+            84.95097351074219,
+            640.595947265625,
+            529.5457153320312,
+            650.6399536132812
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 164,
+          "bbox": [
+            84.95097351074219,
+            654.4559326171875,
+            169.03433227539062,
+            664.4999389648438
+          ]
+        }
+      ]
+    },
+    "da29ee39-e0e0-52d1-9835-980e1530e2ea": {
+      "sourceId": "dof-vespertina-2025-10-03-70701a5e439e",
+      "label": "Firma y publicación",
+      "type": "complementario",
+      "contentSha256": "c398ef6c9cb75cba4d1c3b50aac933e161fbba7f9771fa5e096fc1a12a7306ea",
+      "pageNumbers": [
+        235
+      ],
+      "anchors": [
+        {
+          "page": 235,
+          "lineId": 165,
+          "bbox": [
+            99.3509750366211,
+            673.4189453125,
+            529.4367065429688,
+            683.4629516601562
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 166,
+          "bbox": [
+            84.95097351074219,
+            687.3419189453125,
+            529.502197265625,
+            697.3859252929688
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 167,
+          "bbox": [
+            84.95098876953125,
+            701.2649536132812,
+            529.516845703125,
+            711.3089599609375
+          ]
+        },
+        {
+          "page": 235,
+          "lineId": 168,
+          "bbox": [
+            84.94198608398438,
+            715.1249389648438,
+            164.44976806640625,
+            725.1689453125
+          ]
+        }
+      ]
+    }
+  }
+}

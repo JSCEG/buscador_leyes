@@ -1,0 +1,385 @@
+{
+  "instrumento": "Decreto por el que se reforman y derogan diversas disposiciones del Reglamento de la Ley de Ingresos sobre Hidrocarburos",
+  "instrumentId": "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5769158",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/03-10-2025/Vespertina/323363",
+  "archivoDeCotejoExistente": "revision-acervo\\incorporacion-complementos-2026-09-19\\fuentes\\REFORMA-RLIH-edicion.pdf",
+  "sha256": "70701a5e439eb90fd61b55250c5802c26a6f695cfd81b1b4da2719ba2478907b",
+  "bytes": 5186796,
+  "paginasPdf": 334,
+  "paginasImpresasDelInstrumento": [
+    232,
+    235
+  ],
+  "fragmentosOficiales": 30,
+  "anclasGeometricas": 166,
+  "notaAlcance": "Se mapearon los 30 fragmentos oficiales contra la edición vespertina del DOF del 3 de octubre de 2025, páginas impresas 232–235. La nota editorial se excluyó. El PDF ya existe como evidencia del cotejo de incorporación y no se incluye en este paquete de mapa ni se vuelve a subir.",
+  "fragmentos": [
+    {
+      "id": "f49617b5-da30-5493-9e73-02bc459e8656",
+      "fragmento": "Preámbulo del decreto",
+      "paginasPdf": [
+        232
+      ],
+      "paginasImpresas": [
+        232
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "decretoporelquesereformanyderogandiversasdisposicionesdelreglamentodelaleydeingresossobrehidrocarburosalmargenunselloconelescudonacionalquediceestadosunidosmexicanospresidenciadelarepublicaclaudiasheinbaumpardopresidenta"
+    },
+    {
+      "id": "dd89130f-2784-5baa-a17d-e4da19688432",
+      "fragmento": "Artículo Único · Disposición reformadora",
+      "paginasPdf": [
+        232
+      ],
+      "paginasImpresas": [
+        232
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulounicosereformanlosarticulos2parrafoprimero4parrafosprimeroysegundo5parrafoprimero7parrafosegundo9parrafosterceroycuarto10parrafosprimeroysegundo11parrafoprimero12parrafosprimeroysegundo14162021parrafossegundoyter"
+    },
+    {
+      "id": "8347607d-7f64-5793-a886-5e098f1f40d2",
+      "fragmento": "Modificación al artículo 2",
+      "paginasPdf": [
+        232
+      ],
+      "paginasImpresas": [
+        232
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo2paraefectosdeestereglamentosonaplicablesensingularoplurallasdefinicionesaqueserefiereelarticulo3delaleydeingresossobrehidrocarburosasicomolasqueresultenaplicablesdelreglamentodelaleydelsectorhidrocarburos"
+    },
+    {
+      "id": "92c33b22-e011-5df0-8b0a-ba0876d5726a",
+      "fragmento": "Modificación al artículo 4",
+      "paginasPdf": [
+        232
+      ],
+      "paginasImpresas": [
+        232
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo4elreporteanualaqueserefiereelarticulo5delaleydebecontenerinformacionqueatiendaalanaturalezadelasareasenposesiondelestadoquelasecretariadeenergiahayadeterminadootorgardemaneraexcepcionalencontratosparalaexploraci"
+    },
+    {
+      "id": "ebed7292-1e56-5453-ae10-db037b42a070",
+      "fragmento": "Modificación al artículo 5",
+      "paginasPdf": [
+        232
+      ],
+      "paginasImpresas": [
+        232
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo5lasecretariadebedeterminarlascondicioneseconomicasrelativasalosterminosfiscalesparalosprocesosexcepcionalesdelicitaciondeloscontratospreviasolicituddelasecretariadeenergiaalefectolasecretariadeenergiaenviaraalas"
+    },
+    {
+      "id": "c3c87889-e66a-55ab-a62b-a6285ab78fc2",
+      "fragmento": "Modificación al artículo 7",
+      "paginasPdf": [
+        232
+      ],
+      "paginasImpresas": [
+        232
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo7duranteelplazomencionadoenelparrafoanteriorlasecretariapuedesolicitaralasecretariadeenergialainformaciontecnicaadicionalqueconsiderenecesariaencuyocasoelplazoparalaemisiondelaresolucionaqueserefiereelparrafoante"
+    },
+    {
+      "id": "debdf564-1272-5504-be9a-487f6701b205",
+      "fragmento": "Modificación al artículo 9",
+      "paginasPdf": [
+        232,
+        233
+      ],
+      "paginasImpresas": [
+        232,
+        233
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "articulo9encasodequelasecretariaestablezcaenlaresolucionsenaladaenelarticulo6deestereglamentoqueladivulgaciondelosvaloressedebehacerhastaelactodepresentacionyaperturadepropuestaslasecretariadebereservarconformealasdispos"
+    },
+    {
+      "id": "7442085a-c34f-5275-b27e-f9c1f3dd35db",
+      "fragmento": "Modificación al artículo 10",
+      "paginasPdf": [
+        233
+      ],
+      "paginasImpresas": [
+        233
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo10siduranteelprocesodelicitacionseobservanmodificacionesrelevantesenelentornoeconomicoglobalyenelmercadodeloshidrocarburosquepuedanrestringirlaparticipacionenelprocesodelicitacionlasecretariapuedeajustarlostermin"
+    },
+    {
+      "id": "6060cd86-13ee-5fb1-96c0-862724b7579f",
+      "fragmento": "Modificación al artículo 11",
+      "paginasPdf": [
+        233
+      ],
+      "paginasImpresas": [
+        233
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo11enelcasodelamigraciondeasignacionesaalguntipodecontratoestablecidoenlaleydelsectorhidrocarburoslasecretariadeenergiadebeentregaralasecretarialosenaladoenlasfraccionesiiiiyivdelarticulo5deestereglamento"
+    },
+    {
+      "id": "8acfed4b-b6d5-58d9-8491-b3c1e9ff3a31",
+      "fragmento": "Modificación al artículo 12",
+      "paginasPdf": [
+        233
+      ],
+      "paginasImpresas": [
+        233
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo12encasodequelamigraciondeasignacionacontratosesoliciteenterminosdelarticulo55delaleydelsectorhidrocarburoslasecretariadeenergiadebeentregaralasecretarialosenaladoenelarticulo5deestereglamentoasicomolapropuestade"
+    },
+    {
+      "id": "04944150-b5c9-5585-aaed-752925d22b9b",
+      "fragmento": "Modificación al artículo 14",
+      "paginasPdf": [
+        233
+      ],
+      "paginasImpresas": [
+        233
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo14enloscasosaqueserefierenlosarticulos12y13deestereglamentolasecretariadebemanifestarsuconformidadconlapropuestadeterminosdeasociacionydeoperacionconjuntaoensucasosenalarlasobservacionesqueestimepertinentesmismas"
+    },
+    {
+      "id": "003d7030-5adc-5c8b-9198-e403fafb9ab5",
+      "fragmento": "Modificación al artículo 16",
+      "paginasPdf": [
+        233
+      ],
+      "paginasImpresas": [
+        233
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo16paralaadjudicaciondirectadecontratosaconcesionariosminerosconformealarticulo56parrafosprimeroysegundodelaleydelsectorhidrocarburoslasecretariadeenergiadebeentregaralasecretarialosenaladoenlasfraccionesiiiiyivde"
+    },
+    {
+      "id": "b5d78849-710f-5f8e-8270-e6db69014737",
+      "fragmento": "Modificación al artículo 20",
+      "paginasPdf": [
+        233,
+        234
+      ],
+      "paginasImpresas": [
+        233,
+        234
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo20laresolucionaqueserefiereelarticulo6deestereglamentoqueemitalasecretariaasicomocualquierdocumentoenposesiondelasecretariadeenergiaquecontengainformacionderivadadelamismadeberesguardarsebajolamasestrictareservah"
+    },
+    {
+      "id": "62055cb7-c4fc-5bcf-b25b-cdd2722f656b",
+      "fragmento": "Modificación al artículo 21",
+      "paginasPdf": [
+        234
+      ],
+      "paginasImpresas": [
+        234
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo21enloscasosenquelasvisitasyauditoriasaqueserefiereelparrafoanteriorserealicenporelserviciodeadministraciontributariaenterminosdelodispuestoporelarticulo63delaleydichoorganoadministrativodesconcentradodebesujetar"
+    },
+    {
+      "id": "80796520-3a34-50a5-8021-26dfe7791962",
+      "fragmento": "Modificación al artículo 22",
+      "paginasPdf": [
+        234
+      ],
+      "paginasImpresas": [
+        234
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo22paraefectosdelodispuestoenelarticulo37apartadobfraccionxdelaleylasecretariapuedecoordinarseconlasecretariadeenergiapararecibirapoyotecnicoysolicitarquesellevenacabovisitasdecampoodeotrotipolasvisitasdebenestabl"
+    },
+    {
+      "id": "20bdee3e-9b5f-5813-b75f-97391215140f",
+      "fragmento": "Modificación al artículo 23",
+      "paginasPdf": [
+        234
+      ],
+      "paginasImpresas": [
+        234
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo23encasodequecomoresultadodeunavisitaoauditoriaodelasdemasfuncionesdeverificacionquelecorrespondenlasecretariadetectealgunairregularidaddebenotificardichasituacionalasecretariadeenergiayalfondomexicanodelpetroleo"
+    },
+    {
+      "id": "11ac4df7-4eb3-5407-9c08-b72f11718695",
+      "fragmento": "Modificación al artículo 24",
+      "paginasPdf": [
+        234
+      ],
+      "paginasImpresas": [
+        234
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo24lasecretariadeenergiadebeinscribirloscontratosenelregistroquealefectoestablezcaelfondomexicanodelpetroleoconformealoslineamientosqueesteemitayalodispuestoenelcontratodefideicomisorespectivoenloscontratossedeben"
+    },
+    {
+      "id": "9d42e856-a661-5ad8-afb4-05188b11e95a",
+      "fragmento": "Modificación al artículo 25",
+      "paginasPdf": [
+        234
+      ],
+      "paginasImpresas": [
+        234
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo25lasecretariadeenergiadebenotificaralfondomexicanodelpetroleoyalasecretarialasdeterminacionesqueadoptesobrelamodificacionterminacionrescisionocesiondeloscontratosaltercerdiahabilsiguiente"
+    },
+    {
+      "id": "0eaa4f3a-585e-57fe-bac1-93b206c000a9",
+      "fragmento": "Modificación al artículo 26",
+      "paginasPdf": [
+        234
+      ],
+      "paginasImpresas": [
+        234
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo26lasecretariadeenergiadebeenviaralasecretariayalfondomexicanodelpetroleoiyiilainformacionaqueserefiereelpresentearticulodebeserentregadaporlasecretariadeenergiaenlosformatosyconformealosterminosqueseestablezcane"
+    },
+    {
+      "id": "842c48a6-cf89-5f7b-a876-25992b2fce9b",
+      "fragmento": "Modificación al artículo 27",
+      "paginasPdf": [
+        234,
+        235
+      ],
+      "paginasImpresas": [
+        234,
+        235
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo27elcontratistadebeinformaralasecretariayalasecretariadeenergiadelaenajenaciondeactivosaqueserefiereelarticulo20delaleydentrodelosdiezdiashabilesposterioresalaoperacionmismoplazoenelquedebeentregaralfondomexicano"
+    },
+    {
+      "id": "2c608182-4f7b-543d-ade4-d7f28fed8557",
+      "fragmento": "Modificación al artículo 29",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo29lasecretariadeenergiadebenotificaralfondomexicanodelpetroleoyalasecretarialasdeterminacionesqueadoptesobreelotorgamientomodificacionsustitucionrevocacionorenunciadeasignacionesdentrodelostresdiashabilessiguient"
+    },
+    {
+      "id": "bc18a89a-ec82-5422-983e-be77e1cbbe0f",
+      "fragmento": "Modificación al artículo 30",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 1,
+      "prefijoCotejado": "articulo30derogado"
+    },
+    {
+      "id": "7def0738-3ac8-50b4-80a9-b741792707d4",
+      "fragmento": "Modificación al artículo 31",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo31lasecretariadeenergiadebeenviaralasecretariayalserviciodeadministraciontributariadentrodelosprimerosdiezdiashabilesdecadameslainformacionrelativaalaproduccionderivadadelasasignacionesdelmesinmediatoanteriorlain"
+    },
+    {
+      "id": "f69d5d0b-937a-52a6-9b7b-331d8331ae97",
+      "fragmento": "Modificación al artículo 34",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo34lasecretariadeenergiadebeproporcionaralasecretariadentrodelosprimeroscincodiashabilesdecadamesellistadodelasentidadesfederativasylosmunicipiosenlosquesellevaronacaboactividadesdeexploracionyextracciondehidrocar"
+    },
+    {
+      "id": "114d488a-5c7c-5071-95e3-820d5e9f6833",
+      "fragmento": "Modificación al artículo 36",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo36paralosefectosdelarticulo64primerosegundoytercerparrafosdelaleyelcomputodediasdeduraciondelasactividadesaqueserefierelaleydelsectorhidrocarburossedebeconsiderarlatotalidaddediasnaturalescomprendidosentreelinici"
+    },
+    {
+      "id": "46d29247-bf08-5c89-82fd-28f612b753e1",
+      "fragmento": "Transitorio Primero",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "transitoriosprimeroelpresentedecretoentraenvigoraldiasiguientedesupublicacioneneldiariooficialdelafederacion"
+    },
+    {
+      "id": "2669c2ea-2a60-519c-9cd8-56b948c15441",
+      "fragmento": "Transitorio Segundo",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "segundoencasodequesesolicitelamigraciondeunaasignacionauncontratoparalaexploracionyextraccionconelfindequelasecretariapuedaejercerlasfacultadesquelecorrespondenconformealodispuestoeneltransitoriodecimonovenoparrafosegund"
+    },
+    {
+      "id": "27cdd139-1b54-58f0-9479-dfec57760806",
+      "fragmento": "Transitorio Tercero",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "tercerolasecretariaylasecretariadeenergiadebenhacerlasadecuacionesnecesariasalosconveniosdecoordinacionentredichasdependenciasparalaverificacionperiodicadelcorrectopagodecontraprestacionesypenalizacionesdeloscontratospar"
+    },
+    {
+      "id": "965e734a-b3c3-54fa-8214-b95d4778df43",
+      "fragmento": "Transitorio Cuarto",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "cuartolaserogacionesqueensucasosegenerenconmotivodelaejecuciondelpresentedecretodebensercubiertasconcargoalpresupuestoautorizadoenelpresupuestodeegresosdelafederacionparaelejerciciofiscal2025delasdependenciasyentidadesde"
+    },
+    {
+      "id": "da29ee39-e0e0-52d1-9835-980e1530e2ea",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        235
+      ],
+      "paginasImpresas": [
+        235
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "dadoenlaresidenciadelpoderejecutivofederalenciudaddemexicoa29deseptiembrede2025presidentadelosestadosunidosmexicanosclaudiasheinbaumpardorubricasecretariodehaciendaycreditopublicoedgarabrahamamadorzamorarubricasecretaria"
+    }
+  ]
+}

@@ -50,6 +50,6 @@ describe('REFORMA-LIH official source map', () => {
             pageCount: 270,
         });
         expect(source.instrumentIds).toContain(pack.ley.id);
-        expect(manifest.revision).toBe(68);
+        expect(manifest.revision).toBe(69);
     });
 });
