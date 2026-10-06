@@ -608,6 +608,25 @@ it('serves only the reviewed October 2, 2026 DOF morning issue PDF for NOM-EM-00
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed October 5, 2026 DOF morning issue PDF for NOM-EM-009-ASEA-2026', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/05-10-2026/Matutina/330025';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('nom-em-009-asea-2026'), 'nom-em-009-asea-2026', {
+        sources: { 'nom-em-009-asea-2026': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('330025', '330026'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('nom-em-009-asea-2026'), 'nom-em-009-asea-2026', {
+            sources: { 'nom-em-009-asea-2026': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed April 15, 2025 DOF evening issue PDF for the PND', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=';

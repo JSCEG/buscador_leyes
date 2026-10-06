@@ -27,6 +27,7 @@ const reviewedDofPdfs = new Set([
     'https://sidof.segob.gob.mx/notas/getNewsletter/18-09-2026/Matutina/329705',
     'https://sidof.segob.gob.mx/notas/getNewsletter/30-09-2026/Matutina/329925',
     'https://sidof.segob.gob.mx/notas/getNewsletter/02-10-2026/Matutina/329985',
+    'https://sidof.segob.gob.mx/notas/getNewsletter/05-10-2026/Matutina/330025',
     'https://sidof.segob.gob.mx/notas/getNewsletter/03-10-2025/Vespertina/323363',
     'https://sidof.segob.gob.mx/notas/getNewsletter/28-01-2026/Matutina/325425',
     'https://sidof.segob.gob.mx/notas/getNewsletter/20-12-2024/Vespertina/318281',

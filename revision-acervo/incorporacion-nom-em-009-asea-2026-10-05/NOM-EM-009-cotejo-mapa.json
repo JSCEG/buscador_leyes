@@ -1,0 +1,2268 @@
+{
+  "fecha_cotejo": "2026-10-06",
+  "fuente_pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/05-10-2026/Matutina/330025",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5800282",
+  "sha256_pdf": "83c8aaff9f1162268aebcc63cf38106e82c5242d9a9f8dc101575bc5849eec49",
+  "bytes_pdf": 5278480,
+  "paginas_pdf": 328,
+  "paginas_impresas_documento": [
+    12,
+    74
+  ],
+  "fragmentos_oficiales_mapeados": 245,
+  "nota_editorial_sin_mapa": [
+    "983c4332-b4e4-548c-8ee8-4aabeb6e1200"
+  ],
+  "cotejo_visual_recomendado": [
+    12,
+    20,
+    40,
+    60,
+    70,
+    74
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo de la norma",
+      "id": "03e542a4-720a-52dd-83fc-5bd550db2a9a",
+      "paginas_pdf": [
+        12
+      ],
+      "anclas": 21,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 1",
+      "id": "89742c23-e4e9-58c3-8bec-896ee6eaafe8",
+      "paginas_pdf": [
+        12
+      ],
+      "anclas": 9,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 2",
+      "id": "af95db04-1992-5623-a536-f33dbe1c8527",
+      "paginas_pdf": [
+        12
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 3",
+      "id": "09c6a1e0-8218-5800-b0c5-7edcfc3a03e1",
+      "paginas_pdf": [
+        12
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 4",
+      "id": "eb854075-012e-5cd6-a5b0-e759ba191486",
+      "paginas_pdf": [
+        12
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 5",
+      "id": "a5ed2f1a-dd61-5cbf-ab9b-5aeea4f6c7b9",
+      "paginas_pdf": [
+        12
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 6",
+      "id": "88b4acad-f910-5886-94eb-e292e5f7674f",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 7",
+      "id": "c624b7c9-e903-5ea3-abc1-5dcbe5de4d8b",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 8",
+      "id": "cb2e77a2-3805-5272-b90a-6e76f42d6b01",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 9",
+      "id": "61ab832c-f224-5a0d-8faa-0605b4aa1061",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 10",
+      "id": "7b27f773-7050-56db-b10d-df2070e204b5",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 11",
+      "id": "16584dac-402c-5c6f-834e-bfe758f99ba7",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 12",
+      "id": "9eea5203-857e-5580-8b76-bd749e53dd96",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 13",
+      "id": "f2124f29-14f0-534e-9156-cda56e9f3778",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 9,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 14",
+      "id": "c36eb683-7002-52fb-90d1-61b33f8b6fb9",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 15",
+      "id": "529776e0-c956-5a0f-8040-3845b80c1ac1",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 16",
+      "id": "01fa93b6-0aa8-5d66-a823-a3e4abcaac37",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 17",
+      "id": "39f3e416-1243-5d3f-86a8-9aae9c4a8afe",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 18",
+      "id": "996cb6fe-dbd7-5870-aa00-47a1cfd5244c",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 9,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Considerando 19",
+      "id": "5d6780ea-204e-5896-af00-4309364303f6",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 34,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 1. Objetivo",
+      "id": "6e189594-7687-50e4-a77e-88bf052277f2",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 2. Campo de aplicación",
+      "id": "c60eb59b-290d-5c0b-85e6-c8d0c677e3cc",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 26,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Numeral 3. Objetivo legítimo de interés público",
+      "id": "3eb85636-4ddf-599b-ab15-44d08348ccee",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4. Referencias normativas",
+      "id": "d04a4111-9f1c-50ba-8119-f68f08115c71",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4.1",
+      "id": "23c83711-32af-5b5c-bec9-fc962c6fe1be",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4.2",
+      "id": "46ddceb1-c814-57ad-9769-a0f6e79e28e9",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4.3",
+      "id": "72ad5743-632a-5414-8529-c908a99dc823",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4.4",
+      "id": "0cbe62ee-9369-5979-b597-93c9ce81b75b",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4.5",
+      "id": "52a216e3-c330-50b7-b891-44b2b9f2109a",
+      "paginas_pdf": [
+        15
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4.6",
+      "id": "41b2fa38-fce1-5930-8162-2dcd84145e44",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1",
+      "id": "000a3eec-1230-53f6-8c9a-9abc99e81d1f",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.1",
+      "id": "f681e2a7-94c1-552e-a2ea-7237ceecddef",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.2",
+      "id": "89eeb7ae-295d-5069-a03f-5b1c709530d1",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.3",
+      "id": "6ecdd575-739d-5410-a40b-19f9d8808130",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.4",
+      "id": "3572c3b7-44ad-5cf3-b70b-8a26cb155ed3",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.5",
+      "id": "3e5d482c-aeea-5247-abbf-5f27d3b010dd",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.6",
+      "id": "86c84d00-6aa5-545c-9d6c-8f43861b2187",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.7",
+      "id": "caeb7a7f-05a3-5aa3-b383-aca031539c79",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.8",
+      "id": "c15a8e51-b2b4-5352-9e41-188fc3b023c0",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.9",
+      "id": "19407e17-49c9-5563-9409-2956b6880de9",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.10",
+      "id": "01c680ee-bebb-5233-94f7-24d844a30616",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.11",
+      "id": "568c49d8-b8ef-569d-9e56-d0cbd05c88cd",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.12",
+      "id": "28d29f18-9ab0-56f1-ace4-af7ca18ea7ee",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.13",
+      "id": "8e2211fc-fe59-5dd7-85f0-1fd3b8ccf773",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.14",
+      "id": "8058d262-134d-5046-8a57-bcce2a463b61",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.15",
+      "id": "eaf7ff7b-88d8-55ba-bf7f-367aec0e628c",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.16",
+      "id": "9296ff65-b44d-5803-80b9-22bebccb74f9",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.17",
+      "id": "07dce435-fdd7-5078-bc2d-2567992d9e22",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.18",
+      "id": "2ac6cfea-5934-5b55-834a-1921a5a87aef",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.19",
+      "id": "c53a1790-05cf-59e3-8751-926188950d95",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.20",
+      "id": "125e6965-39f7-5a79-979c-d961840c2137",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.21",
+      "id": "5f7f2330-0ebd-5882-b45e-61a8d8dc1681",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.1.22",
+      "id": "2b23f175-00b4-5581-b23b-28fc7c0abe54",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5.2",
+      "id": "b6a48bed-2506-5e91-8893-14f411acf2f5",
+      "paginas_pdf": [
+        17
+      ],
+      "anclas": 39,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6. Inicio de operación",
+      "id": "e5b0763f-699d-56eb-b018-302cf8f8215f",
+      "paginas_pdf": [
+        18
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.1",
+      "id": "3fc1b807-74ad-50f3-bc7a-60115b0e678e",
+      "paginas_pdf": [
+        18
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.1.1",
+      "id": "98c78ef3-e8d6-52aa-8f0c-bdd08b126aa1",
+      "paginas_pdf": [
+        18
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.1.1.1",
+      "id": "639640bc-fe21-5a6d-99a3-05982e1213e1",
+      "paginas_pdf": [
+        18
+      ],
+      "anclas": 14,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.1.1.2",
+      "id": "25389d1f-41f7-5274-8a06-f1eb50fcb9b5",
+      "paginas_pdf": [
+        18,
+        19
+      ],
+      "anclas": 56,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.1.2",
+      "id": "516eeb3f-ad5c-5528-865a-f88a6b312101",
+      "paginas_pdf": [
+        19
+      ],
+      "anclas": 25,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2",
+      "id": "8f868cf9-f714-5ef4-947e-206286c6baef",
+      "paginas_pdf": [
+        19
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.1",
+      "id": "5594cdc5-76c8-57fe-afd6-4fc8137da798",
+      "paginas_pdf": [
+        19
+      ],
+      "anclas": 28,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.2",
+      "id": "4a12456f-2c0e-570d-ae96-97cfa74acd3a",
+      "paginas_pdf": [
+        19,
+        20
+      ],
+      "anclas": 20,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.3",
+      "id": "62aa075c-fac4-5776-b7e8-8fccf81a23ad",
+      "paginas_pdf": [
+        20
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.4",
+      "id": "e0bcb4b0-1cab-5454-8ac3-7798ca4873e9",
+      "paginas_pdf": [
+        20
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.5",
+      "id": "f78b0051-eeb8-5dfa-b97f-b6a31d1f0776",
+      "paginas_pdf": [
+        20
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.6",
+      "id": "cf405ea3-59c3-56cc-925e-727a7fc7e85a",
+      "paginas_pdf": [
+        20,
+        21
+      ],
+      "anclas": 72,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.7",
+      "id": "3481b127-50c0-5e2e-8d02-addee02bf5b6",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.8",
+      "id": "75a5fe23-0ce7-530a-b111-112899f1d04d",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.9",
+      "id": "afe0c1b5-7943-59d7-a0ae-48b491ed237b",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.10",
+      "id": "c0493040-2efe-5007-b010-937712c2e902",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.11",
+      "id": "e6d24229-cede-5a51-ab46-ba4b757bc3eb",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.2.12",
+      "id": "68291015-3828-53b9-a66d-de436cbd6fd4",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3",
+      "id": "c7f34836-bfa8-513d-bd4e-27184d374496",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1",
+      "id": "ec14ca96-f5d8-54d4-be10-2e12674bf4c6",
+      "paginas_pdf": [
+        21
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1.1",
+      "id": "032f1fa6-d5bd-5ed3-af46-b5d3e630921c",
+      "paginas_pdf": [
+        21,
+        22
+      ],
+      "anclas": 69,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1.2",
+      "id": "0de70346-100e-56be-96e0-96565a613cf2",
+      "paginas_pdf": [
+        22
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1.3",
+      "id": "12901404-19ba-512d-9a71-ffb00f7d1859",
+      "paginas_pdf": [
+        22
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1.4",
+      "id": "e74f249c-b69c-522f-9307-248057054b45",
+      "paginas_pdf": [
+        22
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1.5",
+      "id": "879f242a-66d4-5dc9-8517-05adbcb68e39",
+      "paginas_pdf": [
+        23
+      ],
+      "anclas": 41,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.1.6",
+      "id": "cfd0bbbc-22bc-5b1e-a5f3-88a8f7ccbeed",
+      "paginas_pdf": [
+        23
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.3.2",
+      "id": "203cfcc9-c494-5451-96e3-99b35de10674",
+      "paginas_pdf": [
+        23
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4",
+      "id": "613a245b-274d-5928-a349-c81963a5e41f",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.1",
+      "id": "a43a56b2-79a2-5c0f-a2c9-c8416b386516",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.2",
+      "id": "c2738060-81fe-5a2f-9fb4-bdc69300faa9",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.3",
+      "id": "71461f44-d020-554f-87f4-3f87ed6cad31",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.4",
+      "id": "f4c1bcf5-a80e-5fc5-8891-367bce64b81b",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.5",
+      "id": "09bfbe66-76ea-586b-ab61-ffc2dcf399c5",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.6",
+      "id": "59f16129-ad24-5eab-b8f7-8577788ce9ef",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.4.7",
+      "id": "b8b6cdb7-5d37-5cd0-86c7-0a1a5cf13333",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.5",
+      "id": "734fd29f-7908-5e09-b967-3eb5feccfcd3",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.5.1",
+      "id": "c72b7f90-039e-518f-8832-900799ccc9eb",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.5.2",
+      "id": "f070778a-15d9-53ec-b4d8-d73a579e65be",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 12,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.5.3",
+      "id": "9fb38323-0c81-5d5e-b1eb-0b1ed0098738",
+      "paginas_pdf": [
+        24
+      ],
+      "anclas": 17,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.5.4",
+      "id": "f68961ca-b9ed-5b41-a672-482171fe9413",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.6",
+      "id": "e4abbc02-f76c-5037-b37c-01cbcd6f86e1",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.6.1",
+      "id": "60265e89-1813-5c77-9feb-32d5237a8dc6",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 14,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.6.2",
+      "id": "dc2fad85-1142-5b19-851f-6e6666fe7138",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.6.3",
+      "id": "1c442591-7fdc-5621-9d14-809e92302bf4",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6.6.4",
+      "id": "1ad6a4fd-d37d-5cfe-8b20-fa08dc2ac186",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7. Operación y mantenimiento",
+      "id": "ebc0074e-1ac0-557e-a6ea-d46899fd9b5a",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1",
+      "id": "3db9f3df-43de-5321-b7d6-413c6fda63cf",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.1",
+      "id": "60f0e5d5-7599-5666-a697-312b13243216",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.2",
+      "id": "6f0082f3-f82e-54eb-aa29-4ab50210b6fc",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.3",
+      "id": "ad6ab570-6a3b-50c7-9768-b815deaafd66",
+      "paginas_pdf": [
+        25
+      ],
+      "anclas": 22,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.4",
+      "id": "926543d6-c2b8-5802-b418-7fb337280ae6",
+      "paginas_pdf": [
+        26
+      ],
+      "anclas": 117,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.5",
+      "id": "d6e3afa4-7bfc-5e44-a056-d08e7ca0775a",
+      "paginas_pdf": [
+        27
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.6",
+      "id": "d69971d3-d38d-5c83-bb04-44109b55430a",
+      "paginas_pdf": [
+        27
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.7",
+      "id": "53067950-6441-5634-bce2-9d2723f9b695",
+      "paginas_pdf": [
+        27
+      ],
+      "anclas": 23,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.8",
+      "id": "63f18899-aa64-5ac2-9cb5-44b91b6cbd92",
+      "paginas_pdf": [
+        27
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.9",
+      "id": "40ea5013-0afb-5b10-b529-d1f10efa18a8",
+      "paginas_pdf": [
+        27
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.10",
+      "id": "161789c6-7c5e-5842-a868-361db5ae36be",
+      "paginas_pdf": [
+        27,
+        28
+      ],
+      "anclas": 48,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.11",
+      "id": "e50b209c-79b9-5873-9a49-f382e1b46aae",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.12",
+      "id": "619543ba-c465-5a3c-9175-96650ae745fe",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.13",
+      "id": "68fcda19-502d-57ba-b98f-4cf2b6f7ed32",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.1.14",
+      "id": "0cd4d2a2-18ec-5040-84b8-266ff98b742d",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2",
+      "id": "8bf9b645-d715-5f2c-97ca-5cdcb96ced02",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.1",
+      "id": "27c4631e-bdbc-549e-8779-44c548c7314f",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.1.1",
+      "id": "9659cda2-4d46-5a4a-a9cc-3fe8ae482815",
+      "paginas_pdf": [
+        28
+      ],
+      "anclas": 14,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.1.2",
+      "id": "4de60fd7-37f2-5d8a-9457-25e6a63d8f6a",
+      "paginas_pdf": [
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "anclas": 298,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.1.3",
+      "id": "c985c53f-b4d3-56d3-997d-f6f8a57784d7",
+      "paginas_pdf": [
+        32
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.1.4",
+      "id": "d16ff474-d7ac-5226-86f0-29309ff97395",
+      "paginas_pdf": [
+        32
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.1.5",
+      "id": "1ec7c6c8-789e-5460-a3d9-eb6cb271343e",
+      "paginas_pdf": [
+        32
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2",
+      "id": "e5ef45d3-9d2a-54be-bc1b-186984ba6c2a",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.1",
+      "id": "9aa2c499-aa1a-5cf9-8d92-001f2f0d47c2",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.2",
+      "id": "051bb8d1-27a4-5fdf-bad7-18ef303421e1",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.3",
+      "id": "e2366006-292d-5428-a736-adcd4ef83e48",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 13,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.4",
+      "id": "aa9b2c33-eef5-54ce-b6b4-f58a1a098d7f",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 28,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.5",
+      "id": "fc398234-ce95-591f-8bdf-cdf676eea9c7",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.5.1",
+      "id": "9fe02f50-e8b8-543a-9190-2661972eb5ab",
+      "paginas_pdf": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "anclas": 421,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.5.2",
+      "id": "7bb9770e-122e-57e7-9fda-1e59924308e7",
+      "paginas_pdf": [
+        37
+      ],
+      "anclas": 61,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.5.3",
+      "id": "bfa554e2-1c8b-5d77-818f-9517f1ae6590",
+      "paginas_pdf": [
+        37
+      ],
+      "anclas": 20,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.5.4",
+      "id": "6417a387-b7a8-5592-aad2-774912b1a8d3",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 13,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.5.5",
+      "id": "cea349c2-4120-5abc-bdb3-03325703df30",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.6",
+      "id": "8ba58e81-be26-5305-86c9-a5dc69fede53",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.7",
+      "id": "b9f0a49c-5498-5070-a05f-9a9c37c2ddae",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.8",
+      "id": "043bf7e4-6d97-57e7-8f37-1a5738f8422c",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.9",
+      "id": "7e38d0bc-803c-5ed8-816f-ea50b3d76a45",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.10",
+      "id": "d572801a-311a-516f-aa5c-a284ce0f177f",
+      "paginas_pdf": [
+        38
+      ],
+      "anclas": 13,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.11",
+      "id": "1082ebaf-8b07-56e2-a05c-da1f0fafdd47",
+      "paginas_pdf": [
+        38,
+        39
+      ],
+      "anclas": 17,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.12",
+      "id": "0291ccac-00bd-541f-aab9-8ba4209ccf02",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.13",
+      "id": "cb89cf93-3bd3-5a77-85a9-ab4df3af817b",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.14",
+      "id": "6b2aa3f3-132e-56b3-af8a-34362319147c",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 19,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.2.15",
+      "id": "afbc4db4-70c5-54e7-98bb-e80c6b079419",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.3",
+      "id": "d5c31116-0d4c-5d21-8d95-5f1cf4cd6228",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.3.1",
+      "id": "c6ac1396-ef68-580c-a070-447fdcf80ee4",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.3.2",
+      "id": "783f2df7-5086-5f8b-9d02-368cef06cf51",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 17,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.3.3",
+      "id": "942ae949-e80a-5a1d-9e33-626020d95610",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.2.3.4",
+      "id": "087fcd68-b6e6-541c-88e1-3f069b3ed7a5",
+      "paginas_pdf": [
+        39
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3",
+      "id": "960381f5-2a25-5a2a-aedd-6991f15d58a0",
+      "paginas_pdf": [
+        40
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.1",
+      "id": "ba897e3c-9698-54e3-af54-8a6c993d13d3",
+      "paginas_pdf": [
+        40
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.1.1",
+      "id": "898ff21d-5fd2-56ae-bc0e-b35c7743a5b4",
+      "paginas_pdf": [
+        40
+      ],
+      "anclas": 10,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.1.2",
+      "id": "7c244e0d-2003-55b6-8a74-f112bb282dde",
+      "paginas_pdf": [
+        40,
+        41,
+        42
+      ],
+      "anclas": 191,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.1.3",
+      "id": "850551e2-0b35-5885-a5c0-c4d00b5ae428",
+      "paginas_pdf": [
+        42,
+        43
+      ],
+      "anclas": 71,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.1.4",
+      "id": "3e0c306f-db93-524f-9f11-ad879c38efc6",
+      "paginas_pdf": [
+        43
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.2",
+      "id": "b02904dc-d46d-531c-b9c6-e6d430525391",
+      "paginas_pdf": [
+        43
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.2.1",
+      "id": "a05e0904-f0f3-5890-a130-0c27cd07c0e5",
+      "paginas_pdf": [
+        43
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.2.2",
+      "id": "6e4b7ada-1faa-5fde-9551-5bb18ca26ec1",
+      "paginas_pdf": [
+        43
+      ],
+      "anclas": 17,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.2.3",
+      "id": "7c18039d-04d6-58d4-893a-ca0f5bf65729",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.3.2.4",
+      "id": "058adec9-af4e-5f07-901a-a2109152a389",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.4",
+      "id": "e4bbcc57-6bb3-5523-85b0-4c65552a5ebf",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.4.1",
+      "id": "70dd6a51-25a2-53e0-86db-cf90f9d6bd2f",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 7.4.2",
+      "id": "ce187263-2633-5bca-b8a0-b8ea4826453b",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 8. Término de operación",
+      "id": "cadff626-8e59-50ee-a23a-4b373f36711e",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 8.1",
+      "id": "ec94f37a-14e6-5e04-82ae-5e35ab3ab29a",
+      "paginas_pdf": [
+        44
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 8.1.1",
+      "id": "095934a5-b0cd-5bec-a10b-45ae40ef3b3d",
+      "paginas_pdf": [
+        44,
+        45
+      ],
+      "anclas": 51,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 8.1.2",
+      "id": "20ebb744-c904-51d2-b898-7a00ce379b1c",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 25,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 8.1.3",
+      "id": "f612251a-f28a-5ef0-a4b7-8ea1ce4a95ad",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9. Procedimiento de Evaluación de la Conformidad",
+      "id": "6374af43-d547-50ac-960d-adbe52f65bef",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.1",
+      "id": "94922215-5c6b-56ea-a4f7-b217868fd129",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.1.1",
+      "id": "14531ab2-0d37-5d25-be63-cfb347c68c39",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.1.2",
+      "id": "4284e579-53e2-5949-906a-7f8e1c6602b9",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.1.3",
+      "id": "ca9eecce-65c2-5f82-bcd1-d506c9c94235",
+      "paginas_pdf": [
+        45
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.1.4",
+      "id": "c7378459-2eb7-5986-b8da-4f77fa315f58",
+      "paginas_pdf": [
+        45,
+        46
+      ],
+      "anclas": 33,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2",
+      "id": "bb00f290-380b-5f52-9694-034724ff0d36",
+      "paginas_pdf": [
+        46
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2.1",
+      "id": "703917a2-a0e9-5f04-a838-80840ef440d0",
+      "paginas_pdf": [
+        46
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2.1.1",
+      "id": "80325e46-f460-5ede-8da1-188305cfcede",
+      "paginas_pdf": [
+        46
+      ],
+      "anclas": 23,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2.1.2",
+      "id": "ce9602ee-41fb-52d6-9d98-710f52baf367",
+      "paginas_pdf": [
+        46,
+        47
+      ],
+      "anclas": 31,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2.2",
+      "id": "948217fc-0c37-5c01-b72a-4bd0d7b110ab",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2.2.1",
+      "id": "da28a8ab-7680-59cb-9b77-dddd0db06298",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 13,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.2.2.2",
+      "id": "c72bbd77-cb9c-540e-b867-4bf91c7e5b2f",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3",
+      "id": "7f5d7039-c3c0-5ab5-ba16-ef5ca4387bfe",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.1",
+      "id": "e5959bf0-3a32-571c-b4c2-f2904ec3aae2",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.1.1",
+      "id": "11fdb806-4956-5ffc-bc3b-76bbfc0f1d76",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.1.2",
+      "id": "d698bbe0-f470-53cc-8dad-0a47f5df4085",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.2",
+      "id": "a92c015d-8f93-58ec-966d-d61ce8330f93",
+      "paginas_pdf": [
+        47
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.2.1",
+      "id": "4d1d5f90-3d56-53a2-8e1d-f335f05f339d",
+      "paginas_pdf": [
+        47,
+        48
+      ],
+      "anclas": 49,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.2.2",
+      "id": "9e0c9a7a-c46d-59d3-853f-c79ccf3826f2",
+      "paginas_pdf": [
+        48,
+        49
+      ],
+      "anclas": 43,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.2.3",
+      "id": "85027b33-dffb-5796-b0d1-fd962b0caa24",
+      "paginas_pdf": [
+        49,
+        50
+      ],
+      "anclas": 61,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.3",
+      "id": "ceaee628-0696-5077-a25d-a7804cd671cd",
+      "paginas_pdf": [
+        50
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.3.1",
+      "id": "0c586b2e-b021-5eb9-bcb0-5cdb5930f37b",
+      "paginas_pdf": [
+        50
+      ],
+      "anclas": 12,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.3.3.2",
+      "id": "0f021411-5e6c-54b1-913f-6071b4415cdb",
+      "paginas_pdf": [
+        50
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.4",
+      "id": "0ff572d3-2d55-5de0-9e9e-65b876d32011",
+      "paginas_pdf": [
+        50
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.4.1",
+      "id": "d9b51e64-df2c-50e0-903c-e562f721d828",
+      "paginas_pdf": [
+        50,
+        51
+      ],
+      "anclas": 48,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.4.2",
+      "id": "d26953c7-4e28-54cf-bbbe-c183cf3a454e",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 10,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.5",
+      "id": "6c1efadd-d748-5b90-ba32-a76f1e28b4b9",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.5.1",
+      "id": "98751f6b-985a-5375-8a09-b78835557bcb",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.5.2",
+      "id": "d39ff3dc-13ff-53d1-90f3-6b884c8e35de",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9.5.3",
+      "id": "23fdabf3-5a1d-5d8a-8007-502b44edfcf8",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 10. Grado de concordancia con normas internacionales",
+      "id": "1eafb7d2-31f3-55c9-a178-c098047d97c9",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 11. Verificación de la Norma Oficial Mexicana de Emergencia",
+      "id": "849a3a1c-b08a-5d8f-96e6-5ce98ab5bf2d",
+      "paginas_pdf": [
+        51
+      ],
+      "anclas": 16,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Apéndice A (Normativo) · Listado de revisión visual diaria",
+      "id": "188fd20b-9b1f-5106-9108-f64e0e3a11ac",
+      "paginas_pdf": [
+        52
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Apéndice A · Formato de revisión diaria de Auto-tanque",
+      "id": "1b68f9fb-0768-52fb-b4ad-f1eb3362949a",
+      "paginas_pdf": [
+        52,
+        53,
+        54
+      ],
+      "anclas": 139,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice A · Formato de revisión diaria de Vehículo de Reparto",
+      "id": "4a6fb77b-3a41-5cd2-a3cd-da8494ead36e",
+      "paginas_pdf": [
+        54
+      ],
+      "anclas": 102,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B (Normativo) · Condiciones de seguridad de la parte motriz de Auto-tanques y Vehículos de Reparto",
+      "id": "eb0d2226-516b-50ee-88e6-1b072efcb19d",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Apéndice B · B.1 Sistemas de combustible de gasolina o diésel",
+      "id": "6c681497-3d5e-5c9a-874e-0c7d8546278f",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 24,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.2 Sistemas de combustible de Gas Licuado de Petróleo (GLP)",
+      "id": "0bc03197-02d2-5d6d-b3e1-17fb31dca1bc",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.3 Sistema de escape",
+      "id": "98c6deea-bf21-597b-a48f-0e103ba04ddb",
+      "paginas_pdf": [
+        55,
+        56
+      ],
+      "anclas": 28,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.4 Suspensión",
+      "id": "4f948c8a-0d3d-596c-a628-f9bfc5fdaea1",
+      "paginas_pdf": [
+        56
+      ],
+      "anclas": 22,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.5 Amortiguadores",
+      "id": "d26bd4ba-0c37-5e20-83e3-941607220488",
+      "paginas_pdf": [
+        56
+      ],
+      "anclas": 19,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.6 Frenos hidráulicos",
+      "id": "66018a78-3537-5622-ad4e-18ac78932a58",
+      "paginas_pdf": [
+        57
+      ],
+      "anclas": 25,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.7 Frenos hidráulicos de tambor",
+      "id": "712fb0e6-b030-5b9c-a336-d122e31c924d",
+      "paginas_pdf": [
+        57,
+        58
+      ],
+      "anclas": 44,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.8 Frenos hidráulicos de disco",
+      "id": "f476f073-79b7-568a-972b-aca49b786318",
+      "paginas_pdf": [
+        58
+      ],
+      "anclas": 31,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.9 Frenos neumáticos de tambor",
+      "id": "f10dd9fb-e1ab-5010-aa54-a38b35466b86",
+      "paginas_pdf": [
+        58,
+        59
+      ],
+      "anclas": 44,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.10 Frenos neumáticos de disco",
+      "id": "53ce6ac3-fa4d-5a33-94a0-de3b575a80d8",
+      "paginas_pdf": [
+        59,
+        60
+      ],
+      "anclas": 45,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.11 Instrumentos y equipo auxiliar",
+      "id": "7ab45e12-4268-5e9c-b483-cd3f015761b6",
+      "paginas_pdf": [
+        60,
+        61
+      ],
+      "anclas": 57,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.12 Luces",
+      "id": "6d49aca5-c2c8-5a48-9c69-7c88adab773a",
+      "paginas_pdf": [
+        61,
+        62
+      ],
+      "anclas": 54,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.13 Sistema eléctrico",
+      "id": "0a4ac2f0-6bcd-5f2a-8148-bbfb2fdfe907",
+      "paginas_pdf": [
+        62
+      ],
+      "anclas": 24,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.14 Carrocería y chasis",
+      "id": "6fd497d0-9f5a-5b0e-bf13-bdc3e37b9948",
+      "paginas_pdf": [
+        63
+      ],
+      "anclas": 21,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.15 Carrocerías y cabinas",
+      "id": "14a1d325-7e38-5f8d-aa01-923bda126fc3",
+      "paginas_pdf": [
+        63
+      ],
+      "anclas": 44,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.16 Chasis",
+      "id": "79f16b25-2040-57d4-9848-678f7b050266",
+      "paginas_pdf": [
+        64
+      ],
+      "anclas": 17,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.17 Plataforma",
+      "id": "a0449e12-b510-53cb-82fb-2c1fece27861",
+      "paginas_pdf": [
+        64
+      ],
+      "anclas": 12,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.18 Defensas y dispositivos de protección inferior",
+      "id": "769340c1-1000-5706-a732-f75abaebeafb",
+      "paginas_pdf": [
+        64
+      ],
+      "anclas": 20,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.19 Parabrisas",
+      "id": "3572b50b-dfe6-531b-bca6-a4fe83866cdd",
+      "paginas_pdf": [
+        64,
+        65
+      ],
+      "anclas": 20,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.20 Ventanas laterales",
+      "id": "bca8acb1-5929-5565-9084-3d27a90be929",
+      "paginas_pdf": [
+        65
+      ],
+      "anclas": 20,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.21 Ventana posterior",
+      "id": "4bf41a20-6b1b-5b08-8170-6e8d504cdadd",
+      "paginas_pdf": [
+        65
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.22 Vigas y montajes del chasis",
+      "id": "0e682c4f-4ddb-54b7-9a2f-c08ce1580062",
+      "paginas_pdf": [
+        65
+      ],
+      "anclas": 22,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.23 Espejos retrovisores",
+      "id": "03eb8be2-e854-5036-81c8-526dedddcba5",
+      "paginas_pdf": [
+        66
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.24 Asientos y cinturones de seguridad",
+      "id": "7b28916c-98c6-5d5a-9beb-c5b66385deda",
+      "paginas_pdf": [
+        66
+      ],
+      "anclas": 25,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.25 Sistema de limpiaparabrisas y eyectores de agua",
+      "id": "da4a10ca-2339-5937-9db2-82b0a66aeee7",
+      "paginas_pdf": [
+        66
+      ],
+      "anclas": 16,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.26 Salpicaderas o guardafangos (loderas)",
+      "id": "af56eb9c-0e3f-5359-a8fc-c5d3af11672e",
+      "paginas_pdf": [
+        67
+      ],
+      "anclas": 14,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.27 Llantas y ruedas",
+      "id": "e37aa998-256e-5f11-a3bf-fba905c06025",
+      "paginas_pdf": [
+        67,
+        68,
+        69
+      ],
+      "anclas": 111,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.28 Ruedas y rines",
+      "id": "31117eaf-f0ec-510b-ac68-17ab694044e4",
+      "paginas_pdf": [
+        69,
+        70
+      ],
+      "anclas": 76,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice B · B.29 Acciones correctivas",
+      "id": "9f61e592-29d4-5911-962d-8876e2f32b05",
+      "paginas_pdf": [
+        70
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice C · Tabla C1 · Zonas metropolitanas categoría 1",
+      "id": "8f2b0fdf-1a61-584d-a677-6b6dee8a2eb2",
+      "paginas_pdf": [
+        71,
+        72
+      ],
+      "anclas": 175,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Apéndice C · Tabla C2 · Zonas metropolitanas categoría 2",
+      "id": "296956d5-a195-566b-8c97-02507bf39ddf",
+      "paginas_pdf": [
+        72
+      ],
+      "anclas": 39,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Numeral 12. Bibliografía",
+      "id": "af808e50-4d94-54a0-a90e-be96601fcedb",
+      "paginas_pdf": [
+        73,
+        74
+      ],
+      "anclas": 83,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "99075193-5cd8-54d4-8710-0c649ff4d94a",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "2550345c-5790-5f7b-ac99-e78f0ec03440",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "29bd6b64-5366-5cb2-a263-8c9874b7b0d7",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Cuarto",
+      "id": "2d2c5081-c892-5d87-898d-f3733d86f047",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Quinto",
+      "id": "db0fa205-e855-5edb-a0e5-97870816c55d",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Sexto",
+      "id": "ff5c179c-f06d-5f7d-8b9b-270e9f904848",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Séptimo",
+      "id": "3a974772-76cc-5dc1-aa33-e40cfca34f2d",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Octavo",
+      "id": "1bf0961a-d05e-59ab-9472-2152f413d59d",
+      "paginas_pdf": [
+        74
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
