@@ -1,0 +1,479 @@
+{
+  "instrumento": "Lineamientos de los Esquemas para el Desarrollo Mixto de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+  "instrumentId": "d4b231b0-6b12-5dbe-b003-a6986814c000",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5778994",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/28-01-2026/Matutina/325425",
+  "archivoDeCotejoExistente": "tmp\\desarrollo-mixto-cfe-oficial-2026-01-28.pdf",
+  "sha256": "b76dbe009e39723956037613bbfa882de1370c54e968bd45b97ba5a8fabd212c",
+  "bytes": 5359450,
+  "paginasPdf": 342,
+  "paginasImpresasDelInstrumento": [
+    65,
+    84
+  ],
+  "fragmentosOficiales": 30,
+  "anclasGeometricas": 1429,
+  "tablasVerificadas": 3,
+  "celdasVerificadas": 216,
+  "notaAlcance": "Se mapearon los 30 fragmentos oficiales contra la edición matutina del DOF del 28 de enero de 2026, páginas impresas 65–84. Se preservaron las tres tablas (216 celdas) cotejadas al incorporar el instrumento. La nota editorial quedó excluida. El PDF de cotejo existente no se incorpora de nuevo al manifiesto.",
+  "fragmentos": [
+    {
+      "id": "97f5e489-b93f-5391-bd4d-7cf8d54c9fb6",
+      "fragmento": "Presentación e índice",
+      "paginasPdf": [
+        65,
+        66
+      ],
+      "paginasImpresas": [
+        65,
+        66
+      ],
+      "anclas": 82,
+      "tablas": 1,
+      "celdas": 98,
+      "prefijoCotejado": "lineamientosdelosesquemasparaeldesarrollomixtodelaempresapublicadelestadocomisionfederaldeelectricidadlineamientosdelosesquemasparaeldesarrollomixtodelaempresapublicadelestadocomisionfederaldeelectricidadcontenidonumerot"
+    },
+    {
+      "id": "605bfd0f-61f3-5ae5-87b2-6f507b22ceb3",
+      "fragmento": "Apartado I.1 Introducción",
+      "paginasPdf": [
+        66,
+        67
+      ],
+      "paginasImpresas": [
+        66,
+        67
+      ],
+      "anclas": 59,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "seccionivisiongenerali1introduccionlaleydelaempresapublicadelestadocomisionfederaldeelectricidadpreveensuarticulo11quelacomisionfederaldeelectricidadysusempresasfilialespuedencelebrarcontratosconpersonaparticularesoesque"
+    },
+    {
+      "id": "a0c35c53-cc1e-50cd-b9bf-b09276e91771",
+      "fragmento": "Apartado I.2 Definiciones y acrónimos",
+      "paginasPdf": [
+        67,
+        68,
+        69
+      ],
+      "paginasImpresas": [
+        67,
+        68,
+        69
+      ],
+      "anclas": 168,
+      "tablas": 1,
+      "celdas": 96,
+      "prefijoCotejado": "i2definicionesyacronimosparaefectosdelospresenteslineamientossonaplicableslasdefinicionesyacronimosprevistosenelarticulo3delaleydelsectorelectricoyadicionalmentelosqueacontinuacionserelacionanlosquesepuedenutilizarindist"
+    },
+    {
+      "id": "4fb057ff-173a-53c8-bb13-aa3ec1fe4893",
+      "fragmento": "Apartado I.3 Objetivo",
+      "paginasPdf": [
+        69
+      ],
+      "paginasImpresas": [
+        69
+      ],
+      "anclas": 3,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "i3objetivoestablecerlasdisposicionesaplicablesalaelaboracionyejecuciondeproyectosbajoesquemasparaeldesarrollomixtodelacfeasicomoalosprocedimientosdeseleccion"
+    },
+    {
+      "id": "e2be1db4-7be5-5f9b-841c-810026d768fc",
+      "fragmento": "Apartado I.4 Ámbito de aplicación",
+      "paginasPdf": [
+        69
+      ],
+      "paginasImpresas": [
+        69
+      ],
+      "anclas": 2,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "i4ambitodeaplicacionlospresenteslineamientossondeaplicaciongeneralyobservanciaobligatoriaparalacfe"
+    },
+    {
+      "id": "bdcc3b80-7aa0-54e8-8303-8efe5b3052af",
+      "fragmento": "Apartado I.5 Responsabilidades inherentes al presente documento e instancias de autorización",
+      "paginasPdf": [
+        69
+      ],
+      "paginasImpresas": [
+        69
+      ],
+      "anclas": 24,
+      "tablas": 1,
+      "celdas": 22,
+      "prefijoCotejado": "i5responsabilidadesinherentesalpresentedocumentoeinstanciasdeautorizacioninstanciaresponsabilidadcacfeaprobartitulardeladirecciongeneraldecfeproponeralcacfedaelaboraryactualizardfelaboraryactualizarccpeeelaboraractualiza"
+    },
+    {
+      "id": "f84bc809-17c6-5526-956d-3c195256faab",
+      "fragmento": "Apartado I.6 Interpretación y casos no previstos",
+      "paginasPdf": [
+        69
+      ],
+      "paginasImpresas": [
+        69
+      ],
+      "anclas": 5,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "i6interpretacionycasosnoprevistoslainterpretaciondelospresenteslineamientosasicomolaresoluciondeloscasosnoprevistosenlosmismoscorrespondealadfyaladaporconductodelasubdirecciondeevaluaciondeproyectosdeinversionylasubdirec"
+    },
+    {
+      "id": "ab6f1d95-e7ce-5c1b-8ca2-e96a30a3987d",
+      "fragmento": "Apartado I.7 Marco jurídico",
+      "paginasPdf": [
+        69
+      ],
+      "paginasImpresas": [
+        69
+      ],
+      "anclas": 3,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "i7marcojuridicoarticulos1115fraccionesviiixxxiiyxxxiiidelalepecfey363839y40delalseasicomolosarticulos68a88delrlse"
+    },
+    {
+      "id": "3039190d-0489-5d8c-bec0-1a08d1c53aaf",
+      "fragmento": "Apartado II.1 Elaboración, Decisión y Aprobación de los Proyectos bajo Esquemas para el Desarrollo Mixto",
+      "paginasPdf": [
+        69,
+        70
+      ],
+      "paginasImpresas": [
+        69,
+        70
+      ],
+      "anclas": 66,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "seccioniilineamientosgeneralesii1elaboraciondecisionyaprobaciondelosproyectosbajoesquemasparaeldesarrollomixtoii11paralaaprobaciondelosproyectosbajoesquemasparaeldesarrollomixtoporpartedelcacfeserequierepreviamentelaelab"
+    },
+    {
+      "id": "1aab3b25-de8f-5baa-8cb8-e69ec87b8ebe",
+      "fragmento": "Apartado II.2 Grupo de Desarrollo Mixto",
+      "paginasPdf": [
+        70,
+        71
+      ],
+      "paginasImpresas": [
+        70,
+        71
+      ],
+      "anclas": 53,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "ii2grupodedesarrollomixtoii21elgdmtienecomoobjetivoelaborarlosdocumentossoporteytomarlasdecisionesrespectodelproyectobajoesquemaparaeldesarrollomixtodequesetrateasimismoverificaquedichosdocumentoscuentenconunaadecuadadef"
+    },
+    {
+      "id": "bbe300ca-8b8e-52c9-9899-98c3b7f3f2b8",
+      "fragmento": "Apartado III.1 Consideraciones",
+      "paginasPdf": [
+        71
+      ],
+      "paginasImpresas": [
+        71
+      ],
+      "anclas": 25,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "seccioniiilineamientosespecificosiii1consideracionesiii11enlaelaboraciondeldocumentosoportesedebeanalizarlaposibilidaddeofreceralaspersonasparticulareslautilizaciondelosrecursosmaterialesdeinfraestructuratecnologicosproc"
+    },
+    {
+      "id": "4e47a128-dc0a-5331-9f6c-72ba3dbf7db4",
+      "fragmento": "Apartado III.2 Modelo Económico Financiero",
+      "paginasPdf": [
+        71,
+        72,
+        73
+      ],
+      "paginasImpresas": [
+        71,
+        72,
+        73
+      ],
+      "anclas": 165,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii2modeloeconomicofinancieroiii21elmodeloeconomicofinancierodebeintegrartodaslasvariableseconomicasfinancierasytecnicasparademostrarqueelproyectobajoelesquemaparaeldesarrollomixtogeneraunarentabilidadpositivaydebeformar"
+    },
+    {
+      "id": "7d69ee44-1113-58ea-b089-5ae52c852afa",
+      "fragmento": "Apartado III.3 Requerimientos Técnicos y Operativos",
+      "paginasPdf": [
+        73,
+        74
+      ],
+      "paginasImpresas": [
+        73,
+        74
+      ],
+      "anclas": 60,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii3requerimientostecnicosyoperativosiii31lasoluciontecnicayoperativaqueseestablezcaparaelesquemaparaeldesarrollomixtodebeconsiderarelcumplimientodelosprincipiosycriteriosdeaccesibilidadcalidadconfiabilidadcontinuidadefi"
+    },
+    {
+      "id": "bf7e628d-c760-59a3-bbfd-253f22293af6",
+      "fragmento": "Apartado III.4 Evaluación Económica",
+      "paginasPdf": [
+        74
+      ],
+      "paginasImpresas": [
+        74
+      ],
+      "anclas": 14,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii4evaluacioneconomicaiii41laevaluacioneconomicadeunesquemaparaeldesarrollomixtodebesermodeladaconbaseenlainformaciondisponibleelcalculodegeneraciondeenergiaelectricayproductosasociadosesperadoslosrecursoseconomicosdisp"
+    },
+    {
+      "id": "07df3f7e-2259-59a2-ae57-1da617f93966",
+      "fragmento": "Apartado III.5 Mecanismo de Pago",
+      "paginasPdf": [
+        74
+      ],
+      "paginasImpresas": [
+        74
+      ],
+      "anclas": 4,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii5mecanismodepagoiii51lospagosdentrodelosproyectospuedenrealizarseatravesdefideicomisosasociacionesenparticipacionsociedadesmercantilesocualquierotrovehiculojuridicoofinanciero"
+    },
+    {
+      "id": "bd5d3218-bf77-518e-8ab6-acfaf32ea1da",
+      "fragmento": "Apartado III.6 Contenido de los Contratos o Instrumentos Jurídicos de los Proyectos bajo Esquemas para el Desarrollo Mixto",
+      "paginasPdf": [
+        74,
+        75,
+        76
+      ],
+      "paginasImpresas": [
+        74,
+        75,
+        76
+      ],
+      "anclas": 104,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii6contenidodeloscontratosoinstrumentosjuridicosdelosproyectosbajoesquemasparaeldesarrollomixtoiii61losmodelosdecontratosoinstrumentosjuridicosdebenserelaboradosporelareacontratanteconelapoyodelasareascompetentesasimism"
+    },
+    {
+      "id": "2888cac9-fa4c-536c-a11c-02a8638f9463",
+      "fragmento": "Apartado III.7 Seguimiento",
+      "paginasPdf": [
+        76
+      ],
+      "paginasImpresas": [
+        76
+      ],
+      "anclas": 34,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii7seguimientoiii71elgdmdebenombrarparacadaproyectoaunsupervisorelcualdebeserservidorpublicodelacfequiendebeteneraccesoalosdocumentosqueconformanelproyectoalprocedimientodeseleccionyalcontratooinstrumentojuridicoparadar"
+    },
+    {
+      "id": "05d77755-ab16-526c-b5a8-6bc50dc04a12",
+      "fragmento": "Apartado III.8 Terminación",
+      "paginasPdf": [
+        76,
+        77
+      ],
+      "paginasImpresas": [
+        76,
+        77
+      ],
+      "anclas": 24,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iii8terminacioniii81cuandodurantelavigenciadelproyectobajoesquemadeinversionmixtaseactualicealgunadelascausalesdeterminacionorescisionprevistasenelcontratooinstrumentojuridicoelareacompetentedeberealizarunaevaluaciontecn"
+    },
+    {
+      "id": "4905e806-bf48-51bd-98c7-a3dd5cb04c89",
+      "fragmento": "Apartado IV.1 Disposiciones Generales",
+      "paginasPdf": [
+        77
+      ],
+      "paginasImpresas": [
+        77
+      ],
+      "anclas": 40,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "seccionivlineamientosparaelprocedimientodeseleccioniv1disposicionesgeneralesiv11elprocedimientodeselecciondebellevarseacaboconformealoestablecidoenlospresenteslineamientoslasbasesdelconcursolasolicituddepropuestaydemasno"
+    },
+    {
+      "id": "bd5f22fb-a74b-5c38-9a68-cde7e6a3d316",
+      "fragmento": "Apartado IV.2 Procedimiento de Selección por licitación pública",
+      "paginasPdf": [
+        77,
+        78,
+        79,
+        80
+      ],
+      "paginasImpresas": [
+        77,
+        78,
+        79,
+        80
+      ],
+      "anclas": 206,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iv2procedimientodeseleccionporlicitacionpublicaparaelprocedimientodeseleccionmediantelicitacionpublicaelareacontratantedebeemitirlasbasesdeconcursoclarasyespecificassinquedireccionenelresultadodelprocedimientodeseleccion"
+    },
+    {
+      "id": "1bd17440-01f3-5195-93fe-789587031aff",
+      "fragmento": "Apartado IV.3 Procedimiento de Selección por invitación restringida",
+      "paginasPdf": [
+        80,
+        81
+      ],
+      "paginasImpresas": [
+        80,
+        81
+      ],
+      "anclas": 45,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iv3procedimientodeseleccionporinvitacionrestringidaiv31cfepuedeutilizarelprocedimientodeseleccionporinvitacionrestringidaenlossiguientescasos1cuandoseencuentreenriesgolaconfiabilidadseguridadysostenibilidaddelsenconforme"
+    },
+    {
+      "id": "26be98b5-79c4-5466-af80-0c26d70606af",
+      "fragmento": "Apartado IV.4 Procedimiento de Selección por proceso competitivo para adjudicación",
+      "paginasPdf": [
+        81,
+        82,
+        83
+      ],
+      "paginasImpresas": [
+        81,
+        82,
+        83
+      ],
+      "anclas": 111,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iv4procedimientodeseleccionporprocesocompetitivoparaadjudicacionlacfepuedeutilizarelprocedimientodeseleccionporprocesocompetitivoparaadjudicacionenlosmismossupuestosestablecidosparalainvitacionrestringidaiv41losprocedimi"
+    },
+    {
+      "id": "3e83e46c-e0b7-5ae8-9635-59edac31bdbf",
+      "fragmento": "Apartado IV.5 Procedimiento de Selección por adjudicación directa",
+      "paginasPdf": [
+        83
+      ],
+      "paginasImpresas": [
+        83
+      ],
+      "anclas": 49,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "iv5procedimientodeseleccionporadjudicaciondirectaparallevaracaboesteprocedimientodeseleccionserequierequeelareacontratanteverifiquepreviamentequelapersonaparticularinvitadacuentacondebidadiligenciaviablelacfepuedellevara"
+    },
+    {
+      "id": "ddf69a43-8154-5062-9c5b-bf2858bd764b",
+      "fragmento": "Apartado V.1 Disposiciones Generales",
+      "paginasPdf": [
+        83,
+        84
+      ],
+      "paginasImpresas": [
+        83,
+        84
+      ],
+      "anclas": 15,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "seccionvpersonastestigossocialesv1disposicionesgeneralesv11laspersonastestigossocialesdebenparticiparenlosprocedimientosdeseleccionv12elgdmdebepreverlosrecursosnecesariosparacubrirlascontraprestacionesdelapersonatestigos"
+    },
+    {
+      "id": "b91d5812-ad1d-5b03-8fa8-690eee537fb9",
+      "fragmento": "Apartado V.2 Solicitud y Designación de la Persona Testigo Social",
+      "paginasPdf": [
+        84
+      ],
+      "paginasImpresas": [
+        84
+      ],
+      "anclas": 12,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "v2solicitudydesignaciondelapersonatestigosocialv21paraladesignaciondeunapersonatestigosocialenunprocedimientodeseleccionelareacontratantelosolicitaporescritoalaauditoriainternaalmenoscon15quincediashabilesanterioresalafe"
+    },
+    {
+      "id": "3edff278-551d-59af-ab30-d8e4da22dfa6",
+      "fragmento": "Apartado V.3 Obligaciones de la Persona Testigo Social",
+      "paginasPdf": [
+        84
+      ],
+      "paginasImpresas": [
+        84
+      ],
+      "anclas": 24,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "v3obligacionesdelapersonatestigosocialv31lasobligacionesdelapersonatestigosocialqueparticipaenunprocedimientodeseleccionsonentreotraslassiguientes1atestiguardemaneraintegralelprocedimientodeseleccionconresponsabilidadobj"
+    },
+    {
+      "id": "3576d089-a420-5a61-9fa0-ff660f3fa328",
+      "fragmento": "Apartado V.4 Testimonio Final de la Persona Testigo Social",
+      "paginasPdf": [
+        84
+      ],
+      "paginasImpresas": [
+        84
+      ],
+      "anclas": 22,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "v4testimoniofinaldelapersonatestigosocialv41eltestimoniofinalqueemitalapersonatestigosocialdebecontenerporlomenoslosiguiente1datosgeneralesdelprocedimientodeseleccion2descripcioncronologicadeloshechosrelevantesdelprocedi"
+    },
+    {
+      "id": "58dd04bf-5f36-5c1f-90ac-12600a9f2742",
+      "fragmento": "Transitorio Primera",
+      "paginasPdf": [
+        84
+      ],
+      "paginasImpresas": [
+        84
+      ],
+      "anclas": 5,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "disposicionestransitoriasprimeralospresenteslineamientosentranenvigoralmomentodeseraprobadosporelconsejodeadministraciondelacfeysurtiranplenosefectosalinteriordelaempresapublicadelestadocomisionfederaldeelectricidadysuse"
+    },
+    {
+      "id": "b03a98ce-a73a-5d61-bef2-e5b442e13d68",
+      "fragmento": "Transitorio Segunda",
+      "paginasPdf": [
+        84
+      ],
+      "paginasImpresas": [
+        84
+      ],
+      "anclas": 2,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "segundadentrodelos15quincediashabilessiguientesalaentradaenvigordelospresenteslineamientoselgdmdebecelebrarsusesiondeinstalacion"
+    },
+    {
+      "id": "b82cece3-796e-5ca7-84fe-ef58cb6f4688",
+      "fragmento": "Firma y publicación",
+      "paginasPdf": [
+        84
+      ],
+      "paginasImpresas": [
+        84
+      ],
+      "anclas": 3,
+      "tablas": 0,
+      "celdas": 0,
+      "prefijoCotejado": "ciudaddemexicoaveinticuatrodediciembrededosmilveinticincocomisionfederaldeelectricidaddirectorageneralmtraemiliaesthercallejaalorrubricar572248"
+    }
+  ]
+}

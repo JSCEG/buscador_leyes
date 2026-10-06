@@ -498,6 +498,25 @@ it('serves only the reviewed October 3, 2025 DOF evening issue PDF for REFORMA-R
     expect(fetcher).not.toHaveBeenCalled();
 });
 
+it('serves only the reviewed January 28, 2026 DOF morning issue PDF for CFE mixed-development guidelines', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/28-01-2026/Matutina/325425';
+    const fetcher = vi.fn(async () => upstream());
+    const response = await serveReaderPdf(request('desarrollo-mixto-cfe'), 'desarrollo-mixto-cfe', {
+        sources: { 'desarrollo-mixto-cfe': { ...source, originalUrl } }, fetcher,
+    });
+    expect(response.status).toBe(200);
+    expect(new Uint8Array(await response.arrayBuffer())).toEqual(bytes);
+    fetcher.mockClear();
+    for (const url of [originalUrl.replace('325425', '325426'), originalUrl.replace('Matutina', 'Vespertina'),
+        originalUrl.replace('sidof.segob.gob.mx', 'sidofqa.segob.gob.mx'), originalUrl + '?url=https://outside.test']) {
+        expect((await serveReaderPdf(request('desarrollo-mixto-cfe'), 'desarrollo-mixto-cfe', {
+            sources: { 'desarrollo-mixto-cfe': { ...source, originalUrl: url } }, fetcher,
+        })).status).toBe(404);
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+});
+
 it('serves only the reviewed September 10, 2026 DOF issue PDF for CONV-GEN-2-M4', async () => {
     vi.stubGlobal('crypto', webcrypto);
     const originalUrl = 'https://sidof.segob.gob.mx/notas/getNewsletter/10-09-2026/Matutina/329565';

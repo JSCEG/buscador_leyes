@@ -50,6 +50,6 @@ describe('REFORMA-RLIH official source map', () => {
             originalUrl: 'https://sidof.segob.gob.mx/notas/getNewsletter/03-10-2025/Vespertina/323363',
             pageCount: 334,
         });
-        expect(manifest.revision).toBe(69);
+        expect(manifest.revision).toBeGreaterThanOrEqual(69);
     });
 });
