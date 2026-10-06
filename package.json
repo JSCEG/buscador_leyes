@@ -4,7 +4,7 @@
   "description": "Buscador de Leyes Energía - SENER",
   "scripts": {
     "dev": "node generate-manifest.js && vite",
-    "build": "node generate-manifest.js && vite build",
+    "build": "node generate-manifest.js && vite build && node scripts/minify-reader-manifest.mjs",
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint .",
