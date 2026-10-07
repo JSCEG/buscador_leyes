@@ -8,4 +8,4 @@ El lector solicita el PDF oficial mediante el proxy aprobado del proyecto; el PD
 
 La Norma remite sus anexos I, II y III, la Guía de implementación y materiales del SIM al Portal del SNIEG; esos documentos complementarios no forman parte de la publicación de cinco páginas de la norma y deberán inventariarse como publicaciones separadas si aparecen en el radar.
 
-Estado: 18 fragmentos en Supabase, todos con FTS y mapa verificado. Manifiesto local del lector: revisión 76. Pendiente publicar el commit en Cloudflare y comprobar el PDF remoto desde la versión pública.
+Estado: 18 fragmentos en Supabase, todos con FTS y mapa verificado. Manifiesto del lector: revisión 76. Commit `677bfd1` desplegado en Cloudflare. El manifiesto público contiene los 18 mapas y el proxy respondió HTTP 200 con la huella SHA-256 coincidente.
