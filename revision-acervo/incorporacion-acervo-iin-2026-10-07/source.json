@@ -1,0 +1,59 @@
+{
+  "id": "snieg-acervo-iin-2015-5fd7a53acfee",
+  "title": "Reglas del Acervo de IIN · SNIEG · reforma 3 de septiembre de 2015",
+  "instrumentIds": [
+    "e68d19f8-3f7c-5f17-b2df-c3c484eb5ecc"
+  ],
+  "sha256": "5fd7a53acfee65904e615df1cd43ae6c95369e03c0e379204fc1dbb0c0187c64",
+  "transport": "remote-pdf",
+  "pdfUrl": "/api/reader/snieg-acervo-iin-2015-5fd7a53acfee",
+  "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/ACUERDO_Reglas_para_el_AcervoIIN.pdf",
+  "pageCount": 9,
+  "pages": [
+    {
+      "number": 1,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 2,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 3,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 4,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 5,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 6,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 7,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 8,
+      "width": 612.0,
+      "height": 792.0
+    },
+    {
+      "number": 9,
+      "width": 612.0,
+      "height": 792.0
+    }
+  ]
+}

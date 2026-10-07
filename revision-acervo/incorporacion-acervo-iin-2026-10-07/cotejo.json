@@ -1,0 +1,23 @@
+{
+  "sha256": "5fd7a53acfee65904e615df1cd43ae6c95369e03c0e379204fc1dbb0c0187c64",
+  "bytes": 788779,
+  "paginas": 9,
+  "fragmentos": 43,
+  "articulos": 36,
+  "transitorios": 6,
+  "anclas": 358,
+  "fuenteVigencia": "https://www.snieg.mx/scn-vigente/",
+  "nota": "Cada párrafo procede de líneas completas del PDF, con sus coordenadas exactas. Se excluyen portada, pies repetidos y certificación de firmas final; la certificación se conserva aquí para cotejo, no como documento relacionado.",
+  "certificacion": [
+    "Las Reglas para la Integración y Administración del Acervo de Información de Interés Nacional, se aprobaron",
+    "en términos del Acuerdo No.10ª./XI/2014, en la Décima Sesión de 2014 de la Junta de Gobierno del Instituto",
+    "Nacional de Estadística y Geografía, celebrada el 11 de noviembre de dos mil catorce.- Presidente, Eduardo",
+    "Sojo Garza Aldape; Vicepresidentes: Enrique de Alba Guerra, Rolando Ocampo Alcántar, Mario Palma",
+    "Rojo y Félix Vélez Fernández Varela.",
+    "Aguascalientes, Ags., a 13 de noviembre de 2014.- Hace constar lo anterior el Director General Adjunto de",
+    "Asuntos Jurídicos, Jorge Ventura Nevares, en ejercicio de la atribución que le confiere lo dispuesto por la",
+    "fracción IV, del artículo 46 del Reglamento Interior del Instituto Nacional de Estadística y Geografía.- Rúbrica.",
+    "(R.- 403207)"
+  ],
+  "resumen": "Regula la integración y administración del Acervo de Información de Interés Nacional y la conservación de los datos, metadatos y metodologías. Establece responsabilidades del INEGI y de las Unidades del Estado, la Red de Resguardo, los nodos, la plataforma informática y la seguridad de la información."
+}

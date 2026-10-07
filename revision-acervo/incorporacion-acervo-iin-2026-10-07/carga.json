@@ -1,0 +1,534 @@
+{
+  "ley": {
+    "id": "e68d19f8-3f7c-5f17-b2df-c3c484eb5ecc",
+    "titulo": "Acuerdo por el que se establecen las Reglas para la integración y administración del Acervo de Información de Interés Nacional",
+    "siglas": "RACERVO-IIN",
+    "fecha_publicacion": "2014-12-04",
+    "fecha_ultima_reforma": "2015-09-03",
+    "vigente": true,
+    "temas_clave": [
+      "SNIEG",
+      "INEGI",
+      "Información de Interés Nacional",
+      "Acervo",
+      "Conservación",
+      "Resguardo"
+    ],
+    "url_original": "https://www.snieg.mx/Documentos/Normatividad/Vigente/ACUERDO_Reglas_para_el_AcervoIIN.pdf",
+    "tipo": "acuerdo"
+  },
+  "articulos": [
+    {
+      "id": "2a5d8a4b-c3d1-52cc-8e85-b9dd6c9f2eee",
+      "identificador": "Preámbulo",
+      "contenido": "<p>INSTITUTO NACIONAL DE ESTADISTICA Y GEOGRAFIA ACUERDO por el que se establecen las Reglas para la integración y administración del Acervo de Información de Interés Nacional. Al margen un sello con el Escudo Nacional, que dice: Estados Unidos Mexicanos.- Instituto Nacional de Estadística y Geografía.- Junta de Gobierno. Con fundamento en lo dispuesto en el apartado B del artículo 26 de la Constitución Política de los Estados Unidos Mexicanos, artículos: 4 fracción IV, 55 fracciones I y II; 77 fracción VIII, y 96 de la Ley del Sistema Nacional de Información Estadística y Geográfica; 5 fracciones VIII y XXIX del Reglamento Interior del Instituto Nacional de Estadística y Geografía y Regla Primera fracción III, Vigésima Octava y Vigésima Octava bis de las Reglas para la determinación de la Información de Interés Nacional, y</p><p>CONSIDERANDO</p><p>Que de conformidad con la Ley, el Sistema Nacional de Información Estadística y Geográfica tiene como objetivos producir, difundir, promover y conservar la Información de Interés Nacional.</p><p>Que se considera como Información de Interés Nacional la señalada en el artículo 59 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG), así como aquella que la Junta de Gobierno determine como tal, de acuerdo con lo establecido en los artículos 77 fracción II y 78 de dicha Ley.</p><p>Que el Instituto Nacional de Estadística y Geografía debe conservar la Información de Interés Nacional que elaboren el propio Instituto y las Unidades del Estado, en términos de lo dispuesto en la LSNIEG y en las disposiciones de carácter general que al efecto emita.</p><p>Que cuando una Unidad del Estado desaparezca o se desincorpore, el Instituto debe conservar la Información generada por la misma.</p><p>Que las Unidades del Estado distintas al Instituto, cuando desarrollen actividades relacionadas con la producción, integración, conservación y difusión de Información de Interés Nacional, deben resguardarla y conservarla, así como los metadatos, las metodologías, y sus especificaciones concretas de aplicación, en la forma y términos que señale el Instituto</p><p>Que la Red Nacional de Información es el conjunto de procesos de intercambio y resguardo de información, para apoyar por un lado las actividades de coordinación del Sistema y de sus Subsistemas y por otro la prestación del Servicio Público de Información a toda la sociedad.</p><p>Que la Información de Interés Nacional se conserva en el repositorio del Acervo administrado por el Instituto, para lo que se implementa con las Unidades del Estado que la producen, la Red de Resguardo de Información perteneciente a la Red Nacional de Información.</p><p>Que corresponde al Instituto, como Unidad Central Coordinadora del Sistema, normar y coordinar las actividades para la integración y administración del Acervo de Información de Interés Nacional, generada por las Unidades del Estado.</p><p>Que para normar la conformación del Acervo y las correspondientes actividades para el resguardo y conservación de la Información de Interés Nacional producida por las Unidades del Estado que forman parte del Sistema Nacional de Información Estadística y Geográfica, la Junta de Gobierno del Instituto Nacional de Estadística y Geografía ha tenido a bien emitir las siguientes: Reglas para la integración y administración del Acervo de Información de Interés Nacional</p>",
+      "tipo_articulo": "preambulo",
+      "orden": 1,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": null,
+      "seccion_nombre": null
+    },
+    {
+      "id": "c2f8fe3b-dbfd-503f-8aaf-84a51132d4f8",
+      "identificador": "Artículo 1",
+      "contenido": "<p>Artículo 1. Las presentes Reglas tienen por objeto establecer las disposiciones para normar y coordinar la integración y administración del Acervo de Información de Interés Nacional.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 2,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo I · Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "284c76be-880c-5046-b436-efc5d530b749",
+      "identificador": "Artículo 2",
+      "contenido": "<p>Artículo 2. Estas Reglas son de observancia general y obligatoria para las Unidades del Estado, incluyendo el Instituto Nacional de Estadística y Geografía, que desarrollen actividades relacionadas con la producción, integración, resguardo y conservación de la Información de Interés Nacional.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 3,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo I · Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "ceff0ac6-0b78-5e29-8fbf-1769cee79dea",
+      "identificador": "Artículo 3",
+      "contenido": "<p>Artículo 3. Para la comprensión de las presentes Reglas se entenderá por:</p><p>I. Acervo de Información o Acervo.- Conjunto de Información de Interés Nacional que ya ha sido difundida por el Servicio Público de Información, así como sus metadatos, metodologías y/o especificaciones concretas de la aplicación de las metodologías utilizadas en su generación;</p><p>II. Actividades Estadísticas y Geográficas o Actividades.- Las relativas al diseño, captación, producción, actualización, organización, procesamiento, integración, compilación, publicación, divulgación y conservación de la Información de Interés Nacional;</p><p>III. Conservación de la Información.- Conjunto de procedimientos y medidas para asegurar la preservación de datos del Acervo y prevenir la ocurrencia de alteraciones físicas en sus medios de almacenamiento;</p><p>IV. Coordinador del Acervo o Coordinador.- El Director General de Coordinación del SNIEG;</p><p>V. Copia útil.- Es aquella que se encuentre identificada, estructurada y almacenada en los medios y formatos que establezca el Instituto para el respaldo de la Información de Interés Nacional de las Unidades del Estado que formará parte del Acervo, a la cual se puede acceder directamente para su consulta y/o procesamiento utilizando los medios electrónicos existentes, sin que haya afectaciones a la integridad de sus contenidos;</p><p>VI. Documentación.- Conjunto de documentos que acompañan a la Información de Interés Nacional en su conservación y resguardo: metadatos, metodologías y/o especificaciones concretas de la aplicación de las metodologías utilizadas en su elaboración;</p><p>VII. Especificaciones concretas de la aplicación de las metodologías.- Se refiere a la descripción del contenido metodológico y elementos complementarios a éste, indispensables para la producción e interpretación de la Información, tales como clasificadores, instrumentos de captación, diccionarios de datos, glosarios, entre otros;</p><p>VIII. Información de Interés Nacional, Información o IIN.- A la señalada en el artículo 59 de la Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG), así como aquella que la Junta de Gobierno determine como tal, de acuerdo con lo establecido en los artículos 77 fracción II y 78 de dicha Ley;</p><p>IX. INEGI o Instituto.- Al Instituto Nacional de Estadística y Geografía;</p><p>X. Junta de Gobierno.- A la Junta de Gobierno del INEGI;</p><p>XI. LSNIEG.- A la Ley del Sistema Nacional de Información Estadística y Geográfica;</p><p>XII. Metadatos.- Descripción estandarizada de las características de un grupo de datos estadísticos o geográficos;</p><p>XIII. Metodología.- Procedimiento que ordena y articula el conjunto particular de actividades necesarias para producir información estadística y/o geográfica;</p><p>XIV. Nodo Central.- Sistema informático para facilitar la administración y acceso del repositorio digital creado por el INEGI en donde se conserva y resguarda el Acervo de IIN;</p><p>XV. Nodo de la Unidad del Estado o Nodo.- Sistema informático para facilitar la administración y acceso del repositorio digital creado por cada Unidad del Estado en donde se conserva, resguarda y actualiza su Información de Interés Nacional y su documentación;</p><p>XVI. Plataforma Informática del Acervo.- Conjunto de definiciones técnicas y de recursos de hardware y software para la integración, resguardo, conservación y consulta del Acervo de Información por medios electrónicos, en el que se estandarizan y estructuran en un sistema, al Nodo Central y a los Nodos de las Unidades de Estado para atender, bajo la coordinación del Instituto, a los objetivos y requerimientos de la Red de Resguardo de Información de Interés Nacional;</p><p>XVII. Red de Resguardo de Información de Interés Nacional o Red de Resguardo: Red distribuida a través de la cual cada Unidad de Estado y el propio Instituto, se apoyarán para vincularse y coordinarse a fin de integrar, conservar y resguardar el Acervo de IIN;</p><p>XVIII. Red Nacional de Información.- Conjunto de procesos de intercambio y resguardo de información, para apoyar por un lado las actividades de coordinación del Sistema y de sus Subsistemas y por otro la prestación del Servicio Público de Información a toda la sociedad;</p><p>XIX. Reglas.- A las presentes Reglas para la integración y administración del Acervo de Información de Interés Nacional;</p><p>XX. Repositorio.- Sistema electrónico de almacenamiento de información;</p><p>XXI. Resguardo de la Información.- Protección de la Información y su documentación, que se implementa en los nodos, contra accesos no autorizados, alteraciones, daños físicos, pérdida total o parcial, entre otros;</p><p>XXII. Responsable de la IIN.- Servidor público designado por cada Unidad del Estado generadora de IIN, responsable de la conservación y resguardo de la misma;</p><p>XXIII. Responsable Informático.- Servidor público designado por cada Unidad del Estado generadora de IIN, responsable de otorgar las condiciones informáticas adecuadas para la conservación y resguardo de la información;</p><p>XXIV. Seguridad de la Información.- Capacidad de preservar la Confidencialidad, Integridad y Disponibilidad de la Información a partir de la implementación de medidas técnicas y organizativas;</p><p>XXV. Sistema Nacional de Información Estadística y Geográfica o SNIEG.- Al conjunto de Unidades organizadas a través de los Subsistemas, coordinadas por el INEGI y articuladas mediante la Red Nacional de Información, con el propósito de producir y difundir la Información de Interés Nacional;</p><p>XXVI. Sitio del Acervo de Información de Interés Nacional.- Aplicación informática desarrollada y gestionada centralmente por el INEGI, como coordinador del Sistema, para la difusión de las metodologías y metadatos de la IIN;</p><p>XXVII. Unidades del Estado o UE.- Las áreas administrativas que cuentan con atribuciones para desarrollar Actividades Estadísticas y Geográficas o que cuentan con registros administrativos que permitan obtener Información de Interés Nacional de:</p><p>a) Las dependencias y entidades de la Administración Pública Federal, incluyendo a las de la Presidencia de la República y de la Procuraduría General de la República.</p><p>b) Los Poderes Legislativo y Judicial de la Federación.</p><p>c) Las entidades federativas y los municipios.</p><p>d) Los organismos constitucionales autónomos.</p><p>e) Los tribunales administrativos federales. Cuando el Instituto genere Información se considerará como Unidad del Estado para efectos de la Ley del Sistema Nacional de Información Estadística y Geográfica.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 4,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo I · Disposiciones Generales",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a6b262da-1d68-5e38-bed6-f95cadfccf15",
+      "identificador": "Artículo 4",
+      "contenido": "<p>Artículo 4. El Instituto integrará el Acervo con la Información de Interés Nacional establecida en la LSNIEG y la que haya determinado como tal la Junta de Gobierno.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 5,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "7f8080e0-4fc0-5f2d-950f-5c425c5eb7a3",
+      "identificador": "Artículo 5",
+      "contenido": "<p>Artículo 5. El objetivo de la integración del Acervo es conservar y resguardar la Información de Interés Nacional generada por las Unidades del Estado, así como su documentación, mediante la organización de las UE en la Red de Resguardo conforme lo establece este ordenamiento.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 6,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "a75dffa4-a35b-58ec-8851-1c7ce2199128",
+      "identificador": "Artículo 6",
+      "contenido": "<p>Artículo 6. El Acervo se conformará por:</p><p>I. La información generada antes de la entrada en vigor de la Ley y que por acuerdo de la Junta de Gobierno se determinó su integración al Acervo. Fracción reformada DOF 03-09-2015</p><p>II. La Información que la Junta de Gobierno determine como de Interés Nacional con posterioridad a la entrada en vigor de la LSNIEG y que haya sido publicada con carácter definitivo.</p><p>III. Las metodologías y especificaciones concretas utilizadas en su aplicación para la producción de la IIN, así como los metadatos elaborados conforme a la norma técnica correspondiente.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 7,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "d6cd69d1-86c6-5f35-8ef1-9f4c99854ca5",
+      "identificador": "Artículo 7",
+      "contenido": "<p>Artículo 7. Cada Unidad del Estado deberá conservar y resguardar la Información de Interés Nacional que genera, así como la documentación relacionada y las actualizaciones que realice.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 8,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "436a825c-a889-507b-b883-56ea6a650aa1",
+      "identificador": "Artículo 8",
+      "contenido": "<p>Artículo 8. El Coordinador será responsable del proceso de integración y administración del Acervo, mediante la articulación de las Unidades del Estado que cuenten con IIN, conforme a lo dispuesto en estas Reglas. Del avance de este proceso deberá integrar un informe anual.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 9,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "3bb14008-f040-535c-9567-8c9fcf804cc8",
+      "identificador": "Artículo 9",
+      "contenido": "<p>Artículo 9. Cada Unidad del Estado, así como cada Unidad Administrativa del Instituto, que genere IIN deberá designar a un Responsable de la conservación y resguardo de la IIN y la documentación correspondiente, quien fungirá como enlace con el Coordinador para atender cualquier requerimiento sobre la integración y actualización del Acervo. El Responsable de la IIN deberá tener al menos el nivel de Director de área o su homólogo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 10,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "0354b7ea-512a-5479-9f30-50be3078aef0",
+      "identificador": "Artículo 10",
+      "contenido": "<p>Artículo 10. Cada Unidad del Estado deberá designar un Responsable Informático, el cual verificará que se generen y mantengan las condiciones adecuadas para su uso los archivos digitales, los medios de almacenamiento y cualquier otro dispositivo de cómputo y comunicaciones que contengan a la IIN.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 11,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "a4a3704c-a314-5ef3-ad3e-def502568dc0",
+      "identificador": "Artículo 11",
+      "contenido": "<p>Artículo 11. Los Responsables Informáticos deberán atender las medidas que defina el Instituto y aquellas que determine cada Unidad del Estado en materia de seguridad de la información, para conservar y resguardar la IIN, en coordinación con el Responsable de la IIN.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 12,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "ad56f5c6-aee8-594f-b7b2-20c628d853b6",
+      "identificador": "Artículo 12",
+      "contenido": "<p>Artículo 12. Para el caso del Instituto, además de lo anterior, el Responsable Informático será también el encargado de verificar que se mantengan en condiciones adecuadas para su uso los archivos, los medios de almacenamiento y cualquier otro dispositivo de cómputo y comunicaciones del repositorio central del Acervo; así como los derivados de cambios tecnológicos que impacten la operatividad.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 13,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "880507b6-3461-579d-a33d-feb368b421ae",
+      "identificador": "Artículo 13",
+      "contenido": "<p>Artículo 13. Para la integración del Acervo de Información de Interés Nacional, el Instituto determinará el esquema de entrega-recepción de la Unidad del Estado que la produce, en donde se deberá considerar:</p><p>I. La especificación de los contenidos a incluir, así como la estandarización de sus estructuras, medios y formatos, y</p><p>II. La ejecución del proceso de incorporación y actualización de Información en el repositorio central del Acervo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 14,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "e46b0209-d9a3-5095-b282-a89391765414",
+      "identificador": "Artículo 14",
+      "contenido": "<p>Artículo 14. Las Unidades del Estado a través del Responsable de la IIN, en coordinación con su Responsable Informático, deberán de llevar a cabo el proceso de incorporación y actualización de su Información digital en su repositorio, el cual consistirá en:</p><p>I. Depositar en su repositorio la IIN que generen, así como su documentación;</p><p>II. Actualizar en su repositorio la IIN conforme al Calendario del Acervo que acuerde con el Coordinador, con las fechas de publicación de la Información definitiva;</p><p>III. En caso de que se generen ajustes en la IIN definitiva, deberá incorporar la nueva Información, adicionalmente a aquella que ya haya sido depositada, incluyendo la justificación correspondiente en los metadatos de la misma e informando al Coordinador sobre el ajuste aplicado;</p><p>IV. Revisar y verificar los contenidos y estructura de la información depositada en su repositorio;</p><p>V. Aplicar los procedimientos informáticos que para el caso se hayan definido;</p><p>VI. Proporcionar al Coordinador dentro de los diez días hábiles posteriores a su depósito o actualización, copia de la información que haya integrado en su repositorio, en los formatos y medios que hayan sido convenidos, tomando en cuenta los criterios que emita el Instituto para  tal efecto.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 15,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "240be84a-4ea0-5a23-8b3b-39afd4a416d6",
+      "identificador": "Artículo 15",
+      "contenido": "<p>Artículo 15. Tanto la entrega - recepción de la información digital que formará parte del Acervo, como la conformación de los repositorios y nodos, se hará con base en lo determinado por el Instituto a través de los documentos siguientes:</p><p>I. Criterios y estándares técnicos y conceptuales para la conservación y resguardo de la IIN;</p><p>II. Medidas de conservación y resguardo de la IIN, y</p><p>III. Esquema de entrega-recepción de la IIN.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 16,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De la integración del Acervo de IIN"
+    },
+    {
+      "id": "558b2da4-50f0-5e69-aea8-e4e0c02c137c",
+      "identificador": "Artículo 16",
+      "contenido": "<p>Artículo 16. La conservación de la IIN tiene como objetivo preservar la misma para asegurar su disponibilidad actual y futura.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 17,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección II · De la Conservación de la Información de Interés Nacional"
+    },
+    {
+      "id": "ecb7c7ed-8861-5721-9542-91b610981aba",
+      "identificador": "Artículo 17",
+      "contenido": "<p>Artículo 17. El Instituto es responsable de asegurar la conservación permanente tanto de la IIN, como de la documentación respectiva en el repositorio central del Acervo, para ello la Unidad del Estado que la produce deberá incluir:</p><p>I. Los nombres de los productos digitales, información, metodologías y metadatos, que se deberán incorporar, así como sus características:</p><p>a) Formato de documento, si se trata de un formato propietario adicionalmente deberá entregarse en al menos un formato abierto y estándar;</p><p>b) Bases de datos;</p><p>c) Tablas publicadas en páginas de la IIN, conforme a lo establecido en el Acuerdo que determinó la IIN;</p><p>d) Mapas;</p><p>e) Sistemas de información y sus bases de datos, y</p><p>f) Otro tipo de producto.</p><p>II. Las referencias temporales iniciales para la IIN: fecha o periodo de referencia a partir de los que cada proyecto deberá conservarse en el Acervo. Deberá ser congruente con lo que cada Unidad del Estado presentó en el formato de propuesta de IIN ante la Junta de Gobierno y fue aprobada;</p><p>III. La identificación de las publicaciones desde la referencia inicial hasta el momento de su incorporación al Acervo;</p><p>IV. La estimación de la disponibilidad de la siguiente publicación de datos con carácter definitivo para su incorporación al calendario de actualización del Acervo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 18,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección II · De la Conservación de la Información de Interés Nacional"
+    },
+    {
+      "id": "1ebdaa0c-3a1b-5dea-b2da-de179f0dd0ef",
+      "identificador": "Artículo 18",
+      "contenido": "<p>Artículo 18. La Unidad del Estado deberá respaldar su Información y la documentación correspondiente en su repositorio y mantener copias útiles de ésta.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 19,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección II · De la Conservación de la Información de Interés Nacional"
+    },
+    {
+      "id": "9b548278-60d9-5ab1-ab25-2fae24c23484",
+      "identificador": "Artículo 19",
+      "contenido": "<p>Artículo 19. El resguardo de la IIN incorporada al Acervo será a través de la aplicación de las medidas de seguridad de la información para la protección contra accesos no autorizados, alteraciones, daños físicos, pérdida total o parcial, entre otros.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 20,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección III · Del Resguardo de la Información de Interés Nacional"
+    },
+    {
+      "id": "0b684a5a-4868-5ceb-a061-e61b8ab730e7",
+      "identificador": "Artículo 20",
+      "contenido": "<p>Artículo 20. Cada Unidad del Estado, será responsable de resguardar la IIN que genere y la documentación correspondiente, asegurando la integridad de la misma.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 21,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección III · Del Resguardo de la Información de Interés Nacional"
+    },
+    {
+      "id": "3610ee56-ad56-5e88-87be-ab1b67e59e68",
+      "identificador": "Artículo 21",
+      "contenido": "<p>Artículo 21. Para el resguardo de la Información, las Unidades del Estado deberán aplicar medidas de seguridad en congruencia con las disposiciones legales o normativas vigentes en su ámbito de competencia y aquellas que se emitan en el marco del SNIEG.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 22,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo II · Del Acervo de Información de Interés Nacional",
+      "seccion_nombre": "Sección III · Del Resguardo de la Información de Interés Nacional"
+    },
+    {
+      "id": "38866bd4-4f99-5c02-b01d-57f8fa1b78a4",
+      "identificador": "Artículo 22",
+      "contenido": "<p>Artículo 22. La Red de Resguardo de Información de Interés Nacional o Red de Resguardo, es una red distribuida, a través de la cual cada Unidad de Estado y el propio Instituto, se apoyarán para vincularse y coordinarse a fin de integrar, conservar y resguardar el Acervo de IIN, esta red está compuesta por:</p><p>I. La IIN y la documentación correspondiente, organizadas temáticamente;</p><p>II. Las disposiciones normativas, incluidas las Reglas y los documentos que deriven de ellas, a fin de regular el funcionamiento y la participación de las Unidades del Estado en la integración del Acervo;</p><p>III. El conjunto de responsables de la IIN e informáticos en los nodos central y de las Unidades del Estado que deberán estar registrados en un directorio actualizado por el Coordinador.</p><p>IV. La Plataforma Informática que proporcionará los medios tecnológicos que contribuyan a atender los objetivos y requerimientos de la Red de Resguardo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 23,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo III · Red de Resguardo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De los Elementos de la Red de Resguardo de Información de Interés Nacional"
+    },
+    {
+      "id": "7abe4025-f61a-5b06-a4a2-b8c0914bdaa4",
+      "identificador": "Artículo 23",
+      "contenido": "<p>Artículo 23. El Instituto implementará la Red de Resguardo conforme a las Reglas y aquellas otras disposiciones normativas aplicables.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 24,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo III · Red de Resguardo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De los Elementos de la Red de Resguardo de Información de Interés Nacional"
+    },
+    {
+      "id": "b9656a8e-10fd-549d-903b-0f529841530c",
+      "identificador": "Artículo 24",
+      "contenido": "<p>Artículo 24. La Red de Resguardo deberá contar con un directorio de los Responsables de la IIN y de los Responsables Informáticos de las Unidades de Estado, así como con un directorio de los nodos que se van integrando a la Red de Resguardo. Las Unidades del Estado tendrán un plazo de 30 días naturales para notificar al Instituto cualquier cambio realizado.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 25,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo III · Red de Resguardo de Información de Interés Nacional",
+      "seccion_nombre": "Sección I · De los Elementos de la Red de Resguardo de Información de Interés Nacional"
+    },
+    {
+      "id": "8f42163e-4d98-51d6-9420-1e5ef4795b2b",
+      "identificador": "Artículo 25",
+      "contenido": "<p>Artículo 25. El Coordinador, en colaboración con la Dirección General Adjunta de Informática del Instituto, conducirá el proceso para la implementación y operación de los Nodos y determinará los criterios y estándares técnicos y conceptuales aplicables.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 26,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo III · Red de Resguardo de Información de Interés Nacional",
+      "seccion_nombre": "Sección II · De los Nodos"
+    },
+    {
+      "id": "6a9969ac-4f20-59bd-96ed-485c7ccf689f",
+      "identificador": "Artículo 26",
+      "contenido": "<p>Artículo 26. Los Responsables de la IIN en coordinación con los Responsables Informáticos de cada Nodo, llevarán a cabo el proceso para la implementación y operación de los Nodos, el cual consiste en:</p><p>I. La creación, operación y administración de un Nodo Central;</p><p>II. La creación, operación y administración de un Nodo en cada Unidad del Estado;</p><p>III. La incorporación de la IIN y documentación correspondiente a los repositorios de cada Unidad del Estado;</p><p>IV. La aplicación de criterios y estándares técnicos y conceptuales en los Nodos;</p><p>V. La conexión y comunicación de cada Nodo con el Nodo Central, y</p><p>VI. La ejecución de las medidas de conservación y resguardo del Acervo de la IIN.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 27,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo III · Red de Resguardo de Información de Interés Nacional",
+      "seccion_nombre": "Sección II · De los Nodos"
+    },
+    {
+      "id": "f91c9e82-b7c7-5d23-a895-98acdcd4715f",
+      "identificador": "Artículo 27",
+      "contenido": "<p>Artículo 27. El Instituto y las Unidades del Estado serán responsables de establecer los esquemas y procedimientos para administrar la seguridad del su Nodo y de la Información que éste contenga, incluidos los mecanismos físicos y lógicos para mantener el control del acceso a usuarios autorizados a los componentes de hardware y software de la plataforma informática y a los medios que contengan información del Acervo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 28,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo IV · De la Administración de la seguridad en la Red de Resguardo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "fb9ba711-7861-55e1-9d57-bf81fa37f9d4",
+      "identificador": "Artículo 28",
+      "contenido": "<p>Artículo 28. El Responsable de la IIN en coordinación con su Responsable Informático deberá generar y mantener al menos una copia útil para el respaldo de toda la información que haya sido depositada en su repositorio.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 29,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo IV · De la Administración de la seguridad en la Red de Resguardo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "04216f9d-4dd6-5bf3-bea9-0a2f518e6390",
+      "identificador": "Artículo 29",
+      "contenido": "<p>Artículo 29. El Coordinador en conjunto con el Responsable Informático del Instituto deberá observar lo dispuesto en el artículo anterior en lo que se refiere al Nodo Central del Acervo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 30,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo IV · De la Administración de la seguridad en la Red de Resguardo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a9d5974d-456b-524e-9080-e559022d642b",
+      "identificador": "Artículo 30",
+      "contenido": "<p>Artículo 30. Cada copia útil para el respaldo deberá ser revisada al menos una vez al año por los responsables de su generación y mantenimiento, a los que se refieren los artículos 9 y 10, para asegurar que se encuentren vigentes y óptimas para cumplir con su propósito, y en su caso generar nuevos respaldos para subsanar errores detectados en alguna de las copias.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 31,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo IV · De la Administración de la seguridad en la Red de Resguardo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "0cd4b703-5ed6-54be-8013-e80bc358f5e7",
+      "identificador": "Artículo 31",
+      "contenido": "<p>Artículo 31. El Instituto y cada una de las Unidades del Estado serán responsables de incorporar en su plataforma informática los mecanismos y componentes de hardware y software necesarios para dar soporte tanto a su repositorio como a su Nodo.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 32,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo V · De la Plataforma Informática",
+      "seccion_nombre": null
+    },
+    {
+      "id": "c037fc44-4f27-551a-a49b-bd6a2d4e6e6c",
+      "identificador": "Artículo 32",
+      "contenido": "<p>Artículo 32. El Instituto y cada una de las Unidades del Estado deberán incorporar y mantener actualizados en su plataforma informática los mecanismos y componentes de hardware y software para proteger contra amenazas informáticas como el acceso, modificación, destrucción o copiado, no autorizados a la Información de las Unidades del Estado, así como la documentación correspondiente.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 33,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo V · De la Plataforma Informática",
+      "seccion_nombre": null
+    },
+    {
+      "id": "0cbb7ac5-b986-566e-b8d9-471e27c5291a",
+      "identificador": "Artículo 33",
+      "contenido": "<p>Artículo 33. La habilitación de la plataforma informática por parte de las Unidades del Estado para dar soporte a su repositorio o a su Nodo, estará sujeta a disponibilidad presupuestal; debiendo realizar, en su caso, las gestiones correspondientes para disponer del presupuesto necesario para ello.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 34,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo V · De la Plataforma Informática",
+      "seccion_nombre": null
+    },
+    {
+      "id": "844ff373-a163-5f4c-81cc-0ba76efc97b2",
+      "identificador": "Artículo 34",
+      "contenido": "<p>Artículo 34. Por parte del Instituto, El Coordinador del Acervo de IIN se encargará de emitir normas, lineamientos y criterios para la administración del Acervo de IIN, incluidas las correspondientes a seguridad de la información que se mencionan en el artículo 15.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 35,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo VI · De la Administración del Acervo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "aa9b07b2-c2c2-53f3-ae9a-7dc26c336a64",
+      "identificador": "Artículo 35",
+      "contenido": "<p>Artículo 35. El Instituto implementará y administrará el Sitio del Acervo de IIN para la difusión de las metodologías y metadatos de la IIN, a fin de atender lo dispuesto en la Ley.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 36,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo VI · De la Administración del Acervo",
+      "seccion_nombre": null
+    },
+    {
+      "id": "a5970126-cc37-5c45-8903-ca4179153d3b",
+      "identificador": "Artículo 36",
+      "contenido": "<p>Artículo 36. La aplicación e interpretación de las Reglas, para efectos administrativos corresponderá a la Dirección General de la Coordinación de Sistema Nacional de Información Estadística y Geográfica, la cual resolverá los casos no previstos por las mismas.</p>",
+      "tipo_articulo": "ordinario",
+      "orden": 37,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Capítulo VII · Interpretación",
+      "seccion_nombre": null
+    },
+    {
+      "id": "d3861075-e013-58fd-bf6d-fa067ef74af6",
+      "identificador": "Transitorio Primero",
+      "contenido": "<p>Primero. Las presentes Reglas entrarán en vigor al día siguiente de su publicación en el Diario Oficial de la Federación.</p>",
+      "tipo_articulo": "transitorio",
+      "orden": 38,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "63d6af87-94a3-5a13-ba22-d057ccac2a86",
+      "identificador": "Transitorio Segundo",
+      "contenido": "<p>Segundo. Los documentos a que hace referencia el artículo15 de las Reglas deberán ser emitidos por la Dirección General de Coordinación del SNIEG del Instituto en un plazo no mayor de 60 días hábiles a partir de la publicación de este ordenamiento.</p>",
+      "tipo_articulo": "transitorio",
+      "orden": 39,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "893716ee-9d9f-5dd3-9f35-9837de6b2e14",
+      "identificador": "Transitorio Tercero",
+      "contenido": "<p>Tercero. Las Unidades del Estado deberán incorporar a su repositorio la Información de Interés Nacional que generen y proporcionar una copia útil al repositorio central del Acervo, en un plazo no mayor a 180 días naturales a partir de la publicación de las presentes Reglas, conforme al procedimiento establecido en artículo 14.</p>",
+      "tipo_articulo": "transitorio",
+      "orden": 40,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "8df1426c-be4d-5d16-9ee1-748a8da37402",
+      "identificador": "Transitorio Cuarto",
+      "contenido": "<p>Cuarto. Las Unidades del Estado contarán con un año a partir de la publicación de las Reglas para poner en operación los Nodos a los que hacen referencia. En caso de generar nueva IIN contarán con 180 días naturales a partir de su aprobación.</p>",
+      "tipo_articulo": "transitorio",
+      "orden": 41,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "52040d8f-49ea-50b5-8daf-d90f45263340",
+      "identificador": "Transitorio Quinto",
+      "contenido": "<p>Quinto. Para facilitar la aplicación de las Reglas, las Unidades del Estado podrán solicitar la asesoría correspondiente al Instituto.</p>",
+      "tipo_articulo": "transitorio",
+      "orden": 42,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    },
+    {
+      "id": "61c830e0-cb9e-5031-88b6-427aa114398a",
+      "identificador": "Transitorio Sexto",
+      "contenido": "<p>Sexto. Las Unidades del Estado que ya generen Información de Interés Nacional deberán designar al servidor público que fungirá como responsable de la IIN en un plazo de 30 días hábiles a partir de la publicación de las Reglas.</p>",
+      "tipo_articulo": "transitorio",
+      "orden": 43,
+      "titulo_nombre": "Reglas del Acervo de IIN",
+      "capitulo_nombre": "Transitorios",
+      "seccion_nombre": null
+    }
+  ],
+  "source": {
+    "id": "snieg-acervo-iin-2015-5fd7a53acfee",
+    "title": "Reglas del Acervo de IIN · SNIEG · reforma 3 de septiembre de 2015",
+    "instrumentIds": [
+      "e68d19f8-3f7c-5f17-b2df-c3c484eb5ecc"
+    ],
+    "sha256": "5fd7a53acfee65904e615df1cd43ae6c95369e03c0e379204fc1dbb0c0187c64",
+    "transport": "remote-pdf",
+    "pdfUrl": "/api/reader/snieg-acervo-iin-2015-5fd7a53acfee",
+    "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/ACUERDO_Reglas_para_el_AcervoIIN.pdf",
+    "pageCount": 9,
+    "pages": [
+      {
+        "number": 1,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 2,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 3,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 4,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 5,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 6,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 7,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 8,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "number": 9,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ]
+  },
+  "auditoria": {
+    "sha256": "5fd7a53acfee65904e615df1cd43ae6c95369e03c0e379204fc1dbb0c0187c64",
+    "bytes": 788779,
+    "paginas": 9,
+    "fragmentos": 43,
+    "articulos": 36,
+    "transitorios": 6,
+    "anclas": 358,
+    "fuenteVigencia": "https://www.snieg.mx/scn-vigente/",
+    "nota": "Cada párrafo procede de líneas completas del PDF, con sus coordenadas exactas. Se excluyen portada, pies repetidos y certificación de firmas final; la certificación se conserva aquí para cotejo, no como documento relacionado.",
+    "certificacion": [
+      "Las Reglas para la Integración y Administración del Acervo de Información de Interés Nacional, se aprobaron",
+      "en términos del Acuerdo No.10ª./XI/2014, en la Décima Sesión de 2014 de la Junta de Gobierno del Instituto",
+      "Nacional de Estadística y Geografía, celebrada el 11 de noviembre de dos mil catorce.- Presidente, Eduardo",
+      "Sojo Garza Aldape; Vicepresidentes: Enrique de Alba Guerra, Rolando Ocampo Alcántar, Mario Palma",
+      "Rojo y Félix Vélez Fernández Varela.",
+      "Aguascalientes, Ags., a 13 de noviembre de 2014.- Hace constar lo anterior el Director General Adjunto de",
+      "Asuntos Jurídicos, Jorge Ventura Nevares, en ejercicio de la atribución que le confiere lo dispuesto por la",
+      "fracción IV, del artículo 46 del Reglamento Interior del Instituto Nacional de Estadística y Geografía.- Rúbrica.",
+      "(R.- 403207)"
+    ],
+    "resumen": "Regula la integración y administración del Acervo de Información de Interés Nacional y la conservación de los datos, metadatos y metodologías. Establece responsabilidades del INEGI y de las Unidades del Estado, la Red de Resguardo, los nodos, la plataforma informática y la seguridad de la información."
+  }
+}
