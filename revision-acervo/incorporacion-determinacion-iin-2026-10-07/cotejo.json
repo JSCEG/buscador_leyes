@@ -1,0 +1,22 @@
+{
+  "sha256": "5b55b0295f2107c066354a0bfd4de970dc8e67b3fd9f42c5d452c3b95557335f",
+  "bytes": 679597,
+  "paginas": 9,
+  "fragmentos": 42,
+  "articulos": 37,
+  "transitorios": 4,
+  "anclas": 372,
+  "fuenteVigencia": "https://www.snieg.mx/scn-vigente/",
+  "nota": "Cada párrafo procede de líneas completas del PDF, con sus coordenadas exactas. Se excluyen portada, pies repetidos y certificación de firmas final; la certificación se conserva aquí para cotejo, no como documento relacionado.",
+  "certificacion": [
+    "Las presentes Reglas fueron aprobadas en términos del Acuerdo 3ª/X/2018, aprobado en la Tercera Sesión",
+    "2018 de la Junta de Gobierno del Instituto Nacional de Estadística y Geografía, celebrada el 22 de marzo de",
+    "dos mil dieciocho.- Presidente: Julio Alfonso Santaella Castell, Vicepresidentes: Enrique de Alba Guerra,",
+    "Paloma Merodio Gómez y Mario Palma Rojo.",
+    "Ciudad de México, a 2 de abril de 2018.- Hace constar lo anterior el Coordinador General de Asuntos",
+    "Jurídicos, Jorge Ventura Nevares, en ejercicio de la atribución que le confiere lo dispuesto por la fracción IV,",
+    "del artículo 46 del Reglamento Interior del Instituto Nacional de Estadística y Geografía.- Rúbrica.",
+    "(R.- 465068)"
+  ],
+  "resumen": "Establece los criterios y procedimientos para proponer y determinar Información de Interés Nacional. Regula la participación de las Unidades del Estado, los Comités Técnicos Especializados y Ejecutivos, el Consejo Consultivo Nacional y la Junta de Gobierno del INEGI, así como revisión, revocación, nuevos temas, difusión y conservación. Abroga las reglas publicadas el 3 de septiembre de 2015."
+}

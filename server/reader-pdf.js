@@ -2,6 +2,7 @@ import sourcesById from './reader-pdf-sources.json';
 
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
+    'https://www.snieg.mx/Documentos/Normatividad/Vigente/Reglas_Determinacion_Informacion_Interes_Nacional.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Vigente/ACUERDO_Reglas_para_el_AcervoIIN.pdf',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22052025-VES.pdf&repo=',
     'https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf',
