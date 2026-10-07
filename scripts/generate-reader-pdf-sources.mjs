@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const manifestPath = resolve('public/reader-sources/manifest.v1.json');
@@ -20,5 +20,7 @@ const sources = Object.fromEntries(
 );
 
 if (!Object.keys(sources).length) throw new Error('Reader manifest contains no remote PDF sources.');
-writeFileSync(outputPath, `${JSON.stringify(sources)}\n`);
+const nextOutputPath = `${outputPath}.next`;
+writeFileSync(nextOutputPath, `${JSON.stringify(sources)}\n`);
+renameSync(nextOutputPath, outputPath);
 console.log(`Generated ${Object.keys(sources).length} compact reader PDF source records.`);

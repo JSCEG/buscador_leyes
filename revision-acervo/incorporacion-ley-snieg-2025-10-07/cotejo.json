@@ -1,0 +1,1483 @@
+{
+  "instrumento": "LSNIEG",
+  "instrumentId": "9ddee653-dfae-5c29-a4c9-5075417d4495",
+  "fuente": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSNIEG.pdf",
+  "ultimaReforma": "2025-11-14",
+  "sha256": "bf18e4d51b4f44e741ab550e298f712a350ab08eec94061489aba7745c1aaeab",
+  "bytes": 826923,
+  "paginas": 67,
+  "fragmentos": [
+    {
+      "id": "96acf909-c013-5aee-b27c-84fd0116bd5a",
+      "fragmento": "Artículo 1",
+      "paginasPdf": [
+        1
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo1lapresenteleyreglamentariadelapartadobdelarticulo26delaconstitucionpoliticadelosestadosunidosmexicanosesdeordenpublicodeinteressocialydeobservanciageneralentodalarepublica",
+      "tokensTexto": 485
+    },
+    {
+      "id": "6f481c34-fef3-557c-8242-2637b1966157",
+      "fragmento": "Artículo 2",
+      "paginasPdf": [
+        1,
+        2,
+        3
+      ],
+      "anclas": 69,
+      "prefijoCotejado": "articulo2paraefectosdeestaleyseentenderaporiactividadesestadisticasygeograficasoactividadeslasrelativasaldisenocaptacionproduccionactualizacionorganizacionprocesamientointegracionc",
+      "tokensTexto": 2962
+    },
+    {
+      "id": "927b460b-ca4b-5d4f-b112-17fd37e5159a",
+      "fragmento": "Artículo 3",
+      "paginasPdf": [
+        3
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo3elsistemanacionaldeinformacionestadisticaygeograficatienelafinalidaddesuministraralasociedadyalestadoinformaciondecalidadpertinenteverazyoportunaaefectodecoadyuvaraldesarr",
+      "tokensTexto": 281
+    },
+    {
+      "id": "fd5361b3-ce77-5f66-a0a0-9cd83beec97c",
+      "fragmento": "Artículo 4",
+      "paginasPdf": [
+        3
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo4elsistemanacionaldeinformacionestadisticaygeograficatendracomoobjetivosiproducirinformacioniidifundiroportunamentelainformacionatravesdemecanismosquefacilitensuconsultaiii",
+      "tokensTexto": 246
+    },
+    {
+      "id": "39c94e00-198b-5911-9645-7e8ef62f205e",
+      "fragmento": "Artículo 5",
+      "paginasPdf": [
+        3
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo5elsistemanacionaldeinformacionestadisticaygeograficaestaraintegradoporielconsejoconsultivonacionaliilossubsistemasnacionalesdeinfor",
+      "tokensTexto": 161
+    },
+    {
+      "id": "7f5cf3c8-5857-5234-ada9-622f7f58a6d5",
+      "fragmento": "Artículo 6",
+      "paginasPdf": [
+        3
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo6lainformaciondeinteresnacionalseraoficialydeusoobligatorioparalafederacionlasentidadesfederativaslosmunicipiosylasdemarcacionesterritorialesdelaciudaddemexicoparraforeform",
+      "tokensTexto": 339
+    },
+    {
+      "id": "b43edb4a-3753-5c5d-a384-6995b4fd5b25",
+      "fragmento": "Artículo 7",
+      "paginasPdf": [
+        3,
+        4
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "articulo7laorganizacionlaplaneacionelfuncionamientoylacoordinaciondeactividadesestadisticasygeograficasasicomolaevaluaciondelosresultadosdelsistemasesujetaranaestaleyalosprogramasp",
+      "tokensTexto": 560
+    },
+    {
+      "id": "afb13dca-e6c9-5d56-9cc3-2da8f228e1f1",
+      "fragmento": "Artículo 8",
+      "paginasPdf": [
+        4
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo8lasunidadesdelestadoparticiparanenelsistemaatravesdeielconsejoconsultivonacionaliiloscomitesejecutivosdelossubsistemasyiiiloscomitestecnicosespecializadoselinstitutodebera",
+      "tokensTexto": 313
+    },
+    {
+      "id": "62a3ea39-dfac-5eef-9860-d22d72d1ca37",
+      "fragmento": "Artículo 9",
+      "paginasPdf": [
+        4
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo9laordenacionyregulaciondelasactividadesnecesariasparalaplaneacionprogramacionproduccionydifusiondelainformaciondeinteresnacionalsellevaraacaboatravesdelosinstrumentossigui",
+      "tokensTexto": 808
+    },
+    {
+      "id": "4592b325-1110-5b66-b903-3a85eaee0bd7",
+      "fragmento": "Artículo 10",
+      "paginasPdf": [
+        4,
+        5
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "articulo10elprogramaestrategicodelsistemanacionaldeinformacionestadisticaygeograficaitendraunaproyecciondealmenos24anosydeberaserrevisadoyactualizadoporlajuntadegobiernocadaseisano",
+      "tokensTexto": 743
+    },
+    {
+      "id": "f7ec0c2f-870a-5798-b716-fd0cd8713508",
+      "fragmento": "Artículo 11",
+      "paginasPdf": [
+        5
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo11elprogramanacionaldeestadisticaygeografiaiseraelaboradocadaseisanosencongruenciaconelprogramaestrategicodelsistemanacionaldeinformacionestadisticaygeograficayconelplannac",
+      "tokensTexto": 871
+    },
+    {
+      "id": "016c01f8-4444-5746-9c4b-a5b0eb03a677",
+      "fragmento": "Artículo 12",
+      "paginasPdf": [
+        5
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo12elprogramaanualdeestadisticaygeografiadeberaelaborarsetomandoenconsideracionlodispuestoenelprogramaestrategicodelsistemanacionaldeinformacionestadisticaygeograficayenelpr",
+      "tokensTexto": 518
+    },
+    {
+      "id": "210327a6-693e-56e7-a57d-71e26480c357",
+      "fragmento": "Artículo 13",
+      "paginasPdf": [
+        5
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo13elinstitutoproporcionaraalasautoridadescompetenteslainformaciondeinteresnacionalqueserequieraparalaelaboraciondelplannacionaldedes",
+      "tokensTexto": 175
+    },
+    {
+      "id": "bf1794f0-ef29-5ebe-a9f0-63b8370155d4",
+      "fragmento": "Artículo 14",
+      "paginasPdf": [
+        5,
+        6
+      ],
+      "anclas": 42,
+      "prefijoCotejado": "articulo14elconsejoconsultivonacionalestaraintegradoporielpresidentedelinstitutoiiunrepresentantedecadasecretariadeestadodelaadministracionpublicafederaliiiunrepresentantedelpoderj",
+      "tokensTexto": 1577
+    },
+    {
+      "id": "28484b86-e783-595b-8aea-40f780b034ea",
+      "fragmento": "Artículo 15",
+      "paginasPdf": [
+        6
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo15elconsejoconsultivonacionaldeberaiopinarsobrelosproyectosdelosprogramasaqueserefiereelarticulo9deestaleyiiproponerlostemaslainformacionylosindicadoresquedeconformidadconl",
+      "tokensTexto": 442
+    },
+    {
+      "id": "3c599544-3c7b-57ca-a69b-cc972674942e",
+      "fragmento": "Artículo 16",
+      "paginasPdf": [
+        6,
+        7
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "articulo16elconsejoconsultivonacionalserapresididoporelpresidentedelinstitutoyfungiracomosecretariotecnicoelservidorpublicodelinstitutoqueaqueldetermineelconsejosereunirademaneraor",
+      "tokensTexto": 866
+    },
+    {
+      "id": "09de4b7c-5686-5d29-b764-0af85449627d",
+      "fragmento": "Artículo 17",
+      "paginasPdf": [
+        7
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "articulo17elsistemacontaraconlossiguientessubsistemasnacionalesdeinformacionidemograficaysocialiieconomicafraccionreformadadof25062018iiigeograficaydelmedioambienteyfraccionreforma",
+      "tokensTexto": 739
+    },
+    {
+      "id": "a41fdc69-2286-50b3-83c3-ff4da96bb084",
+      "fragmento": "Artículo 18",
+      "paginasPdf": [
+        7
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo18enelacuerdodecreaciondeunsubsistemaconformealultimoparrafodelarticuloanteriorlajuntadegobiernodeberasenalarcomominimosuinfraestructuradeinformacionlosindicadoresclavequed",
+      "tokensTexto": 285
+    },
+    {
+      "id": "0623d27c-9907-5241-9cb9-271c1fa1fd3b",
+      "fragmento": "Artículo 19",
+      "paginasPdf": [
+        7
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo19formaranpartedelossubsistemasloscomitesejecutivosdeinformaciondemograficaysocialdeinformacioneconomicadeinformaciongeograficadelmedioambienteydeinformaciondegobiernosegur",
+      "tokensTexto": 408
+    },
+    {
+      "id": "092cf39c-8f02-52f7-9c71-2203679c713a",
+      "fragmento": "Artículo 20",
+      "paginasPdf": [
+        7
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo20elsubsistemanacionaldeinformaciondemograficaysocialcontaraconunainfraestructuradeinformacionquecontengacomominimounmarcogeoestadis",
+      "tokensTexto": 176
+    },
+    {
+      "id": "ef2c42c2-0ac4-5fff-9f47-f1ef94ca0500",
+      "fragmento": "Artículo 21",
+      "paginasPdf": [
+        7,
+        8
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo21elsubsistemanacionaldeinformaciondemograficaysocialdeberagenerarunconjuntodeindicadoresclavequeatenderancomominimolostemassiguientespoblacionydinamicademograficasaludeduc",
+      "tokensTexto": 256
+    },
+    {
+      "id": "716d8d3b-6368-5b82-9316-f9dd05a58394",
+      "fragmento": "Artículo 22",
+      "paginasPdf": [
+        8
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo22elinstitutoelaboraraconlacolaboraciondelasunidadeslosindicadoresaqueserefiereelarticuloanteriorapartirdelainformacionbasicaqueseobtengadeielcensonacionaldepoblacionyvivie",
+      "tokensTexto": 448
+    },
+    {
+      "id": "d01e2ae5-082a-52df-92fb-97d5178d5581",
+      "fragmento": "Artículo 23",
+      "paginasPdf": [
+        8
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo23elsubsistemanacionaldeinformacioneconomicacontaraconunainfraestructuradeinformacionquecontengacomominimounmarcogeoestadisticoyundirectorionacionaldeunidadeseconomicaseldi",
+      "tokensTexto": 400
+    },
+    {
+      "id": "a5e84e16-e57b-5fc2-bdb1-2c5dbc296931",
+      "fragmento": "Artículo 24",
+      "paginasPdf": [
+        8
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo24elsubsistemanacionaldeinformacioneconomicadeberagenerarunconjuntodeindicadoresclaverelacionadoscomominimoconlosiguientesistemadecuentasnacionalescienciaytecnologiainforma",
+      "tokensTexto": 209
+    },
+    {
+      "id": "e899bbf2-484e-5ec9-8630-51b684efe99a",
+      "fragmento": "Artículo 25",
+      "paginasPdf": [
+        8
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo25elinstitutoelaboraraconlacolaboraciondelasunidadeslosindicadoresaqueserefiereelarticuloanteriorapartirdelainformacionbasicaprovenientedeiloscensosnacionaleseconomicosyagr",
+      "tokensTexto": 471
+    },
+    {
+      "id": "d09dc189-5951-50d1-9929-f29162bf2cee",
+      "fragmento": "Artículo 26",
+      "paginasPdf": [
+        8,
+        9
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "articulo26elsubsistemanacionaldeinformaciongeograficaydelmedioambienteensucomponentegeograficogeneraracomominimolossiguientesgruposdedatosmarcodereferenciageodesicolimitescosterosi",
+      "tokensTexto": 992
+    },
+    {
+      "id": "092f1845-df69-5a3e-87e7-a2a55225a3d3",
+      "fragmento": "Artículo 27",
+      "paginasPdf": [
+        9
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo27elsubsistemanacionaldeinformaciongeograficaydelmedioambienteensucomponentedelmedioambienteprocuraradescribirelestadoylastendenciasdelmedioambienteconsiderandolosmediosnat",
+      "tokensTexto": 423
+    },
+    {
+      "id": "a1e902c7-eee4-5e25-a2f3-b6020f41874c",
+      "fragmento": "Artículo 28",
+      "paginasPdf": [
+        9,
+        10
+      ],
+      "anclas": 50,
+      "prefijoCotejado": "articulo28elinstitutoelaboraraconlacolaboraciondelasunidadeslosindicadoresaqueserefierenlosdosarticulosanterioresapartirdelainformacionbasicaprovenientedeielsistemanacionaldeinform",
+      "tokensTexto": 2619
+    },
+    {
+      "id": "85b0a63c-16e6-516c-b919-289762fb0151",
+      "fragmento": "Artículo 29",
+      "paginasPdf": [
+        10,
+        11
+      ],
+      "anclas": 40,
+      "prefijoCotejado": "articulo29cadasubsistemacontaraconuncomiteejecutivoqueseintegraraporunvicepresidentedelajuntadegobiernodesignadoporelpresidentedelinstitutoquienlopresidirayporloscoordinadoresdelas",
+      "tokensTexto": 2014
+    },
+    {
+      "id": "1c3fa8c9-c602-5680-a89b-7794e4f61c55",
+      "fragmento": "Artículo 30",
+      "paginasPdf": [
+        11
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "articulo30loscomitesejecutivostendranlasfacultadessiguientesidaraconoceralajuntadegobiernoatravesdesupresidentelasopinionesquetuvierensobreelproyectodeprogramaanualdeestadisticayge",
+      "tokensTexto": 1194
+    },
+    {
+      "id": "63f8c757-fc38-5dcf-95ab-005b068f997f",
+      "fragmento": "Artículo 31",
+      "paginasPdf": [
+        11,
+        12
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "articulo31loscomitestecnicosespecializadosseraninstanciascolegiadasdeparticipacionyconsultacreadosporacuerdodelajuntadegobiernointegradosporrepresentantesdelasunidadesydelinstituto",
+      "tokensTexto": 889
+    },
+    {
+      "id": "3e1e6696-a053-543c-bc9a-308329329030",
+      "fragmento": "Artículo 32",
+      "paginasPdf": [
+        12
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulo32loscomitestecnicosespecializadosalosqueserefiereelarticuloanteriortendranlasfuncionessiguientesipromoverentreloscoordinadoresdelasunidadeselconocimientoyaplicaciondelasno",
+      "tokensTexto": 562
+    },
+    {
+      "id": "43b5bc26-2617-5168-ab8b-535ae635d1c1",
+      "fragmento": "Artículo 33",
+      "paginasPdf": [
+        12,
+        13
+      ],
+      "anclas": 37,
+      "prefijoCotejado": "articulo33lasunidadesdelestadodistintasalinstitutocuandodesarrollenactividadesrelacionadasconlaproduccionintegracionconservacionydifusiondeinformaciondeinteresnacionaldeberaniobser",
+      "tokensTexto": 1830
+    },
+    {
+      "id": "c0ffb902-c2c2-534c-a581-a1a39c240ab5",
+      "fragmento": "Artículo 34",
+      "paginasPdf": [
+        13
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo34paraelcorrectofuncionamientoycoordinaciondelsistemasedesignaraauncoordinadorporcadagrupodeunidadescorrespondientesaunamismacamaralegislativafederalolocaldependenciaoentid",
+      "tokensTexto": 763
+    },
+    {
+      "id": "9f901fd6-79cd-5c03-8298-18e3fde050b4",
+      "fragmento": "Artículo 35",
+      "paginasPdf": [
+        13
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo35loscoordinadoresaqueserefiereelarticuloanteriortendranbajosuresponsabilidadiserelenlacedelgrupodeunidadesquecorrespondaconelinstitutoiiparticiparenloscomitesdelossubsiste",
+      "tokensTexto": 659
+    },
+    {
+      "id": "ca9bcfed-5a5c-5f60-a015-621b3cb25688",
+      "fragmento": "Artículo 36",
+      "paginasPdf": [
+        13,
+        14
+      ],
+      "anclas": 29,
+      "prefijoCotejado": "articulo36aefectodeapoyarenlacapacitacionyactualizaciondelosservidorespublicosdelasunidadesasicomoenlainvestigacionpermanenteentemasdeproduccionyanalisisdelainformacionelinstitutop",
+      "tokensTexto": 1041
+    },
+    {
+      "id": "7410e9fd-efdf-5599-84f3-327ecc956036",
+      "fragmento": "Artículo 37",
+      "paginasPdf": [
+        14
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo37losdatosqueproporcionenparafinesestadisticoslosinformantesdelsistemaalasunidadesenterminosdelapresenteleyseranestrictamenteconfidencialesybajoningunacircunstanciapodranut",
+      "tokensTexto": 362
+    },
+    {
+      "id": "2bf2a227-bda1-53f5-9c65-f5a5e62cfd02",
+      "fragmento": "Artículo 38",
+      "paginasPdf": [
+        14
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo38losdatoseinformesquelosinformantesdelsistemaproporcionenparafinesestadisticosyqueprovenganderegistrosadministrativosseranmanejadosobservandolosprincipiosdeconfidencialida",
+      "tokensTexto": 672
+    },
+    {
+      "id": "b2bf17cf-bfad-5bb6-be98-064c265c1f5f",
+      "fragmento": "Artículo 39",
+      "paginasPdf": [
+        14
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo39elinstitutorealizaralasaccionestendientesalograrquelosinformantesdelsistemaincurranenlosmenorescostosposiblesenlaentregadelainform",
+      "tokensTexto": 159
+    },
+    {
+      "id": "ff9d0571-1351-5d52-99cb-13792ede3a0a",
+      "fragmento": "Artículo 40",
+      "paginasPdf": [
+        14,
+        15
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "articulo40losinformantesdelsistemaaquienesselesrequierandatosestadisticosogeograficosdeberanserenteradosdeielcaracterobligatorioopotestativodesusrespuestasseguncorrespondaiilaoblig",
+      "tokensTexto": 698
+    },
+    {
+      "id": "f4c41fbb-ec5e-547c-a0e2-d713b663abae",
+      "fragmento": "Artículo 41",
+      "paginasPdf": [
+        15
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo41losinformantesdelsistemaensucasopodranexigirqueseanrectificadoslosdatosquelesconciernanparalocualdeberandemostrarquesoninexactosincompletosoequivocoscuandoprocedadeberaen",
+      "tokensTexto": 361
+    },
+    {
+      "id": "b35642b2-03ba-57a2-822e-2d614e38a1a9",
+      "fragmento": "Artículo 42",
+      "paginasPdf": [
+        15
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo42losinformantesdelsistemapodrandenunciarantelasautoridadesadministrativasyjudicialestodohechoocircunstanciadelquesederivequesehubierendesconocidolosprincipiosdeconfidencia",
+      "tokensTexto": 213
+    },
+    {
+      "id": "be192f45-ce2d-5695-a26f-199b502cef44",
+      "fragmento": "Artículo 43",
+      "paginasPdf": [
+        15
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo43lainformacionqueseaobtenidamedianteenganoocualquierotromedioilicitocareceradevalidezlosinformantesdelsistemadequienesbajoestascircunstanciassehubiereobtenidotalinformacio",
+      "tokensTexto": 423
+    },
+    {
+      "id": "d6d87218-c503-5587-83d0-5b88467875c7",
+      "fragmento": "Artículo 44",
+      "paginasPdf": [
+        15
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo44elinstitutocuandonocuenteconotrosmediostecnicosdecomprobacionovalidaciondelainformacionproporcionadaporlosinformantesdelsistemapodrarealizarinspeccionesdeverificacionenlo",
+      "tokensTexto": 687
+    },
+    {
+      "id": "6396ab3d-6529-54fa-9bca-8c98f4480721",
+      "fragmento": "Artículo 45",
+      "paginasPdf": [
+        15
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo45losinformantesdelsistemaestaranobligadosaproporcionarconveracidadyoportunidadlosdatoseinformesquelessolicitenlasautoridadescompetentesparafinesestadisticoscensalesygeogra",
+      "tokensTexto": 564
+    },
+    {
+      "id": "218a531f-e253-573f-b229-8f5091287efe",
+      "fragmento": "Artículo 46",
+      "paginasPdf": [
+        15,
+        16
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "articulo46lasunidadesestaranobligadasarespetarlaconfidencialidadyreservadelosdatosqueparafinesestadisticosproporcionenlosinformantesdelsistemalosservidorespublicosdelafederaciondel",
+      "tokensTexto": 983
+    },
+    {
+      "id": "37d0ee0a-43ce-5eea-8da1-1139a8516c97",
+      "fragmento": "Artículo 47",
+      "paginasPdf": [
+        16
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo47losdatosqueproporcionenlosinformantesdelsistemaseranconfidencialesenterminosdeestaleyydelasreglasgeneralesqueconformeaelladicteelinstitutolainformacionnoquedasujetaalaley",
+      "tokensTexto": 576
+    },
+    {
+      "id": "df55d17e-e46d-54df-922d-95c1fc50198c",
+      "fragmento": "Artículo 48",
+      "paginasPdf": [
+        16
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo48elinstitutoenelejerciciodelasfacultadesqueleconfiereestaleypodraefectuarinspeccionesparaverificarlaautenticidaddelainformacioncuandolosdatosproporcionadosseanincongruente",
+      "tokensTexto": 207
+    },
+    {
+      "id": "42b84c68-6b2d-5a44-9fe6-bce17bb70e89",
+      "fragmento": "Artículo 49",
+      "paginasPdf": [
+        16,
+        17
+      ],
+      "anclas": 30,
+      "prefijoCotejado": "articulo49lasinspeccionesdeverificacionaqueserefiereelarticuloanteriorsesujetaranalosiguienteisepracticaranporordenescritaqueexpresaraaelfundamentoymotivodesurealizacionbelnombrede",
+      "tokensTexto": 1302
+    },
+    {
+      "id": "7aeb9a42-3afa-5aea-a9f4-b0f9ae51ed43",
+      "fragmento": "Artículo 50",
+      "paginasPdf": [
+        17
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo50losinformantesdelsistemarespectodequienessehubiesenpracticadolosactosaqueserefiereelarticuloanteriorpodraninconformarseconloshechosasentadosenelactacorrespondientemediant",
+      "tokensTexto": 349
+    },
+    {
+      "id": "e1c96cef-d7e1-5a9a-81e2-5cd72e1ad5f3",
+      "fragmento": "Artículo 51",
+      "paginasPdf": [
+        17
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "articulo51lassolicitudesdeinformaciondeinteresnacionalqueformulengobiernosextranjerosuorganismosyagenciasinternacionalesalasdependenciasyentidadesdelaadministracionpublicafederalal",
+      "tokensTexto": 664
+    },
+    {
+      "id": "0eb378d1-9b4e-5768-8e1a-ad4f298f1739",
+      "fragmento": "Artículo 52",
+      "paginasPdf": [
+        17
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo52elinstitutoesconformealodispuestoenelapartadobdelarticulo26delaconstitucionpoliticadelosestadosunidosmexicanosunorganismopublicoconautonomiatecnicaydegestionpersonalidadj",
+      "tokensTexto": 351
+    },
+    {
+      "id": "c8768556-246f-5256-8b14-33a392d57c87",
+      "fragmento": "Artículo 53",
+      "paginasPdf": [
+        17
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo53elinstitutotendracomoobjetivoprioritariorealizarlasaccionestendientesalograrquelainformaciondeinteresnacionalsesujetealosprincipio",
+      "tokensTexto": 173
+    },
+    {
+      "id": "56a794cb-c21f-5f14-a293-5d38a115f402",
+      "fragmento": "Artículo 54",
+      "paginasPdf": [
+        17,
+        18
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "articulo54elinstitutoconformealosprincipiosconstitucionalesquerigenalsistemarealizaralasaccionestendientesalograrilaadecuacionconceptualdelainformaciondeinteresnacionalalasnecesida",
+      "tokensTexto": 427
+    },
+    {
+      "id": "01b5eeaa-b481-59bb-b2b7-10c4f206d55e",
+      "fragmento": "Artículo 55",
+      "paginasPdf": [
+        18
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulo55elinstitutoensucalidaddeunidadcentralcoordinadoradelsistematendralasfuncionessiguientesinormarycoordinarelsistemaasicomofomentarlasaccionesquepermitanmantenersuoperacione",
+      "tokensTexto": 648
+    },
+    {
+      "id": "61a2fb95-2a33-5a3f-bc70-77db578d0bde",
+      "fragmento": "Artículo 56",
+      "paginasPdf": [
+        18
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo56elinstitutoestableceraencoordinacionconlasunidadesuncatalogonacionaldeindicadoresajustandosealodispuestoenlosarticulos2225y28deest",
+      "tokensTexto": 144
+    },
+    {
+      "id": "d1e50bc2-38dd-5a8a-b62a-4b5e08a66f54",
+      "fragmento": "Artículo 57",
+      "paginasPdf": [
+        18
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo57elinstitutodeberaelaborarysometeraconsideraciondelcomiteejecutivocorrespondientelasnormastecnicasylasmetodologiasqueseannecesariaspararealizarlasactividadesestadisticasyg",
+      "tokensTexto": 365
+    },
+    {
+      "id": "cc44a1aa-5c71-5431-9b5c-753fba554c6b",
+      "fragmento": "Artículo 58",
+      "paginasPdf": [
+        18
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo58elinstitutoregularamediantelaexpediciondedisposicionesdecaractergenerallacaptacionprocesamientoypublicaciondelainformacionparaeldebidofuncionamientodelsistemaoautorizaral",
+      "tokensTexto": 665
+    },
+    {
+      "id": "533a1132-6546-55d5-a79b-99b96d75f004",
+      "fragmento": "Artículo 59",
+      "paginasPdf": [
+        18,
+        19
+      ],
+      "anclas": 21,
+      "prefijoCotejado": "articulo59elinstitutotendralassiguientesfacultadesexclusivasirealizarloscensosnacionalesiiintegrarelsistemadecuentasnacionalesyiiielaborarlosindicesnacionalesdepreciossiguientesain",
+      "tokensTexto": 729
+    },
+    {
+      "id": "5afd7c04-9cee-5d91-9916-1e1cdc30b25e",
+      "fragmento": "Artículo 60",
+      "paginasPdf": [
+        19
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo60soloconlaautorizaciondelinstitutoypreviaopinionfavorabledelasautoridadescompetenteslaspersonasfisicasomoralesnacionalespodrancaptarfotografiasaereasconcamarasmetricasoder",
+      "tokensTexto": 390
+    },
+    {
+      "id": "a49b7f9f-b084-5723-bac7-e72ee03b14ef",
+      "fragmento": "Artículo 61",
+      "paginasPdf": [
+        19
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo61laspersonasfisicasymoralesextranjerasrequeriranautorizaciondelinstitutoparaefectuaractividadestendientesaicaptarfotografiasaereasconcamarasmetricasodereconocimientoydeotr",
+      "tokensTexto": 875
+    },
+    {
+      "id": "ba145094-8281-5de7-8b69-f8a445a96fb1",
+      "fragmento": "Artículo 62",
+      "paginasPdf": [
+        19
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo62elinstitutopromoveralaadopciondemetodosynormastecnicasenlacaptaciondelosdatosobjetoderegistroencoordinacionconlasautoridadesalasquecompetaadministrardirectoriosdepersonas",
+      "tokensTexto": 324
+    },
+    {
+      "id": "833bbc78-0a57-5998-bcdd-a43f04e9792d",
+      "fragmento": "Artículo 63",
+      "paginasPdf": [
+        19,
+        20
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "articulo63paraeldesarrollodelasactividadesestadisticasygeograficascolaboraranconelinstitutoilospoderesejecutivolegislativoyjudicialdelafederacionydelasentidadesfederativasiilosorga",
+      "tokensTexto": 418
+    },
+    {
+      "id": "85570602-26b6-58e2-b77c-37c2ec1bbcd2",
+      "fragmento": "Artículo 64",
+      "paginasPdf": [
+        20
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo64previocumplimientodelasformalidadeslegalesyadministrativascorrespondientesyacuerdofavorabledesujuntadegobiernoelinstitutodeberabrindarelapoyoquelesolicitenielejecutivofed",
+      "tokensTexto": 512
+    },
+    {
+      "id": "f467e1f2-ece6-5ee9-bce9-555138e82ff3",
+      "fragmento": "Artículo 65",
+      "paginasPdf": [
+        20
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "articulo65previocumplimientodelasformalidadeslegalesyadministrativascorrespondientesydelacuerdofavorabledesujuntadegobiernoelinstitutopodrabrindarelapoyoquelesolicitenilospoderesle",
+      "tokensTexto": 882
+    },
+    {
+      "id": "92ab5a0a-3bcf-5faf-b821-10982d227910",
+      "fragmento": "Artículo 66",
+      "paginasPdf": [
+        20
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo66elejerciciodelasfuncionesdelinstitutocorrespondeenelambitodesusrespectivascompetenciasalaj",
+      "tokensTexto": 139
+    },
+    {
+      "id": "941456ce-260a-5e68-958b-5e3e874fa00c",
+      "fragmento": "Artículo 67",
+      "paginasPdf": [
+        20
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo67lajuntadegobiernoeselorganosuperiordedirecciondelinstitutoyestaraintegradaporcincomiembrosdesignadosporelpresidentedelarepublicaconlaaprobaciondelacamaradesenadoresoenlos",
+      "tokensTexto": 420
+    },
+    {
+      "id": "3c6e44de-2767-559f-886e-fc2d85030fd7",
+      "fragmento": "Artículo 68",
+      "paginasPdf": [
+        20,
+        21
+      ],
+      "anclas": 16,
+      "prefijoCotejado": "articulo68lapresidenciaseraelorganosuperiorejecutivodelinstitutoelpresidentedelinstitutoduraraensucargoseisanosylosvicepresidentesdelajuntadegobiernoochoanoselperiododelpresidented",
+      "tokensTexto": 639
+    },
+    {
+      "id": "b721213b-34f1-5b77-9bd8-af33a4e97432",
+      "fragmento": "Artículo 69",
+      "paginasPdf": [
+        21
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulo69ladesignaciondelosmiembrosdelajuntadegobiernodeberarecaerenpersonasquereunanlosrequisitossiguientesiserciudadanomexicanopornacimientoestarenplenogocedesusderechoscivilesy",
+      "tokensTexto": 754
+    },
+    {
+      "id": "3c6f8dc4-33ac-5ae7-ab43-7c478362e06b",
+      "fragmento": "Artículo 70",
+      "paginasPdf": [
+        21
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo70losmiembrosdelajuntadegobiernonopodrandesempenarningunotroempleocargoocomisionconexcepciondeactividadesdocentescientificascultural",
+      "tokensTexto": 170
+    },
+    {
+      "id": "55ccd564-e3f2-5be2-a49f-b74105b5da74",
+      "fragmento": "Artículo 71",
+      "paginasPdf": [
+        21
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo71lasvacantesqueseproduzcanenlajuntadegobiernoserancubiertasporelnuevomiembroquesedesigneparaintegrarlaencasodevacanteenelpuestodepresidentedelinstitutoelejecutivofederalpo",
+      "tokensTexto": 1118
+    },
+    {
+      "id": "45efea89-563f-5d47-9bed-18d090ae3f61",
+      "fragmento": "Artículo 72",
+      "paginasPdf": [
+        21
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo72losmiembrosdelajuntadegobiernoseabstendrandeparticiparconlarepresentaciondelinstitutoenact",
+      "tokensTexto": 133
+    },
+    {
+      "id": "1de3c92b-a678-5f28-8dce-0c9c7edb9d37",
+      "fragmento": "Artículo 73",
+      "paginasPdf": [
+        21,
+        22
+      ],
+      "anclas": 27,
+      "prefijoCotejado": "articulo73soncausasderemociondeunmiembrodelajuntadegobiernoilaincapacidadfisicaomentalqueimpidaelcorrectoejerciciodesusfuncionespormasdetresmesesiieldesempenodealgunempleocargoocom",
+      "tokensTexto": 1046
+    },
+    {
+      "id": "831fe3c8-d0c3-5970-9770-31dd7b84e3de",
+      "fragmento": "Artículo 74",
+      "paginasPdf": [
+        22
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo74competealajuntadegobiernodictaminarsobrelaexistenciadelascausasderemocionsenaladasenelarticuloinmediatoanteriordebiendohacerloasolicituddelpresidentedelarepublicaodecuand",
+      "tokensTexto": 527
+    },
+    {
+      "id": "368a0e0a-db96-5835-9ff5-2b8094ddc166",
+      "fragmento": "Artículo 75",
+      "paginasPdf": [
+        22
+      ],
+      "anclas": 17,
+      "prefijoCotejado": "articulo75elpresidentedelinstitutoocuandomenosdosvicepresidentespodranconvocarareunionesdelajuntadegobiernolassesionesdelajuntadegobiernodeberancelebrarseconlaasistenciadeporlomeno",
+      "tokensTexto": 1115
+    },
+    {
+      "id": "269310e1-88f2-58f2-869f-2380a3c59ba6",
+      "fragmento": "Artículo 76",
+      "paginasPdf": [
+        22,
+        23
+      ],
+      "anclas": 20,
+      "prefijoCotejado": "articulo76laremuneracionyprestacionesquerecibanlosmiembrosdelajuntadegobiernoporeldesempenodesucargonoseranmayoresnimenoresdelasquecorrespondanalniveldesubsecretariodelaadministrac",
+      "tokensTexto": 912
+    },
+    {
+      "id": "04db8d80-b776-586e-8e3a-160d665f9006",
+      "fragmento": "Artículo 77",
+      "paginasPdf": [
+        23,
+        24
+      ],
+      "anclas": 53,
+      "prefijoCotejado": "articulo77corresponderaalajuntadegobiernocomoorganosuperiordedirecciondelinstitutoeldespachodelosasuntossiguientesiaprobarlosprogramasaqueserefiereelarticulo9deestaleyiideterminarl",
+      "tokensTexto": 2722
+    },
+    {
+      "id": "e0c4896c-578d-506f-ac16-2df78787c883",
+      "fragmento": "Artículo 78",
+      "paginasPdf": [
+        24,
+        25
+      ],
+      "anclas": 30,
+      "prefijoCotejado": "articulo78ademasdelostemassenaladosenlasfraccionesiaiiidelarticulo59delpresenteordenamientosolopodraconsiderarseinformaciondeinteresnacionalparaefectosdeestaleylaquesatisfagaloscua",
+      "tokensTexto": 1452
+    },
+    {
+      "id": "45182cda-0c10-5575-af35-7787aae4c034",
+      "fragmento": "Artículo 79",
+      "paginasPdf": [
+        25
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "articulo79losmiembrosdelajuntadegobiernotendranlaresponsabilidaddeprocurarquelasrelacionesdelinstitutoconlasunidadesdelestadoyotrossectoresrelevantesparaeltrabajodelpropioinstituto",
+      "tokensTexto": 602
+    },
+    {
+      "id": "1ac96bce-9e13-59cf-89f1-bc7dfcb6ff60",
+      "fragmento": "Artículo 80",
+      "paginasPdf": [
+        25
+      ],
+      "anclas": 23,
+      "prefijoCotejado": "articulo80correspondenalpresidentedelinstitutolasatribucionessiguientesitenerasucargolaadministraciondelinstitutolarepresentacionlegaldeesteyelejerciciodesusfuncionessinperjuiciode",
+      "tokensTexto": 1404
+    },
+    {
+      "id": "ab5b1bb9-85a6-5499-a9a8-d05ed5a8d6af",
+      "fragmento": "Artículo 81",
+      "paginasPdf": [
+        25,
+        26
+      ],
+      "anclas": 14,
+      "prefijoCotejado": "articulo81elpresidentedelinstitutotendralafacultaddedeterminarelsectorquedeentreloscuatrosenaladosenelarticulo79deestaleydeberaatenderycoordinarcadaunodelosvicepresidentesdelajunta",
+      "tokensTexto": 462
+    },
+    {
+      "id": "00a08324-c218-5bb8-bad6-25f809a39dea",
+      "fragmento": "Artículo 82",
+      "paginasPdf": [
+        26
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo82elpatrimoniodelinstitutoseintegraconilosbienesinmueblesomueblesqueadquieraparaelcumplimientodesuobjetoincluyendolosquelafederacionhayadestinadoparatalfinoparasuusoexclusi",
+      "tokensTexto": 547
+    },
+    {
+      "id": "abf3b169-938d-5453-bf2f-f17a3e9ddb3a",
+      "fragmento": "Artículo 83",
+      "paginasPdf": [
+        26,
+        27
+      ],
+      "anclas": 37,
+      "prefijoCotejado": "articulo83deconformidadconlodispuestoenelarticulo5delaleyfederaldepresupuestoyresponsabilidadhacendariaparasutratamientopresupuestarioelinstitutosesujetaraalosiguienteiaprobarasupr",
+      "tokensTexto": 1891
+    },
+    {
+      "id": "8533f66c-1df7-55ba-8d5f-5ffb0a87bcc2",
+      "fragmento": "Artículo 84",
+      "paginasPdf": [
+        27
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo84elinstitutoincorporaraenlosterminosdelasdisposicionesaplicablescomopartedesupresupuestolosingresosderivadosdelascuotasporlosserviciosquepresteporconceptodeinvestigacionca",
+      "tokensTexto": 496
+    },
+    {
+      "id": "776d8f83-8b2d-52a1-bcbc-be3cfef4c224",
+      "fragmento": "Artículo 85",
+      "paginasPdf": [
+        27
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "articulo85losrecursosquelasdependenciasyentidadesdelaadministracionpublicafederalelpoderjudicialdelafederacionyelpoderlegislativofederalasicomolosorganosconstitucionalesautonomosej",
+      "tokensTexto": 1263
+    },
+    {
+      "id": "f717750a-2ee7-5081-ae12-a3122faf744e",
+      "fragmento": "Artículo 86",
+      "paginasPdf": [
+        27,
+        28
+      ],
+      "anclas": 26,
+      "prefijoCotejado": "articulo86elinstitutodeberapresentarenmarzodecadaanoalejecutivofederalyalcongresodelaunionilosresultadosdelaejecuciondelprogramaanualdeinformacionestadisticaygeograficacorrespondie",
+      "tokensTexto": 1169
+    },
+    {
+      "id": "bbafabfd-4ffa-570e-ba2e-574cba9dec07",
+      "fragmento": "Artículo 87",
+      "paginasPdf": [
+        28
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo87elinstitutodeberadaraconoceralospoderesdelaunionyalpublicoengeneralelcalendarioanualdepublicacionaprobadoporlajuntadegobiernomismo",
+      "tokensTexto": 176
+    },
+    {
+      "id": "ae086f6a-b27e-5c5c-96c9-331113ef3b22",
+      "fragmento": "Artículo 88",
+      "paginasPdf": [
+        28
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo88elinstitutodeberadefinirlasmetodologiasquehabrandeutilizarseenlarealizaciondelasactividadesestadisticasygeograficasatravesdeinternetantesdesuimplantacionafinderecibiryens",
+      "tokensTexto": 600
+    },
+    {
+      "id": "2e08d1fa-2da4-5394-b03a-1ec6cac27673",
+      "fragmento": "Artículo 89",
+      "paginasPdf": [
+        28
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo89elinstitutoinvitaraasolicituddeloscomitesejecutivosaorganismosinternacionalesarevisaryopinarrespectodelasmetodologiasqueseutilicenparagenerarlainformacionincluyendolasque",
+      "tokensTexto": 291
+    },
+    {
+      "id": "6a2bad24-57bd-5a0b-b1e3-b379d9ff5c21",
+      "fragmento": "Artículo 90",
+      "paginasPdf": [
+        28
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo90elinstitutodeberahacerdelconocimientopublicoatravesdeinternetlosconveniosdeintercambiodeinformacionquecelebreconotrosorganismosoagenciasnacionalesoextranjeraslajuntadegob",
+      "tokensTexto": 289
+    },
+    {
+      "id": "b8788a49-adb1-53f1-abf5-9f6a04c3c2bd",
+      "fragmento": "Artículo 91",
+      "paginasPdf": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "anclas": 141,
+      "prefijoCotejado": "articulo91elorganointernodecontrolesunorganodotadodeautonomiatecnicaydegestionparadecidirsobresufuncionamientoyresolucionestendraasucargoprevenircorregirinvestigarycalificaractosuo",
+      "tokensTexto": 6673
+    },
+    {
+      "id": "c93f8426-cf4c-59e1-b536-7b701eab92b0",
+      "fragmento": "Artículo 92",
+      "paginasPdf": [
+        31
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo92elinstitutodeberaestableceroperarynormarelregistronacionaldeinformaciongeograficaenelquedeberaincluirseporlomenoslainformacionprovenientedelostemasgeograficosaqueserefier",
+      "tokensTexto": 409
+    },
+    {
+      "id": "88c7dc7d-4c0a-5231-ad5c-31741032e5de",
+      "fragmento": "Artículo 93",
+      "paginasPdf": [
+        31
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo93lainscripcionquesobreloscatastrosdelosmunicipiosydelasentidadesfederativasdebahacerseenelregistronacionaldeinformaciongeograficacomprenderalarepresentacioncartograficayla",
+      "tokensTexto": 698
+    },
+    {
+      "id": "b6ed1bca-5e49-513d-b0e4-4246bf0c39e9",
+      "fragmento": "Artículo 94",
+      "paginasPdf": [
+        31
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo94elinstitutoestableceraoperaraynormaraelinventarioyeldirectoriosenaladosenlosarticulos20y23respectivamenteypodraestableceroperarynormarotrosregistrosqueparafinesestadistic",
+      "tokensTexto": 210
+    },
+    {
+      "id": "cb7d7a17-1924-5d5a-9566-a4dea18da955",
+      "fragmento": "Artículo 95",
+      "paginasPdf": [
+        31,
+        32
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo95laspersonasfisicasconactividadesempresarialesylaspersonasmoralessinincluiralasdelsectorpublicoestaranobligadasainscribirseeneldirectorionacionaldeunidadeseconomicasquelle",
+      "tokensTexto": 520
+    },
+    {
+      "id": "88555494-1a0c-5f74-8213-1ec5337404b3",
+      "fragmento": "Artículo 96",
+      "paginasPdf": [
+        32
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo96elinstitutodeberaconservarlainformaciondeinteresnacionalqueelaborenelpropioinstitutoylasunidadesenterminosdelodispuestoenestaleyyenlasdisposicionesdecaractergeneralqueale",
+      "tokensTexto": 288
+    },
+    {
+      "id": "80d1f577-a09b-5baa-a4d4-ec1ca4a76673",
+      "fragmento": "Artículo 97",
+      "paginasPdf": [
+        32
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo97elinstitutoimplementaraunsistemadecompilacionnormativaenelqueseconservaranlostextosdelasnormasqueenelejerciciodesusfuncionesexpida",
+      "tokensTexto": 193
+    },
+    {
+      "id": "ee6d16dd-19eb-5975-848c-3c3a4eb47c06",
+      "fragmento": "Artículo 98",
+      "paginasPdf": [
+        32
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo98elserviciopublicodeinformacionestadisticaygeograficaconsisteenponeradisposiciondelosusuariossujetoalasnormasquealefectodictelajuntadegobiernolatotalidaddelainformaciondei",
+      "tokensTexto": 194
+    },
+    {
+      "id": "b95b3943-7d1f-5702-8700-fab7548fcd6e",
+      "fragmento": "Artículo 99",
+      "paginasPdf": [
+        32
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo99elserviciopublicodeinformacionestadisticaygeograficaseraprestadoenformaexclusivaporelinstitutoloanteriorsinperjuiciodequelaspropiasunidadesdenaconocerlainformacionquegene",
+      "tokensTexto": 852
+    },
+    {
+      "id": "c1573ace-6530-56d4-bffd-9cf67e9cf5eb",
+      "fragmento": "Artículo 100",
+      "paginasPdf": [
+        32
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "articulo100elinstitutosiguiendolasmejorespracticasinternacionalespondraadisposiciondequienlosolicitelosmicrodatosdelasencuestasnacionalesymuestrasrepresentativasdelosoperativoscens",
+      "tokensTexto": 423
+    },
+    {
+      "id": "4051ff55-b169-5d59-9a3c-6b768c7e1dd5",
+      "fragmento": "Artículo 101",
+      "paginasPdf": [
+        32
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo101cuandoapeticiondealgunusuarioserequieraalinstitutocopiacopiacertificadaocualquierclasedeimpresionorespaldodelainformaciondeinteresnacionalestaseentregaraalusuarioenloste",
+      "tokensTexto": 311
+    },
+    {
+      "id": "fe2e4d7e-b472-5fff-a819-dd03f4dcb426",
+      "fragmento": "Artículo 102",
+      "paginasPdf": [
+        32,
+        33
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "articulo102elinstitutonoestaraobligadoaproporcionaraquellainformacionqueitengaenvirtuddecualquierdisposicionlegalelcaracterdeconfidencialclasificadareservadaodecualquierotraformase",
+      "tokensTexto": 538
+    },
+    {
+      "id": "f1d7067a-7e73-5e14-a9af-5a2db2c11177",
+      "fragmento": "Artículo 103",
+      "paginasPdf": [
+        33
+      ],
+      "anclas": 18,
+      "prefijoCotejado": "articulo103cometeninfraccionesalodispuestoporestaleyquienesencalidaddeinformantesdelsistemaisenieguenaproporcionardatosinformesoaexhibirdocumentoscuandodebanhacerlodentrodelplazoqu",
+      "tokensTexto": 920
+    },
+    {
+      "id": "6c877c10-e9b6-5a7a-ba3d-954e45f5a131",
+      "fragmento": "Artículo 104",
+      "paginasPdf": [
+        33,
+        34
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "articulo104soninfraccionesimputablesalosservidorespublicosdelinstitutooalosservidorespublicosdelasunidadeslassiguientesilarevelaciondedatosconfidencialesiilaviolaciondelasreservasd",
+      "tokensTexto": 844
+    },
+    {
+      "id": "0f98ef8b-2a19-593b-8f65-e3caf4212c3e",
+      "fragmento": "Artículo 105",
+      "paginasPdf": [
+        34
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo105sereputaraninfraccionesdelosrecolectoresocensoresyauxiliarescuandoisenieguenacumplirconlasfuncionesquelesseanencomendadasiiviolenlaconfidencialidaddelosdatosquesehayanca",
+      "tokensTexto": 754
+    },
+    {
+      "id": "2007d330-72ce-5502-a69f-79c20ed412a8",
+      "fragmento": "Artículo 106",
+      "paginasPdf": [
+        34
+      ],
+      "anclas": 22,
+      "prefijoCotejado": "articulo106lasinfraccionesalodispuestoporelarticulo103deestaleyseransancionadasconmultadeiparalasestablecidasenlasfraccionesiiiyivde5hasta500salarioscuandosetratedecensoseconomicos",
+      "tokensTexto": 1125
+    },
+    {
+      "id": "f1003d12-c361-54e5-b736-dfbc800c5207",
+      "fragmento": "Artículo 107",
+      "paginasPdf": [
+        34,
+        35
+      ],
+      "anclas": 13,
+      "prefijoCotejado": "articulo107lasinfraccionesalodispuestoporelarticulo104deestaleytratandosedeservidorespublicosdelasunidadesseransancionadasconmultadeiparalasestablecidasenlasfraccionesiiiyiiide500h",
+      "tokensTexto": 315
+    },
+    {
+      "id": "51ee714f-7b5b-5b91-9886-3f5d13f953ae",
+      "fragmento": "Artículo 108",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo108lasinfraccionesalodispuestoporelarticulo104deestaleytratandosedeservidorespublicosdelinstitutoseransancionadasconmultadeiparalasestablecidasenlasfraccionesiiiyiiide2000h",
+      "tokensTexto": 317
+    },
+    {
+      "id": "e1175487-5849-51db-98dd-dc22062d87d5",
+      "fragmento": "Artículo 109",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo109lasinfraccionesalodispuestoporelarticulo105deestaleyseransancionadasconmultadeiparalaestablecidaenlafraccionide100hasta500salariosyiiparalasestablecidasenlasfraccionesii",
+      "tokensTexto": 206
+    },
+    {
+      "id": "561992e3-d407-5ba7-bfe4-f8207659f7cd",
+      "fragmento": "Artículo 110",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo110paralosefectosdeestecapituloporsalarioseentiendeelsalariominimogeneraldiariovigenteeneldistritofederalalmomentodecometerselainfra",
+      "tokensTexto": 145
+    },
+    {
+      "id": "be5e0e96-bd3b-52a9-b002-d0335a285fb7",
+      "fragmento": "Artículo 111",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo111paralaimposiciondelassancioneselinstitutotomaraencuentalagravedaddelainfraccionlascondicionesdelinfractorylaconvenienciadeevitarpracticastendientesacontravenirlasdisposi",
+      "tokensTexto": 378
+    },
+    {
+      "id": "3d18ffbb-2264-5fd7-8f8a-f0c9f0a804a4",
+      "fragmento": "Artículo 112",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo112lassancionesenmateriaderesponsabilidadadministrativadelosservidorespublicosprevistasenestaleyseranaplicadasporlaautoridadcompetenteparasustanciarelprocedimientorespectiv",
+      "tokensTexto": 434
+    },
+    {
+      "id": "dda65648-cdc1-595e-b3b2-04bbb2c94f3a",
+      "fragmento": "Artículo 113",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo113encontradelosactosoresolucionesquedicteelinstitutoelinteresadopodrainterponeranteesteelrecursoderevisionocuandoprocedaintentarlav",
+      "tokensTexto": 170
+    },
+    {
+      "id": "10481011-a60d-51d6-b6a4-783e8a616308",
+      "fragmento": "Artículo 114",
+      "paginasPdf": [
+        35
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "articulo114elplazoparainterponerelrecursoderevisionseradequincediascontadosapartirdeldiasiguienteaaquelenquehubieresurtidoefectoslanotificaciondelaresolucionosetengaconocimientodel",
+      "tokensTexto": 196
+    },
+    {
+      "id": "7dafb00d-0cb3-51fc-bb36-89b33b296b81",
+      "fragmento": "Artículo 115",
+      "paginasPdf": [
+        35,
+        36
+      ],
+      "anclas": 24,
+      "prefijoCotejado": "articulo115elescritodeinterposiciondelrecursoderevisiondeberapresentarseanteelpropioinstitutoyseraresueltoporelsuperiorjerarquicodelservidorpublicoquehayaemitidolaresolucionimpugna",
+      "tokensTexto": 1126
+    },
+    {
+      "id": "7a486822-172f-56fd-b4cf-38a50661969c",
+      "fragmento": "Artículo 116",
+      "paginasPdf": [
+        36
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "articulo116lainterposiciondelrecursoderevisionsuspenderalaejecuciondelaresolucionodelactoimpugnadosiempreycuandoilosoliciteexpresamenteelrecurrenteiiseaprocedenteelrecursoiiinosesi",
+      "tokensTexto": 465
+    },
+    {
+      "id": "bcb868b1-cf86-55e0-a030-fc4b24476f2f",
+      "fragmento": "Artículo 117",
+      "paginasPdf": [
+        36
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "articulo117elrecursoderevisionsetendrapornointerpuestoysedesecharacuandoisepresentefueradeplazoiinoseacreditelapersonalidaddelrecurrenteyiiinoaparezcasuscritoporquiendebahacerloame",
+      "tokensTexto": 236
+    },
+    {
+      "id": "b5fa9152-b543-5360-b579-622b31cb4027",
+      "fragmento": "Artículo 118",
+      "paginasPdf": [
+        36,
+        37
+      ],
+      "anclas": 15,
+      "prefijoCotejado": "articulo118sedesecharaporimprocedenteelrecursoderevisioncuandoesteseinterpongacontraactosoresolucionesiqueseanmateriadeotrorecursoomediodedefensaqueseencuentrependientederesolucion",
+      "tokensTexto": 351
+    },
+    {
+      "id": "5c26f0f9-0969-5117-ab84-3b3fe845766a",
+      "fragmento": "Artículo 119",
+      "paginasPdf": [
+        37
+      ],
+      "anclas": 8,
+      "prefijoCotejado": "articulo119serasobreseidoelrecursocuandoielpromoventesedesistaexpresamentedelrecursoiielagraviadofallezcaduranteelprocedimientosielactorespectivosoloafectaasupersonaiiiduranteelpro",
+      "tokensTexto": 310
+    },
+    {
+      "id": "59096b7a-d4c0-56c1-bff8-1a8134f28c31",
+      "fragmento": "Artículo 120",
+      "paginasPdf": [
+        37
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo120laautoridadencargadaderesolverelrecursoderevisionpodraidesecharloporimprocedenteosobreseerloiiconfirmarelactoimpugnadoiiideclararlainexistenciadelactoimpugnadoorevocarlo",
+      "tokensTexto": 366
+    },
+    {
+      "id": "7087570e-bf94-5df7-8475-9cc95e036f8a",
+      "fragmento": "Artículo 121",
+      "paginasPdf": [
+        37
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "articulo121laresoluciondelrecursoderevisionsefundaraenderechoyexaminaratodosycadaunodelosagravioshechosvalerporelrecurrenteteniendolaautoridadlafacultaddeinvocarhechosnotoriosperoc",
+      "tokensTexto": 842
+    },
+    {
+      "id": "27a60d02-b5da-59d3-aa76-806ec1ff7587",
+      "fragmento": "Artículo 122",
+      "paginasPdf": [
+        37
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo122nosepodranrevocaromodificarlosactosoresolucionesadministrativosenlapartenoimpugnadaporelrecurrentelaresolucionexpresaraconclaridadlosactosquesemodifiquenysilamodificacio",
+      "tokensTexto": 205
+    },
+    {
+      "id": "dad0d0d1-1d26-51bf-84d8-64ad7ec32be1",
+      "fragmento": "Artículo 123",
+      "paginasPdf": [
+        37
+      ],
+      "anclas": 2,
+      "prefijoCotejado": "articulo123elrecurrentepodraesperarlaresolucionexpresaoimpugnarenunplazodecuatromesescontadosapartirdelapresentaciondelrecursolapresuntaconf",
+      "tokensTexto": 164
+    },
+    {
+      "id": "26329623-1555-503c-9575-620681c84c5c",
+      "fragmento": "Artículo 124",
+      "paginasPdf": [
+        37,
+        38
+      ],
+      "anclas": 9,
+      "prefijoCotejado": "articulo124laautoridadantelacualsetramiteelrecursopodradejarsinefectosunrequerimientoounasanciondeoficiooapeticiondeparteinteresadacuandosetratedeunerrormanifiestooelparticulardemu",
+      "tokensTexto": 226
+    },
+    {
+      "id": "e7abd95f-ecb1-571c-a9a3-ac9eb47d8159",
+      "fragmento": "Artículo 125",
+      "paginasPdf": [
+        38
+      ],
+      "anclas": 6,
+      "prefijoCotejado": "articulo125cuandohayadetenerseencuentanuevoshechosodocumentosquenoobrenenelexpedienteoriginalderivadodelactoimpugnadosepondrademanifiestoalosinteresadosparaqueenunplazonoinferiorac",
+      "tokensTexto": 436
+    },
+    {
+      "id": "588f1cdc-da93-517a-8615-202d8583af6d",
+      "fragmento": "Artículo 126",
+      "paginasPdf": [
+        38
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "articulo126alodispuestoporelpresentecapituloseaplicarasupletoriamenteelcodigonacionaldeprocedimientoscivilesyfamiliaresarticuloreformadodof1",
+      "tokensTexto": 147
+    },
+    {
+      "id": "a01e04c2-cc7d-5489-8939-e5bed85d27b9",
+      "fragmento": "Transitorio Primero",
+      "paginasPdf": [
+        38
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "primerolapresenteleyentraraenvigornoventadiasnaturalesdespuesdesupublicacioneneldiariooficialdelafederacionsalvolodispuestoporelsegundoparrafodelarticulo23depresenteordenamientoque",
+      "tokensTexto": 384
+    },
+    {
+      "id": "f4738b85-e231-5ff1-8513-04a3c9f7da2a",
+      "fragmento": "Transitorio Segundo",
+      "paginasPdf": [
+        38
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "segundoladesignaciondelosprimerosintegrantesdelajuntadegobiernodelinstitutoserealizaraenlosterminosprevistosenlapresenteleydentrodelos90diasnaturalessiguientesalapublicaciondelamis",
+      "tokensTexto": 500
+    },
+    {
+      "id": "a276dd11-a1d7-5345-970f-cb2a7e199539",
+      "fragmento": "Transitorio Tercero",
+      "paginasPdf": [
+        38,
+        39
+      ],
+      "anclas": 59,
+      "prefijoCotejado": "terceroelinstitutonacionaldeestadisticaygeografiainegitendralatitularidaddetodoslosbienesderechosyobligacionespropiedaddelgobiernofederalqueestuvieranadscritosodestinadosbajocualqu",
+      "tokensTexto": 2505
+    },
+    {
+      "id": "e3ce91af-9e3a-5ad7-8f7a-56183a3120b3",
+      "fragmento": "Transitorio Cuarto",
+      "paginasPdf": [
+        39
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "cuartolaspersonasquealaentradaenvigordelapresenteleyprestenunserviciopersonalsubordinadoalinstitutonacionaldeestadisticageografiaeinformaticaformaranpartedelpersonalalserviciodelin",
+      "tokensTexto": 271
+    },
+    {
+      "id": "934dab15-df5c-5828-81bc-dd8dd1a7f486",
+      "fragmento": "Transitorio Quinto",
+      "paginasPdf": [
+        39
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "quintolostraspasosderecursoshumanosfinancierosymaterialesdelorganodesconcentradoinstitutonacionaldeestadisticageografiaeinformaticaalorganismoinstitutonacionaldeestadisticaygeograf",
+      "tokensTexto": 314
+    },
+    {
+      "id": "17b50cd3-f9c5-51b7-bbe6-2ad0f1ca97ef",
+      "fragmento": "Transitorio Sexto",
+      "paginasPdf": [
+        39
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "sextoparalosefectosdeltransitoriocuartodeldecretoporelquesedeclaranreformadoslosarticulos26y73fraccionxxixddelaconstitucionpoliticadelosestadosunidosmexicanospublicadoeneldiarioofi",
+      "tokensTexto": 592
+    },
+    {
+      "id": "f5baa28b-440d-54ec-8761-9d4971c9edea",
+      "fragmento": "Transitorio Séptimo",
+      "paginasPdf": [
+        39,
+        40
+      ],
+      "anclas": 12,
+      "prefijoCotejado": "septimoelinstitutocontaraconunplazode3mesescontadosapartirdelaentradaenvigordelapresenteleyparadarcumplimientoalodispuestoenelarticulo100del",
+      "tokensTexto": 427
+    },
+    {
+      "id": "bdd9a0a7-9cde-5d67-ba34-ca66057bdf67",
+      "fragmento": "Transitorio Octavo",
+      "paginasPdf": [
+        40
+      ],
+      "anclas": 11,
+      "prefijoCotejado": "octavoelreglamentointeriordelinstitutodeberaexpedirseenunplazonomayordeseismesescontadosapartirdeldiaenquequedelegalmenteinstaladalajuntadegobiernoentantoseexpidaelcitadoreglamento",
+      "tokensTexto": 856
+    },
+    {
+      "id": "71d33b23-97e7-5f4b-a251-98042387963d",
+      "fragmento": "Transitorio Noveno",
+      "paginasPdf": [
+        40
+      ],
+      "anclas": 10,
+      "prefijoCotejado": "novenolospoderesmandatosyengenerallasrepresentacionesotorgadasyfacultadesconcedidasporelinstitutonacionaldeestadisticageografiaeinformaticaconanterioridadalaentradaenvigordelaprese",
+      "tokensTexto": 735
+    },
+    {
+      "id": "fc21f20c-0d84-511b-b027-ab798afcf23d",
+      "fragmento": "Transitorio Décimo",
+      "paginasPdf": [
+        40
+      ],
+      "anclas": 7,
+      "prefijoCotejado": "decimolajuntadegobiernodeberaaprobarypublicareneldiariooficialdelafederacionamastardarenelmesdediciembrede2007elprogramaestrategicodelsistemanacionaldeinformacionestadisticaygeogra",
+      "tokensTexto": 486
+    },
+    {
+      "id": "5a14fb4f-e65a-5acd-8d0d-59e733df818e",
+      "fragmento": "Transitorio Décimo Primero",
+      "paginasPdf": [
+        40,
+        41
+      ],
+      "anclas": 19,
+      "prefijoCotejado": "decimoprimerodentrodelosdiezdiashabilessiguientesalaentradaenvigordelpresentedecretoelbancodemexicoyelinstitutoformaranungrupodetrabajoquetendracomoobjetivoplaneareinstrumentarlatr",
+      "tokensTexto": 977
+    },
+    {
+      "id": "76b36833-3b41-5641-aa11-33ecbcb8bfee",
+      "fragmento": "Transitorio Décimo Segundo",
+      "paginasPdf": [
+        41
+      ],
+      "anclas": 4,
+      "prefijoCotejado": "decimosegundocuandolasleyesreglamentosdecretosacuerdosuotrosordenamientosjuridicoshaganmencionalaleydeinformacionestadisticaygeograficaoalinstitutonacionaldeestadisticageografiaein",
+      "tokensTexto": 289
+    },
+    {
+      "id": "ae0661e8-e925-59de-9c09-2af8cfcd2877",
+      "fragmento": "Transitorio Décimo Tercero",
+      "paginasPdf": [
+        41
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "decimotercerolajuntadegobiernocontaraconunplazodecientoochentadiascontadosapartirdeladesignaciondesusprimerosmiembrosparadeterminaraquellainformacionqueformarapartedelacervodeinfor",
+      "tokensTexto": 418
+    },
+    {
+      "id": "45ba5cfa-a4fb-501d-a275-53e18acc11b1",
+      "fragmento": "Transitorio Décimo Cuarto",
+      "paginasPdf": [
+        41
+      ],
+      "anclas": 5,
+      "prefijoCotejado": "decimocuartoalaentradaenvigordelapresenteleyloscomitestecnicossectorialesregionalesyespecialesdeestadisticaydeinformaciongeograficaquesehubierenconstituidoconformealodispuestoenlas",
+      "tokensTexto": 372
+    },
+    {
+      "id": "00a78854-2279-56b6-8914-4e1d4481800c",
+      "fragmento": "Transitorio Décimo Quinto",
+      "paginasPdf": [
+        41
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "decimoquintolosacuerdosanexosdeejecucionbasescontratosyconveniosqueelinstitutonacionaldeestadisticageografiaeinformaticahayasuscritohastaantesdelaentradaenvigordelapresenteleyseent",
+      "tokensTexto": 238
+    },
+    {
+      "id": "954264f8-b3ed-566c-9d40-58c9b79cad31",
+      "fragmento": "Transitorio Décimo Sexto",
+      "paginasPdf": [
+        41
+      ],
+      "anclas": 3,
+      "prefijoCotejado": "decimosextolainformacionquealmomentodelaentradaenvigordelapresenteleyestuviereenprocesodegeneracionporpartedelasunidadesdeberaapegarsealasdi",
+      "tokensTexto": 178
+    },
+    {
+      "id": "8e7eae1e-d47d-51a4-819c-c2133324a0e5",
+      "fragmento": "Transitorio Décimo Séptimo",
+      "paginasPdf": [
+        41,
+        42
+      ],
+      "anclas": 26,
+      "prefijoCotejado": "decimoseptimoseabrogalaleydeinformacionestadisticaygeograficaylasdemasdisposicionesqueseoponganalapr",
+      "tokensTexto": 109
+    }
+  ],
+  "nota": "Texto vigente consolidado de Cámara de Diputados, última reforma DOF 14-11-2025. Los transitorios de decretos reformadores que el PDF compila en apéndices no se presentan como parte de la ley; sólo se incorpora el transitorio original."
+}
