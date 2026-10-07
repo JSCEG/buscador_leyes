@@ -1,0 +1,260 @@
+{
+  "instrumento": "NT-METADATOS-SNIEG-2025",
+  "instrumentId": "75653b58-109e-52bb-970c-72041a77b06a",
+  "fuenteInstrumento": "https://sidof.segob.gob.mx/notas/docFuente/5768007",
+  "fuenteEdicion": "https://sidof.segob.gob.mx/notas/getNewsletter/17-09-2025/Matutina/323103",
+  "archivoTemporal": "TEMP/snieg-metadatos-2025-oficial.pdf",
+  "sha256": "545010f77df0dfe5798ac66275a22045b75adc89e2b7f619eb588d460aa439d1",
+  "bytes": 8438479,
+  "paginasPdf": 534,
+  "paginasImpresasNorma": [
+    161,
+    165
+  ],
+  "fragmentos": [
+    {
+      "id": "58fa3c85-3980-55c9-9a29-864149a588ac",
+      "fragmento": "Preámbulo y considerandos",
+      "paginasPdf": [
+        161,
+        162
+      ],
+      "paginasImpresas": [
+        161,
+        162
+      ],
+      "anclas": 60,
+      "tokensTexto": 702,
+      "tokensPdf": 710
+    },
+    {
+      "id": "8b683498-22aa-5996-af8e-b0b01faa906d",
+      "fragmento": "Artículo 1",
+      "paginasPdf": [
+        162
+      ],
+      "paginasImpresas": [
+        162
+      ],
+      "anclas": 4,
+      "tokensTexto": 49,
+      "tokensPdf": 49
+    },
+    {
+      "id": "08e9bacf-ccbb-5213-ba13-59969bfc28f9",
+      "fragmento": "Artículo 2",
+      "paginasPdf": [
+        162
+      ],
+      "paginasImpresas": [
+        162
+      ],
+      "anclas": 4,
+      "tokensTexto": 59,
+      "tokensPdf": 59
+    },
+    {
+      "id": "38b8dd1d-ff58-5591-b876-8ccdc8b8e05b",
+      "fragmento": "Artículo 3",
+      "paginasPdf": [
+        162,
+        163,
+        164
+      ],
+      "paginasImpresas": [
+        162,
+        163,
+        164
+      ],
+      "anclas": 110,
+      "tokensTexto": 835,
+      "tokensPdf": 851
+    },
+    {
+      "id": "474ba2bc-f1c9-5a10-92a5-252a53547b48",
+      "fragmento": "Artículo 4",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 4,
+      "tokensTexto": 46,
+      "tokensPdf": 46
+    },
+    {
+      "id": "276b9424-de80-5c3e-aa93-63aee358ded7",
+      "fragmento": "Artículo 5",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 4,
+      "tokensTexto": 48,
+      "tokensPdf": 48
+    },
+    {
+      "id": "70ade02d-8b37-5202-98cb-dccb493c7c5c",
+      "fragmento": "Artículo 6",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 4,
+      "tokensTexto": 50,
+      "tokensPdf": 50
+    },
+    {
+      "id": "c5bac96f-50a8-5408-a761-4e8704147976",
+      "fragmento": "Artículo 7",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 6,
+      "tokensTexto": 91,
+      "tokensPdf": 91
+    },
+    {
+      "id": "15559104-e31a-5ad4-a497-8f3af615d077",
+      "fragmento": "Artículo 8",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 6,
+      "tokensTexto": 83,
+      "tokensPdf": 83
+    },
+    {
+      "id": "da553d4a-9223-55bc-875b-78af56f1a689",
+      "fragmento": "Artículo 9",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 2,
+      "tokensTexto": 30,
+      "tokensPdf": 30
+    },
+    {
+      "id": "b08295d6-63fa-5419-a7cc-16414cb6eaba",
+      "fragmento": "Artículo 10",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 3,
+      "tokensTexto": 35,
+      "tokensPdf": 35
+    },
+    {
+      "id": "dc12f091-c628-5bbf-9bb0-070b1995f2a7",
+      "fragmento": "Artículo 11",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 6,
+      "tokensTexto": 89,
+      "tokensPdf": 89
+    },
+    {
+      "id": "6dd06024-fec1-5c45-90d1-a10846109a07",
+      "fragmento": "Artículo 12",
+      "paginasPdf": [
+        164
+      ],
+      "paginasImpresas": [
+        164
+      ],
+      "anclas": 3,
+      "tokensTexto": 40,
+      "tokensPdf": 40
+    },
+    {
+      "id": "8c563021-ae01-5288-b43c-84d90ddf6916",
+      "fragmento": "Artículo 13",
+      "paginasPdf": [
+        164,
+        165
+      ],
+      "paginasImpresas": [
+        164,
+        165
+      ],
+      "anclas": 11,
+      "tokensTexto": 96,
+      "tokensPdf": 105
+    },
+    {
+      "id": "17f57406-2d87-5a6b-b40a-670fe04abcdc",
+      "fragmento": "Artículo 14",
+      "paginasPdf": [
+        165
+      ],
+      "paginasImpresas": [
+        165
+      ],
+      "anclas": 7,
+      "tokensTexto": 94,
+      "tokensPdf": 94
+    },
+    {
+      "id": "452eb9c7-f7ba-5a42-b13e-f3454ff34179",
+      "fragmento": "Artículo 15",
+      "paginasPdf": [
+        165
+      ],
+      "paginasImpresas": [
+        165
+      ],
+      "anclas": 3,
+      "tokensTexto": 33,
+      "tokensPdf": 33
+    },
+    {
+      "id": "e08173a4-ef04-5380-bece-5ef9f31a3be0",
+      "fragmento": "Artículo 16",
+      "paginasPdf": [
+        165
+      ],
+      "paginasImpresas": [
+        165
+      ],
+      "anclas": 4,
+      "tokensTexto": 53,
+      "tokensPdf": 53
+    },
+    {
+      "id": "4964d7da-beb7-52c8-8159-9dad51c84241",
+      "fragmento": "Transitorios",
+      "paginasPdf": [
+        165
+      ],
+      "paginasImpresas": [
+        165
+      ],
+      "anclas": 34,
+      "tokensTexto": 497,
+      "tokensPdf": 493
+    }
+  ],
+  "totalAnclas": 275,
+  "nota": "Los anexos I–III se publican como instrumentos complementarios en el Portal SNIEG; no aparecen en el texto del DOF."
+}
