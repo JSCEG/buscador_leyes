@@ -2,6 +2,8 @@ import sourcesById from './reader-pdf-sources.json';
 
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
+    'https://www.snieg.mx/Documentos/Normatividad/Formatos_reg/Formato_IIN_Geografica.pdf',
+    'https://www.snieg.mx/Documentos/Normatividad/Formatos_reg/Instructivo_Formato_IIN_Geografica.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Formatos_reg/Formato_IIN_Estadistica.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Formatos_reg/Instructivo_Formato_IIN_Estadistica.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Vigente/Reglas_Determinacion_Informacion_Interes_Nacional.pdf',
