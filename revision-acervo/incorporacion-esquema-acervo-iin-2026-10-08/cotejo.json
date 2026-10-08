@@ -1,0 +1,106 @@
+{
+  "instruments": [
+    {
+      "instrumentId": "f5355e8c-3b83-5249-b856-7f2465de70a8",
+      "sourceId": "snieg-eer-iin-version-verificada-e885e6d8638e",
+      "version": "PDF listado en normatividad vigente; sin fecha de emisión explícita verificada",
+      "fechaPublicacionExactaNoDocumentada": true,
+      "checksum": "d2c8064a6dd1c2616f3185b9344b32b5",
+      "sha256": "e885e6d8638e59ea9053bcbe97b7ec13ff6fcd7affa3ee3ed377726ff84cefc0",
+      "bytes": 399948,
+      "pages": 13,
+      "fragmentos": 11,
+      "paginas": [
+        {
+          "pagina": 2,
+          "fragmentId": "82ce4928-6fb3-5fdb-874a-f50c99276afb",
+          "lineas": 40,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 4,
+          "fragmentId": "f94296ec-bfed-5278-bca9-0e998c9eb15f",
+          "lineas": 19,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 5,
+          "fragmentId": "7f3605ef-5469-56b0-a852-e2f426a1b768",
+          "lineas": 116,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 6,
+          "fragmentId": "c55e9d55-8f72-5a63-85bc-7e747f37e6a4",
+          "lineas": 29,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 7,
+          "fragmentId": "1661737c-2d1c-56dc-a643-645eae4eb5fe",
+          "lineas": 32,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 8,
+          "fragmentId": "c00c810f-82b1-5427-b3ca-4684289cccc8",
+          "lineas": 58,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 9,
+          "fragmentId": "5889e93d-fb0d-5676-a5f5-56e57aa57f71",
+          "lineas": 84,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 10,
+          "fragmentId": "46a6c701-48eb-509e-bf68-cacf84c4fb4a",
+          "lineas": 44,
+          "tablaDetectada": 10,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 11,
+          "fragmentId": "d5b9582a-c842-5638-a390-8b05a54d96cc",
+          "lineas": 18,
+          "tablaDetectada": 4,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 12,
+          "fragmentId": "ca02f445-5771-50c4-8ef1-44c71f7ec787",
+          "lineas": 21,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 13,
+          "fragmentId": "7912e95d-a867-577e-8f57-be777e7aa79b",
+          "lineas": 76,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        }
+      ]
+    }
+  ],
+  "fuente": "https://www.snieg.mx/scn-vigente/"
+}

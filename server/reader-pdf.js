@@ -2,6 +2,7 @@ import sourcesById from './reader-pdf-sources.json';
 
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
+    'https://www.snieg.mx/Documentos/Normatividad/Vigente/Esquema_Entrega_Recepcion_delaIIN.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Vigente/Medidas_conservacion_y_resguardo_delaIIN.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Vigente/criteros_estandares_tecnicos_conceptuales_cons_y_resgiin.pdf',
     'https://www.snieg.mx/Documentos/Normatividad/Formatos_reg/Formato_IIN_Geografica.pdf',
