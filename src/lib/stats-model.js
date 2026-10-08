@@ -42,13 +42,23 @@ export function computeStats(summaries, { today = new Date() } = {}) {
 
     const days = rows.map(row => row.day).filter(Boolean).sort();
     const cutoff = new Date(today.getTime() - 365 * 864e5).toISOString().slice(0, 10);
-    const quarters = days.length ? quarterRange(quarterKey(days[0]), quarterKey(days.at(-1))).map(key => ({ key, total: 0, byGroup: {} })) : [];
+    // Quarter by quarter for the last three calendar years; a few old instruments (2008, 2015…)
+    // would otherwise stretch the axis over decades, so everything earlier shares one "before" bar.
+    const windowStart = days.length ? `${Number(days.at(-1).slice(0, 4)) - 2}-01-01` : null;
+    const firstDetailed = days.find(day => day >= windowStart);
+    const quarters = firstDetailed ? quarterRange(quarterKey(firstDetailed), quarterKey(days.at(-1))).map(key => ({ key, total: 0, byGroup: {} })) : [];
     const quarterIndex = new Map(quarters.map(quarter => [quarter.key, quarter]));
+    const older = { key: 'antes', older: true, year: windowStart?.slice(0, 4), total: 0, byGroup: {}, items: [] };
     for (const row of rows) {
         if (!row.day) continue;
-        const quarter = quarterIndex.get(quarterKey(row.day));
+        const quarter = row.day < windowStart ? older : quarterIndex.get(quarterKey(row.day));
         quarter.total++;
         quarter.byGroup[row.group] = (quarter.byGroup[row.group] || 0) + 1;
+        if (quarter === older) older.items.push({ day: row.day, title: text(row.law.siglas || row.law.titulo) });
+    }
+    if (older.total) {
+        older.items.sort((a, b) => a.day.localeCompare(b.day));
+        quarters.unshift(older);
     }
 
     const topics = new Map();

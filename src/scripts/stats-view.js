@@ -32,7 +32,7 @@ function composition(stats) {
                 <span class="st-legend-name">${escape(group.label)}</span>
                 <span class="st-legend-num">${number(group.count)}</span>
                 <span class="st-legend-pct">${percent(group.count, stats.total)}</span>
-                <span class="st-legend-frag">${number(group.fragments)} frag.</span>
+                <span class="st-legend-frag">${number(group.fragments)} ${group.fragments === 1 ? 'disposición' : 'disposiciones'}</span>
             </button></li>`).join('')}
         </ul>
     </section>`;
@@ -59,9 +59,23 @@ function timeline(stats) {
             acc += value;
             return `<rect x="${x}" y="${y1}" width="${barW}" height="${Math.max(0, h - 2)}" rx="2" fill="${color(group.id)}"/>`;
         }).join('');
-        const [year, q] = quarter.key.split('-');
         const detail = stats.groups.filter(group => quarter.byGroup[group.id]).map(group => `${group.label}: ${quarter.byGroup[group.id]}`).join(' · ');
-        const label = q === 'T1' || index === 0 ? `<text x="${x + barW / 2}" y="${height - 4}" class="st-axis st-axis-year" text-anchor="middle">${year}</text>` : '';
+        if (quarter.older) {
+            // Everything before the detailed years, in one bar set apart by a dashed line.
+            const list = quarter.items.map(item => `${item.day.slice(0, 4)} · ${item.title}`).join('\n');
+            const divider = left + (index + 1) * band;
+            return `<g class="st-col st-col-older" data-tip="${escape(`Antes de ${quarter.year} — ${quarter.total} publicados\n${list}`)}">
+                <rect class="st-hit" x="${left + index * band}" y="${top}" width="${band}" height="${plotH}"/>
+                ${parts}
+                <line x1="${divider}" x2="${divider}" y1="${top}" y2="${top + plotH}" class="st-divider"/>
+                <text x="${x + barW / 2}" y="${height - 16}" class="st-axis" text-anchor="middle">Antes</text>
+                <text x="${x + barW / 2}" y="${height - 4}" class="st-axis st-axis-year" text-anchor="middle">de ${quarter.year}</text>
+                <text x="${x + barW / 2}" y="${y(quarter.total) - 5}" class="st-col-total" text-anchor="middle">${quarter.total}</text>
+            </g>`;
+        }
+        const [year, q] = quarter.key.split('-');
+        const firstOfYear = q === 'T1' || index === 0 || quarters[index - 1]?.older;
+        const label = firstOfYear ? `<text x="${x + barW / 2}" y="${height - 4}" class="st-axis st-axis-year" text-anchor="middle">${year}</text>` : '';
         return `<g class="st-col" data-tip="${escape(`${q} ${year} — ${quarter.total} publicados${detail ? `\n${detail}` : ''}`)}">
             <rect class="st-hit" x="${left + index * band}" y="${top}" width="${band}" height="${plotH}"/>
             ${parts}
@@ -70,7 +84,7 @@ function timeline(stats) {
         </g>`;
     }).join('');
     return `<section class="st-card st-span-2" aria-labelledby="st-time">
-        <div class="st-card-head"><h2 id="st-time">Publicaciones por trimestre</h2><p>Fecha de publicación oficial de cada instrumento, apilada por colección.</p></div>
+        <div class="st-card-head"><h2 id="st-time">Publicaciones por trimestre</h2><p>Fecha de publicación oficial de cada instrumento, apilada por colección. Lo publicado antes de los últimos tres años va junto en la primera barra.</p></div>
         <div class="st-chart-scroll"><svg class="st-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Instrumentos publicados por trimestre">${grid}${bars}</svg></div>
     </section>`;
 }

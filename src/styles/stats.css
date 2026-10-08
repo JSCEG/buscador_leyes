@@ -160,3 +160,4 @@ html.dark-mode .st-dashboard .st-table thead tr{background:var(--st-paper)!impor
 .st-top-count{font:700 13px/1 'Noto Sans',sans-serif;color:var(--st-ink,#2b2326);font-variant-numeric:tabular-nums}
 .st-top-empty{margin:14px 0 0;font-size:13px;color:var(--st-muted,#6b6460)}
 @media (max-width:760px){.st-top{grid-template-columns:minmax(0,1fr)}}
+.st-chart .st-divider{stroke:var(--st-muted,#6b6460);stroke-width:1;stroke-dasharray:3 4;opacity:.45}
