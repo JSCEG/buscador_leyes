@@ -1,0 +1,6998 @@
+{
+  "instruments": [
+    {
+      "ley": {
+        "id": "6fac97bd-20dd-50fd-bed0-f1f084d0ec56",
+        "titulo": "Criterios y estándares técnicos y conceptuales para la conservación y resguardo de la Información de Interés Nacional",
+        "siglas": "CECR-IIN",
+        "fecha_publicacion": null,
+        "fecha_ultima_reforma": null,
+        "vigente": true,
+        "temas_clave": [
+          "SNIEG",
+          "INEGI",
+          "Información de Interés Nacional",
+          "Acervo IIN",
+          "Conservación",
+          "Resguardo"
+        ],
+        "url_original": "https://www.snieg.mx/Documentos/Normatividad/Vigente/criteros_estandares_tecnicos_conceptuales_cons_y_resgiin.pdf",
+        "tipo": "manual"
+      },
+      "articulos": [
+        {
+          "id": "403b9494-e977-5a6b-9ceb-1541e5a13aeb",
+          "identificador": "Presentación · pág. 2",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">Presentación\nLos Criterios y estándares técnicos y conceptuales para la\nconservación y resguardo de la Información de Interés Nacional,\nforma parte del conjunto de documentos derivados de las Reglas de\nintegración y administración del Acervo de Información de Interés\nNacional, publicadas en el Diario Oficial de la Federación el 4 de\ndiciembre de 2014.\nLa adopción de criterios y estándares facilita, en este caso, la\nvinculación y coordinación de los integrantes del SNIEG mediante una\nRed de Resguardo que apoya la integración, conservación y\nresguardo del Acervo de Información de Interés Nacional.\nLa Red de Resguardo incluye un Nodo Central y Nodos en cada una\nde las Unidades del Estado que producen Información de Interés\nNacional, así como el Acervo de IIN. Mientras el Acervo de IIN se\ncompone de información digital contenida en repositorios, los Nodos\nson sistemas informáticos que facilitan la administración y acceso a\nestos para conservar y resguardar la Información de Interés Nacional\nen cada UE.\nEl INEGI emite este documento en donde se establecen las bases\nconceptuales y técnicas para normar las actividades de conservación\ny resguardo de la IIN, incluidas las especificaciones para los Nodos, los\ntipos de datos y sus formatos y la incorporación de información.\nEl presente documento está sujeto a revisión por parte del INEGI y\ncualquier actualización será publicada en el Portal del SNIEG.\nAsimismo,   es  complementario    de   los  siguientes  documentos\nnormativos:\n  Esquema de entrega-recepción de la Información de Interés\n   Nacional.\n  Medidas de conservación y resguardo de la Información de Interés\n   Nacional.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 1,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Presentación"
+        },
+        {
+          "id": "ebfaa62e-347c-525c-9d31-7534d71cd73b",
+          "identificador": "Marco legal y criterios generales · pág. 4",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">1. Marco legal\n   La Ley del Sistema Nacional de Información Estadística y Geográfica (LSNIEG) establece\n   que el Sistema Nacional de Información Estadística y Geográfica, es el conjunto de\n   Unidades organizadas a través de los Subsistemas, coordinadas por el Instituto y articuladas\n   mediante la Red Nacional de Información, con el propósito de producir y difundir la\n   Información de Interés Nacional.\n   La LSNIEG define la Red Nacional de Información como el conjunto de procesos de\n   intercambio y resguardo de Información, para apoyar por un lado las actividades de\n   coordinación del Sistema y de sus Subsistemas y por otro la prestación del Servicio Público\n   de Información a toda la sociedad.\n   En el mismo ordenamiento, se establece que las Unidades del Estado distintas al Instituto,\n   cuando    desarrollen  actividades   relacionadas   con   la  producción,   integración,\n   conservación y difusión de Información de Interés Nacional, deberán: resguardar y\n   conservar la Información, así como los metadatos o especificaciones concretas de la\n   aplicación de las metodologías que hubieren utilizado en la elaboración de la misma, en\n   la forma y términos que, previo acuerdo con el coordinador de la Unidad que corresponda,\n   señale el Instituto.\n   Se establece también que el Instituto deberá conservar la Información de Interés Nacional\n   que elaboren el propio Instituto y las Unidades, en términos de lo dispuesto en la propia Ley\n   del SNIEG y en las disposiciones de carácter general que al efecto emita el Instituto.\n   Cuando una Unidad desaparezca o se desincorpore, el Instituto deberá conservar la\n   Información generada por la misma.\n   Asimismo, las Reglas para la integración y administración del Acervo de IIN, establecen\n   disposiciones para el Acervo en donde se señala que mediante el presente documento se\n   desarrollan los siguientes criterios y estándares para su conservación y resguardo:\n2. Criterios generales\n    2.1 El Coordinador del Acervo se apoyará en el Director General Adjunto de Planeación\n         e Infraestructura del INEGI quien fungirá como Administrador del Acervo de IIN.\n    2.2 Las Unidades del Estado son responsables de entregar al INEGI una copia de la\n         Información de Interés Nacional que hayan publicado, junto con los metadatos y\n         metodologías utilizadas, bajo los criterios y estándares que se emiten en este\n         documento para llevar a cabo la integración del Acervo de Información de Interés\n         Nacional (Acervo de IIN o AIIN).\n    2.3 Cada Unidad del Estado es responsable de la conservación y resguardo en su propio\n         repositorio, de la Información de Interés Nacional que produce, así como de los\n         metadatos y de las metodologías que hayan sido utilizadas. A su vez el INEGI es\n         responsable de conservar las copias de todo aquello que se encuentre en el Acervo\n         de IIN.\n    2.4 El Acervo de IIN estará conformado por la Información que el INEGI integre al Nodo\n         Central, contenida en forma electrónica. En caso de que sea necesario, la UE deberá\n         conservar y resguardar la información que se encuentre en medios impresos sin que\n         ésta se considere parte del Acervo.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 2,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Marco legal y criterios generales"
+        },
+        {
+          "id": "1e6883cb-1b76-5b77-a58c-763aa8d27181",
+          "identificador": "Criterios generales y específicos · pág. 5",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">    2.5 El INEGI integrará al Acervo de IIN para su conservación, la IIN, metadatos,\n         metodologías, y especificaciones concretas de la aplicación de éstas en la\n         producción de la IIN. Para realizar dicha tarea, el Instituto desarrollará y administrará\n         un repositorio central que compartirá con las Unidades del Estado responsables de\n         generar la Información, a través de la Red Nacional de Información.\n    2.6 En caso de que la Información se genere de manera colegiada por un grupo de\n         trabajo integrado por dos o más UE, el grupo acordará la designación del\n         Responsable de la IIN y del Responsable Informático ante el Coordinador del Acervo,\n         los cuales también se encargarán de la creación, actualización y mantenimiento del\n         repositorio y del Nodo en la UE a la que pertenezca el Responsable de la IIN y de la\n         entrega de la copia correspondiente al INEGI para su integración al Acervo de IIN.\n    2.7 El Instituto y las Unidades del Estado que producen IIN serán responsables de\n         incorporar en su plataforma informática los mecanismos y componentes de\n         hardware y software necesarios para dar soporte y proteger tanto a su repositorio\n         como a su Nodo, contra amenazas informáticas como el acceso, modificación,\n         destrucción o copiado, no autorizados a la información de las Unidades del Estado,\n         así como la documentación correspondiente.\n    2.8 El Acervo de IIN, así como el conjunto de Nodos y repositorios de las Unidades del\n         Estado y del INEGI, son parte de la Red de Resguardo de Información de Interés\n         Nacional.\n3. Criterios específicos\n    3.1 Sobre la Información de Interés Nacional a integrarse en el Acervo:\n         3.1.1 La información que se entregue por parte de las UE para integrarse en el Acervo\n              de IIN debe cumplir con lo siguiente:\n                a. Que se trate de Información de Interés Nacional.\n                b. Haber sido publicada en el Servicio Público de Información.\n                c. Debe tratarse de Información con carácter definitivo.\n         3.1.2 Cada entrega de IIN que haga la UE al INEGI deberá ser una instancia del\n              conjunto de datos de IIN correspondientes a un determinado proyecto,\n              conforme a lo publicado por la Junta de Gobierno del INEGI en cumplimiento\n              del Artículo Décimo Tercero Transitorio de la Ley del SNIEG o de un Acuerdo\n              publicado en el Diario Oficial de la Federación conforme al Artículo 77 de la\n              Ley del SNIEG. Existen dos tipos de instancia de IIN: completa y de actualización.\n         3.1.3 Una instancia completa de IIN se considera como la IIN correspondiente a una\n              fecha específica de publicación oficial de Información definitiva, incluyendo\n              sus metadatos, metodologías y las especificaciones concretas de su\n              aplicación.\n         3.1.4 Una instancia de actualización de IIN se considera como la IIN definitiva\n              derivada de una instancia completa de IIN, publicada oficialmente en una\n              fecha posterior y para la que no hubo modificaciones en sus metadatos, ni en\n              sus metodologías.\n         3.1.5 La Unidad del Estado definirá los contenidos que conforman:\n                a. Una instancia completa de IIN.\n                b. Una instancia de actualización de IIN</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 3,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Criterios generales y específicos"
+        },
+        {
+          "id": "95e3da38-890e-550d-863c-6f371179a71a",
+          "identificador": "Instancias completas y de actualización · pág. 6",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">3.1.6 A fin de que se disponga fácilmente de la IIN y pueda interpretarse\n      correctamente, cada instancia completa de IIN deberá contener por lo\n      menos:\n       a. Los contenidos de la IIN definitiva generada a la fecha de publicación\n          oficial.\n       b. Los metadatos estructurales, como denominación, referencia geográfica,\n          referencia temporal, unidad de análisis, unidades de medida y aquellas\n          otras dimensiones y atributos, que se consideren necesarios para\n          interpretar los datos.\n       c. Los metadatos de referencia, que incluyan entre otros, descripciones sobre\n          su procedencia, proceso de producción, responsable de su actualización\n          y características generales de la Información, y de su documentación.\n       d. Los metadatos administrativos, que incluyan datos técnicos sobre la\n          creación, almacenamiento, control de acceso y calidad, gestión de\n          recursos y derechos, condiciones de preservación, mantenimiento,\n          entrega y migración, entre otros.\n       e. Las metodologías utilizadas y las especificaciones concretas de su\n          aplicación en la elaboración de la IIN.\n       f. Bitácora, en el caso de que se realice algún ajuste a la IIN definitiva que\n          deba justificar el movimiento aplicado.\n       g. Aquella información adicional que el Responsable de IIN considere sea\n          necesaria para complementar la información en lo referente a su\n          contenido, contexto y/o estructura.\n3.1.7 Cada instancia de actualización de IIN contendrá al menos lo establecido en\n      los incisos a) y b) del numeral anterior, así como la información aplicable del\n      inciso f).\n3.1.8 Cuando haya cambios en la composición o definición conceptual de los\n      metadatos, en las metodologías o en las especificaciones concretas de su\n      aplicación en la elaboración de la IIN, se deberá entregar una instancia\n      completa de IIN.\n3.1.9 El contenido del conjunto de elementos definidos para las instancias completa\n      y de actualización, deberán permitir que la IIN que se integre al Acervo:\n       a. Conserve la autenticidad, integridad y disponibilidad de la información en\n          el tiempo.\n       b. Conserve las características descritas en el Artículo 78 de la Ley del SNIEG.\n       c. Mantenga las características de calidad, pertinencia y veracidad.\n       d. Cumpla con las disposiciones normativas vigentes en materia de derechos\n          de autor.\n       e. Preserve los principios de confidencialidad y reserva, alineados a Ley\n          Federal  de   Transparencia   y   Acceso   a   la  Información   Pública\n          Gubernamental.\n       f. Se almacene completamente en medios digitales.\n       g. Pueda recuperarse íntegramente de los medios de almacenamiento que\n          la contengan.\n       h. Pueda ser leída y procesada por medios computacionales.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 4,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Instancias completas y de actualización"
+        },
+        {
+          "id": "e44a69c3-f125-585d-9eda-bede9c4c68d7",
+          "identificador": "Archivos digitales y Nodo Central · pág. 7",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">   3.1.10 Cada elemento deberá ser entregado en formato digital y cumplir con las\n           características establecidas en la sección “Sobre las características de los\n           archivos digitales” de este documento.\n   3.1.11 Toda instancia que se entregue deberá estar acompañada de un archivo que\n           contenga la relación de los archivos que conforman dicha instancia, con base\n           en lo señalado en el documento Esquema de entrega recepción de la\n           Información de Interés Nacional.\n3.2 Sobre las características de los archivos digitales\n     3.2.1 Los archivos deberán ser compatibles con la estructura de sistema de archivos\n           bajo el estándar NTFS (New Technology File System - Sistema de Archivos de\n           Nueva Tecnología).\n     3.2.2 El nombre de cada archivo y/o carpeta deberá referenciar a su contenido,\n          conformado con letras sin acentos, caracteres especiales, ñ, utilizando el guion\n          bajo para separar palabras. Con extensión máxima de 250 caracteres\n          incluyendo la ruta.\n     3.2.3 Conforme al tipo de contenido, los archivos deberán ser entregados en alguno\n           de los formatos que se indican en Anexo 1: Tipos de archivos. Aquellos\n           contenidos que no se ajusten a ninguno de los formatos indicados en el Anexo\n           1, deberán ser entregados en archivos bajo formatos abiertos, incluyendo la\n           especificación   tecnológica   completa    del  formato   que   permita   su\n           interpretación, visualización y uso.\n     3.2.4 Se deberán comprimir en un formato de uso común (zip) los archivos mayores\n           a 100 MB.\n     3.2.5 Todo archivo que se entregue deberá ser acompañado por una ficha de\n           metadatos de preservación conforme se especifica en el Anexo 2: Formato de\n           Metadatos de Preservación de Archivos.\n3.3 Sobre el Nodo Central del Acervo\n     3.3.1 El Instituto desarrollará el Nodo Central consistente en un sistema informático\n           que facilite la administración y el acceso al Acervo de Información de Interés\n           Nacional.\n     3.3.2 Las actividades concernientes a la administración del Nodo Central deberán\n           comprender:\n           a. La recepción, validación, integración y actualización de la IIN con su\n             documentación correspondiente.\n           b. La integración y actualización del inventario de Información Estadística y\n             Geográfica de Interés Nacional.\n           c. La integración y actualización del inventario de archivos contenidos en el\n             Nodo Central.\n           d. La implementación de las medidas de Seguridad de la Información\n             conforme al documento Medidas de conservación y resguardo de la IIN,\n             emitido por el Instituto.\n           e. El registro de los Responsables de IIN e Informáticos de las UE, conforme al\n             Anexo 3: Formato de registro de responsables para el Acervo de IIN.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 5,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Archivos digitales y Nodo Central"
+        },
+        {
+          "id": "06bf7f4a-78e7-55a9-bfbb-f1bdbfb63043",
+          "identificador": "Nodos de las Unidades del Estado · pág. 8",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">           f. El registro de los Nodos de las UE, conforme al Anexo 4: Formato de registro\n             de Nodo de la Unidad del Estado.\n           g. Soporte a consultas y solicitudes de información.\n3.4 La integración de la IIN y su documentación en el Nodo Central\n     3.4.1 La IIN y documentación correspondiente que se integren en el Nodo Central\n           deberá ser aquélla publicada con carácter de definitiva.\n     3.4.2 La periodicidad de actualización se realizará conforme a lo registrado por la UE\n           en el formato de identificación de la instancia de IIN, a partir de lo que se\n           conformará el calendario del Acervo.\n     3.4.3 Las UE deberán proporcionar al Instituto copia de la IIN que hayan incorporado\n           en su repositorio, dentro de los 10 días hábiles posteriores a su depósito o\n           actualización.\n     3.4.4 El Instituto integrará las copias de la IIN que reciba de las UE al Acervo.\n3.5 Sobre los Nodos de las Unidades del Estado\n     3.5.1 Corresponde a las Unidades del Estado el desarrollo de su Nodo para facilitar la\n           administración y el acceso a la IIN que producen.\n     3.5.2 Las UE deberán incorporar en su repositorio la IIN definitiva, que hayan\n           publicado en un plazo máximo de 30 días.\n     3.5.3 Las actividades concernientes a la administración del Nodo de la UE deberán\n           comprender:\n           a. Resguardar, validar, registrar, integrar y actualizar la IIN con su\n             documentación correspondiente.\n           b. La integración y actualización del inventario del conjunto de archivos\n             contenidos en su Nodo.\n           c. La implementación de las medidas de Seguridad de la Información\n             conforme al documento Medidas de conservación y resguardo de la IIN,\n             emitido por el Instituto.\n           d. La generación de respaldos útiles conforme a lo establecido en el\n             documento Medidas de conservación y resguardo de Información de\n             Interés Nacional.\n           e. Soporte a consultas y solicitudes de información.\n   3.6 La integración de la IIN y su documentación en los Nodos de las UE\n     3.6.1 La IIN y documentación correspondiente que integre y actualice en su Nodo\n           cada UE deberá ser aquélla publicada con carácter de definitiva.\n     3.6.2 La integración de IIN y documentación correspondiente deberá ser conforme\n           al Artículo 15 de las Reglas para la integración y administración del Acervo de\n           IIN.\n     3.6.3 La UE deberá integrar a su Nodo la IIN que produce dentro de los diez días\n           hábiles siguientes a su publicación con carácter definitivo.\n Para la aplicación de los criterios, el Instituto proporcionará la asesoría que le sea\n requerida.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 6,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Nodos de las Unidades del Estado"
+        },
+        {
+          "id": "fbf75f63-9f57-5c2c-864e-d8655aea6623",
+          "identificador": "Glosario · primera parte · pág. 9",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\"> Glosario\n                 Conjunto de Información de Interés Nacional que ya ha sido difundida por el\n       Acervo de\n                 Servicio Público de Información, así como sus metadatos, metodologías y/o\n    Información o\n                 especificaciones concretas de la aplicación de las metodologías utilizadas en su\n         Acervo\n                 generación.\n                 Establecimiento de un conglomerado demográfico, con el conjunto de sus sistemas\n    Asentamiento\n                 de convivencia, en un área físicamente localizada, considerando dentro de la\n        humano\n                 misma los elementos naturales y las obras materiales que lo integran.\n                 Conjunto de procedimientos y medidas para asegurar la preservación de datos del\n Conservación de\n                 Acervo y prevenir la ocurrencia de alteraciones físicas en sus medios de\n   la Información\n                 almacenamiento.\n Coordinador del\n        Acervo o  El Director General de Coordinación del SNIEG.\n     Coordinador\n                 Es aquella que se encuentre identificada, estructurada y almacenada en los\n                 medios y formatos que establezca el Instituto para el respaldo de la Información\n                 de Interés Nacional de las Unidades del Estado que formará parte del Acervo, a\n      Copia útil\n                 la cual se puede acceder directamente para su consulta y/o procesamiento\n                 utilizando los medios computacionales existentes, sin que haya afectaciones a la\n                 integridad de sus contenidos.\n                 Conjunto de documentos que acompañan a la Información de Interés Nacional en\n Documentación   su conservación y resguardo: metadatos, metodologías y/o especificaciones\n                 concretas de la aplicación de las metodologías utilizadas en su elaboración.\n    Estándar NTFS Especifica qué usuarios, grupos y equipos pueden acceder a los archivos y carpetas\n                 y también qué pueden hacer con su contenido.\n  INEGI o Instituto Al Instituto Nacional de Estadística y Geografía.\n                 A la señalada en el artículo 59 de la Ley del Sistema Nacional de Información\n  Información de\n                 Estadística y Geográfica (LSNIEG), así como aquella que la Junta de Gobierno\n Interés Nacional,\n                 determine como tal, de acuerdo con lo establecido en los artículos 77 fracción II y\n Información o IIN\n                 78 de dicha Ley.\n      Metadatos  Descripción estandarizada de las características de un grupo de datos estadísticos\n                 o geográficos.\n    Metodología Procedimiento que ordena y articula el conjunto particular de actividades\n                 necesarias para producir información estadística y/o geográfica.\n    Nodo Central Sistema informático para facilitar la administración y acceso del repositorio digital\n                 creado por el INEGI en donde se conserva y resguarda el Acervo de IIN.\nNodo    de    la  Sistema informático para facilitar la administración y acceso del repositorio digital\nUnidad del Estado  creado por cada Unidad del Estado en donde se conserva, resguarda y actualiza\no Nodo           su Información de Interés Nacional y su documentación.\n                 Conjunto de Información, metodologías y metadatos, o alguno de estos elementos,\n                 que se incorpora al Repositorio/Nodo Central del Acervo en cada entrega que\n  Instancia de IIN\n                 hace la Unidad del Estado productora.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 7,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Glosario · primera parte"
+        },
+        {
+          "id": "9536edd2-650e-5e3c-8eb4-56af0a8f1a22",
+          "identificador": "Glosario · segunda parte · pág. 10",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">         Red de\n   Resguardo de\n                 Red distribuida a través de la cual cada Unidad de Estado y el propio Instituto, se\n  Información de\n                 apoyarán para vincularse y coordinarse a fin de integrar, conservar y resguardar el\nInterés Nacional o\n                 Acervo de IIN.\n         Red de\n      Resguardo\n                 Conjunto de procesos de intercambio y resguardo de Información, para apoyar por\n Red Nacional de\n                 un lado las actividades de coordinación del Sistema y de sus Subsistemas y por otro\nInformación o RNI\n                 la prestación del Servicio Público de Información a toda la sociedad.\n      Repositorio Sistema electrónico de almacenamiento de información.\n                 Protección de la Información y su documentación, que se implementa en los\n   Resguardo de\n                 Nodos, contra accesos no autorizados, alteraciones, daños físicos, pérdida total o\n   la Información\n                 parcial, entre otros.\n    Responsable  Servidor público designado por cada Unidad del Estado generadora de IIN,\n        de la IIN  responsable de la conservación y resguardo de la misma.\n     Responsable\n    Informático o  Servidor público designado por cada Unidad del Estado generadora de IIN,\n     Responsable  responsable de otorgar las condiciones informáticas adecuadas para la\n   Informático de  conservación y resguardo de la Información.\n            la UE\n    Responsable  Servidor público designado por el titular de la Dirección General Adjunta de\n      Informático  Informática, que tenga a su cargo la responsabilidad sobre la coordinación y/o\n     del Instituto  administración del servicio informático del Nodo Central.\n  Seguridad de la  Capacidad de preservar la confidencialidad, Integridad y disponibilidad de la\n     Información  Información a partir de la implementación de medidas técnicas y organizativas</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 8,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Glosario · segunda parte"
+        },
+        {
+          "id": "a4829536-f8aa-5cba-9fb2-2e321866a733",
+          "identificador": "Anexo 1 · Tipos de archivos · pág. 11",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">Anexo 1. Tipos de archivos\n                              Formatos aceptados para compartir,  Otros formatos aceptados para\n        Tipo de datos\n                                     reusar y conservar             conservación de datos\n Datos tabulares cuantitativos  Formato portable SPSS (.por)\n con metadatos extensivos   Texto delimitado y archivo de comando\n                            (&#x27;setup&#x27;)  (SPSS,  Stata,  SAS,  etc.)  Formatos propietarios de paquetes\n Un conjunto de datos con   conteniendo información de metadatos  estadísticos, ej. SPSS (.sav), Stata\n etiquetas variables, etiquetas  Algún texto estructurado o un archivo  (.dta)\n de código y valores perdidos  marcado que contiene información de  MS Access (.mdb/.accdb)\n definidos, además de la matriz  metadatos, Ej, Archivos DDI XML.\n de datos.\n                            Valores separados por comas – (CSV). Ej\n                            (.csv)                            Texto delimitado del conjunto de\n Datos tabulares cuantitativos\n                            Archivo delimitado por tabuladores, ej  caracteres – solo los caracteres no\n con metadatos mínimos\n                            (.tab)                            presentes en los datos deben ser\n                            Texto delimitado                  usados como delimitadores – (.txt)\n Una matriz de datos con y sin\n                            Incluyendo texto delimitado de un  Formatos ampliamente usados, ej. MS\n encabezados de columna o\n                            conjunto   de   caracteres   con  Excel  (.xls/.xlsx),  MS  Access\n nombres variables, pero no otro\n                            instrucciones de definición de  datos SQL  (.mdb/.accdb),  dBase  (.dbf)  y\n metadatos o etiquetado\n                            en su caso                        OpenDocument Spreadsheet (.ods)\n Datos Geoespaciales\n  Vector                   Shapefile (esencial - .shp, .shx, .dbf,  Keyhole Mark-up Language (KML)\n                            opcional - .prj)                  (.kml)\n                            Datos CAD (.dxf)\n  Ráster                   Geo – referenciados TIFF (.tif, .tfw), GIF\n                            (.gif, .gfw)\n                            BIL\n                            JPG2000\n                            PDF, GeoPDF\n                            Texto conforme a eXtensible Mark-up  Hypertext Mark-up Language (HTML)\n                            Language  (XML)  a  un  apropiado  (.html)\n Datos Cualitativos         Document Type Definition (DTD) o un  Formatos propietarios ampliamente\n                            Esquema (.xml)                    usados, ej. MS Word (.doc/.docx)\n  Textual                  Rich Text Format (.rtf)           Algunos propietarios / formatos de\n                            Datos de texto sin formato, ASCII (.txt)  software especificado, ej. NUD*IST,\n                            CSV                               NVivo y ATLAS.ti\n                                                              JPEG (.jpeg, .jpg)\n                                                              TIFF (otras versiones) (.tif, .tiff)\n                                                              Formato de Documento Portable\n Datos de Imagen Digital    TIFF versión 6 sin comprimir (.tif)  Adobe (PDF/A, PDF) (.pdf)\n                                                              Formato de imagen RAW de norma\n                                                              aplicable (.raw)\n                                                              Archivos Photoshop (.psd)\n                                                              MPEG-1 Audio Layer 3 (.mp3) solo si es\n                                                              creado en este formato\n                                                              Audio Interchange File Format (AIFF)\n Datos de Audio Digital     Free Lossless Audio Codec (FLAC) (.flac)\n                                                              (.aif)\n                                                              Waveform  Audio  Format  (WAV)\n                                                              (.wav)\n                            MPEG-4 (.mp4)\n Datos de Video Digital\n                            Movimiento en JPEG 2000 (.mj2)\n                                                              Texto plano (.txt)\n                                                              Algunos formatos propietarios usados\n                            Rich Text Format (.rtf)\n                                                              ampliamente,  ej.  MS    Word\n                            PDF/A o PDF (.pdf)\n Documentación y scripts                                      (.doc/.docx) o MS Excel (.xls/.xlsx)\n                            HTML (.htm)\n                                                              XML  marked-up  text  (.xml)  de\n                            OpenDocument Text (.odt)\n                                                              acuerdo con un apropiado DTD o\n                                                              Esquema, ej. XHMTL 1.0</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 9,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Anexo 1 · Tipos de archivos"
+        },
+        {
+          "id": "b32e65ce-2058-52ac-8cb8-efdda6dc95b1",
+          "identificador": "Anexo 2 · Metadatos de preservación · pág. 12",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">Anexo 2. Formato de Metadatos de Preservación de Archivos\n Nombre del elemento       Definición                        Comentario\n I. Datos de la instancia\n Nombre de la instancia Nombre de la instancia  Nombre: Palabras que designan o identifican a la instancia de\n                    de la IIN             IIN a la que pertenece el archivo.\n                                          Nombre corto: Abreviación o siglas con que se identifica a la\n                    Nombre   corto  de  la\n Siglas                                   instancia de IIN. No necesariamente deben ser las iníciales, sino\n                    instancia\n                                          una forma corta de referirse a la misma.\n                    Proveedor de datos o  Unidad del Estado que proporciona los datos y/o metadatos\n Creador\n                    fuente                de un conjunto de datos.\n II. Contenido del archivo\n                    Número identificador del  Número con el cual se identifica el archivo en la relación de\n Identificador\n                    archivo               archivos de la instancia IIN.\n Nombre del archivo  Nombre del archivo   Nombre completo del archivo.\n                                          Nombre del tipo de archivo (datos, metadatos, metodología u\n Tipo de contenido  Clasificación del archivo\n                                          otros).\n                    Descripción       del\n Descripción                              Descripción del contenido del archivo.\n                    contenido del archivo\n Lenguaje           Idioma del contenido  Idioma de la información.\n Formato            Tipos de archivos     Tipo de archivo conforme al Anexo 1.\n                                          Consideraciones adicionales que ayuden a la interpretación\n                    Especificaciones\n Especificaciones                         del contenido del archivo: ejemplo Número de registros,\n                    adicionales\n                                          páginas, resolución etc.\n                    Tamaño  en  bytes  del\n Tamaño del archivo                       Tamaño en Kb, Mb, Gb o Tb del archivo.\n                    archivo</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 10,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Anexo 2 · Metadatos de preservación"
+        },
+        {
+          "id": "557efefd-6975-5e49-9ea4-3a1557d13e9c",
+          "identificador": "Anexo 3 · Registro de responsables · pág. 13",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">Anexo 3. Formato de registro de responsables para el Acervo de IIN\n                          Registro de responsables para el Acervo de IIN\n                                  Identificador del Responsable\n  Unidad del Estado\n                 1\n  Siglas\n                 2\n                              Tipo de vialidad                  Nombre de vialidad\n                              Número exterior               Tipo de asentamiento humano\n  Ubicación /    3\n  Identificación                   Piso                            Código Postal\n                       Nombre del estado o del Distrito\n                                                         Nombre del municipio o delegación\n                                  Federal\n                          Nombre de la localidad                  Entre vialidades\n                                 Nombre                               Puesto\n  Responsable                                           Responsable    Responsable\n                4                                                                    Ambos\n                                                          de la IIN     Informático\n                                         Dirección de\n                          Teléfono          correo                      Rol\n                                          electrónico\nInstructivo de llenado\n                          Registro de Responsables para el Acervo de IIN\n  1. Unidad del Estado: Identificar conforme lo señala el artículo 2 fracción XV de la Ley del SNIEG.\n  2. Siglas: Si la UE cuenta con siglas que la identifiquen se anotan aquí.\n  3. Ubicación: Dirección. Deben llenarse todos los campos que se solicitan sobre la ubicación de la UE\n     productora.\n  4. Responsable: Nombre, apellidos y puesto de la persona de la UE productora de la IIN que\n     desempeña las funciones referidas; el teléfono y correo electrónico son los institucionales.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 11,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Anexo 3 · Registro de responsables"
+        },
+        {
+          "id": "8578e894-efc9-5e72-8806-fe2446b82aae",
+          "identificador": "Anexo 4 · Registro de Nodo · pág. 14",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">Anexo 4. Formato de registro de Nodo de la Unidad del Estado e instructivo de llenado\n                            Registro del Nodo de la Unidad del Estado\n                    Identificación de la UE productora y características de la IIN\n  Unidad del Estado\n                    1\n  Siglas\n                                                           Asentamiento\n  Dirección                     Calle y número                                  Ciudad\n                    2                                        humano\n                                   Entidad                           Municipio\n  Responsable                      Nombre                             Cuenta\n  Informático       3\n                                   Teléfono                Dirección de correo electrónico\n  Fecha de llenado\n  del registro:\n                    4           aaaa                    mm                    dd\n                                                          Geográfica,\n  Subsistema\n                                                             Medio          De Gobierno,\n  Nacional de\n                        Demográfica y                      Ambiente,      Seguridad Pública\n  Información                             Económica\n                    5\n                            Social                       Ordenamiento     e Impartición de\n                                                           Territorial y      Justicia\n                                                             Urbano\n  Acceso al Nodo de   url:\n  la UE               ftp:\n                    6\n                      otro:\n  Especificaciones\n  tecnológicas del\n                    7\n  sistema de\n  administración del\n  Acervo\n  Especificaciones de\n  hardware\n                    8\n  Especificaciones de\n  software\n                    9\n  Especificaciones de\n  bases de datos    10</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 12,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Anexo 4 · Registro de Nodo"
+        },
+        {
+          "id": "2ba15a37-c623-5afb-bc21-807147396539",
+          "identificador": "Anexo 4 · Instructivo de llenado · pág. 15",
+          "contenido": "<section><p><strong>Nota de consulta:</strong> Transcripción para consulta y búsqueda. Las casillas, tablas y disposición visual se consultan en el PDF original sincronizado.</p><div class=\"overflow-x-auto\"><pre class=\"whitespace-pre font-sans\">Instructivo de llenado\n                    Identificación de la UE productora y características de la IIN\n  1. Unidad del Estado\n                                  Indique conforme lo señala el artículo 2 fracción XV de la Ley del\n                                  SNIEG.\n                                  Si la UE cuenta con siglas que la identifiquen se anotan aquí.\n  Siglas\n                                  Proporcione los datos que se solicitan sobre la ubicación física\n  2. Dirección\n                                  del Nodo de la UE productora.\n                                  Nombre y apellidos del Responsable Informático de la UE\n  3. Responsable Informático      productora de la IIN que llena el formato y su puesto; el teléfono\n                                  y correo electrónico son los institucionales.\n                                  Utilizar el orden de año con cuatro dígitos, mes y día con dos\n  4. Fecha de llenado del registro\n                                  dígitos.\n                                  Indicar con X el subsistema al que pertenece la IIN:\n                                  1. Demográfica y social.\n   5. Subsistema Nacional de      2. Económica.\n    Información\n                                  3. Geográfica, Medio Ambiente, Ordenamiento Territorial y\n                                  Urbano.\n                                  4. De Gobierno, Seguridad Pública e Impartición de Justicia.\n                                  Indique el método de acceso a la información, url ftp,\n  6. Acceso al Nodo de la UE\n                                  especifique algún otro.\n                                  Describa los detalles tecnológicos del sistema en donde se\n  7. Especificaciones tecnológicas\n                                  administra el Nodo, si se requiere autenticación, o algún\n    del sistema de administración\n                                  requerimiento específico para el acceso a este, así como\n    del Acervo\n                                  cualquier otro detalle.\n                                  Indique las especificaciones del hardware del Nodo, servidores,\n  8. Especificaciones de hardware  espacio de almacenamiento, procesamiento, memoria, sistema\n                                  operativo, etc.\n  9. Especificaciones de software  Indique el software utilizado y la versión de este.\n 10. Especificaciones de bases de  Indique el tipo de almacenamiento de datos utilizado, tipos de\n    datos                         servidores y/o motores de bases de datos.</pre></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 13,
+          "titulo_nombre": "Instrumento de apoyo · Reglas del Acervo IIN",
+          "capitulo_nombre": "Criterios y estándares de conservación y resguardo",
+          "seccion_nombre": "Anexo 4 · Instructivo de llenado"
+        }
+      ],
+      "source": {
+        "id": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+        "title": "Criterios y estándares técnicos y conceptuales para la conservación y resguardo de la Información de Interés Nacional",
+        "instrumentIds": [
+          "6fac97bd-20dd-50fd-bed0-f1f084d0ec56"
+        ],
+        "sha256": "3c397f3c1f57d8b05d9ddb1b107d84c1cdc2f7d524c7b6decdb9efe62626f3e1",
+        "transport": "remote-pdf",
+        "pdfUrl": "/api/reader/snieg-cecr-iin-version-verificada-3c397f3c1f57",
+        "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/criteros_estandares_tecnicos_conceptuales_cons_y_resgiin.pdf",
+        "pageCount": 15,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 2,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 3,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 4,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 5,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 6,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 7,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 8,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 9,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 10,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 11,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 12,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 13,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 14,
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "number": 15,
+            "width": 612.0,
+            "height": 792.0
+          }
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "snieg-cecr-iin-version-verificada-3c397f3c1f57": {
+      "id": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "title": "Criterios y estándares técnicos y conceptuales para la conservación y resguardo de la Información de Interés Nacional",
+      "instrumentIds": [
+        "6fac97bd-20dd-50fd-bed0-f1f084d0ec56"
+      ],
+      "sha256": "3c397f3c1f57d8b05d9ddb1b107d84c1cdc2f7d524c7b6decdb9efe62626f3e1",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/criteros_estandares_tecnicos_conceptuales_cons_y_resgiin.pdf",
+      "pageCount": 15,
+      "pages": [
+        {
+          "number": 1,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 2,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 3,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 4,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 5,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 6,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 7,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 8,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 9,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 10,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 11,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 12,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 13,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 14,
+          "width": 612.0,
+          "height": 792.0
+        },
+        {
+          "number": 15,
+          "width": 612.0,
+          "height": 792.0
+        }
+      ]
+    }
+  },
+  "articles": {
+    "403b9494-e977-5a6b-9ceb-1541e5a13aeb": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Presentación · pág. 2",
+      "type": "anexo",
+      "contentSha256": "c563835cd8f1fa3a90745d972d5a8f3c8becb0d4098f5ab053d69b198a2cc262",
+      "pageNumbers": [
+        2
+      ],
+      "anchors": [
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            198.2,
+            266.69,
+            210.292
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            226.76,
+            541.075,
+            238.852
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            239.0,
+            541.419,
+            251.092
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            251.27,
+            541.374,
+            263.362
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            263.51,
+            541.044,
+            275.602
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            275.75,
+            541.022,
+            287.842
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            287.87,
+            294.649,
+            299.962
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            316.55,
+            541.024,
+            328.642
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            328.79,
+            541.034,
+            340.882
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            341.03,
+            541.302,
+            353.122
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            353.27,
+            484.659,
+            365.362
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            381.83,
+            540.955,
+            393.922
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            394.07,
+            541.034,
+            406.162
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            406.43,
+            541.398,
+            418.522
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            418.67,
+            541.044,
+            430.762
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            430.93,
+            540.935,
+            443.022
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            443.17,
+            541.034,
+            455.262
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            455.29,
+            269.449,
+            467.382
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            483.97,
+            541.014,
+            496.062
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            496.21,
+            541.064,
+            508.302
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            508.45,
+            541.094,
+            520.542
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            520.69,
+            514.179,
+            532.782
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            549.25,
+            541.054,
+            561.342
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            561.49,
+            541.37,
+            573.582
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            573.85,
+            248.38,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            256.647,
+            573.85,
+            269.834,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            278.1,
+            573.85,
+            362.402,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            370.669,
+            573.85,
+            386.724,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            395.021,
+            573.85,
+            410.16,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            418.526,
+            573.85,
+            468.406,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            476.663,
+            573.85,
+            541.074,
+            585.942
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            198.5,
+            585.97,
+            260.089,
+            598.062
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            202.73,
+            614.56,
+            541.31,
+            626.731
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            212.69,
+            626.92,
+            262.369,
+            639.012
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            202.73,
+            639.16,
+            541.141,
+            651.331
+          ]
+        },
+        {
+          "page": 2,
+          "bbox": [
+            212.69,
+            651.28,
+            262.369,
+            663.372
+          ]
+        }
+      ]
+    },
+    "ebfaa62e-347c-525c-9d31-7534d71cd73b": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Marco legal y criterios generales · pág. 4",
+      "type": "anexo",
+      "contentSha256": "348261e11a192782cc9903ca31d6030cf22962305e7b3e3b9c5dd14d9191502d",
+      "pageNumbers": [
+        4
+      ],
+      "anchors": [
+        {
+          "page": 4,
+          "bbox": [
+            85.104,
+            89.12,
+            164.689,
+            101.232
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            106.16,
+            540.87,
+            118.252
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            118.52,
+            541.268,
+            130.612
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            130.76,
+            541.0,
+            142.852
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            143.0,
+            540.851,
+            155.092
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            155.24,
+            263.449,
+            167.332
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            189.32,
+            541.405,
+            201.412
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            201.68,
+            541.053,
+            213.772
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            213.92,
+            540.92,
+            226.012
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            226.16,
+            278.329,
+            238.252
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            260.27,
+            541.146,
+            272.362
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            272.51,
+            140.777,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            149.502,
+            272.51,
+            205.497,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            214.133,
+            272.51,
+            274.072,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            282.697,
+            272.51,
+            349.26,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            357.865,
+            272.51,
+            379.688,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            388.323,
+            272.51,
+            400.066,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            408.701,
+            272.51,
+            471.041,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            479.676,
+            272.51,
+            540.92,
+            284.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            284.87,
+            541.419,
+            296.962
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            297.11,
+            540.96,
+            309.202
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            309.35,
+            540.85,
+            321.442
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            321.59,
+            541.398,
+            333.682
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            333.83,
+            187.699,
+            345.922
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            368.03,
+            540.96,
+            380.122
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            380.27,
+            540.99,
+            392.362
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            392.51,
+            541.138,
+            404.602
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            404.75,
+            540.91,
+            416.842
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            416.99,
+            283.129,
+            429.082
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            451.21,
+            540.89,
+            463.302
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            463.45,
+            541.099,
+            475.542
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            99.264,
+            475.69,
+            495.819,
+            487.782
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            85.104,
+            509.77,
+            196.219,
+            521.882
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            106.34,
+            526.93,
+            541.289,
+            539.042
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            539.17,
+            515.259,
+            551.262
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            106.34,
+            556.21,
+            540.92,
+            568.322
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            568.45,
+            541.418,
+            580.542
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            580.69,
+            541.0,
+            592.782
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            592.93,
+            540.881,
+            605.022
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            605.32,
+            285.169,
+            617.412
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            106.34,
+            622.36,
+            541.334,
+            634.472
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            634.6,
+            540.96,
+            646.692
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            646.84,
+            540.93,
+            658.932
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            659.08,
+            541.407,
+            671.172
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            671.32,
+            161.299,
+            683.412
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            106.46,
+            688.476,
+            541.222,
+            700.588
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            700.716,
+            541.012,
+            712.808
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            712.956,
+            541.381,
+            725.048
+          ]
+        },
+        {
+          "page": 4,
+          "bbox": [
+            127.7,
+            725.196,
+            303.409,
+            737.288
+          ]
+        }
+      ]
+    },
+    "1e6883cb-1b76-5b77-a58c-763aa8d27181": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Criterios generales y específicos · pág. 5",
+      "type": "anexo",
+      "contentSha256": "f8eea6124e2a08a82c6742b00d3a2c9a71053f36f066e8406097be0d1866bd4a",
+      "pageNumbers": [
+        5
+      ],
+      "anchors": [
+        {
+          "page": 5,
+          "bbox": [
+            106.46,
+            84.32,
+            541.02,
+            96.432
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            96.56,
+            540.97,
+            108.652
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            108.92,
+            541.184,
+            121.012
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            121.16,
+            540.88,
+            133.252
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            133.4,
+            463.149,
+            145.492
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            106.46,
+            150.44,
+            541.399,
+            162.552
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            162.68,
+            540.92,
+            174.772
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            174.92,
+            541.04,
+            187.012
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            187.28,
+            541.02,
+            199.372
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            199.52,
+            541.044,
+            211.612
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            211.76,
+            535.659,
+            223.852
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            106.46,
+            228.8,
+            540.881,
+            240.912
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            241.04,
+            541.072,
+            253.132
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            253.31,
+            540.97,
+            265.402
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            265.67,
+            540.91,
+            277.762
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            277.91,
+            541.201,
+            290.002
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            290.15,
+            357.189,
+            302.242
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            106.46,
+            307.19,
+            541.247,
+            319.302
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            319.43,
+            540.901,
+            331.522
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            331.67,
+            180.139,
+            343.762
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            85.104,
+            365.87,
+            202.879,
+            377.982
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            103.1,
+            382.91,
+            449.499,
+            395.002
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            399.95,
+            541.419,
+            412.042
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            412.19,
+            336.789,
+            424.282
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            163.1,
+            429.37,
+            417.909,
+            441.482
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            163.1,
+            446.41,
+            473.499,
+            458.522
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            163.1,
+            463.45,
+            440.949,
+            475.562
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            480.49,
+            540.949,
+            492.582
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            492.73,
+            541.251,
+            504.822
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            504.97,
+            541.362,
+            517.062
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            517.33,
+            541.064,
+            529.422
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            529.57,
+            540.894,
+            541.662
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            541.81,
+            541.419,
+            553.902
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            558.85,
+            540.951,
+            570.942
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            571.09,
+            541.219,
+            583.182
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            583.33,
+            541.108,
+            595.422
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            595.72,
+            216.409,
+            607.812
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            612.76,
+            540.91,
+            624.852
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            625.0,
+            540.934,
+            637.092
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            637.24,
+            541.195,
+            649.332
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            156.02,
+            649.48,
+            245.449,
+            661.572
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            127.7,
+            666.52,
+            451.989,
+            678.612
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            163.1,
+            683.676,
+            332.929,
+            695.788
+          ]
+        },
+        {
+          "page": 5,
+          "bbox": [
+            163.1,
+            700.716,
+            361.509,
+            712.828
+          ]
+        }
+      ]
+    },
+    "95e3da38-890e-550d-863c-6f371179a71a": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Instancias completas y de actualización · pág. 6",
+      "type": "anexo",
+      "contentSha256": "b2a8c533f01003be78eb50b171e09433f3394adaf47851198acfdf2d8298f173",
+      "pageNumbers": [
+        6
+      ],
+      "anchors": [
+        {
+          "page": 6,
+          "bbox": [
+            127.7,
+            84.32,
+            541.407,
+            96.412
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            96.56,
+            541.043,
+            108.652
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            108.92,
+            193.939,
+            121.012
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            125.96,
+            540.949,
+            138.072
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            138.2,
+            211.849,
+            150.292
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            155.24,
+            541.039,
+            167.352
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            167.48,
+            541.059,
+            179.572
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            179.72,
+            541.019,
+            191.812
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            192.08,
+            281.569,
+            204.172
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            209.12,
+            541.039,
+            221.232
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            221.36,
+            541.239,
+            233.452
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            233.6,
+            528.939,
+            245.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            250.67,
+            540.969,
+            262.782
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            262.91,
+            540.959,
+            275.002
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            275.27,
+            541.13,
+            287.362
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            287.51,
+            339.069,
+            299.602
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            304.55,
+            541.039,
+            316.662
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            316.79,
+            366.669,
+            328.882
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            333.83,
+            541.356,
+            345.942
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            346.07,
+            375.549,
+            358.162
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            363.23,
+            540.989,
+            375.342
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            375.47,
+            540.999,
+            387.562
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            387.71,
+            358.629,
+            399.802
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            127.7,
+            404.75,
+            541.136,
+            416.842
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            416.99,
+            540.815,
+            429.082
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            429.37,
+            200.899,
+            441.462
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            127.7,
+            446.41,
+            540.93,
+            458.502
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            458.65,
+            541.211,
+            470.742
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            470.89,
+            540.884,
+            482.982
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            483.13,
+            240.289,
+            495.222
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            127.7,
+            500.17,
+            540.9,
+            512.262
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            156.02,
+            512.53,
+            512.139,
+            524.622
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            529.57,
+            541.019,
+            541.682
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            541.81,
+            228.769,
+            553.902
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            558.85,
+            540.579,
+            570.962
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            575.89,
+            503.499,
+            588.002
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            592.93,
+            541.079,
+            605.042
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            605.32,
+            224.809,
+            617.412
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            622.36,
+            540.969,
+            634.472
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            634.6,
+            216.473,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            224.988,
+            634.6,
+            241.044,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            249.58,
+            634.6,
+            321.023,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            329.538,
+            634.6,
+            337.576,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            346.211,
+            634.6,
+            385.912,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            394.428,
+            634.6,
+            404.019,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            412.535,
+            634.6,
+            424.158,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            432.674,
+            634.6,
+            493.709,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            502.225,
+            634.6,
+            541.069,
+            646.692
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            646.84,
+            261.049,
+            658.932
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            663.88,
+            426.549,
+            675.992
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            680.92,
+            541.059,
+            693.032
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            177.26,
+            693.276,
+            249.169,
+            705.368
+          ]
+        },
+        {
+          "page": 6,
+          "bbox": [
+            163.1,
+            710.316,
+            468.459,
+            722.428
+          ]
+        }
+      ]
+    },
+    "e44a69c3-f125-585d-9eda-bede9c4c68d7": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Archivos digitales y Nodo Central · pág. 7",
+      "type": "anexo",
+      "contentSha256": "c7d38767997119bfc469639f1e8da1bfeeba3b5bbf5d3e8642374028a6a1e090",
+      "pageNumbers": [
+        7
+      ],
+      "anchors": [
+        {
+          "page": 7,
+          "bbox": [
+            120.5,
+            84.32,
+            540.976,
+            96.412
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            96.56,
+            540.974,
+            108.652
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            108.92,
+            352.389,
+            121.012
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            120.5,
+            125.96,
+            541.368,
+            138.052
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            138.2,
+            540.984,
+            150.292
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            150.44,
+            540.974,
+            162.532
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            162.68,
+            317.449,
+            174.772
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            103.1,
+            196.88,
+            360.099,
+            208.972
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            127.7,
+            213.92,
+            541.044,
+            226.012
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            226.16,
+            541.396,
+            238.252
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            238.4,
+            254.329,
+            250.492
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            127.7,
+            255.47,
+            541.237,
+            267.562
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            153.74,
+            267.71,
+            541.289,
+            279.802
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            153.74,
+            280.07,
+            541.064,
+            292.162
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            153.74,
+            292.31,
+            249.769,
+            304.402
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            130.22,
+            309.35,
+            541.02,
+            321.442
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            158.66,
+            321.59,
+            541.409,
+            333.682
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            158.66,
+            333.83,
+            541.034,
+            345.922
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            158.66,
+            346.07,
+            541.118,
+            358.162
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            158.66,
+            358.43,
+            233.101,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            241.617,
+            358.43,
+            303.956,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            312.472,
+            358.43,
+            363.199,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            371.714,
+            358.43,
+            389.822,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            398.337,
+            358.43,
+            439.841,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            448.357,
+            358.43,
+            470.527,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            479.043,
+            358.43,
+            519.8,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            528.315,
+            358.43,
+            541.024,
+            370.522
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            158.66,
+            370.67,
+            326.329,
+            382.762
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            130.22,
+            387.71,
+            540.95,
+            399.802
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            158.66,
+            399.95,
+            208.129,
+            412.042
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            127.7,
+            416.99,
+            540.992,
+            429.082
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            429.37,
+            541.405,
+            441.462
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            441.61,
+            355.989,
+            453.702
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            103.1,
+            475.69,
+            286.279,
+            487.782
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            127.7,
+            492.73,
+            541.138,
+            504.822
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            504.97,
+            540.884,
+            517.062
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            517.33,
+            208.489,
+            529.422
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            127.7,
+            534.37,
+            540.94,
+            546.462
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            546.61,
+            222.769,
+            558.702
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            563.65,
+            541.088,
+            575.762
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            170.18,
+            575.89,
+            338.109,
+            587.982
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            592.93,
+            540.931,
+            605.042
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            170.18,
+            605.32,
+            330.049,
+            617.412
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            622.36,
+            541.419,
+            634.472
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            170.18,
+            634.6,
+            241.849,
+            646.692
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            651.64,
+            541.385,
+            663.752
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            170.18,
+            663.88,
+            541.419,
+            675.972
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            170.18,
+            676.12,
+            282.649,
+            688.212
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            156.02,
+            693.276,
+            541.239,
+            705.388
+          ]
+        },
+        {
+          "page": 7,
+          "bbox": [
+            170.18,
+            705.516,
+            503.769,
+            717.608
+          ]
+        }
+      ]
+    },
+    "06bf7f4a-78e7-55a9-bfbb-f1bdbfb63043": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Nodos de las Unidades del Estado · pág. 8",
+      "type": "anexo",
+      "contentSha256": "7bf04fe0fc0cf4d8f9dbb8cb2f28b3ba1ce850e5f05b45eca92c3433229b26f3",
+      "pageNumbers": [
+        8
+      ],
+      "anchors": [
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            84.32,
+            541.317,
+            96.432
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            96.56,
+            338.709,
+            108.652
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            113.72,
+            408.669,
+            125.832
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            103.1,
+            147.8,
+            432.579,
+            159.892
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            164.84,
+            540.94,
+            176.932
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            177.08,
+            438.069,
+            189.172
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            194.12,
+            541.036,
+            206.212
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            206.48,
+            540.924,
+            218.572
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            218.72,
+            343.029,
+            230.812
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            235.76,
+            541.301,
+            247.852
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            248.0,
+            540.954,
+            260.092
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            260.27,
+            227.329,
+            272.362
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            277.31,
+            504.099,
+            289.402
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            103.1,
+            311.51,
+            333.919,
+            323.602
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            328.55,
+            541.345,
+            340.642
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            340.79,
+            401.109,
+            352.882
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            357.83,
+            541.0,
+            369.922
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            370.07,
+            365.589,
+            382.162
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            387.23,
+            541.301,
+            399.322
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            399.47,
+            222.769,
+            411.562
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            416.51,
+            540.961,
+            428.622
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            428.77,
+            338.109,
+            440.862
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            445.81,
+            541.404,
+            457.922
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            458.17,
+            288.289,
+            470.262
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            475.21,
+            541.385,
+            487.322
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            487.45,
+            541.419,
+            499.542
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            499.69,
+            282.649,
+            511.782
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            516.73,
+            540.981,
+            528.842
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            528.97,
+            541.078,
+            541.062
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            170.18,
+            541.33,
+            254.329,
+            553.422
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            558.37,
+            408.669,
+            570.482
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            120.5,
+            592.45,
+            466.899,
+            604.542
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            609.52,
+            541.399,
+            621.612
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            621.76,
+            482.499,
+            633.852
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            638.92,
+            540.972,
+            651.012
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            651.16,
+            541.153,
+            663.252
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            663.4,
+            173.419,
+            675.492
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            127.7,
+            680.44,
+            541.172,
+            692.532
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            156.02,
+            692.676,
+            442.749,
+            704.768
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            106.46,
+            709.716,
+            540.845,
+            721.808
+          ]
+        },
+        {
+          "page": 8,
+          "bbox": [
+            106.46,
+            722.076,
+            156.838,
+            734.168
+          ]
+        }
+      ]
+    },
+    "fbf75f63-9f57-5c2c-864e-d8655aea6623": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Glosario · primera parte · pág. 9",
+      "type": "anexo",
+      "contentSha256": "cfcf9887c449620b8299c1dc8c4b655655afa3fc8c68d739f41658f90ba522b8",
+      "pageNumbers": [
+        9
+      ],
+      "anchors": [
+        {
+          "page": 9,
+          "bbox": [
+            85.104,
+            84.32,
+            128.089,
+            96.412
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            115.1,
+            111.926,
+            166.373,
+            122.852
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            100.34,
+            122.846,
+            163.913,
+            133.772
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            129.5,
+            134.006,
+            163.913,
+            144.932
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            106.406,
+            532.064,
+            117.332
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            117.326,
+            532.253,
+            128.252
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            128.366,
+            532.055,
+            139.292
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            139.526,
+            223.223,
+            150.452
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            100.22,
+            164.606,
+            163.85,
+            175.532
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            124.46,
+            175.646,
+            163.913,
+            186.572
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            159.086,
+            532.136,
+            170.012
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            170.006,
+            532.082,
+            180.932
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            181.166,
+            470.113,
+            192.092
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            85.944,
+            206.126,
+            163.857,
+            217.052
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            98.424,
+            217.286,
+            163.913,
+            228.212
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            200.606,
+            532.507,
+            211.532
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            211.646,
+            532.37,
+            222.572
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            222.806,
+            246.863,
+            233.732
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            88.824,
+            242.246,
+            163.866,
+            253.172
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            253.316,
+            377.443,
+            264.242
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            121.22,
+            253.196,
+            163.898,
+            264.122
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            105.26,
+            264.356,
+            163.913,
+            275.282
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            113.9,
+            311.516,
+            158.273,
+            322.442
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            283.916,
+            526.358,
+            294.842
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            294.836,
+            526.403,
+            305.762
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            305.876,
+            526.873,
+            316.802
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            316.916,
+            526.589,
+            327.842
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            327.956,
+            526.403,
+            338.882
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            168.5,
+            339.116,
+            299.663,
+            350.042
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            89.544,
+            370.916,
+            163.913,
+            381.842
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            359.756,
+            532.109,
+            370.682
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            370.796,
+            532.163,
+            381.722
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            381.956,
+            505.753,
+            392.882
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            101.54,
+            402.716,
+            532.136,
+            419.162
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            413.756,
+            381.283,
+            424.682
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            93.864,
+            433.336,
+            376.603,
+            444.262
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            94.224,
+            458.296,
+            163.848,
+            469.222
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            88.224,
+            469.336,
+            163.86,
+            480.262
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            87.264,
+            480.496,
+            163.913,
+            491.422
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            452.776,
+            532.037,
+            463.702
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            463.816,
+            532.154,
+            474.742
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            474.856,
+            532.046,
+            485.782
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            486.016,
+            241.823,
+            496.942
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            113.42,
+            505.456,
+            532.468,
+            521.902
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            516.496,
+            233.063,
+            527.422
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            104.54,
+            536.056,
+            532.01,
+            552.502
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            547.096,
+            454.843,
+            558.022
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            101.9,
+            566.536,
+            532.39,
+            582.982
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            577.696,
+            485.473,
+            588.622
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            82.224,
+            597.166,
+            109.206,
+            608.092
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            124.092,
+            597.166,
+            138.573,
+            608.092
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            153.468,
+            597.166,
+            163.881,
+            608.092
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            82.224,
+            608.086,
+            163.908,
+            619.012
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            82.224,
+            619.246,
+            117.713,
+            630.172
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            597.166,
+            532.046,
+            608.092
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            608.086,
+            532.342,
+            619.012
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            619.246,
+            416.563,
+            630.172
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            94.224,
+            657.286,
+            163.913,
+            668.212
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            638.806,
+            532.136,
+            649.732
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            649.726,
+            532.423,
+            660.652
+          ]
+        },
+        {
+          "page": 9,
+          "bbox": [
+            167.06,
+            660.886,
+            340.843,
+            671.812
+          ]
+        }
+      ]
+    },
+    "9536edd2-650e-5e3c-8eb4-56af0a8f1a22": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Glosario · segunda parte · pág. 10",
+      "type": "anexo",
+      "contentSha256": "2b4cbbe4148bfd6b277bac9c8d00e4a9a29f68da0efbdf67860831ab7ab76986",
+      "pageNumbers": [
+        10
+      ],
+      "anchors": [
+        {
+          "page": 10,
+          "bbox": [
+            129.38,
+            88.646,
+            163.877,
+            99.572
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            99.624,
+            99.686,
+            163.857,
+            110.612
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            94.224,
+            110.726,
+            163.848,
+            121.652
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            82.224,
+            121.766,
+            163.863,
+            132.692
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            167.06,
+            105.206,
+            532.001,
+            116.132
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            167.06,
+            116.246,
+            532.348,
+            127.172
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            167.06,
+            127.406,
+            231.743,
+            138.332
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            129.38,
+            132.806,
+            163.877,
+            143.732
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            114.14,
+            143.846,
+            163.913,
+            154.772
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            87.144,
+            168.926,
+            163.869,
+            179.852
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            83.784,
+            179.966,
+            163.913,
+            190.892
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            167.06,
+            163.406,
+            532.432,
+            174.332
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            167.06,
+            174.326,
+            532.199,
+            185.252
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            167.06,
+            185.486,
+            472.033,
+            196.412
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            113.42,
+            205.046,
+            420.643,
+            215.972
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            98.424,
+            230.006,
+            162.657,
+            240.932
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            97.224,
+            241.166,
+            162.713,
+            252.092
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            224.486,
+            530.948,
+            235.412
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            235.526,
+            531.107,
+            246.452
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            246.686,
+            252.983,
+            257.612
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            104.42,
+            266.156,
+            165.113,
+            277.082
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            268.196,
+            531.02,
+            279.122
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            279.236,
+            420.883,
+            290.162
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            124.58,
+            281.276,
+            162.713,
+            292.202
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            106.82,
+            300.716,
+            162.719,
+            311.642
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            102.14,
+            311.636,
+            162.713,
+            322.562
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            106.82,
+            322.676,
+            162.719,
+            333.602
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            96.264,
+            333.716,
+            162.713,
+            344.642
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            311.756,
+            531.02,
+            322.682
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            322.676,
+            531.083,
+            333.602
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            333.836,
+            364.723,
+            344.762
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            140.18,
+            344.876,
+            165.113,
+            355.802
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            104.42,
+            364.436,
+            162.677,
+            375.362
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            110.06,
+            375.476,
+            162.713,
+            386.402
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            366.356,
+            531.002,
+            377.282
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            377.396,
+            531.038,
+            388.322
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            388.556,
+            417.163,
+            399.482
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            108.14,
+            390.476,
+            162.713,
+            401.402
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            90.384,
+            410.036,
+            162.663,
+            420.962
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            107.66,
+            421.076,
+            162.713,
+            432.002
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            410.036,
+            531.065,
+            420.962
+          ]
+        },
+        {
+          "page": 10,
+          "bbox": [
+            165.98,
+            421.076,
+            516.673,
+            432.002
+          ]
+        }
+      ]
+    },
+    "a4829536-f8aa-5cba-9fb2-2e321866a733": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Anexo 1 · Tipos de archivos · pág. 11",
+      "type": "anexo",
+      "contentSha256": "4c6b4339fcbb136ffc79059f273cc5a90a935aade9355ac59fa1d8387697ae89",
+      "pageNumbers": [
+        11
+      ],
+      "anchors": [
+        {
+          "page": 11,
+          "bbox": [
+            85.104,
+            84.32,
+            217.279,
+            96.412
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            406.75,
+            110.012,
+            530.566,
+            119.772
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            125.9,
+            114.932,
+            180.351,
+            124.692
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            232.85,
+            110.012,
+            377.919,
+            119.772
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            268.49,
+            119.852,
+            342.281,
+            129.612
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            422.83,
+            119.852,
+            514.511,
+            129.612
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            156.452,
+            542.558,
+            166.212
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            166.292,
+            542.636,
+            176.052
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            176.132,
+            418.577,
+            185.892
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            185.972,
+            499.367,
+            195.732
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            138.812,
+            337.457,
+            148.572
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            148.532,
+            385.908,
+            158.292
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            158.372,
+            257.244,
+            168.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            267.608,
+            158.372,
+            291.671,
+            168.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            302.035,
+            158.372,
+            326.693,
+            168.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            337.057,
+            158.372,
+            355.131,
+            168.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            365.494,
+            158.372,
+            385.948,
+            168.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            168.212,
+            386.297,
+            177.972
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            178.052,
+            385.932,
+            187.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            187.772,
+            385.948,
+            197.532
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            197.612,
+            353.657,
+            207.372
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            136.892,
+            216.01,
+            146.652
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            146.732,
+            194.367,
+            156.492
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            166.292,
+            216.042,
+            176.052
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            176.132,
+            216.002,
+            185.892
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            185.972,
+            216.018,
+            195.732
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            195.692,
+            215.994,
+            205.452
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            205.532,
+            129.567,
+            215.292
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            228.692,
+            216.01,
+            238.452
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            238.412,
+            186.567,
+            248.172
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            258.122,
+            216.026,
+            267.882
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            267.962,
+            216.034,
+            277.722
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            277.682,
+            216.042,
+            287.442
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            287.522,
+            188.967,
+            297.282
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            223.772,
+            542.661,
+            233.532
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            233.612,
+            542.603,
+            243.372
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            243.332,
+            542.566,
+            253.092
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            253.202,
+            530.207,
+            262.962
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            263.042,
+            542.614,
+            272.802
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            272.882,
+            417.013,
+            282.642
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            431.341,
+            272.882,
+            470.399,
+            282.642
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            484.726,
+            272.882,
+            498.466,
+            282.642
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            512.673,
+            272.882,
+            542.606,
+            282.642
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            282.602,
+            457.921,
+            292.362
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            467.328,
+            282.602,
+            493.546,
+            292.362
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            502.953,
+            282.602,
+            526.534,
+            292.362
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            535.941,
+            282.602,
+            542.598,
+            292.362
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            292.442,
+            536.447,
+            302.202
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            215.852,
+            386.043,
+            225.612
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            225.692,
+            247.797,
+            235.452
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            235.412,
+            385.924,
+            245.172
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            245.252,
+            248.637,
+            255.012
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            255.122,
+            293.637,
+            264.882
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            264.962,
+            385.948,
+            274.722
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            274.682,
+            261.569,
+            284.442
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            278.068,
+            274.682,
+            290.972,
+            284.442
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            307.574,
+            274.682,
+            352.028,
+            284.442
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            368.63,
+            274.682,
+            385.98,
+            284.442
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            284.522,
+            385.988,
+            294.282
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            294.362,
+            270.597,
+            304.122
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            311.642,
+            176.007,
+            321.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            91.704,
+            321.996,
+            129.567,
+            333.102
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            321.962,
+            528.702,
+            331.722
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            332.282,
+            418.097,
+            342.042
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            321.962,
+            386.017,
+            331.722
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            332.282,
+            283.317,
+            342.042
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            342.602,
+            292.197,
+            352.362
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            92.184,
+            353.916,
+            125.247,
+            365.022
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            353.882,
+            386.056,
+            363.642
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            364.202,
+            265.677,
+            373.962
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            374.402,
+            237.117,
+            384.162
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            384.722,
+            260.277,
+            394.482
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            395.042,
+            277.917,
+            404.802
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            426.502,
+            162.567,
+            436.262
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            91.704,
+            447.176,
+            128.127,
+            458.282
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            406.322,
+            386.052,
+            416.082
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            416.642,
+            267.222,
+            426.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            275.069,
+            416.642,
+            298.996,
+            426.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            306.843,
+            416.642,
+            314.473,
+            426.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            322.32,
+            416.642,
+            334.259,
+            426.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            341.986,
+            416.642,
+            385.964,
+            426.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            426.982,
+            385.932,
+            436.742
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            437.302,
+            286.077,
+            447.062
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            447.502,
+            308.037,
+            457.262
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            457.822,
+            373.457,
+            467.582
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            468.142,
+            242.997,
+            477.902
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            406.322,
+            542.622,
+            416.082
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            416.642,
+            421.697,
+            426.402
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            426.982,
+            542.652,
+            436.742
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            437.302,
+            525.887,
+            447.062
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            447.502,
+            542.582,
+            457.262
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            457.822,
+            542.558,
+            467.582
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            468.142,
+            457.817,
+            477.902
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            513.982,
+            186.831,
+            523.742
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            513.982,
+            345.737,
+            523.742
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            483.142,
+            463.817,
+            492.902
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            493.342,
+            507.407,
+            503.102
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            503.662,
+            542.598,
+            513.422
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            513.982,
+            499.127,
+            523.742
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            524.302,
+            542.558,
+            534.062
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            534.622,
+            458.777,
+            544.382
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            544.822,
+            497.687,
+            554.582
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            585.382,
+            179.751,
+            595.142
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            585.382,
+            382.337,
+            595.142
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            560.302,
+            542.621,
+            570.062
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            570.142,
+            489.887,
+            579.902
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            579.982,
+            542.558,
+            589.742
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            589.702,
+            414.617,
+            599.462
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            599.572,
+            437.282,
+            609.332
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            445.129,
+            599.572,
+            470.375,
+            609.332
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            478.222,
+            599.572,
+            507.439,
+            609.332
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            515.166,
+            599.572,
+            542.566,
+            609.332
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            609.532,
+            421.577,
+            619.292
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            626.092,
+            182.031,
+            635.852
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            620.692,
+            284.997,
+            630.452
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            630.652,
+            351.017,
+            640.412
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            90.264,
+            671.692,
+            188.631,
+            681.452
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            657.052,
+            308.157,
+            666.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            666.772,
+            298.917,
+            676.532
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            676.612,
+            272.277,
+            686.372
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            224.69,
+            686.448,
+            332.037,
+            696.208
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            641.812,
+            461.657,
+            651.572
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            651.652,
+            542.566,
+            661.412
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            661.372,
+            451.682,
+            671.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            466.009,
+            661.372,
+            477.346,
+            671.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            491.74,
+            661.372,
+            505.239,
+            671.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            519.687,
+            661.372,
+            542.665,
+            671.132
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            671.212,
+            526.607,
+            680.972
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            681.052,
+            412.808,
+            690.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            420.776,
+            681.052,
+            466.085,
+            690.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            474.053,
+            681.052,
+            490.551,
+            690.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            498.518,
+            681.052,
+            521.609,
+            690.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            529.577,
+            681.052,
+            542.593,
+            690.812
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            690.888,
+            542.566,
+            700.648
+          ]
+        },
+        {
+          "page": 11,
+          "bbox": [
+            394.63,
+            700.728,
+            486.527,
+            710.488
+          ]
+        }
+      ]
+    },
+    "b32e65ce-2058-52ac-8cb8-efdda6dc95b1": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Anexo 2 · Metadatos de preservación · pág. 12",
+      "type": "anexo",
+      "contentSha256": "a64c8f531170e98f18ef873ead45de2220bd2294a987fa53676937ed077ec551",
+      "pageNumbers": [
+        12
+      ],
+      "anchors": [
+        {
+          "page": 12,
+          "bbox": [
+            85.104,
+            84.32,
+            385.779,
+            96.412
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            91.944,
+            107.852,
+            179.631,
+            117.612
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            217.97,
+            107.852,
+            258.741,
+            117.612
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            391.51,
+            107.852,
+            439.841,
+            117.612
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            125.732,
+            178.191,
+            135.492
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            142.052,
+            289.715,
+            156.732
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            151.892,
+            220.917,
+            161.652
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            142.052,
+            537.98,
+            151.812
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            151.892,
+            426.017,
+            161.652
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            177.932,
+            111.327,
+            187.692
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            173.012,
+            220.989,
+            182.772
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            228.957,
+            173.012,
+            251.831,
+            182.772
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            259.85,
+            173.012,
+            272.642,
+            182.772
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            280.489,
+            173.012,
+            289.791,
+            182.772
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            182.852,
+            224.157,
+            192.612
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            168.212,
+            537.851,
+            177.972
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            177.932,
+            537.948,
+            187.692
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            187.772,
+            450.857,
+            197.532
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            209.012,
+            122.967,
+            218.772
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            204.092,
+            289.715,
+            213.852
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            213.932,
+            214.557,
+            223.692
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            204.092,
+            537.907,
+            213.852
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            213.932,
+            396.497,
+            223.692
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            230.252,
+            186.111,
+            240.012
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            250.892,
+            139.767,
+            260.652
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            245.972,
+            289.717,
+            255.732
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            255.842,
+            218.397,
+            265.602
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            245.972,
+            537.894,
+            255.732
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            255.842,
+            401.057,
+            265.602
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            272.162,
+            167.847,
+            281.922
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            272.162,
+            266.877,
+            281.922
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            272.162,
+            415.697,
+            281.922
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            293.402,
+            161.487,
+            303.162
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            293.402,
+            285.117,
+            303.162
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            288.482,
+            537.972,
+            298.242
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            298.322,
+            319.317,
+            308.082
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            319.442,
+            138.207,
+            329.202
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            314.522,
+            235.027,
+            324.282
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            275.275,
+            314.522,
+            289.739,
+            324.282
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            324.362,
+            275.517,
+            334.122
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            319.442,
+            446.537,
+            329.202
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            340.682,
+            126.567,
+            350.442
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            340.682,
+            275.637,
+            350.442
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            340.682,
+            395.657,
+            350.442
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            357.002,
+            122.607,
+            366.762
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            357.002,
+            255.477,
+            366.762
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            357.002,
+            441.257,
+            366.762
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            383.162,
+            157.167,
+            392.922
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            378.242,
+            253.977,
+            388.002
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            388.082,
+            233.997,
+            397.842
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            373.322,
+            537.924,
+            383.082
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            383.162,
+            537.93,
+            392.922
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            392.882,
+            388.097,
+            402.642
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            87.984,
+            414.122,
+            168.087,
+            423.882
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            409.202,
+            220.049,
+            418.962
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            227.413,
+            409.202,
+            239.361,
+            418.962
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            246.605,
+            409.202,
+            268.514,
+            418.962
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            275.878,
+            409.202,
+            289.747,
+            418.962
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            186.98,
+            419.042,
+            217.077,
+            428.802
+          ]
+        },
+        {
+          "page": 12,
+          "bbox": [
+            293.21,
+            414.122,
+            457.337,
+            423.882
+          ]
+        }
+      ]
+    },
+    "557efefd-6975-5e49-9ea4-3a1557d13e9c": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Anexo 3 · Registro de responsables · pág. 13",
+      "type": "anexo",
+      "contentSha256": "0ca9c2aa34d20a16a8d07432ab7264cbde001ace62f60b170d64c899ac2f1d4f",
+      "pageNumbers": [
+        13
+      ],
+      "anchors": [
+        {
+          "page": 13,
+          "bbox": [
+            85.104,
+            96.56,
+            420.099,
+            108.652
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            215.81,
+            126.446,
+            423.283,
+            137.372
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            253.13,
+            149.606,
+            385.99,
+            160.532
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            96.144,
+            167.006,
+            178.673,
+            177.932
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            170.66,
+            180.801,
+            176.435,
+            188.562
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            170.3,
+            201.081,
+            176.075,
+            208.842
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            96.144,
+            193.046,
+            122.393,
+            203.972
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            234.53,
+            237.686,
+            306.743,
+            248.612
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            406.27,
+            237.686,
+            496.513,
+            248.612
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            234.53,
+            272.636,
+            306.743,
+            283.562
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            382.75,
+            272.636,
+            520.033,
+            283.562
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            169.22,
+            297.591,
+            174.995,
+            305.352
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            96.144,
+            295.916,
+            149.993,
+            306.842
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            96.144,
+            306.956,
+            158.633,
+            317.882
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            261.17,
+            307.676,
+            280.223,
+            318.602
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            419.47,
+            307.676,
+            483.313,
+            318.602
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            199.01,
+            339.716,
+            342.2,
+            350.642
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            253.01,
+            350.756,
+            288.383,
+            361.682
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            370.63,
+            345.236,
+            532.033,
+            356.162
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            217.01,
+            382.796,
+            324.383,
+            393.722
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            415.75,
+            382.796,
+            487.033,
+            393.722
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            251.57,
+            417.836,
+            289.703,
+            428.762
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            435.55,
+            417.836,
+            467.113,
+            428.762
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            439.99,
+            435.376,
+            498.247,
+            446.302
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            96.864,
+            436.336,
+            155.153,
+            447.262
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            166.34,
+            439.571,
+            172.115,
+            447.332
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            365.47,
+            435.376,
+            423.727,
+            446.302
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            375.55,
+            446.416,
+            413.683,
+            457.342
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            442.75,
+            446.416,
+            495.433,
+            457.342
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            509.26,
+            440.896,
+            542.353,
+            451.822
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            290.09,
+            462.016,
+            349.049,
+            472.942
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            214.49,
+            473.056,
+            254.423,
+            483.982
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            443.47,
+            473.056,
+            459.163,
+            483.982
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            303.89,
+            473.056,
+            335.264,
+            483.982
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            293.33,
+            484.096,
+            345.883,
+            495.022
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            85.104,
+            515.17,
+            192.409,
+            527.262
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            215.33,
+            539.176,
+            425.23,
+            550.102
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            97.584,
+            562.216,
+            523.033,
+            573.142
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            97.584,
+            585.736,
+            405.043,
+            596.662
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            97.584,
+            609.286,
+            542.624,
+            620.212
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            111.74,
+            620.326,
+            166.673,
+            631.252
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            97.584,
+            643.966,
+            542.561,
+            654.892
+          ]
+        },
+        {
+          "page": 13,
+          "bbox": [
+            111.74,
+            655.006,
+            505.873,
+            665.932
+          ]
+        }
+      ]
+    },
+    "8578e894-efc9-5e72-8806-fe2446b82aae": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Anexo 4 · Registro de Nodo · pág. 14",
+      "type": "anexo",
+      "contentSha256": "1d8ef833d213cefd6987dbb8598b23c618f3dab5c54f2bffcdbdf2eb45e26843",
+      "pageNumbers": [
+        14
+      ],
+      "anchors": [
+        {
+          "page": 14,
+          "bbox": [
+            85.104,
+            96.56,
+            507.609,
+            108.652
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            222.77,
+            126.446,
+            409.123,
+            137.372
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            183.5,
+            149.606,
+            448.51,
+            160.532
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            167.006,
+            181.193,
+            177.932
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            185.3,
+            179.481,
+            191.075,
+            187.242
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            183.206,
+            144.833,
+            194.132
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            243.17,
+            216.446,
+            312.263,
+            227.372
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            380.47,
+            210.926,
+            444.1,
+            221.852
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            217.166,
+            140.513,
+            228.092
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            186.38,
+            223.881,
+            192.155,
+            231.642
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            392.59,
+            221.966,
+            432.043,
+            232.892
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            483.22,
+            216.446,
+            518.833,
+            227.372
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            259.73,
+            249.806,
+            295.823,
+            260.732
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            428.83,
+            249.806,
+            473.833,
+            260.732
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.864,
+            281.036,
+            155.121,
+            291.962
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            258.65,
+            283.436,
+            296.783,
+            294.362
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            433.39,
+            283.436,
+            469.273,
+            294.362
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            184.82,
+            293.031,
+            188.69,
+            300.792
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            97.584,
+            292.076,
+            150.233,
+            303.002
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            257.81,
+            317.036,
+            297.743,
+            327.962
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            379.99,
+            317.036,
+            522.673,
+            327.962
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            330.116,
+            176.46,
+            341.042
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            341.156,
+            149.033,
+            352.082
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            185.78,
+            346.791,
+            191.555,
+            354.552
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            246.41,
+            346.796,
+            273.503,
+            357.722
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            367.15,
+            346.796,
+            386.563,
+            357.722
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            475.78,
+            346.796,
+            490.633,
+            357.722
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            377.23,
+            374.876,
+            433.318,
+            385.802
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            204.65,
+            396.956,
+            272.852,
+            407.882
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            463.03,
+            385.916,
+            524.683,
+            396.842
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            452.71,
+            396.956,
+            535.06,
+            407.882
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            379.196,
+            146.841,
+            390.122
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            390.116,
+            152.961,
+            401.042
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            401.156,
+            151.193,
+            412.082
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            185.66,
+            404.631,
+            191.435,
+            412.392
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            224.57,
+            407.996,
+            252.983,
+            418.922
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            297.41,
+            402.476,
+            350.083,
+            413.402
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            389.95,
+            385.916,
+            420.514,
+            396.842
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            381.19,
+            396.956,
+            429.232,
+            407.882
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            371.71,
+            407.996,
+            438.823,
+            418.922
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            456.55,
+            407.996,
+            531.214,
+            418.922
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            381.19,
+            419.036,
+            429.367,
+            429.962
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            476.74,
+            419.036,
+            511.153,
+            429.962
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            387.91,
+            430.096,
+            422.683,
+            441.022
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            196.82,
+            444.616,
+            211.823,
+            455.542
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            447.37,
+            184.421,
+            459.462
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            459.376,
+            119.753,
+            470.302
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            196.82,
+            462.136,
+            213.863,
+            473.062
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            185.3,
+            469.211,
+            191.075,
+            476.972
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            196.82,
+            479.536,
+            219.383,
+            490.462
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            185.78,
+            515.531,
+            191.555,
+            523.292
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            497.056,
+            171.555,
+            507.982
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            508.096,
+            172.131,
+            519.022
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            519.136,
+            145.284,
+            530.062
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            530.176,
+            179.261,
+            541.102
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            541.216,
+            130.553,
+            552.142
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            567.256,
+            186.054,
+            578.182
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            578.296,
+            141.353,
+            589.222
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            186.38,
+            584.891,
+            192.155,
+            592.652
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            617.686,
+            186.054,
+            628.612
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            628.726,
+            136.073,
+            639.652
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            186.38,
+            634.841,
+            192.155,
+            642.602
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            184.1,
+            677.561,
+            193.835,
+            685.322
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            664.246,
+            186.054,
+            675.172
+          ]
+        },
+        {
+          "page": 14,
+          "bbox": [
+            96.144,
+            675.286,
+            165.473,
+            686.212
+          ]
+        }
+      ]
+    },
+    "2ba15a37-c623-5afb-bc21-807147396539": {
+      "sourceId": "snieg-cecr-iin-version-verificada-3c397f3c1f57",
+      "label": "Anexo 4 · Instructivo de llenado · pág. 15",
+      "type": "anexo",
+      "contentSha256": "78ecc320e03a9f267dcd986535946efd72014c98173e093b02ef1013ef6748a5",
+      "pageNumbers": [
+        15
+      ],
+      "anchors": [
+        {
+          "page": 15,
+          "bbox": [
+            85.104,
+            102.56,
+            192.409,
+            114.652
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            183.14,
+            126.446,
+            448.63,
+            137.372
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            149.366,
+            188.273,
+            160.292
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            152.366,
+            535.616,
+            163.292
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            163.406,
+            284.423,
+            174.332
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            180.446,
+            521.113,
+            191.372
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            183.446,
+            134.633,
+            194.372
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            212.486,
+            150.233,
+            223.412
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            206.966,
+            535.553,
+            217.892
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            218.006,
+            390.283,
+            228.932
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            252.596,
+            216.743,
+            263.522
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            241.526,
+            535.84,
+            252.452
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            252.596,
+            535.562,
+            263.522
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            263.636,
+            441.283,
+            274.562
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            96.624,
+            292.676,
+            237.263,
+            303.602
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            287.156,
+            535.517,
+            298.082
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            298.196,
+            286.823,
+            309.122
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            321.716,
+            479.713,
+            332.642
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            338.756,
+            361.723,
+            349.682
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            355.796,
+            318.743,
+            366.722
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            99.264,
+            355.796,
+            216.885,
+            366.722
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            106.46,
+            366.836,
+            161.513,
+            377.762
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            372.836,
+            535.696,
+            383.762
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            383.876,
+            290.903,
+            394.802
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            400.916,
+            519.193,
+            411.842
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            429.01,
+            218.209,
+            441.102
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            424.456,
+            535.526,
+            435.382
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            435.496,
+            357.163,
+            446.422
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            464.536,
+            240.983,
+            475.462
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            106.46,
+            475.576,
+            238.823,
+            486.502
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            106.46,
+            486.616,
+            157.22,
+            497.542
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            459.016,
+            535.598,
+            469.942
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            470.056,
+            535.684,
+            480.982
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            481.096,
+            535.544,
+            492.022
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            492.136,
+            353.083,
+            503.062
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            526.696,
+            240.983,
+            537.622
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            515.656,
+            535.807,
+            526.582
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            526.696,
+            535.58,
+            537.622
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            537.736,
+            320.783,
+            548.662
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            95.904,
+            561.256,
+            235.823,
+            572.182
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            561.256,
+            465.763,
+            572.182
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            92.184,
+            584.776,
+            239.055,
+            595.702
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            106.46,
+            595.816,
+            133.673,
+            606.742
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            584.776,
+            535.499,
+            595.702
+          ]
+        },
+        {
+          "page": 15,
+          "bbox": [
+            253.61,
+            595.816,
+            440.443,
+            606.742
+          ]
+        }
+      ]
+    }
+  },
+  "reglasRelacionadas": "e68d19f8-3f7c-5f17-b2df-c3c484eb5ecc"
+}
