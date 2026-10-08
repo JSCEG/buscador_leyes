@@ -1,0 +1,82 @@
+{
+  "instruments": [
+    {
+      "instrumentId": "31198a73-b97b-5e40-9bcc-545779cc2ea4",
+      "sourceId": "snieg-mcr-iin-version-verificada-1f30c55322d4",
+      "version": "PDF listado en normatividad vigente; sin fecha de emisión explícita verificada",
+      "fechaPublicacionExactaNoDocumentada": true,
+      "checksum": "deae9aa742ee833425efe1691f186b4b",
+      "sha256": "1f30c55322d45676b46fa30aae834953f3cc93de9e6dac8cb42fafe22257b6a1",
+      "bytes": 352912,
+      "pages": 10,
+      "fragmentos": 8,
+      "paginas": [
+        {
+          "pagina": 2,
+          "fragmentId": "abcfd283-1e36-50ff-af31-5995fc49d310",
+          "lineas": 20,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 4,
+          "fragmentId": "35e2d8e7-96cb-5999-af1a-8db6266fe779",
+          "lineas": 55,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 5,
+          "fragmentId": "0f14dc97-92a5-5569-8147-a0a5d15f8719",
+          "lineas": 57,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 6,
+          "fragmentId": "a88bd925-81c6-50a6-8e7a-37c07913a81b",
+          "lineas": 51,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 7,
+          "fragmentId": "c7096589-ffcc-5532-ae18-79086d295298",
+          "lineas": 44,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 8,
+          "fragmentId": "086add17-87d9-57de-b319-fca48a3b57d9",
+          "lineas": 10,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 9,
+          "fragmentId": "40a7a0bd-06ba-5e66-b1c1-e2a03227c2be",
+          "lineas": 68,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 10,
+          "fragmentId": "6e0f747a-a484-5b58-b9c8-4267e5c0cb1a",
+          "lineas": 63,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        }
+      ]
+    }
+  ],
+  "fuente": "https://www.snieg.mx/scn-vigente/"
+}
