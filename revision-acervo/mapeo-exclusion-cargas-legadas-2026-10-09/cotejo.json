@@ -1,0 +1,95 @@
+{
+  "fecha_cotejo": "2026-10-09",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=23042024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5724250",
+  "sha256_pdf": "6cd76cba5f7dcf1c46a790e32f7382908d30f744ca232fa350c710471bc8ee9f",
+  "bytes_pdf": 4873186,
+  "paginas_pdf": 386,
+  "paginas_impresas_documento": [
+    171,
+    179
+  ],
+  "fragmentos_oficiales_mapeados": 7,
+  "nota_editorial_sin_mapa": [
+    "c17694ae-d3ac-58a4-b3ca-f3f2f3863213"
+  ],
+  "cotejo_visual_recomendado": [
+    171,
+    175,
+    178,
+    179
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "id": "e121452e-5bf4-59f6-8105-0a8aa1e5b925",
+      "paginas_pdf": [
+        171,
+        172,
+        173,
+        174
+      ],
+      "anclas": 217,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO · Texto modificatorio completo",
+      "id": "193e65f6-c93a-563b-8931-90e5c2284d13",
+      "paginas_pdf": [
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "anclas": 310,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo SEGUNDO",
+      "id": "1ecc7b43-568a-5de7-b8ae-26c34e0b50ac",
+      "paginas_pdf": [
+        179
+      ],
+      "anclas": 1,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo TERCERO",
+      "id": "4b758039-6058-5050-bb60-60457942e080",
+      "paginas_pdf": [
+        179
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo CUARTO",
+      "id": "88699d69-cc06-5434-8423-59ec6b360c38",
+      "paginas_pdf": [
+        179
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo QUINTO",
+      "id": "dbc05bbe-90cb-5c17-908a-baee22fe0401",
+      "paginas_pdf": [
+        179
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "3f32726a-f14f-5b6e-aa44-4c798b37d7cf",
+      "paginas_pdf": [
+        179
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    }
+  ]
+}

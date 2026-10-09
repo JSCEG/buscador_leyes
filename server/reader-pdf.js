@@ -2,6 +2,7 @@ import sourcesById from './reader-pdf-sources.json';
 
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
 const reviewedDofPdfs = new Set([
+    'https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=23042024-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=10092024-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=09102026-MAT.pdf&repo=',
     'https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_III_ntmppieg.pdf',
