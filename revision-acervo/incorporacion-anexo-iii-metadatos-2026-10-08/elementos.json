@@ -1,0 +1,107 @@
+[
+  {
+    "numero": 1,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Título del documento o material de referencia",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 2,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Fuente",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 3,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Tipo",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 4,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Formato",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 5,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Identificador del documento o material de referencia",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 6,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Fecha",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 7,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Identificación",
+    "elemento": "Idioma",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 8,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Propiedad intelectual",
+    "elemento": "Autor",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 9,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Propiedad intelectual",
+    "elemento": "Editor",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 10,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Propiedad intelectual",
+    "elemento": "Colaboradores",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 11,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Propiedad intelectual",
+    "elemento": "Derechos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 12,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Contenido",
+    "elemento": "Descripción del contenido",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 13,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Contenido",
+    "elemento": "Temas",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 14,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Contenido",
+    "elemento": "Cobertura",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 15,
+    "seccion": "Descripción de los materiales de soporte\nconceptual y metodológico",
+    "apartado": "Contenido",
+    "elemento": "Documentos relacionados",
+    "condicion": "Recomendado"
+  }
+]
