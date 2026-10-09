@@ -1,0 +1,259 @@
+{
+  "fecha_cotejo": "2026-10-09",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=10092024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5738646",
+  "sha256_pdf": "a1b0ce65ba69fa6689b1694186b88bae03e6528b9ebc30784b3fefbb78dae855",
+  "bytes_pdf": 11238404,
+  "paginas_pdf": 280,
+  "paginas_impresas_documento": [
+    115,
+    135
+  ],
+  "fragmentos_oficiales_mapeados": 24,
+  "nota_editorial_sin_mapa": [
+    "dea7b0a8-e10c-5985-99ac-86f45c5acf3f"
+  ],
+  "cotejo_visual_recomendado": [
+    115,
+    119,
+    120,
+    129,
+    133,
+    135
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "id": "f9aad1cc-2a3d-5ed0-bc91-20dfda7d318d",
+      "paginas_pdf": [
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "anclas": 262,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO",
+      "id": "1ee41d79-b710-5bce-adb6-5417e7a59491",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo SEGUNDO",
+      "id": "1ab0db20-53d8-54d0-8bf0-088a1c995972",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo TERCERO",
+      "id": "4247b9bf-6af6-571a-ba2e-1bcb73205732",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo CUARTO",
+      "id": "2ff15b1a-29d9-54b8-bebb-90b7fedebeec",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 15,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo QUINTO",
+      "id": "e3b3b9ba-bde3-5e46-8097-bf1223823e42",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo SEXTO",
+      "id": "40c00bf4-66a3-5fe4-b4c0-73624c4d585f",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "ca77a60f-1406-542c-adad-5a5eea065c64",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Presentación e índice",
+      "id": "483648d4-73d9-5962-8ab4-6450d10e52af",
+      "paginas_pdf": [
+        120
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 1. Símbolos, siglas y acrónimos.",
+      "id": "67e91d9c-88fb-5f48-8085-1b20b5041c84",
+      "paginas_pdf": [
+        120
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 2. Disposiciones Generales.",
+      "id": "dc55de94-b8e8-5fc7-81f8-cef5873f6ac6",
+      "paginas_pdf": [
+        120,
+        121
+      ],
+      "anclas": 35,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 3. Definiciones.",
+      "id": "113409e6-2488-5688-97a0-929be6335d96",
+      "paginas_pdf": [
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "anclas": 228,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 4. De la solicitud del servicio de suministro eléctrico y de la conexión de Infraestructura de Carga de VE y VEHC.",
+      "id": "4e76dcfa-cda3-5330-ae6a-a800e620c106",
+      "paginas_pdf": [
+        125
+      ],
+      "anclas": 41,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 5. Del montaje y señalización de riesgos.",
+      "id": "10bb7d3e-150f-5686-ab99-88bd60bc9508",
+      "paginas_pdf": [
+        125,
+        126
+      ],
+      "anclas": 25,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 6. De las Electrolineras, Electroterminales y Estaciones de carga gratuita.",
+      "id": "1c9fd928-b54a-5c15-9607-ab049fa91001",
+      "paginas_pdf": [
+        126,
+        127
+      ],
+      "anclas": 81,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 7. Estaciones de intercambio de baterías.",
+      "id": "4b81a221-10b2-545d-8ba9-eb064f12211a",
+      "paginas_pdf": [
+        127,
+        128
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 8. De la evolución y monitoreo de la infraestructura de carga de VE y VEHC.",
+      "id": "7dc4514d-9826-54ca-9619-06fd71e9b9eb",
+      "paginas_pdf": [
+        128,
+        129,
+        130
+      ],
+      "anclas": 180,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 9. De la vigilancia.",
+      "id": "24435aa2-b46e-5051-adac-9290b81f8aef",
+      "paginas_pdf": [
+        130
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 10. Responsabilidades y obligaciones.",
+      "id": "8af57074-412d-5cb7-829e-b21b4da2d6f2",
+      "paginas_pdf": [
+        130,
+        131
+      ],
+      "anclas": 59,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "31341245-d79b-5749-beaa-7483b6c2c314",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "f590d62d-ead1-5bba-80ba-4765b6a7ada8",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "0541f0ba-157d-5c31-8e07-6f4c8195a4db",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice 1 · Formato completo",
+      "id": "bab4f6ee-448d-598a-9e4a-6a0e5987f533",
+      "paginas_pdf": [
+        132,
+        133,
+        134
+      ],
+      "anclas": 15,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apéndice 2 · Modelo de escrito",
+      "id": "a6df2631-4b11-5acf-a117-b2df28e12532",
+      "paginas_pdf": [
+        135
+      ],
+      "anclas": 12,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
