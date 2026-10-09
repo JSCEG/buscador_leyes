@@ -1,0 +1,366 @@
+[
+  {
+    "numero": 1,
+    "seccion": "Identificación del documento de metadatos",
+    "apartado": "Creación o actualización del documento de metadatos",
+    "elemento": "Productor del metadato",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 2,
+    "seccion": "Identificación del documento de metadatos",
+    "apartado": "Creación o actualización del documento de metadatos",
+    "elemento": "Fecha de actualización del metadato",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 3,
+    "seccion": "Identificación del documento de metadatos",
+    "apartado": "Creación o actualización del documento de metadatos",
+    "elemento": "Actualización de los metadatos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 4,
+    "seccion": "Proceso de Producción documentado",
+    "apartado": "Datos de identificación",
+    "elemento": "Número de identificación",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 5,
+    "seccion": "Proceso de Producción documentado",
+    "apartado": "Datos de identificación",
+    "elemento": "Proceso de Producción",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 6,
+    "seccion": "Proceso de Producción documentado",
+    "apartado": "Datos de identificación",
+    "elemento": "Programa de Información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 7,
+    "seccion": "Proceso de Producción documentado",
+    "apartado": "Datos de identificación",
+    "elemento": "Ciclo de proceso",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 8,
+    "seccion": "Proceso de Producción documentado",
+    "apartado": "Datos de identificación",
+    "elemento": "Subtítulo del documento de metadatos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 9,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Productores de los Procesos de Producción",
+    "elemento": "Área responsable del Proceso de Producción",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 10,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Productores de los Procesos de Producción",
+    "elemento": "Colaboradores",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 11,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Productores de los Procesos de Producción",
+    "elemento": "Financiamiento",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 12,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Objetivo",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 13,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Antecedentes",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 14,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Método de generación de la información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 15,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Periodicidad de producción de la Información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 16,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Grado de madurez",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 17,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Condición de Información de Interés Nacional",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 18,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Palabras clave",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 19,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Descripción general",
+    "elemento": "Periodo de ejecución",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 20,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Población objeto de estudio",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 21,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Unidad de observación o de análisis",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 22,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Indicadores-objetivo",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 23,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Dominios de estudio",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 24,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Cobertura temática",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 25,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Estándares y clasificaciones",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 26,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Cobertura geográfica",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 27,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño conceptual",
+    "elemento": "Representación Espacial",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 28,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño muestral",
+    "elemento": "Unidad de muestreo",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 29,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño muestral",
+    "elemento": "Diseño de la muestra",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 30,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Diseño muestral",
+    "elemento": "Tamaño de la muestra",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 31,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Captación de los datos",
+    "elemento": "Periodo de referencia",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 32,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Captación de los datos",
+    "elemento": "Modalidad de captación o recolección de los datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 33,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Captación de los datos",
+    "elemento": "Responsable de la captación de los datos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 34,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Captación de los datos",
+    "elemento": "Descripción del instrumento de captación",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 35,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Procesamiento",
+    "elemento": "Compilación de datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 36,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Procesamiento",
+    "elemento": "Procesamiento de datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 37,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Procesamiento",
+    "elemento": "Validación de datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 38,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Procesamiento",
+    "elemento": "Imputación",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 39,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Análisis",
+    "elemento": "Análisis de datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 40,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Difusión",
+    "elemento": "Resultados disponibles",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 41,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Difusión",
+    "elemento": "Estatus de la información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 42,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Difusión",
+    "elemento": "Condición de acceso a microdatos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 43,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Difusión",
+    "elemento": "Política de Confidencialidad",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 44,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Difusión",
+    "elemento": "Contacto",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 45,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Evaluaciones implementadas",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 46,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Pertinencia: Uso de la información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 47,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Accesibilidad: Interpretación de la información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 48,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Puntualidad: Incorporación en Calendario de difusión",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 49,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Puntualidad: Fechas de publicación comprometidas",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 50,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Oportunidad: Parámetro de referencia y oportunidad observada",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 51,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Coherencia y comparabilidad: Comparabilidad temporal y geográfica",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 52,
+    "seccion": "Características del Proceso de Producción",
+    "apartado": "Aseguramiento de la calidad",
+    "elemento": "Veracidad: Precisión y confiabilidad estadística y Exactitud geográfica",
+    "condicion": "Obligatorio"
+  }
+]

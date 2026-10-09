@@ -1,0 +1,26 @@
+{
+  "instruments": [
+    {
+      "instrumentId": "0d7bcb6f-07ef-562e-8d0b-39b77155323f",
+      "sourceId": "snieg-metadatos-i-version-verificada-e51833c054bc",
+      "version": "PDF listado en normatividad vigente; sin fecha de emisión explícita verificada",
+      "fechaPublicacionExactaNoDocumentada": true,
+      "checksum": "26fbc5f7fce07311ccf6f297f0413845",
+      "sha256": "e51833c054bc91d7b65ccbc5fa9baa462b79f8f958a31dccac8f3f0100b79a8b",
+      "bytes": 92733,
+      "pages": 1,
+      "fragmentos": 1,
+      "paginas": [
+        {
+          "pagina": 1,
+          "fragmentId": "da9151df-5131-5c85-86b7-42d8d6c5c28f",
+          "lineas": 128,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        }
+      ]
+    }
+  ],
+  "fuente": "https://www.snieg.mx/scn-vigente/"
+}

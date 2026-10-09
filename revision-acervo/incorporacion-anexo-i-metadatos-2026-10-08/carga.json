@@ -1,0 +1,1243 @@
+{
+  "instruments": [
+    {
+      "ley": {
+        "id": "0d7bcb6f-07ef-562e-8d0b-39b77155323f",
+        "titulo": "Anexo I. Metadatos Referenciales de la Norma Técnica para la elaboración de Metadatos de los Procesos de Producción de Información Estadística y Geográfica",
+        "siglas": "METADATOS-I",
+        "fecha_publicacion": null,
+        "fecha_ultima_reforma": null,
+        "vigente": true,
+        "temas_clave": [
+          "SNIEG",
+          "INEGI",
+          "Información de Interés Nacional",
+          "Metadatos referenciales",
+          "Condición de llenado",
+          "DDI",
+          "SDMX"
+        ],
+        "url_original": "https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_I_ntmppieg.pdf",
+        "tipo": "manual"
+      },
+      "articulos": [
+        {
+          "id": "da9151df-5131-5c85-86b7-42d8d6c5c28f",
+          "identificador": "Anexo I · 52 elementos referenciales · pág. 1",
+          "contenido": "<section><p>El presente anexo tiene por objeto listar cada uno de los elementos de la especificación de Metadatos Referenciales para la descripción estandarizada de los aspectos conceptuales, metodológicos y de calidad de los Procesos de Producción de información estadística y geográfica, así como su respectiva condición de llenado. Esta especificación de metadatos fue adaptada a partir de la Iniciativa de Documentación de Datos (DDI, por sus siglas en inglés) versión 2.0 y la estructura de metadatos del estándar Statistical Data and Metadata Exchange (SDMX) para el Sistema Estadístico Europeo (ESMS) 2.0.</p><div class=\"overflow-x-auto\"><table><thead><tr><th>Número</th><th>Sección</th><th>Apartado</th><th>Elemento</th><th>Condición de llenado</th></tr></thead><tbody><tr><td>1</td><td>Identificación del documento de metadatos</td><td>Creación o actualización del documento de metadatos</td><td>Productor del metadato</td><td>Obligatorio</td></tr><tr><td>2</td><td>Identificación del documento de metadatos</td><td>Creación o actualización del documento de metadatos</td><td>Fecha de actualización del metadato</td><td>Obligatorio</td></tr><tr><td>3</td><td>Identificación del documento de metadatos</td><td>Creación o actualización del documento de metadatos</td><td>Actualización de los metadatos</td><td>Obligatorio</td></tr><tr><td>4</td><td>Proceso de Producción documentado</td><td>Datos de identificación</td><td>Número de identificación</td><td>Obligatorio</td></tr><tr><td>5</td><td>Proceso de Producción documentado</td><td>Datos de identificación</td><td>Proceso de Producción</td><td>Obligatorio</td></tr><tr><td>6</td><td>Proceso de Producción documentado</td><td>Datos de identificación</td><td>Programa de Información</td><td>Obligatorio</td></tr><tr><td>7</td><td>Proceso de Producción documentado</td><td>Datos de identificación</td><td>Ciclo de proceso</td><td>Obligatorio</td></tr><tr><td>8</td><td>Proceso de Producción documentado</td><td>Datos de identificación</td><td>Subtítulo del documento de metadatos</td><td>Recomendado</td></tr><tr><td>9</td><td>Características del Proceso de Producción</td><td>Productores de los Procesos de Producción</td><td>Área responsable del Proceso de Producción</td><td>Obligatorio</td></tr><tr><td>10</td><td>Características del Proceso de Producción</td><td>Productores de los Procesos de Producción</td><td>Colaboradores</td><td>Recomendado</td></tr><tr><td>11</td><td>Características del Proceso de Producción</td><td>Productores de los Procesos de Producción</td><td>Financiamiento</td><td>Obligatorio</td></tr><tr><td>12</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Objetivo</td><td>Obligatorio</td></tr><tr><td>13</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Antecedentes</td><td>Recomendado</td></tr><tr><td>14</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Método de generación de la información</td><td>Obligatorio</td></tr><tr><td>15</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Periodicidad de producción de la Información</td><td>Obligatorio</td></tr><tr><td>16</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Grado de madurez</td><td>Obligatorio</td></tr><tr><td>17</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Condición de Información de Interés Nacional</td><td>Obligatorio</td></tr><tr><td>18</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Palabras clave</td><td>Obligatorio</td></tr><tr><td>19</td><td>Características del Proceso de Producción</td><td>Descripción general</td><td>Periodo de ejecución</td><td>Obligatorio</td></tr><tr><td>20</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Población objeto de estudio</td><td>Obligatorio</td></tr><tr><td>21</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Unidad de observación o de análisis</td><td>Obligatorio</td></tr><tr><td>22</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Indicadores-objetivo</td><td>Obligatorio</td></tr><tr><td>23</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Dominios de estudio</td><td>Obligatorio</td></tr><tr><td>24</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Cobertura temática</td><td>Obligatorio</td></tr><tr><td>25</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Estándares y clasificaciones</td><td>Obligatorio</td></tr><tr><td>26</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Cobertura geográfica</td><td>Obligatorio</td></tr><tr><td>27</td><td>Características del Proceso de Producción</td><td>Diseño conceptual</td><td>Representación Espacial</td><td>Obligatorio</td></tr><tr><td>28</td><td>Características del Proceso de Producción</td><td>Diseño muestral</td><td>Unidad de muestreo</td><td>Obligatorio</td></tr><tr><td>29</td><td>Características del Proceso de Producción</td><td>Diseño muestral</td><td>Diseño de la muestra</td><td>Obligatorio</td></tr><tr><td>30</td><td>Características del Proceso de Producción</td><td>Diseño muestral</td><td>Tamaño de la muestra</td><td>Obligatorio</td></tr><tr><td>31</td><td>Características del Proceso de Producción</td><td>Captación de los datos</td><td>Periodo de referencia</td><td>Obligatorio</td></tr><tr><td>32</td><td>Características del Proceso de Producción</td><td>Captación de los datos</td><td>Modalidad de captación o recolección de los datos</td><td>Obligatorio</td></tr><tr><td>33</td><td>Características del Proceso de Producción</td><td>Captación de los datos</td><td>Responsable de la captación de los datos</td><td>Recomendado</td></tr><tr><td>34</td><td>Características del Proceso de Producción</td><td>Captación de los datos</td><td>Descripción del instrumento de captación</td><td>Recomendado</td></tr><tr><td>35</td><td>Características del Proceso de Producción</td><td>Procesamiento</td><td>Compilación de datos</td><td>Obligatorio</td></tr><tr><td>36</td><td>Características del Proceso de Producción</td><td>Procesamiento</td><td>Procesamiento de datos</td><td>Obligatorio</td></tr><tr><td>37</td><td>Características del Proceso de Producción</td><td>Procesamiento</td><td>Validación de datos</td><td>Obligatorio</td></tr><tr><td>38</td><td>Características del Proceso de Producción</td><td>Procesamiento</td><td>Imputación</td><td>Obligatorio</td></tr><tr><td>39</td><td>Características del Proceso de Producción</td><td>Análisis</td><td>Análisis de datos</td><td>Obligatorio</td></tr><tr><td>40</td><td>Características del Proceso de Producción</td><td>Difusión</td><td>Resultados disponibles</td><td>Obligatorio</td></tr><tr><td>41</td><td>Características del Proceso de Producción</td><td>Difusión</td><td>Estatus de la información</td><td>Obligatorio</td></tr><tr><td>42</td><td>Características del Proceso de Producción</td><td>Difusión</td><td>Condición de acceso a microdatos</td><td>Obligatorio</td></tr><tr><td>43</td><td>Características del Proceso de Producción</td><td>Difusión</td><td>Política de Confidencialidad</td><td>Obligatorio</td></tr><tr><td>44</td><td>Características del Proceso de Producción</td><td>Difusión</td><td>Contacto</td><td>Obligatorio</td></tr><tr><td>45</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Evaluaciones implementadas</td><td>Recomendado</td></tr><tr><td>46</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Pertinencia: Uso de la información</td><td>Obligatorio</td></tr><tr><td>47</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Accesibilidad: Interpretación de la información</td><td>Obligatorio</td></tr><tr><td>48</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Puntualidad: Incorporación en Calendario de difusión</td><td>Obligatorio</td></tr><tr><td>49</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Puntualidad: Fechas de publicación comprometidas</td><td>Recomendado</td></tr><tr><td>50</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Oportunidad: Parámetro de referencia y oportunidad observada</td><td>Obligatorio</td></tr><tr><td>51</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Coherencia y comparabilidad: Comparabilidad temporal y geográfica</td><td>Obligatorio</td></tr><tr><td>52</td><td>Características del Proceso de Producción</td><td>Aseguramiento de la calidad</td><td>Veracidad: Precisión y confiabilidad estadística y Exactitud geográfica</td><td>Obligatorio</td></tr></tbody></table></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 1,
+          "titulo_nombre": "Anexo de la Norma Técnica de Metadatos",
+          "capitulo_nombre": "Metadatos referenciales",
+          "seccion_nombre": "Anexo I · 52 elementos referenciales"
+        }
+      ],
+      "source": {
+        "id": "snieg-metadatos-i-version-verificada-e51833c054bc",
+        "title": "Anexo I. Metadatos Referenciales de la Norma Técnica para la elaboración de Metadatos de los Procesos de Producción de Información Estadística y Geográfica",
+        "instrumentIds": [
+          "0d7bcb6f-07ef-562e-8d0b-39b77155323f"
+        ],
+        "sha256": "e51833c054bc91d7b65ccbc5fa9baa462b79f8f958a31dccac8f3f0100b79a8b",
+        "transport": "remote-pdf",
+        "pdfUrl": "/api/reader/snieg-metadatos-i-version-verificada-e51833c054bc",
+        "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_I_ntmppieg.pdf",
+        "pageCount": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.000244140625,
+            "height": 792.0004272460938
+          }
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "snieg-metadatos-i-version-verificada-e51833c054bc": {
+      "id": "snieg-metadatos-i-version-verificada-e51833c054bc",
+      "title": "Anexo I. Metadatos Referenciales de la Norma Técnica para la elaboración de Metadatos de los Procesos de Producción de Información Estadística y Geográfica",
+      "instrumentIds": [
+        "0d7bcb6f-07ef-562e-8d0b-39b77155323f"
+      ],
+      "sha256": "e51833c054bc91d7b65ccbc5fa9baa462b79f8f958a31dccac8f3f0100b79a8b",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/snieg-metadatos-i-version-verificada-e51833c054bc",
+      "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_I_ntmppieg.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "number": 1,
+          "width": 612.000244140625,
+          "height": 792.0004272460938
+        }
+      ]
+    }
+  },
+  "articles": {
+    "da9151df-5131-5c85-86b7-42d8d6c5c28f": {
+      "sourceId": "snieg-metadatos-i-version-verificada-e51833c054bc",
+      "label": "Anexo I · 52 elementos referenciales · pág. 1",
+      "type": "anexo",
+      "contentSha256": "af3e0973791074859e9228cb0f3ce592e11a7967716ca96bac0c1cbbba6d5c7c",
+      "pageNumbers": [
+        1
+      ],
+      "anchors": [
+        {
+          "page": 1,
+          "bbox": [
+            130.762,
+            55.322,
+            490.322,
+            64.257
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            292.042,
+            62.766,
+            332.023,
+            77.716
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            65.482,
+            81.985,
+            557.035,
+            89.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            179.121,
+            88.466,
+            442.114,
+            95.509
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            64.28,
+            101.427,
+            558.236,
+            108.471
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            231.681,
+            107.908,
+            389.576,
+            114.952
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            392.6,
+            130.747,
+            418.633,
+            138.136
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            106.882,
+            131.222,
+            126.713,
+            138.611
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            230.841,
+            131.222,
+            253.437,
+            138.611
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            503.722,
+            131.222,
+            555.728,
+            138.611
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            62.122,
+            141.505,
+            161.047,
+            148.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            141.505,
+            300.079,
+            148.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            142.345,
+            376.869,
+            149.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            142.345,
+            526.993,
+            149.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            150.505,
+            407.583,
+            157.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            150.505,
+            526.993,
+            157.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            158.425,
+            394.757,
+            165.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            158.425,
+            526.993,
+            165.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            62.122,
+            165.625,
+            150.183,
+            172.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            165.625,
+            226.143,
+            172.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            166.345,
+            380.347,
+            173.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            166.345,
+            526.993,
+            173.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            174.265,
+            375.305,
+            181.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            174.265,
+            526.993,
+            181.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            182.185,
+            382.988,
+            189.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            182.185,
+            526.993,
+            189.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            190.105,
+            361.751,
+            197.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            190.105,
+            526.993,
+            197.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            198.025,
+            411.919,
+            205.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            198.025,
+            535.631,
+            205.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            62.122,
+            205.225,
+            161.824,
+            212.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            205.225,
+            276.181,
+            212.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            205.945,
+            427.26,
+            212.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            205.945,
+            526.993,
+            212.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            213.865,
+            356.955,
+            220.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            213.865,
+            535.631,
+            220.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            221.785,
+            358.271,
+            228.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            221.785,
+            526.993,
+            228.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            228.985,
+            220.997,
+            236.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            229.705,
+            342.194,
+            236.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            229.705,
+            526.993,
+            236.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            237.625,
+            354.798,
+            244.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            237.625,
+            535.631,
+            244.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            245.545,
+            415.621,
+            252.588
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            245.545,
+            526.993,
+            252.588
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            253.465,
+            427.138,
+            260.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            253.465,
+            526.993,
+            260.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            261.385,
+            365.959,
+            268.428
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            261.385,
+            526.993,
+            268.428
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            269.305,
+            428.235,
+            276.348
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            269.305,
+            526.993,
+            276.348
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            277.225,
+            357.312,
+            284.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            277.225,
+            526.993,
+            284.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            285.145,
+            371.588,
+            292.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            285.145,
+            526.993,
+            292.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            292.345,
+            216.381,
+            299.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            293.065,
+            388.385,
+            300.108
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            293.065,
+            526.993,
+            300.108
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            300.985,
+            406.759,
+            308.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            300.985,
+            526.993,
+            308.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            308.905,
+            369.669,
+            315.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            308.905,
+            526.993,
+            315.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            316.825,
+            370.149,
+            323.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            316.825,
+            526.993,
+            323.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            324.745,
+            367.031,
+            331.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            324.745,
+            526.993,
+            331.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            332.665,
+            390.077,
+            339.708
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            332.665,
+            526.993,
+            339.708
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            340.585,
+            371.709,
+            347.628
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            340.585,
+            526.993,
+            347.628
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            348.505,
+            380.598,
+            355.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            348.505,
+            526.993,
+            355.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            355.705,
+            212.596,
+            362.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            356.425,
+            369.668,
+            363.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            356.425,
+            526.993,
+            363.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            364.345,
+            372.069,
+            371.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            364.345,
+            526.993,
+            371.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            372.265,
+            374.829,
+            379.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            372.265,
+            526.993,
+            379.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            379.465,
+            227.958,
+            386.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            380.185,
+            372.667,
+            387.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            380.185,
+            526.993,
+            387.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            388.105,
+            439.515,
+            395.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            388.105,
+            526.993,
+            395.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            396.025,
+            419.354,
+            403.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            396.025,
+            535.631,
+            403.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            403.945,
+            418.142,
+            410.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            403.945,
+            535.631,
+            410.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            411.145,
+            209.712,
+            418.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            411.865,
+            373.038,
+            418.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            411.865,
+            526.993,
+            418.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            419.785,
+            379.034,
+            426.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            419.785,
+            526.993,
+            426.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            427.705,
+            368.477,
+            434.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            427.705,
+            526.993,
+            434.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            435.625,
+            348.433,
+            442.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            435.625,
+            526.993,
+            442.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            442.825,
+            193.159,
+            449.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            443.545,
+            362.476,
+            450.588
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            443.545,
+            526.993,
+            450.588
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            450.745,
+            193.995,
+            457.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            451.465,
+            376.635,
+            458.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            451.465,
+            526.993,
+            458.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            459.385,
+            381.548,
+            466.428
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            459.385,
+            526.993,
+            466.428
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            467.305,
+            402.559,
+            474.348
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            467.305,
+            526.993,
+            474.348
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            475.225,
+            387.427,
+            482.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            475.225,
+            526.993,
+            482.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            483.145,
+            343.754,
+            490.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            483.145,
+            526.993,
+            490.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            490.345,
+            240.666,
+            497.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            491.065,
+            390.918,
+            498.108
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            491.065,
+            535.631,
+            498.108
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            498.985,
+            402.305,
+            506.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            498.985,
+            526.993,
+            506.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            506.905,
+            429.3,
+            513.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            506.905,
+            526.993,
+            513.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            514.825,
+            445.256,
+            521.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            514.825,
+            526.993,
+            521.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            522.745,
+            442.157,
+            529.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            522.745,
+            535.631,
+            529.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            530.665,
+            467.327,
+            537.708
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            530.665,
+            526.993,
+            537.708
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            538.585,
+            480.773,
+            545.628
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            538.585,
+            526.993,
+            545.628
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            546.505,
+            484.375,
+            553.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            546.505,
+            526.993,
+            553.548
+          ]
+        }
+      ]
+    }
+  },
+  "normaRelacionada": "75653b58-109e-52bb-970c-72041a77b06a"
+}
