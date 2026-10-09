@@ -1,0 +1,24 @@
+import { readFileSync } from 'node:fs';
+import { webcrypto } from 'node:crypto';
+import { expect, it, vi } from 'vitest';
+import { getReaderSource } from '../src/lib/reader-source.js';
+import { articleHtml } from '../src/lib/article-html.js';
+const root='revision-acervo/incorporacion-anexo-ii-metadatos-2026-10-08/';
+const data=JSON.parse(readFileSync(root+'carga.json','utf8'));
+const fields=JSON.parse(readFileSync(root+'elementos.json','utf8'));
+const manifest=JSON.parse(readFileSync('public/reader-sources/manifest.v1.json','utf8'));
+it('preserves 36 structural elements, optional conditions and the original page',async()=>{
+    vi.stubGlobal('crypto',webcrypto);
+    expect(fields.map(f=>f.numero)).toEqual(Array.from({length:36},(_,i)=>i+1));
+    expect(fields.filter(f=>f.condicion==='Opcional').map(f=>f.numero)).toEqual([12,20,36]);
+    expect(fields[11].apartado).toBe('Descripción del archivo de base de datos');
+    expect(fields[12].apartado).toBe('Atributos y dimensiones');
+    expect(fields[35].apartado).toBe('Atributos y dimensiones');
+    const a=data.instruments[0].articulos[0];
+    expect(articleHtml(a.contenido)).toContain('<table');
+    const mapped=await getReaderSource(a.id,{articleText:a.contenido,manifest});
+    expect(mapped.status).toBe('mapped');
+    expect(mapped.contentVerified).toBe(true);
+    expect(mapped.pages).toHaveLength(1);
+    expect((await getReaderSource(a.id,{articleText:a.contenido+' ',manifest})).reason).toBe('content-mismatch');
+});

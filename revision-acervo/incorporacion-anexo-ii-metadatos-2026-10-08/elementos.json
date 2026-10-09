@@ -1,0 +1,254 @@
+[
+  {
+    "numero": 1,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Nombre del archivo de Base de datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 2,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Unidad y Área Administrativa responsable",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 3,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Sitio de descarga de la Base de datos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 4,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Contenido de la Base de datos",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 5,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Cobertura temporal",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 6,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Última fecha de publicación",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 7,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Versión de la Base de datos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 8,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Formato de la Base de datos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 9,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Fuente de información",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 10,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Derechos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 11,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Relaciones",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 12,
+    "seccion": "Archivos de Base de datos",
+    "apartado": "Descripción del archivo de base de datos",
+    "elemento": "Notas o comentarios sobre la Base de datos",
+    "condicion": "Opcional"
+  },
+  {
+    "numero": 13,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Nombre de la variable",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 14,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Etiqueta",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 15,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Proceso de Producción",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 16,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Versión de la variable",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 17,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Longitud de variable (ancho)",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 18,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Mínimo",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 19,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Máximo",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 20,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Decimales",
+    "condicion": "Opcional"
+  },
+  {
+    "numero": 21,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Tipo de variable",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 22,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Medida de la variable",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 23,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Códigos y etiquetas de categorías",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 24,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Definición",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 25,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Universo",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 26,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Unidad de medida",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 27,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Criterio de valoración de la unidad de medida",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 28,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Informante",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 29,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Pregunta en el instrumento de captación",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 30,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Instrucciones para el entrevistador",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 31,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Palabra(s) clave(s) para búsqueda de la variable",
+    "condicion": "Obligatorio"
+  },
+  {
+    "numero": 32,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Datos perdidos",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 33,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Imputación",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 34,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Recodificación y derivación",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 35,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Nivel de acceso a la variable",
+    "condicion": "Recomendado"
+  },
+  {
+    "numero": 36,
+    "seccion": "Documentación de variables",
+    "apartado": "Atributos y dimensiones",
+    "elemento": "Notas o comentarios sobre la variable",
+    "condicion": "Opcional"
+  }
+]

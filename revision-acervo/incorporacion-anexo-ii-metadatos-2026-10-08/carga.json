@@ -1,0 +1,856 @@
+{
+  "instruments": [
+    {
+      "ley": {
+        "id": "ae592aba-a094-5c0c-af17-95a7ac408499",
+        "titulo": "Anexo II. Metadatos Estructurales de la Norma Técnica para la elaboración de Metadatos de los Procesos de Producción de Información Estadística y Geográfica",
+        "siglas": "METADATOS-II",
+        "fecha_publicacion": null,
+        "fecha_ultima_reforma": null,
+        "vigente": true,
+        "temas_clave": [
+          "SNIEG",
+          "INEGI",
+          "Información de Interés Nacional",
+          "Metadatos referenciales",
+          "Condición de llenado",
+          "DDI",
+          "SDMX"
+        ],
+        "url_original": "https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_II_ntmppieg.pdf",
+        "tipo": "manual"
+      },
+      "articulos": [
+        {
+          "id": "d7564e97-88e9-5a0d-a303-4a64bb0ab1a6",
+          "identificador": "Anexo II · 36 elementos estructurales · pág. 1",
+          "contenido": "<section><p>El presente anexo tiene por objeto listar cada uno de los elementos de la especificación de Metadatos Estructurales para la descripción estandarizada de los archivos de datos de los Procesos de Producción que generan información desagregada a nivel microdato, así como su respectiva condición de llenado. Esta especificación de metadatos fue adaptada a partir de la Iniciativa de Documentación de Datos (DDI, por sus siglas en inglés) versión 2.0.</p><div class=\"overflow-x-auto\"><table><thead><tr><th>Número</th><th>Sección</th><th>Apartado</th><th>Elemento</th><th>Condición de llenado</th></tr></thead><tbody><tr><td>1</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Nombre del archivo de Base de datos</td><td>Obligatorio</td></tr><tr><td>2</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Unidad y Área Administrativa responsable</td><td>Obligatorio</td></tr><tr><td>3</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Sitio de descarga de la Base de datos</td><td>Recomendado</td></tr><tr><td>4</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Contenido de la Base de datos</td><td>Obligatorio</td></tr><tr><td>5</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Cobertura temporal</td><td>Obligatorio</td></tr><tr><td>6</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Última fecha de publicación</td><td>Recomendado</td></tr><tr><td>7</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Versión de la Base de datos</td><td>Recomendado</td></tr><tr><td>8</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Formato de la Base de datos</td><td>Recomendado</td></tr><tr><td>9</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Fuente de información</td><td>Obligatorio</td></tr><tr><td>10</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Derechos</td><td>Recomendado</td></tr><tr><td>11</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Relaciones</td><td>Recomendado</td></tr><tr><td>12</td><td>Archivos de Base de datos</td><td>Descripción del archivo de base de datos</td><td>Notas o comentarios sobre la Base de datos</td><td>Opcional</td></tr><tr><td>13</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Nombre de la variable</td><td>Obligatorio</td></tr><tr><td>14</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Etiqueta</td><td>Obligatorio</td></tr><tr><td>15</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Proceso de Producción</td><td>Recomendado</td></tr><tr><td>16</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Versión de la variable</td><td>Recomendado</td></tr><tr><td>17</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Longitud de variable (ancho)</td><td>Obligatorio</td></tr><tr><td>18</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Mínimo</td><td>Recomendado</td></tr><tr><td>19</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Máximo</td><td>Recomendado</td></tr><tr><td>20</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Decimales</td><td>Opcional</td></tr><tr><td>21</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Tipo de variable</td><td>Obligatorio</td></tr><tr><td>22</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Medida de la variable</td><td>Obligatorio</td></tr><tr><td>23</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Códigos y etiquetas de categorías</td><td>Recomendado</td></tr><tr><td>24</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Definición</td><td>Obligatorio</td></tr><tr><td>25</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Universo</td><td>Obligatorio</td></tr><tr><td>26</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Unidad de medida</td><td>Recomendado</td></tr><tr><td>27</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Criterio de valoración de la unidad de medida</td><td>Recomendado</td></tr><tr><td>28</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Informante</td><td>Recomendado</td></tr><tr><td>29</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Pregunta en el instrumento de captación</td><td>Recomendado</td></tr><tr><td>30</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Instrucciones para el entrevistador</td><td>Recomendado</td></tr><tr><td>31</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Palabra(s) clave(s) para búsqueda de la variable</td><td>Obligatorio</td></tr><tr><td>32</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Datos perdidos</td><td>Recomendado</td></tr><tr><td>33</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Imputación</td><td>Recomendado</td></tr><tr><td>34</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Recodificación y derivación</td><td>Recomendado</td></tr><tr><td>35</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Nivel de acceso a la variable</td><td>Recomendado</td></tr><tr><td>36</td><td>Documentación de variables</td><td>Atributos y dimensiones</td><td>Notas o comentarios sobre la variable</td><td>Opcional</td></tr></tbody></table></div></section>",
+          "tipo_articulo": "anexo",
+          "orden": 1,
+          "titulo_nombre": "Anexo de la Norma Técnica de Metadatos",
+          "capitulo_nombre": "Metadatos estructurales",
+          "seccion_nombre": "Anexo II · 36 elementos estructurales"
+        }
+      ],
+      "source": {
+        "id": "snieg-metadatos-ii-version-verificada-f0045996e180",
+        "title": "Anexo II. Metadatos Estructurales de la Norma Técnica para la elaboración de Metadatos de los Procesos de Producción de Información Estadística y Geográfica",
+        "instrumentIds": [
+          "ae592aba-a094-5c0c-af17-95a7ac408499"
+        ],
+        "sha256": "f0045996e1807eee405999da0ff76cbd443fd5aad805e5aaa7e873901bd5f622",
+        "transport": "remote-pdf",
+        "pdfUrl": "/api/reader/snieg-metadatos-ii-version-verificada-f0045996e180",
+        "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_II_ntmppieg.pdf",
+        "pageCount": 1,
+        "pages": [
+          {
+            "number": 1,
+            "width": 612.000244140625,
+            "height": 792.0004272460938
+          }
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "snieg-metadatos-ii-version-verificada-f0045996e180": {
+      "id": "snieg-metadatos-ii-version-verificada-f0045996e180",
+      "title": "Anexo II. Metadatos Estructurales de la Norma Técnica para la elaboración de Metadatos de los Procesos de Producción de Información Estadística y Geográfica",
+      "instrumentIds": [
+        "ae592aba-a094-5c0c-af17-95a7ac408499"
+      ],
+      "sha256": "f0045996e1807eee405999da0ff76cbd443fd5aad805e5aaa7e873901bd5f622",
+      "transport": "remote-pdf",
+      "pdfUrl": "/api/reader/snieg-metadatos-ii-version-verificada-f0045996e180",
+      "originalUrl": "https://www.snieg.mx/Documentos/Normatividad/Vigente/anexos_II_ntmppieg.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "number": 1,
+          "width": 612.000244140625,
+          "height": 792.0004272460938
+        }
+      ]
+    }
+  },
+  "articles": {
+    "d7564e97-88e9-5a0d-a303-4a64bb0ab1a6": {
+      "sourceId": "snieg-metadatos-ii-version-verificada-f0045996e180",
+      "label": "Anexo II · 36 elementos estructurales · pág. 1",
+      "type": "anexo",
+      "contentSha256": "307203bc54b26dff1defd012c6b851344568c42ffeda082e0443980b812e1238",
+      "pageNumbers": [
+        1
+      ],
+      "anchors": [
+        {
+          "page": 1,
+          "bbox": [
+            130.762,
+            55.322,
+            490.322,
+            64.257
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            290.602,
+            62.766,
+            330.583,
+            77.716
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            67.042,
+            85.225,
+            555.357,
+            92.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            197.244,
+            91.706,
+            423.882,
+            98.749
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            146.604,
+            104.667,
+            474.506,
+            111.711
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            392.602,
+            130.742,
+            418.635,
+            138.131
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            106.882,
+            131.222,
+            126.713,
+            138.611
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            230.841,
+            131.222,
+            253.437,
+            138.611
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            503.722,
+            131.222,
+            555.728,
+            138.611
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            62.122,
+            141.505,
+            125.586,
+            148.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            141.505,
+            268.806,
+            148.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            142.345,
+            409.983,
+            149.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            142.345,
+            528.432,
+            149.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            150.505,
+            421.264,
+            157.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            150.505,
+            528.432,
+            157.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            158.425,
+            410.58,
+            165.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            158.425,
+            537.791,
+            165.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            166.345,
+            395.462,
+            173.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            166.345,
+            528.432,
+            173.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            174.265,
+            367.517,
+            181.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            174.265,
+            528.432,
+            181.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            182.185,
+            388.267,
+            189.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            182.185,
+            538.51,
+            189.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            190.105,
+            388.024,
+            197.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            190.105,
+            535.631,
+            197.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            198.025,
+            389.586,
+            205.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            198.025,
+            538.51,
+            205.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            314.722,
+            205.945,
+            374.709,
+            212.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            205.945,
+            528.432,
+            212.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            213.865,
+            346.635,
+            220.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            213.865,
+            535.631,
+            220.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            221.785,
+            350.236,
+            228.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            221.785,
+            537.071,
+            228.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            229.705,
+            425.219,
+            236.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            229.705,
+            523.878,
+            236.748
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            62.122,
+            236.905,
+            129.316,
+            243.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            173.602,
+            236.905,
+            228.736,
+            243.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            237.625,
+            373.868,
+            244.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            237.625,
+            528.432,
+            244.668
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            245.545,
+            343.514,
+            252.588
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            245.545,
+            528.432,
+            252.588
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            253.465,
+            378.19,
+            260.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            253.465,
+            534.186,
+            260.508
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            261.385,
+            373.148,
+            268.428
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            261.385,
+            537.071,
+            268.428
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            269.305,
+            390.314,
+            276.348
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            269.305,
+            528.432,
+            276.348
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            277.225,
+            339.915,
+            284.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            277.225,
+            535.631,
+            284.268
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            285.145,
+            341.115,
+            292.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            285.145,
+            535.631,
+            292.188
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            293.065,
+            347.357,
+            300.108
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            293.065,
+            523.878,
+            300.108
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            300.985,
+            360.07,
+            308.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            300.985,
+            528.432,
+            308.028
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            308.905,
+            372.429,
+            315.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            308.905,
+            528.432,
+            315.948
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            316.825,
+            401.475,
+            323.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            316.825,
+            535.631,
+            323.868
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            324.745,
+            347.474,
+            331.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            324.745,
+            528.432,
+            331.788
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            332.665,
+            343.634,
+            339.708
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            332.665,
+            528.432,
+            339.708
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            340.585,
+            365.108,
+            347.628
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            340.585,
+            535.631,
+            347.628
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            348.505,
+            427.618,
+            355.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            348.505,
+            537.071,
+            355.548
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            356.425,
+            349.272,
+            363.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            356.425,
+            537.071,
+            363.468
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            364.345,
+            416.22,
+            371.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            364.345,
+            537.071,
+            371.388
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            372.265,
+            402.559,
+            379.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            372.265,
+            537.071,
+            379.308
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            380.185,
+            435.178,
+            387.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            380.185,
+            528.432,
+            387.228
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            388.105,
+            357.914,
+            395.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            388.105,
+            537.071,
+            395.148
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            396.025,
+            348.433,
+            403.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            396.025,
+            537.071,
+            403.068
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            403.945,
+            387.788,
+            410.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            403.945,
+            537.071,
+            410.988
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            411.865,
+            389.587,
+            418.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            411.865,
+            537.071,
+            418.908
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            313.282,
+            419.785,
+            410.342,
+            426.828
+          ]
+        },
+        {
+          "page": 1,
+          "bbox": [
+            500.482,
+            419.785,
+            523.878,
+            426.828
+          ]
+        }
+      ]
+    }
+  },
+  "normaRelacionada": "75653b58-109e-52bb-970c-72041a77b06a"
+}
