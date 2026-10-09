@@ -1,0 +1,482 @@
+{
+  "instruments": [
+    {
+      "instrumentId": "21767166-96f6-51f4-ba54-dda32288b6fe",
+      "sourceId": "snieg-g-metadatos-version-verificada-22f77d432b1b",
+      "version": "PDF listado en normatividad vigente; sin fecha de emisión explícita verificada",
+      "fechaPublicacionExactaNoDocumentada": true,
+      "checksum": "999a039cf62a2936bc4fb199fa551b85",
+      "sha256": "22f77d432b1ba6171017d42f3b7848c236f27dffae6d80928f9f2cecc0fe3bef",
+      "bytes": 1147117,
+      "pages": 60,
+      "fragmentos": 58,
+      "paginas": [
+        {
+          "pagina": 3,
+          "fragmentId": "da5dfe71-a58a-5d31-9b16-aac1709fbadb",
+          "lineas": 20,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 4,
+          "fragmentId": "71f7ce98-ccdf-5057-a778-dabf77862049",
+          "lineas": 41,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 5,
+          "fragmentId": "fe002c74-32bd-5a01-90bc-d2c13ab06f28",
+          "lineas": 41,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 6,
+          "fragmentId": "bc14f23b-d219-515a-8bc3-abd646638e1d",
+          "lineas": 45,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 7,
+          "fragmentId": "208b9bcb-6762-500e-a732-9f2baa9bc572",
+          "lineas": 35,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 8,
+          "fragmentId": "4da3abd8-4cf1-52b3-b8d9-4fe8f2db8e77",
+          "lineas": 47,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 9,
+          "fragmentId": "80211b7c-c7a2-5c62-9bd1-02b36c1f01a0",
+          "lineas": 56,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 10,
+          "fragmentId": "2cc10138-8ed6-5434-94d5-71af7ea384fd",
+          "lineas": 44,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 11,
+          "fragmentId": "f7a83a77-0447-57fa-8c82-398c094ee248",
+          "lineas": 79,
+          "tablaDetectada": 4,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 12,
+          "fragmentId": "a1019c51-14db-5c86-b2ae-51d32a9108ae",
+          "lineas": 40,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 13,
+          "fragmentId": "9577e37b-7138-5b38-a074-d7a4a2285394",
+          "lineas": 55,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 14,
+          "fragmentId": "c7737ce1-1663-55cd-aab2-a108c86fdc64",
+          "lineas": 66,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 15,
+          "fragmentId": "13c5cfa3-c10a-5085-a128-b15c4da74340",
+          "lineas": 40,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 16,
+          "fragmentId": "13964d1a-4e05-5c58-ab55-b18078986697",
+          "lineas": 69,
+          "tablaDetectada": 2,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 17,
+          "fragmentId": "1bdf9ab5-58f1-5a99-a607-fa27d249c925",
+          "lineas": 38,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 18,
+          "fragmentId": "ebea7674-03d7-561a-a5bf-2847eb2894c3",
+          "lineas": 52,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 19,
+          "fragmentId": "7cdce1b1-4c4f-5932-aa0c-0b368c3e02c5",
+          "lineas": 116,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 20,
+          "fragmentId": "1b111452-5310-5988-a0e0-fd4c039a19e5",
+          "lineas": 73,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 21,
+          "fragmentId": "10e9d0be-4f41-5048-b115-4a78190a5177",
+          "lineas": 42,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 22,
+          "fragmentId": "60fd1d0f-f2b7-517f-9950-9f1d7bfc112e",
+          "lineas": 44,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 23,
+          "fragmentId": "98d7090f-6521-54ec-8da0-f91a2e203a47",
+          "lineas": 43,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 24,
+          "fragmentId": "eeb93d3e-193a-53ad-8981-8ad4bb537539",
+          "lineas": 57,
+          "tablaDetectada": 3,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 25,
+          "fragmentId": "671372f6-2584-5fb6-83e0-3152440259f9",
+          "lineas": 55,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 26,
+          "fragmentId": "cb4e2d21-402c-5d3a-a408-bf7ca5056f73",
+          "lineas": 59,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 27,
+          "fragmentId": "05727c49-bf39-5607-86af-4c13b080b1b7",
+          "lineas": 48,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 28,
+          "fragmentId": "b1bc7119-1f99-5d62-9ef1-20620dacc056",
+          "lineas": 51,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 29,
+          "fragmentId": "9b3820d3-4b7d-5452-861b-12e309430c8e",
+          "lineas": 48,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 30,
+          "fragmentId": "88a6103c-a2d2-50c9-9eed-1dfe95bca1a6",
+          "lineas": 42,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 31,
+          "fragmentId": "516fa709-e10f-597d-a118-9948f3fadaad",
+          "lineas": 22,
+          "tablaDetectada": 2,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 32,
+          "fragmentId": "caef13d5-da87-5e53-9bc2-89b59425478b",
+          "lineas": 46,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 33,
+          "fragmentId": "e2e29cda-f268-54f9-b4be-8912cfc93597",
+          "lineas": 44,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 34,
+          "fragmentId": "19fe6b8c-438b-578d-8a93-70c6b131aed7",
+          "lineas": 50,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 35,
+          "fragmentId": "ff037895-a515-576c-8ed5-b9bbd1b83b2c",
+          "lineas": 47,
+          "tablaDetectada": 2,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 36,
+          "fragmentId": "b5ff19c1-d405-5ba7-ba61-70a859711f14",
+          "lineas": 44,
+          "tablaDetectada": 2,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 37,
+          "fragmentId": "1586b9c2-6a56-501b-b0bd-92be8396b75a",
+          "lineas": 57,
+          "tablaDetectada": 2,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 38,
+          "fragmentId": "1601d52c-953f-5f4f-a431-5359955f3cc8",
+          "lineas": 42,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 39,
+          "fragmentId": "8958ec32-25d0-59a9-bfd2-e69abf17b3f0",
+          "lineas": 53,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 40,
+          "fragmentId": "4f1b511f-c353-55bf-bd77-5075ddebdf7d",
+          "lineas": 37,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 41,
+          "fragmentId": "9897206e-d65e-54f0-92cd-5bb988b8d8d8",
+          "lineas": 31,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 42,
+          "fragmentId": "e59c180e-b1ca-5d22-a4dd-89a496837136",
+          "lineas": 37,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 43,
+          "fragmentId": "6b5d8124-a18e-5adf-ba7b-31d5ee4b32c2",
+          "lineas": 48,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 44,
+          "fragmentId": "1c38edca-fe8b-54ca-9231-39efa41e94fc",
+          "lineas": 35,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 45,
+          "fragmentId": "df279836-1271-5c16-acaf-7ebc94fe034f",
+          "lineas": 33,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 46,
+          "fragmentId": "b6066cf9-b6fc-5866-be61-78e1afa9a390",
+          "lineas": 28,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 47,
+          "fragmentId": "41ed3bba-2eb5-5e4c-9c27-791ac6c4bb59",
+          "lineas": 43,
+          "tablaDetectada": 1,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 48,
+          "fragmentId": "25e1b845-f418-50f1-894f-760f0a278be2",
+          "lineas": 49,
+          "tablaDetectada": 2,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 49,
+          "fragmentId": "da15b0aa-8623-5855-8fbd-638812eefe3f",
+          "lineas": 35,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 50,
+          "fragmentId": "24eda689-640c-5ea1-9714-b6575c82a076",
+          "lineas": 33,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 51,
+          "fragmentId": "e318c183-b686-5fe4-8ccd-0bbd9e77b649",
+          "lineas": 36,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 52,
+          "fragmentId": "89d4c8b4-6fed-5f64-851f-46678759ecd8",
+          "lineas": 40,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 53,
+          "fragmentId": "cc65f47c-eb87-520c-82c5-bf8dc4ed877d",
+          "lineas": 23,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 54,
+          "fragmentId": "8bc05b42-d398-59b1-989d-a03dd2699037",
+          "lineas": 31,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 55,
+          "fragmentId": "b860ae01-ab73-525c-91a4-edc2cc21e8db",
+          "lineas": 72,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 56,
+          "fragmentId": "70f049b2-76e7-5f91-bd9a-05e15d6f257f",
+          "lineas": 54,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 57,
+          "fragmentId": "cb072cff-0628-5851-8ab1-a9b0b2d51d2e",
+          "lineas": 39,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 58,
+          "fragmentId": "72854586-74f5-55d0-b44f-ec868841a560",
+          "lineas": 35,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 59,
+          "fragmentId": "5f72c39e-af8f-58d9-b6cc-6231b36edb43",
+          "lineas": 44,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        },
+        {
+          "pagina": 60,
+          "fragmentId": "f3d9a449-62f5-58b2-842d-2a54c8bfb119",
+          "lineas": 9,
+          "tablaDetectada": 0,
+          "transcripcionManual": false,
+          "nota": "Los ejemplos en imagen y conexiones gráficas se conservan en el PDF oficial; no se reconstruyen como tablas automáticas."
+        }
+      ]
+    }
+  ],
+  "fuente": "https://www.snieg.mx/scn-vigente/"
+}
