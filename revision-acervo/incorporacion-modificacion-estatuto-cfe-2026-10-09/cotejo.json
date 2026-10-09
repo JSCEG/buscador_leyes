@@ -1,0 +1,20 @@
+{
+  "articulos": 42,
+  "transitorios": 11,
+  "fragmentos": 54,
+  "checksum": "30d86a9067b85aea8de13c329059ea8c",
+  "sha256": "596adc2dba44518c05154640f226937f878c16c2e0366f1c6184c557cd0b806c",
+  "entradaEnVigor": "2026-10-10",
+  "paginasInstrumento": [
+    97,
+    108
+  ],
+  "firmaCertificacion": [
+    "En la Ciudad de México, a los seis días del mes de octubre de dos mil veintiséis.- El Prosecretario del",
+    "Consejo de Administración de la Comisión Federal de Electricidad, Lic. José Manuel Calva Merino, con",
+    "fundamento en la regla Sexta, fracción V, de las Reglas de Operación y Funcionamiento del Consejo de",
+    "Administración de la Comisión Federal de Electricidad.- Rúbrica.",
+    "(R.- 581090)"
+  ],
+  "advertencia": "Modificación, no texto consolidado. Pasajes con puntos suspensivos preservados. A la fecha de carga, 9 de octubre, entrada en vigor pendiente para el día siguiente."
+}
