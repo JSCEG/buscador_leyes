@@ -1,5 +1,9 @@
 {
   "version": 1,
-  "include": ["/api/reader/*", "/api/cne/*"],
+  "include": [
+    "/api/reader/*",
+    "/api/cne/*",
+    "/api/mapa/*"
+  ],
   "exclude": []
 }

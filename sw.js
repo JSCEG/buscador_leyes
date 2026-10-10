@@ -55,6 +55,8 @@ self.addEventListener('fetch', (event) => {
   // Remote originals are checked on the server and held only in reader memory.
   // Do not persist them, including when opening a PDF in a separate tab.
   if (url.pathname.startsWith('/api/reader/')) return;
+  // Map layers weigh several MB and already carry their own edge/browser cache.
+  if (url.pathname.startsWith('/api/mapa/')) return;
 
   // ── 1. Navegación (index.html) — NETWORK FIRST ───────────────────────────
   // Siempre obtiene el HTML más reciente del servidor; cae al caché sólo si
