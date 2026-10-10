@@ -26,13 +26,15 @@ describe('permitsRoute', () => {
         expect(permitsRoute('#panorama-cne')).toEqual({ tab: 'panorama' });
         expect(permitsRoute('#tramites')).toEqual({ tab: 'tramites' });
         expect(permitsRoute('#mapa-permisos')).toEqual({ tab: 'mapa' });
+        expect(permitsRoute('#mapa-permisos?permiso=CNE%2FE%2F1439%2FGEN%2F2015')).toEqual({ tab: 'mapa', mapPermit: 'CNE/E/1439/GEN/2015' });
+        expect(permitsRoute('#mapa-permisos?x=1')).toEqual({ tab: 'mapa' });
         expect(permitsRoute('#resoluciones?fecha=2025&tipo=Otorgamiento&x=1')).toEqual({ tab: 'resoluciones', filters: { fecha: '2025', tipo: 'Otorgamiento' } });
         expect(permitsHash({ tab: 'resoluciones', filters: { fecha: '2025', modalidad: 'Gas natural' } })).toBe('#resoluciones?fecha=2025&modalidad=Gas+natural');
         expect(permitsRoute('#tramite=generacion')).toEqual({ tab: 'tramites', tramite: 'generacion' });
         expect(permitsRoute('#cronologia')).toBeNull();
     });
     it('builds the hash back', () => {
-        for (const hash of ['#permisos', '#resoluciones', '#panorama-cne', '#tramites', '#mapa-permisos', '#tramite=gaslp', '#permiso=CNE%2FE%2F1439%2FGEN%2F2015', '#resolucion=CNE%2FRES%2F062%2F2026']) {
+        for (const hash of ['#permisos', '#resoluciones', '#panorama-cne', '#tramites', '#mapa-permisos', '#mapa-permisos?permiso=CNE%2FE%2F1439%2FGEN%2F2015', '#tramite=gaslp', '#permiso=CNE%2FE%2F1439%2FGEN%2F2015', '#resolucion=CNE%2FRES%2F062%2F2026']) {
             expect(permitsHash(permitsRoute(hash))).toBe(hash);
         }
     });

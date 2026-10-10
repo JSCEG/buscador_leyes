@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { serveMapa, upstreamUrl, fetchHurricanes, DGMESNIE_URL } from '../server/mapa-proxy.js';
-import { insidePolygon, passes } from '../src/scripts/permits-map-view.js';
+import { insidePolygon, passes, distanceKm, nearest, marketOf } from '../src/scripts/permits-map-view.js';
 
 const ok = body => vi.fn().mockResolvedValue(new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } }));
 const fakeCache = () => {
@@ -81,5 +81,30 @@ describe('map filters', () => {
         expect(passes({ vigente: false }, { status: 'no-vigentes' })).toBe(true);
         expect(passes({ vigente: true, precision: 'municipio' }, { status: 'todos', exactOnly: true })).toBe(false);
         expect(passes({ vigente: true, precision: 'exacta' }, { status: 'todos', exactOnly: true })).toBe(true);
+    });
+});
+
+describe('near me and shared points', () => {
+    it('measures distances on the globe', () => {
+        // Zócalo (CDMX) to Monterrey's Macroplaza: about 705 km in a straight line.
+        expect(distanceKm([19.4326, -99.1332], [25.6694, -100.3097])).toBeGreaterThan(690);
+        expect(distanceKm([19.4326, -99.1332], [25.6694, -100.3097])).toBeLessThan(720);
+        expect(distanceKm([20, -100], [20, -100])).toBe(0);
+    });
+    it('lists permits within the radius, closest first, or the nearest ones as a fallback', () => {
+        const items = [{ id: 'far', lat: 21, lon: -100 }, { id: 'b', lat: 20.1, lon: -100 }, { id: 'a', lat: 20.05, lon: -100 }];
+        const close = nearest(items, [20, -100], { radiusKm: 25 });
+        expect(close.within).toBe(true);
+        expect(close.items.map(x => x.id)).toEqual(['a', 'b']);
+        const none = nearest(items, [30, -110], { radiusKm: 25, fallback: 2 });
+        expect(none.within).toBe(false);
+        expect(none.items.map(x => x.id)).toEqual(['far', 'b']);
+    });
+    it('finds the map layer from the permit number', () => {
+        expect(marketOf('CNE/E/1439/GEN/2015')).toBe('electricidad');
+        expect(marketOf('CNE/PL/12345/EXP/ES/2016')).toBe('petroliferos');
+        expect(marketOf('CNE/LP/100/DIS/2020')).toBe('gas-lp');
+        expect(marketOf('CNE/G/22/LICUE/2018')).toBe('gas-natural');
+        expect(marketOf('V/123/2020')).toBeNull();
     });
 });

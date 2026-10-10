@@ -10,7 +10,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
-import { permitsHash } from '../lib/cne-api.js';
+import { permitsHash, permitKind } from '../lib/cne-api.js';
 import { infraType, infraIcon } from '../lib/infra-icons.js';
 import '../styles/permits-map.css';
 
@@ -69,16 +69,42 @@ export function passes(p, { status = 'vigentes', exactOnly = false } = {}) {
     return statusOk && (!exactOnly || (p.precision || 'exacta') === 'exacta');
 }
 
+/** Great-circle distance in km between two [lat, lon] points. */
+export function distanceKm([lat1, lon1], [lat2, lon2]) {
+    const rad = Math.PI / 180;
+    const a = Math.sin(((lat2 - lat1) * rad) / 2) ** 2
+        + Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(((lon2 - lon1) * rad) / 2) ** 2;
+    return 6371 * 2 * Math.asin(Math.min(1, Math.sqrt(a)));
+}
+
+/**
+ * Closest items to `here` ([lat, lon]); each item has `lat` and `lon`. Those within `radiusKm`, or,
+ * when none is that close, the `fallback` nearest ones, so the list is never empty far from any plant.
+ */
+export function nearest(items, here, { radiusKm = 25, limit = 200, fallback = 10 } = {}) {
+    const sorted = items.map(item => ({ ...item, km: distanceKm(here, [item.lat, item.lon]) })).sort((a, b) => a.km - b.km);
+    const close = sorted.filter(item => item.km <= radiusKm);
+    return close.length ? { within: true, items: close.slice(0, limit) } : { within: false, items: sorted.slice(0, fallback) };
+}
+
+/** Map layer that holds a permit, from the prefix of its number (CNE/E/…, CNE/PL/…). */
+export function marketOf(numero) {
+    const sector = permitKind(numero).sector?.id;
+    return MARKETS.find(m => m.sector === sector)?.key || null;
+}
+
 /**
  * @param {HTMLElement} container
- * @returns {{ destroy: () => void }}
+ * @param {{ permit?: string|null }} [options] permit to open on load (shared link)
+ * @returns {{ destroy: () => void, focusPermit: (numero: string) => void }}
  */
-export async function renderPermitsMapView(container) {
+export async function renderPermitsMapView(container, { permit = null } = {}) {
     // The clustering plugin registers itself on the global L.
     window.L = window.L || L;
     await import('leaflet.markercluster/dist/leaflet.markercluster.js');
 
-    const state = { status: 'vigentes', exactOnly: false, layers: {}, missing: {}, cones: [], timers: [], ctrl: new AbortController() };
+    // hiddenTypes: '<market>|<infrastructure label>' switched off in the layers panel.
+    const state = { status: 'vigentes', exactOnly: false, hiddenTypes: new Set(), layers: {}, missing: {}, cones: [], timers: [], ctrl: new AbortController() };
     MARKETS.forEach(m => { state.layers[m.key] = { on: m.on }; });
 
     container.innerHTML = `
@@ -214,6 +240,9 @@ export async function renderPermitsMapView(container) {
         },
     });
 
+    const typeKey = (m, label) => `${m.key}|${label}`;
+    const visible = (m, p) => passes(p, state) && !state.hiddenTypes.has(typeKey(m, infraType(m.key, p).label));
+
     let cluster = null;
     function paint() {
         // A fresh group each time: clearing one still adding in chunks corrupts MarkerCluster.
@@ -226,7 +255,7 @@ export async function renderPermitsMapView(container) {
             if (!layer.on || !layer.data) continue;
             for (const f of layer.data) {
                 const p = f.properties || {};
-                if (!passes(p, state)) continue;
+                if (!visible(m, p)) continue;
                 const [lon, lat] = f.geometry.coordinates;
                 const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false, sector: m.sector });
                 marker.feature = f;
@@ -303,8 +332,11 @@ export async function renderPermitsMapView(container) {
                         byType.set(t.label, row);
                     }
                 }
-                types.innerHTML = [...byType.values()].sort((a, b) => b.n - a.n).slice(0, 8)
-                    .map(t => `<li data-sector="${m.sector}"><span>${infraIcon(t.icon, 13)} ${esc(t.label)}</span><span>${t.n.toLocaleString('es-MX')}</span></li>`).join('');
+                // Each technology switches on and off; the count is what the status filter leaves.
+                types.innerHTML = [...byType.values()].sort((a, b) => b.n - a.n).map(t => {
+                    const off = state.hiddenTypes.has(typeKey(m, t.label));
+                    return `<li data-sector="${m.sector}"><button type="button" class="pmm-type${off ? ' is-off' : ''}" data-type="${esc(typeKey(m, t.label))}" aria-pressed="${!off}"><span>${infraIcon(t.icon, 13)} ${esc(t.label)}</span><span>${t.n.toLocaleString('es-MX')}</span></button></li>`;
+                }).join('');
             }
             const missingBtn = container.querySelector(`[data-missing="${m.key}"]`);
             if (count) count.textContent = layer.data && layer.on ? `${layer.index ? layer.index.size.toLocaleString('es-MX') : 0} en el mapa` : '';
@@ -347,6 +379,7 @@ export async function renderPermitsMapView(container) {
             <dl>${rows.join('')}</dl>
             <div class="pmm-pop-actions">
                 <a class="pm-btn pm-btn-primary" href="${permitsHash({ permit: p.numeroPermiso })}">Ficha y normativa</a>
+                <button type="button" class="pm-btn" data-share="${esc(p.numeroPermiso)}">Compartir</button>
                 <span data-links="${esc(p.numeroPermiso)}">${linksHtml(p.numeroPermiso)}</span>
                 ${(p.precision || 'exacta') === 'exacta' ? `<a class="pm-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lon}" target="_blank" rel="noopener">Street View</a>` : ''}
             </div></div>`;
@@ -414,7 +447,47 @@ export async function renderPermitsMapView(container) {
             ]).addTo(map);
             map.setView([latitude, longitude], Math.max(map.getZoom(), 13));
             status('');
+            showNearby([latitude, longitude]);
         }, () => status('No se pudo obtener tu ubicación (revisa el permiso del navegador).', 5000), { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
+    }
+
+    // ---------- near me: permits of the layers on, closest first ----------
+    function showNearby(here) {
+        const points = [];
+        for (const m of MARKETS) {
+            const layer = state.layers[m.key];
+            if (!layer.on || !layer.data) continue;
+            for (const f of layer.data) {
+                const p = f.properties || {};
+                if (!visible(m, p)) continue;
+                const [lon, lat] = f.geometry.coordinates;
+                points.push({ m, p, lat, lon });
+            }
+        }
+        if (!points.length) return;
+        const { within, items } = nearest(points, here);
+        state.near = items;
+        const km = d => (d < 1 ? `${Math.round(d * 1000)} m` : `${d.toLocaleString('es-MX', { maximumFractionDigits: d < 10 ? 1 : 0 })} km`);
+        const html = `${within ? '' : '<p class="pmm-muted">No hay permisos a menos de 25 km; estos son los más cercanos.</p>'}${items.map((x, i) => `
+            <button type="button" class="pmm-item" data-near="${i}"><strong>${esc(x.p.nombre)}</strong>
+                <small><span class="pmm-near-km">${km(x.km)}</span> · ${esc(infraType(x.m.key, x.p).label)} · ${esc(x.p.numeroPermiso)}</small></button>`).join('')}`;
+        showResults(within ? `${items.length.toLocaleString('es-MX')} ${items.length === 1 ? 'permiso' : 'permisos'} a menos de 25 km` : 'Permisos más cercanos', html,
+            [['Distancia_km', 'Mercado', 'Permiso', 'RazonSocial', 'Estado', 'Municipio'], ...items.map(x => [x.km.toFixed(2), x.m.label, x.p.numeroPermiso, x.p.nombre, x.p.entidadNombre, x.p.municipioNombre])]);
+    }
+
+    // ---------- shareable link to one point ----------
+    async function share(numero) {
+        const url = `${location.origin}${location.pathname}${permitsHash({ mapPermit: numero })}`;
+        if (navigator.share && isMobile()) {
+            try { await navigator.share({ title: `Permiso ${numero} en el mapa`, url }); } catch { /* cancelled */ }
+            return;
+        }
+        try { await navigator.clipboard.writeText(url); status('Enlace copiado.', 2500); } catch { window.prompt('Copia el enlace:', url); }
+    }
+    async function focusPermit(numero) {
+        const tipo = marketOf(numero);
+        if (!tipo) { status('Este permiso no está en el mapa.', 4000); return; }
+        await flyTo({ tipo, numeroPermiso: numero });
     }
 
     // ---------- results panel (search, permits without coordinates, hurricane cone) ----------
@@ -572,7 +645,7 @@ export async function renderPermitsMapView(container) {
                 for (const f of layer.data) {
                     const p = f.properties || {};
                     const [x, y] = f.geometry.coordinates;
-                    if (x < minX || x > maxX || y < minY || y > maxY || !passes(p, state)) continue;
+                    if (x < minX || x > maxX || y < minY || y > maxY || !visible(m, p)) continue;
                     if (insidePolygon(f.geometry.coordinates, c.feature.geometry)) items.push({ m, p, coords: f.geometry.coordinates });
                 }
             }
@@ -612,6 +685,11 @@ export async function renderPermitsMapView(container) {
             else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }
         } else if (t.matches('input[name="pmm-base"]')) { map.removeLayer(base); base = BASES[t.value]().addTo(map); base.bringToBack?.(); }
     });
+    // Capture phase: Leaflet stops clicks inside desktop popups from bubbling up to the container.
+    container.addEventListener('click', e => {
+        const shareBtn = e.target.closest('[data-share]');
+        if (shareBtn) share(shareBtn.dataset.share);
+    }, true);
     container.addEventListener('click', e => {
         const t = e.target;
         const statusBtn = t.closest('[data-status]');
@@ -624,6 +702,16 @@ export async function renderPermitsMapView(container) {
         if (t.closest('[data-all]')) { searchAll(); return; }
         const found = t.closest('[data-found]');
         if (found) { flyTo(state.found[Number(found.dataset.found)]); return; }
+        const near = t.closest('[data-near]');
+        if (near) { const x = state.near[Number(near.dataset.near)]; flyTo({ tipo: x.m.key, numeroPermiso: x.p.numeroPermiso }); return; }
+        const typeBtn = t.closest('[data-type]');
+        if (typeBtn) {
+            const key = typeBtn.dataset.type;
+            if (state.hiddenTypes.has(key)) state.hiddenTypes.delete(key); else state.hiddenTypes.add(key);
+            paint();
+            countInCones();
+            return;
+        }
         if (t.closest('[data-results-close]')) { $('[data-results]').hidden = true; return; }
         if (t.closest('[data-results-csv]')) { downloadCsv(); return; }
         if (t.closest('[data-storm]')) { showCone(); return; }
@@ -663,11 +751,13 @@ export async function renderPermitsMapView(container) {
         window.scrollTo({ top: 0 });
     }
 
-    MARKETS.filter(m => m.on).forEach(m => toggle(m.key, true));
+    const initial = Promise.all(MARKETS.filter(m => m.on).map(m => toggle(m.key, true)));
+    if (permit) initial.then(() => focusPermit(permit));
     loadHurricanes();
     state.timers.push(setInterval(loadHurricanes, 10 * 60 * 1000));
 
     return {
+        focusPermit,
         destroy() {
             state.ctrl.abort();
             suggestCtrl?.abort();

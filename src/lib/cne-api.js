@@ -27,6 +27,11 @@ export function permitsRoute(hash = '') {
     }
     if (hash === '#panorama-cne') return { tab: 'panorama' };
     if (hash === '#mapa-permisos') return { tab: 'mapa' };
+    // A shared point of the map: #mapa-permisos?permiso=<number>.
+    if (hash.startsWith('#mapa-permisos?')) {
+        const permit = new URLSearchParams(hash.slice('#mapa-permisos?'.length)).get('permiso');
+        return permit ? { tab: 'mapa', mapPermit: permit.slice(0, 120) } : { tab: 'mapa' };
+    }
     if (hash === '#tramites') return { tab: 'tramites' };
     const m = /^#(permiso|resolucion|tramite)=(.+)$/.exec(hash);
     if (!m) return null;
@@ -38,7 +43,8 @@ export function permitsRoute(hash = '') {
 }
 
 /** Hash of a CNE route (inverse of permitsRoute). */
-export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null } = {}) {
+export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, mapPermit = null } = {}) {
+    if (mapPermit) return `#mapa-permisos?${new URLSearchParams({ permiso: mapPermit })}`;
     if (permit) return `#permiso=${encodeURIComponent(permit)}`;
     if (resolution) return `#resolucion=${encodeURIComponent(resolution)}`;
     if (tramite) return `#tramite=${encodeURIComponent(tramite)}`;

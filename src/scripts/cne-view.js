@@ -83,11 +83,17 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             current = renderPanoramaView(host);
         } else if (tab === 'mapa') {
             // Leaflet only loads when the map tab opens; until then `current` must still be destroyable.
-            const pending = { destroyed: false, view: null, destroy() { this.destroyed = true; this.view?.destroy(); } };
+            const pending = {
+                destroyed: false,
+                view: null,
+                permit: next.mapPermit || null,
+                destroy() { this.destroyed = true; this.view?.destroy(); },
+                focusPermit(permit) { if (this.view) this.view.focusPermit(permit); else this.permit = permit; },
+            };
             current = pending;
             host.innerHTML = '<p class="pm-loading">Cargando el mapa…</p>';
             import('./permits-map-view.js')
-                .then(module => module.renderPermitsMapView(host))
+                .then(module => module.renderPermitsMapView(host, { permit: pending.permit }))
                 .then(view => { if (pending.destroyed) view.destroy(); else pending.view = view; })
                 .catch(() => { if (!pending.destroyed) host.innerHTML = '<p class="pm-loading">No se pudo cargar el mapa. Revisa tu conexión e intenta de nuevo.</p>'; });
         } else {
@@ -109,6 +115,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             else current.showList();
         }
         else if (tab === 'tramites') { if (next.tramite) current.openTramite(next.tramite); else current.showList(); }
+        else if (tab === 'mapa' && next.mapPermit) current.focusPermit(next.mapPermit);
     }
 
     go(route);
