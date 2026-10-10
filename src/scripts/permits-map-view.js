@@ -11,6 +11,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import { permitsHash } from '../lib/cne-api.js';
+import { infraType, infraIcon } from '../lib/infra-icons.js';
 import '../styles/permits-map.css';
 
 const API = '/api/mapa';
@@ -113,9 +114,9 @@ export async function renderPermitsMapView(container) {
                         <label><input type="radio" name="pmm-base" value="calles"> Calles</label>
                         <label><input type="radio" name="pmm-base" value="satelite"> Satélite</label>
                     </div>
-                    <p class="pmm-legend"><span class="pmm-pin" data-sector="electricidad"><b>E</b></span> Ubicación del permiso
-                        <span class="pmm-pin is-aprox" data-sector="electricidad"><b>E</b></span> Aproximada
-                        <span class="pmm-pin is-novig" data-sector="electricidad"><b>E</b></span> No vigente</p>
+                    <p class="pmm-legend"><span class="pmm-pin" data-sector="electricidad">${infraIcon('solar', 11)}</span> Ubicación del permiso
+                        <span class="pmm-pin is-aprox" data-sector="electricidad">${infraIcon('solar', 11)}</span> Aproximada
+                        <span class="pmm-pin is-novig" data-sector="electricidad">${infraIcon('solar', 11)}</span> No vigente</p>
                     <p class="pmm-updated" data-updated>Consultando fecha de actualización…</p>
                 </aside>
                 <aside class="pmm-results" data-results hidden aria-label="Resultados">
@@ -156,9 +157,10 @@ export async function renderPermitsMapView(container) {
     const icons = new Map();
     const iconFor = (m, p) => {
         const mods = [p.vigente === false ? 'is-novig' : '', (p.precision || 'exacta') !== 'exacta' ? 'is-aprox' : ''].filter(Boolean).join(' ');
-        const key = m.key + mods;
+        const type = infraType(m.key, p);
+        const key = `${m.key}|${type.icon}|${mods}`;
         if (!icons.has(key)) {
-            icons.set(key, L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${m.sector}"><b>${m.code}</b></span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
+            icons.set(key, L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${m.sector}">${infraIcon(type.icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
         }
         return icons.get(key);
     };
@@ -187,7 +189,7 @@ export async function renderPermitsMapView(container) {
             const p = f.properties || {};
             if (!passes(p, state)) continue;
             const [lon, lat] = f.geometry.coordinates;
-            const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: p.nombre, keyboard: false });
+            const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false });
             marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
             marker.on('popupopen', ev => fillLinks(ev.popup, p.numeroPermiso));
             layer.index.set(p.numeroPermiso, marker);
@@ -236,6 +238,7 @@ export async function renderPermitsMapView(container) {
                 <span class="pmm-pin" data-sector="${m.sector}"><b>${m.code}</b></span>
                 <span>${m.label}<small data-count="${m.key}"></small></span>
             </label>
+            <ul class="pmm-types" data-types="${m.key}"></ul>
             <button type="button" class="pmm-missing" data-missing="${m.key}" hidden></button>`).join('');
     }
 
@@ -243,6 +246,22 @@ export async function renderPermitsMapView(container) {
         for (const m of MARKETS) {
             const layer = state.layers[m.key];
             const count = container.querySelector(`[data-count="${m.key}"]`);
+            const types = container.querySelector(`[data-types="${m.key}"]`);
+            if (types) {
+                const byType = new Map();
+                if (layer.on) {
+                    for (const f of layer.data || []) {
+                        const p = f.properties || {};
+                        if (!passes(p, state)) continue;
+                        const t = infraType(m.key, p);
+                        const row = byType.get(t.label) || { ...t, n: 0 };
+                        row.n += 1;
+                        byType.set(t.label, row);
+                    }
+                }
+                types.innerHTML = [...byType.values()].sort((a, b) => b.n - a.n).slice(0, 8)
+                    .map(t => `<li data-sector="${m.sector}"><span>${infraIcon(t.icon, 13)} ${esc(t.label)}</span><span>${t.n.toLocaleString('es-MX')}</span></li>`).join('');
+            }
             const missingBtn = container.querySelector(`[data-missing="${m.key}"]`);
             if (count) count.textContent = layer.data && layer.on ? `${layer.index ? layer.index.size.toLocaleString('es-MX') : 0} en el mapa` : '';
             const missing = (state.missing[m.key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }));
@@ -266,7 +285,9 @@ export async function renderPermitsMapView(container) {
     function popupHtml(m, p, lat, lon) {
         const rows = [];
         const add = (k, v) => { if (v) rows.push(`<dt>${k}</dt><dd>${esc(v)}</dd>`); };
+        const type = infraType(m.key, p);
         add('Mercado', m.label);
+        add('Infraestructura', type.label);
         add('Tipo', p.tipoPermiso);
         add('Tecnología', p.tecnologia);
         add('Estatus', `${p.estatus || ''}${p.vigente === false ? ' · no vigente' : ''}`);
@@ -276,7 +297,7 @@ export async function renderPermitsMapView(container) {
         add('Ubicación', [p.municipioNombre, p.entidadNombre].filter(Boolean).join(', '));
         add('Precisión', PRECISION[p.precision || 'exacta'] || PRECISION.exacta);
         return `<div class="pmm-pop" data-sector="${m.sector}">
-            <p class="pmm-pop-kicker">${esc(m.label)}</p>
+            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="${m.sector}">${infraIcon(type.icon, 12)}</span> ${esc(type.label)}</p>
             <strong>${esc(p.nombre)}</strong>
             <p class="pmm-pop-num">${esc(p.numeroPermiso)}</p>
             <dl>${rows.join('')}</dl>

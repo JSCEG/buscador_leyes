@@ -83,6 +83,21 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     facts.append(timeline);
     const reto = element('a', 'ac-stats-link ac-reto-link', 'Reto del día'); reto.href = '#reto';
     facts.append(reto);
+    const mapLink = element('a', 'ac-stats-link', 'Mapa de permisos'); mapLink.href = '#mapa-permisos';
+    facts.append(mapLink);
+
+    // Map of energy permits (CNE section): a visible entry point so people find it from the home.
+    const mapPromo = element('a', 'ac-map-promo');
+    mapPromo.href = '#mapa-permisos';
+    mapPromo.setAttribute('aria-label', 'Abrir el mapa de permisos energéticos');
+    mapPromo.innerHTML = `
+        <span class="ac-map-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6Z"/><path d="M9 4v14M15 6v14"/><circle cx="12" cy="10.5" r="1.6"/></svg></span>
+        <span class="ac-map-promo-copy">
+            <span class="ac-map-promo-eyebrow">Nuevo · Registro CNE</span>
+            <strong>Mapa de permisos energéticos</strong>
+            <span>Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, sus resoluciones, la normativa que los regula y los ciclones activos.</span>
+        </span>
+        <span class="ac-map-promo-cta">Abrir el mapa</span>`;
     const topics = element('div', 'ac-topics');
     const topThemes = acervoThemes(laws).slice(0, 6);
     if (topThemes.length) {
@@ -125,7 +140,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const overview = renderOverview();
     const body = element('div', 'ac-collections');
     const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = heroArt();
-    hero.append(header, tools, facts, topics, art);
+    hero.append(header, tools, facts, topics, mapPromo, art);
     root.append(hero, filters, status, overview, body);
     container.replaceChildren(root);
     let destroyed = false;

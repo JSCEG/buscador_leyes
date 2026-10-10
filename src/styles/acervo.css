@@ -351,3 +351,32 @@ html.dark-mode .ac-library .ac-row[data-group=convocatorias],html.dark-mode .ac-
 .ac-library .ac-filter.ac-filter-cross[aria-pressed="true"] .ac-filter-count{color:#fff}
 html.dark-mode .ac-library .ac-filter.ac-filter-cross{border-color:#7a6230;background:#2e2615;color:#f0d69c}
 html.dark-mode .ac-library .ac-filter.ac-filter-cross[aria-pressed="true"]{border-color:#e0bd6d;background:#e0bd6d;color:#2b1d03}
+
+/* Entry point to the permits map (#mapa-permisos) */
+.ac-library .ac-map-promo{display:flex;align-items:center;gap:16px;margin-top:18px;padding:14px 18px;border:1px solid #ffffff4d;border-radius:16px;background:#ffffff1f;color:#fff;text-decoration:none;transition:background-color .15s,transform .15s}
+.ac-library .ac-map-promo:hover{background:#ffffff33;transform:translateY(-1px)}
+.ac-library .ac-map-promo:focus-visible{outline:3px solid #f6d9a8;outline-offset:3px}
+.ac-library .ac-map-promo-icon{display:flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;border-radius:12px;background:#fff;color:#9b2247}
+.ac-library .ac-map-promo-icon svg{width:28px;height:28px}
+.ac-library .ac-map-promo-copy{display:flex;flex-direction:column;gap:2px;min-width:0;text-align:left}
+.ac-library .ac-map-promo-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f6d9a8}
+.ac-library .ac-map-promo-copy strong{font-family:Patria,Georgia,serif;font-size:19px;line-height:1.2}
+.ac-library .ac-map-promo-copy span:last-child{font-size:13.5px;line-height:1.4;color:#fbe9ee}
+.ac-library .ac-map-promo-cta{flex:none;margin-left:auto;padding:9px 16px;border-radius:999px;background:#fff;color:#7d1a3a;font-size:14px;font-weight:700;white-space:nowrap}
+.ac-library .ac-map-promo-cta::after{content:' →'}
+html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map-promo-cta{background:#f4efe7}
+@media (max-width:640px){
+  .ac-library .ac-map-promo{flex-wrap:wrap;gap:12px}
+  .ac-library .ac-map-promo-cta{margin-left:0;width:100%;text-align:center}
+}
+/* Pulse so the new map is noticed (off with reduced motion) */
+.ac-library .ac-map-promo-icon{position:relative}
+.ac-library .ac-map-promo-icon::after{content:'';position:absolute;inset:-4px;border:2px solid #f6d9a8;border-radius:16px;animation:ac-map-pulse 2.2s ease-out infinite}
+.ac-library .ac-map-promo-eyebrow::before{content:'';display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:#f6d9a8;vertical-align:1px;box-shadow:0 0 0 0 #f6d9a8b3;animation:ac-map-dot 2.2s ease-out infinite}
+.ac-library .ac-map-promo-cta{animation:ac-map-nudge 2.2s ease-in-out infinite}
+@keyframes ac-map-pulse{0%{opacity:.9;transform:scale(1)}70%{opacity:0;transform:scale(1.35)}100%{opacity:0;transform:scale(1.35)}}
+@keyframes ac-map-dot{0%{box-shadow:0 0 0 0 #f6d9a8b3}70%{box-shadow:0 0 0 8px #f6d9a800}100%{box-shadow:0 0 0 0 #f6d9a800}}
+@keyframes ac-map-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@media (prefers-reduced-motion:reduce){
+  .ac-library .ac-map-promo-icon::after,.ac-library .ac-map-promo-eyebrow::before,.ac-library .ac-map-promo-cta{animation:none}
+}
