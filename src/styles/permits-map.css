@@ -156,3 +156,34 @@ html.dark-mode .pmm-storm{background:#2b1d18;border-color:#7a2e14;color:#f3c8b4}
   /* panel de capas y resultados como hoja, sobre los botones */
   .pmm-panel,.pmm-results{z-index:1250}
 }
+
+/* ---------- Sector colours for the shared cluster rings ---------- */
+.pmm,.pmm-pin-wrap{--c-electricidad:#1E5B4F;--c-petroliferos:#86671d;--c-gaslp:#a84a14;--c-gasnatural:#2f6690}
+html.dark-mode .pmm,html.dark-mode .pmm-pin-wrap{--c-electricidad:#6fc2ae;--c-petroliferos:#e0bd6d;--c-gaslp:#f29a62;--c-gasnatural:#8cc0e6}
+/* One bubble for every sector: a coloured ring split by sector, the count in a white centre. */
+.pmm-cluster{position:relative;border:0;color:#2b2326;box-shadow:0 1px 5px rgba(0,0,0,.35)}
+.pmm-cluster b{position:absolute;inset:5px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;font:700 11.5px/1 'Noto Sans',sans-serif}
+html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
+
+/* ---------- Compact hurricane notice: one line, the list opens on tap ---------- */
+.pmm-storm{flex-wrap:nowrap;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:6px 12px 6px 10px;font-size:12.5px;box-shadow:0 2px 8px rgba(122,46,20,.18)}
+.pmm-storm b{overflow:hidden;text-overflow:ellipsis}
+.pmm-storm-more{margin-left:2px;font-size:15px;line-height:1}
+
+/* ---------- Back button (phones only) ---------- */
+.pmm-back{display:none}
+
+/* ---------- Phones: the map takes the screen between the top and the bottom bar ---------- */
+@media (max-width:768px){
+  body.pmm-open{overflow:hidden}
+  body.pmm-open .desk-toggle,body.pmm-open #toc-toggle-btn,body.pmm-open .install-sheet{display:none!important}
+  body.pmm-open .pmm-body{position:fixed;top:0;left:0;right:0;bottom:calc(61px + env(safe-area-inset-bottom));height:auto;min-height:0;margin:0;z-index:55}
+  body.pmm-open .pmm-bar{position:fixed;top:calc(8px + env(safe-area-inset-top));left:8px;right:8px;z-index:57;gap:6px}
+  body.pmm-open .pmm-chipbar{top:calc(64px + env(safe-area-inset-top))}
+  body.pmm-open .pmm-suggest{left:0;right:0}
+  .pmm-back{display:flex;flex:none;align-items:center;justify-content:center;width:48px;height:48px;border:0;border-radius:50%;background:var(--pm-card);color:var(--pm-ink);box-shadow:0 2px 6px rgba(32,23,27,.18),0 6px 18px -6px rgba(32,23,27,.28)}
+  .pmm-storm{top:calc(108px + env(safe-area-inset-top));max-width:calc(100% - 24px);font-size:12px}
+  .pmm-fabs{bottom:28px}
+  .pmm-status{bottom:24px}
+  .leaflet-control-attribution{font-size:9.5px!important;max-width:70%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}

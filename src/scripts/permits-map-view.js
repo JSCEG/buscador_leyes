@@ -84,6 +84,7 @@ export async function renderPermitsMapView(container) {
     container.innerHTML = `
         <div class="pmm">
             <div class="pmm-bar">
+                <button type="button" class="pmm-back" data-map-back aria-label="Volver a permisos"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
                 <label class="pmm-search">
                     <span class="pmm-sr">Buscar en el mapa</span>
                     <input type="text" autocomplete="off" spellcheck="false" placeholder="Permiso, razón social, estado o municipio" data-q>
@@ -120,7 +121,8 @@ export async function renderPermitsMapView(container) {
                     <label class="pmm-layer"><input type="checkbox" data-hurricanes checked><span>Huracanes activos<small>NOAA · cono y trayectoria</small></span></label>
                     <p class="pmm-h">Mapa base</p>
                     <div class="pmm-bases">
-                        <label><input type="radio" name="pmm-base" value="claro" checked> Claro</label>
+                        <label><input type="radio" name="pmm-base" value="mapa" checked> Mapa</label>
+                        <label><input type="radio" name="pmm-base" value="claro"> Relieve</label>
                         <label><input type="radio" name="pmm-base" value="calles"> Calles</label>
                         <label><input type="radio" name="pmm-base" value="satelite"> Satélite</label>
                     </div>
@@ -150,21 +152,33 @@ export async function renderPermitsMapView(container) {
     };
 
     // ---------- map ----------
-    const map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 4, maxZoom: 19 });
+    const map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 3.5, maxZoom: 19, zoomSnap: 0.5 });
     const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    // On phones the map takes the whole screen, like a maps app (styles under body.pmm-open).
+    document.body.classList.add('pmm-open');
+    // Fit México in the part of the screen the search box and chips leave free.
+    const fitMexico = () => map.fitBounds(MEXICO, isMobile() ? { paddingTopLeft: [0, 110], paddingBottomRight: [0, 10] } : {});
     if (!isMobile()) {
         L.control.zoom({ position: 'bottomright' }).addTo(map);
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
     }
-    map.fitBounds(MEXICO);
+    fitMexico();
     const resizeObserver = new ResizeObserver(() => map.invalidateSize({ pan: false }));
     resizeObserver.observe($('[data-map]'));
     const BASES = {
+        // Default: streets, towns and states labelled at every zoom (the terrain base has no labels
+        // when zoomed in, so on a phone there was nothing to find your way by). Esri needs no key.
+        // Dark mode: dark gray canvas with its labels layer on top.
+        mapa: () => {
+            const esri = (name, zIndex, native = 16) => L.tileLayer(`https://server.arcgisonline.com/ArcGIS/rest/services/${name}/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 19, maxNativeZoom: native, zIndex, attribution: 'Tiles &copy; Esri' });
+            if (!document.documentElement.classList.contains('dark-mode')) return esri('World_Street_Map', 1, 18);
+            return L.layerGroup([esri('Canvas/World_Dark_Gray_Base', 1), esri('Canvas/World_Dark_Gray_Reference', 2)]);
+        },
         claro: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/terrain-light_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Terrain Light &copy; EOX · &copy; OpenStreetMap' }),
         calles: () => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { subdomains: 'abc', maxZoom: 19, attribution: '&copy; OpenStreetMap' }),
         satelite: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Sentinel-2 cloudless &copy; EOX' }),
     };
-    let base = BASES.claro().addTo(map);
+    let base = BASES.mapa().addTo(map);
 
     // ---------- permit layers ----------
     const icons = new Map();
@@ -177,43 +191,56 @@ export async function renderPermitsMapView(container) {
         }
         return icons.get(key);
     };
-    const newCluster = m => L.markerClusterGroup({
+    // One cluster group for every market, so groups of different sectors no longer cover each
+    // other. Each bubble is a ring split by sector, in proportion to what it holds.
+    const newCluster = () => L.markerClusterGroup({
         chunkedLoading: true,
         showCoverageOnHover: false,
         disableClusteringAtZoom: 15,
         maxClusterRadius: z => (z < 8 ? 60 : 40),
         iconCreateFunction: cluster => {
             const n = cluster.getChildCount();
-            const size = n < 50 ? 30 : n < 500 ? 36 : 44;
-            return L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-cluster" data-sector="${m.sector}" style="width:${size}px;height:${size}px">${n >= 1000 ? `${Math.round(n / 100) / 10}k` : n}</span>`, iconSize: [size, size] });
+            const size = n < 50 ? 32 : n < 500 ? 38 : 46;
+            const bySector = {};
+            for (const child of cluster.getAllChildMarkers()) bySector[child.options.sector] = (bySector[child.options.sector] || 0) + 1;
+            let at = 0;
+            const stops = MARKETS.filter(m => bySector[m.sector]).map(m => {
+                const from = at;
+                at += (bySector[m.sector] / n) * 100;
+                return `var(--c-${m.sector}) ${from.toFixed(1)}% ${at.toFixed(1)}%`;
+            });
+            const label = n >= 1000 ? `${Math.round(n / 100) / 10}k` : n;
+            return L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-cluster" style="width:${size}px;height:${size}px;background:conic-gradient(${stops.join(',')})"><b>${label}</b></span>`, iconSize: [size, size] });
         },
     });
 
-    function paint(key) {
-        const layer = state.layers[key];
-        const m = MARKET[key];
-        const wasOn = layer.group && map.hasLayer(layer.group);
-        if (layer.group) map.removeLayer(layer.group);
+    let cluster = null;
+    function paint() {
         // A fresh group each time: clearing one still adding in chunks corrupts MarkerCluster.
-        layer.group = newCluster(m);
-        layer.index = new Map();
+        if (cluster) map.removeLayer(cluster);
+        cluster = newCluster();
         const markers = [];
-        for (const f of layer.data || []) {
-            const p = f.properties || {};
-            if (!passes(p, state)) continue;
-            const [lon, lat] = f.geometry.coordinates;
-            const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false });
-            marker.feature = f;
-            marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
-            marker.on('popupopen', ev => {
-                if (isMobile()) { marker.closePopup(); openSheet(m, p, lat, lon); return; }
-                fillLinks(ev.popup, p.numeroPermiso);
-            });
-            layer.index.set(p.numeroPermiso, marker);
-            markers.push(marker);
+        for (const m of MARKETS) {
+            const layer = state.layers[m.key];
+            layer.index = new Map();
+            if (!layer.on || !layer.data) continue;
+            for (const f of layer.data) {
+                const p = f.properties || {};
+                if (!passes(p, state)) continue;
+                const [lon, lat] = f.geometry.coordinates;
+                const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false, sector: m.sector });
+                marker.feature = f;
+                marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
+                marker.on('popupopen', ev => {
+                    if (isMobile()) { marker.closePopup(); openSheet(m, p, lat, lon); return; }
+                    fillLinks(ev.popup, p.numeroPermiso);
+                });
+                layer.index.set(p.numeroPermiso, marker);
+                markers.push(marker);
+            }
         }
-        layer.group.addLayers(markers);
-        if (wasOn || layer.on) map.addLayer(layer.group);
+        cluster.addLayers(markers);
+        map.addLayer(cluster);
         renderCounts();
     }
 
@@ -242,9 +269,9 @@ export async function renderPermitsMapView(container) {
     async function toggle(key, on) {
         const layer = state.layers[key];
         layer.on = on;
-        if (!on) { if (layer.group) map.removeLayer(layer.group); renderCounts(); return; }
+        if (!on) { paint(); countInCones(); return; }
         await load(key);
-        if (layer.on && layer.data) paint(key);
+        if (layer.on && layer.data) paint();
         countInCones();
     }
 
@@ -294,7 +321,7 @@ export async function renderPermitsMapView(container) {
         Object.assign(state, changes);
         container.querySelectorAll('[data-status]').forEach(b => b.classList.toggle('is-on', b.dataset.status === state.status));
         $('[data-exact]').classList.toggle('is-on', state.exactOnly);
-        MARKETS.forEach(m => { if (state.layers[m.key].data) paint(m.key); });
+        paint();
         countInCones();
     }
 
@@ -553,7 +580,11 @@ export async function renderPermitsMapView(container) {
         }).filter(c => c.items.length);
         state.inCone = results;
         box.hidden = !results.length;
-        box.innerHTML = results.map(c => `<span><b>${esc(c.name)}</b>: ${c.items.length.toLocaleString('es-MX')} permisos en el cono</span>`).join('');
+        // One short line; the list per storm opens on tap.
+        const total = results.reduce((sum, c) => sum + c.items.length, 0);
+        const names = results.map(c => c.name).join(' y ');
+        box.innerHTML = `<span aria-hidden="true">🌀</span> <b>${esc(names)}</b> · ${total.toLocaleString('es-MX')} ${total === 1 ? 'permiso' : 'permisos'} en el cono <span class="pmm-storm-more" aria-hidden="true">›</span>`;
+        box.setAttribute('aria-label', `${results.map(c => `${c.name}: ${c.items.length} permisos en el cono`).join('; ')}. Ver la lista`);
     }
     function showCone() {
         const rows = [['Ciclon', 'Mercado', 'Permiso', 'RazonSocial', 'Estado', 'Municipio']];
@@ -579,7 +610,7 @@ export async function renderPermitsMapView(container) {
         else if (t.matches('[data-hurricanes]')) {
             if (t.checked) loadHurricanes();
             else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }
-        } else if (t.matches('input[name="pmm-base"]')) { map.removeLayer(base); base = BASES[t.value]().addTo(map); base.bringToBack(); }
+        } else if (t.matches('input[name="pmm-base"]')) { map.removeLayer(base); base = BASES[t.value]().addTo(map); base.bringToBack?.(); }
     });
     container.addEventListener('click', e => {
         const t = e.target;
@@ -611,7 +642,8 @@ export async function renderPermitsMapView(container) {
             renderChips();
             return;
         }
-        if (t.closest('[data-mexico]')) { map.fitBounds(MEXICO); return; }
+        if (t.closest('[data-mexico]')) { fitMexico(); return; }
+        if (t.closest('[data-map-back]')) { location.hash = '#permisos'; return; }
         if (t.closest('[data-toggle-panel]')) {
             const panel = $('[data-panel]');
             panel.hidden = !panel.hidden;
@@ -628,7 +660,7 @@ export async function renderPermitsMapView(container) {
     renderChips();
     if (isMobile()) {
         $('[data-panel]').hidden = true;
-        requestAnimationFrame(() => container.querySelector('.pmm').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        window.scrollTo({ top: 0 });
     }
 
     MARKETS.filter(m => m.on).forEach(m => toggle(m.key, true));
@@ -642,6 +674,7 @@ export async function renderPermitsMapView(container) {
             state.timers.forEach(clearInterval);
             clearTimeout(suggestTimer);
             resizeObserver.disconnect();
+            document.body.classList.remove('pmm-open');
             map.remove();
             container.replaceChildren();
         },
