@@ -78,6 +78,9 @@
 .pmm-pop-actions{display:flex;flex-wrap:wrap;gap:6px;padding-top:8px;border-top:1px solid var(--pm-border,#E8D8C7)}
 .pmm-pop-actions [data-links]{display:contents}
 .pmm-pop-actions .pm-btn{padding:5px 10px;font-size:12px}
+/* Leaflet paints every link in the map blue (.leaflet-container a); the buttons keep their own colours. */
+.pmm-pop-actions a.pm-btn{color:var(--pm-ink,#20171B)}
+.pmm-pop-actions a.pm-btn-primary,.pmm-pop-actions a.pm-btn-primary:hover{color:#fff}
 .pmm-res{flex-basis:100%;font-size:12px}
 .pmm-res summary{color:var(--pm-accent,#9B2247);font-weight:700;cursor:pointer}
 .pmm-res ul{max-height:140px;overflow:auto;margin:4px 0 0;padding-left:18px}
