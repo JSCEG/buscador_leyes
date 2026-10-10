@@ -201,3 +201,12 @@ html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
 .pmm-kv span{display:inline-flex;align-items:center;gap:4px}
 .pmm-kv i{display:inline-block;width:14px;height:3px;border-radius:2px}
 .pmm-kv[hidden]{display:none}
+
+/* State filter: a select in the layers panel and a chip on phones. */
+.pmm-state{display:flex;align-items:center;gap:8px;margin:2px 0 8px;font-size:12.5px;color:var(--pm-muted)}
+.pmm-state select{flex:1;min-width:0;padding:6px 8px;border:1px solid var(--pm-border);border-radius:8px;background:var(--pm-card);color:var(--pm-ink);font:600 13px/1.2 'Noto Sans',sans-serif}
+.pmm-qstate{position:relative;gap:4px}
+.pmm-qstate select{appearance:none;-webkit-appearance:none;border:0;background:none;color:inherit;font:inherit;padding:0;max-width:150px;text-overflow:ellipsis;cursor:pointer}
+.pmm-qstate select:focus-visible{outline:none}
+.pmm-qstate:focus-within{box-shadow:0 0 0 2px var(--pm-accent)}
+.pmm-qstate.is-picked{background:var(--pm-accent);color:#fff}

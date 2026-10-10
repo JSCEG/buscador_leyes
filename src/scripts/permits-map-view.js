@@ -30,6 +30,27 @@ const PRECISION = {
     calle: 'Ubicación aproximada por dirección',
     municipio: 'Ubicación aproximada (centro del municipio)',
 };
+// States as DGMESNIE writes them (upper case, official long names), with the name people use.
+const STATES = [
+    ['AGUASCALIENTES', 'Aguascalientes'], ['BAJA CALIFORNIA', 'Baja California'], ['BAJA CALIFORNIA SUR', 'Baja California Sur'],
+    ['CAMPECHE', 'Campeche'], ['CHIAPAS', 'Chiapas'], ['CHIHUAHUA', 'Chihuahua'], ['CIUDAD DE MEXICO', 'Ciudad de México'],
+    ['COAHUILA', 'Coahuila'], ['COLIMA', 'Colima'], ['DURANGO', 'Durango'], ['GUANAJUATO', 'Guanajuato'], ['GUERRERO', 'Guerrero'],
+    ['HIDALGO', 'Hidalgo'], ['JALISCO', 'Jalisco'], ['MEXICO', 'Estado de México'], ['MICHOACAN DE OCAMPO', 'Michoacán'],
+    ['MORELOS', 'Morelos'], ['NAYARIT', 'Nayarit'], ['NUEVO LEON', 'Nuevo León'], ['OAXACA', 'Oaxaca'], ['PUEBLA', 'Puebla'],
+    ['QUERETARO', 'Querétaro'], ['QUINTANA ROO', 'Quintana Roo'], ['SAN LUIS POTOSI', 'San Luis Potosí'], ['SINALOA', 'Sinaloa'],
+    ['SONORA', 'Sonora'], ['TABASCO', 'Tabasco'], ['TAMAULIPAS', 'Tamaulipas'], ['TLAXCALA', 'Tlaxcala'],
+    ['VERACRUZ DE IGNACIO DE LA LLAVE', 'Veracruz'], ['YUCATAN', 'Yucatán'], ['ZACATECAS', 'Zacatecas'],
+].map(([name, label]) => ({ key: name.toLowerCase(), label }));
+const STATE_LABEL = Object.fromEntries(STATES.map(s => [s.key, s.label]));
+// Accents and case removed; a few sources write "Coahuila de Zaragoza" or "Michoacán".
+const STATE_ALIASES = { 'coahuila de zaragoza': 'coahuila', michoacan: 'michoacan de ocampo', veracruz: 'veracruz de ignacio de la llave', 'estado de mexico': 'mexico', cdmx: 'ciudad de mexico', 'distrito federal': 'ciudad de mexico' };
+/** Key of a state name as written in the data, or '' when it is not one of the 32. */
+export function stateKey(name) {
+    const folded = String(name ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+    const key = STATE_ALIASES[folded] || folded;
+    return STATE_LABEL[key] ? key : '';
+}
+
 // Network layers (scripts/build-map-networks.mjs builds the files under public/mapa/).
 const NETWORKS = [
     { key: 'transmision', file: 'red-transmision.json', label: 'Líneas de transmisión', short: '69 kV o más · OpenStreetMap', swatch: '#c0392b' },
@@ -107,6 +128,10 @@ export function marketOf(numero) {
     return MARKETS.find(m => m.sector === sector)?.key || null;
 }
 
+function stateSelectHtml(selected = '') {
+    return `<select data-state aria-label="Filtrar por estado"><option value="">Todo México</option>${STATES.map(s => `<option value="${s.key}"${s.key === selected ? ' selected' : ''}>${s.label}</option>`).join('')}</select>`;
+}
+
 /**
  * @param {HTMLElement} container
  * @param {{ permit?: string|null }} [options] permit to open on load (shared link)
@@ -118,7 +143,8 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     await import('leaflet.markercluster/dist/leaflet.markercluster.js');
 
     // hiddenTypes: '<market>|<infrastructure label>' switched off in the layers panel.
-    const state = { status: 'vigentes', exactOnly: false, hiddenTypes: new Set(), layers: {}, missing: {}, cones: [], timers: [], ctrl: new AbortController() };
+    // entidad: state key from STATES ('' = all México).
+    const state = { status: 'vigentes', exactOnly: false, entidad: '', hiddenTypes: new Set(), layers: {}, missing: {}, cones: [], timers: [], ctrl: new AbortController() };
     MARKETS.forEach(m => { state.layers[m.key] = { on: m.on }; });
 
     container.innerHTML = `
@@ -156,6 +182,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                         <button type="button" data-status="todos">Todos</button>
                     </div>
                     <div class="pmm-chips"><button type="button" data-exact>Solo ubicaciones exactas</button></div>
+                    <label class="pmm-state"><span>Estado</span>${stateSelectHtml()}</label>
                     <div data-markets></div>
                     <p class="pmm-h">Infraestructura</p>
                     ${NETWORKS.map(n => `<label class="pmm-layer"><input type="checkbox" data-network="${n.key}"><span class="pmm-line" style="--line:${n.swatch}"></span><span>${n.label}<small data-network-note="${n.key}">${n.short}</small></span></label>`).join('')}
@@ -258,7 +285,15 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     });
 
     const typeKey = (m, label) => `${m.key}|${label}`;
-    const visible = (m, p) => passes(p, state) && !state.hiddenTypes.has(typeKey(m, infraType(m.key, p).label));
+    const stateKeys = new Map();
+    const inState = name => {
+        if (!state.entidad) return true;
+        if (!stateKeys.has(name)) stateKeys.set(name, stateKey(name));
+        return stateKeys.get(name) === state.entidad;
+    };
+    // inScope: status, precision and state; visible also drops the technologies switched off.
+    const inScope = p => passes(p, state) && inState(p.entidadNombre);
+    const visible = (m, p) => inScope(p) && !state.hiddenTypes.has(typeKey(m, infraType(m.key, p).label));
 
     let cluster = null;
     function paint() {
@@ -342,7 +377,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                 if (layer.on) {
                     for (const f of layer.data || []) {
                         const p = f.properties || {};
-                        if (!passes(p, state)) continue;
+                        if (!inScope(p)) continue;
                         const t = infraType(m.key, p);
                         const row = byType.get(t.label) || { ...t, n: 0 };
                         row.n += 1;
@@ -357,7 +392,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             }
             const missingBtn = container.querySelector(`[data-missing="${m.key}"]`);
             if (count) count.textContent = layer.data && layer.on ? `${layer.index ? layer.index.size.toLocaleString('es-MX') : 0} en el mapa` : '';
-            const missing = (state.missing[m.key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }));
+            const missing = (state.missing[m.key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }) && inState(x.entidad));
             if (missingBtn) {
                 missingBtn.hidden = !layer.on || !state.missing[m.key];
                 missingBtn.textContent = `Sin coordenadas: ${missing.length.toLocaleString('es-MX')}`;
@@ -370,8 +405,20 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         Object.assign(state, changes);
         container.querySelectorAll('[data-status]').forEach(b => b.classList.toggle('is-on', b.dataset.status === state.status));
         $('[data-exact]').classList.toggle('is-on', state.exactOnly);
+        container.querySelectorAll('[data-state]').forEach(s => { s.value = state.entidad; });
         paint();
         countInCones();
+    }
+
+    /** Filter by state and frame it; the empty key goes back to all México. */
+    function setStateFilter(key) {
+        setFilters({ entidad: key });
+        renderChips();
+        if (!key) { fitMexico(); status(''); return; }
+        const bounds = cluster?.getLayers().length ? cluster.getBounds() : null;
+        const shown = cluster?.getLayers().length || 0;
+        if (bounds?.isValid()) map.fitBounds(bounds.pad(0.05), isMobile() ? { paddingTopLeft: [0, 110], paddingBottomRight: [0, 10], maxZoom: 11 } : { maxZoom: 11 });
+        status(`${shown.toLocaleString('es-MX')} ${shown === 1 ? 'permiso' : 'permisos'} en ${STATE_LABEL[key]} con las capas encendidas.`, 4000);
     }
 
     // ---------- popup ----------
@@ -447,7 +494,8 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     const STATUS_CYCLE = { vigentes: 'todos', todos: 'no-vigentes', 'no-vigentes': 'vigentes' };
     const STATUS_LABEL = { vigentes: 'Vigentes', todos: 'Todos', 'no-vigentes': 'No vigentes' };
     function renderChips() {
-        $('[data-chipbar]').innerHTML = `<button type="button" class="pmm-qchip is-status" data-qstatus>${STATUS_LABEL[state.status]} ▾</button>${MARKETS.map(m => `
+        $('[data-chipbar]').innerHTML = `<button type="button" class="pmm-qchip is-status" data-qstatus>${STATUS_LABEL[state.status]} ▾</button>
+            <label class="pmm-qchip is-status pmm-qstate${state.entidad ? ' is-picked' : ''}">${stateSelectHtml(state.entidad)}<span aria-hidden="true">▾</span></label>${MARKETS.map(m => `
             <button type="button" class="pmm-qchip ${state.layers[m.key].on ? 'is-on' : ''}" data-qmarket="${m.key}" data-sector="${m.sector}"><span class="pmm-pin" data-sector="${m.sector}"><b>${m.code}</b></span>${m.label}</button>`).join('')}`;
     }
 
@@ -529,7 +577,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
 
     function showMissing(key) {
         const m = MARKET[key];
-        const list = (state.missing[key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }));
+        const list = (state.missing[key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }) && inState(x.entidad));
         const groups = new Map();
         list.forEach(x => {
             const g = `${x.municipio || 'Municipio sin dato'}, ${x.entidad || 'Estado sin dato'}`;
@@ -549,8 +597,9 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         if (!state.layers[key].on) { if (box) box.checked = true; await toggle(key, true); }
         else await load(key);
         let marker = state.layers[key].index?.get(item.numeroPermiso);
-        if (!marker && (state.status !== 'todos' || state.exactOnly)) {
-            setFilters({ status: 'todos', exactOnly: false });
+        if (!marker && (state.status !== 'todos' || state.exactOnly || state.entidad)) {
+            setFilters({ status: 'todos', exactOnly: false, entidad: '' });
+            renderChips();
             marker = state.layers[key].index?.get(item.numeroPermiso);
         }
         if (!marker) { status(item.latitud == null ? 'Este permiso no tiene coordenadas.' : 'El permiso no está en el mapa.', 4000); return; }
@@ -750,6 +799,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     container.addEventListener('change', e => {
         const t = e.target;
         if (t.matches('[data-market]')) { toggle(t.dataset.market, t.checked).then(renderChips); renderChips(); }
+        else if (t.matches('[data-state]')) setStateFilter(t.value);
         else if (t.matches('[data-network]')) toggleNetwork(t.dataset.network, t.checked);
         else if (t.matches('[data-hurricanes]')) {
             if (t.checked) loadHurricanes();

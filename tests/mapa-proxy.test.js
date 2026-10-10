@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { serveMapa, upstreamUrl, fetchHurricanes, DGMESNIE_URL } from '../server/mapa-proxy.js';
-import { insidePolygon, passes, distanceKm, nearest, marketOf, kvClass } from '../src/scripts/permits-map-view.js';
+import { insidePolygon, passes, distanceKm, nearest, marketOf, kvClass, stateKey } from '../src/scripts/permits-map-view.js';
 
 const ok = body => vi.fn().mockResolvedValue(new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } }));
 const fakeCache = () => {
@@ -116,5 +116,17 @@ describe('network layers', () => {
         expect(kvClass(138).label).toBe('115–161 kV');
         expect(kvClass(69).label).toBe('69–115 kV');
         expect(kvClass(85).label).toBe('69–115 kV');
+    });
+});
+
+describe('state filter', () => {
+    it('reads the state names the way the registry writes them', () => {
+        expect(stateKey('MÉXICO')).toBe('mexico');
+        expect(stateKey('VERACRUZ DE IGNACIO DE LA LLAVE')).toBe('veracruz de ignacio de la llave');
+        expect(stateKey('Michoacán')).toBe('michoacan de ocampo');
+        expect(stateKey('Coahuila de Zaragoza')).toBe('coahuila');
+        expect(stateKey('NUEVO  LEÓN')).toBe('nuevo leon');
+        expect(stateKey('Texas')).toBe('');
+        expect(stateKey(null)).toBe('');
     });
 });
