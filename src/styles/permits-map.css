@@ -113,3 +113,46 @@ html.dark-mode .pmm-storm{background:#2b1d18;border-color:#7a2e14;color:#f3c8b4}
   .pmm-panel,.pmm-results{top:auto;left:0;right:0;bottom:0;width:auto;max-height:60%;border-radius:16px 16px 0 0}
   .pmm-storm{top:8px;bottom:auto;max-width:calc(100% - 24px);font-size:11.5px}
 }
+
+/* ---------- Celular: estilo Google Maps (mapa completo, buscador flotante, chips, hoja inferior) ---------- */
+.pmm-chipbar,.pmm-fabs,.pmm-sheet{display:none}
+@media (max-width:768px){
+  .pmm{margin-top:0}
+  .pmm-note{display:none}
+  .pmm-body{height:calc(100dvh - 70px);min-height:420px;margin:0 -16px;border:0;border-radius:0}
+  /* buscador flotante sobre el mapa */
+  .pmm-bar{position:absolute;top:10px;left:2px;right:2px;z-index:1150;flex-wrap:nowrap}
+  .pmm-tools{display:none}
+  .pmm-search{flex:1 1 auto}
+  .pmm-search input{height:48px;padding:0 18px 0 44px;border:0;border-radius:28px;background:var(--pm-card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236b6460' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.8' cy='10.8' r='6.8'/%3E%3Cpath d='m16 16 4.5 4.5'/%3E%3C/svg%3E") no-repeat 16px center;box-shadow:0 2px 6px rgba(32,23,27,.18),0 6px 18px -6px rgba(32,23,27,.28);font-size:16px}
+  .pmm-suggest{top:54px;max-height:55vh;border:0;border-radius:18px}
+  /* chips deslizables bajo el buscador */
+  .pmm-chipbar{display:flex;position:absolute;top:66px;left:0;right:0;gap:8px;padding:0 14px 6px;overflow-x:auto;scrollbar-width:none;z-index:1100}
+  .pmm-chipbar::-webkit-scrollbar{display:none}
+  .pmm-qchip{display:inline-flex;align-items:center;gap:6px;flex:none;height:34px;padding:0 12px 0 6px;border:0;border-radius:18px;background:var(--pm-card);color:var(--pm-ink);font:600 13px/1 'Noto Sans',sans-serif;box-shadow:0 1px 4px rgba(32,23,27,.22);white-space:nowrap}
+  .pmm-qchip.is-status{padding:0 14px}
+  .pmm-qchip .pmm-pin{width:22px;height:22px;border-width:1.5px;opacity:.45}
+  .pmm-qchip.is-on{background:color-mix(in srgb,var(--sec) 14%,var(--pm-card));color:var(--sec);box-shadow:0 0 0 1.5px var(--sec)}
+  .pmm-qchip.is-on .pmm-pin{opacity:1}
+  /* botones flotantes */
+  .pmm-fabs{display:flex;flex-direction:column;gap:10px;position:absolute;right:14px;bottom:96px;z-index:1100}   /* arriba del botón flotante "Mi mesa" */
+  .pmm-fab{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:0;border-radius:50%;background:var(--pm-card);color:#1a73e8;box-shadow:0 2px 6px rgba(32,23,27,.25)}
+  .pmm-fab[data-fab-layers]{color:var(--pm-ink)}
+  /* aviso del ciclón bajo los chips */
+  .pmm-storm{top:110px;bottom:auto;max-width:calc(100% - 28px);padding:4px 12px;font-size:11.5px}
+  .pmm-storm.is-behind{display:none}
+  .pmm-status{bottom:84px}
+  /* hoja inferior con la ficha del permiso */
+  .pmm-sheet{display:block;position:absolute;left:0;right:0;bottom:0;max-height:46%;overflow:auto;padding:22px 16px 18px;border-radius:18px 18px 0 0;background:var(--pm-card);box-shadow:0 -6px 24px rgba(32,23,27,.22);z-index:1200;transition:max-height .25s ease}
+  .pmm-sheet[hidden]{display:none}
+  .pmm-sheet.is-open{max-height:86%}
+  .pmm-sheet-handle{position:absolute;top:0;left:0;right:0;height:22px;border:0;background:transparent}
+  .pmm-sheet-handle::before{content:'';position:absolute;top:8px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:var(--pm-border)}
+  .pmm-sheet-close{position:absolute;top:10px;right:12px}
+  .pmm-sheet .pmm-pop strong{font-size:16px}
+  .pmm-sheet .pmm-pop dl{font-size:13px}
+  .pmm-sheet .pmm-pop-actions{position:sticky;bottom:-18px;margin:0 -16px -18px;padding:10px 16px 14px;background:var(--pm-card)}
+  .pmm-sheet .pmm-pop-actions .pm-btn{padding:9px 14px;font-size:13px}
+  /* panel de capas y resultados como hoja, sobre los botones */
+  .pmm-panel,.pmm-results{z-index:1250}
+}

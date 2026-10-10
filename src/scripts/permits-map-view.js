@@ -97,6 +97,16 @@ export async function renderPermitsMapView(container) {
             </div>
             <div class="pmm-body">
                 <div class="pmm-map" data-map></div>
+                <div class="pmm-chipbar" data-chipbar aria-label="Filtros rápidos"></div>
+                <div class="pmm-fabs">
+                    <button type="button" class="pmm-fab" data-locate aria-label="Mi ubicación"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="7.5"/></svg></button>
+                    <button type="button" class="pmm-fab" data-fab-layers aria-label="Capas"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></button>
+                </div>
+                <section class="pmm-sheet" data-sheet hidden aria-label="Permiso seleccionado">
+                    <button type="button" class="pmm-sheet-handle" data-sheet-toggle aria-label="Expandir"></button>
+                    <button type="button" class="pmm-close pmm-sheet-close" data-sheet-close aria-label="Cerrar">×</button>
+                    <div class="pmm-sheet-body" data-sheet-body></div>
+                </section>
                 <aside class="pmm-panel" data-panel aria-label="Capas del mapa">
                     <p class="pmm-h">Permisos</p>
                     <div class="pmm-chips" role="group" aria-label="Estatus">
@@ -141,8 +151,11 @@ export async function renderPermitsMapView(container) {
 
     // ---------- map ----------
     const map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 4, maxZoom: 19 });
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-    L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile()) {
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+        L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
+    }
     map.fitBounds(MEXICO);
     const resizeObserver = new ResizeObserver(() => map.invalidateSize({ pan: false }));
     resizeObserver.observe($('[data-map]'));
@@ -190,8 +203,12 @@ export async function renderPermitsMapView(container) {
             if (!passes(p, state)) continue;
             const [lon, lat] = f.geometry.coordinates;
             const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false });
+            marker.feature = f;
             marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
-            marker.on('popupopen', ev => fillLinks(ev.popup, p.numeroPermiso));
+            marker.on('popupopen', ev => {
+                if (isMobile()) { marker.closePopup(); openSheet(m, p, lat, lon); return; }
+                fillLinks(ev.popup, p.numeroPermiso);
+            });
             layer.index.set(p.numeroPermiso, marker);
             markers.push(marker);
         }
@@ -290,7 +307,7 @@ export async function renderPermitsMapView(container) {
         add('Infraestructura', type.label);
         add('Tipo', p.tipoPermiso);
         add('Tecnología', p.tecnologia);
-        add('Estatus', `${p.estatus || ''}${p.vigente === false ? ' · no vigente' : ''}`);
+        add('Estatus', `${p.estatus || ''}${p.vigente === false && !fold(p.estatus).includes('vigente') ? ' · no vigente' : ''}`);
         add('Otorgamiento', date(p.fechaOtorgamiento));
         const capacity = p.capacidad > 0 ? `${num(p.capacidad)} ${p.unidadCapacidad || ''}`.trim() : (p.capacidadTexto && p.capacidadTexto !== '0' ? p.capacidadTexto : '');
         add('Capacidad', capacity);
@@ -326,6 +343,51 @@ export async function renderPermitsMapView(container) {
             linksCache.set(numero, await getJson(`ligas?numero=${encodeURIComponent(numero)}`));
             if (popup.isOpen()) popup.update();
         } catch { linksCache.set(numero, null); /* the popup keeps working without links */ }
+    }
+
+    // ---------- phone: bottom sheet, quick chips and my location (Google Maps style) ----------
+    let sheetKey = null;
+    async function openSheet(m, p, lat, lon) {
+        const sheet = $('[data-sheet]');
+        sheetKey = p.numeroPermiso;
+        const render = () => { $('[data-sheet-body]').innerHTML = popupHtml(m, p, lat, lon); };
+        render();
+        $('[data-results]').hidden = true;
+        if (isMobile()) $('[data-panel]').hidden = true;
+        sheet.classList.remove('is-open');
+        sheet.hidden = false;
+        $('[data-storm]').classList.add('is-behind');
+        // Point above the sheet, as in Google Maps: shift by half the sheet height.
+        const target = map.project([lat, lon]).add([0, sheet.offsetHeight / 2]);
+        map.panTo(map.unproject(target), { animate: true });
+        if (!linksCache.has(p.numeroPermiso)) {
+            try { linksCache.set(p.numeroPermiso, await getJson(`ligas?numero=${encodeURIComponent(p.numeroPermiso)}`)); } catch { linksCache.set(p.numeroPermiso, null); }
+            if (sheetKey === p.numeroPermiso && !sheet.hidden) render();
+        }
+    }
+    function closeSheet() { $('[data-sheet]').hidden = true; $('[data-storm]').classList.remove('is-behind'); sheetKey = null; }
+
+    const STATUS_CYCLE = { vigentes: 'todos', todos: 'no-vigentes', 'no-vigentes': 'vigentes' };
+    const STATUS_LABEL = { vigentes: 'Vigentes', todos: 'Todos', 'no-vigentes': 'No vigentes' };
+    function renderChips() {
+        $('[data-chipbar]').innerHTML = `<button type="button" class="pmm-qchip is-status" data-qstatus>${STATUS_LABEL[state.status]} ▾</button>${MARKETS.map(m => `
+            <button type="button" class="pmm-qchip ${state.layers[m.key].on ? 'is-on' : ''}" data-qmarket="${m.key}" data-sector="${m.sector}"><span class="pmm-pin" data-sector="${m.sector}"><b>${m.code}</b></span>${m.label}</button>`).join('')}`;
+    }
+
+    let locateLayer = null;
+    function locate() {
+        if (!navigator.geolocation) { status('Tu navegador no comparte la ubicación.', 4000); return; }
+        status('Buscando tu ubicación…');
+        navigator.geolocation.getCurrentPosition(pos => {
+            const { latitude, longitude, accuracy } = pos.coords;
+            if (locateLayer) map.removeLayer(locateLayer);
+            locateLayer = L.layerGroup([
+                L.circle([latitude, longitude], { radius: Math.min(accuracy, 2000), color: '#1a73e8', weight: 1, fillColor: '#1a73e8', fillOpacity: 0.12, interactive: false }),
+                L.circleMarker([latitude, longitude], { radius: 7, color: '#ffffff', weight: 2.5, fillColor: '#1a73e8', fillOpacity: 1, interactive: false }),
+            ]).addTo(map);
+            map.setView([latitude, longitude], Math.max(map.getZoom(), 13));
+            status('');
+        }, () => status('No se pudo obtener tu ubicación (revisa el permiso del navegador).', 5000), { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
     }
 
     // ---------- results panel (search, permits without coordinates, hurricane cone) ----------
@@ -376,7 +438,10 @@ export async function renderPermitsMapView(container) {
         }
         if (!marker) { status(item.latitud == null ? 'Este permiso no tiene coordenadas.' : 'El permiso no está en el mapa.', 4000); return; }
         map.invalidateSize({ pan: false });
-        map.once('moveend', () => setTimeout(() => marker.openPopup(), 60));
+        map.once('moveend', () => setTimeout(() => {
+            if (isMobile()) openSheet(MARKET[key], marker.feature?.properties || item, marker.getLatLng().lat, marker.getLatLng().lng);
+            else marker.openPopup();
+        }, 60));
         map.setView(marker.getLatLng(), Math.max(map.getZoom(), 16));
     }
 
@@ -510,7 +575,7 @@ export async function renderPermitsMapView(container) {
     renderMarkets();
     container.addEventListener('change', e => {
         const t = e.target;
-        if (t.matches('[data-market]')) toggle(t.dataset.market, t.checked);
+        if (t.matches('[data-market]')) { toggle(t.dataset.market, t.checked).then(renderChips); renderChips(); }
         else if (t.matches('[data-hurricanes]')) {
             if (t.checked) loadHurricanes();
             else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }
@@ -519,7 +584,7 @@ export async function renderPermitsMapView(container) {
     container.addEventListener('click', e => {
         const t = e.target;
         const statusBtn = t.closest('[data-status]');
-        if (statusBtn) { setFilters({ status: statusBtn.dataset.status }); return; }
+        if (statusBtn) { setFilters({ status: statusBtn.dataset.status }); renderChips(); return; }
         if (t.closest('[data-exact]')) { setFilters({ exactOnly: !state.exactOnly }); return; }
         const missing = t.closest('[data-missing]');
         if (missing) { showMissing(missing.dataset.missing); return; }
@@ -531,6 +596,21 @@ export async function renderPermitsMapView(container) {
         if (t.closest('[data-results-close]')) { $('[data-results]').hidden = true; return; }
         if (t.closest('[data-results-csv]')) { downloadCsv(); return; }
         if (t.closest('[data-storm]')) { showCone(); return; }
+        if (t.closest('[data-sheet-close]')) { closeSheet(); return; }
+        if (t.closest('[data-sheet-toggle]')) { $('[data-sheet]').classList.toggle('is-open'); return; }
+        if (t.closest('[data-locate]')) { locate(); return; }
+        if (t.closest('[data-fab-layers]')) { closeSheet(); $('[data-results]').hidden = true; const panel = $('[data-panel]'); panel.hidden = !panel.hidden; return; }
+        if (t.closest('[data-qstatus]')) { setFilters({ status: STATUS_CYCLE[state.status] }); renderChips(); return; }
+        const qm = t.closest('[data-qmarket]');
+        if (qm) {
+            const key = qm.dataset.qmarket;
+            const on = !state.layers[key].on;
+            const box = container.querySelector(`[data-market="${key}"]`);
+            if (box) box.checked = on;
+            toggle(key, on).then(renderChips);
+            renderChips();
+            return;
+        }
         if (t.closest('[data-mexico]')) { map.fitBounds(MEXICO); return; }
         if (t.closest('[data-toggle-panel]')) {
             const panel = $('[data-panel]');
@@ -545,7 +625,11 @@ export async function renderPermitsMapView(container) {
         }
         if (!t.closest('.pmm-search') && !t.closest('[data-suggest]')) $('[data-suggest]').hidden = true;
     });
-    if (window.matchMedia('(max-width: 768px)').matches) $('[data-panel]').hidden = true;
+    renderChips();
+    if (isMobile()) {
+        $('[data-panel]').hidden = true;
+        requestAnimationFrame(() => container.querySelector('.pmm').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
 
     MARKETS.filter(m => m.on).forEach(m => toggle(m.key, true));
     loadHurricanes();
