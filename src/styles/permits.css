@@ -266,3 +266,6 @@ html.dark-mode .pn-columns li>a:hover .pn-col{background:#f09ab5}
 @keyframes pn-grow-y{from{transform:scaleY(0)}to{transform:none}}
 @keyframes pn-grow-x{from{transform:scaleX(0)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){.pn-col,.pn-bar{animation:none}}
+
+/* Map tab placeholder while Leaflet loads */
+.pm-loading{margin:24px 0;padding:18px;border:1px dashed var(--pm-border);border-radius:16px;color:var(--pm-muted);text-align:center}

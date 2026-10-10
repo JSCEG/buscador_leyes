@@ -14,7 +14,7 @@ const RESOLUTION_FILTERS = ['numero', 'texto', 'fecha', 'tipo', 'modalidad'];
 
 /**
  * Route of the CNE section: { tab, permit?, resolution?, tramite? } for #permisos, #permiso=<number>,
- * #resoluciones, #resolucion=<number>, #panorama-cne, #tramites and #tramite=<id>; otherwise null.
+ * #resoluciones, #resolucion=<number>, #panorama-cne, #tramites, #tramite=<id> and #mapa-permisos; otherwise null.
  */
 export function permitsRoute(hash = '') {
     if (hash === '#permisos') return { tab: 'permisos' };
@@ -26,6 +26,7 @@ export function permitsRoute(hash = '') {
         return { tab: 'resoluciones', filters };
     }
     if (hash === '#panorama-cne') return { tab: 'panorama' };
+    if (hash === '#mapa-permisos') return { tab: 'mapa' };
     if (hash === '#tramites') return { tab: 'tramites' };
     const m = /^#(permiso|resolucion|tramite)=(.+)$/.exec(hash);
     if (!m) return null;
@@ -43,7 +44,7 @@ export function permitsHash({ tab = 'permisos', permit = null, resolution = null
     if (tramite) return `#tramite=${encodeURIComponent(tramite)}`;
     const query = filters ? new URLSearchParams(RESOLUTION_FILTERS.filter(key => filters[key]).map(key => [key, filters[key]])).toString() : '';
     if (tab === 'resoluciones' && query) return `#resoluciones?${query}`;
-    return { resoluciones: '#resoluciones', panorama: '#panorama-cne', tramites: '#tramites' }[tab] || '#permisos';
+    return { resoluciones: '#resoluciones', panorama: '#panorama-cne', tramites: '#tramites', mapa: '#mapa-permisos' }[tab] || '#permisos';
 }
 
 /** Permits pinned to a desk are stored among article ids as 'cne:<permit number>'. */

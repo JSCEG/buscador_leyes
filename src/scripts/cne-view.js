@@ -25,6 +25,7 @@ const TABS = [
     { id: 'resoluciones', label: 'Resoluciones', intro: 'Busca entre las resoluciones de la CNE por número, texto, año, tipo o modalidad, y abre el fundamento legal de cada una en el acervo.' },
     { id: 'panorama', label: 'Panorama', intro: 'Lo que la CNE ha resuelto: cifras por año, por tipo y por modalidad, y lo más reciente.' },
     { id: 'tramites', label: 'Trámites', intro: 'Guías por tipo de permiso: la normativa que lo regula, sus formatos y convocatorias, los artículos clave y las resoluciones recientes de la CNE.' },
+    { id: 'mapa', label: 'Mapa', intro: 'Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, las ligas a su permiso y resoluciones, y los ciclones activos.' },
 ];
 
 /**
@@ -80,6 +81,15 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             current = renderTramitesView(host, catalog, { tramite: next.tramite || null, onOpenLaw });
         } else if (tab === 'panorama') {
             current = renderPanoramaView(host);
+        } else if (tab === 'mapa') {
+            // Leaflet only loads when the map tab opens; until then `current` must still be destroyable.
+            const pending = { destroyed: false, view: null, destroy() { this.destroyed = true; this.view?.destroy(); } };
+            current = pending;
+            host.innerHTML = '<p class="pm-loading">Cargando el mapa…</p>';
+            import('./permits-map-view.js')
+                .then(module => module.renderPermitsMapView(host))
+                .then(view => { if (pending.destroyed) view.destroy(); else pending.view = view; })
+                .catch(() => { if (!pending.destroyed) host.innerHTML = '<p class="pm-loading">No se pudo cargar el mapa. Revisa tu conexión e intenta de nuevo.</p>'; });
         } else {
             current = renderPermitsView(host, catalog, {
                 permit: next.permit || null,

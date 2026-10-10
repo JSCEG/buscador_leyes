@@ -1,0 +1,544 @@
+/**
+ * Map of energy permits (#mapa-permisos), a tab of the CNE section.
+ *
+ * Data comes through server/mapa-proxy.js: permits with coordinates, status and location precision
+ * from DGMESNIE (tables updated weekly against the CNE public registry), the official PDF links of
+ * each permit and its resolutions, and active hurricanes from NOAA. Leaflet is loaded only when the
+ * tab opens. Each point links to the permit sheet of this site (#permiso=…), which lists the laws
+ * that regulate it.
+ */
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import { permitsHash } from '../lib/cne-api.js';
+import '../styles/permits-map.css';
+
+const API = '/api/mapa';
+const MEXICO = [[14.3, -118.4], [32.8, -86.6]];
+
+// Same sector colours as the permit cards (permits.css); `code` is the permit-number prefix.
+const MARKETS = [
+    { key: 'electricidad', sector: 'electricidad', code: 'E', label: 'Generación eléctrica', on: true },
+    { key: 'petroliferos', sector: 'petroliferos', code: 'PL', label: 'Petrolíferos', on: false },
+    { key: 'gas-lp', sector: 'gaslp', code: 'LP', label: 'Gas LP', on: false },
+    { key: 'gas-natural', sector: 'gasnatural', code: 'G', label: 'Gas natural', on: true },
+];
+const MARKET = Object.fromEntries(MARKETS.map(m => [m.key, m]));
+const PRECISION = {
+    exacta: 'Ubicación del permiso (fuente oficial)',
+    calle: 'Ubicación aproximada por dirección',
+    municipio: 'Ubicación aproximada (centro del municipio)',
+};
+const CLASSES = { HU: 'Huracán', MH: 'Huracán mayor', TS: 'Tormenta tropical', TD: 'Depresión tropical', STS: 'Tormenta subtropical', STD: 'Depresión subtropical', PTC: 'Potencial ciclón tropical' };
+const KT_KMH = 1.852;
+
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fold = v => String(v ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+const num = v => (v == null || v === '' || Number.isNaN(Number(v))) ? '' : Number(v).toLocaleString('es-MX', { maximumFractionDigits: 2 });
+const date = v => {
+    const d = v ? new Date(v) : null;
+    return !d || Number.isNaN(d.getTime()) || d.getFullYear() < 1950 ? '' : d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' });
+};
+const saffir = kt => kt >= 137 ? 5 : kt >= 113 ? 4 : kt >= 96 ? 3 : kt >= 83 ? 2 : kt >= 64 ? 1 : 0;
+
+async function getJson(path, signal) {
+    const response = await fetch(`${API}/${path}`, { signal, credentials: 'same-origin' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+}
+
+/** Point-in-polygon (ray casting) for GeoJSON Polygon / MultiPolygon, [lon, lat]. */
+export function insidePolygon([x, y], geometry) {
+    const polys = geometry?.type === 'Polygon' ? [geometry.coordinates] : geometry?.type === 'MultiPolygon' ? geometry.coordinates : [];
+    const inRing = ring => {
+        let inside = false;
+        for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+            const [xi, yi] = ring[i];
+            const [xj, yj] = ring[j];
+            if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+        }
+        return inside;
+    };
+    return polys.some(([outer, ...holes]) => inRing(outer) && !holes.some(inRing));
+}
+
+/** Filter of the layer: status (vigente) and location precision. */
+export function passes(p, { status = 'vigentes', exactOnly = false } = {}) {
+    const statusOk = status === 'todos' || (status === 'vigentes' ? p.vigente !== false : p.vigente === false);
+    return statusOk && (!exactOnly || (p.precision || 'exacta') === 'exacta');
+}
+
+/**
+ * @param {HTMLElement} container
+ * @returns {{ destroy: () => void }}
+ */
+export async function renderPermitsMapView(container) {
+    // The clustering plugin registers itself on the global L.
+    window.L = window.L || L;
+    await import('leaflet.markercluster/dist/leaflet.markercluster.js');
+
+    const state = { status: 'vigentes', exactOnly: false, layers: {}, missing: {}, cones: [], timers: [], ctrl: new AbortController() };
+    MARKETS.forEach(m => { state.layers[m.key] = { on: m.on }; });
+
+    container.innerHTML = `
+        <div class="pmm">
+            <div class="pmm-bar">
+                <label class="pmm-search">
+                    <span class="pmm-sr">Buscar en el mapa</span>
+                    <input type="text" autocomplete="off" spellcheck="false" placeholder="Permiso, razón social, estado o municipio" data-q>
+                </label>
+                <div class="pmm-tools">
+                    <button type="button" class="pm-btn" data-toggle-panel aria-expanded="true">Capas</button>
+                    <button type="button" class="pm-btn" data-mexico>Todo México</button>
+                    <button type="button" class="pm-btn" data-fullscreen>Pantalla completa</button>
+                </div>
+                <div class="pmm-suggest" data-suggest hidden></div>
+            </div>
+            <div class="pmm-body">
+                <div class="pmm-map" data-map></div>
+                <aside class="pmm-panel" data-panel aria-label="Capas del mapa">
+                    <p class="pmm-h">Permisos</p>
+                    <div class="pmm-chips" role="group" aria-label="Estatus">
+                        <button type="button" data-status="vigentes" class="is-on">Vigentes</button>
+                        <button type="button" data-status="no-vigentes">No vigentes</button>
+                        <button type="button" data-status="todos">Todos</button>
+                    </div>
+                    <div class="pmm-chips"><button type="button" data-exact>Solo ubicaciones exactas</button></div>
+                    <div data-markets></div>
+                    <p class="pmm-h">Clima</p>
+                    <label class="pmm-layer"><input type="checkbox" data-hurricanes checked><span>Huracanes activos<small>NOAA · cono y trayectoria</small></span></label>
+                    <p class="pmm-h">Mapa base</p>
+                    <div class="pmm-bases">
+                        <label><input type="radio" name="pmm-base" value="claro" checked> Claro</label>
+                        <label><input type="radio" name="pmm-base" value="calles"> Calles</label>
+                        <label><input type="radio" name="pmm-base" value="satelite"> Satélite</label>
+                    </div>
+                    <p class="pmm-legend"><span class="pmm-pin" data-sector="electricidad"><b>E</b></span> Ubicación del permiso
+                        <span class="pmm-pin is-aprox" data-sector="electricidad"><b>E</b></span> Aproximada
+                        <span class="pmm-pin is-novig" data-sector="electricidad"><b>E</b></span> No vigente</p>
+                    <p class="pmm-updated" data-updated>Consultando fecha de actualización…</p>
+                </aside>
+                <aside class="pmm-results" data-results hidden aria-label="Resultados">
+                    <div class="pmm-results-head"><strong data-results-title></strong><button type="button" class="pmm-close" data-results-close aria-label="Cerrar">×</button></div>
+                    <div class="pmm-results-actions"><button type="button" class="pm-btn" data-results-csv>Exportar CSV</button></div>
+                    <div class="pmm-results-list" data-results-list></div>
+                </aside>
+                <button type="button" class="pmm-storm" data-storm hidden></button>
+                <p class="pmm-status" data-status-msg hidden role="status"></p>
+            </div>
+            <p class="pmm-note">Coordenadas, estatus y ligas: DGMESNIE con el registro público de la CNE (actualización semanal). Los puntos con anillo punteado son ubicaciones aproximadas.</p>
+        </div>`;
+
+    const $ = sel => container.querySelector(sel);
+    const status = (msg, ms) => {
+        const el = $('[data-status-msg]');
+        clearTimeout(status.t);
+        el.hidden = !msg;
+        el.textContent = msg || '';
+        if (msg && ms) status.t = setTimeout(() => { el.hidden = true; }, ms);
+    };
+
+    // ---------- map ----------
+    const map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 4, maxZoom: 19 });
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
+    map.fitBounds(MEXICO);
+    const resizeObserver = new ResizeObserver(() => map.invalidateSize({ pan: false }));
+    resizeObserver.observe($('[data-map]'));
+    const BASES = {
+        claro: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/terrain-light_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Terrain Light &copy; EOX · &copy; OpenStreetMap' }),
+        calles: () => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { subdomains: 'abc', maxZoom: 19, attribution: '&copy; OpenStreetMap' }),
+        satelite: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Sentinel-2 cloudless &copy; EOX' }),
+    };
+    let base = BASES.claro().addTo(map);
+
+    // ---------- permit layers ----------
+    const icons = new Map();
+    const iconFor = (m, p) => {
+        const mods = [p.vigente === false ? 'is-novig' : '', (p.precision || 'exacta') !== 'exacta' ? 'is-aprox' : ''].filter(Boolean).join(' ');
+        const key = m.key + mods;
+        if (!icons.has(key)) {
+            icons.set(key, L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${m.sector}"><b>${m.code}</b></span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
+        }
+        return icons.get(key);
+    };
+    const newCluster = m => L.markerClusterGroup({
+        chunkedLoading: true,
+        showCoverageOnHover: false,
+        disableClusteringAtZoom: 15,
+        maxClusterRadius: z => (z < 8 ? 60 : 40),
+        iconCreateFunction: cluster => {
+            const n = cluster.getChildCount();
+            const size = n < 50 ? 30 : n < 500 ? 36 : 44;
+            return L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-cluster" data-sector="${m.sector}" style="width:${size}px;height:${size}px">${n >= 1000 ? `${Math.round(n / 100) / 10}k` : n}</span>`, iconSize: [size, size] });
+        },
+    });
+
+    function paint(key) {
+        const layer = state.layers[key];
+        const m = MARKET[key];
+        const wasOn = layer.group && map.hasLayer(layer.group);
+        if (layer.group) map.removeLayer(layer.group);
+        // A fresh group each time: clearing one still adding in chunks corrupts MarkerCluster.
+        layer.group = newCluster(m);
+        layer.index = new Map();
+        const markers = [];
+        for (const f of layer.data || []) {
+            const p = f.properties || {};
+            if (!passes(p, state)) continue;
+            const [lon, lat] = f.geometry.coordinates;
+            const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: p.nombre, keyboard: false });
+            marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
+            marker.on('popupopen', ev => fillLinks(ev.popup, p.numeroPermiso));
+            layer.index.set(p.numeroPermiso, marker);
+            markers.push(marker);
+        }
+        layer.group.addLayers(markers);
+        if (wasOn || layer.on) map.addLayer(layer.group);
+        renderCounts();
+    }
+
+    async function load(key) {
+        const layer = state.layers[key];
+        if (layer.data) return;
+        if (!layer.loading) {
+            status(`Cargando ${MARKET[key].label.toLowerCase()}…`);
+            layer.loading = Promise.all([
+                getJson(`capa?tipo=${key}`, state.ctrl.signal),
+                getJson(`sin-ubicacion?tipo=${key}`, state.ctrl.signal).catch(() => []),
+            ]).then(([geo, missing]) => {
+                layer.data = geo.features || [];
+                state.missing[key] = missing;
+                status('');
+            }).catch(error => {
+                if (error.name !== 'AbortError') status(`No se pudo cargar ${MARKET[key].label.toLowerCase()}.`, 5000);
+                layer.on = false;
+                const box = container.querySelector(`[data-market="${key}"]`);
+                if (box) box.checked = false;
+            }).finally(() => { layer.loading = null; });
+        }
+        await layer.loading;
+    }
+
+    async function toggle(key, on) {
+        const layer = state.layers[key];
+        layer.on = on;
+        if (!on) { if (layer.group) map.removeLayer(layer.group); renderCounts(); return; }
+        await load(key);
+        if (layer.on && layer.data) paint(key);
+        countInCones();
+    }
+
+    function renderMarkets() {
+        $('[data-markets]').innerHTML = MARKETS.map(m => `
+            <label class="pmm-layer" data-sector="${m.sector}">
+                <input type="checkbox" data-market="${m.key}" ${state.layers[m.key].on ? 'checked' : ''}>
+                <span class="pmm-pin" data-sector="${m.sector}"><b>${m.code}</b></span>
+                <span>${m.label}<small data-count="${m.key}"></small></span>
+            </label>
+            <button type="button" class="pmm-missing" data-missing="${m.key}" hidden></button>`).join('');
+    }
+
+    function renderCounts() {
+        for (const m of MARKETS) {
+            const layer = state.layers[m.key];
+            const count = container.querySelector(`[data-count="${m.key}"]`);
+            const missingBtn = container.querySelector(`[data-missing="${m.key}"]`);
+            if (count) count.textContent = layer.data && layer.on ? `${layer.index ? layer.index.size.toLocaleString('es-MX') : 0} en el mapa` : '';
+            const missing = (state.missing[m.key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }));
+            if (missingBtn) {
+                missingBtn.hidden = !layer.on || !state.missing[m.key];
+                missingBtn.textContent = `Sin coordenadas: ${missing.length.toLocaleString('es-MX')}`;
+                missingBtn.disabled = missing.length === 0;
+            }
+        }
+    }
+
+    function setFilters(changes) {
+        Object.assign(state, changes);
+        container.querySelectorAll('[data-status]').forEach(b => b.classList.toggle('is-on', b.dataset.status === state.status));
+        $('[data-exact]').classList.toggle('is-on', state.exactOnly);
+        MARKETS.forEach(m => { if (state.layers[m.key].data) paint(m.key); });
+        countInCones();
+    }
+
+    // ---------- popup ----------
+    function popupHtml(m, p, lat, lon) {
+        const rows = [];
+        const add = (k, v) => { if (v) rows.push(`<dt>${k}</dt><dd>${esc(v)}</dd>`); };
+        add('Mercado', m.label);
+        add('Tipo', p.tipoPermiso);
+        add('Tecnología', p.tecnologia);
+        add('Estatus', `${p.estatus || ''}${p.vigente === false ? ' · no vigente' : ''}`);
+        add('Otorgamiento', date(p.fechaOtorgamiento));
+        const capacity = p.capacidad > 0 ? `${num(p.capacidad)} ${p.unidadCapacidad || ''}`.trim() : (p.capacidadTexto && p.capacidadTexto !== '0' ? p.capacidadTexto : '');
+        add('Capacidad', capacity);
+        add('Ubicación', [p.municipioNombre, p.entidadNombre].filter(Boolean).join(', '));
+        add('Precisión', PRECISION[p.precision || 'exacta'] || PRECISION.exacta);
+        return `<div class="pmm-pop" data-sector="${m.sector}">
+            <p class="pmm-pop-kicker">${esc(m.label)}</p>
+            <strong>${esc(p.nombre)}</strong>
+            <p class="pmm-pop-num">${esc(p.numeroPermiso)}</p>
+            <dl>${rows.join('')}</dl>
+            <div class="pmm-pop-actions">
+                <a class="pm-btn pm-btn-primary" href="${permitsHash({ permit: p.numeroPermiso })}">Ficha y normativa</a>
+                <span data-links="${esc(p.numeroPermiso)}">${linksHtml(p.numeroPermiso)}</span>
+                ${(p.precision || 'exacta') === 'exacta' ? `<a class="pm-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lon}" target="_blank" rel="noopener">Street View</a>` : ''}
+            </div></div>`;
+    }
+
+    // Official links (permit and resolutions). The popup content is a function, so popup.update()
+    // rebuilds it: the links go in through this cache instead of being injected into the DOM.
+    const linksCache = new Map();
+    function linksHtml(numero) {
+        const l = linksCache.get(numero);
+        // Without a link in the registry the popup stays without these buttons.
+        if (!l?.encontrado) return '';
+        const link = (href, text) => (href ? `<a class="pm-btn" href="${esc(href)}" target="_blank" rel="noopener">${text}</a>` : '');
+        const resolutions = l.resoluciones || [];
+        return link(l.ligaPermiso, 'Ver permiso') + link(l.ligaResolucion, 'Ver resolución')
+            + (resolutions.length > 1 ? `<details class="pmm-res"><summary>Resoluciones (${resolutions.length})</summary><ul>${resolutions.map(r => `<li><a href="${esc(r.liga)}" target="_blank" rel="noopener">${esc(r.numero)}</a></li>`).join('')}</ul></details>` : '');
+    }
+    async function fillLinks(popup, numero) {
+        if (linksCache.has(numero)) return;
+        try {
+            linksCache.set(numero, await getJson(`ligas?numero=${encodeURIComponent(numero)}`));
+            if (popup.isOpen()) popup.update();
+        } catch { linksCache.set(numero, null); /* the popup keeps working without links */ }
+    }
+
+    // ---------- results panel (search, permits without coordinates, hurricane cone) ----------
+    let csvRows = null;
+    function showResults(title, html, rows) {
+        $('[data-results-title]').textContent = title;
+        $('[data-results-list]').innerHTML = html;
+        csvRows = rows;
+        $('[data-results-csv]').hidden = !rows?.length;
+        $('[data-results]').hidden = false;
+    }
+    function downloadCsv() {
+        if (!csvRows?.length) return;
+        const q = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+        const text = `﻿${csvRows.map(r => r.map(q).join(',')).join('\n')}`;
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([text], { type: 'text/csv;charset=utf-8' }));
+        a.download = 'permisos_mapa.csv';
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+
+    function showMissing(key) {
+        const m = MARKET[key];
+        const list = (state.missing[key] || []).filter(x => passes({ vigente: x.esVigente }, { status: state.status }));
+        const groups = new Map();
+        list.forEach(x => {
+            const g = `${x.municipio || 'Municipio sin dato'}, ${x.entidad || 'Estado sin dato'}`;
+            if (!groups.has(g)) groups.set(g, []);
+            groups.get(g).push(x);
+        });
+        const html = `<p class="pmm-muted">No se pintan: sus coordenadas faltan, valen 0 o caen fuera de México.</p>${[...groups.entries()].map(([g, xs]) => `
+            <p class="pmm-group">${esc(g)} <span>${xs.length}</span></p>
+            ${xs.map(x => `<a class="pmm-item" href="${permitsHash({ permit: x.numeroPermiso })}"><strong>${esc(x.nombre)}</strong><small>${esc(x.numeroPermiso)} · ${esc(x.estatus)}</small></a>`).join('')}`).join('')}`;
+        showResults(`Sin coordenadas · ${m.label} (${list.length.toLocaleString('es-MX')})`, html,
+            [['Permiso', 'RazonSocial', 'Estado', 'Municipio', 'Estatus'], ...list.map(x => [x.numeroPermiso, x.nombre, x.entidad, x.municipio, x.estatus])]);
+    }
+
+    async function flyTo(item) {
+        const key = item.tipo;
+        const box = container.querySelector(`[data-market="${key}"]`);
+        if (!state.layers[key].on) { if (box) box.checked = true; await toggle(key, true); }
+        else await load(key);
+        let marker = state.layers[key].index?.get(item.numeroPermiso);
+        if (!marker && (state.status !== 'todos' || state.exactOnly)) {
+            setFilters({ status: 'todos', exactOnly: false });
+            marker = state.layers[key].index?.get(item.numeroPermiso);
+        }
+        if (!marker) { status(item.latitud == null ? 'Este permiso no tiene coordenadas.' : 'El permiso no está en el mapa.', 4000); return; }
+        map.invalidateSize({ pan: false });
+        map.once('moveend', () => setTimeout(() => marker.openPopup(), 60));
+        map.setView(marker.getLatLng(), Math.max(map.getZoom(), 16));
+    }
+
+    // ---------- search (DGMESNIE in-memory index through the proxy) ----------
+    let suggestTimer = null;
+    let suggestCtrl = null;
+    let suggestItems = [];
+    const input = $('[data-q]');
+    function renderSuggest(term, data, loading) {
+        const box = $('[data-suggest]');
+        suggestItems = data?.resultados || [];
+        box.innerHTML = loading ? '<p class="pmm-muted">Buscando…</p>'
+            : suggestItems.length ? `${suggestItems.map((r, i) => `<button type="button" data-i="${i}"><span class="pmm-pin" data-sector="${MARKET[r.tipo]?.sector || 'otro'}"><b>${MARKET[r.tipo]?.code || '?'}</b></span>
+                <span><strong>${esc(r.nombre)}</strong><small>${esc(r.numeroPermiso)} · ${esc([r.municipio, r.entidad].filter(Boolean).join(', '))}${r.vigente === false ? ' · no vigente' : ''}</small></span></button>`).join('')}
+                <button type="button" class="pmm-all" data-all>Ver los ${Number(data.total || 0).toLocaleString('es-MX')} permisos que coinciden con «${esc(term)}»</button>`
+            : '<p class="pmm-muted">Sin coincidencias.</p>';
+        box.hidden = false;
+    }
+    input.addEventListener('input', () => {
+        const term = input.value.trim();
+        clearTimeout(suggestTimer);
+        if (term.length < 2) { $('[data-suggest]').hidden = true; return; }
+        renderSuggest(term, null, true);
+        suggestTimer = setTimeout(async () => {
+            suggestCtrl?.abort();
+            suggestCtrl = new AbortController();
+            try {
+                const data = await getJson(`buscar?q=${encodeURIComponent(term)}&limite=8`, suggestCtrl.signal);
+                if (input.value.trim() === term) renderSuggest(term, data, false);
+            } catch (error) { if (error.name !== 'AbortError') renderSuggest(term, { resultados: [] }, false); }
+        }, 260);
+    });
+    async function searchAll() {
+        const term = input.value.trim();
+        if (term.length < 2) return;
+        $('[data-suggest]').hidden = true;
+        status(`Buscando «${term}»…`);
+        try {
+            const data = await getJson(`buscar?q=${encodeURIComponent(term)}&limite=500`);
+            status('');
+            const items = data.resultados || [];
+            state.found = items;
+            const html = items.map((r, i) => `<button type="button" class="pmm-item" data-found="${i}"><strong>${esc(r.nombre)}</strong>
+                <small>${esc(MARKET[r.tipo]?.label || r.tipo)} · ${esc(r.numeroPermiso)} · ${esc([r.municipio, r.entidad].filter(Boolean).join(', '))}${r.vigente === false ? ' · no vigente' : ''}</small></button>`).join('') || '<p class="pmm-muted">Sin resultados.</p>';
+            showResults(`${Number(data.total || 0).toLocaleString('es-MX')} permisos · «${term}»`, html,
+                [['Mercado', 'Permiso', 'RazonSocial', 'Estatus', 'Estado', 'Municipio', 'Latitud', 'Longitud'], ...items.map(r => [MARKET[r.tipo]?.label || r.tipo, r.numeroPermiso, r.nombre, r.estatus, r.entidad, r.municipio, r.latitud, r.longitud])]);
+        } catch { status('No fue posible completar la búsqueda.', 4000); }
+    }
+    input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); searchAll(); }
+        if (e.key === 'Escape') $('[data-suggest]').hidden = true;
+    });
+
+    // ---------- hurricanes (NOAA) and permits inside the forecast cone ----------
+    let stormLayer = null;
+    async function loadHurricanes() {
+        try {
+            const data = await getJson('huracanes', state.ctrl.signal);
+            if (!$('[data-hurricanes]').checked) return;
+            if (stormLayer) map.removeLayer(stormLayer);
+            const byKind = { cono: [], historico: [], pronostico: [], punto: [] };
+            (data.features || []).forEach(f => (byKind[f.properties.capa] || []).push(f));
+            stormLayer = L.featureGroup([
+                L.geoJSON(byKind.cono, { interactive: false, style: { color: '#5E5A55', weight: 1.2, dashArray: '4 3', fillColor: '#ffffff', fillOpacity: 0.28 } }),
+                L.geoJSON(byKind.historico, { interactive: false, style: { color: '#5E5A55', weight: 2 } }),
+                L.geoJSON(byKind.pronostico, { interactive: false, style: { color: '#1c1b1a', weight: 2, dashArray: '6 4' } }),
+            ]);
+            (data.tormentas || []).forEach(t => {
+                if (t.latitud == null) return;
+                const cat = saffir(t.intensidadKt || 0);
+                L.marker([t.latitud, t.longitud], {
+                    icon: L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-storm-pin">${cat || '•'}</span><span class="pmm-storm-name">${esc(t.nombre)}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] }),
+                    zIndexOffset: 2000,
+                }).bindPopup(`<div class="pmm-pop"><strong>${esc(CLASSES[t.clasificacion] || t.clasificacion)} ${esc(t.nombre)}</strong><dl>
+                    ${cat ? `<dt>Categoría</dt><dd>${cat}</dd>` : ''}
+                    ${t.intensidadKt ? `<dt>Viento</dt><dd>${Math.round(t.intensidadKt * KT_KMH)} km/h</dd>` : ''}
+                    ${t.presionMb ? `<dt>Presión</dt><dd>${t.presionMb} mb</dd>` : ''}</dl>
+                    ${t.aviso ? `<div class="pmm-pop-actions"><a class="pm-btn" href="${esc(t.aviso)}" target="_blank" rel="noopener">Aviso NHC</a></div>` : ''}</div>`, { className: 'pmm-popup' }).addTo(stormLayer);
+            });
+            stormLayer.addTo(map);
+            state.cones = byKind.cono.map(f => {
+                const t = (data.tormentas || []).find(s => s.id === f.properties.tormentaId) || {};
+                return { feature: f, name: t.nombre || f.properties.stormname || 'Ciclón' };
+            });
+            countInCones();
+        } catch (error) { if (error.name !== 'AbortError') status('No fue posible consultar al National Hurricane Center.', 4000); }
+    }
+    function countInCones() {
+        const box = $('[data-storm]');
+        if (!$('[data-hurricanes]').checked || !state.cones.length) { box.hidden = true; return; }
+        const bbox = geometry => {
+            const pts = (geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates).flat(2);
+            return pts.reduce((b, [x, y]) => [Math.min(b[0], x), Math.min(b[1], y), Math.max(b[2], x), Math.max(b[3], y)], [Infinity, Infinity, -Infinity, -Infinity]);
+        };
+        const results = state.cones.map(c => {
+            const [minX, minY, maxX, maxY] = bbox(c.feature.geometry);
+            const items = [];
+            for (const m of MARKETS) {
+                const layer = state.layers[m.key];
+                if (!layer.on || !layer.data) continue;
+                for (const f of layer.data) {
+                    const p = f.properties || {};
+                    const [x, y] = f.geometry.coordinates;
+                    if (x < minX || x > maxX || y < minY || y > maxY || !passes(p, state)) continue;
+                    if (insidePolygon(f.geometry.coordinates, c.feature.geometry)) items.push({ m, p, coords: f.geometry.coordinates });
+                }
+            }
+            return { ...c, items };
+        }).filter(c => c.items.length);
+        state.inCone = results;
+        box.hidden = !results.length;
+        box.innerHTML = results.map(c => `<span><b>${esc(c.name)}</b>: ${c.items.length.toLocaleString('es-MX')} permisos en el cono</span>`).join('');
+    }
+    function showCone() {
+        const rows = [['Ciclon', 'Mercado', 'Permiso', 'RazonSocial', 'Estado', 'Municipio']];
+        const html = (state.inCone || []).map(c => `<p class="pmm-group">${esc(c.name)} <span>${c.items.length}</span></p>${c.items.map(x => {
+            rows.push([c.name, x.m.label, x.p.numeroPermiso, x.p.nombre, x.p.entidadNombre, x.p.municipioNombre]);
+            return `<a class="pmm-item" href="${permitsHash({ permit: x.p.numeroPermiso })}"><strong>${esc(x.p.nombre)}</strong><small>${esc(x.m.label)} · ${esc(x.p.numeroPermiso)} · ${esc([x.p.municipioNombre, x.p.entidadNombre].filter(Boolean).join(', '))}</small></a>`;
+        }).join('')}`).join('');
+        showResults('Permisos en el cono de pronóstico (capas encendidas)', html, rows);
+    }
+
+    // ---------- update date ----------
+    getJson('actualizacion', state.ctrl.signal).then(a => {
+        $('[data-updated]').textContent = a?.disponible && a.general
+            ? `Datos actualizados al ${new Date(a.general).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })} · Fuente: CNE`
+            : 'Fecha de actualización no disponible';
+    }).catch(() => { $('[data-updated]').textContent = 'Fecha de actualización no disponible'; });
+
+    // ---------- events ----------
+    renderMarkets();
+    container.addEventListener('change', e => {
+        const t = e.target;
+        if (t.matches('[data-market]')) toggle(t.dataset.market, t.checked);
+        else if (t.matches('[data-hurricanes]')) {
+            if (t.checked) loadHurricanes();
+            else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }
+        } else if (t.matches('input[name="pmm-base"]')) { map.removeLayer(base); base = BASES[t.value]().addTo(map); base.bringToBack(); }
+    });
+    container.addEventListener('click', e => {
+        const t = e.target;
+        const statusBtn = t.closest('[data-status]');
+        if (statusBtn) { setFilters({ status: statusBtn.dataset.status }); return; }
+        if (t.closest('[data-exact]')) { setFilters({ exactOnly: !state.exactOnly }); return; }
+        const missing = t.closest('[data-missing]');
+        if (missing) { showMissing(missing.dataset.missing); return; }
+        const sug = t.closest('[data-suggest] [data-i]');
+        if (sug) { $('[data-suggest]').hidden = true; flyTo(suggestItems[Number(sug.dataset.i)]); return; }
+        if (t.closest('[data-all]')) { searchAll(); return; }
+        const found = t.closest('[data-found]');
+        if (found) { flyTo(state.found[Number(found.dataset.found)]); return; }
+        if (t.closest('[data-results-close]')) { $('[data-results]').hidden = true; return; }
+        if (t.closest('[data-results-csv]')) { downloadCsv(); return; }
+        if (t.closest('[data-storm]')) { showCone(); return; }
+        if (t.closest('[data-mexico]')) { map.fitBounds(MEXICO); return; }
+        if (t.closest('[data-toggle-panel]')) {
+            const panel = $('[data-panel]');
+            panel.hidden = !panel.hidden;
+            t.closest('[data-toggle-panel]').setAttribute('aria-expanded', String(!panel.hidden));
+            return;
+        }
+        if (t.closest('[data-fullscreen]')) {
+            const root = container.querySelector('.pmm');
+            if (document.fullscreenElement) document.exitFullscreen(); else root.requestFullscreen?.();
+            return;
+        }
+        if (!t.closest('.pmm-search') && !t.closest('[data-suggest]')) $('[data-suggest]').hidden = true;
+    });
+    if (window.matchMedia('(max-width: 768px)').matches) $('[data-panel]').hidden = true;
+
+    MARKETS.filter(m => m.on).forEach(m => toggle(m.key, true));
+    loadHurricanes();
+    state.timers.push(setInterval(loadHurricanes, 10 * 60 * 1000));
+
+    return {
+        destroy() {
+            state.ctrl.abort();
+            suggestCtrl?.abort();
+            state.timers.forEach(clearInterval);
+            clearTimeout(suggestTimer);
+            resizeObserver.disconnect();
+            map.remove();
+            container.replaceChildren();
+        },
+    };
+}

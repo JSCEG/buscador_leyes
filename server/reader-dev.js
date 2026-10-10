@@ -1,5 +1,6 @@
 import { serveReaderPdf } from './reader-pdf.js';
 import { serveCne } from './cne-proxy.js';
+import { serveMapa } from './mapa-proxy.js';
 
 /** The local app uses the same handler as Cloudflare Pages. */
 export function readerDevPlugin() {
@@ -29,6 +30,20 @@ export function readerDevPlugin() {
                 res.end(Buffer.from(await response.arrayBuffer()));
             } catch (error) {
                 console.warn('[cne-proxy] dev', error?.message);
+                res.writeHead(502, { 'Cache-Control': 'no-store' });
+                res.end();
+            }
+        });
+        // Permits map (functions/api/mapa/[endpoint].js), without the edge cache. DGMESNIE_URL in the
+        // environment points it at a local DGMESNIE (e.g. http://localhost:5155) while developing.
+        server.middlewares.use('/api/mapa', async (req, res) => {
+            try {
+                const url = new URL(req.url, 'http://localhost');
+                const response = await serveMapa(new Request(url, { method: req.method }), url.pathname.slice(1), { cache: null, base: process.env.DGMESNIE_URL });
+                res.writeHead(response.status, Object.fromEntries(response.headers));
+                res.end(Buffer.from(await response.arrayBuffer()));
+            } catch (error) {
+                console.warn('[mapa-proxy] dev', error?.message);
                 res.writeHead(502, { 'Cache-Control': 'no-store' });
                 res.end();
             }
