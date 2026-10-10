@@ -27,6 +27,7 @@ html.dark-mode .pm-view [data-sector="otro"]{--sec:#b3a89e}
 .pm-btn:hover:not(:disabled){border-color:var(--pm-accent)}
 .pm-btn:active:not(:disabled){transform:scale(.97)}
 .pm-btn:disabled{opacity:.45;cursor:default}
+.pm-btn[hidden]{display:none}
 .pm-btn-primary{border-color:#9b2247;background:#9b2247;color:#fff}
 .pm-btn-primary:hover:not(:disabled){background:#7d1b39;border-color:#7d1b39}
 

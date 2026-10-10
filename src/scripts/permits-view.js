@@ -120,6 +120,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                         <a class="pm-btn pm-btn-primary" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener">Ver título de permiso (PDF)</a>
                         ${pinButtonHtml(permitPinId(row.Numero))}
                         <button type="button" class="pm-btn pm-share">Copiar enlace</button>
+                        <a class="pm-btn" href="${permitsHash({ mapPermit: row.Numero })}" data-map-link hidden><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ver en el mapa</a>
                     </div>
                 </div>
                 <dl class="pm-facts">
@@ -181,6 +182,18 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                 }).join('')}</ul>` : '<p class="pm-note">Este permiso no tiene anexos publicados.</p>';
             }).catch(() => { if (anxHost.isConnected) anxHost.innerHTML = failure('los anexos'); });
         }
+
+        // "Ver en el mapa" only when the map has this permit with coordinates.
+        const mapLink = body.querySelector('[data-map-link]');
+        fetch(`/api/mapa/buscar?q=${encodeURIComponent(row.Numero)}&limite=5`, { credentials: 'same-origin' })
+            .then(response => (response.ok ? response.json() : null))
+            .then(data => {
+                const hit = (data?.resultados || []).find(r => fold(r.numeroPermiso) === fold(row.Numero) && r.latitud != null);
+                if (!alive || !hit || !mapLink.isConnected) return;
+                mapLink.href = permitsHash({ mapPermit: hit.numeroPermiso });
+                mapLink.hidden = false;
+            })
+            .catch(() => { /* without the map service the card simply has no map link */ });
 
         body.querySelector('.pm-back').addEventListener('click', () => {
             onRoute(null);
