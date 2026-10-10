@@ -30,6 +30,20 @@ const PRECISION = {
     calle: 'Ubicación aproximada por dirección',
     municipio: 'Ubicación aproximada (centro del municipio)',
 };
+// Network layers (scripts/build-map-networks.mjs builds the files under public/mapa/).
+const NETWORKS = [
+    { key: 'transmision', file: 'red-transmision.json', label: 'Líneas de transmisión', short: '69 kV o más · OpenStreetMap', swatch: '#c0392b' },
+    { key: 'gasoductos', file: 'gasoductos.json', label: 'Gasoductos', short: 'OpenStreetMap · incompleto', swatch: '#2f6690', color: '#2f6690', dash: '6 4' },
+    { key: 'petroliferos', file: 'ductos-petroliferos.json', label: 'Ductos de petrolíferos', short: 'CNH · trazo aproximado', swatch: '#86671d', color: '#86671d', dash: '2 4' },
+];
+const KV_CLASSES = [
+    { min: 400, color: '#6c2a8f', weight: 2.6, label: '400 kV' },
+    { min: 230, color: '#c0392b', weight: 2.1, label: '230 kV' },
+    // Teal and gray, not orange or yellow: those are the roads of the base map.
+    { min: 115, color: '#0e7c86', weight: 1.6, label: '115–161 kV' },
+    { min: 69, color: '#6f6a66', weight: 1.2, label: '69–115 kV' },
+];
+export const kvClass = kv => KV_CLASSES.find(c => kv >= c.min) || KV_CLASSES[KV_CLASSES.length - 1];
 const CLASSES = { HU: 'Huracán', MH: 'Huracán mayor', TS: 'Tormenta tropical', TD: 'Depresión tropical', STS: 'Tormenta subtropical', STD: 'Depresión subtropical', PTC: 'Potencial ciclón tropical' };
 const KT_KMH = 1.852;
 
@@ -143,6 +157,9 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                     </div>
                     <div class="pmm-chips"><button type="button" data-exact>Solo ubicaciones exactas</button></div>
                     <div data-markets></div>
+                    <p class="pmm-h">Infraestructura</p>
+                    ${NETWORKS.map(n => `<label class="pmm-layer"><input type="checkbox" data-network="${n.key}"><span class="pmm-line" style="--line:${n.swatch}"></span><span>${n.label}<small data-network-note="${n.key}">${n.short}</small></span></label>`).join('')}
+                    <p class="pmm-kv" data-kv hidden>${KV_CLASSES.map(c => `<span><i style="background:${c.color}"></i>${c.label}</span>`).join('')}</p>
                     <p class="pmm-h">Clima</p>
                     <label class="pmm-layer"><input type="checkbox" data-hurricanes checked><span>Huracanes activos<small>NOAA · cono y trayectoria</small></span></label>
                     <p class="pmm-h">Mapa base</p>
@@ -668,6 +685,59 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         showResults('Permisos en el cono de pronóstico (capas encendidas)', html, rows);
     }
 
+    // ---------- network layers: transmission lines and pipelines (static files, loaded on demand) ----------
+    // Their own pane, under the permits and the hurricane cones; a wider click tolerance for thin lines.
+    map.createPane('pmm-networks').style.zIndex = 350;
+    const networkRenderer = L.canvas({ pane: 'pmm-networks', tolerance: 8 });
+    const networks = {};
+    async function toggleNetwork(key, on) {
+        const n = NETWORKS.find(x => x.key === key);
+        const entry = networks[key] || (networks[key] = {});
+        if (key === 'transmision') $('[data-kv]').hidden = !on;
+        if (!on) { if (entry.layer) map.removeLayer(entry.layer); return; }
+        if (!entry.layer) {
+            status(`Cargando ${n.label.toLowerCase()}…`);
+            try {
+                const response = await fetch(`/mapa/${n.file}`, { signal: state.ctrl.signal });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                status('');
+                const note = container.querySelector(`[data-network-note="${key}"]`);
+                if (note) note.textContent = `${n.short} · ${Number(data.km || 0).toLocaleString('es-MX')} km`;
+                entry.layer = L.geoJSON(data, {
+                    attribution: n.key === 'petroliferos' ? 'Ductos: CNH' : '&copy; OpenStreetMap',
+                    pane: 'pmm-networks',
+                    renderer: networkRenderer,
+                    style: f => (key === 'transmision'
+                        ? { color: kvClass(f.properties.kv).color, weight: kvClass(f.properties.kv).weight, opacity: 0.85 }
+                        : { color: n.color, weight: 2.2, opacity: 0.9, dashArray: n.dash }),
+                    onEachFeature: (f, layer) => layer.bindPopup(() => networkPopup(n, f.properties, data), { className: 'pmm-popup', maxWidth: 300 }),
+                });
+            } catch (error) {
+                if (error.name !== 'AbortError') status(`No se pudo cargar ${n.label.toLowerCase()}.`, 5000);
+                const box = container.querySelector(`[data-network="${key}"]`);
+                if (box) box.checked = false;
+                if (key === 'transmision') $('[data-kv]').hidden = true;
+                return;
+            }
+        }
+        if (container.querySelector(`[data-network="${key}"]`)?.checked) entry.layer.addTo(map);
+    }
+    function networkPopup(n, p, data) {
+        const rows = [];
+        const add = (k, v) => { if (v) rows.push(`<dt>${k}</dt><dd>${esc(v)}</dd>`); };
+        add('Tensión', p.kv ? `${num(p.kv)} kV` : '');
+        add('Servicio', p.servicio);
+        add('Región', p.region);
+        add('Operador', p.operador);
+        // OpenStreetMap splits lines into short pieces; only the CNH pipelines are whole routes.
+        if (n.key === 'petroliferos') add('Longitud', p.km ? `${num(p.km)} km` : '');
+        const title = p.nombre || (p.kv ? `Línea de ${num(p.kv)} kV` : 'Sin nombre registrado');
+        return `<div class="pmm-pop"><p class="pmm-pop-kicker"><span class="pmm-line" style="--line:${n.key === 'transmision' ? kvClass(p.kv).color : n.swatch}"></span> ${esc(n.label)}</p>
+            <strong>${esc(title)}</strong><dl>${rows.join('')}</dl>
+            <p class="pmm-muted">${esc(data.fuente)}. ${esc(data.nota)}</p></div>`;
+    }
+
     // ---------- update date ----------
     getJson('actualizacion', state.ctrl.signal).then(a => {
         $('[data-updated]').textContent = a?.disponible && a.general
@@ -680,6 +750,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     container.addEventListener('change', e => {
         const t = e.target;
         if (t.matches('[data-market]')) { toggle(t.dataset.market, t.checked).then(renderChips); renderChips(); }
+        else if (t.matches('[data-network]')) toggleNetwork(t.dataset.network, t.checked);
         else if (t.matches('[data-hurricanes]')) {
             if (t.checked) loadHurricanes();
             else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }

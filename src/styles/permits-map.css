@@ -194,3 +194,10 @@ html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
   .pmm-status{bottom:24px}
   .leaflet-control-attribution{font-size:9.5px!important;max-width:70%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+
+/* Network layers: line swatch and the voltage legend of the transmission lines. */
+.pmm-line{flex:none;display:inline-block;width:22px;height:0;border-top:3px solid var(--line);border-radius:2px;margin:0 4px 0 2px;vertical-align:middle}
+.pmm-kv{display:flex;flex-wrap:wrap;gap:4px 10px;margin:-2px 0 8px 32px;font-size:11px;color:var(--pm-muted)}
+.pmm-kv span{display:inline-flex;align-items:center;gap:4px}
+.pmm-kv i{display:inline-block;width:14px;height:3px;border-radius:2px}
+.pmm-kv[hidden]{display:none}

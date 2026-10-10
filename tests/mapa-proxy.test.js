@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { serveMapa, upstreamUrl, fetchHurricanes, DGMESNIE_URL } from '../server/mapa-proxy.js';
-import { insidePolygon, passes, distanceKm, nearest, marketOf } from '../src/scripts/permits-map-view.js';
+import { insidePolygon, passes, distanceKm, nearest, marketOf, kvClass } from '../src/scripts/permits-map-view.js';
 
 const ok = body => vi.fn().mockResolvedValue(new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } }));
 const fakeCache = () => {
@@ -106,5 +106,15 @@ describe('near me and shared points', () => {
         expect(marketOf('CNE/LP/100/DIS/2020')).toBe('gas-lp');
         expect(marketOf('CNE/G/22/LICUE/2018')).toBe('gas-natural');
         expect(marketOf('V/123/2020')).toBeNull();
+    });
+});
+
+describe('network layers', () => {
+    it('groups transmission lines by voltage', () => {
+        expect(kvClass(400).label).toBe('400 kV');
+        expect(kvClass(230).label).toBe('230 kV');
+        expect(kvClass(138).label).toBe('115–161 kV');
+        expect(kvClass(69).label).toBe('69–115 kV');
+        expect(kvClass(85).label).toBe('69–115 kV');
     });
 });
