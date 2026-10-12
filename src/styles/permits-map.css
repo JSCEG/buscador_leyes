@@ -111,7 +111,7 @@ html.dark-mode .pmm [data-sector="gasnatural"],html.dark-mode .pmm-pin-wrap [dat
 html.dark-mode .pmm-pin b,html.dark-mode .pmm-cluster{color:#20171B}
 html.dark-mode .pmm-storm{background:#2b1d18;border-color:#7a2e14;color:#f3c8b4}
 
-@media (max-width:768px){
+@media (max-width:1023px){
   .pmm-search{flex-basis:100%}
   .pmm-search input{font-size:16px}
   .pmm-tools{width:100%}
@@ -123,7 +123,7 @@ html.dark-mode .pmm-storm{background:#2b1d18;border-color:#7a2e14;color:#f3c8b4}
 
 /* ---------- Celular: estilo Google Maps (mapa completo, buscador flotante, chips, hoja inferior) ---------- */
 .pmm-chipbar,.pmm-fabs,.pmm-sheet{display:none}
-@media (max-width:768px){
+@media (max-width:1023px){
   .pmm{margin-top:0}
   .pmm-note{display:none}
   .pmm-body{height:calc(100dvh - 70px);min-height:420px;margin:0 -16px;border:0;border-radius:0}
@@ -181,7 +181,7 @@ html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
 .pmm-back{display:none}
 
 /* ---------- Phones: the map takes the screen between the top and the bottom bar ---------- */
-@media (max-width:768px){
+@media (max-width:1023px){
   body.pmm-open{overflow:hidden}
   body.pmm-open .desk-toggle,body.pmm-open #toc-toggle-btn,body.pmm-open .install-sheet{display:none!important}
   body.pmm-open .pmm-body{position:fixed;top:0;left:0;right:0;bottom:calc(61px + env(safe-area-inset-bottom));height:auto;min-height:0;margin:0;z-index:55}
@@ -212,7 +212,7 @@ html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
 .pmm-qstate.is-picked{background:var(--pm-accent);color:#fff}
 
 /* The full-screen map (z-index 55–57) sat above the "Más" drawer (40/50): lift the drawer while the map is open. */
-@media (max-width:768px){
+@media (max-width:1023px){
   body.pmm-open #mobile-menu-overlay{z-index:59}
   body.pmm-open #mobile-menu-drawer{z-index:60}
 }

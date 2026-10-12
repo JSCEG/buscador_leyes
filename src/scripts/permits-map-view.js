@@ -223,7 +223,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
 
     // ---------- map ----------
     const map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 3.5, maxZoom: 19, zoomSnap: 0.5 });
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    const isMobile = () => window.matchMedia('(max-width: 1023px)').matches;
     // On phones the map takes the whole screen, like a maps app (styles under body.pmm-open).
     document.body.classList.add('pmm-open');
     // Fit México in the part of the screen the search box and chips leave free.
@@ -245,10 +245,33 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             return L.layerGroup([esri('Canvas/World_Dark_Gray_Base', 1), esri('Canvas/World_Dark_Gray_Reference', 2)]);
         },
         claro: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/terrain-light_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Terrain Light &copy; EOX · &copy; OpenStreetMap' }),
-        calles: () => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { subdomains: 'abc', maxZoom: 19, attribution: '&copy; OpenStreetMap' }),
+        calles: () => L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }),
         satelite: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Sentinel-2 cloudless &copy; EOX' }),
     };
-    let base = BASES.mapa().addTo(map);
+    // If a base map service stops answering (Esri's CDN has blocked requests), switch to
+    // OpenStreetMap so the map never stays gray.
+    let base = null;
+    function setBase(key) {
+        if (base) map.removeLayer(base);
+        const layer = BASES[key]().addTo(map);
+        base = layer;
+        layer.bringToBack?.();
+        if (key === 'calles') return;
+        let loaded = 0;
+        let failed = 0;
+        (layer.getLayers ? layer.getLayers() : [layer]).forEach(tiles => {
+            tiles.on('tileload', () => { loaded += 1; });
+            tiles.on('tileerror', () => {
+                failed += 1;
+                if (base !== layer || loaded || failed < 4) return;
+                setBase('calles');
+                const radio = container.querySelector('input[name="pmm-base"][value="calles"]');
+                if (radio) radio.checked = true;
+                status('El mapa base no respondió; se muestra OpenStreetMap.', 5000);
+            });
+        });
+    }
+    setBase('mapa');
 
     // ---------- permit layers ----------
     const icons = new Map();
@@ -804,7 +827,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         else if (t.matches('[data-hurricanes]')) {
             if (t.checked) loadHurricanes();
             else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }
-        } else if (t.matches('input[name="pmm-base"]')) { map.removeLayer(base); base = BASES[t.value]().addTo(map); base.bringToBack?.(); }
+        } else if (t.matches('input[name="pmm-base"]')) setBase(t.value);
     });
     // Capture phase: Leaflet stops clicks inside desktop popups from bubbling up to the container.
     container.addEventListener('click', e => {
