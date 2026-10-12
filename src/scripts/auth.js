@@ -84,6 +84,38 @@ export async function login(email, password) {
     return data.user;
 }
 
+// "Continuar con Google" only shows once the Google provider is switched on in Supabase
+// (Authentication → Providers). /auth/v1/settings is public and says which ones are on.
+let googleCheck = null;
+export function googleSignInAvailable() {
+    if (!googleCheck) {
+        const url = import.meta.env.VITE_SUPABASE_URL;
+        const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        googleCheck = fetch(`${url}/auth/v1/settings`, { headers: { apikey: key } })
+            .then(response => (response.ok ? response.json() : null))
+            .then(settings => settings?.external?.google === true)
+            .catch(() => false);
+    }
+    return googleCheck;
+}
+
+const RETURN_KEY = 'auth-return-hash';
+/** Sends the reader to Google; they come back to the same page of the site, signed in. */
+export async function loginWithGoogle() {
+    try { sessionStorage.setItem(RETURN_KEY, location.hash || ''); } catch { /* private mode: they land on the home page */ }
+    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${location.origin}/` } });
+    if (error) throw error;
+}
+
+/** Page the reader was on before going to Google (read once). */
+export function takeReturnHash() {
+    try {
+        const hash = sessionStorage.getItem(RETURN_KEY);
+        sessionStorage.removeItem(RETURN_KEY);
+        return hash || '';
+    } catch { return ''; }
+}
+
 export async function register(email, password, fullName) {
     const metadata = {};
     if (typeof fullName === 'string' && fullName.trim()) {

@@ -25,7 +25,7 @@ import '../styles/view-band.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
-import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin, isSiteOwner } from './auth.js';
+import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin, isSiteOwner, googleSignInAvailable, loginWithGoogle, takeReturnHash } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
 import { decorateDefinitions } from '../lib/definitions.js';
@@ -4027,6 +4027,20 @@ export function initUI() {
             updateAuthSubmitState();
         });
 
+        // Google sign-in: the button shows only when the provider is on in Supabase.
+        const googleBox = document.getElementById('auth-google');
+        googleSignInAvailable().then(on => { if (googleBox) googleBox.classList.toggle('hidden', !on); });
+        document.getElementById('auth-google-btn')?.addEventListener('click', async event => {
+            const button = event.currentTarget;
+            button.disabled = true;
+            try {
+                await loginWithGoogle();
+            } catch {
+                button.disabled = false;
+                showAuthMsg('No fue posible abrir el acceso con Google. Intenta de nuevo o entra con tu correo.');
+            }
+        });
+
         // Form submit
         authForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -4128,6 +4142,11 @@ export function initUI() {
         onAuthChange(async (user) => {
             updateNavLoginBtn(user);
             updateAuthModalState();
+            // Back from Google: return to the page the reader was on.
+            if (user) {
+                const back = takeReturnHash();
+                if (back && back !== location.hash) location.hash = back;
+            }
 
             if (user) {
                 // Load DB data into caches
