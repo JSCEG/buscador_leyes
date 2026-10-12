@@ -4,6 +4,7 @@ import { promisify } from 'util';
 import { readerDevPlugin } from './server/reader-dev.js';
 
 const execAsync = promisify(exec);
+const WEBSTORAGE_OFF = process.allowedNodeEnvironmentFlags.has('--no-experimental-webstorage') ? ['--no-experimental-webstorage'] : [];
 
 const manifestPlugin = () => {
   return {
@@ -46,9 +47,10 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     // Node 25+ ships its own localStorage (empty without --localstorage-file) and it hides jsdom's.
+    // Older Node (CI runs 18) rejects the flag, so pass it only where Node knows it.
     poolOptions: {
-      threads: { execArgv: ['--no-experimental-webstorage'] },
-      forks: { execArgv: ['--no-experimental-webstorage'] },
+      threads: { execArgv: WEBSTORAGE_OFF },
+      forks: { execArgv: WEBSTORAGE_OFF },
     },
   },
   // Reemplaza __BUILD_TIME__ en el bundle con el timestamp del build actual.
