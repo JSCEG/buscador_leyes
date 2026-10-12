@@ -24,6 +24,26 @@ export function installMode(ua = navigator.userAgent, { standalone = false, maxT
     return 'desktop';
 }
 
+/** Android browser, to name its own menu in the steps (exported for tests). */
+export function androidBrowser(ua = navigator.userAgent, brands = navigator.userAgentData?.brands || []) {
+    const names = `${ua} ${brands.map(b => b.brand).join(' ')}`;
+    if (/perplexity|comet/i.test(names)) return 'perplexity';
+    if (/samsungbrowser/i.test(ua)) return 'samsung';
+    if (/edga?\//i.test(ua)) return 'edge';
+    if (/opr\/|opera/i.test(ua)) return 'opera';
+    if (/firefox\//i.test(ua)) return 'firefox';
+    return 'other';
+}
+
+// Menu path of each browser to add the app to the home screen.
+const MENU_STEPS = {
+    samsung: ['Toca <b>☰</b> (abajo a la derecha).', 'Elige <b>Agregar página a</b> → <b>Pantalla de inicio</b>.'],
+    edge: ['Toca <b>⋯</b> (abajo, al centro).', 'Elige <b>Agregar al teléfono</b> o <b>Instalar app</b>.'],
+    opera: ['Toca <b>⋮</b> (arriba a la derecha).', 'Elige <b>Pantalla de inicio</b> o <b>Instalar app</b>.'],
+    firefox: ['Toca <b>⋮</b> (arriba o abajo a la derecha).', 'Elige <b>Instalar</b> o <b>Agregar a la pantalla de inicio</b>.'],
+    other: ['Toca el menú de tu navegador: <b>⋮</b> o <b>☰</b> (arriba o abajo a la derecha).', 'Elige <b>Instalar app</b> o <b>Agregar a pantalla de inicio</b>.'],
+};
+
 /** intent:// link that opens this same page in Chrome on Android (exported for tests). */
 export function chromeIntent(href = location.href) {
     const url = new URL(href);
@@ -64,6 +84,13 @@ export function initInstallPage() {
         </div>`;
     document.body.append(page);
     document.body.classList.add('ip-open');
+    // /instalar?ver shows how this browser identifies itself (to tune the steps for new browsers).
+    if (new URLSearchParams(location.search).has('ver')) {
+        const info = document.createElement('p');
+        info.className = 'ip-ua';
+        info.textContent = `${mode} · ${androidBrowser()} · ${navigator.userAgent} · ${(navigator.userAgentData?.brands || []).map(b => b.brand).join(', ')}`;
+        page.querySelector('.ip-card').append(info);
+    }
     const body = page.querySelector('[data-body]');
 
     function leave() {
@@ -104,11 +131,22 @@ export function initInstallPage() {
     // install from their own menu. Chrome's intent:// link only works where the browser honors it,
     // so when nothing happens the reader gets the link to paste in Chrome.
     function showManual() {
-        body.innerHTML = `<ol class="ip-steps">
-                <li>Toca el menú de tu navegador: <b>⋮</b> o <b>☰</b> (arriba o abajo a la derecha).</li>
-                <li>Elige <b>Instalar app</b> o <b>Agregar a pantalla de inicio</b>.</li>
-            </ol>
-            <p class="ip-hint">¿Tu navegador no tiene esa opción? Ábrela en Chrome:</p>
+        const browser = androidBrowser();
+        // Perplexity's browser neither installs apps nor opens Chrome links: go straight to the copy.
+        if (browser === 'perplexity') {
+            body.innerHTML = `<p class="ip-hint ip-lead">El navegador de Perplexity no instala apps. Ábrela en <b>Chrome</b>:</p>
+                <div data-copy></div>
+                <ol class="ip-steps">
+                    <li>Toca <b>Copiar enlace</b>.</li>
+                    <li>Abre <b>Chrome</b>, pega el enlace en la barra de direcciones y entra.</li>
+                    <li>Toca <b>Instalar app</b>.</li>
+                </ol>`;
+            showCopy({ intro: false });
+            return;
+        }
+        const steps = MENU_STEPS[browser] || MENU_STEPS.other;
+        body.innerHTML = `<ol class="ip-steps">${steps.map(step => `<li>${step}</li>`).join('')}</ol>
+            <p class="ip-hint">¿No aparece esa opción? Ábrela en Chrome:</p>
             <a class="ip-install ip-secondary" href="${chromeIntent()}" data-chrome>Abrir en Chrome</a>
             <div data-copy hidden></div>
             <p class="ip-hint">¿Ya la instalaste? Ábrela desde tus apps como <b>Buscador Jurídico</b>.</p>`;
@@ -124,12 +162,12 @@ export function initInstallPage() {
             if (!left && page.isConnected) showCopy();
         }, ms);
     }
-    function showCopy() {
+    function showCopy({ intro = true } = {}) {
         const box = body.querySelector('[data-copy]');
         if (!box) return;
         const url = `${location.origin}/instalar`;
         box.hidden = false;
-        box.innerHTML = `<p class="ip-hint">Tu navegador no abrió Chrome. Copia el enlace, abre <b>Chrome</b> y pégalo en la barra de direcciones.</p>
+        box.innerHTML = `${intro ? '<p class="ip-hint">Tu navegador no abrió Chrome. Copia el enlace, abre <b>Chrome</b> y pégalo en la barra de direcciones.</p>' : ''}
             <button type="button" class="ip-copy" data-copy-btn>Copiar enlace</button>`;
         box.querySelector('[data-copy-btn]').addEventListener('click', async event => {
             const button = event.currentTarget;

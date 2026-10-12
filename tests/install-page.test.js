@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isInstallPath, installMode, chromeIntent } from '../src/lib/install-page.js';
+import { isInstallPath, installMode, chromeIntent, androidBrowser } from '../src/lib/install-page.js';
 
 const CHROME_ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36';
 const WEBVIEW_ANDROID = 'Mozilla/5.0 (Linux; Android 14; SM-S911B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0.0.0 Mobile Safari/537.36';
@@ -28,5 +28,17 @@ describe('install page', () => {
     });
     it('builds the link that reopens the page in Chrome', () => {
         expect(chromeIntent('https://buscador-juridico.com/instalar')).toBe('intent://buscador-juridico.com/instalar#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=https%3A%2F%2Fbuscador-juridico.com%2Finstalar;end');
+    });
+});
+
+describe('browser menus', () => {
+    const android = 'Mozilla/5.0 (Linux; Android 14; SM-S911B) AppleWebKit/537.36 (KHTML, like Gecko)';
+    it('names the browser to show its own menu', () => {
+        expect(androidBrowser(`${android} SamsungBrowser/26.0 Chrome/122.0.0.0 Mobile Safari/537.36`)).toBe('samsung');
+        expect(androidBrowser(`${android} Chrome/129.0.0.0 Mobile Safari/537.36 EdgA/129.0.0.0`)).toBe('edge');
+        expect(androidBrowser(`${android} Chrome/129.0.0.0 Mobile Safari/537.36 OPR/84.0`)).toBe('opera');
+        expect(androidBrowser('Mozilla/5.0 (Android 14; Mobile; rv:131.0) Gecko/131.0 Firefox/131.0')).toBe('firefox');
+        expect(androidBrowser(`${android} Chrome/129.0.0.0 Mobile Safari/537.36`, [{ brand: 'Comet' }])).toBe('perplexity');
+        expect(androidBrowser(`${android} Chrome/129.0.0.0 Mobile Safari/537.36`)).toBe('other');
     });
 });

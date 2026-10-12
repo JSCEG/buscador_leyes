@@ -25,3 +25,6 @@ html.dark-mode .ip-ok{color:#6fc2ae}
 .ip-copy{width:100%;min-height:48px;margin-top:10px;border:0;border-radius:14px;background:#2b2326;color:#fff;font:700 15px 'Noto Sans',sans-serif;cursor:pointer}
 html.dark-mode .ip-install.ip-secondary{border-color:#eeb0c2;color:#eeb0c2!important}
 html.dark-mode .ip-copy{background:#f3ece4;color:#211b1d}
+.ip-hint.ip-lead{margin:0 0 4px;font-size:15px;color:#2b2326}
+html.dark-mode .ip-hint.ip-lead{color:#f3ece4}
+.ip-ua{margin:18px 0 0;font:11px/1.4 ui-monospace,monospace;color:#8a827d;word-break:break-all;user-select:all}
