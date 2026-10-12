@@ -25,7 +25,7 @@ import '../styles/view-band.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
-import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin } from './auth.js';
+import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin, isSiteOwner } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
 import { decorateDefinitions } from '../lib/definitions.js';
@@ -566,6 +566,12 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             showRetoView({ updateHistory: false, lawId: hash.startsWith('#reto-ley=') ? decodeURIComponent(hash.slice('#reto-ley='.length)) : null });
+        } else if (hash === '#usuarios') {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showUsersView({ updateHistory: false });
         } else if (hash === '#cronologia') {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -810,7 +816,7 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
-    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
         undockSearch();
@@ -2926,6 +2932,30 @@ export function initUI() {
     }
     document.getElementById('mobile-nav-permisos')?.addEventListener('click', () => toggleMobileMenu(false));
 
+    let usersView = null;
+    let usersRequest = 0;
+    let usersShownFor = null;
+    /** Registered users (#usuarios), owner only; the database refuses the list to anyone else. */
+    function showUsersView({ updateHistory = true } = {}) {
+        if (updateHistory) setHash('#usuarios');
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('nav-usuarios');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        resultsContainer.innerHTML = skeleton('list', 'Cargando usuarios');
+        usersView?.destroy();
+        usersView = null;
+        const request = ++usersRequest;
+        withProgress(import('./users-view.js')).then(({ renderUsersView }) => {
+            if (request !== usersRequest || location.hash !== '#usuarios') return;
+            usersView = renderUsersView(resultsContainer);
+            window.scrollTo({ top: 0 });
+        });
+    }
+    document.getElementById('mobile-nav-usuarios')?.addEventListener('click', () => toggleMobileMenu(false));
+
     let retoView = null;
     let retoRequest = 0;
     /** "Ponte a prueba" appears on a law page only when the law gives at least three questions. */
@@ -3937,6 +3967,13 @@ export function initUI() {
             
             if (navAdmin) navAdmin.classList.toggle('hidden', !showAdmin);
             if (mobileNavAdmin) mobileNavAdmin.classList.toggle('hidden', !showAdmin);
+            // Registered users: the owner account only (the database refuses the list to anyone else).
+            const showUsers = Boolean(user) && isSiteOwner();
+            document.getElementById('nav-usuarios')?.classList.toggle('hidden', !showUsers);
+            document.getElementById('mobile-nav-usuarios')?.classList.toggle('hidden', !showUsers);
+            if (!user && usersView) { usersView.destroy(); usersView = null; usersShownFor = null; if (location.hash === '#usuarios') setHash(null); }
+            // Opened at #usuarios before the session was known: load the list once the owner is confirmed.
+            if (showUsers && location.hash === '#usuarios' && usersShownFor !== user.id) { usersShownFor = user.id; showUsersView({ updateHistory: false }); }
 
             if (loginBtn) {
                 loginBtn.classList.toggle('text-guinda', !!user);

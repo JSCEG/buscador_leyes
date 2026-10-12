@@ -45,21 +45,32 @@ export function isLoggedIn() {
 let adminFor = null;
 let adminValue = false;
 
+// Site owner (site_is_owner): only this account sees the registered users panel (#usuarios).
+// Separate from the editorial admins; the list itself is refused by the database to anyone else.
+let ownerValue = false;
+
 export function isAdmin() {
     return Boolean(currentUser) && adminFor === currentUser.id && adminValue;
 }
 
+export function isSiteOwner() {
+    return Boolean(currentUser) && adminFor === currentUser.id && ownerValue;
+}
+
 async function refreshAdmin() {
     const user = currentUser;
-    if (!user) { adminFor = null; adminValue = false; return; }
-    let allowed = false;
-    try {
-        const { data, error } = await supabase.rpc('explorer_is_admin');
-        allowed = !error && data === true;
-    } catch { allowed = false; }
+    if (!user) { adminFor = null; adminValue = false; ownerValue = false; return; }
+    const ask = async fn => {
+        try {
+            const { data, error } = await supabase.rpc(fn);
+            return !error && data === true;
+        } catch { return false; }
+    };
+    const [allowed, owner] = await Promise.all([ask('explorer_is_admin'), ask('site_is_owner')]);
     if (currentUser?.id !== user.id) return;
     adminFor = user.id;
     adminValue = allowed;
+    ownerValue = owner;
 }
 
 export function onAuthChange(cb) {
