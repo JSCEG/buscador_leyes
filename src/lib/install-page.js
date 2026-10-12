@@ -100,13 +100,41 @@ export function initInstallPage() {
         if (deferred) showInstallButton(); else waiting.push(showInstallButton);
     }
 
+    // Browsers without Chrome's install dialog (Perplexity/Comet, Samsung Internet, Firefox…) still
+    // install from their own menu. Chrome's intent:// link only works where the browser honors it,
+    // so when nothing happens the reader gets the link to paste in Chrome.
     function showManual() {
-        body.innerHTML = `<a class="ip-install" href="${chromeIntent()}">Abrir en Chrome para instalar</a>
-            <ol class="ip-steps">
-                <li>Si ya estás en Chrome, toca <b>⋮</b> (arriba a la derecha).</li>
-                <li>Elige <b>Instalar aplicación</b> o <b>Agregar a la pantalla principal</b>.</li>
+        body.innerHTML = `<ol class="ip-steps">
+                <li>Toca el menú de tu navegador: <b>⋮</b> o <b>☰</b> (arriba o abajo a la derecha).</li>
+                <li>Elige <b>Instalar app</b> o <b>Agregar a pantalla de inicio</b>.</li>
             </ol>
+            <p class="ip-hint">¿Tu navegador no tiene esa opción? Ábrela en Chrome:</p>
+            <a class="ip-install ip-secondary" href="${chromeIntent()}" data-chrome>Abrir en Chrome</a>
+            <div data-copy hidden></div>
             <p class="ip-hint">¿Ya la instalaste? Ábrela desde tus apps como <b>Buscador Jurídico</b>.</p>`;
+        body.querySelector('[data-chrome]').addEventListener('click', () => watchChrome(1500));
+    }
+    // If Chrome really opens, this page goes to the background; if nothing happened, offer the link.
+    function watchChrome(ms) {
+        let left = false;
+        const away = () => { if (document.visibilityState === 'hidden') left = true; };
+        document.addEventListener('visibilitychange', away);
+        setTimeout(() => {
+            document.removeEventListener('visibilitychange', away);
+            if (!left && page.isConnected) showCopy();
+        }, ms);
+    }
+    function showCopy() {
+        const box = body.querySelector('[data-copy]');
+        if (!box) return;
+        const url = `${location.origin}/instalar`;
+        box.hidden = false;
+        box.innerHTML = `<p class="ip-hint">Tu navegador no abrió Chrome. Copia el enlace, abre <b>Chrome</b> y pégalo en la barra de direcciones.</p>
+            <button type="button" class="ip-copy" data-copy-btn>Copiar enlace</button>`;
+        box.querySelector('[data-copy-btn]').addEventListener('click', async event => {
+            const button = event.currentTarget;
+            try { await navigator.clipboard.writeText(url); button.textContent = 'Enlace copiado ✓'; } catch { window.prompt('Copia el enlace:', url); }
+        });
     }
 
     if (mode === 'android' || mode === 'desktop') {
@@ -126,9 +154,11 @@ export function initInstallPage() {
     }
     if (mode === 'android-inapp') {
         // WhatsApp's browser cannot install apps: move to Chrome (the button also does it if blocked).
-        body.innerHTML = `<a class="ip-install" href="${chromeIntent()}">Abrir en Chrome para instalar</a>
-            <p class="ip-hint">WhatsApp no puede instalar apps. Se abrirá Chrome con el botón para instalarla.</p>`;
-        setTimeout(() => { if (page.isConnected) location.href = chromeIntent(); }, 400);
+        body.innerHTML = `<a class="ip-install" href="${chromeIntent()}" data-chrome>Abrir en Chrome para instalar</a>
+            <p class="ip-hint">Desde WhatsApp no se pueden instalar apps. Se abrirá Chrome con el botón para instalarla.</p>
+            <div data-copy hidden></div>`;
+        body.querySelector('[data-chrome]').addEventListener('click', () => watchChrome(1500));
+        setTimeout(() => { if (page.isConnected) { location.href = chromeIntent(); watchChrome(2000); } }, 400);
         return;
     }
     if (mode === 'ios-inapp') {

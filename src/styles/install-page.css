@@ -20,3 +20,8 @@ html.dark-mode .ip-card h1{color:#f3ece4}
 html.dark-mode .ip-mark,html.dark-mode .ip-steps{background:#211b1d;border-color:#3a3034}
 html.dark-mode .ip-sub,html.dark-mode .ip-hint,html.dark-mode .ip-skip{color:#c9bfb6}
 html.dark-mode .ip-ok{color:#6fc2ae}
+.ip-steps+.ip-hint{margin-top:18px}
+.ip-install.ip-secondary{min-height:48px;margin-top:10px;border:1.5px solid #9b2247;background:transparent;color:#9b2247!important;box-shadow:none;font-size:15.5px}
+.ip-copy{width:100%;min-height:48px;margin-top:10px;border:0;border-radius:14px;background:#2b2326;color:#fff;font:700 15px 'Noto Sans',sans-serif;cursor:pointer}
+html.dark-mode .ip-install.ip-secondary{border-color:#eeb0c2;color:#eeb0c2!important}
+html.dark-mode .ip-copy{background:#f3ece4;color:#211b1d}
