@@ -1,6 +1,7 @@
 {
   "name": "Buscador Jurídico · Normativa del sector energético",
   "short_name": "Buscador Jurídico",
+  "id": "/",
   "description": "Leyes, reglamentos, acuerdos y demás disposiciones del sector energético en un solo lugar.",
   "start_url": "/",
   "display": "standalone",
