@@ -45,7 +45,8 @@ const MENU_STEPS = {
 };
 
 /** intent:// link that opens this same page in Chrome on Android (exported for tests). */
-export function chromeIntent(href = location.href) {
+// Always this page: the address bar shows "/" once the page is drawn (see initInstallPage).
+export function chromeIntent(href = `${location.origin}/instalar`) {
     const url = new URL(href);
     return `intent://${url.host}${url.pathname}${url.search}#Intent;scheme=${url.protocol.replace(':', '')};package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(url.href)};end`;
 }
@@ -84,8 +85,12 @@ export function initInstallPage() {
         </div>`;
     document.body.append(page);
     document.body.classList.add('ip-open');
+    const debug = new URLSearchParams(location.search).has('ver');
+    // Browsers that "add to home screen" save the current address (Perplexity does): show the home
+    // address from now on, so the shortcut opens the search engine and not this page again.
+    if (!debug) history.replaceState(null, '', '/');
     // /instalar?ver shows how this browser identifies itself (to tune the steps for new browsers).
-    if (new URLSearchParams(location.search).has('ver')) {
+    if (debug) {
         const info = document.createElement('p');
         info.className = 'ip-ua';
         info.textContent = `${mode} · ${androidBrowser()} · ${navigator.userAgent} · ${(navigator.userAgentData?.brands || []).map(b => b.brand).join(', ')}`;
