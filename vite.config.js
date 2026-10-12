@@ -45,6 +45,11 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
+    // Node 25+ ships its own localStorage (empty without --localstorage-file) and it hides jsdom's.
+    poolOptions: {
+      threads: { execArgv: ['--no-experimental-webstorage'] },
+      forks: { execArgv: ['--no-experimental-webstorage'] },
+    },
   },
   // Reemplaza __BUILD_TIME__ en el bundle con el timestamp del build actual.
   // El Service Worker usa este valor como versión de caché, garantizando que
