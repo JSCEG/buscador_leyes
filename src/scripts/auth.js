@@ -103,7 +103,11 @@ const RETURN_KEY = 'auth-return-hash';
 /** Sends the reader to Google; they come back to the same page of the site, signed in. */
 export async function loginWithGoogle() {
     try { sessionStorage.setItem(RETURN_KEY, location.hash || ''); } catch { /* private mode: they land on the home page */ }
-    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${location.origin}/` } });
+    // select_account: Google always asks which account, instead of reusing the last one silently.
+    const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: `${location.origin}/`, queryParams: { prompt: 'select_account' } },
+    });
     if (error) throw error;
 }
 
