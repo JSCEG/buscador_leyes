@@ -20,11 +20,16 @@ import { initCardTip } from './lib/card-tip.js';
 import { initTocAttention } from './lib/toc-attention.js';
 import { initReadingProgress } from './lib/reading-progress.js';
 import { initInstallPrompt } from './lib/install-prompt.js';
+// Imported up front: it listens for Chrome's install event from the first moment.
+import { isInstallPath, initInstallPage } from './lib/install-page.js';
 import { initAccountPanel } from './scripts/account-panel.js';
 import { trackVisit } from './lib/usage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (shouldShowIntro()) window.__introDone = playIntro();
+  // /instalar (the link sent by WhatsApp): the install screen instead of the intro and the usual invitation.
+  const installPage = isInstallPath();
+  if (installPage) initInstallPage();
+  else if (shouldShowIntro()) window.__introDone = playIntro();
   initPasswordRecovery();
   initMarquee();
   initPrintBrand();
@@ -32,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardTip();
   initTocAttention();
   initReadingProgress();
-  initInstallPrompt();
+  if (!installPage) initInstallPrompt();
   initAccountPanel();
   trackVisit();
   initAuth();
