@@ -101,6 +101,8 @@ export function initUI() {
     const HISTORY_KEY = 'busquedas-recientes';
     let searchHistory = (() => { try { const v = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); return Array.isArray(v) ? v.filter(q => typeof q === 'string').slice(0, 10) : []; } catch { return []; } })();
     let openAuthModal = () => {};
+    // CNE section (permits, resolutions, map): declared early so any section change can close it.
+    let cneView = null;
     let closeAuthModal = () => {};
 
     // ── Modo oscuro global ─────────────────────────────────────────────────────
@@ -822,6 +824,8 @@ export function initUI() {
         undockSearch();
         cancelPendingSearch();
         if (activeId !== 'nav-leyes') releaseAcervo();
+        // Leaving the CNE section closes it (the map's timers, its full-screen state on phones).
+        if (activeId !== 'nav-permisos' && cneView) { cneView.destroy(); cneView = null; }
         // Moving to another section fades the page in instead of swapping it at once.
         if (activeNavId && activeId !== activeNavId && mainContainer) {
             mainContainer.classList.remove('view-fade');
@@ -2899,7 +2903,6 @@ export function initUI() {
     // The mobile menu closes when its Cronología link is chosen.
     document.getElementById('mobile-nav-cronologia')?.addEventListener('click', () => toggleMobileMenu(false));
 
-    let cneView = null;
     let cneRequest = 0;
     /** CNE section (#permisos, #resoluciones, #panorama-cne and their details): live CNE data. */
     function showPermitsView({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, mapPermit = null, updateHistory = true } = {}) {

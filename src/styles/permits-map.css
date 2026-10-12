@@ -210,3 +210,9 @@ html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
 .pmm-qstate select:focus-visible{outline:none}
 .pmm-qstate:focus-within{box-shadow:0 0 0 2px var(--pm-accent)}
 .pmm-qstate.is-picked{background:var(--pm-accent);color:#fff}
+
+/* The full-screen map (z-index 55–57) sat above the "Más" drawer (40/50): lift the drawer while the map is open. */
+@media (max-width:768px){
+  body.pmm-open #mobile-menu-overlay{z-index:59}
+  body.pmm-open #mobile-menu-drawer{z-index:60}
+}
