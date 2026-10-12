@@ -3997,6 +3997,16 @@ export function initUI() {
             });
             authSubmitBtn.textContent = currentTab === 'login' ? 'Iniciar sesión' : 'Crear cuenta';
             updateAuthSubmitState();
+            updateGmailHint();
+        }
+
+        // Registering with a Gmail address: Google proves the address, so no confirmation email is
+        // needed. Suggest it (only when the Google button is on).
+        function updateGmailHint() {
+            const hint = document.getElementById('auth-gmail-hint');
+            const googleOn = !document.getElementById('auth-google')?.classList.contains('hidden');
+            const gmail = /@(gmail|googlemail)\.com$/i.test(authEmailInput?.value.trim() || '');
+            hint?.classList.toggle('hidden', !(googleOn && gmail && currentTab === 'register'));
         }
 
         // Open modal
@@ -4032,7 +4042,9 @@ export function initUI() {
 
         // Google sign-in: the button shows only when the provider is on in Supabase.
         const googleBox = document.getElementById('auth-google');
-        googleSignInAvailable().then(on => { if (googleBox) googleBox.classList.toggle('hidden', !on); });
+        googleSignInAvailable().then(on => { if (googleBox) googleBox.classList.toggle('hidden', !on); updateGmailHint(); });
+        authEmailInput?.addEventListener('input', updateGmailHint);
+        document.getElementById('auth-gmail-google')?.addEventListener('click', () => document.getElementById('auth-google-btn')?.click());
         document.getElementById('auth-google-btn')?.addEventListener('click', async event => {
             const button = event.currentTarget;
             button.disabled = true;

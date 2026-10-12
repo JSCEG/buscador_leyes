@@ -182,7 +182,7 @@ async function handleEmailReturn(openNewPassword) {
         clean();
         const expired = /expired|invalid|otp/i.test(`${errorCode} ${error}`);
         notice('El enlace ya no es válido', expired
-            ? '<p>Este enlace venció o ya se usó. Los enlaces sirven una sola vez y duran una hora.</p><p class="sd-intro">Si querías cambiar tu contraseña, pide otro con «Entrar» → «¿Olvidaste tu contraseña?». Si querías confirmar tu cuenta, intenta entrar con tu correo y contraseña: quizá ya estaba confirmada.</p>'
+            ? '<p>Este enlace venció o ya se usó. Los enlaces sirven una sola vez y duran una hora.</p><p>Si te llegaron varios correos, abre <b>el más reciente</b>: cada correo nuevo anula los anteriores.</p><p class="sd-intro">Si querías cambiar tu contraseña, pide otro con «Entrar» → «¿Olvidaste tu contraseña?». Si querías confirmar tu cuenta, intenta entrar con tu correo y contraseña: quizá ya estaba confirmada.</p>'
             : `<p>No pudimos completar la acción del enlace.</p><p class="sd-intro">${authError({ code: errorCode, message: error }).text}</p>`);
         return;
     }
@@ -191,7 +191,7 @@ async function handleEmailReturn(openNewPassword) {
         const { error: verifyError } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type });
         if (verifyError) {
             clean();
-            notice('El enlace ya no es válido', `<p>${authError(verifyError).text}</p><p class="sd-intro">Los enlaces sirven una sola vez y duran una hora. Pide otro desde «Entrar».</p>`);
+            notice('El enlace ya no es válido', `<p>${authError(verifyError).text}</p><p>Si te llegaron varios correos, abre <b>el más reciente</b>: cada correo nuevo anula los anteriores.</p><p class="sd-intro">Los enlaces sirven una sola vez y duran una hora. Pide otro desde «Entrar». Si tu correo es de Gmail, también puedes entrar con «Continuar con Google» sin confirmar nada.</p>`);
             return;
         }
     }

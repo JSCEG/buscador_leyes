@@ -294,6 +294,11 @@
                     <input type="email" id="auth-email" autocomplete="email"
                         class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-guinda/30 focus:border-guinda transition-colors text-sm"
                         placeholder="tucorreo@ejemplo.com">
+                    <!-- Gmail typed while registering: suggest Google (no confirmation email needed) -->
+                    <div id="auth-gmail-hint" class="hidden mt-2 p-3 rounded-xl bg-guinda/5 border border-guinda/15 text-[12.5px] leading-snug text-gray-600">
+                        <b class="text-gray-800">¿Tienes Gmail?</b> Entra con <b>Continuar con Google</b>: es más rápido y no tienes que confirmar tu correo.
+                        <button type="button" id="auth-gmail-google" class="block mt-2 font-semibold text-guinda underline">Usar Continuar con Google</button>
+                    </div>
                 </div>
                 <div class="mb-6">
                     <label for="auth-password"
