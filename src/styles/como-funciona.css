@@ -60,3 +60,28 @@ html.dark-mode .cf-share{background:#eeb0c2;color:#211b1d}
 .cf-ref-law{margin-left:6px;padding:1px 9px;border:1px solid var(--cf-border);border-radius:999px;background:var(--cf-card);color:var(--cf-accent);font:600 12px 'Noto Sans',sans-serif;cursor:pointer}
 .cf-note{margin:0;color:var(--cf-muted);font-size:13px}
 #results-container .cf-view .cf-sources{background:transparent!important;color:var(--cf-muted)!important}
+/* Learning route: levels joined by a line, ✓ on what this device has seen, "antes mira" and "siguiente". */
+.cf-progress{margin:-6px 0 22px;color:var(--cf-muted);font-size:14.5px}
+.cf-route{margin:0;padding:0;list-style:none}
+.cf-level{position:relative;padding:0 0 30px 52px}
+.cf-level::before{content:"";position:absolute;left:17px;top:38px;bottom:0;width:2px;background:var(--cf-border)}
+.cf-level:last-child::before{display:none}
+.cf-level-head{display:flex;gap:14px;align-items:flex-start;margin:0 0 14px -52px}
+.cf-level-num{display:flex;flex:none;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--cf-accent);color:#fff;font:700 16px 'Merriweather',serif}
+html.dark-mode .cf-level-num{color:#211b1d}
+#results-container .cf-view .cf-level-head h2{margin:4px 0 2px;font:700 19px/1.25 'Merriweather',serif;color:var(--cf-ink)!important}
+.cf-level-head p{margin:0;color:var(--cf-muted);font-size:14px;text-align:left!important}
+.cf-card.is-done{border-color:color-mix(in srgb,var(--cf-ok) 45%,var(--cf-border))}
+.cf-card.is-done .cf-card-sector{color:var(--cf-ok)}
+.cf-check{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-right:2px;border-radius:50%;background:var(--cf-ok);color:#fff;font-size:10px}
+.cf-before{margin:-4px 0 18px;padding:10px 14px;border-radius:12px;background:var(--cf-soft);font-size:14.5px;line-height:1.55;text-align:left!important}
+.cf-before a{color:var(--cf-accent);font-weight:700}
+.cf-next{display:flex;flex-direction:column;gap:4px;margin-top:34px;padding:18px 20px;border:1px solid var(--cf-accent);border-radius:16px;background:var(--cf-card);color:inherit;text-decoration:none}
+.cf-next span{color:var(--cf-muted);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.cf-next strong{color:var(--cf-accent);font:700 19px/1.3 'Merriweather',serif}
+.cf-next:hover{background:var(--cf-soft)}
+@media (max-width:640px){
+  .cf-level{padding-left:0}
+  .cf-level::before{display:none}
+  .cf-level-head{margin-left:0}
+}

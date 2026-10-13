@@ -577,7 +577,7 @@ const FIG_CSS = `body.iso[data-theme="${theme}"]{--anatomy-red:${INK.red};--anat
 .pv-compact .pv-weather,.pv-compact .pv-names-toggle{top:28px}
 .pv-compact .pv-weather button,.pv-compact .pv-names-toggle{padding:3px 7px;font-size:10px}
 @media (prefers-reduced-motion:reduce){.pv-ray{stroke-dasharray:none}}`;
-const EMBED_CSS = `<style>${FIG_CSS}</style><style>html{background:transparent!important;color-scheme:${theme}}.iso-page{width:100%!important;margin:0!important;padding:0 2px}body{background:transparent!important}.iso-stage{touch-action:pan-y}</style>`;
+const EMBED_CSS = `<style>${FIG_CSS}</style><style>html{background:transparent!important;color-scheme:${theme}}.iso-page{width:100%!important;margin:0!important;padding:0 2px}body{background:transparent!important}.iso-stage{touch-action:pan-y}.iso-plate{padding-bottom:96px!important}.iso-plate-corner[data-corner=\"readout\"]{left:0;right:0;bottom:0;text-align:center;white-space:normal;font:700 17px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:0;color:var(--anatomy-text)}.iso-plate-corner[data-corner=\"hint\"]{bottom:44px!important}.cf-compact~.iso-plate-corners [data-corner=\"readout\"],.iso-page:has(.cf-compact) [data-corner=\"readout\"]{font-size:14.5px}</style>`;
 const html = k.pageHtml({ title: "Central fotovoltaica · ¿Cómo funciona?", theme, body, script: `${kitScript()}\nconst { prismOf, frameOf, viewOf, dot3 } = (() => {\n${LATHE}\nreturn { prismOf, frameOf, viewOf, dot3 };\n})();\n${live}`, width: WIDTH })
   .replace('<html lang="en">', '<html lang="es-MX">')
   .replace("</head>", `${EMBED_CSS}</head>`);

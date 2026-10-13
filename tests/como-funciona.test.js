@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { existsSync } from 'node:fs';
-import { CONCEPTOS, CONCEPTO, comoFuncionaRoute } from '../src/data/como-funciona.js';
+import { CONCEPTOS, CONCEPTO, NIVELES, siguienteConcepto, comoFuncionaRoute } from '../src/data/como-funciona.js';
 import { tramiteById } from '../src/data/tramites.js';
 
 describe('¿Cómo funciona?', () => {
@@ -24,5 +24,23 @@ describe('¿Cómo funciona?', () => {
             }
             for (const q of c.preguntas) expect(q.opciones[q.correcta]).toBeTruthy();
         }
+    });
+    it('forms a learning route from the basics up to the power plants', () => {
+        expect(CONCEPTOS.map(c => c.id).slice(0, 6)).toEqual(['voltaje', 'cd-ca', 'motor', 'generador', 'transformador', 'fotovoltaica']);
+        const levels = NIVELES.map(n => n.id);
+        let seen = new Set();
+        let last = 0;
+        for (const c of CONCEPTOS) {
+            expect(levels).toContain(c.nivel);
+            expect(c.nivel).toBeGreaterThanOrEqual(last);
+            last = c.nivel;
+            // "Antes mira" only points back along the route.
+            for (const id of c.antes || []) expect(seen.has(id)).toBe(true);
+            seen.add(c.id);
+            if (c.ley) for (const siglas of c.ley.siglas) expect(typeof siglas).toBe('string');
+        }
+        expect(siguienteConcepto('voltaje').id).toBe('cd-ca');
+        expect(siguienteConcepto(CONCEPTOS.at(-1).id)).toBeNull();
+        expect(siguienteConcepto('nada')).toBeNull();
     });
 });
