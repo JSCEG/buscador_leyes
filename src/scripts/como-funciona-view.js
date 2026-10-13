@@ -57,6 +57,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <p class="cf-kicker">¿Cómo funciona?</p>
                     <h1 id="cf-title">${esc(concept.titulo)}</h1>
                     <p class="cf-intro">${esc(concept.resumen)}</p>
+                    <button type="button" class="cf-share" data-share><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Compartir</span></button>
                 </header>
                 <div class="cf-figure">
                     <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy"></iframe>
@@ -97,6 +98,20 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <p>Explicación general con fines informativos; no es texto legal ni sustituye la normativa. ${concept.revisado ? `Revisado el ${esc(concept.revisado)}.` : '<span class="cf-draft">Borrador en revisión.</span>'}</p>
                 </footer>
             </article>`;
+        // Share the explainer: the phone's share sheet (WhatsApp…), or copy the link on a computer.
+        container.querySelector('[data-share]')?.addEventListener('click', async event => {
+            const button = event.currentTarget;
+            const url = `${location.origin}/#como-funciona=${concept.id}`;
+            const text = `¿Cómo funciona una ${concept.titulo.toLowerCase()}? Mírala en movimiento:`;
+            const mobile = matchMedia('(pointer: coarse)').matches;
+            if (navigator.share && mobile) {
+                try { await navigator.share({ title: `¿Cómo funciona? · ${concept.titulo}`, text, url }); } catch { /* cancelled */ }
+                return;
+            }
+            const label = button.querySelector('span');
+            try { await navigator.clipboard.writeText(url); label.textContent = 'Enlace copiado'; } catch { window.prompt('Copia el enlace:', url); }
+            setTimeout(() => { if (label.isConnected) label.textContent = 'Compartir'; }, 2200);
+        });
         container.querySelectorAll('[data-law]').forEach(button => button.addEventListener('click', () => {
             const law = laws.find(item => String(item.law?.id) === button.dataset.law)?.law;
             if (law) onOpenLaw(law);

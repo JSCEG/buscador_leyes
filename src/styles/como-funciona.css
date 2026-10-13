@@ -51,3 +51,6 @@ html.dark-mode .cf-view{--cf-ink:#f3ece4;--cf-muted:#b3a89e;--cf-card:#211b1d;--
 .cf-parts dt{display:flex;align-items:center;gap:8px}
 .cf-num{display:inline-flex;align-items:center;justify-content:center;flex:none;width:22px;height:22px;border-radius:50%;background:#9b2247;color:#fff;font-size:12px;font-weight:700}
 .cf-intro,.cf-section p,.cf-steps li{text-align:left!important}
+.cf-share{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 18px;border:0;border-radius:999px;background:#9b2247;color:#fff;font:700 14.5px 'Noto Sans',sans-serif;cursor:pointer;box-shadow:0 10px 24px -12px rgba(155,34,71,.7)}
+.cf-share:hover{background:#7d1b39}
+html.dark-mode .cf-share{background:#eeb0c2;color:#211b1d}
