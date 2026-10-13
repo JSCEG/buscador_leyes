@@ -380,3 +380,14 @@ html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map
 @media (prefers-reduced-motion:reduce){
   .ac-library .ac-map-promo-icon::after,.ac-library .ac-map-promo-eyebrow::before,.ac-library .ac-map-promo-cta{animation:none}
 }
+
+/* "¿Cómo funciona?" promo: gold accent, the sun's rays breathe and a green pulse leaves the panel. */
+.ac-library .ac-cf-promo{border-color:#e9c46a99;background:linear-gradient(135deg,#ffffff26,#e9c46a2e)}
+.ac-library .ac-cf-promo .ac-map-promo-eyebrow{color:#f2d27d}
+.ac-library .ac-cf-icon svg{width:42px;height:42px;overflow:visible}
+.ac-library .ac-cf-icon::after{border-color:#e9c46a}
+.ac-cf-rays{transform-origin:14px 15px;animation:ac-cf-rays 2.4s ease-in-out infinite}
+.ac-cf-pulse{stroke-dasharray:4 14;animation:ac-cf-pulse 1.4s linear infinite}
+@keyframes ac-cf-rays{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes ac-cf-pulse{to{stroke-dashoffset:-18}}
+@media (prefers-reduced-motion:reduce){.ac-cf-rays,.ac-cf-pulse{animation:none}}

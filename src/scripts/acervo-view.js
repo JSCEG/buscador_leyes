@@ -86,6 +86,28 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const mapLink = element('a', 'ac-stats-link', 'Mapa de permisos'); mapLink.href = '#mapa-permisos';
     facts.append(mapLink);
 
+    // "¿Cómo funciona?": interactive explainers; the home shows the newest one with a small
+    // animated sun over a solar panel.
+    const howLink = element('a', 'ac-stats-link', '¿Cómo funciona?'); howLink.href = '#como-funciona';
+    facts.append(howLink);
+    const howPromo = element('a', 'ac-map-promo ac-cf-promo');
+    howPromo.href = '#como-funciona=fotovoltaica';
+    howPromo.setAttribute('aria-label', 'Ver cómo funciona una central fotovoltaica, con ilustración animada');
+    howPromo.innerHTML = `
+        <span class="ac-map-promo-icon ac-cf-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <g class="ac-cf-rays" stroke="#a57f2c" stroke-width="2.2"><path d="M14 3v4M5.5 6.5l2.8 2.8M2 15h4M22.5 6.5l-2.8 2.8"/></g>
+            <circle cx="14" cy="15" r="5.5" fill="#e9c46a" stroke="#a57f2c" stroke-width="1.6"/>
+            <path d="M18 40 26 22h18l-8 18Z" fill="#fff" stroke="#9b2247" stroke-width="2"/>
+            <path d="M22 31h18M30 22l-4 18M38 22l-4 18" stroke="#9b2247" stroke-width="1.2"/>
+            <path class="ac-cf-pulse" d="M27 40v5h12" stroke="#1e5b4f" stroke-width="2.4"/>
+        </svg></span>
+        <span class="ac-map-promo-copy">
+            <span class="ac-map-promo-eyebrow">Nuevo · ¿Cómo funciona?</span>
+            <strong>Mira cómo funciona una central solar</strong>
+            <span>Una ilustración que se mueve: el sol, los paneles, el inversor y la red. Cambia la hora, pon nubes o lluvia y ve cómo cambia la electricidad.</span>
+        </span>
+        <span class="ac-map-promo-cta">Verla en movimiento</span>`;
+
     // Map of energy permits (CNE section): a visible entry point so people find it from the home.
     const mapPromo = element('a', 'ac-map-promo');
     mapPromo.href = '#mapa-permisos';
@@ -140,7 +162,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const overview = renderOverview();
     const body = element('div', 'ac-collections');
     const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = heroArt();
-    hero.append(header, tools, facts, topics, mapPromo, art);
+    hero.append(header, tools, facts, topics, howPromo, mapPromo, art);
     root.append(hero, filters, status, overview, body);
     container.replaceChildren(root);
     let destroyed = false;
