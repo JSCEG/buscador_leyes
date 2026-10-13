@@ -280,7 +280,7 @@ writeFigure({
   live,
   lathe: ["prismOf", "frameOf"],
   plate: {
-    fig: "Fig 3",
+    fig: "Fig 4",
     title: "Motor eléctrico",
     hint: "Desliza para cambiar la velocidad",
     ariaLabel: "Motor eléctrico: las flechas cambian la velocidad",

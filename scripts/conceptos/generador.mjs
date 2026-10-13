@@ -230,7 +230,7 @@ writeFigure({
   live,
   lathe: ["prismOf", "frameOf"],
   plate: {
-    fig: "Fig 4",
+    fig: "Fig 5",
     title: "Cómo se genera la electricidad",
     hint: "Desliza para cambiar la velocidad",
     ariaLabel: "Generador: las flechas cambian la velocidad de giro",

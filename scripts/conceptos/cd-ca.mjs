@@ -2,7 +2,7 @@
  * "¿Cómo funciona?" · Corriente directa y corriente alterna.
  *
  * An oscilloscope on a bench, fed either by a 12 V battery (direct current) or by a wall outlet
- * (alternating current, 127 V and 60 Hz in Mexico: the voltage swings between about +180 V and
+ * (alternating current, 60 Hz in Mexico; the drawing assumes a 127 V outlet: the voltage swings between about +180 V and
  * −180 V, 60 cycles a second, so the current changes direction 120 times a second). The screen
  * draws the voltage over time, slowed down so one cycle lasts about a second; the pulses on the
  * cable run one way with the battery and back and forth with the outlet.
@@ -107,7 +107,7 @@ function outlet() {
   for (const x of [o.x + 11, o.x + 19]) out.push(L(k.pathOf([plate(x, 26), plate(x, 30)]), { tone: "hi" }));
   out.push(L(k.sideRing([o.x + 15, face, 19], 1.6, "y", P), { tone: "hi" }));
   out.push(D([plate(o.x + 15, 15), plate(o.x + 15, 32)], { size: 0.6, tone: "lo" }));
-  out.push(k.faceTextSvg(k.sideMatrix([o.x + 5, face], 39, P, "left"), "127 V · 60 Hz", { size: 3.2, tone: "mid" }));
+  out.push(k.faceTextSvg(k.sideMatrix([o.x + 5, face], 39, P, "left"), "60 Hz", { size: 3.6, tone: "mid" }));
   return out.join("");
 }
 
@@ -176,7 +176,7 @@ function draw() {
   trace.setAttribute("d", pathOf(points));
   const offset = source === "pila" ? -phase * 9 : Math.sin(phase) * 14;
   flow.style.strokeDashoffset = String(offset);
-  const text = source === "pila" ? "Directa · 12 V constantes · siempre en el mismo sentido" : (compact ? "Alterna · 127 V · 60 Hz" : "Alterna · 127 V · 60 Hz · cambia de sentido 120 veces por segundo");
+  const text = source === "pila" ? "Directa · 12 V constantes · siempre en el mismo sentido" : (compact ? "Alterna · 60 Hz" : "Alterna · 60 Hz · cambia de sentido 120 veces por segundo");
   if (readout.textContent !== text) readout.textContent = text;
   stage.setAttribute("aria-valuetext", text);
 }
@@ -204,7 +204,7 @@ writeFigure({
   controls: `<div class="cf-chips" role="group" aria-label="Fuente"><button type="button" data-source="pila" aria-pressed="true">Pila</button><button type="button" data-source="contacto" aria-pressed="false">Contacto de pared</button></div>`,
   live,
   plate: {
-    fig: "Fig 2",
+    fig: "Fig 3",
     title: "Corriente directa y alterna",
     hint: "Elige la fuente arriba",
     ariaLabel: "Osciloscopio: las flechas cambian entre la pila y el contacto",
@@ -212,6 +212,6 @@ writeFigure({
       { mark: "red", label: "Directa: la corriente va siempre en un sentido" },
       { mark: "green", label: "Alterna: va y viene, 60 veces por segundo" },
     ],
-    caption: "Una pila da corriente directa: el voltaje es constante y la corriente fluye siempre en el mismo sentido. La red eléctrica entrega corriente alterna: en México, el contacto de una casa da 127 V a 60 Hz; el voltaje sube y baja 60 veces por segundo y la corriente cambia de sentido 120 veces. La pantalla va en cámara lenta para que se vea la onda.",
+    caption: "Una pila da corriente directa: el voltaje es constante y la corriente fluye siempre en el mismo sentido. La red eléctrica entrega corriente alterna: en México, a 60 Hz: el voltaje sube y baja 60 veces por segundo y la corriente cambia de sentido 120 veces. La pantalla va en cámara lenta para que se vea la onda.",
   },
 });

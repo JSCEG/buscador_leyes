@@ -86,27 +86,28 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const mapLink = element('a', 'ac-stats-link', 'Mapa de permisos'); mapLink.href = '#mapa-permisos';
     facts.append(mapLink);
 
-    // "¿Cómo funciona?": interactive explainers; the home shows the newest one with a small
-    // animated sun over a solar panel.
+    // "¿Cómo funciona?": the learning route, from the basics to the power plants. The icon is the
+    // route itself: three stops joined by a path, a pulse running along it and a spark at the start.
     const howLink = element('a', 'ac-stats-link', '¿Cómo funciona?'); howLink.href = '#como-funciona';
     facts.append(howLink);
     const howPromo = element('a', 'ac-map-promo ac-cf-promo');
-    howPromo.href = '#como-funciona=fotovoltaica';
-    howPromo.setAttribute('aria-label', 'Ver cómo funciona una central fotovoltaica, con ilustración animada');
+    howPromo.href = '#como-funciona';
+    howPromo.setAttribute('aria-label', 'Abrir ¿Cómo funciona?: aprende electricidad paso a paso, con ilustraciones animadas');
     howPromo.innerHTML = `
         <span class="ac-map-promo-icon ac-cf-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <g class="ac-cf-rays" stroke="#a57f2c" stroke-width="2.2"><path d="M14 3v4M5.5 6.5l2.8 2.8M2 15h4M22.5 6.5l-2.8 2.8"/></g>
-            <circle cx="14" cy="15" r="5.5" fill="#e9c46a" stroke="#a57f2c" stroke-width="1.6"/>
-            <path d="M18 40 26 22h18l-8 18Z" fill="#fff" stroke="#9b2247" stroke-width="2"/>
-            <path d="M22 31h18M30 22l-4 18M38 22l-4 18" stroke="#9b2247" stroke-width="1.2"/>
-            <path class="ac-cf-pulse" d="M27 40v5h12" stroke="#1e5b4f" stroke-width="2.4"/>
+            <path d="M9 38c8 0 8-14 16-14s8-14 16-14" stroke="#ffffff66" stroke-width="2.4"/>
+            <path class="ac-cf-pulse" d="M9 38c8 0 8-14 16-14s8-14 16-14" stroke="#e9c46a" stroke-width="2.4"/>
+            <circle cx="9" cy="38" r="6.5" fill="#fff" stroke="#9b2247" stroke-width="2"/>
+            <path class="ac-cf-rays" d="M10 33.5 6.8 38.6h3.6L8.2 42.6" stroke="#a57f2c" stroke-width="1.8"/>
+            <circle cx="25" cy="24" r="5" fill="#fff" stroke="#1e5b4f" stroke-width="2"/>
+            <circle cx="41" cy="10" r="5" fill="#fff" stroke="#1e5b4f" stroke-width="2"/>
         </svg></span>
         <span class="ac-map-promo-copy">
             <span class="ac-map-promo-eyebrow">Nuevo · ¿Cómo funciona?</span>
-            <strong>Mira cómo funciona una central solar</strong>
-            <span>Una ilustración que se mueve: el sol, los paneles, el inversor y la red. Cambia la hora, pon nubes o lluvia y ve cómo cambia la electricidad.</span>
+            <strong>Aprende electricidad paso a paso</strong>
+            <span>Una ruta de lo básico a las centrales: qué es el voltaje, la corriente alterna, cómo funcionan un motor, un generador, un transformador y una central solar. Con ilustraciones que puedes mover.</span>
         </span>
-        <span class="ac-map-promo-cta">Verla en movimiento</span>`;
+        <span class="ac-map-promo-cta">Empezar la ruta</span>`;
 
     // Map of energy permits (CNE section): a visible entry point so people find it from the home.
     const mapPromo = element('a', 'ac-map-promo');

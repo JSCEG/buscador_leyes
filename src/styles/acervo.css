@@ -386,7 +386,7 @@ html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map
 .ac-library .ac-cf-promo .ac-map-promo-eyebrow{color:#f2d27d}
 .ac-library .ac-cf-icon svg{width:42px;height:42px;overflow:visible}
 .ac-library .ac-cf-icon::after{border-color:#e9c46a}
-.ac-cf-rays{transform-origin:14px 15px;animation:ac-cf-rays 2.4s ease-in-out infinite}
+.ac-cf-rays{transform-origin:9px 38px;animation:ac-cf-rays 2.4s ease-in-out infinite}
 .ac-cf-pulse{stroke-dasharray:4 14;animation:ac-cf-pulse 1.4s linear infinite}
 @keyframes ac-cf-rays{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
 @keyframes ac-cf-pulse{to{stroke-dashoffset:-18}}

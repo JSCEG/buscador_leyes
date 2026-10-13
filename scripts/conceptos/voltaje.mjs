@@ -114,6 +114,19 @@ const wirePlus = [at([PSU.x + 50, FRONT + 2.4, 12]), [at([PSU.x + 50, FRONT + 10
 const wireMinus = [at([PSU.x + 62, FRONT + 2.4, 12]), [at([PSU.x + 62, FRONT + 4, 2]), at([LAMP[0] - 12, FRONT + 4, 2])], at([LAMP[0] - 12, LAMP[1] + 6, 4])];
 const cable = ([from, via, to], tone) => k.wireSvg(from, to, { via, tone: "mid" }) + k.lineSvg(k.pathOf([from, ...via, to]), { tone, className: "cf-flow" });
 
+// A second ammeter on the return cable, after the lamp: it reads the same current as the one in
+// the supply, because the current is not used up in the lamp.
+const METER2 = { x: 18, y: FRONT - 7, w: 26, d: 13, r: 2 };
+function returnMeter() {
+  const m = METER2;
+  const out = [S(k.slabOf(m, 0, 8, P, 3, 0.5), { tone: "hi", crease: "lo" })];
+  const s = { x: m.x + 3, y: m.y + 3, w: m.w - 6, d: m.d - 6, r: 0.6 };
+  out.push(`<path class="cf-screen" d="${k.planOutline(s, 8, P)}"/>`, L(k.planOutline(s, 8, P), { tone: "mid" }));
+  out.push(`<text class="cf-digits" data-part="amps2" transform="${k.topMatrix([m.x + m.w / 2, m.y + m.d / 2 + 2], 8.1, P, "x")}" font-size="6.4" text-anchor="middle">0.00</text>`);
+  out.push(k.faceTextSvg(k.topMatrix([m.x + m.w - 4, m.y + m.d / 2 + 2], 8.1, P, "x"), "A", { size: 3.6, tone: "lo", anchor: "middle" }));
+  return out.join("");
+}
+
 const PSU_PARTS = supply();
 const LABELS = [
   { n: 1, name: "Fuente de poder", anchor: [PSU.x + 40, PSU.y + PSU.d / 2, PSU_H + 4.4], dx: -10, dy: -40 },
@@ -122,6 +135,7 @@ const LABELS = [
   { n: 4, name: "Perilla de voltaje", anchor: [PSU.x + 20, FRONT + 5.2, 13], dx: -64, dy: 40 },
   { n: 5, name: "Cables", anchor: [10, FRONT + 10, 2], dx: 10, dy: 46 },
   { n: 6, name: "Foco", anchor: [LAMP[0] + 11, LAMP[1], 74], dx: 34, dy: -28 },
+  { n: 7, name: "Amperímetro de regreso", anchor: [METER2.x + METER2.w, METER2.y + METER2.d / 2, 8], dx: 50, dy: 40 },
 ];
 
 const svg = k.figureSvg({
@@ -133,6 +147,7 @@ const svg = k.figureSvg({
     PSU_PARTS.svg,
     `<g data-part="cables">${cable(wireMinus, "green")}${cable(wirePlus, "red")}</g>`,
     lamp(),
+    returnMeter(),
     `<g data-part="labels">${labelsSvg(LABELS, at)}</g>`,
   ],
 });
@@ -145,6 +160,7 @@ const stage = document.querySelector(".iso-stage");
 const svg = stage.querySelector("svg");
 const volts = svg.querySelector('[data-part="volts"]');
 const amps = svg.querySelector('[data-part="amps"]');
+const amps2 = svg.querySelector('[data-part="amps2"]');
 const knob = svg.querySelector('[data-part="knob"]');
 const glow = svg.querySelector('[data-part="glow"]');
 const tint = svg.querySelector('[data-part="tint"]');
@@ -161,6 +177,7 @@ function draw() {
   const i = v / R_LAMP, p = v * i, share = p / (V_MAX * V_MAX / R_LAMP);
   volts.textContent = fmt(v, 1);
   amps.textContent = fmt(i, 2);
+  amps2.textContent = fmt(i, 2);
   const angle = -2.4 + (v / V_MAX) * 4.8;
   knob.setAttribute("d", pathOf([knobPoint(1.2, angle, 5.2), knobPoint(6, angle, 5.2)]));
   glow.setAttribute("opacity", String(Math.min(0.5, share * 0.55)));
@@ -204,7 +221,7 @@ writeFigure({
   svg: svg.replace("</svg>", "").concat(`<style>[data-part="glow"]{filter:blur(6px)}.cf-digits{fill:${theme === "light" ? "#7ff0c6" : "#7ff0c6"};font:700 7.2px ui-monospace,monospace}.cf-term-plus{fill:var(--anatomy-red)}.cf-term-minus{fill:#1b1b1b;stroke:var(--anatomy-mid);stroke-width:.6}.cf-filament{fill:none;stroke:var(--cf-gold);stroke-width:1}</style></svg>`),
   live,
   plate: {
-    fig: "Fig 1",
+    fig: "Fig 2",
     title: "Voltaje, corriente y potencia",
     hint: "Desliza para girar la perilla",
     ariaLabel: "Fuente de poder: las flechas suben o bajan el voltaje",
@@ -212,6 +229,6 @@ writeFigure({
       { mark: "red", label: "Cable positivo: la corriente sale hacia el foco" },
       { mark: "green", label: "Cable negativo: la corriente regresa a la fuente" },
     ],
-    caption: `El voltaje (V) es el empuje que da la fuente; la corriente (A) es cuánta electricidad fluye; la potencia (W) es cuánta energía se usa cada segundo: watts = volts × amperes. Este foco de 12 V y 24 W se comporta como una resistencia de ${R_LAMP} Ω, así que la corriente es el voltaje entre ${R_LAMP} (ley de Ohm).`,
+    caption: `El voltaje (V) es el empuje que da la fuente; la corriente (A) es cuánta electricidad fluye; la potencia (W) es cuánta energía se usa cada segundo: watts = volts × amperes. Este foco de 12 V y 24 W se comporta como una resistencia de ${R_LAMP} Ω, así que la corriente es el voltaje entre ${R_LAMP} (ley de Ohm). El amperímetro del cable de regreso marca lo mismo que el de la fuente: la corriente no se gasta en el foco; lo que el foco usa es energía.`,
   },
 });

@@ -194,7 +194,7 @@ writeFigure({
   controls: `<div class="cf-chips" role="group" aria-label="Tipo de transformador"><button type="button" data-mode="elevador" aria-pressed="true">Elevador</button><button type="button" data-mode="reductor" aria-pressed="false">Reductor</button></div>`,
   live,
   plate: {
-    fig: "Fig 5",
+    fig: "Fig 6",
     title: "Transformador",
     hint: "Desliza para cambiar la potencia",
     ariaLabel: "Transformador: las flechas cambian la potencia que pasa",
