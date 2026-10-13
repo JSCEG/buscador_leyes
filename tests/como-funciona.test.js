@@ -26,7 +26,7 @@ describe('¿Cómo funciona?', () => {
         }
     });
     it('forms a learning route from the basics up to the power plants', () => {
-        expect(CONCEPTOS.map(c => c.id).slice(0, 6)).toEqual(['voltaje', 'cd-ca', 'motor', 'generador', 'transformador', 'fotovoltaica']);
+        expect(CONCEPTOS.map(c => c.id).slice(0, 7)).toEqual(['electricidad', 'voltaje', 'cd-ca', 'motor', 'generador', 'transformador', 'fotovoltaica']);
         const levels = NIVELES.map(n => n.id);
         let seen = new Set();
         let last = 0;
@@ -39,8 +39,17 @@ describe('¿Cómo funciona?', () => {
             seen.add(c.id);
             if (c.ley) for (const siglas of c.ley.siglas) expect(typeof siglas).toBe('string');
         }
-        expect(siguienteConcepto('voltaje').id).toBe('cd-ca');
+        expect(siguienteConcepto('electricidad').id).toBe('voltaje');
         expect(siguienteConcepto(CONCEPTOS.at(-1).id)).toBeNull();
         expect(siguienteConcepto('nada')).toBeNull();
+    });
+    it('gives the basics an academic structure: definitions, formulas with examples, wrong ideas', () => {
+        for (const c of CONCEPTOS.filter(item => item.nivel === 1)) {
+            expect(c.definiciones?.length).toBeGreaterThan(0);
+            for (const d of c.definiciones) expect(d.termino && d.texto).toBeTruthy();
+            for (const f of c.formulas || []) expect(f.expresion && f.lectura && f.ejemplo).toBeTruthy();
+            expect(c.errores?.length).toBeGreaterThan(0);
+            for (const e of c.errores) expect(e.idea && e.realidad).toBeTruthy();
+        }
     });
 });

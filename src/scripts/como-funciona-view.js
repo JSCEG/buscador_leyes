@@ -99,14 +99,31 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                 <div class="cf-figure">
                     <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy"></iframe>
                 </div>
+                ${concept.definiciones?.length ? `<section class="cf-section" aria-labelledby="cf-defs">
+                    <h2 id="cf-defs">${concept.definiciones.length > 1 ? 'Definiciones' : 'Definición'}</h2>
+                    <dl class="cf-defs">${concept.definiciones.map(d => `<div><dt>${esc(d.termino)}${d.unidad ? ` <span class="cf-unit">${esc(d.unidad)}</span>` : ''}</dt><dd>${esc(d.texto)}</dd></div>`).join('')}</dl>
+                </section>` : ''}
                 <section class="cf-section" aria-labelledby="cf-claves">
                     <h2 id="cf-claves">En palabras simples</h2>
                     <ol class="cf-steps">${concept.claves.map(text => `<li>${esc(text)}</li>`).join('')}</ol>
                 </section>
+                ${concept.formulas?.length ? `<section class="cf-section" aria-labelledby="cf-formulas">
+                    <h2 id="cf-formulas">${concept.formulas.length > 1 ? 'Las fórmulas' : 'La fórmula'}</h2>
+                    <div class="cf-formulas">${concept.formulas.map(f => `<div class="cf-formula">
+                        <p class="cf-expr">${esc(f.expresion)}</p>
+                        <p class="cf-reading">${esc(f.lectura)}</p>
+                        ${f.ejemplo ? `<p class="cf-example"><b>Ejemplo:</b> ${esc(f.ejemplo)}</p>` : ''}
+                    </div>`).join('')}</div>
+                </section>` : ''}
+                ${concept.errores?.length ? `<section class="cf-section" aria-labelledby="cf-errores">
+                    <h2 id="cf-errores">Ideas equivocadas comunes</h2>
+                    <ul class="cf-myths">${concept.errores.map(e => `<li><p class="cf-myth"><span aria-hidden="true">✗</span><span class="cf-sr">Idea equivocada: </span>${esc(e.idea)}</p><p class="cf-fact"><span aria-hidden="true">✓</span><span class="cf-sr">En realidad: </span>${esc(e.realidad)}</p></li>`).join('')}</ul>
+                </section>` : ''}
                 <section class="cf-section" aria-labelledby="cf-partes">
-                    <h2 id="cf-partes">Sus partes</h2>
+                    <h2 id="cf-partes">${concept.partesTitulo ? esc(concept.partesTitulo) : 'Sus partes'}</h2>
                     <dl class="cf-parts">${concept.partes.map((p, i) => `<div><dt><span class="cf-num" aria-hidden="true">${i + 1}</span>${esc(p.nombre)}</dt><dd>${esc(p.texto)}</dd></div>`).join('')}</dl>
                 </section>
+                ${concept.dato ? `<aside class="cf-fun" aria-label="¿Sabías que…?"><b>¿Sabías que…?</b> ${esc(concept.dato)}</aside>` : ''}
                 ${concept.ley ? `<section class="cf-section" aria-labelledby="cf-ley">
                     <h2 id="cf-ley">Qué dice la ley</h2>
                     <p>${esc(concept.ley.texto)}</p>

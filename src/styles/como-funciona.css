@@ -85,3 +85,25 @@ html.dark-mode .cf-level-num{color:#211b1d}
   .cf-level::before{display:none}
   .cf-level-head{margin-left:0}
 }
+/* Academic blocks: formal definitions, formulas with a worked example, common wrong ideas, a fact. */
+.cf-defs{display:grid;gap:10px;margin:0}
+.cf-defs div{padding:14px 16px;border-left:4px solid var(--cf-accent);border-radius:0 12px 12px 0;background:var(--cf-soft)}
+.cf-defs dt{font-weight:700;font-size:15.5px}
+.cf-unit{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--cf-card);color:var(--cf-accent);font-size:12px;font-weight:700}
+.cf-defs dd{margin:4px 0 0;font-size:15px;line-height:1.6;text-align:left}
+.cf-formulas{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.cf-formula{padding:16px 18px;border:1px solid var(--cf-border);border-radius:14px;background:var(--cf-card)}
+.cf-section .cf-expr{margin:0 0 6px;color:var(--cf-accent);font:700 24px/1.2 'Merriweather',serif}
+.cf-section .cf-reading{margin:0 0 8px;color:var(--cf-muted);font-size:14px}
+.cf-section .cf-example{margin:0;font-size:14.5px}
+.cf-myths{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.cf-myths li{padding:14px 16px;border:1px solid var(--cf-border);border-radius:14px;background:var(--cf-card)}
+.cf-section .cf-myth,.cf-section .cf-fact{display:flex;gap:10px;margin:0;font-size:15px;line-height:1.55}
+.cf-section .cf-myth{color:var(--cf-muted)}
+.cf-section .cf-fact{margin-top:6px}
+.cf-myth>span[aria-hidden],.cf-fact>span[aria-hidden]{flex:none;font-weight:800}
+.cf-myth>span[aria-hidden]{color:#c0392b}
+.cf-fact>span[aria-hidden]{color:var(--cf-ok)}
+.cf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cf-fun{margin-top:26px;padding:16px 18px;border-radius:14px;background:color-mix(in srgb,#e9c46a 22%,var(--cf-card));font-size:15px;line-height:1.6}
+.cf-fun b{color:var(--cf-accent)}
