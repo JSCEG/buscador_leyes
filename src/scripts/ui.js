@@ -28,6 +28,7 @@ import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin, isSiteOwner, googleSignInAvailable, loginWithGoogle, takeReturnHash } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
+import { comoFuncionaRoute } from '../data/como-funciona.js';
 import { decorateDefinitions } from '../lib/definitions.js';
 import { tramitesForLaw } from '../data/tramites.js';
 import { authError } from '../lib/auth-errors.js';
@@ -568,6 +569,12 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             showRetoView({ updateHistory: false, lawId: hash.startsWith('#reto-ley=') ? decodeURIComponent(hash.slice('#reto-ley='.length)) : null });
+        } else if (comoFuncionaRoute(hash)) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showComoFuncionaView({ ...comoFuncionaRoute(hash), updateHistory: false });
         } else if (hash === '#usuarios') {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -818,7 +825,7 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
-    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-como-funciona', 'mobile-nav-como-funciona', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
         undockSearch();
@@ -2934,6 +2941,39 @@ export function initUI() {
         });
     }
     document.getElementById('mobile-nav-permisos')?.addEventListener('click', () => toggleMobileMenu(false));
+
+    let comoView = null;
+    let comoRequest = 0;
+    /** "¿Cómo funciona?" (#como-funciona, #como-funciona=<id>): explainers around an interactive figure. */
+    function showComoFuncionaView({ id = null, updateHistory = true } = {}) {
+        const hash = id ? `#como-funciona=${id}` : '#como-funciona';
+        if (updateHistory) setHash(hash);
+        if (comoView && activeNavId === 'nav-como-funciona' && resultsContainer.querySelector('.cf-view')) {
+            comoView.show(id);
+            window.scrollTo({ top: 0 });
+            return;
+        }
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('nav-como-funciona');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        resultsContainer.innerHTML = skeleton('list', 'Preparando la explicación');
+        comoView?.destroy();
+        comoView = null;
+        const request = ++comoRequest;
+        withProgress(import('./como-funciona-view.js')).then(({ renderComoFuncionaView }) => {
+            if (request !== comoRequest || !comoFuncionaRoute(location.hash)) return;
+            comoView = renderComoFuncionaView(resultsContainer, () => cachedSummaries, {
+                id,
+                onOpenLaw: law => openLawDetail(law),
+                onRoute: next => setHash(next),
+            });
+            window.scrollTo({ top: 0 });
+        });
+    }
+    document.getElementById('mobile-nav-como-funciona')?.addEventListener('click', () => toggleMobileMenu(false));
 
     let usersView = null;
     let usersRequest = 0;
