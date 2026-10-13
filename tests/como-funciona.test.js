@@ -18,7 +18,10 @@ describe('¿Cómo funciona?', () => {
             expect(existsSync(`public/conceptos/${c.figura}-light.html`)).toBe(true);
             for (const id of c.tramites) expect(tramiteById(id)).not.toBeNull();
             expect(c.fuentes.length).toBeGreaterThan(0);
-            for (const f of c.fuentes) expect(f.url).toMatch(/^https:\/\//);
+            for (const f of c.fuentes) {
+                expect(f.autor && f.titulo && f.fecha).toBeTruthy();
+                if (f.url) expect(f.url).toMatch(/^https:\/\//);
+            }
             for (const q of c.preguntas) expect(q.opciones[q.correcta]).toBeTruthy();
         }
     });

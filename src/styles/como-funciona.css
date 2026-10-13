@@ -54,3 +54,9 @@ html.dark-mode .cf-view{--cf-ink:#f3ece4;--cf-muted:#b3a89e;--cf-card:#211b1d;--
 .cf-share{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 18px;border:0;border-radius:999px;background:#9b2247;color:#fff;font:700 14.5px 'Noto Sans',sans-serif;cursor:pointer;box-shadow:0 10px 24px -12px rgba(155,34,71,.7)}
 .cf-share:hover{background:#7d1b39}
 html.dark-mode .cf-share{background:#eeb0c2;color:#211b1d}
+.cf-refs{margin:0 0 14px;padding-left:22px;font-size:13.5px;line-height:1.6;color:var(--cf-ink)}
+.cf-refs li{margin-bottom:8px;padding-left:4px}
+.cf-refs a{color:var(--cf-accent);word-break:break-word}
+.cf-ref-law{margin-left:6px;padding:1px 9px;border:1px solid var(--cf-border);border-radius:999px;background:var(--cf-card);color:var(--cf-accent);font:600 12px 'Noto Sans',sans-serif;cursor:pointer}
+.cf-note{margin:0;color:var(--cf-muted);font-size:13px}
+#results-container .cf-view .cf-sources{background:transparent!important;color:var(--cf-muted)!important}

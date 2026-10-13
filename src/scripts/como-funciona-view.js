@@ -93,10 +93,15 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                             <p class="cf-verdict" aria-live="polite"></p>
                         </fieldset>`).join('')}</div>
                 </section>
-                <footer class="cf-sources">
-                    <p><b>Fuentes:</b> ${concept.fuentes.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(' · ')}</p>
-                    <p>Explicación general con fines informativos; no es texto legal ni sustituye la normativa. ${concept.revisado ? `Revisado el ${esc(concept.revisado)}.` : '<span class="cf-draft">Borrador en revisión.</span>'}</p>
-                </footer>
+                <section class="cf-sources" aria-labelledby="cf-fuentes">
+                    <h2 id="cf-fuentes">Fuentes</h2>
+                    <ol class="cf-refs">${concept.fuentes.map(f => {
+                        const law = f.acervo ? laws.find(item => item.siglas === f.acervo)?.law : null;
+                        const title = f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener"><i>${esc(f.titulo)}</i></a>` : `<i>${esc(f.titulo)}</i>`;
+                        return `<li>${esc(f.autor)}${f.url ? ` (${esc(f.fecha)}). ${title}${/[?!.]$/.test(f.titulo) ? "" : "."}` : `. ${title}, ${esc(f.fecha)}.`}${f.consulta ? ` Consultado el ${esc(f.consulta)}.` : ''}${law ? ` <button type="button" class="cf-ref-law" data-law="${esc(law.id)}">Ver en el acervo</button>` : ''}</li>`;
+                    }).join('')}</ol>
+                    <p class="cf-note">Explicación general con fines informativos; no es texto legal ni sustituye la normativa. ${concept.revisado ? `Revisado el ${esc(concept.revisado)}.` : '<span class="cf-draft">Borrador en revisión.</span>'}</p>
+                </section>
             </article>`;
         // Share the explainer: the phone's share sheet (WhatsApp…), or copy the link on a computer.
         container.querySelector('[data-share]')?.addEventListener('click', async event => {
