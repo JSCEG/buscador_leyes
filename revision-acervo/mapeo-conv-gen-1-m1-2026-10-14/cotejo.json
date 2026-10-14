@@ -1,0 +1,71 @@
+{
+  "fecha_cotejo": "2026-10-14",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=24102025-VES.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5770917",
+  "sha256_pdf": "15b49bcf5276b18478cfbf9503b2df996586662b613bd5a5e532c3ea5dda58ea",
+  "bytes_pdf": 2523574,
+  "paginas_pdf": 12,
+  "paginas_impresas_documento": [
+    2,
+    6
+  ],
+  "fragmentos_oficiales_mapeados": 5,
+  "nota_editorial_sin_mapa": [
+    "37f9d8db-2a9b-5b0a-9f6f-ca068a9bf17b"
+  ],
+  "cotejo_visual_recomendado": [
+    2,
+    6
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "id": "bbc0d7ed-bacb-501b-b6e7-ecfe126b5edf",
+      "paginas_pdf": [
+        2
+      ],
+      "anclas": 26,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO",
+      "id": "fb326cd5-c412-56e2-a63c-5bf8c6b96077",
+      "paginas_pdf": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "anclas": 420,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Resolutivo SEGUNDO",
+      "id": "c2c13dfe-dec9-539c-8b81-0a668092e3c8",
+      "paginas_pdf": [
+        6
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "id": "440f35b5-9755-5d40-83c0-8ed9538ce19c",
+      "paginas_pdf": [
+        6
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma del acuerdo",
+      "id": "40c9b24d-2082-58d5-a5c6-c6fffbf38568",
+      "paginas_pdf": [
+        6
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
