@@ -1,13 +1,6 @@
-import { createHash } from 'node:crypto';
 import { serveReaderPdf } from './reader-pdf.js';
 import { serveCne } from './cne-proxy.js';
 import { serveMapa } from './mapa-proxy.js';
-
-/** Node has no DigestStream: the local server hashes streamed PDFs with node:crypto. */
-const nodeHasher = () => {
-    const hash = createHash('sha256');
-    return { update: chunk => { hash.update(chunk); }, digest: async () => hash.digest('hex') };
-};
 
 /** The local app uses the same handler as Cloudflare Pages. */
 export function readerDevPlugin() {
@@ -16,7 +9,7 @@ export function readerDevPlugin() {
             try {
                 const url = new URL(req.url, 'http://localhost');
                 const sourceId = url.pathname.slice(1);
-                const response = await serveReaderPdf(new Request(url, { method: req.method }), sourceId, { createHasher: nodeHasher });
+                const response = await serveReaderPdf(new Request(url, { method: req.method }), sourceId);
                 res.writeHead(response.status, Object.fromEntries(response.headers));
                 // Stream like the Worker does, so the reader sees real progress; a rejected stream
                 // ends the connection early instead of completing the file.

@@ -3,13 +3,12 @@ import { createHash, webcrypto } from 'node:crypto';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { serveReaderPdf, MAX_PDF_BYTES, MAX_STREAMED_PDF_BYTES } from '../server/reader-pdf.js';
 
-// Large reviewed PDFs (whole DOF issues) stream through the proxy, verified as they pass.
+// Large reviewed PDFs (whole DOF issues) pass through the proxy at their exact length; the reader verifies them.
 const DOF = 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=08062026-MAT.pdf&repo=';
 const large = new Uint8Array(MAX_PDF_BYTES + 3 * 65536);
 large.set(new TextEncoder().encode('%PDF-1.7 reviewed issue'));
 const sha256 = createHash('sha256').update(large).digest('hex');
 const source = { transport: 'remote-pdf', originalUrl: DOF, sha256 };
-const nodeHasher = () => { const hash = createHash('sha256'); return { update: chunk => { hash.update(chunk); }, digest: async () => hash.digest('hex') }; };
 const request = () => new Request('https://app.test/api/reader/big');
 /** An upstream body delivered in 64 KiB chunks, like a real network response. */
 const chunked = bytes => new ReadableStream({
@@ -19,7 +18,7 @@ const chunked = bytes => new ReadableStream({
     },
 });
 const upstream = (bytes, headers = {}) => new Response(chunked(bytes), { headers: { 'Content-Type': 'application/pdf', 'Content-Length': String(bytes.length), ...headers } });
-const serve = (fetcher, options = {}) => serveReaderPdf(request(), 'big', { sources: { big: source }, fetcher, createHasher: nodeHasher, ...options });
+const serve = fetcher => serveReaderPdf(request(), 'big', { sources: { big: source }, fetcher });
 
 async function drain(response) {
     const reader = response.body.getReader();
@@ -39,37 +38,37 @@ describe('streamed official PDFs', () => {
         expect(response.headers.get('content-length')).toBe(String(large.length));
         expect(response.headers.get('cache-control')).toBe('no-store');
         expect(response.headers.get('x-reader-sha256')).toBe(sha256);
+        expect(response.headers.get('x-reader-verification')).toBe('reader');
         const bytes = new Uint8Array(await response.arrayBuffer());
         expect(bytes.length).toBe(large.length);
         expect(createHash('sha256').update(bytes).digest('hex')).toBe(sha256);
     });
 
-    it('never completes a changed edition: the last chunk is withheld and the stream fails', async () => {
-        const changed = large.slice();
-        changed[changed.length - 1] = 1;
-        const result = await drain(await serve(async () => upstream(changed)));
-        expect(result.complete).toBe(false);
-        expect(result.received).toBeLessThan(large.length);
-        expect(result.error.code).toBe('source-version-changed');
+    it('on Workers, holds the stream to its length with the native FixedLengthStream (no JavaScript per chunk)', async () => {
+        const made = [];
+        class FixedLengthStream extends TransformStream { constructor(length) { super(); made.push(length); } }
+        vi.stubGlobal('FixedLengthStream', FixedLengthStream);
+        const response = await serve(async () => upstream(large));
+        expect(made).toEqual([large.length]);
+        expect((await response.arrayBuffer()).byteLength).toBe(large.length);
     });
 
     it('fails a stream shorter or longer than declared', async () => {
         const short = await drain(await serve(async () => upstream(large.subarray(0, large.length - 10), { 'Content-Length': String(large.length) })));
         expect(short.complete).toBe(false);
+        expect(short.error.code).toBe('source-unavailable');
         const long = await drain(await serve(async () => upstream(large, { 'Content-Length': String(large.length - 10) })));
         expect(long.complete).toBe(false);
         expect(long.error.code).toBe('source-too-large');
     });
 
-    it('keeps the hard limit, the host allowlist and needs an incremental hasher to stream', async () => {
+    it('keeps the hard limit and the source allowlist', async () => {
         const huge = vi.fn(async () => new Response(chunked(new Uint8Array(16)), { headers: { 'Content-Type': 'application/pdf', 'Content-Length': String(MAX_STREAMED_PDF_BYTES + 1) } }));
         const tooLarge = await serve(huge);
         expect(tooLarge.status).toBe(502);
         expect(await tooLarge.json()).toEqual({ code: 'source-too-large' });
-        const noHasher = await serve(async () => upstream(large), { createHasher: () => null });
-        expect(noHasher.status).toBe(502);
         const fetcher = vi.fn();
-        const other = await serveReaderPdf(request(), 'big', { sources: { big: { ...source, originalUrl: 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=09062026-MAT.pdf&repo=' } }, fetcher, createHasher: nodeHasher });
+        const other = await serveReaderPdf(request(), 'big', { sources: { big: { ...source, originalUrl: 'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=09062026-MAT.pdf&repo=' } }, fetcher });
         expect(other.status).toBe(404);
         expect(fetcher).not.toHaveBeenCalled();
     });
@@ -77,9 +76,9 @@ describe('streamed official PDFs', () => {
     it('still verifies small PDFs before answering', async () => {
         const small = new TextEncoder().encode('%PDF-1.7 small');
         const smallSource = { ...source, sha256: createHash('sha256').update(small).digest('hex') };
-        const ok = await serveReaderPdf(request(), 'big', { sources: { big: smallSource }, fetcher: async () => upstream(small), createHasher: nodeHasher });
+        const ok = await serveReaderPdf(request(), 'big', { sources: { big: smallSource }, fetcher: async () => upstream(small) });
         expect(new Uint8Array(await ok.arrayBuffer())).toEqual(small);
-        const changed = await serveReaderPdf(request(), 'big', { sources: { big: smallSource }, fetcher: async () => upstream(new TextEncoder().encode('%PDF-1.7 other')), createHasher: nodeHasher });
+        const changed = await serveReaderPdf(request(), 'big', { sources: { big: smallSource }, fetcher: async () => upstream(new TextEncoder().encode('%PDF-1.7 other')) });
         expect(changed.status).toBe(409);
     });
 });
@@ -141,6 +140,17 @@ describe('loading large PDFs in the reader', () => {
         expect(fetch).toHaveBeenCalledTimes(1);
         expect(two.mock.calls.map(([state]) => state.phase)).toContain('ready');
         a.destroy(); b.destroy();
+    });
+
+    it('refuses a changed large edition before pdf.js sees it', async () => {
+        const lib = library();
+        const changed = large.slice();
+        changed[changed.length - 1] = 1;
+        fetch.mockImplementation(async () => upstream(changed));
+        const reader = createRemotePdf(clientSource);
+        await expect(reader.render(canvas(), mappedPage)).rejects.toMatchObject({ code: 'source-version-changed' });
+        expect(lib.getDocument).not.toHaveBeenCalled();
+        reader.destroy();
     });
 
     it('rejects a stream that breaks before the declared length', async () => {

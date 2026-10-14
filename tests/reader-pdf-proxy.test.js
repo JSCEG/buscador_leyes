@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { createHash, webcrypto } from 'node:crypto';
 import { afterEach, it, expect, vi } from 'vitest';
-import { serveReaderPdf, MAX_PDF_BYTES } from '../server/reader-pdf.js';
+import { serveReaderPdf, MAX_PDF_BYTES, MAX_STREAMED_PDF_BYTES } from '../server/reader-pdf.js';
 
 const bytes = new TextEncoder().encode('%PDF-1.7\nreviewed source');
 const source = { transport: 'remote-pdf', originalUrl: 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LCNE.pdf',
@@ -901,7 +901,7 @@ it('rejects changed editions, non-PDF responses, redirects and oversized streams
     const redirect = vi.fn(async () => new Response(null, { status: 302, headers: { Location: 'https://outside.test/file.pdf' } }));
     expect((await serveReaderPdf(request(), 'lcne', options(redirect))).status).toBe(502);
     expect(redirect).toHaveBeenCalledTimes(1);
-    expect((await serveReaderPdf(request(), 'lcne', options(async () => upstream(bytes, { 'Content-Length': String(MAX_PDF_BYTES + 1) })))).status).toBe(502);
+    expect((await serveReaderPdf(request(), 'lcne', options(async () => upstream(bytes, { 'Content-Length': String(MAX_STREAMED_PDF_BYTES + 1) })))).status).toBe(502);
     const large = await serveReaderPdf(request(), 'lcne', options(async () => upstream(new Uint8Array(MAX_PDF_BYTES + 1))));
     expect(await large.json()).toEqual({ code: 'source-too-large' });
 });
