@@ -86,13 +86,13 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const mapLink = element('a', 'ac-stats-link', 'Mapa de permisos'); mapLink.href = '#mapa-permisos';
     facts.append(mapLink);
 
-    // "¿Cómo funciona?": the learning route, from the basics to the power plants. The icon is the
+    // "¿Cómo funciona?": the card opens the list of every topic (electricity and hydrocarbons). The icon is the
     // route itself: three stops joined by a path, a pulse running along it and a spark at the start.
     const howLink = element('a', 'ac-stats-link', '¿Cómo funciona?'); howLink.href = '#como-funciona';
     facts.append(howLink);
     const howPromo = element('a', 'ac-map-promo ac-cf-promo');
     howPromo.href = '#como-funciona';
-    howPromo.setAttribute('aria-label', 'Abrir ¿Cómo funciona?: aprende electricidad paso a paso, con ilustraciones animadas');
+    howPromo.setAttribute('aria-label', 'Aprende: abrir todos los temas de electricidad e hidrocarburos, con ilustraciones animadas');
     howPromo.innerHTML = `
         <span class="ac-map-promo-icon ac-cf-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 38c8 0 8-14 16-14s8-14 16-14" stroke="#ffffff66" stroke-width="2.4"/>
@@ -104,10 +104,10 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         </svg></span>
         <span class="ac-map-promo-copy">
             <span class="ac-map-promo-eyebrow">Nuevo · ¿Cómo funciona?</span>
-            <strong>Aprende electricidad paso a paso</strong>
-            <span>Una ruta de lo básico a las centrales: qué es el voltaje, la corriente alterna, cómo funcionan un motor, un generador, un transformador y una central solar. Con ilustraciones que puedes mover.</span>
+            <strong>Aprende</strong>
+            <span>Cómo funciona la energía, paso a paso: electricidad e hidrocarburos, de lo básico a las centrales, los gasoductos, las refinerías y los mercados. Con ilustraciones que puedes mover.</span>
         </span>
-        <span class="ac-map-promo-cta">Empezar la ruta</span>`;
+        <span class="ac-map-promo-cta">Ver todos los temas</span>`;
 
     // Map of energy permits (CNE section): a visible entry point so people find it from the home.
     const mapPromo = element('a', 'ac-map-promo');
