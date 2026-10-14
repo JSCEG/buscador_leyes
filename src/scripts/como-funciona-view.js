@@ -39,10 +39,27 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     };
     window.addEventListener('message', onMessage);
 
+    const ICONS = {
+        electricidad: '<svg class="cf-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13.5h6L9.5 22l9-12h-6.5Z"/></svg>',
+        hidrocarburos: '<svg class="cf-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c-3.2 4.3-6.5 8.2-6.5 11.5a6.5 6.5 0 0 0 13 0c0-3.3-3.3-7.2-6.5-11.5Z"/><path d="M12 18.5a4 4 0 0 0 4-4"/></svg>',
+        check: '<svg class="cf-icon cf-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>',
+    };
+
+    let currentSector = 'electricidad';
+
     function card(c, isDone) {
+        const sectorConcepts = CONCEPTOS.filter(x => x.sector === c.sector);
+        const stepNum = sectorConcepts.indexOf(c) + 1;
+        const isHidro = c.sector === 'hidrocarburos';
+        const badge = isHidro
+            ? `<span class="cf-badge-sector cf-badge-hidro">${ICONS.hidrocarburos} Hidrocarburos</span>`
+            : `<span class="cf-badge-sector cf-badge-elec">${ICONS.electricidad} Electricidad</span>`;
         return `
             <a class="cf-card${isDone ? ' is-done' : ''}" href="#como-funciona=${esc(c.id)}">
-                <span class="cf-card-sector">${isDone ? '<span class="cf-check" aria-hidden="true">✓</span> Visto' : `Paso ${CONCEPTOS.indexOf(c) + 1}`}</span>
+                <div class="cf-card-top">
+                    <span class="cf-card-sector">${isDone ? `<span class="cf-check">${ICONS.check}</span> Visto` : `Paso ${stepNum}`}</span>
+                    ${badge}
+                </div>
                 <strong>${esc(c.titulo)}</strong>
                 <span class="cf-card-text">${esc(c.resumen)}</span>
                 <span class="cf-card-go">${isDone ? 'Volver a ver →' : 'Ver cómo funciona →'}</span>
@@ -50,47 +67,83 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     }
 
     function progress() {
-        const count = CONCEPTOS.filter(c => done.has(c.id)).length;
-        return count ? `Llevas ${count} de ${CONCEPTOS.length}. Sigue la ruta en orden o salta a lo que te interese.` : 'Empieza por lo básico y sube hasta las centrales, o salta a lo que te interese.';
+        const sectorConcepts = CONCEPTOS.filter(c => c.sector === currentSector);
+        const count = sectorConcepts.filter(c => done.has(c.id)).length;
+        const sectorName = currentSector === 'hidrocarburos' ? 'del Mercado de Hidrocarburos' : 'del Mercado Eléctrico';
+        return count 
+            ? `Llevas ${count} de ${sectorConcepts.length} conceptos ${sectorName}. Sigue la ruta en orden o salta a lo que te interese.` 
+            : `Empieza por lo básico y avanza hasta el mercado y las instalaciones ${sectorName}.`;
     }
 
     let done = seen();
     function showList() {
         done = seen();
+        const elecCount = CONCEPTOS.filter(c => c.sector === 'electricidad').length;
+        const hidroCount = CONCEPTOS.filter(c => c.sector === 'hidrocarburos').length;
+        const activeConcepts = CONCEPTOS.filter(c => c.sector === currentSector);
+
         container.innerHTML = `
             <section class="cf-view" aria-labelledby="cf-title">
                 <header class="cf-head">
-                    <p class="cf-kicker">Explicaciones generales · no son texto legal</p>
-                    <h1 id="cf-title">¿Cómo funciona?</h1>
-                    <p class="cf-intro">Una ruta para entender la electricidad paso a paso: de las ideas básicas a las centrales, con ilustraciones que puedes mover, las leyes que las regulan y los permisos que necesitan.</p>
+                    <p class="cf-kicker">Explicaciones generales · interactivo con anatomía técnica y leyes</p>
+                    <h1 id="cf-title">¿Cómo funciona el sector energético?</h1>
+                    <p class="cf-intro">Aprende paso a paso cómo funcionan la electricidad y los hidrocarburos en México: desde las leyes físicas y las moléculas hasta las centrales, refinerías, ductos y el diseño de los mercados.</p>
+                    
+                    <div class="cf-sectors-nav" role="tablist" aria-label="Seleccionar mercado">
+                        <button type="button" class="cf-sector-tab ${currentSector === 'electricidad' ? 'is-active' : ''}" data-sector="electricidad" role="tab" aria-selected="${currentSector === 'electricidad'}">
+                            <span class="cf-tab-icon">${ICONS.electricidad}</span>
+                            <span class="cf-tab-text">Mercado Eléctrico (SEN / MEM)</span>
+                            <span class="cf-tab-count">${elecCount} conceptos</span>
+                        </button>
+                        <button type="button" class="cf-sector-tab ${currentSector === 'hidrocarburos' ? 'is-active' : ''}" data-sector="hidrocarburos" role="tab" aria-selected="${currentSector === 'hidrocarburos'}">
+                            <span class="cf-tab-icon">${ICONS.hidrocarburos}</span>
+                            <span class="cf-tab-text">Mercado de Hidrocarburos</span>
+                            <span class="cf-tab-count">${hidroCount} conceptos</span>
+                        </button>
+                    </div>
                 </header>
                 <p class="cf-progress">${progress()}</p>
-                <ol class="cf-route">${NIVELES.map(nivel => `
+                <ol class="cf-route">${NIVELES.map(nivel => {
+                    const levelConcepts = activeConcepts.filter(c => c.nivel === nivel.id);
+                    if (!levelConcepts.length && !SOON[nivel.id]) return '';
+                    return `
                     <li class="cf-level" aria-labelledby="cf-nivel-${nivel.id}">
                         <div class="cf-level-head">
                             <span class="cf-level-num" aria-hidden="true">${nivel.id}</span>
                             <div><h2 id="cf-nivel-${nivel.id}">Nivel ${nivel.id} · ${esc(nivel.titulo)}</h2><p>${esc(nivel.texto)}</p></div>
                         </div>
-                        <div class="cf-grid">${CONCEPTOS.filter(c => c.nivel === nivel.id).map(c => card(c, done.has(c.id))).join('')}
-                            ${SOON[nivel.id] ? `<div class="cf-card cf-soon" aria-hidden="true"><strong>Próximamente</strong><span class="cf-card-text">${esc(SOON[nivel.id])}</span></div>` : ''}
+                        <div class="cf-grid">
+                            ${levelConcepts.map(c => card(c, done.has(c.id))).join('')}
+                            ${(SOON[nivel.id] && levelConcepts.length === 0) ? `<div class="cf-card cf-soon" aria-hidden="true"><strong>Próximamente</strong><span class="cf-card-text">${esc(SOON[nivel.id])}</span></div>` : ''}
                         </div>
-                    </li>`).join('')}
+                    </li>`;
+                }).filter(Boolean).join('')}
                 </ol>
             </section>`;
+
+        container.querySelectorAll('.cf-sector-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSector = btn.dataset.sector;
+                showList();
+            });
+        });
     }
 
     function showConcept(concept) {
+        if (concept.sector) currentSector = concept.sector;
         const summaries = typeof catalog === 'function' ? catalog() || [] : catalog;
         markSeen(concept.id);
         const next = siguienteConcepto(concept.id);
         const before = (concept.antes || []).map(id => CONCEPTO[id]).filter(Boolean);
         const laws = (concept.ley?.siglas || []).map(siglas => ({ siglas, law: lawBySiglas(summaries, siglas) }));
         const tramites = concept.tramites.map(tramiteById).filter(Boolean);
+        const sectorName = concept.sector === 'hidrocarburos' ? 'Mercado de Hidrocarburos' : 'Mercado Eléctrico';
+        const sectorIcon = concept.sector === 'hidrocarburos' ? ICONS.hidrocarburos : ICONS.electricidad;
         container.innerHTML = `
             <article class="cf-view cf-concept" aria-labelledby="cf-title">
-                <a class="cf-back" href="#como-funciona">← Ruta de aprendizaje</a>
+                <a class="cf-back" href="#como-funciona">← Volver a la ruta de ${sectorName}</a>
                 <header class="cf-head">
-                    <p class="cf-kicker">¿Cómo funciona? · Nivel ${concept.nivel} · ${esc(NIVELES.find(n => n.id === concept.nivel)?.titulo)}</p>
+                    <p class="cf-kicker"><span class="cf-kicker-icon">${sectorIcon}</span> ${sectorName} · Nivel ${concept.nivel}: ${esc(NIVELES.find(n => n.id === concept.nivel)?.titulo)}</p>
                     <h1 id="cf-title">${esc(concept.titulo)}</h1>
                     <p class="cf-intro">${esc(concept.resumen)}</p>
                     <button type="button" class="cf-share" data-share><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Compartir</span></button>

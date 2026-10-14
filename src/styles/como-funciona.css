@@ -107,3 +107,31 @@ html.dark-mode .cf-level-num{color:#211b1d}
 .cf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .cf-fun{margin-top:26px;padding:16px 18px;border-radius:14px;background:color-mix(in srgb,#e9c46a 22%,var(--cf-card));font-size:15px;line-height:1.6}
 .cf-fun b{color:var(--cf-accent)}
+
+/* Sector selector tabs */
+.cf-sectors-nav{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 20px}
+.cf-sector-tab{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--cf-border);border-radius:999px;background:var(--cf-card);color:var(--cf-muted);font:600 14px 'Noto Sans',sans-serif;cursor:pointer;transition:all .15s ease}
+.cf-sector-tab:hover{border-color:var(--cf-accent);color:var(--cf-ink);transform:translateY(-1px)}
+.cf-sector-tab.is-active{color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.cf-sector-tab[data-sector="electricidad"].is-active{background:#1E5B4F;border-color:#1E5B4F}
+html.dark-mode .cf-sector-tab[data-sector="electricidad"].is-active{color:#fff;background:#1E5B4F;border-color:#5e9b88}
+.cf-sector-tab[data-sector="hidrocarburos"].is-active{background:#A57F2C;border-color:#A57F2C}
+html.dark-mode .cf-sector-tab[data-sector="hidrocarburos"].is-active{color:#fff;background:#A57F2C;border-color:#c89f4c}
+.cf-tab-icon{display:inline-flex;align-items:center;justify-content:center}
+.cf-tab-icon svg{display:block;width:15px;height:15px}
+.cf-tab-text{font-weight:600;letter-spacing:-.01em}
+.cf-tab-count{padding:1px 7px;border-radius:999px;background:rgba(0,0,0,.07);font-size:11.5px;font-weight:600}
+.cf-sector-tab.is-active .cf-tab-count{background:rgba(255,255,255,.22)}
+
+/* Card layout & sector badges */
+.cf-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:2px}
+.cf-badge-sector{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.cf-badge-sector svg{display:block;width:11px;height:11px;flex:none}
+.cf-badge-elec{background:color-mix(in srgb,#1E5B4F 10%,transparent);color:#1E5B4F;border:1px solid color-mix(in srgb,#1E5B4F 22%,transparent)}
+html.dark-mode .cf-badge-elec{background:color-mix(in srgb,#6fc2ae 15%,transparent);color:#6fc2ae;border-color:color-mix(in srgb,#6fc2ae 30%,transparent)}
+.cf-badge-hidro{background:color-mix(in srgb,#A57F2C 10%,transparent);color:#A57F2C;border:1px solid color-mix(in srgb,#A57F2C 22%,transparent)}
+html.dark-mode .cf-badge-hidro{background:color-mix(in srgb,#e2b85a 15%,transparent);color:#e2b85a;border-color:color-mix(in srgb,#e2b85a 30%,transparent)}
+.cf-kicker-icon{display:inline-flex;vertical-align:-2px;margin-right:4px}
+.cf-kicker-icon svg{display:block;width:14px;height:14px}
+.cf-check svg{display:block;width:9px;height:9px}
+
