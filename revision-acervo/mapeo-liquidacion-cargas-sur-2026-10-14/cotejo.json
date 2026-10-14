@@ -1,0 +1,136 @@
+{
+  "fecha_cotejo": "2026-10-14",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=30012025-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+  "sha256_pdf": "6f61392bee73b51fd93fb684f7349c202b405c8a275ac6b0f0e20c10b065b5ae",
+  "bytes_pdf": 6473246,
+  "paginas_pdf": 344,
+  "paginas_impresas_documento": [
+    179,
+    184
+  ],
+  "fragmentos_oficiales_mapeados": 12,
+  "nota_editorial_sin_mapa": [
+    "38d1e937-ab0d-5273-b94f-0ccf09c1a6d2"
+  ],
+  "cotejo_visual_recomendado": [
+    179,
+    182,
+    183,
+    184
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "id": "e455c848-f35c-59bb-bda6-5e4d74eed451",
+      "paginas_pdf": [
+        179,
+        180,
+        181,
+        182
+      ],
+      "anclas": 178,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO",
+      "id": "1e46c847-4892-59fb-ba7e-f9976c8d6cc7",
+      "paginas_pdf": [
+        182
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo SEGUNDO",
+      "id": "7ec97225-5fc7-5e3b-8607-773dcfc963db",
+      "paginas_pdf": [
+        182
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo TERCERO",
+      "id": "aa47f504-a217-5a5c-abac-61b3d21864bc",
+      "paginas_pdf": [
+        182
+      ],
+      "anclas": 9,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo CUARTO",
+      "id": "0945a66a-6333-5138-9151-15f1d0b78c81",
+      "paginas_pdf": [
+        182
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo QUINTO",
+      "id": "2fd76255-39f4-5619-9e6b-91341018c8de",
+      "paginas_pdf": [
+        182
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "67465ca5-7e6a-5788-b99b-1897fad1f21a",
+      "paginas_pdf": [
+        182
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Presentación e índice",
+      "id": "5b58cb05-5caa-58c8-8658-fed3703e0b44",
+      "paginas_pdf": [
+        183
+      ],
+      "anclas": 14,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apartado 1.1. Acrónimos y Definiciones",
+      "id": "015b90e8-da7a-5c41-be20-ec5922010960",
+      "paginas_pdf": [
+        183,
+        184
+      ],
+      "anclas": 68,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apartado 1.2. Objeto, alcance y ámbito de aplicación",
+      "id": "b6b2b7bf-de50-5e9f-a745-16b9bf32fa35",
+      "paginas_pdf": [
+        184
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Apartado 1.3. Marco jurídico aplicable",
+      "id": "c6c77bb7-c2bc-5240-853d-6bf9eeda8ae7",
+      "paginas_pdf": [
+        184
+      ],
+      "anclas": 13,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Capítulo 2 · Criterios de liquidación",
+      "id": "02face04-77ff-5b58-9884-34f12043c75d",
+      "paginas_pdf": [
+        184
+      ],
+      "anclas": 28,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
