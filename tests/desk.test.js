@@ -106,7 +106,7 @@ describe('article html', () => {
     it('keeps structure but drops scripts, handlers and javascript links', () => {
         const html = articleHtml('<p onclick="x()">Uno <a href="javascript:alert(1)">l</a></p><script>bad()</script><table><tr><td>t</td></tr></table>');
         expect(html).not.toMatch(/script|onclick|javascript/);
-        expect(html).toContain('<table>');
+        expect(html).toMatch(/<table\b[^>]*>/);
     });
 
     it('turns plain text into escaped paragraphs', () => {

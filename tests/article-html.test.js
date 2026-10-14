@@ -1,0 +1,64 @@
+import { describe, it, expect } from 'vitest';
+import { articleHtml, sanitizeArticleHtml, markScrollableTables } from '../src/lib/article-html.js';
+
+const OFFICIAL = `<p>Se dan a conocer los reactivos resultantes:</p>
+<table><thead><tr><th>ID</th><th>REACTIVO</th><th colspan="2">CLASIFICACIÓN</th></tr></thead>
+<tbody><tr><td rowspan="2">1</td><td>Razón social</td><td>Datos generales</td><td>Obligatorio</td></tr>
+<tr><td>RFC</td><td>Datos generales</td><td>Obligatorio</td></tr></tbody></table>`;
+
+const render = html => { const root = document.createElement('div'); root.innerHTML = html; return root; };
+
+describe('article HTML tables', () => {
+    it('keeps every table element, span and cell text', () => {
+        const root = render(sanitizeArticleHtml(OFFICIAL));
+        for (const tag of ['table', 'thead', 'tbody', 'tr', 'th', 'td']) expect(root.querySelector(tag)).not.toBeNull();
+        expect(root.querySelector('th[colspan="2"]').textContent).toBe('CLASIFICACIÓN');
+        expect(root.querySelector('td[rowspan="2"]').textContent).toBe('1');
+        expect(root.querySelectorAll('td')).toHaveLength(7);
+        // Same words, same order: presentation never changes the official text.
+        expect(root.textContent.replace(/\s+/g, ' ')).toBe(render(OFFICIAL).textContent.replace(/\s+/g, ' '));
+    });
+
+    it('puts each table in a labelled scroll region with presentation hints', () => {
+        const root = render(sanitizeArticleHtml(OFFICIAL + OFFICIAL));
+        const boxes = root.querySelectorAll('.lr-table');
+        expect(boxes).toHaveLength(2);
+        expect(boxes[0].getAttribute('role')).toBe('region');
+        expect(boxes[0].getAttribute('tabindex')).toBe('0');
+        expect(boxes[1].getAttribute('aria-label')).toBe('Tabla 2');
+        const table = boxes[0].querySelector('table');
+        expect(table.classList.contains('lr-cols-4')).toBe(true);
+        expect(table.querySelector('th').getAttribute('scope')).toBe('col');
+        expect(table.querySelector('th[colspan]').getAttribute('scope')).toBe('colgroup');
+        expect(table.querySelector('td[rowspan]').classList.contains('lr-num')).toBe(true);
+        expect([...table.querySelectorAll('td')].filter(td => td.classList.contains('lr-num'))).toHaveLength(1);
+    });
+
+    it('reuses an existing overflow box instead of nesting a second one', () => {
+        const root = render(sanitizeArticleHtml(`<div class="overflow-x-auto"><table><tr><td>a</td></tr></table></div>`));
+        expect(root.querySelectorAll('.lr-table')).toHaveLength(1);
+        expect(root.querySelector('.lr-table').classList.contains('overflow-x-auto')).toBe(true);
+    });
+
+    it('still removes scripts, handlers and inline styles', () => {
+        const html = sanitizeArticleHtml(`<table onclick="x()" style="width:9px"><tr><td>a<script>bad()</script></td></tr></table>`);
+        expect(html).not.toMatch(/onclick|style=|script/);
+    });
+
+    it('does not turn pipe-separated paragraphs into a table', () => {
+        globalThis.marked = { parse: value => `<p>${value}</p>` };
+        try {
+            const root = render(articleHtml('ID | REACTIVO | SECCIÓN | 1 | Razón social'));
+            expect(root.querySelector('table')).toBeNull();
+            expect(root.textContent).toContain('ID | REACTIVO');
+        } finally { delete globalThis.marked; }
+    });
+
+    it('adds one hidden scroll hint per table in a rendered reader', () => {
+        const root = render(sanitizeArticleHtml(OFFICIAL));
+        markScrollableTables(root);
+        markScrollableTables(root);
+        expect(root.querySelectorAll('.lr-table-hint')).toHaveLength(1);
+        expect(root.querySelector('.lr-table-hint').getAttribute('aria-hidden')).toBe('true');
+    });
+});

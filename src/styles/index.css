@@ -2,6 +2,7 @@
 @import './mobile-responsive.css';
 @import './sener-institutional.css';
 @import './polish.css';
+@import './article-tables.css';
 
 @tailwind base;
 @tailwind components;

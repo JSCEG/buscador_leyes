@@ -2,7 +2,7 @@
  * Full-page reading of one article (#lectura-<id>), meant to live in its own browser tab
  * while the reader keeps navigating the app in another one.
  */
-import { articleHtml } from '../lib/article-html.js';
+import { articleHtml, markScrollableTables } from '../lib/article-html.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { getAcervoGroup, ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { pinButtonHtml } from './desk-view.js';
@@ -44,6 +44,7 @@ export function renderArticlePage(container, { item, law, sourceUrl = '', onOpen
     </article>`;
     document.title = `${item.articulo_label} · ${item.siglas_ley || item.ley_origen} · Buscador Jurídico`;
     const root = container.querySelector('.ap-view');
+    markScrollableTables(root);
     root.addEventListener('click', event => {
         const target = event.target.closest('button');
         if (!target) return;

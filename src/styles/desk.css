@@ -75,8 +75,6 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-card.is-open .desk-text{max-height:none}
 .desk-card.is-open .desk-text::after{display:none}
 .desk-text p,.desk-column-text p{margin:0 0 .7em}
-.desk-text table,.desk-column-text table{border-collapse:collapse;font-size:12.5px;margin:.5em 0;width:100%}
-.desk-text td,.desk-text th,.desk-column-text td,.desk-column-text th{border:1px solid var(--dk-border);padding:4px 6px;vertical-align:top}
 .desk-card-foot{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
 .desk-link{padding:4px 0;border:0;background:none;color:var(--dk-guinda);font:600 13px/1.2 'Noto Sans',sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .desk-card.is-missing{border-left-color:var(--dk-faint);opacity:.8}
@@ -187,3 +185,5 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-status{background:var(--dk-card)}
 html.dark-mode .desk-head{background:radial-gradient(110% 120% at 100% 0%,#7a2344 0%,transparent 60%),linear-gradient(135deg,#3d0b1c,#5e1430 60%,#3d0b1c)}
 @media (prefers-reduced-motion:reduce){.desk-card:hover{transform:none}}
+/* Desk cards are small: tables at a compact size (borders and scroll box: article-tables.css). */
+.desk-text .lr-table table.lr-tb,.desk-column-text .lr-table table.lr-tb{font-size:12.5px;line-height:1.45}

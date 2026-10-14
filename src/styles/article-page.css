@@ -19,11 +19,8 @@
 .ap-head :is(button,a):focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
 .ap-text{margin-top:24px;padding:28px 34px;border:1px solid #e4ded5;border-radius:16px;background:#fff;color:#302b27;font-size:17px;line-height:1.8;text-align:justify;hyphens:auto}
 .ap-text p{margin:0 0 1em}
-.ap-text table{border-collapse:collapse;width:100%;font-size:14px;margin:1em 0}
-.ap-text td,.ap-text th{border:1px solid #e4ded5;padding:6px 8px;vertical-align:top}
 .ap-note{margin-top:14px!important;text-align:center;font-size:12px;color:#9a938a}
 html.dark-mode .ap-text{background:#262321;border-color:#3d3833;color:#f4efe7}
-html.dark-mode .ap-text td,html.dark-mode .ap-text th{border-color:#3d3833}
 @media (max-width:640px){.ap-head{padding:20px 18px;border-radius:16px}.ap-text{padding:18px;font-size:16px;text-align:left}}
 @media print{
     header,footer,#desk-toggle,#nav-progress,#nav-progress-pill,.ap-actions,.ap-note{display:none!important}

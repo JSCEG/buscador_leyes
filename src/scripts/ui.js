@@ -10,6 +10,7 @@ import { renderSearchLanding } from './search-landing.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
+import { sanitizeArticleHtml, markScrollableTables } from '../lib/article-html.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
@@ -3149,13 +3150,14 @@ export function initUI() {
         
         let finalHtml = '';
         if (/<(?:div|p|table|section|ul|ol|h[1-6])\b/i.test(item.texto)) {
-            // Reviewed HTML already carries its paragraph/table structure.
-            finalHtml = item.texto;
+            // Reviewed HTML already carries its paragraph/table structure; keep it, made safe, with
+            // the reader's table presentation (scroll box, header scopes).
+            finalHtml = sanitizeArticleHtml(item.texto);
         } else if (hasMarkdown) {
             // Usar marked para el renderizado (especialmente para tablas)
             finalHtml = `<div class="prose-container">
                 <div class="prose prose-sm max-w-none prose-p:leading-relaxed">
-                    ${marked.parse(item.texto)}
+                    ${sanitizeArticleHtml(marked.parse(item.texto))}
                 </div>
             </div>`;
         } else {
@@ -3207,6 +3209,7 @@ export function initUI() {
         `;
         // Defined terms of the instrument show their official definition on hover or tap.
         const readerText = modalContent.querySelector('.reader-text');
+        markScrollableTables(readerText);
         decorateDefinitions(readerText, {
             law: cachedSummaries.find(l => String(l.id) === String(item.ley_id))
                 || (item.ley_id ? { id: item.ley_id, titulo: item.ley_origen, siglas: item.siglas_ley } : null),

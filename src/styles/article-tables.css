@@ -1,0 +1,61 @@
+/* Official tables in the readers (article modal, article page, desk). The HTML comes from
+   src/lib/article-html.js: each table sits in a .lr-table scroll region. Wide tables scroll
+   sideways inside that box on phones instead of overflowing the screen; text in the cells is
+   never changed (no uppercase, no truncation). Sizes are in em so the reader's letter-size and
+   line-spacing controls scale them. */
+.lr-table{
+  --lr-line:#ddd3c8; --lr-head:#9b2247; --lr-head-ink:#fff; --lr-head-line:#7d1b39;
+  --lr-row:#faf6f1;
+  position:relative; max-width:100%; margin:1.2em 0; overflow-x:auto; overscroll-behavior-x:contain;
+  border:1px solid var(--lr-line); border-radius:10px; -webkit-overflow-scrolling:touch;
+}
+.lr-table:focus-visible{outline:3px solid #a57f2c; outline-offset:2px}
+html[data-reader-surface="sepia"] .lr-table{--lr-line:#dcc59c; --lr-head:#8c2343; --lr-head-line:#6f1a35; --lr-row:#f3e6c8}
+html.dark-mode:not([data-reader-surface="light"]):not([data-reader-surface="sepia"]) .lr-table,
+html[data-reader-surface="dark"] .lr-table{--lr-line:#415249; --lr-head:#5c1630; --lr-head-ink:#f6e7c8; --lr-head-line:#a57f2c; --lr-row:#26332d}
+
+/* The table itself: one border model, readable cells, header rows in institutional guinda. */
+html .lr-table table.lr-tb{
+  display:table!important; width:100%; margin:0; border-collapse:collapse!important; border-spacing:0;
+  font-size:.86em; line-height:calc(var(--reader-line-height,1.8) * .8); background:transparent!important;
+}
+.lr-table table.lr-cols-3{min-width:21em}
+.lr-table table.lr-cols-4{min-width:28em}
+.lr-table table.lr-cols-5{min-width:35em}
+.lr-table table.lr-cols-6{min-width:42em}
+.lr-table table.lr-cols-7{min-width:49em}
+.lr-table table.lr-cols-8{min-width:56em}
+html .lr-table :is(td,th){
+  min-width:4.5em; padding:.55em .7em!important; border:1px solid var(--lr-line)!important;
+  vertical-align:top; text-align:left!important; text-align-last:auto!important;
+  overflow-wrap:break-word!important; word-break:normal!important; hyphens:auto;
+  background:transparent!important; text-transform:none!important; letter-spacing:normal!important;
+}
+html .lr-table :is(thead th, thead td, th){
+  background:var(--lr-head)!important; color:var(--lr-head-ink)!important; font-weight:700;
+  font-size:1em!important; vertical-align:bottom; border-color:var(--lr-head-line)!important;
+}
+html .lr-table thead tr{background:var(--lr-head)!important; border:0!important}
+html .lr-table tbody th{vertical-align:top}
+html .lr-table tbody tr:nth-child(even) > td{background:var(--lr-row)!important}
+html .lr-table td.lr-num{text-align:center!important; white-space:nowrap; font-variant-numeric:tabular-nums}
+html .lr-table tbody tr:hover{background:transparent!important}
+/* Reader surfaces paint every descendant's colour; headers keep their own ink. */
+html[data-reader-surface] #modal-content .reader-text .lr-table :is(thead th, thead td, th){color:var(--lr-head-ink)!important}
+html #modal-content .reader-text .lr-table :is(td,th){font-size:inherit!important; line-height:inherit!important; text-align:left!important; text-align-last:auto!important; hyphens:auto!important}
+html #modal-content .reader-text .lr-table td.lr-num{text-align:center!important}
+html #modal-content .reader-text .lr-table :is(td,th) :is(p,div,li,span){text-align:left!important; text-align-last:auto!important}
+html #modal-content .reader-text .lr-table :is(td,th) p{margin:0 0 .4em!important}
+html #modal-content .reader-text .lr-table :is(td,th) p:last-child{margin-bottom:0!important}
+
+/* Wide tables: a one-line hint above, shown only while the table is wider than its box. */
+.lr-table-hint{display:none; margin:.6em 0 -.6em; color:#6b6460; font:600 .78em/1.3 'Noto Sans',system-ui,sans-serif}
+.lr-table-hint.is-on{display:block}
+html.dark-mode .lr-table-hint{color:#b3a89e}
+
+@media print{
+  .lr-table{overflow:visible; border:0}
+  .lr-table table.lr-tb{min-width:0!important}
+  .lr-table-hint{display:none!important}
+}
+html #modal-content .reader-text p.lr-table-hint{font-size:13px!important; line-height:1.35!important; text-align:left!important; margin:.8em 0 -.6em!important}

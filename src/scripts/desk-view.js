@@ -8,7 +8,7 @@ import {
     DESK_LIMIT, DESKS_LIMIT, SIDE_BY_SIDE_LIMIT, getDesk, getDesks, getActiveDesk, setActiveDesk, createDesk, renameDesk,
     duplicateDesk, deleteDesk, isPinned, pin, togglePin, unpin, moveInDesk, clearDesk, onDeskChange, deskHash,
 } from '../lib/desk-store.js';
-import { articleHtml } from '../lib/article-html.js';
+import { articleHtml, markScrollableTables } from '../lib/article-html.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { getAcervoGroup } from '../lib/acervo-model.js';
 import { withProgress } from '../lib/nav-progress.js';
@@ -235,6 +235,7 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
             ? (selected.size >= 2 ? '' : `Marca de 2 a ${SIDE_BY_SIDE_LIMIT} artículos para verlos lado a lado; si no marcas, se muestran los primeros ${SIDE_BY_SIDE_LIMIT}.`)
             : '';
         list.innerHTML = ids.map((id, index) => card(id, index, ids.length, others)).join('');
+        markScrollableTables(list);
     }
 
     async function render() {
@@ -283,6 +284,7 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
             </div></div>`;
         side.hidden = false;
         document.body.classList.add('desk-side-open');
+        markScrollableTables(side);
         side.querySelector('[data-side-close]').focus();
     }
 
