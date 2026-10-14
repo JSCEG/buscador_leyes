@@ -43,7 +43,8 @@ export function labelsSvg(labels, at) {
 /** The CSS every figure shares, after the kit's own. */
 export function figureCss(theme) {
   const I = inkOf(theme);
-  return `body.iso[data-theme="${theme}"]{--anatomy-red:${I.red};--anatomy-green:${I.green};--cf-gold:${I.gold};--cf-glow:${I.glow}}
+  return `body.iso[data-theme="${theme}"]{--anatomy-red:${I.red};--anatomy-green:${I.green};--cf-gold:${I.gold};--cf-glow:${I.glow};--cf-accent:${I.red};--cf-border:var(--anatomy-mid);--cf-card:var(--anatomy-card)}
+.iso-swatch[data-mark="gold"] path{stroke:var(--cf-gold)}
 html{background:transparent!important;color-scheme:${theme}}
 body{background:transparent!important}
 .iso-page{width:100%!important;margin:0!important;padding:0 2px}
