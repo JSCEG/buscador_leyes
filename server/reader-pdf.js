@@ -1,10 +1,18 @@
 import sourcesById from './reader-pdf-sources.json';
 
+// PDFs up to MAX_PDF_BYTES are read whole and verified before anything is sent. Larger reviewed
+// PDFs (whole DOF issues reach ~60 MB) must declare their length and are streamed: the SHA-256
+// is computed as the bytes pass and the last chunk is held back until it matches, so a changed
+// edition never reaches the reader complete. Nothing is stored.
 export const MAX_PDF_BYTES = 20 * 1024 * 1024;
+export const MAX_STREAMED_PDF_BYTES = 96 * 1024 * 1024;
+const IDLE_TIMEOUT = 30000;
+const TOTAL_TIMEOUT = 240000;
 const reviewedDofPdfs = new Set([
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=24102025-VES.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=02122025-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=14102026-MAT.pdf&repo=',
+    'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=08062026-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=25092024-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=30012025-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=23042024-MAT.pdf&repo=',
@@ -79,8 +87,26 @@ function problem(status, code) {
     });
 }
 
+const hex = buffer => [...new Uint8Array(buffer)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+/** Incremental SHA-256 with the Workers runtime's DigestStream; null where it does not exist. */
+export function digestStreamHasher() {
+    if (typeof crypto?.DigestStream !== 'function') return null;
+    const stream = new crypto.DigestStream('SHA-256');
+    const writer = stream.getWriter();
+    return {
+        update: chunk => writer.write(chunk),
+        async digest() { await writer.close(); return hex(await stream.digest); },
+    };
+}
+
+const PDF_HEADERS = {
+    'Content-Type': 'application/pdf', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
+    'Content-Disposition': 'inline; filename="documento-oficial.pdf"',
+};
+
 /** Fixed, reviewed sources only. Nothing from the request becomes an upstream URL. */
-export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.fetch, sources = sourcesById } = {}) {
+export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.fetch, sources = sourcesById, createHasher = digestStreamHasher } = {}) {
     if (request.method !== 'GET') return problem(405, 'method-not-allowed');
     if (new URL(request.url).search) return problem(400, 'unexpected-parameters');
     const source = Object.hasOwn(sources, sourceId) ? sources[sourceId] : null;
@@ -89,31 +115,46 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
         && !reviewedDofPdfs.has(source.originalUrl))
         || !/^[a-f0-9]{64}$/.test(source.sha256)) return problem(404, 'unknown-source');
     const controller = new AbortController();
-    // Large official issue PDFs can take longer to stream through the Worker
-    // than the smaller individual-law PDFs. Keep the upstream request alive
-    // long enough for the reviewed 20 MiB maximum.
-    const timer = setTimeout(() => controller.abort(), 60000);
+    // The upstream may stall: abort after IDLE_TIMEOUT without bytes, and after TOTAL_TIMEOUT in all.
+    let idle = setTimeout(() => controller.abort(), IDLE_TIMEOUT);
+    const total = setTimeout(() => controller.abort(), TOTAL_TIMEOUT);
+    const touch = () => { clearTimeout(idle); idle = setTimeout(() => controller.abort(), IDLE_TIMEOUT); };
+    const stop = () => { clearTimeout(idle); clearTimeout(total); };
+    let streaming = false;
     try {
         const upstream = await fetcher(source.originalUrl, {
             // Workers supports manual/follow; a 3xx fails the !ok check below.
             redirect: 'manual', signal: controller.signal, headers: { Accept: 'application/pdf' },
         });
+        touch();
         if (!upstream.ok || !/^application\/pdf(?:;|$)/i.test(upstream.headers.get('content-type') || '')) {
             console.warn('[reader-pdf] upstream response', { sourceId, status: upstream.status, contentType: upstream.headers.get('content-type') });
             await upstream.body?.cancel();
             return problem(502, 'source-unavailable');
         }
-        if (Number(upstream.headers.get('content-length')) > MAX_PDF_BYTES) {
+        const declared = Number(upstream.headers.get('content-length'));
+        const declaredLength = Number.isSafeInteger(declared) && declared > 0 ? declared : 0;
+        if (declaredLength > MAX_STREAMED_PDF_BYTES) {
             await upstream.body?.cancel();
             return problem(502, 'source-too-large');
         }
         if (!upstream.body) return problem(502, 'source-unavailable');
+        if (declaredLength > MAX_PDF_BYTES) {
+            const hasher = createHasher();
+            if (!hasher) { await upstream.body.cancel(); return problem(502, 'source-too-large'); }
+            streaming = true;
+            return new Response(verifiedStream(upstream.body, { length: declaredLength, sha256: source.sha256, hasher, touch, stop, sourceId }), {
+                headers: { ...PDF_HEADERS, 'Content-Length': String(declaredLength), 'X-Reader-SHA256': source.sha256 },
+            });
+        }
+        // Small or undeclared: read whole (never past MAX_PDF_BYTES) and verify before answering.
         const reader = upstream.body.getReader();
         const chunks = [];
         let length = 0;
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
+            touch();
             length += value.byteLength;
             if (length > MAX_PDF_BYTES) {
                 await reader.cancel();
@@ -124,17 +165,47 @@ export async function serveReaderPdf(request, sourceId, { fetcher = globalThis.f
         const bytes = new Uint8Array(length);
         let offset = 0;
         for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
-        const digest = await crypto.subtle.digest('SHA-256', bytes);
-        const actual = [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+        chunks.length = 0;
+        const actual = hex(await crypto.subtle.digest('SHA-256', bytes));
         if (actual !== source.sha256) return problem(409, 'source-version-changed');
-        return new Response(bytes, { headers: {
-            'Content-Type': 'application/pdf', 'Content-Length': String(length),
-            'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff',
-            'Content-Disposition': 'inline; filename="documento-oficial.pdf"',
-            'X-Reader-SHA256': actual,
-        } });
+        return new Response(bytes, { headers: { ...PDF_HEADERS, 'Content-Length': String(length), 'X-Reader-SHA256': actual } });
     } catch (error) {
         console.warn('[reader-pdf] upstream failure', { sourceId, name: error?.name, message: error?.message });
         return problem(controller.signal.aborted ? 504 : 502, 'source-unavailable');
-    } finally { clearTimeout(timer); }
+    } finally { if (!streaming) stop(); }
+}
+
+/**
+ * Passes the upstream bytes through while hashing them. Holds back the latest chunk; at the end it
+ * is released only if the length and SHA-256 match the reviewed edition, otherwise the stream
+ * errors and the reader discards what it received.
+ */
+function verifiedStream(body, { length, sha256, hasher, touch, stop, sourceId }) {
+    let held = null;
+    let received = 0;
+    const fail = (controller, code) => {
+        stop();
+        console.warn('[reader-pdf] streamed source rejected', { sourceId, code, received });
+        controller.error(Object.assign(new Error(code), { code }));
+    };
+    const verify = new TransformStream({
+        async transform(chunk, controller) {
+            touch();
+            received += chunk.byteLength;
+            if (received > length) { fail(controller, 'source-too-large'); return; }
+            await hasher.update(chunk);
+            if (held) controller.enqueue(held);
+            held = chunk;
+        },
+        async flush(controller) {
+            if (received !== length) { fail(controller, 'source-unavailable'); return; }
+            if (await hasher.digest() !== sha256) { fail(controller, 'source-version-changed'); return; }
+            stop();
+            if (held) controller.enqueue(held);
+            held = null;
+        },
+    });
+    const piped = body.pipeThrough(verify);
+    // Workers sends a declared length only through a FixedLengthStream.
+    return typeof FixedLengthStream === 'function' ? piped.pipeThrough(new FixedLengthStream(length)) : piped;
 }

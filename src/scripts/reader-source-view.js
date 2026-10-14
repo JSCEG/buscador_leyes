@@ -1,7 +1,7 @@
 import { getReaderSource } from '../lib/reader-source.js';
 import { officialUrl } from '../lib/official-url.js';
 import { withProgress } from '../lib/nav-progress.js';
-import { createRemotePdf } from '../lib/reader-pdf.js';
+import { createRemotePdf, LARGE_PDF_BYTES } from '../lib/reader-pdf.js';
 import '../styles/reader-source.css';
 
 const mounted = new WeakMap();
@@ -21,6 +21,73 @@ function el(tag, className, text) {
     if (className) node.className = className;
     if (text !== undefined) node.textContent = text;
     return node;
+}
+
+const megabytes = bytes => (bytes / 1048576).toLocaleString('es-MX', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+// After this long without new bytes, the loader says the source is slow (still loading, not failed).
+const SLOW_AFTER = 10000;
+
+/**
+ * Loading state of an official PDF, inside the page viewer: what is happening, real progress when
+ * the size is known (never an invented percentage), a notice for long PDFs and for a slow source,
+ * and a way to read the text meanwhile.
+ */
+function pdfLoader(knownBytes, announce) {
+    // The view's status line announces phase changes; the box itself is visual plus a progressbar.
+    const box = el('div', 'rs-loading');
+    const title = el('p', 'rs-loading-title', 'Cargando PDF oficial…');
+    const large = el('p', 'rs-loading-note', 'Este PDF es extenso y puede tardar en cargar. Por favor, espera.');
+    const bar = el('div', 'rs-progress');
+    const fill = el('span', 'rs-progress-fill');
+    bar.append(fill);
+    bar.setAttribute('role', 'progressbar');
+    bar.setAttribute('aria-label', 'Descarga del PDF oficial');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', '100');
+    const amount = el('p', 'rs-progress-text');
+    const slow = el('p', 'rs-loading-slow', 'La fuente oficial está tardando más de lo normal. Seguimos cargando; puedes leer el texto mientras tanto.');
+    const readText = el('button', 'rs-button rs-read-text', 'Leer el texto mientras carga');
+    readText.type = 'button';
+    readText.addEventListener('click', () => box.dispatchEvent(new CustomEvent('reader-source:show-text', { bubbles: true })));
+    large.hidden = !(knownBytes >= LARGE_PDF_BYTES);
+    bar.hidden = true; amount.hidden = true; slow.hidden = true;
+    box.append(title, large, bar, amount, slow, readText);
+    let lastChange = Date.now();
+    let lastLoaded = -1;
+    let said = '';
+    const say = () => {
+        const message = !slow.hidden ? slow.textContent : large.hidden ? title.textContent : `${title.textContent} ${large.textContent}`;
+        if (message !== said) { said = message; announce(message); }
+    };
+    const timer = setInterval(() => {
+        if (!box.isConnected) { clearInterval(timer); return; }
+        slow.hidden = Date.now() - lastChange < SLOW_AFTER;
+        say();
+    }, 1000);
+    return {
+        box,
+        update({ phase, loaded = 0, total = null }) {
+            if (loaded !== lastLoaded || phase !== 'downloading') { lastChange = Date.now(); lastLoaded = loaded; slow.hidden = true; }
+            if (total >= LARGE_PDF_BYTES) large.hidden = false;
+            if (phase === 'downloading' && loaded > 0) {
+                amount.hidden = false;
+                if (total) {
+                    const percent = Math.min(100, Math.floor(loaded / total * 100));
+                    bar.hidden = false;
+                    fill.style.width = `${percent}%`;
+                    bar.setAttribute('aria-valuenow', String(percent));
+                    bar.setAttribute('aria-valuetext', `${megabytes(loaded)} de ${megabytes(total)} MB`);
+                    amount.textContent = `${megabytes(loaded)} de ${megabytes(total)} MB · ${percent} %`;
+                } else {
+                    amount.textContent = `${megabytes(loaded)} MB descargados`;
+                }
+            }
+            if (phase === 'verifying') { title.textContent = 'Verificando que sea la versión oficial revisada…'; bar.hidden = true; amount.hidden = true; }
+            if (phase === 'opening') { title.textContent = 'Abriendo el PDF…'; bar.hidden = true; amount.hidden = true; }
+            say();
+        },
+        stop() { clearInterval(timer); },
+    };
 }
 
 function sourceLink(url, label) {
@@ -47,6 +114,8 @@ export function mountReaderSource(container, article) {
     let zoom = 100;
     let current = null;
     let remotePdf = null;
+    let pdfReady = false;
+    let progress = null;
     const titleId = `reader-source-title-${++nextId}`;
     const articleId = article?.id;
     const articleText = article?.texto ?? article?.contenido ?? article?.text ?? '';
@@ -71,27 +140,32 @@ export function mountReaderSource(container, article) {
         if (destroyed) return;
         content.replaceChildren();
         const box = el('div', 'rs-fallback');
+        const pdf = result?.source?.transport === 'remote-pdf';
         const message = reason === 'source-version-changed'
             ? 'La fuente oficial publicó otra versión del PDF. Quitamos el resaltado hasta revisarla; puedes abrir el PDF oficial actualizado.'
             : reason === 'content-mismatch'
             ? 'Este texto cambió desde la última vez que lo revisamos contra el PDF. Revísalo en la fuente oficial.'
                 : reason === 'verification-unavailable'
                     ? 'No pudimos confirmar que el texto coincide con esta versión del PDF. Revísalo en la fuente oficial.'
+                : reason === 'source-timeout'
+                    ? 'La fuente oficial tardó demasiado en responder. Puedes reintentar o abrir el PDF oficial en su sitio.'
                 : error
-                ? 'No se pudo cargar la vista del documento. Puedes volver a intentarlo o consultar su fuente.'
+                ? (pdf ? 'No se pudo cargar el PDF oficial. Puedes reintentar o abrirlo en su sitio.' : 'No se pudo cargar la vista del documento. Puedes reintentar o consultar su fuente.')
                 : 'Todavía no ubicamos este texto dentro del PDF. Puedes abrir el documento completo en la fuente oficial.';
         box.append(el('p', '', message));
-        const link = sourceLink(result?.originalUrl || originalUrl, 'Abrir fuente oficial ↗');
+        // On a load failure, open the official PDF itself (the reviewed source), else the article's source page.
+        const official = error && pdf ? result?.source?.originalUrl || result?.originalUrl || originalUrl : result?.originalUrl || originalUrl;
+        const link = sourceLink(official, error && pdf ? 'Abrir PDF oficial ↗' : 'Abrir fuente oficial ↗');
         if (link) box.append(link);
         else box.append(el('p', 'rs-muted', 'No tenemos un enlace a la fuente de este texto.'));
         if (error) {
-            const retry = el('button', 'rs-button', 'Volver a intentar');
+            const retry = el('button', 'rs-button', 'Reintentar');
             retry.type = 'button';
             retry.addEventListener('click', () => requestPage(pageIndex));
-            box.append(retry);
+            box.firstChild.after(retry);
         }
         content.append(box);
-        setStatus(error ? 'Vista del original no disponible.' : 'Aún no tenemos la página del PDF para este texto.');
+        setStatus(error ? (pdf ? 'No se pudo cargar el PDF oficial.' : 'Vista del original no disponible.') : 'Aún no tenemos la página del PDF para este texto.');
     }
 
     async function renderPage(result, token) {
@@ -197,15 +271,22 @@ export function mountReaderSource(container, article) {
         };
         if (remote) {
             figure.style.visibility = 'hidden';
-            remotePdf ||= createRemotePdf(result.source);
+            const loader = pdfLoader(Number(result.source.bytes) || 0, message => { if (isCurrent(token)) setStatus(message); });
+            progress = state => { if (isCurrent(token)) loader.update(state); };
+            if (!pdfReady) viewport.prepend(loader.box);
+            setStatus('Cargando PDF oficial…');
+            remotePdf ||= createRemotePdf(result.source, { onProgress: state => progress?.(state) });
             try {
                 await withProgress(remotePdf.render(image, page));
                 if (!isCurrent(token)) return;
+                pdfReady = true;
+                loader.stop(); loader.box.remove();
                 figure.style.visibility = '';
                 loaded();
             } catch (error) {
+                loader.stop();
                 if (isCurrent(token)) {
-                    remotePdf.destroy(); remotePdf = null;
+                    remotePdf.destroy(); remotePdf = null; pdfReady = false;
                     fallback(error.code, true, result);
                 }
             }
@@ -257,6 +338,7 @@ export function mountReaderSource(container, article) {
         destroy() {
             if (destroyed) return;
             destroyed = true; sequence++;
+            progress = null;
             remotePdf?.destroy();
             if (mounted.get(container) === api) { mounted.delete(container); container.replaceChildren(); }
         },

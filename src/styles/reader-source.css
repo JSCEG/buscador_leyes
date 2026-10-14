@@ -36,3 +36,19 @@ html.dark-mode .reader-source-view .rs-header,html.dark-mode .reader-source-view
 html.dark-mode .reader-source-view .rs-viewport{background:#171514}
 @media(max-width:599px){.reader-source-view .rs-header{padding:14px 14px 0}.reader-source-view h3{font-size:19px}.reader-source-view .rs-status{padding:8px 14px}.reader-source-view .rs-toolbar{padding:8px;gap:6px}.reader-source-view .rs-pages{flex:1 1 100%;justify-content:space-between}.reader-source-view .rs-page-label{flex:1}.reader-source-view select{max-width:none}.reader-source-view .rs-zoom-controls{margin-left:auto}.reader-source-view .rs-viewport{max-height:60dvh;padding:8px}.reader-source-view .rs-footer{padding:10px 14px}.reader-source-view .rs-source-link{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.reader-source-view *{scroll-behavior:auto!important}}
+
+/* Loading an official PDF: status, real progress, long-PDF and slow-source notices. */
+.reader-source-view .rs-loading{position:sticky;top:0;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:12px;padding:16px 18px;border:1px solid var(--rs-border);border-left:4px solid var(--rs-guinda);border-radius:10px;background:var(--rs-paper);color:var(--rs-ink);box-shadow:0 6px 18px #302b2714}
+.reader-source-view .rs-loading p{margin:0}
+.reader-source-view .rs-loading-title{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.reader-source-view .rs-loading-title::before{content:"";flex:none;width:16px;height:16px;border:2.5px solid var(--rs-border);border-top-color:var(--rs-guinda);border-radius:50%;animation:rs-spin .9s linear infinite}
+.reader-source-view .rs-loading-note{font-size:14px;line-height:1.5}
+.reader-source-view .rs-loading-slow{font-size:13.5px;line-height:1.5;color:#7a5410;background:#fbf1dc;border-radius:6px;padding:6px 10px}
+.reader-source-view .rs-progress{width:100%;height:8px;border-radius:999px;background:var(--rs-border);overflow:hidden}
+.reader-source-view .rs-progress-fill{display:block;height:100%;width:0;background:var(--rs-green);border-radius:inherit;transition:width .2s linear}
+.reader-source-view .rs-progress-text{font-size:13px;color:var(--rs-muted);font-variant-numeric:tabular-nums}
+.reader-source-view .rs-read-text{font-size:13px;font-weight:600}
+#reader-body[data-mode="split"] .rs-read-text{display:none}
+html.dark-mode .reader-source-view .rs-loading-slow{color:#f2d27d;background:#3a3021}
+@keyframes rs-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.reader-source-view .rs-loading-title::before{animation:none;border-top-color:var(--rs-border)}.reader-source-view .rs-progress-fill{transition:none}}

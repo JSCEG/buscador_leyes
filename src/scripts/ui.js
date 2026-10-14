@@ -78,6 +78,8 @@ export function initUI() {
     document.querySelectorAll('[data-reader-mode]').forEach(button => button.addEventListener('click', () => setReaderMode(button.dataset.readerMode)));
     const readerMedia = window.matchMedia?.('(min-width: 1000px)');
     readerMedia?.addEventListener('change', e => { if (!e.matches && readerMode === 'split') setReaderMode('text'); });
+    // While a long official PDF loads, the loader offers the text: side by side where it fits.
+    readerOriginal.addEventListener('reader-source:show-text', () => setReaderMode(readerMedia?.matches ? 'split' : 'text'));
     const releaseReader = () => {
         readerOpenRequest++;
         readerSource?.destroy();
