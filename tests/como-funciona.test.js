@@ -28,19 +28,25 @@ describe('¿Cómo funciona?', () => {
     it('forms a learning route from the basics up to the power plants', () => {
         expect(CONCEPTOS.map(c => c.id).slice(0, 7)).toEqual(['electricidad', 'voltaje', 'cd-ca', 'motor', 'generador', 'transformador', 'fotovoltaica']);
         const levels = NIVELES.map(n => n.id);
-        let seen = new Set();
-        let last = 0;
-        for (const c of CONCEPTOS) {
-            expect(levels).toContain(c.nivel);
-            expect(c.nivel).toBeGreaterThanOrEqual(last);
-            last = c.nivel;
-            // "Antes mira" only points back along the route.
-            for (const id of c.antes || []) expect(seen.has(id)).toBe(true);
-            seen.add(c.id);
-            if (c.ley) for (const siglas of c.ley.siglas) expect(typeof siglas).toBe('string');
+        // One route per sector, each going up through the levels.
+        const sectors = [...new Set(CONCEPTOS.map(c => c.sector))];
+        expect(sectors).toEqual(['electricidad', 'hidrocarburos']);
+        for (const sector of sectors) {
+            const route = CONCEPTOS.filter(c => c.sector === sector);
+            let seen = new Set();
+            let last = 0;
+            for (const c of route) {
+                expect(levels).toContain(c.nivel);
+                expect(c.nivel).toBeGreaterThanOrEqual(last);
+                last = c.nivel;
+                // "Antes mira" only points back along the same route.
+                for (const id of c.antes || []) expect(seen.has(id)).toBe(true);
+                seen.add(c.id);
+                if (c.ley) for (const siglas of c.ley.siglas) expect(typeof siglas).toBe('string');
+            }
+            expect(siguienteConcepto(route.at(-1).id)).toBeNull();
         }
         expect(siguienteConcepto('electricidad').id).toBe('voltaje');
-        expect(siguienteConcepto(CONCEPTOS.at(-1).id)).toBeNull();
         expect(siguienteConcepto('nada')).toBeNull();
     });
     it('gives the basics an academic structure: definitions, formulas with examples, wrong ideas', () => {

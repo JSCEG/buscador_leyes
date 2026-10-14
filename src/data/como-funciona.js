@@ -27,8 +27,8 @@ const eia = (titulo, slug, fecha = 's. f.') => ({ autor: 'U.S. Energy Informatio
 const LSE = { autor: 'Ley del Sector Eléctrico', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LSE' };
 const RLSE = { autor: 'Reglamento de la Ley del Sector Eléctrico', titulo: 'Diario Oficial de la Federación', fecha: '3 de octubre de 2025', acervo: 'RLSE' };
 const LCNE = { autor: 'Ley de la Comisión Nacional de Energía', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LCNE' };
-const LH = { autor: 'Ley de Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '11 de agosto de 2014', acervo: 'LH' };
-const RLH = { autor: 'Reglamento de la Ley de Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '31 de octubre de 2014', acervo: 'RLH' };
+const LSH = { autor: 'Ley del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LSH' };
+const RLSH = { autor: 'Reglamento de la Ley del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '3 de octubre de 2025', acervo: 'RLSH' };
 const LASEA = { autor: 'Ley de la Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '11 de agosto de 2014', acervo: 'LASEA' };
 const CEPAL = { autor: 'Comisión Económica para América Latina y el Caribe (CEPAL)', fecha: '2021', titulo: 'Síntesis de definiciones clave para la transición energética en México', url: 'https://repositorio.cepal.org/bitstream/handle/11362/47656/6/S2100521_Mexico_es.pdf', consulta };
 const CENACE = { autor: 'Centro Nacional de Control de Energía (CENACE)', fecha: '2024', titulo: 'Manual del Mercado del Día en Adelanto y Mercado en Tiempo Real', url: 'https://www.cenace.gob.mx', consulta };
@@ -515,11 +515,11 @@ export const CONCEPTOS = [
             'Además de combustibles, los hidrocarburos son la base de la petroquímica para fabricar plásticos, fertilizantes, medicinas y textiles.',
         ],
         formulas: [
-            { expresion: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O + calor', lectura: 'metano + oxígeno producen dióxido de carbono, agua y energía calorífica', ejemplo: 'al encender una hornilla de gas natural se libera energía limpia con vapor de agua.' },
+            { expresion: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O + calor', lectura: 'metano + oxígeno producen dióxido de carbono, agua y energía calorífica', ejemplo: 'al encender una hornilla de gas natural se libera calor; lo que sale es CO₂ y vapor de agua.' },
         ],
         errores: [
             { idea: 'El petróleo se encuentra en ríos o cavernas subterráneas.', realidad: 'Está atrapado en los poros microscópicos de rocas permeables (como areniscas o calizas), igual que el agua en una esponja.' },
-            { idea: 'El gas natural y el gas LP son el mismo gas.', realidad: 'El gas natural es metano (CH₄) y se distribuye por tuberías; el gas LP es propano/butano y se vende en pipas o tanques cilindros.' },
+            { idea: 'El gas natural y el gas LP son el mismo gas.', realidad: 'El gas natural es metano (CH₄) y se distribuye por tuberías; el gas LP es propano/butano y se vende en pipas, cilindros o tanques estacionarios.' },
         ],
         partes: [
             { nombre: 'Metano (CH₄)', texto: '1 carbono y 4 hidrógenos: gas natural de red.' },
@@ -529,10 +529,10 @@ export const CONCEPTOS = [
         ],
         dato: 'El crudo mexicano de exportación de referencia mundial se llama crudo Maya: es denso, pesado y con alto contenido de azufre, extraído principalmente costa afuera en Campeche.',
         ley: {
-            texto: 'La nación tiene el dominio directo, inalienable e imprescriptible de todos los hidrocarburos en el subsuelo conforme al artículo 27 constitucional y la Ley de Hidrocarburos.',
-            siglas: ['LH', 'RLH', 'LCNE'],
+            texto: 'La nación tiene el dominio directo, inalienable e imprescriptible de todos los hidrocarburos en el subsuelo conforme al artículo 27 constitucional y la Ley del Sector Hidrocarburos.',
+            siglas: ['LSH', 'RLSH', 'LCNE'],
         },
-        tramites: ['hidrocarburos'],
+        tramites: ['gasnatural', 'gaslp'],
         mapa: { texto: 'Ver asignaciones y contratos de hidrocarburos en el mapa', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Cuáles son los dos elementos químicos que forman a los hidrocarburos?', opciones: ['Carbono e hidrógeno', 'Oxígeno y nitrógeno', 'Hierro y cobre'], correcta: 0 },
@@ -540,8 +540,8 @@ export const CONCEPTOS = [
             { pregunta: '¿En qué tipo de formación se encuentra el petróleo bajo tierra?', opciones: ['En los poros microscópicos de las rocas', 'En lagos y ríos subterráneos abiertos', 'En el núcleo de la Tierra'], correcta: 0 },
         ],
         fuentes: [
-            LH,
-            RLH,
+            LSH,
+            RLSH,
             CEPAL,
             IEA_OIL,
         ],
@@ -556,7 +556,7 @@ export const CONCEPTOS = [
         resumen: 'El gas natural y los combustibles líquidos viajan miles de kilómetros por tuberías de acero bajo tierra, impulsados por estaciones de compresión y de bombeo.',
         figura: 'gasoductos',
         definiciones: [
-            { termino: 'Gasoducto', texto: 'Tubería de acero al carbono de alta resistencia diseñada para transportar gas natural comprimido a presiones de hasta 80 o 100 bar.' },
+            { termino: 'Gasoducto', texto: 'Tubería de acero al carbono de alta resistencia diseñada para transportar gas natural comprimido a presiones típicas de 50 a 90 bar.' },
             { termino: 'Poliducto', texto: 'Tubería que transporta diferentes petrolíferos líquidos en tandas secuenciales (gasolina regular, premium y diésel) sin mezclarse.' },
             { termino: 'Estación de compresión', texto: 'Instalación con compresores mecánicos colocada cada 100 a 150 km para elevar la presión del gas que se pierde por fricción.' },
             { termino: 'Acceso abierto no discriminatorio', texto: 'Obligación legal de los dueños de ductos de permitir el transporte a cualquier tercero que pague la tarifa regulada, si existe capacidad disponible.' },
@@ -565,21 +565,21 @@ export const CONCEPTOS = [
             'El transporte por ducto es la forma más segura, económica y con menor huella de carbono para mover grandes volúmenes de energía en distancias continentales.',
             'El gas natural no tiene olor por naturaleza: antes de distribuirse a los hogares se le agrega una sustancia química llamada mercaptano para que cualquier fuga se detecte al instante.',
             'México cuenta con el SISTRANGAS (Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural), coordinado técnicamente por el CENAGAS.',
-            'Gran parte del gas que consume México para generar electricidad y en la industria proviene de importaciones por gasoducto desde Texas (Waha y Henry Hub).',
+            'Gran parte del gas que consume México para generar electricidad y en la industria proviene de importaciones por gasoducto desde Texas (cuenca Pérmica), con precios referidos a índices como Waha y Henry Hub.',
             'Para inspeccionar las tuberías sin suspender el servicio, se introducen robots inteligentes llamados «diablos» (scrapers) que revisan espesor de metal y corrosión.',
         ],
         partes: [
             { nombre: 'Tubería enterrada', texto: 'Tubos soldados de hasta 48 pulgadas de diámetro con recubrimiento anticorrosivo.' },
-            { nombre: 'Estación de compresión', texto: 'Grandes turbinas que restauran la presión del gas natural a lo largo de la ruta.' },
+            { nombre: 'Estación de compresión', texto: 'Compresores centrífugos, movidos por turbinas de gas o motores eléctricos, que restauran la presión del gas natural a lo largo de la ruta.' },
             { nombre: 'Válvula de seccionamiento', texto: 'Permite aislar tramos del ducto en minutos ante cualquier emergencia o mantenimiento.' },
             { nombre: 'Trampa de diablos', texto: 'Lugar donde se insertan y extraen herramientas de limpieza e inspección magnética o ultrasónica.' },
             { nombre: 'Estación de regulación y medición (City Gate)', texto: 'Reduce la presión del gas antes de entregarlo a la red urbana o a la central eléctrica.' },
         ],
         ley: {
             texto: 'El servicio de transporte por ducto requiere permiso de la Comisión Nacional de Energía (CNE). La gestión independiente del SISTRANGAS corresponde al CENAGAS.',
-            siglas: ['LH', 'RLH', 'LCNE'],
+            siglas: ['LSH', 'RLSH', 'LCNE'],
         },
-        tramites: ['transporte-gas'],
+        tramites: ['gasnatural'],
         mapa: { texto: 'Ver la red de gasoductos en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Para qué sirve una estación de compresión en un gasoducto?', opciones: ['Para recuperar la presión perdida por fricción durante el viaje', 'Para quemar el gas sobrante', 'Para enfriar el terreno'], correcta: 0 },
@@ -588,8 +588,8 @@ export const CONCEPTOS = [
         ],
         fuentes: [
             CENAGAS,
-            LH,
-            RLH,
+            LSH,
+            RLSH,
             LCNE,
         ],
         revisado: null,
@@ -604,14 +604,14 @@ export const CONCEPTOS = [
         figura: 'almacenamiento-tar',
         definiciones: [
             { termino: 'Terminal de Almacenamiento y Reparto (TAR)', texto: 'Instalación industrial que recibe combustibles por poliducto, buque o carrotanque, los guarda en tanques verticales y los despacha a camiones pipa.' },
-            { termino: 'Tanque de techo flotante', texto: 'Tanque cilíndrico donde el techo flota directamente sobre la gasolina, eliminando el espacio de vapor para evitar evaporación y riesgo de ignición.' },
+            { termino: 'Tanque de techo flotante', texto: 'Tanque cilíndrico donde el techo flota directamente sobre la gasolina, reduciendo casi por completo el espacio de vapor para evitar evaporación y riesgo de ignición. Puede ser externo o interno (bajo un techo fijo).' },
             { termino: 'Inventario mínimo de seguridad', texto: 'Días de reserva de combustible que la política pública de SENER exige mantener para resistir eventualidades climáticas o de suministro.' },
         ],
         claves: [
             'Los combustibles no se pueden almacenar en cualquier sitio: requieren terminales con sistemas avanzados de control de derrames y prevención de incendios.',
             'En las TAR se mezclan los aditivos finales y detergentes antes de cargar los camiones cisterna que van a las gasolineras.',
-            'La Política de Almacenamiento Mínimo de Petrolíferos exige a los comercializadores e importadores contar con inventarios de 5 días de venta promedio.',
-            'La Agencia de Seguridad, Energía y Ambiente (ASEA) supervisa las medidas de seguridad industrial y protección ambiental en cada terminal.',
+            'La Política de Almacenamiento Mínimo de Petrolíferos exige a comercializadores y distribuidores de gasolina y diésel mantener inventarios mínimos de alrededor de 5 días de venta promedio.',
+            'La Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos (ASEA) supervisa las medidas de seguridad industrial y protección ambiental en cada terminal.',
         ],
         partes: [
             { nombre: 'Tanques verticales', texto: 'Estructuras de acero de hasta 100,000 barriles de capacidad con techo flotante.' },
@@ -621,9 +621,9 @@ export const CONCEPTOS = [
         ],
         ley: {
             texto: 'El almacenamiento de petrolíferos requiere permiso de la Comisión Nacional de Energía y autorización de impacto ambiental y seguridad operativa de la ASEA.',
-            siglas: ['LH', 'RLH', 'LASEA', 'LCNE'],
+            siglas: ['LSH', 'RLSH', 'LCNE'],
         },
-        tramites: ['almacenamiento'],
+        tramites: ['petroliferos'],
         mapa: { texto: 'Ver terminales de almacenamiento en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Para qué sirve el techo flotante en un tanque de gasolina?', opciones: ['Para evitar que se acumulen vapores inflamables al subir y bajar con el líquido', 'Para que entre luz solar al tanque', 'Solo por estética'], correcta: 0 },
@@ -631,9 +631,9 @@ export const CONCEPTOS = [
             { pregunta: '¿Cuál es el objetivo de la política de almacenamiento mínimo de petrolíferos?', opciones: ['Tener días de reserva para garantizar abasto ante emergencias', 'Aumentar los impuestos', 'Prohibir la venta de diésel'], correcta: 0 },
         ],
         fuentes: [
-            LH,
+            LSH,
             LASEA,
-            RLH,
+            RLSH,
             LCNE,
         ],
         revisado: null,
@@ -649,7 +649,7 @@ export const CONCEPTOS = [
         definiciones: [
             { termino: 'Destilación fraccionada', texto: 'Proceso físico que separa una mezcla de líquidos aprovechando que cada sustancia hierve y se condensa a una temperatura diferente.' },
             { termino: 'Cortes ligeros e intermedios', texto: 'Fracciones con moléculas de menor peso que hierven a menor temperatura: gas licuado, naftas, gasolinas, turbosina y diésel.' },
-            { termino: 'Fondo de barril (Residuo)', texto: 'Fracciones pesadas que no se evaporan en la torre atmosférica: combustóleo y asfalto, que requieren plantas de coquización para extraer más gasolina.' },
+            { termino: 'Fondo de barril (Residuo)', texto: 'Fracciones pesadas que no se evaporan en la torre atmosférica. Pasan a la torre de vacío; su residuo va a coquización o se aprovecha como combustóleo y asfalto.' },
             { termino: 'Sistema Nacional de Refinación', texto: 'Conjunto de 7 refinerías en México: Cadereyta, Madero, Minatitlán, Salamanca, Salina Cruz, Tula y Olmeca (Dos Bocas).' },
         ],
         claves: [
@@ -660,18 +660,19 @@ export const CONCEPTOS = [
             'Las gasolinas crudas pasan a plantas de hidrodesulfuración y reformación para quitarles el azufre y elevar el octanaje (NOM-016-CRE).',
         ],
         partes: [
-            { nombre: 'Horno precalentador', texto: 'Calienta el crudo desmineralizado a 370 °C.' },
+            { nombre: 'Horno de carga', texto: 'Calentador a fuego directo que lleva el crudo desalado a unos 350–370 °C.' },
             { nombre: 'Zona de vaporización (Flash)', texto: 'Entrada del crudo a la base de la torre fraccionadora.' },
-            { nombre: 'Corte de gasolinas y naftas (arriba, <100 °C)', texto: 'Moléculas ligeras de 5 a 10 carbonos que se condensan en el domo superior.' },
+            { nombre: 'Gas y GLP (domo, <40 °C)', texto: 'Lo más ligero sale por el domo como vapor y se separa después de condensar.' },
+            { nombre: 'Nafta (≈40–200 °C)', texto: 'Moléculas de 5 a 12 carbonos que salen por el domo y se condensan fuera de la torre; son la base de la gasolina.' },
             { nombre: 'Corte de turbosina y queroseno (medio, ~180-250 °C)', texto: 'Combustible de alta pureza para aviones a reacción.' },
             { nombre: 'Corte de diésel (medio-bajo, ~250-340 °C)', texto: 'Combustible para transporte de carga pesada, autobuses y ferrocarriles.' },
             { nombre: 'Residuo atmosférico (fondo, >350 °C)', texto: 'Líquido espeso que se envía a la torre de vacío o a plantas de coquización.' },
         ],
         ley: {
             texto: 'La refinación del petróleo está sujeta a permisos otorgados por la Comisión Nacional de Energía y debe cumplir con la norma oficial mexicana de calidad de petrolíferos NOM-016-CRE.',
-            siglas: ['LH', 'RLH', 'LASEA', 'LCNE'],
+            siglas: ['LSH', 'RLSH', 'LCNE'],
         },
-        tramites: ['refinacion'],
+        tramites: [],
         mapa: { texto: 'Ver refinerías del país en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿En qué principio físico se basa la torre de destilación de una refinería?', opciones: ['En que cada compuesto hierve a una temperatura diferente', 'En la atracción de imanes', 'En la velocidad del viento'], correcta: 0 },
@@ -680,8 +681,8 @@ export const CONCEPTOS = [
         ],
         fuentes: [
             IEA_OIL,
-            LH,
-            RLH,
+            LSH,
+            RLSH,
             LASEA,
         ],
         revisado: null,
@@ -696,37 +697,37 @@ export const CONCEPTOS = [
         figura: 'mercado-hidrocarburos',
         definiciones: [
             { termino: 'Precio de paridad de importación', texto: 'Costo que tendría traer el combustible desde el mercado internacional de referencia (la Costa del Golfo de EE. UU. / Houston) hasta México.' },
-            { termino: 'IEPS a combustibles', texto: 'Impuesto Especial sobre Producción y Servicios por litro, que la Secretaría de Hacienda ajusta semanalmente mediante estímulos fiscales para evitar fluctuaciones bruscas.' },
+            { termino: 'IEPS a combustibles', texto: 'Impuesto Especial sobre Producción y Servicios: una cuota fija en pesos por litro que se actualiza cada año. Lo que cambia cada semana es el estímulo fiscal, un porcentaje que la reduce para evitar fluctuaciones bruscas.' },
             { termino: 'Margen de estación de servicio', texto: 'Diferencia entre el precio mayorista que paga la gasolinera y el precio final de venta al automovilista, con el que cubre costos operativos y utilidad.' },
         ],
         claves: [
             'México consume más gasolinas de las que refina internamente, por lo que el precio nacional está ligado al mercado internacional de la Costa del Golfo de Estados Unidos.',
-            'Un litro de gasolina en la bomba se desglosa aproximadamente en: ~50 % costo de la molécula, ~10 % transporte y almacenamiento, ~15-20 % margen comercial y el resto impuestos.',
-            'Cuando el petróleo sube a nivel mundial, Hacienda aumenta el estímulo al IEPS (cobra menos impuesto) para que el precio en la gasolinera no se dispare.',
+            'Un litro de gasolina en la bomba se desglosa aproximadamente en: ~50 % costo de la molécula, ~5–10 % transporte y almacenamiento, ~8–10 % margen comercial y el resto impuestos (IEPS e IVA). Las proporciones cambian cada semana.',
+            'Cuando el petróleo sube a nivel mundial, Hacienda aumenta el estímulo al IEPS (cobra menos impuesto) para que el precio en la gasolinera no se dispare. El porcentaje se publica cada semana en el DOF, puede llegar al 100 % y no toca el IVA.',
             'En gas natural, los usuarios industriales contratan suministro a precios basados en índices como Henry Hub o Houston Ship Channel más la tarifa de transporte de CENAGAS.',
-            'La Comisión Nacional de Energía supervisa los precios y reportes de volumen diarios de todos los permisionarios del país.',
+            'Los precios al público son libres desde 2017–2018: la Comisión Nacional de Energía otorga los permisos y recibe información de los permisionarios, y Profeco vigila los precios en las estaciones. Desde 2025 existe un acuerdo voluntario para mantener la gasolina regular cerca de 24 pesos por litro.',
         ],
         partes: [
             { nombre: 'Costo de referencia internacional', texto: 'Precio de la gasolina terminada en refinerías de Texas / Louisiana.' },
-            { nombre: 'Flete marítimo y aranceles', texto: 'Traslado en buquetanque hasta puertos como Tuxpan, Coatzacoalcos o Altamira.' },
+            { nombre: 'Flete marítimo e internación', texto: 'Traslado en buquetanque hasta puertos como Tuxpan, Coatzacoalcos o Altamira.' },
             { nombre: 'Logística interna (Ducto / Pipa)', texto: 'Tarifas reguladas de transporte y almacenaje en terminales TAR.' },
             { nombre: 'Carga impositiva (IEPS + IVA)', texto: 'Impuestos federales con estímulo contracíclico de la SHCP.' },
             { nombre: 'Precio en dispensario', texto: 'Lo que paga el usuario final por litro en la estación de servicio.' },
         ],
         ley: {
             texto: 'La comercialización y el expendio al público de petrolíferos requieren permiso de la Comisión Nacional de Energía (CNE) y deben reportar sus precios vigentes al público.',
-            siglas: ['LH', 'RLH', 'LCNE'],
+            siglas: ['LSH', 'RLSH', 'LCNE'],
         },
-        tramites: ['comercializacion', 'expendio'],
+        tramites: ['petroliferos'],
         mapa: { texto: 'Ver estaciones de servicio y permisos en el mapa', hash: '#mapa-permisos' },
         preguntas: [
-            { pregunta: '¿Qué mecanismo utiliza el gobierno federal para evitar variaciones bruscas en el precio de la gasolina?', opciones: ['El estímulo fiscal al IEPS', 'Fijar el precio por decreto militar', 'Prohibir la importación'], correcta: 0 },
+            { pregunta: '¿Qué mecanismo utiliza el gobierno federal para evitar variaciones bruscas en el precio de la gasolina?', opciones: ['El estímulo fiscal al IEPS', 'Fijar el precio por decreto', 'Prohibir la importación'], correcta: 0 },
             { pregunta: '¿Aproximadamente qué porcentaje del costo de la gasolina corresponde al valor internacional de la molécula?', opciones: ['Alrededor del 45-55 %', 'El 100 %', 'Menos del 5 %'], correcta: 0 },
             { pregunta: '¿Qué mercado internacional de combustibles es la referencia directa para los precios en México?', opciones: ['La Costa del Golfo de EE. UU. (US Gulf Coast)', 'El Mar del Norte (Brent)', 'El Golfo Pérsico'], correcta: 0 },
         ],
         fuentes: [
-            LH,
-            RLH,
+            LSH,
+            RLSH,
             LCNE,
             IEA_OIL,
         ],
