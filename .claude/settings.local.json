@@ -12,7 +12,22 @@
       "Bash(true:*)",
       "Bash(echo:*)",
       "Bash(curl:*)",
-      "Bash(ls public/data/*.json)"
+      "Bash(ls public/data/*.json)",
+      "Bash(unset LEGAL_PDF_CONVERTER)",
+      "Bash(node -e \"process.env.LEGAL_PDF_CONVERTER='pdf2md'; const{extractLegalStructureFromPdf}=require\\('./legal-ingest-pipeline'\\); const r=extractLegalStructureFromPdf\\('Leyes_en_pdf/decreto.pdf'\\); require\\('fs'\\).writeFileSync\\('scratch/decreto_chunks.json',JSON.stringify\\(r.chunks,null,2\\)\\); require\\('fs'\\).writeFileSync\\('scratch/decreto_themes.json',JSON.stringify\\(r.themes,null,2\\)\\); require\\('fs'\\).writeFileSync\\('scratch/decreto_normalized.txt',r.normalizedText\\); console.log\\('chunks:',r.chunks.length,'themes:',r.themes.length\\); console.log\\('First 5 chunks:'\\); r.chunks.slice\\(0,5\\).forEach\\(\\(c,i\\)=>console.log\\(i, c.identificador, '|', c.tipo, '|', \\(c.contenido||''\\).slice\\(0,80\\)\\)\\);\")",
+      "Bash(node scratch/test_decreto_browser.js)",
+      "Bash(node -e ' *)",
+      "Bash(npm test *)",
+      "Bash(sleep 8 && tail -60 /c/Users/User/AppData/Local/Temp/claude/C--Users-User-Documents-65--Buscador-de-Leyes-Energ-a/bf71d6d9-a5ee-4232-aa64-35eb746f5bab/tasks/bidpwat0x.output 2>&1)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "Bash(node -e \"const c=require\\('./scratch/decreto_chunks.json'\\); console.log\\('chunks:', c.length\\); console.log\\(c.slice\\(0,5\\).map\\(x=>x.articulo||x.heading||Object.keys\\(x\\)\\).slice\\(0,5\\)\\); console.log\\('last:', JSON.stringify\\(c[c.length-1]\\).slice\\(0,200\\)\\)\")",
+      "Bash(node -e \"const c=require\\('./scratch/decreto_chunks.json'\\); c.forEach\\(\\(x,i\\)=>console.log\\(i,'|',x.tipo,'|',x.identificador\\)\\)\")",
+      "WebSearch",
+      "Bash(git checkout *)",
+      "Bash(npx vitest *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

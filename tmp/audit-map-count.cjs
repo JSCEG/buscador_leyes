@@ -1,0 +1,10 @@
+const path=require('node:path');require('dotenv').config({path:path.resolve('.env'),quiet:true});
+const base=process.env.VITE_SUPABASE_URL,key=process.env.VITE_SUPABASE_ANON_KEY;
+if(!base||!key)throw Error('Supabase env missing');
+const headers={apikey:key,Authorization:`Bearer ${key}`};
+async function all(table,select){let out=[],offset=0;for(;;){const u=new URL(`/rest/v1/${table}`,base);u.search=new URLSearchParams({select,limit:'1000',offset:String(offset)});const r=await fetch(u,{headers,signal:AbortSignal.timeout(30000)});if(!r.ok)throw Error(`${table} ${r.status}`);const batch=await r.json();out.push(...batch);if(batch.length<1000)break;offset+=batch.length;}return out;}
+(async()=>{const [laws,articles,manifest]=await Promise.all([all('leyes','id,siglas,titulo'),all('articulos','id,ley_id,identificador,tipo_articulo'),Promise.resolve(require('../public/reader-sources/manifest.v1.json'))]);
+const lawById=new Map(laws.map(x=>[x.id,x]));const editorial=a=>/nota\s+editorial/i.test(a.identificador||'')||/editorial/i.test(a.tipo_articulo||'');
+const nonEditorial=articles.filter(a=>!editorial(a));const mappedIds=new Set(Object.keys(manifest.articles));const pending=nonEditorial.filter(a=>!mappedIds.has(a.id));const per=new Map();for(const a of pending){per.set(a.ley_id,(per.get(a.ley_id)||0)+1);}
+const summary=[...per].map(([id,n])=>({siglas:lawById.get(id)?.siglas||id,n})).sort((a,b)=>b.n-a.n);
+const excluded=articles.filter(editorial);console.log(JSON.stringify({revision:manifest.revision,mappedArticleIds:Object.keys(manifest.articles).length,supabaseLaws:laws.length,totalArticleRows:articles.length,excludedEditorialRows:excluded.length,officialFragments:nonEditorial.length,pendingFragments:pending.length,pendingInstruments:summary.length,pendingLargest:summary.slice(0,20),excludedExamples:excluded.slice(0,12).map(x=>({siglas:lawById.get(x.ley_id)?.siglas,identifier:x.identificador,type:x.tipo_articulo}))},null,2));})().catch(e=>{console.error(e.message);process.exitCode=1});

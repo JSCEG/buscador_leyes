@@ -1,0 +1,514 @@
+{
+  "fecha": "2026-10-09",
+  "radar": {
+    "corte": "2026-10-09",
+    "version": "4.26",
+    "nuevo": {
+      "titulo": "Modificaciones al Estatuto Orgánico de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "url": "https://sidof.segob.gob.mx/notas/docFuente/5800855",
+      "estado": "No cargado"
+    }
+  },
+  "instrumentos": 107,
+  "conFuenteMapeada": 89,
+  "sinFuenteMapeada": [
+    {
+      "id": "ac79c92a-b039-5907-a934-14511c7bdebf",
+      "titulo": "Acuerdo Núm. A/023/2024 de la Comisión Reguladora de Energía mediante el cual se modifica el Acuerdo A/064/2017 por el que se reconoce a los integrantes de una sociedad de autoabastecimiento o de un permiso de cogeneración de energía eléctrica, el derecho a solicitar directamente la exclusión de sus centros de carga del permiso y del contrato de interconexión legado respectivo",
+      "siglas": "EXCLUSION-CARGAS-LEGADAS",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5724250",
+      "fragmentos": 8,
+      "mapped": 0
+    },
+    {
+      "id": "e54dee73-be6a-5c74-8646-5ecbdaef9090",
+      "titulo": "Acuerdo Núm. A/085/2024 por el que la Comisión Reguladora de Energía emite los Criterios para la liquidación de Cargas Indirectamente Modeladas en los Estados de Cuenta Diarios (ECD) que emite el CENACE para los casos en que se preste el servicio de Suministro de Último Recurso",
+      "siglas": "LIQUIDACION-CARGAS-SUR",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5748078",
+      "fragmentos": 13,
+      "mapped": 0
+    },
+    {
+      "id": "b813a2eb-8fc2-5f33-a50b-fe9647f738f1",
+      "titulo": "Acuerdo Núm. A/108/2024 por el que la Comisión Reguladora de Energía expide las disposiciones administrativas de carácter general en materia de electromovilidad para la integración de infraestructura de carga de vehículos eléctricos y vehículos eléctricos híbridos  conectables al Sistema Eléctrico Nacional como parte de una Red Eléctrica Inteligente",
+      "siglas": "DACG-ELECTROMOVILIDAD",
+      "tipo": "dacg",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5738646",
+      "fragmentos": 25,
+      "mapped": 0
+    },
+    {
+      "id": "e61b9357-ae95-5e4a-b210-f535f5b372d4",
+      "titulo": "Acuerdo por el cual se reforma la denominación, se modifican, adicionan y derogan diversos numerales de la Convocatoria dirigida a las Unidades de Verificación interesadas en obtener la Aprobación para realizar la evaluación de la conformidad de la Norma Oficial Mexicana NOM-011-ASEA-2019, Bodegas de guarda para distribución y bodegas de expendio de gas licuado de petróleo, mediante recipientes portátiles y recipientes transportables sujetos a presión",
+      "siglas": "ASEA-CONV-BODEGAS-LP",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5739627",
+      "fragmentos": 6,
+      "mapped": 0
+    },
+    {
+      "id": "84446660-e33c-512f-9975-57527758c6c7",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 02/12/2025]",
+      "siglas": "CONV-GEN-1-M3",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5774850",
+      "fragmentos": 6,
+      "mapped": 0
+    },
+    {
+      "id": "e49973bd-aae7-5038-8cb6-37a9f1c00f3a",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante, publicada en la edición vespertina del 17 de octubre de 2025 [DOF 24/10/2025]",
+      "siglas": "CONV-GEN-1-M1",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770917",
+      "fragmentos": 6,
+      "mapped": 0
+    },
+    {
+      "id": "bc6128cd-901e-52ff-8283-2ac07b7f633a",
+      "titulo": "Acuerdo por el que se emite la segunda modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 08/06/2026]",
+      "siglas": "CONV-GEN-2-M2",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5789883",
+      "fragmentos": 6,
+      "mapped": 0
+    },
+    {
+      "id": "947a7dcb-d00d-5494-8333-91c7d8fb5d46",
+      "titulo": "Acuerdo por el que se informa a todos los participantes del mercado eléctrico mayorista y a la población en general, que han quedado insubsistentes el \"Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014\" y el \"Acuerdo por el que se reforma el Segundo Transitorio del Acuerdo por el que se modifican los Lineamientos que establecen los criterios para el otorgamiento de Certificados de Energías Limpias y los requisitos para su adquisición publicados el 31 de octubre de 2014, publicado el 28 de octubre de 2019\", publicados en el Diario Oficial de la Federación el 28 de octubre y 10 de diciembre de 2019, respectivamente",
+      "siglas": "CEL-INSUBSISTENCIA",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5719864",
+      "fragmentos": 5,
+      "mapped": 0
+    },
+    {
+      "id": "f842022d-7adc-52ee-9b5a-5883b5cd780a",
+      "titulo": "Convocatoria dirigida a las personas físicas y morales interesadas en obtener la Autorización como Tercero para emitir el Dictamen Técnico del Taponamiento de Pozos previsto en las Disposiciones administrativas de carácter general que establecen los Lineamientos aplicables a la Construcción y Mantenimiento de Pozos para la Exploración y Extracción de Hidrocarburos",
+      "siglas": "ASEA-CONV-TAPONAMIENTO",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5763176",
+      "fragmentos": 9,
+      "mapped": 0
+    },
+    {
+      "id": "ebef59b3-a5a6-5a9b-88af-add201f0226c",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-015-ASEA- 2023, Descompresión de Gas Natural Comprimido",
+      "siglas": "ASEA-CONV-GNC",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5734389",
+      "fragmentos": 8,
+      "mapped": 0
+    },
+    {
+      "id": "ece70b87-4e3f-596d-b1c1-482f1237bcef",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-017-ASEA- 2023, Instalaciones de Almacenamiento de Gas Licuado de Petróleo (GLP). (Cancela y sustituye a la Norma Oficial Mexicana NOM-015-SECRE-2013, Diseño, construcción, seguridad, operación y mantenimiento de sistemas de almacenamiento de gas licuado de petróleo mediante planta de depósito o planta de suministro que se encuentran directamente vinculados a los sistemas de transporte o distribución por ducto de gas licuado de petróleo, o que forman parte integral de las terminales terrestres o marítimas de importación de dicho producto)",
+      "siglas": "ASEA-CONV-ALMACENAMIENTO-LP",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5736163",
+      "fragmentos": 8,
+      "mapped": 0
+    },
+    {
+      "id": "fbf37f5b-3cb8-5328-807b-c500edfffd0c",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-018-ASEA- 2023, Plantas de Distribución de Gas Licuado de Petróleo (cancela y sustituye a la NOM-001-SESH-2014, Plantas de distribución de Gas L.P. Diseño, construcción y condiciones seguras en su operación)",
+      "siglas": "ASEA-CONV-DISTRIBUCION-LP",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5734780",
+      "fragmentos": 8,
+      "mapped": 0
+    },
+    {
+      "id": "4f96be01-2fc1-56a1-aab1-d8641c83a7e2",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-019-ASEA- 2024, Instalaciones de procesamiento de gas natural (cancela a la NOM-137-SEMARNAT-2013, Contaminación atmosférica.- Complejos procesadores de gas.- Control de emisiones de compuestos de azufre)",
+      "siglas": "ASEA-CONV-PROCESAMIENTO-GN",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776908",
+      "fragmentos": 8,
+      "mapped": 0
+    },
+    {
+      "id": "d952ee94-6aa5-5ed3-885b-978a519ca54b",
+      "titulo": "Convocatoria dirigida a las Unidades de Inspección interesadas en obtener la Aprobación para evaluar la conformidad de la Norma Oficial Mexicana NOM-020-ASEA- 2024, Transporte de gas natural por medio de ductos terrestres (cancela a la NOM-007-ASEA-2016, Transporte de gas natural, etano y gas asociado al carbón mineral por medio de ductos)",
+      "siglas": "ASEA-CONV-TRANSPORTE-GN",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776907",
+      "fragmentos": 9,
+      "mapped": 0
+    },
+    {
+      "id": "b09aa69b-381d-56ee-890d-53c42a98565f",
+      "titulo": "Convocatoria para la atención prioritaria de solicitudes de permisos de generación eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 17/10/2025]",
+      "siglas": "CONV-GEN-1",
+      "tipo": "otros",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770299",
+      "fragmentos": 19,
+      "mapped": 0
+    },
+    {
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d233e",
+      "titulo": "Decreto por el que se aprueba el Plan Nacional de Desarrollo 2025-2030",
+      "siglas": "PND-DECRETO",
+      "tipo": "decreto",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5755161",
+      "fragmentos": 4,
+      "mapped": 0
+    },
+    {
+      "id": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a",
+      "titulo": "Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar.",
+      "siglas": "DECRETO-PODECOBI-22052025",
+      "tipo": "decreto",
+      "url_original": "https://dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025",
+      "fragmentos": 19,
+      "mapped": 0
+    },
+    {
+      "id": "6cd39069-4eb3-5c14-b71a-f7fa839a69fa",
+      "titulo": "Decreto por el que se reforman el párrafo quinto del artículo 25, los párrafos sexto y séptimo del artículo 27 y el párrafo cuarto del artículo 28 de la Constitución Política de los Estados Unidos Mexicanos, en materia de áreas y empresas estratégicas",
+      "siglas": "REFORMA-AREAS-ESTRATEGICAS",
+      "tipo": "decreto",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5742012",
+      "fragmentos": 10,
+      "mapped": 0
+    }
+  ],
+  "conDiferenciaDeConteo": [
+    {
+      "id": "59bbb2ee-8d9e-5de1-a3c9-ca087286c5c9",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten las Disposiciones administrativas de carácter general que establecen los criterios que debe observar el Centro Nacional de Control de Energía en la aplicación de mecanismos competitivos para adquirir potencia, energía eléctrica, servicios conexos y otros productos asociados orientados a asegurar la confiabilidad del Sistema Eléctrico Nacional",
+      "siglas": "DACG-MECANISMOS-CENACE",
+      "tipo": "dacg",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5784027",
+      "fragmentos": 41,
+      "mapped": 40
+    },
+    {
+      "id": "4e1d7050-8198-5a8a-9609-cce7660f401b",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se emiten los formatos referidos en las Disposiciones Administrativas de Carácter General para la Generación de Energía Eléctrica en la Modalidad de Cogeneración",
+      "siglas": "FORMATOS-COGENERACION",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5788271",
+      "fragmentos": 8,
+      "mapped": 7
+    },
+    {
+      "id": "156449fb-698e-59bf-a9e1-06f1e9dafa85",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
+      "siglas": "AUTOCONSUMO-0.7-20",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5764827",
+      "fragmentos": 9,
+      "mapped": 8
+    },
+    {
+      "id": "d93c8b82-8df1-530a-a779-6ad965b9d206",
+      "titulo": "Acuerdo de la Comisión Nacional de Energía por el que se publica el formato referido en el Acuerdo diverso por el que se establecen los requisitos para obtener el permiso de generación para autoconsumo interconectado en centrales eléctricas cuya capacidad sea entre 0.7 y 20 megawatts (MW)",
+      "siglas": "FORMATO-AUTOCONSUMO",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5769388",
+      "fragmentos": 6,
+      "mapped": 5
+    },
+    {
+      "id": "02442bce-c5ff-5b39-aeff-59a9d8a37a80",
+      "titulo": "Acuerdo Núm. A/025/2023 por el que la Comisión Reguladora de Energía modifica la resolución Núm. RES/948/2015 por la que se expiden las Disposiciones Administrativas de Carácter General en materia de acceso abierto y prestación de los servicios en la Red Nacional de Transmisión y las Redes Generales de Distribución de energía eléctrica",
+      "siglas": "DACG-ACCESO-REDES",
+      "tipo": "dacg",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714880",
+      "fragmentos": 123,
+      "mapped": 122
+    },
+    {
+      "id": "a25595c8-cdb8-57de-8200-7551ca27ac9c",
+      "titulo": "Acuerdo Núm. A/051/2023 por el que la Comisión Reguladora de Energía emite los Criterios Generales para la evaluación del Beneficio Neto de las obras solicitadas por  particulares para ser incluidas en los Programas de Ampliación y Modernización de la Red Nacional de Transmisión y los elementos de las Redes Generales de Distribución que correspondan al Mercado Eléctrico Mayorista, así como para la cesión y adquisición de redes particulares, con fundamento en los artículos 34 y 44 de la Ley de la Industria Eléctrica",
+      "siglas": "BENEFICIO-REDES",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714631",
+      "fragmentos": 26,
+      "mapped": 25
+    },
+    {
+      "id": "40ca1503-43de-5551-b655-704cbeeee109",
+      "titulo": "Acuerdo Núm. A/054/2024 de la Comisión Reguladora de Energía por el que se expiden las Disposiciones Administrativas de Carácter General que establecen las bases normativas para autorizar unidades de inspección de requerimientos para centros de carga y de la industria eléctrica en las áreas de generación, transmisión y distribución de energía eléctrica, así como el procedimiento aplicable a inspecciones y las condiciones de operación de las unidades de inspección",
+      "siglas": "UNIDADES-INSPECCION",
+      "tipo": "dacg",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5727366",
+      "fragmentos": 57,
+      "mapped": 56
+    },
+    {
+      "id": "e8d9d3e6-bad0-5b76-a957-eade6279cfe5",
+      "titulo": "Acuerdo por el que la Comisión Nacional de Energía expide el modelo de contrato para la interconexión, conexión o ambas a la Red Nacional de Transmisión o a las Redes Generales de Distribución para Centrales Eléctricas, Sistemas de Almacenamiento de Energía Eléctrica y Centros de Carga",
+      "siglas": "MODELOS-INTERCONEXION",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5782317",
+      "fragmentos": 48,
+      "mapped": 47
+    },
+    {
+      "id": "c30cb5dd-e944-52fd-8818-518a56b57fae",
+      "titulo": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Eléctrico",
+      "siglas": "PLADESE",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770297",
+      "fragmentos": 89,
+      "mapped": 88
+    },
+    {
+      "id": "48e6158c-c1a3-5b6d-811d-16e85b05ab64",
+      "titulo": "Acuerdo por el que la Secretaría de Energía emite el Plan de Desarrollo del Sector Hidrocarburos",
+      "siglas": "PLADESHI",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798065",
+      "fragmentos": 81,
+      "mapped": 80
+    },
+    {
+      "id": "8db24d0b-34a8-53dc-8cd3-1498d478e568",
+      "titulo": "Acuerdo por el que se emite la cuarta modificación a la Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/09/2026]",
+      "siglas": "CONV-GEN-2-M4",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798361",
+      "fragmentos": 5,
+      "mapped": 4
+    },
+    {
+      "id": "10c059c7-bfa4-5ec0-9ae6-bf1d8a35a637",
+      "titulo": "Acuerdo por el que se emite la modificación a la Convocatoria para la Atención Prioritaria de Solicitudes de Permisos de Generación Eléctrica e Interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 10/11/2025]",
+      "siglas": "CONV-GEN-1-M2",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5772392",
+      "fragmentos": 6,
+      "mapped": 5
+    },
+    {
+      "id": "29886758-c194-5db4-86eb-8c96347f7aba",
+      "titulo": "Acuerdo por el que se emite la segunda modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 10/07/2026]",
+      "siglas": "CONV-ESTRATEGICOS-M2",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5793261",
+      "fragmentos": 28,
+      "mapped": 27
+    },
+    {
+      "id": "372339cc-7ed9-5e5c-8023-647e1a12c3b6",
+      "titulo": "Acuerdo por el que se emite la tercera modificación a la Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 02/09/2026]",
+      "siglas": "CONV-ESTRATEGICOS-M3",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5797703",
+      "fragmentos": 5,
+      "mapped": 4
+    },
+    {
+      "id": "d9667c21-b2e6-5ecd-9b3f-f66bb053ef27",
+      "titulo": "Acuerdo por el que se emiten las Disposiciones Reglamentarias para el Catálogo de Equipos y Aparatos, respecto de los cuales los sujetos obligados deben reportar su consumo de energía y formatos para la entrega de información",
+      "siglas": "CATALOGO-CONUEE",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798667",
+      "fragmentos": 32,
+      "mapped": 31
+    },
+    {
+      "id": "72a25a95-89a6-5489-8b15-12ff63706e3a",
+      "titulo": "Acuerdo por el que se emiten los formatos de solicitud de permisos y bitácoras para la producción, importación, exportación, almacenamiento, transporte, comercialización, distribución y expendio al público de biocombustibles, autorizaciones y bitácoras para la producción de biocombustibles, así como de avisos de inicio de operaciones, modificaciones o suspensiones, cesiones y prórroga de dichos permisos y autorizaciones",
+      "siglas": "FORMATOS-BIOCOMBUSTIBLES",
+      "tipo": "acuerdo",
+      "url_original": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5797477",
+      "fragmentos": 28,
+      "mapped": 27
+    },
+    {
+      "id": "9ec1ad6e-375e-5248-ac10-cb9971d4424c",
+      "titulo": "Acuerdo por el que se emiten los Lineamientos para la implementación de la Ventanilla Única de Autoconsumo para la atención prioritaria, expedita y simultánea de trámites asociados a la generación de energía eléctrica bajo la figura de Autoconsumo",
+      "siglas": "VENTANILLA-AUTOCONSUMO",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5786923",
+      "fragmentos": 48,
+      "mapped": 47
+    },
+    {
+      "id": "ae305a67-31a5-5ec6-8b2e-e12b8f71985a",
+      "titulo": "Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026",
+      "siglas": "CEL-REQUISITOS-2025-2026",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796405",
+      "fragmentos": 6,
+      "mapped": 5
+    },
+    {
+      "id": "937bf84d-a25f-5810-8f60-622b9c0ff1a6",
+      "titulo": "Acuerdo por el que se modifican, eliminan y adicionan diversas disposiciones de los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico",
+      "siglas": "MIGRACION-MODIFICACION",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5798117",
+      "fragmentos": 19,
+      "mapped": 18
+    },
+    {
+      "id": "8f0c071e-ef10-5b40-a9f9-b401dbb823ea",
+      "titulo": "Acuerdo por el que se publica el Manual para la Suspensión de Operaciones del Mercado de Energía de Corto Plazo",
+      "siglas": "MANUAL-SUSPENSION-MEM",
+      "tipo": "manual",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5714307",
+      "fragmentos": 27,
+      "mapped": 26
+    },
+    {
+      "id": "f17cb3b7-0f09-5a97-8c90-47812c921dbd",
+      "titulo": "Aviso mediante el cual se informa la publicación del Programa Institucional 2026-2030 del Centro Nacional de Control de Energía",
+      "siglas": "AVISO-PROGRAMA-CENACE",
+      "tipo": "aviso",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5786368",
+      "fragmentos": 5,
+      "mapped": 4
+    },
+    {
+      "id": "a067e4c6-638c-5174-b9fd-386837bf0a28",
+      "titulo": "Convocatoria para el mecanismo de designación para la renovación de los representantes de las personas Usuarias y Usuarias Finales del Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural (SISTRANGAS)",
+      "siglas": "CONV-SISTRANGAS",
+      "tipo": "convocatoria",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796317",
+      "fragmentos": 7,
+      "mapped": 6
+    },
+    {
+      "id": "24110e92-4d4c-5434-b02a-6a1794ee65ff",
+      "titulo": "Convocatoria para la Atención de Proyectos Estratégicos de Generación y Almacenamiento de Energía Eléctrica, alineados a la planeación vinculante [DOF 15/05/2026]",
+      "siglas": "CONV-ESTRATEGICOS",
+      "tipo": "otros",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5787666",
+      "fragmentos": 58,
+      "mapped": 56
+    },
+    {
+      "id": "237a4ba0-c4b0-51e9-8931-d3d6433ba94a",
+      "titulo": "Decreto por el que se aprueba el Programa Sectorial de Energía 2025-2030",
+      "siglas": "PROSENER-DECRETO",
+      "tipo": "decreto",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776837",
+      "fragmentos": 9,
+      "mapped": 8
+    },
+    {
+      "id": "7bbbf2d1-24cd-557e-bd1e-d4b4f23ba210",
+      "titulo": "Decreto por el que se reforman y derogan diversas disposiciones del Reglamento de la Ley de Ingresos sobre Hidrocarburos",
+      "siglas": "REFORMA-RLIH",
+      "tipo": "decreto",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5769158",
+      "fragmentos": 31,
+      "mapped": 30
+    },
+    {
+      "id": "6c8a912f-6ebb-5638-8d95-b53e5c4b596c",
+      "titulo": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Constitución Política de los Estados Unidos Mexicanos, en materia de simplificación orgánica",
+      "siglas": "REFORMA-SIMPLIFICACION",
+      "tipo": "decreto",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5745905",
+      "fragmentos": 30,
+      "mapped": 29
+    },
+    {
+      "id": "37c89350-82df-5021-8dbe-94e8e31e1d3e",
+      "titulo": "Disposiciones administrativas de carácter general para solicitar el otorgamiento y la modificación de permisos de generación y almacenamiento de energía eléctrica, así como su vigencia",
+      "siglas": "DACG-PERMISOS-GA",
+      "tipo": "dacg",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5770667",
+      "fragmentos": 86,
+      "mapped": 85
+    },
+    {
+      "id": "100f7f8a-26e6-5619-b2d6-56e9d95f8d72",
+      "titulo": "Disposiciones Generales en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras de la Comisión Federal de Electricidad",
+      "siglas": "CFE-CONTRATACION",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5796647",
+      "fragmentos": 116,
+      "mapped": 115
+    },
+    {
+      "id": "552fdbe9-91d1-4c6b-b1d2-4de35ad51f0c",
+      "titulo": "Ley General de Economía Circular",
+      "siglas": "LGEC",
+      "tipo": "ley",
+      "url_original": "https://dof.gob.mx/nota_detalle.php?codigo=5778439&fecha=19/01/2026",
+      "fragmentos": 58,
+      "mapped": 57
+    },
+    {
+      "id": "d4b231b0-6b12-5dbe-b003-a6986814c000",
+      "titulo": "Lineamientos de los Esquemas para el Desarrollo Mixto de la Empresa Pública del Estado, Comisión Federal de Electricidad",
+      "siglas": "DESARROLLO-MIXTO-CFE",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5778994",
+      "fragmentos": 31,
+      "mapped": 30
+    },
+    {
+      "id": "864ee23b-19ea-5c44-9b01-bd77e0320b11",
+      "titulo": "Norma Oficial Mexicana de Emergencia NOM-EM-008-ASEA-2026, Transporte de Gas Licuado de Petróleo por medio de Auto-tanque y Semirremolque",
+      "siglas": "NOM-EM-008-ASEA-2026",
+      "tipo": "nom",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5800169",
+      "fragmentos": 148,
+      "mapped": 147
+    },
+    {
+      "id": "4bf71c16-a84e-5318-953e-10c7fe8fcb41",
+      "titulo": "Norma Oficial Mexicana de Emergencia NOM-EM-009-ASEA-2026, Distribución de Gas Licuado de Petróleo por medio de Auto-tanque y Vehículo de Reparto",
+      "siglas": "NOM-EM-009-ASEA-2026",
+      "tipo": "nom",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5800282",
+      "fragmentos": 246,
+      "mapped": 245
+    },
+    {
+      "id": "5fd6bd12-5c8b-553c-bdb5-7b0b9bfcc524",
+      "titulo": "Nota Aclaratoria al Acuerdo por el que se emiten los Lineamientos para la migración voluntaria y expedita de autoabastecimiento y cogeneración de energía eléctrica a las figuras previstas en la Ley del Sector Eléctrico, publicada el 18 de junio de 2026",
+      "siglas": "MIGRACION-ACLARACION",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5791847",
+      "fragmentos": 4,
+      "mapped": 3
+    },
+    {
+      "id": "a7fdc69c-897a-59fb-85f5-7779c46fd03d",
+      "titulo": "Políticas que regulan los supuestos en que la Comisión Federal de Electricidad se abstendrá de considerar ofertas o celebrar contratos en materia de adquisiciones, arrendamientos, contratación de servicios y ejecución de obras",
+      "siglas": "CFE-IMPEDIMENTOS",
+      "tipo": "acuerdo",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5799057",
+      "fragmentos": 32,
+      "mapped": 31
+    },
+    {
+      "id": "18ad866e-e9c9-58bd-8189-9ff6d4f06ae3",
+      "titulo": "Programa Institucional del Centro Nacional de Control de Energía 2026-2030",
+      "siglas": "PROGRAMA-CENACE",
+      "tipo": "programa",
+      "url_original": "https://dof.gob.mx/2026/CENACE/ProgramaInstitucional.pdf",
+      "fragmentos": 33,
+      "mapped": 32
+    },
+    {
+      "id": "ff6459a0-eaeb-51ed-a578-73de837b3de1",
+      "titulo": "Programa Sectorial de Energía 2025-2030",
+      "siglas": "PROSENER",
+      "tipo": "programa",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5776838",
+      "fragmentos": 51,
+      "mapped": 50
+    },
+    {
+      "id": "2dde9c74-5c23-507b-a0ae-5d3b4722d927",
+      "titulo": "Segunda Convocatoria para la atención prioritaria de solicitudes de permisos de generación de energía eléctrica e interconexión al Sistema Eléctrico Nacional, alineados a la planeación vinculante [DOF 11/05/2026]",
+      "siglas": "CONV-GEN-2",
+      "tipo": "otros",
+      "url_original": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
+      "fragmentos": 36,
+      "mapped": 34
+    }
+  ],
+  "advertencia": "Las diferencias de conteo pueden ser notas editoriales; no equivalen a páginas oficiales pendientes. El conteo de mapas verifica presencia, no hashes individuales."
+}
