@@ -1,0 +1,132 @@
+{
+  "fecha_cotejo": "2026-10-14",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=14102026-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5801172",
+  "sha256_pdf": "1223b9f6efdb08c6998472fab7dcfa1e673466dc4c5993f4e7e2389a5a360a3a",
+  "bytes_pdf": 12350857,
+  "paginas_pdf": 560,
+  "paginas_impresas_documento": [
+    133,
+    147
+  ],
+  "fragmentos_oficiales_mapeados": 11,
+  "nota_editorial_sin_mapa": [],
+  "cotejo_visual_recomendado": [
+    133,
+    147
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo",
+      "id": "379c7406-db40-4038-8129-08ad67e4a8a2",
+      "paginas_pdf": [
+        133,
+        134
+      ],
+      "anclas": 60,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "ARTÍCULO PRIMERO",
+      "id": "64568590-bef2-45a4-9d54-73392bd0ff98",
+      "paginas_pdf": [
+        134
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "ARTÍCULO SEGUNDO",
+      "id": "6bd1cdb3-130b-4d89-bf98-1f4f2945d90e",
+      "paginas_pdf": [
+        134
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "ARTÍCULO TERCERO",
+      "id": "90215cc2-5804-4698-9dd6-2111e5214687",
+      "paginas_pdf": [
+        134,
+        135,
+        136
+      ],
+      "anclas": 321,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "ARTÍCULO CUARTO",
+      "id": "857900c8-bc41-4c32-8d97-24f6dc112d97",
+      "paginas_pdf": [
+        136,
+        137
+      ],
+      "anclas": 238,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Transitorio PRIMERO",
+      "id": "e114ea3b-b3ac-4fd2-bd7c-2d9facc6b0a7",
+      "paginas_pdf": [
+        137
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio SEGUNDO",
+      "id": "4d86d81e-38ca-49d8-af9d-4d4540a08cd7",
+      "paginas_pdf": [
+        137
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio TERCERO",
+      "id": "d203414f-5f67-4966-a550-b3ec707003c3",
+      "paginas_pdf": [
+        137
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firmas y promulgación",
+      "id": "4e64606f-dee2-4463-8fa4-514cd6415298",
+      "paginas_pdf": [
+        137
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Anexo I · Reactivos eliminados 1-100",
+      "id": "16d82abc-4e6d-4857-b213-2b5906c27beb",
+      "paginas_pdf": [
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "anclas": 638,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Anexo I · Reactivos eliminados 101-197",
+      "id": "58be85f3-d285-465b-8f71-5ab4aa020501",
+      "paginas_pdf": [
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+      ],
+      "anclas": 714,
+      "coincidencia_normalizada": false
+    }
+  ]
+}
