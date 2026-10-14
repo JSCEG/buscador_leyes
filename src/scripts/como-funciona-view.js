@@ -20,9 +20,12 @@ function seen() {
 function markSeen(id) {
     try { const ids = seen(); ids.add(id); localStorage.setItem(SEEN_KEY, JSON.stringify([...ids])); } catch { /* private mode */ }
 }
+// Lo que falta por sector y nivel.
 const SOON = {
-    2: 'Subestación, inversor y cómo se equilibra la red.',
-    3: 'Eólica, hidroeléctrica, ciclo combinado, geotérmica y nuclear.',
+    electricidad: {
+        2: 'Subestación, inversor y cómo se equilibra la red.',
+        3: 'Eólica, hidroeléctrica, ciclo combinado, geotérmica y nuclear.',
+    },
 };
 
 /**
@@ -69,10 +72,10 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     function progress() {
         const sectorConcepts = CONCEPTOS.filter(c => c.sector === currentSector);
         const count = sectorConcepts.filter(c => done.has(c.id)).length;
-        const sectorName = currentSector === 'hidrocarburos' ? 'del Mercado de Hidrocarburos' : 'del Mercado Eléctrico';
-        return count 
-            ? `Llevas ${count} de ${sectorConcepts.length} conceptos ${sectorName}. Sigue la ruta en orden o salta a lo que te interese.` 
-            : `Empieza por lo básico y avanza hasta el mercado y las instalaciones ${sectorName}.`;
+        const sectorName = currentSector === 'hidrocarburos' ? 'de hidrocarburos' : 'de electricidad';
+        return count
+            ? `Llevas ${count} de ${sectorConcepts.length} conceptos ${sectorName}. Sigue la ruta en orden o salta a lo que te interese.`
+            : 'Empieza por lo básico y sube hasta las instalaciones y el mercado, o salta a lo que te interese.';
     }
 
     let done = seen();
@@ -89,13 +92,13 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <h1 id="cf-title">¿Cómo funciona el sector energético?</h1>
                     <p class="cf-intro">Aprende paso a paso cómo funcionan la electricidad y los hidrocarburos en México: desde las leyes físicas y las moléculas hasta las centrales, refinerías, ductos y el diseño de los mercados.</p>
                     
-                    <div class="cf-sectors-nav" role="tablist" aria-label="Seleccionar mercado">
-                        <button type="button" class="cf-sector-tab ${currentSector === 'electricidad' ? 'is-active' : ''}" data-sector="electricidad" role="tab" aria-selected="${currentSector === 'electricidad'}">
+                    <div class="cf-sectors-nav" role="group" aria-label="Elegir sector">
+                        <button type="button" class="cf-sector-tab ${currentSector === 'electricidad' ? 'is-active' : ''}" data-sector="electricidad" aria-pressed="${currentSector === 'electricidad'}">
                             <span class="cf-tab-icon">${ICONS.electricidad}</span>
                             <span class="cf-tab-text">Mercado Eléctrico (SEN / MEM)</span>
                             <span class="cf-tab-count">${elecCount} conceptos</span>
                         </button>
-                        <button type="button" class="cf-sector-tab ${currentSector === 'hidrocarburos' ? 'is-active' : ''}" data-sector="hidrocarburos" role="tab" aria-selected="${currentSector === 'hidrocarburos'}">
+                        <button type="button" class="cf-sector-tab ${currentSector === 'hidrocarburos' ? 'is-active' : ''}" data-sector="hidrocarburos" aria-pressed="${currentSector === 'hidrocarburos'}">
                             <span class="cf-tab-icon">${ICONS.hidrocarburos}</span>
                             <span class="cf-tab-text">Mercado de Hidrocarburos</span>
                             <span class="cf-tab-count">${hidroCount} conceptos</span>
@@ -105,7 +108,8 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                 <p class="cf-progress">${progress()}</p>
                 <ol class="cf-route">${NIVELES.map(nivel => {
                     const levelConcepts = activeConcepts.filter(c => c.nivel === nivel.id);
-                    if (!levelConcepts.length && !SOON[nivel.id]) return '';
+                    const soon = SOON[currentSector]?.[nivel.id];
+                    if (!levelConcepts.length && !soon) return '';
                     return `
                     <li class="cf-level" aria-labelledby="cf-nivel-${nivel.id}">
                         <div class="cf-level-head">
@@ -114,7 +118,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                         </div>
                         <div class="cf-grid">
                             ${levelConcepts.map(c => card(c, done.has(c.id))).join('')}
-                            ${(SOON[nivel.id] && levelConcepts.length === 0) ? `<div class="cf-card cf-soon" aria-hidden="true"><strong>Próximamente</strong><span class="cf-card-text">${esc(SOON[nivel.id])}</span></div>` : ''}
+                            ${soon ? `<div class="cf-card cf-soon" aria-hidden="true"><strong>Próximamente</strong><span class="cf-card-text">${esc(soon)}</span></div>` : ''}
                         </div>
                     </li>`;
                 }).filter(Boolean).join('')}
