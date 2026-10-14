@@ -610,7 +610,7 @@ export const CONCEPTOS = [
         claves: [
             'Los combustibles no se pueden almacenar en cualquier sitio: requieren terminales con sistemas avanzados de control de derrames y prevención de incendios.',
             'En las TAR se mezclan los aditivos finales y detergentes antes de cargar los camiones cisterna que van a las gasolineras.',
-            'La Política de Almacenamiento Mínimo de Petrolíferos exige a comercializadores y distribuidores de gasolina y diésel mantener inventarios mínimos de alrededor de 5 días de venta promedio.',
+            'La Política Pública de Almacenamiento Mínimo de Petrolíferos de la SENER (2017, modificada en 2019) pide a comercializadores y distribuidores inventarios mínimos de 5 días de venta promedio de gasolina y diésel, y de 1.5 días de turbosina; el reglamento de la LSH exige acreditarlos (art. 109).',
             'La Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos (ASEA) supervisa las medidas de seguridad industrial y protección ambiental en cada terminal.',
         ],
         partes: [
@@ -669,7 +669,7 @@ export const CONCEPTOS = [
             { nombre: 'Residuo atmosférico (fondo, >350 °C)', texto: 'Líquido espeso que se envía a la torre de vacío o a plantas de coquización.' },
         ],
         ley: {
-            texto: 'La refinación del petróleo está sujeta a permisos otorgados por la Comisión Nacional de Energía y debe cumplir con la norma oficial mexicana de calidad de petrolíferos NOM-016-CRE.',
+            texto: 'La refinación de petróleo requiere permiso de la Secretaría de Energía (LSH, arts. 76 y 115); el transporte, almacenamiento y expendio de los petrolíferos que produce los permisiona la Comisión Nacional de Energía. Los combustibles deben cumplir la norma de calidad NOM-016-CRE.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
         },
         tramites: [],
