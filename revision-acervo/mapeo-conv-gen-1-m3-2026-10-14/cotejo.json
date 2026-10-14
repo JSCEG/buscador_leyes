@@ -1,0 +1,67 @@
+{
+  "fecha_cotejo": "2026-10-14",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=02122025-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5774850",
+  "sha256_pdf": "bc1d6f44e81f452d43fcb6b8ba05ebb9a01bb2e44e47d4733ce314502349b5ca",
+  "bytes_pdf": 6392533,
+  "paginas_pdf": 290,
+  "paginas_impresas_documento": [
+    70,
+    71
+  ],
+  "fragmentos_oficiales_mapeados": 5,
+  "nota_editorial_sin_mapa": [
+    "111a3ab4-cb8b-5ddf-910c-caf05f0c0ca5"
+  ],
+  "cotejo_visual_recomendado": [
+    70,
+    71
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "id": "186a84a9-83f5-579b-ac80-2e38ce254804",
+      "paginas_pdf": [
+        70
+      ],
+      "anclas": 40,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO",
+      "id": "e4d70979-4478-5c01-a3c6-6bcc7dc15106",
+      "paginas_pdf": [
+        70
+      ],
+      "anclas": 16,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo SEGUNDO",
+      "id": "0d103f90-8b3a-5a24-9a69-17cd48b6841a",
+      "paginas_pdf": [
+        71
+      ],
+      "anclas": 52,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio ÚNICO · acuerdo",
+      "id": "cc999964-58c8-5269-8ad0-2bc033d70a7c",
+      "paginas_pdf": [
+        71
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma del acuerdo",
+      "id": "fde20a9e-8665-5516-801c-10ab4b4e6d72",
+      "paginas_pdf": [
+        71
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
