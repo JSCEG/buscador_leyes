@@ -1,3 +1,4 @@
+import {applyTableCorrections} from './support/table-corrections.js';
 import { readFileSync } from 'node:fs';
 import { webcrypto } from 'node:crypto';
 import { afterEach, expect, it, vi } from 'vitest';
@@ -6,6 +7,7 @@ import { getReaderSource, resolveReaderSource } from '../src/lib/reader-source.j
 const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json', 'utf8'));
 const packageData = JSON.parse(readFileSync('revision-acervo/incorporacion-nom-em-009-asea-2026-10-05/NOM-EM-009-ASEA-2026-carga.json', 'utf8'));
 const map = JSON.parse(readFileSync('revision-acervo/incorporacion-nom-em-009-asea-2026-10-05/map.json', 'utf8'));
+applyTableCorrections(packageData.articulos,map);
 afterEach(() => vi.unstubAllGlobals());
 
 it('verifies each NOM-EM-009 fragment against the October 5 official DOF PDF', async () => {

@@ -1,3 +1,4 @@
+import {applyTableCorrections} from './support/table-corrections.js';
 import { readFileSync } from 'node:fs';
 import { webcrypto } from 'node:crypto';
 import { afterEach, expect, it, vi } from 'vitest';
@@ -5,6 +6,7 @@ import { getReaderSource, resolveReaderSource } from '../src/lib/reader-source.j
 
 const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json', 'utf8'));
 const articles = JSON.parse(readFileSync('revision-acervo/sincronizacion-dacg-sae-2026-10-05/articulos-verificados.json', 'utf8'));
+applyTableCorrections(articles);
 const instrumentId = 'd5562ad3-7682-4add-8cc9-7ee5994fdc1c';
 const sourceId = 'dacg-cogeneracion-aa23e284c9c9';
 afterEach(() => vi.unstubAllGlobals());

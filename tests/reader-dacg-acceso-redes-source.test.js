@@ -1,3 +1,4 @@
+import {applyTableCorrections} from './support/table-corrections.js';
 import { readFileSync } from 'node:fs';
 import { webcrypto } from 'node:crypto';
 import { afterEach, expect, it, vi } from 'vitest';
@@ -5,6 +6,7 @@ import { getReaderSource } from '../src/lib/reader-source.js';
 
 const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json', 'utf8'));
 const articles = JSON.parse(readFileSync('revision-acervo/sincronizacion-dacg-acceso-redes-2026-10-05/articulos-verificados.json', 'utf8'));
+applyTableCorrections(articles);
 const instrumentId = '02442bce-c5ff-5b39-aeff-59a9d8a37a80';
 const editorialId = '72237956-cba1-574a-a747-0b2a5b63f205';
 const sourceId = 'dof-matutina-2024-01-23-69abcd4beaa7';

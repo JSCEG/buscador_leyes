@@ -1,3 +1,4 @@
+import {applyTableCorrections} from './support/table-corrections.js';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -5,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 
 const manifest = JSON.parse(readFileSync(resolve(process.cwd(), 'public/reader-sources/manifest.v1.json'), 'utf8'));
 const pack = JSON.parse(readFileSync(resolve(process.cwd(), 'revision-acervo/sincronizacion-beneficio-redes-2026-10-06/articulos-verificados.json'), 'utf8'));
+applyTableCorrections(pack.articulos);
 const audit = JSON.parse(readFileSync(resolve(process.cwd(), 'revision-acervo/sincronizacion-beneficio-redes-2026-10-06/cotejo.json'), 'utf8'));
 const sourceId = 'dof-matutina-2024-01-18-f19d73064218';
 

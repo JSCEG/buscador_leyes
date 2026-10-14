@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 99,
-  "verifiedAt": "2026-10-14T20:04:32.182Z",
+  "revision": 100,
+  "verifiedAt": "2026-10-14T22:43:28.797Z",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -593145,7 +593145,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "Resolutivo ÚNICO · Relación de formatos",
     "type": "ordinario",
-    "contentSha256": "bf4db5d80285f5e0f6c7cdb295cfce367bcc00c3f202cae97af93ea985ace72e",
+    "contentSha256": "aba69cc32610b8d6a5985ab63e97e5cc0c96c14a53adef655e3488bfc8338a90",
     "pageNumbers": [
       5
     ],
@@ -593972,7 +593972,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA LA PRODUCCIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "f21e7766a035f4f12e6116e91be0857e8311dcc13d42b0ed4c111dfced786bfc",
+    "contentSha256": "e9d1b900efd90333a6586edd87cd10123834cc0c3d9c271cda4549b8ccdfa056",
     "pageNumbers": [
       6,
       7,
@@ -607274,7 +607274,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA LA IMPORTACIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "9b8427db4ea6db5b592b5a821822241be6b04291373d5ac8541e6049ccab5b15",
+    "contentSha256": "0e9e82a3c6fe7671a577def2f4eda926e33bffa15189e5f878600c5948f659b2",
     "pageNumbers": [
       23,
       24,
@@ -618917,7 +618917,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA LA COMERCIALIZACIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "92fa3613c7c804000572dba2f1c03beeef0bb49199cf824cfa65c87006d83d3c",
+    "contentSha256": "8e7291e8fdc652b94dccea65171131e022000e28f14b4b64c3d2ffcd5855d74a",
     "pageNumbers": [
       37,
       38,
@@ -629938,7 +629938,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA EL ALMACENAMIENTO DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "261295f5a5d35c736b533e9aaa7b39681e2ad3495b76b29346855c072a2c29a5",
+    "contentSha256": "f2fad6d7ef4be5f20786407cbe7bdf0625542d3e2d6382ef113d7ee7eefb18cb",
     "pageNumbers": [
       50,
       51,
@@ -640096,7 +640096,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA LA DISTRIBUCIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "e85a35f59e0b8ea4f699e5449095c0f30c0d9950b1d47fb4b2185c10d6f80039",
+    "contentSha256": "0d734291927fbe4dc58d70977f212332ba876296bd317146b94d5e38ba65da06",
     "pageNumbers": [
       64,
       65,
@@ -654614,7 +654614,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA EL TRANSPORTE DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "22e1fa29c026ad21bad318465b17498308f8a17b8cb70f9a887d686d6feba90f",
+    "contentSha256": "77a0ad562e85672b86c1fa9e026984601914ed34411626b6c581a495fae2ca46",
     "pageNumbers": [
       82,
       83,
@@ -670051,7 +670051,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA EL EXPENDIO AL PÚBLICO DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "8070804d2fc8764772c1e0c791acac3df069a99eb4a1236202631358e55d25e4",
+    "contentSha256": "3a8d4d3c3a7e89ecda356e658843f704fa76dd19c5ca4d7a78d9ea04503eedc9",
     "pageNumbers": [
       101,
       102,
@@ -678038,7 +678038,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PERMISO PARA LA EXPORTACIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "798bfdaed8370527480b4241dc9b4ef0dc1754d534f0b6070d8a78f45cae7f65",
+    "contentSha256": "ca369a4a21f0c835c104ef87e37a394ef2cbf62be81d20f8e797a29877ad7402",
     "pageNumbers": [
       113,
       114,
@@ -688528,7 +688528,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE AUTORIZACIÓN PARA LA PRODUCCIÓN O APROVECHAMIENTO DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "d5e03c47707394802e6beba492ec494668cfe14448f06519107d18423dd35974",
+    "contentSha256": "252ee96f511b05cbf950a194bd8e49436d1682096504ddaeb4c56fe0c37e30a5",
     "pageNumbers": [
       126,
       127,
@@ -697415,7 +697415,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO PARA LA PRODUCCIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "1b4d5603c1d73a7c6c43936373d4c32e8167d28aed7a406cafc18f5aee1f4115",
+    "contentSha256": "1e4074dbbb845a722277f8118dae8d1e461e89fe8759af6c09ea4fd8c30d4258",
     "pageNumbers": [
       138,
       139,
@@ -709993,7 +709993,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE IMPORTACIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "2149b1af2b29b92a1617e75079170202e8d295c42d1cb1f7f62c1bb807ae6e82",
+    "contentSha256": "4beebe0a82dbf4ac0c16515921ee653ce7f3166948338d3bea81690922bd215c",
     "pageNumbers": [
       151,
       152,
@@ -720285,7 +720285,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE COMERCIALIZACIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "a41d66f18f7a77d50d295226c9e808c16e3eeb021c3ace0708c273cd6928c3f0",
+    "contentSha256": "1506a4673f2b8804e3af08eee99eba1b304f3131df39283d76312237df09c750",
     "pageNumbers": [
       163,
       164,
@@ -732927,7 +732927,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE ALMACENAMIENTO DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "5cb0636d50c75401a815e005b4f66452bfc51658751ebf5a6122c7f9e9c2ced0",
+    "contentSha256": "ccdd7409442438d6c12ad88a4db6f24d3a94953bb4cfba40ea8a18a8506bbcbd",
     "pageNumbers": [
       177,
       178,
@@ -743994,7 +743994,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE DISTRIBUCIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "96a5807df42796712603cb717399d91f8129791c421ec2fb3a6935020958ce3b",
+    "contentSha256": "f117d5b8f39f6dcf64a1070d738475fbe3bad8bff2c01acda69f69fc15ab692a",
     "pageNumbers": [
       191,
       192,
@@ -756303,7 +756303,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE TRANSPORTE DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "9d20720edb859f0021865c0d5eb5865152afd791a453ddcdd592cd7f9e532220",
+    "contentSha256": "d35b8a51324ca40157afede235542cdeb7004935937b8bc8064b3fd3767adccf",
     "pageNumbers": [
       204,
       205,
@@ -769910,7 +769910,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE EXPENDIO AL PÚBLICO DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "7d8807aa6093a9fbfe8673212862b5375c375d16d92c0e1cb2c3552782da9564",
+    "contentSha256": "f1cc6e82e9802926f454da118862c458f1381808a2535f36f23a3f959c9c28ce",
     "pageNumbers": [
       220,
       221,
@@ -777859,7 +777859,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA EL PERMISO DE EXPORTACIÓN DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "78a57c2a28f504a2b665a4a60c834fa4729e3a5050eb7dd8f35cedb05e438668",
+    "contentSha256": "86adcc0f1802475df1caaa2da50c2632444053ada8aced974b4560aaea4a3851",
     "pageNumbers": [
       230,
       231,
@@ -788078,7 +788078,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE BITÁCORA PARA LA AUTORIZACIÓN PARA LA PRODUCCIÓN O APROVECHAMIENTO DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "85acef29903c452a066a65a07a65ad9a62d399fbe45f00d01b2a5da5c7309fa8",
+    "contentSha256": "e7be00b24eac9ba0e35b82a512555bf327ace544f9d8dc5cff1be676cd403b60",
     "pageNumbers": [
       242,
       243,
@@ -795306,7 +795306,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "FORMATO DE AVISO DE INICIO DE OPERACIONES PARA LOS PERMISOS Y AUTORIZACIONES EN MATERIA DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "fe9cdb592db9562b7a2c6896db53751caa20408ef4db2d91f4108b5d03dd717e",
+    "contentSha256": "2515f89b34851f784cccbabfa9853d91db0eb30fd6ddd9de86e08b2b6825a8c4",
     "pageNumbers": [
       251,
       252,
@@ -797336,7 +797336,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE MODIFICACIÓN O SUSPENSIÓN PARA LOS PERMISOS Y AUTORIZACIONES DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "51fd2b4bc058a1ea68371d0f5a4427f4362cb5103abcd40692c2d695d7c0a2c0",
+    "contentSha256": "9f7a173f31ca9ec7a3ddb6443452dee550d5e59a05055bc8e780b72e621dd942",
     "pageNumbers": [
       255,
       256,
@@ -807058,7 +807058,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE CESIÓN DE PERMISOS Y AUTORIZACIONES DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "bbad8d26175ebe507bee94307a354eefd7f8df26f39b349fe3a8b98c95041e99",
+    "contentSha256": "23a78a831c2b153690f68c1708f30c1bbb1c983ace60dfca328feb388104b1c8",
     "pageNumbers": [
       274,
       275,
@@ -809539,7 +809539,7 @@
     "sourceId": "dof-matutina-2026-08-31-51a89cc6ed35",
     "label": "SOLICITUD DE PRÓRROGA DE PERMISOS Y AUTORIZACIONES DE BIOCOMBUSTIBLES",
     "type": "anexo",
-    "contentSha256": "faa6d20076060185e94945e8ff0ae21d3ac60a6d335cfbcf79bf3dd7dafb2a7d",
+    "contentSha256": "1cf9643d03f0bde9926bbef8bcd715fd00ad3af4c2c84d402556730ed15604b0",
     "pageNumbers": [
       279,
       280,
@@ -874492,7 +874492,7 @@
     "sourceId": "dof-matutina-2026-10-02-e6d17b1ecd37",
     "label": "Apéndice A · A.1",
     "type": "anexo",
-    "contentSha256": "28c40358ac92e20253a77f933d1d3a4b76df1c225fb241739478cf6a95dd3482",
+    "contentSha256": "fdd2893642294c23ebb9022de0d73bd95090f86e798d3d444cf2b473af09fd49",
     "pageNumbers": [
       54,
       55,
@@ -876170,7 +876170,7 @@
     "sourceId": "dof-matutina-2026-10-02-e6d17b1ecd37",
     "label": "Apéndice A · A.2",
     "type": "anexo",
-    "contentSha256": "04157c1f6e75b43ab48b60203845650f212e59402d8061831f3a56acd0f25967",
+    "contentSha256": "49cf63d0e4a45f647fc52d32eaf36fb66dff5cdeae034835e5f0af053fdedd76",
     "pageNumbers": [
       57,
       58,
@@ -895876,7 +895876,7 @@
     "sourceId": "dacg-cogeneracion-aa23e284c9c9",
     "label": "2.12.",
     "type": "ordinario",
-    "contentSha256": "6bbf9759cf794bada54344e4d7449b7259b222f92bf71a90d2a3e0ae77bae3b1",
+    "contentSha256": "751e11705109df2f36ceb43377257c6198dd47d5e8c6348aa06edbc32e124a2a",
     "pageNumbers": [
       43,
       44
@@ -947192,7 +947192,7 @@
     "sourceId": "dof-matutina-2024-01-23-69abcd4beaa7",
     "label": "Apartado B1.10. Sobre el Informe Público y de Desempeño",
     "type": "ordinario",
-    "contentSha256": "6d881034c97cef9d2b1d80a92b5d30c181571e725316c190d0a82f8d1806f6c2",
+    "contentSha256": "77b0c488168358da5727dac1513f7f10375973990df82442586af9a57e2f927c",
     "pageNumbers": [
       266,
       267,
@@ -1271076,7 +1271076,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Numeral 7.1.4",
     "type": "ordinario",
-    "contentSha256": "7713da95a318ede6f9270c9676b66bace4b9281797fae9edc6d86e849b8cf219",
+    "contentSha256": "bf16868d9c722922d2cdb23024ea4c5cb3b2658ddaa0b173bd20484e221d920a",
     "pageNumbers": [
       26
     ],
@@ -1291089,7 +1291089,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice A · Formato de revisión diaria de Auto-tanque",
     "type": "anexo",
-    "contentSha256": "d6b3dcd520ac03e3db2a45fedd4c3d0e5858a5780568384bfa620abda92c15fd",
+    "contentSha256": "98f044a96ae0fbdd64dad86b10b852f4b7dfe77a6396c0fa538a82d62ba0a32a",
     "pageNumbers": [
       52,
       53,
@@ -1292353,7 +1292353,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice A · Formato de revisión diaria de Vehículo de Reparto",
     "type": "anexo",
-    "contentSha256": "7a370796f17b06d074c2e13b0c5159891cafb99eb53687dbf9673602643b7453",
+    "contentSha256": "c8e36bd1a5e3fd9eb8aa63a959caab76ad1ba70b029aa4e410f501ad29464a0b",
     "pageNumbers": [
       54
     ],
@@ -1293347,7 +1293347,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.1 Sistemas de combustible de gasolina o diésel",
     "type": "anexo",
-    "contentSha256": "8232ca1a7a1bfc94a9aa28ddbec454562911a313e21d32704dcac986e6693f4d",
+    "contentSha256": "6c844c0e937bb87306788918564389cd67ab5464a692c4f8d4ec03287a16fa38",
     "pageNumbers": [
       55
     ],
@@ -1293574,7 +1293574,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.2 Sistemas de combustible de Gas Licuado de Petróleo (GLP)",
     "type": "anexo",
-    "contentSha256": "9e005acff895a3324f0b9bebca4c437bf6fb5f8bcb02ebb0031e16bdfda406d5",
+    "contentSha256": "b0e5ab34a7b2c6e5eca1917c4da1b660bb80efd47a6eddb1d7eb4a5c6c66f81b",
     "pageNumbers": [
       55
     ],
@@ -1293684,7 +1293684,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.3 Sistema de escape",
     "type": "anexo",
-    "contentSha256": "0b8d308a564ca4cd24fbde1c7dbe0013894d9291ecbc3dee736b73f1efcd6195",
+    "contentSha256": "fad488bfbe8a045c30b00a51bf444b3f8cfaa6e4851d0dc4cbd67fb507fbe512",
     "pageNumbers": [
       55,
       56
@@ -1293948,7 +1293948,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.4 Suspensión",
     "type": "anexo",
-    "contentSha256": "ecf0ef99ae3ddb75da68af50cd23b722def07619541e63b9ad64127cf6d1654b",
+    "contentSha256": "8b2f54a73b3f95cfda7ae1cebbbb67eb4de32ac75cc05d48933ebb2658eb2866",
     "pageNumbers": [
       56
     ],
@@ -1294157,7 +1294157,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.5 Amortiguadores",
     "type": "anexo",
-    "contentSha256": "2bf8f743979bf9a1ef33aed7d47e8ed88a285763d8dc67a2750e1bf1ad52b7ca",
+    "contentSha256": "d9c7f073fd2c6e9451902331f1dc88614d5ca3a84ae3bb4bfb67c6a27c872ce7",
     "pageNumbers": [
       56
     ],
@@ -1294339,7 +1294339,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.6 Frenos hidráulicos",
     "type": "anexo",
-    "contentSha256": "a428144cc198f2b4cad35df1a982f3c2b296d4fa9a796b99f2643db75817c799",
+    "contentSha256": "f3523e811f885f428d927daf89509065353812119df1905cab533895ab574906",
     "pageNumbers": [
       57
     ],
@@ -1294575,7 +1294575,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.7 Frenos hidráulicos de tambor",
     "type": "anexo",
-    "contentSha256": "0bfded578b76071913abbf03637935dffdc7a556597f2418e5f341917fd548be",
+    "contentSha256": "2c04bb32963aec98f326605ac534f234441fe0ba27baad45c3665c780c5b77cf",
     "pageNumbers": [
       57,
       58
@@ -1294983,7 +1294983,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.8 Frenos hidráulicos de disco",
     "type": "anexo",
-    "contentSha256": "d9410c97decfe1c830bbb3f48eb2887f54d91ab313d278d38eeb8ac96d4710ac",
+    "contentSha256": "4b3612ed267382422e2a32e877f43c509f29741bca360d7788874d2a24f11ccd",
     "pageNumbers": [
       58
     ],
@@ -1295273,7 +1295273,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.9 Frenos neumáticos de tambor",
     "type": "anexo",
-    "contentSha256": "2f28a64c8fc94da87de315374b8098a48c720fd4706dd3b83e3de768f3d2928b",
+    "contentSha256": "97439c68db42d8203134b1843db5e22c993cdd9cafd3bd69d2065cacd420897f",
     "pageNumbers": [
       58,
       59
@@ -1295681,7 +1295681,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.10 Frenos neumáticos de disco",
     "type": "anexo",
-    "contentSha256": "29b4804bb0188249e464ff03544cf76b340e0d566f01e9f758c6f307a81b5648",
+    "contentSha256": "145e7b1d049caa799c731d08462bbb5ca945768413cb4240b8b956db1542b1b3",
     "pageNumbers": [
       59,
       60
@@ -1296623,7 +1296623,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.12 Luces",
     "type": "anexo",
-    "contentSha256": "13167a927d8dff35231464838af8031109c12445ae0deccf56426eadcfd36b9e",
+    "contentSha256": "c00376071d50c7b8a5238168a1e0ad882866e4d07cfab2f6f458eec8a9746e3a",
     "pageNumbers": [
       61,
       62
@@ -1297121,7 +1297121,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.13 Sistema eléctrico",
     "type": "anexo",
-    "contentSha256": "cad1bf0379528ac5290d62da288144dfab296d0f0b7b11f010c9e191735012ad",
+    "contentSha256": "1ecac1cab2f758ab7b2d0d1a8570af01c4035b41c959e3db3ae4fb7b888d458a",
     "pageNumbers": [
       62
     ],
@@ -1297348,7 +1297348,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.14 Carrocería y chasis",
     "type": "anexo",
-    "contentSha256": "76408962568ae11577142c7ea281ef254e040b656b3e7a53633f92a66db0dc39",
+    "contentSha256": "5708b86185b57f40cbeb4f5b32bb2ed8d5189ec315ecaf582b9ae4a14c7d5c62",
     "pageNumbers": [
       63
     ],
@@ -1297548,7 +1297548,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.15 Carrocerías y cabinas",
     "type": "anexo",
-    "contentSha256": "56f99a76469957861fce4d3b469b30b5636bac379bb8c9ae751e6ec0dab4bcd8",
+    "contentSha256": "f7604b0ebd4c287f1c67dd7f95cd14be56e653d25b866c05203e383c3e2f3049",
     "pageNumbers": [
       63
     ],
@@ -1297955,7 +1297955,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.16 Chasis",
     "type": "anexo",
-    "contentSha256": "ae07bea4b579e3b6aa9412064bfabfd891464a441e6a012f85a3c5ed0a2268b0",
+    "contentSha256": "da50c9595139907f1b8c471443d651a2c15105851a4b3181ee323ffd48d4933e",
     "pageNumbers": [
       64
     ],
@@ -1298119,7 +1298119,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.17 Plataforma",
     "type": "anexo",
-    "contentSha256": "3221a68f064ba259c53173946ecc547d79659653a8fb4dcea0b36bc838b45288",
+    "contentSha256": "bb584304d400ed5b2a08a1158adb7264f38c91b25bda6b781c7037716ff49ef4",
     "pageNumbers": [
       64
     ],
@@ -1298238,7 +1298238,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.18 Defensas y dispositivos de protección inferior",
     "type": "anexo",
-    "contentSha256": "523d709c20cf24018c47ef327375c67d2e508136f055cf3403ddc5c53e3c9017",
+    "contentSha256": "73b8349299b96ff800ce37550f81b401bef7d69efa20cc2cf411a25bbda9893e",
     "pageNumbers": [
       64
     ],
@@ -1298429,7 +1298429,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.19 Parabrisas",
     "type": "anexo",
-    "contentSha256": "27f9ad91fcad50a503bc3d8eb1a19a67fe5d8900e9c3a62c216cb4786255fc88",
+    "contentSha256": "a3950bf98446b57821354a61eade50829c182806f767d89089d725fe960ba667",
     "pageNumbers": [
       64,
       65
@@ -1298621,7 +1298621,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.20 Ventanas laterales",
     "type": "anexo",
-    "contentSha256": "bfeda53cec986ad23e0991977d93882a673fafbad6012c4ece8ee77f4bede293",
+    "contentSha256": "da4036def0306aa7b35f69b86d676b1c8bdeaf88aa89b8c70d9b75441d487b9e",
     "pageNumbers": [
       65
     ],
@@ -1298812,7 +1298812,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.21 Ventana posterior",
     "type": "anexo",
-    "contentSha256": "73d7808c0397bf4fd7864e7e2ed001b98f532b968b298f3e85fd18a82a0d3c29",
+    "contentSha256": "826fa6c3abb3996ebdfd01f35d1020575c08f1b1aeb1000d772f52e5f69ebbb0",
     "pageNumbers": [
       65
     ],
@@ -1298895,7 +1298895,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.22 Vigas y montajes del chasis",
     "type": "anexo",
-    "contentSha256": "fa14d5d7153e3fa229008b2bb1de73ac7b416daaed22face12498c6a1bfcb017",
+    "contentSha256": "4981061570d046cb1b8c301ba3f6d2e892b14bd9f6c4a62e23e565b8c6de27c1",
     "pageNumbers": [
       65
     ],
@@ -1299104,7 +1299104,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.23 Espejos retrovisores",
     "type": "anexo",
-    "contentSha256": "3d4098f9dbfa2b8acbf1087e5221ba67746d16e41c694eec4c2a63458d56cd29",
+    "contentSha256": "f110a7f614cb08ff503524c2bc67cdf3be2eec5d7ab83fda4acadb2aa20c5a06",
     "pageNumbers": [
       66
     ],
@@ -1299277,7 +1299277,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.24 Asientos y cinturones de seguridad",
     "type": "anexo",
-    "contentSha256": "8e3238dbeec6050ee1cb701f4579391db12ce61cd6ca3474b16c110a495308a5",
+    "contentSha256": "a1a70646bb2469ea3c5170f78db17d837411a4ac8719b8cfd77aaecc3e5ec686",
     "pageNumbers": [
       66
     ],
@@ -1299513,7 +1299513,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.25 Sistema de limpiaparabrisas y eyectores de agua",
     "type": "anexo",
-    "contentSha256": "765025a767e4f69d5bb666c2f22fb474c0a1d5e0a09d061280b4c696550fc2c7",
+    "contentSha256": "39d7d6bf2bc3b730d26511d611a1bb479f4e0bfdc283c03a1c2bba31ce842568",
     "pageNumbers": [
       66
     ],
@@ -1299668,7 +1299668,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.26 Salpicaderas o guardafangos (loderas)",
     "type": "anexo",
-    "contentSha256": "ceb0eb5c6c7e93a1f038a129493311e598daf65177573ef60151d8f5beddf75b",
+    "contentSha256": "7d6a0526aa1d3f1398631176f1cbf78f05fec9fb4d864ce17e2ee5a022b80f2c",
     "pageNumbers": [
       67
     ],
@@ -1299805,7 +1299805,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.27 Llantas y ruedas",
     "type": "anexo",
-    "contentSha256": "274b6c94dc7e17d090d48ea2b22cce66bc88e1ff5480543e71f576e48c0f4c72",
+    "contentSha256": "24d32017766f8a908730f4ae1661405e472d2c9d4d701f67688dc81fe5b35316",
     "pageNumbers": [
       67,
       68,
@@ -1300817,7 +1300817,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.28 Ruedas y rines",
     "type": "anexo",
-    "contentSha256": "e8800d73c85ea7923bedf83119c05ca48d9829c8e6ce881d19a750640b892f1c",
+    "contentSha256": "a160595bf0336cf2bec4a6ede57e2a0b83ade0731dcbd0184f5d7f29c4b2cefc",
     "pageNumbers": [
       69,
       70
@@ -1301513,7 +1301513,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice B · B.29 Acciones correctivas",
     "type": "anexo",
-    "contentSha256": "5c0d01af267c142c0246b8299ad14d9ce42551bb3901242770de7974cfbccd55",
+    "contentSha256": "b32c6a6de45a8dbb68cff3b4be2d9a4906f774a31348b23e56d20182d7411abd",
     "pageNumbers": [
       70
     ],
@@ -1322453,7 +1322453,7 @@
     "sourceId": "dof-matutina-2024-01-18-f19d73064218",
     "label": "Anexo I · Formulario de solicitud",
     "type": "anexo",
-    "contentSha256": "e6509c0acc093aad5d5ad605647b79acab102a5e3fcd4007b19bd8bfbbf4fbbb",
+    "contentSha256": "55ef6130f0143e1cc95607e67377ce9858f18ca46a7ec576e138b1d40048e124",
     "pageNumbers": [
       532,
       533,
