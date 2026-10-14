@@ -1,0 +1,72 @@
+{
+  "fecha_cotejo": "2026-10-14",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=25092024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5739627",
+  "sha256_pdf": "9189c50fb7beeec6c7a8fe839a4430cf859ba0c09413cf0e48f1b6eed3aa5f40",
+  "bytes_pdf": 12243311,
+  "paginas_pdf": 324,
+  "paginas_impresas_documento": [
+    93,
+    96
+  ],
+  "fragmentos_oficiales_mapeados": 5,
+  "nota_editorial_sin_mapa": [
+    "707d5c4c-630c-5f88-92cd-d168fc1ad1c6"
+  ],
+  "cotejo_visual_recomendado": [
+    93,
+    94,
+    95,
+    96
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo del acuerdo modificatorio",
+      "id": "1563ba5c-02d0-50df-b0c9-e736fca9be09",
+      "paginas_pdf": [
+        93
+      ],
+      "anclas": 44,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo ÚNICO · Modificación de la convocatoria",
+      "id": "2ee8c80f-552a-5113-8bd9-50446fedacfb",
+      "paginas_pdf": [
+        93,
+        94,
+        95,
+        96
+      ],
+      "anclas": 190,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio PRIMERO",
+      "id": "5d4ad437-6f37-59ff-b67f-8227cf12932c",
+      "paginas_pdf": [
+        96
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio SEGUNDO",
+      "id": "ab17b5ed-f79a-58d6-b912-6de8a1a99842",
+      "paginas_pdf": [
+        96
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "e1e79bf8-d5fc-5ad0-bb45-e479a5cf7bb9",
+      "paginas_pdf": [
+        96
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
