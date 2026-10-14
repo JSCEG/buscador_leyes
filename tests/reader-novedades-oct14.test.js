@@ -6,7 +6,7 @@ const manifest=JSON.parse(readFileSync('public/reader-sources/manifest.v1.json',
 it('maps both new instruments including both halves of the 197-item HIIP annex',async()=>{
     vi.stubGlobal('crypto',webcrypto);
     for(const [name,count,first,last] of [['vigencias',16,38,42],['hiip',11,133,147]]){
-        const data=JSON.parse(readFileSync(`revision-acervo/mapeo-${name}-2026-10-14/carga.json`,'utf8'));
+        const data=JSON.parse(readFileSync(name==='hiip'?'revision-acervo/correccion-hiip-tablas-2026-10-14/carga.json':`revision-acervo/mapeo-${name}-2026-10-14/carga.json`,'utf8'));
         expect(data.articulos).toHaveLength(count);
         for(const a of data.articulos){
             const r=await getReaderSource(a.id,{articleText:a.contenido,manifest});

@@ -1,0 +1,38 @@
+{
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5801172",
+  "sha256_html": "fdf9113a64d28798e1d7fc2e5d9ab4a976c307495c27e59512fb02e4e7083ce5",
+  "fragmentos_corregidos": [
+    {
+      "id": "90215cc2-5804-4698-9dd6-2111e5214687",
+      "orden": 3,
+      "md5_previo": "61210a65333393b2775accaaf4a44eeb",
+      "md5_nuevo": "dd805eb42ede0a002129e029e7a749ac",
+      "celdas_identicas": 11,
+      "filas_datos": 2
+    },
+    {
+      "id": "857900c8-bc41-4c32-8d97-24f6dc112d97",
+      "orden": 4,
+      "md5_previo": "75f616e39ba1da7a9320c813c4b9d41f",
+      "md5_nuevo": "bb8ef0f4c198ae1347cb98d51da0e3c6",
+      "celdas_identicas": 216,
+      "filas_datos": 53
+    },
+    {
+      "id": "16d82abc-4e6d-4857-b213-2b5906c27beb",
+      "orden": 9,
+      "md5_previo": "40f368873b701be23db228272c3ccc78",
+      "md5_nuevo": "636ed3dff11f5c3759a071d1ac2e999e",
+      "celdas_identicas": 505,
+      "filas_datos": 100
+    },
+    {
+      "id": "58be85f3-d285-465b-8f71-5ab4aa020501",
+      "orden": 10,
+      "md5_previo": "87cfdc3cfe9c7dc59a139130107c4df2",
+      "md5_nuevo": "ab48fdbf0792ebce549368da15515468",
+      "celdas_identicas": 490,
+      "filas_datos": 97
+    }
+  ]
+}

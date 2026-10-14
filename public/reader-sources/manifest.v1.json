@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 98,
-  "verifiedAt": "2026-10-14T18:54:04.883Z",
+  "revision": 99,
+  "verifiedAt": "2026-10-14T20:04:32.182Z",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -1447830,7 +1447830,7 @@
       "sourceId": "dof-hiip-20261014-1223b9f6efdb",
       "label": "ARTÍCULO TERCERO",
       "type": "ordinario",
-      "contentSha256": "96e1c1f907521ebbad7ac27626ac1c7810268dfbac8455788b82a4c220e23ce6",
+      "contentSha256": "2869bce5a7f35dd0184ebefd6b0748391eda96cb8cbb0125bb5a81a943e58afc",
       "pageNumbers": [
         134,
         135,
@@ -1450732,7 +1450732,7 @@
       "sourceId": "dof-hiip-20261014-1223b9f6efdb",
       "label": "ARTÍCULO CUARTO",
       "type": "ordinario",
-      "contentSha256": "6a7b83b2beb50705df7302c90c7b6a766a531d1279b8a3889608f08c0cfe36fc",
+      "contentSha256": "c79fa85a9d1d373736cd82b2379732762f7b038d5c08107022792dedda7d7cc0",
       "pageNumbers": [
         136,
         137
@@ -1453038,7 +1453038,7 @@
       "sourceId": "dof-hiip-20261014-1223b9f6efdb",
       "label": "Anexo I · Reactivos eliminados 1-100",
       "type": "anexo",
-      "contentSha256": "f714d0f4d1da84423f33a68551a8d69fcc7498098508fce9fca23f2b293cb107",
+      "contentSha256": "39c1972059872dcc96013e3ba017e421ca2d373250675d3bb506b8a52be384a8",
       "pageNumbers": [
         138,
         139,
@@ -1458795,7 +1458795,7 @@
       "sourceId": "dof-hiip-20261014-1223b9f6efdb",
       "label": "Anexo I · Reactivos eliminados 101-197",
       "type": "anexo",
-      "contentSha256": "e4dd6cbbac5a5bc0a6a6076278285cd103185e358052241aa1712946fffe7910",
+      "contentSha256": "c3a32a0f2bae7700dab25e26172dff10bceb726271e31f41dc3c32e1f1f9d01e",
       "pageNumbers": [
         142,
         143,
