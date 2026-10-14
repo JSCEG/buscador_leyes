@@ -34,6 +34,14 @@ describe('article HTML tables', () => {
         expect([...table.querySelectorAll('td')].filter(td => td.classList.contains('lr-num'))).toHaveLength(1);
     });
 
+    it('marks blank layout cells so they do not widen the table', () => {
+        const root = render(sanitizeArticleHtml('<table><tr><td>Calle</td><td> </td><td><img src="/a.png" alt=""></td></tr></table>'));
+        const cells = root.querySelectorAll('td');
+        expect(cells[0].classList.contains('lr-empty')).toBe(false);
+        expect(cells[1].classList.contains('lr-empty')).toBe(true);
+        expect(cells[2].classList.contains('lr-empty')).toBe(false);
+    });
+
     it('reuses an existing overflow box instead of nesting a second one', () => {
         const root = render(sanitizeArticleHtml(`<div class="overflow-x-auto"><table><tr><td>a</td></tr></table></div>`));
         expect(root.querySelectorAll('.lr-table')).toHaveLength(1);

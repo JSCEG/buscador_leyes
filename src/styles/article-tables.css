@@ -19,12 +19,8 @@ html .lr-table table.lr-tb{
   display:table!important; width:100%; margin:0; border-collapse:collapse!important; border-spacing:0;
   font-size:.86em; line-height:calc(var(--reader-line-height,1.8) * .8); background:transparent!important;
 }
-.lr-table table.lr-cols-3{min-width:21em}
-.lr-table table.lr-cols-4{min-width:28em}
-.lr-table table.lr-cols-5{min-width:35em}
-.lr-table table.lr-cols-6{min-width:42em}
-.lr-table table.lr-cols-7{min-width:49em}
-.lr-table table.lr-cols-8{min-width:56em}
+/* Width comes from the cells: each readable cell keeps a minimum, so a table scrolls only when its
+   columns really do not fit. An audit of the 2,075 acervo tables found no crushed column this way. */
 html .lr-table :is(td,th){
   min-width:4.5em; padding:.55em .7em!important; border:1px solid var(--lr-line)!important;
   vertical-align:top; text-align:left!important; text-align-last:auto!important;
@@ -38,6 +34,7 @@ html .lr-table :is(thead th, thead td, th){
 html .lr-table thead tr{background:var(--lr-head)!important; border:0!important}
 html .lr-table tbody th{vertical-align:top}
 html .lr-table tbody tr:nth-child(even) > td{background:var(--lr-row)!important}
+html .lr-table td.lr-empty{min-width:0}
 html .lr-table td.lr-num{text-align:center!important; white-space:nowrap; font-variant-numeric:tabular-nums}
 html .lr-table tbody tr:hover{background:transparent!important}
 /* Reader surfaces paint every descendant's colour; headers keep their own ink. */

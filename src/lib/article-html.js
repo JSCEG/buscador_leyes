@@ -45,6 +45,8 @@ export function enhanceTables(root) {
         for (const td of table.querySelectorAll('td')) {
             const text = td.textContent.replace(/\s+/g, ' ').trim();
             if (text && text.length <= 14 && NUMERIC.test(text)) td.classList.add('lr-num');
+            // Blank layout cells (spacers in official forms) must not widen the table.
+            else if (!text && !td.querySelector('img, svg, table')) td.classList.add('lr-empty');
         }
         let box = table.parentElement;
         const ownBox = box && box !== root && box.tagName === 'DIV' && box.children.length === 1 && box.classList.contains('overflow-x-auto');
