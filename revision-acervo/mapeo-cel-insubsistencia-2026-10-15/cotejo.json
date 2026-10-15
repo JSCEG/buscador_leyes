@@ -1,0 +1,59 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=12032024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5719864",
+  "sha256_pdf": "8d03c52e53413d9d4c1eba9126f7e3076844a5344ccbf6cc7f865db67be0f7eb",
+  "bytes_pdf": 9108207,
+  "paginas_pdf": 272,
+  "paginas_impresas_documento": [
+    12,
+    13
+  ],
+  "fragmentos_oficiales_mapeados": 4,
+  "nota_editorial_sin_mapa": [
+    "1293aad2-a6b2-5698-ac39-c1632eac9205"
+  ],
+  "cotejo_visual_recomendado": [
+    12,
+    13
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "id": "858d5c7a-74c3-5330-acfd-421675f02298",
+      "paginas_pdf": [
+        12,
+        13
+      ],
+      "anclas": 89,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo PRIMERO",
+      "id": "f8f0c30e-1f74-5279-9dd7-02356c070a38",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 9,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Resolutivo SEGUNDO",
+      "id": "cac60d9e-f312-5f2a-8fe4-d47c11a04b88",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "7bd2d875-d53b-5c00-9f0d-4a1d711fe4f1",
+      "paginas_pdf": [
+        13
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
