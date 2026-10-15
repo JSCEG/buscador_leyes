@@ -1,0 +1,87 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=24072024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5734389",
+  "sha256_pdf": "4021069a1fa31ad27d2be30f67d5c6172d2f19ec72cd3be010f0d86700af86f3",
+  "bytes_pdf": 5631520,
+  "paginas_pdf": 430,
+  "paginas_impresas_documento": [
+    14,
+    16
+  ],
+  "fragmentos_oficiales_mapeados": 7,
+  "nota_editorial_sin_mapa": [
+    "1e351d7e-41f0-5aef-81c2-e5254de85fd8"
+  ],
+  "cotejo_visual_recomendado": [
+    14,
+    16
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y objeto de la convocatoria",
+      "id": "a2c98164-df3b-53e7-ad39-2fa458692105",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 28,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 1. Generales",
+      "id": "c8a634e9-d310-553a-ac2f-eab2130897cb",
+      "paginas_pdf": [
+        14
+      ],
+      "anclas": 32,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 2. Técnicos",
+      "id": "5821acb1-e7c3-5242-9e69-2e690cbe5495",
+      "paginas_pdf": [
+        14,
+        15,
+        16
+      ],
+      "anclas": 78,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 3. Presentación y evaluación de las solicitudes",
+      "id": "1efb4d42-c525-580f-9fe2-612fb5b8cf18",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 26,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 4. Consulta de formatos",
+      "id": "7c329cbc-aacb-5528-98cd-b1f802ff3615",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 36,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio ÚNICO",
+      "id": "d6a51255-cc0d-5023-a041-254c748abad6",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "8a92abba-edac-5282-8496-12a4ee7a5f47",
+      "paginas_pdf": [
+        16
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
