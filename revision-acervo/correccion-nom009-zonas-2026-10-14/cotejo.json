@@ -1,0 +1,271 @@
+[
+  {
+    "id": "8f2b0fdf-1a61-584d-a677-6b6dee8a2eb2",
+    "md5_previo": "688d93a1d2402a7039490708455fbf01",
+    "sha256_previo": "8a721942d621aff5510334d28963174de657e43766a5cadaea7d3a3a810dd18f",
+    "sha256_nuevo": "5fe93844d664d3211a41837018b47f8a7a7190602da8b0361cbee3dc14011c27",
+    "filas": [
+      {
+        "zona": "Guadalajara.",
+        "municipios": [
+          "Acatlán de Juárez.",
+          "El Salto.",
+          "Guadalajara.",
+          "Ixtlahuacán de los Membrillos.",
+          "Juanacatlán.",
+          "San Pedro Tlaquepaque.",
+          "Tlajomulco de Zúñiga.",
+          "Tonalá.",
+          "Zapopan.",
+          "Zapotlanejo."
+        ],
+        "pagina": 71
+      },
+      {
+        "zona": "Monterrey.",
+        "municipios": [
+          "Abasolo.",
+          "Apodaca.",
+          "Cadereyta Jiménez.",
+          "Ciénega de Flores.",
+          "El Carmen.",
+          "García.",
+          "General Escobedo.",
+          "General Zuazua.",
+          "Guadalupe.",
+          "Hidalgo.",
+          "Juárez.",
+          "Monterrey.",
+          "Pesquería.",
+          "Salinas Victoria.",
+          "San Nicolás de los Garza.",
+          "San Pedro Garza García.",
+          "Santa Catarina.",
+          "Santiago."
+        ],
+        "pagina": 71
+      },
+      {
+        "zona": "Puebla-Tlaxcala.",
+        "municipios": [
+          "Acajete.",
+          "Acuamanala de Miguel Hidalgo.",
+          "Amozoc.",
+          "Coronango.",
+          "Cuautlancingo.",
+          "Chiautzingo.",
+          "Domingo Arenas.",
+          "Huejotzingo.",
+          "Ixtacuixtla de Mariano Matamoros.",
+          "Juan C. Bonilla.",
+          "Mazatecochco de José María Morelos.",
+          "Natívitas.",
+          "Ocoyucan.",
+          "Papalotla de Xicohténcatl.",
+          "Puebla.",
+          "San Andrés Cholula.",
+          "Santa Ana Nopalucan.",
+          "Santa Apolonia Teacalco.",
+          "Santa Catarina Ayometla.",
+          "Santa Cruz Quilehtla.",
+          "San Felipe Teotlalcingo.",
+          "San Gregorio Atzompa.",
+          "San Jerónimo Zacualpan.",
+          "San Juan Huactzinco.",
+          "San Lorenzo Axocomanitla.",
+          "San Martín Texmelucan.",
+          "San Miguel Xoxtla.",
+          "San Pablo del Monte.",
+          "San Pedro Cholula.",
+          "San Salvador el Verde.",
+          "Tepatlaxco de Hidalgo.",
+          "Tlaltenango.",
+          "Tepetitla de Lardizábal.",
+          "Tenancingo.",
+          "Teolocholco.",
+          "Tepeyanco.",
+          "Tetlatlahuca.",
+          "Xicohtzinco.",
+          "Zacatelco."
+        ],
+        "pagina": 71
+      },
+      {
+        "zona": "Toluca.",
+        "municipios": [
+          "Almoloya de Juárez.",
+          "Calimaya.",
+          "Chapultepec.",
+          "Lerma.",
+          "Metepec.",
+          "Mexicaltzingo.",
+          "Ocoyoacac.",
+          "Otzolotepec.",
+          "Rayón.",
+          "San Antonio la Isla.",
+          "San Mateo Atenco.",
+          "Temoaya.",
+          "Tenango del Valle.",
+          "Toluca.",
+          "Xonacatlán.",
+          "Zinacantepec."
+        ],
+        "pagina": 71
+      },
+      {
+        "zona": "Valle de México.",
+        "municipios": [
+          "Álvaro Obregón.",
+          "Azcapotzalco.",
+          "Benito Juárez.",
+          "Cuajimalpa de Morelos.",
+          "Cuauhtémoc.",
+          "Coyoacán.",
+          "Gustavo A. Madero.",
+          "Iztacalco.",
+          "Iztapalapa.",
+          "La Magdalena Contreras.",
+          "Miguel Hidalgo.",
+          "Milpa Alta.",
+          "Tláhuac.",
+          "Tlalpan.",
+          "Venustiano Carranza.",
+          "Xochimilco.",
+          "Acolman.",
+          "Amecameca.",
+          "Apaxco.",
+          "Atenco.",
+          "Atizapán de Zaragoza.",
+          "Atlautla.",
+          "Axapusco.",
+          "Ayapango.",
+          "Coacalco de Berriozábal.",
+          "Cocotitlán.",
+          "Coyotepec.",
+          "Cuautitlán.",
+          "Cuautitlán Izcalli.",
+          "Chalco.",
+          "Chiautla.",
+          "Chicoloapan.",
+          "Chiconcuac.",
+          "Chimalhuacán.",
+          "Ecatepec de Morelos.",
+          "Ecatzingo.",
+          "Huehuetoca.",
+          "Hueypoxtla.",
+          "Huixquilucan.",
+          "Isidro Fabela.",
+          "Ixtapaluca.",
+          "Jaltenco.",
+          "Jilotzingo.",
+          "Juchitepec.",
+          "La Paz.",
+          "Melchor Ocampo.",
+          "Naucalpan de Juárez.",
+          "Nezahualcóyotl.",
+          "Nextlalpan.",
+          "Nicolás Romero.",
+          "Nopaltepec.",
+          "Otumba.",
+          "Ozumba.",
+          "Papalotla.",
+          "San Martín de las Pirámides.",
+          "Tecámac.",
+          "Temamatla.",
+          "Temascalapa.",
+          "Tenango del Aire.",
+          "Teoloyucan.",
+          "Teotihuacán.",
+          "Tepetlaoxtoc.",
+          "Tepetlixpa.",
+          "Tepotzotlán.",
+          "Tequixquiac.",
+          "Texcoco.",
+          "Tezoyuca.",
+          "Tizayuca.",
+          "Tlalmanalco.",
+          "Tlalnepantla de Baz.",
+          "Tonanitla.",
+          "Tultepec.",
+          "Tultitlán.",
+          "Valle de Chalco Solidaridad.",
+          "Villa del Carbón.",
+          "Zumpango."
+        ],
+        "pagina": 72
+      }
+    ]
+  },
+  {
+    "id": "296956d5-a195-566b-8c97-02507bf39ddf",
+    "md5_previo": "01a89b1dcacbc54f30d78983b2420c31",
+    "sha256_previo": "c1d977184e3c7d6ba06b491d2ce7d8d7e46d7ae2e6293f4bcc5c2097ded2c441",
+    "sha256_nuevo": "073d14b86590513c9fd460262c5fe2c5ede9335d6e4915cd9b5ab30cd04f073e",
+    "filas": [
+      {
+        "zona": "Celaya.",
+        "municipios": [
+          "Celaya.",
+          "Comonfort.",
+          "Cortazar.",
+          "Villagrán."
+        ],
+        "pagina": 72
+      },
+      {
+        "zona": "Cuernavaca.",
+        "municipios": [
+          "Cuernavaca.",
+          "Emiliano Zapata.",
+          "Huitzilac.",
+          "Jiutepec.",
+          "Temixco.",
+          "Tepoztlán.",
+          "Tlaltizapán de Zapata.",
+          "Xochitepec."
+        ],
+        "pagina": 72
+      },
+      {
+        "zona": "Guanajuato.",
+        "municipios": [
+          "Guanajuato."
+        ],
+        "pagina": 72
+      },
+      {
+        "zona": "Pachuca.",
+        "municipios": [
+          "Epazoyucan.",
+          "Mineral del Monte.",
+          "Mineral de la Reforma.",
+          "Pachuca de Soto.",
+          "San Agustín Tlaxiaca.",
+          "Zapotlán de Juárez.",
+          "Zempoala."
+        ],
+        "pagina": 72
+      },
+      {
+        "zona": "Tula.",
+        "municipios": [
+          "Atitalaquia.",
+          "Atotonilco de Tula.",
+          "Tlahuelilpan.",
+          "Tlaxcoapan.",
+          "Tula de Allende."
+        ],
+        "pagina": 72
+      },
+      {
+        "zona": "Tulancingo.",
+        "municipios": [
+          "Cuautepec de Hinojosa.",
+          "Santiago Tulantepec de Lugo Guerrero.",
+          "Tulancingo de Bravo."
+        ],
+        "pagina": 72
+      }
+    ]
+  }
+]

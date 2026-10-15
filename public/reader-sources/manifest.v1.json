@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 100,
-  "verifiedAt": "2026-10-14T22:43:28.797Z",
+  "revision": 101,
+  "verifiedAt": "2026-10-15T05:40:52.912Z",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -1301578,7 +1301578,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice C · Tabla C1 · Zonas metropolitanas categoría 1",
     "type": "anexo",
-    "contentSha256": "8a721942d621aff5510334d28963174de657e43766a5cadaea7d3a3a810dd18f",
+    "contentSha256": "5fe93844d664d3211a41837018b47f8a7a7190602da8b0361cbee3dc14011c27",
     "pageNumbers": [
       71,
       72
@@ -1303165,7 +1303165,7 @@
     "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
     "label": "Apéndice C · Tabla C2 · Zonas metropolitanas categoría 2",
     "type": "anexo",
-    "contentSha256": "c1d977184e3c7d6ba06b491d2ce7d8d7e46d7ae2e6293f4bcc5c2097ded2c441",
+    "contentSha256": "073d14b86590513c9fd460262c5fe2c5ede9335d6e4915cd9b5ab30cd04f073e",
     "pageNumbers": [
       72
     ],
