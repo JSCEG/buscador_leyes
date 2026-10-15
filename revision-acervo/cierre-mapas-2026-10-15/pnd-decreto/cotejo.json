@@ -1,0 +1,57 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=15042025-VES.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5755161",
+  "sha256_pdf": "a1f503c4229a95e0fbe0f8d801760522017af262db0b6c4faa0296e2e2d6c764",
+  "bytes_pdf": 1810191,
+  "paginas_pdf": 104,
+  "paginas_impresas_documento": [
+    8,
+    8
+  ],
+  "fragmentos_oficiales_mapeados": 4,
+  "nota_editorial_sin_mapa": [],
+  "cotejo_visual_recomendado": [
+    8,
+    8
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo del decreto",
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2340",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 21,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Primero",
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2341",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Segundo",
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2342",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firmas y promulgación",
+      "id": "761b43cf-4d94-4eb5-809d-3d3a0a8d2343",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    }
+  ],
+  "revision_manual": "Rangos cotejados con la edición oficial y límites del siguiente fragmento; notas editoriales locales excluidas."
+}

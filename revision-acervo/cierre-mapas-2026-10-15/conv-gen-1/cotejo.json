@@ -1,0 +1,197 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=17102025-VES.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5770299",
+  "sha256_pdf": "82f15ac85c7de97078a578dd5e5ac6ef2c5025d6f7af9d1a9a398a5a58b56787",
+  "bytes_pdf": 9901233,
+  "paginas_pdf": 134,
+  "paginas_impresas_documento": [
+    117,
+    133
+  ],
+  "fragmentos_oficiales_mapeados": 18,
+  "nota_editorial_sin_mapa": [
+    "aaba7be7-27c0-5d68-9db8-5aa5b4bc2d3f"
+  ],
+  "cotejo_visual_recomendado": [
+    117,
+    133
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo de la convocatoria",
+      "id": "ff0939ff-91c0-59d0-85dc-a31ae9aecdc3",
+      "paginas_pdf": [
+        117,
+        118
+      ],
+      "anclas": 56,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Índice de la publicación",
+      "id": "50337b14-5ac2-5e1e-947b-f0b1c7353ce3",
+      "paginas_pdf": [
+        118
+      ],
+      "anclas": 33,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 1",
+      "id": "77c65739-ae6b-5172-832b-22f8b899d34f",
+      "paginas_pdf": [
+        118,
+        119
+      ],
+      "anclas": 69,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 2",
+      "id": "39bd22b4-dce1-5f69-a22b-18b28387d1bf",
+      "paginas_pdf": [
+        119
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 3",
+      "id": "5f14a700-5ce9-5277-b929-325853c5c89f",
+      "paginas_pdf": [
+        119,
+        120
+      ],
+      "anclas": 43,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 4",
+      "id": "576f6583-7dfc-5572-8c91-82e6b2c13956",
+      "paginas_pdf": [
+        120
+      ],
+      "anclas": 25,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 5",
+      "id": "a587b39c-43fa-5509-83d7-0de2c56c110a",
+      "paginas_pdf": [
+        120,
+        121,
+        122
+      ],
+      "anclas": 115,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 6",
+      "id": "203ad777-ae10-59bb-8291-4f0a965ca711",
+      "paginas_pdf": [
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "anclas": 429,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Numeral 7",
+      "id": "66841059-17b2-503c-b5b0-2c917d6caebb",
+      "paginas_pdf": [
+        127,
+        128
+      ],
+      "anclas": 64,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 8",
+      "id": "2ef9cdd8-3780-52cb-a0d9-5628b18c30d9",
+      "paginas_pdf": [
+        128
+      ],
+      "anclas": 51,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 9",
+      "id": "4038058e-3c6d-500d-b091-fa2a2c03c062",
+      "paginas_pdf": [
+        129
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 10",
+      "id": "0be69bdd-7e21-550d-9207-5be31ba1c1c7",
+      "paginas_pdf": [
+        129
+      ],
+      "anclas": 11,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Numeral 11",
+      "id": "f4488ada-0640-58f7-9fe7-4c9a3abcaa87",
+      "paginas_pdf": [
+        129,
+        130
+      ],
+      "anclas": 66,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "12.a · Anexo técnico",
+      "id": "9931bc29-3772-5477-9c64-f11c40cbba68",
+      "paginas_pdf": [
+        130,
+        131
+      ],
+      "anclas": 346,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "12.b · Referencia al formato en VUPE",
+      "id": "262706cb-e098-5901-8b03-9478ed815df4",
+      "paginas_pdf": [
+        131
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "12.c · Formato de trámite previo",
+      "id": "a76b3f43-e931-5271-a0fc-e2b7a267410f",
+      "paginas_pdf": [
+        132
+      ],
+      "anclas": 59,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "12.d · Formato de aceptación de obras",
+      "id": "08d6976b-fe81-5423-8f60-6e18f7484eac",
+      "paginas_pdf": [
+        133
+      ],
+      "anclas": 51,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma de la convocatoria",
+      "id": "ea8af6dc-6837-5f7c-b793-c3a42dbc8d67",
+      "paginas_pdf": [
+        133
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    }
+  ],
+  "revision_manual": "Rangos cotejados con la edición oficial y límites del siguiente fragmento; notas editoriales locales excluidas. Tablas de numeral 6 y anexo técnico: las 369 celdas no vacías coinciden individualmente con el PDF; el orden de extracción entre columnas impide coincidencia lineal completa. Inspección visual páginas 123 y 130."
+}

@@ -1,0 +1,88 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=30072024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5734780",
+  "sha256_pdf": "cfeb27bbb0bd78a15a48a2ea93c277ac2aadb327c3fb4644416073f1eaaa574f",
+  "bytes_pdf": 3343215,
+  "paginas_pdf": 240,
+  "paginas_impresas_documento": [
+    53,
+    55
+  ],
+  "fragmentos_oficiales_mapeados": 7,
+  "nota_editorial_sin_mapa": [
+    "1939b7b6-5e52-595d-b5e7-c498d9055e2a"
+  ],
+  "cotejo_visual_recomendado": [
+    53,
+    55
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y objeto de la convocatoria",
+      "id": "a04dd585-5bc4-5a79-b737-21841d0c93b0",
+      "paginas_pdf": [
+        53
+      ],
+      "anclas": 32,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 1. Generales",
+      "id": "be91ff04-4be3-5d9b-8ce9-09de8252ad9a",
+      "paginas_pdf": [
+        53
+      ],
+      "anclas": 31,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 2. Técnicos",
+      "id": "f3605d94-f14a-57e7-9b23-34f994795113",
+      "paginas_pdf": [
+        53,
+        54,
+        55
+      ],
+      "anclas": 100,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 3. Presentación y evaluación de las solicitudes",
+      "id": "a55c2642-0f1f-564d-8b46-feff7c1628cd",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 24,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 4. Consulta de formatos",
+      "id": "28816bf7-be47-5c53-ad04-0115f221d30f",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 10,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio ÚNICO",
+      "id": "79be2476-4581-508f-bce8-9dc88f02eeb4",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "c9eb43ba-7621-5f9e-ad76-1a8595ce0469",
+      "paginas_pdf": [
+        55
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    }
+  ],
+  "revision_manual": "Rangos cotejados con la edición oficial y límites del siguiente fragmento; notas editoriales locales excluidas."
+}

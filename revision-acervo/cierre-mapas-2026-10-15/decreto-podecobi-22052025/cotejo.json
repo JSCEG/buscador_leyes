@@ -1,0 +1,198 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=22052025-VES.pdf&repo=",
+  "fuente_sidof": "https://dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025",
+  "sha256_pdf": "0c10b942c45598463323464bcd2ba3fba8fb28cfd3eee2cebd31071829b6e5f4",
+  "bytes_pdf": 595380,
+  "paginas_pdf": 20,
+  "paginas_impresas_documento": [
+    2,
+    8
+  ],
+  "fragmentos_oficiales_mapeados": 19,
+  "nota_editorial_sin_mapa": [],
+  "cotejo_visual_recomendado": [
+    2,
+    8
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo",
+      "id": "17aaa2f6-91e8-4082-b567-fbaf7e7e9c24",
+      "paginas_pdf": [
+        2
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Fundamento y considerandos",
+      "id": "0eb1395e-5a9e-4a3a-a754-6367a7bbf8e5",
+      "paginas_pdf": [
+        2,
+        3,
+        4
+      ],
+      "anclas": 106,
+      "coincidencia_normalizada": false
+    },
+    {
+      "fragmento": "Artículo Primero",
+      "id": "40a07017-0bf5-4749-8186-1aedb3b5a1d7",
+      "paginas_pdf": [
+        4
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Segundo",
+      "id": "804492c8-dafb-4f70-b11d-452c93a0c355",
+      "paginas_pdf": [
+        4
+      ],
+      "anclas": 26,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Tercero",
+      "id": "521f56bf-ff11-42b8-b36b-40d2d34e5e7a",
+      "paginas_pdf": [
+        4,
+        5
+      ],
+      "anclas": 50,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Cuarto",
+      "id": "fd6f30d8-63ee-4fc4-8619-b2165d655cc7",
+      "paginas_pdf": [
+        5,
+        6
+      ],
+      "anclas": 53,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Quinto",
+      "id": "0f48ab42-9acd-48b6-a398-aee5486048b6",
+      "paginas_pdf": [
+        6,
+        7
+      ],
+      "anclas": 24,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Sexto",
+      "id": "5d0545e9-d0a9-4c69-baf7-6f3c02aae7d4",
+      "paginas_pdf": [
+        7
+      ],
+      "anclas": 19,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Séptimo",
+      "id": "20bc5555-08d3-4d5a-8bf9-e03e247a416d",
+      "paginas_pdf": [
+        7
+      ],
+      "anclas": 35,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Octavo",
+      "id": "82904284-c422-40f8-ad15-698ea8487604",
+      "paginas_pdf": [
+        7
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Noveno",
+      "id": "245f82db-b475-4f25-8b37-95c56ace00a6",
+      "paginas_pdf": [
+        7,
+        8
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Décimo",
+      "id": "9daf1b33-e3bf-4ca7-98ed-093b2cdf7b8e",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 22,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Décimo Primero",
+      "id": "ef888344-5b14-4457-8235-fda4e5c655b5",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 10,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Décimo Segundo",
+      "id": "0987c704-bf1e-47bc-8848-1ac0728aca69",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Décimo Tercero",
+      "id": "a1b63067-2aed-4def-a740-bdee485040eb",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 5,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "398f3391-e4af-42a9-ae52-d7f5c428c852",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 2,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "31f1f7b6-6b3e-4dd7-a644-5a5d58a5dd68",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "ef116f11-bed4-467e-bfcf-f21d8ef62417",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firmas y promulgación",
+      "id": "88c09923-3d2e-5b79-84fc-1057d911d354",
+      "paginas_pdf": [
+        8
+      ],
+      "anclas": 6,
+      "coincidencia_normalizada": false
+    }
+  ],
+  "revision_manual": "Rangos cotejados con la edición oficial y límites del siguiente fragmento; notas editoriales locales excluidas. Considerandos y firmas localizados en páginas 2–4 y 8. La nota al pie URL está separada del texto por la extracción; la página 8 contiene las firmas completas."
+}

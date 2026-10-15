@@ -1,0 +1,105 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2024&archivo=31102024-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5742012",
+  "sha256_pdf": "f228408a91d60e7f9c6212b78fa273c08b445f2280b89ceac391c17c190ecb24",
+  "bytes_pdf": 4535102,
+  "paginas_pdf": 180,
+  "paginas_impresas_documento": [
+    2,
+    4
+  ],
+  "fragmentos_oficiales_mapeados": 9,
+  "nota_editorial_sin_mapa": [
+    "d8299453-8778-5c34-a67a-8a62da5e3a75"
+  ],
+  "cotejo_visual_recomendado": [
+    2,
+    4
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo del decreto",
+      "id": "9fefcbbd-fda7-516d-9ffc-1b5f6d9b2692",
+      "paginas_pdf": [
+        2
+      ],
+      "anclas": 14,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Artículo Único · Disposición reformadora",
+      "id": "fe347fff-a06c-51ce-befd-24d8ddf28ed5",
+      "paginas_pdf": [
+        2
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Modificación al artículo 25",
+      "id": "6dffe537-6862-5f6d-9374-08ef0087375e",
+      "paginas_pdf": [
+        2
+      ],
+      "anclas": 12,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Modificación al artículo 27",
+      "id": "4f822298-7ee2-59ea-8775-fbd4e0910da4",
+      "paginas_pdf": [
+        2,
+        3
+      ],
+      "anclas": 26,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Modificación al artículo 28",
+      "id": "2e87c2d0-a975-58d6-95c8-3dfd10a121ed",
+      "paginas_pdf": [
+        3
+      ],
+      "anclas": 15,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Primero",
+      "id": "b70a9172-04f4-59d2-aaa0-fa892f91edbb",
+      "paginas_pdf": [
+        4
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Segundo",
+      "id": "ec7a32f5-9cee-5945-849f-16f5116ab07b",
+      "paginas_pdf": [
+        4
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio Tercero",
+      "id": "3b620c80-85dc-584e-bd13-e14871fd5350",
+      "paginas_pdf": [
+        4
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "f6833223-ceb1-5ebb-aa96-f3f001212cfe",
+      "paginas_pdf": [
+        4
+      ],
+      "anclas": 8,
+      "coincidencia_normalizada": true
+    }
+  ],
+  "revision_manual": "Rangos cotejados con la edición oficial y límites del siguiente fragmento; notas editoriales locales excluidas."
+}
