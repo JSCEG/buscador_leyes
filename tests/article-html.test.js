@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { articleHtml, sanitizeArticleHtml, markScrollableTables } from '../src/lib/article-html.js';
+import { articleHtml, sanitizeArticleHtml, markScrollableTables, articlePreviewHtml } from '../src/lib/article-html.js';
 
 const OFFICIAL = `<p>Se dan a conocer los reactivos resultantes:</p>
 <table><thead><tr><th>ID</th><th>REACTIVO</th><th colspan="2">CLASIFICACIÓN</th></tr></thead>
@@ -32,6 +32,18 @@ describe('article HTML tables', () => {
         expect(table.querySelector('th[colspan]').getAttribute('scope')).toBe('colgroup');
         expect(table.querySelector('td[rowspan]').classList.contains('lr-num')).toBe(true);
         expect([...table.querySelectorAll('td')].filter(td => td.classList.contains('lr-num'))).toHaveLength(1);
+    });
+
+    it('previews an article with a table as a short table, not as run-on cell text', () => {
+        const rows = Array.from({ length: 12 }, (_, i) => `<tr><td>${i + 1}</td><td>Reactivo ${i + 1}</td></tr>`).join('');
+        const { html, truncated } = articlePreviewHtml(`<p>Se dan a conocer los reactivos:</p><table><thead><tr><th>ID</th><th>REACTIVO</th></tr></thead><tbody>${rows}</tbody></table><p>Después.</p>`, { rows: 3 });
+        const root = render(html);
+        expect(root.querySelector('p').textContent).toBe('Se dan a conocer los reactivos:');
+        expect(root.querySelector('.lr-table th').textContent).toBe('ID');
+        expect(root.querySelectorAll('tbody tr')).toHaveLength(3);
+        expect(root.textContent).not.toContain('Después.');
+        expect(truncated).toBe(true);
+        expect(articlePreviewHtml('<table><tr><td>a</td></tr></table>').truncated).toBe(false);
     });
 
     it('marks blank layout cells so they do not widen the table', () => {

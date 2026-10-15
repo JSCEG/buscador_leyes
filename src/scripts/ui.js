@@ -10,7 +10,7 @@ import { renderSearchLanding } from './search-landing.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
-import { sanitizeArticleHtml, markScrollableTables } from '../lib/article-html.js';
+import { sanitizeArticleHtml, markScrollableTables, articlePreviewHtml } from '../lib/article-html.js';
 // Heavy, rarely used views load on demand so the library opens fast.
 const loadPresentation = () => import('./law-presentation.js');
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
@@ -1966,7 +1966,11 @@ export function initUI() {
 
         const renderCard = item => {
             const relatedLabel = relatedDocumentLabel(item);
-            const highlightedText = highlightText(getTextPreview(item.texto, 900), highlightQuery);
+            // An article with a table previews as HTML, so the table reads as a table in the card.
+            const tablePreview = /<table\b/i.test(item.texto || '') ? articlePreviewHtml(item.texto) : null;
+            const highlightedText = tablePreview ? null : highlightText(getTextPreview(item.texto, 900), highlightQuery);
+            // A table preview is clipped to the card height, so it always offers the full article.
+            const longText = tablePreview ? true : getTextPreview(item.texto, 100000).length > 900;
             const hasNote = !!getNote(item.id);
             const { loggedIn, fav: isFav, title: favTitle } = getFavoriteUiState(item.id);
             const bookmarkIcon = isFav
@@ -1987,7 +1991,7 @@ export function initUI() {
                     </span>
                     <span class="text-[10px] text-gray-500 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
                 </div>
-                <p class="reader-preview text-gray-600">${highlightedText}</p>${getTextPreview(item.texto, 100000).length > 900 ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
+                ${tablePreview ? `<div class="reader-preview lr-card-preview text-gray-600">${highlightHtml(tablePreview.html, highlightQuery)}</div>` : `<p class="reader-preview text-gray-600">${highlightedText}</p>`}${longText ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
                 <div class="lr-card-actions">
                     ${pinButtonHtml(item.id)}
                     <button type="button" class="compare-card-btn lr-card-action${isSelected ? ' is-on' : ''}" data-id="${item.id}" aria-pressed="${isSelected}" ${!isSelected && compareSelection.length >= 2 ? 'disabled title="Ya elegiste dos artículos para comparar"' : 'title="Compara este artículo con otro, lado a lado"'}>
@@ -2010,6 +2014,7 @@ export function initUI() {
         ` : '');
 
         lawOutlineSync?.();
+        markScrollableTables(list);
         document.querySelectorAll('#law-articles-list .result-item').forEach(el => {
             el.addEventListener('click', (e) => {
                 if (e.target.closest('.bookmark-card-btn') || e.target.closest('.compare-card-btn')) return;

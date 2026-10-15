@@ -86,8 +86,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const mapLink = element('a', 'ac-stats-link', 'Mapa de permisos'); mapLink.href = '#mapa-permisos';
     facts.append(mapLink);
 
-    // "¿Cómo funciona?": the card opens the list of every topic (electricity and hydrocarbons). The icon is the
-    // route itself: three stops joined by a path, a pulse running along it and a spark at the start.
+    // "¿Cómo funciona?": the card opens the list of every topic (electricity and hydrocarbons). The icon is a
+    // light bulb with a bolt (electricity) and a drop (hydrocarbons); its rays pulse.
     const howLink = element('a', 'ac-stats-link', '¿Cómo funciona?'); howLink.href = '#como-funciona';
     facts.append(howLink);
     const howPromo = element('a', 'ac-map-promo ac-cf-promo');
@@ -95,12 +95,11 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     howPromo.setAttribute('aria-label', 'Aprende: abrir todos los temas de electricidad e hidrocarburos, con ilustraciones animadas');
     howPromo.innerHTML = `
         <span class="ac-map-promo-icon ac-cf-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 38c8 0 8-14 16-14s8-14 16-14" stroke="#ffffff66" stroke-width="2.4"/>
-            <path class="ac-cf-pulse" d="M9 38c8 0 8-14 16-14s8-14 16-14" stroke="#e9c46a" stroke-width="2.4"/>
-            <circle cx="9" cy="38" r="6.5" fill="#fff" stroke="#9b2247" stroke-width="2"/>
-            <path class="ac-cf-rays" d="M10 33.5 6.8 38.6h3.6L8.2 42.6" stroke="#a57f2c" stroke-width="1.8"/>
-            <circle cx="25" cy="24" r="5" fill="#fff" stroke="#1e5b4f" stroke-width="2"/>
-            <circle cx="41" cy="10" r="5" fill="#fff" stroke="#1e5b4f" stroke-width="2"/>
+            <path class="ac-cf-rays" d="M24 1.5v3.5M9.5 7.5l2.6 2.6M38.5 7.5l-2.6 2.6M4 20.5h3.6M40.4 20.5H44" stroke="#e9c46a" stroke-width="2.2"/>
+            <path d="M16.5 30c-3.3-2.6-5.5-6.5-5.5-10.8C11 12.1 16.8 7 24 7s13 5.1 13 12.2c0 4.3-2.2 8.2-5.5 10.8v4.5h-15z" fill="#fff" stroke="#9b2247" stroke-width="2"/>
+            <path d="M25.4 11.5 19.6 21h4.8l-1.8 7.4 6.6-10.2h-4.9l1.1-6.7z" fill="#e9c46a" stroke="#a57f2c" stroke-width="1.1"/>
+            <path d="M18 38.5h12M19.5 42.5h9" stroke="#9b2247" stroke-width="2.2"/>
+            <path d="M40.5 33.5s-4.2 4.6-4.2 7.4a4.2 4.2 0 0 0 8.4 0c0-2.8-4.2-7.4-4.2-7.4z" fill="#1e5b4f" stroke="#fff" stroke-width="1.4"/>
         </svg></span>
         <span class="ac-map-promo-copy">
             <span class="ac-map-promo-eyebrow">Nuevo · ¿Cómo funciona?</span>

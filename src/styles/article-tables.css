@@ -56,3 +56,14 @@ html.dark-mode .lr-table-hint{color:#b3a89e}
   .lr-table-hint{display:none!important}
 }
 html #modal-content .reader-text p.lr-table-hint{font-size:13px!important; line-height:1.35!important; text-align:left!important; margin:.8em 0 -.6em!important}
+/* Table previews in the cards of a law: same table, compact, the text left-aligned. */
+html #law-articles-list .lr-card-preview :is(p,div,li,span,td,th){text-align:left!important}
+html #law-articles-list .lr-card-preview p{margin:0 0 .6em}
+html #law-articles-list .lr-card-preview .lr-table{margin:.6em 0 .2em}
+html #law-articles-list .lr-card-preview .lr-table table.lr-tb{font-size:.82em}
+html #law-articles-list .lr-card-preview :is(h1,h2,h3,h4){font-size:1em;margin:0 0 .5em}
+html #law-articles-list .lr-card-preview{position:relative;max-height:24em;overflow:hidden}
+html #law-articles-list .lr-card-preview::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.5em;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--lr-card-fade,var(--lr-card,#fff)))}
+html[data-reader-surface="sepia"] #law-articles-list .lr-card-preview{--lr-card-fade:#f8efd9}
+html[data-reader-surface="dark"] #law-articles-list .lr-card-preview{--lr-card-fade:#222e29}
+html[data-reader-surface="light"] #law-articles-list .lr-card-preview{--lr-card-fade:#fff}

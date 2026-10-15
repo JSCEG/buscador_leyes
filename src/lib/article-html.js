@@ -101,6 +101,45 @@ export function sanitizeArticleHtml(html) {
     return template.innerHTML;
 }
 
+/**
+ * Short HTML preview of an article that has tables, for the cards of a law: the text up to about
+ * `chars` characters and, once a table is reached, that table with its header and first `rows`
+ * body rows, so it reads as a table and not as run-on cell text. Nothing is rewritten; whole
+ * nodes are kept or dropped. Returns { html, truncated }.
+ */
+export function articlePreviewHtml(content, { chars = 700, rows = 5 } = {}) {
+    const template = document.createElement('template');
+    template.innerHTML = sanitizeArticleHtml(String(content || ''));
+    const out = document.createElement('template');
+    let used = 0;
+    let truncated = false;
+    const nodes = [...template.content.childNodes];
+    for (let index = 0; index < nodes.length; index++) {
+        const node = nodes[index];
+        const table = node.nodeType === 1 && (node.matches('table') ? node : node.querySelector?.('table'));
+        if (table) {
+            const body = [...table.rows].filter(row => row.parentElement?.tagName !== 'THEAD');
+            const keep = table.tHead ? rows : rows + 1;
+            body.slice(keep).forEach(row => { row.remove(); truncated = true; });
+            out.content.append(node);
+            truncated ||= index < nodes.length - 1;
+            break;
+        }
+        const length = node.textContent.replace(/\s+/g, ' ').trim().length;
+        if (used && used + length > chars) { truncated = true; break; }
+        if (!used && length > chars) {
+            const p = document.createElement('p');
+            p.textContent = `${node.textContent.replace(/\s+/g, ' ').trim().slice(0, chars).trimEnd()}…`;
+            out.content.append(p);
+            truncated = true;
+            break;
+        }
+        out.content.append(node);
+        used += length;
+    }
+    return { html: out.innerHTML, truncated };
+}
+
 export function articleHtml(text) {
     const value = String(text || '');
     if (/<(?:div|p|table|section|ul|ol|h[1-6])\b/i.test(value)) return sanitizeArticleHtml(value);
