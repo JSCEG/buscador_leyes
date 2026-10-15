@@ -1,0 +1,96 @@
+{
+  "fecha_cotejo": "2026-10-15",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=17072025-MAT.pdf&repo=",
+  "fuente_sidof": "https://sidof.segob.gob.mx/notas/docFuente/5763176",
+  "sha256_pdf": "d02cdee0c5d4bbc23902d311be0ef4ae10154129972a2f92ca78ec48599bb801",
+  "bytes_pdf": 3601247,
+  "paginas_pdf": 246,
+  "paginas_impresas_documento": [
+    33,
+    35
+  ],
+  "fragmentos_oficiales_mapeados": 8,
+  "nota_editorial_sin_mapa": [
+    "25b40b97-7814-57ef-bc6c-23db99b66079"
+  ],
+  "cotejo_visual_recomendado": [
+    33,
+    35
+  ],
+  "detalle": [
+    {
+      "fragmento": "Preámbulo y objeto de la convocatoria",
+      "id": "c8f4552d-0aba-5b6b-b24c-2fd29ecd2375",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 32,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 1. Generales",
+      "id": "221c90fb-495f-5dd0-b7f9-5f2661a84708",
+      "paginas_pdf": [
+        33
+      ],
+      "anclas": 18,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 2. Técnicos",
+      "id": "38a432c5-8af2-55b8-b8ac-e369c79457c5",
+      "paginas_pdf": [
+        33,
+        34,
+        35
+      ],
+      "anclas": 109,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 3. Presentación y evaluación de las solicitudes",
+      "id": "8d38e8dc-4abe-56ac-bc97-285f0e6e11d1",
+      "paginas_pdf": [
+        35
+      ],
+      "anclas": 31,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Base 4. Consulta de formatos",
+      "id": "987e4e2e-9b72-5b9a-ad31-63aae3d5063a",
+      "paginas_pdf": [
+        35
+      ],
+      "anclas": 7,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio PRIMERO",
+      "id": "04ab7dfe-fa7e-5f53-aead-9511559ae78e",
+      "paginas_pdf": [
+        35
+      ],
+      "anclas": 3,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Transitorio SEGUNDO",
+      "id": "3c1d2fba-92b1-55eb-a013-c9cf8072d180",
+      "paginas_pdf": [
+        35
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    },
+    {
+      "fragmento": "Firma y publicación",
+      "id": "c7b555cb-bb47-5504-9eca-edd033bcaaaa",
+      "paginas_pdf": [
+        35
+      ],
+      "anclas": 4,
+      "coincidencia_normalizada": true
+    }
+  ]
+}
