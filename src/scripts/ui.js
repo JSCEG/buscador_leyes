@@ -828,6 +828,16 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
+    // «Admin ▾» menu in the desktop header (owner/admin tools).
+    {
+        const toggle = document.getElementById('nav-admin-toggle');
+        const menu = document.getElementById('nav-admin-menu');
+        const setOpen = open => { if (!toggle || !menu) return; menu.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); };
+        toggle?.addEventListener('click', event => { event.stopPropagation(); setOpen(menu.hidden); if (!menu.hidden) menu.querySelector('.nav-admin-item:not(.hidden)')?.focus(); });
+        menu?.addEventListener('click', event => { if (event.target.closest('a')) setOpen(false); });
+        document.addEventListener('click', event => { if (menu && !menu.hidden && !event.target.closest('#nav-admin-group')) setOpen(false); });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu && !menu.hidden) { setOpen(false); toggle.focus(); } });
+    }
     const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-como-funciona', 'mobile-nav-como-funciona', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
@@ -4010,6 +4020,8 @@ export function initUI() {
         function updateNavLoginBtn(user) {
             const label = user ? getUserDisplayName(user) : 'Entrar';
             if (navUserLabel) navUserLabel.textContent = label;
+            // On medium screens the button shows only its icon; the name stays in its tooltip.
+            document.getElementById('nav-login-btn')?.setAttribute('title', user ? `Cuenta: ${label}` : 'Entrar');
             if (mobileUserLabel) mobileUserLabel.textContent = label;
             
             // Gestor Visibility (Admin only)
@@ -4024,6 +4036,8 @@ export function initUI() {
             const showUsers = Boolean(user) && isSiteOwner();
             document.getElementById('nav-usuarios')?.classList.toggle('hidden', !showUsers);
             document.getElementById('mobile-nav-usuarios')?.classList.toggle('hidden', !showUsers);
+            // Desktop: Gestor and Usuarios live in one «Admin» menu, shown when either applies.
+            document.getElementById('nav-admin-group')?.classList.toggle('hidden', !(showAdmin || showUsers));
             if (!user && usersView) { usersView.destroy(); usersView = null; usersShownFor = null; if (location.hash === '#usuarios') setHash(null); }
             // Opened at #usuarios before the session was known: load the list once the owner is confirmed.
             if (showUsers && location.hash === '#usuarios' && usersShownFor !== user.id) { usersShownFor = user.id; showUsersView({ updateHistory: false }); }
