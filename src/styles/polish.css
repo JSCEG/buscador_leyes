@@ -264,20 +264,7 @@ html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
 #nav-como-funciona{white-space:nowrap}
 /* With "¿Cómo funciona?" the menu needs a little less room per link on small laptops. */
 @media (min-width:1024px) and (max-width:1199px){html body header nav a{letter-spacing:0!important}html body header nav a[aria-current=page]{padding-left:8px!important;padding-right:8px!important}}
-/* «Admin ▾» menu (owner/admin only): Gestor and Usuarios in one header slot. */
-.nav-admin-group{position:relative}
-.nav-admin-toggle{display:inline-flex;align-items:center;gap:4px;padding:0;border:0;background:none;color:#b45309;font:inherit;font-weight:600;cursor:pointer}
-.nav-admin-toggle:hover,.nav-admin-toggle[aria-expanded="true"]{color:#9b2247}
-.nav-admin-menu{position:absolute;top:calc(100% + 10px);right:0;z-index:60;min-width:180px;padding:6px;border:1px solid #ebe3d9;border-radius:12px;background:#fff;box-shadow:0 14px 34px -14px #302b2740}
-.nav-admin-menu[hidden]{display:none}
-.nav-admin-item{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;color:#2b2326;font-weight:600;white-space:nowrap;text-decoration:none}
-.nav-admin-item.hidden{display:none}
-.nav-admin-item:hover,.nav-admin-item:focus-visible{background:#f7f3ee;color:#9b2247}
-html.dark-mode .nav-admin-toggle{color:#e2b85a}
-html.dark-mode .nav-admin-menu{background:#211b1d;border-color:#3a3034}
-html.dark-mode .nav-admin-item{color:#f3ece4}
-html.dark-mode .nav-admin-item:hover,html.dark-mode .nav-admin-item:focus-visible{background:#2a2225;color:#eeb0c2}
-/* Header that always fits on one line, also with the owner's extra «Admin» menu and a long name:
+/* Header that always fits on one line, also with a long account name:
    wider container on large screens, a logo that never shrinks under the links, compact links on
    medium screens and the account name on one line. */
 html body > header > div.max-w-7xl{max-width:1480px!important}
@@ -285,10 +272,10 @@ html body > header > div > div:first-child{flex-shrink:0}
 html body > header nav.lg\:flex{min-width:0}
 #nav-user-label{display:inline-block;max-width:10em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle}
 @media (min-width:1024px) and (max-width:1439px){
-  html body header nav a,html body header nav .nav-admin-toggle{padding:7px 6px!important;letter-spacing:.02em!important}
+  html body header nav a{padding:7px 6px!important;letter-spacing:.02em!important}
 }
 @media (min-width:1024px) and (max-width:1279px){
-  html body header nav a,html body header nav .nav-admin-toggle{font-size:12px!important;padding:6px 5px!important;letter-spacing:0!important}
+  html body header nav a{font-size:12px!important;padding:6px 5px!important;letter-spacing:0!important}
   #nav-user-label{max-width:6.5em}
 }
 @media (min-width:1024px) and (max-width:1439px){
@@ -297,8 +284,13 @@ html body > header nav.lg\:flex{min-width:0}
   #nav-login-btn{padding:7px 9px!important}
 }
 @media (min-width:1024px) and (max-width:1279px){ #keyboard-help-btn{display:none!important} }
-html body header nav .nav-admin-menu a.nav-admin-item:not(.hidden){display:flex!important;width:100%;padding:9px 12px!important;border-radius:8px!important;letter-spacing:.04em!important}
-html body header nav .nav-admin-menu a.nav-admin-item{color:#2b2326!important;background:transparent}
-html body header nav .nav-admin-menu a.nav-admin-item:hover,html body header nav .nav-admin-menu a.nav-admin-item[aria-current=page]{background:#f7f3ee!important;color:#9b2247!important}
-html.dark-mode body header nav .nav-admin-menu a.nav-admin-item{color:#f3ece4!important}
-html.dark-mode body header nav .nav-admin-menu a.nav-admin-item:hover,html.dark-mode body header nav .nav-admin-menu a.nav-admin-item[aria-current=page]{background:#2a2225!important;color:#eeb0c2!important}
+/* «Administración» in the account window (owner/admin only): Gestor and Usuarios. */
+.auth-admin-tools{margin:0 0 16px;padding:12px;border:1px solid #f3e3c2;border-radius:14px;background:#fffaf0;text-align:left}
+.auth-admin-title{margin:0 0 6px;color:#a16207;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.auth-admin-link{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;color:#2b2326;font-size:14px;font-weight:600;text-decoration:none}
+.auth-admin-link.hidden{display:none}
+.auth-admin-link:hover,.auth-admin-link:focus-visible{background:#fff;color:#9b2247}
+html.dark-mode .auth-admin-tools{background:#2a2225;border-color:#4a3c2a}
+html.dark-mode .auth-admin-title{color:#e2b85a}
+html.dark-mode .auth-admin-link{color:#f3ece4}
+html.dark-mode .auth-admin-link:hover,html.dark-mode .auth-admin-link:focus-visible{background:#211b1d;color:#eeb0c2}
