@@ -173,6 +173,12 @@ html.dark-mode .lr-tabs [role=tab][aria-selected=true] .lr-tab-ico{color:#1e1c1a
 .lr-header .lr-meta li{padding:8px 14px;border-radius:12px;background:#ffffff1f;border:1px solid #ffffff2e;backdrop-filter:blur(2px)}
 .lr-header .lr-meta span{color:#ffffffc2;font-size:11.5px}
 .lr-header .lr-meta strong{color:#fff;font-size:16px}
+.lr-effects-note{margin:12px 0 0;max-width:72ch;text-align:left!important;hyphens:manual;font-size:13px;line-height:1.5;color:var(--lr-ink)}
+.lr-header .lr-effects-note{padding:10px 14px;border-radius:12px;background:#0000002e;border:1px solid #ffffff2e;color:#ffffffe6}
+.lr-header .lr-effects-note strong{color:#fff;font-weight:600}
+.lr-effects-link{padding:0;border:0;background:none;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.lr-header .lr-effects-link{color:#fff;font-weight:600}
+.lr-header .lr-effects-link:hover{text-decoration-thickness:2px}
 .lr-header .lr-head-main{align-items:flex-end}
 .lr-header .lr-btn{background:#ffffff1f!important;border:1px solid #ffffff55!important;color:#fff!important}
 .lr-header .lr-btn:hover{background:#ffffff33!important}

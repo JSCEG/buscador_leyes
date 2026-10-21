@@ -2,6 +2,7 @@ import { PLANNING_FILTER, isPlanning } from '../lib/planning.js';
 import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib/acervo-model.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { shortTitle } from '../lib/short-title.js';
+import { isJudgment, instrumentTypeLabel, fragmentNoun } from '../lib/judgment.js';
 import { heroArt, collectionSpot } from '../lib/acervo-art.js';
 import { acervoThemes } from '../lib/analisis-model.js';
 import '../styles/acervo.css';
@@ -238,7 +239,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
             button.dataset.category = groupId; button.title = law.titulo || '';
             const top = element('span', 'ac-recent-top');
             const date = element('time', 'ac-recent-date', publicationDate(law.fecha_publicacion)); date.dateTime = law.fecha_publicacion;
-            top.append(iconNode(groupId, 'ac-recent-icon'), element('span', 'ac-recent-group', ACERVO_GROUPS.find(group => group.id === groupId)?.label || ''), date);
+            top.append(iconNode(groupId, 'ac-recent-icon'), element('span', 'ac-recent-group', [ACERVO_GROUPS.find(group => group.id === groupId)?.label, isJudgment(law) ? 'Sentencia' : ''].filter(Boolean).join(' · ')), date);
             button.append(top, element('span', 'ac-recent-name', shortTitle(law.titulo) || law.titulo || 'Instrumento sin título'), element('span', 'ac-recent-sigla', law.siglas || ''));
             button.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
             item.append(button); list.append(item);
@@ -253,7 +254,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         card.dataset.tip = title; card.setAttribute('aria-label', `Abrir ${title}`);
         const groupId = getAcervoGroup(law);
         card.dataset.category = groupId;
-        const category = element('span', 'ac-card-category', law.tipo || ACERVO_GROUPS.find(group => group.id === groupId)?.label || 'Instrumento');
+        const category = element('span', 'ac-card-category', instrumentTypeLabel(law) || ACERVO_GROUPS.find(group => group.id === groupId)?.label || 'Instrumento');
+        if (isJudgment(law)) category.classList.add('is-judgment');
         category.prepend(iconNode(groupId));
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
         const cardTitle = element('span', 'ac-card-title', title);
@@ -265,7 +267,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         const dateNode = element(date ? 'time' : 'span', '', date || 'Fecha no disponible');
         if (date) { dateNode.dateTime = law.fecha_publicacion; dateNode.title = `Fecha de publicación: ${date}`; }
         const rawCount = law.articulos;
-        const fragments = typeof rawCount === 'number' && Number.isFinite(rawCount) && rawCount >= 0 ? `${number(rawCount)} ${rawCount === 1 ? 'disposición' : 'disposiciones'}` : 'Sin conteo';
+        const noun = isJudgment(law) ? fragmentNoun(law) : { one: 'disposición', many: 'disposiciones' };
+        const fragments = typeof rawCount === 'number' && Number.isFinite(rawCount) && rawCount >= 0 ? `${number(rawCount)} ${rawCount === 1 ? noun.one : noun.many}` : 'Sin conteo';
         metadata.append(dateNode, element('span', '', fragments));
         const action = element('span', 'ac-card-action', 'Consultar');
         const arrow = element('span', '', '↗'); arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);

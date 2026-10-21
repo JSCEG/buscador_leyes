@@ -5,6 +5,7 @@
 import { loadTerms, SECTORS } from './terms-view.js';
 import { shortTitle } from '../lib/short-title.js';
 import { getAcervoGroup } from '../lib/acervo-model.js';
+import { isJudgment, judgmentCase, instrumentTypeLabel } from '../lib/judgment.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/search-landing.css';
 
@@ -38,7 +39,10 @@ export async function renderSearchLanding(host, { summaries = [], history = [], 
             <header><span class="sl-ico">${ICON.recent}</span><h2 id="sl-latest">Publicado recientemente</h2></header>
             <ol class="sl-latest">${latest.map(law => {
                 const group = getAcervoGroup(law);
-                return `<li><button type="button" data-sl-law="${esc(law.id)}" title="${esc(law.titulo)}"><span class="sl-law-ico" data-category="${group}">${collectionIcon(group, 14)}</span><span class="sl-law-text"><strong>${esc(shortTitle(law.titulo) || law.titulo)}</strong><small>${esc(law.siglas || '')} · ${esc(day(law.fecha_publicacion))}</small></span></button></li>`;
+                const judgment = isJudgment(law);
+                const name = (judgment && judgmentCase(law)?.label) || shortTitle(law.titulo) || law.titulo;
+                const lead = judgment ? instrumentTypeLabel(law) : law.siglas || '';
+                return `<li><button type="button" data-sl-law="${esc(law.id)}" title="${esc(law.titulo)}"><span class="sl-law-ico" data-category="${group}">${collectionIcon(group, 14)}</span><span class="sl-law-text"><strong>${esc(name)}</strong><small>${esc(lead)} · ${esc(day(law.fecha_publicacion))}</small></span></button></li>`;
             }).join('')}</ol>
         </section>
         <section class="sl-card" aria-labelledby="sl-history">

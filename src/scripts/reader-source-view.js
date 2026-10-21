@@ -193,8 +193,9 @@ export function mountReaderSource(container, article) {
         });
         selectLabel.append(select);
         const isArticle = article?.tipo_articulo === 'ordinario' || /^Artículo\s+\d/i.test(article?.articulo_label || '');
+        const scope = isArticle ? 'este artículo' : article?.tipo_articulo === 'apartado' ? 'este apartado' : 'esta disposición';
         const pageGroup = el('div', 'rs-page-group');
-        pageGroup.append(el('p', 'rs-page-scope', `Páginas de ${isArticle ? 'este artículo' : 'esta disposición'}`));
+        pageGroup.append(el('p', 'rs-page-scope', `Páginas de ${scope}`));
         if (result.pages.length === 1) {
             pages.append(el('span', 'rs-single-page', `Página única · ${page.number} del PDF`));
         } else {
