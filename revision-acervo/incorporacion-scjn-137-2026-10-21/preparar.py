@@ -104,6 +104,7 @@ def lit(x):return 'NULL' if x is None else "'"+str(x).replace("'","''")+"'"
 q=['BEGIN;',"DO $$ BEGIN IF EXISTS (SELECT 1 FROM leyes WHERE id="+lit(lid)+" OR siglas='SCJN-CC-137-2026') THEN RAISE EXCEPTION 'Sentencia ya cargada'; END IF; END $$;"]
 q.append('INSERT INTO leyes ('+','.join(ley)+') VALUES ('+','.join('ARRAY['+','.join(lit(t)for t in v)+']' if isinstance(v,list) else lit(v)for v in ley.values())+');')
 for a in articles:q.append('INSERT INTO articulos ('+','.join(a)+') VALUES ('+','.join(lit(v)for v in a.values())+');')
+q.append('UPDATE articulos SET contenido=replace(contenido,chr(13),\'\') WHERE ley_id='+lit(lid)+' AND position(chr(13) in contenido)>0;')
 q.append('COMMIT;')
 (ROOT/'aplicar.sql').write_text('\n'.join(q)+'\n',encoding='utf-8')
 print(json.dumps({'id':lid,'apartados':len(articles),'tablas':sum(a['contenido'].count('<table')for a in articles),'bytes':PDF.stat().st_size,'sha':sha}))
