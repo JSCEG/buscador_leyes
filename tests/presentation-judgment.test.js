@@ -32,6 +32,10 @@ describe('presentation of a ruling', () => {
         expect(text).not.toMatch(/ARTÍCULOS CLAVE|Artículos clave/);
         expect(text).not.toMatch(/\bCAP\./);
         expect(text).toMatch(/APART\./);
+        const map = [...target.querySelectorAll('.lp-normative-kpis, .lp-normative-flow')].map(node => node.textContent).join(' ');
+        expect(map).not.toMatch(/Títulos|Capítulos|Secciones|Nivel superior|ordenamiento/);
+        expect(map).toMatch(/19\s*Apartados/);
+        expect(map).toMatch(/3\s*Resolutivos/);
         expect(shells.length).toBeGreaterThan(0);
         target.remove();
     });
@@ -43,11 +47,34 @@ describe('presentation of a ruling', () => {
         expect(all).toContain('APARTADOS');
         expect(all).not.toMatch(/\bARTÍCULOS\b/);
         expect(all).not.toMatch(/\bCAP\./);
+        expect(all).not.toMatch(/Títulos/);
+        expect(all).toContain('Resolutivos');
+    });
+
+    it('labels resolutivos as RES. when they fall within the outline limits', async () => {
+        // Short ruling: a resolutivo inside the first eight rows (web shows nine, PowerPoint eight).
+        const short = [
+            { id: 'r1', articulo_label: 'I. COMPETENCIA', tipo_articulo: 'apartado', texto: 'Competencia.' },
+            { id: 'r2', articulo_label: 'VII. EFECTOS', tipo_articulo: 'apartado', texto: 'Efectos.' },
+            { id: 'r3', articulo_label: 'Resolutivo PRIMERO', tipo_articulo: 'apartado', texto: 'Es procedente.' },
+        ];
+        const target = document.createElement('div');
+        document.body.append(target);
+        renderLawPresentationEmbed(target, ruling, short, []);
+        const rows = [...target.querySelectorAll('.lp-structure-outline .lp-mini-row')].map(row => `${row.querySelector('span').textContent} ${row.querySelector('strong').textContent}`);
+        expect(rows).toEqual(['APART. I. COMPETENCIA', 'APART. VII. EFECTOS', 'RES. Resolutivo PRIMERO']);
+        target.remove();
+        texts.length = 0;
+        await generateLawPresentation(ruling, short, []);
+        const exported = texts.join('\n');
+        expect(exported).toMatch(/RES\./);
+        expect(exported).toMatch(/APART\./);
     });
 
     it('keeps articles and chapters for laws', async () => {
         texts.length = 0;
         await generateLawPresentation(law, lawArticles, []);
         expect(texts.join('\n')).toMatch(/\bARTÍCULOS\b/);
+        expect(texts.join('\n')).toContain('Capítulos');
     });
 });
