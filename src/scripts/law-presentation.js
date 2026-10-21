@@ -3,6 +3,7 @@ import { officialUrl } from '../lib/official-url.js';
 import { brandMarkSvg } from '../lib/brand-mark.js';
 import { shortTitle } from '../lib/short-title.js';
 import { isJudgment, instrumentTypeLabel, fragmentNoun } from '../lib/judgment.js';
+import { indexLabel } from '../lib/index-label.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 
 const COLORS = {
@@ -490,7 +491,7 @@ function buildPresentationModel(law, articles, themes) {
             sections: sections.length,
             transitorios: transitorios.length
         },
-        structureRows: buildStructureRows(cleanArticles, themes),
+        structureRows: isJudgment(law) ? buildJudgmentRows(cleanArticles) : buildStructureRows(cleanArticles, themes),
         treemapData: buildTreemapData(cleanArticles, fragmentNoun(law)),
         themeLabels,
         transitorios
@@ -502,7 +503,7 @@ function renderWebDeck(model) {
     const articleChunks = chunk(model.keyArticles, 2);
     const articleSlides = articleChunks.map((items, index) => `
         <section class="lp-slide">
-            ${renderSlideShell('ARTÍCULOS CLAVE', `
+            ${renderSlideShell(`${model.noun.Many.toUpperCase()} CLAVE`, `
                 <p class="lp-eyebrow">${model.noun.Many} clave · ${index + 1} de ${articleChunks.length}</p>
                 <h2>Lo que conviene leer primero</h2>
                 <div class="lp-article-grid">
@@ -1089,7 +1090,7 @@ function addSummarySlide(pptx, model, assets) {
     });
 
     const kpis = [
-        { value: model.metrics.totalArticles, label: 'ARTÍCULOS' },
+        { value: model.metrics.totalArticles, label: model.noun.Many.toUpperCase() },
         { value: model.metrics.chapters, label: 'CAPÍTULOS' },
         { value: model.metrics.transitorios, label: 'TRANSITORIOS' }
     ].filter(kpi => kpi.value > 0);
@@ -1427,6 +1428,14 @@ function buildStructureRows(articles, themes) {
     unique(articles.map(a => a.capitulo_nombre).filter(Boolean)).forEach(name => rows.push({ nivel: 'CAP.', nombre: name }));
     unique(articles.map(a => a.seccion_nombre).filter(Boolean)).forEach(name => rows.push({ nivel: 'SECC.', nombre: name }));
     return rows.slice(0, 12);
+}
+
+/** A ruling's outline is its own sequence of apartados and resolutivos, never titles or chapters. */
+function buildJudgmentRows(articles) {
+    return articles
+        .filter(a => a.articulo_label)
+        .slice(0, 12)
+        .map(a => ({ nivel: indexLabel(a).kind === 'resolutivo' ? 'RES.' : 'APART.', nombre: a.articulo_label }));
 }
 
 /** Preamble, consultation guides and editorial notes are context, not provisions to highlight. */
