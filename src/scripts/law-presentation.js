@@ -457,10 +457,24 @@ function buildPresentationModel(law, articles, themes) {
     const transitorios = cleanArticles.filter(a =>
         /transitorio/i.test(a.articulo_label || '') || a.tipo_articulo === 'transitorio'
     );
-    const titles = unique(cleanArticles.map(a => a.titulo_nombre).filter(Boolean));
+    const judgment = isJudgment(law);
+    // A ruling's fragments share its case name and each carry their own heading: neither is a title nor a chapter.
+    const titles = judgment ? [] : unique(cleanArticles.map(a => a.titulo_nombre).filter(Boolean));
     // A ruling's apartados each carry their own heading; they are not chapters.
-    const chapters = isJudgment(law) ? [] : unique(cleanArticles.map(a => a.capitulo_nombre).filter(Boolean));
-    const sections = unique(cleanArticles.map(a => a.seccion_nombre).filter(Boolean));
+    const chapters = judgment ? [] : unique(cleanArticles.map(a => a.capitulo_nombre).filter(Boolean));
+    const sections = judgment ? [] : unique(cleanArticles.map(a => a.seccion_nombre).filter(Boolean));
+    const resolutivos = judgment ? cleanArticles.filter(a => indexLabel(a).kind === 'resolutivo').length : 0;
+    const levels = (judgment
+        ? [
+            { label: 'Apartados', value: cleanArticles.length - resolutivos, color: 'guinda', kpiNote: 'Partes de la sentencia', note: 'Antecedentes, consideraciones y efectos' },
+            { label: 'Resolutivos', value: resolutivos, color: 'verde', kpiNote: 'Puntos que decide', note: 'Lo que resuelve la sentencia' },
+        ]
+        : [
+            { label: 'Títulos', value: titles.length, color: 'guinda', kpiNote: 'Nivel superior', note: 'Ejes principales del ordenamiento' },
+            { label: 'Capítulos', value: chapters.length, color: 'verde', kpiNote: 'Organización temática', note: 'Agrupan materias y obligaciones' },
+            { label: 'Secciones', value: sections.length, color: 'dorado', kpiNote: 'Subdivisiones', note: 'Precisan reglas específicas' },
+            { label: 'Transitorios', value: transitorios.length, color: 'gris', kpiNote: 'Entrada en vigor y transición', note: 'Definen vigencia y transición' },
+        ]).filter(level => level.value > 0);
     const themeLabels = law.temas_clave?.length
         ? law.temas_clave
         : unique(themes.map(t => t.nombre).filter(Boolean)).slice(0, 12);
@@ -491,6 +505,7 @@ function buildPresentationModel(law, articles, themes) {
             sections: sections.length,
             transitorios: transitorios.length
         },
+        levels,
         structureRows: isJudgment(law) ? buildJudgmentRows(cleanArticles) : buildStructureRows(cleanArticles, themes),
         treemapData: buildTreemapData(cleanArticles, fragmentNoun(law)),
         themeLabels,
@@ -566,7 +581,7 @@ function renderWebDeck(model) {
                     <h2 data-animate>Mapa normativo del instrumento</h2>
                     <div class="lp-normative-map">
                         <div class="lp-normative-kpis" data-animate>
-                            ${[[model.metrics.titles, 'Títulos', 'Nivel superior'], [model.metrics.chapters, 'Capítulos', 'Organización temática'], [model.metrics.sections, 'Secciones', 'Subdivisiones'], [model.metrics.transitorios, 'Transitorios', 'Entrada en vigor y transición']].filter(([v]) => v > 0).map(([v, l, c]) => renderStructureKpi(v, l, c)).join('')}
+                            ${model.levels.map(level => renderStructureKpi(level.value, level.label, level.kpiNote)).join('')}
                         </div>
                         <div class="lp-normative-main">
                             ${renderNormativeFlow(model)}
@@ -729,12 +744,7 @@ function buildArticleDetailText(article) {
 }
 
 function renderBars(model) {
-    const items = [
-        { label: 'Títulos', value: model.metrics.titles, color: 'guinda' },
-        { label: 'Capítulos', value: model.metrics.chapters, color: 'verde' },
-        { label: 'Secciones', value: model.metrics.sections, color: 'dorado' },
-        { label: 'Transitorios', value: model.metrics.transitorios, color: 'gris' }
-    ].filter(item => item.value > 0);
+    const items = model.levels;
     const max = Math.max(...items.map(item => item.value), 1);
 
     return `<div class="lp-bars">
@@ -749,12 +759,7 @@ function renderBars(model) {
 }
 
 function renderNormativeFlow(model) {
-    const items = [
-        { label: 'Títulos', value: model.metrics.titles, color: 'guinda', note: 'Ejes principales del ordenamiento' },
-        { label: 'Capítulos', value: model.metrics.chapters, color: 'verde', note: 'Agrupan materias y obligaciones' },
-        { label: 'Secciones', value: model.metrics.sections, color: 'dorado', note: 'Precisan reglas específicas' },
-        { label: 'Transitorios', value: model.metrics.transitorios, color: 'gris', note: 'Definen vigencia y transición' }
-    ].filter(item => item.value > 0);
+    const items = model.levels;
     const max = Math.max(...items.map(item => item.value), 1);
 
     return `<div class="lp-normative-flow" data-animate>
@@ -1122,12 +1127,7 @@ function addStructureSlide(pptx, model, assets) {
     addContentShell(slide, assets, 'ESTRUCTURA JURÍDICA');
     addSectionTitle(slide, 'Estructura detectada', 'Distribución por niveles normativos');
 
-    const chartData = [
-        { label: 'Títulos', value: model.metrics.titles, color: COLORS.guinda },
-        { label: 'Capítulos', value: model.metrics.chapters, color: COLORS.verde },
-        { label: 'Secciones', value: model.metrics.sections, color: COLORS.dorado },
-        { label: 'Transitorios', value: model.metrics.transitorios, color: COLORS.gris }
-    ].filter(item => item.value > 0);
+    const chartData = model.levels.map(level => ({ label: level.label, value: level.value, color: COLORS[level.color] }));
     const max = Math.max(...chartData.map(d => d.value), 1);
 
     chartData.forEach((item, i) => {
