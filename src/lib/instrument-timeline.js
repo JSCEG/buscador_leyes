@@ -1,12 +1,14 @@
 import { relatedDocumentLabel } from './related-document.js';
 import { officialUrl } from './official-url.js';
 import { getAcervoGroup } from './acervo-model.js';
+import { isJudgment, instrumentTypeLabel } from './judgment.js';
 
 const text = value => typeof value === 'string' ? value : '';
 const normalize = value => text(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const verbs = { modifica: 'Modifica', reforma: 'Reforma', adiciona: 'Adiciona', abroga: 'Abroga', sustituye: 'Sustituye' };
-const types = { ley: 'Ley', reglamento: 'Reglamento', acuerdo: 'Acuerdo', dacg: 'DACG', convocatoria: 'Convocatoria', decreto: 'Decreto', norma: 'Norma', nom: 'Norma' };
+const types = { ley: 'Ley', reglamento: 'Reglamento', acuerdo: 'Acuerdo', dacg: 'DACG', convocatoria: 'Convocatoria', decreto: 'Decreto', norma: 'Norma', nom: 'Norma', sentencia: 'Sentencia' };
+const JUDGMENT_DATE_NOTE = 'Fecha de publicación. Sus efectos no corren necesariamente desde este día: los fija la propia sentencia.';
 
 export function timelineDate(value) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(text(value))) return null;
@@ -79,12 +81,12 @@ export function buildInstrumentTimeline({ law, summaries = [], articles = [], re
         const relationsText = [...new Set(outgoing.map(edge => `${verbs[edge.tipo] || 'Relacionado con'}: ${catalog.get(edge.ley_afectada_id).siglas || catalog.get(edge.ley_afectada_id).titulo}`))];
         return {
             key: `law:${id}`, id, kind: 'instrument', title: record.titulo || 'Instrumento sin título',
-            acronym: record.siglas || '', type: types[normalize(record.tipo)] || (getAcervoGroup(record) === 'convocatorias' ? 'Convocatoria' : 'Instrumento'),
+            acronym: record.siglas || '', type: isJudgment(record) ? instrumentTypeLabel(record) : types[normalize(record.tipo)] || (getAcervoGroup(record) === 'convocatorias' ? 'Convocatoria' : 'Instrumento'),
             role: roles.get(id) || 'Publicación',
             date: timelineDate(record.fecha_publicacion), dateLabel: 'Publicación',
             current: id === law.id, source: timelineSource(record.url_original),
             sourceLabel: 'Fuente oficial',
-            context: relationsText.join(' · ') || (roles.has(id) ? 'Enlazado desde la guía de este documento.' : ''),
+            context: [relationsText.join(' · ') || (roles.has(id) ? 'Enlazado desde la guía de este documento.' : ''), isJudgment(record) ? JUDGMENT_DATE_NOTE : ''].filter(Boolean).join(' '),
         };
     });
     for (const article of articles) {

@@ -151,6 +151,7 @@ html.dark-mode .ac-library .ac-mix-seg[data-category=acuerdos]{background:#b06a8
 .ac-library .ac-card-category{gap:5px;padding:1px 8px 1px 6px}
 .ac-library .ac-card-category .ac-icon{color:var(--ac-accent)}
 .ac-library .ac-card-category .ac-icon svg{width:13px;height:13px}
+.ac-library .ac-card-category.is-judgment{color:var(--ac-accent);box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 45%,transparent);text-transform:none}
 .ac-library .ac-latest-icon svg{width:14px;height:14px}
 .ac-library .ac-latest-text{align-items:center}
 @media(max-width:599px){.ac-library .ac-group-icon{width:30px;height:30px}.ac-library .ac-group-icon svg{width:18px;height:18px}}

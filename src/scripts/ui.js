@@ -24,6 +24,7 @@ import '../styles/law-reader.css';
 import '../styles/reader-modal.css';
 import '../styles/view-band.css';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
+import { isJudgment, instrumentTypeLabel, judgmentCase, fragmentNoun, countFragments, judgmentEffectsSections } from '../lib/judgment.js';
 import { relatedDocumentLabel } from '../lib/related-document.js';
 import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin, isSiteOwner, googleSignInAvailable, loginWithGoogle, takeReturnHash } from './auth.js';
@@ -314,6 +315,7 @@ export function initUI() {
     let searchDebounceTimer = null;
     let searchRenderRequest = 0;
     let currentLawArticles = [];
+    let currentLawNoun = fragmentNoun(null);
     let cachedRelaciones = [];           // filas de ley_relaciones
     let relacionesPorAfectada = {};      // ley_id afectada -> [relaciones]
 
@@ -1123,6 +1125,16 @@ export function initUI() {
         const lawGroup = getAcervoGroup(law);
         const lawGuides = tramitesForLaw(law.siglas);
         const lawGroupLabel = ACERVO_GROUPS.find(group => group.id === lawGroup)?.label || 'Instrumento';
+        const judgment = isJudgment(law);
+        const noun = fragmentNoun(law);
+        currentLawNoun = noun;
+        const caseFile = judgment ? judgmentCase(law) : null;
+        const resolutivosCount = judgment ? currentLawArticles.filter(a => indexLabel(a).kind === 'resolutivo').length : 0;
+        const { effects: effectsSection, resolutions: resolutionsSection } = judgment ? judgmentEffectsSections(currentLawArticles) : {};
+        const eyebrowText = judgment ? instrumentTypeLabel(law) : `${lawGroupLabel}${law.siglas ? ` · ${law.siglas}` : ''}`;
+        const sectionLink = (article, text) => article ? `<button type="button" class="lr-effects-link" data-open-article="${escapeHtml(article.id)}">${escapeHtml(text)}</button>` : '';
+        // A ruling's effects are set by the ruling itself, never by its publication date.
+        const effectsNote = judgment ? `<p class="lr-effects-note" role="note"><strong>La fecha de publicación no es la fecha en que surte efectos.</strong> La propia sentencia fija cuándo y cómo surten sus efectos${effectsSection || resolutionsSection ? `: consulta ${[sectionLink(effectsSection, effectsSection?.articulo_label), sectionLink(resolutionsSection, 'los puntos resolutivos')].filter(Boolean).join(' y ')}` : ''}.</p>` : '';
 
         // Hide other views
         resultsContainer.classList.add('hidden');
@@ -1145,15 +1157,19 @@ export function initUI() {
                 </nav>
                 <div class="lr-head-main">
                     <div class="lr-head-text">
-                        <p class="lr-eyebrow" data-category="${lawGroup}"><span class="lr-eyebrow-ico">${collectionIcon(lawGroup, 16)}</span>${escapeHtml(lawGroupLabel)}${law.siglas ? ` · ${escapeHtml(law.siglas)}` : ''}</p>
+                        <p class="lr-eyebrow" data-category="${lawGroup}"><span class="lr-eyebrow-ico">${collectionIcon(lawGroup, 16)}</span>${escapeHtml(eyebrowText)}</p>
                         <h1 class="lr-title${law.titulo.length > 90 ? ' lr-title-long' : ''}">${escapeHtml(law.titulo)}</h1>
                         <ul class="lr-meta" aria-label="Datos del instrumento">
+                            ${caseFile ? `<li><span>Expediente</span><strong>${escapeHtml(caseFile.label)}</strong></li>` : ''}
                             <li><span>Publicación</span><strong>${escapeHtml(formatLawDate(law.fecha_publicacion) || 'Sin fecha')}</strong></li>
+                            ${judgment ? '<li><span>Surte efectos</span><strong>Según la sentencia</strong></li>' : ''}
                             ${law.fecha_ultima_reforma ? `<li><span>Última reforma</span><strong>${escapeHtml(formatLawDate(law.fecha_ultima_reforma))}</strong></li>` : ''}
-                            <li><span>Disposiciones</span><strong>${currentLawArticles.length}</strong></li>
-                            ${chaptersCount ? `<li><span>Capítulos</span><strong>${chaptersCount}</strong></li>` : ''}
-                            ${transitorios ? `<li><span>Transitorios</span><strong>${transitorios}</strong></li>` : ''}
+                            <li><span>${judgment ? noun.Many : 'Disposiciones'}</span><strong>${currentLawArticles.length}</strong></li>
+                            ${resolutivosCount ? `<li><span>Resolutivos</span><strong>${resolutivosCount}</strong></li>` : ''}
+                            ${chaptersCount && !judgment ? `<li><span>Capítulos</span><strong>${chaptersCount}</strong></li>` : ''}
+                            ${transitorios && !judgment ? `<li><span>Transitorios</span><strong>${transitorios}</strong></li>` : ''}
                         </ul>
+                        ${effectsNote}
                     </div>
                     <div class="lr-actions">
                         <a href="#reto-ley=${encodeURIComponent(law.id)}" class="lr-btn lr-btn-quiz" id="law-quiz-btn" title="Preguntas rápidas sobre esta ley" hidden>Ponte a prueba</a>
@@ -1214,10 +1230,10 @@ export function initUI() {
             </div>
 
             <nav class="lr-tabs" role="tablist" aria-label="Secciones del instrumento">
-                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Documento</span><span class="lr-tab-desc">Texto completo, artículo por artículo</span></span></button>
+                <button role="tab" id="lr-tab-texto" aria-controls="lr-panel-texto" aria-selected="true" data-law-tab="texto"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Documento</span><span class="lr-tab-desc">Texto completo, ${noun.one} por ${noun.one}</span></span></button>
                 <button role="tab" id="lr-tab-linea" aria-controls="lr-panel-linea" aria-selected="false" data-law-tab="linea"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Línea del tiempo</span><span class="lr-tab-desc">Publicación, reformas y relacionados</span></span></button>
                 <button role="tab" id="lr-tab-presentacion" aria-controls="lr-panel-presentacion" aria-selected="false" data-law-tab="presentacion"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Presentación</span><span class="lr-tab-desc">Resumen visual para exponer</span></span></button>
-                <button role="tab" id="lr-tab-estructura" aria-controls="lr-panel-estructura" aria-selected="false" data-law-tab="estructura"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Estructura y temas</span><span class="lr-tab-desc">Títulos, capítulos y temas</span></span></button>
+                <button role="tab" id="lr-tab-estructura" aria-controls="lr-panel-estructura" aria-selected="false" data-law-tab="estructura"><svg class="lr-tab-ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg><span class="lr-tab-text"><span class="lr-tab-title">Estructura y temas</span><span class="lr-tab-desc">${judgment ? 'Apartados y temas' : 'Títulos, capítulos y temas'}</span></span></button>
             </nav>
 
             <section id="lr-panel-texto" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-texto" data-law-panel="texto">
@@ -1296,7 +1312,7 @@ export function initUI() {
                 const { renderLawPresentationEmbed } = await withProgress(loadPresentation());
                 if (target.isConnected) renderLawPresentationEmbed(target, law, currentLawArticles, dbThemes);
             },
-            estructura: () => renderLawStructureChart(currentLawArticles, dbThemes),
+            estructura: () => renderLawStructureChart(currentLawArticles, dbThemes, law),
         };
         const showLawPanel = (name, { focusTab = false } = {}) => {
             lawDetailContainer.querySelectorAll('[data-law-tab]').forEach(tab => {
@@ -1474,7 +1490,7 @@ export function initUI() {
             <div class="flex items-center justify-between px-5 pt-2 pb-3 flex-shrink-0 border-b border-gray-50">
                 <div>
                     <p class="text-sm font-bold text-gray-800">Índice del instrumento</p>
-                    <p class="text-[10px] text-gray-400 mt-0.5">${officialCount} ${officialCount === 1 ? 'disposición oficial' : 'disposiciones oficiales'}${guias.length ? ` · ${guias.length} ${guias.length === 1 ? 'guía' : 'guías'}` : ''} · clic para abrir</p>
+                    <p class="text-[10px] text-gray-400 mt-0.5">${officialCount} ${judgment ? (officialCount === 1 ? 'apartado oficial' : 'apartados oficiales') : officialCount === 1 ? 'disposición oficial' : 'disposiciones oficiales'}${guias.length ? ` · ${guias.length} ${guias.length === 1 ? 'guía' : 'guías'}` : ''} · clic para abrir</p>
                 </div>
                 <button id="toc-close-btn" class="p-2 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5" aria-label="Cerrar índice">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1634,7 +1650,7 @@ export function initUI() {
             } else {
                 container.innerHTML = `
                     <button id="btn-load-more-law" class="px-8 py-3 bg-white border border-gray-200 text-gray-600 rounded-full text-xs font-bold hover:border-guinda hover:text-guinda transition-all shadow-sm flex items-center gap-2">
-                        Ver más artículos
+                        Ver más ${noun.many}
                         <span class="text-[10px] opacity-60">(${totalItems - articlesShown} restantes)</span>
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
@@ -1803,6 +1819,10 @@ export function initUI() {
         // Breadcrumb listeners
         document.getElementById('crumb-inicio')?.addEventListener('click', () => showLawsView({ group: 'all', query: '', sort: 'title' }));
         document.getElementById('crumb-categoria')?.addEventListener('click', () => showLawsView());
+        lawDetailContainer.querySelectorAll('[data-open-article]').forEach(button => button.addEventListener('click', () => {
+            currentModalList = [...currentLawArticles.filter(article => !relatedDocumentLabel(article)), ...currentLawArticles.filter(article => relatedDocumentLabel(article))];
+            openDetail(button.dataset.openArticle);
+        }));
 
         // Theme Filter Listeners
         document.querySelectorAll('.theme-filter-btn').forEach(btn => {
@@ -1817,13 +1837,13 @@ export function initUI() {
         });
     }
 
-    function renderLawStructureChart(articles, themes = []) {
+    function renderLawStructureChart(articles, themes = [], law = null) {
         const chartContainer = document.getElementById('law-structure-chart');
         if (!chartContainer) return;
 
         if (!window.d3) {
             chartContainer.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-gray-400">&nbsp;</div>';
-            setTimeout(() => renderLawStructureChart(articles, themes), 1000);
+            setTimeout(() => renderLawStructureChart(articles, themes, law), 1000);
             return;
         }
 
@@ -1836,7 +1856,12 @@ export function initUI() {
 
         // Use themes from DB if available, otherwise fallback to article fields
         let data;
-        if (themes && themes.length > 0) {
+        if (isJudgment(law)) {
+            // A ruling has no titles or chapters: its official apartados and its decision points.
+            const resolutivos = articles.filter(a => indexLabel(a).kind === 'resolutivo').length;
+            data = [{ name: 'Apartados', value: articles.length - resolutivos, color: '#6b7280' }];
+            if (resolutivos) data.push({ name: 'Puntos resolutivos', value: resolutivos, color: '#7A1C3A' });
+        } else if (themes && themes.length > 0) {
             // Count themes by nivel
             const titulos = themes.filter(t => t.nivel === 'titulo');
             const capitulos = themes.filter(t => t.nivel === 'capitulo');
@@ -1911,7 +1936,7 @@ export function initUI() {
             .attr("rx", 4)
             .on("mouseover", (event, d) => {
                 d3.select(event.target).attr("fill", "#7A1C39");
-                tooltip.style("opacity", "1").style("display", "block").text(`${d.name}: ${d.value} artículos`);
+                tooltip.style("opacity", "1").style("display", "block").text(isJudgment(law) ? `${d.name}: ${d.value}` : `${d.name}: ${d.value} artículos`);
             })
             .on("mousemove", (event) => {
                 tooltip.style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 10) + "px");
@@ -1951,7 +1976,7 @@ export function initUI() {
         if (!list) return;
 
         if (articles.length === 0) {
-            list.innerHTML = `<div class="text-center py-8 text-gray-400 text-sm">No se encontraron artículos que coincidan con la búsqueda.</div>`;
+            list.innerHTML = `<div class="text-center py-8 text-gray-400 text-sm">No se encontraron ${currentLawNoun.many} que coincidan con la búsqueda.</div>`;
             return;
         }
 
@@ -2055,11 +2080,13 @@ export function initUI() {
     }
 
     // Search History Helpers
-    function saveToHistory(query) {
-        const history = getHistory().filter(q => q !== query);
-        history.unshift(query);
-        searchHistory = history.slice(0, 10);
+    function setHistory(list) {
+        searchHistory = list.slice(0, 10);
         try { localStorage.setItem(HISTORY_KEY, JSON.stringify(searchHistory)); } catch { /* private mode */ }
+    }
+
+    function saveToHistory(query) {
+        setHistory([query, ...getHistory().filter(q => q !== query)]);
     }
 
     function getHistory() {
@@ -2246,7 +2273,7 @@ export function initUI() {
             // Bind: clear all history
             document.getElementById('clear-all-history')?.addEventListener('click', (e) => {
                 e.stopPropagation();
-                searchHistory = [];
+                setHistory([]);
                 closeAutocomplete();
             });
 
@@ -2256,8 +2283,7 @@ export function initUI() {
                     if (e.target.classList.contains('remove-history-item')) {
                         e.stopPropagation();
                         const q = e.target.dataset.query;
-                        const updated = getHistory().filter(h => h !== q);
-                        searchHistory = updated;
+                        setHistory(getHistory().filter(h => h !== q));
                         item.remove();
                         if (autocompleteContainer.querySelectorAll('.history-item').length === 0) closeAutocomplete();
                         return;
@@ -2836,8 +2862,8 @@ export function initUI() {
     async function shareLawVia(law, platform) {
         const lawUrl = `${location.origin}${location.pathname}#ley-${encodeURIComponent(law.id)}`;
         const title = law.titulo;
-        const resumen = law.resumen ? law.resumen.split('\n\n')[0].substring(0, 400) : `${law.articulos} artículos`;
-        const body = `🏛️ *${law.titulo}*\n📅 Publicado: ${law.fecha}\n📖 ${law.articulos} artículos\n\n${resumen}\n\n${lawUrl}`;
+        const resumen = law.resumen ? law.resumen.split('\n\n')[0].substring(0, 400) : countFragments(law.articulos, law);
+        const body = `🏛️ *${law.titulo}*\n📅 Publicado: ${law.fecha}\n📖 ${countFragments(law.articulos, law)}\n\n${resumen}\n\n${lawUrl}`;
         const shortText = `${law.titulo} — Buscador Jurídico`;
 
         if (platform === 'whatsapp' && navigator.share) {
@@ -3479,7 +3505,9 @@ export function initUI() {
             citeBtn.onclick = () => {
                 const today = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
                 const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
-                const citation = `${item.articulo_label} de la ${item.ley_origen}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Buscador Jurídico. Consultado el ${today}. Disponible en: ${artUrl}`;
+                const itemLaw = cachedSummaries.find(l => String(l.id) === String(item.ley_id));
+                const citedPart = isJudgment(itemLaw) ? `Apartado «${item.articulo_label.replace(/\.$/, '')}»` : item.articulo_label;
+                const citation = `${citedPart} de la ${item.ley_origen.replace(/\.$/, '')}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Buscador Jurídico. Consultado el ${today}. Disponible en: ${artUrl}`;
 
                 // Try clipboard API; fall back to a selectable popover (required on mobile/HTTP)
                 const tryClipboard = navigator.clipboard && typeof navigator.clipboard.writeText === 'function'

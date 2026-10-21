@@ -2,6 +2,7 @@
 import { officialUrl } from '../lib/official-url.js';
 import { brandMarkSvg } from '../lib/brand-mark.js';
 import { shortTitle } from '../lib/short-title.js';
+import { isJudgment, instrumentTypeLabel, fragmentNoun } from '../lib/judgment.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 
 const COLORS = {
@@ -283,7 +284,7 @@ function renderHighchartsTreemap(slide, model, attempt = 0) {
     container.dataset.rendered = 'true';
     const deckRoot = slide.closest('.law-presentation-overlay, .law-presentation-embed') || document;
     const detailPanel = deckRoot.querySelector('#lp-interaction-detail');
-    const data = model.treemapData.length ? model.treemapData : buildTreemapData(model.articles);
+    const data = model.treemapData.length ? model.treemapData : buildTreemapData(model.articles, model.noun);
 
     window.Highcharts.chart(container, {
         chart: {
@@ -300,7 +301,7 @@ function renderHighchartsTreemap(slide, model, attempt = 0) {
             backgroundColor: 'rgba(255,255,255,.96)',
             formatter() {
                 const count = this.point.custom?.count || 1;
-                const label = count === 1 ? 'artículo' : 'artículos';
+                const label = count === 1 ? model.noun.one : model.noun.many;
                 return `<strong style="color:#9B2247">${escapeHtml(this.point.name)}</strong><br>${count} ${label}`;
             }
         },
@@ -316,7 +317,7 @@ function renderHighchartsTreemap(slide, model, attempt = 0) {
                         click() {
                             if (!detailPanel) return;
                             detailPanel.querySelector('strong').textContent = this.name || 'Detalle';
-                            detailPanel.querySelector('p').textContent = this.custom?.detail || `${this.custom?.count || 1} artículos`;
+                            detailPanel.querySelector('p').textContent = this.custom?.detail || `${this.custom?.count || 1} ${model.noun.many}`;
                             detailPanel.classList.add('active');
                             animateInteractionPanel(detailPanel);
                         }
@@ -456,7 +457,8 @@ function buildPresentationModel(law, articles, themes) {
         /transitorio/i.test(a.articulo_label || '') || a.tipo_articulo === 'transitorio'
     );
     const titles = unique(cleanArticles.map(a => a.titulo_nombre).filter(Boolean));
-    const chapters = unique(cleanArticles.map(a => a.capitulo_nombre).filter(Boolean));
+    // A ruling's apartados each carry their own heading; they are not chapters.
+    const chapters = isJudgment(law) ? [] : unique(cleanArticles.map(a => a.capitulo_nombre).filter(Boolean));
     const sections = unique(cleanArticles.map(a => a.seccion_nombre).filter(Boolean));
     const themeLabels = law.temas_clave?.length
         ? law.temas_clave
@@ -471,9 +473,10 @@ function buildPresentationModel(law, articles, themes) {
     return {
         law,
         articles: cleanArticles,
-        keyArticles: selectKeyArticles(cleanArticles.filter(a => !isFrontMatter(a))).slice(0, 6),
+        keyArticles: selectKeyArticles(cleanArticles.filter(a => !isFrontMatter(a)), fragmentNoun(law)).slice(0, 6),
         fileBase: `Presentacion_${slugify(law.siglas || law.titulo || 'instrumento')}`,
-        typeLabel: getTypeLabel(law),
+        typeLabel: isJudgment(law) ? instrumentTypeLabel(law) : getTypeLabel(law),
+        noun: fragmentNoun(law),
         shortName: shortTitle(law.titulo) || law.titulo || 'Instrumento',
         officialTitle: law.titulo || '',
         summary: written ? written.slice(0, 620) : objeto ? excerpt(objeto.cleanText, 560) : '',
@@ -488,7 +491,7 @@ function buildPresentationModel(law, articles, themes) {
             transitorios: transitorios.length
         },
         structureRows: buildStructureRows(cleanArticles, themes),
-        treemapData: buildTreemapData(cleanArticles),
+        treemapData: buildTreemapData(cleanArticles, fragmentNoun(law)),
         themeLabels,
         transitorios
     };
@@ -500,7 +503,7 @@ function renderWebDeck(model) {
     const articleSlides = articleChunks.map((items, index) => `
         <section class="lp-slide">
             ${renderSlideShell('ARTÍCULOS CLAVE', `
-                <p class="lp-eyebrow">Artículos clave · ${index + 1} de ${articleChunks.length}</p>
+                <p class="lp-eyebrow">${model.noun.Many} clave · ${index + 1} de ${articleChunks.length}</p>
                 <h2>Lo que conviene leer primero</h2>
                 <div class="lp-article-grid">
                     ${items.map(article => `
@@ -543,9 +546,9 @@ function renderWebDeck(model) {
                     <p class="lp-eyebrow" data-animate>${escapeHtml(model.law.siglas || model.typeLabel)}</p>
                     <h2 data-animate data-lp-fit-height="104">${escapeHtml(model.shortName)}</h2>
                     <div class="lp-summary-layout">
-                        <div class="lp-summary-text" data-animate data-lp-title="Resumen general" data-lp-detail="${escapeAttr(model.summary || 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.')}">${model.summaryLabel ? `<span class="lp-summary-label">${escapeHtml(model.summaryLabel)}</span>` : ''}${escapeHtml(model.summary || 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.')}</div>
+                        <div class="lp-summary-text" data-animate data-lp-title="Resumen general" data-lp-detail="${escapeAttr(model.summary || `Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los ${model.noun.many} que conviene leer primero.`)}">${model.summaryLabel ? `<span class="lp-summary-label">${escapeHtml(model.summaryLabel)}</span>` : ''}${escapeHtml(model.summary || `Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los ${model.noun.many} que conviene leer primero.`)}</div>
                         <div class="lp-kpis" data-animate>
-                            ${[[model.metrics.totalArticles, 'Artículos'], [model.metrics.chapters, 'Capítulos'], [model.metrics.transitorios, 'Transitorios']].filter(([v]) => v > 0).map(([v, l]) => renderKpi(v, l)).join('')}
+                            ${[[model.metrics.totalArticles, model.noun.Many], [model.metrics.chapters, 'Capítulos'], [model.metrics.transitorios, 'Transitorios']].filter(([v]) => v > 0).map(([v, l]) => renderKpi(v, l)).join('')}
                         </div>
                     </div>
                     <div class="lp-info-strip">
@@ -580,7 +583,7 @@ function renderWebDeck(model) {
                         <div class="lp-treemap-chart" aria-label="Treemap del instrumento"></div>
                         ${renderTreemapFallback(model)}
                     </div>
-                    <p class="lp-note lp-treemap-note" data-animate>Cada bloque es un artículo; su tamaño refleja la extensión del texto. Haz clic en uno para leerlo.</p>
+                    <p class="lp-note lp-treemap-note" data-animate>Cada bloque es un ${model.noun.one}; su tamaño refleja la extensión del texto. Haz clic en uno para leerlo.</p>
                 `)}
             </section>
 
@@ -756,7 +759,7 @@ function renderNormativeFlow(model) {
     return `<div class="lp-normative-flow" data-animate>
         <div class="lp-flow-head">
             <span>Estructura normativa</span>
-            <strong>${escapeHtml(model.metrics.totalArticles)} artículos</strong>
+            <strong>${escapeHtml(model.metrics.totalArticles)} ${model.noun.many}</strong>
         </div>
         ${items.map((item, index) => `
             <div class="lp-flow-row lp-flow-${item.color}" data-lp-title="${escapeAttr(item.label)}" data-lp-detail="${escapeAttr(item.note)}">
@@ -798,7 +801,7 @@ function renderStructureTable(rows) {
     </div>`;
 }
 
-function buildTreemapData(articles) {
+function buildTreemapData(articles, noun = fragmentNoun(null)) {
     const groups = new Map();
     const colors = ['#9B2247', '#1E5B4F', '#A57F2C', '#7A1A38', '#B24C6C', '#6F6F72', '#8A6A22', '#2F7568'];
 
@@ -857,7 +860,7 @@ function buildTreemapData(articles) {
             color: group.color,
             custom: {
                 count: group.custom.count,
-                detail: `${group.name}\n\n${group.custom.count} artículos`
+                detail: `${group.name}\n\n${group.custom.count} ${noun.many}`
             }
         });
 
@@ -869,7 +872,7 @@ function buildTreemapData(articles) {
                 color: chapter.color,
                 custom: {
                     count: chapter.custom.count,
-                    detail: `${chapter.custom.detail}\n\n${chapter.custom.count} artículos`
+                    detail: `${chapter.custom.detail}\n\n${chapter.custom.count} ${noun.many}`
                 }
             });
             data.push(...chapter.children);
@@ -1077,7 +1080,7 @@ function addSummarySlide(pptx, model, assets) {
 
     const summary = model.summary
         ? `${model.summaryLabel ? `${model.summaryLabel.toUpperCase()}\n` : ''}${model.summary}`
-        : 'Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los artículos que conviene leer primero.';
+        : `Este instrumento todavía no tiene un resumen. Las siguientes láminas muestran su estructura y los ${model.noun.many} que conviene leer primero.`;
     slide.addText(summary, {
         x: 0.75, y: 1.65, w: 6.45, h: 2.15,
         fontFace: FONT_BODY, fontSize: 14, color: COLORS.texto,
@@ -1106,7 +1109,7 @@ function addSummarySlide(pptx, model, assets) {
         x: 8.05, y: 3.85, w: 4.0, h: 0.28,
         fontFace: FONT_HEAD, fontSize: 17, bold: true, color: COLORS.guinda
     });
-    slide.addText('Esta presentación resume la estructura del instrumento y los artículos que conviene leer primero. No sustituye la consulta del texto oficial.', {
+    slide.addText(`Esta presentación resume la estructura del instrumento y los ${model.noun.many} que conviene leer primero. No sustituye la consulta del texto oficial.`, {
         x: 8.05, y: 4.35, w: 3.95, h: 1.05,
         fontFace: FONT_BODY, fontSize: 11, color: COLORS.muted,
         fit: 'shrink'
@@ -1187,8 +1190,8 @@ function addKeyArticlesSlides(pptx, model, assets) {
     const chunks = chunk(model.keyArticles, 2);
     chunks.forEach((items, idx) => {
         const slide = pptx.addSlide();
-        addContentShell(slide, assets, 'ARTÍCULOS CLAVE');
-        addSectionTitle(slide, `Artículos clave · ${idx + 1} de ${chunks.length}`, 'Lo que conviene leer primero');
+        addContentShell(slide, assets, `${model.noun.Many.toUpperCase()} CLAVE`);
+        addSectionTitle(slide, `${model.noun.Many} clave · ${idx + 1} de ${chunks.length}`, 'Lo que conviene leer primero');
         items.forEach((article, i) => addArticleCard(slide, article, 0.82, 1.45 + i * 2.65, 11.7, 2.15));
     });
 }
@@ -1444,7 +1447,7 @@ function shortArticleLabel(label) {
     return String(label || '').replace(/^Art[íi]culo\s+/i, 'Art. ');
 }
 
-function selectKeyArticles(articles) {
+function selectKeyArticles(articles, noun = fragmentNoun(null)) {
     const rules = [
         { pattern: /\bobjeto\b|\bfinalidad\b/i, reason: 'Define objeto o finalidad del instrumento', weight: 80 },
         { pattern: /\bsecretar[ií]a\b|\bSENER\b/i, reason: 'Relaciona atribuciones de la Secretaría de Energía', weight: 70 },
@@ -1457,7 +1460,7 @@ function selectKeyArticles(articles) {
     return articles
         .map((article, index) => {
             let score = Math.max(0, 30 - index);
-            let reason = 'Primeros artículos del instrumento';
+            let reason = `Primeros ${noun.many} del instrumento`;
             for (const rule of rules) {
                 if (rule.pattern.test(`${article.articulo_label || ''} ${article.cleanText || ''}`)) {
                     score += rule.weight;

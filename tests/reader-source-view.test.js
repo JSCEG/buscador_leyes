@@ -108,6 +108,12 @@ describe('Reader source view', () => {
         expect(container.querySelector('[aria-label="Ampliar página original"]')).not.toBeNull();
     });
 
+    it('names the pages of a ruling apartado as such, keeping the same page navigation', async () => {
+        await mountReaderSource(container, { ...article, tipo_articulo: 'apartado', articulo_label: 'VII. EFECTOS' }).open();
+        expect(container.querySelector('.rs-page-scope').textContent).toBe('Páginas de este apartado');
+        expect(container.querySelector('[aria-label="Página siguiente"]')).not.toBeNull();
+    });
+
     it('does not render a stale asynchronous result after switching articles', async () => {
         let resolveFirst;
         getReaderSource.mockImplementationOnce(() => new Promise(resolve => { resolveFirst = resolve; })).mockResolvedValueOnce({ status: 'unmapped', originalUrl: 'https://dof.gob.mx/nuevo' });

@@ -114,5 +114,5 @@ export function indexLabel(item) {
     if ((m = p.match(/^(\d+(?:\.\d+)*(?:\.[a-z])?|[a-z]\))\.?(?:\s|$)/i))) return { short: num(m[1]), kind: 'seccion' };
     if (type === 'anexo') return { short: shortName(label), kind: 'anexo' };
     if (type === 'complementario') return { short: shortName(label), kind: 'complementario' };
-    return { short: shortName(label), kind: 'seccion' };
+    return { short: shortName(label), kind: type === 'apartado' ? 'apartado' : 'seccion' };
 }
