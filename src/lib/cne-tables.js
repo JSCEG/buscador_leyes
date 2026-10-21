@@ -120,14 +120,77 @@ export function stateOptions(rows) {
 }
 const rowsStateName = (rows, id) => rows.find(row => stateOf(row) === id)?.entidad;
 
+/**
+ * Markets of the permits map. Every CNE row belongs to one, by its `Mercado` text read without case or
+ * accents; crude oil, petrochemicals and the generic «Hidrocarburos» go to «otros».
+ */
+export const CNE_MARKETS = Object.freeze([
+    { key: 'electricidad', label: 'Electricidad' },
+    { key: 'petroliferos', label: 'Petrolíferos' },
+    { key: 'gas-lp', label: 'Gas LP' },
+    { key: 'gas-natural', label: 'Gas natural' },
+    { key: 'otros', label: 'Petróleo crudo, petroquímicos y otros hidrocarburos' },
+].map(market => Object.freeze(market)));
+export const CNE_MARKET = Object.fromEntries(CNE_MARKETS.map(market => [market.key, market]));
+const MARKET_BY_NAME = new Map([
+    ['electricidad', 'electricidad'], ['petroliferos', 'petroliferos'], ['gas natural', 'gas-natural'],
+    ['gas lp', 'gas-lp'], ['gas licuado de petroleo', 'gas-lp'], ['gas l.p.', 'gas-lp'],
+]);
+export const marketOf = row => MARKET_BY_NAME.get(fold(row?.mercado)) || 'otros';
+
+/** Key of one activity (a table within a market) in the panel and the map layers. */
+export const activityKey = (table, market) => `${table}|${market}`;
+export const parseActivity = key => { const [table, market] = String(key).split('|'); return { table, market }; };
+
+/**
+ * What each market has in each table: total and vigentes, and how many vigentes carry a state or
+ * coordinates (what the map can draw). Only tables with rows in that market appear, in table order.
+ * @param {Record<string, object[]|null>} rowsByTable
+ */
+export function activitiesByMarket(rowsByTable) {
+    const result = Object.fromEntries(CNE_MARKETS.map(market => [market.key, []]));
+    for (const table of CNE_TABLES) {
+        const rows = rowsByTable[table.key];
+        if (!Array.isArray(rows)) continue;
+        const byMarket = new Map();
+        for (const row of rows) {
+            const market = marketOf(row);
+            const entry = byMarket.get(market) || { table: table.key, market, total: 0, vigentes: 0, withState: 0, withPoint: 0 };
+            entry.total += 1;
+            if (row.estatus === 'Vigente') {
+                entry.vigentes += 1;
+                if (stateOf(row) !== NO_STATE) entry.withState += 1;
+                if (validPoint(row.latitud, row.longitud)) entry.withPoint += 1;
+            }
+            byMarket.set(market, entry);
+        }
+        for (const [market, entry] of byMarket) result[market].push(entry);
+    }
+    return result;
+}
+
+/** Vigentes per state for the choropleth, in the shape of /Tablas/Estados. */
+export function stateCounts(rows) {
+    const counts = new Map();
+    for (const row of rows) {
+        if (row.estatus !== 'Vigente') continue;
+        const id = stateOf(row);
+        const entry = counts.get(id) || { efId: id, entidad: id === NO_STATE ? 'Sin entidad' : STATE_NAME[id] || row.entidad || id, permisos: 0 };
+        entry.permisos += 1;
+        counts.set(id, entry);
+    }
+    return [...counts.values()];
+}
+
 /** Rows that pass every filter; `estatus` '' keeps all, `efId` '--' keeps rows without state. */
-export function filterRows(rows, { estatus = 'Vigente', efId = '', q = '', facets = {} } = {}) {
+export function filterRows(rows, { estatus = 'Vigente', efId = '', market = '', q = '', facets = {} } = {}) {
     const term = String(q).trim();
     const number = normalizePermitNumber(term);
     const words = fold(term);
     return rows.filter(row => {
         if (estatus && row.estatus !== estatus) return false;
         if (efId && stateOf(row) !== efId) return false;
+        if (market && marketOf(row) !== market) return false;
         for (const [key, value] of Object.entries(facets)) if (value && facetValue(row[key]) !== value) return false;
         if (!term) return true;
         const own = row.numeroPermisoNorm ? String(row.numeroPermisoNorm).toUpperCase() : normalizePermitNumber(row.numeroPermiso);

@@ -287,3 +287,12 @@ html.dark-mode .pmm-cne-status.is-on{color:#6fc2ae}
   .pmm-cne-field{min-width:calc(50% - 6px);max-width:none}
   .pmm-cne-q{min-width:100%}
 }
+/* Other CNE activities under each market (transport, marketing, infrastructure, supply, third parties). */
+.pmm-cne-market:empty{display:none}
+.pmm-cne-market{margin:2px 0 10px 10px;padding-left:10px;border-left:2px solid var(--pm-border)}
+.pmm-cne-sub-h{margin:6px 0 2px;color:var(--pm-muted);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+[data-cne-market="otros"]{margin-left:0;padding-left:0;border-left:0}
+[data-cne-market="otros"] .pmm-cne-sub-h{color:var(--pm-ink);font-size:11px}
+.pmm-cne-loading{margin:4px 0;color:var(--pm-muted);font-size:11.5px}
+.pmm-cne-loading[hidden]{display:none}
+.pmm-cne-loading button{padding:0;border:0;background:none;color:var(--pm-accent);font:700 11.5px/1.3 'Noto Sans',sans-serif;text-decoration:underline;cursor:pointer}

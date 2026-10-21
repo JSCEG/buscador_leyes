@@ -389,7 +389,8 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                 <span>${m.label}<small data-count="${m.key}"></small></span>
             </label>
             <ul class="pmm-types" data-types="${m.key}"></ul>
-            <button type="button" class="pmm-missing" data-missing="${m.key}" hidden></button>`).join('');
+            <button type="button" class="pmm-missing" data-missing="${m.key}" hidden></button>
+            <div class="pmm-cne-market" data-cne-market="${m.key}"></div>`).join('');
     }
 
     function renderCounts() {
@@ -819,11 +820,12 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             : 'Fecha de actualización no disponible';
     }).catch(() => { $('[data-updated]').textContent = 'Fecha de actualización no disponible'; });
 
-    // ---------- other CNE tables (lists, choropleth, points) ----------
+    // ---------- other CNE activities by market (lists, choropleth, points) ----------
     const cne = mountCneTables({ L, map, root: container, getJson, signal: state.ctrl.signal, status });
 
     // ---------- events ----------
     renderMarkets();
+    cne.refresh();
     container.addEventListener('change', e => {
         const t = e.target;
         if (t.matches('[data-market]')) { toggle(t.dataset.market, t.checked).then(renderChips); renderChips(); }

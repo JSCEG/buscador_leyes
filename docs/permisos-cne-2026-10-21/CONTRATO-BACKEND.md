@@ -147,3 +147,11 @@ El proxy los traduce a `502` y el front muestra "No se pudo cargar…".
 - **Ligas:** oculta los botones cuando `ligaPermiso` o `ligaResolucion` vienen `null`.
 - **Datos que se vayan llenando:** toma automáticamente los estados, municipios y coordenadas nuevos, sin cambios de
   código. Los puntos fuera de México se ignoran.
+
+## Nota del front (21 oct 2026): menú por mercado
+
+El mapa agrupa estas tablas por mercado (Electricidad, Petrolíferos, Gas LP, Gas natural y «Petróleo crudo,
+petroquímicos y otros hidrocarburos») usando `mercado` de `/Tablas/Lista`. El mapa por estado y los puntos se calculan
+en el navegador a partir de esa lista (vigentes con `efId` o coordenadas), por lo que `/Tablas/Estados` y
+`/Tablas/Puntos` quedan disponibles pero el front ya no los necesita. Las capas aparecen solas cuando la extracción
+llene `EF_ID`, `MPO_ID` y coordenadas.

@@ -1,13 +1,16 @@
 /**
- * «Otros permisos CNE» in the permits map: five CNE tables served by DGMESNIE through
- * server/mapa-proxy.js (cne-lista, cne-estados, cne-puntos, cne-actualizacion). Each table has a
- * filtered list with a detail sheet; transport and marketing add a choropleth by state, transport and
- * hydrocarbon infrastructure add points where there are coordinates. Layers read whatever states and
- * coordinates the tables hold, so rows filled later appear without code changes.
+ * The five CNE tables served by DGMESNIE (transport, marketing, hydrocarbon infrastructure,
+ * electricity supply and accredited third parties) inside the permits map, by market: under each
+ * market of the panel, «Otras actividades» lists the tables that have permits in that market; crude
+ * oil, petrochemicals and the generic «Hidrocarburos» get their own block. Each activity has a
+ * filtered table with a detail sheet and, when its vigentes carry them, a choropleth by state and
+ * points. Both layers are computed from the table rows (/Tablas/Lista, via cne-lista), so states and
+ * coordinates filled in later show up without code changes.
  */
 import {
-    CNE_TABLES, CNE_TABLE, COMMON_FACETS, NULL_VALUE, NO_STATE, STATE_NAME, featureStateId, facetOptions, stateOptions,
-    filterRows, capacityTotals, validPoint, mexicoCityTime, calendarDate, choroplethClass,
+    CNE_TABLES, CNE_TABLE, CNE_MARKETS, CNE_MARKET, COMMON_FACETS, NO_STATE, STATE_NAME, featureStateId, facetOptions, stateOptions,
+    filterRows, capacityTotals, validPoint, mexicoCityTime, calendarDate, choroplethClass, marketOf, activityKey, parseActivity,
+    activitiesByMarket, stateCounts,
 } from '../lib/cne-tables.js';
 import { permitsHash } from '../lib/cne-api.js';
 
@@ -21,22 +24,43 @@ const safeHref = v => (/^https?:\/\/[^\s"'<>]+$/i.test(String(v ?? '').trim()) ?
 const count = n => Number(n || 0).toLocaleString('es-MX');
 const amount = v => (v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? '' : Number(v).toLocaleString('es-MX', { maximumFractionDigits: 2 }));
 const permits = n => `${count(n)} ${n === 1 ? 'permiso' : 'permisos'}`;
+const activityLabel = (table, market) => `${CNE_TABLE[table].label} · ${CNE_MARKET[market]?.label || market}`;
 
-/** Panel section placed under the four markets. */
+/** Part of the panel that is not inside a market: the «otros» block, the update date and the legend. */
 export function cnePanelHtml() {
-    return `<p class="pmm-h">Otros permisos CNE</p>
-        ${CNE_TABLES.map(t => `<div class="pmm-cne" data-sector="cne-${t.key}">
-            <div class="pmm-cne-head">
-                <span class="pmm-pin" data-sector="cne-${t.key}"><b>${t.code}</b></span>
-                <span class="pmm-cne-name">${esc(t.label)}<small data-cne-count="${t.key}"></small></span>
-                <button type="button" class="pm-btn pmm-cne-open" data-cne-open="${t.key}" aria-label="Ver la tabla de ${esc(t.label)}">Tabla</button>
-            </div>
-            ${t.map.states ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-states="${t.key}"><span>Mapa por estado<small data-cne-states-note="${t.key}">Permisos vigentes por entidad</small></span></label>` : ''}
-            ${t.map.points ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-points="${t.key}"><span>Instalaciones con coordenadas<small data-cne-points-note="${t.key}">Solo vigentes</small></span></label>` : ''}
-            ${!t.map.states && !t.map.points ? '<p class="pmm-cne-nomap">Sin capa en el mapa: cobertura o ámbito nacional.</p>' : ''}
-            <p class="pmm-cne-updated" data-cne-updated="${t.key}"></p>
-        </div>`).join('')}
+    return `<div class="pmm-cne-market" data-cne-market="otros"></div>
+        <p class="pmm-cne-loading" data-cne-loading>Cargando otras actividades de la CNE…</p>
+        <p class="pmm-cne-updated" data-cne-updated></p>
         <div class="pmm-cne-legend" data-cne-legend hidden></div>`;
+}
+
+/**
+ * «Otras actividades» of one market: one entry per table with permits there, with the table button
+ * and only the map layers its vigentes can draw.
+ * @param {string} market
+ * @param {{ table: string, total: number, vigentes: number, withState: number, withPoint: number }[]} entries
+ * @param {{ states?: string|null, points?: Set<string> }} [on] activity keys currently drawn
+ */
+export function marketActivitiesHtml(market, entries, on = {}) {
+    if (!entries.length) return '';
+    const title = market === 'otros' ? CNE_MARKET.otros.label : `Otras actividades · ${CNE_MARKET[market]?.label || market}`;
+    return `<p class="pmm-cne-sub-h">${esc(title)}</p>
+        ${entries.map(e => {
+            const t = CNE_TABLE[e.table];
+            const key = activityKey(e.table, market);
+            const states = e.withState > 0;
+            const points = e.withPoint > 0;
+            return `<div class="pmm-cne" data-sector="cne-${t.key}" data-activity="${esc(key)}">
+                <div class="pmm-cne-head">
+                    <span class="pmm-pin" data-sector="cne-${t.key}"><b>${t.code}</b></span>
+                    <span class="pmm-cne-name">${esc(t.label)}<small>${count(e.vigentes)} ${e.vigentes === 1 ? 'vigente' : 'vigentes'} · ${count(e.total)} en total</small></span>
+                    <button type="button" class="pm-btn pmm-cne-open" data-cne-open="${t.key}" data-cne-market="${esc(market)}" aria-label="Ver la tabla de ${esc(activityLabel(t.key, market))}">Tabla</button>
+                </div>
+                ${states ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-states="${esc(key)}"${on.states === key ? ' checked' : ''}><span>Mapa por estado<small>${count(e.withState)} vigentes con estado${e.withState < e.vigentes ? ` de ${count(e.vigentes)}` : ''}</small></span></label>` : ''}
+                ${points ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-points="${esc(key)}"${on.points?.has(key) ? ' checked' : ''}><span>Instalaciones con coordenadas<small>${count(e.withPoint)} vigentes</small></span></label>` : ''}
+                ${!states && !points ? '<p class="pmm-cne-nomap">Sin ubicación registrada todavía: solo en la tabla.</p>' : ''}
+            </div>`;
+        }).join('')}`;
 }
 
 /**
@@ -45,7 +69,8 @@ export function cnePanelHtml() {
 export function mountCneTables({ L, map, root, getJson, signal, status }) {
     const $ = sel => root.querySelector(sel);
     const data = Object.fromEntries(CNE_TABLES.map(t => [t.key, { rows: null, loading: null, updated: null }]));
-    const filters = Object.fromEntries(CNE_TABLES.map(t => [t.key, { estatus: 'Vigente', efId: '', q: '', facets: {}, shown: PAGE }]));
+    const blankFilters = () => ({ estatus: 'Vigente', efId: '', market: '', q: '', facets: {}, shown: PAGE });
+    const filters = Object.fromEntries(CNE_TABLES.map(t => [t.key, blankFilters()]));
     let openKey = null;
     let detailRow = null;
     let statesGeo = null;
@@ -53,6 +78,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     let choroplethKey = null;
     const pointLayers = {};
     const pointIndex = {};
+    const pointsOn = new Set();
 
     map.createPane('pmm-cne-states').style.zIndex = 380;
     map.createPane('pmm-cne-points').style.zIndex = 620;
@@ -70,19 +96,32 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         if (entry.rows) return entry.rows;
         entry.loading ||= getJson(`cne-lista?tabla=${key}`, signal).then(body => {
             entry.rows = Array.isArray(body?.filas) ? body.filas : [];
-            renderCount(key);
             return entry.rows;
         }).finally(() => { entry.loading = null; });
         return entry.loading;
     }
+    const activityRows = key => {
+        const { table, market } = parseActivity(key);
+        return (data[table].rows || []).filter(row => marketOf(row) === market);
+    };
 
-    function renderCount(key) {
-        const rows = data[key].rows;
-        const node = root.querySelector(`[data-cne-count="${key}"]`);
-        if (!node || !rows) return;
-        const vigentes = rows.filter(r => r.estatus === 'Vigente').length;
-        node.textContent = `${count(vigentes)} ${vigentes === 1 ? 'vigente' : 'vigentes'} · ${count(rows.length)} en total`;
+    // The panel needs every table to know which market has which activities: they load in the
+    // background (≈220 KB compressed in all) and each one is drawn as soon as it arrives.
+    function renderActivities() {
+        const summary = activitiesByMarket(Object.fromEntries(CNE_TABLES.map(t => [t.key, data[t.key].rows])));
+        for (const market of CNE_MARKETS) {
+            const box = root.querySelector(`[data-cne-market="${market.key}"]`);
+            if (box) box.innerHTML = marketActivitiesHtml(market.key, summary[market.key], { states: choroplethKey, points: pointsOn });
+        }
     }
+    const loading = $('[data-cne-loading]');
+    Promise.allSettled(CNE_TABLES.map(t => rowsOf(t.key).then(renderActivities))).then(results => {
+        if (signal.aborted) return;
+        const failed = results.filter(r => r.status === 'rejected').length;
+        if (!loading) return;
+        loading.hidden = !failed;
+        if (failed) loading.innerHTML = `No se pudieron cargar ${failed === CNE_TABLES.length ? 'las otras actividades de la CNE' : `${failed} de las tablas de la CNE`}. <button type="button" data-cne-reload>Reintentar</button>`;
+    });
 
     function updatedText(a) {
         if (!a?.disponible) return 'Fecha de actualización no disponible';
@@ -92,43 +131,44 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
             .filter(Boolean).join(' · ') || 'Fecha de actualización no disponible';
     }
 
+    // The five tables are loaded together; the panel shows the most recent update once.
     CNE_TABLES.forEach(t => {
         getJson(`cne-actualizacion?tabla=${t.key}`, signal).then(a => {
             data[t.key].updated = a;
-            const node = root.querySelector(`[data-cne-updated="${t.key}"]`);
-            if (node) node.textContent = updatedText(a);
+            const latest = CNE_TABLES.map(x => data[x.key].updated).filter(u => u?.disponible)
+                .sort((x, y) => String(y.fechaActualizacion).localeCompare(String(x.fechaActualizacion)))[0];
+            const node = $('[data-cne-updated]');
+            if (node && latest) node.textContent = `Otras actividades CNE: ${updatedText({ ...latest, filas: 0 })}`;
             if (openKey === t.key) renderTable();
-        }).catch(error => {
-            if (error.name === 'AbortError') return;
-            const node = root.querySelector(`[data-cne-updated="${t.key}"]`);
-            if (node) node.textContent = 'Fecha de actualización no disponible';
-        });
+        }).catch(() => {});
     });
 
-    // ---------- choropleth by state (one table at a time, vigentes) ----------
+    // ---------- choropleth by state (one activity at a time, vigentes) ----------
     async function showStates(key, on) {
-        const box = root.querySelector(`[data-cne-states="${key}"]`);
+        const box = root.querySelector(`[data-cne-states="${CSS.escape(key)}"]`);
         if (!on) {
             if (choroplethKey === key) clearChoropleth();
             return;
         }
         root.querySelectorAll('[data-cne-states]').forEach(input => { if (input.dataset.cneStates !== key) input.checked = false; });
         clearChoropleth();
-        status(`Cargando ${CNE_TABLE[key].label.toLowerCase()} por estado…`);
+        const { table, market } = parseActivity(key);
+        status(`Cargando ${activityLabel(table, market).toLowerCase()} por estado…`);
         try {
-            const [geo, counts] = await Promise.all([statesGeo || getJson('estados', signal), getJson(`cne-estados?tabla=${key}`, signal)]);
+            const [geo] = await Promise.all([statesGeo || getJson('estados', signal), rowsOf(table)]);
             statesGeo = geo;
             if (!box?.checked) return;
             status('');
-            paintChoropleth(key, Array.isArray(counts?.estados) ? counts.estados : []);
+            paintChoropleth(key, stateCounts(activityRows(key)));
         } catch (error) {
             if (error.name === 'AbortError') return;
-            status(`No se pudo cargar ${CNE_TABLE[key].label.toLowerCase()} por estado.`, 5000);
+            status(`No se pudo cargar ${activityLabel(table, market).toLowerCase()} por estado.`, 5000);
             if (box) box.checked = false;
         }
     }
 
     function paintChoropleth(key, rows) {
+        const { table, market } = parseActivity(key);
         const byState = new Map();
         let noState = 0;
         for (const r of rows) {
@@ -137,7 +177,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
             else byState.set(id.padStart(2, '0'), { count: Number(r.permisos) || 0, name: r.entidad });
         }
         const max = Math.max(0, ...[...byState.values()].map(s => s.count));
-        const label = CNE_TABLE[key].label.toLowerCase();
+        const label = activityLabel(table, market).toLowerCase();
         choropleth = L.geoJSON(statesGeo, {
             pane: 'pmm-cne-states',
             style: feature => {
@@ -149,17 +189,15 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 const entry = byState.get(id);
                 const name = STATE_NAME[id] || entry?.name || 'Estado';
                 layer.bindTooltip(`<strong>${esc(name)}</strong><br>${permits(entry?.count || 0)} vigentes de ${esc(label)}`, { sticky: true, className: 'pmm-cne-tip' });
-                layer.on('click', () => { if (id) openTable(key, { efId: id }); });
+                layer.on('click', () => { if (id) openTable(table, { efId: id, market }); });
             },
         }).addTo(map);
         choroplethKey = key;
-        const note = root.querySelector(`[data-cne-states-note="${key}"]`);
-        if (note) note.textContent = byState.size ? `${byState.size} estados con permisos vigentes` : 'Aún sin estado registrado';
         const legend = $('[data-cne-legend]');
         legend.hidden = false;
-        legend.innerHTML = `<p class="pmm-cne-legend-title">${esc(CNE_TABLE[key].label)} · vigentes por estado</p>
+        legend.innerHTML = `<p class="pmm-cne-legend-title">${esc(activityLabel(table, market))} · vigentes por estado</p>
             ${byState.size ? `<p class="pmm-cne-scale"><span>Menos</span>${PALETTE.map(c => `<i style="background:${c}"></i>`).join('')}<span>Más (máx. ${count(max)})</span></p>` : '<p class="pmm-cne-legend-note">Ningún permiso vigente tiene estado registrado todavía; el mapa se llenará conforme se capture.</p>'}
-            ${noState ? `<p class="pmm-cne-legend-note">Sin entidad: ${permits(noState)} vigentes (no se pintan). <button type="button" data-cne-open="${key}" data-cne-ef="${NO_STATE}">Ver lista</button></p>` : ''}
+            ${noState ? `<p class="pmm-cne-legend-note">Sin entidad: ${permits(noState)} vigentes (no se pintan). <button type="button" data-cne-open="${table}" data-cne-market="${esc(market)}" data-cne-ef="${NO_STATE}">Ver lista</button></p>` : ''}
             ${byState.size ? '<p class="pmm-cne-legend-note">Haz clic en un estado para ver sus permisos.</p>' : ''}`;
     }
 
@@ -170,42 +208,39 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         $('[data-cne-legend]').hidden = true;
     }
 
-    // ---------- points (installations with coordinates) ----------
+    // ---------- points (vigentes with coordinates) ----------
     async function showPoints(key, on) {
-        const box = root.querySelector(`[data-cne-points="${key}"]`);
-        if (!on) { if (pointLayers[key]) map.removeLayer(pointLayers[key]); return; }
+        const box = root.querySelector(`[data-cne-points="${CSS.escape(key)}"]`);
+        if (!on) { pointsOn.delete(key); if (pointLayers[key]) map.removeLayer(pointLayers[key]); return; }
+        pointsOn.add(key);
+        const { table } = parseActivity(key);
         if (!pointLayers[key]) {
-            status(`Cargando ${CNE_TABLE[key].label.toLowerCase()} con coordenadas…`);
-            try {
-                const body = await getJson(`cne-puntos?tabla=${key}`, signal);
-                status('');
-                const group = L.featureGroup();
-                pointIndex[key] = new Map();
-                for (const p of Array.isArray(body?.puntos) ? body.puntos : []) {
-                    const at = validPoint(p.latitud, p.longitud);
-                    if (!at) continue;
-                    const marker = L.circleMarker(at, { pane: 'pmm-cne-points', radius: 7, weight: 2, color: '#ffffff', fillColor: pointColor(key), fillOpacity: 1, className: `pmm-cne-dot pmm-cne-dot-${key}` });
-                    marker.bindPopup(() => pointPopup(key, p), { className: 'pmm-popup', maxWidth: 320 });
-                    marker.addTo(group);
-                    pointIndex[key].set(String(p.numeroPermiso), marker);
-                }
-                pointLayers[key] = group;
-            } catch (error) {
+            try { await rowsOf(table); } catch (error) {
                 if (error.name === 'AbortError') return;
-                status(`No se pudieron cargar las coordenadas de ${CNE_TABLE[key].label.toLowerCase()}.`, 5000);
+                status('No se pudieron cargar las coordenadas.', 5000);
+                pointsOn.delete(key);
                 if (box) box.checked = false;
                 return;
             }
+            const group = L.featureGroup();
+            pointIndex[key] = new Map();
+            for (const row of activityRows(key)) {
+                if (row.estatus !== 'Vigente') continue;
+                const at = validPoint(row.latitud, row.longitud);
+                if (!at) continue;
+                const marker = L.circleMarker(at, { pane: 'pmm-cne-points', radius: 7, weight: 2, color: '#ffffff', fillColor: pointColor(table), fillOpacity: 1, className: `pmm-cne-dot pmm-cne-dot-${table}` });
+                marker.bindPopup(() => pointPopup(table, row), { className: 'pmm-popup', maxWidth: 320 });
+                marker.addTo(group);
+                pointIndex[key].set(String(row.numeroPermiso), marker);
+            }
+            pointLayers[key] = group;
         }
-        const n = pointIndex[key].size;
-        const note = root.querySelector(`[data-cne-points-note="${key}"]`);
-        if (note) note.textContent = n ? `${count(n)} ${n === 1 ? 'vigente' : 'vigentes'} con coordenadas` : 'Sin coordenadas registradas todavía';
-        if (box?.checked) pointLayers[key].addTo(map);
+        if (pointsOn.has(key)) pointLayers[key].addTo(map);
     }
 
     function pointPopup(key, p) {
         return `<div class="pmm-pop" data-sector="cne-${key}">
-            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${key}"><b>${CNE_TABLE[key].code}</b></span> ${esc(CNE_TABLE[key].label)}</p>
+            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${key}"><b>${CNE_TABLE[key].code}</b></span> ${esc(activityLabel(key, marketOf(p)))}</p>
             <strong>${esc(p.razonSocial)}</strong>
             <p class="pmm-pop-num">${esc(p.numeroPermiso)}</p>
             <dl>${p.tipoPermiso ? `<dt>Tipo</dt><dd>${esc(p.tipoPermiso)}</dd>` : ''}</dl>
@@ -214,18 +249,21 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     }
 
     // ---------- table ----------
-    async function openTable(key, { efId } = {}) {
+    async function openTable(key, { efId, market } = {}) {
         openKey = key;
         detailRow = null;
-        if (efId !== undefined) Object.assign(filters[key], { efId, estatus: 'Vigente', shown: PAGE });
+        if (efId !== undefined || market !== undefined) {
+            filters[key] = { ...filters[key], efId: efId ?? '', market: market ?? '', estatus: 'Vigente', shown: PAGE };
+        }
         overlay.hidden = false;
-        $('[data-cne-body]').innerHTML = `<div class="pmm-cne-top"><strong>${esc(CNE_TABLE[key].label)}</strong><button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button></div><p class="pmm-muted" role="status">Cargando permisos…</p>`;
+        const title = filters[key].market ? activityLabel(key, filters[key].market) : CNE_TABLE[key].label;
+        $('[data-cne-body]').innerHTML = `<div class="pmm-cne-top"><strong>${esc(title)}</strong><button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button></div><p class="pmm-muted" role="status">Cargando permisos…</p>`;
         try {
             await rowsOf(key);
             if (openKey === key) renderTable();
         } catch (error) {
             if (error.name === 'AbortError' || openKey !== key) return;
-            $('[data-cne-body]').innerHTML = `<div class="pmm-cne-top"><strong>${esc(CNE_TABLE[key].label)}</strong><button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button></div>
+            $('[data-cne-body]').innerHTML = `<div class="pmm-cne-top"><strong>${esc(title)}</strong><button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button></div>
                 <p class="pmm-muted">No se pudo cargar la tabla. <button type="button" class="pm-btn" data-cne-open="${key}">Reintentar</button></p>`;
         }
     }
@@ -243,9 +281,11 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         const rows = data[key].rows || [];
         const f = filters[key];
         if (detailRow) { renderDetail(key, detailRow); return; }
-        const inStatus = filterRows(rows, { estatus: f.estatus });
+        const inStatus = filterRows(rows, { estatus: f.estatus, market: f.market });
         const result = filterRows(rows, f);
-        const facets = [...COMMON_FACETS, ...t.facets];
+        // Grouped by market: the market selector replaces the raw «Mercado» facet.
+        const facets = [...COMMON_FACETS.filter(x => x.key !== 'mercado'), ...t.facets];
+        const marketOptions = CNE_MARKETS.map(m => ({ value: m.key, label: m.label, count: filterRows(rows, { estatus: f.estatus, market: m.key }).length })).filter(o => o.count);
         const totals = t.capacity ? capacityTotals(result) : [];
         const noUnit = t.capacity ? result.filter(r => r.capacidad !== null && r.capacidad !== undefined && (r.unidadCapacidad === null || r.unidadCapacidad === undefined || String(r.unidadCapacidad).trim() === '')).length : 0;
         const stateLabel = id => (id === NO_STATE ? 'Sin entidad' : STATE_NAME[id] || id);
@@ -253,7 +293,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         const focused = document.activeElement?.closest?.('[data-cne-body]') ? document.activeElement.dataset.cneFilter || (document.activeElement.matches('[data-cne-q]') ? 'q' : '') : '';
         body.innerHTML = `
             <div class="pmm-cne-top">
-                <strong>${esc(t.label)} <span class="pmm-cne-badge">${t.code}</span></strong>
+                <strong>${esc(f.market ? activityLabel(key, f.market) : t.label)} <span class="pmm-cne-badge">${t.code}</span></strong>
                 <button type="button" class="pm-btn" data-cne-csv>Exportar CSV</button>
                 <button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button>
             </div>
@@ -262,6 +302,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 <label class="pmm-cne-field"><span>Estatus</span><select data-cne-filter="estatus">
                     ${[['Vigente', 'Vigentes'], ['No vigente', 'No vigentes'], ['', 'Todos']].map(([v, l]) => `<option value="${v}"${f.estatus === v ? ' selected' : ''}>${l}</option>`).join('')}
                 </select></label>
+                ${selectHtml('market', 'Mercado', marketOptions, f.market, 'Todos los mercados')}
                 ${selectHtml('efId', 'Estado', stateOptions(inStatus), f.efId, 'Todo México')}
                 ${facets.map(x => selectHtml(x.key, x.label, facetOptions(inStatus, x.key), f.facets[x.key] || '')).join('')}
                 <button type="button" class="pm-btn" data-cne-reset>Limpiar filtros</button>
@@ -269,16 +310,17 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
             <p class="pmm-cne-summary" role="status">${permits(result.length)} de ${count(rows.length)}${f.efId ? ` · ${esc(stateLabel(f.efId))}` : ''}${totals.length ? ` · Capacidad: ${totals.map(x => `${amount(x.total)} ${esc(x.unit)}`).join(' · ')}` : ''}${noUnit ? ` <small>(${count(noUnit)} sin unidad de capacidad no se suman)</small>` : ''}</p>
             <div class="pmm-cne-scroll" tabindex="0" role="region" aria-label="Permisos de ${esc(t.label)}">
                 <table class="pmm-cne-grid">
-                    <thead><tr><th scope="col">Permiso</th><th scope="col">Razón social</th><th scope="col">Tipo de permiso</th><th scope="col">${esc(t.column.label)}</th><th scope="col">Estado</th><th scope="col">Otorgamiento</th><th scope="col">Estatus</th></tr></thead>
+                    <thead><tr><th scope="col">Permiso</th><th scope="col">Razón social</th><th scope="col">Mercado</th><th scope="col">Tipo de permiso</th><th scope="col">${esc(t.column.label)}</th><th scope="col">Estado</th><th scope="col">Otorgamiento</th><th scope="col">Estatus</th></tr></thead>
                     <tbody>${result.slice(0, f.shown).map((r, i) => `<tr>
                         <td><button type="button" class="pmm-cne-link" data-cne-row="${i}">${esc(r.numeroPermiso)}</button></td>
                         <td>${esc(r.razonSocial)}</td>
+                        <td>${esc(r.mercado) || '<span class="pmm-cne-na">Sin especificar</span>'}</td>
                         <td>${esc(r.tipoPermiso)}</td>
                         <td>${esc(r[t.column.key] ?? '') || '<span class="pmm-cne-na">Sin especificar</span>'}</td>
-                        <td>${esc(r.entidad || (r.efId ? STATE_NAME[String(r.efId).trim()] : '')) || '<span class="pmm-cne-na">Sin entidad</span>'}</td>
+                        <td>${esc(r.efId ? STATE_NAME[String(r.efId).trim().padStart(2, '0')] || r.entidad : '') || '<span class="pmm-cne-na">Sin entidad</span>'}</td>
                         <td>${esc(calendarDate(r.fechaOtorgamiento))}</td>
                         <td><span class="pmm-cne-status${r.estatus === 'Vigente' ? ' is-on' : ''}">${esc(r.estatus)}</span></td>
-                    </tr>`).join('') || '<tr><td colspan="7" class="pmm-cne-empty">Ningún permiso coincide con los filtros.</td></tr>'}</tbody>
+                    </tr>`).join('') || '<tr><td colspan="8" class="pmm-cne-empty">Ningún permiso coincide con los filtros.</td></tr>'}</tbody>
                 </table>
             </div>
             ${result.length > f.shown ? `<button type="button" class="pm-btn pmm-cne-more" data-cne-more>Mostrar ${count(Math.min(PAGE, result.length - f.shown))} más (quedan ${count(result.length - f.shown)})</button>` : ''}
@@ -299,7 +341,8 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
             if (d.number) return detailItem(d.label, amount(r[d.key]) ? `${amount(r[d.key])}${d.unit ? ` ${d.unit}` : ''}` : '');
             return detailItem(d.label, r[d.key]);
         }).join('');
-        const address = [r.calle, r.colonia, r.codigoPostal ? `C.P. ${r.codigoPostal}` : '', r.municipio, r.entidad || STATE_NAME[String(r.efId ?? '').trim()]].filter(Boolean).join(', ');
+        const stateName = r.efId ? STATE_NAME[String(r.efId).trim().padStart(2, '0')] || r.entidad : '';
+        const address = [r.calle, r.colonia, r.codigoPostal ? `C.P. ${r.codigoPostal}` : '', r.municipio, stateName].filter(Boolean).join(', ');
         const point = validPoint(r.latitud, r.longitud);
         const link = (href, text) => (safeHref(href) ? `<a class="pm-btn" href="${esc(safeHref(href))}" target="_blank" rel="noopener noreferrer">${text}</a>` : '');
         $('[data-cne-body]').innerHTML = `
@@ -308,7 +351,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 <button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button>
             </div>
             <article class="pmm-cne-detail pmm-pop" data-sector="cne-${key}">
-                <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${key}"><b>${t.code}</b></span> ${esc(t.label)}</p>
+                <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${key}"><b>${t.code}</b></span> ${esc(activityLabel(key, marketOf(r)))}</p>
                 <h3>${esc(r.razonSocial)}</h3>
                 <p class="pmm-pop-num">${esc(r.numeroPermiso)}</p>
                 <dl>
@@ -325,7 +368,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 <div class="pmm-pop-actions">
                     ${link(r.ligaPermiso, 'Ver permiso (PDF)')}${link(r.ligaResolucion, 'Ver resolución (PDF)')}
                     ${t.sheet ? `<a class="pm-btn" href="${permitsHash({ permit: r.numeroPermiso })}">Ficha y normativa</a>` : ''}
-                    ${point && t.map.points ? `<button type="button" class="pm-btn" data-cne-locate="${key}" data-numero="${esc(r.numeroPermiso)}">Ver en el mapa</button>` : ''}
+                    ${point && r.estatus === 'Vigente' ? `<button type="button" class="pm-btn" data-cne-locate="${esc(activityKey(key, marketOf(r)))}" data-numero="${esc(r.numeroPermiso)}">Ver en el mapa</button>` : ''}
                 </div>
             </article>`;
         $('[data-cne-body]').querySelector('[data-cne-back]')?.focus();
@@ -345,8 +388,9 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     }
 
     async function locate(key, numero) {
-        const box = root.querySelector(`[data-cne-points="${key}"]`);
-        if (box && !box.checked) { box.checked = true; await showPoints(key, true); }
+        const box = root.querySelector(`[data-cne-points="${CSS.escape(key)}"]`);
+        if (box) box.checked = true;
+        await showPoints(key, true);
         const marker = pointIndex[key]?.get(String(numero));
         if (!marker) { status('Este permiso no tiene coordenadas vigentes en el mapa.', 4000); return; }
         overlay.hidden = true;
@@ -360,11 +404,11 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         const result = $('[data-cne-body]')._result || [];
         const own = t.details.map(d => d.key).filter((k, i, all) => all.indexOf(k) === i);
         const head = ['NumeroPermiso', 'RazonSocial', 'RFC', 'Mercado', 'TipoPermiso', 'Estatus', 'EstatusCNE', 'Estado', 'Municipio', 'FechaOtorgamiento', 'TerminoVigencia', ...own, ...(t.capacity ? ['UnidadCapacidad'] : []), 'LigaPermiso', 'LigaResolucion'];
-        const rows = result.map(r => [r.numeroPermiso, r.razonSocial, r.rfc, r.mercado, r.tipoPermiso, r.estatus, r.estatusCne, r.entidad || STATE_NAME[String(r.efId ?? '').trim()] || '', r.municipio, r.fechaOtorgamiento, r.terminoVigencia, ...own.map(k => r[k]), ...(t.capacity ? [r.unidadCapacidad] : []), r.ligaPermiso, r.ligaResolucion]);
+        const rows = result.map(r => [r.numeroPermiso, r.razonSocial, r.rfc, r.mercado, r.tipoPermiso, r.estatus, r.estatusCne, r.efId ? STATE_NAME[String(r.efId).trim().padStart(2, '0')] || r.entidad : '', r.municipio, r.fechaOtorgamiento, r.terminoVigencia, ...own.map(k => r[k]), ...(t.capacity ? [r.unidadCapacidad] : []), r.ligaPermiso, r.ligaResolucion]);
         const q = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
         const a = document.createElement('a');
         a.href = URL.createObjectURL(new Blob([`﻿${[head, ...rows].map(r => r.map(q).join(',')).join('\n')}`], { type: 'text/csv;charset=utf-8' }));
-        a.download = `permisos_cne_${key}.csv`;
+        a.download = `permisos_cne_${key}${filters[key].market ? `_${filters[key].market}` : ''}.csv`;
         a.click();
         setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     }
@@ -377,7 +421,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         else if (t.matches('[data-cne-filter]') && openKey) {
             const f = filters[openKey];
             const name = t.dataset.cneFilter;
-            if (name === 'estatus' || name === 'efId') f[name] = t.value;
+            if (name === 'estatus' || name === 'efId' || name === 'market') f[name] = t.value;
             else f.facets = { ...f.facets, [name]: t.value };
             f.shown = PAGE;
             renderTable();
@@ -394,14 +438,30 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     const onClick = e => {
         const t = e.target;
         const open = t.closest('[data-cne-open]');
-        if (open) { e.preventDefault(); openTable(open.dataset.cneOpen, open.dataset.cneEf ? { efId: open.dataset.cneEf } : {}); return; }
+        if (open) {
+            e.preventDefault();
+            const options = {};
+            if (open.dataset.cneMarket !== undefined) options.market = open.dataset.cneMarket;
+            if (open.dataset.cneEf) options.efId = open.dataset.cneEf;
+            openTable(open.dataset.cneOpen, options);
+            return;
+        }
+        if (t.closest('[data-cne-reload]')) {
+            loading.textContent = 'Cargando otras actividades de la CNE…';
+            Promise.allSettled(CNE_TABLES.map(x => rowsOf(x.key).then(renderActivities))).then(results => {
+                const failed = results.filter(r => r.status === 'rejected').length;
+                loading.hidden = !failed;
+                if (failed) loading.innerHTML = `No se pudieron cargar las otras actividades de la CNE. <button type="button" data-cne-reload>Reintentar</button>`;
+            });
+            return;
+        }
         const detail = t.closest('[data-cne-detail]');
         if (detail) { e.preventDefault(); e.stopPropagation(); openDetail(detail.dataset.cneDetail, detail.dataset.numero); return; }
         const row = t.closest('[data-cne-row]');
         if (row) { detailRow = $('[data-cne-body]')._result[Number(row.dataset.cneRow)]; renderTable(); return; }
         if (t.closest('[data-cne-back]')) { detailRow = null; renderTable(); return; }
         if (t.closest('[data-cne-more]')) { filters[openKey].shown += PAGE; renderTable(); return; }
-        if (t.closest('[data-cne-reset]')) { filters[openKey] = { estatus: 'Vigente', efId: '', q: '', facets: {}, shown: PAGE }; renderTable(); return; }
+        if (t.closest('[data-cne-reset]')) { filters[openKey] = blankFilters(); renderTable(); return; }
         if (t.closest('[data-cne-csv]')) { downloadCsv(); return; }
         const where = t.closest('[data-cne-locate]');
         if (where) { locate(where.dataset.cneLocate, where.dataset.numero); return; }
@@ -417,6 +477,8 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
 
     return {
         openTable,
+        /** The market blocks of the panel are rebuilt by the map view; draw the activities again. */
+        refresh: renderActivities,
         destroy() {
             clearTimeout(typing);
             root.removeEventListener('change', onChange);
