@@ -1129,6 +1129,7 @@ export function initUI() {
         const noun = fragmentNoun(law);
         currentLawNoun = noun;
         const caseFile = judgment ? judgmentCase(law) : null;
+        const resolutivosCount = judgment ? currentLawArticles.filter(a => indexLabel(a).kind === 'resolutivo').length : 0;
         const { effects: effectsSection, resolutions: resolutionsSection } = judgment ? judgmentEffectsSections(currentLawArticles) : {};
         const eyebrowText = judgment ? instrumentTypeLabel(law) : `${lawGroupLabel}${law.siglas ? ` · ${law.siglas}` : ''}`;
         const sectionLink = (article, text) => article ? `<button type="button" class="lr-effects-link" data-open-article="${escapeHtml(article.id)}">${escapeHtml(text)}</button>` : '';
@@ -1164,6 +1165,7 @@ export function initUI() {
                             ${judgment ? '<li><span>Surte efectos</span><strong>Según la sentencia</strong></li>' : ''}
                             ${law.fecha_ultima_reforma ? `<li><span>Última reforma</span><strong>${escapeHtml(formatLawDate(law.fecha_ultima_reforma))}</strong></li>` : ''}
                             <li><span>${judgment ? noun.Many : 'Disposiciones'}</span><strong>${currentLawArticles.length}</strong></li>
+                            ${resolutivosCount ? `<li><span>Resolutivos</span><strong>${resolutivosCount}</strong></li>` : ''}
                             ${chaptersCount && !judgment ? `<li><span>Capítulos</span><strong>${chaptersCount}</strong></li>` : ''}
                             ${transitorios && !judgment ? `<li><span>Transitorios</span><strong>${transitorios}</strong></li>` : ''}
                         </ul>
