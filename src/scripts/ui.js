@@ -2055,11 +2055,13 @@ export function initUI() {
     }
 
     // Search History Helpers
-    function saveToHistory(query) {
-        const history = getHistory().filter(q => q !== query);
-        history.unshift(query);
-        searchHistory = history.slice(0, 10);
+    function setHistory(list) {
+        searchHistory = list.slice(0, 10);
         try { localStorage.setItem(HISTORY_KEY, JSON.stringify(searchHistory)); } catch { /* private mode */ }
+    }
+
+    function saveToHistory(query) {
+        setHistory([query, ...getHistory().filter(q => q !== query)]);
     }
 
     function getHistory() {
@@ -2246,7 +2248,7 @@ export function initUI() {
             // Bind: clear all history
             document.getElementById('clear-all-history')?.addEventListener('click', (e) => {
                 e.stopPropagation();
-                searchHistory = [];
+                setHistory([]);
                 closeAutocomplete();
             });
 
@@ -2256,8 +2258,7 @@ export function initUI() {
                     if (e.target.classList.contains('remove-history-item')) {
                         e.stopPropagation();
                         const q = e.target.dataset.query;
-                        const updated = getHistory().filter(h => h !== q);
-                        searchHistory = updated;
+                        setHistory(getHistory().filter(h => h !== q));
                         item.remove();
                         if (autocompleteContainer.querySelectorAll('.history-item').length === 0) closeAutocomplete();
                         return;
