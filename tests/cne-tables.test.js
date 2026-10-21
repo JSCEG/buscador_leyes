@@ -4,7 +4,7 @@ import {
     filterRows, capacityTotals, validPoint, mexicoCityTime, calendarDate, choroplethClass,
     marketOf, activityKey, parseActivity, activitiesByMarket, stateCounts,
 } from '../src/lib/cne-tables.js';
-import { cnePanelHtml, marketActivitiesHtml } from '../src/scripts/cne-tables-layer.js';
+import { cnePanelHtml, marketActivitiesHtml, stateAt } from '../src/scripts/cne-tables-layer.js';
 
 const rows = [
     { numeroPermiso: 'CNE/PL/0922/TRA/OM/2026', numeroPermisoNorm: 'PL/922/TRA/OM/2026', razonSocial: 'Transportes del Golfo, S.A. de C.V.', rfc: 'TGO010101AAA', estatus: 'Vigente', efId: '30', entidad: 'Veracruz', tipoPermiso: 'Transporte', mercado: 'Petrolíferos', medioTransporte: 'Autotanque/semirremolque', capacidad: 30000, unidadCapacidad: 'litros' },
@@ -122,5 +122,16 @@ describe('CNE activities by market', () => {
         expect(box.querySelectorAll('.pmm-cne-nomap')).toHaveLength(1);
         expect(marketActivitiesHtml('gas-lp', [])).toBe('');
         expect(cnePanelHtml()).toContain('data-cne-market="otros"');
+    });
+    it('finds the state under a map click, holes included', () => {
+        const square = (x0, y0, x1, y1) => [[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]];
+        const geo = { type: 'FeatureCollection', features: [
+            { type: 'Feature', properties: { cve_ent: '30' }, geometry: { type: 'Polygon', coordinates: [square(-98, 17, -94, 22), square(-96.5, 19, -95.5, 20)] } },
+            { type: 'Feature', properties: { cve_ent: '09' }, geometry: { type: 'MultiPolygon', coordinates: [[square(-99.4, 19.1, -98.9, 19.6)]] } },
+        ] };
+        expect(stateAt(geo, 18, -97)).toBe('30');
+        expect(stateAt(geo, 19.5, -96)).toBe('');
+        expect(stateAt(geo, 19.4, -99.1)).toBe('09');
+        expect(stateAt(geo, 30, -110)).toBe('');
     });
 });

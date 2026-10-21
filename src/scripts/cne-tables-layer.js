@@ -25,13 +25,42 @@ const count = n => Number(n || 0).toLocaleString('es-MX');
 const amount = v => (v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? '' : Number(v).toLocaleString('es-MX', { maximumFractionDigits: 2 }));
 const permits = n => `${count(n)} ${n === 1 ? 'permiso' : 'permisos'}`;
 const activityLabel = (table, market) => `${CNE_TABLE[table].label} · ${CNE_MARKET[market]?.label || market}`;
+/** «Transporte de petrolíferos»: how the map names an activity in plain words. */
+const activityPhrase = (table, market) => (market === 'otros'
+    ? `${CNE_TABLE[table].label} de otros hidrocarburos`
+    : `${CNE_TABLE[table].label} de ${(CNE_MARKET[market]?.label || market).toLowerCase()}`);
+
+/** Ray casting over a GeoJSON ring of [lon, lat]. */
+function inRing(ring, x, y) {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const [xi, yi] = ring[i];
+        const [xj, yj] = ring[j];
+        if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+}
+const inPolygon = (polygon, x, y) => inRing(polygon[0], x, y) && !polygon.slice(1).some(hole => inRing(hole, x, y));
+
+/**
+ * EF_ID of the state polygon that contains a point, or ''. The map resolves clicks this way because
+ * the market layers draw on a canvas above the coloured states and would take the click.
+ */
+export function stateAt(geo, lat, lon) {
+    for (const feature of geo?.features || []) {
+        const g = feature.geometry;
+        if (!g) continue;
+        const polygons = g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : [];
+        if (polygons.some(polygon => inPolygon(polygon, lon, lat))) return featureStateId(feature);
+    }
+    return '';
+}
 
 /** Part of the panel that is not inside a market: the «otros» block, the update date and the legend. */
 export function cnePanelHtml() {
     return `<div class="pmm-cne-market" data-cne-market="otros"></div>
         <p class="pmm-cne-loading" data-cne-loading>Cargando otras actividades de la CNE…</p>
-        <p class="pmm-cne-updated" data-cne-updated></p>
-        <div class="pmm-cne-legend" data-cne-legend hidden></div>`;
+        <p class="pmm-cne-updated" data-cne-updated></p>`;
 }
 
 /**
@@ -56,9 +85,9 @@ export function marketActivitiesHtml(market, entries, on = {}) {
                     <span class="pmm-cne-name">${esc(t.label)}<small>${count(e.vigentes)} ${e.vigentes === 1 ? 'vigente' : 'vigentes'} · ${count(e.total)} en total</small></span>
                     <button type="button" class="pm-btn pmm-cne-open" data-cne-open="${t.key}" data-cne-market="${esc(market)}" aria-label="Ver la tabla de ${esc(activityLabel(t.key, market))}">Tabla</button>
                 </div>
-                ${states ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-states="${esc(key)}"${on.states === key ? ' checked' : ''}><span>Mapa por estado<small>${count(e.withState)} vigentes con estado${e.withState < e.vigentes ? ` de ${count(e.vigentes)}` : ''}</small></span></label>` : ''}
-                ${points ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-points="${esc(key)}"${on.points?.has(key) ? ' checked' : ''}><span>Instalaciones con coordenadas<small>${count(e.withPoint)} vigentes</small></span></label>` : ''}
-                ${!states && !points ? '<p class="pmm-cne-nomap">Sin ubicación registrada todavía: solo en la tabla.</p>' : ''}
+                ${states ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-states="${esc(key)}"${on.states === key ? ' checked' : ''}><span>Ver por estado<small>Colorea cada estado según cuántos permisos tiene${e.withState < e.vigentes ? ` (${count(e.withState)} de ${count(e.vigentes)} indican su estado)` : ''}</small></span></label>` : ''}
+                ${points ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-points="${esc(key)}"${on.points?.has(key) ? ' checked' : ''}><span>Ver ubicación exacta<small>${count(e.withPoint)} ${e.withPoint === 1 ? 'permiso tiene' : 'permisos tienen'} punto en el mapa</small></span></label>` : ''}
+                ${!states && !points ? '<p class="pmm-cne-nomap">Estos permisos no indican su ubicación; consúltalos en la tabla.</p>' : ''}
             </div>`;
         }).join('')}`;
 }
@@ -89,6 +118,13 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     overlay.setAttribute('aria-label', 'Tabla de permisos CNE');
     overlay.innerHTML = '<div class="pmm-cne-table-inner" data-cne-body></div>';
     $('.pmm-body').append(overlay);
+    // What the coloured states mean, on the map itself (not at the end of the panel).
+    const legendBox = document.createElement('div');
+    legendBox.className = 'pmm-cne-legend';
+    legendBox.dataset.cneLegend = '';
+    legendBox.hidden = true;
+    legendBox.setAttribute('role', 'note');
+    $('.pmm-body').append(legendBox);
 
     // ---------- data ----------
     async function rowsOf(key) {
@@ -177,7 +213,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
             else byState.set(id.padStart(2, '0'), { count: Number(r.permisos) || 0, name: r.entidad });
         }
         const max = Math.max(0, ...[...byState.values()].map(s => s.count));
-        const label = activityLabel(table, market).toLowerCase();
+        const phrase = activityPhrase(table, market);
         choropleth = L.geoJSON(statesGeo, {
             pane: 'pmm-cne-states',
             style: feature => {
@@ -188,24 +224,65 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 const id = featureStateId(feature);
                 const entry = byState.get(id);
                 const name = STATE_NAME[id] || entry?.name || 'Estado';
-                layer.bindTooltip(`<strong>${esc(name)}</strong><br>${permits(entry?.count || 0)} vigentes de ${esc(label)}`, { sticky: true, className: 'pmm-cne-tip' });
-                layer.on('click', () => { if (id) openTable(table, { efId: id, market }); });
+                layer.bindTooltip(`<strong>${esc(name)}</strong><br>${entry?.count ? permits(entry.count) : 'Sin permisos'}`, { sticky: true, className: 'pmm-cne-tip' });
             },
         }).addTo(map);
         choroplethKey = key;
-        const legend = $('[data-cne-legend]');
-        legend.hidden = false;
-        legend.innerHTML = `<p class="pmm-cne-legend-title">${esc(activityLabel(table, market))} · vigentes por estado</p>
-            ${byState.size ? `<p class="pmm-cne-scale"><span>Menos</span>${PALETTE.map(c => `<i style="background:${c}"></i>`).join('')}<span>Más (máx. ${count(max)})</span></p>` : '<p class="pmm-cne-legend-note">Ningún permiso vigente tiene estado registrado todavía; el mapa se llenará conforme se capture.</p>'}
-            ${noState ? `<p class="pmm-cne-legend-note">Sin entidad: ${permits(noState)} vigentes (no se pintan). <button type="button" data-cne-open="${table}" data-cne-market="${esc(market)}" data-cne-ef="${NO_STATE}">Ver lista</button></p>` : ''}
-            ${byState.size ? '<p class="pmm-cne-legend-note">Haz clic en un estado para ver sus permisos.</p>' : ''}`;
+        legendBox.hidden = false;
+        legendBox.innerHTML = `<div class="pmm-cne-legend-head"><p class="pmm-cne-legend-title">${esc(phrase)}</p><button type="button" class="pmm-cne-legend-off" data-cne-states-off aria-label="Quitar ${esc(phrase)} del mapa">Quitar</button></div>
+            <p class="pmm-cne-legend-note">Permisos vigentes por estado. Entre más oscuro, más permisos.</p>
+            ${byState.size ? `<p class="pmm-cne-scale"><span>Pocos</span>${PALETTE.map(c => `<i style="background:${c}"></i>`).join('')}<span>Muchos (hasta ${count(max)})</span></p>
+            <p class="pmm-cne-legend-note">Toca un estado para ver cuántos hay, en qué municipios y la lista.</p>` : '<p class="pmm-cne-legend-note">Ningún permiso vigente indica su estado todavía.</p>'}
+            ${noState ? `<p class="pmm-cne-legend-note">${permits(noState)} no indican su estado y no se pintan. <button type="button" data-cne-open="${table}" data-cne-market="${esc(market)}" data-cne-ef="${NO_STATE}">Ver cuáles</button></p>` : ''}`;
     }
+
+    /** Popup of a state: how many vigentes, the municipalities with most of them, and the list. */
+    function statePopup(key, efId, name) {
+        const { table, market } = parseActivity(key);
+        const inState = activityRows(key).filter(r => r.estatus === 'Vigente' && String(r.efId ?? '').trim().padStart(2, '0') === efId);
+        const byTown = new Map();
+        let noTown = 0;
+        for (const r of inState) {
+            const town = String(r.municipio ?? '').trim();
+            if (!town) { noTown += 1; continue; }
+            byTown.set(town, (byTown.get(town) || 0) + 1);
+        }
+        const towns = [...byTown.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'es'));
+        const top = towns.slice(0, 5);
+        return `<div class="pmm-pop pmm-cne-statepop" data-sector="cne-${table}">
+            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${table}"><b>${CNE_TABLE[table].code}</b></span> ${esc(activityPhrase(table, market))}</p>
+            <strong>${esc(name)}</strong>
+            <p class="pmm-pop-num">${permits(inState.length)} vigentes</p>
+            ${top.length ? `<p class="pmm-cne-towns-h">Municipios con más permisos</p><ul class="pmm-cne-towns">${top.map(([town, n]) => `<li><span>${esc(town)}</span><b>${count(n)}</b></li>`).join('')}</ul>
+                ${towns.length > top.length ? `<p class="pmm-cne-legend-note">Y ${count(towns.length - top.length)} municipios más.</p>` : ''}` : ''}
+            ${noTown ? `<p class="pmm-cne-legend-note">${permits(noTown)} sin municipio indicado.</p>` : ''}
+            <div class="pmm-pop-actions"><button type="button" class="pm-btn pm-btn-primary" data-cne-open="${table}" data-cne-market="${esc(market)}" data-cne-ef="${efId}">Ver los ${permits(inState.length)}</button></div>
+        </div>`;
+    }
+
+    // A click on the map opens the popup of the state under it, unless the same click opened another
+    // popup (a permit point of the markets, which sits above the coloured states).
+    let lastPopupAt = 0;
+    const onPopupOpen = () => { lastPopupAt = Date.now(); };
+    const onMapClick = event => {
+        if (!choroplethKey || !statesGeo) return;
+        const key = choroplethKey;
+        setTimeout(() => {
+            if (Date.now() - lastPopupAt < 80 || choroplethKey !== key) return;
+            const id = stateAt(statesGeo, event.latlng.lat, event.latlng.lng);
+            if (!id) return;
+            // Leave room for the search bar and chips that float over the top of the map on phones.
+            map.openPopup(statePopup(key, id, STATE_NAME[id] || 'Estado'), event.latlng, { className: 'pmm-popup', maxWidth: 300, autoPanPaddingTopLeft: L.point(12, 120), autoPanPaddingBottomRight: L.point(12, 24) });
+        }, 0);
+    };
+    map.on('popupopen', onPopupOpen);
+    map.on('click', onMapClick);
 
     function clearChoropleth() {
         if (choropleth) map.removeLayer(choropleth);
         choropleth = null;
         choroplethKey = null;
-        $('[data-cne-legend]').hidden = true;
+        legendBox.hidden = true;
     }
 
     // ---------- points (vigentes with coordinates) ----------
@@ -443,7 +520,14 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
             const options = {};
             if (open.dataset.cneMarket !== undefined) options.market = open.dataset.cneMarket;
             if (open.dataset.cneEf) options.efId = open.dataset.cneEf;
+            map.closePopup();
             openTable(open.dataset.cneOpen, options);
+            return;
+        }
+        if (t.closest('[data-cne-states-off]')) {
+            const box = choroplethKey && root.querySelector(`[data-cne-states="${CSS.escape(choroplethKey)}"]`);
+            if (box) box.checked = false;
+            clearChoropleth();
             return;
         }
         if (t.closest('[data-cne-reload]')) {
@@ -481,6 +565,8 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         refresh: renderActivities,
         destroy() {
             clearTimeout(typing);
+            map.off('popupopen', onPopupOpen);
+            map.off('click', onMapClick);
             root.removeEventListener('change', onChange);
             root.removeEventListener('input', onInput);
             root.removeEventListener('click', onClick, true);
