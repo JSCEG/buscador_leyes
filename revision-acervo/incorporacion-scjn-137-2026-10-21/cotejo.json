@@ -1,0 +1,220 @@
+{
+  "fecha": "2026-10-21",
+  "fuente": "https://dof.gob.mx/nota_detalle.php?codigo=5801710&fecha=21/10/2026",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=21102026-MAT.pdf&repo=",
+  "sha256": "ce69dc52a2f08c1472d0b425a28217ae37fd90922edd02249a145185a064b7ce",
+  "paginas_sentencia": [
+    52,
+    79
+  ],
+  "apartados": [
+    {
+      "apartado": "Ficha y problemas jurídicos",
+      "paginas": [
+        52
+      ],
+      "anclas": 23
+    },
+    {
+      "apartado": "Índice temático",
+      "paginas": [
+        52,
+        53,
+        54
+      ],
+      "anclas": 164
+    },
+    {
+      "apartado": "Identificación y presentación de la sentencia",
+      "paginas": [
+        55
+      ],
+      "anclas": 14
+    },
+    {
+      "apartado": "ANTECEDENTES Y TRÁMITE DE LA DEMANDA",
+      "paginas": [
+        55,
+        56,
+        57
+      ],
+      "anclas": 95
+    },
+    {
+      "apartado": "I. COMPETENCIA",
+      "paginas": [
+        57
+      ],
+      "anclas": 11
+    },
+    {
+      "apartado": "II. PRECISIÓN Y EXISTENCIA DEL ACTO IMPUGNADO",
+      "paginas": [
+        57,
+        58
+      ],
+      "anclas": 11
+    },
+    {
+      "apartado": "III. OPORTUNIDAD",
+      "paginas": [
+        58,
+        59
+      ],
+      "anclas": 103
+    },
+    {
+      "apartado": "IV. LEGITIMACIÓN",
+      "paginas": [
+        59,
+        60,
+        61
+      ],
+      "anclas": 59
+    },
+    {
+      "apartado": "V. CAUSAS DE IMPROCEDENCIA Y SOBRESEIMIENTO",
+      "paginas": [
+        61
+      ],
+      "anclas": 14
+    },
+    {
+      "apartado": "VI. ESTUDIO DE FONDO",
+      "paginas": [
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "anclas": 215
+    },
+    {
+      "apartado": "VI.1 Parámetro constitucional aplicable en materia de hidrocarburos",
+      "paginas": [
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "anclas": 141
+    },
+    {
+      "apartado": "VI.2 Parámetro constitucional aplicable en materia de energía eléctrica",
+      "paginas": [
+        69,
+        70,
+        71
+      ],
+      "anclas": 79
+    },
+    {
+      "apartado": "VI.3 Alcance de las facultades municipales en materia hacendaria, administrativa y de licencias de funcionamiento",
+      "paginas": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "anclas": 183
+    },
+    {
+      "apartado": "VI.4 Análisis del caso concreto",
+      "paginas": [
+        75,
+        76,
+        77,
+        78
+      ],
+      "anclas": 182
+    },
+    {
+      "apartado": "VII. EFECTOS",
+      "paginas": [
+        78,
+        79
+      ],
+      "anclas": 20
+    },
+    {
+      "apartado": "VIII. DECISIÓN",
+      "paginas": [
+        79
+      ],
+      "anclas": 2
+    },
+    {
+      "apartado": "Resolutivo PRIMERO",
+      "paginas": [
+        79
+      ],
+      "anclas": 1
+    },
+    {
+      "apartado": "Resolutivo SEGUNDO",
+      "paginas": [
+        79
+      ],
+      "anclas": 6
+    },
+    {
+      "apartado": "Resolutivo TERCERO",
+      "paginas": [
+        79
+      ],
+      "anclas": 3
+    },
+    {
+      "apartado": "Notificaciones, votación y firmas",
+      "paginas": [
+        79
+      ],
+      "anclas": 16
+    },
+    {
+      "apartado": "Certificación",
+      "paginas": [
+        79
+      ],
+      "anclas": 7
+    },
+    {
+      "apartado": "Notas al pie de la sentencia",
+      "paginas": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        63,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74,
+        76,
+        77,
+        78,
+        79
+      ],
+      "anclas": 470
+    }
+  ],
+  "notas": "Se conserva el índice temático, las tablas y las 67 notas al pie del DOF. La eficacia de la invalidez depende de la notificación al Congreso local; no se asigna una fecha de inicio inventada.",
+  "cotejo_integridad_html": "110538 caracteres sin espacios: texto oficial completo idéntico y en orden; excluidos título web duplicado y aviso técnico del portal.",
+  "tablas_cotejadas": 5,
+  "celdas_cotejadas": 140,
+  "cotejo_visual": [
+    52,
+    64,
+    79
+  ]
+}
