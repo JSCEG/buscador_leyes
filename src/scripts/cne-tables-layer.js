@@ -1,0 +1,429 @@
+/**
+ * «Otros permisos CNE» in the permits map: five CNE tables served by DGMESNIE through
+ * server/mapa-proxy.js (cne-lista, cne-estados, cne-puntos, cne-actualizacion). Each table has a
+ * filtered list with a detail sheet; transport and marketing add a choropleth by state, transport and
+ * hydrocarbon infrastructure add points where there are coordinates. Layers read whatever states and
+ * coordinates the tables hold, so rows filled later appear without code changes.
+ */
+import {
+    CNE_TABLES, CNE_TABLE, COMMON_FACETS, NULL_VALUE, NO_STATE, STATE_NAME, featureStateId, facetOptions, stateOptions,
+    filterRows, capacityTotals, validPoint, mexicoCityTime, calendarDate, choroplethClass,
+} from '../lib/cne-tables.js';
+import { permitsHash } from '../lib/cne-api.js';
+
+const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
+// The map draws on canvas, which does not read CSS variables: point colours are literal (see permits-map.css).
+const POINT_COLORS = { transporte: ['#7a1a38', '#e58aa6'], infraestructura: ['#0e7c86', '#5fc4cc'] };
+const pointColor = key => (POINT_COLORS[key] || ['#5b5249', '#c9bfb5'])[document.documentElement.classList.contains('dark-mode') ? 1 : 0];
+const PAGE = 100;
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const safeHref = v => (/^https?:\/\/[^\s"'<>]+$/i.test(String(v ?? '').trim()) ? String(v).trim() : '');
+const count = n => Number(n || 0).toLocaleString('es-MX');
+const amount = v => (v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? '' : Number(v).toLocaleString('es-MX', { maximumFractionDigits: 2 }));
+const permits = n => `${count(n)} ${n === 1 ? 'permiso' : 'permisos'}`;
+
+/** Panel section placed under the four markets. */
+export function cnePanelHtml() {
+    return `<p class="pmm-h">Otros permisos CNE</p>
+        ${CNE_TABLES.map(t => `<div class="pmm-cne" data-sector="cne-${t.key}">
+            <div class="pmm-cne-head">
+                <span class="pmm-pin" data-sector="cne-${t.key}"><b>${t.code}</b></span>
+                <span class="pmm-cne-name">${esc(t.label)}<small data-cne-count="${t.key}"></small></span>
+                <button type="button" class="pm-btn pmm-cne-open" data-cne-open="${t.key}" aria-label="Ver la tabla de ${esc(t.label)}">Tabla</button>
+            </div>
+            ${t.map.states ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-states="${t.key}"><span>Mapa por estado<small data-cne-states-note="${t.key}">Permisos vigentes por entidad</small></span></label>` : ''}
+            ${t.map.points ? `<label class="pmm-layer pmm-cne-sub"><input type="checkbox" data-cne-points="${t.key}"><span>Instalaciones con coordenadas<small data-cne-points-note="${t.key}">Solo vigentes</small></span></label>` : ''}
+            ${!t.map.states && !t.map.points ? '<p class="pmm-cne-nomap">Sin capa en el mapa: cobertura o ámbito nacional.</p>' : ''}
+            <p class="pmm-cne-updated" data-cne-updated="${t.key}"></p>
+        </div>`).join('')}
+        <div class="pmm-cne-legend" data-cne-legend hidden></div>`;
+}
+
+/**
+ * @param {{ L: any, map: any, root: HTMLElement, getJson: (path: string, signal?: AbortSignal) => Promise<any>, signal: AbortSignal, status: (msg: string, ms?: number) => void }} deps
+ */
+export function mountCneTables({ L, map, root, getJson, signal, status }) {
+    const $ = sel => root.querySelector(sel);
+    const data = Object.fromEntries(CNE_TABLES.map(t => [t.key, { rows: null, loading: null, updated: null }]));
+    const filters = Object.fromEntries(CNE_TABLES.map(t => [t.key, { estatus: 'Vigente', efId: '', q: '', facets: {}, shown: PAGE }]));
+    let openKey = null;
+    let detailRow = null;
+    let statesGeo = null;
+    let choropleth = null;
+    let choroplethKey = null;
+    const pointLayers = {};
+    const pointIndex = {};
+
+    map.createPane('pmm-cne-states').style.zIndex = 380;
+    map.createPane('pmm-cne-points').style.zIndex = 620;
+
+    const overlay = document.createElement('section');
+    overlay.className = 'pmm-cne-table';
+    overlay.hidden = true;
+    overlay.setAttribute('aria-label', 'Tabla de permisos CNE');
+    overlay.innerHTML = '<div class="pmm-cne-table-inner" data-cne-body></div>';
+    $('.pmm-body').append(overlay);
+
+    // ---------- data ----------
+    async function rowsOf(key) {
+        const entry = data[key];
+        if (entry.rows) return entry.rows;
+        entry.loading ||= getJson(`cne-lista?tabla=${key}`, signal).then(body => {
+            entry.rows = Array.isArray(body?.filas) ? body.filas : [];
+            renderCount(key);
+            return entry.rows;
+        }).finally(() => { entry.loading = null; });
+        return entry.loading;
+    }
+
+    function renderCount(key) {
+        const rows = data[key].rows;
+        const node = root.querySelector(`[data-cne-count="${key}"]`);
+        if (!node || !rows) return;
+        const vigentes = rows.filter(r => r.estatus === 'Vigente').length;
+        node.textContent = `${count(vigentes)} ${vigentes === 1 ? 'vigente' : 'vigentes'} · ${count(rows.length)} en total`;
+    }
+
+    function updatedText(a) {
+        if (!a?.disponible) return 'Fecha de actualización no disponible';
+        const when = mexicoCityTime(a.fechaActualizacion);
+        const cut = calendarDate(a.fechaCorteFuente);
+        return [when ? `Actualizado el ${when} (hora de Ciudad de México)` : '', cut ? `corte de la fuente: ${cut}` : '', a.filas ? `${count(a.filas)} filas` : '']
+            .filter(Boolean).join(' · ') || 'Fecha de actualización no disponible';
+    }
+
+    CNE_TABLES.forEach(t => {
+        getJson(`cne-actualizacion?tabla=${t.key}`, signal).then(a => {
+            data[t.key].updated = a;
+            const node = root.querySelector(`[data-cne-updated="${t.key}"]`);
+            if (node) node.textContent = updatedText(a);
+            if (openKey === t.key) renderTable();
+        }).catch(error => {
+            if (error.name === 'AbortError') return;
+            const node = root.querySelector(`[data-cne-updated="${t.key}"]`);
+            if (node) node.textContent = 'Fecha de actualización no disponible';
+        });
+    });
+
+    // ---------- choropleth by state (one table at a time, vigentes) ----------
+    async function showStates(key, on) {
+        const box = root.querySelector(`[data-cne-states="${key}"]`);
+        if (!on) {
+            if (choroplethKey === key) clearChoropleth();
+            return;
+        }
+        root.querySelectorAll('[data-cne-states]').forEach(input => { if (input.dataset.cneStates !== key) input.checked = false; });
+        clearChoropleth();
+        status(`Cargando ${CNE_TABLE[key].label.toLowerCase()} por estado…`);
+        try {
+            const [geo, counts] = await Promise.all([statesGeo || getJson('estados', signal), getJson(`cne-estados?tabla=${key}`, signal)]);
+            statesGeo = geo;
+            if (!box?.checked) return;
+            status('');
+            paintChoropleth(key, Array.isArray(counts?.estados) ? counts.estados : []);
+        } catch (error) {
+            if (error.name === 'AbortError') return;
+            status(`No se pudo cargar ${CNE_TABLE[key].label.toLowerCase()} por estado.`, 5000);
+            if (box) box.checked = false;
+        }
+    }
+
+    function paintChoropleth(key, rows) {
+        const byState = new Map();
+        let noState = 0;
+        for (const r of rows) {
+            const id = String(r.efId ?? '').trim();
+            if (!id || id === NO_STATE) noState += Number(r.permisos) || 0;
+            else byState.set(id.padStart(2, '0'), { count: Number(r.permisos) || 0, name: r.entidad });
+        }
+        const max = Math.max(0, ...[...byState.values()].map(s => s.count));
+        const label = CNE_TABLE[key].label.toLowerCase();
+        choropleth = L.geoJSON(statesGeo, {
+            pane: 'pmm-cne-states',
+            style: feature => {
+                const level = choroplethClass(byState.get(featureStateId(feature))?.count, max);
+                return { color: '#ffffff', weight: 0.8, fillColor: level ? PALETTE[level - 1] : '#d9d4cf', fillOpacity: level ? 0.78 : 0.25 };
+            },
+            onEachFeature: (feature, layer) => {
+                const id = featureStateId(feature);
+                const entry = byState.get(id);
+                const name = STATE_NAME[id] || entry?.name || 'Estado';
+                layer.bindTooltip(`<strong>${esc(name)}</strong><br>${permits(entry?.count || 0)} vigentes de ${esc(label)}`, { sticky: true, className: 'pmm-cne-tip' });
+                layer.on('click', () => { if (id) openTable(key, { efId: id }); });
+            },
+        }).addTo(map);
+        choroplethKey = key;
+        const note = root.querySelector(`[data-cne-states-note="${key}"]`);
+        if (note) note.textContent = byState.size ? `${byState.size} estados con permisos vigentes` : 'Aún sin estado registrado';
+        const legend = $('[data-cne-legend]');
+        legend.hidden = false;
+        legend.innerHTML = `<p class="pmm-cne-legend-title">${esc(CNE_TABLE[key].label)} · vigentes por estado</p>
+            ${byState.size ? `<p class="pmm-cne-scale"><span>Menos</span>${PALETTE.map(c => `<i style="background:${c}"></i>`).join('')}<span>Más (máx. ${count(max)})</span></p>` : '<p class="pmm-cne-legend-note">Ningún permiso vigente tiene estado registrado todavía; el mapa se llenará conforme se capture.</p>'}
+            ${noState ? `<p class="pmm-cne-legend-note">Sin entidad: ${permits(noState)} vigentes (no se pintan). <button type="button" data-cne-open="${key}" data-cne-ef="${NO_STATE}">Ver lista</button></p>` : ''}
+            ${byState.size ? '<p class="pmm-cne-legend-note">Haz clic en un estado para ver sus permisos.</p>' : ''}`;
+    }
+
+    function clearChoropleth() {
+        if (choropleth) map.removeLayer(choropleth);
+        choropleth = null;
+        choroplethKey = null;
+        $('[data-cne-legend]').hidden = true;
+    }
+
+    // ---------- points (installations with coordinates) ----------
+    async function showPoints(key, on) {
+        const box = root.querySelector(`[data-cne-points="${key}"]`);
+        if (!on) { if (pointLayers[key]) map.removeLayer(pointLayers[key]); return; }
+        if (!pointLayers[key]) {
+            status(`Cargando ${CNE_TABLE[key].label.toLowerCase()} con coordenadas…`);
+            try {
+                const body = await getJson(`cne-puntos?tabla=${key}`, signal);
+                status('');
+                const group = L.featureGroup();
+                pointIndex[key] = new Map();
+                for (const p of Array.isArray(body?.puntos) ? body.puntos : []) {
+                    const at = validPoint(p.latitud, p.longitud);
+                    if (!at) continue;
+                    const marker = L.circleMarker(at, { pane: 'pmm-cne-points', radius: 7, weight: 2, color: '#ffffff', fillColor: pointColor(key), fillOpacity: 1, className: `pmm-cne-dot pmm-cne-dot-${key}` });
+                    marker.bindPopup(() => pointPopup(key, p), { className: 'pmm-popup', maxWidth: 320 });
+                    marker.addTo(group);
+                    pointIndex[key].set(String(p.numeroPermiso), marker);
+                }
+                pointLayers[key] = group;
+            } catch (error) {
+                if (error.name === 'AbortError') return;
+                status(`No se pudieron cargar las coordenadas de ${CNE_TABLE[key].label.toLowerCase()}.`, 5000);
+                if (box) box.checked = false;
+                return;
+            }
+        }
+        const n = pointIndex[key].size;
+        const note = root.querySelector(`[data-cne-points-note="${key}"]`);
+        if (note) note.textContent = n ? `${count(n)} ${n === 1 ? 'vigente' : 'vigentes'} con coordenadas` : 'Sin coordenadas registradas todavía';
+        if (box?.checked) pointLayers[key].addTo(map);
+    }
+
+    function pointPopup(key, p) {
+        return `<div class="pmm-pop" data-sector="cne-${key}">
+            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${key}"><b>${CNE_TABLE[key].code}</b></span> ${esc(CNE_TABLE[key].label)}</p>
+            <strong>${esc(p.razonSocial)}</strong>
+            <p class="pmm-pop-num">${esc(p.numeroPermiso)}</p>
+            <dl>${p.tipoPermiso ? `<dt>Tipo</dt><dd>${esc(p.tipoPermiso)}</dd>` : ''}</dl>
+            <div class="pmm-pop-actions"><button type="button" class="pm-btn pm-btn-primary" data-cne-detail="${key}" data-numero="${esc(p.numeroPermiso)}">Ver detalle</button></div>
+        </div>`;
+    }
+
+    // ---------- table ----------
+    async function openTable(key, { efId } = {}) {
+        openKey = key;
+        detailRow = null;
+        if (efId !== undefined) Object.assign(filters[key], { efId, estatus: 'Vigente', shown: PAGE });
+        overlay.hidden = false;
+        $('[data-cne-body]').innerHTML = `<div class="pmm-cne-top"><strong>${esc(CNE_TABLE[key].label)}</strong><button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button></div><p class="pmm-muted" role="status">Cargando permisos…</p>`;
+        try {
+            await rowsOf(key);
+            if (openKey === key) renderTable();
+        } catch (error) {
+            if (error.name === 'AbortError' || openKey !== key) return;
+            $('[data-cne-body]').innerHTML = `<div class="pmm-cne-top"><strong>${esc(CNE_TABLE[key].label)}</strong><button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button></div>
+                <p class="pmm-muted">No se pudo cargar la tabla. <button type="button" class="pm-btn" data-cne-open="${key}">Reintentar</button></p>`;
+        }
+    }
+
+    function selectHtml(name, label, options, value, all = 'Todos') {
+        return `<label class="pmm-cne-field"><span>${esc(label)}</span><select data-cne-filter="${esc(name)}">
+            <option value="">${esc(all)}</option>
+            ${options.map(o => `<option value="${esc(o.value)}"${o.value === value ? ' selected' : ''}>${esc(o.label)} (${count(o.count)})</option>`).join('')}
+        </select></label>`;
+    }
+
+    function renderTable() {
+        const key = openKey;
+        const t = CNE_TABLE[key];
+        const rows = data[key].rows || [];
+        const f = filters[key];
+        if (detailRow) { renderDetail(key, detailRow); return; }
+        const inStatus = filterRows(rows, { estatus: f.estatus });
+        const result = filterRows(rows, f);
+        const facets = [...COMMON_FACETS, ...t.facets];
+        const totals = t.capacity ? capacityTotals(result) : [];
+        const noUnit = t.capacity ? result.filter(r => r.capacidad !== null && r.capacidad !== undefined && (r.unidadCapacidad === null || r.unidadCapacidad === undefined || String(r.unidadCapacidad).trim() === '')).length : 0;
+        const stateLabel = id => (id === NO_STATE ? 'Sin entidad' : STATE_NAME[id] || id);
+        const body = $('[data-cne-body]');
+        const focused = document.activeElement?.closest?.('[data-cne-body]') ? document.activeElement.dataset.cneFilter || (document.activeElement.matches('[data-cne-q]') ? 'q' : '') : '';
+        body.innerHTML = `
+            <div class="pmm-cne-top">
+                <strong>${esc(t.label)} <span class="pmm-cne-badge">${t.code}</span></strong>
+                <button type="button" class="pm-btn" data-cne-csv>Exportar CSV</button>
+                <button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button>
+            </div>
+            <form class="pmm-cne-filters" data-cne-form>
+                <label class="pmm-cne-field pmm-cne-q"><span>Buscar</span><input type="search" data-cne-q value="${esc(f.q)}" placeholder="Número de permiso, razón social o RFC" autocomplete="off" spellcheck="false"></label>
+                <label class="pmm-cne-field"><span>Estatus</span><select data-cne-filter="estatus">
+                    ${[['Vigente', 'Vigentes'], ['No vigente', 'No vigentes'], ['', 'Todos']].map(([v, l]) => `<option value="${v}"${f.estatus === v ? ' selected' : ''}>${l}</option>`).join('')}
+                </select></label>
+                ${selectHtml('efId', 'Estado', stateOptions(inStatus), f.efId, 'Todo México')}
+                ${facets.map(x => selectHtml(x.key, x.label, facetOptions(inStatus, x.key), f.facets[x.key] || '')).join('')}
+                <button type="button" class="pm-btn" data-cne-reset>Limpiar filtros</button>
+            </form>
+            <p class="pmm-cne-summary" role="status">${permits(result.length)} de ${count(rows.length)}${f.efId ? ` · ${esc(stateLabel(f.efId))}` : ''}${totals.length ? ` · Capacidad: ${totals.map(x => `${amount(x.total)} ${esc(x.unit)}`).join(' · ')}` : ''}${noUnit ? ` <small>(${count(noUnit)} sin unidad de capacidad no se suman)</small>` : ''}</p>
+            <div class="pmm-cne-scroll" tabindex="0" role="region" aria-label="Permisos de ${esc(t.label)}">
+                <table class="pmm-cne-grid">
+                    <thead><tr><th scope="col">Permiso</th><th scope="col">Razón social</th><th scope="col">Tipo de permiso</th><th scope="col">${esc(t.column.label)}</th><th scope="col">Estado</th><th scope="col">Otorgamiento</th><th scope="col">Estatus</th></tr></thead>
+                    <tbody>${result.slice(0, f.shown).map((r, i) => `<tr>
+                        <td><button type="button" class="pmm-cne-link" data-cne-row="${i}">${esc(r.numeroPermiso)}</button></td>
+                        <td>${esc(r.razonSocial)}</td>
+                        <td>${esc(r.tipoPermiso)}</td>
+                        <td>${esc(r[t.column.key] ?? '') || '<span class="pmm-cne-na">Sin especificar</span>'}</td>
+                        <td>${esc(r.entidad || (r.efId ? STATE_NAME[String(r.efId).trim()] : '')) || '<span class="pmm-cne-na">Sin entidad</span>'}</td>
+                        <td>${esc(calendarDate(r.fechaOtorgamiento))}</td>
+                        <td><span class="pmm-cne-status${r.estatus === 'Vigente' ? ' is-on' : ''}">${esc(r.estatus)}</span></td>
+                    </tr>`).join('') || '<tr><td colspan="7" class="pmm-cne-empty">Ningún permiso coincide con los filtros.</td></tr>'}</tbody>
+                </table>
+            </div>
+            ${result.length > f.shown ? `<button type="button" class="pm-btn pmm-cne-more" data-cne-more>Mostrar ${count(Math.min(PAGE, result.length - f.shown))} más (quedan ${count(result.length - f.shown)})</button>` : ''}
+            <p class="pmm-cne-foot">${esc(updatedText(data[key].updated))} · Fuente: CNE, vía DGMESNIE.</p>`;
+        body._result = result;
+        if (focused === 'q') { const q = body.querySelector('[data-cne-q]'); q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
+        else if (focused) body.querySelector(`[data-cne-filter="${focused}"]`)?.focus();
+    }
+
+    function detailItem(label, value) {
+        return value === '' || value === null || value === undefined ? '' : `<dt>${esc(label)}</dt><dd>${esc(value)}</dd>`;
+    }
+
+    function renderDetail(key, r) {
+        const t = CNE_TABLE[key];
+        const own = t.details.map(d => {
+            if (d.capacity) return detailItem(d.label, amount(r.capacidad) ? `${amount(r.capacidad)} ${r.unidadCapacidad || '(sin unidad)'}`.trim() : '');
+            if (d.number) return detailItem(d.label, amount(r[d.key]) ? `${amount(r[d.key])}${d.unit ? ` ${d.unit}` : ''}` : '');
+            return detailItem(d.label, r[d.key]);
+        }).join('');
+        const address = [r.calle, r.colonia, r.codigoPostal ? `C.P. ${r.codigoPostal}` : '', r.municipio, r.entidad || STATE_NAME[String(r.efId ?? '').trim()]].filter(Boolean).join(', ');
+        const point = validPoint(r.latitud, r.longitud);
+        const link = (href, text) => (safeHref(href) ? `<a class="pm-btn" href="${esc(safeHref(href))}" target="_blank" rel="noopener noreferrer">${text}</a>` : '');
+        $('[data-cne-body]').innerHTML = `
+            <div class="pmm-cne-top">
+                <button type="button" class="pm-btn" data-cne-back>← Volver a la tabla</button>
+                <button type="button" class="pmm-close" data-cne-close aria-label="Cerrar tabla">×</button>
+            </div>
+            <article class="pmm-cne-detail pmm-pop" data-sector="cne-${key}">
+                <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="cne-${key}"><b>${t.code}</b></span> ${esc(t.label)}</p>
+                <h3>${esc(r.razonSocial)}</h3>
+                <p class="pmm-pop-num">${esc(r.numeroPermiso)}</p>
+                <dl>
+                    ${detailItem('Estatus', r.estatus)}${detailItem('Estatus CNE', r.estatusCne)}${detailItem('Estatus de la instalación', r.estatusInstalacion)}
+                    ${detailItem('Mercado', r.mercado)}${detailItem('Tipo de permiso', r.tipoPermiso)}${detailItem('Código de actividad', r.codigoActividad)}
+                    ${own}
+                    ${detailItem('RFC', r.rfc)}${detailItem('Expediente', r.expediente)}
+                    ${detailItem('Otorgamiento', calendarDate(r.fechaOtorgamiento))}${detailItem('Inicio de vigencia', calendarDate(r.inicioVigencia))}${detailItem('Término de vigencia', calendarDate(r.terminoVigencia))}
+                    ${detailItem('Ubicación', address || 'Sin domicilio registrado')}
+                    ${detailItem('Inversión estimada (dato reportado)', amount(r.inversionEstimada))}
+                    ${detailItem('Comentarios', r.comentarios)}
+                    ${detailItem('Actualizado', mexicoCityTime(r.fechaActualizacion) ? `${mexicoCityTime(r.fechaActualizacion)} (hora de Ciudad de México)` : '')}
+                </dl>
+                <div class="pmm-pop-actions">
+                    ${link(r.ligaPermiso, 'Ver permiso (PDF)')}${link(r.ligaResolucion, 'Ver resolución (PDF)')}
+                    ${t.sheet ? `<a class="pm-btn" href="${permitsHash({ permit: r.numeroPermiso })}">Ficha y normativa</a>` : ''}
+                    ${point && t.map.points ? `<button type="button" class="pm-btn" data-cne-locate="${key}" data-numero="${esc(r.numeroPermiso)}">Ver en el mapa</button>` : ''}
+                </div>
+            </article>`;
+        $('[data-cne-body]').querySelector('[data-cne-back]')?.focus();
+    }
+
+    async function openDetail(key, numero) {
+        try {
+            const rows = await rowsOf(key);
+            const row = rows.find(r => String(r.numeroPermiso) === String(numero));
+            if (!row) { status('No se encontró el permiso en la tabla.', 4000); return; }
+            openKey = key;
+            detailRow = row;
+            overlay.hidden = false;
+            map.closePopup();
+            renderTable();
+        } catch (error) { if (error.name !== 'AbortError') status('No se pudo cargar la tabla.', 5000); }
+    }
+
+    async function locate(key, numero) {
+        const box = root.querySelector(`[data-cne-points="${key}"]`);
+        if (box && !box.checked) { box.checked = true; await showPoints(key, true); }
+        const marker = pointIndex[key]?.get(String(numero));
+        if (!marker) { status('Este permiso no tiene coordenadas vigentes en el mapa.', 4000); return; }
+        overlay.hidden = true;
+        map.setView(marker.getLatLng(), Math.max(map.getZoom(), 13));
+        marker.openPopup();
+    }
+
+    function downloadCsv() {
+        const key = openKey;
+        const t = CNE_TABLE[key];
+        const result = $('[data-cne-body]')._result || [];
+        const own = t.details.map(d => d.key).filter((k, i, all) => all.indexOf(k) === i);
+        const head = ['NumeroPermiso', 'RazonSocial', 'RFC', 'Mercado', 'TipoPermiso', 'Estatus', 'EstatusCNE', 'Estado', 'Municipio', 'FechaOtorgamiento', 'TerminoVigencia', ...own, ...(t.capacity ? ['UnidadCapacidad'] : []), 'LigaPermiso', 'LigaResolucion'];
+        const rows = result.map(r => [r.numeroPermiso, r.razonSocial, r.rfc, r.mercado, r.tipoPermiso, r.estatus, r.estatusCne, r.entidad || STATE_NAME[String(r.efId ?? '').trim()] || '', r.municipio, r.fechaOtorgamiento, r.terminoVigencia, ...own.map(k => r[k]), ...(t.capacity ? [r.unidadCapacidad] : []), r.ligaPermiso, r.ligaResolucion]);
+        const q = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([`﻿${[head, ...rows].map(r => r.map(q).join(',')).join('\n')}`], { type: 'text/csv;charset=utf-8' }));
+        a.download = `permisos_cne_${key}.csv`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+
+    // ---------- events ----------
+    const onChange = e => {
+        const t = e.target;
+        if (t.matches('[data-cne-states]')) showStates(t.dataset.cneStates, t.checked);
+        else if (t.matches('[data-cne-points]')) showPoints(t.dataset.cnePoints, t.checked);
+        else if (t.matches('[data-cne-filter]') && openKey) {
+            const f = filters[openKey];
+            const name = t.dataset.cneFilter;
+            if (name === 'estatus' || name === 'efId') f[name] = t.value;
+            else f.facets = { ...f.facets, [name]: t.value };
+            f.shown = PAGE;
+            renderTable();
+        }
+    };
+    let typing = null;
+    const onInput = e => {
+        if (!e.target.matches('[data-cne-q]') || !openKey) return;
+        const value = e.target.value;
+        clearTimeout(typing);
+        typing = setTimeout(() => { Object.assign(filters[openKey], { q: value, shown: PAGE }); renderTable(); }, 200);
+    };
+    // Capture: Leaflet keeps clicks inside desktop popups from bubbling.
+    const onClick = e => {
+        const t = e.target;
+        const open = t.closest('[data-cne-open]');
+        if (open) { e.preventDefault(); openTable(open.dataset.cneOpen, open.dataset.cneEf ? { efId: open.dataset.cneEf } : {}); return; }
+        const detail = t.closest('[data-cne-detail]');
+        if (detail) { e.preventDefault(); e.stopPropagation(); openDetail(detail.dataset.cneDetail, detail.dataset.numero); return; }
+        const row = t.closest('[data-cne-row]');
+        if (row) { detailRow = $('[data-cne-body]')._result[Number(row.dataset.cneRow)]; renderTable(); return; }
+        if (t.closest('[data-cne-back]')) { detailRow = null; renderTable(); return; }
+        if (t.closest('[data-cne-more]')) { filters[openKey].shown += PAGE; renderTable(); return; }
+        if (t.closest('[data-cne-reset]')) { filters[openKey] = { estatus: 'Vigente', efId: '', q: '', facets: {}, shown: PAGE }; renderTable(); return; }
+        if (t.closest('[data-cne-csv]')) { downloadCsv(); return; }
+        const where = t.closest('[data-cne-locate]');
+        if (where) { locate(where.dataset.cneLocate, where.dataset.numero); return; }
+        if (t.closest('[data-cne-close]')) { overlay.hidden = true; openKey = null; detailRow = null; }
+    };
+    const onSubmit = e => { if (e.target.matches('[data-cne-form]')) e.preventDefault(); };
+    const onKey = e => { if (e.key === 'Escape' && !overlay.hidden) { overlay.hidden = true; openKey = null; detailRow = null; } };
+    root.addEventListener('change', onChange);
+    root.addEventListener('input', onInput);
+    root.addEventListener('click', onClick, true);
+    root.addEventListener('submit', onSubmit);
+    document.addEventListener('keydown', onKey);
+
+    return {
+        openTable,
+        destroy() {
+            clearTimeout(typing);
+            root.removeEventListener('change', onChange);
+            root.removeEventListener('input', onInput);
+            root.removeEventListener('click', onClick, true);
+            root.removeEventListener('submit', onSubmit);
+            document.removeEventListener('keydown', onKey);
+        },
+    };
+}

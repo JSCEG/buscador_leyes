@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { serveMapa, upstreamUrl, fetchHurricanes, DGMESNIE_URL } from '../server/mapa-proxy.js';
+import { serveMapa, upstreamUrl, fetchHurricanes, DGMESNIE_URL, CNE_TABLES, STATES_URL } from '../server/mapa-proxy.js';
 import { insidePolygon, passes, distanceKm, nearest, marketOf, kvClass, stateKey } from '../src/scripts/permits-map-view.js';
 
 const ok = body => vi.fn().mockResolvedValue(new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } }));
@@ -128,5 +128,34 @@ describe('state filter', () => {
         expect(stateKey('NUEVO  LEÓN')).toBe('nuevo leon');
         expect(stateKey('Texas')).toBe('');
         expect(stateKey(null)).toBe('');
+    });
+});
+
+describe('CNE tables', () => {
+    const tables = `${DGMESNIE_URL}/DashboardProyectos/PermisosEnergeticos/Tablas`;
+    it('maps the five tables to DGMESNIE, with the list filters optional', () => {
+        expect(CNE_TABLES).toEqual(['transporte', 'comercializacion', 'infraestructura', 'suministro', 'terceros']);
+        expect(upstreamUrl('cne-lista', new URLSearchParams('tabla=transporte'))).toBe(`${tables}/Lista?tabla=transporte`);
+        expect(upstreamUrl('cne-lista', new URLSearchParams('tabla=suministro&estatus=No vigente&ef=09&tipo=Suministro calificado')))
+            .toBe(`${tables}/Lista?tabla=suministro&estatus=No+vigente&ef=09&tipo=Suministro+calificado`);
+        expect(upstreamUrl('cne-estados', new URLSearchParams('tabla=comercializacion'))).toBe(`${tables}/Estados?tabla=comercializacion`);
+        expect(upstreamUrl('cne-puntos', new URLSearchParams('tabla=infraestructura'))).toBe(`${tables}/Puntos?tabla=infraestructura`);
+        expect(upstreamUrl('cne-actualizacion', new URLSearchParams('tabla=terceros'))).toBe(`${tables}/Actualizacion?tabla=terceros`);
+        expect(upstreamUrl('estados', new URLSearchParams())).toBe(STATES_URL);
+    });
+    it('rejects other tables, bad filters and extra keys', () => {
+        expect(upstreamUrl('cne-lista', new URLSearchParams('tabla=Laboratorios_UV'))).toBeNull();
+        expect(upstreamUrl('cne-lista', new URLSearchParams())).toBeNull();
+        expect(upstreamUrl('cne-lista', new URLSearchParams('tabla=transporte&estatus=todos'))).toBeNull();
+        expect(upstreamUrl('cne-lista', new URLSearchParams('tabla=transporte&ef=9'))).toBeNull();
+        expect(upstreamUrl('cne-lista', new URLSearchParams("tabla=transporte&tipo=x';drop"))).toBeNull();
+        expect(upstreamUrl('cne-estados', new URLSearchParams('tabla=transporte&ef=09'))).toBeNull();
+        expect(upstreamUrl('estados', new URLSearchParams('x=1'))).toBeNull();
+    });
+    it('caches the state polygons for a week', async () => {
+        const fetcher = ok({ type: 'FeatureCollection', features: [] });
+        const response = await serveMapa(req('estados'), 'estados', { fetcher, cache: null });
+        expect(response.headers.get('Cache-Control')).toBe('public, max-age=604800');
+        expect(fetcher.mock.calls[0][0]).toBe(STATES_URL);
     });
 });

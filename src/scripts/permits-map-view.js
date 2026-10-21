@@ -12,6 +12,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import { permitsHash, permitKind } from '../lib/cne-api.js';
 import { infraType, infraIcon } from '../lib/infra-icons.js';
+import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
 import '../styles/permits-map.css';
 
 const API = '/api/mapa';
@@ -184,6 +185,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                     <div class="pmm-chips"><button type="button" data-exact>Solo ubicaciones exactas</button></div>
                     <label class="pmm-state"><span>Estado</span>${stateSelectHtml()}</label>
                     <div data-markets></div>
+                    <div data-cne>${cnePanelHtml()}</div>
                     <p class="pmm-h">Infraestructura</p>
                     ${NETWORKS.map(n => `<label class="pmm-layer"><input type="checkbox" data-network="${n.key}"><span class="pmm-line" style="--line:${n.swatch}"></span><span>${n.label}<small data-network-note="${n.key}">${n.short}</small></span></label>`).join('')}
                     <p class="pmm-kv" data-kv hidden>${KV_CLASSES.map(c => `<span><i style="background:${c.color}"></i>${c.label}</span>`).join('')}</p>
@@ -817,6 +819,9 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             : 'Fecha de actualización no disponible';
     }).catch(() => { $('[data-updated]').textContent = 'Fecha de actualización no disponible'; });
 
+    // ---------- other CNE tables (lists, choropleth, points) ----------
+    const cne = mountCneTables({ L, map, root: container, getJson, signal: state.ctrl.signal, status });
+
     // ---------- events ----------
     renderMarkets();
     container.addEventListener('change', e => {
@@ -904,6 +909,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         focusPermit,
         destroy() {
             state.ctrl.abort();
+            cne.destroy();
             suggestCtrl?.abort();
             state.timers.forEach(clearInterval);
             clearTimeout(suggestTimer);
