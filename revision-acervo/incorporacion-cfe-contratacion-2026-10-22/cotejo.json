@@ -1,0 +1,133 @@
+{
+  "fecha": "2026-10-22",
+  "pdf_sha256": "b0d0ebd53552a59d1707e6897f5bf013d2f23f73b38a209bb591f2ac6bd7879b",
+  "pdf_bytes": 21039995,
+  "pdf_paginas": 224,
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=22102026-MAT.pdf&repo=",
+  "inspeccion_visual": [
+    155,
+    156,
+    157,
+    158,
+    159
+  ],
+  "avisos": [
+    {
+      "procedimiento": "CFE-0400-CAAAT-0011-2026",
+      "pagina": 155,
+      "registro_dof": "581504",
+      "rango_vertical": [
+        396.08,
+        726.2919555664063
+      ],
+      "anclas": 29,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0001-CASAN-0047-2026",
+      "pagina": 156,
+      "registro_dof": "581550",
+      "rango_vertical": [
+        58.22,
+        388.6450439453125
+      ],
+      "anclas": 33,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0900-CAAAT-0048-2026",
+      "pagina": 156,
+      "registro_dof": "581505",
+      "rango_vertical": [
+        393.8,
+        726.6758666992188
+      ],
+      "anclas": 33,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0001-CASAT-0063-2026",
+      "pagina": 157,
+      "registro_dof": "581471",
+      "rango_vertical": [
+        58.22,
+        388.7889343261719
+      ],
+      "anclas": 36,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0001-CASAT-0064-2026",
+      "pagina": 157,
+      "registro_dof": "581549",
+      "rango_vertical": [
+        393.74,
+        724.0989624023438
+      ],
+      "anclas": 33,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0001-CAAAT-0179-2026",
+      "pagina": 158,
+      "registro_dof": "581466",
+      "rango_vertical": [
+        58.22,
+        385.0868774414063
+      ],
+      "anclas": 34,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0700-CASAN-0048-2026",
+      "pagina": 158,
+      "registro_dof": "581448",
+      "rango_vertical": [
+        390.2,
+        725.5928588867188
+      ],
+      "anclas": 33,
+      "filas_tabla": 7,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0500-CAAAT-0029-2026",
+      "pagina": 159,
+      "registro_dof": "581475",
+      "rango_vertical": [
+        58.22,
+        385.3359619140625
+      ],
+      "anclas": 35,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    },
+    {
+      "procedimiento": "CFE-0500-CAAAT-0030-2026",
+      "pagina": 159,
+      "registro_dof": "581499",
+      "rango_vertical": [
+        390.5,
+        726.3728881835938
+      ],
+      "anclas": 34,
+      "filas_tabla": 8,
+      "cotejo_caracteres_tabla": true,
+      "texto_fuera_tabla_completo": true
+    }
+  ]
+}
