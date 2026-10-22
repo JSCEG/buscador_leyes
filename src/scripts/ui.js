@@ -38,6 +38,7 @@ import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyArt } from '../lib/empty-art.js';
+import { lawPath, articlePath, shareUrl } from '../lib/seo-paths.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -296,6 +297,11 @@ export function initUI() {
     });
 
     let cachedSummaries = [];
+    // Shared links use the readable addresses (/ley/…), which search engines index too.
+    const lawShareUrl = law => shareUrl(lawPath(law), `#ley-${encodeURIComponent(law.id)}`, location.origin);
+    const articleShareUrl = item => shareUrl(
+        articlePath(cachedSummaries.find(l => String(l.id) === String(item.ley_id)) || { siglas: item.siglas_ley }, { id: item.id, label: item.articulo_label }),
+        `#art-${encodeURIComponent(item.id)}`, location.origin);
     let catalogLoaded = false;
     let activeNavId = 'nav-inicio';
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
@@ -1784,7 +1790,7 @@ export function initUI() {
             'law-share-twitter-btn': () => shareLawVia(law, 'twitter'),
             'law-share-email-btn': () => shareLawVia(law, 'email'),
             'law-share-link-btn': () => {
-                const url = `${location.origin}${location.pathname}#ley-${encodeURIComponent(law.id)}`;
+                const url = lawShareUrl(law);
                 navigator.clipboard.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
             }
         };
@@ -2788,7 +2794,7 @@ export function initUI() {
     }
 
     async function shareArticleText(item) {
-        const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(item.id)}`;
+        const artUrl = articleShareUrl(item);
         const text = `📋 *${item.articulo_label}*\n🏛️ ${item.ley_origen}\n\n${item.texto.substring(0, 800)}${item.texto.length > 800 ? '...' : ''}\n\nVer artículo: ${artUrl}`;
         
         if (navigator.share) {
@@ -2847,7 +2853,7 @@ export function initUI() {
     }
 
     function shareArticleVia(item, platform) {
-        const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(item.id)}`;
+        const artUrl = articleShareUrl(item);
         const title = `${item.articulo_label} · ${item.ley_origen}`;
         const body = `📋 *${item.articulo_label}*\n🏛️ ${item.ley_origen}\n\n${item.texto.substring(0, 500)}${item.texto.length > 500 ? '...' : ''}\n\n${artUrl}`;
         const shortText = `${item.articulo_label} · ${item.ley_origen} — Buscador Jurídico`;
@@ -2860,7 +2866,7 @@ export function initUI() {
     }
 
     async function shareLawVia(law, platform) {
-        const lawUrl = `${location.origin}${location.pathname}#ley-${encodeURIComponent(law.id)}`;
+        const lawUrl = lawShareUrl(law);
         const title = law.titulo;
         const resumen = law.resumen ? law.resumen.split('\n\n')[0].substring(0, 400) : countFragments(law.articulos, law);
         const body = `🏛️ *${law.titulo}*\n📅 Publicado: ${law.fecha}\n📖 ${countFragments(law.articulos, law)}\n\n${resumen}\n\n${lawUrl}`;
@@ -3504,7 +3510,7 @@ export function initUI() {
         if (citeBtn) {
             citeBtn.onclick = () => {
                 const today = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
-                const artUrl = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
+                const artUrl = articleShareUrl(item);
                 const itemLaw = cachedSummaries.find(l => String(l.id) === String(item.ley_id));
                 const citedPart = isJudgment(itemLaw) ? `Apartado «${item.articulo_label.replace(/\.$/, '')}»` : item.articulo_label;
                 const citation = `${citedPart} de la ${item.ley_origen.replace(/\.$/, '')}${item.fecha_publicacion ? ', publicada el ' + item.fecha_publicacion : ''}. Buscador Jurídico. Consultado el ${today}. Disponible en: ${artUrl}`;
@@ -3615,7 +3621,7 @@ export function initUI() {
         if (shareLinkBtn) {
             shareLinkBtn.onclick = () => {
                 shareMenu?.classList.add('hidden');
-                const url = `${location.origin}${location.pathname}#art-${encodeURIComponent(id)}`;
+                const url = articleShareUrl(item);
                 navigator.clipboard.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
             };
         }

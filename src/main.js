@@ -24,12 +24,15 @@ import { initInstallPrompt } from './lib/install-prompt.js';
 import { isInstallPath, initInstallPage } from './lib/install-page.js';
 import { initAccountPanel } from './scripts/account-panel.js';
 import { trackVisit } from './lib/usage.js';
+import { takeSeoRoute } from './lib/seo-route.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // /ley/… and /aprende/… (search engines, shared links): open that content, without the intro.
+  const fromSeoPage = takeSeoRoute();
   // /instalar (the link sent by WhatsApp): the install screen instead of the intro and the usual invitation.
   const installPage = isInstallPath();
   if (installPage) initInstallPage();
-  else if (shouldShowIntro()) window.__introDone = playIntro();
+  else if (!fromSeoPage && shouldShowIntro()) window.__introDone = playIntro();
   initPasswordRecovery();
   initMarquee();
   initPrintBrand();

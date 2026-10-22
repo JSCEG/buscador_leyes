@@ -6,6 +6,7 @@
 import { CONCEPTOS, CONCEPTO, NIVELES, siguienteConcepto } from '../data/como-funciona.js';
 import { tramiteById } from '../data/tramites.js';
 import { lawBySiglas } from './cne-shared.js';
+import { learnPath, shareUrl } from '../lib/seo-paths.js';
 import '../styles/como-funciona.css';
 
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -218,7 +219,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
         // Share the explainer: the phone's share sheet (WhatsApp…), or copy the link on a computer.
         container.querySelector('[data-share]')?.addEventListener('click', async event => {
             const button = event.currentTarget;
-            const url = `${location.origin}/#como-funciona=${concept.id}`;
+            const url = shareUrl(learnPath(concept.id), `#como-funciona=${concept.id}`, location.origin);
             const text = `¿Cómo funciona? ${concept.titulo}. Míralo en movimiento:`;
             const mobile = matchMedia('(pointer: coarse)').matches;
             if (navigator.share && mobile) {

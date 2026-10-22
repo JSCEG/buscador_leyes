@@ -3,7 +3,10 @@
   "include": [
     "/api/reader/*",
     "/api/cne/*",
-    "/api/mapa/*"
+    "/api/mapa/*",
+    "/ley/*",
+    "/aprende/*",
+    "/sitemap.xml"
   ],
   "exclude": []
 }

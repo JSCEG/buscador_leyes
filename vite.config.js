@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import { readerDevPlugin } from './server/reader-dev.js';
@@ -41,8 +41,20 @@ const manifestPlugin = () => {
   }
 };
 
+// The server pages (/ley/…, /aprende/…, sitemap.xml) read the acervo with the same public address and
+// anon key the app already ships; Cloudflare Pages has no runtime variables, so the build leaves them here.
+const seoConfigPlugin = () => ({
+  name: 'seo-config',
+  apply: 'build',
+  generateBundle() {
+    const env = loadEnv('production', process.cwd(), 'VITE_');
+    const config = { url: process.env.VITE_SUPABASE_URL || env.VITE_SUPABASE_URL || '', key: process.env.VITE_SUPABASE_ANON_KEY || env.VITE_SUPABASE_ANON_KEY || '' };
+    this.emitFile({ type: 'asset', fileName: 'seo-config.json', source: JSON.stringify(config) });
+  },
+});
+
 export default defineConfig({
-  plugins: [manifestPlugin(), readerDevPlugin()],
+  plugins: [manifestPlugin(), readerDevPlugin(), seoConfigPlugin()],
   test: {
     environment: 'jsdom',
     globals: true,
