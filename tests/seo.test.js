@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { slugify, lawPath, articlePath, learnPath, parseSeoPath, shareUrl } from '../src/lib/seo-paths.js';
-import { resolveSeoPage, buildSitemap, describe as describeText } from '../server/seo.js';
+import { resolveSeoPage, buildSitemap, serveSeoPage, describe as describeText } from '../server/seo.js';
 
 const LAW = { id: 'law-1', siglas: 'LSE', titulo: 'Ley del Sector Eléctrico', fecha_publicacion: '2025-03-18' };
 const ART_ID = '4446259e-1111-2222-3333-444444444444';
@@ -92,5 +92,25 @@ describe('server configuration', () => {
         const page = await resolveSeoPage('/ley/lse', { ASSETS }, { fetcher: fakeFetch(calls) });
         expect(page.status).toBe(200);
         expect(calls[0]).toMatch(/^https:\/\/db\.example\/rest\/v1\/leyes/);
+    });
+});
+
+describe('edge cache of server pages', () => {
+    it('answers a repeated visit from the cache, keyed by the deploy, without querying the acervo again', async () => {
+        const store = new Map();
+        const cache = { match: async req => store.get(req.url)?.clone(), put: async (req, res) => { store.set(req.url, res); } };
+        const pending = [];
+        const calls = [];
+        const ASSETS = { fetch: async () => new Response('<html></html>', { headers: { ETag: '"abc-1"' } }) };
+        const context = { request: new Request('https://buscador-juridico.com/ley/lse/viejo-4446259e'), env: { ...ENV, ASSETS }, waitUntil: p => pending.push(p) };
+        const first = await serveSeoPage(context, { cache, fetcher: fakeFetch(calls) });
+        await Promise.all(pending);
+        expect(first.status).toBe(301);
+        expect(first.headers.get('Location')).toBe('https://buscador-juridico.com/ley/lse/articulo-12-4446259e');
+        expect([...store.keys()]).toEqual(['https://buscador-juridico.com/ley/lse/viejo-4446259e?v=abc1']);
+        const queries = calls.length;
+        const again = await serveSeoPage(context, { cache, fetcher: fakeFetch(calls) });
+        expect(again.status).toBe(301);
+        expect(calls.length).toBe(queries);
     });
 });

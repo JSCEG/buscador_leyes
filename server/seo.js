@@ -11,8 +11,8 @@ import { friendlyLabel, friendlyText } from '../src/lib/friendly-text.js';
 import { SITE_URL, slugify, lawSlug, lawPath, articlePath, learnPath, parseSeoPath } from '../src/lib/seo-paths.js';
 import { CONCEPTOS, CONCEPTO } from '../src/data/como-funciona.js';
 
-const LAWS_TTL = 3600;
-const PAGE_TTL = 3600;
+const LAWS_TTL = 6 * 3600;
+const PAGE_TTL = 24 * 3600;
 const SITEMAP_TTL = 43200;
 
 export const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -41,7 +41,7 @@ export function describe(text, max = 155) {
  * pages read the same acervo as the app they decorate; runtime variables only when it is missing.
  */
 async function config(env) {
-    const built = env?.ASSETS ? await env.ASSETS.fetch('https://assets.local/seo-config.json').then(r => (r.ok ? r.json() : {}), () => ({})) : {};
+    const built = env?.ASSETS ? await env.ASSETS.fetch('https://assets.local/seo-config.json').then(r => (r.ok ? r.json() : {})).catch(() => ({})) : {};
     const url = built.url || env?.VITE_SUPABASE_URL || env?.SUPABASE_URL;
     const key = built.key || env?.VITE_SUPABASE_ANON_KEY || env?.SUPABASE_ANON_KEY;
     return url && key ? { url: url.replace(/\/+$/, ''), key } : null;
@@ -172,21 +172,39 @@ export async function serveSeoPage(context, opts = {}) {
     const { request, env } = context;
     const url = new URL(request.url);
     const app = await env.ASSETS.fetch(new URL('/', url));
+    // Crawlers walk thousands of these pages; each one is built once a day per data center and then
+    // served from the edge cache, so Supabase is not queried on every visit. The key carries the app
+    // page's ETag: a new deploy (new asset names) never serves a page built for the previous one.
+    const cache = opts.cache ?? (typeof caches !== 'undefined' ? caches.default : null);
+    const version = (app.headers.get('ETag') || '').replace(/[^A-Za-z0-9]/g, '');
+    const key = new Request(`${url.origin}${url.pathname}?v=${version}`);
+    const cached = cache && await cache.match(key);
+    if (cached) return cached;
+    const store = response => {
+        if (cache && context.waitUntil) context.waitUntil(cache.put(key, response.clone()));
+        return response;
+    };
     let page;
     try { page = await resolveSeoPage(url.pathname, env, opts); } catch (error) {
         console.warn('[seo] page failed', { path: url.pathname, message: error?.message });
         return app;
     }
-    if (page.status === 301) return Response.redirect(new URL(page.redirect, url).toString(), 301);
+    if (page.status === 301) {
+        const moved = Response.redirect(new URL(page.redirect, url).toString(), 301);
+        return store(new Response(null, { status: 301, headers: { Location: moved.headers.get('Location'), 'Cache-Control': `public, max-age=3600, s-maxage=${PAGE_TTL}` } }));
+    }
     if (page.status !== 200) {
         if (page.status === 503) return app;
         const notFound = new Response(app.body, { status: 404, headers: app.headers });
-        return new HTMLRewriter().on('head', { element: el => el.append('<meta name="robots" content="noindex">', { html: true }) }).transform(notFound);
+        const missing = new HTMLRewriter().on('head', { element: el => el.append('<meta name="robots" content="noindex">', { html: true }) }).transform(notFound);
+        const headers = new Headers(missing.headers);
+        headers.set('Cache-Control', 'public, max-age=0, s-maxage=3600');
+        return store(new Response(missing.body, { status: 404, headers }));
     }
     const response = decorate(app, page);
     const headers = new Headers(response.headers);
     headers.set('Cache-Control', `public, max-age=0, s-maxage=${PAGE_TTL}`);
-    return new Response(response.body, { status: 200, headers });
+    return store(new Response(response.body, { status: 200, headers }));
 }
 
 /** sitemap.xml: home, «¿Cómo funciona?» topics, every instrument and every provision. */
