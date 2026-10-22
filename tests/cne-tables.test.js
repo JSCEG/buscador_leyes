@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
     CNE_TABLES, CNE_TABLE, NULL_VALUE, NO_STATE, normalizePermitNumber, featureStateId, facetOptions, stateOptions,
     filterRows, capacityTotals, validPoint, mexicoCityTime, calendarDate, choroplethClass,
-    marketOf, activityKey, parseActivity, activitiesByMarket, stateCounts,
+    marketOf, marketsOf, marketText, activityKey, parseActivity, activitiesByMarket, stateCounts,
 } from '../src/lib/cne-tables.js';
 import { cnePanelHtml, marketActivitiesHtml, stateAt } from '../src/scripts/cne-tables-layer.js';
 
@@ -87,6 +87,20 @@ describe('CNE activities by market', () => {
         expect(marketOf({ mercado: 'Electricidad' })).toBe('electricidad');
         for (const mercado of ['Petróleo crudo', 'Petroquímicos', 'Hidrocarburos', null]) expect(marketOf({ mercado })).toBe('otros');
         expect(parseActivity(activityKey('transporte', 'gas-natural'))).toEqual({ table: 'transporte', market: 'gas-natural' });
+    });
+
+    it('places a permit in every market it is authorized for; «Varios» only in the listed ones', () => {
+        const mixed = { mercado: 'Gas natural', mercadosAutorizados: 'Gas natural;Petróleo crudo', estatus: 'Vigente' };
+        const varios = { mercado: 'Varios', mercadosAutorizados: 'Petrolíferos; Gas LP', estatus: 'Vigente' };
+        expect(marketsOf(mixed)).toEqual(['gas-natural', 'otros']);
+        expect(marketsOf(varios)).toEqual(['petroliferos', 'gas-lp']);
+        expect(marketsOf({ mercado: 'Varios' })).toEqual(['otros']);
+        expect(marketOf(varios)).toBe('petroliferos');
+        expect(marketText(varios)).toBe('Petrolíferos, Gas LP');
+        expect(marketText(mixed)).toBe('Gas natural, Petróleo crudo');
+        expect(filterRows([mixed, varios], { market: 'otros' })).toEqual([mixed]);
+        const summary = activitiesByMarket({ comercializacion: [mixed, varios] });
+        expect(['gas-natural', 'otros', 'petroliferos', 'gas-lp'].map(m => summary[m][0]?.vigentes)).toEqual([1, 1, 1, 1]);
     });
 
     it('summarizes each table per market with what the map can draw', () => {

@@ -121,8 +121,8 @@ export function stateOptions(rows) {
 const rowsStateName = (rows, id) => rows.find(row => stateOf(row) === id)?.entidad;
 
 /**
- * Markets of the permits map. Every CNE row belongs to one, by its `Mercado` text read without case or
- * accents; crude oil, petrochemicals and the generic «Hidrocarburos» go to «otros».
+ * Markets of the permits map. Every CNE row belongs to at least one, by its `Mercado` text read without case or
+ * accents (plus `Mercados_autorizados`, see marketsOf); crude oil, petrochemicals and any other name go to «otros».
  */
 export const CNE_MARKETS = Object.freeze([
     { key: 'electricidad', label: 'Electricidad' },
@@ -136,14 +136,33 @@ const MARKET_BY_NAME = new Map([
     ['electricidad', 'electricidad'], ['petroliferos', 'petroliferos'], ['gas natural', 'gas-natural'],
     ['gas lp', 'gas-lp'], ['gas licuado de petroleo', 'gas-lp'], ['gas l.p.', 'gas-lp'],
 ]);
-export const marketOf = row => MARKET_BY_NAME.get(fold(row?.mercado)) || 'otros';
+const marketByName = name => MARKET_BY_NAME.get(fold(name)) || 'otros';
+
+/**
+ * Every market a permit covers: its `Mercado` plus the ones listed in `Mercados_autorizados`
+ * («Gas natural;Petróleo crudo»). «Varios» has no market of its own and counts only in the listed ones.
+ */
+export function marketsOf(row) {
+    const listed = String(row?.mercadosAutorizados ?? '').split(';').map(name => name.trim()).filter(Boolean);
+    const own = fold(row?.mercado) === 'varios' && listed.length ? [] : [row?.mercado];
+    return [...new Set([...own, ...listed].map(marketByName))];
+}
+/** The market a permit is shown under: the first of marketsOf. */
+export const marketOf = row => marketsOf(row)[0];
+export const inMarket = (row, market) => marketsOf(row).includes(market);
+/** Markets as people read them: «Gas natural, Petróleo crudo» instead of «Varios». */
+export function marketText(row) {
+    const listed = String(row?.mercadosAutorizados ?? '').split(';').map(name => name.trim()).filter(Boolean);
+    const own = String(row?.mercado ?? '').trim();
+    return [...new Set([...(fold(own) === 'varios' && listed.length ? [] : [own]), ...listed].filter(Boolean))].join(', ');
+}
 
 /** Key of one activity (a table within a market) in the panel and the map layers. */
 export const activityKey = (table, market) => `${table}|${market}`;
 export const parseActivity = key => { const [table, market] = String(key).split('|'); return { table, market }; };
 
 /**
- * What each market has in each table: total and vigentes, and how many vigentes carry a state or
+ * What each market has in each table (a permit in several markets counts in each): total and vigentes, and how many vigentes carry a state or
  * coordinates (what the map can draw). Only tables with rows in that market appear, in table order.
  * @param {Record<string, object[]|null>} rowsByTable
  */
@@ -154,15 +173,16 @@ export function activitiesByMarket(rowsByTable) {
         if (!Array.isArray(rows)) continue;
         const byMarket = new Map();
         for (const row of rows) {
-            const market = marketOf(row);
-            const entry = byMarket.get(market) || { table: table.key, market, total: 0, vigentes: 0, withState: 0, withPoint: 0 };
-            entry.total += 1;
-            if (row.estatus === 'Vigente') {
-                entry.vigentes += 1;
-                if (stateOf(row) !== NO_STATE) entry.withState += 1;
-                if (validPoint(row.latitud, row.longitud)) entry.withPoint += 1;
+            for (const market of marketsOf(row)) {
+                const entry = byMarket.get(market) || { table: table.key, market, total: 0, vigentes: 0, withState: 0, withPoint: 0 };
+                entry.total += 1;
+                if (row.estatus === 'Vigente') {
+                    entry.vigentes += 1;
+                    if (stateOf(row) !== NO_STATE) entry.withState += 1;
+                    if (validPoint(row.latitud, row.longitud)) entry.withPoint += 1;
+                }
+                byMarket.set(market, entry);
             }
-            byMarket.set(market, entry);
         }
         for (const [market, entry] of byMarket) result[market].push(entry);
     }
@@ -190,7 +210,7 @@ export function filterRows(rows, { estatus = 'Vigente', efId = '', market = '', 
     return rows.filter(row => {
         if (estatus && row.estatus !== estatus) return false;
         if (efId && stateOf(row) !== efId) return false;
-        if (market && marketOf(row) !== market) return false;
+        if (market && !inMarket(row, market)) return false;
         for (const [key, value] of Object.entries(facets)) if (value && facetValue(row[key]) !== value) return false;
         if (!term) return true;
         const own = row.numeroPermisoNorm ? String(row.numeroPermisoNorm).toUpperCase() : normalizePermitNumber(row.numeroPermiso);

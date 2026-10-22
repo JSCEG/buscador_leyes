@@ -10,7 +10,7 @@
 import {
     CNE_TABLES, CNE_TABLE, CNE_MARKETS, CNE_MARKET, COMMON_FACETS, NO_STATE, STATE_NAME, featureStateId, facetOptions, stateOptions,
     filterRows, capacityTotals, validPoint, mexicoCityTime, calendarDate, choroplethClass, marketOf, activityKey, parseActivity,
-    activitiesByMarket, stateCounts,
+    activitiesByMarket, stateCounts, inMarket, marketText, marketsOf,
 } from '../lib/cne-tables.js';
 import { permitsHash } from '../lib/cne-api.js';
 
@@ -138,7 +138,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     }
     const activityRows = key => {
         const { table, market } = parseActivity(key);
-        return (data[table].rows || []).filter(row => marketOf(row) === market);
+        return (data[table].rows || []).filter(row => inMarket(row, market));
     };
 
     // The panel needs every table to know which market has which activities: they load in the
@@ -391,7 +391,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                     <tbody>${result.slice(0, f.shown).map((r, i) => `<tr>
                         <td><button type="button" class="pmm-cne-link" data-cne-row="${i}">${esc(r.numeroPermiso)}</button></td>
                         <td>${esc(r.razonSocial)}</td>
-                        <td>${esc(r.mercado) || '<span class="pmm-cne-na">Sin especificar</span>'}</td>
+                        <td>${esc(marketText(r)) || '<span class="pmm-cne-na">Sin especificar</span>'}</td>
                         <td>${esc(r.tipoPermiso)}</td>
                         <td>${esc(r[t.column.key] ?? '') || '<span class="pmm-cne-na">Sin especificar</span>'}</td>
                         <td>${esc(r.efId ? STATE_NAME[String(r.efId).trim().padStart(2, '0')] || r.entidad : '') || '<span class="pmm-cne-na">Sin entidad</span>'}</td>
@@ -433,7 +433,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 <p class="pmm-pop-num">${esc(r.numeroPermiso)}</p>
                 <dl>
                     ${detailItem('Estatus', r.estatus)}${detailItem('Estatus CNE', r.estatusCne)}${detailItem('Estatus de la instalación', r.estatusInstalacion)}
-                    ${detailItem('Mercado', r.mercado)}${detailItem('Tipo de permiso', r.tipoPermiso)}${detailItem('Código de actividad', r.codigoActividad)}
+                    ${detailItem(marketsOf(r).length > 1 ? 'Mercados' : 'Mercado', marketText(r))}${detailItem('Tipo de permiso', r.tipoPermiso)}${detailItem('Código de actividad', r.codigoActividad)}
                     ${own}
                     ${detailItem('RFC', r.rfc)}${detailItem('Expediente', r.expediente)}
                     ${detailItem('Otorgamiento', calendarDate(r.fechaOtorgamiento))}${detailItem('Inicio de vigencia', calendarDate(r.inicioVigencia))}${detailItem('Término de vigencia', calendarDate(r.terminoVigencia))}
@@ -480,8 +480,8 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         const t = CNE_TABLE[key];
         const result = $('[data-cne-body]')._result || [];
         const own = t.details.map(d => d.key).filter((k, i, all) => all.indexOf(k) === i);
-        const head = ['NumeroPermiso', 'RazonSocial', 'RFC', 'Mercado', 'TipoPermiso', 'Estatus', 'EstatusCNE', 'Estado', 'Municipio', 'FechaOtorgamiento', 'TerminoVigencia', ...own, ...(t.capacity ? ['UnidadCapacidad'] : []), 'LigaPermiso', 'LigaResolucion'];
-        const rows = result.map(r => [r.numeroPermiso, r.razonSocial, r.rfc, r.mercado, r.tipoPermiso, r.estatus, r.estatusCne, r.efId ? STATE_NAME[String(r.efId).trim().padStart(2, '0')] || r.entidad : '', r.municipio, r.fechaOtorgamiento, r.terminoVigencia, ...own.map(k => r[k]), ...(t.capacity ? [r.unidadCapacidad] : []), r.ligaPermiso, r.ligaResolucion]);
+        const head = ['NumeroPermiso', 'RazonSocial', 'RFC', 'Mercado', 'MercadosAutorizados', 'TipoPermiso', 'Estatus', 'EstatusCNE', 'Estado', 'Municipio', 'FechaOtorgamiento', 'TerminoVigencia', ...own, ...(t.capacity ? ['UnidadCapacidad'] : []), 'LigaPermiso', 'LigaResolucion'];
+        const rows = result.map(r => [r.numeroPermiso, r.razonSocial, r.rfc, r.mercado, r.mercadosAutorizados, r.tipoPermiso, r.estatus, r.estatusCne, r.efId ? STATE_NAME[String(r.efId).trim().padStart(2, '0')] || r.entidad : '', r.municipio, r.fechaOtorgamiento, r.terminoVigencia, ...own.map(k => r[k]), ...(t.capacity ? [r.unidadCapacidad] : []), r.ligaPermiso, r.ligaResolucion]);
         const q = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
         const a = document.createElement('a');
         a.href = URL.createObjectURL(new Blob([`﻿${[head, ...rows].map(r => r.map(q).join(',')).join('\n')}`], { type: 'text/csv;charset=utf-8' }));

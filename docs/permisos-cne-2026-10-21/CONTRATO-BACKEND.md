@@ -155,3 +155,11 @@ petroquímicos y otros hidrocarburos») usando `mercado` de `/Tablas/Lista`. El 
 en el navegador a partir de esa lista (vigentes con `efId` o coordenadas), por lo que `/Tablas/Estados` y
 `/Tablas/Puntos` quedan disponibles pero el front ya no los necesita. Las capas aparecen solas cuando la extracción
 llene `EF_ID`, `MPO_ID` y coordenadas.
+
+## Pendiente del back (21 oct 2026): `mercadosAutorizados`
+
+`Mercados_autorizados` ya existe en las 5 tablas (texto separado por `;`, p. ej. `Gas natural;Petróleo crudo`;
+NULL cuando el permiso tiene un solo mercado). Falta agregarla al `SELECT` de `/Tablas/Lista` como
+`t.Mercados_autorizados` → JSON `mercadosAutorizados`. El front ya la lee: un permiso cuenta en cada mercado listado,
+y `Mercado = 'Varios'` solo en los listados. Mientras no llegue, «Varios» se muestra en «Petróleo crudo,
+petroquímicos y otros hidrocarburos».
