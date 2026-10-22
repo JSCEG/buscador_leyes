@@ -13,6 +13,7 @@ import {
     activitiesByMarket, stateCounts, inMarket, marketText, marketsOf,
 } from '../lib/cne-tables.js';
 import { permitsHash } from '../lib/cne-api.js';
+import { withMapBusy } from '../lib/map-busy.js';
 
 const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
 // The map draws on canvas, which does not read CSS variables: point colours are literal (see permits-map.css).
@@ -493,8 +494,8 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     // ---------- events ----------
     const onChange = e => {
         const t = e.target;
-        if (t.matches('[data-cne-states]')) showStates(t.dataset.cneStates, t.checked);
-        else if (t.matches('[data-cne-points]')) showPoints(t.dataset.cnePoints, t.checked);
+        if (t.matches('[data-cne-states]')) withMapBusy(map, t, t.checked ? 'Coloreando los estados…' : 'Actualizando el mapa…', () => showStates(t.dataset.cneStates, t.checked));
+        else if (t.matches('[data-cne-points]')) withMapBusy(map, t, t.checked ? 'Cargando ubicaciones…' : 'Actualizando el mapa…', () => showPoints(t.dataset.cnePoints, t.checked));
         else if (t.matches('[data-cne-filter]') && openKey) {
             const f = filters[openKey];
             const name = t.dataset.cneFilter;

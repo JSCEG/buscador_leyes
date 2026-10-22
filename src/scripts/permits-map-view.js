@@ -14,6 +14,7 @@ import { permitsHash, permitKind } from '../lib/cne-api.js';
 import { infraType, infraIcon } from '../lib/infra-icons.js';
 import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
 import '../styles/permits-map.css';
+import { withMapBusy } from '../lib/map-busy.js';
 
 const API = '/api/mapa';
 const MEXICO = [[14.3, -118.4], [32.8, -86.6]];
@@ -160,6 +161,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                     <button type="button" class="pm-btn" data-toggle-panel aria-expanded="true">Capas</button>
                     <button type="button" class="pm-btn" data-mexico>Todo México</button>
                     <button type="button" class="pm-btn" data-fullscreen>Pantalla completa</button>
+                    <button type="button" class="pm-btn pmm-desk" data-desk aria-label="Mi mesa de consulta">Mi mesa <span class="pmm-desk-count" data-desk-count>0</span></button>
                 </div>
                 <div class="pmm-suggest" data-suggest hidden></div>
             </div>
@@ -828,11 +830,18 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     cne.refresh();
     container.addEventListener('change', e => {
         const t = e.target;
-        if (t.matches('[data-market]')) { toggle(t.dataset.market, t.checked).then(renderChips); renderChips(); }
+        if (t.matches('[data-market]')) {
+            const label = MARKET[t.dataset.market].label.toLowerCase();
+            withMapBusy(map, t, t.checked ? `Cargando ${label}…` : 'Actualizando el mapa…', () => toggle(t.dataset.market, t.checked)).then(renderChips);
+            renderChips();
+        }
         else if (t.matches('[data-state]')) setStateFilter(t.value);
-        else if (t.matches('[data-network]')) toggleNetwork(t.dataset.network, t.checked);
+        else if (t.matches('[data-network]')) {
+            const n = NETWORKS.find(x => x.key === t.dataset.network);
+            withMapBusy(map, t, t.checked ? `Cargando ${n.label.toLowerCase()}…` : 'Actualizando el mapa…', () => toggleNetwork(t.dataset.network, t.checked));
+        }
         else if (t.matches('[data-hurricanes]')) {
-            if (t.checked) loadHurricanes();
+            if (t.checked) withMapBusy(map, t, 'Cargando huracanes activos…', loadHurricanes);
             else { if (stormLayer) map.removeLayer(stormLayer); state.cones = []; countInCones(); }
         } else if (t.matches('input[name="pmm-base"]')) setBase(t.value);
     });
@@ -877,7 +886,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             const on = !state.layers[key].on;
             const box = container.querySelector(`[data-market="${key}"]`);
             if (box) box.checked = on;
-            toggle(key, on).then(renderChips);
+            withMapBusy(map, box, on ? `Cargando ${MARKET[key].label.toLowerCase()}…` : 'Actualizando el mapa…', () => toggle(key, on)).then(renderChips);
             renderChips();
             return;
         }
@@ -889,6 +898,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             t.closest('[data-toggle-panel]').setAttribute('aria-expanded', String(!panel.hidden));
             return;
         }
+        if (t.closest('[data-desk]')) { document.getElementById('desk-toggle')?.click(); return; }
         if (t.closest('[data-fullscreen]')) {
             const root = container.querySelector('.pmm');
             if (document.fullscreenElement) document.exitFullscreen(); else root.requestFullscreen?.();
@@ -897,6 +907,16 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         if (!t.closest('.pmm-search') && !t.closest('[data-suggest]')) $('[data-suggest]').hidden = true;
     });
     renderChips();
+    // «Mi mesa» lives in the toolbar here: the floating button would sit on the map's own controls.
+    const deskToggle = document.getElementById('desk-toggle');
+    const syncDesk = () => {
+        const count = deskToggle?.querySelector('.desk-badge')?.textContent || '0';
+        $('[data-desk-count]').textContent = count;
+        $('[data-desk]').setAttribute('aria-label', `Mi mesa de consulta, ${count} ${count === '1' ? 'elemento fijado' : 'elementos fijados'}`);
+    };
+    const deskObserver = new MutationObserver(syncDesk);
+    if (deskToggle) deskObserver.observe(deskToggle, { childList: true, subtree: true, characterData: true });
+    syncDesk();
     if (isMobile()) {
         $('[data-panel]').hidden = true;
         window.scrollTo({ top: 0 });
@@ -916,6 +936,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             state.timers.forEach(clearInterval);
             clearTimeout(suggestTimer);
             resizeObserver.disconnect();
+            deskObserver.disconnect();
             document.body.classList.remove('pmm-open');
             map.remove();
             container.replaceChildren();
