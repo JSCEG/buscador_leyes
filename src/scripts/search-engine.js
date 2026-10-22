@@ -37,12 +37,11 @@ export async function getLeyRelaciones() {
 export async function initSearch() {
     try {
         console.log('[Search] Conectando a Supabase...');
-        const [{ data: leyesData, error }, relaciones] = await Promise.all([
-            supabase
-                .from('leyes')
-                .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)'),
-            getLeyRelaciones()
-        ]);
+        // ley_relaciones does not exist in this project: asking for it on every visit only produced a 404.
+        const relaciones = [];
+        const { data: leyesData, error } = await supabase
+            .from('leyes')
+            .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)');
 
         if (error) throw error;
 
