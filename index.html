@@ -104,15 +104,20 @@
                 <a href="#acervo" id="nav-leyes" class="hover:text-guinda transition-colors font-medium">Acervo</a>
                 <a href="#cronologia" id="nav-cronologia" class="hover:text-guinda transition-colors font-medium">Cronología</a>
                 <a href="#permisos" id="nav-permisos" class="hover:text-guinda transition-colors font-medium">Permisos</a>
-                <a href="#reto" id="nav-reto" class="hover:text-guinda transition-colors font-medium">Reto</a>
                 <a href="#como-funciona" id="nav-como-funciona" class="hover:text-guinda transition-colors font-medium">¿Cómo funciona?</a>
                 <a href="#buscar" id="nav-inicio" class="hover:text-guinda transition-colors font-medium">Buscar</a>
-                <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors font-medium">Análisis</a>
-                <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
-                <a href="#" id="nav-ayuda" class="hover:text-guinda transition-colors">Ayuda</a>
-                <button id="keyboard-help-btn"
-                    class="p-1.5 text-gray-300 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5 font-mono text-xs"
-                    title="Atajos de teclado (?)" aria-label="Mostrar atajos de teclado">?</button>
+                <div class="nav-more" id="nav-more">
+                    <button type="button" id="nav-more-btn" class="nav-more-btn" aria-expanded="false" aria-controls="nav-more-menu">Más
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-more-menu hidden" id="nav-more-menu">
+                        <a href="#reto" id="nav-reto" class="hover:text-guinda transition-colors font-medium">Reto del día</a>
+                        <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors font-medium">Análisis</a>
+                        <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
+                        <a href="#" id="nav-ayuda" class="hover:text-guinda transition-colors">Ayuda</a>
+                        <button type="button" id="keyboard-help-btn" class="nav-more-item" aria-label="Mostrar atajos de teclado">Atajos de teclado <kbd>?</kbd></button>
+                    </div>
+                </div>
                 <!-- Dark mode toggle -->
                 <button id="darkmode-toggle"
                     class="p-1.5 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5"
@@ -207,6 +212,14 @@
                 </svg>
                 Guardados <span
                     class="fav-count text-[9px] font-bold bg-guinda text-white rounded-full px-1.5 py-0.5 ml-1">0</span>
+            </button>
+            <button type="button" id="mobile-nav-desk"
+                class="w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="4" width="7.5" height="16" rx="1.5" stroke-width="2"></rect>
+                    <rect x="13.5" y="4" width="7.5" height="16" rx="1.5" stroke-width="2"></rect>
+                </svg>
+                Mi mesa de consulta
             </button>
             <button id="mobile-nav-login-btn"
                 class="w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">

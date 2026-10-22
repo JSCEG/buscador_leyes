@@ -309,7 +309,7 @@ html.dark-mode .ac-library .ac-hero .ac-search-box input{background:transparent!
 @media (min-width:1101px){
     .ac-library .ac-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,40%);column-gap:28px;align-items:start}
     .ac-library .ac-hero>:not(.ac-hero-art){grid-column:1}
-    .ac-library .ac-hero>:is(.ac-facts,.ac-topics){grid-column:1/-1}
+    .ac-library .ac-hero>:is(.ac-facts,.ac-quick,.ac-topics,.ac-promos){grid-column:1/-1}
     .ac-library .ac-hero-art{grid-column:2;grid-row:1/span 2;align-self:center;margin:-16px -16px 0 0}
 }
 @media (max-width:1100px){
@@ -392,3 +392,18 @@ html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map
 @keyframes ac-cf-rays{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
 @keyframes ac-cf-pulse{to{stroke-dashoffset:-18}}
 @media (prefers-reduced-motion:reduce){.ac-cf-rays,.ac-cf-pulse{animation:none}}
+
+/* Hero: other sections in one row under the figures, and the two feature cards side by side. */
+.ac-library .ac-quick{display:flex;flex-wrap:wrap;gap:6px 22px;margin:-4px 0 16px}
+.ac-library .ac-hero .ac-quick .ac-stats-link{font-size:14px;font-weight:600;color:#fff}
+.ac-library .ac-hero .ac-quick .ac-stats-link::after{content:none}
+.ac-library .ac-promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.ac-library .ac-promos .ac-map-promo{margin-top:0}
+@media(max-width:1100px){.ac-library .ac-promos{grid-template-columns:1fr}}
+/* Collections: a last tile alone in its row takes the whole row instead of leaving a gap. */
+.ac-library .ac-tiles>li:last-child:nth-child(3n+1){grid-column:1/-1}
+@media (max-width:1100px){
+    .ac-library .ac-tiles>li:last-child:nth-child(3n+1){grid-column:auto}
+    .ac-library .ac-tiles>li:last-child:nth-child(2n+1){grid-column:1/-1}
+}
+@media (max-width:640px){.ac-library .ac-tiles>li:last-child:nth-child(2n+1){grid-column:auto}}

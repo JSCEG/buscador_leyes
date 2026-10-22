@@ -68,6 +68,8 @@ html.dark-mode header nav a[aria-current=page]{background:#eeb0c21f;color:#eeb0c
     #bottom-nav button:focus-visible{outline:3px solid #f6d9a8;outline-offset:-3px}
     body.has-bottom-nav{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
     body.has-bottom-nav .desk-toggle{bottom:calc(80px + env(safe-area-inset-bottom))}
+    /* An empty desk has nothing to show: no floating button over the page (the menu still opens it). */
+    body.has-bottom-nav .desk-toggle.is-empty{display:none}
     body.has-bottom-nav #toc-toggle-btn{bottom:calc(80px + env(safe-area-inset-bottom))!important}
     body.has-bottom-nav #app-toast{bottom:calc(88px + env(safe-area-inset-bottom))!important}
     html.dark-mode #bottom-nav{background:#1e1c1aeb;border-color:#3d3833}

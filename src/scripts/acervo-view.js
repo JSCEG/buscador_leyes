@@ -75,22 +75,20 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const newest = selectAcervo(laws, { sort: 'date-newest' }).find(law => publicationDate(law.fecha_publicacion));
     facts.append(total, element('p', 'ac-fact', `${number(totalFragments)} artículos y disposiciones`));
     if (newest) facts.append(element('p', 'ac-fact', `Última publicación: ${publicationDate(newest.fecha_publicacion)}`));
-    if (typeof onOpenStats === 'function') {
-        const more = element('button', 'ac-stats-link', 'Ver estadísticas'); more.type = 'button';
-        more.addEventListener('click', () => onOpenStats());
-        facts.append(more);
-    }
+    // Other sections, in one quiet row; the map and «¿Cómo funciona?» have their own cards below.
+    const quick = element('nav', 'ac-quick');
+    quick.setAttribute('aria-label', 'Otras secciones');
     const timeline = element('a', 'ac-stats-link', 'Línea del tiempo'); timeline.href = '#cronologia';
-    facts.append(timeline);
     const reto = element('a', 'ac-stats-link ac-reto-link', 'Reto del día'); reto.href = '#reto';
-    facts.append(reto);
-    const mapLink = element('a', 'ac-stats-link', 'Mapa de permisos'); mapLink.href = '#mapa-permisos';
-    facts.append(mapLink);
+    quick.append(timeline, reto);
+    if (typeof onOpenStats === 'function') {
+        const more = element('button', 'ac-stats-link', 'Estadísticas'); more.type = 'button';
+        more.addEventListener('click', () => onOpenStats());
+        quick.append(more);
+    }
 
     // "¿Cómo funciona?": the card opens the list of every topic (electricity and hydrocarbons). The icon is a
     // light bulb with a bolt (electricity) and a drop (hydrocarbons); its rays pulse.
-    const howLink = element('a', 'ac-stats-link', '¿Cómo funciona?'); howLink.href = '#como-funciona';
-    facts.append(howLink);
     const howPromo = element('a', 'ac-map-promo ac-cf-promo');
     howPromo.href = '#como-funciona';
     howPromo.setAttribute('aria-label', 'Aprende: abrir todos los temas de electricidad e hidrocarburos, con ilustraciones animadas');
@@ -163,7 +161,9 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const overview = renderOverview();
     const body = element('div', 'ac-collections');
     const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = heroArt();
-    hero.append(header, tools, facts, topics, howPromo, mapPromo, art);
+    const promos = element('div', 'ac-promos');
+    promos.append(howPromo, mapPromo);
+    hero.append(header, tools, facts, quick, topics, promos, art);
     root.append(hero, filters, status, overview, body);
     container.replaceChildren(root);
     let destroyed = false;

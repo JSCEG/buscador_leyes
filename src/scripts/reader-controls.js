@@ -3,7 +3,7 @@ import '../styles/reader.css';
 
 export function readerControlsHtml() {
     return `<details class="reader-settings">
-        <summary><span aria-hidden="true">Aa</span> Ajustes de lectura</summary>
+        <summary><span aria-hidden="true">Aa</span> <span class="reader-settings-label">Ajustes de lectura</span></summary>
         <div class="reader-settings-panel">
             <div class="reader-size" role="group" aria-label="Tamaño del texto">
                 <button type="button" data-reader-size="-2" aria-label="Reducir tamaño de letra">A−</button>

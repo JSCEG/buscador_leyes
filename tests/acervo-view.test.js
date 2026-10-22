@@ -140,7 +140,7 @@ describe('Acervo library view', () => {
         expect(container.querySelector('.ac-facts').textContent).toContain('446 artículos');
         container.querySelector('[data-latest-id="conv"]').click();
         expect(onOpenLaw.mock.calls[0][0].id).toBe('conv');
-        container.querySelector('.ac-stats-link').click();
+        container.querySelector('button.ac-stats-link').click();
         expect(onOpenStats).toHaveBeenCalled();
         container.querySelector('[data-tile-group="reglamentos"]').click();
         expect(view.captureState().group).toBe('reglamentos');

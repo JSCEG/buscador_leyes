@@ -239,11 +239,15 @@ html.dark-mode .auth-pass-hint{color:#b3a89e}
 html.dark-mode .lr-guides-note{color:#b3a89e}
 html.dark-mode .lr-guide{border-color:#3a3034;background:linear-gradient(120deg,#2a2124,#211b1d);color:#f3ece4}
 html.dark-mode .lr-guide b{color:#eeb0c2}
-.lr-guide-strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0 0 12px}
-.lr-guide-strip-label{font:700 10.5px/1.2 'Noto Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9b2247}
+.lr-guide-strip{margin:0 0 16px;font-size:14px}
+.lr-guide-strip summary{display:inline-flex;align-items:center;gap:6px;min-height:36px;cursor:pointer;color:#7d1b39;font-weight:600;list-style:none}
+.lr-guide-strip summary::-webkit-details-marker{display:none}
+.lr-guide-strip summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.lr-guide-strip[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.lr-guide-list{display:flex;flex-wrap:wrap;gap:6px 8px;padding:6px 0 4px}
+html.dark-mode .lr-guide-strip summary{color:#eeb0c2}
 .lr-guide-chip{padding:5px 11px;border:1px solid #ead9dd;border-radius:999px;background:#fbf3f5;color:#7d1b39;font-size:12.5px;font-weight:600;line-height:1.25;text-decoration:none;transition:background .15s,border-color .15s}
 .lr-guide-chip:hover{border-color:#9b2247;background:#f6e5ea}
-html.dark-mode .lr-guide-strip-label{color:#eeb0c2}
 html.dark-mode .lr-guide-chip{border-color:#4a3a3f;background:#2a2124;color:#f3d3dc}
 html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
 
@@ -257,8 +261,6 @@ html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
 .lr-header .lr-actions .lr-btn-quiz{background:#f6d9a8!important;border-color:#f6d9a8!important;color:#5a3d06!important;font-weight:700}
 .lr-header .lr-actions .lr-btn-quiz:hover{background:#f1cc8d!important;border-color:#f1cc8d!important}
 
-/* Laptops (1024–1279 px): the full menu needs the room, so the header keeps only the B mark. */
-@media (min-width:1024px) and (max-width:1279px){header .brand-lockup .brand-text{display:none!important}}
 
 /* "¿Cómo funciona?" stays on one line in the desktop menu. */
 #nav-como-funciona{white-space:nowrap}
@@ -294,3 +296,26 @@ html.dark-mode .auth-admin-tools{background:#2a2225;border-color:#4a3c2a}
 html.dark-mode .auth-admin-title{color:#e2b85a}
 html.dark-mode .auth-admin-link{color:#f3ece4}
 html.dark-mode .auth-admin-link:hover,html.dark-mode .auth-admin-link:focus-visible{background:#211b1d;color:#eeb0c2}
+
+/* Header «Más» menu: Reto, Análisis, Estadísticas, Ayuda and keyboard shortcuts. */
+.nav-more{position:relative;display:inline-flex}
+html body > header nav .nav-more-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 10px;border-radius:999px;font-weight:600;letter-spacing:.05em;color:inherit;background:transparent;border:0;cursor:pointer;line-height:1.2}
+.nav-more-btn:hover,.nav-more-btn[aria-expanded=true]{background:#9b22470a;color:#9b2247}
+.nav-more-btn.is-active{background:#9b224714;color:#9b2247}
+.nav-more-btn[aria-expanded=true] svg{transform:rotate(180deg)}
+.nav-more-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:220px;padding:6px;background:#fff;border:1px solid #ece6e8;border-radius:14px;box-shadow:0 18px 40px -18px rgba(43,35,38,.35);z-index:60;display:flex;flex-direction:column}
+.nav-more-menu.hidden{display:none}
+html body header nav .nav-more-menu a,.nav-more-menu .nav-more-item{display:flex!important;justify-content:space-between;align-items:center;width:100%;padding:10px 12px!important;border-radius:9px;letter-spacing:.03em!important;white-space:nowrap;text-align:left;background:transparent;border:0;font:inherit;font-weight:600;color:#5b5257;cursor:pointer}
+.nav-more-menu a:hover,.nav-more-menu .nav-more-item:hover{background:#9b22470a;color:#9b2247}
+.nav-more-menu kbd{font:600 11px/1 ui-monospace,monospace;padding:3px 6px;border:1px solid #ddd5d8;border-radius:5px;color:#7a7075}
+html.dark-mode .nav-more-menu{background:#241d20;border-color:#3a2f33}
+html.dark-mode .nav-more-menu a,html.dark-mode .nav-more-menu .nav-more-item{color:#d8cdd1}
+html.dark-mode .nav-more-btn.is-active,html.dark-mode .nav-more-btn[aria-expanded=true]{color:#eeb0c2;background:#eeb0c21f}
+
+/* Law reader: search and reading settings in one row above the text. */
+.lr-tools-row{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.lr-tools-row .lr-search{flex:1 1 auto;min-width:0;margin:0!important}
+.lr-tools-row .reader-law-toolbar{flex:none;max-width:none;margin:0;padding:0 4px;border-radius:10px}
+/* Phones: the button keeps only «Aa»; its name stays for screen readers. */
+@media (max-width:520px){.lr-tools-row .reader-settings-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+html.dark-mode .lr-tools-row .reader-law-toolbar{background:var(--lr-card,#2a2326)!important;border-color:var(--lr-border,#3a3034)!important}

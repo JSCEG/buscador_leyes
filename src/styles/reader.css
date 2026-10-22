@@ -11,7 +11,7 @@
 .reader-toolbar :focus-visible,#reader-body :focus-visible { outline:3px solid #a57f2c; outline-offset:2px; }
 .reader-settings summary { display:flex; align-items:center; gap:8px; list-style:none; white-space:nowrap; }
 .reader-settings summary::-webkit-details-marker { display:none; }
-.reader-settings summary span { font:700 22px/1 Georgia,serif; color:#9b2247; }
+.reader-settings summary span[aria-hidden] { font:700 22px/1 Georgia,serif; color:#9b2247; }
 .reader-settings-panel { position:absolute; top:calc(100% - 1px); right:16px; width:300px; max-width:calc(100vw - 32px); max-height:55dvh; overflow:auto; padding:20px; background:#fff; border:1px solid #ded8d1; box-shadow:0 12px 30px #24190d26; border-radius:8px; display:grid; gap:14px; z-index:5; }
 .reader-settings-panel label { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:12px; }
 .reader-settings-panel select { font:inherit; padding:8px; min-height:44px; width:100%; border:1px solid #d2cbc4; border-radius:6px; background:#fff; color:#38332f; }
@@ -70,7 +70,7 @@ html[data-reader-surface="light"] #modal-content .reader-text *,html[data-reader
 html[data-reader-surface="sepia"] #modal-content,html[data-reader-surface="sepia"] #law-articles-list .result-item { background:#f8efd9 !important; }
 html[data-reader-surface="sepia"] #modal-content .reader-text *,html[data-reader-surface="sepia"] #law-articles-list .reader-preview { color:#4c3926 !important; }
 html.dark-mode .reader-toolbar,html.dark-mode .reader-settings-panel { background:#222e29; border-color:#415249; color:#eae8e3; }
-html.dark-mode .reader-settings-panel p,html.dark-mode .reader-settings summary span { color:#d6b46a; }
+html.dark-mode .reader-settings-panel p,html.dark-mode .reader-settings summary span[aria-hidden] { color:#d6b46a; }
 html.dark-mode .reader-settings-panel select { background:#19231e; color:#eae8e3; border-color:#415249; }
 html.dark-mode[data-reader-surface="system"] #modal-content .reader-text *,html[data-reader-surface="dark"] #modal-content .reader-text *,html[data-reader-surface="dark"] #law-articles-list .reader-preview { color:#eae8e3 !important; }
 html[data-reader-surface="dark"] #modal-content,html[data-reader-surface="dark"] #law-articles-list .result-item { background:#222e29 !important; }

@@ -872,7 +872,28 @@ export function initUI() {
         document.querySelectorAll('#bottom-nav [data-nav]').forEach(button => {
             if (button.dataset.nav === activeId) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
         });
+        document.getElementById('nav-more-btn')?.classList.toggle('is-active', MORE_NAV_IDS.includes(activeId));
     }
+
+    // Desktop: the less used sections live in the header's «Más» menu.
+    const MORE_NAV_IDS = ['nav-reto', 'nav-analisis', 'nav-stats', 'nav-ayuda'];
+    (() => {
+        const button = document.getElementById('nav-more-btn');
+        const menu = document.getElementById('nav-more-menu');
+        if (!button || !menu) return;
+        const setOpen = open => {
+            menu.classList.toggle('hidden', !open);
+            button.setAttribute('aria-expanded', String(open));
+        };
+        button.addEventListener('click', event => { event.stopPropagation(); setOpen(menu.classList.contains('hidden')); });
+        menu.addEventListener('click', event => { if (event.target.closest('a, button')) setOpen(false); });
+        document.addEventListener('click', event => { if (!event.target.closest('#nav-more')) setOpen(false); });
+        document.addEventListener('keydown', event => {
+            if (event.key !== 'Escape' || menu.classList.contains('hidden')) return;
+            setOpen(false);
+            button.focus();
+        });
+    })();
 
     // Phones: a fixed bar with the main destinations; "Más" opens the full menu.
     (() => {
@@ -897,6 +918,12 @@ export function initUI() {
             else document.getElementById(button.dataset.nav)?.click();
         });
     })();
+
+    // Phones hide the floating «Mi mesa» button while the desk is empty; the menu always reaches it.
+    document.getElementById('mobile-nav-desk')?.addEventListener('click', () => {
+        document.getElementById('close-mobile-menu')?.click();
+        document.getElementById('desk-toggle')?.click();
+    });
 
     // On results the search box moves into the results band; everywhere else it sits on the page.
     const searchWrapper = document.getElementById('global-search-wrapper');
@@ -1249,18 +1276,20 @@ export function initUI() {
                         <nav id="law-outline"></nav>
                     </aside>
                     <div class="lr-body">
-                        <div class="lr-search">
-                            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
-                            <input type="text" id="law-search-input" autocomplete="off" placeholder="Buscar dentro de ${escapeHtml(law.siglas || 'este instrumento')}…" aria-label="Buscar dentro de ${escapeHtml(law.titulo)}">
+                        <!-- Search and reading settings share one row, so the text starts right below. -->
+                        <div class="lr-tools-row">
+                            <div class="lr-search">
+                                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+                                <input type="text" id="law-search-input" autocomplete="off" placeholder="Buscar dentro de ${escapeHtml(law.siglas || 'este instrumento')}…" aria-label="Buscar dentro de ${escapeHtml(law.titulo)}">
+                            </div>
+                            <div class="reader-toolbar reader-law-toolbar">${readerControlsHtml()}</div>
                         </div>
-                        ${lawGuides.length ? `<nav class="lr-guide-strip" aria-label="Guías de trámite que usan este instrumento">
-                            <span class="lr-guide-strip-label">Guías de trámite</span>
-                            ${lawGuides.map(guide => `<a class="lr-guide-chip" href="#tramite=${encodeURIComponent(guide.id)}">${escapeHtml(guide.title)}</a>`).join('')}
-                        </nav>` : ''}
-                        <div class="reader-toolbar reader-law-toolbar">
-                            <span>Lectura del instrumento</span>
-                            ${readerControlsHtml()}
-                        </div>
+                        ${lawGuides.length ? `<details class="lr-guide-strip">
+                            <summary>${lawGuides.length === 1 ? '1 guía de trámite usa' : `${lawGuides.length} guías de trámite usan`} este instrumento</summary>
+                            <nav class="lr-guide-list" aria-label="Guías de trámite que usan este instrumento">
+                                ${lawGuides.map(guide => `<a class="lr-guide-chip" href="#tramite=${encodeURIComponent(guide.id)}">${escapeHtml(guide.title)}</a>`).join('')}
+                            </nav>
+                        </details>` : ''}
                         <div id="law-articles-list" class="lr-articles"></div>
                         <div id="load-more-container" class="mt-8 mb-12 flex justify-center"></div>
                     </div>
