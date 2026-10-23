@@ -270,3 +270,9 @@ html.dark-mode .pn-columns li>a:hover .pn-col{background:#f09ab5}
 
 /* Map tab placeholder while Leaflet loads */
 .pm-loading{margin:24px 0;padding:18px;border:1px dashed var(--pm-border);border-radius:16px;color:var(--pm-muted);text-align:center}
+
+/* Tabs grouped by authority: a small label before the CNE tabs and before the SENER one. */
+.pm-tab-group{align-self:center;margin:0 2px 0 4px;font:700 10.5px/1 'Noto Sans',sans-serif;letter-spacing:.1em;color:#f6d9a8}
+.pm-tab-group:first-child{margin-left:0}
+.pm-tab-group:not(:first-child){margin-left:14px;padding-left:14px;border-left:1px solid rgba(255,255,255,.28)}
+@media (max-width:640px){.pm-tab-group{flex-basis:100%;margin:4px 0 0!important;padding:0!important;border:0!important}}

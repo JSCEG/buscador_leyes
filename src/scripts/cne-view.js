@@ -1,6 +1,6 @@
 /**
- * CNE section: permits (#permisos), resolutions (#resoluciones) and panorama (#panorama-cne) of the
- * Comisión Nacional de Energía, as tabs under one header. Each tab is its own module; switching
+ * Permits section: the Comisión Nacional de Energía (permits, resolutions, panorama, trámites and map) and the
+ * Secretaría de Energía (its titles and permits), as tabs under one header, grouped by authority. Each tab is its own module; switching
  * back and forth inside the section keeps the open tab instead of rebuilding it.
  */
 import { renderPermitsView } from './permits-view.js';
@@ -21,12 +21,12 @@ function markSeen(tab) {
 }
 
 const TABS = [
-    { id: 'permisos', label: 'Permisos', intro: 'Consulta un permiso, su estado, las resoluciones que lo otorgan o modifican y sus anexos, junto con la normativa del acervo que lo regula.' },
-    { id: 'resoluciones', label: 'Resoluciones', intro: 'Busca entre las resoluciones de la CNE por número, texto, año, tipo o modalidad, y abre el fundamento legal de cada una en el acervo.' },
-    { id: 'panorama', label: 'Panorama', intro: 'Lo que la CNE ha resuelto: cifras por año, por tipo y por modalidad, y lo más reciente.' },
-    { id: 'tramites', label: 'Trámites', intro: 'Guías por tipo de permiso: la normativa que lo regula, sus formatos y convocatorias, los artículos clave y las resoluciones recientes de la CNE.' },
-    { id: 'mapa', label: 'Mapa', intro: 'Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, las ligas a su permiso y resoluciones, y los ciclones activos.' },
-    { id: 'sener', label: 'SENER', eyebrow: 'Publicaciones · Secretaría de Energía', title: 'SENER: títulos y permisos', intro: 'Títulos y permisos de la Secretaría de Energía: asignaciones, pozos, contratos de exploración y extracción, comercio exterior y biocombustibles, con su fuente oficial.' },
+    { id: 'permisos', group: 'CNE', label: 'Permisos', intro: 'Consulta un permiso, su estado, las resoluciones que lo otorgan o modifican y sus anexos, junto con la normativa del acervo que lo regula.' },
+    { id: 'resoluciones', group: 'CNE', label: 'Resoluciones', intro: 'Busca entre las resoluciones de la CNE por número, texto, año, tipo o modalidad, y abre el fundamento legal de cada una en el acervo.' },
+    { id: 'panorama', group: 'CNE', label: 'Panorama', intro: 'Lo que la CNE ha resuelto: cifras por año, por tipo y por modalidad, y lo más reciente.' },
+    { id: 'tramites', group: 'CNE', label: 'Trámites', intro: 'Guías por tipo de permiso: la normativa que lo regula, sus formatos y convocatorias, los artículos clave y las resoluciones recientes de la CNE.' },
+    { id: 'mapa', group: 'CNE', label: 'Mapa', intro: 'Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, las ligas a su permiso y resoluciones, y los ciclones activos.' },
+    { id: 'sener', group: 'SENER', label: 'Títulos y permisos', intro: 'Títulos y permisos de la Secretaría de Energía: asignaciones, pozos, contratos de exploración y extracción, comercio exterior y biocombustibles, con su fuente oficial.' },
 ];
 
 /**
@@ -43,11 +43,11 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
     root.setAttribute('aria-labelledby', 'pm-title');
     root.innerHTML = `
         <div class="pm-head">
-            <p class="pm-eyebrow">Registro público · Comisión Nacional de Energía</p>
-            <h1 id="pm-title">CNE: permisos y resoluciones</h1>
+            <p class="pm-eyebrow">Registro público · CNE y SENER</p>
+            <h1 id="pm-title">Permisos de energía</h1>
             <p class="pm-intro"></p>
-            <nav class="pm-tabs" role="tablist" aria-label="Secciones de la CNE">
-                ${TABS.map(tab => `<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel">${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}
+            <nav class="pm-tabs" role="tablist" aria-label="Secciones de permisos">
+                ${TABS.map((tab, i) => `${tab.group !== TABS[i - 1]?.group ? `<span class="pm-tab-group" aria-hidden="true">${tab.group}</span>` : ''}<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel" aria-label="${tab.label} · ${tab.group}">${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}
             </nav>
         </div>
         <div id="pm-tabpanel" class="pm-tabpanel" role="tabpanel"></div>`;
@@ -66,9 +66,6 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         });
         const info = TABS.find(item => item.id === tab) || TABS[0];
         root.querySelector('.pm-intro').textContent = info.intro;
-        // The header names the authority of the open tab: CNE everywhere but in «SENER».
-        root.querySelector('.pm-eyebrow').textContent = info.eyebrow || 'Registro público · Comisión Nacional de Energía';
-        root.querySelector('#pm-title').textContent = info.title || 'CNE: permisos y resoluciones';
         root.querySelectorAll('.pm-tab').forEach(link => {
             const on = link.dataset.tab === tab;
             link.setAttribute('aria-selected', String(on));
