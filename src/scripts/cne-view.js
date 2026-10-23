@@ -26,6 +26,7 @@ const TABS = [
     { id: 'panorama', label: 'Panorama', intro: 'Lo que la CNE ha resuelto: cifras por año, por tipo y por modalidad, y lo más reciente.' },
     { id: 'tramites', label: 'Trámites', intro: 'Guías por tipo de permiso: la normativa que lo regula, sus formatos y convocatorias, los artículos clave y las resoluciones recientes de la CNE.' },
     { id: 'mapa', label: 'Mapa', intro: 'Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, las ligas a su permiso y resoluciones, y los ciclones activos.' },
+    { id: 'cne-sener', label: 'CNE y SENER', intro: 'Permisos de la CNE y títulos de la SENER en un solo lugar: asignaciones, pozos, contratos de exploración y extracción, comercio exterior y biocombustibles, con su fuente oficial.' },
 ];
 
 /**
@@ -81,6 +82,27 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             current = renderTramitesView(host, catalog, { tramite: next.tramite || null, onOpenLaw });
         } else if (tab === 'panorama') {
             current = renderPanoramaView(host);
+        } else if (tab === 'cne-sener') {
+            // Like the map, its module (and Leaflet) loads only when the tab opens.
+            const pending = {
+                destroyed: false,
+                view: null,
+                record: next.record || null,
+                destroy() { this.destroyed = true; this.view?.destroy(); },
+                openRecord(record) { if (this.view) this.view.openRecord(record); else this.record = record; },
+                showList() { this.record = null; this.view?.showList(); },
+            };
+            current = pending;
+            host.innerHTML = '<p class="pm-loading">Cargando permisos de la CNE y la SENER…</p>';
+            import('./cne-sener-view.js')
+                .then(module => module.renderCneSenerView(host, {
+                    catalog,
+                    onOpenLaw,
+                    record: pending.record,
+                    onRoute: record => setHash(permitsHash(record ? { record } : { tab: 'cne-sener' })),
+                }))
+                .then(view => { if (pending.destroyed) view.destroy(); else pending.view = view; })
+                .catch(() => { if (!pending.destroyed) host.innerHTML = '<p class="pm-loading">No se pudo cargar esta sección. Revisa tu conexión e intenta de nuevo.</p>'; });
         } else if (tab === 'mapa') {
             // Leaflet only loads when the map tab opens; until then `current` must still be destroyable.
             const pending = {
@@ -116,6 +138,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         }
         else if (tab === 'tramites') { if (next.tramite) current.openTramite(next.tramite); else current.showList(); }
         else if (tab === 'mapa' && next.mapPermit) current.focusPermit(next.mapPermit);
+        else if (tab === 'cne-sener') { if (next.record) current.openRecord(next.record); else current.showList(); }
     }
 
     go(route);

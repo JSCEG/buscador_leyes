@@ -2981,8 +2981,8 @@ export function initUI() {
 
     let cneRequest = 0;
     /** CNE section (#permisos, #resoluciones, #panorama-cne and their details): live CNE data. */
-    function showPermitsView({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, mapPermit = null, updateHistory = true } = {}) {
-        const route = { tab, permit, resolution, tramite, filters, mapPermit };
+    function showPermitsView({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, mapPermit = null, record = null, updateHistory = true } = {}) {
+        const route = { tab, permit, resolution, tramite, filters, mapPermit, record };
         if (updateHistory) setHash(permitsHash(route));
         // Back and forward inside the section keep its tabs instead of rebuilding them.
         if (cneView && activeNavId === 'nav-permisos' && resultsContainer.querySelector('.pm-view')) {

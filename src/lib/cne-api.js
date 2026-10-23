@@ -14,7 +14,8 @@ const RESOLUTION_FILTERS = ['numero', 'texto', 'fecha', 'tipo', 'modalidad'];
 
 /**
  * Route of the CNE section: { tab, permit?, resolution?, tramite? } for #permisos, #permiso=<number>,
- * #resoluciones, #resolucion=<number>, #panorama-cne, #tramites, #tramite=<id> and #mapa-permisos; otherwise null.
+ * #resoluciones, #resolucion=<number>, #panorama-cne, #tramites, #tramite=<id>, #mapa-permisos and #cne-sener
+ * (#cne-sener?tabla=<key>&numero=<number> opens one record); otherwise null.
  */
 export function permitsRoute(hash = '') {
     if (hash === '#permisos') return { tab: 'permisos' };
@@ -33,6 +34,13 @@ export function permitsRoute(hash = '') {
         return permit ? { tab: 'mapa', mapPermit: permit.slice(0, 120) } : { tab: 'mapa' };
     }
     if (hash === '#tramites') return { tab: 'tramites' };
+    if (hash === '#cne-sener') return { tab: 'cne-sener' };
+    if (hash.startsWith('#cne-sener?')) {
+        const params = new URLSearchParams(hash.slice('#cne-sener?'.length));
+        const tabla = params.get('tabla');
+        const numero = params.get('numero');
+        return tabla && numero && /^[a-z-]{2,30}$/.test(tabla) ? { tab: 'cne-sener', record: { tabla, numero: numero.slice(0, 120) } } : { tab: 'cne-sener' };
+    }
     const m = /^#(permiso|resolucion|tramite)=(.+)$/.exec(hash);
     if (!m) return null;
     let value;
@@ -43,14 +51,15 @@ export function permitsRoute(hash = '') {
 }
 
 /** Hash of a CNE route (inverse of permitsRoute). */
-export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, mapPermit = null } = {}) {
+export function permitsHash({ tab = 'permisos', permit = null, resolution = null, tramite = null, filters = null, mapPermit = null, record = null } = {}) {
+    if (record) return `#cne-sener?${new URLSearchParams({ tabla: record.tabla, numero: record.numero })}`;
     if (mapPermit) return `#mapa-permisos?${new URLSearchParams({ permiso: mapPermit })}`;
     if (permit) return `#permiso=${encodeURIComponent(permit)}`;
     if (resolution) return `#resolucion=${encodeURIComponent(resolution)}`;
     if (tramite) return `#tramite=${encodeURIComponent(tramite)}`;
     const query = filters ? new URLSearchParams(RESOLUTION_FILTERS.filter(key => filters[key]).map(key => [key, filters[key]])).toString() : '';
     if (tab === 'resoluciones' && query) return `#resoluciones?${query}`;
-    return { resoluciones: '#resoluciones', panorama: '#panorama-cne', tramites: '#tramites', mapa: '#mapa-permisos' }[tab] || '#permisos';
+    return { resoluciones: '#resoluciones', panorama: '#panorama-cne', tramites: '#tramites', mapa: '#mapa-permisos', 'cne-sener': '#cne-sener' }[tab] || '#permisos';
 }
 
 /** Permits pinned to a desk are stored among article ids as 'cne:<permit number>'. */

@@ -1,6 +1,8 @@
 import { serveReaderPdf } from './reader-pdf.js';
 import { serveCne } from './cne-proxy.js';
 import { serveMapa } from './mapa-proxy.js';
+import { servePermisos } from './permisos-proxy.js';
+import { readFileSync } from 'node:fs';
 
 /** The local app uses the same handler as Cloudflare Pages. */
 export function readerDevPlugin() {
@@ -47,6 +49,24 @@ export function readerDevPlugin() {
                 res.end(Buffer.from(await response.arrayBuffer()));
             } catch (error) {
                 console.warn('[mapa-proxy] dev', error?.message);
+                res.writeHead(502, { 'Cache-Control': 'no-store' });
+                res.end();
+            }
+        });
+        // CNE and SENER permits API (functions/api/permisos/[endpoint].js), without the edge cache. The key
+        // comes from PERMISOS_API_KEY or from the private file Codex left for this client (never committed).
+        const permisosKey = () => {
+            if (process.env.PERMISOS_API_KEY) return process.env.PERMISOS_API_KEY.trim();
+            try { return readFileSync(process.env.PERMISOS_API_KEY_FILE || 'services/permisos-api/.secrets/buscador.key', 'utf8').trim(); } catch { return ''; }
+        };
+        server.middlewares.use('/api/permisos', async (req, res) => {
+            try {
+                const url = new URL(req.url, 'http://localhost');
+                const response = await servePermisos(new Request(url, { method: req.method }), url.pathname.slice(1), { cache: null, key: permisosKey(), base: process.env.PERMISOS_API_URL });
+                res.writeHead(response.status, Object.fromEntries(response.headers));
+                res.end(Buffer.from(await response.arrayBuffer()));
+            } catch (error) {
+                console.warn('[permisos-proxy] dev', error?.message);
                 res.writeHead(502, { 'Cache-Control': 'no-store' });
                 res.end();
             }
