@@ -138,3 +138,18 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
     .cs-map-wrap .pmm-suggest{top:54px}
     .cs-map-wrap .cs-layers{top:auto}
 }
+
+/* «Qué publica la SENER»: each kind of title, how many there are and how the map shows it. */
+.cs-guide h2{margin:0 0 10px;font:700 20px/1.2 Patria,Georgia,serif}
+.cs-guide ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.cs-guide-item{display:flex;gap:10px;align-items:flex-start;width:100%;height:100%;padding:12px;border:1px solid var(--pm-border);border-radius:14px;background:var(--pm-card);color:var(--pm-ink);text-align:left;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.cs-guide-item:hover{border-color:var(--sec,#a57f2c)}
+.cs-guide-item.is-on{border-color:var(--sec,#a57f2c);box-shadow:inset 0 0 0 1px var(--sec,#a57f2c);background:color-mix(in srgb,var(--pm-card) 92%,#a57f2c)}
+.cs-guide-item:focus-visible{outline:2px solid var(--pm-accent);outline-offset:2px}
+.cs-guide-item .pmm-pin{--sec:#a57f2c;margin-top:2px}
+.cs-guide-body{display:grid;gap:4px;min-width:0}
+.cs-guide-body strong{font-size:14px;line-height:1.25}
+.cs-guide-count{margin-left:4px;color:var(--pm-muted);font-weight:600;font-size:12.5px}
+.cs-guide-body>span{font-size:12.5px;line-height:1.45;color:var(--pm-muted)}
+.cs-guide-body em{font-style:normal;font-size:11.5px;font-weight:700;color:#7a5c1b}
+html.dark-mode .cs-guide-body em{color:#e9cf8f}

@@ -6,7 +6,7 @@
  * coordinates, e.g. SENER wells), states coloured by count (e.g. assignments, which carry a state but no
  * point), and a table of what has no location. Each record opens a card with its source documents.
  */
-import { SECTORS, markerOf, SOURCES, SOURCE, MARKETS, LAWS, getPermisos, getAllPages, stateLabel, marketLabel, statusLabel, shortDate, localDate,
+import { SENER_GUIDE, SECTORS, markerOf, SOURCES, SOURCE, MARKETS, LAWS, getPermisos, getAllPages, stateLabel, marketLabel, statusLabel, shortDate, localDate,
     updatesSummary, detailFields, recordLinks } from '../lib/permisos-api.js';
 import { featureStateId, choroplethClass, mexicoCityTime } from '../lib/cne-tables.js';
 import { withMapBusy } from '../lib/map-busy.js';
@@ -56,6 +56,16 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     host.innerHTML = `
         <div class="cs-view">
             <div class="cs-updates" data-updates><span class="cs-muted">Consultando la fecha de actualización…</span></div>
+            <section class="cs-guide" aria-labelledby="cs-guide-title">
+                <h2 id="cs-guide-title">Qué publica la SENER</h2>
+                <ul>${SENER_GUIDE.map(item => `<li><button type="button" class="cs-guide-item" data-guide="${item.key}" aria-pressed="false">
+                    <span class="pmm-pin" data-sector="sener">${infraIcon(item.icon, 14)}</span>
+                    <span class="cs-guide-body">
+                        <strong>${esc(item.title)} <span class="cs-guide-count" data-guide-count="${item.key}"></span></strong>
+                        <span>${esc(item.text)}</span>
+                        <em>${esc(item.shown)}</em>
+                    </span></button></li>`).join('')}</ul>
+            </section>
             <form class="cs-filters" data-filters>
                 <label class="cs-field"><span>Fuente</span><select data-filter="tabla"></select></label>
                 <label class="cs-field"><span>Mercado</span><select data-filter="mercado"><option value="">Todos los mercados</option>${MARKETS.map(m => `<option>${esc(m)}</option>`).join('')}</select></label>
@@ -109,6 +119,18 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         if (filters.tabla && !options.some(source => source.key === filters.tabla)) filters.tabla = '';
         select.innerHTML = `<option value="">Todas las fuentes</option>${options.map(source => `<option value="${source.key}"${source.key === filters.tabla ? ' selected' : ''}>${esc(source.label)}</option>`).join('')}`;
     }
+
+    // ---------- guide: totals and the source being shown ----------
+    SENER_GUIDE.forEach(item => {
+        getPermisos('permisos', { tabla: item.key, page: 1, pageSize: 1 })
+            .then(body => { if (!destroyed) $(`[data-guide-count="${item.key}"]`).textContent = count(body.total); })
+            .catch(() => {});
+    });
+    const markGuide = () => host.querySelectorAll('[data-guide]').forEach(btn => {
+        const on = btn.dataset.guide === filters.tabla;
+        btn.classList.toggle('is-on', on);
+        btn.setAttribute('aria-pressed', String(on));
+    });
 
     // ---------- update dates ----------
     getPermisos('actualizaciones', { autoridad: 'SENER', pageSize: 100 }).then(body => {
@@ -433,7 +455,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             });
             return;
         }
-        else if (t.dataset.filter) { filters[t.dataset.filter] = t.value; load(); }
+        else if (t.dataset.filter) { filters[t.dataset.filter] = t.value; markGuide(); load(); }
     };
     const onClick = event => {
         const t = event.target;
@@ -453,6 +475,15 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             return;
         }
         if (t.closest('[data-desk]')) { document.getElementById('desk-toggle')?.click(); return; }
+        const guideBtn = t.closest('[data-guide]');
+        if (guideBtn) {
+            // A second click on the same title shows every source again.
+            filters.tabla = filters.tabla === guideBtn.dataset.guide ? '' : guideBtn.dataset.guide;
+            $('[data-filter="tabla"]').value = filters.tabla;
+            markGuide();
+            load();
+            return;
+        }
         const pageBtn = t.closest('[data-page]');
         if (pageBtn && !pageBtn.disabled) { page = Number(pageBtn.dataset.page); loadTable(); $('.cs-table').scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
         const lawBtn = t.closest('[data-open-law]');

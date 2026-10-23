@@ -66,6 +66,23 @@ export async function getAllPages(endpoint, params, { signal, pageSize = 500, li
     return { total: first.total || 0, data: [first, ...rest].flatMap(page => page.data || []) };
 }
 
+/**
+ * What each SENER title is, in plain words, and how the tab shows it: as points, coloured by state or only in
+ * the table (when the source does not publish where it is).
+ */
+export const SENER_GUIDE = Object.freeze([
+    { key: 'asignaciones', icon: 'area', title: 'Asignaciones', shown: 'Color por estado',
+        text: 'Áreas que el Estado asigna a Petróleos Mexicanos para explorar y extraer petróleo y gas. La fuente dice en qué estados y municipios están, no su punto exacto.' },
+    { key: 'pozos', icon: 'pozo', title: 'Pozos', shown: 'Puntos en el mapa',
+        text: 'Pozos petroleros terminados que reporta la SENER, con su ubicación y la asignación o el contrato al que pertenecen. No tienen vigencia: se informa si producen o están cerrados.' },
+    { key: 'contratos-ee', icon: 'contrato', title: 'Contratos de exploración y extracción', shown: 'Solo en la tabla',
+        text: 'Contratos con empresas, de rondas de licitación o migraciones de asignaciones, para explorar y extraer hidrocarburos en tierra o en el mar.' },
+    { key: 'comercio-exterior', icon: 'importacion', title: 'Comercio exterior', shown: 'Solo en la tabla',
+        text: 'Permisos para importar o exportar petrolíferos, gas y petróleo, por producto y fracción arancelaria, con la cantidad autorizada.' },
+    { key: 'biocombustibles', icon: 'bioenergia', title: 'Biocombustibles', shown: 'Solo en la tabla',
+        text: 'Permisos y avisos de exención para producir, almacenar o comercializar biocombustibles, conforme a la Ley de Biocombustibles.' },
+].map(item => Object.freeze(item)));
+
 /** Sectors of the map, in the order of the cluster rings (same colours as the Mapa tab). */
 export const SECTORS = ['electricidad', 'petroliferos', 'gaslp', 'gasnatural', 'cne-transporte', 'cne-comercializacion', 'cne-infraestructura', 'cne-suministro', 'cne-terceros', 'sener'];
 const MARKER = {
