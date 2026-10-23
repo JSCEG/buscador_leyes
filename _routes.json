@@ -4,6 +4,7 @@
     "/api/reader/*",
     "/api/cne/*",
     "/api/mapa/*",
+    "/api/permisos/*",
     "/ley/*",
     "/aprende/*",
     "/sitemap.xml"
