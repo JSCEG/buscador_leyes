@@ -5,17 +5,19 @@
  * coordinates, e.g. SENER wells), states coloured by count (e.g. assignments, which carry a state but no
  * point), and a table of what has no location. Each record opens a card with its source documents.
  */
-import { SOURCES, SOURCE, MARKETS, LAWS, getPermisos, getAllPages, stateLabel, marketLabel, statusLabel, shortDate, localDate,
+import { SECTORS, markerOf, SOURCES, SOURCE, MARKETS, LAWS, getPermisos, getAllPages, stateLabel, marketLabel, statusLabel, shortDate, localDate,
     updatesSummary, detailFields, recordLinks } from '../lib/permisos-api.js';
 import { featureStateId, choroplethClass, mexicoCityTime } from '../lib/cne-tables.js';
 import { withMapBusy } from '../lib/map-busy.js';
+import { BASE_OPTIONS, NETWORKS, KV_CLASSES, baseLayers, networkLayers, pinIcon, sectorCluster } from '../lib/map-common.js';
+import { infraIcon } from '../lib/infra-icons.js';
+import '../styles/permits-map.css';
 import { permitsHash } from '../lib/cne-api.js';
 import '../styles/cne-sener.css';
 
 const POINT_LIMIT = 6000;
 const PAGE_SIZE = 25;
 const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
-const COLOR = { CNE: '#1e5b4f', SENER: '#a57f2c' };
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const count = value => Number(value || 0).toLocaleString('es-MX');
@@ -43,6 +45,10 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     let cluster = null;
     let statesLayer = null;
     let statesGeo = null;
+    let setBase = null;
+    let networks = null;
+    const icons = new Map();
+    const narrow = () => matchMedia('(max-width: 720px)').matches;
 
     host.innerHTML = `
         <div class="cs-view">
@@ -58,13 +64,22 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                 <label class="cs-field"><span>Estatus</span><select data-filter="estatus"><option value="">Todos</option><option value="Vigente">Vigentes</option><option value="No vigente">No vigentes</option></select></label>
             </form>
             <p class="cs-summary" data-summary role="status" aria-live="polite"></p>
-            <div class="cs-map-wrap">
+            <div class="pmm cs-map-wrap">
                 <div class="cs-map" data-map aria-label="Mapa de permisos y títulos"></div>
+                <button type="button" class="pm-btn cs-layers-btn" data-layers-toggle aria-expanded="true" aria-controls="cs-layers">Capas</button>
+                <aside class="pmm-panel cs-layers" id="cs-layers" data-layers aria-label="Capas del mapa">
+                    <p class="pmm-h">Infraestructura</p>
+                    ${NETWORKS.map(n => `<label class="pmm-layer"><input type="checkbox" data-network="${n.key}"><span class="pmm-line" style="--line:${n.swatch}"></span><span>${n.label}<small data-network-note="${n.key}">${n.short}</small></span></label>`).join('')}
+                    <p class="pmm-kv" data-kv hidden>${KV_CLASSES.map(c => `<span><i style="background:${c.color}"></i>${c.label}</span>`).join('')}</p>
+                    <p class="pmm-h">Mapa base</p>
+                    <div class="pmm-bases">${BASE_OPTIONS.map(([key, label]) => `<label><input type="radio" name="cs-base" value="${key}"${key === 'mapa' ? ' checked' : ''}> ${label}</label>`).join('')}</div>
+                    <p class="pmm-h">Simbología</p>
+                    <p class="pmm-legend"><span class="pmm-pin" data-sector="electricidad">${infraIcon('solar', 11)}</span> CNE
+                        <span class="pmm-pin" data-sector="sener">${infraIcon('pozo', 11)}</span> SENER
+                        <span class="pmm-pin is-novig" data-sector="electricidad">${infraIcon('solar', 11)}</span> No vigente</p>
+                    <p class="pmm-legend cs-legend-scale">Registros por estado: menos <b style="background:${PALETTE[0]}"></b><b style="background:${PALETTE[2]}"></b><b style="background:${PALETTE[4]}"></b> más</p>
+                </aside>
                 <p class="cs-map-note" data-map-note hidden></p>
-                <div class="cs-legend" aria-hidden="true">
-                    <span><i style="background:${COLOR.CNE}"></i>CNE</span><span><i style="background:${COLOR.SENER}"></i>SENER</span>
-                    <span class="cs-legend-scale">Por estado: menos <b style="background:${PALETTE[0]}"></b><b style="background:${PALETTE[2]}"></b><b style="background:${PALETTE[4]}"></b> más</span>
-                </div>
             </div>
             <section class="cs-table" aria-labelledby="cs-table-title">
                 <div class="cs-table-head">
@@ -106,9 +121,15 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         globalThis.L = L;
         await import('leaflet.markercluster/dist/leaflet.markercluster.js');
         if (destroyed) return;
-        map = L.map($('[data-map]'), { preferCanvas: true, minZoom: 3.5, maxZoom: 18, zoomSnap: 0.5, scrollWheelZoom: false });
-        L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/terrain-light_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Terrain Light &copy; EOX · &copy; OpenStreetMap' }).addTo(map);
+        map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 3.5, maxZoom: 19, zoomSnap: 0.5, scrollWheelZoom: false });
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+        L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
+        // Same base maps, networks, pins and clusters as the Mapa tab (src/lib/map-common.js).
+        setBase = baseLayers(L, map, { onFallback: key => { const radio = host.querySelector(`input[name="cs-base"][value="${key}"]`); if (radio) radio.checked = true; } });
+        setBase('mapa');
+        networks = networkLayers(L, map, { pane: 'cs-networks' });
         map.fitBounds([[14.3, -117.5], [32.8, -86.6]]);
+        map.on('zoomend', () => statesLayer?.restyle?.());
         map.on('focus', () => map.scrollWheelZoom.enable());
         map.on('blur', () => map.scrollWheelZoom.disable());
         map.createPane('cs-states').style.zIndex = 380;
@@ -119,48 +140,51 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         if (!statesGeo) return;
         const counts = new Map(rows.filter(row => row.efId && row.efId !== '--').map(row => [row.efId, Number(row.permisos) || 0]));
         const max = Math.max(0, ...counts.values());
+        // Close up the colours fade, so streets and towns of the base map stay readable under the pins.
+        const fade = () => { const z = map.getZoom(); return z >= 10 ? 0.15 : z >= 8 ? 0.35 : z >= 6.5 ? 0.6 : 1; };
+        const style = feature => {
+            const level = choroplethClass(counts.get(featureStateId(feature)) || 0, max);
+            return { color: '#ffffff', weight: 0.8, fillColor: level ? PALETTE[level - 1] : '#d9d4cf', fillOpacity: (level ? 0.72 : 0.2) * fade() };
+        };
         statesLayer = L.geoJSON(statesGeo, {
             pane: 'cs-states',
-            style: feature => {
-                const level = choroplethClass(counts.get(featureStateId(feature)) || 0, max);
-                return { color: '#ffffff', weight: 0.8, fillColor: level ? PALETTE[level - 1] : '#d9d4cf', fillOpacity: level ? 0.72 : 0.2 };
-            },
+            style,
             onEachFeature: (feature, layer) => {
                 const id = featureStateId(feature);
                 const n = counts.get(id) || 0;
                 layer.bindTooltip(`${esc(stateLabel(id))}: ${count(n)} ${n === 1 ? 'registro' : 'registros'}`, { sticky: true });
             },
         }).addTo(map);
+        statesLayer.restyle = () => statesLayer.setStyle(style);
     }
 
+    // The same popup as the Mapa tab: kicker with the pin, holder, number, a few facts and the actions.
     function pointPopup(row) {
-        return `<div class="cs-pop">
-            <p class="cs-pop-kicker">${badge(row)}${esc(SOURCE[row.tabla]?.label || row.tabla)}</p>
-            <p class="cs-pop-title">${esc(row.numero)}</p>
-            ${row.razonSocial ? `<p>${esc(row.razonSocial)}</p>` : ''}
-            <p class="cs-muted">${esc([statusLabel(row), place(row)].filter(Boolean).join(' · '))}</p>
-            ${row.datos?.metodoUbicacion ? `<p class="cs-pop-note">Ubicación: ${esc(row.datos.metodoUbicacion)}</p>` : ''}
-            <button type="button" class="cs-btn" data-open-record="${esc(row.tabla)}" data-numero="${esc(row.numero)}">Ver ficha</button>
-        </div>`;
+        const marker = markerOf(row);
+        const rows = [['Fuente', SOURCE[row.tabla]?.label], ['Autoridad', row.autoridad], ['Tipo', marker.label !== row.tipo ? row.tipo : ''], ['Estatus', statusLabel(row)], ['Ubicación', row.municipio || row.entidad ? place(row) : '']]
+            .filter(([, value]) => value).map(([label, value]) => `<dt>${label}</dt><dd>${esc(value)}</dd>`).join('');
+        return `<div class="pmm-pop" data-sector="${marker.sector}">
+            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="${marker.sector}">${infraIcon(marker.icon, 12)}</span> ${esc(marker.label)}${badge(row)}</p>
+            <strong>${esc(row.razonSocial || row.numero)}</strong>
+            <p class="pmm-pop-num">${esc(row.numero)}</p>
+            <dl>${rows}</dl>
+            <div class="pmm-pop-actions">
+                <button type="button" class="pm-btn pm-btn-primary" data-open-record="${esc(row.tabla)}" data-numero="${esc(row.numero)}">Ficha y fuente</button>
+                ${row.autoridad === 'CNE' ? `<a class="pm-btn" href="${esc(permitsHash({ permit: row.numero }))}">Normativa y resoluciones</a>` : ''}
+                <a class="pm-btn" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${row.latitud},${row.longitud}" target="_blank" rel="noopener">Street View</a>
+            </div></div>`;
     }
 
     function paintPoints(rows) {
         if (cluster) { map.removeLayer(cluster); cluster = null; }
         if (!rows.length) return;
-        cluster = L.markerClusterGroup({
-            chunkedLoading: true, showCoverageOnHover: false, maxClusterRadius: 48,
-            // Round counts coloured by who issued the records inside: CNE, SENER or both.
-            iconCreateFunction: group => {
-                const children = group.getAllChildMarkers();
-                const sener = children.filter(marker => marker.options.autoridad === 'SENER').length;
-                const kind = sener === children.length ? '' : sener ? ' is-mixed' : ' is-cne';
-                const size = children.length < 10 ? 30 : children.length < 100 ? 36 : 44;
-                return L.divIcon({ html: `<span>${count(children.length)}</span>`, className: `cs-cluster${kind}`, iconSize: [size, size] });
-            },
-        });
-        cluster.addLayers(rows.map(row => L.circleMarker([row.latitud, row.longitud], {
-            radius: 6, weight: 1.5, color: '#ffffff', fillColor: COLOR[row.autoridad] || COLOR.CNE, fillOpacity: 0.95, autoridad: row.autoridad,
-        }).bindPopup(() => pointPopup(row), { maxWidth: 300, className: 'cs-popup' })));
+        cluster = sectorCluster(L, SECTORS);
+        cluster.addLayers(rows.map(row => {
+            const marker = markerOf(row);
+            const mods = row.estatus === 'No vigente' ? 'is-novig' : '';
+            return L.marker([row.latitud, row.longitud], { icon: pinIcon(L, icons, marker.sector, marker.icon, mods), title: `${marker.label} · ${row.razonSocial || row.numero}`, keyboard: false, sector: marker.sector })
+                .bindPopup(() => pointPopup(row), { className: 'pmm-popup', maxWidth: 340 });
+        }));
         map.addLayer(cluster);
     }
 
@@ -335,11 +359,34 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     const onChange = event => {
         const t = event.target;
         if (t.matches('[data-q]')) return;
+        if (t.name === 'cs-base') { setBase?.(t.value); return; }
+        if (t.matches('[data-network]')) {
+            const n = NETWORKS.find(x => x.key === t.dataset.network);
+            if (t.dataset.network === 'transmision') $('[data-kv]').hidden = !t.checked;
+            withMapBusy(map, t, t.checked ? `Cargando ${n.label.toLowerCase()}…` : 'Actualizando el mapa…', async () => {
+                try {
+                    const data = await networks.toggle(n.key, t.checked);
+                    const note = host.querySelector(`[data-network-note="${n.key}"]`);
+                    if (note && data) note.textContent = `${n.short} · ${Number(data.km || 0).toLocaleString('es-MX')} km`;
+                } catch {
+                    t.checked = false;
+                    if (n.key === 'transmision') $('[data-kv]').hidden = true;
+                }
+            });
+            return;
+        }
         if (t.name === 'cs-autoridad') { filters.autoridad = t.value; renderSources(); load(); }
         else if (t.dataset.filter) { filters[t.dataset.filter] = t.value; load(); }
     };
     const onClick = event => {
         const t = event.target;
+        const layersBtn = t.closest('[data-layers-toggle]');
+        if (layersBtn) {
+            const panel = $('[data-layers]');
+            panel.hidden = !panel.hidden;
+            layersBtn.setAttribute('aria-expanded', String(!panel.hidden));
+            return;
+        }
         const pageBtn = t.closest('[data-page]');
         if (pageBtn && !pageBtn.disabled) { page = Number(pageBtn.dataset.page); loadTable(); $('.cs-table').scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
         const lawBtn = t.closest('[data-open-law]');
@@ -363,6 +410,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     host.addEventListener('click', onPopupClick, true);
 
     renderSources();
+    if (narrow()) { $('[data-layers]').hidden = true; $('[data-layers-toggle]').setAttribute('aria-expanded', 'false'); }
     setupMap().then(load).catch(() => {
         if (destroyed) return;
         $('[data-map-note]').hidden = false;

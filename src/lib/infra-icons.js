@@ -25,6 +25,8 @@ const PATHS = Object.freeze({
     nuclear: '<circle cx="12" cy="12" r="1.5"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>',
     importacion: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
     generacion: '<path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12Z"/>',
+    // Torre de perforación: pozo petrolero
+    pozo: '<path d="M12 2.5 7 21.5M12 2.5l5 19M8.6 15.5h6.8M9.9 9.5h4.2"/><path d="M4.5 21.5h15"/>',
     otro: '<circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/>',
 });
 

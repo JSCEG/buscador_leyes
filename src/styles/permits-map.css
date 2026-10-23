@@ -328,3 +328,14 @@ body.pmm-open .desk-toggle{display:none!important}
 .pmm-layer.is-loading::before{content:'';order:-1;width:16px;height:16px;flex:none;margin-right:-24px;border:2.2px solid #9b224733;border-top-color:#9b2247;border-radius:50%;animation:pmm-spin .8s linear infinite;box-sizing:border-box}
 html.dark-mode .pmm-busy{background:#241d20f2;color:#f3ece4}
 @media (prefers-reduced-motion:reduce){.pmm-spinner,.pmm-layer.is-loading::before{animation-duration:2.4s}}
+
+/* Sectors of «CNE y SENER» (same pins and clusters as this map): the other CNE tables and SENER. */
+.pmm,.pmm-pin-wrap{--c-cne-transporte:#7a1a38;--c-cne-comercializacion:#5b5249;--c-cne-infraestructura:#0e7c86;--c-cne-suministro:#3f5a96;--c-cne-terceros:#6f6a66;--c-sener:#a57f2c}
+html.dark-mode .pmm,html.dark-mode .pmm-pin-wrap{--c-sener:#e0bd6d}
+.pmm-pin-wrap [data-sector="cne-transporte"],.pmm-pop[data-sector="cne-transporte"]{--sec:#7a1a38}
+.pmm-pin-wrap [data-sector="cne-comercializacion"],.pmm-pop[data-sector="cne-comercializacion"]{--sec:#5b5249}
+.pmm-pin-wrap [data-sector="cne-infraestructura"],.pmm-pop[data-sector="cne-infraestructura"]{--sec:#0e7c86}
+.pmm-pin-wrap [data-sector="cne-suministro"],.pmm-pop[data-sector="cne-suministro"]{--sec:#3f5a96}
+.pmm-pin-wrap [data-sector="cne-terceros"],.pmm-pop[data-sector="cne-terceros"]{--sec:#6f6a66}
+.pmm [data-sector="sener"],.pmm-pin-wrap [data-sector="sener"],.pmm-pop[data-sector="sener"]{--sec:#a57f2c}
+html.dark-mode .pmm [data-sector="sener"],html.dark-mode .pmm-pin-wrap [data-sector="sener"],html.dark-mode .pmm-pop[data-sector="sener"]{--sec:#e0bd6d}

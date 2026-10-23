@@ -110,3 +110,13 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 .cs-updates>span{flex-wrap:wrap}
 .cs-table>*{min-width:0}
 .cs-cluster>span{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+/* Map shared with the Mapa tab: its layers panel on the left, the «Capas» switch on the right. */
+.cs-map-wrap.pmm{margin-top:0;display:block;gap:0}
+.cs-map{height:min(70vh,640px)}
+.cs-layers-btn{position:absolute;z-index:1001;top:12px;right:12px;box-shadow:0 6px 18px -10px #0007}
+.cs-layers{z-index:1000;max-height:calc(100% - 24px)}
+.cs-legend-scale b{display:inline-block;width:14px;height:10px;vertical-align:-1px}
+.cs-legend-scale b:first-of-type{margin-left:4px}
+.cs-legend-scale b:last-of-type{margin-right:4px}
+.pmm-pop-kicker .cs-badge{margin-left:6px}
+@media (max-width:720px){.cs-layers{left:8px;right:8px;width:auto;top:56px}}

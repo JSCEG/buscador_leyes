@@ -4,6 +4,7 @@
  * the fields a record shows.
  */
 import { STATE_NAME } from './cne-tables.js';
+import { infraType } from './infra-icons.js';
 
 /** Sources of the API, in the order the filters list them. */
 export const SOURCES = Object.freeze([
@@ -63,6 +64,25 @@ export async function getAllPages(endpoint, params, { signal, pageSize = 500, li
     const pages = Math.ceil((first.total || 0) / pageSize);
     const rest = await Promise.all(Array.from({ length: Math.max(0, pages - 1) }, (_, i) => getPermisos(endpoint, { ...params, page: i + 2, pageSize }, signal)));
     return { total: first.total || 0, data: [first, ...rest].flatMap(page => page.data || []) };
+}
+
+/** Sectors of the map, in the order of the cluster rings (same colours as the Mapa tab). */
+export const SECTORS = ['electricidad', 'petroliferos', 'gaslp', 'gasnatural', 'cne-transporte', 'cne-comercializacion', 'cne-infraestructura', 'cne-suministro', 'cne-terceros', 'sener'];
+const MARKER = {
+    electricidad: row => ({ sector: 'electricidad', ...infraType('electricidad', { tecnologia: row.tipo }) }),
+    petroliferos: row => ({ sector: 'petroliferos', ...infraType('petroliferos', { tipoPermiso: row.tipo }) }),
+    'gas-lp': row => ({ sector: 'gaslp', ...infraType('gas-lp', { tipoPermiso: row.tipo }) }),
+    'gas-natural': row => ({ sector: 'gasnatural', ...infraType('gas-natural', { tipoPermiso: row.tipo }) }),
+    transporte: row => ({ sector: 'cne-transporte', icon: 'distribucion', label: row.tipo || 'Transporte' }),
+    comercializacion: row => ({ sector: 'cne-comercializacion', icon: 'otro', label: row.tipo || 'Comercialización' }),
+    infraestructura: row => ({ sector: 'cne-infraestructura', icon: 'almacenamiento', label: row.tipo || 'Infraestructura de hidrocarburos' }),
+    suministro: row => ({ sector: 'cne-suministro', icon: 'generacion', label: row.tipo || 'Suministro eléctrico' }),
+    terceros: row => ({ sector: 'cne-terceros', icon: 'otro', label: row.tipo || 'Tercero acreditado' }),
+    pozos: row => ({ sector: 'sener', icon: 'pozo', label: row.tipo || 'Pozo' }),
+};
+/** Sector, icon and label of a record's pin, as in the Mapa tab. */
+export function markerOf(row) {
+    return (MARKER[row?.tabla] || (() => ({ sector: 'sener', icon: 'otro', label: SOURCE[row?.tabla]?.label || 'Registro' })))(row || {});
 }
 
 /** «NUEVO LEÓN» → «Nuevo León», from the INEGI code when there is one. */

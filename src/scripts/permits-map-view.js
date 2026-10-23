@@ -15,6 +15,7 @@ import { infraType, infraIcon } from '../lib/infra-icons.js';
 import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
 import '../styles/permits-map.css';
 import { withMapBusy } from '../lib/map-busy.js';
+import { NETWORKS, KV_CLASSES, kvClass, baseLayers, networkLayers, pinIcon, sectorCluster } from '../lib/map-common.js';
 
 const API = '/api/mapa';
 const MEXICO = [[14.3, -118.4], [32.8, -86.6]];
@@ -53,20 +54,7 @@ export function stateKey(name) {
     return STATE_LABEL[key] ? key : '';
 }
 
-// Network layers (scripts/build-map-networks.mjs builds the files under public/mapa/).
-const NETWORKS = [
-    { key: 'transmision', file: 'red-transmision.json', label: 'Líneas de transmisión', short: '69 kV o más · OpenStreetMap', swatch: '#c0392b' },
-    { key: 'gasoductos', file: 'gasoductos.json', label: 'Gasoductos', short: 'OpenStreetMap · incompleto', swatch: '#2f6690', color: '#2f6690', dash: '6 4' },
-    { key: 'petroliferos', file: 'ductos-petroliferos.json', label: 'Ductos de petrolíferos', short: 'CNH · trazo aproximado', swatch: '#86671d', color: '#86671d', dash: '2 4' },
-];
-const KV_CLASSES = [
-    { min: 400, color: '#6c2a8f', weight: 2.6, label: '400 kV' },
-    { min: 230, color: '#c0392b', weight: 2.1, label: '230 kV' },
-    // Teal and gray, not orange or yellow: those are the roads of the base map.
-    { min: 115, color: '#0e7c86', weight: 1.6, label: '115–161 kV' },
-    { min: 69, color: '#6f6a66', weight: 1.2, label: '69–115 kV' },
-];
-export const kvClass = kv => KV_CLASSES.find(c => kv >= c.min) || KV_CLASSES[KV_CLASSES.length - 1];
+export { kvClass };
 const CLASSES = { HU: 'Huracán', MH: 'Huracán mayor', TS: 'Tormenta tropical', TD: 'Depresión tropical', STS: 'Tormenta subtropical', STD: 'Depresión subtropical', PTC: 'Potencial ciclón tropical' };
 const KT_KMH = 1.852;
 
@@ -239,77 +227,23 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     fitMexico();
     const resizeObserver = new ResizeObserver(() => map.invalidateSize({ pan: false }));
     resizeObserver.observe($('[data-map]'));
-    const BASES = {
-        // Default: streets, towns and states labelled at every zoom (the terrain base has no labels
-        // when zoomed in, so on a phone there was nothing to find your way by). Esri needs no key.
-        // Dark mode: dark gray canvas with its labels layer on top.
-        mapa: () => {
-            const esri = (name, zIndex, native = 16) => L.tileLayer(`https://server.arcgisonline.com/ArcGIS/rest/services/${name}/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 19, maxNativeZoom: native, zIndex, attribution: 'Tiles &copy; Esri' });
-            if (!document.documentElement.classList.contains('dark-mode')) return esri('World_Street_Map', 1, 18);
-            return L.layerGroup([esri('Canvas/World_Dark_Gray_Base', 1), esri('Canvas/World_Dark_Gray_Reference', 2)]);
+    const setBase = baseLayers(L, map, {
+        onFallback: key => {
+            const radio = container.querySelector(`input[name="pmm-base"][value="${key}"]`);
+            if (radio) radio.checked = true;
+            status('El mapa base no respondió; se muestra OpenStreetMap.', 5000);
         },
-        claro: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/terrain-light_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Terrain Light &copy; EOX · &copy; OpenStreetMap' }),
-        calles: () => L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }),
-        satelite: () => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Sentinel-2 cloudless &copy; EOX' }),
-    };
-    // If a base map service stops answering (Esri's CDN has blocked requests), switch to
-    // OpenStreetMap so the map never stays gray.
-    let base = null;
-    function setBase(key) {
-        if (base) map.removeLayer(base);
-        const layer = BASES[key]().addTo(map);
-        base = layer;
-        layer.bringToBack?.();
-        if (key === 'calles') return;
-        let loaded = 0;
-        let failed = 0;
-        (layer.getLayers ? layer.getLayers() : [layer]).forEach(tiles => {
-            tiles.on('tileload', () => { loaded += 1; });
-            tiles.on('tileerror', () => {
-                failed += 1;
-                if (base !== layer || loaded || failed < 4) return;
-                setBase('calles');
-                const radio = container.querySelector('input[name="pmm-base"][value="calles"]');
-                if (radio) radio.checked = true;
-                status('El mapa base no respondió; se muestra OpenStreetMap.', 5000);
-            });
-        });
-    }
+    });
     setBase('mapa');
 
     // ---------- permit layers ----------
     const icons = new Map();
     const iconFor = (m, p) => {
         const mods = [p.vigente === false ? 'is-novig' : '', (p.precision || 'exacta') !== 'exacta' ? 'is-aprox' : ''].filter(Boolean).join(' ');
-        const type = infraType(m.key, p);
-        const key = `${m.key}|${type.icon}|${mods}`;
-        if (!icons.has(key)) {
-            icons.set(key, L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${m.sector}">${infraIcon(type.icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
-        }
-        return icons.get(key);
+        return pinIcon(L, icons, m.sector, infraType(m.key, p).icon, mods);
     };
-    // One cluster group for every market, so groups of different sectors no longer cover each
-    // other. Each bubble is a ring split by sector, in proportion to what it holds.
-    const newCluster = () => L.markerClusterGroup({
-        chunkedLoading: true,
-        showCoverageOnHover: false,
-        disableClusteringAtZoom: 15,
-        maxClusterRadius: z => (z < 8 ? 60 : 40),
-        iconCreateFunction: cluster => {
-            const n = cluster.getChildCount();
-            const size = n < 50 ? 32 : n < 500 ? 38 : 46;
-            const bySector = {};
-            for (const child of cluster.getAllChildMarkers()) bySector[child.options.sector] = (bySector[child.options.sector] || 0) + 1;
-            let at = 0;
-            const stops = MARKETS.filter(m => bySector[m.sector]).map(m => {
-                const from = at;
-                at += (bySector[m.sector] / n) * 100;
-                return `var(--c-${m.sector}) ${from.toFixed(1)}% ${at.toFixed(1)}%`;
-            });
-            const label = n >= 1000 ? `${Math.round(n / 100) / 10}k` : n;
-            return L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-cluster" style="width:${size}px;height:${size}px;background:conic-gradient(${stops.join(',')})"><b>${label}</b></span>`, iconSize: [size, size] });
-        },
-    });
+    // One cluster group for every market; each bubble is a ring split by sector.
+    const newCluster = () => sectorCluster(L, MARKETS.map(m => m.sector));
 
     const typeKey = (m, label) => `${m.key}|${label}`;
     const stateKeys = new Map();
@@ -765,54 +699,22 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     // ---------- network layers: transmission lines and pipelines (static files, loaded on demand) ----------
     // Their own pane, under the permits and the hurricane cones; a wider click tolerance for thin lines.
     map.createPane('pmm-networks').style.zIndex = 350;
-    const networkRenderer = L.canvas({ pane: 'pmm-networks', tolerance: 8 });
-    const networks = {};
+    const networks = networkLayers(L, map, { pane: 'pmm-networks' });
     async function toggleNetwork(key, on) {
         const n = NETWORKS.find(x => x.key === key);
-        const entry = networks[key] || (networks[key] = {});
         if (key === 'transmision') $('[data-kv]').hidden = !on;
-        if (!on) { if (entry.layer) map.removeLayer(entry.layer); return; }
-        if (!entry.layer) {
-            status(`Cargando ${n.label.toLowerCase()}…`);
-            try {
-                const response = await fetch(`/mapa/${n.file}`, { signal: state.ctrl.signal });
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
-                status('');
-                const note = container.querySelector(`[data-network-note="${key}"]`);
-                if (note) note.textContent = `${n.short} · ${Number(data.km || 0).toLocaleString('es-MX')} km`;
-                entry.layer = L.geoJSON(data, {
-                    attribution: n.key === 'petroliferos' ? 'Ductos: CNH' : '&copy; OpenStreetMap',
-                    pane: 'pmm-networks',
-                    renderer: networkRenderer,
-                    style: f => (key === 'transmision'
-                        ? { color: kvClass(f.properties.kv).color, weight: kvClass(f.properties.kv).weight, opacity: 0.85 }
-                        : { color: n.color, weight: 2.2, opacity: 0.9, dashArray: n.dash }),
-                    onEachFeature: (f, layer) => layer.bindPopup(() => networkPopup(n, f.properties, data), { className: 'pmm-popup', maxWidth: 300 }),
-                });
-            } catch (error) {
-                if (error.name !== 'AbortError') status(`No se pudo cargar ${n.label.toLowerCase()}.`, 5000);
-                const box = container.querySelector(`[data-network="${key}"]`);
-                if (box) box.checked = false;
-                if (key === 'transmision') $('[data-kv]').hidden = true;
-                return;
-            }
+        if (on) status(`Cargando ${n.label.toLowerCase()}…`);
+        try {
+            const data = await networks.toggle(key, on && container.querySelector(`[data-network="${key}"]`)?.checked, state.ctrl.signal);
+            if (on) status('');
+            const note = container.querySelector(`[data-network-note="${key}"]`);
+            if (note && data) note.textContent = `${n.short} · ${Number(data.km || 0).toLocaleString('es-MX')} km`;
+        } catch (error) {
+            if (error.name !== 'AbortError') status(`No se pudo cargar ${n.label.toLowerCase()}.`, 5000);
+            const box = container.querySelector(`[data-network="${key}"]`);
+            if (box) box.checked = false;
+            if (key === 'transmision') $('[data-kv]').hidden = true;
         }
-        if (container.querySelector(`[data-network="${key}"]`)?.checked) entry.layer.addTo(map);
-    }
-    function networkPopup(n, p, data) {
-        const rows = [];
-        const add = (k, v) => { if (v) rows.push(`<dt>${k}</dt><dd>${esc(v)}</dd>`); };
-        add('Tensión', p.kv ? `${num(p.kv)} kV` : '');
-        add('Servicio', p.servicio);
-        add('Región', p.region);
-        add('Operador', p.operador);
-        // OpenStreetMap splits lines into short pieces; only the CNH pipelines are whole routes.
-        if (n.key === 'petroliferos') add('Longitud', p.km ? `${num(p.km)} km` : '');
-        const title = p.nombre || (p.kv ? `Línea de ${num(p.kv)} kV` : 'Sin nombre registrado');
-        return `<div class="pmm-pop"><p class="pmm-pop-kicker"><span class="pmm-line" style="--line:${n.key === 'transmision' ? kvClass(p.kv).color : n.swatch}"></span> ${esc(n.label)}</p>
-            <strong>${esc(title)}</strong><dl>${rows.join('')}</dl>
-            <p class="pmm-muted">${esc(data.fuente)}. ${esc(data.nota)}</p></div>`;
     }
 
     // ---------- update date ----------
