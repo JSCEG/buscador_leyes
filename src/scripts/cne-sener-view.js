@@ -1,6 +1,7 @@
 /**
- * «CNE y SENER» tab of the permits section (#cne-sener): CNE permits and SENER titles (assignments, wells,
- * exploration contracts, foreign trade and biofuels) from the permits API (src/lib/permisos-api.js).
+ * «SENER» tab of the permits section (#sener): the titles of the Secretaría de Energía (assignments, wells,
+ * exploration contracts, foreign trade and biofuels) from the permits API (src/lib/permisos-api.js). CNE
+ * permits have their own tabs (Permisos, Mapa), so this one shows SENER alone.
  * One set of filters drives three views of the same records: points with clusters (only what has valid
  * coordinates, e.g. SENER wells), states coloured by count (e.g. assignments, which carry a state but no
  * point), and a table of what has no location. Each record opens a card with its source documents.
@@ -22,7 +23,7 @@ const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const count = value => Number(value || 0).toLocaleString('es-MX');
-const badge = record => (record?.autoridad === 'SENER' ? '<span class="cs-badge">SENER</span>' : '');
+const badge = () => '';
 const place = record => [record.municipio, stateLabel(record.efId, record.entidad)].filter(Boolean).join(', ');
 
 async function getEstadosGeo(signal) {
@@ -56,10 +57,6 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         <div class="cs-view">
             <div class="cs-updates" data-updates><span class="cs-muted">Consultando la fecha de actualización…</span></div>
             <form class="cs-filters" data-filters>
-                <fieldset class="cs-segment">
-                    <legend>Autoridad</legend>
-                    ${['', 'CNE', 'SENER'].map(value => `<label><input type="radio" name="cs-autoridad" value="${value}"${value === filters.autoridad ? ' checked' : ''}><span>${value || 'Todas'}</span></label>`).join('')}
-                </fieldset>
                 <label class="cs-field"><span>Fuente</span><select data-filter="tabla"></select></label>
                 <label class="cs-field"><span>Mercado</span><select data-filter="mercado"><option value="">Todos los mercados</option>${MARKETS.map(m => `<option>${esc(m)}</option>`).join('')}</select></label>
                 <label class="cs-field"><span>Estatus</span><select data-filter="estatus"><option value="">Todos</option><option value="Vigente">Vigentes</option><option value="No vigente">No vigentes</option></select></label>
@@ -69,7 +66,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                 <div class="pmm-bar">
                     <label class="pmm-search">
                         <span class="pmm-sr">Buscar permisos, títulos o pozos</span>
-                        <input type="search" data-q autocomplete="off" spellcheck="false" maxlength="120" placeholder="Permiso, título, pozo o razón social">
+                        <input type="search" data-q autocomplete="off" spellcheck="false" maxlength="120" placeholder="Asignación, contrato, pozo, permiso o titular">
                     </label>
                     <div class="pmm-tools">
                         <button type="button" class="pm-btn" data-layers-toggle aria-expanded="true" aria-controls="cs-layers">Capas</button>
@@ -79,7 +76,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                     </div>
                     <div class="pmm-suggest" data-suggest hidden></div>
                 </div>
-                <div class="cs-map" data-map aria-label="Mapa de permisos y títulos"></div>
+                <div class="cs-map" data-map aria-label="Mapa de títulos de la SENER"></div>
                 <aside class="pmm-panel cs-layers" id="cs-layers" data-layers aria-label="Capas del mapa">
                     <p class="pmm-h">Infraestructura</p>
                     ${NETWORKS.map(n => `<label class="pmm-layer"><input type="checkbox" data-network="${n.key}"><span class="pmm-line" style="--line:${n.swatch}"></span><span>${n.label}<small data-network-note="${n.key}">${n.short}</small></span></label>`).join('')}
@@ -87,9 +84,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                     <p class="pmm-h">Mapa base</p>
                     <div class="pmm-bases">${BASE_OPTIONS.map(([key, label]) => `<label><input type="radio" name="cs-base" value="${key}"${key === 'mapa' ? ' checked' : ''}> ${label}</label>`).join('')}</div>
                     <p class="pmm-h">Simbología</p>
-                    <p class="pmm-legend"><span class="pmm-pin" data-sector="electricidad">${infraIcon('solar', 11)}</span> CNE
-                        <span class="pmm-pin" data-sector="sener">${infraIcon('pozo', 11)}</span> SENER
-                        <span class="pmm-pin is-novig" data-sector="electricidad">${infraIcon('solar', 11)}</span> No vigente</p>
+                    <p class="pmm-legend"><span class="pmm-pin" data-sector="sener">${infraIcon('pozo', 11)}</span> Pozo</p>
                     <p class="pmm-legend cs-legend-scale">Registros por estado: menos <b style="background:${PALETTE[0]}"></b><b style="background:${PALETTE[2]}"></b><b style="background:${PALETTE[4]}"></b> más</p>
                 </aside>
                 <p class="cs-map-note" data-map-note hidden></p>
@@ -97,12 +92,12 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             <section class="cs-table" aria-labelledby="cs-table-title">
                 <div class="cs-table-head">
                     <h2 id="cs-table-title">Sin ubicación en el mapa</h2>
-                    <p class="cs-muted" data-table-intro>Comercio exterior, contratos, biocombustibles, permisos de alcance nacional y los que no indican dónde están.</p>
+                    <p class="cs-muted" data-table-intro>Comercio exterior, contratos de exploración y extracción, biocombustibles y las asignaciones, que la fuente ubica por estado y municipio pero sin coordenadas.</p>
                 </div>
                 <div data-table><p class="cs-muted">Cargando…</p></div>
                 <nav class="cs-pager" data-pager aria-label="Páginas de la tabla"></nav>
             </section>
-            <p class="cs-foot">Fuentes: registro público de la CNE y publicaciones de la SENER, a través de la API de DGMESNIE. El estatus lo calcula la fuente con su fecha de vigencia.</p>
+            <p class="cs-foot">Fuente: publicaciones de la Secretaría de Energía, a través de la API de DGMESNIE. El estatus lo calcula la fuente con su fecha de vigencia. Los permisos de la CNE están en las pestañas Permisos y Mapa.</p>
         </div>
         <dialog class="cs-detail" data-detail aria-labelledby="cs-detail-title"><div data-detail-body></div></dialog>`;
     const $ = selector => host.querySelector(selector);
@@ -112,17 +107,17 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         const select = $('[data-filter="tabla"]');
         const options = SOURCES.filter(source => !filters.autoridad || source.autoridad === filters.autoridad);
         if (filters.tabla && !options.some(source => source.key === filters.tabla)) filters.tabla = '';
-        select.innerHTML = `<option value="">Todas las fuentes</option>${options.map(source => `<option value="${source.key}"${source.key === filters.tabla ? ' selected' : ''}>${esc(source.label)}${filters.autoridad ? '' : ` (${source.autoridad})`}</option>`).join('')}`;
+        select.innerHTML = `<option value="">Todas las fuentes</option>${options.map(source => `<option value="${source.key}"${source.key === filters.tabla ? ' selected' : ''}>${esc(source.label)}</option>`).join('')}`;
     }
 
     // ---------- update dates ----------
-    getPermisos('actualizaciones', { pageSize: 100 }).then(body => {
+    getPermisos('actualizaciones', { autoridad: 'SENER', pageSize: 100 }).then(body => {
         if (destroyed) return;
         const { byAuthority, bySource } = updatesSummary(body.data || []);
-        const heads = ['CNE', 'SENER'].filter(a => byAuthority[a]).map(a => `Datos ${a} al <strong>${esc(localDate(byAuthority[a]))}</strong>`);
+        const heads = byAuthority.SENER ? [`Datos de la SENER al <strong>${esc(localDate(byAuthority.SENER))}</strong>`] : [];
         $('[data-updates]').innerHTML = heads.length ? `
             <span>${heads.join('<span class="cs-sep" aria-hidden="true"></span>')}</span>
-            <details><summary>Por fuente</summary><ul>${bySource.map(row => `<li><span>${esc(SOURCE[row.source].label)}${row.autoridad === 'SENER' ? ' <span class="cs-badge">SENER</span>' : ''}</span><span>${esc(mexicoCityTime(row.fechaActualizacion) || shortDate(row.fechaActualizacion))}${row.fechaCorteFuente ? ` · corte de la fuente: ${esc(shortDate(row.fechaCorteFuente))}` : ''}</span></li>`).join('')}</ul></details>`
+            <details><summary>Por fuente</summary><ul>${bySource.map(row => `<li><span>${esc(SOURCE[row.source].label)}</span><span>${esc(mexicoCityTime(row.fechaActualizacion) || shortDate(row.fechaActualizacion))}${row.fechaCorteFuente ? ` · corte de la fuente: ${esc(shortDate(row.fechaCorteFuente))}` : ''}</span></li>`).join('')}</ul></details>`
             : '<span class="cs-muted">Fecha de actualización no disponible.</span>';
     }).catch(() => { if (!destroyed) $('[data-updates]').innerHTML = '<span class="cs-muted">Fecha de actualización no disponible.</span>'; });
 
@@ -259,7 +254,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             $('#cs-table-title').textContent = searching ? `Resultados de «${filters.q}»` : 'Sin ubicación en el mapa';
             $('[data-table-intro]').textContent = searching
                 ? 'Todos los registros cuyo número o razón social contienen ese texto, tengan o no punto en el mapa.'
-                : 'Comercio exterior, contratos, biocombustibles, permisos de alcance nacional y los que no indican dónde están.';
+                : 'Comercio exterior, contratos de exploración y extracción, biocombustibles y las asignaciones, que la fuente ubica por estado y municipio pero sin coordenadas.';
             const body = await getPermisos(searching ? 'permisos' : 'sin-ubicacion', { ...apiFilters(), page, pageSize: PAGE_SIZE }, tableCtrl.signal);
             if (destroyed) return;
             const rows = body.data || [];
@@ -438,7 +433,6 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             });
             return;
         }
-        if (t.name === 'cs-autoridad') { filters.autoridad = t.value; renderSources(); load(); }
         else if (t.dataset.filter) { filters[t.dataset.filter] = t.value; load(); }
     };
     const onClick = event => {

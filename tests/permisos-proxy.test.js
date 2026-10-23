@@ -55,12 +55,14 @@ describe('permits API proxy', () => {
     });
 });
 
-describe('CNE y SENER tab', () => {
+describe('SENER tab', () => {
     it('routes the tab and one record, and builds their addresses back', () => {
-        expect(permitsRoute('#cne-sener')).toEqual({ tab: 'cne-sener' });
-        expect(permitsRoute('#cne-sener?tabla=pozos&numero=AGUA%20NACIDA-1')).toEqual({ tab: 'cne-sener', record: { tabla: 'pozos', numero: 'AGUA NACIDA-1' } });
-        expect(permitsHash({ record: { tabla: 'asignaciones', numero: 'A-0001' } })).toBe('#cne-sener?tabla=asignaciones&numero=A-0001');
-        expect(permitsHash({ tab: 'cne-sener' })).toBe('#cne-sener');
+        expect(permitsRoute('#sener')).toEqual({ tab: 'sener' });
+        expect(permitsRoute('#sener?tabla=pozos&numero=AGUA%20NACIDA-1')).toEqual({ tab: 'sener', record: { tabla: 'pozos', numero: 'AGUA NACIDA-1' } });
+        // Links shared with the first name of the tab keep working.
+        expect(permitsRoute('#cne-sener?tabla=pozos&numero=X')).toEqual({ tab: 'sener', record: { tabla: 'pozos', numero: 'X' } });
+        expect(permitsHash({ record: { tabla: 'asignaciones', numero: 'A-0001' } })).toBe('#sener?tabla=asignaciones&numero=A-0001');
+        expect(permitsHash({ tab: 'sener' })).toBe('#sener');
         expect(permitsRoute('#mapa-permisos')).toEqual({ tab: 'mapa' });
     });
 
