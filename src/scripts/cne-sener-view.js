@@ -60,15 +60,26 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                     <legend>Autoridad</legend>
                     ${['', 'CNE', 'SENER'].map(value => `<label><input type="radio" name="cs-autoridad" value="${value}"${value === filters.autoridad ? ' checked' : ''}><span>${value || 'Todas'}</span></label>`).join('')}
                 </fieldset>
-                <label class="cs-field cs-search"><span>Buscar</span><input type="search" data-q autocomplete="off" spellcheck="false" placeholder="Número o razón social" maxlength="120"></label>
                 <label class="cs-field"><span>Fuente</span><select data-filter="tabla"></select></label>
                 <label class="cs-field"><span>Mercado</span><select data-filter="mercado"><option value="">Todos los mercados</option>${MARKETS.map(m => `<option>${esc(m)}</option>`).join('')}</select></label>
                 <label class="cs-field"><span>Estatus</span><select data-filter="estatus"><option value="">Todos</option><option value="Vigente">Vigentes</option><option value="No vigente">No vigentes</option></select></label>
             </form>
             <p class="cs-summary" data-summary role="status" aria-live="polite"></p>
-            <div class="pmm cs-map-wrap">
+            <div class="pmm cs-map-wrap" data-map-root>
+                <div class="pmm-bar">
+                    <label class="pmm-search">
+                        <span class="pmm-sr">Buscar permisos, títulos o pozos</span>
+                        <input type="search" data-q autocomplete="off" spellcheck="false" maxlength="120" placeholder="Permiso, título, pozo o razón social">
+                    </label>
+                    <div class="pmm-tools">
+                        <button type="button" class="pm-btn" data-layers-toggle aria-expanded="true" aria-controls="cs-layers">Capas</button>
+                        <button type="button" class="pm-btn" data-mexico>Todo México</button>
+                        <button type="button" class="pm-btn" data-fullscreen>Pantalla completa</button>
+                        <button type="button" class="pm-btn pmm-desk" data-desk aria-label="Mi mesa de consulta">Mi mesa <span class="pmm-desk-count" data-desk-count>0</span></button>
+                    </div>
+                    <div class="pmm-suggest" data-suggest hidden></div>
+                </div>
                 <div class="cs-map" data-map aria-label="Mapa de permisos y títulos"></div>
-                <button type="button" class="pm-btn cs-layers-btn" data-layers-toggle aria-expanded="true" aria-controls="cs-layers">Capas</button>
                 <aside class="pmm-panel cs-layers" id="cs-layers" data-layers aria-label="Capas del mapa">
                     <p class="pmm-h">Infraestructura</p>
                     ${NETWORKS.map(n => `<label class="pmm-layer"><input type="checkbox" data-network="${n.key}"><span class="pmm-line" style="--line:${n.swatch}"></span><span>${n.label}<small data-network-note="${n.key}">${n.short}</small></span></label>`).join('')}
@@ -284,6 +295,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     let detailCtrl = null;
     async function openRecord(tabla, numero, { route = true } = {}) {
         if (!SOURCE[tabla] || !numero) return;
+        if (document.fullscreenElement) await document.exitFullscreen?.().catch(() => {});
         if (route) onRoute({ tabla, numero });
         detailCtrl?.abort();
         detailCtrl = new AbortController();
@@ -356,15 +368,56 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     }
 
     // ---------- events ----------
+    // While typing: up to 8 matches to jump to. Enter (or «Ver todos») filters the map and the table by the text.
     let typing = null;
+    let suggestCtrl = null;
+    let suggestItems = [];
+    const suggestBox = () => $('[data-suggest]');
+    function renderSuggest(term, body, loading) {
+        suggestItems = body?.data || [];
+        const box = suggestBox();
+        box.innerHTML = loading ? '<p class="pmm-muted">Buscando…</p>'
+            : suggestItems.length ? `${suggestItems.map((row, i) => {
+                const marker = markerOf(row);
+                const where = row.latitud != null ? place(row) : 'sin ubicación en el mapa';
+                return `<button type="button" data-i="${i}"><span class="pmm-pin" data-sector="${marker.sector}">${infraIcon(marker.icon, 12)}</span>
+                    <span><strong>${esc(row.razonSocial || row.numero)}</strong><small>${esc(row.numero)} · ${esc(SOURCE[row.tabla]?.label || row.tabla)}${row.autoridad === 'SENER' ? ' · SENER' : ''} · ${esc(where)}</small></span></button>`;
+            }).join('')}
+                <button type="button" class="pmm-all" data-all>Ver los ${count(body.total)} registros que coinciden con «${esc(term)}»</button>`
+            : '<p class="pmm-muted">Sin coincidencias.</p>';
+        box.hidden = false;
+    }
+    function applySearch(term) {
+        suggestBox().hidden = true;
+        const next = term.length >= 2 ? term.slice(0, 120) : '';
+        if (next !== filters.q) { filters.q = next; load(); }
+    }
+    function flyToRecord(row) {
+        suggestBox().hidden = true;
+        if (row.latitud == null || row.longitud == null || !map) { openRecord(row.tabla, row.numero); return; }
+        const at = L.latLng(row.latitud, row.longitud);
+        map.once('moveend', () => L.popup({ className: 'pmm-popup', maxWidth: 340 }).setLatLng(at).setContent(pointPopup(row)).openOn(map));
+        map.setView(at, Math.max(map.getZoom(), 15));
+    }
     const onInput = event => {
         if (!event.target.matches('[data-q]')) return;
+        const term = event.target.value.trim();
         clearTimeout(typing);
-        typing = setTimeout(() => {
-            const value = event.target.value.trim();
-            const next = value.length >= 2 ? value.slice(0, 120) : '';
-            if (next !== filters.q) { filters.q = next; load(); }
-        }, 450);
+        if (term.length < 2) { suggestBox().hidden = true; if (filters.q) applySearch(''); return; }
+        renderSuggest(term, null, true);
+        typing = setTimeout(async () => {
+            suggestCtrl?.abort();
+            suggestCtrl = new AbortController();
+            try {
+                const body = await getPermisos('permisos', { ...apiFilters(), q: term, page: 1, pageSize: 8 }, suggestCtrl.signal);
+                if (event.target.value.trim() === term) renderSuggest(term, body, false);
+            } catch (error) { if (error.name !== 'AbortError') renderSuggest(term, { data: [] }, false); }
+        }, 300);
+    };
+    const onKeydown = event => {
+        if (!event.target.matches('[data-q]')) return;
+        if (event.key === 'Enter') { event.preventDefault(); applySearch(event.target.value.trim()); }
+        if (event.key === 'Escape') suggestBox().hidden = true;
     };
     const onChange = event => {
         const t = event.target;
@@ -390,13 +443,22 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     };
     const onClick = event => {
         const t = event.target;
-        const layersBtn = t.closest('[data-layers-toggle]');
-        if (layersBtn) {
+        const sug = t.closest('[data-suggest] [data-i]');
+        if (sug) { flyToRecord(suggestItems[Number(sug.dataset.i)]); return; }
+        if (t.closest('[data-all]')) { applySearch($('[data-q]').value.trim()); return; }
+        if (!t.closest('.pmm-search') && !t.closest('[data-suggest]')) suggestBox().hidden = true;
+        if (t.closest('[data-layers-toggle]')) {
             const panel = $('[data-layers]');
             panel.hidden = !panel.hidden;
-            layersBtn.setAttribute('aria-expanded', String(!panel.hidden));
+            host.querySelectorAll('[data-layers-toggle]').forEach(btn => btn.setAttribute('aria-expanded', String(!panel.hidden)));
             return;
         }
+        if (t.closest('[data-mexico]')) { map?.fitBounds(MEXICO); return; }
+        if (t.closest('[data-fullscreen]')) {
+            if (document.fullscreenElement) document.exitFullscreen(); else $('[data-map-root]').requestFullscreen?.();
+            return;
+        }
+        if (t.closest('[data-desk]')) { document.getElementById('desk-toggle')?.click(); return; }
         const pageBtn = t.closest('[data-page]');
         if (pageBtn && !pageBtn.disabled) { page = Number(pageBtn.dataset.page); loadTable(); $('.cs-table').scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
         const lawBtn = t.closest('[data-open-law]');
@@ -410,6 +472,26 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     const onClose = () => { detailCtrl?.abort(); onRoute(null); };
     host.addEventListener('change', onChange);
     host.addEventListener('input', onInput);
+    host.addEventListener('keydown', onKeydown);
+    // Full screen: the button says how to leave it, and the map takes the new size.
+    const onFullscreen = () => {
+        const on = document.fullscreenElement === $('[data-map-root]');
+        const btn = $('[data-fullscreen]');
+        if (btn) btn.textContent = on ? 'Salir de pantalla completa' : 'Pantalla completa';
+        setTimeout(() => map?.invalidateSize({ pan: false }), 60);
+    };
+    document.addEventListener('fullscreenchange', onFullscreen);
+    // «Mi mesa» lives in the bar here, as in the Mapa tab: the floating button would sit on the map.
+    document.body.classList.add('pmm-open');
+    const deskToggle = document.getElementById('desk-toggle');
+    const syncDesk = () => {
+        const n = deskToggle?.querySelector('.desk-badge')?.textContent || '0';
+        $('[data-desk-count]').textContent = n;
+        $('[data-desk]').setAttribute('aria-label', `Mi mesa de consulta, ${n} ${n === '1' ? 'elemento fijado' : 'elementos fijados'}`);
+    };
+    const deskObserver = new MutationObserver(syncDesk);
+    if (deskToggle) deskObserver.observe(deskToggle, { childList: true, subtree: true, characterData: true });
+    syncDesk();
     host.addEventListener('click', onClick);
     dialog.addEventListener('close', onClose);
     // «Ver ficha» and record links, in the capture phase: Leaflet stops clicks inside popups from bubbling.
@@ -420,7 +502,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     host.addEventListener('click', onPopupClick, true);
 
     renderSources();
-    if (narrow()) { $('[data-layers]').hidden = true; $('[data-layers-toggle]').setAttribute('aria-expanded', 'false'); }
+    if (narrow()) { $('[data-layers]').hidden = true; host.querySelectorAll('[data-layers-toggle]').forEach(btn => btn.setAttribute('aria-expanded', 'false')); }
     setupMap().then(load).catch(() => {
         if (destroyed) return;
         $('[data-map-note]').hidden = false;
@@ -440,6 +522,12 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             clearTimeout(typing);
             host.removeEventListener('change', onChange);
             host.removeEventListener('input', onInput);
+            host.removeEventListener('keydown', onKeydown);
+            document.removeEventListener('fullscreenchange', onFullscreen);
+            if (document.fullscreenElement === $('[data-map-root]')) document.exitFullscreen?.();
+            deskObserver.disconnect();
+            document.body.classList.remove('pmm-open');
+            suggestCtrl?.abort();
             host.removeEventListener('click', onClick);
             host.removeEventListener('click', onPopupClick, true);
             dialog.removeEventListener('close', onClose);

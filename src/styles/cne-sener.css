@@ -121,3 +121,20 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 .pmm-pop-kicker .cs-badge{margin-left:6px}
 @media (max-width:720px){.cs-layers{left:8px;right:8px;width:auto;top:56px}}
 @media (max-width:640px){.cs-map{height:min(56vh,430px);min-height:320px}}
+
+/* Map bar like the Mapa tab: search with suggestions, layers, Mexico, full screen and «Mi mesa». */
+.cs-map-wrap.pmm{display:flex;flex-direction:column;gap:10px;border:0;border-radius:0;overflow:visible}
+.cs-map-wrap .cs-map{border:1px solid var(--pm-border);border-radius:16px}
+.cs-map-wrap .cs-layers{top:66px}
+.cs-map-wrap .pmm-suggest{z-index:1200}
+.cs-map-wrap:fullscreen{background:var(--pm-card);padding:10px}
+.cs-map-wrap:fullscreen .cs-map{height:calc(100vh - 80px)}
+/* Phones: the Mapa tab floats its bar over a full-screen map; here the map sits in the page, so the bar
+   stays above it, with «Capas» and «Todo México» at hand. */
+@media (max-width:1023px){
+    .cs-map-wrap .pmm-bar{position:relative!important;top:auto!important;left:auto!important;right:auto!important;z-index:2!important;flex-wrap:wrap!important}
+    .cs-map-wrap .pmm-tools{display:flex!important;width:100%}
+    .cs-map-wrap [data-fullscreen],.cs-map-wrap [data-desk]{display:none!important}
+    .cs-map-wrap .pmm-suggest{top:54px}
+    .cs-map-wrap .cs-layers{top:auto}
+}
