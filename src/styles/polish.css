@@ -319,3 +319,7 @@ html.dark-mode .nav-more-btn.is-active,html.dark-mode .nav-more-btn[aria-expande
 /* Phones: the button keeps only «Aa»; its name stays for screen readers. */
 @media (max-width:520px){.lr-tools-row .reader-settings-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 html.dark-mode .lr-tools-row .reader-law-toolbar{background:var(--lr-card,#2a2326)!important;border-color:var(--lr-border,#3a3034)!important}
+
+/* Leaflet stacks its panes with z-index 400–1000; without their own stacking context they rise above
+   the app's overlays (the «Mi mesa» panel, the header menu, dialogs). Each map keeps them inside. */
+.leaflet-container{isolation:isolate}

@@ -12,7 +12,7 @@ import { withMapBusy } from '../lib/map-busy.js';
 import { permitsHash } from '../lib/cne-api.js';
 import '../styles/cne-sener.css';
 
-const POINT_LIMIT = 3000;
+const POINT_LIMIT = 6000;
 const PAGE_SIZE = 25;
 const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
 const COLOR = { CNE: '#1e5b4f', SENER: '#a57f2c' };
@@ -33,7 +33,7 @@ async function getEstadosGeo(signal) {
  * @param {{ catalog?: () => object[], onOpenLaw?: Function, record?: { tabla: string, numero: string } | null, onRoute?: Function }} options
  */
 export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () => {}, record = null, onRoute = () => {} } = {}) {
-    const filters = { autoridad: 'SENER', tabla: '', mercado: '', estatus: '' };
+    const filters = { autoridad: 'SENER', tabla: '', mercado: '', estatus: '', q: '' };
     let page = 1;
     let destroyed = false;
     let loadCtrl = null;
@@ -52,6 +52,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                     <legend>Autoridad</legend>
                     ${['', 'CNE', 'SENER'].map(value => `<label><input type="radio" name="cs-autoridad" value="${value}"${value === filters.autoridad ? ' checked' : ''}><span>${value || 'Todas'}</span></label>`).join('')}
                 </fieldset>
+                <label class="cs-field cs-search"><span>Buscar</span><input type="search" data-q autocomplete="off" spellcheck="false" placeholder="Número o razón social" maxlength="120"></label>
                 <label class="cs-field"><span>Fuente</span><select data-filter="tabla"></select></label>
                 <label class="cs-field"><span>Mercado</span><select data-filter="mercado"><option value="">Todos los mercados</option>${MARKETS.map(m => `<option>${esc(m)}</option>`).join('')}</select></label>
                 <label class="cs-field"><span>Estatus</span><select data-filter="estatus"><option value="">Todos</option><option value="Vigente">Vigentes</option><option value="No vigente">No vigentes</option></select></label>
@@ -68,7 +69,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             <section class="cs-table" aria-labelledby="cs-table-title">
                 <div class="cs-table-head">
                     <h2 id="cs-table-title">Sin ubicación en el mapa</h2>
-                    <p class="cs-muted">Comercio exterior, contratos, biocombustibles, permisos de alcance nacional y los que no indican dónde están.</p>
+                    <p class="cs-muted" data-table-intro>Comercio exterior, contratos, biocombustibles, permisos de alcance nacional y los que no indican dónde están.</p>
                 </div>
                 <div data-table><p class="cs-muted">Cargando…</p></div>
                 <nav class="cs-pager" data-pager aria-label="Páginas de la tabla"></nav>
@@ -177,27 +178,21 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         summary.textContent = 'Consultando…';
         const work = async () => {
             const params = apiFilters();
-            // Points come from this API only for SENER (wells): its CNE points carry every field and take minutes
-            // to page through. CNE points already live in the Mapa tab, from the fast endpoints; here CNE shows
-            // counts by state, which the API answers at once.
-            const wantPoints = filters.autoridad === 'SENER' || SOURCE[filters.tabla]?.autoridad === 'SENER';
-            const cneOnly = filters.autoridad === 'CNE' || SOURCE[filters.tabla]?.autoridad === 'CNE';
+            // Markers use the light points (number, holder, status, coordinates); the card asks for the rest.
+            // Past POINT_LIMIT the map keeps the counts by state and asks to narrow the search.
             const [geo, estados, points] = await Promise.all([
                 statesGeo || getEstadosGeo(signal).catch(() => null),
                 getPermisos('estados', { ...params, pageSize: 100 }, signal),
-                wantPoints ? getAllPages('puntos', params, { signal, limit: POINT_LIMIT }) : null,
+                getAllPages('puntos', { ...params, ligero: 'true' }, { signal, limit: POINT_LIMIT }),
             ]);
             statesGeo = geo;
             if (signal.aborted || destroyed) return;
             paintStates(estados.data || []);
             paintPoints(points?.data || []);
-            note.hidden = Boolean(points && !points.tooMany);
-            if (!points) {
-                note.innerHTML = `El mapa colorea cada estado según cuántos registros tiene.${cneOnly ? '' : ' Elige la autoridad SENER para ver los pozos.'} Los puntos de cada permiso de la CNE están en la pestaña <a href="${permitsHash({ tab: 'mapa' })}">Mapa</a>.`;
-            }
-            else if (points.tooMany) note.textContent = `Hay ${count(points.total)} registros con ubicación, demasiados para verlos uno por uno. Elige un mercado o un estatus para acotarlos; mientras, el mapa colorea cada estado según cuántos tiene.`;
+            note.hidden = !points.tooMany;
+            if (points.tooMany) note.textContent = `Hay ${count(points.total)} registros con ubicación, demasiados para verlos uno por uno. Elige una fuente, un mercado o busca un titular para acotarlos; mientras, el mapa colorea cada estado según cuántos tiene.`;
             const located = (estados.data || []).reduce((sum, row) => sum + (row.efId && row.efId !== '--' ? Number(row.permisos) || 0 : 0), 0);
-            summary.innerHTML = [points && `<strong>${count(points.total)}</strong> con punto en el mapa`, `<strong>${count(located)}</strong> con estado identificado`].filter(Boolean).join(' · ');
+            summary.innerHTML = `<strong>${count(points.total)}</strong> con punto en el mapa · <strong>${count(located)}</strong> con estado identificado`;
         };
         try {
             await (map ? withMapBusy(map, null, 'Cargando registros…', work) : work());
@@ -214,7 +209,13 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         const pager = $('[data-pager]');
         box.setAttribute('aria-busy', 'true');
         try {
-            const body = await getPermisos('sin-ubicacion', { ...apiFilters(), page, pageSize: PAGE_SIZE }, tableCtrl.signal);
+            // A search lists every match (with or without a point); otherwise the table holds what the map cannot show.
+            const searching = Boolean(filters.q);
+            $('#cs-table-title').textContent = searching ? `Resultados de «${filters.q}»` : 'Sin ubicación en el mapa';
+            $('[data-table-intro]').textContent = searching
+                ? 'Todos los registros cuyo número o razón social contienen ese texto, tengan o no punto en el mapa.'
+                : 'Comercio exterior, contratos, biocombustibles, permisos de alcance nacional y los que no indican dónde están.';
+            const body = await getPermisos(searching ? 'permisos' : 'sin-ubicacion', { ...apiFilters(), page, pageSize: PAGE_SIZE }, tableCtrl.signal);
             if (destroyed) return;
             const rows = body.data || [];
             box.innerHTML = rows.length ? `
@@ -229,7 +230,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                         <td>${esc(statusLabel(row))}</td>
                     </tr>`).join('')}</tbody>
                 </table></div>`
-                : '<p class="cs-muted">No hay registros sin ubicación con estos filtros.</p>';
+                : `<p class="cs-muted">${filters.q ? 'Ningún registro coincide con esa búsqueda y estos filtros.' : 'No hay registros sin ubicación con estos filtros.'}</p>`;
             const pages = Math.ceil((body.total || 0) / PAGE_SIZE);
             pager.innerHTML = pages > 1 ? `
                 <button type="button" class="cs-btn" data-page="${page - 1}"${page <= 1 ? ' disabled' : ''}>Anterior</button>
@@ -321,8 +322,19 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     }
 
     // ---------- events ----------
+    let typing = null;
+    const onInput = event => {
+        if (!event.target.matches('[data-q]')) return;
+        clearTimeout(typing);
+        typing = setTimeout(() => {
+            const value = event.target.value.trim();
+            const next = value.length >= 2 ? value.slice(0, 120) : '';
+            if (next !== filters.q) { filters.q = next; load(); }
+        }, 450);
+    };
     const onChange = event => {
         const t = event.target;
+        if (t.matches('[data-q]')) return;
         if (t.name === 'cs-autoridad') { filters.autoridad = t.value; renderSources(); load(); }
         else if (t.dataset.filter) { filters[t.dataset.filter] = t.value; load(); }
     };
@@ -340,6 +352,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     };
     const onClose = () => { detailCtrl?.abort(); onRoute(null); };
     host.addEventListener('change', onChange);
+    host.addEventListener('input', onInput);
     host.addEventListener('click', onClick);
     dialog.addEventListener('close', onClose);
     // «Ver ficha» and record links, in the capture phase: Leaflet stops clicks inside popups from bubbling.
@@ -366,7 +379,9 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             loadCtrl?.abort();
             tableCtrl?.abort();
             detailCtrl?.abort();
+            clearTimeout(typing);
             host.removeEventListener('change', onChange);
+            host.removeEventListener('input', onInput);
             host.removeEventListener('click', onClick);
             host.removeEventListener('click', onPopupClick, true);
             dialog.removeEventListener('close', onClose);

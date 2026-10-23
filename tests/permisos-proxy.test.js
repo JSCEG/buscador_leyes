@@ -11,6 +11,7 @@ describe('permits API proxy', () => {
         expect(upstreamUrl('puntos', params('tabla=pozos&autoridad=SENER'), BASE)).toBe(`${BASE}/puntos?autoridad=SENER&tabla=pozos`);
         expect(upstreamUrl('asignaciones-municipios', params('numero=A-0001'), BASE)).toBe(`${BASE}/asignaciones/municipios?numero=A-0001`);
         expect(upstreamUrl('catalogo', params(''), BASE)).toBe(`${BASE}/catalogo`);
+        expect(upstreamUrl('puntos', params('tabla=electricidad&ligero=true&q=pemex'), BASE)).toBe(`${BASE}/puntos?ligero=true&q=pemex&tabla=electricidad`);
         expect(upstreamUrl('estados', params('mercado=Gas natural&estatus=Vigente'), BASE)).toContain('mercado=Gas+natural');
     });
 
@@ -23,6 +24,10 @@ describe('permits API proxy', () => {
         expect(upstreamUrl('catalogo', params('x=1'), BASE)).toBeNull();
         expect(upstreamUrl('detalle', params('tabla=pozos'), BASE)).toBeNull();
         expect(upstreamUrl('ligas', params('tabla=ligas'), BASE)).toBeNull();
+        expect(upstreamUrl('sin-ubicacion', params('ligero=true'), BASE)).toBeNull();
+        expect(upstreamUrl('puntos', params('ligero=1'), BASE)).toBeNull();
+        expect(upstreamUrl('permisos', params('q=a'), BASE)).toBeNull();
+        expect(upstreamUrl('permisos', params('q=<script>'), BASE)).toBeNull();
     });
 
     it('sends the key upstream, never to the browser, and caches the answer', async () => {
@@ -70,7 +75,7 @@ describe('CNE y SENER tab', () => {
 
     it('summarizes the latest load per authority and per source', () => {
         const { byAuthority, bySource } = updatesSummary([
-            { autoridad: 'SENER', tabla: 'Pozos_SENER', fechaActualizacion: '2026-10-22T10:00:00Z' },
+            { autoridad: 'SENER', tabla: 'Pozos_SENER', clave: 'pozos', fechaActualizacion: '2026-10-22T10:00:00Z' },
             { autoridad: 'SENER', tabla: 'Asignaciones_SENER', fechaActualizacion: '2026-10-23T03:00:00Z' },
             { autoridad: 'CNE', tabla: 'Electricidad_autorizado', fechaActualizacion: '2026-10-21T00:00:00Z' },
         ]);

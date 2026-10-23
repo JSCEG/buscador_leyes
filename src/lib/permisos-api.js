@@ -110,7 +110,7 @@ export function updatesSummary(rows = []) {
     for (const row of rows) {
         const when = row.fechaActualizacion || '';
         if (!byAuthority[row.autoridad] || when > byAuthority[row.autoridad]) byAuthority[row.autoridad] = when;
-        const key = sourceOfTable(row.tabla);
+        const key = SOURCE[row.clave] ? row.clave : sourceOfTable(row.tabla);
         if (key && (!bySource[key] || when > bySource[key].fechaActualizacion)) bySource[key] = { ...row, source: key };
     }
     return { byAuthority, bySource: SOURCES.filter(source => bySource[source.key]).map(source => bySource[source.key]) };

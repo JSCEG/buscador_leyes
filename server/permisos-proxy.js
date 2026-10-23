@@ -27,15 +27,19 @@ const PARAMS = {
     mpo: value => /^\d{3}$/.test(value),
     tipo: value => TEXT.test(value),
     numero: value => NUMBER.test(value),
+    // Free text over number and holder (2 to 120 characters); the API escapes its wildcards.
+    q: value => value.trim().length >= 2 && value.length <= 120 && !/[\u0000-\u001f<>]/.test(value),
+    ligero: value => value === 'true',
     page: intIn(1, 100000),
     pageSize: intIn(1, 500),
 };
-const FILTERS = ['tabla', 'autoridad', 'mercado', 'estatus', 'ef', 'mpo', 'tipo', 'numero', 'page', 'pageSize'];
+const FILTERS = ['tabla', 'autoridad', 'mercado', 'estatus', 'ef', 'mpo', 'tipo', 'numero', 'q', 'page', 'pageSize'];
 
 /** endpoint → { upstream path, allowed params, required params, edge cache seconds } */
 const ENDPOINTS = {
     permisos: { path: 'permisos', keys: FILTERS, seconds: 3600 },
-    puntos: { path: 'puntos', keys: FILTERS, seconds: 3600 },
+    // ligero=true: only what a marker needs (number, holder, status, coordinates, authority, type).
+    puntos: { path: 'puntos', keys: [...FILTERS, 'ligero'], seconds: 3600 },
     estados: { path: 'estados', keys: FILTERS, seconds: 3600 },
     municipios: { path: 'municipios', keys: FILTERS, seconds: 3600 },
     'sin-ubicacion': { path: 'sin-ubicacion', keys: FILTERS, seconds: 3600 },
