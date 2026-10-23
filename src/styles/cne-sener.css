@@ -120,3 +120,4 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 .cs-legend-scale b:last-of-type{margin-right:4px}
 .pmm-pop-kicker .cs-badge{margin-left:6px}
 @media (max-width:720px){.cs-layers{left:8px;right:8px;width:auto;top:56px}}
+@media (max-width:640px){.cs-map{height:min(56vh,430px);min-height:320px}}

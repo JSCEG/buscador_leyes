@@ -17,6 +17,7 @@ import '../styles/cne-sener.css';
 
 const POINT_LIMIT = 6000;
 const PAGE_SIZE = 25;
+const MEXICO = [[14.3, -117.5], [32.8, -86.6]];
 const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -46,6 +47,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     let statesLayer = null;
     let statesGeo = null;
     let setBase = null;
+    let resizeObserver = null;
     let networks = null;
     const icons = new Map();
     const narrow = () => matchMedia('(max-width: 720px)').matches;
@@ -121,15 +123,23 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         globalThis.L = L;
         await import('leaflet.markercluster/dist/leaflet.markercluster.js');
         if (destroyed) return;
-        map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 3.5, maxZoom: 19, zoomSnap: 0.5, scrollWheelZoom: false });
+        map = L.map($('[data-map]'), { zoomControl: false, preferCanvas: true, minZoom: 3.5, maxZoom: 19, zoomSnap: 0.25, scrollWheelZoom: false });
         L.control.zoom({ position: 'bottomright' }).addTo(map);
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
         // Same base maps, networks, pins and clusters as the Mapa tab (src/lib/map-common.js).
         setBase = baseLayers(L, map, { onFallback: key => { const radio = host.querySelector(`input[name="cs-base"][value="${key}"]`); if (radio) radio.checked = true; } });
         setBase('mapa');
         networks = networkLayers(L, map, { pane: 'cs-networks' });
-        map.fitBounds([[14.3, -117.5], [32.8, -86.6]]);
+        map.fitBounds(MEXICO);
         map.on('zoomend', () => statesLayer?.restyle?.());
+        // The map is built before the tab has its final size (fonts, the table below): once it has one, frame
+        // Mexico again, so phones do not open on half of the United States.
+        let framed = false;
+        resizeObserver = new ResizeObserver(() => {
+            map.invalidateSize({ pan: false });
+            if (!framed && $('[data-map]').clientWidth > 0) { framed = true; map.fitBounds(MEXICO); }
+        });
+        resizeObserver.observe($('[data-map]'));
         map.on('focus', () => map.scrollWheelZoom.enable());
         map.on('blur', () => map.scrollWheelZoom.disable());
         map.createPane('cs-states').style.zIndex = 380;
@@ -434,6 +444,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             host.removeEventListener('click', onPopupClick, true);
             dialog.removeEventListener('close', onClose);
             if (dialog.open) dialog.close();
+            resizeObserver?.disconnect();
             map?.remove();
             host.replaceChildren();
         },
