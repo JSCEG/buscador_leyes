@@ -58,12 +58,12 @@ export function initInstallPrompt() {
         sheet.innerHTML = `
             <div class="install-mark">${brandMarkSvg({ className: 'install-logo' })}</div>
             <div class="install-text">
-                <p id="install-title" class="install-title">Lleva el Buscador Jurídico en tu celular</p>
-                <p class="install-body">${deferred ? 'Instálalo como app: se abre desde tu pantalla de inicio, a pantalla completa.' : 'Toca <b>Compartir</b> <span class="install-share" aria-hidden="true">⬆</span> y luego <b>Agregar a inicio</b>.'}</p>
+                <p id="install-title" class="install-title">Instala la app</p>
+                <p class="install-body">${deferred ? 'Se abre desde tu pantalla de inicio.' : 'Toca <b>Compartir</b> <span class="install-share" aria-hidden="true">⬆</span> y luego <b>Agregar a inicio</b>.'}</p>
             </div>
             <div class="install-actions">
                 ${deferred ? '<button type="button" class="install-yes">Instalar</button>' : ''}
-                <button type="button" class="install-no">Ahora no</button>
+                <button type="button" class="install-no" aria-label="Ahora no" title="Ahora no"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
             </div>`;
         document.body.append(sheet);
         requestAnimationFrame(() => sheet?.classList.add('is-open'));
