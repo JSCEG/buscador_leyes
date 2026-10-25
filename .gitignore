@@ -9,7 +9,10 @@ dist
 .local/
 .wrangler/
 .playwright-mcp/
-graphify-out/cache/
+graphify-out/
+/tmp/
+revision-acervo/**/fragmento-*.sql
+revision-acervo/**/lote-*.sql
 revision-acervo/**/*.pdf
 revision-acervo/**/revision-visual/
 revision-acervo/**/*.png
