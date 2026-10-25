@@ -30,7 +30,7 @@ import { renderInstrumentTimeline } from './instrument-timeline-view.js';
 import { isLoggedIn, getCurrentUser, onAuthChange, login, register, logout, resendConfirmation, dbGetFavorites, dbAddFavorite, dbRemoveFavorite, dbGetAllNotes, dbSaveNote, isAdmin, isSiteOwner, googleSignInAvailable, loginWithGoogle, takeReturnHash } from './auth.js';
 import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
-import { comoFuncionaRoute } from '../data/como-funciona.js';
+import { comoFuncionaRoute } from '../lib/como-funciona-route.js';
 import { decorateDefinitions } from '../lib/definitions.js';
 import { tramitesForLaw } from '../data/tramites.js';
 import { authError } from '../lib/auth-errors.js';

@@ -1,6 +1,7 @@
 import { supabase } from '../lib/supabase.js';
 import { getAllLeyesAdmin, updateLaw, deleteLaw } from './search-engine.js';
 import { isAdmin } from './auth.js';
+import { loadPdfjs } from '../lib/pdfjs.js';
 import { parseRegulatoryText, reconstructPdfPages, validateRegulatoryChunks } from '../lib/regulatory-parser.js';
 
 let importedFile = null;
@@ -342,7 +343,7 @@ const MESES_ES = {
 
 async function extractFirstPagesText(file, maxPages = 2) {
     const arrayBuffer = await file.arrayBuffer();
-    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    const pdf = await (await loadPdfjs()).getDocument({ data: arrayBuffer }).promise;
     const pages = Math.min(pdf.numPages, maxPages);
     let text = '';
     for (let i = 1; i <= pages; i++) {
@@ -673,7 +674,7 @@ async function handleParseFile() {
 }
 
 async function extractTextFromPDF(file) {
-    const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+    const pdf = await (await loadPdfjs()).getDocument({ data: await file.arrayBuffer() }).promise;
     const pages = [];
     try {
         for (let i = 1; i <= pdf.numPages; i++) {
