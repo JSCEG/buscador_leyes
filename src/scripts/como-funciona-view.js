@@ -82,6 +82,21 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     };
     window.addEventListener('message', onMessage);
 
+    // Each figure has a light and a dark file: swap it when the site theme changes, keeping the selected part.
+    let wasDark = dark();
+    const themeWatch = new MutationObserver(() => {
+        if (dark() === wasDark) return;
+        wasDark = dark();
+        const frame = container.querySelector('iframe[data-concepto]');
+        if (!frame || !activeConcept) return;
+        const selected = Number(container.querySelector('.cf-parts [data-part-n].is-selected')?.dataset.partN) || 0;
+        if (selected) {
+            frame.addEventListener('load', () => frame.contentWindow?.postMessage({ type: 'concepto-select-part', n: selected }, location.origin), { once: true });
+        }
+        frame.src = figureUrl(activeConcept.figura);
+    });
+    themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
     const ICONS = {
         electricidad: '<svg class="cf-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13.5h6L9.5 22l9-12h-6.5Z"/></svg>',
         hidrocarburos: '<svg class="cf-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c-3.2 4.3-6.5 8.2-6.5 11.5a6.5 6.5 0 0 0 13 0c0-3.3-3.3-7.2-6.5-11.5Z"/><path d="M12 18.5a4 4 0 0 0 4-4"/></svg>',
@@ -503,6 +518,6 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     show(id);
     return {
         show,
-        destroy() { alive = false; window.removeEventListener('message', onMessage); container.replaceChildren(); },
+        destroy() { alive = false; window.removeEventListener('message', onMessage); themeWatch.disconnect(); container.replaceChildren(); },
     };
 }

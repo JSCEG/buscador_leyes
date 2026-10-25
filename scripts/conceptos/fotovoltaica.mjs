@@ -590,6 +590,8 @@ const FIG_CSS = `body.iso[data-theme="${theme}"]{--anatomy-red:${INK.red};--anat
 .pv-label:hover .pv-badge,.pv-label.is-selected .pv-badge{fill:${INK.green}}
 .pv-label.is-selected .pv-anchor{fill:${INK.green};stroke:${INK.green}}
 .pv-label.is-selected .pv-leader{stroke:${INK.green};stroke-width:1.3}
+.pv-label:focus-visible .pv-tag{stroke:${INK.green};stroke-width:2;stroke-dasharray:3 2}
+.pv-label:focus-visible .pv-badge{stroke:${INK.green};stroke-width:2.5}
 .pv-compact .pv-full{display:none}
 .pv-compact .pv-badge{r:11}
 .pv-compact .pv-num{font-size:13px;transform:translateY(1.4px)}
