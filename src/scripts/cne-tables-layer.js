@@ -14,6 +14,7 @@ import {
 } from '../lib/cne-tables.js';
 import { permitsHash } from '../lib/cne-api.js';
 import { withMapBusy } from '../lib/map-busy.js';
+import { onThemeChange } from '../lib/map-common.js';
 
 const PALETTE = ['#f2e4e8', '#e4b8c5', '#cc8099', '#a9496b', '#7a1a38'];
 // The map draws on canvas, which does not read CSS variables: point colours are literal (see permits-map.css).
@@ -109,6 +110,10 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
     const pointLayers = {};
     const pointIndex = {};
     const pointsOn = new Set();
+    // Point colours have a light and a dark variant: repaint the loaded points when the theme changes.
+    const stopTheme = onThemeChange(() => {
+        for (const [key, group] of Object.entries(pointLayers)) group.setStyle({ fillColor: pointColor(parseActivity(key).table) });
+    });
 
     map.createPane('pmm-cne-states').style.zIndex = 380;
     map.createPane('pmm-cne-points').style.zIndex = 620;
@@ -565,6 +570,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
         /** The market blocks of the panel are rebuilt by the map view; draw the activities again. */
         refresh: renderActivities,
         destroy() {
+            stopTheme();
             clearTimeout(typing);
             map.off('popupopen', onPopupOpen);
             map.off('click', onMapClick);

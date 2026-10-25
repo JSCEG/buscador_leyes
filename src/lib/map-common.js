@@ -18,14 +18,31 @@ const BASES = {
 };
 export const BASE_OPTIONS = [['mapa', 'Mapa'], ['claro', 'Relieve'], ['calles', 'Calles'], ['satelite', 'Satélite']];
 
+/** Calls `callback(isDark)` whenever the site switches between light and dark mode. Returns a stop function. */
+export function onThemeChange(callback) {
+    const isDark = () => document.documentElement.classList.contains('dark-mode');
+    let wasDark = isDark();
+    const watch = new MutationObserver(() => {
+        if (isDark() === wasDark) return;
+        wasDark = isDark();
+        callback(wasDark);
+    });
+    watch.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => watch.disconnect();
+}
+
 /**
  * Base map switcher. If a base stops answering (Esri's CDN has blocked requests), it falls back to
- * OpenStreetMap so the map never stays gray, and tells `onFallback`.
+ * OpenStreetMap so the map never stays gray, and tells `onFallback`. «Mapa» follows the site theme.
  * @returns {(key: string) => void}
  */
 export function baseLayers(L, map, { onFallback = () => {} } = {}) {
     let base = null;
+    let current = null;
+    const stopTheme = onThemeChange(() => { if (current === 'mapa') setBase('mapa'); });
+    map.on('unload', stopTheme);
     function setBase(key) {
+        current = key;
         if (base) map.removeLayer(base);
         const layer = (BASES[key] || BASES.mapa)(L).addTo(map);
         base = layer;
