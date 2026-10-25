@@ -13,6 +13,8 @@ import { emblemHtml } from '../lib/emblem.js';
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const dark = () => document.documentElement.classList.contains('dark-mode');
 const figureUrl = id => `/conceptos/${id}${dark() ? '' : '-light'}.html`;
+// Card thumbnails: still captures of each figure (scripts/build-concept-thumbs.mjs).
+const thumbUrl = id => `/conceptos/miniaturas/${id}${dark() ? '' : '-light'}.webp`;
 
 // Explainers already opened on this device, for the ✓ on the route. Storage may be blocked.
 const SEEN_KEY = 'cf-vistos';
@@ -87,6 +89,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     const themeWatch = new MutationObserver(() => {
         if (dark() === wasDark) return;
         wasDark = dark();
+        container.querySelectorAll('img[data-thumb]').forEach(img => { img.src = thumbUrl(img.dataset.thumb); });
         const frame = container.querySelector('iframe[data-concepto]');
         if (!frame || !activeConcept) return;
         const selected = Number(container.querySelector('.cf-parts [data-part-n].is-selected')?.dataset.partN) || 0;
@@ -115,6 +118,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
             : `<span class="cf-badge-sector cf-badge-elec">${ICONS.electricidad} Electricidad</span>`;
         return `
             <a class="cf-card${isDone ? ' is-done' : ''}" href="#como-funciona=${esc(c.id)}">
+                <span class="cf-card-thumb"><img data-thumb="${esc(c.figura)}" src="${thumbUrl(c.figura)}" alt="" loading="lazy" decoding="async"></span>
                 <div class="cf-card-top">
                     <span class="cf-card-sector">${isDone ? `<span class="cf-check">${ICONS.check}</span> Paso ${stepNum} · Visto` : `Paso ${stepNum} de ${sectorConcepts.length}`}</span>
                     ${badge}
@@ -207,6 +211,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                 </section>` : ''}
 
                 <p class="cf-progress">${progress()}</p>
+                <div class="cf-progress-bar" role="img" aria-label="${seenInSector} de ${activeConcepts.length} conceptos vistos">${activeConcepts.map(c => `<span${done.has(c.id) ? ' class="is-done"' : ''}></span>`).join('')}</div>
                 <ol class="cf-route">${NIVELES.map(nivel => {
                     const levelConcepts = activeConcepts.filter(c => c.nivel === nivel.id);
                     const soon = SOON[currentSector]?.[nivel.id];
@@ -314,10 +319,11 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <a class="cf-back" href="#como-funciona">← Volver a la ruta de ${sectorName}</a>
                     <nav class="cf-route-bar" aria-label="Progreso en la ruta de ${sectorName}">
                         <div class="cf-route-bar-meta">
-                            <span class="cf-route-step-count">Paso ${stepIndex} de ${sectorConcepts.length}</span>
-                            ${puente?.eslabon ? `<span class="cf-route-eslabon">${esc(puente.eslabon)}</span>` : ''}
+                            ${prev ? `<a class="cf-route-arrow" href="#como-funciona=${esc(prev.id)}" aria-label="Paso anterior: ${esc(prev.titulo)}">←</a>` : '<span class="cf-route-arrow" aria-hidden="true"></span>'}
+                            <span class="cf-route-where"><span class="cf-route-step-count">Paso ${stepIndex} de ${sectorConcepts.length}</span>${puente?.eslabon ? `<span class="cf-route-eslabon">${esc(puente.eslabon)}</span>` : ''}</span>
+                            ${next ? `<a class="cf-route-arrow" href="#como-funciona=${esc(next.id)}" aria-label="Paso siguiente: ${esc(next.titulo)}">→</a>` : '<span class="cf-route-arrow" aria-hidden="true"></span>'}
                         </div>
-                        <ol class="cf-route-dots">
+                        <ol class="cf-route-dots cf-route-segments">
                             ${sectorConcepts.map((c, idx) => {
                                 const n = idx + 1;
                                 const isCurrent = c.id === concept.id;
@@ -333,10 +339,10 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <p class="cf-intro">${esc(concept.resumen)}</p>
                     <button type="button" class="cf-share" data-share><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Compartir</span></button>
                 </header>
-                ${before.length ? `<p class="cf-before">Para entenderlo mejor, antes mira: ${before.map(c => `<a href="#como-funciona=${esc(c.id)}">${esc(c.titulo)}</a>`).join(', ')}.</p>` : ''}
                 <div class="cf-figure">
-                    <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy"></iframe>
+                    <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy" scrolling="no"></iframe>
                 </div>
+                ${before.length ? `<p class="cf-before">Para entenderlo mejor, antes mira: ${before.map(c => `<a href="#como-funciona=${esc(c.id)}">${esc(c.titulo)}</a>`).join(', ')}.</p>` : ''}
                 <div id="cf-active-part" class="cf-part-banner" aria-live="polite" hidden></div>
                 ${concept.definiciones?.length ? `<section class="cf-section" aria-labelledby="cf-defs">
                     <h2 id="cf-defs">${concept.definiciones.length > 1 ? 'Definiciones' : 'Definición'}</h2>
