@@ -11,6 +11,30 @@ const mountedViews = new WeakMap();
 let nextViewId = 0;
 const number = value => new Intl.NumberFormat('es-MX').format(value);
 const countLabel = count => `${number(count)} ${count === 1 ? 'instrumento' : 'instrumentos'}`;
+const ENTRANCE_KEY = 'acervo-entrada';
+/** True once per browser session, and only when motion is welcome (never in tests: no matchMedia). */
+function firstEntrance() {
+    if (!globalThis.matchMedia?.('(prefers-reduced-motion: no-preference)')?.matches) return false;
+    try {
+        if (sessionStorage.getItem(ENTRANCE_KEY)) return false;
+        sessionStorage.setItem(ENTRANCE_KEY, '1');
+        return true;
+    } catch { return false; }
+}
+/** Counts a figure up from zero with an ease-out; `format` writes the text for each value. */
+function countUp(node, target, format, delay = 420) {
+    if (!(target > 0)) return;
+    node.textContent = format(0);
+    setTimeout(() => {
+        const start = performance.now();
+        const step = now => {
+            const t = Math.min(1, (now - start) / 1100);
+            node.textContent = format(Math.round(target * (1 - (1 - t) ** 3)));
+            if (t < 1 && node.isConnected) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    }, delay);
+}
 const iconNode = (groupId, className = '') => {
     const node = document.createElement('span');
     node.className = `ac-icon ${className}`.trim();
@@ -73,7 +97,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const total = element('p', 'ac-total', countLabel(laws.length));
     const totalFragments = laws.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
     const newest = selectAcervo(laws, { sort: 'date-newest' }).find(law => publicationDate(law.fecha_publicacion));
-    facts.append(total, element('p', 'ac-fact', `${number(totalFragments)} artículos y disposiciones`));
+    const fragmentsFact = element('p', 'ac-fact', `${number(totalFragments)} artículos y disposiciones`);
+    facts.append(total, fragmentsFact);
     if (newest) facts.append(element('p', 'ac-fact', `Última publicación: ${publicationDate(newest.fecha_publicacion)}`));
     // Other sections, in one quiet row; the map and «¿Cómo funciona?» have their own cards below.
     const quick = element('nav', 'ac-quick');
@@ -166,6 +191,15 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     hero.append(header, tools, facts, quick, topics, promos, art);
     root.append(hero, filters, status, overview, body);
     container.replaceChildren(root);
+    // First view of the session: once the entrance animation is gone, the hero settles in and its figures count up.
+    if (firstEntrance()) {
+        hero.classList.add('is-waiting');
+        Promise.resolve(window.__introDone).then(() => {
+            hero.classList.replace('is-waiting', 'is-entering');
+            countUp(total, laws.length, countLabel);
+            countUp(fragmentsFact, totalFragments, n => `${number(n)} artículos y disposiciones`);
+        });
+    }
     let destroyed = false;
     let frame = null;
     let restoreRowsOnFrame = false;
@@ -220,7 +254,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         for (const group of groupAcervo(laws).filter(item => item.items.length)) {
             const item = element('li');
             const tile = element('button', 'ac-tile'); tile.type = 'button'; tile.dataset.tileGroup = group.id; tile.dataset.category = group.id;
-            const count = element('span', 'ac-tile-count', countLabel(group.items.length));
+            const count = element('span', 'ac-tile-count');
+            count.append(element('b', '', number(group.items.length)), ` ${group.items.length === 1 ? 'instrumento' : 'instrumentos'}`);
             const spot = element('span', 'ac-tile-icon'); spot.setAttribute('aria-hidden', 'true'); spot.innerHTML = collectionSpot(group.id);
             tile.append(spot, element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), count);
             tile.addEventListener('click', () => {
@@ -258,6 +293,10 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         if (isJudgment(law)) category.classList.add('is-judgment');
         category.prepend(iconNode(groupId));
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
+        if ((law.siglas || '').length > 9) acronym.classList.add('is-long');
+        // The top of the card carries the collection (colored, with its icon) and the acronym set large.
+        const cover = element('span', 'ac-card-cover');
+        cover.setAttribute('aria-hidden', 'true');
         const cardTitle = element('span', 'ac-card-title', title);
         const readable = shortTitle(title);
         const cardName = readable ? element('span', 'ac-card-name', readable) : null;
@@ -272,7 +311,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         metadata.append(dateNode, element('span', '', fragments));
         const action = element('span', 'ac-card-action', 'Consultar');
         const arrow = element('span', '', '↗'); arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);
-        card.append(category, acronym, ...(cardName ? [cardName] : []), cardTitle, metadata, action);
+        cover.append(category, acronym);
+        card.append(cover, ...(cardName ? [cardName] : []), cardTitle, metadata, action);
         card.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
         return card;
     }

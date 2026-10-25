@@ -418,3 +418,48 @@ html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map
     .ac-library .ac-promos .ac-map-promo{padding:10px 14px}
     .ac-library .ac-map-promo-copy span:last-child{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 }
+
+/* ── Home, first view: covers, collections, latest and a one-time entrance ── */
+/* Entrance: once per session, after the site intro; the art keeps its own motion */
+.ac-library .ac-hero.is-waiting>*{opacity:0}
+.ac-library .ac-hero.is-entering>*{animation:ac-enter .8s cubic-bezier(.16,1,.3,1) both}
+.ac-library .ac-hero.is-entering>.ac-tools{animation-delay:.12s}
+.ac-library .ac-hero.is-entering>.ac-facts{animation-delay:.22s}
+.ac-library .ac-hero.is-entering>.ac-quick{animation-delay:.28s}
+.ac-library .ac-hero.is-entering>.ac-topics{animation-delay:.36s}
+.ac-library .ac-hero.is-entering>.ac-promos{animation-delay:.46s}
+.ac-library .ac-hero.is-entering>.ac-hero-art{animation:ac-art-in 1.3s cubic-bezier(.16,1,.3,1) .1s both}
+@keyframes ac-enter{from{opacity:0;transform:translateY(14px)}}
+@keyframes ac-art-in{from{opacity:0;transform:translateX(28px) scale(.97)}}
+
+/* Collections: the count is the figure that matters */
+.ac-library .ac-tile{padding:18px 20px;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s,border-color .2s}
+.ac-library .ac-tile:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--ac-dot) 45%,var(--ac-border));box-shadow:0 16px 30px -20px color-mix(in srgb,var(--ac-dot) 80%,transparent)}
+.ac-library .ac-tile-icon{width:56px;height:56px}
+.ac-library .ac-tile-count{text-align:right;font-size:11.5px;font-weight:600;line-height:1.2;color:var(--ac-muted)}
+.ac-library .ac-tile-count b{display:block;font:700 30px/1 Patria,Georgia,serif;color:var(--ac-dot)}
+
+/* Latest: the date reads as a stamp */
+.ac-library .ac-recent-date{padding:2px 9px;border-radius:999px;background:color-mix(in srgb,var(--ac-dot) 14%,transparent);color:var(--ac-dot);font-weight:700}
+.ac-library .ac-recent-card{transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+.ac-library .ac-recent-card:hover{transform:translateY(-2px);box-shadow:0 16px 30px -22px #2a071466}
+
+/* Instrument cards: type-led and quiet. The acronym in Patria is the face of the card, the collection shows in the
+   colored category and its icon, and a rule in the collection's color draws across the top on hover.
+   The card grid lives in polish.css (html .ac-library .ac-card); this adds a full-width "cover" row on top. */
+html body .ac-library .ac-card{--ac-cover:#9b2247;--ac-cover-ink:var(--ac-cover);grid-template-areas:"cover cover" "name name" "desc desc" "meta act"!important;text-align:left;border-radius:18px!important;box-shadow:0 1px 2px #302b270d,0 12px 30px -22px #302b2766!important}
+html body .ac-library .ac-card:is([data-category=reglamentos],[data-category=dacg]){--ac-cover:#1e5b4f}
+html body .ac-library .ac-card:is([data-category=convocatorias],[data-category=normas]){--ac-cover:#8c6925}
+html body .ac-library .ac-card[data-category=otros]{--ac-cover:#6a625a}
+html.dark-mode body .ac-library .ac-card{--ac-cover-ink:color-mix(in srgb,var(--ac-cover) 45%,#fff)}
+html body .ac-library .ac-card::after{display:none}
+html body .ac-library .ac-card::before{display:block;height:2px;background:var(--ac-cover-ink);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){html body .ac-library .ac-card:hover::before{transform:scaleX(1)}}
+html body .ac-library .ac-card-cover{grid-area:cover;display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:-18px -16px 2px;padding:18px 18px 4px}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category{align-self:flex-start;gap:8px;padding:0!important;background:none!important;box-shadow:none;color:var(--ac-cover-ink)!important;font:700 11.5px/1.3 'Noto Sans',sans-serif;letter-spacing:.02em}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category .ac-icon{display:inline-grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border-radius:8px;background:color-mix(in srgb,var(--ac-cover) 12%,transparent);color:var(--ac-cover-ink)}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category .ac-icon svg{width:14px;height:14px}
+html body .ac-library .ac-card .ac-card-cover .ac-card-acronym{align-self:stretch;justify-self:auto;margin:0;opacity:1;font:700 36px/1 Patria,Georgia,serif;letter-spacing:-.025em;text-transform:none;text-align:left;color:var(--ac-ink)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body .ac-library .ac-card .ac-card-cover .ac-card-acronym.is-long{font-size:21px}
+@media (max-width:640px){html body .ac-library .ac-card .ac-card-cover .ac-card-acronym{font-size:30px}}
+@media (prefers-reduced-motion:reduce){.ac-library .ac-hero>*{animation:none!important;opacity:1!important}}
