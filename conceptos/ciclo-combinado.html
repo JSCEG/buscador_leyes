@@ -129,8 +129,6 @@ body{background:transparent!important}
 .cf-label:hover .cf-badge,.cf-label.is-selected .cf-badge{fill:#6fc2ae}
 .cf-label.is-selected .cf-anchor{fill:#6fc2ae;stroke:#6fc2ae}
 .cf-label.is-selected .cf-leader{stroke:#6fc2ae;stroke-width:1.3}
-.cf-label:focus-visible .cf-tag{stroke:#6fc2ae;stroke-width:2;stroke-dasharray:3 2}
-.cf-label:focus-visible .cf-badge{stroke:#6fc2ae;stroke-width:2.5}
 .cf-compact .cf-full{display:none}
 .cf-compact .cf-badge{r:11}
 .cf-compact .cf-num{font-size:13px;transform:translateY(1.4px)}
@@ -878,35 +876,30 @@ if (cfToggle) cfToggle.addEventListener("click", (event) => {
   cfToggle.setAttribute("aria-pressed", String(on));
   cfToggle.textContent = on ? "Ocultar nombres" : "Mostrar nombres";
 });
-// Many figures redraw their labels from draw(), so events are delegated from the svg and the
-// selection is re-applied whenever new labels appear.
-let cfSelected = 0;
-const markCfLabels = () => cfSvg.querySelectorAll(".cf-label[data-n]").forEach((el) => el.classList.toggle("is-selected", Number(el.dataset.n) === cfSelected));
+const cfLabels = [...cfSvg.querySelectorAll(".cf-label[data-n]")];
 function selectCfPart(n, notify = true) {
-  cfSelected = n;
-  markCfLabels();
+  cfLabels.forEach((el) => el.classList.toggle("is-selected", Number(el.dataset.n) === n));
   if (notify && parent !== window) {
     parent.postMessage({ type: "concepto-part", figura: "ciclo-combinado", n }, location.origin);
   }
 }
-const toggleCfPart = (el) => selectCfPart(Number(el.dataset.n) === cfSelected ? 0 : Number(el.dataset.n), true);
-cfSvg.addEventListener("click", (event) => {
-  const el = event.target.closest(".cf-label[data-n]");
-  if (!el) return;
-  event.stopPropagation();
-  toggleCfPart(el);
+cfLabels.forEach((el) => {
+  el.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const n = Number(el.dataset.n);
+    const next = el.classList.contains("is-selected") ? 0 : n;
+    selectCfPart(next, true);
+  });
+  el.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      event.stopPropagation();
+      const n = Number(el.dataset.n);
+      const next = el.classList.contains("is-selected") ? 0 : n;
+      selectCfPart(next, true);
+    }
+  });
 });
-cfSvg.addEventListener("keydown", (event) => {
-  if (event.key !== "Enter" && event.key !== " ") return;
-  const el = event.target.closest(".cf-label[data-n]");
-  if (!el) return;
-  event.preventDefault();
-  event.stopPropagation();
-  toggleCfPart(el);
-});
-new MutationObserver((records) => {
-  if (cfSelected && records.some((r) => [...r.addedNodes].some((node) => node.nodeType === 1 && (node.matches(".cf-label") || node.querySelector(".cf-label"))))) markCfLabels();
-}).observe(cfSvg, { childList: true, subtree: true });
 window.addEventListener("message", (event) => {
   if (event.origin !== location.origin || event.data?.type !== "concepto-select-part") return;
   selectCfPart(Number(event.data.n) || 0, false);
