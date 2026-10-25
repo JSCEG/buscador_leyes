@@ -113,3 +113,9 @@ html.dark-mode #global-search-wrapper.is-docked input{color:#f4efe7!important}
 /* Every section header opens at the same height, right under the menu */
 #main-container:has(#results-container:not(.hidden) :is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library)) { padding-top: 20px !important; }
 #results-container:not(.hidden):has(:is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library)) { margin-top: 0 !important; }
+
+/* Every section header spans the full results width, even in narrower views (Reto, ¿Cómo funciona?) */
+#results-container { container-type: inline-size; }
+:is(.tl-view > .tl-head, .pm-view > .pm-head, .cf-view > .cf-head, .rt-view > .rt-head, .hp-view > .hp-head) { margin-inline: calc((100% - 100cqw) / 2) !important; }
+/* ¿Cómo funciona? has no band: keep its text aligned with the content below */
+.cf-view > .cf-head { padding-left: calc((100cqw - 100%) / 2) !important; }
