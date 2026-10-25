@@ -1,5 +1,6 @@
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/help.css';
+import { emblemHtml } from '../lib/emblem.js';
 
 const icon = paths => `<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
 const ICONS = {
@@ -35,7 +36,8 @@ const FAQ = [
 /** Plain-language guide to the site. Navigation stays with the app through onGo. */
 export function renderHelpView(container, { onGo = () => {}, onShortcuts = () => {}, onTour = () => {}, onFeedback = () => {} } = {}) {
     container.innerHTML = `<section class="hp-view" aria-labelledby="hp-title">
-        <header class="hp-head">
+        <header class="hp-head" data-emblem-host>
+            ${emblemHtml('ayuda')}
             <p class="hp-eyebrow">Ayuda</p>
             <h1 id="hp-title">Cómo usar el buscador</h1>
             <p class="hp-intro">Todo lo necesario para encontrar, leer y guardar la normativa del sector energético, en pocos pasos.</p>

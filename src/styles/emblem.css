@@ -1,0 +1,54 @@
+/* ── Section emblems: layered paper, extruded glyph and one golden object (see src/lib/emblem.js) ── */
+[data-emblem-host]{position:relative;isolation:isolate}
+/* Specificity 0,3,0: some headers lift every direct child with `:is(.a .b) > *{position:relative;z-index:1}`. */
+[data-emblem-host]>.em[aria-hidden]{position:absolute;z-index:-1}
+.em{--em-scale:.72;position:absolute;z-index:-1;right:clamp(8px,3vw,36px);top:50%;width:260px;height:230px;margin-top:-115px;pointer-events:none;perspective:900px;transform:scale(var(--em-scale));transform-origin:right center}
+.em-float{position:absolute;inset:0;animation:em-float 7s ease-in-out infinite;transform-style:preserve-3d}
+.em-object{--em-rx:-8deg;--em-ry:-16deg;position:absolute;inset:0;transform:rotateX(var(--em-rx)) rotateY(var(--em-ry));transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.em-shadow{position:absolute;left:50%;bottom:17px;width:175px;height:24px;border-radius:50%;background:#2a07142e;filter:blur(10px);transform:translateX(-50%) rotateX(70deg) translateZ(-50px)}
+
+.em-paper{position:absolute;width:126px;height:166px;border-radius:12px;background:#f8f2e9;border:1px solid #ffffffaa;box-shadow:0 18px 30px #32081733;transform-style:preserve-3d}
+.em-paper::before,.em-paper::after,.em-paper span{content:'';position:absolute;left:20px;height:5px;border-radius:5px;background:#9b22472e}
+.em-paper::before{top:30px;width:72px}.em-paper::after{top:47px;width:86px}.em-paper span{top:64px;width:58px}
+.em-paper-back{left:38px;top:28px;background:#e8d8ce;transform:translate3d(-22px,12px,-45px) rotateZ(-13deg)}
+.em-paper-middle{left:61px;top:24px;background:#f4e8df;transform:translate3d(-8px,4px,-15px) rotateZ(-5deg)}
+.em-paper-front{left:88px;top:25px;transform:translateZ(12px) rotateZ(4deg)}
+.em-permisos .em-paper::before,.em-permisos .em-paper::after,.em-permisos .em-paper span{background:#1e5b4f2e}
+
+.em-glyph{position:absolute;left:86px;top:31px;width:119px;height:158px;transform:translateZ(48px) rotateZ(4deg);transform-style:preserve-3d}
+.em-layer{position:absolute;inset:0;background:center/contain no-repeat;filter:drop-shadow(0 10px 8px #3b091b22);transform:translate3d(calc(var(--layer) * -1.7px),calc(var(--layer) * 1.7px),calc(var(--layer) * -4px))}
+.em-layer:not(:last-child){filter:brightness(.65)}
+
+/* Golden objects. Each sits closer to the viewer than the glyph, like the lens on «Buscar». */
+.em-accent{position:absolute;transform-style:preserve-3d}
+.em-accent-alfiler{left:184px;top:14px;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3cf,#e2c271 40%,#a57f2c);box-shadow:inset 0 0 0 2px #8c69254d,3px 8px 10px #3b091b40;transform:translateZ(84px)}
+.em-accent-alfiler::after{content:'';position:absolute;left:13px;top:24px;width:4px;height:26px;border-radius:2px;background:linear-gradient(90deg,#9a9a9a,#e8e8e8,#9a9a9a);transform:rotate(18deg);transform-origin:top center;z-index:-1}
+.em-accent-sello{right:12px;bottom:30px;width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3cf,#e2c271 45%,#a57f2c);box-shadow:inset 0 0 0 3px #8c692566,0 10px 20px #0a2a2240;transform:translateZ(96px) rotateY(-8deg);animation:em-accent-drift 5s ease-in-out infinite}
+.em-accent-sello::before{content:'';position:absolute;inset:9px;border-radius:50%;border:2px dashed #8c6925aa}
+.em-accent-sello::after{content:'';position:absolute;inset:24px;background:#8c6925;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.em-accent-engrane{right:12px;bottom:32px;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle closest-side,#8c6925 0 22%,transparent 23%),radial-gradient(circle at 35% 30%,#fff3cf,#e2c271 45%,#a57f2c);-webkit-mask:radial-gradient(circle closest-side,#000 0 76%,transparent 77%),repeating-conic-gradient(#000 0 15deg,transparent 15deg 30deg);mask:radial-gradient(circle closest-side,#000 0 76%,transparent 77%),repeating-conic-gradient(#000 0 15deg,transparent 15deg 30deg);filter:drop-shadow(0 10px 10px #3b091b40);transform:translateZ(96px) rotateY(-8deg);animation:em-accent-drift 5s ease-in-out infinite}
+.em-accent-medalla{right:20px;bottom:30px;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3cf,#e2c271 45%,#a57f2c);box-shadow:inset 0 0 0 4px #8c692555,0 10px 20px #3b091b40;transform:translateZ(96px) rotateY(-8deg);animation:em-accent-drift 5s ease-in-out infinite}
+.em-accent-medalla::before{content:'';position:absolute;left:17px;top:-36px;width:30px;height:42px;background:linear-gradient(90deg,#1e5b4f 0 50%,#6d1631 50%);clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%);transform:translateZ(-2px)}
+.em-accent-medalla::after{content:'';position:absolute;inset:16px;background:#fff6dc;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+
+.em-accent-orbita{right:22px;bottom:40px;width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3cf,#e2c271 45%,#a57f2c);box-shadow:0 10px 18px #3b091b40;transform:translateZ(96px) rotateY(-8deg);animation:em-accent-drift 5s ease-in-out infinite}
+.em-accent-orbita::before{content:'';position:absolute;left:-20px;top:13px;width:84px;height:24px;border-radius:50%;border:3px solid #d6b46a;border-top-color:transparent;transform:rotate(-18deg)}
+.em-accent-dona{right:14px;bottom:30px;width:76px;height:76px;border-radius:50%;background:conic-gradient(from -30deg,#f1d68e 0 58%,#a57f2c 58% 84%,transparent 84%);-webkit-mask:radial-gradient(circle closest-side,transparent 0 44%,#000 45%);mask:radial-gradient(circle closest-side,transparent 0 44%,#000 45%);filter:drop-shadow(0 10px 10px #3b091b40);transform:translateZ(96px) rotateY(-8deg);animation:em-accent-drift 5s ease-in-out infinite}
+.em-accent-brujula{right:14px;bottom:30px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3cf,#e2c271 45%,#a57f2c);box-shadow:inset 0 0 0 3px #8c692566,0 10px 20px #3b091b40;transform:translateZ(96px) rotateY(-8deg);animation:em-accent-drift 5s ease-in-out infinite}
+.em-accent-brujula::before{content:'';position:absolute;inset:8px;border-radius:50%;border:2px solid #8c6925aa}
+.em-accent-brujula::after{content:'';position:absolute;left:30px;top:12px;width:14px;height:50px;background:linear-gradient(#9b2247 0 50%,#fff6dc 50%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transform:rotate(35deg)}
+.em-accent-clip{left:176px;top:2px;width:24px;height:66px;border:5px solid #d6b46a;border-radius:12px;filter:drop-shadow(3px 6px 5px #3b091b40);transform:translateZ(70px) rotateZ(10deg)}
+.em-accent-clip::after{content:'';position:absolute;left:2px;top:12px;width:10px;height:40px;border:4px solid #c9a24f;border-top:0;border-radius:0 0 8px 8px}
+html.dark-mode .em-paper{background:#eee2d8;border-color:#ffffff55}
+@keyframes em-float{50%{transform:translateY(-8px)}}
+@keyframes em-accent-drift{50%{translate:5px -6px}}
+
+/* Desktop: room on the right for the emblem. Tablet: a faint watermark. Phone: hidden. */
+@media (min-width:1101px){
+    [data-emblem-host]:not(#hero-section){min-height:186px;padding-right:300px!important}
+}
+@media (max-width:1100px){
+    .em{--em-scale:.62;right:-24px;opacity:.16}
+}
+@media (max-width:640px){.em{display:none}}
+@media (prefers-reduced-motion:reduce){.em-float,.em-accent{animation:none}.em-object{transition:none}}

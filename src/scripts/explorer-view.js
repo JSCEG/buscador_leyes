@@ -24,6 +24,7 @@ const icons = {
 const icon = name => `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${icons[name] || icons.book}</svg>`;
 const typeTag = entity => `<span class="nx-type nx-type-${esc(entity.type)}">${esc(types[entity.type] || entity.type)}</span>`;
 import { officialUrl as safeUrl } from '../lib/official-url.js';
+import { emblemHtml } from '../lib/emblem.js';
 const dateLabel = value => { const date = new Date(value); return Number.isNaN(date.getTime()) ? 'Sin fecha registrada' : new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date); };
 const editButton = () => `<button class="nx-button" data-edit-catalog>${icon('edit')}Gestionar contenido</button>`;
 const countLabel = (count, singular, pluralForm) => `${count} ${count === 1 ? singular : pluralForm}`;
@@ -355,7 +356,7 @@ function draw(state) {
   normalizeSelection(state);
   const themeCount = acervoThemes(acervo).length;
   container.innerHTML = `<div class="nx-explorer">
-    <div class="nx-header"><div><p class="nx-eyebrow">Análisis del acervo</p><h1>Términos y relaciones del marco normativo</h1><p class="nx-intro">Los términos clave que definen las leyes, reglamentos y acuerdos, dónde se usan y cómo se conectan entre sí.</p></div>
+    <div class="nx-header" data-emblem-host>${emblemHtml('analisis')}<div><p class="nx-eyebrow">Análisis del acervo</p><h1>Términos y relaciones del marco normativo</h1><p class="nx-intro">Los términos clave que definen las leyes, reglamentos y acuerdos, dónde se usan y cómo se conectan entre sí.</p></div>
       <div class="nx-header-aside"><span>Versión ${esc(catalog.revision)}</span><span>Actualizado el ${esc(dateLabel(catalog.updatedAt))}</span><span data-editor-control>${state.canEdit ? editButton() : ''}</span></div></div>
     ${state.preview ? '<div class="nx-notice" role="status"><span><strong>Vista previa de un borrador local.</strong> Estos cambios todavía no están publicados.</span><button class="nx-button" data-return-published>Volver al contenido publicado</button></div>' : ''}
     ${state.warning ? `<details class="nx-notice nx-catalog-notice"><summary>Se muestra la copia incluida del catálogo</summary><p>${esc(state.warning)}</p></details>` : ''}

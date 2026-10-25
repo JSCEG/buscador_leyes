@@ -1,6 +1,7 @@
 import { computeStats } from '../lib/stats-model.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import '../styles/stats.css';
+import { emblemHtml } from '../lib/emblem.js';
 
 const mounted = new WeakMap();
 const number = value => new Intl.NumberFormat('es-MX').format(value);
@@ -202,7 +203,8 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
     root.className = 'st-dashboard';
     root.setAttribute('aria-labelledby', 'st-title');
     root.innerHTML = `
-        <div class="st-header">
+        <div class="st-header" data-emblem-host>
+            ${emblemHtml('estadisticas')}
             <div>
                 <p class="st-eyebrow">Panorama del acervo</p>
                 <h1 id="st-title">Estadísticas</h1>

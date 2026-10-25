@@ -161,7 +161,7 @@ html.dark-mode .ac-library .ac-mix-seg[data-category=acuerdos]{background:#b06a8
 .ac-library .ac-search-box input[type=search]{padding-left:0!important}
 
 /* ── Home redesign (sept 2026): hero, collection tiles, latest, readable cards ── */
-#main-container:has(> #results-container > .ac-library){padding-top:24px!important}
+#main-container:has(> #results-container > .ac-library){padding-top:20px!important}
 #results-container:has(> .ac-library){margin-top:0!important}
 
 .ac-library .ac-hero{position:relative;overflow:hidden;margin:0 0 28px;padding:40px 44px 30px;border-radius:20px;color:#fff;
@@ -407,3 +407,14 @@ html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map
     .ac-library .ac-tiles>li:last-child:nth-child(2n+1){grid-column:1/-1}
 }
 @media (max-width:640px){.ac-library .ac-tiles>li:last-child:nth-child(2n+1){grid-column:auto}}
+
+/* Desktop: a compact hero so the acervo opens close to the other section headers */
+@media (min-width:1101px){
+    .ac-library .ac-hero{padding:30px 40px 24px}
+    .ac-library .ac-hero h1{font-size:40px;line-height:1.08}
+    .ac-library .ac-hero .ac-header{padding-bottom:12px!important}
+    .ac-library .ac-hero-art{margin-top:-24px}
+    .ac-library .ac-promos{margin-top:14px}
+    .ac-library .ac-promos .ac-map-promo{padding:10px 14px}
+    .ac-library .ac-map-promo-copy span:last-child{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+}

@@ -11,6 +11,7 @@ import { loadAllDefinitions, loadArticlesOf } from './reto-data.js';
 import { TRAMITES } from '../data/tramites.js';
 import { shortTitle } from '../lib/short-title.js';
 import '../styles/reto.css';
+import { emblemHtml } from '../lib/emblem.js';
 
 const STORE = 'reto-resultados';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -51,7 +52,8 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {}, lawId
     root.className = 'rt-view';
     root.setAttribute('aria-labelledby', 'rt-title');
     root.innerHTML = `
-        <div class="rt-head">
+        <div class="rt-head" data-emblem-host>
+            ${emblemHtml('reto')}
             <p class="rt-eyebrow">${lawMode ? 'Práctica por ley' : `Reto Jurídico <span>#${number}</span>`}</p>
             <h1 id="rt-title">${lawMode ? '¿Cuánto sabes de esta ley?' : '¿Cuánto sabes de las leyes de energía?'}</h1>
             <p class="rt-intro">${lawMode ? `${esc(lawName)}. No cuenta para tu racha.` : 'Un reto nuevo cada día.'}</p>
