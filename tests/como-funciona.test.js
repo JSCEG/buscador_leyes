@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { existsSync } from 'node:fs';
-import { CONCEPTOS, CONCEPTO, NIVELES, siguienteConcepto, comoFuncionaRoute } from '../src/data/como-funciona.js';
+import { CONCEPTOS, CONCEPTO, NIVELES, EJES_RECTORES, GLOSARIO_REGULATORIO, siguienteConcepto, comoFuncionaRoute } from '../src/data/como-funciona.js';
 import { tramiteById } from '../src/data/tramites.js';
 
 describe('¿Cómo funciona?', () => {
@@ -58,4 +58,28 @@ describe('¿Cómo funciona?', () => {
             for (const e of c.errores) expect(e.idea && e.realidad).toBeTruthy();
         }
     });
+    it('includes 3-tab regulatory fichas (El Qué / El Cómo / Fundamento Legal), Ejes Rectores 2025 and Glosario', () => {
+        expect(CONCEPTO['ciclo-combinado'].figura).toBe('ciclo-combinado');
+        expect(CONCEPTO['mercado-cenace'].figura).toBe('mercado-cenace');
+        expect(CONCEPTO['planeacion-desarrollo-mixto'].figura).toBe('desarrollo-mixto-sen');
+        expect(CONCEPTO['asignaciones-hidrocarburos'].figura).toBe('cadena-hidrocarburos');
+
+        const withFicha = CONCEPTOS.filter(c => c.ley?.ficha);
+        expect(withFicha.length).toBeGreaterThanOrEqual(11);
+        for (const c of withFicha) {
+            expect(c.ley.ficha.elQue).toBeTruthy();
+            expect(c.ley.ficha.elComo).toBeTruthy();
+            expect(c.ley.ficha.articulos?.length).toBeGreaterThan(0);
+            for (const a of c.ley.ficha.articulos) {
+                expect(a.siglas && a.refs && a.nota).toBeTruthy();
+            }
+        }
+        expect(EJES_RECTORES.length).toBe(5);
+        expect(GLOSARIO_REGULATORIO.length).toBeGreaterThanOrEqual(8);
+        for (const g of GLOSARIO_REGULATORIO) {
+            expect(g.siglas?.length && g.termino && g.definicion && g.articulos).toBeTruthy();
+            if (g.conceptoId) expect(CONCEPTO[g.conceptoId]).toBeDefined();
+        }
+    });
 });
+

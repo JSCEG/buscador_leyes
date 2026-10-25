@@ -17,7 +17,133 @@ export const NIVELES = [
     { id: 1, titulo: 'Fundamentos y Física', texto: 'Las ideas físicas y químicas que sustentan el sector.' },
     { id: 2, titulo: 'Redes y Logística', texto: 'Cómo viaja la energía: líneas de transmisión, subestaciones y ductos.' },
     { id: 3, titulo: 'Las Instalaciones', texto: 'Cómo operan las centrales eléctricas, refinerías y terminales de almacenamiento.' },
-    { id: 4, titulo: 'Mercados y Operación', texto: 'Cómo se despacha la energía, quién fija los precios y cómo operan CENACE y CENAGAS.' },
+    { id: 4, titulo: 'Mercados, Regulación y Desarrollo Mixto', texto: 'Despacho CENACE/CENAGAS, planeación vinculante, prevalencia estatal y esquemas de participación.' },
+];
+
+/** Ejes rectores del paradigma regulatorio vigente (Reforma Constitucional y Decreto del 18 de marzo de 2025). */
+export const EJES_RECTORES = [
+    {
+        id: 'empresas-publicas',
+        titulo: '1. Empresas Públicas del Estado (CFE y PEMEX)',
+        texto: 'Dejan de ser «Empresas Productivas» bajo lógica mercantil estricta y pasan a ser Empresas Públicas del Estado con mandato de soberanía, justicia energética, continuidad y servicio público sin afán preponderante de lucro (arts. 25, 27 y 28 CPEUM; LEPE-CFE y LEPE-PEMEX).',
+        siglas: ['LEPE-CFE', 'LEPE-PEMEX'],
+    },
+    {
+        id: 'planeacion-vinculante',
+        titulo: '2. Planeación Vinculante (SENER)',
+        texto: 'La SENER conduce la planeación obligatoria del sector mediante instrumentos vinculantes (PROSENER, PLATEASE, PLADESE y PLADESHi) a los que se sujetan permisos, adiciones de capacidad, CENACE, CENAGAS y la CNE (LPTE, arts. 2 y 21; LSE, art. 12; LSH, arts. 7 y 8).',
+        siglas: ['LPTE', 'LSE', 'LSH'],
+    },
+    {
+        id: 'cne-autoridad',
+        titulo: '3. Comisión Nacional de Energía (CNE)',
+        texto: 'Órgano administrativo desconcentrado sectorizado a la SENER con independencia técnica y operativa que asume el otorgamiento de permisos, metodologías tarifarias y regulación técnica del sector eléctrico y de hidrocarburos (LCNE, arts. 2 y 7).',
+        siglas: ['LCNE'],
+    },
+    {
+        id: 'prevalencia-soberania',
+        titulo: '4. Prevalencia Estatal (54 % / 46 %) y Soberanía',
+        texto: 'En electricidad, el Estado mantiene al menos el 54 % del promedio de la energía inyectada a la red en un año calendario y los particulares participan hasta en el 46 % (LSE, arts. 1 y 36). En hidrocarburos se prioriza la refinación nacional (~1.8 Mbd) y la restitución de reservas 3P.',
+        siglas: ['LSE', 'LSH'],
+    },
+    {
+        id: 'desarrollo-mixto',
+        titulo: '5. Esquemas de Desarrollo Mixto',
+        texto: 'Nuevas figuras de asociación público-privada: en electricidad mediante Producción de Largo Plazo e Inversión Mixta con CFE ≥ 54 % (LSE, arts. 38–40; RLSE, arts. 68 y 84–87), y en hidrocarburos mediante Asignaciones para Desarrollo Mixto con PEMEX ≥ 40 % (LSH, arts. 24–36).',
+        siglas: ['LSE', 'RLSE', 'LSH'],
+    },
+];
+
+/** Glosario regulatorio integrado con enlace directo al concepto interactivo y al acervo legal. */
+export const GLOSARIO_REGULATORIO = [
+    {
+        termino: 'Empresa Pública del Estado',
+        sector: 'electricidad',
+        definicion: 'Naturaleza jurídica de CFE y PEMEX tras la reforma constitucional: entidades sectorizadas a SENER orientadas a preservar la soberanía, autosuficiencia y justicia energética, cuyas actividades no constituyen monopolios (art. 28 CPEUM; LEPE-CFE, arts. 2 y 4; LEPE-PEMEX, arts. 2 y 4).',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LEPE-CFE', 'LEPE-PEMEX'],
+        articulos: 'Arts. 2 y 4 LEPE-CFE · Arts. 2 y 4 LEPE-PEMEX',
+    },
+    {
+        termino: 'Planeación Vinculante',
+        sector: 'electricidad',
+        definicion: 'Rectoría obligatoria de la SENER sobre el desarrollo del sector energético a través de la Estrategia, el PROSENER, el PLATEASE, el PLADESE y el PLADESHi. Todo permiso e interconexión debe alinearse a sus metas y convocatorias.',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LPTE', 'LSE', 'LSH'],
+        articulos: 'Arts. 2 y 21 LPTE · Art. 12 LSE · Arts. 7 y 8 LSH',
+    },
+    {
+        termino: 'Esquema de Inversión Mixta (CFE ≥ 54 %)',
+        sector: 'electricidad',
+        definicion: 'Esquema de Desarrollo Mixto para centrales eléctricas donde CFE participa de forma directa o indirecta con al menos el 54 % del capital social común o mecanismos de control del vehículo jurídico o financiero.',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LSE', 'RLSE'],
+        articulos: 'Arts. 38 fr. II y 40 LSE · Arts. 84 a 87 RLSE',
+    },
+    {
+        termino: 'Producción de Largo Plazo (PLP)',
+        sector: 'electricidad',
+        definicion: 'Esquema de Desarrollo Mixto donde el particular financia, construye y opera la central sin aportación presupuestaria de CFE, vendiendo el 100 % de la energía y productos asociados de forma exclusiva a CFE.',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LSE', 'RLSE'],
+        articulos: 'Arts. 38 fr. I y 39 LSE · Art. 68 RLSE',
+    },
+    {
+        termino: 'Asignaciones para Desarrollo Mixto (PEMEX ≥ 40 %)',
+        sector: 'hidrocarburos',
+        definicion: 'Modalidad en que SENER otorga una Asignación a PEMEX y esta complementa sus capacidades técnicas, operativas o financieras con particulares, conservando la propiedad exclusiva estatal de la Asignación y un interés de participación no menor al 40 %.',
+        conceptoId: 'asignaciones-hidrocarburos',
+        siglas: ['LSH', 'RLSH'],
+        articulos: 'Arts. 10, 11 y 24 a 36 LSH (Art. 31: ≥ 40 %)',
+    },
+    {
+        termino: 'Comisión Nacional de Energía (CNE)',
+        sector: 'electricidad',
+        definicion: 'Órgano desconcentrado de la SENER con independencia técnica y operativa encargado de expedir permisos de generación, almacenamiento, transporte, distribución y expendio, así como metodologías tarifarias y reglas técnicas.',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LCNE', 'LSE', 'LSH'],
+        articulos: 'Arts. 1, 2 y 7 LCNE · Art. 11 LSE · Art. 80 LSH',
+    },
+    {
+        termino: 'Despacho Económico con Restricciones de Seguridad',
+        sector: 'electricidad',
+        definicion: 'Asignación y despacho de centrales que ejecuta el CENACE para satisfacer la demanda al menor costo variable respetando la Confiabilidad, Seguridad de Despacho, el despacho obligado de cogeneración y la prevalencia estatal.',
+        conceptoId: 'mercado-cenace',
+        siglas: ['LSE'],
+        articulos: 'Arts. 43, 111, 117 y 124 LSE',
+    },
+    {
+        termino: 'Código de Red y Confiabilidad',
+        sector: 'electricidad',
+        definicion: 'Disposiciones técnicas obligatorias emitidas por la CNE para que centrales eléctricas, centros de carga, transportistas y distribuidores mantengan la frecuencia (60 Hz), tensión, calidad y seguridad operativa del SEN.',
+        conceptoId: 'mercado-cenace',
+        siglas: ['LSE', 'LCNE'],
+        articulos: 'Arts. 45, 46 y 124 LSE',
+    },
+    {
+        termino: 'Sistemas de Almacenamiento (SAEE)',
+        sector: 'electricidad',
+        definicion: 'Bancos de baterías u otras tecnologías reguladas por SENER y CNE (asociados a una central, a un centro de carga o autónomos en red) para aportar potencia firme, servicios conexos y flexibilidad al Sistema Eléctrico Nacional.',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LSE', 'RLSE'],
+        articulos: 'Arts. 2, 82, 83, 84 y 85 LSE',
+    },
+    {
+        termino: 'ASEA y Seguridad Industrial (RENAGAS)',
+        sector: 'hidrocarburos',
+        definicion: 'Supervisión de seguridad industrial, seguridad operativa y protección al medio ambiente en ductos, terminales TAR, refinerías y estaciones de servicio a cargo de la ASEA.',
+        conceptoId: 'almacenamiento-tar',
+        siglas: ['LSH', 'RLSH'],
+        articulos: 'Art. 5 fr. I LSH · LASEA',
+    },
+    {
+        termino: 'Justicia Energética',
+        sector: 'electricidad',
+        definicion: 'Acciones y políticas orientadas a reducir la pobreza energética y las desigualdades sociales, regionales y de género en el acceso y uso de energía limpia, confiable y asequible.',
+        conceptoId: 'planeacion-desarrollo-mixto',
+        siglas: ['LSE', 'LPTE'],
+        articulos: 'Art. 1 fr. VII y Art. 3 fr. XXVIII LSE · Art. 2 LPTE',
+    },
 ];
 
 // References shared by several concepts.
@@ -29,6 +155,9 @@ const RLSE = { autor: 'Reglamento de la Ley del Sector Eléctrico', titulo: 'Dia
 const LCNE = { autor: 'Ley de la Comisión Nacional de Energía', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LCNE' };
 const LSH = { autor: 'Ley del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LSH' };
 const RLSH = { autor: 'Reglamento de la Ley del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '3 de octubre de 2025', acervo: 'RLSH' };
+const LPTE = { autor: 'Ley de Planeación y Transición Energética', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LPTE' };
+const LEPE_CFE = { autor: 'Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LEPE-CFE' };
+const LEPE_PEMEX = { autor: 'Ley de la Empresa Pública del Estado, Petróleos Mexicanos', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LEPE-PEMEX' };
 const LASEA = { autor: 'Ley de la Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '11 de agosto de 2014', acervo: 'LASEA' };
 const CEPAL = { autor: 'Comisión Económica para América Latina y el Caribe (CEPAL)', fecha: '2021', titulo: 'Síntesis de definiciones clave para la transición energética en México', url: 'https://repositorio.cepal.org/bitstream/handle/11362/47656/6/S2100521_Mexico_es.pdf', consulta };
 const CENACE = { autor: 'Centro Nacional de Control de Energía (CENACE)', fecha: '2024', titulo: 'Manual del Mercado del Día en Adelanto y Mercado en Tiempo Real', url: 'https://www.cenace.gob.mx', consulta };
@@ -278,8 +407,16 @@ export const CONCEPTOS = [
         ],
         dato: 'El principio del generador lo descubrió Michael Faraday en 1831 moviendo un imán dentro de una bobina de alambre. Casi toda la electricidad del mundo se sigue produciendo así.',
         ley: {
-            texto: 'La generación de electricidad está regulada por la Ley del Sector Eléctrico y su reglamento. La Comisión Nacional de Energía (CNE) otorga los permisos de generación.',
-            siglas: ['LSE', 'LCNE'],
+            texto: 'La generación de electricidad en centrales con capacidad igual o mayor a 0.7 MW requiere permiso de la Comisión Nacional de Energía (CNE) alineado a la planeación vinculante de la SENER.',
+            siglas: ['LSE', 'RLSE', 'LCNE'],
+            ficha: {
+                elQue: 'Toda central eléctrica con capacidad igual o mayor a 0.7 MW requiere permiso de generación de la CNE (LSE, art. 19). Las centrales menores a 0.7 MW se consideran generación distribuida o exenta.',
+                elComo: 'La persona interesada presenta su solicitud ante la CNE conforme a las convocatorias y criterios del Plan de Desarrollo del Sector Eléctrico (PLADESE) emitidos por la SENER, además de tramitar los estudios de interconexión ante el CENACE.',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 11, 12, 19, 35 y 36', nota: 'Permisos de generación ≥ 0.7 MW y sujeción a la planeación vinculante.' },
+                    { siglas: 'LCNE', refs: 'Arts. 2 y 7', nota: 'Facultad de la CNE para otorgar permisos de generación eléctrica.' },
+                ],
+            },
         },
         tramites: ['generacion'],
         mapa: { texto: 'Ver las centrales de generación en el mapa de permisos', hash: '#mapa-permisos' },
@@ -334,8 +471,16 @@ export const CONCEPTOS = [
         ],
         dato: 'Los transformadores grandes son de las máquinas más eficientes que existen: a menudo pierden menos del 1 % de la energía que pasa por ellos.',
         ley: {
-            texto: 'Las líneas de transmisión y distribución, con sus subestaciones y transformadores, forman parte del Sistema Eléctrico Nacional, que regulan la Ley del Sector Eléctrico y su reglamento.',
-            siglas: ['LSE', 'RLSE'],
+            texto: 'El Servicio Público de Transmisión y Distribución de Energía Eléctrica (RNT y RGD) es un área estratégica exclusiva del Estado operada por CFE, con acceso abierto no indebidamente discriminatorio sujeto a factibilidad técnica.',
+            siglas: ['LSE', 'RLSE', 'LCNE'],
+            ficha: {
+                elQue: 'La Red Nacional de Transmisión (RNT) y las Redes Generales de Distribución (RGD) son áreas estratégicas reservadas en exclusiva al Estado a través de CFE (arts. 27 y 28 CPEUM; LSE, art. 57).',
+                elComo: 'La interconexión de centrales y conexión de centros de carga se tramita ante el CENACE sujeto a capacidad de alojamiento y a los programas vinculantes de ampliación y modernización (LSE, arts. 13 y 50). La CNE expide las tarifas reguladas de transmisión y distribución (LSE, art. 160).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 13, 45, 46, 50, 57 y 160', nota: 'Exclusividad estatal en RNT/RGD, condiciones de acceso abierto y tarifas reguladas.' },
+                    { siglas: 'RLSE', refs: 'Disposiciones de transmisión y distribución', nota: 'Niveles de tensión (baja, media y alta tensión) e interconexión.' },
+                ],
+            },
         },
         tramites: [],
         mapa: { texto: 'Ver las líneas de transmisión en el mapa de permisos', hash: '#mapa-permisos' },
@@ -380,10 +525,18 @@ export const CONCEPTOS = [
             { nombre: 'Piranómetro', texto: 'Mide cuánta luz del sol llega; sirve para comparar lo que la central produce con lo que debería producir.' },
         ],
         ley: {
-            texto: 'La generación de electricidad está regulada por la Ley del Sector Eléctrico y su reglamento. La Comisión Nacional de Energía (CNE) otorga los permisos de generación.',
+            texto: 'La generación fotovoltaica puede realizarse para el Mercado Eléctrico Mayorista (≥ 0.7 MW), para autoconsumo o como generación distribuida, conforme a la Ley del Sector Eléctrico y su reglamento.',
             siglas: ['LSE', 'RLSE', 'LCNE'],
+            ficha: {
+                elQue: 'Las centrales solares fotovoltaicas ≥ 0.7 MW requieren permiso de la CNE (para el MEM o autoconsumo interconectado/aislado) y pueden incorporar Sistemas de Almacenamiento de Energía Eléctrica (SAEE) para aportar firmeza.',
+                elComo: 'Para venta al MEM deben alinearse a las convocatorias vinculantes del PLADESE o desarrollarse en esquemas mixtos con CFE; para autoconsumo (0.7 a 20 MW) cuentan con trámite simplificado mediante ventanilla digital.',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 19, 32, 35, 36 y 82–85', nota: 'Permisos de generación, autoconsumo interconectado y almacenamiento SAEE asociado.' },
+                    { siglas: 'RLSE', refs: 'Arts. 68 a 88', nota: 'Reglas para proyectos de generación y esquemas de desarrollo mixto.' },
+                ],
+            },
         },
-        tramites: ['generacion', 'autoconsumo'],
+        tramites: ['generacion', 'autoconsumo', 'almacenamiento'],
         mapa: { texto: 'Ver las centrales de generación en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Qué equipo convierte la corriente directa de los módulos en corriente alterna?', opciones: ['El inversor', 'El transformador', 'El seguidor solar'], correcta: 0 },
@@ -407,18 +560,18 @@ export const CONCEPTOS = [
         titulo: 'Central de ciclo combinado',
         sector: 'electricidad',
         resumen: 'La tecnología más eficiente para generar con gas natural: quema gas en una turbina de combustión y aprovecha los gases calientes para producir vapor y mover una segunda turbina.',
-        figura: 'generador',
+        figura: 'ciclo-combinado',
         definiciones: [
-            { termino: 'Ciclo combinado', texto: 'Combinación de dos ciclos termodinámicos: un ciclo Brayton (turbina de gas) y un ciclo Rankine (turbina de vapor), logrando eficiencias superiores al 55 % o 60 %.' },
-            { termino: 'HRSG (Generador de vapor)', texto: 'Caldera de recuperación de calor que aprovecha los gases de escape calientes de la turbina de gas para generar vapor a alta presión.' },
-            { termino: 'Generación firme', texto: 'Electricidad constante y predecible que puede despacharse en cualquier momento para respaldar la estabilidad del sistema.' },
+            { termino: 'Ciclo combinado', texto: 'Combinación de dos ciclos termodinámicos: un ciclo Brayton (turbina de gas) y un ciclo Rankine (turbina de vapor), logrando eficiencias cercanas al 60 %.' },
+            { termino: 'HRSG (Generador de vapor)', texto: 'Caldera de recuperación de calor que aprovecha los gases de escape calientes (>500 °C) de la turbina de gas para generar vapor a alta presión.' },
+            { termino: 'Generación firme', texto: 'Electricidad constante y despachable en cualquier hora del día que respalda la confiabilidad y el control de frecuencia (60 Hz) del Sistema Eléctrico Nacional.' },
         ],
         claves: [
-            'El gas natural se mezcla con aire y se quema para mover una turbina de gas a alta temperatura.',
-            'Los gases de escape salen a más de 500 °C. En lugar de desperdiciarlos, pasan por un recuperador de calor (HRSG) que calienta agua hasta convertirla en vapor.',
-            'Ese vapor impulsa una segunda turbina (de vapor), produciendo electricidad adicional con el mismo combustible.',
-            'Aportan más del 50 % de la electricidad que consume México y son el principal soporte de estabilidad de la red.',
-            'Su combustible principal es el gas natural, que llega por gasoductos coordinados por el CENAGAS.',
+            'El gas natural se mezcla con aire comprimido y se quema para mover una turbina de gas a alta temperatura (primer generador).',
+            'Los gases de escape salen a más de 500 °C. En lugar de desperdiciarlos, pasan por un recuperador de calor (HRSG) que hierve agua hasta convertirla en vapor de alta presión.',
+            'Ese vapor impulsa una segunda turbina (de vapor), produciendo hasta un 50 % más de electricidad con el mismo combustible.',
+            'Aportan más de la mitad de la generación eléctrica de México y dan el soporte de potencia firme cuando baja el sol o el viento.',
+            'Su operación requiere coordinación entre el despacho eléctrico del CENACE y la disponibilidad de gas por ducto en el SISTRANGAS (CENAGAS).',
         ],
         partes: [
             { nombre: 'Entrada de gas natural', texto: 'Suministro de combustible a alta presión desde el gasoducto.' },
@@ -429,10 +582,18 @@ export const CONCEPTOS = [
             { nombre: 'Torre de enfriamiento / Condensador', texto: 'Enfría el vapor para volverlo agua líquida y recircularlo en circuito cerrado.' },
         ],
         ley: {
-            texto: 'Las centrales de ciclo combinado requieren permisos de generación otorgados por la Comisión Nacional de Energía (CNE) y deben coordinar su interconexión y despacho con el CENACE.',
+            texto: 'Las centrales de ciclo combinado requieren permiso de generación de la CNE, interconexión con el CENACE y suministro de gas natural coordinado conforme a la planeación vinculante del sector.',
             siglas: ['LSE', 'RLSE', 'LCNE'],
+            ficha: {
+                elQue: 'Son centrales térmicas de alta eficiencia y potencia firme que participan en el Mercado Eléctrico Mayorista por medio de CFE, esquemas de Desarrollo Mixto (Inversión Mixta o Producción de Largo Plazo) o permisionarios privados.',
+                elComo: 'Requieren permiso de generación de la CNE (LSE, art. 19), contrato de interconexión y de Participante del Mercado con el CENACE (LSE, art. 114) y contrato de transporte de gas natural en acceso abierto.',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 19, 35, 36, 38–40 y 114', nota: 'Permiso de generación, esquemas de desarrollo mixto y participación en el MEM.' },
+                    { siglas: 'RLSE', refs: 'Arts. 68 y 84–87', nota: 'Condiciones de planeación vinculante y asociación con CFE.' },
+                ],
+            },
         },
-        tramites: ['generacion'],
+        tramites: ['generacion', 'cogeneracion'],
         mapa: { texto: 'Ver centrales de ciclo combinado en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Por qué se llama ciclo combinado?', opciones: ['Porque combina una turbina de gas y una de vapor', 'Porque usa carbón y agua', 'Porque se conecta a dos redes distintas'], correcta: 0 },
@@ -451,46 +612,113 @@ export const CONCEPTOS = [
         id: 'mercado-cenace',
         nivel: 4,
         antes: ['transformador', 'ciclo-combinado', 'fotovoltaica'],
-        titulo: 'CENACE y el despacho eléctrico',
+        titulo: 'CENACE y el despacho eléctrico (MEM)',
         sector: 'electricidad',
-        resumen: 'La electricidad debe producirse en el mismo instante en que se consume. El CENACE ordena a las centrales encenderse de menor a mayor costo para garantizar abasto al precio más eficiente.',
-        figura: 'cd-ca',
+        resumen: 'La electricidad debe producirse en el mismo instante en que se consume. El CENACE ejerce el control operativo del SEN y despacha las centrales por orden de mérito con restricciones de seguridad.',
+        figura: 'mercado-cenace',
         definiciones: [
-            { termino: 'CENACE', texto: 'Centro Nacional de Control de Energía: organismo público descentralizado que opera el Sistema Eléctrico Nacional y administra el Mercado Eléctrico Mayorista.' },
-            { termino: 'Orden de mérito económico', texto: 'Regla de despacho que enciende primero las centrales de menor costo variable (solar, eólica, hidro) y luego las de mayor costo (gas, diésel).' },
-            { termino: 'Precio Marginal Local (PML)', unidad: '$/MWh', texto: 'Costo de suministrar el siguiente megawatt-hora en un nodo de la red. Se compone de: Costo de Energía + Pérdidas de Transmisión + Congestión en Líneas.' },
-            { termino: 'Mercado del Día en Adelanto (MDA)', texto: 'Mercado donde se programan las compras y ventas de energía para las 24 horas del día siguiente.' },
+            { termino: 'CENACE', texto: 'Centro Nacional de Control de Energía: organismo público descentralizado encargado del Control Operativo del Sistema Eléctrico Nacional y de operar el Mercado Eléctrico Mayorista (LSE, arts. 111 y 124).' },
+            { termino: 'Despacho económico con restricciones de seguridad', texto: 'Asignación de centrales de menor a mayor costo variable respetando la Confiabilidad, Seguridad de Despacho, el despacho obligado de cogeneración (art. 43) y la prevalencia estatal (art. 117).' },
+            { termino: 'Precio Marginal Local (PML)', unidad: '$/MWh', texto: 'Costo de suministrar el siguiente megawatt-hora en un nodo de la red: Costo de Energía + Pérdidas Marginales de Transmisión + Costo de Congestión.' },
+            { termino: 'Mercados del MEM', texto: 'Integra el Mercado de Energía de Corto Plazo (Día en Adelanto MDA y Tiempo Real MTR), el Mercado para el Balance de Potencia, los Certificados de Energías Limpias (CEL) y los Servicios Conexos (LSE, art. 112).' },
         ],
         claves: [
-            'En una red eléctrica no hay grandes bodegas de electricidad: lo que los focos y fábricas consumen cada segundo debe inyectarse en ese mismo instante en las centrales.',
-            'Si la frecuencia baja de 60 Hz, el CENACE pide más energía; si sube, pide reducir generación.',
-            'En el despacho económico, las energías renovables entran primero porque su costo variable de combustible es cero ($0/MWh).',
-            'La última central que entra para satisfacer el consumo fija el precio marginal que reciben todas las generadoras despachadas en ese nodo.',
-            'Cuando una línea de transmisión se congestiona (se satura), el CENACE tiene que encender una central local más cara, aumentando el PML en esa zona.',
+            'En una red eléctrica la generación y la demanda deben equilibrarse cada segundo para mantener la frecuencia nacional en 60 Hz y cumplir el Código de Red.',
+            'En el orden de mérito económico entran primero las centrales de menor costo variable (solar, eólica, hidroeléctrica y cogeneración con despacho obligado) y después las de ciclo combinado y turbogás.',
+            'La última central necesaria para cubrir la demanda en cada hora fija el Precio Marginal Local (PML) en su nodo.',
+            'Cuando una línea de la Red Nacional de Transmisión se satura (congestión), el CENACE despacha generación local de mayor costo para proteger la seguridad de la red, elevando el PML de esa zona.',
+            'Además de la energía diaria (MDA y MTR), el MEM liquida Potencia firme anual, Servicios Conexos (reservas rodantes, regulación de frecuencia y tensión) y Certificados de Energías Limpias (CEL).',
         ],
         partes: [
-            { nombre: 'Consumo nacional (Demanda)', texto: 'Millones de hogares, comercios e industrias prendiendo aparatos a la vez.' },
-            { nombre: 'Despacho base (Renovables e Hidro)', texto: 'Costo marginal mínimo: entran primero en el orden de mérito.' },
-            { nombre: 'Despacho intermedio (Ciclo combinado)', texto: 'Generación flexible que sigue las variaciones de la curva de demanda.' },
-            { nombre: 'Pico y reserva (Turbogás)', texto: 'Plantas rápidas de encender para los momentos de máxima demanda del día.' },
-            { nombre: 'Fijación de PML', texto: 'La última unidad requerida determina el precio marginal en el nodo.' },
+            { nombre: 'Consumo nacional (Demanda)', texto: 'Millones de hogares, comercios e industrias recibiendo energía a 60 Hz.' },
+            { nombre: 'Despacho base (Renovables e Hidro)', texto: 'Costo variable mínimo ($0/MWh): entran primero en el orden de mérito.' },
+            { nombre: 'Despacho intermedio (Ciclo combinado)', texto: 'Generación firme y flexible que acompaña la curva de demanda.' },
+            { nombre: 'Pico y reserva (Turbogás)', texto: 'Unidades de arranque rápido para las horas punta y reservas operativas.' },
+            { nombre: 'Fijación de PML', texto: 'Consola del CENACE donde la unidad marginal y las restricciones de red determinan el PML nodal.' },
         ],
         ley: {
-            texto: 'La Ley del Sector Eléctrico establece que el control operativo del Sistema Eléctrico Nacional corresponde exclusivamente al CENACE con base en principios de eficiencia y confiabilidad.',
-            siglas: ['LSE', 'RLSE'],
+            texto: 'La Ley del Sector Eléctrico faculta exclusivamente al CENACE para ejercer el Control Operativo del Sistema Eléctrico Nacional y operar el Mercado Eléctrico Mayorista bajo principios de Confiabilidad, Seguridad de Despacho y eficiencia.',
+            siglas: ['LSE', 'RLSE', 'LCNE'],
+            ficha: {
+                elQue: 'El CENACE mantiene la seguridad operativa de la red (Código de Red) y administra las transacciones del MEM: energía de corto plazo (MDA/MTR), balance de potencia, servicios conexos y CEL (LSE, arts. 111 y 112).',
+                elComo: 'Las Generadoras, Comercializadoras y Usuarios Calificados celebran contrato de Participante del Mercado con el CENACE (art. 114). El CENACE ejecuta el despacho económico con restricciones de seguridad preservando la confiabilidad y la prevalencia del Estado (arts. 117 y 124).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 21, 43, 111, 112, 114, 117 y 124', nota: 'Control operativo del CENACE, transacciones del MEM y despacho con restricciones de seguridad.' },
+                    { siglas: 'LCNE', refs: 'Art. 7', nota: 'Expedición y vigilancia de Reglas del Mercado y disposiciones técnicas (Código de Red).' },
+                ],
+            },
         },
-        tramites: [],
+        tramites: ['generacion', 'almacenamiento'],
         mapa: { texto: 'Ver regiones del sistema eléctrico en el mapa', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Qué central fija el Precio Marginal Local (PML)?', opciones: ['La última central necesaria para cubrir la demanda', 'La central más barata del país', 'El promedio de todas las centrales'], correcta: 0 },
             { pregunta: '¿Cuáles son los 3 componentes del Precio Marginal Local?', opciones: ['Energía, pérdidas de transmisión y congestión', 'Voltaje, corriente y resistencia', 'IVA, ISR e IEPS'], correcta: 0 },
-            { pregunta: '¿Quién opera de manera independiente el Sistema Eléctrico Nacional en México?', opciones: ['El CENACE', 'Cada municipio', 'Las empresas privadas'], correcta: 0 },
+            { pregunta: '¿Quién ejerce el Control Operativo del Sistema Eléctrico Nacional en México?', opciones: ['El CENACE', 'Cada municipio', 'Las empresas privadas'], correcta: 0 },
         ],
         fuentes: [
             CENACE,
             LSE,
             RLSE,
             LCNE,
+        ],
+        revisado: null,
+    },
+    {
+        id: 'planeacion-desarrollo-mixto',
+        nivel: 4,
+        antes: ['transformador', 'fotovoltaica', 'ciclo-combinado', 'mercado-cenace'],
+        titulo: 'Planeación vinculante, regla 54/46 y Desarrollo Mixto',
+        sector: 'electricidad',
+        resumen: 'Cómo se organiza el sector eléctrico tras la reforma de 2025: rectoría vinculante de SENER (PLADESE), prevalencia estatal mínima del 54 % (CFE), esquemas de Desarrollo Mixto, baterías (SAEE) y redes exclusivas del Estado.',
+        figura: 'desarrollo-mixto-sen',
+        definiciones: [
+            { termino: 'Prevalencia del Estado (≥ 54 %)', texto: 'Mandato legal por el cual el Estado mantiene al menos el 54 % del promedio de la energía inyectada a la red en un año calendario, garantizando la confiabilidad y evitando lucro en el Suministro Básico (LSE, arts. 1, 6 y 36).' },
+            { termino: 'Planeación vinculante (PLADESE)', texto: 'Conducción obligatoria de la SENER sobre las adiciones y retiros de capacidad del Sistema Eléctrico Nacional a través del Plan de Desarrollo del Sector Eléctrico y sus convocatorias (LPTE, arts. 2 y 21; LSE, art. 12).' },
+            { termino: 'Producción de Largo Plazo (PLP)', texto: 'Esquema de Desarrollo Mixto donde el particular financia, construye y opera la central, vendiendo el 100 % de su energía y productos asociados en exclusiva a CFE (LSE, arts. 38 fr. I y 39).' },
+            { termino: 'Inversión Mixta (CFE ≥ 54 %)', texto: 'Esquema de Desarrollo Mixto donde CFE se asocia con particulares manteniendo directa o indirectamente al menos el 54 % del capital social común o control del proyecto (LSE, art. 40; RLSE, arts. 84–87).' },
+        ],
+        claves: [
+            'La CFE es ahora una Empresa Pública del Estado con mandato de servicio público, soberanía y justicia energética (LEPE-CFE, arts. 2 y 4).',
+            'Ya no existe interconexión libre sin planeación: todo nuevo proyecto de generación para el mercado debe alinearse al PLADESE vinculante de la SENER y obtener permiso de la CNE.',
+            'Para desarrollar centrales conjuntas entre CFE y particulares, la Ley del Sector Eléctrico (art. 38) establece los Esquemas para el Desarrollo Mixto: Producción de Largo Plazo (PLP) e Inversión Mixta (con ≥ 54 % de participación estatal).',
+            'La Red Nacional de Transmisión (RNT) y las Redes Generales de Distribución (RGD) están reservadas en exclusiva al Estado (LSE, art. 57).',
+            'La ley incorpora la regulación de los Sistemas de Almacenamiento de Energía Eléctrica (SAEE / baterías, arts. 82–85) y el régimen de migración para permisos legados de autoabastecimiento y cogeneración (Transitorios Sexto a Octavo).',
+        ],
+        partes: [
+            { nombre: 'Rectoría SENER y permisos CNE', texto: 'SENER emite la planeación vinculante (PLADESE) y las convocatorias; la CNE otorga los permisos y regula tarifas.' },
+            { nombre: 'Generación estatal (CFE ≥ 54 %)', texto: 'La Empresa Pública del Estado aporta como mínimo el 54 % de la energía inyectada a la red en el año.' },
+            { nombre: 'Esquemas de Desarrollo Mixto', texto: 'Asociaciones CFE + particulares bajo Inversión Mixta (CFE ≥ 54 % capital) o Producción de Largo Plazo (venta 100 % a CFE).' },
+            { nombre: 'Generación privada (≤ 46 %)', texto: 'Permisionarios privados que participan en el MEM sujetos a la planeación vinculante del sector.' },
+            { nombre: 'Almacenamiento en baterías (SAEE)', texto: 'Sistemas de almacenamiento regulados (LSE arts. 82–85) que dan firmeza, potencia y servicios conexos.' },
+            { nombre: 'RNT y RGD (Exclusivas del Estado)', texto: 'Redes de transmisión y distribución estratégicas operadas por el Estado con acceso abierto sujeto a factibilidad técnica.' },
+        ],
+        ley: {
+            texto: 'La reforma constitucional y la Ley del Sector Eléctrico establecen la planeación vinculante de la SENER, la prevalencia del Estado (≥ 54 %), los Esquemas para el Desarrollo Mixto con CFE, la regulación de baterías (SAEE) y la migración de permisos legados.',
+            siglas: ['LSE', 'RLSE', 'LPTE', 'LCNE', 'LEPE-CFE'],
+            ficha: {
+                elQue: 'Define la arquitectura institucional del sector eléctrico: SENER planea de forma vinculante (PLADESE), la CNE otorga permisos y regula tarifas, CFE garantiza al menos el 54 % de inyección anual y opera en exclusiva las redes (RNT/RGD), y los particulares participan hasta en el 46 % o en Esquemas de Desarrollo Mixto.',
+                elComo: '1) SENER publica necesidades de capacidad y convocatorias conforme al PLADESE; 2) CFE selecciona socios en Desarrollo Mixto conforme a sus Lineamientos (DOF 28/01/2026) o el particular solicita permiso ante la CNE; 3) Los permisos legados de autoabastecimiento pueden migrar a las figuras de la LSE (Transitorios Sexto a Octavo).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 1, 6, 10, 11, 12, 35, 36, 38, 39, 40, 57 y 82–85', nota: 'Prevalencia ≥ 54 %, planeación vinculante, Desarrollo Mixto (PLP e Inversión Mixta), exclusividad RNT/RGD y almacenamiento SAEE.' },
+                    { siglas: 'RLSE', refs: 'Arts. 68 y 84 a 88', nota: 'Reglas de los esquemas de Desarrollo Mixto y participación mínima del 54 % de CFE.' },
+                    { siglas: 'LPTE', refs: 'Arts. 2, 21 y 23', nota: 'Instrumentos de planeación vinculante (PROSENER, PLATEASE y PLADESE).' },
+                    { siglas: 'LEPE-CFE', refs: 'Arts. 1, 2 y 4', nota: 'Transformación de CFE en Empresa Pública del Estado sin afán preponderante de lucro.' },
+                ],
+            },
+        },
+        tramites: ['generacion', 'almacenamiento', 'autoconsumo', 'migracion'],
+        mapa: { texto: 'Ver centrales y redes eléctricas en el mapa de permisos', hash: '#mapa-permisos' },
+        preguntas: [
+            { pregunta: '¿Cuál es el porcentaje mínimo de energía inyectada a la red que debe mantener el Estado en un año calendario?', opciones: ['Al menos el 54 %', 'El 10 %', 'El 100 % sin participación privada'], correcta: 0 },
+            { pregunta: 'En el esquema de Inversión Mixta con CFE, ¿qué participación mínima debe conservar la Empresa Pública del Estado?', opciones: ['Al menos el 54 % del capital social común o control', 'Menos del 20 %', 'No participa en el capital'], correcta: 0 },
+            { pregunta: '¿Qué caracteriza al esquema de Producción de Largo Plazo (PLP)?', opciones: ['El particular financia y opera la central y vende el 100 % de la energía y productos en exclusiva a CFE', 'La central vende libremente a cualquier usuario en el extranjero', 'No requiere permiso de la CNE'], correcta: 0 },
+        ],
+        fuentes: [
+            LSE,
+            RLSE,
+            LPTE,
+            LCNE,
+            LEPE_CFE,
         ],
         revisado: null,
     },
@@ -529,8 +757,16 @@ export const CONCEPTOS = [
         ],
         dato: 'El crudo mexicano de exportación de referencia mundial se llama crudo Maya: es denso, pesado y con alto contenido de azufre, extraído principalmente costa afuera en Campeche.',
         ley: {
-            texto: 'La nación tiene el dominio directo, inalienable e imprescriptible de todos los hidrocarburos en el subsuelo conforme al artículo 27 constitucional y la Ley del Sector Hidrocarburos.',
+            texto: 'La Nación tiene el dominio directo, inalienable e imprescriptible de todos los hidrocarburos en el subsuelo conforme al artículo 27 constitucional y la Ley del Sector Hidrocarburos.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
+            ficha: {
+                elQue: 'Los hidrocarburos en el subsuelo (petróleo, gas natural, condensados e hidratos de metano) son propiedad exclusiva e inalienable de la Nación (art. 27 CPEUM; LSH, arts. 1 y 3).',
+                elComo: 'Su exploración y extracción constituye un área estratégica que el Estado realiza por conducto de Petróleos Mexicanos (Empresa Pública del Estado) mediante Asignaciones para Desarrollo Propio o para Desarrollo Mixto otorgadas por la SENER.',
+                articulos: [
+                    { siglas: 'LSH', refs: 'Arts. 1, 3, 5, 7 y 8', nota: 'Propiedad nacional de los hidrocarburos en el subsuelo y planeación vinculante.' },
+                    { siglas: 'LEPE-PEMEX', refs: 'Arts. 2 y 4', nota: 'Naturaleza de PEMEX como Empresa Pública del Estado.' },
+                ],
+            },
         },
         tramites: ['gasnatural', 'gaslp'],
         mapa: { texto: 'Ver asignaciones y contratos de hidrocarburos en el mapa', hash: '#mapa-permisos' },
@@ -559,13 +795,13 @@ export const CONCEPTOS = [
             { termino: 'Gasoducto', texto: 'Tubería de acero al carbono de alta resistencia diseñada para transportar gas natural comprimido a presiones típicas de 50 a 90 bar.' },
             { termino: 'Poliducto', texto: 'Tubería que transporta diferentes petrolíferos líquidos en tandas secuenciales (gasolina regular, premium y diésel) sin mezclarse.' },
             { termino: 'Estación de compresión', texto: 'Instalación con compresores mecánicos colocada cada 100 a 150 km para elevar la presión del gas que se pierde por fricción.' },
-            { termino: 'Acceso abierto no discriminatorio', texto: 'Obligación legal de los dueños de ductos de permitir el transporte a cualquier tercero que pague la tarifa regulada, si existe capacidad disponible.' },
+            { termino: 'Acceso abierto no discriminatorio', texto: 'Obligación legal de los permisionarios de transporte por ducto de permitir el uso de capacidad disponible a terceros que cubran la tarifa regulada aprobada por la CNE.' },
         ],
         claves: [
             'El transporte por ducto es la forma más segura, económica y con menor huella de carbono para mover grandes volúmenes de energía en distancias continentales.',
             'El gas natural no tiene olor por naturaleza: antes de distribuirse a los hogares se le agrega una sustancia química llamada mercaptano para que cualquier fuga se detecte al instante.',
-            'México cuenta con el SISTRANGAS (Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural), coordinado técnicamente por el CENAGAS.',
-            'Gran parte del gas que consume México para generar electricidad y en la industria proviene de importaciones por gasoducto desde Texas (cuenca Pérmica), con precios referidos a índices como Waha y Henry Hub.',
+            'México cuenta con el SISTRANGAS (Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural), cuya gestión técnica e independiente está a cargo del CENAGAS.',
+            'Gran parte del gas que consume México para generar electricidad y en la industria proviene de producción nacional y de importaciones por gasoducto desde Texas, con coordinación operativa entre CENAGAS y CENACE.',
             'Para inspeccionar las tuberías sin suspender el servicio, se introducen robots inteligentes llamados «diablos» (scrapers) que revisan espesor de metal y corrosión.',
         ],
         partes: [
@@ -576,8 +812,16 @@ export const CONCEPTOS = [
             { nombre: 'Estación de regulación y medición (City Gate)', texto: 'Reduce la presión del gas antes de entregarlo a la red urbana o a la central eléctrica.' },
         ],
         ley: {
-            texto: 'El servicio de transporte por ducto requiere permiso de la Comisión Nacional de Energía (CNE). La gestión independiente del SISTRANGAS corresponde al CENAGAS.',
+            texto: 'El transporte y la distribución por medio de ductos requieren permiso de la Comisión Nacional de Energía (CNE). La gestión independiente del SISTRANGAS corresponde al CENAGAS.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
+            ficha: {
+                elQue: 'El transporte por ducto de gas natural, petrolíferos y petroquímicos es una actividad regulada sujeta a permiso de la CNE y al principio de acceso abierto no indebidamente discriminatorio.',
+                elComo: 'Los permisionarios asignan capacidad disponible mediante temporadas abiertas supervisadas por la CNE; en el SISTRANGAS, el CENAGAS gestiona la capacidad y coordina con el CENACE el abasto a las centrales eléctricas.',
+                articulos: [
+                    { siglas: 'LSH', refs: 'Arts. 76 fr. II, 80, 81 y 83', nota: 'Permisos de transporte y distribución por ducto otorgados por la CNE.' },
+                    { siglas: 'LCNE', refs: 'Arts. 2 y 7', nota: 'Regulación tarifaria y de acceso abierto en transporte y distribución por ducto.' },
+                ],
+            },
         },
         tramites: ['gasnatural'],
         mapa: { texto: 'Ver la red de gasoductos en el mapa de permisos', hash: '#mapa-permisos' },
@@ -620,8 +864,16 @@ export const CONCEPTOS = [
             { nombre: 'Sistema contra incendios', texto: 'Red de agua y espuma formadora de película acuosa (AFFF) con monitores automáticos.' },
         ],
         ley: {
-            texto: 'El almacenamiento de petrolíferos requiere permiso de la Comisión Nacional de Energía y autorización de impacto ambiental y seguridad operativa de la ASEA.',
+            texto: 'El almacenamiento de petrolíferos requiere permiso de la Comisión Nacional de Energía (CNE) y autorización en materia de seguridad industrial, operativa y protección ambiental de la ASEA.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
+            ficha: {
+                elQue: 'Las Terminales de Almacenamiento y Reparto (TAR) resguardan inventarios estratégicos y operativos de gasolinas, diésel y turbosina bajo permiso de la CNE y supervisión técnica y ambiental de la ASEA.',
+                elComo: 'El interesado solicita el permiso de almacenamiento ante la CNE (LSH, arts. 76 fr. II y 80), acredita el cumplimiento de inventarios mínimos conforme a la política de SENER (RLSH, art. 109) y registra sus sistemas de administración de seguridad industrial ante la ASEA.',
+                articulos: [
+                    { siglas: 'LSH', refs: 'Arts. 5 fr. I, 76 fr. II, 80 y 81', nota: 'Permisos de almacenamiento de petrolíferos y atribuciones de CNE y ASEA.' },
+                    { siglas: 'RLSH', refs: 'Art. 109 fr. III', nota: 'El comercializador debe acreditar con contratos su inventario y el Almacenamiento mínimo que determine la Secretaría.' },
+                ],
+            },
         },
         tramites: ['petroliferos'],
         mapa: { texto: 'Ver terminales de almacenamiento en el mapa de permisos', hash: '#mapa-permisos' },
@@ -669,8 +921,16 @@ export const CONCEPTOS = [
             { nombre: 'Residuo atmosférico (fondo, >350 °C)', texto: 'Líquido espeso que se envía a la torre de vacío o a plantas de coquización.' },
         ],
         ley: {
-            texto: 'La refinación de petróleo requiere permiso de la Secretaría de Energía (LSH, arts. 76 y 115); el transporte, almacenamiento y expendio de los petrolíferos que produce los permisiona la Comisión Nacional de Energía. Los combustibles deben cumplir la norma de calidad NOM-016-CRE.',
+            texto: 'El tratamiento y la refinación de petróleo requieren permiso de la Secretaría de Energía (LSH, arts. 76 fr. I y 115); el transporte, almacenamiento y expendio de los petrolíferos los permisiona la CNE.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
+            ficha: {
+                elQue: 'El tratamiento y refinación de petróleo, el procesamiento de gas natural y la importación/exportación de hidrocarburos y petrolíferos son actividades permisionadas directamente por la SENER bajo criterios de soberanía energética (LSH, art. 76 fr. I).',
+                elComo: 'La SENER evalúa las solicitudes conforme al Plan de Desarrollo del Sector Hidrocarburos (PLADESHi), mientras que la ASEA regula la seguridad industrial y ambiental y la CNE supervisa las especificaciones de calidad de los petrolíferos.',
+                articulos: [
+                    { siglas: 'LSH', refs: 'Arts. 76 fr. I, 80, 81, 84 y 115', nota: 'Facultad exclusiva de SENER para permisos de refinación y tratamiento de petróleo.' },
+                    { siglas: 'RLSH', refs: 'Art. 336', nota: 'Criterios de eficiencia, seguridad y mejores prácticas en las actividades reguladas.' },
+                ],
+            },
         },
         tramites: [],
         mapa: { texto: 'Ver refinerías del país en el mapa de permisos', hash: '#mapa-permisos' },
@@ -688,12 +948,69 @@ export const CONCEPTOS = [
         revisado: null,
     },
     {
+        id: 'asignaciones-hidrocarburos',
+        nivel: 4,
+        antes: ['hidrocarburos-moleculas', 'gasoductos', 'almacenamiento-tar', 'refinacion'],
+        titulo: 'Soberanía, PLADESHi y Asignaciones (Desarrollo Propio vs. Mixto)',
+        sector: 'hidrocarburos',
+        resumen: 'Cómo se explora y extrae el petróleo y gas de la Nación tras la reforma de 2025: planeación vinculante (PLADESHi), prelación de PEMEX en Desarrollo Propio y nuevas Asignaciones para Desarrollo Mixto (PEMEX ≥ 40 %).',
+        figura: 'cadena-hidrocarburos',
+        definiciones: [
+            { termino: 'Orden de prelación (LSH, art. 11)', texto: 'Regla obligatoria por la cual la SENER privilegia primero las Asignaciones para Desarrollo Propio de PEMEX, en segundo lugar las Asignaciones para Desarrollo Mixto y solo de forma excepcional los Contratos.' },
+            { termino: 'Asignación para Desarrollo Propio', texto: 'Título que otorga la SENER a Petróleos Mexicanos para explorar y extraer hidrocarburos con sus propias capacidades; PEMEX solo puede celebrar con particulares contratos de obra o servicios pagaderos en efectivo (LSH, arts. 13 y 17).' },
+            { termino: 'Asignación para Desarrollo Mixto', texto: 'Modalidad en que SENER otorga la Asignación a PEMEX (manteniendo la propiedad exclusiva estatal de la Asignación, art. 26) y PEMEX firma un Contrato Mixto con particulares conservando al menos el 40 % de interés de participación (LSH, arts. 24–36).' },
+            { termino: 'PLADESHi vinculante', texto: 'Plan de Desarrollo del Sector Hidrocarburos emitido por la SENER (LSH, arts. 7 y 8; LPTE, art. 21) orientado a la autosuficiencia nacional (~1.8 Mbd de crudo), abasto a refinerías y restitución de reservas 3P.' },
+        ],
+        claves: [
+            'Petróleos Mexicanos (PEMEX) opera como Empresa Pública del Estado sectorizada a la SENER, con mandato de soberanía y autosuficiencia energética (LEPE-PEMEX, arts. 2 y 4).',
+            'La planeación del sector hidrocarburos tiene carácter vinculante (LSH, art. 8): prioriza el abasto interno para las refinerías nacionales y la petroquímica antes que la exportación indiscriminada.',
+            'En las Asignaciones para Desarrollo Propio (1.ª prelación), PEMEX ejecuta directamente la exploración y extracción.',
+            'Cuando PEMEX requiere complementar capacidades técnicas, operativas o financieras (por ejemplo, en aguas profundas o campos complejos), solicita a la SENER una Asignación para Desarrollo Mixto (2.ª prelación, LSH, art. 24).',
+            'En todo Contrato Mixto derivado de una Asignación para Desarrollo Mixto, PEMEX debe conservar al menos el 40 % de participación (LSH, art. 31), y las Secretarías de Energía y de Hacienda fiscalizan la recuperación de costos (art. 32).',
+        ],
+        partes: [
+            { nombre: 'Subsuelo de la Nación (Reservas 3P)', texto: 'Propiedad directa, inalienable e imprescriptible de la Nación (art. 27 CPEUM); la planeación exige restituir reservas probadas, probables y posibles.' },
+            { nombre: 'Asignación de Desarrollo Propio (PEMEX)', texto: 'Primera prelación (LSH, arts. 11 y 13): PEMEX explora y extrae al 100 % y solo contrata servicios en efectivo.' },
+            { nombre: 'Asignación de Desarrollo Mixto (PEMEX ≥ 40 %)', texto: 'Segunda prelación (LSH, arts. 24–36): PEMEX conserva la titularidad de la Asignación y al menos 40 % de participación junto a un socio técnico o financiero.' },
+            { nombre: 'Rectoría SENER (PLADESHi), CNE y ASEA', texto: 'SENER otorga las Asignaciones y conduce el PLADESHi; CNE regula el midstream/downstream y ASEA supervisa seguridad y medio ambiente.' },
+            { nombre: 'Refinación y abasto nacional (~1.8 Mbd)', texto: 'Destino prioritario de la producción nacional de crudo y gas para asegurar la soberanía energética.' },
+        ],
+        ley: {
+            texto: 'La Ley del Sector Hidrocarburos (2025) establece la planeación vinculante mediante el PLADESHi y el orden de prelación para las Asignaciones a Petróleos Mexicanos en sus modalidades de Desarrollo Propio y Desarrollo Mixto.',
+            siglas: ['LSH', 'RLSH', 'LPTE', 'LEPE-PEMEX', 'LCNE'],
+            ficha: {
+                elQue: 'Regula el régimen de exploración y extracción (Upstream) bajo rectoría de la SENER y prevalencia de PEMEX como Empresa Pública del Estado, articulado con la soberanía en refinación y petroquímica.',
+                elComo: '1) SENER determina el área y otorga a PEMEX Asignación para Desarrollo Propio (arts. 12–13); 2) Si PEMEX requiere complementar capacidades, su Consejo solicita a SENER autorizar una Asignación para Desarrollo Mixto (arts. 22 y 24); 3) PEMEX licita el Contrato Mixto manteniendo ≥ 40 % de participación (art. 31).',
+                articulos: [
+                    { siglas: 'LSH', refs: 'Arts. 7, 8, 10, 11, 13, 17 y 24 a 36', nota: 'Planeación vinculante (PLADESHi), prelación de Asignaciones, Desarrollo Propio y Desarrollo Mixto (PEMEX ≥ 40 %).' },
+                    { siglas: 'LPTE', refs: 'Arts. 2, 21 fr. V y 23', nota: 'Carácter vinculante del Plan de Desarrollo del Sector Hidrocarburos (PLADESHi).' },
+                    { siglas: 'LEPE-PEMEX', refs: 'Arts. 1, 2, 4 y 5', nota: 'Transformación de Petróleos Mexicanos en Empresa Pública del Estado.' },
+                ],
+            },
+        },
+        tramites: ['gasnatural', 'petroliferos'],
+        mapa: { texto: 'Ver asignaciones, ductos y refinerías en el mapa', hash: '#mapa-permisos' },
+        preguntas: [
+            { pregunta: 'Según el artículo 11 de la Ley del Sector Hidrocarburos, ¿qué modalidad tiene el primer lugar en el orden de prelación?', opciones: ['La Asignación para Desarrollo Propio a PEMEX', 'Los contratos privados libres', 'La importación extranjera'], correcta: 0 },
+            { pregunta: 'En los Contratos Mixtos de una Asignación para Desarrollo Mixto, ¿qué porcentaje mínimo de participación debe mantener PEMEX?', opciones: ['No menor al 40 % (art. 31 LSH)', 'El 5 %', 'No tiene mínimo legal'], correcta: 0 },
+            { pregunta: '¿Qué instrumento de planeación vinculante emite la SENER para el sector hidrocarburos?', opciones: ['El Plan de Desarrollo del Sector Hidrocarburos (PLADESHi)', 'El Código de Red Eléctrico', 'El reglamento municipal'], correcta: 0 },
+        ],
+        fuentes: [
+            LSH,
+            RLSH,
+            LPTE,
+            LEPE_PEMEX,
+            LCNE,
+        ],
+        revisado: null,
+    },
+    {
         id: 'mercado-hidrocarburos',
         nivel: 4,
-        antes: ['refinacion', 'almacenamiento-tar', 'gasoductos'],
-        titulo: 'Precios y mercado de combustibles',
+        antes: ['refinacion', 'almacenamiento-tar', 'gasoductos', 'asignaciones-hidrocarburos'],
+        titulo: 'Precios, expendio y mercado de combustibles',
         sector: 'hidrocarburos',
-        resumen: 'Cómo se forma el precio de un litro de gasolina o diésel en la estación de servicio: costo internacional de la molécula, logística, impuestos (IEPS e IVA) y margen comercial.',
+        resumen: 'Cómo se forma el precio de un litro de gasolina o diésel en la estación de servicio y cómo se regulan los permisos de expendio ante la CNE y la seguridad ante la ASEA.',
         figura: 'mercado-hidrocarburos',
         definiciones: [
             { termino: 'Precio de paridad de importación', texto: 'Costo que tendría traer el combustible desde el mercado internacional de referencia (la Costa del Golfo de EE. UU. / Houston) hasta México.' },
@@ -701,11 +1018,11 @@ export const CONCEPTOS = [
             { termino: 'Margen de estación de servicio', texto: 'Diferencia entre el precio mayorista que paga la gasolinera y el precio final de venta al automovilista, con el que cubre costos operativos y utilidad.' },
         ],
         claves: [
-            'México consume más gasolinas de las que refina internamente, por lo que el precio nacional está ligado al mercado internacional de la Costa del Golfo de Estados Unidos.',
+            'México complementa su refinación nacional con importaciones, por lo que el precio mayorista guarda relación con la referencia internacional de la Costa del Golfo de Estados Unidos.',
             'Un litro de gasolina en la bomba se desglosa aproximadamente en: ~50 % costo de la molécula, ~5–10 % transporte y almacenamiento, ~8–10 % margen comercial y el resto impuestos (IEPS e IVA). Las proporciones cambian cada semana.',
             'Cuando el petróleo sube a nivel mundial, Hacienda aumenta el estímulo al IEPS (cobra menos impuesto) para que el precio en la gasolinera no se dispare. El porcentaje se publica cada semana en el DOF, puede llegar al 100 % y no toca el IVA.',
-            'En gas natural, los usuarios industriales contratan suministro a precios basados en índices como Henry Hub o Houston Ship Channel más la tarifa de transporte de CENAGAS.',
-            'Los precios al público son libres desde 2017–2018: la Comisión Nacional de Energía otorga los permisos y recibe información de los permisionarios, y Profeco vigila los precios en las estaciones. Desde 2025 existe un acuerdo voluntario para mantener la gasolina regular cerca de 24 pesos por litro.',
+            'Para abrir y operar una estación de servicio se requiere permiso de expendio al público de la CNE (LSH, arts. 76 fr. II y 80–81), controles volumétricos para trazabilidad contra el mercado ilícito y autorizaciones ambientales y de seguridad operativa ante la ASEA (incluyendo registro en RENAGAS cuando aplica).',
+            'Los precios al público se reportan a la CNE y son vigilados por Profeco; desde 2025 opera además la estrategia nacional para estabilizar el precio de la gasolina regular alrededor de 24 pesos por litro.',
         ],
         partes: [
             { nombre: 'Costo de referencia internacional', texto: 'Precio de la gasolina terminada en refinerías de Texas / Louisiana.' },
@@ -715,10 +1032,19 @@ export const CONCEPTOS = [
             { nombre: 'Precio en dispensario', texto: 'Lo que paga el usuario final por litro en la estación de servicio.' },
         ],
         ley: {
-            texto: 'La comercialización y el expendio al público de petrolíferos requieren permiso de la Comisión Nacional de Energía (CNE) y deben reportar sus precios vigentes al público.',
+            texto: 'La comercialización y el expendio al público de petrolíferos, gas natural y gas LP requieren permiso de la Comisión Nacional de Energía (CNE), cumplimiento de controles volumétricos y registro de seguridad ante la ASEA.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
+            ficha: {
+                elQue: 'El expendio al público en estaciones de servicio y bodegas de distribución es el eslabón final (Downstream) regulado por la CNE en permisos y reportes de precios, y por la ASEA en seguridad industrial y ambiental.',
+                elComo: 'El solicitante tramita su permiso de expendio ante la CNE (acreditando localización, capacidad, procedencia lícita y balance de mercado conforme al art. 81 LSH), cumple dictámenes técnicos de diseño y operación ante la ASEA y mantiene controles volumétricos vigentes.',
+                articulos: [
+                    { siglas: 'LSH', refs: 'Arts. 76 fr. II, 80, 81, 82 y 89', nota: 'Permisos de comercialización y expendio al público, evaluación de impacto y causales de revocación por hidrocarburos ilícitos.' },
+                    { siglas: 'RLSH', refs: 'Art. 109 y Art. 336', nota: 'Obligaciones de los permisionarios de comercialización y expendio.' },
+                    { siglas: 'LCNE', refs: 'Arts. 2 y 7', nota: 'Atribuciones de la CNE para otorgar permisos y supervisar el expendio.' },
+                ],
+            },
         },
-        tramites: ['petroliferos'],
+        tramites: ['petroliferos', 'gaslp'],
         mapa: { texto: 'Ver estaciones de servicio y permisos en el mapa', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿Qué mecanismo utiliza el gobierno federal para evitar variaciones bruscas en el precio de la gasolina?', opciones: ['El estímulo fiscal al IEPS', 'Fijar el precio por decreto', 'Prohibir la importación'], correcta: 0 },
@@ -735,6 +1061,170 @@ export const CONCEPTOS = [
     },
 ];
 
+/** Hilo conductor por sector: cómo se conectan los 4 niveles en una sola historia física y regulatoria. */
+export const HILO_SECTOR = {
+    electricidad: {
+        subtitulo: 'Del movimiento de electrones a 60 Hz hasta la Planeación Vinculante (54 % / 46 %) y el despacho del CENACE',
+        resumen: 'La electricidad no se almacena a gran escala en los cables: se genera, transforma, transmite y consume en el mismo instante. Sigue los 4 eslabones para ver cómo cada fenómeno físico explica una máquina y una regla de la Ley del Sector Eléctrico.',
+        etapas: [
+            {
+                num: 'I',
+                titulo: 'Fenómeno Físico (60 Hz)',
+                desc: 'Qué es la corriente, por qué el voltaje la empuja y por qué la red alterna 60 veces por segundo.',
+                ids: ['electricidad', 'voltaje', 'cd-ca'],
+            },
+            {
+                num: 'II',
+                titulo: 'Máquinas y Conversión',
+                desc: 'Cómo el magnetismo mueve motores, genera corriente en turbinas y eleva el voltaje a 400 kV.',
+                ids: ['motor', 'generador', 'transformador'],
+            },
+            {
+                num: 'III',
+                titulo: 'Centrales de Generación',
+                desc: 'Dónde nace la energía a gran escala: paneles solares (CD a CA) y ciclos combinados de gas y vapor.',
+                ids: ['fotovoltaica', 'ciclo-combinado'],
+            },
+            {
+                num: 'IV',
+                titulo: 'Mercado, Despacho y Ley',
+                desc: 'Cómo el CENACE equilibra la red cada segundo (PML) y cómo la SENER, CNE y CFE aplican la regla 54 / 46.',
+                ids: ['mercado-cenace', 'planeacion-desarrollo-mixto'],
+            },
+        ],
+    },
+    hidrocarburos: {
+        subtitulo: 'De las moléculas del subsuelo (Reservas 3P) a las refinerías, los ductos, las TAR y el precio en la gasolinera',
+        resumen: 'Todos los hidrocarburos en el subsuelo pertenecen a la Nación (art. 27 CPEUM). Sigue la cadena completa desde el yacimiento hasta el dispensario para entender qué regula SENER, qué permisiona la CNE y cómo interviene Hacienda.',
+        etapas: [
+            {
+                num: 'I',
+                titulo: 'Subsuelo y Moléculas',
+                desc: 'Qué son los alcanos, cómo se clasifican los crudos (°API) y el gas natural en el yacimiento.',
+                ids: ['hidrocarburos'],
+            },
+            {
+                num: 'II',
+                titulo: 'Transporte por Ducto',
+                desc: 'Cómo viaja el gas a 70 bar por el SISTRANGAS bajo acceso abierto y control del CENAGAS.',
+                ids: ['gasoductos'],
+            },
+            {
+                num: 'III',
+                titulo: 'Refinación y Almacenaje TAR',
+                desc: 'Cómo se destila el crudo a 400 °C en gasolinas/diésel y se resguardan 5 días de reserva estratégica.',
+                ids: ['almacenamiento-tar', 'refinacion'],
+            },
+            {
+                num: 'IV',
+                titulo: 'Asignaciones y Precio Final',
+                desc: 'Prelación de PEMEX (Desarrollo Propio vs. Mixto ≥ 40 %) y cómo el estímulo al IEPS amortigua la gasolina.',
+                ids: ['asignaciones-hidrocarburos', 'mercado-hidrocarburos'],
+            },
+        ],
+    },
+};
+
+/** Puente narrativo por concepto: eslabón en la cadena, puente Físico -> Jurídico y transición al siguiente paso. */
+export const PUENTE_HILO = {
+    electricidad: {
+        eslabon: 'Eslabón 1 · Fundamento físico del flujo eléctrico',
+        fisica: 'Los electrones se mueven casi al instante al cerrar el circuito, pero las redes de transmisión no almacenan electricidad por sí solas.',
+        regulacion: 'Por esa instantaneidad física, la LSE declara el suministro como servicio de interés social y exige equilibrio continuo entre generación y demanda a 60 Hz.',
+        transicion: 'Ya sabes qué es el flujo de electrones (amperes). El siguiente paso es entender qué fuerza los empuja por los cables y por qué las torres de transmisión usan hasta 400,000 volts.',
+    },
+    voltaje: {
+        eslabon: 'Eslabón 1 · Tensión eléctrica y transporte eficiente',
+        fisica: 'Para transportar la misma potencia (P = V × I), elevar el voltaje reduce proporcionalmente la corriente y las pérdidas por calor (I²R) en los cables.',
+        regulacion: 'Por eso la regulación clasifica la red en Alta Tensión (RNT), Media y Baja Tensión (RGD), aplicando tarifas y reglas del Código de Red distintas según el nivel de tensión.',
+        transicion: 'Ahora que conoces la diferencia entre volts y amperes, veamos las dos formas en que viaja la corriente: continua (baterías y paneles) y alterna (la red nacional a 60 Hz).',
+    },
+    'cd-ca': {
+        eslabon: 'Eslabón 1 · Corriente Continua (CD) vs. Corriente Alterna (CA)',
+        fisica: 'Los paneles solares y las baterías operan en Corriente Continua (CD), mientras que las turbinas y la red nacional operan en Corriente Alterna (CA) a 60 Hz.',
+        regulacion: 'Cualquier central solar o sistema de baterías (SAEE) necesita inversores electrónicos certificados bajo el Código de Red para sincronizarse a los 60 Hz del SEN.',
+        transicion: 'Con las bases de voltaje y corriente alterna listas, entramos a las tres máquinas electromagnéticas que sostienen toda la industria: empezando por el motor eléctrico.',
+    },
+    motor: {
+        eslabon: 'Eslabón 2 · Conversión de electricidad en trabajo mecánico',
+        fisica: 'Los motores eléctricos consumen más de la mitad de la electricidad industrial del país al convertir campos magnéticos rotatorios en par mecánico.',
+        regulacion: 'Las Normas Oficiales Mexicanas (CONUEE/SENER) exigen eficiencias mínimas en motores y factor de potencia en industrias para no sobrecargar las redes de transmisión.',
+        transicion: 'Si un motor usa electricidad para producir giro mecánico, ¿qué pasa si usamos vapor, agua o gas para hacer girar el eje al revés? Obtenemos el generador síncrono.',
+    },
+    generador: {
+        eslabon: 'Eslabón 2 · Generación síncrona e inercia de la red',
+        fisica: 'Por la ley de Faraday, el rotor magnético girando a velocidad síncrona induce corriente alterna a 60 Hz y aporta inercia física frente a fallas en la red.',
+        regulacion: 'Toda central ≥ 0.7 MW requiere permiso de generación de la CNE (LSE art. 19) y seguir las instrucciones de despacho y control de frecuencia del CENACE.',
+        transicion: 'El generador entrega electricidad a media tensión (13.8–24 kV). Para enviarla a cientos de kilómetros sin perderla en calor, necesitamos el transformador de potencia.',
+    },
+    transformador: {
+        eslabon: 'Eslabón 2 · Subestaciones y redes exclusivas del Estado',
+        fisica: 'Sin partes móviles, dos bobinas sobre un núcleo de acero laminado elevan el voltaje de la central a 230–400 kV para la transmisión y lo bajan a 127 V para tu hogar.',
+        regulacion: 'Las subestaciones enlazan las centrales con la Red Nacional de Transmisión (RNT) y las Redes Generales de Distribución (RGD), áreas estratégicas exclusivas del Estado (art. 27 CPEUM y art. 57 LSE).',
+        transicion: 'Ya vimos las piezas electromagnéticas. Ahora entremos a las grandes instalaciones completas de generación: primero una central solar fotovoltaica.',
+    },
+    fotovoltaica: {
+        eslabon: 'Eslabón 3 · Generación renovable variable y distribuida',
+        fisica: 'El silicio convierte fotones solares en CD sin combustión, los inversores la pasan a CA y la central inyecta energía limpia durante las horas de radiación solar.',
+        regulacion: 'La LSE exime de permiso a la generación distribuida y al autoconsumo < 0.7 MW, ofrece trámite simplificado hasta 20 MW e impulsa baterías (SAEE) para dar firmeza a las renovables.',
+        transicion: 'Cuando cae el sol, el país necesita centrales térmicas firmes y flexibles que sostengan la red las 24 horas: así funciona una central de ciclo combinado.',
+    },
+    'ciclo-combinado': {
+        eslabon: 'Eslabón 3 · Generación térmica firme de alta eficiencia',
+        fisica: 'Al aprovechar los gases de escape (~600 °C) de la turbina de gas en un recuperador HRSG para mover una segunda turbina de vapor, alcanza eficiencias del 55–62 %.',
+        regulacion: 'Es la tecnología vertebral del SEN (> 50 % de la generación nacional) y el modelo principal para los nuevos proyectos de CFE y Esquemas de Desarrollo Mixto del PLADESE.',
+        transicion: 'Con millones de kilowatts saliendo de centrales solares, hidroeléctricas y de ciclo combinado, ¿quién decide segundo a segundo qué planta entra y a qué precio? Entramos al Nivel 4: el despacho del CENACE.',
+    },
+    'mercado-cenace': {
+        eslabon: 'Eslabón 4 · Despacho económico y Precio Marginal Local (PML)',
+        fisica: 'Cualquier desbalance entre generación y demanda altera los 60 Hz de la red; además, las líneas de transmisión tienen límites térmicos que pueden saturarse (congestión).',
+        regulacion: 'El CENACE (LSE arts. 111–124) despacha las centrales por orden de mérito con restricciones de seguridad y calcula el PML nodal (Energía + Pérdidas + Congestión) en el MEM.',
+        transicion: 'El CENACE opera las centrales existentes cada segundo, pero ¿quién planea qué nuevas plantas se construyen y cómo se cumple el piso constitucional del 54 % estatal? Cierra la ruta con la arquitectura legal del SEN.',
+    },
+    'planeacion-desarrollo-mixto': {
+        eslabon: 'Eslabón 4 · Rectoría SENER (PLADESE), regla 54/46 y Desarrollo Mixto',
+        fisica: 'Expandir centrales y líneas de transmisión toma años de ingeniería; construir sin coordinación satura subestaciones o deja regiones sin confiabilidad eléctrica.',
+        regulacion: 'Por eso la Reforma 2025 hace vinculante el PLADESE de SENER, garantiza ≥ 54 % de inyección estatal (CFE) y canaliza la inversión privada en Producción de Largo Plazo (PLP) e Inversión Mixta.',
+        transicion: '¡Completaste toda la ruta del Mercado Eléctrico! Puedes explorar ahora la ruta del Mercado de Hidrocarburos o consultar directamente las leyes en el acervo.',
+    },
+    hidrocarburos: {
+        eslabon: 'Eslabón 1 · Química del carbono y reservas del subsuelo',
+        fisica: 'El petróleo crudo y el gas natural son mezclas de cadenas de carbono e hidrógeno formadas bajo presión y temperatura; su densidad (°API) y azufre determinan cómo deben procesarse.',
+        regulacion: 'El artículo 27 constitucional y la LSH establecen que todos los hidrocarburos en el subsuelo son propiedad inalienable de la Nación y sujetan su extracción al PLADESHi de SENER.',
+        transicion: 'Una vez extraídos del yacimiento, el gas natural y los líquidos deben viajar cientos de kilómetros hacia industrias, centrales eléctricas y terminales: veamos cómo opera la red de gasoductos.',
+    },
+    gasoductos: {
+        eslabon: 'Eslabón 2 · Transporte por ducto a alta presión y CENAGAS',
+        fisica: 'Para mover grandes volúmenes de gas natural por tuberías de acero enterradas, las estaciones de compresión elevan su presión entre 50 y 100 bar.',
+        regulacion: 'Dado que tender ductos paralelos es inviable, la LSH (arts. 76 fr. II y 102–106) exige permiso de la CNE, tarifas reguladas, Acceso Abierto no discriminatorio y seguridad ASEA.',
+        transicion: 'Mientras el gas viaja por gasoductos, los combustibles líquidos requieren grandes pulmones de resguardo regional antes de repartirse a las ciudades: conoce las Terminales de Almacenamiento (TAR).',
+    },
+    'almacenamiento-tar': {
+        eslabon: 'Eslabón 3 · Seguridad energética e inventarios estratégicos',
+        fisica: 'A diferencia de la electricidad, los petrolíferos líquidos sí pueden almacenarse en tanques atmosféricos de techo flotante o fijo con sistemas contra incendio y recuperación de vapores.',
+        regulacion: 'Aprovechando esa capacidad física, la política de almacenamiento y el RLSH (art. 109) obligan a mantener inventarios mínimos estratégicos (p. ej. 5 días de gasolina y diésel) bajo permiso CNE.',
+        transicion: '¿Y de dónde salen la gasolina, el diésel y la turbosina que llenan esas terminales TAR? Del proceso industrial de destilación y conversión en una refinería.',
+    },
+    refinacion: {
+        eslabon: 'Eslabón 3 · Transformación industrial del crudo en combustibles',
+        fisica: 'El petróleo crudo no puede usarse directo en un motor: debe calentarse a ~400 °C en una torre de destilación atmosférica para separar sus fracciones por punto de ebullición y desulfurarse.',
+        regulacion: 'Por su carácter estratégico para la soberanía energética, la refinación y el procesamiento de gas son regulados y permisionados directamente por la SENER (LSH art. 76 fr. I) y vigilados por la ASEA.',
+        transicion: 'Ya conoces las instalaciones físicas (pozos, ductos, TAR y refinerías). Ahora veamos en el Nivel 4 quién tiene derecho a extraer el crudo y cómo operan las Asignaciones de PEMEX.',
+    },
+    'asignaciones-hidrocarburos': {
+        eslabon: 'Eslabón 4 · Soberanía del subsuelo y prelación de Asignaciones (LSH 2025)',
+        fisica: 'Los yacimientos (reservas 1P, 2P y 3P) son recursos finitos cuya explotación exige inversión intensiva, sísmica avanzada y restitución continua de reservas.',
+        regulacion: 'La LSH 2025 privilegia primero la Asignación para Desarrollo Propio (100 % PEMEX) y en segundo lugar el Desarrollo Mixto (donde PEMEX conserva la Asignación y al menos el 40 % de participación, art. 31).',
+        transicion: 'Del subsuelo y la refinería llegamos al último eslabón de la cadena: ¿cómo se forma el precio del litro de gasolina en la estación de servicio y cómo funciona el estímulo al IEPS?',
+    },
+    'mercado-hidrocarburos': {
+        eslabon: 'Eslabón 4 · Expendio al público y amortiguador fiscal (IEPS)',
+        fisica: 'El combustible recorre refinerías, buquetanques, poliductos, terminales TAR y autotanques antes de despacharse litro por litro en los dispensarios de cada estación.',
+        regulacion: 'Cada eslabón suma un costo regulado y se equilibra con el estímulo semanal de Hacienda al IEPS; la estación requiere permiso CNE (art. 80 LSH), controles volumétricos (art. 89) y vigilancia Profeco.',
+        transicion: '¡Completaste toda la ruta del Mercado de Hidrocarburos! Puedes explorar ahora la ruta del Mercado Eléctrico o abrir directamente los artículos de la LSH y RLSH.',
+    },
+};
+
 /** The next concept on the route within the same sector, or null at the end. */
 export function siguienteConcepto(id) {
     const current = CONCEPTO[id];
@@ -742,6 +1232,15 @@ export function siguienteConcepto(id) {
     const sameSector = CONCEPTOS.filter(c => c.sector === current.sector);
     const i = sameSector.findIndex(c => c.id === id);
     return i >= 0 ? sameSector[i + 1] || null : null;
+}
+
+/** The previous concept on the route within the same sector, or null at the start. */
+export function anteriorConcepto(id) {
+    const current = CONCEPTO[id];
+    if (!current) return null;
+    const sameSector = CONCEPTOS.filter(c => c.sector === current.sector);
+    const i = sameSector.findIndex(c => c.id === id);
+    return i > 0 ? sameSector[i - 1] || null : null;
 }
 
 export const CONCEPTO = Object.fromEntries(CONCEPTOS.map(item => [item.id, item]));
@@ -752,3 +1251,4 @@ export function comoFuncionaRoute(hash = '') {
     const match = /^#como-funciona=([a-z0-9-]+)$/.exec(hash);
     return match ? { id: match[1] } : null;
 }
+
