@@ -3221,11 +3221,11 @@ export function initUI() {
             // Reviewed HTML already carries its paragraph/table structure; keep it, made safe, with
             // the reader's table presentation (scroll box, header scopes).
             finalHtml = sanitizeArticleHtml(item.texto);
-        } else if (hasMarkdown) {
-            // Usar marked para el renderizado (especialmente para tablas)
+        } else if (hasMarkdown && globalThis.marked?.parse) {
+            // Usar marked para el renderizado (especialmente para tablas); si el CDN no carga, sigue como texto simple
             finalHtml = `<div class="prose-container">
                 <div class="prose prose-sm max-w-none prose-p:leading-relaxed">
-                    ${sanitizeArticleHtml(marked.parse(item.texto))}
+                    ${sanitizeArticleHtml(globalThis.marked.parse(item.texto))}
                 </div>
             </div>`;
         } else {
