@@ -8,6 +8,7 @@ import { tramiteById } from '../data/tramites.js';
 import { lawBySiglas } from './cne-shared.js';
 import { learnPath, shareUrl } from '../lib/seo-paths.js';
 import '../styles/como-funciona.css';
+import { emblemHtml } from '../lib/emblem.js';
 
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const dark = () => document.documentElement.classList.contains('dark-mode');
@@ -135,7 +136,8 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
 
         container.innerHTML = `
             <section class="cf-view" aria-labelledby="cf-title">
-                <header class="cf-head">
+                <header class="cf-head" data-emblem-host>
+                    ${emblemHtml('como-funciona')}
                     <p class="cf-kicker">Explicaciones generales · interactivo con anatomía técnica y leyes</p>
                     <h1 id="cf-title">¿Cómo funciona el sector energético?</h1>
                     <p class="cf-intro">Aprende paso a paso cómo funcionan la electricidad y los hidrocarburos en México: desde las leyes físicas y las moléculas hasta las centrales, refinerías, ductos y el diseño del nuevo marco regulatorio (Reforma 2025).</p>

@@ -9,6 +9,7 @@ import { renderPanoramaView } from './cne-panorama-view.js';
 import { renderTramitesView } from './tramites-view.js';
 import { permitsHash } from '../lib/cne-api.js';
 import '../styles/permits.css';
+import { emblemHtml } from '../lib/emblem.js';
 
 // Tabs a visitor has not opened yet pulse and say "Nuevo" until they do (remembered per browser).
 const SEEN_KEY = 'cne-pestanas-vistas';
@@ -42,7 +43,8 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
     root.className = 'pm-view';
     root.setAttribute('aria-labelledby', 'pm-title');
     root.innerHTML = `
-        <div class="pm-head">
+        <div class="pm-head" data-emblem-host>
+            ${emblemHtml('permisos')}
             <p class="pm-eyebrow">Registro público · CNE y SENER</p>
             <h1 id="pm-title">Permisos de energía</h1>
             <p class="pm-intro"></p>

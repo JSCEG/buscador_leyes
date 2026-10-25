@@ -7,6 +7,7 @@ import { ISSUERS, issuerOf } from '../lib/issuer.js';
 import { shortTitle } from '../lib/short-title.js';
 import { PLANNING_FILTER, isPlanning } from '../lib/planning.js';
 import '../styles/timeline.css';
+import { emblemHtml } from '../lib/emblem.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const fold = value => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -36,7 +37,8 @@ export function renderTimelineView(container, summaries = [], { onOpenLaw = () =
     root.className = 'tl-view';
     root.setAttribute('aria-labelledby', 'tl-title');
     root.innerHTML = `
-        <div class="tl-head">
+        <div class="tl-head" data-emblem-host>
+            ${emblemHtml('cronologia')}
             <p class="tl-eyebrow">Acervo · cronología</p>
             <h1 id="tl-title">Línea del tiempo <span>${esc(range)}</span></h1>
             <p class="tl-intro">Todo lo publicado en el acervo, en orden cronológico. El color indica la dependencia que lo emite.</p>

@@ -16,7 +16,7 @@ const loadAdmin = () => (adminReady ||= Promise.all([import('./scripts/admin-ing
 import { initMarquee } from './lib/marquee.js';
 import { initPrintBrand } from './lib/print-brand.js';
 import { initConnectionBanner } from './lib/connection-banner.js';
-import { initHeroEmblem } from './lib/hero-emblem.js';
+import { initEmblems } from './lib/emblem.js';
 import { initCardTip } from './lib/card-tip.js';
 import { initTocAttention } from './lib/toc-attention.js';
 import { initReadingProgress } from './lib/reading-progress.js';
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
   initPrintBrand();
   initConnectionBanner();
-  initHeroEmblem();
+  initEmblems();
   initCardTip();
   initTocAttention();
   initReadingProgress();
