@@ -260,3 +260,39 @@ html.dark-mode .cf-route-dot.is-current .cf-dot-num{color:#211b1d}
 .cf-prev strong{color:var(--cf-ink);font:700 18px/1.3 'Merriweather',serif}
 .cf-prev:hover{border-color:var(--cf-accent);background:var(--cf-soft)}
 
+
+/* Cards: a still of each figure on top, a tighter summary */
+.cf-card{overflow:hidden}
+/* The figures draw their own backdrop, so the still fills the whole band */
+.cf-card-thumb{display:block;margin:-20px -20px 4px;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--cf-border);background:var(--cf-soft)}
+.cf-card-thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.cf-card:hover .cf-card-thumb img{transform:scale(1.045)}
+.cf-card-text{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Progress in the route: one segment per concept */
+.cf-progress-bar{display:flex;gap:4px;margin:-12px 0 26px}
+.cf-progress-bar span{flex:1;height:6px;border-radius:3px;background:var(--cf-border)}
+.cf-progress-bar span.is-done{background:var(--cf-ok)}
+
+/* Concept: a segmented route with previous and next */
+.cf-route-bar-meta{display:grid;grid-template-columns:36px 1fr 36px;align-items:center;gap:10px}
+.cf-route-where{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 12px;text-align:center}
+.cf-route-arrow{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--cf-border);border-radius:50%;color:var(--cf-accent);font-weight:700;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+a.cf-route-arrow:hover{border-color:var(--cf-accent);background:var(--cf-accent);color:#fff}
+html.dark-mode a.cf-route-arrow:hover{color:#211b1d}
+a.cf-route-arrow:focus-visible{outline:2px solid var(--cf-accent);outline-offset:2px}
+span.cf-route-arrow{border-color:transparent}
+.cf-route-segments{flex-wrap:nowrap!important;gap:4px!important}
+.cf-route-segments li{flex:1;min-width:0}
+.cf-route-segments .cf-route-dot{display:block;width:100%;padding:8px 0!important;border:0!important;border-radius:4px;background:transparent!important}
+.cf-route-segments .cf-route-dot::before{content:'';display:block;height:6px;border-radius:3px;background:var(--cf-border);transition:background .15s,transform .15s}
+.cf-route-segments .cf-route-dot.is-done::before{background:var(--cf-ok)}
+.cf-route-segments .cf-route-dot.is-current::before{background:var(--cf-accent);transform:scaleY(1.6)}
+.cf-route-segments .cf-route-dot:not(.is-current):hover::before{background:color-mix(in srgb,var(--cf-accent) 55%,var(--cf-border))}
+.cf-route-segments .cf-route-dot:focus-visible{outline:2px solid var(--cf-accent);outline-offset:2px}
+.cf-route-segments :is(.cf-dot-num,.cf-dot-label){position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Concept: the figure comes first, framed right under the title */
+.cf-concept .cf-figure{margin:6px 0 22px;padding:6px;border:1px solid var(--cf-border);border-radius:22px;background:radial-gradient(120% 80% at 50% 0%,color-mix(in srgb,var(--cf-accent) 6%,var(--cf-card)),var(--cf-card));box-shadow:0 24px 50px -36px #2a071466}
+.cf-concept .cf-figure iframe{border-radius:16px}
+@media (max-width:640px){.cf-concept .cf-figure{margin:4px -8px 20px;padding:0;border-radius:14px}}
