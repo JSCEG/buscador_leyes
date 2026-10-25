@@ -1,0 +1,106 @@
+{
+  "counts": {
+    "electricidad": {
+      "total": 2582,
+      "puntos": 2192
+    },
+    "petroliferos": {
+      "total": 15680,
+      "puntos": 15521
+    },
+    "gas-lp": {
+      "total": 7343,
+      "puntos": 5324
+    },
+    "gas-natural": {
+      "total": 155,
+      "puntos": 119
+    },
+    "transporte": {
+      "total": 2781,
+      "puntos": 2
+    },
+    "comercializacion": {
+      "total": 937,
+      "puntos": 0
+    },
+    "infraestructura": {
+      "total": 215,
+      "puntos": 1
+    },
+    "suministro": {
+      "total": 86,
+      "puntos": 0
+    },
+    "terceros": {
+      "total": 134,
+      "puntos": 0
+    },
+    "asignaciones": {
+      "total": 409,
+      "puntos": 0
+    },
+    "comercio-exterior": {
+      "total": 1933,
+      "puntos": 0
+    },
+    "contratos-ee": {
+      "total": 112,
+      "puntos": 0
+    },
+    "pozos": {
+      "total": 65,
+      "puntos": 64
+    },
+    "biocombustibles": {
+      "total": 41,
+      "puntos": 0
+    }
+  },
+  "asignacionesEstados": [
+    {
+      "efId": "04",
+      "permisos": 2
+    },
+    {
+      "efId": "05",
+      "permisos": 3
+    },
+    {
+      "efId": "07",
+      "permisos": 21
+    },
+    {
+      "efId": "13",
+      "permisos": 3
+    },
+    {
+      "efId": "19",
+      "permisos": 21
+    },
+    {
+      "efId": "20",
+      "permisos": 9
+    },
+    {
+      "efId": "21",
+      "permisos": 16
+    },
+    {
+      "efId": "24",
+      "permisos": 3
+    },
+    {
+      "efId": "27",
+      "permisos": 86
+    },
+    {
+      "efId": "28",
+      "permisos": 62
+    },
+    {
+      "efId": "30",
+      "permisos": 143
+    }
+  ]
+}

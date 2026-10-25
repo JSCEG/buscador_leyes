@@ -19,7 +19,21 @@ export const failure = (what, url) => `
         <a class="pm-btn" href="${url}" target="_blank" rel="noopener">Abrir el sitio de la CNE</a>
     </div>`;
 
-const TITLES = { LSE: 'ley del sector electrico', LSH: 'ley del sector hidrocarburos', LCNE: 'ley de la comision nacional de energia' };
+const TITLES = {
+    LSE: 'ley del sector electrico',
+    RLSE: 'reglamento de la ley del sector electrico',
+    LSH: 'ley del sector hidrocarburos',
+    RLSH: 'reglamento de la ley del sector hidrocarburos',
+    LCNE: 'ley de la comision nacional de energia',
+    LPTE: 'ley de planeacion y transicion energetica',
+    RLPTE: 'reglamento de la ley de planeacion y transicion energetica',
+    'LEPE-CFE': 'ley de la empresa publica del estado, comision federal de electricidad',
+    'LEPE-PEMEX': 'ley de la empresa publica del estado, petroleos mexicanos',
+    LASEA: 'ley de la agencia nacional de seguridad industrial',
+    PLADESE: 'plan de desarrollo del sector electrico',
+    PLADESHi: 'plan de desarrollo del sector hidrocarburos',
+    PROSENER: 'programa sectorial de energia',
+};
 
 /** Acervo instrument by acronym (LSE, RLSH…), falling back to the start of its title. */
 export function lawBySiglas(summaries, siglas) {

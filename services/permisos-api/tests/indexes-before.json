@@ -1,0 +1,274 @@
+[
+  {
+    "tabla": "Asignaciones_SENER",
+    "indice": "PK_Asignaciones_SENER",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "indice": "UQ_Asignaciones_SENER_NumeroAsignacionNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroAsignacionNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "indice": "PK_Asignaciones_SENER_Municipios",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "indice": "UQ_Asignaciones_SENER_Municipios_NumeroAsignacion_EF_ID_MPO_ID",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroAsignacion",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "indice": "UQ_Asignaciones_SENER_Municipios_NumeroAsignacion_EF_ID_MPO_ID",
+    "tipo": "NONCLUSTERED",
+    "columna": "EF_ID",
+    "key_ordinal": 2,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "indice": "UQ_Asignaciones_SENER_Municipios_NumeroAsignacion_EF_ID_MPO_ID",
+    "tipo": "NONCLUSTERED",
+    "columna": "MPO_ID",
+    "key_ordinal": 3,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "indice": "PK_Biocombustibles_SENER_autorizado",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "indice": "UQ_Biocombustibles_SENER_autorizado_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "indice": "PK_Comercializacion_autorizado",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "indice": "UQ_Comercializacion_autorizado_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "indice": "PK_ComercioExterior_SENER_autorizado",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "indice": "UQ_ComercioExterior_SENER_autorizado_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "indice": "PK_Contratos_EE_SENER",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "indice": "UQ_Contratos_EE_SENER_NumeroContratoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroContratoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "indice": "PK__Control___3214EC072FBFCAE2",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "indice": "PK_Control_Actualizacion_SENER",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Entidades_Federativas",
+    "indice": "PK_Entidades_Federativas",
+    "tipo": "CLUSTERED",
+    "columna": "EF_ID",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "indice": "PK_Expendios_autorizado2",
+    "tipo": "CLUSTERED",
+    "columna": "NumeroPermiso",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "indice": "PK_GasLP_autorizado_copia",
+    "tipo": "CLUSTERED",
+    "columna": "NumeroPermiso",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "indice": "PK_GasNatural_autorizado2",
+    "tipo": "CLUSTERED",
+    "columna": "NumeroPermiso",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "indice": "PK_Infraestructura_Hidrocarburos_autorizado",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "indice": "UQ_Infraestructura_Hidrocarburos_autorizado_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "indice": "IX_Ligas_Permisos_CNE_Norm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "indice": "PK_Ligas_Permisos_CNE",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Municipios",
+    "indice": "PK_Municipios",
+    "tipo": "CLUSTERED",
+    "columna": "EF_ID",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Municipios",
+    "indice": "PK_Municipios",
+    "tipo": "CLUSTERED",
+    "columna": "MunicipioID",
+    "key_ordinal": 2,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "indice": "PK_Pozos_SENER",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "indice": "UQ_Pozos_SENER_NombrePozoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NombrePozoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "indice": "PK_Suministro_Electrico_autorizado",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "indice": "UQ_Suministro_Electrico_autorizado_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "indice": "PK_Terceros_Acreditados_CNE",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "indice": "UQ_Terceros_Acreditados_CNE_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "indice": "PK_Transporte_autorizado",
+    "tipo": "CLUSTERED",
+    "columna": "Id",
+    "key_ordinal": 1,
+    "is_included_column": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "indice": "UQ_Transporte_autorizado_NumeroPermisoNorm",
+    "tipo": "NONCLUSTERED",
+    "columna": "NumeroPermisoNorm",
+    "key_ordinal": 1,
+    "is_included_column": false
+  }
+]

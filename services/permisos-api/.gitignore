@@ -1,0 +1,7 @@
+bin/
+obj/
+out/
+.secrets/
+tools/**/bin/
+tools/**/obj/
+azure-resource.json

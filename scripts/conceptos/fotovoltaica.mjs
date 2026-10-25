@@ -305,7 +305,7 @@ function labelsSvg() {
     const ty = ay + dy;
     const width = 26 + name.length * 5.3;
     const left = dx < 0 ? tx - width + 10 : tx - 10;
-    return `<g class="pv-label" data-n="${n}">
+    return `<g class="pv-label" data-n="${n}" role="button" tabindex="0" aria-label="Parte ${n}: ${name}">
       <path class="pv-leader" d="M${ax.toFixed(1)} ${ay.toFixed(1)}L${tx.toFixed(1)} ${ty.toFixed(1)}"/>
       <circle class="pv-anchor" cx="${ax.toFixed(1)}" cy="${ay.toFixed(1)}" r="1.9"/>
       <rect class="pv-tag pv-full" x="${left.toFixed(1)}" y="${(ty - 9).toFixed(1)}" width="${width.toFixed(1)}" height="18" rx="9"/>
@@ -522,6 +522,32 @@ stage.addEventListener("keydown", (event) => {
 });
 draw();
 // Embedded in the site: tell the page how tall the card is, so the frame fits it.
+const pvLabels = [...svg.querySelectorAll(".pv-label[data-n]")];
+function selectPvPart(n, notify = true) {
+  pvLabels.forEach((el) => el.classList.toggle("is-selected", Number(el.dataset.n) === n));
+  if (notify && parent !== window) {
+    parent.postMessage({ type: "concepto-part", figura: "fotovoltaica", n }, location.origin);
+  }
+}
+pvLabels.forEach((el) => {
+  el.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const n = Number(el.dataset.n);
+    selectPvPart(el.classList.contains("is-selected") ? 0 : n, true);
+  });
+  el.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      event.stopPropagation();
+      const n = Number(el.dataset.n);
+      selectPvPart(el.classList.contains("is-selected") ? 0 : n, true);
+    }
+  });
+});
+window.addEventListener("message", (event) => {
+  if (event.origin !== location.origin || event.data?.type !== "concepto-select-part") return;
+  selectPvPart(Number(event.data.n) || 0, false);
+});
 const postHeight = () => { if (parent !== window) parent.postMessage({ type: "concepto-height", id: "fotovoltaica", h: document.documentElement.scrollHeight }, location.origin); };
 new ResizeObserver(postHeight).observe(document.body);
 postHeight();
@@ -531,7 +557,7 @@ const peak = model.dcPower(12) / 1000;
 const body = k.plateHtml({
   fig: "Fig 1",
   title: "Central fotovoltaica",
-  hint: "Desliza para mover la hora",
+  hint: "Desliza para mover la hora · toca un número para ver la pieza",
   readout: "",
   keys: [
     { mark: "red", label: "Corriente directa: de los módulos al inversor" },
@@ -553,12 +579,17 @@ const FIG_CSS = `body.iso[data-theme="${theme}"]{--anatomy-red:${INK.red};--anat
 .pv-hit{fill:var(--pv-glow)}
 .pv-sun{fill:var(--pv-glow);stroke:var(--pv-sun);stroke-width:1.4}
 .pv-spokes{fill:none;stroke:var(--pv-sun);stroke-width:1.5;stroke-linecap:round}
-.pv-leader{fill:none;stroke:var(--anatomy-mid);stroke-width:.8}
-.pv-anchor{fill:var(--anatomy-paper);stroke:var(--anatomy-hi);stroke-width:1}
-.pv-tag{fill:${INK.tagBg};stroke:var(--anatomy-mid);stroke-width:.7}
-.pv-badge{fill:${INK.red}}
-.pv-num{fill:#fff;font:700 9px ui-sans-serif,system-ui,sans-serif}
-.pv-name{fill:${INK.tagInk};font:600 9.5px ui-sans-serif,system-ui,sans-serif}
+.pv-leader{fill:none;stroke:var(--anatomy-mid);stroke-width:.8;transition:stroke .15s,stroke-width .15s}
+.pv-anchor{fill:var(--anatomy-paper);stroke:var(--anatomy-hi);stroke-width:1;transition:fill .15s}
+.pv-tag{fill:${INK.tagBg};stroke:var(--anatomy-mid);stroke-width:.7;transition:stroke .15s,stroke-width .15s}
+.pv-badge{fill:${INK.red};transition:fill .15s}
+.pv-num{fill:#fff;font:700 9px ui-sans-serif,system-ui,sans-serif;pointer-events:none}
+.pv-name{fill:${INK.tagInk};font:600 9.5px ui-sans-serif,system-ui,sans-serif;pointer-events:none}
+.pv-label{cursor:pointer;outline:none}
+.pv-label:hover .pv-tag,.pv-label.is-selected .pv-tag{stroke:${INK.green};stroke-width:1.4}
+.pv-label:hover .pv-badge,.pv-label.is-selected .pv-badge{fill:${INK.green}}
+.pv-label.is-selected .pv-anchor{fill:${INK.green};stroke:${INK.green}}
+.pv-label.is-selected .pv-leader{stroke:${INK.green};stroke-width:1.3}
 .pv-compact .pv-full{display:none}
 .pv-compact .pv-badge{r:11}
 .pv-compact .pv-num{font-size:13px;transform:translateY(1.4px)}

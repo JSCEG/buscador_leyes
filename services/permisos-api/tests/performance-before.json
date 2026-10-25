@@ -1,0 +1,23 @@
+[
+  {
+    "query": "/permisos?pageSize=1",
+    "seconds": 25.952,
+    "bytes": 1921,
+    "total": 32473,
+    "rows": 1
+  },
+  {
+    "query": "/estados",
+    "seconds": 10.688,
+    "bytes": 1801,
+    "total": 33,
+    "rows": 33
+  },
+  {
+    "query": "/puntos?tabla=electricidad&pageSize=500",
+    "seconds": 14.34,
+    "bytes": 1024573,
+    "total": 2192,
+    "rows": 500
+  }
+]

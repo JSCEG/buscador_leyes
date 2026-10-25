@@ -1,0 +1,292 @@
+[
+  {
+    "id": "f4fcf5f4-7818-58a6-a09a-903bd7147156",
+    "instrumento": "BENEFICIO-REDES",
+    "tabla": 11,
+    "celdas": 72,
+    "vacias": false,
+    "candidatas": 3,
+    "correspondencia_celdas": 2,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "f4fcf5f4-7818-58a6-a09a-903bd7147156",
+    "instrumento": "BENEFICIO-REDES",
+    "tabla": 21,
+    "celdas": 15,
+    "vacias": false,
+    "candidatas": 2,
+    "correspondencia_celdas": 1,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "f4fcf5f4-7818-58a6-a09a-903bd7147156",
+    "instrumento": "BENEFICIO-REDES",
+    "tabla": 23,
+    "celdas": 72,
+    "vacias": false,
+    "candidatas": 3,
+    "correspondencia_celdas": 2,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "f4fcf5f4-7818-58a6-a09a-903bd7147156",
+    "instrumento": "BENEFICIO-REDES",
+    "tabla": 25,
+    "celdas": 22,
+    "vacias": false,
+    "candidatas": 3,
+    "correspondencia_celdas": 1,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "dc49ab49-6d84-5096-bb23-fdf690299ed1",
+    "instrumento": "DACG-ACCESO-REDES",
+    "tabla": 10,
+    "celdas": 10,
+    "vacias": false,
+    "candidatas": 2,
+    "correspondencia_celdas": 1,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "965867a7-9e6c-5d02-a4e8-006797ca7c30",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 34,
+    "celdas": 42,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "965867a7-9e6c-5d02-a4e8-006797ca7c30",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 35,
+    "celdas": 42,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "34501986-5c1b-5e51-afd2-8b5c1afa16a4",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 48,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "34501986-5c1b-5e51-afd2-8b5c1afa16a4",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 49,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "9942ba31-99f3-5cc1-bf09-57c035dcef78",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 62,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "9942ba31-99f3-5cc1-bf09-57c035dcef78",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 63,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "bb947422-5137-5e1c-9c3c-48510bf5f19d",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 69,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "2c3473a4-a462-5a80-abd2-d211998848bb",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 41,
+    "celdas": 55,
+    "vacias": false,
+    "candidatas": 4,
+    "correspondencia_celdas": 1,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "8992ba41-d155-54a0-be7e-9fd7a048b5d5",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 33,
+    "celdas": 42,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "8992ba41-d155-54a0-be7e-9fd7a048b5d5",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 34,
+    "celdas": 42,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "254acdd6-4a18-56b9-a841-131effaf9ed8",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 35,
+    "celdas": 42,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "254acdd6-4a18-56b9-a841-131effaf9ed8",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 36,
+    "celdas": 42,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "2789aed3-45eb-5a45-8165-fcb8599e8ea9",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 33,
+    "celdas": 46,
+    "vacias": false,
+    "candidatas": 4,
+    "correspondencia_celdas": 1,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "7b4c7d3d-a3a9-5902-9e5f-ff492df52693",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 51,
+    "celdas": 45,
+    "vacias": false,
+    "candidatas": 5,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "aeff00b5-8042-50e3-a511-0334115e55ec",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 40,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "aeff00b5-8042-50e3-a511-0334115e55ec",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 46,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "a0e3610c-84da-51c2-bf44-2181516b3780",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 46,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "1fd9ea8c-fec3-53c5-a046-b54160523c02",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 32,
+    "celdas": 45,
+    "vacias": false,
+    "candidatas": 5,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "1fd9ea8c-fec3-53c5-a046-b54160523c02",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 48,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 10,
+    "correspondencia_celdas": 7,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "1fd9ea8c-fec3-53c5-a046-b54160523c02",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 49,
+    "celdas": 61,
+    "vacias": false,
+    "candidatas": 6,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "df13eb7b-12bb-5340-95fd-35cf5fa9d6c2",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 22,
+    "celdas": 36,
+    "vacias": false,
+    "candidatas": 2,
+    "correspondencia_celdas": 1,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "df13eb7b-12bb-5340-95fd-35cf5fa9d6c2",
+    "instrumento": "FORMATOS-BIOCOMBUSTIBLES",
+    "tabla": 34,
+    "celdas": 45,
+    "vacias": false,
+    "candidatas": 5,
+    "correspondencia_celdas": 3,
+    "geometria_oficial_confirmada": true
+  },
+  {
+    "id": "8f2b0fdf-1a61-584d-a677-6b6dee8a2eb2",
+    "instrumento": "NOM-EM-009-ASEA-2026",
+    "tabla": 1,
+    "celdas": 32,
+    "vacias": false,
+    "candidatas": 0,
+    "correspondencia_celdas": 0,
+    "geometria_oficial_confirmada": false
+  },
+  {
+    "id": "296956d5-a195-566b-8c97-02507bf39ddf",
+    "instrumento": "NOM-EM-009-ASEA-2026",
+    "tabla": 1,
+    "celdas": 34,
+    "vacias": false,
+    "candidatas": 0,
+    "correspondencia_celdas": 0,
+    "geometria_oficial_confirmada": false
+  }
+]

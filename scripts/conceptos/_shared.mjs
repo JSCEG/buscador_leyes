@@ -29,7 +29,7 @@ export function labelsSvg(labels, at) {
     const width = 26 + name.length * 5.3;
     const left = dx < 0 ? tx - width + 10 : tx - 10;
     const badge = dx < 0 ? left + width - 10 : left + 10;
-    return `<g class="cf-label" data-n="${n}">
+    return `<g class="cf-label" data-n="${n}" role="button" tabindex="0" aria-label="Parte ${n}: ${name}">
       <path class="cf-leader" d="M${ax.toFixed(1)} ${ay.toFixed(1)}L${tx.toFixed(1)} ${ty.toFixed(1)}"/>
       <circle class="cf-anchor" cx="${ax.toFixed(1)}" cy="${ay.toFixed(1)}" r="1.9"/>
       <rect class="cf-tag cf-full" x="${left.toFixed(1)}" y="${(ty - 9).toFixed(1)}" width="${width.toFixed(1)}" height="18" rx="9"/>
@@ -50,12 +50,17 @@ body{background:transparent!important}
 .iso-page{width:100%!important;margin:0!important;padding:0 2px}
 .iso-stage{position:relative;touch-action:pan-y}
 .cf-flow{stroke-dasharray:2.6 17.4;stroke-width:2.1;stroke-linecap:round}
-.cf-leader{fill:none;stroke:var(--anatomy-mid);stroke-width:.8}
-.cf-anchor{fill:var(--anatomy-paper);stroke:var(--anatomy-hi);stroke-width:1}
-.cf-tag{fill:${I.tagBg};stroke:var(--anatomy-mid);stroke-width:.7}
-.cf-badge{fill:${I.red}}
-.cf-num{fill:#fff;font:700 9px ui-sans-serif,system-ui,sans-serif}
-.cf-name{fill:${I.tagInk};font:600 9.5px ui-sans-serif,system-ui,sans-serif}
+.cf-leader{fill:none;stroke:var(--anatomy-mid);stroke-width:.8;transition:stroke .15s,stroke-width .15s}
+.cf-anchor{fill:var(--anatomy-paper);stroke:var(--anatomy-hi);stroke-width:1;transition:fill .15s,r .15s}
+.cf-tag{fill:${I.tagBg};stroke:var(--anatomy-mid);stroke-width:.7;transition:stroke .15s,stroke-width .15s}
+.cf-badge{fill:${I.red};transition:fill .15s}
+.cf-num{fill:#fff;font:700 9px ui-sans-serif,system-ui,sans-serif;pointer-events:none}
+.cf-name{fill:${I.tagInk};font:600 9.5px ui-sans-serif,system-ui,sans-serif;pointer-events:none}
+.cf-label{cursor:pointer;outline:none}
+.cf-label:hover .cf-tag,.cf-label.is-selected .cf-tag{stroke:${I.green};stroke-width:1.4}
+.cf-label:hover .cf-badge,.cf-label.is-selected .cf-badge{fill:${I.green}}
+.cf-label.is-selected .cf-anchor{fill:${I.green};stroke:${I.green}}
+.cf-label.is-selected .cf-leader{stroke:${I.green};stroke-width:1.3}
 .cf-compact .cf-full{display:none}
 .cf-compact .cf-badge{r:11}
 .cf-compact .cf-num{font-size:13px;transform:translateY(1.4px)}
@@ -77,7 +82,7 @@ body{background:transparent!important}
 `;
 }
 
-/** Live code every figure shares: names toggle, compact mode, frame height for the site. */
+/** Live code every figure shares: names toggle, compact mode, hotspot selection, frame height for the site. */
 export function liveCommon(id) {
   return `
 const cfStage = document.querySelector(".iso-stage");
@@ -90,6 +95,34 @@ if (cfToggle) cfToggle.addEventListener("click", (event) => {
   cfSvg.classList.toggle("cf-no-names", !on);
   cfToggle.setAttribute("aria-pressed", String(on));
   cfToggle.textContent = on ? "Ocultar nombres" : "Mostrar nombres";
+});
+const cfLabels = [...cfSvg.querySelectorAll(".cf-label[data-n]")];
+function selectCfPart(n, notify = true) {
+  cfLabels.forEach((el) => el.classList.toggle("is-selected", Number(el.dataset.n) === n));
+  if (notify && parent !== window) {
+    parent.postMessage({ type: "concepto-part", figura: ${JSON.stringify(id)}, n }, location.origin);
+  }
+}
+cfLabels.forEach((el) => {
+  el.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const n = Number(el.dataset.n);
+    const next = el.classList.contains("is-selected") ? 0 : n;
+    selectCfPart(next, true);
+  });
+  el.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      event.stopPropagation();
+      const n = Number(el.dataset.n);
+      const next = el.classList.contains("is-selected") ? 0 : n;
+      selectCfPart(next, true);
+    }
+  });
+});
+window.addEventListener("message", (event) => {
+  if (event.origin !== location.origin || event.data?.type !== "concepto-select-part") return;
+  selectCfPart(Number(event.data.n) || 0, false);
 });
 new ResizeObserver(() => {
   compact = cfStage.getBoundingClientRect().width < 520;

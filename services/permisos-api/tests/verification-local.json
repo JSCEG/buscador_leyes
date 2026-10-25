@@ -1,0 +1,1578 @@
+{
+  "checks": 121,
+  "examples": {
+    "/health/ready": {
+      "query": null,
+      "response": {
+        "status": "ok"
+      }
+    },
+    "/api/v1/catalogo": {
+      "query": null,
+      "response": {
+        "tablas": [
+          {
+            "clave": "electricidad",
+            "tabla": "dbo.Electricidad_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "petroliferos",
+            "tabla": "dbo.Expendios_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "gas-lp",
+            "tabla": "dbo.GasLP_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "gas-natural",
+            "tabla": "dbo.GasNatural_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "transporte",
+            "tabla": "dbo.Transporte_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "comercializacion",
+            "tabla": "dbo.Comercializacion_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "infraestructura",
+            "tabla": "dbo.Infraestructura_Hidrocarburos_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "suministro",
+            "tabla": "dbo.Suministro_Electrico_autorizado",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "terceros",
+            "tabla": "dbo.Terceros_Acreditados_CNE",
+            "autoridad": "CNE",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "asignaciones",
+            "tabla": "dbo.Asignaciones_SENER",
+            "autoridad": "SENER",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "comercio-exterior",
+            "tabla": "dbo.ComercioExterior_SENER_autorizado",
+            "autoridad": "SENER",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "contratos-ee",
+            "tabla": "dbo.Contratos_EE_SENER",
+            "autoridad": "SENER",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "pozos",
+            "tabla": "dbo.Pozos_SENER",
+            "autoridad": "SENER",
+            "tieneVigencia": false
+          },
+          {
+            "clave": "biocombustibles",
+            "tabla": "dbo.Biocombustibles_SENER_autorizado",
+            "autoridad": "SENER",
+            "tieneVigencia": true
+          },
+          {
+            "clave": "ligas",
+            "tabla": "dbo.Ligas_Permisos_CNE",
+            "autoridad": "CNE",
+            "tieneVigencia": false
+          }
+        ],
+        "mercados": [
+          "Petrolíferos",
+          "Gas natural",
+          "Gas LP",
+          "Petróleo crudo",
+          "Petroquímicos",
+          "Electricidad",
+          "Varios",
+          "Biocombustibles"
+        ],
+        "pageSizeMaximo": 500
+      }
+    },
+    "/api/v1/permisos": {
+      "query": {
+        "tabla": "electricidad",
+        "pageSize": 2
+      },
+      "response": {
+        "total": 2582,
+        "page": 1,
+        "pageSize": 2,
+        "nextPage": 2,
+        "data": [
+          {
+            "tabla": "electricidad",
+            "autoridad": "CNE",
+            "id": "01/COG/94",
+            "numero": "01/COG/94",
+            "numeroNorm": "1/COG/94",
+            "razonSocial": "Energía de Nuevo León, S.A. de C.V.",
+            "mercado": "Electricidad",
+            "mercadosAutorizados": null,
+            "estatus": "No vigente",
+            "estatusFuente": "No vigente",
+            "efId": "19",
+            "entidad": "NUEVO LEÓN",
+            "mpoId": "039",
+            "municipio": "Monterrey",
+            "latitud": 25.680202,
+            "longitud": -100.315258,
+            "coordenadasValidas": true,
+            "tipo": "Generación",
+            "fuente": "CNE · Registro público de permisos",
+            "fuenteUrl": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+            "leyAplicable": null,
+            "fechaCorte": null,
+            "fechaActualizacion": null,
+            "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+            "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTI0LXh4eHh4eHh4eHh4eA==",
+            "datos": {
+              "numeroPermiso": "01/COG/94",
+              "ubicacion": "Nuevo León",
+              "efId": "19",
+              "mpoId": "039",
+              "direccion": "Av. Churubusco 1000, Industrias del Vidrio, Monterrey, Nuevo León, C. P. 64549",
+              "razonSocial": "Energía de Nuevo León, S.A. de C.V.",
+              "numeroDeExpediente": null,
+              "modalidad": "COG.",
+              "fechaOtorgamiento": "1994-03-10",
+              "capacidadAutorizadaMW": 255.0,
+              "generacionEstimadaAnual": 1072.0,
+              "inversionEstimadaMdls": null,
+              "fechaDeEntradaEnOperacion": null,
+              "energeticoPrimario": "Gas Natural",
+              "actividadEconomica": null,
+              "tecnologia": "Ciclo combinado",
+              "estatusInstalacion": null,
+              "empresaLider": null,
+              "paisDeOrigen": null,
+              "subasta": null,
+              "rfc": "S/D",
+              "estatus": "No vigente",
+              "fechaRecepcion": null,
+              "tipoPermiso": "Generación",
+              "inicioOperaciones": null,
+              "latitudGEO": 25.680202,
+              "longitudGEO": -100.315258,
+              "comentarios": "Carga desde registro CNE (Permisos_CNE_v2) 09-oct-2026; coordenadas geocodificadas (Nominatim/OSM, precisión: centroide de municipio/localidad)",
+              "tipoPlanta": null,
+              "fuenteEnergia": "Convencional",
+              "combustibleAutorizado": null,
+              "clasificaMenu": "Ciclo combinado",
+              "tipoEmpresa": "Privada",
+              "inicioVigencia": null
+            }
+          },
+          {
+            "tabla": "electricidad",
+            "autoridad": "CNE",
+            "id": "02/AUT/94",
+            "numero": "02/AUT/94",
+            "numeroNorm": "2/AUT/94",
+            "razonSocial": "Departamento del Distrito Federal",
+            "mercado": "Electricidad",
+            "mercadosAutorizados": null,
+            "estatus": "No vigente",
+            "estatusFuente": "No vigente",
+            "efId": "15",
+            "entidad": "MÉXICO",
+            "mpoId": null,
+            "municipio": null,
+            "latitud": null,
+            "longitud": null,
+            "coordenadasValidas": false,
+            "tipo": "Generación",
+            "fuente": "CNE · Registro público de permisos",
+            "fuenteUrl": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMi14eHh4eHh4eHh4eHg=",
+            "leyAplicable": null,
+            "fechaCorte": null,
+            "fechaActualizacion": null,
+            "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMi14eHh4eHh4eHh4eHg=",
+            "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTEyLXh4eHh4eHh4eHh4eA==",
+            "datos": {
+              "numeroPermiso": "02/AUT/94",
+              "ubicacion": "Estado de México",
+              "efId": "15",
+              "mpoId": null,
+              "direccion": "Acueducto Lerma, Ramal Norte, Huixquilucan, Estado de México",
+              "razonSocial": "Departamento del Distrito Federal",
+              "numeroDeExpediente": null,
+              "modalidad": "AUT.",
+              "fechaOtorgamiento": "1994-05-03",
+              "capacidadAutorizadaMW": 2.66,
+              "generacionEstimadaAnual": null,
+              "inversionEstimadaMdls": 0.0,
+              "fechaDeEntradaEnOperacion": null,
+              "energeticoPrimario": "Agua",
+              "actividadEconomica": null,
+              "tecnologia": null,
+              "estatusInstalacion": null,
+              "empresaLider": null,
+              "paisDeOrigen": null,
+              "subasta": null,
+              "rfc": "S/D",
+              "estatus": "No vigente",
+              "fechaRecepcion": null,
+              "tipoPermiso": "Generación",
+              "inicioOperaciones": null,
+              "latitudGEO": null,
+              "longitudGEO": null,
+              "comentarios": "Carga desde registro CNE (Permisos_CNE_v2) 09-oct-2026",
+              "tipoPlanta": null,
+              "fuenteEnergia": null,
+              "combustibleAutorizado": null,
+              "clasificaMenu": null,
+              "tipoEmpresa": "Privada",
+              "inicioVigencia": null
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/detalle": {
+      "query": {
+        "tabla": "electricidad",
+        "numero": "01/COG/94"
+      },
+      "response": {
+        "tabla": "electricidad",
+        "autoridad": "CNE",
+        "id": "01/COG/94",
+        "numero": "01/COG/94",
+        "numeroNorm": "1/COG/94",
+        "razonSocial": "Energía de Nuevo León, S.A. de C.V.",
+        "mercado": "Electricidad",
+        "mercadosAutorizados": null,
+        "estatus": "No vigente",
+        "estatusFuente": "No vigente",
+        "efId": "19",
+        "entidad": "NUEVO LEÓN",
+        "mpoId": "039",
+        "municipio": "Monterrey",
+        "latitud": 25.680202,
+        "longitud": -100.315258,
+        "coordenadasValidas": true,
+        "tipo": "Generación",
+        "fuente": "CNE · Registro público de permisos",
+        "fuenteUrl": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+        "leyAplicable": null,
+        "fechaCorte": null,
+        "fechaActualizacion": null,
+        "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+        "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTI0LXh4eHh4eHh4eHh4eA==",
+        "datos": {
+          "numeroPermiso": "01/COG/94",
+          "ubicacion": "Nuevo León",
+          "efId": "19",
+          "mpoId": "039",
+          "direccion": "Av. Churubusco 1000, Industrias del Vidrio, Monterrey, Nuevo León, C. P. 64549",
+          "razonSocial": "Energía de Nuevo León, S.A. de C.V.",
+          "numeroDeExpediente": null,
+          "modalidad": "COG.",
+          "fechaOtorgamiento": "1994-03-10",
+          "capacidadAutorizadaMW": 255.0,
+          "generacionEstimadaAnual": 1072.0,
+          "inversionEstimadaMdls": null,
+          "fechaDeEntradaEnOperacion": null,
+          "energeticoPrimario": "Gas Natural",
+          "actividadEconomica": null,
+          "tecnologia": "Ciclo combinado",
+          "estatusInstalacion": null,
+          "empresaLider": null,
+          "paisDeOrigen": null,
+          "subasta": null,
+          "rfc": "S/D",
+          "estatus": "No vigente",
+          "fechaRecepcion": null,
+          "tipoPermiso": "Generación",
+          "inicioOperaciones": null,
+          "latitudGEO": 25.680202,
+          "longitudGEO": -100.315258,
+          "comentarios": "Carga desde registro CNE (Permisos_CNE_v2) 09-oct-2026; coordenadas geocodificadas (Nominatim/OSM, precisión: centroide de municipio/localidad)",
+          "tipoPlanta": null,
+          "fuenteEnergia": "Convencional",
+          "combustibleAutorizado": null,
+          "clasificaMenu": "Ciclo combinado",
+          "tipoEmpresa": "Privada",
+          "inicioVigencia": null
+        }
+      }
+    },
+    "/api/v1/puntos": {
+      "query": {
+        "tabla": "electricidad",
+        "pageSize": 2
+      },
+      "response": {
+        "total": 2192,
+        "page": 1,
+        "pageSize": 2,
+        "nextPage": 2,
+        "data": [
+          {
+            "tabla": "electricidad",
+            "autoridad": "CNE",
+            "id": "01/COG/94",
+            "numero": "01/COG/94",
+            "numeroNorm": "1/COG/94",
+            "razonSocial": "Energía de Nuevo León, S.A. de C.V.",
+            "mercado": "Electricidad",
+            "mercadosAutorizados": null,
+            "estatus": "No vigente",
+            "estatusFuente": "No vigente",
+            "efId": "19",
+            "entidad": "NUEVO LEÓN",
+            "mpoId": "039",
+            "municipio": "Monterrey",
+            "latitud": 25.680202,
+            "longitud": -100.315258,
+            "coordenadasValidas": true,
+            "tipo": "Generación",
+            "fuente": "CNE · Registro público de permisos",
+            "fuenteUrl": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+            "leyAplicable": null,
+            "fechaCorte": null,
+            "fechaActualizacion": null,
+            "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+            "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTI0LXh4eHh4eHh4eHh4eA==",
+            "datos": {
+              "numeroPermiso": "01/COG/94",
+              "ubicacion": "Nuevo León",
+              "efId": "19",
+              "mpoId": "039",
+              "direccion": "Av. Churubusco 1000, Industrias del Vidrio, Monterrey, Nuevo León, C. P. 64549",
+              "razonSocial": "Energía de Nuevo León, S.A. de C.V.",
+              "numeroDeExpediente": null,
+              "modalidad": "COG.",
+              "fechaOtorgamiento": "1994-03-10",
+              "capacidadAutorizadaMW": 255.0,
+              "generacionEstimadaAnual": 1072.0,
+              "inversionEstimadaMdls": null,
+              "fechaDeEntradaEnOperacion": null,
+              "energeticoPrimario": "Gas Natural",
+              "actividadEconomica": null,
+              "tecnologia": "Ciclo combinado",
+              "estatusInstalacion": null,
+              "empresaLider": null,
+              "paisDeOrigen": null,
+              "subasta": null,
+              "rfc": "S/D",
+              "estatus": "No vigente",
+              "fechaRecepcion": null,
+              "tipoPermiso": "Generación",
+              "inicioOperaciones": null,
+              "latitudGEO": 25.680202,
+              "longitudGEO": -100.315258,
+              "comentarios": "Carga desde registro CNE (Permisos_CNE_v2) 09-oct-2026; coordenadas geocodificadas (Nominatim/OSM, precisión: centroide de municipio/localidad)",
+              "tipoPlanta": null,
+              "fuenteEnergia": "Convencional",
+              "combustibleAutorizado": null,
+              "clasificaMenu": "Ciclo combinado",
+              "tipoEmpresa": "Privada",
+              "inicioVigencia": null
+            }
+          },
+          {
+            "tabla": "electricidad",
+            "autoridad": "CNE",
+            "id": "07/COG/94",
+            "numero": "07/COG/94",
+            "numeroNorm": "7/COG/94",
+            "razonSocial": "Productora de Papel; S. A. de C. V.",
+            "mercado": "Electricidad",
+            "mercadosAutorizados": null,
+            "estatus": "Vigente",
+            "estatusFuente": "Vigente",
+            "efId": "19",
+            "entidad": "NUEVO LEÓN",
+            "mpoId": "046",
+            "municipio": "San Nicolás de los Garza",
+            "latitud": 25.735267639160156,
+            "longitud": -100.25669860839844,
+            "coordenadasValidas": true,
+            "tipo": "Generación",
+            "fuente": "CNE · Registro público de permisos",
+            "fuenteUrl": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyNy14eHh4eHh4eHh4eHg=",
+            "leyAplicable": null,
+            "fechaCorte": null,
+            "fechaActualizacion": null,
+            "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyNy14eHh4eHh4eHh4eHg=",
+            "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTYzLXh4eHh4eHh4eHh4eA==",
+            "datos": {
+              "numeroPermiso": "07/COG/94",
+              "ubicacion": "Nuevo León",
+              "efId": "19",
+              "mpoId": "046",
+              "direccion": "Km. 7; de la Vía F.F.C.C. a Matamoros; C.P. 66490; San Nicolás de los Garza; Nuevo León",
+              "razonSocial": "Productora de Papel; S. A. de C. V.",
+              "numeroDeExpediente": null,
+              "modalidad": "COG.",
+              "fechaOtorgamiento": "1994-07-20",
+              "capacidadAutorizadaMW": 18.0,
+              "generacionEstimadaAnual": 115.8600006103516,
+              "inversionEstimadaMdls": 17.10000038146973,
+              "fechaDeEntradaEnOperacion": "1994-10-15",
+              "energeticoPrimario": "Gas Natural",
+              "actividadEconomica": "Papelero",
+              "tecnologia": "Ciclo Combinado",
+              "estatusInstalacion": "En operación",
+              "empresaLider": "Productora de Papel, S. A. de C. V.",
+              "paisDeOrigen": "México",
+              "subasta": null,
+              "rfc": "S/D",
+              "estatus": "Vigente",
+              "fechaRecepcion": null,
+              "tipoPermiso": "Generación",
+              "inicioOperaciones": "1994-10-15",
+              "latitudGEO": 25.73526763916016,
+              "longitudGEO": -100.2566986083984,
+              "comentarios": null,
+              "tipoPlanta": null,
+              "fuenteEnergia": "Convencional",
+              "combustibleAutorizado": null,
+              "clasificaMenu": "Ciclo combinado",
+              "tipoEmpresa": "Privada",
+              "inicioVigencia": null
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/sin-ubicacion": {
+      "query": {
+        "tabla": "electricidad",
+        "pageSize": 1
+      },
+      "response": {
+        "total": 390,
+        "page": 1,
+        "pageSize": 1,
+        "nextPage": 2,
+        "data": [
+          {
+            "tabla": "electricidad",
+            "autoridad": "CNE",
+            "id": "02/AUT/94",
+            "numero": "02/AUT/94",
+            "numeroNorm": "2/AUT/94",
+            "razonSocial": "Departamento del Distrito Federal",
+            "mercado": "Electricidad",
+            "mercadosAutorizados": null,
+            "estatus": "No vigente",
+            "estatusFuente": "No vigente",
+            "efId": "15",
+            "entidad": "MÉXICO",
+            "mpoId": null,
+            "municipio": null,
+            "latitud": null,
+            "longitud": null,
+            "coordenadasValidas": false,
+            "tipo": "Generación",
+            "fuente": "CNE · Registro público de permisos",
+            "fuenteUrl": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMi14eHh4eHh4eHh4eHg=",
+            "leyAplicable": null,
+            "fechaCorte": null,
+            "fechaActualizacion": null,
+            "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMi14eHh4eHh4eHh4eHg=",
+            "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTEyLXh4eHh4eHh4eHh4eA==",
+            "datos": {
+              "numeroPermiso": "02/AUT/94",
+              "ubicacion": "Estado de México",
+              "efId": "15",
+              "mpoId": null,
+              "direccion": "Acueducto Lerma, Ramal Norte, Huixquilucan, Estado de México",
+              "razonSocial": "Departamento del Distrito Federal",
+              "numeroDeExpediente": null,
+              "modalidad": "AUT.",
+              "fechaOtorgamiento": "1994-05-03",
+              "capacidadAutorizadaMW": 2.66,
+              "generacionEstimadaAnual": null,
+              "inversionEstimadaMdls": 0.0,
+              "fechaDeEntradaEnOperacion": null,
+              "energeticoPrimario": "Agua",
+              "actividadEconomica": null,
+              "tecnologia": null,
+              "estatusInstalacion": null,
+              "empresaLider": null,
+              "paisDeOrigen": null,
+              "subasta": null,
+              "rfc": "S/D",
+              "estatus": "No vigente",
+              "fechaRecepcion": null,
+              "tipoPermiso": "Generación",
+              "inicioOperaciones": null,
+              "latitudGEO": null,
+              "longitudGEO": null,
+              "comentarios": "Carga desde registro CNE (Permisos_CNE_v2) 09-oct-2026",
+              "tipoPlanta": null,
+              "fuenteEnergia": null,
+              "combustibleAutorizado": null,
+              "clasificaMenu": null,
+              "tipoEmpresa": "Privada",
+              "inicioVigencia": null
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/estados": {
+      "query": {
+        "tabla": "electricidad"
+      },
+      "response": {
+        "total": 33,
+        "page": 1,
+        "pageSize": 100,
+        "nextPage": null,
+        "data": [
+          {
+            "efId": "--",
+            "entidad": "Sin entidad",
+            "permisos": 230
+          },
+          {
+            "efId": "01",
+            "entidad": "AGUASCALIENTES",
+            "permisos": 32
+          },
+          {
+            "efId": "02",
+            "entidad": "BAJA CALIFORNIA",
+            "permisos": 144
+          },
+          {
+            "efId": "03",
+            "entidad": "BAJA CALIFORNIA SUR",
+            "permisos": 54
+          },
+          {
+            "efId": "04",
+            "entidad": "CAMPECHE",
+            "permisos": 49
+          },
+          {
+            "efId": "05",
+            "entidad": "COAHUILA",
+            "permisos": 103
+          },
+          {
+            "efId": "06",
+            "entidad": "COLIMA",
+            "permisos": 8
+          },
+          {
+            "efId": "07",
+            "entidad": "CHIAPAS",
+            "permisos": 29
+          },
+          {
+            "efId": "08",
+            "entidad": "CHIHUAHUA",
+            "permisos": 155
+          },
+          {
+            "efId": "09",
+            "entidad": "CIUDAD DE MÉXICO",
+            "permisos": 120
+          },
+          {
+            "efId": "10",
+            "entidad": "DURANGO",
+            "permisos": 84
+          },
+          {
+            "efId": "11",
+            "entidad": "GUANAJUATO",
+            "permisos": 94
+          },
+          {
+            "efId": "12",
+            "entidad": "GUERRERO",
+            "permisos": 21
+          },
+          {
+            "efId": "13",
+            "entidad": "HIDALGO",
+            "permisos": 60
+          },
+          {
+            "efId": "14",
+            "entidad": "JALISCO",
+            "permisos": 140
+          },
+          {
+            "efId": "15",
+            "entidad": "MÉXICO",
+            "permisos": 147
+          },
+          {
+            "efId": "16",
+            "entidad": "MICHOACÁN DE OCAMPO",
+            "permisos": 33
+          },
+          {
+            "efId": "17",
+            "entidad": "MORELOS",
+            "permisos": 14
+          },
+          {
+            "efId": "18",
+            "entidad": "NAYARIT",
+            "permisos": 14
+          },
+          {
+            "efId": "19",
+            "entidad": "NUEVO LEÓN",
+            "permisos": 99
+          },
+          {
+            "efId": "20",
+            "entidad": "OAXACA",
+            "permisos": 54
+          },
+          {
+            "efId": "21",
+            "entidad": "PUEBLA",
+            "permisos": 80
+          },
+          {
+            "efId": "22",
+            "entidad": "QUERÉTARO",
+            "permisos": 48
+          },
+          {
+            "efId": "23",
+            "entidad": "QUINTANA ROO",
+            "permisos": 44
+          },
+          {
+            "efId": "24",
+            "entidad": "SAN LUIS POTOSÍ",
+            "permisos": 74
+          },
+          {
+            "efId": "25",
+            "entidad": "SINALOA",
+            "permisos": 56
+          },
+          {
+            "efId": "26",
+            "entidad": "SONORA",
+            "permisos": 177
+          },
+          {
+            "efId": "27",
+            "entidad": "TABASCO",
+            "permisos": 38
+          },
+          {
+            "efId": "28",
+            "entidad": "TAMAULIPAS",
+            "permisos": 110
+          },
+          {
+            "efId": "29",
+            "entidad": "TLAXCALA",
+            "permisos": 17
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "permisos": 146
+          },
+          {
+            "efId": "31",
+            "entidad": "YUCATÁN",
+            "permisos": 67
+          },
+          {
+            "efId": "32",
+            "entidad": "ZACATECAS",
+            "permisos": 41
+          }
+        ]
+      }
+    },
+    "/api/v1/asignaciones/municipios": {
+      "query": {
+        "pageSize": 1
+      },
+      "response": {
+        "total": 814,
+        "page": 1,
+        "pageSize": 1,
+        "nextPage": 2,
+        "data": [
+          {
+            "id": 80,
+            "numeroAsignacion": "A-0002",
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "124",
+            "municipio": "Papantla",
+            "municipioFuente": "Papantla",
+            "origenRelacion": "Excel SENER + datos.gob.mx",
+            "nota": null,
+            "fuenteUrl": "https://asignaciones.energia.gob.mx/_doc/Excel/Asignaciones.xlsx",
+            "fechaCorte": "2026-10-22",
+            "fechaActualizacion": "2026-10-23T03:42:20.0000000Z"
+          }
+        ]
+      }
+    },
+    "/api/v1/municipios": {
+      "query": {
+        "tabla": "asignaciones",
+        "ef": "30"
+      },
+      "response": {
+        "total": 92,
+        "page": 1,
+        "pageSize": 100,
+        "nextPage": null,
+        "data": [
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "003",
+            "municipio": "Acayucan",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "005",
+            "municipio": "Acula",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "007",
+            "municipio": "Camarón de Tejeda",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "011",
+            "municipio": "Alvarado",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "012",
+            "municipio": "Amatitlán",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "013",
+            "municipio": "Naranjos Amatlán",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "015",
+            "municipio": "Angel R. Cabada",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "016",
+            "municipio": "La Antigua",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "024",
+            "municipio": "Tlaltetela",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "027",
+            "municipio": "Benito Juárez",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "033",
+            "municipio": "Cazones de Herrera",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "034",
+            "municipio": "Cerro Azul",
+            "permisos": 5
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "035",
+            "municipio": "Citlaltépetl",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "037",
+            "municipio": "Coahuitlán",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "039",
+            "municipio": "Coatzacoalcos",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "040",
+            "municipio": "Coatzintla",
+            "permisos": 7
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "043",
+            "municipio": "Comapa",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "045",
+            "municipio": "Cosamaloapan de Carpio",
+            "permisos": 7
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "049",
+            "municipio": "Cotaxtla",
+            "permisos": 7
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "050",
+            "municipio": "Coxquihui",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "051",
+            "municipio": "Coyutla",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "054",
+            "municipio": "Chacaltianguis",
+            "permisos": 5
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "055",
+            "municipio": "Chalma",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "056",
+            "municipio": "Chiconamel",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "058",
+            "municipio": "Chicontepec",
+            "permisos": 11
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "060",
+            "municipio": "Chinampa de Gorostiza",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "061",
+            "municipio": "Las Choapas",
+            "permisos": 9
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "063",
+            "municipio": "Chontla",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "064",
+            "municipio": "Chumatlán",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "066",
+            "municipio": "Espinal",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "069",
+            "municipio": "Gutiérrez Zamora",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "073",
+            "municipio": "Hueyapan de Ocampo",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "075",
+            "municipio": "Ignacio de la Llave",
+            "permisos": 5
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "077",
+            "municipio": "Isla",
+            "permisos": 9
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "078",
+            "municipio": "Ixcatepec",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "082",
+            "municipio": "Ixhuatlán del Sureste",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "083",
+            "municipio": "Ixhuatlán de Madero",
+            "permisos": 7
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "084",
+            "municipio": "Ixmatlahuacan",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "090",
+            "municipio": "Jamapa",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "091",
+            "municipio": "Jesús Carranza",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "094",
+            "municipio": "Juan Rodríguez Clara",
+            "permisos": 8
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "100",
+            "municipio": "Manlio Fabio Altamirano",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "102",
+            "municipio": "Martínez de la Torre",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "105",
+            "municipio": "Medellín de Bravo",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "108",
+            "municipio": "Minatitlán",
+            "permisos": 5
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "109",
+            "municipio": "Misantla",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "111",
+            "municipio": "Moloacán",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "114",
+            "municipio": "Nautla",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "119",
+            "municipio": "Otatitlán",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "121",
+            "municipio": "Ozuluama de Mascareñas",
+            "permisos": 5
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "123",
+            "municipio": "Pánuco",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "124",
+            "municipio": "Papantla",
+            "permisos": 17
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "125",
+            "municipio": "Paso del Macho",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "126",
+            "municipio": "Paso de Ovejas",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "129",
+            "municipio": "Platón Sánchez",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "130",
+            "municipio": "Playa Vicente",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "131",
+            "municipio": "Poza Rica de Hidalgo",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "133",
+            "municipio": "Pueblo Viejo",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "134",
+            "municipio": "Puente Nacional",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "139",
+            "municipio": "Saltabarranca",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "141",
+            "municipio": "San Andrés Tuxtla",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "142",
+            "municipio": "San Juan Evangelista",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "143",
+            "municipio": "Santiago Tuxtla",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "144",
+            "municipio": "Sayula de Alemán",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "148",
+            "municipio": "Soledad de Doblado",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "150",
+            "municipio": "Tamalín",
+            "permisos": 7
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "151",
+            "municipio": "Tamiahua",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "152",
+            "municipio": "Tampico Alto",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "153",
+            "municipio": "Tancoco",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "154",
+            "municipio": "Tantima",
+            "permisos": 7
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "155",
+            "municipio": "Tantoyuca",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "157",
+            "municipio": "Castillo de Teayo",
+            "permisos": 12
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "158",
+            "municipio": "Tecolutla",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "160",
+            "municipio": "Álamo Temapache",
+            "permisos": 18
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "161",
+            "municipio": "Tempoal",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "167",
+            "municipio": "Tepetzintla",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "169",
+            "municipio": "José Azueta",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "174",
+            "municipio": "Tierra Blanca",
+            "permisos": 14
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "175",
+            "municipio": "Tihuatlán",
+            "permisos": 26
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "176",
+            "municipio": "Tlacojalpan",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "178",
+            "municipio": "Tlacotalpan",
+            "permisos": 4
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "181",
+            "municipio": "Tlalixcoyan",
+            "permisos": 9
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "183",
+            "municipio": "Tlapacoyan",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "189",
+            "municipio": "Tuxpan",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "190",
+            "municipio": "Tuxtilla",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "200",
+            "municipio": "Zentla",
+            "permisos": 1
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "204",
+            "municipio": "Agua Dulce",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "205",
+            "municipio": "El Higo",
+            "permisos": 3
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "207",
+            "municipio": "Tres Valles",
+            "permisos": 6
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "208",
+            "municipio": "Carlos A. Carrillo",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "211",
+            "municipio": "San Rafael",
+            "permisos": 2
+          },
+          {
+            "efId": "30",
+            "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+            "mpoId": "212",
+            "municipio": "Santiago Sochiapan",
+            "permisos": 3
+          }
+        ]
+      }
+    },
+    "/api/v1/ligas": {
+      "query": {
+        "pageSize": 1
+      },
+      "response": {
+        "total": 29975,
+        "page": 1,
+        "pageSize": 1,
+        "nextPage": 2,
+        "data": [
+          {
+            "id": 89900,
+            "numeroPermiso": "01/COG/94",
+            "numeroPermisoNorm": "1/COG/94",
+            "mercado": "Electricidad",
+            "ligaPermiso": "https://drive.cne.gob.mx/Drive/ObtenerPermiso/?id=eHh4eHh4eHgteHh4eC00eHh4LTMyMS14eHh4eHh4eHh4eHg=",
+            "ligaResolucion": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTI0LXh4eHh4eHh4eHh4eA==",
+            "ligasResoluciones": "https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTI0LXh4eHh4eHh4eHh4eA==;https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTY1LXh4eHh4eHh4eHh4eA==;https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTEyMTEteHh4eHh4eHh4eHh4;https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTEzNjYteHh4eHh4eHh4eHh4;https://drive.cne.gob.mx/Drive/ObtenerResolucion/?id=eHh4eHh4eHgteHh4eC00eHh4LTE3MjgteHh4eHh4eHh4eHh4",
+            "numerosResolucion": "RES/003/1994;RES/007/1996;RES/144/1997;RES/170/1998;RES/232/1998",
+            "fechaActualizacion": "2026-10-15T05:39:56.0000000Z"
+          }
+        ]
+      }
+    },
+    "/api/v1/actualizaciones": {
+      "query": null,
+      "response": {
+        "total": 15,
+        "page": 1,
+        "pageSize": 100,
+        "nextPage": null,
+        "data": [
+          {
+            "autoridad": "CNE",
+            "tabla": "Comercializacion_autorizado",
+            "fechaActualizacion": "2026-10-22T01:07:05.0000000Z",
+            "fechaCorteFuente": "2026-10-21",
+            "filas": 937,
+            "fuente": "Registro CNE 21-oct-2026 (revisión diaria tablas nuevas)",
+            "clave": "comercializacion"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "Electricidad_autorizado",
+            "fechaActualizacion": "2026-10-23T03:31:03.0000000Z",
+            "fechaCorteFuente": "2026-10-22",
+            "filas": 2582,
+            "fuente": "Registro CNE + datos.gob.mx feb-2026 + PDFs de permisos",
+            "clave": "electricidad"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "Expendios_autorizado",
+            "fechaActualizacion": "2026-10-23T03:31:03.0000000Z",
+            "fechaCorteFuente": "2026-10-22",
+            "filas": 15680,
+            "fuente": "Registro CNE + datos.gob.mx feb-2026 + PDFs de permisos",
+            "clave": "petroliferos"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "GasLP_autorizado",
+            "fechaActualizacion": "2026-10-23T03:31:03.0000000Z",
+            "fechaCorteFuente": "2026-10-22",
+            "filas": 7343,
+            "fuente": "Registro CNE + datos.gob.mx feb-2026 + PDFs de permisos",
+            "clave": "gas-lp"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "GasNatural_autorizado",
+            "fechaActualizacion": "2026-10-23T03:31:03.0000000Z",
+            "fechaCorteFuente": "2026-10-22",
+            "filas": 155,
+            "fuente": "Registro CNE + CSV CNE 2017-2018 + PDFs de permisos",
+            "clave": "gas-natural"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "Infraestructura_Hidrocarburos_autorizado",
+            "fechaActualizacion": "2026-10-22T01:07:05.0000000Z",
+            "fechaCorteFuente": "2026-10-21",
+            "filas": 215,
+            "fuente": "Registro CNE 21-oct-2026 (revisión diaria tablas nuevas)",
+            "clave": "infraestructura"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "Suministro_Electrico_autorizado",
+            "fechaActualizacion": "2026-10-22T01:07:05.0000000Z",
+            "fechaCorteFuente": "2026-10-21",
+            "filas": 86,
+            "fuente": "Registro CNE 21-oct-2026 (revisión diaria tablas nuevas)",
+            "clave": "suministro"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "Terceros_Acreditados_CNE",
+            "fechaActualizacion": "2026-10-22T01:07:05.0000000Z",
+            "fechaCorteFuente": "2026-10-21",
+            "filas": 134,
+            "fuente": "Registro CNE 21-oct-2026 (revisión diaria tablas nuevas)",
+            "clave": "terceros"
+          },
+          {
+            "autoridad": "CNE",
+            "tabla": "Transporte_autorizado",
+            "fechaActualizacion": "2026-10-22T01:07:05.0000000Z",
+            "fechaCorteFuente": "2026-10-21",
+            "filas": 2781,
+            "fuente": "Registro CNE 21-oct-2026 (revisión diaria tablas nuevas)",
+            "clave": "transporte"
+          },
+          {
+            "autoridad": "SENER",
+            "tabla": "Asignaciones_SENER",
+            "fechaActualizacion": "2026-10-23T03:42:21.0000000Z",
+            "fechaCorteFuente": "2026-10-22",
+            "filas": 409,
+            "fuente": "SENER asignaciones.energia.gob.mx (Excel)",
+            "clave": "asignaciones"
+          },
+          {
+            "autoridad": "SENER",
+            "tabla": "Asignaciones_SENER_Municipios",
+            "fechaActualizacion": "2026-10-23T03:42:21.0000000Z",
+            "fechaCorteFuente": "2026-10-22",
+            "filas": 814,
+            "fuente": "SENER asignaciones.energia.gob.mx (Excel) + datos.gob.mx",
+            "clave": "asignaciones-municipios"
+          },
+          {
+            "autoridad": "SENER",
+            "tabla": "Biocombustibles_SENER_autorizado",
+            "fechaActualizacion": "2026-10-22T20:49:00.0000000Z",
+            "fechaCorteFuente": "2024-09-04",
+            "filas": 41,
+            "fuente": "SENER PDF permisos vigentes bioenergéticos (04-sep-2024)",
+            "clave": "biocombustibles"
+          },
+          {
+            "autoridad": "SENER",
+            "tabla": "ComercioExterior_SENER_autorizado",
+            "fechaActualizacion": "2026-10-22T20:49:00.0000000Z",
+            "fechaCorteFuente": "2026-08-31",
+            "filas": 1933,
+            "fuente": "datos.gob.mx permisos_importacion_exportacion_hpp_ago_2026.csv",
+            "clave": "comercio-exterior"
+          },
+          {
+            "autoridad": "SENER",
+            "tabla": "Contratos_EE_SENER",
+            "fechaActualizacion": "2026-10-22T20:49:00.0000000Z",
+            "fechaCorteFuente": "2026-06-30",
+            "filas": 112,
+            "fuente": "datos.gob.mx contratos_eeh_2026 + estado_contratos_2025 + etapas_contratos_eeh_trimestre_2.csv + empresas_participantes_2025; datos.gob.mx estado_contratos_2025 (no está en contratos_eeh_2026)",
+            "clave": "contratos-ee"
+          },
+          {
+            "autoridad": "SENER",
+            "tabla": "Pozos_SENER",
+            "fechaActualizacion": "2026-10-22T20:49:00.0000000Z",
+            "fechaCorteFuente": "2026-07-31",
+            "filas": 65,
+            "fuente": "datos.gob.mx dgace_pozos_terminados_jun_2026.csv; datos.gob.mx DGACE_pozos_terminados_abr2026.csv; datos.gob.mx DGACE_pozos_terminados_ene_feb.csv; datos.gob.mx dgace_pozos_terminados_jul_2026.csv; datos.gob.mx dgace_pozos_terminados_may_2026.csv; datos.gob.mx DGACE_pozos_terminados_mar_2026.csv",
+            "clave": "pozos"
+          }
+        ]
+      }
+    }
+  }
+}
