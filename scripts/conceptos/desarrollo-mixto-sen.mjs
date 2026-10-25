@@ -1,289 +1,288 @@
 /**
- * Arquitectura del Sistema Eléctrico Nacional (Reforma 2025): Planeación vinculante (PLADESE),
- * prevalencia estatal >= 54 %, Esquemas de Desarrollo Mixto (PLP e Inversión Mixta), baterías SAEE
- * y exclusividad estatal en RNT/RGD. Construido con visual-explainer.
+ * "¿Cómo funciona?" · Planeación vinculante, regla 54/46 y Desarrollo Mixto.
+ *
+ * An injection bench: four sources stand behind a transmission bar (the RNT and RGD, the State's
+ * exclusive networks) and feed it through cables: a CFE plant, a Desarrollo Mixto plant (half State,
+ * half private: Inversión Mixta or Producción de Largo Plazo), a private plant and a battery rack
+ * (SAEE). The bar feeds a yearly injection meter, a column whose guinda part is the State's share
+ * (CFE plus Desarrollo Mixto) and whose gold part is the private share, with a ring at 54 %. In front,
+ * the SENER and CNE desk: the binding plan (PLADESE) and the permit stamp. The pointer sets the
+ * private share; below 54 % for the State, the ring raises the alarm.
+ *
+ * node scripts/conceptos/desarrollo-mixto-sen.mjs [--light]  →  public/conceptos/desarrollo-mixto-sen(-light).html
  */
-import { themeOf, writeVeFigure } from "./_ve-shared.mjs";
+import * as k from "../../vendor/anatomy/kit/iso-kit.mjs";
+import { themeOf, inkOf, labelsSvg, writeFigure } from "./_shared.mjs";
 
 const theme = themeOf();
+const INK = inkOf(theme);
+const WIDTH = 640;
+const HEIGHT = 360;
+const RULE = 0.54;
+const P_MIN = 0.2;
+const P_MAX = 0.6;
+const P_REST = 0.38;
 
-const body = `
-  <header>
-    <p class="eyebrow">Arquitectura Legal y Operativa · LSE y RLSE (2025)</p>
-    <h1>El Estado mantiene al menos el <span class="num">54&nbsp;%</span> de la inyección anual a la red</h1>
-    <p class="lead">La <b>Planeación Vinculante de SENER (PLADESE)</b> ordena qué centrales se construyen, la <b>CNE</b> otorga los permisos (≥&nbsp;0.7&nbsp;MW) y <b>CFE</b> se asocia con particulares mediante <b>Esquemas de Desarrollo Mixto</b>.</p>
-  </header>
+const PLATE = { x: -156, y: -62, w: 312, d: 124, r: 10 };
+const PLATE_H = 8;
+const FOOT_H = 5;
+const BUS = { x: -138, y: 30, w: 178, d: 5, r: 1 };
+const BUS_Z = 20;
+const GAUGE = { cx: 86, cy: -18, r: 17, z0: 7, h: 62 };
+const DESK = { x: 88, y: 22, w: 50, d: 30, r: 3 };
+const DESK_H = 12;
+const SOURCES = [
+  { key: "cfe", x: -134, w: 36, h: 24, side: "state" },
+  { key: "mixto", x: -88, w: 36, h: 20, side: "mixed" },
+  { key: "privado", x: -42, w: 36, h: 9, side: "private" },
+  { key: "saee", x: 4, w: 30, h: 14, side: "storage" },
+];
+const SRC_Y = -48;
+const SRC_D = 40;
 
-  <section class="kpis" aria-label="Indicadores clave del modelo eléctrico 2025">
-    <div class="kpi">
-      <span class="ve-label">Inyección anual a la red (LSE arts. 1 y 36)</span>
-      <span class="val"><span data-count="54">54</span><span class="unit">% mín. Estado</span></span>
-      <ve-waffle value="54" note="≤ 46 % privados" label="Al menos 54 de cada 100 MWh inyectados al SEN corresponden al Estado y hasta 46 a particulares"></ve-waffle>
-    </div>
-    <div class="kpi">
-      <span class="ve-label">Participación estatal por modalidad (LSE arts. 38–40)</span>
-      <span class="val"><span data-count="54">54</span><span class="unit">% capital CFE</span></span>
-      <ve-bars unit="%" label="Porcentaje de participación o compra de CFE por esquema">
-        <ve-bar value="100">CFE propia</ve-bar>
-        <ve-bar value="54" hot>Inv. Mixta</ve-bar>
-        <ve-bar value="100">Compra PLP</ve-bar>
-        <ve-bar value="46">Tope priv.</ve-bar>
-      </ve-bars>
-    </div>
-    <div class="kpi">
-      <span class="ve-label">Umbrales de permiso ante CNE (LSE arts. 19 y 30)</span>
-      <span class="val"><span data-count="0.7">0.7</span><span class="unit">MW permiso</span></span>
-      <ve-bars unit="MW" label="Umbrales regulatorios de generación y autoconsumo">
-        <ve-bar value="0.7" hot>Exento &lt;</ve-bar>
-        <ve-bar value="20">Simplif. ≤</ve-bar>
-      </ve-bars>
-    </div>
-  </section>
+const P = k.fitProjection([...k.boxCorners(PLATE, -PLATE_H - FOOT_H, 0), [GAUGE.cx, GAUGE.cy, GAUGE.z0 + GAUGE.h + 6]], WIDTH, HEIGHT, { pad: 22, azimuth: 40, elevation: 32 });
+const at = (point) => k.iso(point, P);
+const S = (paths, style) => k.solidSvg(paths, style);
+const L = (d, style) => k.lineSvg(d, style);
+const D = (points, style) => k.dotsSvg(points, style);
+const byDepth = (items) => items.sort((a, b) => a.depth - b.depth).map((i) => i.svg).join("");
 
-  <figure class="ve-steps" id="sen-stepper">
-    <div class="ve-controls-bar" role="group" aria-label="Filtrar régimen del SEN">
-      <div class="ve-chips">
-        <button type="button" data-mode="all" aria-pressed="true">Vista integral SEN</button>
-        <button type="button" data-mode="cfe" aria-pressed="false" data-ref="cfe">② CFE ≥ 54 %</button>
-        <button type="button" data-mode="mixto" aria-pressed="false" data-ref="mixto">③ Desarrollo Mixto</button>
-        <button type="button" data-mode="priv" aria-pressed="false" data-ref="priv">④ Privados ≤ 46 %</button>
-        <button type="button" data-mode="saee" aria-pressed="false" data-ref="saee">⑤ Baterías SAEE</button>
-      </div>
-      <span class="meta">Haz clic en cualquier bloque numerado ①–⑥ para ver su detalle</span>
-    </div>
+function base() {
+  const out = [`<path class="iso-halo" d="${k.haloOf(PLATE, -PLATE_H - FOOT_H, PLATE_H, P)}"/>`];
+  for (const [x, y] of k.corners(PLATE, 22).sort((a, b) => k.depthOf([...a, 0], P) - k.depthOf([...b, 0], P))) {
+    out.push(S(k.cylinder(x, y, 6.5, -PLATE_H - FOOT_H, 1.6, P, 26), { tone: "lo" }));
+    out.push(S(k.cylinder(x, y, 5, -PLATE_H - FOOT_H + 1.6, FOOT_H - 1.6, P, 26), { tone: "mid" }));
+  }
+  out.push(S(k.slabOf(PLATE, -PLATE_H, PLATE_H, P, 8, 1.4), { tone: "mid" }));
+  out.push(L(k.planOutline(k.insetPlan(PLATE, 5), 0, P), { tone: "lo" }));
+  const screws = k.corners(PLATE, 10);
+  out.push(L(screws.map(([x, y]) => k.ring(x, y, 2, 0, P, 16)).join(""), { tone: "lo" }));
+  out.push(D(screws.map(([x, y]) => at([x, y, 0])), { size: 0.5 }));
+  // Engraved footprint of the generation yard behind the bar.
+  out.push(L(k.planOutline({ x: -140, y: SRC_Y - 4, w: 180, d: SRC_D + 8, r: 3 }, 0, P), { tone: "faint" }));
+  return out.join("");
+}
 
-    <div class="frame">
-      <svg class="ve-svg" viewBox="0 0 960 500" role="img" aria-label="Arquitectura del Sistema Eléctrico Nacional 2025: Rectoría SENER y CNE arriba, cuatro bloques de generación y almacenamiento al centro (CFE >= 54%, Desarrollo Mixto, Privados <= 46%, Baterías SAEE) y la Red Nacional de Transmisión y Distribución exclusiva del Estado abajo.">
-        <!-- Zonas de jurisdicción con margen amplio -->
-        <rect class="ve-zone" x="16" y="12" width="928" height="104" rx="10" data-s="1 2 3 4 5"/>
-        <text class="ve-zone-title" x="32" y="31" data-s="1 2 3 4 5">NIVEL 1 · RECTORÍA, PLANEACIÓN VINCULANTE Y REGULACIÓN (LPTE · LSE · LCNE)</text>
+// The four sources. Their roofs carry the colour of who owns the energy.
+function source(s) {
+  const plan = { x: s.x, y: SRC_Y, w: s.w, d: SRC_D, r: 1.2 };
+  const cx = s.x + s.w / 2;
+  const out = [];
+  if (s.key === "saee") {
+    // Battery rack: a plinth with four cells and their terminals.
+    out.push(S(k.slabOf(plan, 0, 3, P, 2, 0.4), { tone: "mid" }));
+    for (let i = 0; i < 4; i++) {
+      const cell = { x: s.x + 2 + i * 6.8, y: SRC_Y + 6, w: 5.6, d: SRC_D - 12, r: 0.8 };
+      out.push(S(k.slabOf(cell, 3, s.h, P, 2, 0.4), { tone: "hi", crease: "lo" }));
+      out.push(D([at([cell.x + 2.8, cell.y + 4, 3 + s.h]), at([cell.x + 2.8, cell.y + cell.d - 4, 3 + s.h])], { size: 0.8, tone: "mid" }));
+    }
+    return { depth: k.depthOf([cx, SRC_Y + SRC_D / 2, 0], P), svg: `<g class="cf-src" data-src="${s.key}">${out.join("")}</g>` };
+  }
+  out.push(S(k.slabOf(plan, 0, s.h, P, 2, 0.5), { tone: "hi", crease: "lo" }));
+  if (s.side === "mixed") {
+    // Half the roof State, half private: the two partners of a Desarrollo Mixto scheme.
+    const left = { x: s.x + 1.5, y: SRC_Y + 1.5, w: s.w / 2 - 1.5, d: SRC_D - 3, r: 0.6 };
+    const right = { x: s.x + s.w / 2, y: SRC_Y + 1.5, w: s.w / 2 - 1.5, d: SRC_D - 3, r: 0.6 };
+    out.push(`<g class="cf-roof cf-state">${S(k.slabOf(left, s.h, 1.2, P, 2, 0.2), { tone: "hi", crease: "none" })}</g>`);
+    out.push(`<g class="cf-roof cf-private">${S(k.slabOf(right, s.h, 1.2, P, 2, 0.2), { tone: "hi", crease: "none" })}</g>`);
+    out.push(S(k.cylinder(s.x + 9, SRC_Y + 10, 1.8, s.h + 1.2, 9, P, 16), { tone: "mid" }));
+  } else {
+    const roof = { x: s.x + 1.5, y: SRC_Y + 1.5, w: s.w - 3, d: SRC_D - 3, r: 0.6 };
+    out.push(`<g class="cf-roof cf-${s.side}">${S(k.slabOf(roof, s.h, 1.2, P, 2, 0.2), { tone: "hi", crease: "none" })}</g>`);
+    if (s.key === "cfe") {
+      for (const dx of [9, 20]) {
+        out.push(S(k.cylinder(s.x + dx, SRC_Y + 10, 2.2, s.h + 1.2, 12, P, 18), { tone: "mid" }));
+        out.push(L(k.ring(s.x + dx, SRC_Y + 10, 2.2, s.h + 13.2, P, 18), { tone: "lo" }));
+      }
+    } else {
+      // Private solar: a panel grid on the roof.
+      const grid = [];
+      for (let y = SRC_Y + 6; y <= SRC_Y + SRC_D - 6; y += 6) grid.push(k.lineOnTop([s.x + 3, y], [s.x + s.w - 3, y], s.h + 1.2, P));
+      grid.push(k.lineOnTop([cx, SRC_Y + 3], [cx, SRC_Y + SRC_D - 3], s.h + 1.2, P));
+      out.push(L(grid.join(""), { tone: "lo" }));
+    }
+  }
+  // A door and a vent on the front face.
+  out.push(L(k.segment([s.x + 4, SRC_Y + SRC_D, 1], [s.x + 4, SRC_Y + SRC_D, Math.min(7, s.h - 1)], P) + k.segment([s.x + 9, SRC_Y + SRC_D, 1], [s.x + 9, SRC_Y + SRC_D, Math.min(7, s.h - 1)], P), { tone: "lo" }));
+  return { depth: k.depthOf([cx, SRC_Y + SRC_D / 2, 0], P), svg: `<g class="cf-src" data-src="${s.key}">${out.join("")}</g>` };
+}
 
-        <rect class="ve-zone" x="16" y="160" width="928" height="182" rx="10" data-s="2 3 4 5"/>
-        <text class="ve-zone-title" x="32" y="180" data-s="2 3 4 5">NIVEL 2 · GENERACIÓN Y ALMACENAMIENTO SUJETOS AL PLADESE (BALANCE ANUAL ≥ 54 % ESTADO / ≤ 46 % PRIVADOS)</text>
+// The bar on insulator posts: the RNT and RGD, exclusive to the State.
+function bus() {
+  const out = [];
+  for (const x of [-128, -84, -40, 4, 32]) {
+    out.push(S(k.cylinder(x, BUS.y + BUS.d / 2, 2.4, 0, 2, P, 18), { tone: "mid" }));
+    out.push(S(k.cylinder(x, BUS.y + BUS.d / 2, 1.2, 2, BUS_Z - 2, P, 14), { tone: "hi", crease: "lo" }));
+    out.push(L([6, 10, 14].map((z) => k.sideArc(x, BUS.y + BUS.d / 2, 2.2, z, P, 12)).join(""), { tone: "lo" }));
+  }
+  out.push(`<g class="cf-state">${S(k.slabOf(BUS, BUS_Z, 3, P, 2, 0.4), { tone: "hi", crease: "lo" })}</g>`);
+  return out.join("");
+}
 
-        <rect class="ve-zone" x="16" y="384" width="928" height="102" rx="10" data-s="1 2 3 4 5"/>
-        <text class="ve-zone-title" x="32" y="403" data-s="1 2 3 4 5">NIVEL 3 · ÁREA ESTRATÉGICA EXCLUSIVA DEL ESTADO (ARTS. 27 Y 28 CPEUM · ART. 57 LSE)</text>
+// Cables from each source's front face down to the bar; the dashes flow with the injection.
+const feedFrom = (s) => [s.x + s.w / 2, SRC_Y + SRC_D, Math.min(6, s.h - 2)];
+function feeders() {
+  return SOURCES.map((s) => {
+    const [x, y, z] = feedFrom(s);
+    const from = at([x, y, z]);
+    const to = at([x, BUS.y, BUS_Z + 3]);
+    const via = [at([x, y + 6, z]), at([x, BUS.y - 4, BUS_Z + 3])];
+    return k.wireSvg(from, to, { via, tone: "mid" }) + `<path class="iso-line cf-flow cf-feed" data-feed="${s.side}" d="${k.pathOf([from, ...via, to])}"/>`;
+  }).join("");
+}
+// From the end of the bar to the meter's collar.
+function busToGauge() {
+  const from = at([BUS.x + BUS.w, BUS.y + BUS.d / 2, BUS_Z + 1.5]);
+  const via = [at([GAUGE.cx - 2, BUS.y + BUS.d / 2, BUS_Z + 1.5]), at([GAUGE.cx - 2, GAUGE.cy + GAUGE.r + 6, BUS_Z + 1.5])];
+  const to = at([GAUGE.cx - 2, GAUGE.cy + GAUGE.r + 2, GAUGE.z0]);
+  return k.wireSvg(from, to, { via, tone: "mid" }) + `<path class="iso-line cf-flow cf-feed" data-feed="bus" d="${k.pathOf([from, ...via, to])}"/>`;
+}
 
-        <!-- Rutas invisibles para puntos de flujo animados -->
-        <path data-flow="hit" data-every="480" d="M135 250V444H480"/>
-        <path data-flow="hit" data-every="620" d="M370 250V444H480"/>
-        <path data-flow="miss" data-every="980" d="M608 250V444H480"/>
-        <path data-flow="hit" data-every="850" d="M830 250V444H480"/>
+// The yearly injection meter: collar, the two-colour column (rebuilt live) and the 54 % ring.
+function gauge() {
+  const { cx, cy, r, z0, h } = GAUGE;
+  const out = [S(k.cylinder(cx, cy, r + 4, 0, z0, P, 40, 0.6), { tone: "mid" })];
+  out.push(L(k.ring(cx, cy, r + 2, z0, P, 40), { tone: "lo" }));
+  out.push(`<g data-part="column"></g>`);
+  out.push(`<g data-part="rule">${L(k.sideArc(cx, cy, r + 1.4, z0 + RULE * h, P, 40), { tone: "hi", className: "cf-rule" })}</g>`);
+  out.push(S(k.cylinder(cx, cy, r + 1.2, z0 + h, 2, P, 40, 0.4), { tone: "mid" }));
+  return out.join("");
+}
 
-        <!-- Flechas de gobernanza (Nivel 1 -> Nivel 2, canal y=104 a y=194) -->
-        <path class="ve-e is-hot" data-s="1" data-ref="gob" d="M306 73H356"/>
-        <text class="ve-el" data-s="1" x="331" y="64">PLADESE</text>
+// The SENER and CNE desk: the binding plan as a stack of sheets and the permit stamp.
+function desk() {
+  const out = [S(k.slabOf(DESK, 0, DESK_H, P, 3, 0.6), { tone: "mid" })];
+  out.push(L(k.planOutline(k.insetPlan(DESK, 3), DESK_H, P), { tone: "lo" }));
+  for (let i = 0; i < 4; i++) {
+    const sheet = { x: DESK.x + 5 + i * 0.6, y: DESK.y + 5 - i * 0.4, w: 20, d: 16, r: 0.6 };
+    out.push(S(k.slabOf(sheet, DESK_H + i * 1.1, 1, P, 2, 0.1), { tone: "hi", crease: "faint" }));
+  }
+  const top = DESK_H + 4.4;
+  out.push(L([0, 1, 2].map((i) => k.lineOnTop([DESK.x + 9, DESK.y + 8 + i * 3], [DESK.x + 21, DESK.y + 8 + i * 3], top, P)).join(""), { tone: "lo", free: true }));
+  out.push(`<g class="cf-state">${S(k.cylinder(DESK.x + 38, DESK.y + 14, 5, DESK_H, 3, P, 26, 0.4), { tone: "hi", crease: "lo" })}</g>`);
+  out.push(S(k.cylinder(DESK.x + 38, DESK.y + 14, 1.6, DESK_H + 3, 7, P, 14), { tone: "mid" }));
+  out.push(S(k.cylinder(DESK.x + 38, DESK.y + 14, 2.8, DESK_H + 10, 3, P, 18, 0.6), { tone: "hi", crease: "lo" }));
+  return out.join("");
+}
 
-        <path class="ve-e is-hot" data-s="1" data-ref="gob" d="M616 73H666"/>
-        <text class="ve-el" data-s="1" x="641" y="64">Reglas</text>
+const LABELS = [
+  { n: 1, name: "SENER planea, CNE da permisos", anchor: [DESK.x + 15, DESK.y + 13, DESK_H + 4.4], dx: 40, dy: 44 },
+  { n: 2, name: "Generación de la CFE", anchor: [SOURCES[0].x + 20, SRC_Y + 30, SOURCES[0].h + 1.2], dx: -50, dy: -40 },
+  { n: 3, name: "Desarrollo Mixto", anchor: [SOURCES[1].x + 26, SRC_Y + 26, SOURCES[1].h + 1.2], dx: -16, dy: -62 },
+  { n: 4, name: "Generación privada", anchor: [SOURCES[2].x + 18, SRC_Y + 26, SOURCES[2].h + 1.2], dx: 26, dy: -70 },
+  { n: 5, name: "Baterías (SAEE)", anchor: [SOURCES[3].x + 15, SRC_Y + 20, SOURCES[3].h + 3], dx: 40, dy: -50 },
+  { n: 6, name: "RNT y RGD del Estado", anchor: [-60, BUS.y + BUS.d, BUS_Z + 1.5], dx: -30, dy: 56 },
+];
 
-        <path class="ve-e is-async" data-s="1 3" data-ref="gob mixto" d="M168 104V194"/>
-        <text class="ve-el r" data-s="1 3" x="176" y="142">Convoca</text>
-
-        <path class="ve-e is-async" data-s="1 3 4" data-ref="gob mixto priv" d="M486 104V194"/>
-        <text class="ve-el r" data-s="1 3 4" x="494" y="142">Permisos ≥0.7 MW</text>
-
-        <path class="ve-e is-async" data-s="2 5" data-ref="gob cfe saee" d="M796 104V194"/>
-        <text class="ve-el r" data-s="2 5" x="804" y="142">Despacho 60 Hz</text>
-
-        <!-- Flechas de inyección a la Red Nacional (Nivel 2 -> Nivel 3, canal y=296 a y=414) -->
-        <path class="ve-e is-hot" data-s="2 5" data-ref="cfe" d="M135 296V414"/>
-        <text class="ve-el r" data-s="2 5" x="143" y="366">Base y firme</text>
-
-        <path class="ve-e is-hot" data-s="3 5" data-ref="mixto" d="M370 296V414"/>
-        <text class="ve-el r" data-s="3 5" x="378" y="366">PLP + Inv. Mixta</text>
-
-        <path class="ve-e" data-s="4 5" data-ref="priv" d="M608 296V414"/>
-        <text class="ve-el r" data-s="4 5" x="616" y="366">MEM ≤ 46 %</text>
-
-        <path class="ve-e is-hot" data-s="4 5" data-ref="saee" d="M830 296V414"/>
-        <text class="ve-el r" data-s="4 5" x="838" y="366">Potencia y red</text>
-
-        <g class="ve-dots" aria-hidden="true"></g>
-
-        <!-- Nodos Nivel 1: SENER, CNE, CENACE -->
-        <g class="ve-n is-key" data-n="1" data-s="1" data-ref="gob" tabindex="0" role="button" aria-label="1. SENER: Planeación vinculante PLADESE" transform="translate(34 42)">
-          <rect class="sh" width="272" height="62" rx="8"/>
-          <text class="ve-kind" x="136" y="18">RECTORÍA · LPTE ART. 21</text>
-          <text x="136" y="36">SENER (PLADESE)</text>
-          <text class="sub" x="136" y="52">Planeación vinculante</text>
-        </g>
-        <g class="ve-co" data-n="1" data-s="1" transform="translate(290 58)"><circle r="10"/><text>1</text></g>
-
-        <g class="ve-n is-key" data-n="1" data-s="1" data-ref="gob" tabindex="0" role="button" aria-label="1. CNE: Permisos de generación y tarifas" transform="translate(356 42)">
-          <rect class="sh" width="260" height="62" rx="8"/>
-          <text class="ve-kind" x="130" y="18">ÓRGANO REGULADOR</text>
-          <text x="130" y="36">CNE (LCNE art. 7)</text>
-          <text class="sub" x="130" y="52">Permisos y tarifas</text>
-        </g>
-
-        <g class="ve-n" data-s="1 2 5" data-ref="gob" transform="translate(666 42)">
-          <rect class="sh" width="260" height="62" rx="8"/>
-          <text class="ve-kind" x="130" y="18">OPERADOR INDEPENDIENTE</text>
-          <text x="130" y="36">CENACE (LSE art. 111)</text>
-          <text class="sub" x="130" y="52">Control operativo y MEM</text>
-        </g>
-
-        <!-- Nodos Nivel 2: CFE, Desarrollo Mixto, Privados, SAEE -->
-        <g class="ve-n is-key" data-n="2" data-s="2" data-ref="cfe" tabindex="0" role="button" aria-label="2. Generación estatal CFE >= 54%" transform="translate(32 194)">
-          <rect class="sh" width="206" height="102" rx="8"/>
-          <text class="ve-kind" x="103" y="20">EMPRESA PÚBLICA</text>
-          <text x="103" y="42">CFE Generación</text>
-          <text class="sub" x="103" y="64">Mínimo ≥ 54 % inyección</text>
-          <text class="sub" x="103" y="83">LSE arts. 1, 6 y 36</text>
-        </g>
-        <g class="ve-co" data-n="2" data-s="2" transform="translate(222 210)"><circle r="10"/><text>2</text></g>
-
-        <g class="ve-n is-key" data-n="3" data-s="3" data-ref="mixto" tabindex="0" role="button" aria-label="3. Esquemas de Desarrollo Mixto" transform="translate(258 194)">
-          <rect class="sh" width="226" height="102" rx="8"/>
-          <text class="ve-kind" x="113" y="20">CFE + PRIVADO</text>
-          <text x="113" y="42">Desarrollo Mixto</text>
-          <text class="sub" x="113" y="64">• PLP: venta 100 % a CFE</text>
-          <text class="sub" x="113" y="83">• Inv. Mixta: CFE ≥ 54 %</text>
-        </g>
-        <g class="ve-co" data-n="3" data-s="3" transform="translate(468 210)"><circle r="10"/><text>3</text></g>
-
-        <g class="ve-n" data-n="4" data-s="4" data-ref="priv" tabindex="0" role="button" aria-label="4. Generación privada <= 46%" transform="translate(504 194)">
-          <rect class="sh" width="206" height="102" rx="8"/>
-          <text class="ve-kind" x="103" y="20">PARTICIPANTES MEM</text>
-          <text x="103" y="42">Privados y Autoconsumo</text>
-          <text class="sub" x="103" y="64">Hasta ≤ 46 % en red</text>
-          <text class="sub" x="103" y="83">Migración de legados</text>
-        </g>
-        <g class="ve-co" data-n="4" data-s="4" transform="translate(694 210)"><circle r="10"/><text>4</text></g>
-
-        <g class="ve-n is-new" data-n="5" data-s="4 5" data-ref="saee" tabindex="0" role="button" aria-label="5. Almacenamiento en baterías SAEE" transform="translate(730 194)">
-          <rect class="sh" width="198" height="102" rx="8"/>
-          <text class="ve-kind" x="99" y="20">NUEVA FIGURA · ART. 82</text>
-          <text x="99" y="42">Baterías (SAEE)</text>
-          <text class="sub" x="99" y="64">Firmeza a renovables</text>
-          <text class="sub" x="99" y="83">Servicios conexos 60 Hz</text>
-        </g>
-        <g class="ve-co" data-n="5" data-s="4 5" transform="translate(912 210)"><circle r="10"/><text>5</text></g>
-
-        <!-- Cotas de proporción (Dimension rails) -->
-        <g class="ve-dim is-key" data-s="2 3 5">
-          <path class="ext" d="M32 302V328M484 302V328"/>
-          <path class="ln" d="M32 322H484M28 326l8-8M480 326l8-8"/>
-          <text x="258" y="316">Prevalencia Estatal ≥ 54 % (CFE + Desarrollo Mixto)</text>
-        </g>
-        <g class="ve-dim" data-s="4 5">
-          <path class="ext" d="M504 302V328M710 302V328"/>
-          <path class="ln" d="M504 322H710M500 326l8-8M706 326l8-8"/>
-          <text x="607" y="316">Privados ≤ 46 %</text>
-        </g>
-
-        <!-- Nodo Nivel 3: RNT y RGD exclusivas del Estado -->
-        <g class="ve-n is-key" data-n="6" data-s="1 2 3 4 5" data-ref="cfe gob" tabindex="0" role="button" aria-label="6. RNT y RGD Exclusivas del Estado" transform="translate(32 414)">
-          <rect class="sh" width="896" height="58" rx="8"/>
-          <text class="ve-kind" x="448" y="18">RED NACIONAL DE TRANSMISIÓN (RNT) Y REDES GENERALES DE DISTRIBUCIÓN (RGD)</text>
-          <text x="448" y="40">Exclusivas del Estado (CFE) · Acceso abierto sujeto a factibilidad → Suministro Básico y Usuarios Calificados</text>
-        </g>
-        <g class="ve-co" data-n="6" data-s="1 2 3 4 5" transform="translate(912 430)"><circle r="10"/><text>6</text></g>
-      </svg>
-    </div>
-
-    <div class="ve-player">
-      <ol class="ve-cap">
-        <li data-n="1/5"><b>① Planeación Vinculante (PLADESE):</b> La SENER determina las necesidades de capacidad del SEN (LPTE art. 21; LSE art. 12) y la CNE otorga los permisos de generación para centrales ≥ 0.7 MW (LSE art. 19).</li>
-        <li data-n="2/5"><b>② Prevalencia Estatal (CFE ≥ 54 %):</b> La CFE, como Empresa Pública del Estado, debe mantener al menos el 54 % del promedio de la energía inyectada a la red en un año calendario (LSE arts. 1, 6 y 36).</li>
-        <li data-n="3/5"><b>③ Esquemas de Desarrollo Mixto:</b> Para expandir capacidad con inversión privada, la LSE (arts. 38–40) crea dos vías alineadas al PLADESE: <b>Producción de Largo Plazo (PLP)</b> y <b>Inversión Mixta (CFE ≥ 54 % capital)</b>.</li>
-        <li data-n="4/5"><b>④ Participación Privada (≤ 46 %) y ⑤ Baterías (SAEE):</b> Los particulares participan en el MEM, en autoconsumo o migrando permisos legados, complementados por Sistemas de Almacenamiento (SAEE, arts. 82–85).</li>
-        <li data-n="5/5"><b>⑥ Redes Exclusivas (RNT/RGD) y Justicia Energética:</b> Toda la energía fluye por la Red Nacional de Transmisión y Distribución operada en exclusiva por el Estado (LSE art. 57) hacia hogares e industrias.</li>
-      </ol>
-      <button type="button" data-go="-1">← Anterior</button>
-      <button type="button" data-play>▶ Paso a paso</button>
-      <input type="range" min="0" max="4" value="4" aria-label="Paso de la explicación">
-      <button type="button" data-go="1">Siguiente →</button>
-    </div>
-  </figure>
-
-  <section aria-labelledby="sen-cases-title">
-    <div class="sec-head">
-      <p class="ve-label caps">Comparativa de figuras (LSE arts. 19, 30 y 38–40)</p>
-      <h2 id="sen-cases-title">Las 4 vías para generar electricidad bajo la Ley del Sector Eléctrico</h2>
-    </div>
-    <div class="cases">
-      <article class="case" data-st="ok" data-n="2" data-ref="cfe" tabindex="0" role="button">
-        <span class="chip ok">② 100 % Estatal</span>
-        <h3>Generación propia CFE</h3>
-        <svg class="ve-mini" viewBox="0 0 260 76" role="img" aria-label="CFE financia, opera e inyecta directo al SEN">
-          <path class="ve-e is-st" d="M116 38H144"/>
-          <g class="ve-n is-st" transform="translate(6 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">CFE</text><text class="sub" x="55" y="41">100 % pública</text></g>
-          <g class="ve-n" transform="translate(144 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">Red SEN</text><text class="sub" x="55" y="41">Suministro</text></g>
-        </svg>
-        <p class="ve-label">Inversión presupuestaria de la Empresa Pública del Estado para sostener el piso del 54 %.</p>
-      </article>
-
-      <article class="case" data-st="ok" data-n="3" data-ref="mixto" tabindex="0" role="button">
-        <span class="chip ok">③ Desarrollo Mixto · Art. 39</span>
-        <h3>Producción de Largo Plazo (PLP)</h3>
-        <svg class="ve-mini" viewBox="0 0 260 76" role="img" aria-label="Privado construye y vende 100% a CFE">
-          <path class="ve-e is-st" d="M116 38H144"/>
-          <g class="ve-n" transform="translate(6 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">Privado</text><text class="sub" x="55" y="41">Financia 100 %</text></g>
-          <g class="ve-n is-st" transform="translate(144 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">CFE compra</text><text class="sub" x="55" y="41">100 % energía</text></g>
-        </svg>
-        <p class="ve-label">Sin inversión presupuestaria de CFE; venta exclusiva del 100 % de energía y productos a CFE (RLSE art. 68).</p>
-      </article>
-
-      <article class="case" data-st="warn" data-n="3" data-ref="mixto" tabindex="0" role="button">
-        <span class="chip warn">③ Desarrollo Mixto · Art. 40</span>
-        <h3>Inversión Mixta (CFE ≥ 54 %)</h3>
-        <svg class="ve-mini" viewBox="0 0 260 76" role="img" aria-label="Sociedad vehículo con CFE al menos 54% y privado hasta 46%">
-          <path class="ve-e is-st" d="M116 38H144"/>
-          <g class="ve-n is-st" transform="translate(6 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">CFE ≥ 54 %</text><text class="sub" x="55" y="41">Sociedad Mixta</text></g>
-          <g class="ve-n" transform="translate(144 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">Socio ≤ 46 %</text><text class="sub" x="55" y="41">Capital / Tecnol.</text></g>
-        </svg>
-        <p class="ve-label">CFE aporta activos, permisos o capital conservando ≥ 54 % del capital común o gobierno corporativo (RLSE art. 86).</p>
-      </article>
-
-      <article class="case" data-st="warn" data-n="4" data-ref="priv" tabindex="0" role="button">
-        <span class="chip warn">④ Participación Privada</span>
-        <h3>MEM y Autoconsumo (≤ 46 %)</h3>
-        <svg class="ve-mini" viewBox="0 0 260 76" role="img" aria-label="Permisionario CNE vende en el MEM o autoconsume">
-          <path class="ve-e is-st" d="M116 38H144"/>
-          <g class="ve-n" transform="translate(6 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">Permiso CNE</text><text class="sub" x="55" y="41">≥ 0.7 MW</text></g>
-          <g class="ve-n is-st" transform="translate(144 12)"><rect class="sh" width="110" height="52" rx="6"/><text x="55" y="24">MEM / Sitio</text><text class="sub" x="55" y="41">Sujeto a cupo</text></g>
-        </svg>
-        <p class="ve-label">Generación para el MEM alineada al PLADESE, o Autoconsumo (exento &lt; 0.7 MW; trámite simplificado 0.7–20 MW).</p>
-      </article>
-    </div>
-  </section>
-`;
+const svg = k.figureSvg({
+  width: WIDTH,
+  height: HEIGHT,
+  label: "Una bancada de inyección: una central de la CFE, una de Desarrollo Mixto, una privada y un banco de baterías se conectan a una barra que representa las redes del Estado; la barra llena un medidor anual cuya parte guinda es la energía del Estado y la dorada la privada, con una marca en 54 %. Al frente, el escritorio de SENER y la CNE con el plan y el sello de permisos.",
+  body: [
+    base(),
+    byDepth(SOURCES.map(source)),
+    `<g data-part="feeders">${feeders()}</g>`,
+    bus(),
+    gauge(),
+    busToGauge(),
+    desk(),
+    `<g data-part="labels">${labelsSvg(LABELS, at)}</g>`,
+  ],
+});
 
 const live = `
-{
-  const chips = [...document.querySelectorAll(".ve-chips [data-mode]")];
-  const mapPart = { cfe: 2, mixto: 3, priv: 4, saee: 5 };
-  chips.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      chips.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      const mode = btn.dataset.mode;
-      const svg = document.querySelector(".ve-steps svg");
-      const allRef = [...document.querySelectorAll("[data-ref]")];
-      if (mode === "all") {
-        svg?.classList.remove("has-lit");
-        allRef.forEach((el) => el.classList.remove("is-lit"));
-      } else {
-        svg?.classList.add("has-lit");
-        allRef.forEach((el) => {
-          const refs = (el.dataset.ref || "").split(" ");
-          el.classList.toggle("is-lit", refs.includes(mode));
-        });
-        if (mapPart[mode] && parent !== window) {
-          parent.postMessage({ type: "concepto-part", id: "desarrollo-mixto-sen", figura: "desarrollo-mixto-sen", n: mapPart[mode] }, location.origin);
-        }
-      }
-    });
-  });
+const P = ${JSON.stringify(P)};
+const GAUGE = ${JSON.stringify(GAUGE)}, RULE = ${RULE}, P_MIN = ${P_MIN}, P_MAX = ${P_MAX}, P_REST = ${P_REST};
+const stage = document.querySelector(".iso-stage");
+const svg = stage.querySelector("svg");
+const column = svg.querySelector('[data-part="column"]');
+const feeds = [...svg.querySelectorAll(".cf-feed")];
+const readout = document.querySelector("[data-readout]");
+const still = matchMedia("(prefers-reduced-motion: reduce)");
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+const pct = (v) => Math.round(v * 100) + " %";
+let share = P_REST, target = P_REST, dash = 0, last = 0, clock = 0, frame = 0, touring = true, visible = false, idle = 0, built = -1, shown = "";
+const tourAt = (t) => 0.4 + 0.17 * Math.sin(t * 0.35);
+function buildColumn(p) {
+  const { cx, cy, r, z0, h } = GAUGE;
+  const state = (1 - p) * h;
+  column.innerHTML = '<g class="cf-state">' + solidSvg(cylinder(cx, cy, r, z0, state, P, 40), { tone: "hi", crease: "lo" }) + '</g>'
+    + '<g class="cf-private">' + solidSvg(cylinder(cx, cy, r, z0 + state, h - state, P, 40), { tone: "hi", crease: "lo" }) + '</g>';
 }
+function draw() {
+  const p = share;
+  const state = 1 - p;
+  const key = Math.round(p * 400);
+  if (key !== built) { built = key; buildColumn(p); }
+  // Judge the rule on the same whole percentage the reader sees.
+  const breach = Math.round(state * 100) < Math.round(RULE * 100);
+  svg.classList.toggle("is-breach", breach);
+  for (const f of feeds) {
+    const side = f.dataset.feed;
+    const weight = side === "private" ? p * 1.6 : side === "bus" || side === "storage" ? 0.8 : state * 1.1;
+    f.style.opacity = String(clamp(0.25 + weight, 0.25, 1));
+    f.style.strokeDashoffset = String(-dash);
+  }
+  const text = compact
+    ? "Estado " + pct(state) + " · privados " + pct(p) + (breach ? " · no cumple" : " · cumple")
+    : "Inyección anual: Estado " + pct(state) + " (CFE y Desarrollo Mixto) · privados " + pct(p) + (breach ? " · no cumple el mínimo de 54 %" : " · cumple el mínimo de 54 %");
+  if (text !== shown) { shown = text; readout.textContent = text; stage.setAttribute("aria-valuetext", text); }
+  stage.setAttribute("aria-valuenow", String(Math.round((p - P_MIN) / (P_MAX - P_MIN) * 100)));
+}
+function tick(now) {
+  const dt = last ? Math.min((now - last) / 1000, 1 / 30) : 1 / 60;
+  last = now;
+  if (touring) { clock += dt; target = tourAt(clock); }
+  share = share + (target - share) * (1 - Math.exp(-dt / 0.4));
+  dash = (dash + dt * 9) % 200;
+  draw();
+  frame = visible && !still.matches ? requestAnimationFrame(tick) : 0;
+}
+const run = () => { if (!frame && visible) { last = 0; frame = requestAnimationFrame(tick); } };
+const pause = () => { touring = false; clearTimeout(idle); idle = setTimeout(() => { touring = !still.matches; run(); }, 6000); };
+const steer = (next) => { pause(); target = clamp(next, P_MIN, P_MAX); if (still.matches) { share = target; draw(); } run(); };
+new IntersectionObserver((entries) => { visible = entries[entries.length - 1].isIntersecting; if (visible) run(); }, { rootMargin: "120px 0px" }).observe(stage);
+if (still.matches) touring = false;
+stage.addEventListener("pointermove", (event) => {
+  const box = svg.getBoundingClientRect();
+  steer(P_MIN + clamp((event.clientX - box.left) / box.width, 0, 1) * (P_MAX - P_MIN));
+});
+stage.addEventListener("keydown", (event) => {
+  const step = event.key === "ArrowRight" || event.key === "ArrowUp" ? 0.02 : event.key === "ArrowLeft" || event.key === "ArrowDown" ? -0.02 : 0;
+  if (!step) return;
+  event.preventDefault();
+  steer(target + step);
+});
+draw();
 `;
 
-writeVeFigure({
+const tones = (top, s0, s1, s2, s3) => `--anatomy-top:${top};--anatomy-shade-0:${s0};--anatomy-shade-1:${s1};--anatomy-shade-2:${s2};--anatomy-shade-3:${s3};--anatomy-face:${s0}`;
+const STATE = theme === "light" ? tones("#c4566f", "#a93a57", "#962f4b", "#9f3451", "#872944") : tones("#b04a66", "#953a54", "#7f3048", "#89344e", "#6f293f");
+const PRIVATE = theme === "light" ? tones("#e8cf8a", "#d6b766", "#c6a553", "#ceae5c", "#b8964a") : tones("#a98a43", "#8f7438", "#7a6230", "#846a34", "#6a5429");
+const css = `.cf-state{${STATE}}
+.cf-private{${PRIVATE}}
+.cf-feed{stroke:${INK.green};stroke-width:1.6;stroke-dasharray:2.6 9;stroke-linecap:round;fill:none}
+.cf-rule{stroke:${INK.gold}!important;stroke-width:2.2!important}
+svg.is-breach .cf-rule{stroke:${INK.red}!important;stroke-width:3!important;animation:cf-alarm 1s ease-in-out infinite}
+@keyframes cf-alarm{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){svg.is-breach .cf-rule{animation:none}}`;
+
+writeFigure({
   id: "desarrollo-mixto-sen",
-  title: "Planeación vinculante, regla 54/46 y Desarrollo Mixto",
+  title: "Planeación vinculante y Desarrollo Mixto",
   theme,
-  register: "blueprint",
-  body,
+  svg: svg.replace("</svg>", `<style>${css}</style></svg>`),
   live,
+  plate: {
+    fig: "Fig 10",
+    title: "Regla 54/46",
+    hint: "Desliza para cambiar la parte privada",
+    ariaLabel: "Regla 54/46: las flechas cambian la parte privada de la energía inyectada",
+    keys: [
+      { mark: "red", label: "Energía del Estado: CFE y Desarrollo Mixto" },
+      { mark: "gold", label: "Energía privada; el anillo marca el mínimo del Estado (54 %)" },
+      { mark: "green", label: "Energía que entra a la red por la RNT y la RGD" },
+    ],
+    caption: "La planeación del sector eléctrico es vinculante y está a cargo de la SENER (LSE, art. 12); la CNE otorga los permisos. La Empresa Pública del Estado debe aportar al menos el 54 % de la energía que se inyecta a la red cada año. Los particulares participan con centrales propias o asociados con la CFE en esquemas de Desarrollo Mixto: Producción de Largo Plazo, en la que toda la energía es para la CFE, o Inversión Mixta, con al menos 54 % de participación de la CFE (LSE, arts. 38 a 40). Las baterías (SAEE) dan firmeza a la red, y la transmisión y la distribución son exclusivas del Estado.",
+  },
 });
