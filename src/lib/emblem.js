@@ -6,21 +6,24 @@
 import '../styles/emblem.css';
 
 const KINDS = {
-    acervo: { glyph: 'seccion', accent: 'liston' },
     cronologia: { glyph: 'calendario', accent: 'alfiler' },
     permisos: { glyph: 'pin', accent: 'sello' },
     'como-funciona': { glyph: 'rayo', accent: 'engrane' },
     reto: { glyph: 'pregunta', accent: 'medalla' },
+    analisis: { glyph: 'red', accent: 'orbita' },
+    estadisticas: { glyph: 'barras', accent: 'dona' },
+    ayuda: { glyph: 'dialogo', accent: 'brujula' },
+    guardados: { glyph: 'marcador', accent: 'clip' },
 };
 
-/** Markup for a section emblem; `inline` keeps it in the flow instead of pinning it to the header's right edge. */
-export function emblemHtml(kind, { inline = false } = {}) {
+/** Markup for a section emblem, pinned to the right edge of its `data-emblem-host` header. */
+export function emblemHtml(kind) {
     const { glyph, accent } = KINDS[kind];
     const layers = [5, 4, 3, 2, 1, 0]
         .map(n => `<span class="em-layer" style="--layer:${n};background-image:url(/img/emblem-${glyph}.svg)"></span>`)
         .join('');
     return `
-        <div class="em em-${kind}${inline ? ' em-inline' : ''}" aria-hidden="true">
+        <div class="em em-${kind}" aria-hidden="true">
             <div class="em-float">
                 <div class="em-object" data-emblem-object>
                     <div class="em-shadow"></div>

@@ -3,8 +3,7 @@ import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib
 import { collectionIcon } from '../lib/collection-icons.js';
 import { shortTitle } from '../lib/short-title.js';
 import { isJudgment, instrumentTypeLabel, fragmentNoun } from '../lib/judgment.js';
-import { collectionSpot } from '../lib/acervo-art.js';
-import { emblemHtml } from '../lib/emblem.js';
+import { heroArt, collectionSpot } from '../lib/acervo-art.js';
 import { acervoThemes } from '../lib/analisis-model.js';
 import '../styles/acervo.css';
 
@@ -161,8 +160,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
     const overview = renderOverview();
     const body = element('div', 'ac-collections');
-    const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = emblemHtml('acervo', { inline: true });
-    hero.dataset.emblemHost = '';
+    const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = heroArt();
     const promos = element('div', 'ac-promos');
     promos.append(howPromo, mapPromo);
     hero.append(header, tools, facts, quick, topics, promos, art);

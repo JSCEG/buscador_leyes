@@ -4,6 +4,7 @@ import { collectionIcon } from '../lib/collection-icons.js';
 import { contextSnippet } from '../lib/search-snippet.js';
 import '../styles/search.css';
 import { emptyArt } from '../lib/empty-art.js';
+import { emblemHtml } from '../lib/emblem.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const plural = (count, one, many) => `${count} ${count === 1 ? one : many}`;
@@ -54,7 +55,8 @@ export function renderFavoritesView(container, {
         : `<div class="sr-empty">${emptyArt('saved')}<h2>Aún no guardas nada</h2><p>Usa el botón de guardar en cualquier artículo, o escribe una nota, y aparecerá aquí para que lo encuentres rápido.</p><button type="button" class="sr-clear" data-browse>Ir al acervo</button></div>`;
 
     container.innerHTML = `<section class="sr-view fv-view" aria-labelledby="fv-heading">
-        <header class="sr-head fv-head">
+        <header class="sr-head fv-head" data-emblem-host>
+            ${emblemHtml('guardados')}
             <div>
                 <p class="sr-eyebrow">Tu biblioteca</p>
                 <h1 id="fv-heading">Guardados</h1>
