@@ -175,8 +175,9 @@
 
     /* ── Law detail container ────────────────────────────── */
 
+    /* #main-container already gives the 1rem side gutter; doubling it cost the reader 32px of line. */
     #law-detail-container {
-        padding: 1rem !important;
+        padding: 1rem 0 !important;
     }
 
     /* TOC panel: full screen on mobile */
@@ -289,4 +290,10 @@
     #stats-modal > div {
         max-height: 95vh !important;
     }
+}
+
+/* Phones: the header loses the desktop breathing room above the logo (it was 107px tall, half of it empty). */
+@media (max-width: 640px) {
+    html body > header { padding-top: 3px !important; }
+    html body > header > div { padding-top: .75rem !important; padding-bottom: .75rem !important; }
 }

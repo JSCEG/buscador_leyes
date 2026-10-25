@@ -462,4 +462,4 @@ html body .ac-library .ac-card .ac-card-cover .ac-card-category .ac-icon svg{wid
 html body .ac-library .ac-card .ac-card-cover .ac-card-acronym{align-self:stretch;justify-self:auto;margin:0;opacity:1;font:700 36px/1 Patria,Georgia,serif;letter-spacing:-.025em;text-transform:none;text-align:left;color:var(--ac-ink)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 html body .ac-library .ac-card .ac-card-cover .ac-card-acronym.is-long{font-size:21px}
 @media (max-width:640px){html body .ac-library .ac-card .ac-card-cover .ac-card-acronym{font-size:30px}}
-@media (prefers-reduced-motion:reduce){.ac-library .ac-hero>*{animation:none!important;opacity:1!important}}
+@media (prefers-reduced-motion:reduce){.ac-library .ac-hero>*{animation:none!important}.ac-library .ac-hero>:not(.ac-hero-art){opacity:1!important}}
