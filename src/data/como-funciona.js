@@ -1246,9 +1246,5 @@ export function anteriorConcepto(id) {
 export const CONCEPTO = Object.fromEntries(CONCEPTOS.map(item => [item.id, item]));
 
 /** Route of the section: '#como-funciona' (list) or '#como-funciona=<id>' (one explainer). */
-export function comoFuncionaRoute(hash = '') {
-    if (hash === '#como-funciona') return { id: null };
-    const match = /^#como-funciona=([a-z0-9-]+)$/.exec(hash);
-    return match ? { id: match[1] } : null;
-}
+export { comoFuncionaRoute } from '../lib/como-funciona-route.js';
 

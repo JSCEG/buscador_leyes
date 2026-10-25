@@ -7,6 +7,8 @@
  * readers of that PDF for a while, so moving between articles of the same issue does not download
  * it again. Small PDFs keep their bytes in memory briefly and give each reader its own document.
  */
+import { loadPdfjs } from './pdfjs.js';
+
 const MAX_BYTES = 96 * 1024 * 1024;
 const SMALL_PDF_BYTES = 20 * 1024 * 1024;
 /** From this size the reader warns that the PDF is long and may take a while. */
@@ -137,18 +139,20 @@ export function createRemotePdf(source, { onProgress } = {}) {
                 const bytes = await entry.promise;
                 unsubscribe();
                 if (destroyed) throw cancelled();
-                if (!globalThis.pdfjsLib?.getDocument) throw failure('source-unavailable');
+                const pdfjsLib = await loadPdfjs().catch(() => null);
+                if (destroyed) throw cancelled();
+                if (!pdfjsLib?.getDocument) throw failure('source-unavailable');
                 if (bytes.byteLength > SMALL_PDF_BYTES) {
                     if (sharedDocument?.key !== key) {
                         const previous = sharedDocument;
-                        const task = globalThis.pdfjsLib.getDocument({ data: bytes, isEvalSupported: false });
+                        const task = pdfjsLib.getDocument({ data: bytes, isEvalSupported: false });
                         sharedDocument = { key, task, users: 0, timer: null, promise: task.promise };
                         sharedDocument.promise.catch(() => { if (sharedDocument?.task === task) sharedDocument = null; task.destroy()?.catch(() => {}); });
                         if (previous && previous.users === 0) { clearTimeout(previous.timer); previous.task?.destroy()?.catch(() => {}); }
                     }
                     pdf = await useShared(sharedDocument);
                 } else {
-                    loadingTask = globalThis.pdfjsLib.getDocument({ data: bytes.slice(), isEvalSupported: false });
+                    loadingTask = pdfjsLib.getDocument({ data: bytes.slice(), isEvalSupported: false });
                     pdf = await loadingTask.promise;
                 }
             }
