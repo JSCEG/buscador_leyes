@@ -1,0 +1,37 @@
+[
+  {
+    "query": "/permisos?pageSize=1",
+    "seconds": 2.465,
+    "bytes": 1921,
+    "total": 32473,
+    "rows": 1
+  },
+  {
+    "query": "/estados",
+    "seconds": 1.342,
+    "bytes": 1801,
+    "total": 33,
+    "rows": 33
+  },
+  {
+    "query": "/puntos?tabla=electricidad&pageSize=500",
+    "seconds": 15.242,
+    "bytes": 1024573,
+    "total": 2192,
+    "rows": 500
+  },
+  {
+    "query": "/puntos?tabla=electricidad&pageSize=500&ligero=true",
+    "seconds": 0.264,
+    "bytes": 120918,
+    "total": 2192,
+    "rows": 500
+  },
+  {
+    "query": "/puntos?pageSize=500&ligero=true",
+    "seconds": 1.616,
+    "bytes": 120919,
+    "total": 23223,
+    "rows": 500
+  }
+]

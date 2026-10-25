@@ -1,0 +1,186 @@
+{
+  "tablas": [
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Electricidad_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Expendios_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.GasLP_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.GasNatural_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Ligas_Permisos_CNE",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Asignaciones_SENER",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Asignaciones_SENER_Municipios",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.ComercioExterior_SENER_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Contratos_EE_SENER",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Pozos_SENER",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Biocombustibles_SENER_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Transporte_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Comercializacion_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Infraestructura_Hidrocarburos_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Suministro_Electrico_autorizado",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Terceros_Acreditados_CNE",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Control_Actualizacion_CNE",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Control_Actualizacion_SENER",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Entidades_Federativas",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    },
+    {
+      "usuario": "api_permisos_lectura",
+      "tabla": "dbo.Municipios",
+      "puedeSelect": 1,
+      "puedeInsert": 0,
+      "puedeUpdate": 0,
+      "puedeDelete": 0,
+      "puedeAlter": 0
+    }
+  ],
+  "privilegiosDdl": [],
+  "selectFueraCatalogo": []
+}

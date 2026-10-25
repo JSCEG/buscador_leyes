@@ -1,0 +1,4718 @@
+[
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "NumeroAsignacion",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "NumeroAsignacionNorm",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Asignacion_original",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Nombre_vigente",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Tipo_asignacion",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Desarrollo",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Actividad",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Clase",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Vigencia_texto",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Fecha_ultima_modificacion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Numero_modificaciones",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Fechas_modificaciones",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Num_entidades",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Num_municipios",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "EF_IDs",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Aguas_territoriales",
+    "tipo": "bit",
+    "longitud": 1,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Entidades_fuente",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Municipios_fuente",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "En_datos_abiertos",
+    "tipo": "nvarchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 35,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Fuente_URL",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 36,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Fecha_corte",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 37,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Autoridad",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": false,
+    "orden": 38,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Ley_aplicable",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 39,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 40,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 41,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "NumeroAsignacion",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Entidad",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Municipio_catalogo",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Municipio_fuente",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Origen_relacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Nota",
+    "tipo": "nvarchar",
+    "longitud": 600,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Fuente_URL",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Fecha_corte",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Autoridad",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": false,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Ley_aplicable",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Asignaciones_SENER_Municipios",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Tipo_titulo",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Producto",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Fuente_URL",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Fecha_corte",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Autoridad",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": false,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Ley_aplicable",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Biocombustibles_SENER_autorizado",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Codigo_actividad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": false,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Estatus_CNE",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Producto",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Modalidad",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Comercializacion_autorizado",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Numero_solicitud",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Regimen_aduanero",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Fraccion_arancelaria",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "NICO",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Producto",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Cantidad_autorizada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Unidad",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Primer_mes_publicado",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Fuente_URL",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Fecha_corte",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Autoridad",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": false,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Ley_aplicable",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "ComercioExterior_SENER_autorizado",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "NumeroContrato",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "NumeroContratoNorm",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Ronda",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Licitacion",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Modalidad",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Ubicacion",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Empresas_participantes",
+    "tipo": "nvarchar",
+    "longitud": 4000,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Duracion_anios",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Anio_termino_publicado",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Estatus_SENER",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Observaciones",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Etapa_contractual",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Etapa_corte",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Fuente_URL",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Fecha_corte",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Autoridad",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": false,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Ley_aplicable",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "Contratos_EE_SENER",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 35,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "columna": "Tabla",
+    "tipo": "nvarchar",
+    "longitud": 256,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "columna": "FechaCorteFuente",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_CNE",
+    "columna": "Filas",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "columna": "Tabla",
+    "tipo": "nvarchar",
+    "longitud": 256,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "columna": "FechaCorteFuente",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Control_Actualizacion_SENER",
+    "columna": "Filas",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 1,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Ubicaci\u00F3n",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Direcci\u00F3n",
+    "tipo": "nvarchar",
+    "longitud": 5000,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 2,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Modalidad",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Capacidad_autorizada_MW",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Generaci\u00F3n_estimada_anual",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Inversion_estimada_mdls",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Fecha_de_Entrada_en_Operaci\u00F3n",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Energetico_primario",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Actividad_economica",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Tecnolog\u00EDa",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "EmpresaL\u00EDder",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Pa\u00EDsDeOrigen",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Subasta",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "FechaRecepcion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Inicio_operaciones",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Tipo_planta",
+    "tipo": "nvarchar",
+    "longitud": 2,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "FuenteEnergia",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Combustible_autorizado",
+    "tipo": "nvarchar",
+    "longitud": 2,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Clasifica_Men\u00FA",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Tipo_Empresa",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Electricidad_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "Entidades_Federativas",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Entidades_Federativas",
+    "columna": "EF_Nombre",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Entidades_Federativas",
+    "columna": "EF_Ext_Territorial",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Entidades_Federativas",
+    "columna": "EF_Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 50,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nvarchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "FechaRecepcion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Causa_suspension",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Marca",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Inicio_operaciones",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Capacidad_autorizada_barriles",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Productos",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Tipo_Persona",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "NumeroEstacionServicio",
+    "tipo": "nchar",
+    "longitud": 12,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "Tipo_Estacion",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "FechaAcuseNotificacion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "FechaEstadosFinancieros",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "EsPropietario",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "CapacidadMaximaBomba",
+    "tipo": "real",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "CapacidadOperativaReal",
+    "tipo": "real",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "ServicioRegadera",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "ServicioRestaurante",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 35,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "ServicioSanitario",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 36,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "ServicioOtro",
+    "tipo": "nvarchar",
+    "longitud": 3000,
+    "nullable": true,
+    "orden": 37,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "ServicioTiendaConveniencia",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 38,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "NumeroModulosDespachadores",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 39,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "TipoEstacionId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 40,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "TipoPersonaId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 41,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "TipoPermisoId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 42,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "EstadoPermisoId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 43,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "EstatusInstalacionId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 44,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "ImagenComercialId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 45,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "CausaSuspencionInstalacionId",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 46,
+    "pk": false
+  },
+  {
+    "tabla": "Expendios_autorizado",
+    "columna": "FechaTermino",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 47,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 600,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 1100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 1100,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "FechaRecepcion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Marca",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Inicio_operaciones",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Capacidad_Instalaci\u00F3n",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Vigencia_anos",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Numero_SENER",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Sub_tipo",
+    "tipo": "nvarchar",
+    "longitud": 700,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Siglas_tipo",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Otorgamiento",
+    "tipo": "nvarchar",
+    "longitud": 700,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Fecha_Acuse",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Estatus_SAT",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Subestatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Suspension_inicio",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Suspension_fin",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Numero_tanques",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Capacidad_litros",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Numero_unidades",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Numero_centralesGuarda",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Domicilio_de_Guarda",
+    "tipo": "nvarchar",
+    "longitud": 700,
+    "nullable": true,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Suministro_recepcion",
+    "tipo": "nvarchar",
+    "longitud": 700,
+    "nullable": true,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Permiso_suministro",
+    "tipo": "nvarchar",
+    "longitud": 700,
+    "nullable": true,
+    "orden": 35,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Comparten_tanques",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 36,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Modificacion",
+    "tipo": "nvarchar",
+    "longitud": 1100,
+    "nullable": true,
+    "orden": 37,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Asociacion",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 38,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "GIE",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 39,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 40,
+    "pk": false
+  },
+  {
+    "tabla": "GasLP_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": -1,
+    "nullable": true,
+    "orden": 41,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Raz\u00F3n_Social",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Resoluci\u00F3n",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Suministrador",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Permiso_suministrador",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Distribuidor",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Permiso_distribuidor",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Interconexi\u00F3n",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Compresores",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Numero_despachadores",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Capacidad_dise\u00F1o",
+    "tipo": "nvarchar",
+    "longitud": 160,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Cilindros",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "RFC",
+    "tipo": "nchar",
+    "longitud": 20,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "GasNatural_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Codigo_actividad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": false,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Estatus_CNE",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Producto",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Capacidad",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Unidad_capacidad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Zona_geografica",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Longitud_sistema_km",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Cobertura",
+    "tipo": "nvarchar",
+    "longitud": -1,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Infraestructura_Hidrocarburos_autorizado",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "LigaPermiso",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "LigaResolucionOtorgamiento",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "LigasResoluciones",
+    "tipo": "nvarchar",
+    "longitud": -1,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "NumerosResolucion",
+    "tipo": "nvarchar",
+    "longitud": -1,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Ligas_Permisos_CNE",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Municipios",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Municipios",
+    "columna": "MunicipioID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 2,
+    "pk": true
+  },
+  {
+    "tabla": "Municipios",
+    "columna": "Municipio_Nombre",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Municipios",
+    "columna": "Municipio_Ext_Territorial",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Municipios",
+    "columna": "GerenciaID",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Municipios",
+    "columna": "Municipio_Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "NombrePozo",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "NombrePozoNorm",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Tipo_pozo",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Tipo_contractual",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": true,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Denominacion_titulo",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": true,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "NumeroTitulo",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Ambiente",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Entidad_fuente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Estatus_pozo",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Profundidad_vertical_m",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Profundidad_desarrollada_m",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Horizonte_geologico",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Inicio_perforacion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Fin_perforacion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Inicio_terminacion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Fin_terminacion",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Fecha_informe",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "UTM_X_conductor",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "UTM_Y_conductor",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "UTM_X_objetivo",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "UTM_Y_objetivo",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "UTM_zona",
+    "tipo": "tinyint",
+    "longitud": 1,
+    "nullable": true,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Metodo_ubicacion",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Fuente",
+    "tipo": "nvarchar",
+    "longitud": 800,
+    "nullable": true,
+    "orden": 35,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Fuente_URL",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 36,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Fecha_corte",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 37,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Autoridad",
+    "tipo": "nvarchar",
+    "longitud": 20,
+    "nullable": false,
+    "orden": 38,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Ley_aplicable",
+    "tipo": "nvarchar",
+    "longitud": 40,
+    "nullable": false,
+    "orden": 39,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 40,
+    "pk": false
+  },
+  {
+    "tabla": "Pozos_SENER",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 41,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Codigo_actividad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": false,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Estatus_CNE",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Modalidad",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": false,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Cobertura",
+    "tipo": "nvarchar",
+    "longitud": -1,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Suministro_Electrico_autorizado",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Codigo_actividad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": false,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Estatus_CNE",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Ambito",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Terceros_Acreditados_CNE",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Id",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": false,
+    "orden": 1,
+    "pk": true
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "NumeroPermiso",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 2,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "NumeroPermisoNorm",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": false,
+    "orden": 3,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Mercado",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 4,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Codigo_actividad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": false,
+    "orden": 5,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Tipo_permiso",
+    "tipo": "nvarchar",
+    "longitud": 300,
+    "nullable": false,
+    "orden": 6,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Raz\u00F3n_social",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 7,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "RFC",
+    "tipo": "nvarchar",
+    "longitud": 26,
+    "nullable": true,
+    "orden": 8,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Numero_de_Expediente",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 9,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "FechaOtorgamiento",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 10,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Inicio_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 11,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Termino_vigencia",
+    "tipo": "date",
+    "longitud": 3,
+    "nullable": true,
+    "orden": 12,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Estatus",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 13,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Estatus_CNE",
+    "tipo": "nvarchar",
+    "longitud": 200,
+    "nullable": true,
+    "orden": 14,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Estatus_instalacion",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": true,
+    "orden": 15,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "EF_ID",
+    "tipo": "nchar",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 16,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "MPO_ID",
+    "tipo": "nchar",
+    "longitud": 6,
+    "nullable": true,
+    "orden": 17,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Calle_num_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 18,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Colonia_ES",
+    "tipo": "nvarchar",
+    "longitud": 500,
+    "nullable": true,
+    "orden": 19,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Codigo_Postal",
+    "tipo": "nchar",
+    "longitud": 10,
+    "nullable": true,
+    "orden": 20,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Latitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 21,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Longitud_GEO",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 22,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Inversion_estimada",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 23,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Producto",
+    "tipo": "nvarchar",
+    "longitud": 100,
+    "nullable": false,
+    "orden": 24,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Medio_transporte",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": false,
+    "orden": 25,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Modalidad",
+    "tipo": "nvarchar",
+    "longitud": 120,
+    "nullable": true,
+    "orden": 26,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Capacidad",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 27,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Unidad_capacidad",
+    "tipo": "nvarchar",
+    "longitud": 60,
+    "nullable": true,
+    "orden": 28,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Numero_unidades",
+    "tipo": "int",
+    "longitud": 4,
+    "nullable": true,
+    "orden": 29,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Trayecto",
+    "tipo": "nvarchar",
+    "longitud": 2000,
+    "nullable": true,
+    "orden": 30,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Longitud_km",
+    "tipo": "float",
+    "longitud": 8,
+    "nullable": true,
+    "orden": 31,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Cobertura",
+    "tipo": "nvarchar",
+    "longitud": -1,
+    "nullable": true,
+    "orden": 32,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Comentarios",
+    "tipo": "nvarchar",
+    "longitud": 1000,
+    "nullable": true,
+    "orden": 33,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "FechaActualizacion",
+    "tipo": "datetime2",
+    "longitud": 6,
+    "nullable": false,
+    "orden": 34,
+    "pk": false
+  },
+  {
+    "tabla": "Transporte_autorizado",
+    "columna": "Mercados_autorizados",
+    "tipo": "nvarchar",
+    "longitud": 400,
+    "nullable": true,
+    "orden": 35,
+    "pk": false
+  }
+]
