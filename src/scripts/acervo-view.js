@@ -294,7 +294,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         category.prepend(iconNode(groupId));
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
         if ((law.siglas || '').length > 9) acronym.classList.add('is-long');
-        // The top of the card is a cover in the collection's color, with the acronym set large.
+        // The top of the card carries the collection (colored, with its icon) and the acronym set large.
         const cover = element('span', 'ac-card-cover');
         cover.setAttribute('aria-hidden', 'true');
         const cardTitle = element('span', 'ac-card-title', title);
