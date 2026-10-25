@@ -53,3 +53,10 @@ html.dark-mode .tl-view{--tl-bg:#161213;--tl-ink:#f3ece4;--tl-muted:#b3a89e;--tl
 /* Text in the authority colour is shaded so every authority reads well on the page (the dots keep the pure colour). */
 .tl-date,.tl-meta .tl-dep{color:color-mix(in srgb,var(--dep) 62%,#000)}
 html.dark-mode .tl-date,html.dark-mode .tl-meta .tl-dep{color:color-mix(in srgb,var(--dep) 50%,#fff)}
+/* Phones: the icon already sits beside the input in the flex row, so the global search padding
+   (made for inputs with an absolutely placed icon) is undone here; filters share the row width. */
+@media (max-width:640px){
+    html body .tl-search input{padding-left:0!important;padding-right:0!important}
+    .tl-search{flex-basis:100%}
+    .tl-group,.tl-order{flex:1 1 100%}
+}

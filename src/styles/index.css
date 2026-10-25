@@ -94,3 +94,15 @@
         grid-template-columns: repeat(6, minmax(4.5rem, 1fr));
     }
 }
+
+/* Phones: a narrow column justified opens wide gaps between words; prose aligns left there.
+   The legal text in the reader keeps its own justified setting (reader.css). */
+@media (max-width: 640px) {
+    #main-container p,
+    #main-container blockquote,
+    #analisis-container .nx-description,
+    #analisis-container .nx-relation > p,
+    #analisis-container .nx-sources blockquote {
+        text-align: start;
+    }
+}
