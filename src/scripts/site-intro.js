@@ -11,7 +11,7 @@ import '../styles/site-intro.css';
 const KEY = 'intro-dia';
 const FIGURES_KEY = 'intro-cifras';
 const NAME = 'Buscador Jurídico';
-const HOLD_MS = 2600;
+const HOLD_MS = 3400;
 const OPEN_MS = 800;
 const today = () => new Date().toISOString().slice(0, 10);
 
@@ -41,7 +41,7 @@ function countUp(layer, delay) {
     setTimeout(() => {
         const start = performance.now();
         const step = now => {
-            const t = Math.min(1, (now - start) / 700);
+            const t = Math.min(1, (now - start) / 900);
             const eased = 1 - (1 - t) ** 3;
             nodes.forEach(node => { node.textContent = fmt.format(Math.round(Number(node.dataset.to) * eased)); });
             if (t < 1 && layer.isConnected) requestAnimationFrame(step);
@@ -130,6 +130,6 @@ export function playIntro() {
         layer.querySelector('.si-skip').addEventListener('click', skip);
         document.addEventListener('keydown', onKey);
         requestAnimationFrame(() => layer.classList.add('is-playing'));
-        countUp(layer, 1650);
+        countUp(layer, 2450);
     });
 }
