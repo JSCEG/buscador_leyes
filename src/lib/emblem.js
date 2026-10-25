@@ -44,14 +44,22 @@ function reset(host) {
 }
 
 export function initEmblems() {
+    // Checked on every event, not just at start: the person can turn on reduced motion with the page open.
     const interactive = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-    if (!interactive.matches) return;
 
     let active = null;
     let frame = 0;
     let x = 0;
     let y = 0;
+    const stop = () => {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        reset(active);
+        active = null;
+    };
+    interactive.addEventListener('change', () => { if (!interactive.matches) stop(); });
     document.addEventListener('pointermove', event => {
+        if (!interactive.matches) return;
         const host = event.target instanceof Element ? event.target.closest('[data-emblem-host]') : null;
         if (host !== active) {
             reset(active);
@@ -63,6 +71,7 @@ export function initEmblems() {
         if (frame) return;
         frame = requestAnimationFrame(() => {
             frame = 0;
+            if (!interactive.matches) return;
             const object = active?.querySelector('[data-emblem-object]');
             if (!object) return;
             const rect = active.getBoundingClientRect();
@@ -72,10 +81,5 @@ export function initEmblems() {
             object.style.setProperty('--em-rx', `${-8 - dy * 10}deg`);
         });
     }, { passive: true });
-    document.documentElement.addEventListener('pointerleave', () => {
-        cancelAnimationFrame(frame);
-        frame = 0;
-        reset(active);
-        active = null;
-    });
+    document.documentElement.addEventListener('pointerleave', stop);
 }
