@@ -27,8 +27,9 @@ const band = 'radial-gradient(110% 90% at 100% 0%,#b8375f 0%,transparent 55%),ra
 const dots = 'radial-gradient(circle at 20% 30%,#ffffff26 0 1.6px,transparent 2px),radial-gradient(circle at 70% 60%,#ffffff1f 0 1.2px,transparent 1.6px)';
 // The "B" mark: a bar and a document page with a gold lens in its counter.
 const CREAM = '#faf6f0';
-const icon = (size, padding) => `<html><body style="margin:0"><div style="width:${size}px;height:${size}px;display:flex;align-items:center;justify-content:center;background:radial-gradient(90% 80% at 30% 20%,#fff 0%,${CREAM} 60%,#f1e8dc 100%)">
-  <div style="width:${size * (1 - padding * 2)}px;height:${size * (1 - padding * 2)}px">${brandMarkSvg({ cut: CREAM, lens: '#b8892f' })}</div></div></body></html>`;
+// App icon: the white mark with the gold lens on the guinda gradient of the section headers.
+const icon = (size, padding) => `<html><body style="margin:0"><div style="width:${size}px;height:${size}px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#ffffff1f 1.4px,transparent 1.8px) 0 0/28px 28px,radial-gradient(110% 110% at 100% 0%,#c0416a 0%,transparent 55%),linear-gradient(135deg,#7a1a38,#9b2247 60%,#6a1530)">
+  <div style="width:${size * (1 - padding * 2)}px;height:${size * (1 - padding * 2)}px">${brandMarkSvg({ color: '#fff', cut: '#8a1d40', lens: '#f2c97a' })}</div></div></body></html>`;
 
 // Share image (WhatsApp, Teams, LinkedIn…). Kept as a light JPEG: WhatsApp drops previews over ~300 KB.
 // Counts are the acervo at generation time; update ACERVO and rerun when it grows a lot.
@@ -71,10 +72,10 @@ const shot = async (html, w, h, file) => {
     await page.close();
     console.log('wrote', file);
 };
-await shot(icon(192, 0.18), 192, 192, 'icon-192.png');
-await shot(icon(512, 0.18), 512, 512, 'icon-512.png');
+await shot(icon(192, 0.2), 192, 192, 'icon-192.png');
+await shot(icon(512, 0.2), 512, 512, 'icon-512.png');
 await shot(icon(512, 0.26), 512, 512, 'icon-maskable-512.png');
-await shot(icon(180, 0.16), 180, 180, 'apple-touch-icon.png');
+await shot(icon(180, 0.2), 180, 180, 'apple-touch-icon.png');
 await shot(icon(64, 0.12), 64, 64, 'favicon-64.png');
 await shot(og, 1200, 630, 'og-buscador-juridico.jpg');
 // Mark for the web (white cuts read on any background) and lockups for email, PPTX and slides.

@@ -11,19 +11,19 @@
   "lang": "es-MX",
   "icons": [
     {
-      "src": "/img/icon-192.png",
+      "src": "/img/icon-192.png?v=2",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/img/icon-512.png",
+      "src": "/img/icon-512.png?v=2",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/img/icon-maskable-512.png",
+      "src": "/img/icon-maskable-512.png?v=2",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -40,7 +40,7 @@
       "url": "/#buscar",
       "icons": [
         {
-          "src": "/img/icon-192.png",
+          "src": "/img/icon-192.png?v=2",
           "sizes": "192x192"
         }
       ]
@@ -51,7 +51,7 @@
       "url": "/#acervo",
       "icons": [
         {
-          "src": "/img/icon-192.png",
+          "src": "/img/icon-192.png?v=2",
           "sizes": "192x192"
         }
       ]
@@ -62,7 +62,7 @@
       "url": "/#explorar",
       "icons": [
         {
-          "src": "/img/icon-192.png",
+          "src": "/img/icon-192.png?v=2",
           "sizes": "192x192"
         }
       ]
@@ -73,7 +73,7 @@
       "url": "/#permisos",
       "icons": [
         {
-          "src": "/img/icon-192.png",
+          "src": "/img/icon-192.png?v=2",
           "sizes": "192x192"
         }
       ]
