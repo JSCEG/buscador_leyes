@@ -1,0 +1,198 @@
+{
+  "pdf_sha256": "5043e1a11443c1b4c12ccc47d4bbc32e5dfe16d16ec1ba89f950e46bac6663ca",
+  "pdf_bytes": 4624025,
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=27102026-MAT.pdf&repo=",
+  "instrumentos": [
+    {
+      "siglas": "ASEA-DELEGACION-2026",
+      "fuente_html": "https://dof.gob.mx/nota_detalle.php?codigo=5802182&fecha=27/10/2026",
+      "paginas": [
+        23,
+        26
+      ],
+      "integridad_textual_html": true,
+      "caracteres_sin_espacios": 13429,
+      "parrafos_html_pdf_cotejados": 45,
+      "criterio_parrafos_pdf": "Texto alfanumérico normalizado completo, en orden; HTML íntegro preservado sin normalizar.",
+      "tablas": 0,
+      "celdas_cotejadas": 0,
+      "fragmentos": [
+        {
+          "id": "b7be860f-cf23-574e-b106-e95a511f815d",
+          "identificador": "Preámbulo",
+          "paginas": [
+            23
+          ],
+          "anclas": 21
+        },
+        {
+          "id": "248e46bc-76f7-542b-9676-aaa5303610e4",
+          "identificador": "Considerandos",
+          "paginas": [
+            23,
+            24,
+            25
+          ],
+          "anclas": 106
+        },
+        {
+          "id": "142f8bb8-fbc4-5f0f-bd20-f3ac8002c417",
+          "identificador": "PRIMERO",
+          "paginas": [
+            25
+          ],
+          "anclas": 6
+        },
+        {
+          "id": "c593df3b-4bf4-5af9-b336-1c06676746f1",
+          "identificador": "SEGUNDO",
+          "paginas": [
+            26
+          ],
+          "anclas": 4
+        },
+        {
+          "id": "0074f206-e3f3-5291-ac55-a4c03cb4c0b0",
+          "identificador": "TERCERO",
+          "paginas": [
+            26
+          ],
+          "anclas": 4
+        },
+        {
+          "id": "dbd9eefc-9627-5ad1-abed-f0507b03035e",
+          "identificador": "CUARTO",
+          "paginas": [
+            26
+          ],
+          "anclas": 4
+        },
+        {
+          "id": "11d39612-4e9a-5c0e-8101-e5ec64b8ad4a",
+          "identificador": "QUINTO",
+          "paginas": [
+            26
+          ],
+          "anclas": 7
+        },
+        {
+          "id": "2778c04d-ded6-59d1-a4f2-7af24cef28f4",
+          "identificador": "SEXTO",
+          "paginas": [
+            26
+          ],
+          "anclas": 6
+        },
+        {
+          "id": "caa7afd9-f291-5da2-b3e8-0f91c191a051",
+          "identificador": "SÉPTMO",
+          "paginas": [
+            26
+          ],
+          "anclas": 3
+        },
+        {
+          "id": "afda5074-18fc-57a0-bb08-68ade5f1649f",
+          "identificador": "OCTAVO",
+          "paginas": [
+            26
+          ],
+          "anclas": 5
+        },
+        {
+          "id": "de7aecf2-80e3-5731-9aea-25d53720a50e",
+          "identificador": "Transitorio ÚNICO",
+          "paginas": [
+            26
+          ],
+          "anclas": 6
+        }
+      ]
+    },
+    {
+      "siglas": "CNE-INICIO-CADUCIDAD-132-2026",
+      "fuente_html": "https://dof.gob.mx/nota_detalle.php?codigo=5802184&fecha=27/10/2026",
+      "paginas": [
+        27,
+        36
+      ],
+      "integridad_textual_html": true,
+      "caracteres_sin_espacios": 31514,
+      "parrafos_html_pdf_cotejados": 53,
+      "criterio_parrafos_pdf": "Texto alfanumérico normalizado completo, en orden; HTML íntegro preservado sin normalizar.",
+      "tablas": 1,
+      "filas_de_datos": 132,
+      "columnas": 5,
+      "celdas_cotejadas": 660,
+      "encabezados_cotejados": 5,
+      "cotejo_por_celda_html_pdf_sin_espacios": true,
+      "fragmentos": [
+        {
+          "id": "09b08def-cc2c-5c33-b17b-5999d0cc050e",
+          "identificador": "Preámbulo",
+          "paginas": [
+            27
+          ],
+          "anclas": 20
+        },
+        {
+          "id": "12534142-bc6f-54cb-8c9b-05e13c709f86",
+          "identificador": "Considerandos",
+          "paginas": [
+            27,
+            28,
+            29,
+            30
+          ],
+          "anclas": 178
+        },
+        {
+          "id": "fbe869f2-0cc9-5734-9e86-7f7595329ecf",
+          "identificador": "PRIMERO",
+          "paginas": [
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "anclas": 810
+        },
+        {
+          "id": "41c74c2e-69b7-5f58-a145-bdb1868185de",
+          "identificador": "SEGUNDO",
+          "paginas": [
+            35,
+            36
+          ],
+          "anclas": 14
+        },
+        {
+          "id": "430fef15-2677-5d2c-8c10-c8d8aef77cd4",
+          "identificador": "TERCERO",
+          "paginas": [
+            36
+          ],
+          "anclas": 5
+        },
+        {
+          "id": "b77e60ff-9c37-595c-8775-46bf4f18e0b3",
+          "identificador": "CUARTO",
+          "paginas": [
+            36
+          ],
+          "anclas": 6
+        },
+        {
+          "id": "dfff795b-8e52-5ba8-854a-4e13a5751212",
+          "identificador": "Transitorio ÚNICO",
+          "paginas": [
+            36
+          ],
+          "anclas": 4
+        }
+      ]
+    }
+  ]
+}
