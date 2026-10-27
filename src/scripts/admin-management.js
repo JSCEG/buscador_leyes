@@ -1,4 +1,5 @@
 import { getAllLeyesAdmin, updateLaw, deleteLaw } from './search-engine.js';
+import { escapeAdminHtml as esc, safeAdminUrl } from '../lib/admin-safety.js';
 
 export function initAdminManagement() {
     const tabIngest = document.getElementById('admin-tab-ingest');
@@ -52,33 +53,33 @@ export function initAdminManagement() {
         lawsList.innerHTML = laws.map(law => `
             <tr class="hover:bg-gray-50/50 transition-colors group">
                 <td class="px-6 py-4">
-                    <div class="font-bold text-gray-900 leading-tight mb-1">${law.titulo}</div>
+                    <div class="font-bold text-gray-900 leading-tight mb-1">${esc(law.titulo)}</div>
                     <div class="text-[10px] text-gray-400 flex items-center gap-2">
                         <span class="flex items-center gap-1">
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                            ${law.url_original ? `<a href="${law.url_original}" target="_blank" class="hover:text-guinda truncate max-w-[200px]">Ver en DOF</a>` : 'Sin enlace'}
+                            ${safeAdminUrl(law.url_original) ? `<a href="${esc(safeAdminUrl(law.url_original))}" target="_blank" rel="noopener noreferrer" class="hover:text-guinda truncate max-w-[200px]">Ver en DOF</a>` : 'Sin enlace'}
                         </span>
                         <span class="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <span>ID: ${law.id.substring(0, 8)}...</span>
+                        <span>ID: ${esc(law.id.substring(0, 8))}...</span>
                     </div>
                 </td>
                 <td class="px-4 py-4">
-                    <span class="px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-[10px] font-bold uppercase">${law.siglas || '—'}</span>
+                    <span class="px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-[10px] font-bold uppercase">${esc(law.siglas || '—')}</span>
                 </td>
                 <td class="px-4 py-4 text-center">
                     <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase ${getTypeBadgeClass(law.tipo)}">
-                        ${law.tipo || 'otros'}
+                        ${esc(law.tipo || 'otros')}
                     </span>
                 </td>
                 <td class="px-4 py-4 text-gray-500 font-mono text-[10px]">
-                    ${law.fecha_publicacion || 'N/D'}
+                    ${esc(law.fecha_publicacion || 'N/D')}
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button class="edit-btn p-1.5 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-lg transition-all" data-id="${law.id}" title="Editar">
+                    <div class="flex items-center justify-end gap-2">
+                        <button class="edit-btn p-2 text-gray-400 hover:text-guinda hover:bg-guinda/5 rounded-lg transition-all" data-id="${esc(law.id)}" title="Editar" aria-label="Editar instrumento">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                         </button>
-                        <button class="delete-btn p-1.5 text-gray-300 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all" data-id="${law.id}" title="Eliminar">
+                        <button class="delete-btn p-2 text-gray-300 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all" data-id="${esc(law.id)}" title="Eliminar" aria-label="Eliminar instrumento">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                         </button>
                     </div>
