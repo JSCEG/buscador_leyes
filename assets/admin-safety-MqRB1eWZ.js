@@ -1,0 +1,1 @@
+const e=r=>String(r??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t]);function n(r){try{const t=new URL(String(r));return["http:","https:"].includes(t.protocol)?t.href:""}catch{return""}}export{e,n as s};
