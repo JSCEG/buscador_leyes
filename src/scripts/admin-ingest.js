@@ -3,6 +3,7 @@ import { getAllLeyesAdmin, updateLaw, deleteLaw } from './search-engine.js';
 import { isAdmin } from './auth.js';
 import { loadPdfjs } from '../lib/pdfjs.js';
 import { parseRegulatoryText, reconstructPdfPages, validateRegulatoryChunks } from '../lib/regulatory-parser.js';
+import { escapeAdminHtml as esc, safeAdminUrl } from '../lib/admin-safety.js';
 
 let importedFile = null;
 let importedDofText = null;
@@ -115,7 +116,7 @@ function populateRelacionSelects(summaries) {
         .map(s => {
             const label = `${s.siglas ? s.siglas + ' — ' : ''}${s.titulo}`;
             const short = label.length > 95 ? label.slice(0, 95) + '…' : label;
-            return `<option value="${s.id}" title="${s.titulo.replace(/"/g, '&quot;')}">${short}</option>`;
+            return `<option value="${esc(s.id)}" title="${esc(s.titulo)}">${esc(short)}</option>`;
         })
         .join('');
     for (const id of ['admin-input-modifica', 'edit-law-modifica']) {
@@ -146,27 +147,28 @@ async function fetchAndRenderManageLaws() {
 
         listContainer.innerHTML = leyes.map(ley => {
             const date = ley.fecha_publicacion ? new Date(ley.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }) : '---';
+            const url = safeAdminUrl(ley.url_original);
             return `
                 <tr class="hover:bg-gray-50/80 transition-colors group">
                     <td class="px-6 py-4">
-                        <div class="font-bold text-gray-800 line-clamp-1" title="${ley.titulo}">${ley.titulo}</div>
-                        ${ley.url_original ? `<a href="${ley.url_original}" target="_blank" class="text-[10px] text-blue-600 hover:underline flex items-center gap-1 mt-0.5">
+                        <div class="font-bold text-gray-800 line-clamp-1" title="${esc(ley.titulo)}">${esc(ley.titulo)}</div>
+                        ${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-blue-600 hover:underline flex items-center gap-1 mt-0.5">
                             <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> Ver fuente
                         </a>` : ''}
                     </td>
-                    <td class="px-4 py-4 font-mono text-[11px] font-bold text-guinda">${ley.siglas || '---'}</td>
+                    <td class="px-4 py-4 font-mono text-[11px] font-bold text-guinda">${esc(ley.siglas || '---')}</td>
                     <td class="px-4 py-4 text-center">
                         <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest ${getTypeStyle(ley.tipo)}">
-                            ${ley.tipo || 'otros'}
+                            ${esc(ley.tipo || 'otros')}
                         </span>
                     </td>
                     <td class="px-4 py-4 text-gray-400 font-medium">${date}</td>
                     <td class="px-6 py-4 text-right">
-                        <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button class="admin-edit-btn p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition-all" data-id="${ley.id}" title="Editar">
+                        <div class="flex items-center justify-end gap-2">
+                            <button class="admin-edit-btn p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition-all" data-id="${esc(ley.id)}" title="Editar" aria-label="Editar instrumento">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                             </button>
-                            <button class="admin-delete-btn p-2 text-red-500 hover:bg-red-50 rounded-lg transition-all" data-id="${ley.id}" title="Eliminar">
+                            <button class="admin-delete-btn p-2 text-red-500 hover:bg-red-50 rounded-lg transition-all" data-id="${esc(ley.id)}" title="Eliminar" aria-label="Eliminar instrumento">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                             </button>
                         </div>
@@ -184,7 +186,7 @@ async function fetchAndRenderManageLaws() {
         });
 
     } catch (e) {
-        listContainer.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-red-500 font-bold">Error: ${e.message}</td></tr>`;
+        listContainer.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-red-500 font-bold">Error: ${esc(e.message)}</td></tr>`;
     }
 }
 
