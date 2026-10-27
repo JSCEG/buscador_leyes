@@ -1,7 +1,8 @@
 /**
  * Anonymous usage counters (see supabase/migrations/202610010001_uso.sql): one visit per browser
  * session, one visitor per browser, and each search and article read. Fire-and-forget; nothing
- * personal is sent, and the site works the same if the counters are unavailable.
+ * search terms are sent, and the site works the same if the counters are unavailable. The server
+ * uses a short-lived keyed digest of the network address to limit abusive counter requests.
  */
 import { supabase } from './supabase.js';
 
