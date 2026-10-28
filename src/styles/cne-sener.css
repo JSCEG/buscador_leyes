@@ -1,7 +1,7 @@
 /* «CNE y SENER» tab of the permits section (src/scripts/cne-sener-view.js). Uses the section's --pm-* colours. */
-.cs-view{display:grid;gap:14px;margin-top:18px;color:var(--pm-ink);font-family:'Noto Sans',sans-serif}
+.cs-view{display:grid;gap:14px;margin-top:18px;color:var(--pm-ink);font-family:var(--font-sans)}
 .cs-muted{color:var(--pm-muted);font-size:13px}
-.cs-badge{display:inline-block;margin:0 6px;padding:2px 7px;border-radius:999px;background:#a57f2c1f;color:#7a5c1b;font:700 10.5px/1.4 'Noto Sans',sans-serif;letter-spacing:.06em;vertical-align:middle;white-space:nowrap}
+.cs-badge{display:inline-block;margin:0 6px;padding:2px 7px;border-radius:999px;background:#a57f2c1f;color:#7a5c1b;font:700 10.5px/1.4 var(--font-sans);letter-spacing:.06em;vertical-align:middle;white-space:nowrap}
 html.dark-mode .cs-badge{background:#e0bd6d26;color:#e9cf8f}
 
 .cs-updates{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:13.5px;color:var(--pm-muted)}
@@ -16,7 +16,7 @@ html.dark-mode .cs-badge{background:#e0bd6d26;color:#e9cf8f}
 
 .cs-filters{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 14px;padding:14px 16px;border:1px solid var(--pm-border);border-radius:16px;background:var(--pm-card)}
 .cs-segment{display:flex;margin:0;padding:0;border:0}
-.cs-segment legend,.cs-field>span{display:block;margin-bottom:6px;font:700 11px/1 'Noto Sans',sans-serif;letter-spacing:.06em;color:var(--pm-muted)}
+.cs-segment legend,.cs-field>span{display:block;margin-bottom:6px;font:700 11px/1 var(--font-sans);letter-spacing:.06em;color:var(--pm-muted)}
 .cs-segment label{position:relative}
 .cs-segment input{position:absolute;opacity:0;inset:0;cursor:pointer}
 .cs-segment span{display:block;padding:9px 14px;border:1px solid var(--pm-border);background:var(--pm-soft);font-size:13.5px;font-weight:600}
@@ -27,40 +27,40 @@ html.dark-mode .cs-badge{background:#e0bd6d26;color:#e9cf8f}
 html.dark-mode .cs-segment input:checked+span{color:#2b2326}
 .cs-segment input:focus-visible+span{outline:2px solid var(--pm-accent);outline-offset:2px}
 .cs-field{display:flex;flex-direction:column;flex:1 1 170px;min-width:0}
-.cs-field select{width:100%;min-height:40px;padding:8px 10px;border:1px solid var(--pm-border);border-radius:10px;background:var(--pm-soft);color:var(--pm-ink);font:400 14px/1.3 'Noto Sans',sans-serif}
+.cs-field select{width:100%;min-height:40px;padding:8px 10px;border:1px solid var(--pm-border);border-radius:10px;background:var(--pm-soft);color:var(--pm-ink);font:400 14px/1.3 var(--font-sans)}
 
 .cs-summary{margin:0;min-height:20px;font-size:13.5px;color:var(--pm-muted)}
 .cs-summary strong{color:var(--pm-ink)}
 
 .cs-map-wrap{position:relative;border:1px solid var(--pm-border);border-radius:16px;overflow:hidden}
 .cs-map{height:min(62vh,560px);min-height:360px;background:#e9e5df}
-.cs-map-note{position:absolute;z-index:900;left:12px;right:12px;bottom:46px;margin:0 auto;max-width:560px;padding:10px 14px;border-radius:12px;background:#fffffff2;color:#2b2326;font-size:13px;line-height:1.45;box-shadow:0 8px 24px -12px #0006}
+.cs-map-note{position:absolute;z-index:900;left:12px;right:12px;bottom:46px;margin:0 auto;max-width:560px;padding:10px 14px;border-radius:12px;background:#fffffff2;color:var(--ink);font-size:13px;line-height:1.45;box-shadow:0 8px 24px -12px #0006}
 html.dark-mode .cs-map-note{background:#241d20f2;color:#f3ece4}
-.cs-legend{position:absolute;z-index:900;left:12px;bottom:12px;display:flex;flex-wrap:wrap;gap:6px 12px;padding:6px 10px;border-radius:10px;background:#ffffffe6;color:#2b2326;font-size:12px}
+.cs-legend{position:absolute;z-index:900;left:12px;bottom:12px;display:flex;flex-wrap:wrap;gap:6px 12px;padding:6px 10px;border-radius:10px;background:#ffffffe6;color:var(--ink);font-size:12px}
 html.dark-mode .cs-legend{background:#241d20e6;color:#f3ece4}
 .cs-legend i{display:inline-block;width:10px;height:10px;margin-right:5px;border:1.5px solid #fff;border-radius:50%;vertical-align:-1px}
 .cs-legend-scale b{display:inline-block;width:14px;height:10px;vertical-align:-1px}
 .cs-legend-scale b:first-of-type{margin-left:4px}
 .cs-legend-scale b:last-of-type{margin-right:4px}
 
-.cs-pop{display:grid;gap:4px;font-family:'Noto Sans',sans-serif}
+.cs-pop{display:grid;gap:4px;font-family:var(--font-sans)}
 .cs-pop p{margin:0}
-.cs-pop-kicker{font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--pm-muted,#6b6460)}
+.cs-pop-kicker{font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--pm-muted,var(--ink-muted))}
 .cs-pop-kicker .cs-badge{margin-left:0}
-.cs-pop-title{font:700 15px/1.3 Patria,Georgia,serif;color:#2b2326}
-.cs-pop-note{margin:0;padding:8px 10px;border-radius:10px;background:var(--pm-soft,#f7f3ee);font-size:12.5px;color:var(--pm-muted,#6b6460)}
+.cs-pop-title{font:700 15px/1.3 var(--font-display);color:var(--ink)}
+.cs-pop-note{margin:0;padding:8px 10px;border-radius:10px;background:var(--pm-soft,#f7f3ee);font-size:12.5px;color:var(--pm-muted,var(--ink-muted))}
 .cs-pop .cs-btn{justify-self:start;margin-top:4px}
 
-.cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:7px 14px;border:1px solid var(--pm-border,#ebe3d9);border-radius:999px;background:var(--pm-card,#fff);color:var(--pm-ink,#2b2326);font:600 13px/1.2 'Noto Sans',sans-serif;text-decoration:none;cursor:pointer}
-.cs-btn:hover:not(:disabled){border-color:var(--pm-accent,#9b2247)}
+.cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:7px 14px;border:1px solid var(--pm-border,var(--hairline));border-radius:999px;background:var(--pm-card,var(--surface-1));color:var(--pm-ink,var(--ink));font:600 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer}
+.cs-btn:hover:not(:disabled){border-color:var(--pm-accent,var(--brand))}
 .cs-btn:disabled{opacity:.45;cursor:default}
 .cs-btn-primary{background:var(--pm-accent);border-color:var(--pm-accent);color:#fff}
 html.dark-mode .cs-btn-primary{color:#2b2326}
-.cs-link{padding:0;border:0;background:none;color:var(--pm-accent);font:600 13.5px/1.3 'Noto Sans',sans-serif;text-align:left;cursor:pointer;overflow-wrap:anywhere}
+.cs-link{padding:0;border:0;background:none;color:var(--pm-accent);font:600 13.5px/1.3 var(--font-sans);text-align:left;cursor:pointer;overflow-wrap:anywhere}
 .cs-link:hover{text-decoration:underline}
 
 .cs-table{display:grid;gap:10px}
-.cs-table-head h2{margin:0;font:700 22px/1.2 Patria,Georgia,serif}
+.cs-table-head h2{margin:0;font:700 22px/1.2 var(--font-display)}
 .cs-table-head p{margin:4px 0 0}
 .cs-scroll{overflow-x:auto;border:1px solid var(--pm-border);border-radius:14px;background:var(--pm-card)}
 .cs-table table{width:100%;border-collapse:collapse;font-size:13.5px}
@@ -75,7 +75,7 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 .cs-detail::backdrop{background:#2b232673;backdrop-filter:blur(2px)}
 .cs-detail>div{display:grid;gap:14px;padding:22px 24px 24px}
 .cs-detail-head{position:relative;padding-right:40px}
-.cs-detail-head h2{margin:2px 0 0;font:700 24px/1.2 Patria,Georgia,serif;overflow-wrap:anywhere}
+.cs-detail-head h2{margin:2px 0 0;font:700 24px/1.2 var(--font-display);overflow-wrap:anywhere}
 .cs-detail-holder{margin:6px 0 0;font-size:15px}
 .cs-close{position:absolute;top:-6px;right:-8px;width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:var(--pm-muted);font-size:26px;line-height:1;cursor:pointer}
 .cs-close:hover{background:var(--pm-soft);color:var(--pm-ink)}
@@ -100,10 +100,10 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 #results-container .cs-table thead tr,html.dark-mode #results-container .cs-table thead tr{background:transparent!important;color:inherit!important}
 #results-container .cs-table th{background:var(--pm-soft)!important;color:var(--pm-muted)!important;text-transform:none!important;letter-spacing:0!important}
 /* Clusters: a round count in the colour of the section. */
-.cs-cluster{display:flex;align-items:center;justify-content:center;border:2px solid #fff;border-radius:50%;background:#7a5c1b;color:#fff;font:700 12px/1 'Noto Sans',sans-serif;box-shadow:0 4px 12px -4px #0008}
+.cs-cluster{display:flex;align-items:center;justify-content:center;border:2px solid #fff;border-radius:50%;background:#7a5c1b;color:#fff;font:700 12px/1 var(--font-sans);box-shadow:0 4px 12px -4px #0008}
 .cs-cluster.is-mixed{background:#5b4a3a}
-.cs-cluster.is-cne{background:#1e5b4f}
-.cs-map-note a{color:var(--pm-accent,#9b2247);font-weight:700}
+.cs-cluster.is-cne{background:var(--col-disposicion)}
+.cs-map-note a{color:var(--pm-accent,var(--brand));font-weight:700}
 /* Grid children and fieldsets keep their content's width unless told otherwise: let them shrink to the phone. */
 .cs-view>*{min-width:0}
 .cs-segment{min-width:0;min-inline-size:0}
@@ -140,11 +140,11 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 }
 
 /* «Qué publica la SENER»: each kind of title, how many there are and how the map shows it. */
-.cs-guide h2{margin:0 0 10px;font:700 20px/1.2 Patria,Georgia,serif}
+.cs-guide h2{margin:0 0 10px;font:700 20px/1.2 var(--font-display)}
 .cs-guide ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:0;padding:0;list-style:none}
 .cs-guide-item{display:flex;gap:10px;align-items:flex-start;width:100%;height:100%;padding:12px;border:1px solid var(--pm-border);border-radius:14px;background:var(--pm-card);color:var(--pm-ink);text-align:left;cursor:pointer;transition:border-color .15s,box-shadow .15s}
-.cs-guide-item:hover{border-color:var(--sec,#a57f2c)}
-.cs-guide-item.is-on{border-color:var(--sec,#a57f2c);box-shadow:inset 0 0 0 1px var(--sec,#a57f2c);background:color-mix(in srgb,var(--pm-card) 92%,#a57f2c)}
+.cs-guide-item:hover{border-color:var(--sec,var(--accent))}
+.cs-guide-item.is-on{border-color:var(--sec,var(--accent));box-shadow:inset 0 0 0 1px var(--sec,#a57f2c);background:color-mix(in srgb,var(--pm-card) 92%,var(--accent))}
 .cs-guide-item:focus-visible{outline:2px solid var(--pm-accent);outline-offset:2px}
 .cs-guide-item .pmm-pin{--sec:#a57f2c;margin-top:2px}
 .cs-guide-body{display:grid;gap:4px;min-width:0}

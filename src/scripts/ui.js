@@ -111,82 +111,28 @@ export function initUI() {
     let cneView = null;
     let closeAuthModal = () => {};
 
-    // ── Modo oscuro global ─────────────────────────────────────────────────────
-    let isDark = localStorage.getItem('app-dark-mode') === 'true';
+    // ── Tema global ────────────────────────────────────────────────────────────
+    // data-theme en <html> elige los tokens (light|dark|sepia|contraste); la clase
+    // dark-mode se conserva para las reglas oscuras de cada hoja de estilo.
+    const THEMES = ['light', 'dark', 'sepia', 'contraste'];
+    const storedTheme = localStorage.getItem('app-theme');
+    let isDark = THEMES.includes(storedTheme)
+        ? storedTheme === 'dark'
+        : localStorage.getItem('app-dark-mode') === 'true';
 
-    function applyGlobalDark(dark) {
+    function applyGlobalDark(dark, theme = dark ? 'dark' : 'light') {
         isDark = dark;
         localStorage.setItem('app-dark-mode', dark);
+        localStorage.setItem('app-theme', theme);
+        document.documentElement.dataset.theme = theme;
         document.documentElement.classList.toggle('dark-mode', dark);
 
-        // Ensure global dark styles exist
-        if (!document.getElementById('global-dark-style')) {
-            const s = document.createElement('style');
-            s.id = 'global-dark-style';
-            s.innerHTML = `
-                .dark-mode { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
-                .dark-mode body { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
-                .dark-mode header { background-color: rgba(30, 30, 30, 0.96) !important; border-bottom: 0 !important; backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(214, 180, 106, 0.22) !important; }
-                .dark-mode header::after { background: linear-gradient(90deg, #9B2247 0 58%, #A57F2C 58% 100%) !important; }
-                .dark-mode footer { background-color: #171717 !important; border-top: 1px solid rgba(214, 180, 106, 0.25) !important; }
-                
-                .dark-mode .bg-white, 
-                .dark-mode .bg-gray-50, 
-                .dark-mode .bg-gray-100, 
-                .dark-mode .bg-slate-50,
-                .dark-mode .bg-white\\/70,
-                .dark-mode .bg-white\\/80,
-                .dark-mode .bg-white\\/95,
-                .dark-mode .bg-gray-50\\/50,
-                .dark-mode .bg-white.rounded-3xl,
-                .dark-mode .atema-card,
-                .dark-mode #modal-panel { 
-                    background-color: #242424 !important; 
-                    color: #F4F6F8 !important; 
-                    border-color: rgba(229, 229, 229, 0.14) !important; 
-                }
-
-                .dark-mode .border-gray-100, 
-                .dark-mode .border-gray-200 { border-color: rgba(229, 229, 229, 0.14) !important; }
-                
-                .dark-mode table { border-collapse: separate; border-spacing: 0; width: 100%; }
-                .dark-mode thead tr { background-color: #7A1A38 !important; }
-                .dark-mode table thead th { 
-                    color: #FFFFFF !important; 
-                    border-bottom: 2px solid #A57F2C !important; 
-                    background-color: #7A1A38 !important;
-                    font-weight: 800 !important;
-                }
-                .dark-mode table tbody tr { border-bottom: 1px solid rgba(229, 229, 229, 0.10) !important; transition: all 0.2s; }
-                .dark-mode table tbody tr:hover { background-color: rgba(214, 180, 106, 0.06) !important; }
-                .dark-mode table td { color: rgba(244, 246, 248, 0.86) !important; border-right: 1px solid rgba(229, 229, 229, 0.06); }
-
-                .dark-mode #search-filters .bg-white { background-color: #242424 !important; border-color: rgba(214, 180, 106, 0.35) !important; }
-                .dark-mode #search-input { background-color: #242424 !important; border: 1px solid rgba(214, 180, 106, 0.5) !important; color: #F4F6F8 !important; box-shadow: 0 0 0 4px rgba(165, 127, 44, 0.08) !important; }
-                .dark-mode #search-input::placeholder { color: rgba(244, 246, 248, 0.45) !important; }
-                
-                .dark-mode mark { background-color: rgba(214, 180, 106, 0.24) !important; color: #F4F6F8 !important; border-bottom: 1px solid #D6B46A; }
-                .dark-mode .text-guinda { color: #D6B46A !important; text-shadow: none !important; }
-                .dark-mode .text-verde { color: #7FB1A6 !important; }
-                .dark-mode .text-dorado { color: #D6B46A !important; }
-                .dark-mode .bg-guinda { background-color: #9B2247 !important; }
-                
-                .dark-mode #detail-modal { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(12px); }
-                .dark-mode #modal-panel { border: 1px solid rgba(214, 180, 106, 0.22) !important; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38) !important; }
-                
-                .dark-mode #admin-dropzone { border-color: rgba(214, 180, 106, 0.35) !important; background-color: rgba(165, 127, 44, 0.08) !important; }
-                .dark-mode #admin-dropzone h3 { color: #D6B46A !important; }
-            `;
-            document.head.appendChild(s);
-        }
-
         // Update icons
-        const moonIcons = document.querySelectorAll('#darkmode-icon-moon, #mobile-darkmode-moon');
-        const sunIcons = document.querySelectorAll('#darkmode-icon-sun, #mobile-darkmode-sun');
-        const label = document.getElementById('mobile-darkmode-label');
-        moonIcons.forEach(el => el.classList.toggle('hidden', dark));
-        sunIcons.forEach(el => el.classList.toggle('hidden', !dark));
-        if (label) label.textContent = dark ? 'Modo claro' : 'Modo oscuro';
+        document.getElementById('darkmode-icon-moon')?.classList.toggle('hidden', dark);
+        document.getElementById('darkmode-icon-sun')?.classList.toggle('hidden', !dark);
+        document.querySelectorAll('[data-theme-choice]').forEach(option => {
+            option.setAttribute('aria-checked', String(option.dataset.themeChoice === theme));
+        });
     }
 
     // Mobile Menu Logic
@@ -234,10 +180,17 @@ export function initUI() {
 
 
     // Initialize dark mode from saved preference
-    applyGlobalDark(isDark);
+    applyGlobalDark(isDark, THEMES.includes(storedTheme) ? storedTheme : undefined);
 
     document.getElementById('darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
-    document.getElementById('mobile-darkmode-toggle')?.addEventListener('click', () => applyGlobalDark(!isDark));
+    // Theme selectors (drawer and reading preferences): light, dark, sepia or high contrast.
+    // Delegated, because the law reader renders its preferences after start-up.
+    document.addEventListener('click', event => {
+        const option = event.target.closest('[data-theme-choice]');
+        if (!option) return;
+        const theme = option.dataset.themeChoice;
+        applyGlobalDark(theme === 'dark', theme);
+    });
     // ── Fin Modo Oscuro ────────────────────────────────────────────────────────
 
     // Mobile Menu Logic
@@ -322,6 +275,8 @@ export function initUI() {
     let searchRenderRequest = 0;
     let currentLawArticles = [];
     let currentLawNoun = fragmentNoun(null);
+    // Collection and acronym of the open law: its article cards wear them like search results.
+    let currentLawCard = { group: 'otros', sigla: '' };
     let cachedRelaciones = [];           // filas de ley_relaciones
     let relacionesPorAfectada = {};      // ley_id afectada -> [relaciones]
 
@@ -678,17 +633,23 @@ export function initUI() {
     // El explorador local no necesita esperar a que termine la consulta del acervo.
     if (explorerRoute(location.hash) || acervoRoute(location.hash)) setTimeout(handleInitialHash, 0);
 
-    function showToast(message, icon = '✓', color = 'bg-gray-900') {
+    // Toast del sistema: sin emoji, un ícono de trazo según el tono ('!' avisa, lo demás confirma).
+    const TOAST_ICONS = {
+        alert: '<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5h.01"/>',
+        done: '<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9.5"/>',
+    };
+    function showToast(message, icon = '✓') {
         const existing = document.getElementById('app-toast');
         if (existing) existing.remove();
         const toast = document.createElement('div');
         toast.id = 'app-toast';
-        // Improved mobile positioning and premium styling
-        toast.className = `fixed bottom-12 md:bottom-24 left-1/2 z-[10000] flex items-center gap-3 px-6 py-3.5 ${color} text-white text-xs font-bold rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.25)] border border-white/10 backdrop-blur-md transition-all duration-500 opacity-0 pointer-events-none whitespace-nowrap`;
+        toast.setAttribute('role', 'status');
+        toast.className = 'fixed bottom-12 md:bottom-24 left-1/2 z-[10000] flex items-center gap-3 px-5 py-3 transition-all duration-500 opacity-0 pointer-events-none whitespace-nowrap';
         toast.style.transform = 'translateX(-50%) scale(0.95)';
         toast.style.left = '50%';
-        
-        toast.innerHTML = `<span class="flex-shrink-0 text-base">${icon}</span><span>${message}</span>`;
+
+        const tone = icon === '!' || icon === '🔐' ? 'alert' : 'done';
+        toast.innerHTML = `<svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">${TOAST_ICONS[tone]}</svg><span>${message}</span>`;
         document.body.appendChild(toast);
         
         // Use timeout to ensure DOM insertion before animation
@@ -854,20 +815,9 @@ export function initUI() {
         NAV_IDS.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
-            const isActive = id === activeId || id === 'mobile-' + activeId;
-            
-            // Premium active state
-            if (isActive) {
-                el.classList.add('text-guinda', 'font-bold');
-                el.classList.remove('text-gray-500');
-                el.setAttribute('aria-current', 'page');
-            } else {
-                el.removeAttribute('aria-current');
-                el.classList.remove('text-guinda', 'font-bold');
-                el.classList.add('text-gray-500');
-                el.style.borderBottom = 'none';
-                el.style.paddingBottom = '0';
-            }
+            // The look of the current section comes from aria-current (chrome.css).
+            if (id === activeId || id === 'mobile-' + activeId) el.setAttribute('aria-current', 'page');
+            else el.removeAttribute('aria-current');
         });
         document.querySelectorAll('#bottom-nav [data-nav]').forEach(button => {
             if (button.dataset.nav === activeId) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
@@ -907,8 +857,9 @@ export function initUI() {
         ];
         const bar = document.createElement('nav');
         bar.id = 'bottom-nav';
+        bar.className = 'bj-bottomnav';
         bar.setAttribute('aria-label', 'Navegación principal');
-        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg><span>${label}</span></button>`).join('');
+        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" class="bj-bottomnav__item" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg class="bj-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24">${path}</svg><span>${label}</span></button>`).join('');
         document.body.append(bar);
         document.body.classList.add('has-bottom-nav');
         bar.addEventListener('click', event => {
@@ -1161,6 +1112,7 @@ export function initUI() {
         const judgment = isJudgment(law);
         const noun = fragmentNoun(law);
         currentLawNoun = noun;
+        currentLawCard = { group: lawGroup, sigla: law.siglas || '' };
         const caseFile = judgment ? judgmentCase(law) : null;
         const resolutivosCount = judgment ? currentLawArticles.filter(a => indexLabel(a).kind === 'resolutivo').length : 0;
         const { effects: effectsSection, resolutions: resolutionsSection } = judgment ? judgmentEffectsSections(currentLawArticles) : {};
@@ -2040,18 +1992,19 @@ export function initUI() {
                     : `<svg class="w-3.5 h-3.5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>`);
             const isSelected = compareSelection.includes(item.id);
 
+            const path = [item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ');
+            // Same anatomy as a search result (search.css .sr-item): collection stripe, acronym, display title.
             return `
-            <div class="relative bg-white border ${isSelected ? 'border-guinda/30' : 'border-gray-100'} rounded-lg p-5 hover:shadow-md transition-shadow cursor-pointer result-item${relatedLabel ? ' related-document-card' : ''}${isGuide(item) ? ' guide-card' : ''}" data-id="${item.id}">
+            <div class="relative result-item lr-art${isSelected ? ' is-selected' : ''}${relatedLabel ? ' related-document-card' : ''}${isGuide(item) ? ' guide-card' : ''}" data-id="${item.id}" data-category="${currentLawCard.group}">
                 ${relatedLabel ? `<div class="related-document-badge-row"><span class="related-document-badge">${relatedLabel}</span></div>` : ''}
                 ${isGuide(item) ? '<div class="related-document-badge-row"><span class="guide-badge">Guía de consulta · no es texto oficial</span></div>' : ''}
-                <div class="flex items-center justify-between mb-2">
-                    <span class="lr-card-label text-xs font-bold text-gray-700 flex items-center gap-1.5">
-                        ${item.articulo_label}
-                        ${hasNote ? '<span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" title="Tiene nota"></span>' : ''}
-                    </span>
-                    <span class="text-[10px] text-gray-500 font-medium text-right ml-2 line-clamp-2">${[item.titulo_nombre, item.capitulo_nombre].filter(Boolean).join(' · ')}</span>
+                <div class="lr-art-top">
+                    ${currentLawCard.sigla ? `<span class="lr-art-sigla">${escapeHtml(currentLawCard.sigla)}</span>` : ''}
+                    ${path ? `<span class="lr-art-path" title="${escapeHtml(path)}">${escapeHtml(path)}</span>` : ''}
+                    ${hasNote ? '<span class="lr-art-note" title="Tiene nota">Nota</span>' : ''}
                 </div>
-                ${tablePreview ? `<div class="reader-preview lr-card-preview text-gray-600">${highlightHtml(tablePreview.html, highlightQuery)}</div>` : `<p class="reader-preview text-gray-600">${highlightedText}</p>`}${longText ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
+                <h3 class="lr-art-title"><span class="lr-card-label">${item.articulo_label}</span></h3>
+                ${tablePreview ? `<div class="reader-preview lr-card-preview">${highlightHtml(tablePreview.html, highlightQuery)}</div>` : `<p class="reader-preview">${highlightedText}</p>`}${longText ? '<span class="lr-read-more">Seguir leyendo →</span>' : ''}
                 <div class="lr-card-actions">
                     ${pinButtonHtml(item.id)}
                     <button type="button" class="compare-card-btn lr-card-action${isSelected ? ' is-on' : ''}" data-id="${item.id}" aria-pressed="${isSelected}" ${!isSelected && compareSelection.length >= 2 ? 'disabled title="Ya elegiste dos artículos para comparar"' : 'title="Compara este artículo con otro, lado a lado"'}>
@@ -2153,6 +2106,26 @@ export function initUI() {
         return escapeHtml(text.slice(0, idx))
             + `<mark class="bg-guinda/10 text-guinda font-semibold not-italic">${escapeHtml(text.slice(idx, idx + query.length))}</mark>`
             + escapeHtml(text.slice(idx + query.length));
+    }
+
+    // ArticleReader: a paragraph that opens with a roman fraction ("I. ...") becomes a row with the
+    // numeral in its own mono column. Works on plain-text and reviewed-HTML articles alike.
+    const FRACTION = /^\s*([IVXL]{1,7})\.\s+/;
+    function decorateFractions(root) {
+        root?.querySelectorAll('p').forEach(p => {
+            const first = p.firstChild;
+            if (first?.nodeType !== Node.TEXT_NODE || p.closest('table')) return;
+            const match = first.textContent.match(FRACTION);
+            if (!match) return;
+            first.textContent = first.textContent.slice(match[0].length);
+            const body = document.createElement('span');
+            body.append(...p.childNodes);
+            const numeral = document.createElement('span');
+            numeral.className = 'bj-frac__n';
+            numeral.textContent = match[1];
+            p.className = 'bj-frac';
+            p.append(numeral, body);
+        });
     }
 
     function escapeHtml(str) {
@@ -3203,6 +3176,19 @@ export function initUI() {
 
         modalLey.textContent = item.ley_origen;
         modalTitle.textContent = item.articulo_label;
+        // ArticleReader head: acronym beside the law, publication under the number.
+        const modalLaw = cachedSummaries.find(l => String(l.id) === String(item.ley_id));
+        const modalSigla = document.getElementById('modal-sigla');
+        const modalPublished = document.getElementById('modal-published');
+        const sigla = item.siglas_ley || modalLaw?.siglas || '';
+        if (modalSigla) { modalSigla.textContent = sigla; modalSigla.hidden = !sigla; }
+        const published = item.fecha_publicacion || modalLaw?.fecha_publicacion;
+        const publishedDate = published ? new Date(`${String(published).slice(0, 10)}T12:00:00`) : null;
+        if (modalPublished) {
+            const valid = publishedDate && !Number.isNaN(publishedDate.getTime());
+            modalPublished.textContent = valid ? `Publicada en el DOF el ${publishedDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}` : '';
+            modalPublished.hidden = !valid;
+        }
         const relatedLabel = relatedDocumentLabel(item);
         const relatedNotice = document.getElementById('reader-related-notice');
         relatedNotice.hidden = !relatedLabel;
@@ -3277,6 +3263,7 @@ export function initUI() {
         `;
         // Defined terms of the instrument show their official definition on hover or tap.
         const readerText = modalContent.querySelector('.reader-text');
+        decorateFractions(readerText);
         markScrollableTables(readerText);
         decorateDefinitions(readerText, {
             law: cachedSummaries.find(l => String(l.id) === String(item.ley_id))
@@ -3317,6 +3304,8 @@ export function initUI() {
                 if (currentIndex < total - 1) openDetail(currentModalList[currentIndex + 1].id);
             };
         }
+        const progress = document.getElementById('modal-progress');
+        if (progress) progress.style.width = currentIndex >= 0 && total ? `${Math.round((currentIndex + 1) / total * 100)}%` : '0%';
         if (navCounter) {
             navCounter.textContent = currentIndex >= 0 ? `${currentIndex + 1} de ${total}` : '';
         }

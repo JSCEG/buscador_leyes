@@ -1,8 +1,12 @@
+@import './design/variables.css';
+@import './design/dark-balance.css';
 @import './base-theme.css';
 @import './mobile-responsive.css';
 @import './sener-institutional.css';
 @import './polish.css';
 @import './article-tables.css';
+@import './design/legacy-dark.css';
+@import './design/chrome.css';
 
 @tailwind base;
 @tailwind components;

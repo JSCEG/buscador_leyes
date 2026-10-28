@@ -32,7 +32,7 @@ export async function renderSearchLanding(host, { summaries = [], history = [], 
         <section class="sl-card" aria-labelledby="sl-terms">
             <header><span class="sl-ico">${ICON.terms}</span><h2 id="sl-terms">Términos clave del acervo</h2></header>
             <p class="sl-note">Los más usados en leyes, reglamentos y acuerdos.</p>
-            <div class="sl-chips">${top.map(t => `<button type="button" class="sl-chip" data-sl-search="${esc(t.label)}" style="--c:${SECTORS[t.sector]?.color || '#9b2247'}">${esc(t.label)}</button>`).join('') || '<span class="sl-note">Sin datos todavía.</span>'}</div>
+            <div class="sl-chips">${top.map(t => `<button type="button" class="sl-chip" data-sl-search="${esc(t.label)}" style="--c:${SECTORS[t.sector]?.color || 'var(--brand)'}">${esc(t.label)}</button>`).join('') || '<span class="sl-note">Sin datos todavía.</span>'}</div>
             <button type="button" class="sl-link" data-sl-terms>Ver el mapa de términos →</button>
         </section>
         <section class="sl-card" aria-labelledby="sl-latest">

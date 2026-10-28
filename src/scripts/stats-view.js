@@ -15,7 +15,7 @@ const collator = new Intl.Collator('es', { sensitivity: 'base', numeric: true })
 function kpi(label, value, note, accent) {
     return `<div class="st-kpi" style="--st-accent:${accent}">
         <p class="st-kpi-label">${label}</p>
-        <p class="st-kpi-value">${value}</p>
+        <p class="st-kpi-value${/\d/.test(value) ? '' : ' is-word'}">${value}</p>
         <p class="st-kpi-note">${note}</p>
     </div>`;
 }

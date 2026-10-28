@@ -48,26 +48,6 @@
         font-size: 0.85rem !important;
     }
 
-    /* ── Global search wrapper ───────────────────────────── */
-
-    #global-search-wrapper {
-        /* Let it breathe on small screens */
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    /* Search input: full width, comfortable tap target */
-    #search-input,
-    input[type="search"],
-    input[type="text"][id*="search"] {
-        font-size: 1rem !important;       /* Prevent iOS zoom (< 16 px triggers zoom) */
-        padding-top: 0.75rem !important;
-        padding-bottom: 0.75rem !important;
-        padding-left: 3rem;
-        padding-right: 3rem !important;
-        border-radius: 1rem;
-    }
-
     /* Autocomplete dropdown: full width, constrained height */
     #autocomplete-results {
         max-height: 55vh;
@@ -212,13 +192,6 @@
         line-height: 1.3 !important;
     }
 
-    /* ── Mobile menu drawer ──────────────────────────────── */
-
-    #mobile-menu-drawer {
-        width: 80vw;
-        max-width: 17rem;
-    }
-
     /* ── Toast notifications ─────────────────────────────── */
     [id*="toast"] {
         max-width: 90vw !important;
@@ -251,8 +224,3 @@
     }
 }
 
-/* Phones: the header loses the desktop breathing room above the logo (it was 107px tall, half of it empty). */
-@media (max-width: 640px) {
-    html body > header { padding-top: 3px !important; }
-    html body > header > div { padding-top: .75rem !important; padding-bottom: .75rem !important; }
-}

@@ -206,7 +206,8 @@ it('reads a real structured instrument, shares preferences, switches source lazi
     const next = document.getElementById('modal-next-btn');
     expect(next.disabled).toBe(false);
     expect(next.getAttribute('aria-label')).toBe(`Siguiente: ${nextArticle.articulo_label}`);
-    expect(document.getElementById('modal-nav-controls').nextElementSibling.classList.contains('reader-toolbar')).toBe(true);
+    // ArticleReader: previous/next sit at the foot of the reader, right after the text.
+    expect(document.getElementById('modal-nav-controls').previousElementSibling.id).toBe('reader-body');
     expect(document.getElementById('modal-nav-counter').textContent).toMatch(/de 6$/);
     next.click();
     await vi.advanceTimersByTimeAsync(25);

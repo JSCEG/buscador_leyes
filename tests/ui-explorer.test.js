@@ -39,9 +39,13 @@ it('restores explorer routes and article return context without adding history w
     // One click must change the theme once; duplicate listeners used to undo it.
     document.getElementById('darkmode-toggle').click();
     expect(document.documentElement.classList.contains('dark-mode')).toBe(true);
-    document.getElementById('mobile-darkmode-toggle').click();
+    document.querySelector('#mobile-menu-drawer [data-theme-choice="light"]').click();
     expect(document.documentElement.classList.contains('dark-mode')).toBe(false);
     expect(localStorage.getItem('app-dark-mode')).toBe('false');
+    document.querySelector('#mobile-menu-drawer [data-theme-choice="sepia"]').click();
+    expect(document.documentElement.dataset.theme).toBe('sepia');
+    expect(document.querySelector('[data-theme-choice="sepia"]').getAttribute('aria-checked')).toBe('true');
+    expect(document.documentElement.classList.contains('dark-mode')).toBe(false);
 
     const container = document.getElementById('analisis-container');
     expect(container.classList.contains('hidden')).toBe(false);

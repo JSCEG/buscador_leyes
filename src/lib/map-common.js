@@ -5,13 +5,11 @@
  */
 import { infraIcon } from './infra-icons.js';
 
-/** Base maps. Default: Esri streets (labelled at every zoom); dark mode uses Esri's dark canvas. */
+/** Base maps. Default: OpenStreetMap drawn in neutral gray (inverted in dark mode, see permits-map.css),
+ * so the CENACE voltage colours never compete with orange roads. Esri's gray canvas stopped answering
+ * and CARTO now asks for an API key. */
 const BASES = {
-    mapa: L => {
-        const esri = (name, zIndex, native = 16) => L.tileLayer(`https://server.arcgisonline.com/ArcGIS/rest/services/${name}/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 19, maxNativeZoom: native, zIndex, attribution: 'Tiles &copy; Esri' });
-        if (!document.documentElement.classList.contains('dark-mode')) return esri('World_Street_Map', 1, 18);
-        return L.layerGroup([esri('Canvas/World_Dark_Gray_Base', 1), esri('Canvas/World_Dark_Gray_Reference', 2)]);
-    },
+    mapa: L => L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, className: 'map-tiles-neutral', attribution: '&copy; OpenStreetMap' }),
     claro: L => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/terrain-light_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Terrain Light &copy; EOX · &copy; OpenStreetMap' }),
     calles: L => L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }),
     satelite: L => L.tileLayer('https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Sentinel-2 cloudless &copy; EOX' }),
@@ -65,16 +63,23 @@ export function baseLayers(L, map, { onFallback = () => {} } = {}) {
 
 // Network layers (scripts/build-map-networks.mjs builds the files under public/mapa/).
 export const NETWORKS = [
-    { key: 'transmision', file: 'red-transmision.json', label: 'Líneas de transmisión', short: '69 kV o más · OpenStreetMap', swatch: '#c0392b' },
+    { key: 'transmision', file: 'red-transmision.json', label: 'Líneas de transmisión', short: '69 kV o más · OpenStreetMap', get swatch() { return KV_CLASSES[1].color; } },
     { key: 'gasoductos', file: 'gasoductos.json', label: 'Gasoductos', short: 'OpenStreetMap · incompleto', swatch: '#2f6690', color: '#2f6690', dash: '6 4' },
     { key: 'petroliferos', file: 'ductos-petroliferos.json', label: 'Ductos de petrolíferos', short: 'CNH · trazo aproximado', swatch: '#86671d', color: '#86671d', dash: '2 4' },
 ];
+/** A design token's current value; Leaflet paints SVG attributes, which cannot read var(). */
+const cssToken = (name, fallback) => {
+    try { return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback; }
+    catch { return fallback; }
+};
+// CENACE voltage colour code (tokens --map-kv*). Read on use, so a theme switch repaints in its colours.
+const kv = (min, token, fallback, weight, label) => ({ min, token, weight, label, get color() { return cssToken(token, fallback); } });
 export const KV_CLASSES = [
-    { min: 400, color: '#6c2a8f', weight: 2.6, label: '400 kV' },
-    { min: 230, color: '#c0392b', weight: 2.1, label: '230 kV' },
-    // Teal and gray, not orange or yellow: those are the roads of the base map.
-    { min: 115, color: '#0e7c86', weight: 1.6, label: '115–161 kV' },
-    { min: 69, color: '#6f6a66', weight: 1.2, label: '69–115 kV' },
+    kv(400, '--map-kv400', '#0000ff', 2.6, '400 kV'),
+    kv(230, '--map-kv230', '#ff6600', 2, '230 kV'),
+    kv(138, '--map-kv161', '#008000', 1.6, '138 a 161 kV'),
+    kv(69, '--map-kv115', '#ff00ff', 1.3, '69 a 115 kV'),
+    kv(0, '--map-kv34', '#000000', 1, '34.5 kV o menor'),
 ];
 export const kvClass = kv => KV_CLASSES.find(c => kv >= c.min) || KV_CLASSES[KV_CLASSES.length - 1];
 
