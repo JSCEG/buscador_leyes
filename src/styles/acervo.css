@@ -535,3 +535,6 @@ html body .ac-library .ac-tiles>li:not(.is-featured):last-child{grid-column:auto
 /* Al pasar el cursor el botón se rellena con el color de la colección: la flecha toma el color del texto
    (blanco en claro, carbón en oscuro) para no perderse sobre el relleno. */
 html body .ac-library .ac-card:hover .ac-card-action>span,html body .ac-library .ac-card:focus-visible .ac-card-action>span{color:inherit}
+/* Insignia «Nuevo» (BadgeSet) dentro del antetítulo de las promociones: en línea, sin el punto que ya sobra. */
+html body .ac-library .ac-map-promo-eyebrow .bj-new{display:inline-flex!important;width:auto;margin-right:8px;vertical-align:1px}
+.ac-library .ac-map-promo-eyebrow:has(.bj-new)::before{display:none}
