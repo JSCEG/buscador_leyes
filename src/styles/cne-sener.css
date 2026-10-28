@@ -48,7 +48,7 @@ html.dark-mode .cs-legend{background:#241d20e6;color:#f3ece4}
 .cs-pop-kicker{font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--pm-muted,var(--ink-muted))}
 .cs-pop-kicker .cs-badge{margin-left:0}
 .cs-pop-title{font:700 15px/1.3 var(--font-display);color:var(--ink)}
-.cs-pop-note{margin:0;padding:8px 10px;border-radius:10px;background:var(--pm-soft,#f7f3ee);font-size:12.5px;color:var(--pm-muted,var(--ink-muted))}
+.cs-pop-note{margin:0;padding:8px 10px;border-radius:10px;background:var(--pm-soft,var(--surface-2));font-size:12.5px;color:var(--pm-muted,var(--ink-muted))}
 .cs-pop .cs-btn{justify-self:start;margin-top:4px}
 
 .cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:7px 14px;border:1px solid var(--pm-border,var(--hairline));border-radius:999px;background:var(--pm-card,var(--surface-1));color:var(--pm-ink,var(--ink));font:600 13px/1.2 var(--font-sans);text-decoration:none;cursor:pointer}

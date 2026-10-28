@@ -1,5 +1,5 @@
 /* Reto Jurídico (#reto) */
-.rt-view{--rt-ink:var(--ink);--rt-muted:var(--ink-muted);--rt-card:var(--surface-1);--rt-border:var(--hairline);--rt-soft:#f7f3ee;--rt-accent:var(--brand);--rt-ok:#1b7a47;--rt-ok-bg:var(--success-soft);--rt-bad:#b42339;--rt-bad-bg:var(--danger-soft);width:100%;max-width:820px;margin:0 auto;padding:0 0 48px}
+.rt-view{--rt-ink:var(--ink);--rt-muted:var(--ink-muted);--rt-card:var(--surface-1);--rt-border:var(--hairline);--rt-soft:var(--surface-2);--rt-accent:var(--brand);--rt-ok:#1b7a47;--rt-ok-bg:var(--success-soft);--rt-bad:#b42339;--rt-bad-bg:var(--danger-soft);width:100%;max-width:820px;margin:0 auto;padding:0 0 48px}
 html.dark-mode .rt-view{--rt-ink:#f3ece4;--rt-muted:#b3a89e;--rt-card:#211b1d;--rt-border:#3a3034;--rt-soft:#2a2225;--rt-accent:#eeb0c2;--rt-ok:#8fdcb0;--rt-ok-bg:#183527;--rt-bad:#f3a1ae;--rt-bad-bg:#3d1c22}
 .rt-head{position:relative;overflow:hidden;padding:26px 28px;border-radius:20px;color:#fff;background:radial-gradient(70% 120% at 100% 0%,#d0a94e55 0%,transparent 60%),radial-gradient(60% 90% at 0% 100%,#c2416a66 0%,transparent 60%),linear-gradient(135deg,var(--guinda-700),var(--guinda-500));box-shadow:0 18px 40px -24px #6d1631aa}
 .rt-eyebrow{margin:0 0 6px;font:700 12px/1 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:#f6d9a8}
