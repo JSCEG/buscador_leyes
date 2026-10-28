@@ -532,3 +532,6 @@ html body .ac-library .ac-tiles{margin-bottom:34px}
 html body .ac-library .ac-card:not(.has-name) .ac-card-title{font:600 19px/24px var(--font-display)!important;color:var(--ink)!important}
 html body .ac-library .ac-card .ac-card-cover .ac-card-category{text-transform:capitalize!important}
 html body .ac-library .ac-tiles>li:not(.is-featured):last-child{grid-column:auto!important}
+/* Al pasar el cursor el botón se rellena con el color de la colección: la flecha toma el color del texto
+   (blanco en claro, carbón en oscuro) para no perderse sobre el relleno. */
+html body .ac-library .ac-card:hover .ac-card-action>span,html body .ac-library .ac-card:focus-visible .ac-card-action>span{color:inherit}

@@ -1,0 +1,73 @@
+/* Componentes del sistema de diseño aplicados sobre el marcado actual de la app (sin cambiar ids ni
+ * clases): Dialog, Tooltip, ConnectionBanner, Toc, Breadcrumb, Button, Timeline, Pagination,
+ * DataTable y Accordion. Valores solo de tokens. */
+
+/* ── Dialog (comentario, términos, privacidad) ─────────── */
+#site-dialog { background: var(--scrim) !important; }
+#site-dialog .sd-panel { border-radius: var(--radius-xl) !important; background: var(--surface-1) !important; color: var(--ink) !important; border: 1px solid var(--hairline); box-shadow: var(--shadow-lg) !important; }
+#site-dialog h2 { font: 500 24px/30px var(--font-display) !important; color: var(--ink) !important; }
+#site-dialog .sd-body { color: var(--ink-2) !important; }
+#site-dialog :is(h2, legend, fieldset label, .sd-field, .sd-thanks) { color: var(--ink) !important; }
+#site-dialog .sd-x { width: 36px; height: 36px; border-color: var(--hairline) !important; background: transparent !important; color: var(--ink-2) !important; }
+#site-dialog .sd-x:hover { background: var(--surface-2) !important; color: var(--ink) !important; }
+#site-dialog :is(textarea, input[type=email]) { min-height: var(--touch); border: 1px solid var(--border) !important; border-radius: var(--radius-md) !important; background: var(--surface-1) !important; color: var(--ink) !important; }
+#site-dialog :is(textarea, input):focus { outline: none !important; border-color: var(--border-strong) !important; box-shadow: 0 0 0 3px var(--highlight); }
+#site-dialog :is(.sd-primary, .sd-secondary) { min-height: 40px; border-radius: var(--radius-md) !important; }
+#site-dialog .sd-primary { background: var(--brand) !important; color: var(--on-brand) !important; }
+#site-dialog .sd-primary:hover { background: var(--brand-hover) !important; }
+#site-dialog .sd-secondary { border-color: var(--border) !important; background: var(--surface-1) !important; color: var(--ink) !important; }
+#site-dialog button:focus-visible { outline: 2px solid var(--focus) !important; }
+
+/* ── Tooltip (ayuda sobre fichas) ──────────────────────── */
+#card-tip { border-radius: var(--radius-sm) !important; background: var(--surface-inverse) !important; color: var(--ink-inverse) !important; font: 500 12px/16px var(--font-sans) !important; box-shadow: var(--shadow-md) !important; }
+html.dark-mode #card-tip { background: var(--surface-inverse) !important; color: var(--ink-inverse) !important; }
+
+/* ── ConnectionBanner ──────────────────────────────────── */
+#net-banner { border-radius: var(--radius-lg) !important; font: 500 14px/20px var(--font-sans) !important; box-shadow: var(--shadow-lg); border: 0 !important; }
+#net-banner[data-kind=off] { background: var(--surface-inverse) !important; color: var(--ink-inverse) !important; box-shadow: inset 3px 0 0 var(--warning), var(--shadow-lg); }
+#net-banner[data-kind=on] { background: var(--success) !important; color: var(--surface-1) !important; }
+
+/* ── Toc: índice lateral de la ley ─────────────────────── */
+.lr-outline { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--surface-sunken); }
+html body .lr-outline .lr-outline-title { padding: 0 10px 6px; font: 700 11px/16px var(--font-sans) !important; font-family: var(--font-sans) !important; letter-spacing: .14em !important; color: var(--ink-muted) !important; }
+.lr-outline-item { border-radius: var(--radius-sm) !important; color: var(--ink-2) !important; }
+.lr-outline-item strong { font: 600 11.5px/16px var(--font-mono) !important; letter-spacing: 0 !important; color: var(--ink-muted) !important; }
+.lr-outline-item span { font: 500 13px/18px var(--font-sans); }
+.lr-outline-item:hover { background: var(--surface-1) !important; }
+.lr-outline-item.is-active { background: var(--surface-1) !important; box-shadow: inset 2px 0 0 var(--brand) !important; }
+.lr-outline-item.is-active strong { color: var(--brand) !important; }
+.lr-outline-item.is-active span { color: var(--ink) !important; }
+
+/* ── Breadcrumb (cabecera de ley: va sobre la banda) ───── */
+.lr-crumbs { gap: 6px !important; font: 500 13px/18px var(--font-sans) !important; }
+.lr-crumbs button:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+/* ── Button: botones de la ley y de permisos ───────────── */
+.lr-btn { min-height: 40px; border-radius: var(--radius-md) !important; border-color: var(--border) !important; font: 600 14px/1 var(--font-sans) !important; transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+.lr-btn:hover { border-color: var(--border-strong) !important; color: var(--ink) !important; }
+.lr-header .lr-btn:hover { color: inherit !important; }
+.pm-btn { min-height: 40px; border-color: var(--border) !important; border-radius: var(--radius-md) !important; background: var(--surface-1) !important; color: var(--ink) !important; font: 600 14px/1 var(--font-sans) !important; }
+.pm-btn:hover:not(:disabled) { border-color: var(--border-strong) !important; }
+.pm-btn-primary { border-color: var(--brand) !important; background: var(--brand) !important; color: var(--on-brand) !important; }
+.pm-btn-primary:hover:not(:disabled) { border-color: var(--brand-hover) !important; background: var(--brand-hover) !important; }
+
+/* ── Pagination ────────────────────────────────────────── */
+.pm-pager { align-items: center; gap: var(--space-2) !important; }
+.pm-pager .pm-btn { min-width: var(--touch); }
+
+/* ── Timeline: cronología general ──────────────────────── */
+.tl-list { border-left: 1px solid var(--hairline) !important; }
+.tl-item::before { left: -24px !important; top: 21px !important; width: 9px !important; height: 9px !important; border-radius: 0 !important; transform: rotate(45deg); background: var(--surface-0) !important; border: 2px solid var(--dep, var(--accent)); box-shadow: none !important; }
+.tl-date { font: 600 12px/16px var(--font-mono) !important; letter-spacing: .02em !important; text-transform: none !important; }
+.tl-year-head { font-family: var(--font-display) !important; font-weight: 500 !important; }
+
+/* ── DataTable: tablas de usuarios y del registro CNE ──── */
+:is(.us-table, .pmm-cne-grid) th { background: var(--surface-2) !important; color: var(--ink-muted) !important; font: 700 11px/16px var(--font-sans) !important; letter-spacing: .14em !important; text-transform: uppercase; }
+:is(.us-table, .pmm-cne-grid) td { border-color: var(--hairline) !important; color: var(--ink); font-variant-numeric: tabular-nums; }
+:is(.us-table, .pmm-cne-grid) tbody tr:hover { background: var(--surface-2) !important; }
+
+/* ── Accordion: preguntas frecuentes de Ayuda ──────────── */
+.hp-faq details { border-color: var(--hairline) !important; border-radius: var(--radius-lg) !important; background: var(--surface-1) !important; }
+.hp-faq summary { min-height: 28px; align-items: center; font: 600 15px/22px var(--font-sans); color: var(--ink); }
+.hp-faq summary::after { content: "" !important; flex: none; width: 8px; height: 8px; margin-right: 4px; border-right: 2px solid var(--brand); border-bottom: 2px solid var(--brand); transform: rotate(45deg); transition: transform var(--duration-base) var(--ease-out); }
+.hp-faq details[open] summary::after { content: "" !important; transform: rotate(-135deg); }
