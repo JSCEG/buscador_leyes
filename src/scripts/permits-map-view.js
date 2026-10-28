@@ -16,6 +16,7 @@ import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
 import '../styles/permits-map.css';
 import { withMapBusy } from '../lib/map-busy.js';
 import { NETWORKS, KV_CLASSES, kvClass, baseLayers, networkLayers, pinIcon, sectorCluster } from '../lib/map-common.js';
+import { techMarkerSVG } from '../lib/tech-markers.js';
 
 const API = '/api/mapa';
 const MEXICO = [[14.3, -118.4], [32.8, -86.6]];
@@ -240,7 +241,8 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     const icons = new Map();
     const iconFor = (m, p) => {
         const mods = [p.vigente === false ? 'is-novig' : '', (p.precision || 'exacta') !== 'exacta' ? 'is-aprox' : ''].filter(Boolean).join(' ');
-        return pinIcon(L, icons, m.sector, infraType(m.key, p).icon, mods);
+        const type = infraType(m.key, p);
+        return pinIcon(L, icons, m.sector, type.icon, mods, type.tech);
     };
     // One cluster group for every market; each bubble is a ring split by sector.
     const newCluster = () => sectorCluster(L, MARKETS.map(m => m.sector));
@@ -349,7 +351,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                 // Each technology switches on and off; the count is what the status filter leaves.
                 types.innerHTML = [...byType.values()].sort((a, b) => b.n - a.n).map(t => {
                     const off = state.hiddenTypes.has(typeKey(m, t.label));
-                    return `<li data-sector="${m.sector}"><button type="button" class="pmm-type${off ? ' is-off' : ''}" data-type="${esc(typeKey(m, t.label))}" aria-pressed="${!off}"><span>${infraIcon(t.icon, 13)} ${esc(t.label)}</span><span>${t.n.toLocaleString('es-MX')}</span></button></li>`;
+                    return `<li data-sector="${m.sector}"><button type="button" class="pmm-type${off ? ' is-off' : ''}" data-type="${esc(typeKey(m, t.label))}" aria-pressed="${!off}"><span>${t.tech ? `<span class="pmm-type-marker">${techMarkerSVG(t.tech, { variant: 'dot', size: 14 })}</span>` : infraIcon(t.icon, 13)} ${esc(t.label)}</span><span>${t.n.toLocaleString('es-MX')}</span></button></li>`;
                 }).join('');
             }
             const missingBtn = container.querySelector(`[data-missing="${m.key}"]`);

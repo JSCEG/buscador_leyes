@@ -220,7 +220,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         cluster.addLayers(rows.map(row => {
             const marker = markerOf(row);
             const mods = row.estatus === 'No vigente' ? 'is-novig' : '';
-            return L.marker([row.latitud, row.longitud], { icon: pinIcon(L, icons, marker.sector, marker.icon, mods), title: `${marker.label} · ${row.razonSocial || row.numero}`, keyboard: false, sector: marker.sector })
+            return L.marker([row.latitud, row.longitud], { icon: pinIcon(L, icons, marker.sector, marker.icon, mods, marker.tech), title: `${marker.label} · ${row.razonSocial || row.numero}`, keyboard: false, sector: marker.sector })
                 .bindPopup(() => pointPopup(row), { className: 'pmm-popup', maxWidth: 340 });
         }));
         map.addLayer(cluster);

@@ -4,6 +4,7 @@
  * two maps look and behave the same.
  */
 import { infraIcon } from './infra-icons.js';
+import { techMarkerSVG } from './tech-markers.js';
 
 /** Base maps. Default: OpenStreetMap drawn in neutral gray (inverted in dark mode, see permits-map.css),
  * so the CENACE voltage colours never compete with orange roads. Esri's gray canvas stopped answering
@@ -136,10 +137,14 @@ export function networkLayers(L, map, { pane = 'networks' } = {}) {
 }
 
 /** Round pin of one sector with its infrastructure icon; `mods`: 'is-novig', 'is-aprox'. */
-export function pinIcon(L, cache, sector, icon, mods = '') {
-    const key = `${sector}|${icon}|${mods}`;
+export function pinIcon(L, cache, sector, icon, mods = '', tech = '') {
+    const key = `${sector}|${icon}|${mods}|${tech}`;
     if (!cache.has(key)) {
-        cache.set(key, L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${sector}">${infraIcon(icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
+        // Generation permits wear their technology marker (MarkerSet); a permit no longer in force is the
+        // dashed ring. Other markets keep their infrastructure pin.
+        cache.set(key, tech
+            ? L.divIcon({ className: `pmm-pin-wrap bj-marker ${mods}`, html: techMarkerSVG(tech, { variant: mods.includes('is-novig') ? 'ring' : 'dot', size: 22 }), iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -13] })
+            : L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${sector}">${infraIcon(icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
     }
     return cache.get(key);
 }

@@ -126,7 +126,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
             <path d="M40.5 33.5s-4.2 4.6-4.2 7.4a4.2 4.2 0 0 0 8.4 0c0-2.8-4.2-7.4-4.2-7.4z" fill="#1e5b4f" stroke="#fff" stroke-width="1.4"/>
         </svg></span>
         <span class="ac-map-promo-copy">
-            <span class="ac-map-promo-eyebrow">Nuevo · ¿Cómo funciona?</span>
+            <span class="ac-map-promo-eyebrow"><span class="bj-new">Nuevo</span> ¿Cómo funciona?</span>
             <strong>Aprende</strong>
             <span>Cómo funciona la energía, paso a paso: electricidad e hidrocarburos, de lo básico a las centrales, los gasoductos, las refinerías y los mercados. Con ilustraciones que puedes mover.</span>
         </span>
@@ -139,7 +139,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     mapPromo.innerHTML = `
         <span class="ac-map-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6Z"/><path d="M9 4v14M15 6v14"/><circle cx="12" cy="10.5" r="1.6"/></svg></span>
         <span class="ac-map-promo-copy">
-            <span class="ac-map-promo-eyebrow">Nuevo · Registro CNE</span>
+            <span class="ac-map-promo-eyebrow"><span class="bj-new">Nuevo</span> Registro CNE</span>
             <strong>Mapa de permisos energéticos</strong>
             <span>Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, sus resoluciones, la normativa que los regula y los ciclones activos.</span>
         </span>
@@ -221,10 +221,16 @@ export function renderAcervoView(container, summaries, { state: initialState = {
 
     function updateRows() {
         if (destroyed) return;
-        for (const { row, previous, next } of rowBindings) {
+        for (const { row, previous, next, dots } of rowBindings) {
             const maximum = Math.max(0, row.scrollWidth - row.clientWidth);
             previous.disabled = row.scrollLeft <= 1;
             next.disabled = row.scrollLeft >= maximum - 1;
+            // Carousel dots: one per screenful; the current one stretches.
+            const pages = row.clientWidth ? Math.max(1, Math.ceil((row.scrollWidth - 1) / row.clientWidth)) : 1;
+            if (dots.childElementCount !== pages) dots.replaceChildren(...Array.from({ length: pages }, () => element('span', 'ac-dot')));
+            const current = maximum ? Math.round(row.scrollLeft / maximum * (pages - 1)) : 0;
+            [...dots.children].forEach((dot, index) => dot.classList.toggle('is-on', index === current));
+            dots.hidden = pages < 2;
         }
     }
 
@@ -251,13 +257,20 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         panel.setAttribute('aria-label', 'Explorar el acervo');
         const tilesHead = element('h2', 'ac-section-title', 'Explora por colección');
         const tiles = element('ul', 'ac-tiles');
-        for (const group of groupAcervo(laws).filter(item => item.items.length)) {
+        // CardGallery: the largest collection is the featured card (two columns, inverse band).
+        const galleryGroups = groupAcervo(laws).filter(item => item.items.length);
+        const featuredId = [...galleryGroups].sort((a, b) => b.items.length - a.items.length)[0]?.id;
+        for (const group of galleryGroups) {
             const item = element('li');
+            if (group.id === featuredId) item.classList.add('is-featured');
             const tile = element('button', 'ac-tile'); tile.type = 'button'; tile.dataset.tileGroup = group.id; tile.dataset.category = group.id;
             const count = element('span', 'ac-tile-count');
             count.append(element('b', '', number(group.items.length)), ` ${group.items.length === 1 ? 'instrumento' : 'instrumentos'}`);
             const spot = element('span', 'ac-tile-icon'); spot.setAttribute('aria-hidden', 'true'); spot.innerHTML = collectionSpot(group.id);
-            tile.append(spot, element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), count);
+            const band = element('span', 'ac-tile-band'); band.append(count, spot);
+            const cta = element('span', 'ac-tile-cta', 'Ver colección');
+            const arrow = element('span', '', '→'); arrow.setAttribute('aria-hidden', 'true'); cta.append(arrow);
+            tile.append(band, element('span', 'ac-tile-kicker', 'Colección'), element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), cta);
             tile.addEventListener('click', () => {
                 captureRows(); state.group = group.id; renderBody(); notify();
                 filterButtons.get(group.id)?.focus({ preventScroll: true });
@@ -332,7 +345,8 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         row.setAttribute('aria-label', `${group.label}: ${countLabel(group.items.length)}`);
         group.items.forEach(law => { const item = element('li'); item.append(makeCard(law)); row.append(item); });
         const rowFooter = element('div', 'ac-row-footer');
-        rowFooter.append(element('span', 'ac-row-hint', 'Desliza o usa las flechas'));
+        const dots = element('div', 'ac-dots'); dots.setAttribute('aria-hidden', 'true');
+        rowFooter.append(element('span', 'ac-row-hint', 'Desliza o usa las flechas'), dots);
         const arrows = element('div', 'ac-row-arrows');
         const previous = element('button', 'ac-arrow', '←'); previous.type = 'button'; previous.setAttribute('aria-label', `Anteriores en ${group.label}`); previous.setAttribute('aria-controls', `${id}-${group.id}-row`);
         const next = element('button', 'ac-arrow', '→'); next.type = 'button'; next.setAttribute('aria-label', `Siguientes en ${group.label}`); next.setAttribute('aria-controls', `${id}-${group.id}-row`);
@@ -349,7 +363,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         row.addEventListener('focusin', event => event.target.closest('.ac-card')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest', behavior: 'auto' }));
         arrows.append(previous, next); rowFooter.append(arrows);
         section.append(groupHeader, row, rowFooter);
-        rowBindings.push({ row, groupId: group.id, previous, next, restored: false });
+        rowBindings.push({ row, groupId: group.id, previous, next, dots, restored: false });
         return section;
     }
 

@@ -463,3 +463,72 @@ html body .ac-library .ac-card .ac-card-cover .ac-card-acronym{align-self:stretc
 html body .ac-library .ac-card .ac-card-cover .ac-card-acronym.is-long{font-size:21px}
 @media (max-width:640px){html body .ac-library .ac-card .ac-card-cover .ac-card-acronym{font-size:30px}}
 @media (prefers-reduced-motion:reduce){.ac-library .ac-hero>*{animation:none!important}.ac-library .ac-hero>:not(.ac-hero-art){opacity:1!important}}
+
+/* ── LawCard del sistema de diseño ───────────────────────────────────────────────
+   Regla corta superior en el color de la colección, sigla en mono con su cuadro de color, insignia de
+   tipo, título display, nombre oficial como ruta y cifras en mono tabular. */
+html body .ac-library .ac-card{gap:10px;padding:var(--space-5)!important;border:1px solid var(--hairline)!important;border-radius:var(--radius-lg)!important;background:var(--surface-1)!important;box-shadow:var(--shadow-sm)!important;transition:border-color var(--duration-base) var(--ease-out),transform var(--duration-base) var(--ease-out)}
+html body .ac-library .ac-card:hover{border-color:var(--border)!important;transform:translateY(-2px)}
+html body .ac-library .ac-card::before{position:absolute;top:0;left:var(--space-5);width:40px;height:3px;border-radius:0 0 2px 2px;background:var(--ac-cover);transform:none;content:""}
+@media (hover:hover){html body .ac-library .ac-card:hover::before{transform:none}}
+html body .ac-library .ac-card-cover{flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+html body .ac-library .ac-card .ac-card-cover .ac-card-acronym,html body .ac-library .ac-card .ac-card-cover .ac-card-acronym.is-long{order:-1;align-self:auto;display:inline-flex;align-items:center;gap:6px;max-width:100%;height:22px;padding:0 7px;border-radius:var(--radius-xs);background:var(--surface-2);border:1px solid var(--hairline);font:600 11px/1 var(--font-mono);letter-spacing:.06em;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+html body .ac-library .ac-card .ac-card-cover .ac-card-acronym::before{content:"";flex:none;width:7px;height:7px;border-radius:1px;background:var(--ac-cover)}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px!important;border-radius:var(--radius-pill);background:color-mix(in srgb,var(--ac-cover) 12%,transparent)!important;color:var(--ac-cover-ink)!important;font:600 12px/1 var(--font-sans)!important;letter-spacing:0;text-transform:none}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category .ac-icon{flex:0 0 auto;width:auto;height:auto;background:none;border:0;box-shadow:none}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category .ac-icon svg{width:12px;height:12px}
+html body .ac-library .ac-card-name{font:600 19px/24px var(--font-display)!important;color:var(--ink)!important;letter-spacing:-.005em}
+html body .ac-library .ac-card-title{font:600 17px/22px var(--font-display);color:var(--ink)}
+html body .ac-library .ac-card.has-name .ac-card-title{font:500 13px/18px var(--font-sans)!important;color:var(--ink-muted)!important}
+html body .ac-library .ac-card-meta{font:500 12px/16px var(--font-mono)!important;color:var(--ink-muted)!important;font-variant-numeric:tabular-nums}
+html body .ac-library .ac-card-action{color:var(--ink)!important;font:600 14px/1 var(--font-sans)!important}
+html body .ac-library .ac-card-action>span{color:var(--brand)}
+@media (prefers-reduced-motion:reduce){html body .ac-library .ac-card:hover{transform:none}}
+
+/* ── Carousel del sistema de diseño ──────────────────────────────────────────────
+   Tres fichas por vista en escritorio, 86 % en teléfono (se asoma la siguiente), flechas de 36 px y
+   puntos que se alargan en la página actual. */
+html body .ac-library .ac-row{grid-auto-columns:calc((100% - 28px) / 3);gap:14px;scroll-snap-type:x mandatory;padding-top:4px}
+@media (max-width:1100px){html body .ac-library .ac-row{grid-auto-columns:calc((100% - 14px) / 2.15)}}
+@media (max-width:640px){html body .ac-library .ac-row{grid-auto-columns:86%}}
+html body .ac-library .ac-arrow{width:36px;height:36px;border-radius:var(--radius-pill);border:1px solid var(--hairline);background:var(--surface-1);color:var(--ink);font-size:16px;box-shadow:var(--shadow-sm)}
+html body .ac-library .ac-arrow:not(:disabled):hover{border-color:var(--border);color:var(--ink);background:var(--surface-2)}
+.ac-library .ac-dots{display:flex;align-items:center;gap:6px;margin-right:auto}
+.ac-library .ac-dots[hidden]{display:none}
+.ac-library .ac-dot{width:6px;height:6px;border-radius:var(--radius-pill);background:var(--border);transition:width var(--duration-base) var(--ease-out),background-color var(--duration-base) var(--ease-out)}
+.ac-library .ac-dot.is-on{width:22px;background:var(--brand)}
+.ac-library .ac-row-hint:has(+ .ac-dots:not([hidden])){display:none}
+
+/* ── CardGallery del sistema de diseño ───────────────────────────────────────────
+   Rejilla auto-fill de 260 px; cada ficha: banda con cifra y emblema, antetítulo, título display,
+   bajada y «Ver colección». La colección mayor ocupa dos columnas con banda invertida. */
+html body .ac-library .ac-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--space-4)}
+html body .ac-library .ac-tiles>li.is-featured{grid-column:span 2}
+html body .ac-library .ac-tile{display:flex!important;flex-direction:column;align-items:stretch;gap:8px;height:100%;padding:0 0 var(--space-5)!important;overflow:hidden;text-align:left;border:1px solid var(--hairline)!important;border-radius:var(--radius-lg)!important;background:var(--surface-1)!important;box-shadow:var(--shadow-sm)!important;color:var(--ink);transition:border-color var(--duration-base) var(--ease-out),transform var(--duration-base) var(--ease-out)}
+html body .ac-library .ac-tile:hover{border-color:var(--border)!important;transform:translateY(-2px)}
+.ac-library .ac-tile-band{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:88px;margin-bottom:6px;padding:16px var(--space-5);background:var(--surface-2);border-bottom:1px solid var(--hairline)}
+.ac-library .ac-tile-band .ac-tile-count{display:flex;flex-direction:column;gap:2px;margin:0;font:500 12px/1.2 var(--font-sans);color:var(--ink-muted)}
+.ac-library .ac-tile-band .ac-tile-count b{font:600 32px/1 var(--font-mono);letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+html body .ac-library .ac-tile .ac-tile-icon{grid-row:auto;flex:none;width:52px;height:52px}
+.ac-library .ac-tile-kicker,.ac-library .ac-tile-name,.ac-library .ac-tile-blurb,.ac-library .ac-tile-cta{padding:0 var(--space-5)}
+.ac-library .ac-tile-kicker{display:inline-flex;align-items:center;gap:10px;font:700 11px/16px var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.ac-library .ac-tile-kicker::before{content:"";width:18px;height:2px;background:var(--gold)}
+html body .ac-library .ac-tile-name{font:600 21px/26px var(--font-display)!important;color:var(--ink)!important}
+html body .ac-library .ac-tile-blurb{flex:1;font:400 14px/21px var(--font-sans)!important;color:var(--ink-2)!important}
+.ac-library .ac-tile-cta{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font:600 14px/1 var(--font-sans);color:var(--ink)}
+.ac-library .ac-tile-cta>span{color:var(--brand);transition:transform var(--duration-base) var(--ease-out)}
+.ac-library .ac-tile:hover .ac-tile-cta>span{transform:translateX(4px)}
+/* Destacada: banda invertida y cifra grande. */
+.ac-library .is-featured .ac-tile-band{min-height:120px;background:var(--surface-inverse);border-bottom:0}
+.ac-library .is-featured .ac-tile-band .ac-tile-count{color:color-mix(in srgb,var(--ink-inverse) 75%,transparent)}
+.ac-library .is-featured .ac-tile-band .ac-tile-count b{font-size:48px;color:var(--ink-inverse)}
+@media (max-width:639px){html body .ac-library .ac-tiles>li.is-featured{grid-column:auto}}
+@media (prefers-reduced-motion:reduce){html body .ac-library .ac-tile:hover{transform:none}}
+html body .ac-library .ac-tiles>li:not(.is-featured){grid-column:auto}
+html body .ac-library .ac-tile-band .ac-tile-count{text-align:left;grid-row:auto;grid-column:auto}
+html body .ac-library .ac-tile-band .ac-tile-icon{display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:color-mix(in srgb,var(--ac-dot) 12%,var(--surface-1));color:var(--ac-dot)}
+html body .ac-library .ac-tiles{margin-bottom:34px}
+/* Ajustes de LawCard y CardGallery sobre reglas heredadas con !important. */
+html body .ac-library .ac-card:not(.has-name) .ac-card-title{font:600 19px/24px var(--font-display)!important;color:var(--ink)!important}
+html body .ac-library .ac-card .ac-card-cover .ac-card-category{text-transform:capitalize!important}
+html body .ac-library .ac-tiles>li:not(.is-featured):last-child{grid-column:auto!important}

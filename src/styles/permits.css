@@ -52,13 +52,12 @@ html.dark-mode .pm-view [data-sector="otro"]{--sec:#b3a89e}
 .pm-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;font:600 11.5px/1 var(--font-sans);color:var(--pm-muted)}
 .pm-meta>span{padding:4px 8px;border-radius:999px;background:color-mix(in srgb,var(--pm-muted) 10%,transparent)}
 .pm-meta .pm-tag{color:var(--sec);background:color-mix(in srgb,var(--sec) 12%,transparent)}
-.pm-estado{flex:none;padding:4px 9px;border-radius:999px;font:700 11px/1 var(--font-sans);letter-spacing:.02em}
-.pm-estado.is-ok{color:#1b5e3a;background:#dcf1e4}
-.pm-estado.is-info{color:#7a4e06;background:#fbebc8}
-.pm-estado.is-off{color:#5b5450;background:#ebe6e2}
-html.dark-mode .pm-estado.is-ok{color:#9fe0b9;background:#1d3a2a}
-html.dark-mode .pm-estado.is-info{color:#f3cf86;background:#3d2f12}
-html.dark-mode .pm-estado.is-off{color:#cfc6bf;background:#3a3335}
+/* Vigencia como Badge del sistema: píldora con punto y palabra. */
+.pm-estado{display:inline-flex;align-items:center;gap:6px;flex:none;height:24px;padding:0 10px;border-radius:var(--radius-pill);font:600 12px/1 var(--font-sans)}
+.pm-estado::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pm-estado.is-ok{color:var(--success);background:var(--success-soft)}
+.pm-estado.is-info{color:var(--warning);background:var(--warning-soft)}
+.pm-estado.is-off{color:var(--ink-2);background:var(--surface-2)}
 
 .pm-pager{display:flex;justify-content:center;gap:10px;margin:18px 0 0}
 .pm-empty,.pm-note{color:var(--pm-muted);font-size:14px;line-height:1.5}
@@ -276,3 +275,17 @@ html.dark-mode .pn-columns li>a:hover .pn-col{background:#f09ab5}
 .pm-tab-group:first-child{margin-left:0}
 .pm-tab-group:not(:first-child){margin-left:14px;padding-left:14px;border-left:1px solid rgba(255,255,255,.28)}
 @media (max-width:640px){.pm-tab-group{flex-basis:100%;margin:4px 0 0!important;padding:0!important;border:0!important}}
+
+/* PermitCard del sistema de diseño: regla corta superior en col-permiso, número oficial en mono,
+   titular en sans, insignias de actividad y estado, acciones al pie. */
+.pm-card{gap:8px;padding:var(--space-5) var(--space-5) 60px;border-color:var(--hairline);border-radius:var(--radius-lg);background:var(--surface-1);box-shadow:var(--shadow-sm);transition:border-color var(--duration-base) var(--ease-out),transform var(--duration-base) var(--ease-out)}
+.pm-card::before{inset:0 auto auto var(--space-5);width:40px;height:3px;border-radius:0 0 2px 2px;background:var(--col-permiso)}
+.pm-card:hover{border-color:var(--border);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.pm-num{font:600 15px/1.3 var(--font-mono);letter-spacing:.01em;color:var(--ink)}
+.pm-holder{font:500 15px/22px var(--font-sans);color:var(--ink-2)}
+.pm-alias{font:500 13px/18px var(--font-sans);color:var(--ink-muted)}
+.pm-tag{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:var(--radius-pill);background:var(--info-soft);color:var(--info);font:600 12px/1 var(--font-sans)}
+.pm-card-tools{left:var(--space-5);right:var(--space-5);bottom:12px;padding-top:10px;border-top:1px solid var(--hairline);justify-content:flex-start}
+.pm-card-pdf{min-height:32px;border-color:var(--border);border-radius:var(--radius-sm);background:var(--surface-1);color:var(--ink);font-weight:600}
+.pm-card-pdf:hover{background:var(--surface-2)}
+@media (prefers-reduced-motion:reduce){.pm-card:hover{transform:none}}

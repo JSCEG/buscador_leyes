@@ -1,4 +1,5 @@
 // pptxgenjs (~500 KB) is only needed to build a .pptx: load it on demand.
+import { qrSvg, qrPng, qrPayload, stamp } from '../lib/qr.js';
 import { officialUrl } from '../lib/official-url.js';
 import { brandMarkSvg } from '../lib/brand-mark.js';
 import { shortTitle } from '../lib/short-title.js';
@@ -19,11 +20,18 @@ const COLORS = {
     muted: '666666',
     white: 'FFFFFF',
     dark: '1E1E1E',
-    petroleo: '24607A'
+    petroleo: '24607A',
+    // DeckProposal (design system): Office theme colours.
+    navy950: '0B1526',
+    navy: '12213A',
+    oro: 'D0A94E',
+    oroClaro: 'E8CF8F',
+    bruma: 'C9D1DF',
+    arena: 'FBF8F2'
 };
 
 const SLIDE = { w: 13.333, h: 7.5 };
-const FONT_HEAD = 'Patria';
+const FONT_HEAD = 'Newsreader';
 const FONT_BODY = 'Noto Sans';
 const LOGO = '/img/logo-buscador.png';
 const LOGO_LIGHT = '/img/logo-buscador-claro.png';
@@ -44,6 +52,7 @@ export async function generateLawPresentation(law, articles = [], themes = []) {
     }
 
     const assets = await loadAssets();
+    assets.qr = qrPng(qrPayload());
     const { default: pptxgen } = await import('pptxgenjs');
     const pptx = new pptxgen();
     pptx.layout = 'LAYOUT_WIDE';
@@ -544,7 +553,7 @@ function renderWebDeck(model) {
                 <div class="lp-cover-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#7a1a38', lens: '#f2c97a' })}</div>
                 <div class="lp-cover-overlay"></div>
                 <div class="lp-cover-top">
-                    <img class="lp-lockup" src="${LOGO}" alt="Buscador Jurídico">
+                    <img class="lp-lockup" src="${LOGO_LIGHT}" alt="Buscador Jurídico">
                 </div>
                 <div class="lp-cover-body">
                     <p class="lp-eyebrow" data-animate>Marco Legal Energético</p>
@@ -617,19 +626,23 @@ function renderWebDeck(model) {
 
             ${articleSlides}
 
-            <section class="lp-slide lp-close-slide">
-                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#7a1a38', lens: '#f2c97a' })}</div>
-                <div class="lp-close-overlay"></div>
-                <div class="lp-close-panel">
-                    <div class="lp-close-logos" data-animate>
-                        <img class="lp-lockup" src="${LOGO}" alt="Buscador Jurídico">
-                    </div>
-                    <p class="lp-eyebrow" data-animate>Cierre</p>
-                    <h2 data-animate data-lp-fit-height="190">${escapeHtml(model.shortName)}</h2>
-                    <p data-animate>Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.</p>
+            <section class="lp-slide lp-close-slide lp-backcover">
+                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#0b1526', lens: '#d0a94e' })}</div>
+                <div class="lp-bc-main">
+                    <span class="lp-bc-brand" data-animate>Buscador Jurídico · Sector energético</span>
+                    <h2 data-animate>Gracias.</h2>
+                    <span class="lp-bc-rule" data-animate></span>
+                    <p data-animate>${escapeHtml(model.shortName)}. Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.</p>
                     ${renderOfficialSourceLink(model.law.url_original)}
                 </div>
-                <div class="lp-cover-footer"><span></span><span></span><span></span></div>
+                <div class="lp-bc-qr" data-animate>
+                    ${qrSvg(qrPayload(), { size: 184 })}
+                    <span>buscador-juridico.com</span>
+                    <small>Al escanear: liga al sitio, elaborado por y fecha de elaboración</small>
+                </div>
+                <dl class="lp-bc-seal">
+                    ${(() => { const s = stamp(); return [['Autor', 'Javier Sasso Celaya'], ['Día', s.dia], ['Fecha', s.fecha], ['Hora', s.hora]].map(([k, v]) => `<div><dt>${k}</dt><dd>${escapeHtml(v)}</dd></div>`).join(''); })()}
+                </dl>
             </section>
         </div>
 
@@ -1020,6 +1033,35 @@ function ensureWebDeckStyles() {
           #lp-print-host .lp-slide{display:block!important;position:relative!important;opacity:1!important;break-after:page;width:1333px;height:750px;overflow:hidden}
           #lp-print-host [data-animate]{animation:none!important;opacity:1!important;transform:none!important}
         }
+        /* DeckProposal (sistema de diseño): portada marino con monograma de agua, antetítulo oro y título display. */
+        .lp-cover{background:var(--navy-950,#0b1526)!important;color:#f2ede4}
+        .lp-cover .lp-cover-overlay{display:none}
+        .lp-cover .lp-cover-top{background:transparent!important;color:#f2ede4}
+        .lp-cover .lp-cover-mark{opacity:.08}
+        .lp-cover .lp-eyebrow{color:#e8cf8f!important;letter-spacing:.18em;font-family:var(--font-sans)}
+        .lp-cover h1{font-family:var(--font-display)!important;font-weight:500!important;font-size:56px!important;line-height:1.05!important;letter-spacing:-.02em;color:#f2ede4!important}
+        .lp-cover .lp-cover-rule{width:64px!important;height:3px!important;background:#d0a94e!important}
+        .lp-cover .lp-cover-official,.lp-cover .lp-cover-meta,.lp-cover .lp-cover-date{color:#c9d1df!important}
+        .lp-content h2,.lp-brand,.lp-title{font-family:var(--font-display)!important;font-weight:500!important}
+        .lp-content h2{color:#12213a}
+        .lp-footer,.lp-cover-footer{background:linear-gradient(90deg,#9b2247 0 72%,#d0a94e 72% 100%)!important}
+        /* DeckBackCover: cierre, QR en tarjeta glass y sello con autor, día, fecha y hora. */
+        .lp-backcover{box-sizing:border-box;background:var(--navy-950,#0b1526)!important;color:#f2ede4;display:grid!important;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:1fr auto;gap:24px 48px;padding:56px 72px 40px}
+        .lp-backcover.lp-slide:not(.active){display:none!important}
+        .lp-backcover .lp-close-mark{position:absolute;left:-70px;bottom:-90px;width:420px;opacity:.07;pointer-events:none}
+        .lp-bc-main{position:relative;display:flex;flex-direction:column;justify-content:center;gap:18px}
+        .lp-bc-brand{font:700 11px/1 var(--font-sans);letter-spacing:.18em;text-transform:uppercase;color:#e8cf8f}
+        .lp-backcover h2{margin:0;font:500 56px/1.05 var(--font-display);letter-spacing:-.02em;color:#f2ede4}
+        .lp-bc-rule{width:64px;height:3px;background:#d0a94e}
+        .lp-bc-main p{margin:0;max-width:520px;font:400 16px/1.5 var(--font-sans);color:#c9d1df}
+        .lp-bc-qr{position:relative;align-self:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px;border-radius:16px;background:rgba(242,237,228,.06);border:1px solid rgba(242,237,228,.14)}
+        .lp-bc-qr span{font:500 12px/1 var(--font-mono);color:#e8cf8f}
+        .lp-bc-qr small{max-width:184px;font:500 10px/14px var(--font-sans);color:#9aa6bc;text-align:center}
+        .lp-bc-seal{position:relative;grid-column:1/-1;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-top:16px;border-top:1px solid rgba(242,237,228,.16)}
+        .lp-bc-seal div{display:flex;flex-direction:column;gap:6px}
+        .lp-bc-seal dt{font:700 9.5px/1 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;color:#9aa6bc}
+        .lp-bc-seal dd{margin:0;font:500 14px/20px var(--font-mono);color:#f2ede4}
+        .lp-bc-seal div:first-child dd{font:500 17px/22px var(--font-display)}
         @keyframes lpFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
         @media (max-width:700px){.law-presentation-embed{min-height:0}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-long{display:none}#lp-fullscreen{display:none}}
     `;
@@ -1030,51 +1072,44 @@ function addCoverSlide(pptx, model, assets) {
     const slide = pptx.addSlide();
     paintBase(slide, { cover: true });
 
-    if (assets.cover) {
-        slide.addShape(SHAPE.rect, {
-            x: 8.45, y: 0, w: 4.883, h: SLIDE.h,
-            fill: { color: COLORS.guinda, transparency: 8 },
-            line: { color: COLORS.guinda }
-        });
-        slide.addImage({ data: assets.cover, x: 9.35, y: 1.75, w: 3.4, h: 3.74 });
-    }
-
-    addLogoPair(slide, assets, 0.55, 0.48);
+    // DeckProposal cover: navy, water monogram, gold kicker, display title, author.
+    if (assets.cover) slide.addImage({ data: assets.cover, x: 8.9, y: 1.2, w: 4.6, h: 5.06, transparency: 90 });
+    addLogoPair(slide, assets, 0.63, 0.5, true);
     slide.addText('MARCO LEGAL ENERGÉTICO', {
-        x: 0.7, y: 1.4, w: 6.8, h: 0.3,
-        fontFace: FONT_BODY, fontSize: 10, bold: true,
-        color: COLORS.guinda, charSpace: 2.4
+        x: 0.63, y: 1.55, w: 6.8, h: 0.3,
+        fontFace: FONT_BODY, fontSize: 11, bold: true,
+        color: COLORS.oroClaro, charSpace: 2
     });
     slide.addText(model.shortName, {
-        x: 0.65, y: 1.75, w: 7.45, h: 1.6, valign: 'top',
-        fontFace: FONT_HEAD, fontSize: fitFont(model.shortName, 7.45, 1.6, 34, 12), bold: true,
-        color: COLORS.guinda, margin: 0
+        x: 0.6, y: 1.95, w: 8.2, h: 2.1, valign: 'top',
+        fontFace: FONT_HEAD, fontSize: fitFont(model.shortName, 8.2, 2.1, 54, 18),
+        color: 'F2EDE4', margin: 0
     });
     if (model.officialTitle && model.officialTitle !== model.shortName) {
         slide.addText(clip(model.officialTitle, 260), {
-            x: 0.7, y: 3.45, w: 7.3, h: 0.85, valign: 'top',
-            fontFace: FONT_BODY, fontSize: 10, color: COLORS.muted, margin: 0
+            x: 0.63, y: 4.1, w: 7.6, h: 0.8, valign: 'top',
+            fontFace: FONT_BODY, fontSize: 11, color: COLORS.bruma, margin: 0
         });
     }
     slide.addShape(SHAPE.rect, {
-        x: 0.7, y: 4.42, w: 5.9, h: 0.06,
-        fill: { color: COLORS.dorado }, line: { color: COLORS.dorado }
+        x: 0.63, y: 5.0, w: 0.9, h: 0.05,
+        fill: { color: COLORS.oro }, line: { color: COLORS.oro }
     });
     slide.addText([
         { text: model.typeLabel.toUpperCase(), options: { bold: true } },
         ...(model.law.siglas ? [{ text: `  ·  ${model.law.siglas}` }] : [])
     ], {
-        x: 0.7, y: 4.6, w: 6.8, h: 0.35,
-        fontFace: FONT_BODY, fontSize: 11, color: COLORS.texto
+        x: 0.63, y: 5.2, w: 6.8, h: 0.35,
+        fontFace: FONT_BODY, fontSize: 12, color: 'F2EDE4'
     });
     slide.addText([model.publishedLabel && `Publicado el ${model.publishedLabel}`, model.reformLabel && `Última reforma: ${model.reformLabel}`].filter(Boolean).join('\n') || ' ', {
-        x: 0.7, y: 5.0, w: 5.3, h: 0.7,
-        fontFace: FONT_BODY, fontSize: 10, color: COLORS.muted,
+        x: 0.63, y: 5.6, w: 5.8, h: 0.6,
+        fontFace: FONT_BODY, fontSize: 11, color: COLORS.bruma,
         breakLine: false
     });
-    slide.addText('Presentación generada desde el Buscador Jurídico', {
-        x: 0.7, y: 6.35, w: 6.5, h: 0.3,
-        fontFace: FONT_BODY, fontSize: 9.5, color: COLORS.muted
+    slide.addText('Javier Sasso Celaya', {
+        x: 0.63, y: 6.55, w: 6.5, h: 0.3,
+        fontFace: FONT_HEAD, fontSize: 14, color: COLORS.oroClaro
     });
     addCoverFooter(slide);
 }
@@ -1198,31 +1233,41 @@ function addKeyArticlesSlides(pptx, model, assets) {
 }
 
 function addClosingSlide(pptx, model, assets) {
+    // DeckBackCover: thanks, QR in a glass card and the seal with author, day, date and time.
     const slide = pptx.addSlide();
-    paintBase(slide, { cover: false, dark: true });
-    addLogoPair(slide, assets, 0.7, 0.55, true);
-    if (assets.cover) slide.addImage({ data: assets.cover, x: 9.6, y: 2.0, w: 2.7, h: 2.97 });
-    slide.addText('CIERRE', {
-        x: 0.8, y: 1.75, w: 2.6, h: 0.3,
-        fontFace: FONT_BODY, fontSize: 10, bold: true,
-        color: COLORS.doradoLight, charSpace: 2.2
+    paintBase(slide, { dark: true });
+    if (assets.cover) slide.addImage({ data: assets.cover, x: -0.8, y: 3.4, w: 4.6, h: 5.06, transparency: 93 });
+    addLogoPair(slide, assets, 0.75, 0.55, true);
+    slide.addText('BUSCADOR JURÍDICO · SECTOR ENERGÉTICO', {
+        x: 0.8, y: 1.75, w: 7.5, h: 0.3,
+        fontFace: FONT_BODY, fontSize: 11, bold: true, color: COLORS.oroClaro, charSpace: 2
     });
-    slide.addText(model.shortName, {
-        x: 0.8, y: 2.22, w: 8.4, h: 1.4, valign: 'top', margin: 0,
-        fontFace: FONT_HEAD, fontSize: fitFont(model.shortName, 8.4, 1.4, 30, 12), bold: true,
-        color: COLORS.white
+    slide.addText('Gracias.', {
+        x: 0.78, y: 2.15, w: 7.5, h: 0.95, margin: 0,
+        fontFace: FONT_HEAD, fontSize: 46, color: 'F2EDE4'
     });
-    slide.addText('Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.', {
-        x: 0.85, y: 4.0, w: 7.2, h: 0.72,
-        fontFace: FONT_BODY, fontSize: 15, color: 'E5E5E5',
-        fit: 'shrink'
+    slide.addShape(SHAPE.rect, { x: 0.8, y: 3.22, w: 0.9, h: 0.05, fill: { color: COLORS.oro }, line: { color: COLORS.oro } });
+    slide.addText(`${model.shortName}. Consulta siempre el texto oficial vigente para interpretación jurídica, reformas y disposiciones aplicables.`, {
+        x: 0.8, y: 3.45, w: 7.4, h: 0.9, valign: 'top', margin: 0,
+        fontFace: FONT_BODY, fontSize: 14, color: COLORS.bruma, fit: 'shrink'
     });
     slide.addText(officialUrl(model.law.url_original) || 'Fuente oficial no registrada en el acervo', {
-        x: 0.85, y: 5.35, w: 9.8, h: 0.38,
-        fontFace: FONT_BODY, fontSize: 10, color: COLORS.doradoLight,
-        fit: 'shrink'
+        x: 0.8, y: 4.5, w: 7.4, h: 0.38,
+        fontFace: FONT_BODY, fontSize: 10, color: COLORS.oroClaro, fit: 'shrink'
     });
-    addCoverFooter(slide);
+    if (assets.qr) {
+        slide.addShape(SHAPE.roundRect, { x: 9.35, y: 1.45, w: 3.2, h: 3.75, rectRadius: 0.12, fill: { color: 'F2EDE4', transparency: 94 }, line: { color: 'F2EDE4', transparency: 86 } });
+        slide.addImage({ data: assets.qr, x: 9.65, y: 1.7, w: 2.6, h: 2.6 });
+        slide.addText('buscador-juridico.com', { x: 9.35, y: 4.4, w: 3.2, h: 0.3, align: 'center', fontFace: 'IBM Plex Mono', fontSize: 10, color: COLORS.oroClaro });
+        slide.addText('Al escanear: liga al sitio, elaborado por y fecha de elaboración', { x: 9.5, y: 4.7, w: 2.9, h: 0.4, align: 'center', fontFace: FONT_BODY, fontSize: 8, color: '9AA6BC' });
+    }
+    slide.addShape(SHAPE.rect, { x: 0.8, y: 5.95, w: SLIDE.w - 1.6, h: 0.01, fill: { color: '3A4558' }, line: { color: '3A4558' } });
+    const when = stamp();
+    [['AUTOR', 'Javier Sasso Celaya'], ['DÍA', when.dia], ['FECHA', when.fecha], ['HORA', when.hora]].forEach(([label, value], index) => {
+        const x = 0.8 + index * ((SLIDE.w - 1.6) / 4);
+        slide.addText(label, { x, y: 6.1, w: 2.8, h: 0.25, margin: 0, fontFace: FONT_BODY, fontSize: 8, bold: true, color: '9AA6BC', charSpace: 1.6 });
+        slide.addText(value, { x, y: 6.4, w: 2.9, h: 0.4, margin: 0, fontFace: index === 0 ? FONT_HEAD : 'IBM Plex Mono', fontSize: index === 0 ? 15 : 12, color: 'F2EDE4' });
+    });
 }
 
 function addContentShell(slide, assets, title) {
@@ -1246,58 +1291,16 @@ function addContentShell(slide, assets, title) {
 }
 
 function paintBase(slide, opts = {}) {
-    slide.background = { color: opts.dark ? COLORS.dark : COLORS.white };
-    if (!opts.dark) {
-        slide.addShape(SHAPE.rect, {
-            x: 0, y: 0, w: SLIDE.w, h: SLIDE.h,
-            fill: { color: COLORS.white },
-            line: { color: COLORS.white }
-        });
-        slide.addShape(SHAPE.rect, {
-            x: 0, y: 0, w: SLIDE.w, h: 0.06,
-            fill: { color: COLORS.guinda },
-            line: { color: COLORS.guinda }
-        });
-        slide.addShape(SHAPE.rect, {
-            x: 4.45, y: 0, w: 4.45, h: 0.06,
-            fill: { color: COLORS.verde },
-            line: { color: COLORS.verde }
-        });
-        slide.addShape(SHAPE.rect, {
-            x: 8.9, y: 0, w: 4.43, h: 0.06,
-            fill: { color: COLORS.dorado },
-            line: { color: COLORS.dorado }
-        });
-    } else {
-        slide.addShape(SHAPE.rect, {
-            x: 0, y: 0, w: SLIDE.w, h: SLIDE.h,
-            fill: { color: COLORS.dark },
-            line: { color: COLORS.dark }
-        });
-        slide.addShape(SHAPE.rect, {
-            x: 8.55, y: 0, w: 4.78, h: SLIDE.h,
-            fill: { color: COLORS.guinda },
-            line: { color: COLORS.guinda }
-        });
-    }
+    // DeckProposal: light layouts on white, cover and closing on navy; a guinda 72 % + gold 28 % rule on top.
+    const ground = opts.dark || opts.cover ? COLORS.navy950 : COLORS.white;
+    slide.background = { color: ground };
+    slide.addShape(SHAPE.rect, { x: 0, y: 0, w: SLIDE.w, h: SLIDE.h, fill: { color: ground }, line: { color: ground } });
+    slide.addShape(SHAPE.rect, { x: 0, y: 0, w: SLIDE.w * 0.72, h: 0.07, fill: { color: COLORS.guinda }, line: { color: COLORS.guinda } });
+    slide.addShape(SHAPE.rect, { x: SLIDE.w * 0.72, y: 0, w: SLIDE.w * 0.28, h: 0.07, fill: { color: COLORS.oro }, line: { color: COLORS.oro } });
 }
 
-function addCoverFooter(slide) {
-    slide.addShape(SHAPE.rect, {
-        x: 0, y: 7.2, w: 4.45, h: 0.3,
-        fill: { color: COLORS.guinda },
-        line: { color: COLORS.guinda }
-    });
-    slide.addShape(SHAPE.rect, {
-        x: 4.45, y: 7.2, w: 4.45, h: 0.3,
-        fill: { color: COLORS.verde },
-        line: { color: COLORS.verde }
-    });
-    slide.addShape(SHAPE.rect, {
-        x: 8.9, y: 7.2, w: 4.43, h: 0.3,
-        fill: { color: COLORS.dorado },
-        line: { color: COLORS.dorado }
-    });
+function addCoverFooter() {
+    // The guinda + gold rule now runs along the top of every slide (paintBase).
 }
 
 function addLogoPair(slide, assets, x, y, inverted = false) {

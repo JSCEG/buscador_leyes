@@ -26,7 +26,7 @@ html.dark-mode .st-dashboard{
 .st-updated{font-size:13px;color:var(--st-muted);text-align:right;white-space:nowrap}
 .st-updated strong{color:var(--st-ink);font-weight:600;font-size:15px}
 
-.st-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.st-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4);margin-bottom:var(--space-4)}
 .st-kpi{background:var(--st-card);border:1px solid var(--st-border);border-radius:var(--radius-sm);padding:18px 20px;box-shadow:var(--st-shadow);position:relative;overflow:hidden}
 .st-kpi::before{content:'';position:absolute;inset:0 auto 0 0;width:4px;background:var(--st-accent)}
 .st-kpi-label{font:600 14px/20px var(--font-sans);color:var(--ink)}
@@ -34,7 +34,8 @@ html.dark-mode .st-dashboard{
 .st-kpi-value.is-word{font-family:var(--font-display);font-weight:500;letter-spacing:-.01em}
 .st-kpi-note{font-size:12.5px;color:var(--st-faint)}
 
-.st-grid-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+/* StatsDashboard: rejilla auto-fit de 420 px mínimo (dos columnas en escritorio, una en teléfono). */
+.st-grid-layout{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:var(--space-4)}
 .st-card{background:var(--st-card)!important;border:1px solid var(--st-border)!important;border-radius:var(--radius-sm);padding:22px 24px;box-shadow:var(--st-shadow)}
 .st-span-2{grid-column:span 2}
 .st-card-head{margin-bottom:18px}
@@ -162,3 +163,9 @@ html.dark-mode .st-dashboard .st-table thead tr{background:var(--st-paper)!impor
 .st-top-empty{margin:14px 0 0;font-size:13px;color:var(--st-muted,var(--ink-muted))}
 @media (max-width:760px){.st-top{grid-template-columns:minmax(0,1fr)}}
 .st-chart .st-divider{stroke:var(--st-muted,var(--ink-muted));stroke-width:1;stroke-dasharray:3 4;opacity:.45}
+
+/* StatsDashboard: tarjetas y KPI con la anatomía de ficha del sistema. */
+.st-dashboard .st-kpi,.st-dashboard .st-card{border-radius:var(--radius-lg)!important;border-color:var(--hairline)!important;background:var(--surface-1)!important;box-shadow:var(--shadow-sm)!important}
+.st-dashboard .st-kpi::before{inset:0 auto auto var(--space-5);width:40px;height:3px;border-radius:0 0 2px 2px}
+.st-dashboard .st-kpi{padding:var(--space-5)}
+.st-dashboard .st-card h2{font:500 22px/28px var(--font-display)!important}

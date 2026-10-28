@@ -3876,6 +3876,14 @@ export function initUI() {
         let currentTab = 'login';
         // Admin tools in the account window close it when used.
         document.getElementById('auth-admin-tools')?.addEventListener('click', event => { if (event.target.closest('a')) closeAuthModalBtn?.click(); });
+        // UserMenu shortcuts: close the account window, then open saved articles or the desk.
+        authLoggedIn?.addEventListener('click', event => {
+            const go = event.target.closest('[data-account-go]')?.dataset.accountGo;
+            if (!go) return;
+            closeAuthModalBtn?.click();
+            if (go === 'favorites') document.getElementById('nav-favorites')?.click();
+            else document.getElementById('desk-toggle')?.click();
+        });
 
         openAuthModal = function () {
             authModal.classList.remove('hidden');
@@ -4016,6 +4024,12 @@ export function initUI() {
                 authLoggedIn.classList.remove('hidden');
                 if (authUserName) authUserName.textContent = getUserDisplayName(user);
                 authUserEmail.textContent = user.email;
+                // UserMenu avatar: the initials of the display name (or of the e-mail).
+                const initialsEl = document.getElementById('auth-user-initials');
+                if (initialsEl) {
+                    const words = (getUserDisplayName(user) || user.email || '').replace(/@.*/, '').split(/[\s._-]+/).filter(Boolean);
+                    initialsEl.textContent = (words.length > 1 ? words[0][0] + words[1][0] : (words[0] || '?').slice(0, 2)).toUpperCase();
+                }
             } else {
                 authForm.classList.remove('hidden');
                 authTabsEl.classList.remove('hidden');
