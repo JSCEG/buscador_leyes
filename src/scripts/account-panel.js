@@ -6,51 +6,56 @@ import { getCurrentUser, onAuthChange, updateDisplayName, updatePassword, verify
 
 const dateLabel = iso => {
     const d = iso ? new Date(iso) : null;
-    return d && !Number.isNaN(d.getTime()) ? d.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }) : '—';
+    return d && !Number.isNaN(d.getTime()) ? d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
 };
 
 export function initAccountPanel() {
     const host = document.getElementById('auth-logged-in');
     const email = document.getElementById('auth-user-email');
     if (!host || !email || document.getElementById('account-panel')) return;
-    host.classList.add('account-host');
-    const caption = host.querySelector('p.text-sm.text-gray-500.mb-1');
-    if (caption) caption.textContent = 'Mi cuenta';
 
     const panel = document.createElement('div');
     panel.id = 'account-panel';
     panel.innerHTML = `
-        <details class="ap-section" open>
-            <summary>Tus datos</summary>
-            <form class="ap-form" data-form="name" novalidate>
-                <label class="ap-field">Nombre<input name="name" maxlength="80" autocomplete="name"></label>
-                <dl class="ap-facts">
-                    <div><dt>Correo</dt><dd data-fact="email"></dd></div>
-                    <div><dt>Miembro desde</dt><dd data-fact="since"></dd></div>
-                    <div><dt>Último acceso</dt><dd data-fact="last"></dd></div>
-                </dl>
-                <p class="ap-status" role="status" aria-live="polite"></p>
-                <button type="submit" class="ap-btn">Guardar nombre</button>
-            </form>
-        </details>
-        <details class="ap-section">
-            <summary>Cambiar contraseña</summary>
-            <form class="ap-form" data-form="password" novalidate>
-                <label class="ap-field">Contraseña actual<input type="password" name="current" autocomplete="current-password"></label>
-                <label class="ap-field">Contraseña nueva<input type="password" name="p1" minlength="8" autocomplete="new-password"></label>
-                <label class="ap-field">Repite la nueva<input type="password" name="p2" minlength="8" autocomplete="new-password"></label>
-                <p class="ap-status" role="status" aria-live="polite"></p>
-                <button type="submit" class="ap-btn">Cambiar contraseña</button>
-            </form>
-        </details>`;
-    email.after(panel);
+        <div class="bj-seg ap-tabs" role="tablist" aria-label="Secciones de la cuenta">
+            <button type="button" role="tab" class="bj-seg__opt" id="ap-tab-datos" aria-controls="ap-pane-datos" aria-selected="true" aria-checked="true" data-ap-tab="datos">Tus datos</button>
+            <button type="button" role="tab" class="bj-seg__opt" id="ap-tab-seguridad" aria-controls="ap-pane-seguridad" aria-selected="false" aria-checked="false" tabindex="-1" data-ap-tab="seguridad">Seguridad</button>
+        </div>
+        <form class="ap-form ap-pane" id="ap-pane-datos" role="tabpanel" aria-labelledby="ap-tab-datos" data-form="name" novalidate>
+            <div class="ap-field"><label for="ap-name-input">Nombre</label><input id="ap-name-input" name="name" maxlength="80" autocomplete="name"></div>
+            <dl class="ap-facts">
+                <div><dt>Miembro desde</dt><dd data-fact="since"></dd></div>
+                <div><dt>Último acceso</dt><dd data-fact="last"></dd></div>
+            </dl>
+            <p class="ap-status" role="status" aria-live="polite"></p>
+            <div class="ap-actions"><button type="submit" class="bj-btn bj-btn--sm ap-btn">Guardar cambios</button></div>
+        </form>
+        <form class="ap-form ap-pane" id="ap-pane-seguridad" role="tabpanel" aria-labelledby="ap-tab-seguridad" data-form="password" novalidate hidden>
+            <div class="ap-field"><label for="ap-current">Contraseña actual</label><input id="ap-current" type="password" name="current" autocomplete="current-password"></div>
+            <div class="ap-field"><label for="ap-p1">Nueva contraseña</label><input id="ap-p1" type="password" name="p1" minlength="8" autocomplete="new-password"><span class="ap-hint">Al menos 8 caracteres, con letras y números.</span></div>
+            <div class="ap-field"><label for="ap-p2">Confirma la nueva contraseña</label><input id="ap-p2" type="password" name="p2" minlength="8" autocomplete="new-password"></div>
+            <p class="ap-status" role="status" aria-live="polite"></p>
+            <div class="ap-actions"><button type="submit" class="bj-btn bj-btn--sm ap-btn">Cambiar contraseña</button></div>
+        </form>`;
+    const showTab = name => panel.querySelectorAll('[data-ap-tab]').forEach(tab => {
+        const on = tab.dataset.apTab === name;
+        tab.setAttribute('aria-selected', String(on));
+        tab.setAttribute('aria-checked', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        panel.querySelector(`#${tab.getAttribute('aria-controls')}`).hidden = !on;
+    });
+    panel.addEventListener('click', event => {
+        const tab = event.target.closest('[data-ap-tab]');
+        if (tab) showTab(tab.dataset.apTab);
+    });
+    // Below the identity block, not inside it: the avatar row stays one line.
+    (host.querySelector('.bj-usermenu__head') || email).after(panel);
 
     const nameForm = panel.querySelector('[data-form="name"]');
     const passForm = panel.querySelector('[data-form="password"]');
     const fill = user => {
         if (!user) return;
         if (document.activeElement !== nameForm.name) nameForm.name.value = user.user_metadata?.full_name || user.user_metadata?.name || '';
-        panel.querySelector('[data-fact="email"]').textContent = user.email || '—';
         panel.querySelector('[data-fact="since"]').textContent = dateLabel(user.created_at);
         panel.querySelector('[data-fact="last"]').textContent = dateLabel(user.last_sign_in_at);
     };
@@ -99,6 +104,6 @@ export function initAccountPanel() {
         } finally { button.disabled = false; }
     });
     // Stray text never leaks into the panel from a previous session.
-    onAuthChange(user => { if (!user) { passForm.reset(); panel.querySelectorAll('.ap-status').forEach(s => { s.textContent = ''; }); } });
+    onAuthChange(user => { if (!user) { passForm.reset(); showTab('datos'); panel.querySelectorAll('.ap-status').forEach(s => { s.textContent = ''; }); } });
 }
 

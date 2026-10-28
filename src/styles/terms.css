@@ -87,3 +87,11 @@ html.dark-mode .tm-bar i{background:#eeb0c2}
 .tm-view .tm-cite{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border:0;border-radius:var(--radius-xs);background:var(--brand-soft);color:var(--brand);font:500 12px/1.6 var(--font-mono);cursor:pointer}
 .tm-view .tm-cite:hover{background:var(--brand);color:var(--on-brand)}
 @media (max-width:700px){.tm-entry{grid-template-columns:1fr}}
+
+/* Chart styling of the design system: sunken canvas with a dot grid, mono labels, token borders. */
+.tm-view .tm-graph{border-color:var(--hairline);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);
+    background:radial-gradient(circle,color-mix(in srgb,var(--ink) 9%,transparent) 1px,transparent 1.4px) 0 0/18px 18px,var(--surface-sunken,var(--surface-1))}
+.tm-view .tm-node text{font:500 10.5px var(--font-mono);letter-spacing:-.01em;stroke:var(--surface-sunken,var(--tm-card))}
+.tm-view .tm-node circle{stroke:var(--surface-1)}
+.tm-view .tm-node.is-selected circle,.tm-view .tm-node:focus-visible circle{stroke:var(--accent,#f2c97a)}
+.tm-view .tm-link.is-lit{stroke:var(--brand)}

@@ -244,3 +244,12 @@ html.dark-mode .nx-explorer :is(.nx-graph,.nx-sources,.nx-block){background:tran
 .nx-node-law.nx-group-leyes .nx-node-ico{color:var(--nx-guinda)}
 .nx-node-law:is(.nx-group-acuerdos,.nx-group-convocatorias) .nx-node-ico{color:var(--nx-gold)}
 .nx-node-law .nx-node-ico svg{color:inherit;width:14px;height:14px}
+
+/* Chart styling of the design system: mono column heads and legend, sunken canvas, token radii. */
+.nx-graph-canvas{background:radial-gradient(circle,color-mix(in srgb,var(--nx-ink) 8%,transparent) 1px,transparent 1.4px) 0 0/18px 18px;border-radius:var(--radius-md)}
+.nx-graph-cols span{font:600 10.5px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase}
+.nx-graph-head h3{font-family:var(--font-display);font-weight:500;font-size:18px}
+.nx-graph-legend{font:500 11px/1.4 var(--font-mono);letter-spacing:.02em}
+.nx-node{border-radius:var(--radius-md);box-shadow:var(--shadow-sm)}
+.nx-node:focus-visible{outline:2px solid var(--accent,#f2c97a);outline-offset:2px}
+.nx-node-law strong{font-weight:600}

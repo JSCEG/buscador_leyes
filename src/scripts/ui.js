@@ -37,7 +37,7 @@ import { authError } from '../lib/auth-errors.js';
 import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
-import { emptyArt, emptyState } from '../lib/empty-art.js';
+import { emptyState, errorPage } from '../lib/empty-art.js';
 import { lawPath, articlePath, shareUrl } from '../lib/seo-paths.js';
 import { renderLawTree } from '../lib/law-tree.js';
 import { shortTitle } from '../lib/short-title.js';
@@ -497,7 +497,7 @@ export function initUI() {
             resultsContainer.innerHTML = skeleton('article', 'Cargando artículo');
             const item = await withProgress(getArticleById(pageId));
             if (parseArticlePageHash(location.hash) !== pageId) return;
-            if (!item) { resultsContainer.innerHTML = `<div class="sr-empty" style="max-width:640px;margin:40px auto">${emptyArt('missing')}<h2>No encontramos este artículo</h2><p>Quizá cambió de identificador o se retiró del acervo. Búscalo por su nombre o explora el acervo.</p><a href="#acervo" class="sr-clear">Ir al acervo</a></div>`; return; }
+            if (!item) { showErrorView({ title: 'No encontramos este artículo', body: 'Quizá cambió de identificador o se retiró del acervo. Búscalo por su nombre o explora el acervo.', actions: [['Ir al acervo', '#acervo'], ['Buscar', '#buscar']] }); return; }
             const law = cachedSummaries.find(l => String(l.id) === String(item.ley_id)) || null;
             renderArticlePage(resultsContainer, {
                 item, law, sourceUrl: safeHttpUrl(item.url_original || law?.url_original),
@@ -600,7 +600,32 @@ export function initUI() {
             const leyId = decodeURIComponent(hash.slice(5));
             const law = cachedSummaries.find(l => l.id === leyId);
             if (law) await openLawDetail(law, { updateHistory: false });
+            else showErrorView({ title: 'No encontramos este instrumento', body: 'El enlace puede ser antiguo o el instrumento ya no forma parte del acervo. Búscalo por su nombre o revisa la lista completa.', actions: [['Ir al acervo', '#acervo'], ['Buscar', '#buscar']] });
+        } else if (hash === '#no-encontrado') {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showErrorView({
+                title: 'Esta página no existe',
+                body: 'La dirección puede tener un error de escritura o venir de un enlace antiguo. Desde aquí puedes volver a buscar o revisar el acervo.',
+                detail: window.__notFoundPath || '',
+                actions: [['Ir al inicio', '/'], ['Ver el acervo', '#acervo']],
+            });
         }
+    }
+
+    /** ErrorPage in the results area: the address leads nowhere. */
+    function showErrorView(options) {
+        destroyTOC();
+        hideAllViews();
+        setActiveNav(null);
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        resultsContainer.innerHTML = errorPage(options);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        resultsContainer.querySelector('#bj-error-title')?.focus({ preventScroll: true });
     }
 
     document.getElementById('institutional-footer')?.addEventListener('click', event => {
@@ -4037,6 +4062,9 @@ export function initUI() {
                 authLoggedIn.classList.remove('hidden');
                 if (authUserName) authUserName.textContent = getUserDisplayName(user);
                 authUserEmail.textContent = user.email;
+                // AccountPanel counters, in mono on the account band.
+                const counts = { saved: getFavorites().length, desks: getDesks().filter(d => d.ids.length).length, notes: Object.keys(getAllNotes()).length };
+                authLoggedIn.querySelectorAll('[data-account-count]').forEach(el => { el.textContent = counts[el.dataset.accountCount] ?? 0; });
                 // UserMenu avatar: the initials of the display name (or of the e-mail).
                 const initialsEl = document.getElementById('auth-user-initials');
                 if (initialsEl) {
