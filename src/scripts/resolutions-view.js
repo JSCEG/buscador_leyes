@@ -3,6 +3,7 @@
  * resolutions (https://www.cne.gob.mx/Resoluciones/) and read one — its proemio, PDF, the permits
  * it mentions and its legal foundation, with each cited article linked to the acervo when we have it.
  */
+import { emptyState } from '../lib/empty-art.js';
 import {
     searchResolutions, fetchResolution, resolutionPdfUrl, parseFoundation, permitNumbersIn, permitsHash, RESOLUTIONS_URL,
 } from '../lib/cne-api.js';
@@ -66,7 +67,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
     function drawList() {
         if (!rows.length) {
             status.textContent = '';
-            body.innerHTML = '<p class="pm-empty">Ninguna resolución coincide. Prueba con menos filtros o con una parte del texto.</p>';
+            body.innerHTML = emptyState({ title: 'Ninguna resolución coincide', body: 'Prueba con menos filtros o con una parte del texto.' });
             return;
         }
         const to = state.start + rows.length;

@@ -3,6 +3,7 @@
  * permit's card — data and status, its resolutions in order, annexes and the acervo instruments
  * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
  */
+import { emptyState } from '../lib/empty-art.js';
 import { pinButtonHtml } from './desk-view.js';
 import { tramiteForPermit } from '../data/tramites.js';
 import { permitPinId, permitsHash, searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
@@ -63,7 +64,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     function drawList() {
         if (!rows.length) {
             status.textContent = '';
-            body.innerHTML = '<p class="pm-empty">Ningún permiso coincide con la búsqueda. Revisa el número o prueba con una parte del nombre del titular.</p>';
+            body.innerHTML = emptyState({ title: 'Ningún permiso coincide', body: 'Revisa el número o prueba con una parte del nombre del titular.' });
             return;
         }
         const from = state.start + 1;

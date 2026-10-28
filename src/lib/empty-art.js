@@ -24,3 +24,13 @@ const ART = {
 export function emptyArt(kind = 'search') {
     return `<svg class="empty-art" viewBox="0 0 168 112" width="168" height="112" aria-hidden="true" focusable="false" fill="none">${ART[kind] || ART.search}</svg>`;
 }
+
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+/**
+ * EmptyState of the design system: illustration, a title that says what happened and a line that says
+ * what to do, with an optional action button (`action` = [label, attribute string]).
+ */
+export function emptyState({ kind = 'search', title = '', body = '', action = null } = {}) {
+    return `<div class="bj-empty" role="status">${emptyArt(kind)}<h3>${escapeHtml(title)}</h3>${body ? `<p>${escapeHtml(body)}</p>` : ''}${action ? `<button type="button" class="bj-btn bj-btn--secondary" ${action[1]}>${escapeHtml(action[0])}</button>` : ''}</div>`;
+}

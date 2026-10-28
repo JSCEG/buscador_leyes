@@ -61,3 +61,29 @@ html.dark-mode .tm-defs button span,html.dark-mode .tm-search svg{color:#eeb0c2}
 html.dark-mode .tm-bar i{background:#eeb0c2}
 @media (max-width:900px){.tm-view .tm-layout{grid-template-columns:1fr}.tm-view .tm-detail{position:static;max-height:none}}
 @media (max-width:640px){.tm-view .tm-search{max-width:none}.tm-view .tm-sectors{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px 4px}.tm-view .tm-sector{flex:0 0 auto}.tm-view .tm-node text{font-size:10px}}
+/* ── Glossary del sistema: índice A–Z y entradas con cita ──────────────────── */
+.tm-mode{flex:none}
+.tm-mode{width:auto;max-width:none}
+.tm-mode .bj-seg__opt{flex:none;white-space:nowrap;padding:0 12px}
+.tm-layout .tm-glossary{display:none}
+.tm-layout[data-mode=glosario] .tm-glossary{display:flex;flex-direction:column;gap:12px;min-width:0}
+.tm-layout[data-mode=glosario] .tm-graph{display:none}
+.tm-letters{position:sticky;top:76px;z-index:2;display:flex;flex-wrap:wrap;gap:2px;padding:8px;border:1px solid var(--hairline);border-radius:var(--radius-md);background:var(--surface-1)}
+.tm-letters a,.tm-letters span{display:grid;place-items:center;min-width:28px;height:28px;border-radius:var(--radius-sm);font:600 12px/1 var(--font-mono)}
+.tm-letters a{color:var(--ink);text-decoration:none}
+.tm-letters a:hover{background:var(--surface-2);color:var(--brand)}
+.tm-letters span{color:var(--ink-muted);opacity:.45}
+.tm-entries{margin:0;display:flex;flex-direction:column}
+.tm-entry{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:4px 24px;padding:14px 4px;border-top:1px solid var(--hairline);scroll-margin-top:130px}
+.tm-entry.is-selected{background:var(--brand-soft);border-radius:var(--radius-sm)}
+.tm-entry dt{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.tm-view .tm-entry dt button{padding:0;border:0;background:none;font:600 18px/24px var(--font-display);color:var(--ink);text-align:left;cursor:pointer}
+.tm-view .tm-entry dt button:hover{color:var(--link);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.tm-entry-sector{display:inline-flex;align-items:center;gap:6px;font:500 12px/16px var(--font-sans);color:var(--ink-muted)}
+.tm-entry-sector i{width:8px;height:8px;border-radius:2px;background:var(--c)}
+.tm-entry dd{margin:0;display:flex;flex-direction:column;gap:8px}
+.tm-entry-stats{font:500 13px/18px var(--font-mono);color:var(--ink-2)}
+.tm-entry-cites{display:flex;flex-wrap:wrap;gap:6px}
+.tm-view .tm-cite{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border:0;border-radius:var(--radius-xs);background:var(--brand-soft);color:var(--brand);font:500 12px/1.6 var(--font-mono);cursor:pointer}
+.tm-view .tm-cite:hover{background:var(--brand);color:var(--on-brand)}
+@media (max-width:700px){.tm-entry{grid-template-columns:1fr}}
