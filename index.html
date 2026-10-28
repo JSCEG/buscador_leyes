@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#9B2247">
+    <script>
+        // Tema antes del primer pintado para evitar el destello claro.
+        (function () {
+            try {
+                var t = localStorage.getItem('app-theme') || (localStorage.getItem('app-dark-mode') === 'true' ? 'dark' : 'light');
+                document.documentElement.dataset.theme = t;
+                if (t === 'dark') document.documentElement.classList.add('dark-mode');
+            } catch (e) { document.documentElement.dataset.theme = 'light'; }
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..500&family=Noto+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
     <!-- Cache-busting: evita que el browser sirva index.html desde caché HTTP.
          El Service Worker (registrado en main.js) es la solución principal;
          estos meta tags actúan como defensa adicional para navegadores sin SW. -->
@@ -88,164 +101,81 @@
             scrollbar-width: thin;
         }
     </style>
-  <script type="module" crossorigin src="/assets/index-BIdZ0YPW.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CH7zsVcp.css">
+  <script type="module" crossorigin src="/assets/index-CqzKKIEf.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DROBFuXJ.css">
 </head>
 
-<body class="bg-[#F7F5F2] text-gray-900 font-body min-h-screen flex flex-col antialiased">
+<body class="font-body min-h-screen flex flex-col antialiased">
 
-    <!-- Minimal Header -->
-    <header class="bg-white shadow-sm relative z-50">
-        <div class="w-full max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-6">
-            <div class="flex items-center gap-3 min-w-0">
-                <a href="#acervo" id="brand-home" class="brand-link" aria-label="Buscador Jurídico · ir al acervo"><span class="brand-lockup "><img src="/img/b-mark.svg" alt="" class="brand-mark" width="34" height="37"><span class="brand-text"><span class="brand-name">Buscador Jurídico</span><span class="brand-sub">Sector energético</span></span></span></a>
-            </div>
-            <nav class="hidden lg:flex items-center gap-5 text-sm text-gray-500 font-medium">
-                <a href="#acervo" id="nav-leyes" class="hover:text-guinda transition-colors font-medium">Acervo</a>
-                <a href="#cronologia" id="nav-cronologia" class="hover:text-guinda transition-colors font-medium">Cronología</a>
-                <a href="#permisos" id="nav-permisos" class="hover:text-guinda transition-colors font-medium">Permisos</a>
-                <a href="#como-funciona" id="nav-como-funciona" class="hover:text-guinda transition-colors font-medium">¿Cómo funciona?</a>
-                <a href="#buscar" id="nav-inicio" class="hover:text-guinda transition-colors font-medium">Buscar</a>
+    <!-- Cabecera (TopNav del sistema de diseño) -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="#acervo" id="brand-home" class="bj-lockup brand-link" aria-label="Buscador Jurídico · ir al acervo"><img src="/img/b-mark.svg" alt="" class="bj-lockup__mark" width="34" height="37"><span class="bj-lockup__text"><span class="bj-lockup__name">Buscador Jurídico</span><span class="bj-lockup__sub">Sector energético</span></span></a>
+            <nav class="bj-topnav__links" aria-label="Secciones">
+                <a href="#acervo" id="nav-leyes" class="bj-navlink">Acervo</a>
+                <a href="#cronologia" id="nav-cronologia" class="bj-navlink">Cronología</a>
+                <a href="#permisos" id="nav-permisos" class="bj-navlink">Permisos</a>
+                <a href="#como-funciona" id="nav-como-funciona" class="bj-navlink">¿Cómo funciona?</a>
+                <a href="#buscar" id="nav-inicio" class="bj-navlink">Buscar</a>
                 <div class="nav-more" id="nav-more">
-                    <button type="button" id="nav-more-btn" class="nav-more-btn" aria-expanded="false" aria-controls="nav-more-menu">Más
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="nav-more-menu hidden" id="nav-more-menu">
-                        <a href="#reto" id="nav-reto" class="hover:text-guinda transition-colors font-medium">Reto del día</a>
-                        <a href="#" id="nav-analisis" class="hover:text-guinda transition-colors font-medium">Análisis</a>
-                        <a href="#" id="nav-stats" class="hover:text-guinda transition-colors">Estadísticas</a>
-                        <a href="#" id="nav-ayuda" class="hover:text-guinda transition-colors">Ayuda</a>
-                        <button type="button" id="keyboard-help-btn" class="nav-more-item" aria-label="Mostrar atajos de teclado">Atajos de teclado <kbd>?</kbd></button>
+                    <button type="button" id="nav-more-btn" class="bj-navlink nav-more-btn" aria-expanded="false" aria-controls="nav-more-menu">Más <svg class="bj-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <div class="bj-menu nav-more-menu hidden" id="nav-more-menu">
+                        <a href="#reto" id="nav-reto" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Reto del día</a>
+                        <a href="#" id="nav-analisis" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/></svg>Análisis</a>
+                        <a href="#" id="nav-stats" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg>Estadísticas</a>
+                        <a href="#" id="nav-ayuda" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg>Ayuda</a>
+                        <div class="bj-menu__sep" role="separator"></div>
+                        <button type="button" id="keyboard-help-btn" class="bj-menu__item" aria-label="Mostrar atajos de teclado"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>Atajos de teclado <kbd class="bj-kbd">?</kbd></button>
                     </div>
                 </div>
-                <!-- Dark mode toggle -->
-                <button id="darkmode-toggle"
-                    class="p-1.5 text-gray-400 hover:text-guinda transition-colors rounded-full hover:bg-guinda/5"
-                    title="Alternar modo oscuro" aria-label="Alternar modo oscuro">
-                    <svg id="darkmode-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                    <svg id="darkmode-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                </button>
-                <button id="nav-favorites"
-                    class="relative hover:text-guinda transition-colors flex items-center gap-1.5 text-gray-500"
-                    title="Guardados" aria-label="Guardados">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-                    </svg>
-                    <span
-                        class="fav-count text-[9px] font-bold bg-guinda text-white rounded-full w-4 h-4 flex items-center justify-center">0</span>
-                </button>
-                <button id="nav-login-btn"
-                    class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-500 border border-gray-200 rounded-full hover:border-guinda hover:text-guinda transition-all"
-                    title="Cuenta de usuario">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <span id="nav-user-label">Entrar</span>
-                </button>
             </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn"
-                class="lg:hidden p-2 text-gray-500 hover:text-guinda transition-colors focus:outline-none"
-                aria-label="Abrir menú">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
+            <div class="bj-topnav__tools">
+                <button type="button" id="darkmode-toggle" class="bj-btn bj-btn--ghost bj-btn--icon bj-btn--sm" title="Alternar modo oscuro" aria-label="Alternar modo oscuro"><svg class="bj-icon" id="darkmode-icon-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.4A9 9 0 0 1 8.6 3.6 9 9 0 1 0 20.4 15.4Z"/></svg><svg class="bj-icon hidden" id="darkmode-icon-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg></button>
+                <button type="button" id="nav-favorites" class="bj-btn bj-btn--ghost bj-btn--sm site-header__saved" title="Guardados" aria-label="Guardados"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg><span class="bj-count fav-count">0</span></button>
+                <button type="button" id="nav-login-btn" class="bj-btn bj-btn--secondary bj-btn--sm site-header__account" title="Cuenta de usuario"><svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg><span id="nav-user-label">Entrar</span></button>
+            </div>
+            <button type="button" id="mobile-menu-btn" class="bj-btn bj-btn--ghost bj-btn--icon site-header__menu" aria-label="Abrir menú"><svg class="bj-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         </div>
     </header>
 
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 bg-black/50 z-40 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
-    <div id="mobile-menu-drawer"
-        class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
-        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
-            <span class="text-xs font-bold text-guinda uppercase tracking-widest">Menú</span>
-            <button id="close-mobile-menu"
-                class="p-1 text-gray-400 hover:text-guinda transition-colors focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
+    <!-- Cajón móvil (Drawer del sistema de diseño) -->
+    <div id="mobile-menu-overlay" class="site-scrim hidden opacity-0"></div>
+    <div id="mobile-menu-drawer" class="bj-drawer site-drawer translate-x-full" aria-label="Menú">
+        <div class="bj-drawer__head">
+            <span class="bj-lockup bj-lockup--sm"><img src="/img/b-mark.svg" alt="" class="bj-lockup__mark" width="34" height="37"><span class="bj-lockup__text"><span class="bj-lockup__name">Buscador Jurídico</span><span class="bj-lockup__sub">Sector energético</span></span></span>
+            <button type="button" id="close-mobile-menu" class="bj-btn bj-btn--ghost bj-btn--icon" aria-label="Cerrar menú"><svg class="bj-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
         </div>
-        <nav class="flex-1 overflow-y-auto py-4">
-            <a href="#acervo" id="mobile-nav-leyes"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Acervo</a>
-            <a href="#cronologia" id="mobile-nav-cronologia"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Cronología</a>
-            <a href="#permisos" id="mobile-nav-permisos"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Permisos y resoluciones CNE</a>
-            <a href="#reto" id="mobile-nav-reto"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Reto Jurídico del día</a>
-            <a href="#como-funciona" id="mobile-nav-como-funciona"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">¿Cómo funciona?</a>
-            <a href="#buscar" id="mobile-nav-inicio"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Buscar</a>
-            <a href="#" id="mobile-nav-analisis"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Análisis</a>
-            <a href="#" id="mobile-nav-stats"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Estadísticas</a>
-            <a href="#" id="mobile-nav-admin"
-                class="hidden block px-6 py-3 text-sm text-amber-600 hover:bg-amber-50 hover:text-amber-700 font-bold transition-colors border-l-4 border-transparent hover:border-amber-600">⚙️
-                Gestor Admin</a>
-            <a href="#usuarios" id="mobile-nav-usuarios"
-                class="hidden block px-6 py-3 text-sm text-amber-600 hover:bg-amber-50 hover:text-amber-700 font-bold transition-colors border-l-4 border-transparent hover:border-amber-600">Usuarios</a>
-            <a href="#" id="mobile-nav-ayuda"
-                class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda">Ayuda</a>
-            <button id="mobile-nav-favorites"
-                class="w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-                </svg>
-                Guardados <span
-                    class="fav-count text-[9px] font-bold bg-guinda text-white rounded-full px-1.5 py-0.5 ml-1">0</span>
-            </button>
-            <button type="button" id="mobile-nav-desk"
-                class="w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="4" width="7.5" height="16" rx="1.5" stroke-width="2"></rect>
-                    <rect x="13.5" y="4" width="7.5" height="16" rx="1.5" stroke-width="2"></rect>
-                </svg>
-                Mi mesa de consulta
-            </button>
-            <button id="mobile-nav-login-btn"
-                class="w-full text-left px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-guinda font-medium transition-colors border-l-4 border-transparent hover:border-guinda flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span id="mobile-user-label">Entrar</span>
-            </button>
+        <nav class="bj-drawer__body" aria-label="Menú">
+            <p class="bj-drawer__group">Consultar</p>
+            <a href="#buscar" id="mobile-nav-inicio" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>Buscar</span></a>
+            <a href="#acervo" id="mobile-nav-leyes" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Acervo</span></a>
+            <a href="#cronologia" id="mobile-nav-cronologia" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Cronología</span></a>
+            <a href="#permisos" id="mobile-nav-permisos" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/></svg><span>Permisos y resoluciones CNE</span></a>
+            <a href="#" id="mobile-nav-analisis" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/></svg><span>Análisis</span></a>
+            <a href="#" id="mobile-nav-stats" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg><span>Estadísticas</span></a>
+            <p class="bj-drawer__group">Aprender</p>
+            <a href="#reto" id="mobile-nav-reto" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span>Reto Jurídico del día</span></a>
+            <a href="#como-funciona" id="mobile-nav-como-funciona" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.5"/><path d="M12 17h.01"/></svg><span>¿Cómo funciona?</span></a>
+            <a href="#" id="mobile-nav-ayuda" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg><span>Ayuda</span></a>
+            <p class="bj-drawer__group">Mi espacio</p>
+            <button type="button" id="mobile-nav-favorites" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>Guardados <span class="bj-count fav-count">0</span></button>
+            <button type="button" id="mobile-nav-desk" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg>Mi mesa de consulta</button>
+            <button type="button" id="mobile-nav-login-btn" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg><span id="mobile-user-label">Entrar</span></button>
+            <p class="bj-drawer__group bj-drawer__group--admin">Administración</p>
+            <a href="#" id="mobile-nav-admin" class="bj-drawer__link hidden"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg><span>Gestor Admin</span></a>
+            <a href="#usuarios" id="mobile-nav-usuarios" class="bj-drawer__link hidden"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2a6 6 0 0 1 3 5.8"/></svg><span>Usuarios</span></a>
         </nav>
-        <div class="p-6 border-t border-gray-100 bg-gray-50">
-            <button id="mobile-darkmode-toggle"
-                class="flex items-center gap-3 w-full text-left text-sm text-gray-600 hover:text-guinda font-medium transition-colors mb-4">
-                <svg id="mobile-darkmode-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-                <svg id="mobile-darkmode-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-                <span id="mobile-darkmode-label">Modo oscuro</span>
-            </button>
-            <div class="mb-2"><span class="brand-lockup brand-lockup-sm"><img src="/img/b-mark.svg" alt="" class="brand-mark" width="34" height="37"><span class="brand-text"><span class="brand-name">Buscador Jurídico</span><span class="brand-sub">Sector energético</span></span></span></div>
-            <p class="text-[10px] text-gray-400">Normativa del sector energético de México</p>
+        <div class="bj-drawer__foot">
+            <div>
+                <p class="bj-drawer__label" id="drawer-theme-label">Tema</p>
+                <div class="bj-seg site-theme-seg" role="radiogroup" aria-labelledby="drawer-theme-label">
+                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="light" aria-checked="false">Claro</button>
+                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="dark" aria-checked="false">Oscuro</button>
+                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="sepia" aria-checked="false">Sepia</button>
+                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="contraste" aria-checked="false">Contraste</button>
+                </div>
+            </div>
+            <p class="site-drawer__note">Normativa del sector energético de México</p>
         </div>
     </div>
 
@@ -320,33 +250,27 @@
             </form>
 
             <!-- Logged-in state (visible when authenticated) -->
-            <div id="auth-logged-in" class="hidden text-center">
-                <div class="w-16 h-16 bg-guinda/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-guinda" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+            <div id="auth-logged-in" class="hidden bj-usermenu">
+                <div class="bj-usermenu__head">
+                    <span class="bj-avatar" id="auth-user-initials" aria-hidden="true"></span>
+                    <div class="bj-usermenu__who">
+                        <p class="bj-usermenu__hint">Sesión iniciada como</p>
+                        <p class="bj-usermenu__name" id="auth-user-name"></p>
+                        <p class="bj-usermenu__email" id="auth-user-email"></p>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-500 mb-1">Sesión iniciada como</p>
-                <p class="font-bold text-gray-900 text-base truncate px-4" id="auth-user-name"></p>
-                <p class="text-sm text-gray-500 mb-6 truncate px-4" id="auth-user-email"></p>
+                <nav class="bj-usermenu__links" aria-label="Tu cuenta">
+                    <button type="button" class="bj-menu__item" data-account-go="favorites"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>Guardados</button>
+                    <button type="button" class="bj-menu__item" data-account-go="desk"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg>Mi mesa de consulta</button>
+                </nav>
                 <!-- Owner/admin tools: only accounts the database recognizes see them. -->
                 <div id="auth-admin-tools" class="auth-admin-tools hidden">
                     <p class="auth-admin-title">Administración</p>
-                    <a href="#" id="nav-admin" class="hidden auth-admin-link"><svg
-                        class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                        </path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg> Gestor de ingesta</a>
+                    <a href="#" id="nav-admin" class="hidden auth-admin-link"><svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg> Gestor de ingesta</a>
                     <a href="#usuarios" id="nav-usuarios" class="hidden auth-admin-link"><svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-5-3.9M9 20H2v-2a4 4 0 014-4h3a4 4 0 014 4v2zm4-12a4 4 0 11-8 0 4 4 0 018 0zm6 2a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Usuarios registrados</a>
                 </div>
-                <button id="auth-logout-btn"
-                    class="w-full py-2.5 border border-gray-200 rounded-xl text-sm font-medium text-gray-600 hover:border-red-300 hover:text-red-600 transition-colors">
-                    Cerrar sesión
-                </button>
+                <div class="bj-menu__sep" role="separator"></div>
+                <button id="auth-logout-btn" type="button" class="bj-menu__item bj-usermenu__logout"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M15 16l4-4-4-4M19 12H9"/></svg>Cerrar sesión</button>
             </div>
         </div>
     </div>
@@ -397,29 +321,13 @@
         </div>
 
         <!-- Search Bar -->
-        <div id="global-search-wrapper" class="w-full max-w-2xl relative group z-30">
-            <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                <svg class="h-4 w-4 text-gray-300 group-focus-within:text-guinda transition-colors duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-            </div>
-            <input type="text" id="search-input"
-                class="block w-full pl-12 pr-6 py-4 bg-white/90 backdrop-blur-md border border-gray-200/80 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-guinda/10 focus:border-guinda/60 transition-all duration-300 text-base"
-                style="font-size:0.95rem; letter-spacing:0.01em; box-shadow: 0 2px 18px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);"
+        <!-- Search Bar (SearchBar del sistema de diseño) -->
+        <div id="global-search-wrapper" class="bj-search w-full max-w-2xl z-30">
+            <svg class="bj-icon bj-search__icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+            <input type="text" id="search-input" class="bj-search__input" aria-label="Buscar en el acervo"
                 placeholder="¿Qué artículo o término buscas?">
-            <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
-                <div id="loading-indicator" class="hidden">
-                    <svg class="animate-spin h-4 w-4 text-guinda" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                        </path>
-                    </svg>
-                </div>
+            <div id="loading-indicator" class="hidden" role="status" aria-label="Buscando">
+                <span class="bj-spinner" style="width:20px;height:20px"></span>
             </div>
         </div>
 
@@ -428,12 +336,12 @@
             style="animation-delay: 0.2s; animation-fill-mode: forwards;">
             <p class="sr-suggest-label">Temas frecuentes en el acervo</p>
             <div class="flex flex-wrap justify-center gap-2">
-                <button class="sr-suggestion">Interconexión</button>
-                <button class="sr-suggestion">Autoconsumo</button>
-                <button class="sr-suggestion">Planeación vinculante</button>
-                <button class="sr-suggestion">Permisos de generación</button>
-                <button class="sr-suggestion">Almacenamiento</button>
-                <button class="sr-suggestion">CENACE</button>
+                <button type="button" class="bj-chip sr-suggestion">Interconexión</button>
+                <button type="button" class="bj-chip sr-suggestion">Autoconsumo</button>
+                <button type="button" class="bj-chip sr-suggestion">Planeación vinculante</button>
+                <button type="button" class="bj-chip sr-suggestion">Permisos de generación</button>
+                <button type="button" class="bj-chip sr-suggestion">Almacenamiento</button>
+                <button type="button" class="bj-chip sr-suggestion">CENACE</button>
             </div>
         </div>
 
@@ -725,21 +633,20 @@
 
 
 
-    <!-- Footer Institutional -->
-    <footer id="institutional-footer" class="w-full py-12 px-6 mt-auto">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                <span class="brand-lockup "><img src="/img/b-mark.svg" alt="" class="brand-mark" width="34" height="37"><span class="brand-text"><span class="brand-name">Buscador Jurídico</span><span class="brand-sub">Sector energético</span></span></span>
-                <div class="institutional-footer-divider hidden sm:block h-8 w-px"></div>
-                <p class="footer-credit text-[11px] font-medium mb-0"><span class="opacity-70">© 2026 Buscador Jurídico</span><br><span class="footer-author">Diseño y desarrollo: <strong>JSC</strong></span></p>
+    <!-- Pie del sitio (SiteFooter del sistema de diseño) -->
+    <footer id="institutional-footer" class="site-footer">
+        <div class="site-footer__inner">
+            <div class="site-footer__brand">
+                <span class="bj-lockup"><img src="/img/b-mark.svg" alt="" class="bj-lockup__mark" width="34" height="37"><span class="bj-lockup__text"><span class="bj-lockup__name">Buscador Jurídico</span><span class="bj-lockup__sub">Sector energético</span></span></span>
+                <p class="site-footer__credit">© 2026 Buscador Jurídico<br>Elaborado por Javier Sasso Celaya</p>
             </div>
-            <div class="flex gap-8 text-[11px] font-bold tracking-widest uppercase opacity-70">
-                <button type="button" class="footer-feedback" data-feedback>Enviar comentario</button>
-                <a href="#" class="hover:opacity-100 transition-opacity" data-legal="terminos">Términos de uso</a>
-                <a href="#" class="hover:opacity-100 transition-opacity" data-legal="privacidad">Privacidad</a>
-            </div>
+            <nav class="site-footer__links" aria-label="Información del sitio">
+                <button type="button" class="bj-btn bj-btn--secondary bj-btn--sm" data-feedback>Enviar comentario</button>
+                <a href="#" class="site-footer__link" data-legal="terminos">Términos de uso</a>
+                <a href="#" class="site-footer__link" data-legal="privacidad">Privacidad</a>
+            </nav>
         </div>
-        <p class="footer-legal">Herramienta de consulta y apoyo. El texto con validez jurídica es el publicado en el Diario Oficial de la Federación o en la fuente oficial de cada instrumento.</p>
+        <p class="site-footer__legal">Herramienta de consulta y apoyo. El texto con validez jurídica es el publicado en el Diario Oficial de la Federación o en la fuente oficial de cada instrumento.</p>
     </footer>
 
 
@@ -754,11 +661,14 @@
         <div class="bg-white w-full max-w-2xl max-h-full rounded-2xl shadow-2xl border border-gray-100 flex flex-col transform scale-95 opacity-0 transition-all duration-300"
             id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
             <div class="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-50/80">
-                <div class="flex flex-col">
-                    <button id="modal-ley"
-                        class="text-[9px] font-bold tracking-[0.22em] text-verde uppercase mb-1.5 hover:text-verde-lt transition-colors text-left"
-                        title="Ver ley completa" aria-label="Abrir ley completa">Ley de Origen</button>
-                    <h3 id="modal-title" class="text-3xl font-bold text-guinda leading-tight border-b-2 border-guinda pb-2 font-head">Artículo 00</h3>
+                <span class="reader-progress" aria-hidden="true"><span id="modal-progress"></span></span>
+                <div class="reader-head">
+                    <div class="reader-head-kicker">
+                        <span id="modal-sigla" class="reader-sigla" hidden></span>
+                        <button id="modal-ley" class="reader-ley" title="Ver ley completa" aria-label="Abrir ley completa">Ley de Origen</button>
+                    </div>
+                    <h3 id="modal-title" class="reader-num">Artículo 00</h3>
+                    <p id="modal-published" class="reader-published" hidden></p>
                 </div>
                 <div class="flex items-center gap-1">
                     <button id="modal-edit-btn"
@@ -787,17 +697,6 @@
                     </button>
                 </div>
             </div>
-            <nav id="modal-nav-controls" class="reader-article-nav" aria-label="Navegación entre artículos y disposiciones">
-                <button id="modal-prev-btn" type="button" disabled>
-                    <span class="reader-nav-arrow" aria-hidden="true">←</span>
-                    <span class="reader-nav-destination"><small>Anterior</small><span id="modal-prev-label">Sin anterior</span></span>
-                </button>
-                <span id="modal-nav-counter" class="reader-nav-counter" aria-label="Posición en la lectura"></span>
-                <button id="modal-next-btn" type="button" disabled>
-                    <span class="reader-nav-destination"><small>Siguiente</small><span id="modal-next-label">Sin siguiente</span></span>
-                    <span class="reader-nav-arrow" aria-hidden="true">→</span>
-                </button>
-            </nav>
             <div class="reader-toolbar">
                 <div class="reader-modes" role="group" aria-label="Vista del documento">
                     <button type="button" data-reader-mode="text" aria-pressed="true" aria-controls="modal-content">Texto</button>
@@ -817,6 +716,17 @@
                 </div>
                 <section id="reader-original" class="hidden" aria-label="Documento original"></section>
             </div>
+            <nav id="modal-nav-controls" class="reader-article-nav" aria-label="Navegación entre artículos y disposiciones">
+                <button id="modal-prev-btn" type="button" disabled>
+                    <span class="reader-nav-arrow" aria-hidden="true">←</span>
+                    <span class="reader-nav-destination"><small>Anterior</small><span id="modal-prev-label">Sin anterior</span></span>
+                </button>
+                <span id="modal-nav-counter" class="reader-nav-counter" aria-label="Posición en la lectura"></span>
+                <button id="modal-next-btn" type="button" disabled>
+                    <span class="reader-nav-destination"><small>Siguiente</small><span id="modal-next-label">Sin siguiente</span></span>
+                    <span class="reader-nav-arrow" aria-hidden="true">→</span>
+                </button>
+            </nav>
             <div
                 class="px-5 py-3 border-t border-gray-50 bg-[#FAFAF9] rounded-b-2xl flex items-center justify-between gap-4">
                 <div class="flex items-center gap-2 flex-shrink-0">
@@ -919,7 +829,7 @@
                                 d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
                             </path>
                         </svg>
-                        <span class="btn-label">Citar</span>
+                        <span class="btn-label">Copiar cita formal</span>
                     </button>
                     <button
                         class="text-xs font-semibold text-gray-500 hover:text-guinda transition-colors flex items-center gap-1"
@@ -1128,19 +1038,6 @@
             pointer-events: none;
         }
 
-        /* Compensar la franja en el header */
-        header {
-            padding-top: calc(1.5rem + 3px) !important;
-        }
-
-        /* Focus mejorado para el buscador */
-        #search-input:focus {
-            border-color: rgba(155, 34, 71, 0.45) !important;
-            box-shadow:
-                0 0 0 4px rgba(155, 34, 71, 0.07),
-                0 8px 32px rgba(0, 0, 0, 0.08) !important;
-        }
-
         /* Scrollbar refinado */
         ::-webkit-scrollbar {
             width: 5px;
@@ -1168,35 +1065,6 @@
         ::selection {
             background: rgba(155, 34, 71, 0.15);
             color: #9B2247;
-        }
-
-        /* Links del navbar con underline animado */
-        header nav a {
-            position: relative;
-            padding-bottom: 2px;
-            transition: color 0.2s;
-        }
-
-        header nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 1.5px;
-            background: #9B2247;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.2s ease;
-        }
-
-        header nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* Mobile drawer — fondo cremoso */
-        #mobile-menu-drawer {
-            background: #FDFCFA !important;
         }
 
         /* Doom-scroll smooth en contenedores de artículos */
@@ -1365,25 +1233,6 @@
                 -webkit-print-color-adjust: exact;
                         print-color-adjust: exact;
             }
-        }
-
-        /* Resaltado de búsqueda — siempre visible independientemente del purge */
-        mark.hl {
-            background-color: #fef08a;
-            /* yellow-200 */
-            color: #111827;
-            border-radius: 2px;
-            padding: 0 3px;
-            font-weight: 600;
-        }
-
-        .dark-mode mark.hl {
-            background-color: #713f12;
-            /* amber-900 */
-            color: #fef3c7;
-        }
-
-        @media print {
             mark.hl {
                 background: none !important;
                 font-weight: 700 !important;
