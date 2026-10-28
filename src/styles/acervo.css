@@ -522,6 +522,8 @@ html body .ac-library .ac-tile-blurb{flex:1;font:400 14px/21px var(--font-sans)!
 .ac-library .is-featured .ac-tile-band{min-height:120px;background:var(--surface-inverse);border-bottom:0}
 .ac-library .is-featured .ac-tile-band .ac-tile-count{color:color-mix(in srgb,var(--ink-inverse) 75%,transparent)}
 .ac-library .is-featured .ac-tile-band .ac-tile-count b{font-size:48px;color:var(--ink-inverse)}
+/* Dark keeps the charcoal and gold balance: the featured band goes sunken, not inverted cream. */
+html:is(.dark-mode,[data-theme="dark"]) .ac-library .is-featured .ac-tile-band{--surface-inverse:var(--surface-sunken);--ink-inverse:var(--ink);border-bottom:1px solid var(--hairline)}
 @media (max-width:639px){html body .ac-library .ac-tiles>li.is-featured{grid-column:auto}}
 @media (prefers-reduced-motion:reduce){html body .ac-library .ac-tile:hover{transform:none}}
 html body .ac-library .ac-tiles>li:not(.is-featured){grid-column:auto}
