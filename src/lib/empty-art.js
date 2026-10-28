@@ -34,3 +34,19 @@ const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&'
 export function emptyState({ kind = 'search', title = '', body = '', action = null } = {}) {
     return `<div class="bj-empty" role="status">${emptyArt(kind)}<h3>${escapeHtml(title)}</h3>${body ? `<p>${escapeHtml(body)}</p>` : ''}${action ? `<button type="button" class="bj-btn bj-btn--secondary" ${action[1]}>${escapeHtml(action[0])}</button>` : ''}</div>`;
 }
+
+/**
+ * ErrorPage of the design system: the address leads nowhere (an old link, a typo, an instrument that
+ * left the acervo). Big mono code, a plain explanation and ways back; actions are [label, href].
+ */
+export function errorPage({ code = '404', kind = 'missing', title = '', body = '', detail = '', actions = [] } = {}) {
+    const links = actions.map(([label, href], index) => `<a class="bj-btn ${index ? 'bj-btn--secondary' : 'bj-btn--primary'}" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`).join('');
+    return `<section class="bj-error" aria-labelledby="bj-error-title">
+        <div class="bj-error__art">${emptyArt(kind)}</div>
+        <p class="bj-error__code">Error ${escapeHtml(code)}</p>
+        <h1 id="bj-error-title" tabindex="-1">${escapeHtml(title)}</h1>
+        ${body ? `<p class="bj-error__body">${escapeHtml(body)}</p>` : ''}
+        ${detail ? `<p class="bj-error__detail"><code>${escapeHtml(detail)}</code></p>` : ''}
+        ${links ? `<div class="bj-error__actions">${links}</div>` : ''}
+    </section>`;
+}

@@ -27,11 +27,19 @@ import { initAccountPanel } from './scripts/account-panel.js';
 import { trackVisit } from './lib/usage.js';
 import { takeSeoRoute } from './lib/seo-route.js';
 
+/** Addresses the app itself answers; the rest of the server's fallback is a broken link. */
+const isAppPath = (pathname = location.pathname) => ['/', '/index.html'].includes(pathname.replace(/\/{2,}/g, '/'));
+
 document.addEventListener('DOMContentLoaded', () => {
   // /ley/… and /aprende/… (search engines, shared links): open that content, without the intro.
   const fromSeoPage = takeSeoRoute();
   // /instalar (the link sent by WhatsApp): the install screen instead of the intro and the usual invitation.
   const installPage = isInstallPath();
+  // Any other address the server answered with the app (a typo, an old link): the error page.
+  if (!fromSeoPage && !installPage && !isAppPath()) {
+    window.__notFoundPath = location.pathname;
+    history.replaceState(null, '', '/#no-encontrado');
+  }
   if (installPage) initInstallPage();
   else if (!fromSeoPage && shouldShowIntro()) window.__introDone = playIntro();
   initPasswordRecovery();
