@@ -135,8 +135,8 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
         const count = sectorConcepts.filter(c => done.has(c.id)).length;
         const sectorName = currentSector === 'hidrocarburos' ? 'de hidrocarburos' : 'de electricidad';
         return count
-            ? `Llevas ${count} de ${sectorConcepts.length} conceptos ${sectorName}. Sigue el hilo conductor en orden o salta al eslabón que te interese.`
-            : 'Sigue el hilo conductor desde el Paso 1 hasta la regulación y el mercado, o salta directo al eslabón que necesites.';
+            ? `Llevas ${count} de ${sectorConcepts.length} temas ${sectorName}. Puedes seguir en orden o saltar al que te interese.`
+            : 'Empieza por el paso 1 o salta directo al tema que necesites.';
     }
 
     let done = seen();
@@ -157,9 +157,9 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
             <section class="cf-view" aria-labelledby="cf-title">
                 <header class="cf-head" data-emblem-host>
                     ${emblemHtml('como-funciona')}
-                    <p class="cf-kicker">Explicaciones generales · interactivo con anatomía técnica y leyes</p>
+                    <p class="cf-kicker">Aprende con ejemplos y dibujos</p>
                     <h1 id="cf-title">¿Cómo funciona el sector energético?</h1>
-                    <p class="cf-intro">Aprende paso a paso cómo funcionan la electricidad y los hidrocarburos en México: desde las leyes físicas y las moléculas hasta las centrales, refinerías, ductos y el diseño del nuevo marco regulatorio (Reforma 2025).</p>
+                    <p class="cf-intro">Cómo llega la luz a tu casa y la gasolina a tu coche, explicado desde lo más básico: qué es la corriente, cómo funcionan una central, una refinería o un gasoducto, y qué dicen las leyes de energía de 2025.</p>
                     
                     <div class="cf-sectors-nav" role="group" aria-label="Elegir sector">
                         <button type="button" class="cf-sector-tab ${currentSector === 'electricidad' ? 'is-active' : ''}" data-sector="electricidad" aria-pressed="${currentSector === 'electricidad'}">
@@ -179,7 +179,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                 <section class="cf-thread-map" aria-label="Hilo conductor de la cadena de valor">
                     <div class="cf-thread-top">
                         <div>
-                            <p class="cf-kicker">El hilo conductor · Cadena de valor de principio a fin</p>
+                            <p class="cf-kicker">El recorrido en cuatro pasos</p>
                             <h2 class="cf-thread-title">${esc(hilo.subtitulo)}</h2>
                             <p class="cf-thread-desc">${esc(hilo.resumen)}</p>
                         </div>
@@ -193,7 +193,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                         ${hilo.etapas.map(etapa => `
                             <li class="cf-thread-stage">
                                 <div class="cf-stage-head">
-                                    <span class="cf-stage-num">Eslabón ${esc(etapa.num)}</span>
+                                    <span class="cf-stage-num">Paso ${esc(etapa.num)}</span>
                                     <strong>${esc(etapa.titulo)}</strong>
                                 </div>
                                 <p>${esc(etapa.desc)}</p>

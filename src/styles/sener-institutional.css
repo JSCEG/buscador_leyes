@@ -80,17 +80,18 @@ h6,
     margin-right: auto;
 }
 
+/* The hero is a guinda band: light text from the first paint (search-landing.css loads later). */
 #hero-section h1 {
-    color: var(--sener-guinda) !important;
+    color: #fff !important;
 }
 
 #hero-section em {
-    color: var(--sener-guinda) !important;
+    color: color-mix(in srgb, var(--gold) 50%, #fff) !important;
     font-style: normal !important;
 }
 
 #hero-section p {
-    color: var(--sener-muted) !important;
+    color: var(--guinda-100) !important;
     font-weight: 400 !important;
 }
 
