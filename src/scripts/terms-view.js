@@ -18,6 +18,11 @@ const plain = value => String(value || '').normalize('NFD').replace(/\p{M}/gu, '
 const number = value => new Intl.NumberFormat('es-MX').format(value);
 const dateLabel = value => { const d = new Date(value); return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' }); };
 
+const MODE_KEY = 'terminos-vista';
+const readMode = () => { try { return localStorage.getItem(MODE_KEY) === 'glosario' ? 'glosario' : 'mapa'; } catch { return 'mapa'; } };
+const LETTERS = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
+const initial = label => { const first = String(label || '').trim().charAt(0).toUpperCase(); return first === 'Ñ' ? 'Ñ' : first.normalize('NFD').replace(/\p{M}/gu, ''); };
+
 let dataPromise = null;
 export const loadTerms = () => (dataPromise ||= import('../data/analisis-terminos.json').then(m => m.default || m));
 
@@ -33,7 +38,7 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
     const terms = data.terms;
     const byId = new Map(terms.map(t => [t.id, t]));
     const sectorCounts = terms.reduce((acc, t) => acc.set(t.sector, (acc.get(t.sector) || 0) + 1), new Map());
-    const state = { selected: byId.has(selected) ? selected : '', hidden: new Set(), query: '' };
+    const state = { selected: byId.has(selected) ? selected : '', hidden: new Set(), query: '', mode: readMode() };
 
     host.innerHTML = `<div class="tm-view">
         <p class="tm-intro">Detectamos automáticamente <strong>${terms.length} términos</strong> que las leyes, reglamentos y acuerdos definen y que aparecen en varios instrumentos. Las líneas unen términos que suelen usarse juntos en los mismos artículos. <span class="tm-meta">Actualizado el ${esc(dateLabel(data.generatedAt))} · ${number(data.fragments)} disposiciones analizadas</span></p>
@@ -41,10 +46,15 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
             <div class="tm-search"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
                 <input type="search" data-tm-search placeholder="Buscar un término (ej. almacenamiento)" aria-label="Buscar un término" autocomplete="off" list="tm-term-list">
                 <datalist id="tm-term-list">${terms.map(t => `<option value="${esc(t.label)}">`).join('')}</datalist></div>
+            <div class="bj-seg tm-mode" role="radiogroup" aria-label="Cómo ver los términos">
+                <button type="button" role="radio" class="bj-seg__opt" data-tm-mode="mapa" aria-checked="${state.mode === 'mapa'}">Mapa</button>
+                <button type="button" role="radio" class="bj-seg__opt" data-tm-mode="glosario" aria-checked="${state.mode === 'glosario'}">Glosario A–Z</button>
+            </div>
             <div class="tm-sectors" role="group" aria-label="Mostrar sectores">${Object.entries(SECTORS).filter(([id]) => sectorCounts.get(id)).map(([id, s]) =>
                 `<button type="button" class="tm-sector" data-tm-sector="${id}" aria-pressed="true" style="--c:${s.color}"><i></i>${esc(s.label)} <span>${sectorCounts.get(id)}</span></button>`).join('')}</div>
         </div>
-        <div class="tm-layout">
+        <div class="tm-layout" data-mode="${state.mode}">
+            <section class="tm-glossary" aria-label="Glosario de términos"></section>
             <div class="tm-graph"><div class="tm-canvas" role="img" aria-label="Mapa de ${terms.length} términos agrupados por sector"></div>
                 <p class="tm-hint">Clic en un término: ver su ficha · Arrastra: mueve · Rueda o pellizco: acerca y aleja</p></div>
             <aside class="tm-detail" aria-live="polite"></aside>
@@ -74,6 +84,38 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
             <ol class="tm-bars">${instruments.slice(0, 12).map(i => `<li><button type="button" data-tm-law="${esc(i.lawId)}" title="${esc(i.law.titulo)}"><span class="tm-bar-name">${esc(i.law.siglas || i.law.titulo)}</span><span class="tm-bar"><i style="width:${Math.max(4, (i.count / max) * 100)}%"></i></span><span class="tm-bar-n">${i.count}</span></button></li>`).join('')}</ol>
             ${instruments.length > 12 ? `<p class="tm-muted">y ${instruments.length - 12} instrumentos más.</p>` : ''}`;
     };
+
+    // ── Glossary (A–Z list) ──
+    const glossary = host.querySelector('.tm-glossary');
+    const drawGlossary = () => {
+        if (state.mode !== 'glosario') return;
+        const q = plain(state.query).trim();
+        const visible = [...terms]
+            .filter(t => !state.hidden.has(t.sector) && (!q || plain(t.label).includes(q)))
+            .sort((a, b) => a.label.localeCompare(b.label, 'es'));
+        const present = new Set(visible.map(t => initial(t.label)));
+        let lastLetter = '';
+        const rows = visible.map(t => {
+            const letter = initial(t.label);
+            const anchor = letter !== lastLetter ? ` id="tm-letra-${esc(letter)}"` : '';
+            lastLetter = letter;
+            const defined = t.definedIn.map(d => ({ ...d, law: lawById.get(String(d.lawId)) })).filter(d => d.law).slice(0, 3);
+            return `<div class="tm-entry${t.id === state.selected ? ' is-selected' : ''}"${anchor}>
+                <dt><button type="button" data-tm-term="${esc(t.id)}">${esc(t.label)}</button><span class="tm-entry-sector" style="--c:${SECTORS[t.sector]?.color}"><i></i>${esc(SECTORS[t.sector]?.label || '')}</span></dt>
+                <dd><span class="tm-entry-stats">${t.instruments.length} instrumentos · ${number(t.fragments)} disposiciones</span>
+                    ${defined.length ? `<span class="tm-entry-cites">${defined.map(d => `<button type="button" class="tm-cite" data-tm-article="${esc(d.articleId)}">Definición en ${esc(d.law.siglas || d.law.titulo)}</button>`).join('')}</span>` : ''}</dd>
+            </div>`;
+        }).join('');
+        glossary.innerHTML = `<nav class="tm-letters" aria-label="Ir a la letra">${LETTERS.map(l => present.has(l)
+            ? `<a href="#tm-letra-${l}" data-tm-letter="${l}">${l}</a>` : `<span aria-hidden="true">${l}</span>`).join('')}</nav>
+            ${visible.length ? `<dl class="tm-entries">${rows}</dl>` : '<p class="tm-muted">Ningún término coincide con la búsqueda.</p>'}`;
+    };
+    glossary.addEventListener('click', event => {
+        const link = event.target.closest('[data-tm-letter]');
+        if (!link) return;
+        event.preventDefault();
+        glossary.querySelector(`#tm-letra-${CSS.escape(link.dataset.tmLetter)}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     // ── Graph ──
     const d3 = globalThis.d3;
@@ -148,6 +190,7 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
     function select(id) {
         state.selected = byId.has(id) ? id : '';
         drawDetail();
+        glossary.querySelectorAll('.tm-entry').forEach(entry => entry.classList.toggle('is-selected', Boolean(entry.querySelector(`[data-tm-term="${CSS.escape(state.selected)}"]`))));
         lightTerm(state.selected);
         onSelect(state.selected);
         if (state.selected && window.innerWidth < 900) detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -156,12 +199,19 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
     host.addEventListener('click', event => {
         const b = event.target.closest('button');
         if (!b || !host.contains(b)) return;
-        if (b.dataset.tmTerm) select(b.dataset.tmTerm);
+        if (b.dataset.tmMode) {
+            state.mode = b.dataset.tmMode;
+            try { localStorage.setItem(MODE_KEY, state.mode); } catch { /* private mode */ }
+            host.querySelectorAll('[data-tm-mode]').forEach(o => o.setAttribute('aria-checked', String(o === b)));
+            host.querySelector('.tm-layout').dataset.mode = state.mode;
+            drawGlossary();
+        } else if (b.dataset.tmTerm) select(b.dataset.tmTerm);
         else if (b.dataset.tmSector) {
             const id = b.dataset.tmSector;
             if (state.hidden.has(id)) state.hidden.delete(id); else state.hidden.add(id);
             b.setAttribute('aria-pressed', String(!state.hidden.has(id)));
             applyFilters();
+            drawGlossary();
         } else if (b.hasAttribute('data-tm-searchterm')) onSearch(byId.get(state.selected)?.label || '');
         else if (b.dataset.tmLaw) onOpenLaw(b.dataset.tmLaw);
         else if (b.dataset.tmArticle) onOpenArticle(b.dataset.tmArticle);
@@ -170,6 +220,7 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
     search.addEventListener('input', () => {
         state.query = search.value;
         applyFilters();
+        drawGlossary();
         const exact = terms.find(t => plain(t.label) === plain(search.value).trim());
         if (exact) select(exact.id);
     });
@@ -181,6 +232,7 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
     });
 
     drawDetail();
+    drawGlossary();
     lightTerm(state.selected);
     return destroy;
 }

@@ -2,6 +2,7 @@
  * General timeline: every instrument in the acervo by publication date, grouped by year, coloured
  * by the issuing authority, with filters by authority, collection and text.
  */
+import { emptyState } from '../lib/empty-art.js';
 import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { ISSUERS, issuerOf } from '../lib/issuer.js';
 import { shortTitle } from '../lib/short-title.js';
@@ -73,7 +74,7 @@ export function renderTimelineView(container, summaries = [], { onOpenLaw = () =
         rows.forEach(item => visible.set(String(item.law.id), item.law));
         status.textContent = rows.length === items.length ? `${rows.length} instrumentos` : `${rows.length} de ${items.length} instrumentos`;
         if (!rows.length) {
-            body.innerHTML = '<p class="tl-empty">Ningún instrumento coincide con estos filtros.</p>';
+            body.innerHTML = emptyState({ title: 'Ningún instrumento coincide', body: 'Quita algún filtro o busca con otras palabras.' });
             return;
         }
         const byYear = new Map();

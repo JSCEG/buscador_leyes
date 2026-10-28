@@ -37,8 +37,10 @@ import { authError } from '../lib/auth-errors.js';
 import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
-import { emptyArt } from '../lib/empty-art.js';
+import { emptyArt, emptyState } from '../lib/empty-art.js';
 import { lawPath, articlePath, shareUrl } from '../lib/seo-paths.js';
+import { renderLawTree } from '../lib/law-tree.js';
+import { shortTitle } from '../lib/short-title.js';
 
 export function initUI() {
     const searchInput = document.getElementById('search-input');
@@ -1260,6 +1262,10 @@ export function initUI() {
 
             <section id="lr-panel-estructura" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-estructura" data-law-panel="estructura" hidden>
                 <div class="lr-structure">
+                    <div class="lr-card lr-tree-card">
+                        <h2 class="lr-card-title">Índice de la ley</h2>
+                        <div id="law-tree"></div>
+                    </div>
                     <div class="lr-card">
                         <h2 class="lr-card-title">Distribución del contenido</h2>
                         <div id="law-structure-chart" class="w-full h-64"></div>
@@ -1300,7 +1306,16 @@ export function initUI() {
                 const { renderLawPresentationEmbed } = await withProgress(loadPresentation());
                 if (target.isConnected) renderLawPresentationEmbed(target, law, currentLawArticles, dbThemes);
             },
-            estructura: () => renderLawStructureChart(currentLawArticles, dbThemes, law),
+            estructura: () => {
+                renderLawTree(document.getElementById('law-tree'), {
+                    sigla: law.siglas || '', title: shortTitle(law.titulo) || law.titulo, articles: currentLawArticles, noun: currentLawNoun.many,
+                    onOpenArticle: id => {
+                        currentModalList = [...currentLawArticles.filter(article => !relatedDocumentLabel(article)), ...currentLawArticles.filter(article => relatedDocumentLabel(article))];
+                        openDetail(id);
+                    },
+                });
+                renderLawStructureChart(currentLawArticles, dbThemes, law);
+            },
         };
         const showLawPanel = (name, { focusTab = false } = {}) => {
             lawDetailContainer.querySelectorAll('[data-law-tab]').forEach(tab => {
@@ -1964,7 +1979,7 @@ export function initUI() {
         if (!list) return;
 
         if (articles.length === 0) {
-            list.innerHTML = `<div class="text-center py-8 text-gray-400 text-sm">No se encontraron ${currentLawNoun.many} que coincidan con la búsqueda.</div>`;
+            list.innerHTML = emptyState({ title: `Sin ${currentLawNoun.many} que coincidan`, body: 'Prueba con otra palabra o con el número del artículo.' });
             return;
         }
 

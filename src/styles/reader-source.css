@@ -52,3 +52,21 @@ html.dark-mode .reader-source-view .rs-viewport{background:#171514}
 html.dark-mode .reader-source-view .rs-loading-slow{color:#f2d27d;background:#3a3021}
 @keyframes rs-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.reader-source-view .rs-loading-title::before{animation:none;border-top-color:var(--rs-border)}.reader-source-view .rs-progress-fill{transition:none}}
+
+/* ── SourceViewer del sistema: barra de herramientas, página sobre fondo hundido y la zona
+   del artículo resaltada con el tono de resaltado y borde oro. ──────────────────────────── */
+.reader-source-view{border-radius:var(--radius-xl);border-color:var(--hairline)}
+.reader-source-view .rs-eyebrow{display:inline-flex;align-items:center;gap:10px;letter-spacing:.14em!important;color:var(--brand)}
+.reader-source-view .rs-eyebrow::before{content:"";width:18px;height:2px;background:var(--gold)}
+.reader-source-view h3{font-weight:500}
+.reader-source-view .rs-toolbar{background:var(--surface-2);border-color:var(--hairline)}
+.reader-source-view button{min-height:40px;border-color:var(--border);border-radius:var(--radius-md);background:var(--surface-1);color:var(--ink);font-weight:600}
+.reader-source-view button:hover{border-color:var(--border-strong);color:var(--ink)}
+.reader-source-view .rs-zoom-reset,.reader-source-view .rs-single-page,.reader-source-view .rs-progress-text{font-family:var(--font-mono)}
+.reader-source-view select{border-color:var(--border);border-radius:var(--radius-md)}
+.reader-source-view :is(button,select,a,.rs-viewport):focus-visible{outline:2px solid var(--focus)}
+.reader-source-view .rs-viewport{background:var(--surface-sunken)}
+.reader-source-view .rs-page{box-shadow:var(--shadow-md)}
+.reader-source-view .rs-highlight{border:2px solid var(--accent);border-radius:2px;background:var(--highlight);mix-blend-mode:multiply}
+html.dark-mode .reader-source-view .rs-highlight{mix-blend-mode:normal}
+.reader-source-view .rs-progress-fill{background:var(--brand)}

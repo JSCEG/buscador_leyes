@@ -232,3 +232,26 @@ html.dark-mode .lr-header .lr-btn-primary{color:#3d0b1c!important}
 /* El modo oscuro heredado pinta las fichas casi negras; aquí vuelven a la superficie de ficha
    (salvo que el lector haya elegido su propio fondo en Ajustes de lectura). */
 html.dark-mode:not([data-reader-surface=light]):not([data-reader-surface=sepia]):not([data-reader-surface=dark]) #law-articles-list .lr-art{background:var(--surface-1)!important}
+
+/* ── LawTree: índice de la ley en Estructura y temas ─────────────────────────── */
+.lr-structure .lr-tree-card{grid-column:1/-1}
+.law-tree{display:flex;flex-direction:column;gap:2px}
+.law-tree-head{display:flex;align-items:center;gap:10px;padding:0 4px 12px}
+.law-tree-sigla{display:inline-flex;align-items:center;height:22px;padding:0 7px;border-radius:var(--radius-xs);background:var(--surface-2);border:1px solid var(--hairline);font:600 11px/1 var(--font-mono);letter-spacing:.06em;color:var(--ink)}
+.law-tree-title{flex:1;min-width:0;font:600 16px/22px var(--font-display);color:var(--ink)}
+.law-tree-total{font:500 12px/1 var(--font-mono);color:var(--ink-muted)}
+.law-tree-node>summary{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 10px;border-radius:var(--radius-sm);list-style:none;cursor:pointer;color:var(--ink)}
+.law-tree-node>summary::-webkit-details-marker{display:none}
+.law-tree-node>summary:hover{background:var(--surface-2)}
+.law-tree-node[open]>summary{background:var(--surface-2)}
+.law-tree-chevron{color:var(--ink-muted);transition:transform var(--duration-base) var(--ease-out)}
+.law-tree-node[open]>summary .law-tree-chevron{transform:rotate(90deg)}
+.law-tree-num{flex:none;min-width:58px;font:600 12px/1.3 var(--font-mono);color:var(--brand);text-transform:uppercase}
+.law-tree-name{flex:1;min-width:0;font:500 14px/18px var(--font-sans)}
+.law-tree-level-2>summary .law-tree-name{font-size:13.5px;color:var(--ink-2)}
+.law-tree-count{flex:none;font:500 11px/1 var(--font-mono);color:var(--ink-muted)}
+.law-tree-children{margin:2px 0 6px 22px;padding-left:12px;border-left:1px solid var(--hairline)}
+.law-tree-leaves{list-style:none;margin:0;padding:4px 0;display:flex;flex-wrap:wrap;gap:4px}
+.law-tree-leaf{display:inline-flex;align-items:center;min-height:32px;padding:0 10px;border:1px solid var(--hairline);border-radius:var(--radius-sm);background:var(--surface-1);color:var(--ink-2);font:600 12px/1 var(--font-mono);cursor:pointer}
+.law-tree-leaf:hover{border-color:var(--border);color:var(--brand)}
+.law-tree-leaf:focus-visible,.law-tree-node>summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}

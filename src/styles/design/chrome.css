@@ -238,3 +238,13 @@ a.bj-lockup:hover .bj-lockup__mark { transform: rotate(-4deg) scale(1.05); }
 .nav-more-theme { display: flex; flex-direction: column; gap: 8px; padding: 6px 8px 8px; }
 .nav-more-theme-label { font: 700 11px/16px var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); }
 .nav-more-theme .bj-seg__opt { padding: 0 6px; font-size: 12px; }
+
+/* ── EmptyState: ilustración, qué pasó y qué hacer ─────── */
+.bj-empty { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); max-width: 440px; margin: 0 auto; padding: var(--space-12) var(--space-6); text-align: center; }
+.bj-empty .empty-art { width: 140px; height: auto; margin-bottom: var(--space-2); }
+.bj-empty h3 { margin: 0; font: 500 24px/30px var(--font-display) !important; color: var(--ink) !important; text-wrap: balance; }
+.bj-empty p { margin: 0 !important; font: 400 15px/24px var(--font-sans); color: var(--ink-2); text-align: center !important; }
+.ac-library .ac-empty { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); max-width: 440px; margin: 0 auto; padding: var(--space-12) var(--space-6); text-align: center; }
+.ac-library .ac-empty h2 { margin: 0; font: 500 24px/30px var(--font-display) !important; color: var(--ink) !important; }
+.ac-library .ac-empty p { margin: 0; font: 400 15px/24px var(--font-sans); color: var(--ink-2); text-align: center !important; }
+.ac-library .ac-empty .ac-reset { min-height: 40px; padding: 0 16px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-1); color: var(--ink); font: 600 14px/1 var(--font-sans); cursor: pointer; }
