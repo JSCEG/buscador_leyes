@@ -340,8 +340,9 @@ export function initUI() {
         if (activeNavId === 'nav-leyes' && !location.hash) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
         if (activeNavId === 'nav-inicio') renderLanding();
-        // First visit: a short welcome tour once the page has settled.
-        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) Promise.resolve(window.__introDone).then(() => setTimeout(() => { if (!document.getElementById('welcome-tour')) startWelcomeTour(); }, 600));
+        // First visit: a short welcome tour once the page has settled. Never over the install screen
+        // (/instalar): the tour would cover its button; it plays on the next visit instead.
+        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) Promise.resolve(window.__introDone).then(() => setTimeout(() => { if (!document.getElementById('welcome-tour') && !document.body.classList.contains('ip-open')) startWelcomeTour(); }, 600));
 
         // No longer auto-rendering on home, user wants it only in stats
 
