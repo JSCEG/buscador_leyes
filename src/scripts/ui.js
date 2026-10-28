@@ -2105,7 +2105,7 @@ export function initUI() {
         const idx = normText.indexOf(normQuery);
         if (idx === -1) return escapeHtml(text);
         return escapeHtml(text.slice(0, idx))
-            + `<mark class="bg-guinda/10 text-guinda font-semibold not-italic">${escapeHtml(text.slice(idx, idx + query.length))}</mark>`
+            + `<mark>${escapeHtml(text.slice(idx, idx + query.length))}</mark>`
             + escapeHtml(text.slice(idx + query.length));
     }
 
@@ -2138,7 +2138,10 @@ export function initUI() {
         // Autocomplete Container
         const autocompleteContainer = document.createElement('div');
         autocompleteContainer.id = 'autocomplete-results';
-        autocompleteContainer.className = 'absolute w-full bg-white border border-gray-100 rounded-2xl shadow-xl mt-2 hidden z-50 overflow-hidden max-h-96 overflow-y-auto';
+        // SearchSuggest of the design system: grouped suggestions under the search bar.
+        autocompleteContainer.className = 'bj-menu sr-suggest hidden';
+        autocompleteContainer.setAttribute('role', 'listbox');
+        autocompleteContainer.setAttribute('aria-label', 'Sugerencias');
         searchInput.parentNode.appendChild(autocompleteContainer);
 
         // Keyboard navigation state
@@ -2151,7 +2154,7 @@ export function initUI() {
         function setActiveItem(index) {
             const items = getNavigableItems();
             items.forEach((el, i) => {
-                el.classList.toggle('bg-gray-50', i === index);
+                el.classList.toggle('is-active', i === index);
                 el.setAttribute('aria-selected', i === index ? 'true' : 'false');
             });
             activeIndex = index;
@@ -2186,7 +2189,7 @@ export function initUI() {
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
                 setActiveItem(Math.max(activeIndex - 1, -1));
-                if (activeIndex === -1) items.forEach(el => el.classList.remove('bg-gray-50'));
+                if (activeIndex === -1) items.forEach(el => el.classList.remove('is-active'));
             } else if (e.key === 'Enter' && activeIndex >= 0) {
                 e.preventDefault();
                 items[activeIndex]?.click();
@@ -2208,13 +2211,12 @@ export function initUI() {
                 if (history.length === 0) { closeAutocomplete(); return; }
                 sections.push({
                     label: 'Búsquedas recientes',
-                    extra: `<button id="clear-all-history" class="text-gray-300 hover:text-guinda transition-colors text-[9px] normal-case tracking-normal">Borrar todo</button>`,
+                    extra: `<button type="button" id="clear-all-history" class="sr-suggest-clear">Borrar todo</button>`,
                     items: history.slice(0, 7).map(q => ({
-                        html: `
-                            <svg class="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="text-sm text-gray-600 truncate flex-1">${escapeHtml(q)}</span>
-                            <button class="remove-history-item text-gray-200 hover:text-gray-500 transition-colors text-base leading-none flex-shrink-0" data-query="${escapeHtml(q)}">×</button>`,
-                        attrs: `data-navigable data-query="${escapeHtml(q)}" class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors history-item"`,
+                        html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                            <span class="sr-suggest-main">${escapeHtml(q)}</span>
+                            <button type="button" class="remove-history-item" data-query="${escapeHtml(q)}" aria-label="Quitar ${escapeHtml(q)} del historial">×</button>`,
+                        attrs: `data-navigable role="option" data-query="${escapeHtml(q)}" class="bj-menu__item history-item"`,
                     }))
                 });
             } else {
@@ -2225,12 +2227,12 @@ export function initUI() {
 
                 if (lawMatches.length > 0) {
                     sections.push({
-                        label: 'Leyes',
+                        label: 'Instrumentos',
                         items: lawMatches.map(s => ({
-                            html: `
-                                <svg class="w-4 h-4 text-guinda opacity-50 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <span class="text-sm text-gray-700 font-medium truncate">${highlightMatch(s.titulo, query)}</span>`,
-                            attrs: `data-navigable data-law-title="${escapeHtml(s.titulo)}" class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors suggestion-law"`,
+                            html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg>
+                                <span class="sr-suggest-main">${highlightMatch(s.titulo, query)}</span>
+                                ${s.siglas ? `<span class="sr-suggest-meta">${escapeHtml(s.siglas)}</span>` : ''}`,
+                            attrs: `data-navigable role="option" data-law-title="${escapeHtml(s.titulo)}" class="bj-menu__item suggestion-law"`,
                         }))
                     });
                 }
@@ -2255,13 +2257,10 @@ export function initUI() {
                     sections.push({
                         label: currentLawArticles.length > 0 ? 'Artículos de esta ley' : 'Artículos visibles',
                         items: artMatches.map(({ art, matchField }) => ({
-                            html: `
-                                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                <div class="flex flex-col min-w-0">
-                                    <span class="text-sm text-gray-700 font-medium truncate">${highlightMatch(matchField, query)}</span>
-                                    <span class="text-[11px] text-gray-400 truncate">${escapeHtml(art.ley_origen)}</span>
-                                </div>`,
-                            attrs: `data-navigable data-article-id="${escapeHtml(art.id)}" class="px-4 py-3 hover:bg-gray-50 cursor-pointer flex items-center gap-3 transition-colors suggestion-article"`,
+                            html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></svg>
+                                <span class="sr-suggest-main">${highlightMatch(matchField, query)}<small>${escapeHtml(art.ley_origen || '')}</small></span>
+                                ${art.siglas_ley ? `<span class="sr-suggest-meta">${escapeHtml(art.siglas_ley)}</span>` : ''}`,
+                            attrs: `data-navigable role="option" data-article-id="${escapeHtml(art.id)}" class="bj-menu__item suggestion-article"`,
                         }))
                     });
                 }
@@ -2269,13 +2268,12 @@ export function initUI() {
 
             if (sections.length === 0) { closeAutocomplete(); return; }
 
+            // Groups with an overline title, then the search help (SearchSuggest of the design system).
             autocompleteContainer.innerHTML = sections.map(sec => `
-                <div class="px-4 py-2 text-[10px] uppercase tracking-widest text-gray-400 font-bold bg-gray-50 border-b border-gray-100 flex items-center justify-between">
-                    <span>${sec.label}</span>
-                    ${sec.extra || ''}
-                </div>
+                <div class="sr-suggest-group"><span>${sec.label}</span>${sec.extra || ''}</div>
                 ${sec.items.map(it => `<div ${it.attrs}>${it.html}</div>`).join('')}
-            `).join('');
+            `).join('') + `<div class="bj-menu__sep" role="separator"></div>
+                <p class="sr-suggest-help"><span><kbd class="bj-kbd">↑↓</kbd> navegar</span><span><kbd class="bj-kbd">↵</kbd> abrir</span><span><kbd class="bj-kbd">"…"</kbd> frase exacta</span><span><kbd class="bj-kbd">-palabra</kbd> excluir</span></p>`;
 
             autocompleteContainer.classList.remove('hidden');
 

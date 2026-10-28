@@ -71,3 +71,25 @@ html body .lr-outline .lr-outline-title { padding: 0 10px 6px; font: 700 11px/16
 .hp-faq summary { min-height: 28px; align-items: center; font: 600 15px/22px var(--font-sans); color: var(--ink); }
 .hp-faq summary::after { content: "" !important; flex: none; width: 8px; height: 8px; margin-right: 4px; border-right: 2px solid var(--brand); border-bottom: 2px solid var(--brand); transform: rotate(45deg); transition: transform var(--duration-base) var(--ease-out); }
 .hp-faq details[open] summary::after { content: "" !important; transform: rotate(-135deg); }
+
+/* ── Stepper: pasos numerados (instalar la app, «¿Cómo funciona?») ───────────── */
+.ip-steps { counter-reset: ip; list-style: none !important; padding: 16px 18px !important; border-radius: var(--radius-lg) !important; border-color: var(--hairline) !important; background: var(--surface-1) !important; }
+.ip-steps li { position: relative; counter-increment: ip; min-height: 30px; padding: 4px 0 0 42px; color: var(--ink); }
+.ip-steps li + li { margin-top: 12px !important; }
+.ip-steps li::before { content: counter(ip); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--hairline); color: var(--ink-muted); font: 600 12px/1 var(--font-mono); }
+.ip-steps li:first-child::before { background: var(--primary); border-color: transparent; color: var(--on-primary); box-shadow: 0 0 0 4px var(--highlight); }
+.ip-steps li:not(:last-child)::after { content: ""; position: absolute; left: 14.5px; top: 34px; bottom: -10px; width: 2px; border-radius: 2px; background: var(--hairline); }
+.cf-steps li::before { background: var(--surface-2) !important; border: 1px solid var(--hairline); color: var(--ink-muted) !important; font: 600 12px/1 var(--font-mono) !important; }
+.cf-steps li:first-child::before { background: var(--primary) !important; border-color: transparent; color: var(--on-primary) !important; box-shadow: 0 0 0 4px var(--highlight); }
+
+/* ── PermitDetail: cabecera con regla col-permiso, número en mono, secciones ─── */
+.pm-detail-head { padding: var(--space-6) !important; border-color: var(--hairline) !important; border-radius: var(--radius-xl) !important; background: var(--surface-1) !important; box-shadow: var(--shadow-sm); }
+.pm-detail-head::before { inset: 0 0 auto !important; width: auto !important; height: 3px !important; background: var(--col-permiso) !important; }
+.pm-detail-head h2 { font: 600 clamp(20px, 2.6vw, 24px)/1.25 var(--font-mono) !important; letter-spacing: .01em; color: var(--ink) !important; }
+.pm-detail-head .pm-holder { font: 500 16px/22px var(--font-sans) !important; color: var(--ink-2) !important; }
+.pm-section { border-color: var(--hairline) !important; border-radius: var(--radius-lg) !important; background: var(--surface-1) !important; }
+.pm-section h3 { font: 500 20px/26px var(--font-display) !important; color: var(--ink) !important; }
+.pm-law { border-color: var(--hairline) !important; border-radius: var(--radius-sm) !important; background: var(--surface-2) !important; color: var(--ink) !important; }
+.pm-law:hover { border-color: var(--border) !important; }
+.pm-law b { font: 600 11px/1.2 var(--font-mono) !important; letter-spacing: .06em !important; color: var(--brand) !important; }
+.pm-detail-head .pm-num { font: 700 11px/16px var(--font-sans) !important; letter-spacing: .14em !important; text-transform: uppercase; color: var(--ink-muted) !important; }
