@@ -37,20 +37,21 @@ const PATHS = Object.freeze({
 const fold = v => String(v ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 // [fragment of the technology name, icon, label]
+// [fragment, icon, label, design-system technology marker (tech-markers.js)]
 const TECHNOLOGIES = [
-    ['fotovolt', 'solar', 'Fotovoltaica'],
-    ['eolic', 'eolica', 'Eólica'],
-    ['hidro', 'hidro', 'Hidroeléctrica'],
-    ['ciclo combinado', 'termica', 'Ciclo combinado'],
-    ['turbogas', 'termica', 'Turbogás'],
-    ['combustion interna', 'termica', 'Combustión interna'],
-    ['termoelectrica', 'termica', 'Termoeléctrica convencional'],
-    ['carbo', 'termica', 'Carboeléctrica'],
-    ['lecho', 'termica', 'Lecho fluidizado'],
-    ['cogeneracion', 'termica', 'Cogeneración'],
-    ['bioenerg', 'bioenergia', 'Bioenergía'],
-    ['geoterm', 'geotermia', 'Geotérmica'],
-    ['nucle', 'nuclear', 'Nucleoeléctrica'],
+    ['fotovolt', 'solar', 'Fotovoltaica', 'fv'],
+    ['eolic', 'eolica', 'Eólica', 'eo'],
+    ['hidro', 'hidro', 'Hidroeléctrica', 'hid'],
+    ['ciclo combinado', 'termica', 'Ciclo combinado', 'cc'],
+    ['turbogas', 'termica', 'Turbogás', 'ci'],
+    ['combustion interna', 'termica', 'Combustión interna', 'ci'],
+    ['termoelectrica', 'termica', 'Termoeléctrica convencional', 'ci'],
+    ['carbo', 'termica', 'Carboeléctrica', 'ci'],
+    ['lecho', 'termica', 'Lecho fluidizado', 'ci'],
+    ['cogeneracion', 'termica', 'Cogeneración', 'cog'],
+    ['bioenerg', 'bioenergia', 'Bioenergía', 'bio'],
+    ['geoterm', 'geotermia', 'Geotérmica', 'geo'],
+    ['nucle', 'nuclear', 'Nucleoeléctrica', 'nuc'],
     ['importacion', 'importacion', 'Importación'],
 ];
 
@@ -60,7 +61,7 @@ export function infraType(market, permit = {}) {
     if (market === 'electricidad') {
         const tech = fold(permit.tecnologia);
         const hit = TECHNOLOGIES.find(([fragment]) => tech.includes(fragment));
-        return hit ? { icon: hit[1], label: hit[2] } : { icon: 'generacion', label: permit.tecnologia || 'Generación eléctrica' };
+        return hit ? { icon: hit[1], label: hit[2], tech: hit[3] } : { icon: 'generacion', label: permit.tecnologia || 'Generación eléctrica' };
     }
     if (market === 'gas-natural') return type.includes('distribu') ? { icon: 'distribucion', label: 'Distribución' } : { icon: 'estacion', label: 'Expendio de GNC' };
     if (type.includes('aerodromo')) return { icon: 'aerodromo', label: 'Almacenamiento en aeródromos' };

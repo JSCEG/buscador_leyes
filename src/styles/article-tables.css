@@ -9,7 +9,7 @@
   position:relative; max-width:100%; margin:1.2em 0; overflow-x:auto; overscroll-behavior-x:contain;
   border:1px solid var(--lr-line); border-radius:10px; -webkit-overflow-scrolling:touch;
 }
-.lr-table:focus-visible{outline:3px solid #a57f2c; outline-offset:2px}
+.lr-table:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
 html[data-reader-surface="sepia"] .lr-table{--lr-line:#dcc59c; --lr-head:#8c2343; --lr-head-line:#6f1a35; --lr-row:#f3e6c8}
 html.dark-mode:not([data-reader-surface="light"]):not([data-reader-surface="sepia"]) .lr-table,
 html[data-reader-surface="dark"] .lr-table{--lr-line:#415249; --lr-head:#5c1630; --lr-head-ink:#f6e7c8; --lr-head-line:#a57f2c; --lr-row:#26332d}
@@ -46,7 +46,7 @@ html #modal-content .reader-text .lr-table :is(td,th) p{margin:0 0 .4em!importan
 html #modal-content .reader-text .lr-table :is(td,th) p:last-child{margin-bottom:0!important}
 
 /* Wide tables: a one-line hint above, shown only while the table is wider than its box. */
-.lr-table-hint{display:none; margin:.6em 0 -.6em; color:#6b6460; font:600 .78em/1.3 'Noto Sans',system-ui,sans-serif}
+.lr-table-hint{display:none; margin:.6em 0 -.6em; color:#6b6460; font:600 .78em/1.3 var(--font-sans)}
 .lr-table-hint.is-on{display:block}
 html.dark-mode .lr-table-hint{color:#b3a89e}
 

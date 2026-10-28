@@ -1,15 +1,15 @@
 /* "Install as an app" bar (src/lib/install-prompt.js): one compact row above the tab bar, so it covers little. */
-.install-sheet{position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:70;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;max-width:520px;margin:0 auto;padding:8px 8px 8px 10px;border:1px solid #ead9dd;border-radius:16px;background:#fffdf9;color:#2b2326;box-shadow:0 18px 44px -18px rgba(60,10,25,.45);transform:translateY(24px);opacity:0;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.install-sheet{position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:70;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;max-width:520px;margin:0 auto;padding:8px 8px 8px 10px;border:1px solid var(--hairline);border-radius:16px;background:var(--surface-0);color:var(--ink);box-shadow:0 18px 44px -18px rgba(60,10,25,.45);transform:translateY(24px);opacity:0;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .3s}
 .install-sheet.is-open{transform:none;opacity:1}
-.install-mark{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:#f7efe9}
+.install-mark{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:var(--surface-sunken)}
 .install-logo{width:22px;height:auto}
-.install-title{margin:0;font:700 14px/1.25 Patria,Georgia,serif}
-.install-body{margin:1px 0 0;font-size:12px;line-height:1.35;color:#5f5753}
-.install-share{display:inline-block;padding:0 4px;border:1px solid #d9cfc6;border-radius:5px;font-size:11px}
+.install-title{margin:0;font:700 14px/1.25 var(--font-display)}
+.install-body{margin:1px 0 0;font-size:12px;line-height:1.35;color:var(--ink-2)}
+.install-share{display:inline-block;padding:0 4px;border:1px solid var(--hairline);border-radius:5px;font-size:11px}
 .install-actions{display:flex;align-items:center;gap:4px}
-.install-actions button{min-height:40px;padding:8px 14px;border-radius:999px;font:600 13px/1.2 'Noto Sans',sans-serif;cursor:pointer}
-.install-yes{border:1px solid #9b2247;background:#9b2247;color:#fff}
-.install-actions .install-no{display:grid;place-items:center;width:40px;padding:0;border:0;background:transparent;color:#5f5753}
+.install-actions button{min-height:40px;padding:8px 14px;border-radius:999px;font:600 13px/1.2 var(--font-sans);cursor:pointer}
+.install-yes{border:1px solid var(--brand);background:var(--guinda-500);color:#fff}
+.install-actions .install-no{display:grid;place-items:center;width:40px;padding:0;border:0;background:transparent;color:var(--ink-2)}
 html.dark-mode .install-sheet{border-color:#3a3034;background:#211b1d;color:#f3ece4}
 html.dark-mode .install-mark{background:#2e2427}
 html.dark-mode .install-body,html.dark-mode .install-no{color:#c9bfb6}

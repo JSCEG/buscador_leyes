@@ -2,6 +2,8 @@ import { loadReaderPreferences, saveReaderPreferences, applyReaderPreferences } 
 import '../styles/reader.css';
 
 export function readerControlsHtml() {
+    const theme = document.documentElement.dataset.theme || 'light';
+    const themeOption = (value, label) => `<button type="button" role="radio" class="bj-seg__opt" data-theme-choice="${value}" aria-checked="${value === theme}">${label}</button>`;
     return `<details class="reader-settings">
         <summary><span aria-hidden="true">Aa</span> <span class="reader-settings-label">Ajustes de lectura</span></summary>
         <div class="reader-settings-panel">
@@ -12,6 +14,11 @@ export function readerControlsHtml() {
             </div>
             <label>Interlineado<select data-reader-spacing aria-label="Interlineado"><option value="1.6">Compacto</option><option value="1.8">Normal</option><option value="2">Amplio</option></select></label>
             <label>Fondo<select data-reader-surface aria-label="Fondo de lectura"><option value="system">Automático</option><option value="light">Blanco</option><option value="sepia">Sepia</option><option value="dark">Oscuro</option></select></label>
+            <div class="reader-settings-theme">Tema del sitio
+                <div class="bj-seg" role="radiogroup" aria-label="Tema del sitio">
+                    ${themeOption('light', 'Claro')}${themeOption('dark', 'Oscuro')}${themeOption('sepia', 'Sepia')}${themeOption('contraste', 'Contraste')}
+                </div>
+            </div>
             <button type="button" data-reader-reset>Restablecer</button>
             <p>Se conserva en este navegador, también al abrir otro instrumento.</p>
         </div>

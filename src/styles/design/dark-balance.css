@@ -1,0 +1,41 @@
+/* Modo oscuro de la app: conserva la paleta carbón + oro que ya tenía el sitio
+ * y la expresa con los tokens del sistema de diseño. Se carga después de variables.css
+ * y gana sobre su tema oscuro marino por ir más tarde con la misma especificidad. */
+[data-theme="dark"] {
+  --surface-0: #1e1e1e;
+  --surface-1: #242424;
+  --surface-2: #2c2c2c;
+  --surface-sunken: #171717;
+  --surface-inverse: #f4f6f8;
+  --ink: #f4f6f8;
+  --ink-2: #dcdee1;
+  --ink-muted: #a9abaf;
+  --ink-inverse: #1e1e1e;
+  --primary: #d6b46a;
+  --primary-hover: #e2c688;
+  --on-primary: #1e1e1e;
+  --brand: #d6b46a;
+  --brand-hover: #e2c688;
+  --on-brand: #1e1e1e;
+  --brand-soft: rgba(214, 180, 106, 0.14);
+  --gold: #d6b46a;
+  --accent: #d6b46a;
+  --accent-ink: #e2c688;
+  --highlight: rgba(214, 180, 106, 0.24);
+  --link: #d6b46a;
+  --hairline: rgba(229, 229, 229, 0.14);
+  --border: rgba(229, 229, 229, 0.32);
+  --border-strong: #f4f6f8;
+  --focus: #d6b46a;
+  --col-disposicion: #7fb1a6;
+  /* Las leyes conservan su tono guinda (rosado) para no confundirse con el oro de la marca. */
+  --col-ley: var(--guinda-300);
+  --map-land: #262626;
+  --map-water: #171717;
+  --map-boundary: #3a3a3a;
+  --map-kv34: #f4f6f8;
+  --map-node: #f4f6f8;
+  --glass-fill: rgba(30, 30, 30, 0.96);
+  --glass-stroke: rgba(214, 180, 106, 0.22);
+  --scrim: rgba(0, 0, 0, 0.8);
+}

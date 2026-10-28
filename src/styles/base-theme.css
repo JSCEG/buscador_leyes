@@ -4,49 +4,43 @@
    ============================================ */
 
 /* Colores Institucionales GobMX/SENER */
+/* Las variables heredadas apuntan a los tokens del sistema de diseño
+   (src/styles/design/variables.css): radios, sombras y --font-sans viven ahí. */
 :root {
     /* Colores Principales */
-    --gobmx-guinda: #9B2247;
-    --gobmx-guinda-dark: #7a1b38;
-    --gobmx-verde: #1E5B4F;
-    --gobmx-verde-dark: #163d34;
-    --gobmx-dorado: #A57F2C;
-    --gobmx-dorado-dark: #8a6923;
-    --gobmx-gris: #98989A;
-    --gobmx-gris-claro: #E5E5E5;
-    
+    --gobmx-guinda: var(--brand);
+    --gobmx-guinda-dark: var(--brand-hover);
+    --gobmx-verde: var(--col-disposicion);
+    --gobmx-verde-dark: var(--col-disposicion);
+    --gobmx-dorado: var(--accent);
+    --gobmx-dorado-dark: var(--accent-ink);
+    --gobmx-gris: var(--ink-muted);
+    --gobmx-gris-claro: var(--hairline);
+
     /* Colores Funcionales */
-    --color-text-primary: #1F2937;
-    --color-text-secondary: #6B7280;
-    --color-text-muted: #9CA3AF;
-    --color-bg: #FFFFFF;
-    --color-bg-light: #F8F9FA;
-    --color-bg-gray: #F3F4F6;
-    --color-border: #E5E7EB;
-    --color-border-light: #F3F4F6;
-    
+    --color-text-primary: var(--ink);
+    --color-text-secondary: var(--ink-2);
+    --color-text-muted: var(--ink-muted);
+    --color-bg: var(--surface-1);
+    --color-bg-light: var(--surface-0);
+    --color-bg-gray: var(--surface-2);
+    --color-border: var(--hairline);
+    --color-border-light: var(--hairline);
+
     /* Tipografía */
-    --font-sans: 'Noto Sans', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Patria', 'Merriweather', serif;
-    --font-heading: 'Patria', 'Merriweather', serif;
-    
+    --font-serif: var(--font-display);
+    --font-heading: var(--font-display);
+
     /* Espaciado */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-    
-    /* Bordes y Sombras */
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-2xl: 1.5rem;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    /* Bordes y Sombras sin equivalente en tokens */
+    --radius-2xl: var(--radius-xl);
+    --shadow-xl: var(--shadow-lg);
 }
 
 /* Reset y Base */
@@ -159,12 +153,12 @@ a:hover {
 }
 
 .btn-danger {
-    background: #EF4444;
+    background: var(--danger);
     color: white;
 }
 
 .btn-danger:hover {
-    background: #DC2626;
+    background: var(--danger);
     color: white;
 }
 
@@ -243,7 +237,7 @@ a:hover {
 }
 
 .form-error {
-    border-color: #EF4444;
+    border-color: var(--danger);
     background: #FEF2F2;
 }
 
@@ -251,7 +245,7 @@ a:hover {
     display: block;
     margin-top: 0.5rem;
     font-size: 0.875rem;
-    color: #DC2626;
+    color: var(--danger);
 }
 
 /* Cards */
@@ -304,23 +298,23 @@ a:hover {
 }
 
 .badge-success {
-    background: #D1FAE5;
-    color: #065F46;
+    background: var(--success-soft);
+    color: var(--success);
 }
 
 .badge-warning {
-    background: #FEF3C7;
-    color: #92400E;
+    background: var(--warning-soft);
+    color: var(--warning);
 }
 
 .badge-danger {
-    background: #FEE2E2;
-    color: #991B1B;
+    background: var(--danger-soft);
+    color: var(--danger);
 }
 
 .badge-info {
-    background: #DBEAFE;
-    color: #1E40AF;
+    background: var(--info-soft);
+    color: var(--info);
 }
 
 /* Alerts */
@@ -332,27 +326,27 @@ a:hover {
 }
 
 .alert-success {
-    background: #D1FAE5;
+    background: var(--success-soft);
     border-color: #6EE7B7;
-    color: #065F46;
+    color: var(--success);
 }
 
 .alert-warning {
-    background: #FEF3C7;
+    background: var(--warning-soft);
     border-color: #FCD34D;
-    color: #92400E;
+    color: var(--warning);
 }
 
 .alert-danger {
-    background: #FEE2E2;
+    background: var(--danger-soft);
     border-color: #FCA5A5;
-    color: #991B1B;
+    color: var(--danger);
 }
 
 .alert-info {
-    background: #DBEAFE;
+    background: var(--info-soft);
     border-color: #93C5FD;
-    color: #1E40AF;
+    color: var(--info);
 }
 
 /* Utilidades */
@@ -577,7 +571,7 @@ a:hover {
 
 .modal-header {
     padding: 1.5rem;
-    border-bottom: 1px solid #E5E7EB;
+    border-bottom: 1px solid var(--hairline);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -595,23 +589,23 @@ a:hover {
 }
 
 .modal-icon.warning {
-    background: #FEF3C7;
-    color: #92400E;
+    background: var(--warning-soft);
+    color: var(--warning);
 }
 
 .modal-icon.danger {
-    background: #FEE2E2;
-    color: #991B1B;
+    background: var(--danger-soft);
+    color: var(--danger);
 }
 
 .modal-icon.success {
-    background: #D1FAE5;
-    color: #065F46;
+    background: var(--success-soft);
+    color: var(--success);
 }
 
 .modal-icon.info {
-    background: #DBEAFE;
-    color: #1E40AF;
+    background: var(--info-soft);
+    color: var(--info);
 }
 
 .modal-header-text {
@@ -621,13 +615,13 @@ a:hover {
 .modal-title {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #1F2937;
+    color: var(--ink);
     margin-bottom: 0.25rem;
 }
 
 .modal-subtitle {
     font-size: 0.875rem;
-    color: #6B7280;
+    color: var(--ink-muted);
 }
 
 .modal-body {
@@ -636,14 +630,14 @@ a:hover {
 
 .modal-message {
     font-size: 0.9375rem;
-    color: #374151;
+    color: var(--ink-2);
     line-height: 1.6;
 }
 
 .modal-footer {
     padding: 1rem 1.5rem;
-    background: #F9FAFB;
-    border-top: 1px solid #E5E7EB;
+    background: var(--surface-sunken);
+    border-top: 1px solid var(--hairline);
     display: flex;
     gap: 0.75rem;
     justify-content: flex-end;
@@ -664,12 +658,12 @@ a:hover {
 
 .modal-btn-cancel {
     background: white;
-    color: #374151;
-    border: 2px solid #E5E7EB;
+    color: var(--ink-2);
+    border: 2px solid var(--hairline);
 }
 
 .modal-btn-cancel:hover {
-    background: #F9FAFB;
+    background: var(--surface-sunken);
     border-color: #D1D5DB;
 }
 
@@ -684,7 +678,7 @@ a:hover {
 }
 
 .modal-btn-confirm.danger {
-    background: #DC2626;
+    background: var(--danger);
 }
 
 .modal-btn-confirm.danger:hover {
@@ -752,8 +746,6 @@ a:hover {
 /* Universal Deep Black Saturation */
 html.dark-mode, 
 html.dark-mode body,
-html.dark-mode header,
-html.dark-mode footer,
 html.dark-mode main,
 html.dark-mode section,
 html.dark-mode div[class*="bg-"],
@@ -866,11 +858,3 @@ html.dark-mode body.app-polished::before {
     border: 2px solid #050505 !important;
 }
 
-/* The institutional footer follows the same day/night preference as the app. */
-#institutional-footer { background:#f5f2ec !important; color:#3f3a34; border-top:1px solid #ded4c2; }
-#institutional-footer img { filter:none; opacity:1; }
-#institutional-footer .institutional-footer-divider { background:#c7bda9; }
-#institutional-footer a:focus-visible { outline:3px solid #a57f2c; outline-offset:5px; }
-html.dark-mode #institutional-footer { background:#171717 !important; color:#f4f6f8 !important; border-color:#645534 !important; }
-html.dark-mode #institutional-footer img { filter:brightness(0) invert(1); opacity:.9; }
-html.dark-mode #institutional-footer .institutional-footer-divider { background:#ffffff40; }

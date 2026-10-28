@@ -99,7 +99,7 @@ export async function drawResultImage({ number, score, total, marks, streak, tit
     ctx.textAlign = 'center';
     ctx.fillStyle = '#fde8ee';
     ctx.font = '600 40px "Noto Sans", sans-serif';
-    if (streak > 0) ctx.fillText(`🔥 ${streak} ${streak === 1 ? 'día seguido' : 'días seguidos'}`, SIZE / 2, 860);
+    if (streak > 0) ctx.fillText(`${streak} ${streak === 1 ? 'día seguido' : 'días seguidos'}`, SIZE / 2, 860);
     ctx.fillStyle = '#f6d9a8';
     ctx.font = '700 40px "Noto Sans", sans-serif';
     ctx.fillText('buscador-juridico.com/#reto', SIZE / 2, 950);

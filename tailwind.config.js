@@ -1,31 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Colores, fuentes, radios y sombras vienen del sistema de diseño (variables CSS).
+  presets: [require('./src/design/tailwind.preset.js')],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx,html}",
   ],
   theme: {
     extend: {
-      colors: {
-        guinda: '#9B2247',
-        'guinda-dk': '#7A1A38',
-        'guinda-lt': '#B24C6C',
-        verde: '#1E5B4F',
-        'verde-lt': '#2A7A68',
-        dorado: '#A57F2C',
-        'dorado-lt': '#D6B46A',
-        gris: '#98989A',
-        'gris-claro': '#E5E5E5',
-        bg: '#F4F6F8',
-        'bg-card': '#FFFFFF',
-        txt: '#2B2B2B',
-        'txt-muted': '#666666',
-        border: '#E5E5E5',
-      },
-      fontFamily: {
-        head: ['Patria', 'Merriweather', 'Georgia', 'serif'],
-        body: ['Noto Sans', 'Outfit', 'Montserrat', 'system-ui', 'sans-serif'],
-      },
       keyframes: {
         'fade-in-up': {
           '0%': {

@@ -1,0 +1,48 @@
+/* Modo oscuro heredado (antes inyectado desde ui.js como <style id="global-dark-style">).
+ * Se conserva tal cual porque la paleta oscura actual se mantiene; ver dark-balance.css. */
+.dark-mode { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
+.dark-mode body { background-color: #1E1E1E !important; color: #F4F6F8 !important; }
+
+.dark-mode .bg-white,
+.dark-mode .bg-gray-50,
+.dark-mode .bg-gray-100,
+.dark-mode .bg-slate-50,
+.dark-mode .bg-white\/70,
+.dark-mode .bg-white\/80,
+.dark-mode .bg-white\/95,
+.dark-mode .bg-gray-50\/50,
+.dark-mode .bg-white.rounded-3xl,
+.dark-mode .atema-card,
+.dark-mode #modal-panel {
+    background-color: #242424 !important;
+    color: #F4F6F8 !important;
+    border-color: rgba(229, 229, 229, 0.14) !important;
+}
+
+.dark-mode .border-gray-100,
+.dark-mode .border-gray-200 { border-color: rgba(229, 229, 229, 0.14) !important; }
+
+.dark-mode table { border-collapse: separate; border-spacing: 0; width: 100%; }
+.dark-mode thead tr { background-color: #7A1A38 !important; }
+.dark-mode table thead th {
+    color: #FFFFFF !important;
+    border-bottom: 2px solid #A57F2C !important;
+    background-color: #7A1A38 !important;
+    font-weight: 800 !important;
+}
+.dark-mode table tbody tr { border-bottom: 1px solid rgba(229, 229, 229, 0.10) !important; transition: all 0.2s; }
+.dark-mode table tbody tr:hover { background-color: rgba(214, 180, 106, 0.06) !important; }
+.dark-mode table td { color: rgba(244, 246, 248, 0.86) !important; border-right: 1px solid rgba(229, 229, 229, 0.06); }
+
+.dark-mode #search-filters .bg-white { background-color: #242424 !important; border-color: rgba(214, 180, 106, 0.35) !important; }
+
+.dark-mode .text-guinda { color: #D6B46A !important; text-shadow: none !important; }
+.dark-mode .text-verde { color: #7FB1A6 !important; }
+.dark-mode .text-dorado { color: #D6B46A !important; }
+.dark-mode .bg-guinda { background-color: #9B2247 !important; }
+
+.dark-mode #detail-modal { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(12px); }
+.dark-mode #modal-panel { border: 1px solid rgba(214, 180, 106, 0.22) !important; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38) !important; }
+
+.dark-mode #admin-dropzone { border-color: rgba(214, 180, 106, 0.35) !important; background-color: rgba(165, 127, 44, 0.08) !important; }
+.dark-mode #admin-dropzone h3 { color: #D6B46A !important; }

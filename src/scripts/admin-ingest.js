@@ -315,7 +315,7 @@ function handleFileSelection(file) {
     importedFile = file;
     importedDofText = null;
     resetParsedDocument();
-    document.getElementById('admin-file-name').textContent = `📄 ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+    document.getElementById('admin-file-name').textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
     document.getElementById('admin-file-name').classList.remove('hidden');
     document.getElementById('admin-btn-parse').disabled = false;
 

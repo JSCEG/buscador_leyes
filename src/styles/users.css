@@ -1,18 +1,18 @@
 /* Usuarios registrados (#usuarios), owner only */
-.us-view{--us-ink:#2b2326;--us-muted:#6b6460;--us-card:#fff;--us-border:#ebe3d9;--us-soft:#f7f3ee;--us-accent:#9b2247;--us-ok:#1E5B4F;width:100%;max-width:1100px;margin:0 auto;padding:0 0 40px;color:var(--us-ink);font-family:'Noto Sans',sans-serif}
+.us-view{--us-ink:var(--ink);--us-muted:var(--ink-muted);--us-card:var(--surface-1);--us-border:var(--hairline);--us-soft:#f7f3ee;--us-accent:var(--brand);--us-ok:#1E5B4F;width:100%;max-width:1100px;margin:0 auto;padding:0 0 40px;color:var(--us-ink);font-family:var(--font-sans)}
 html.dark-mode .us-view{--us-ink:#f3ece4;--us-muted:#b3a89e;--us-card:#211b1d;--us-border:#3a3034;--us-soft:#2a2225;--us-accent:#eeb0c2;--us-ok:#6fc2ae}
 .us-head{margin-bottom:18px}
 .us-kicker{margin:0 0 4px;color:var(--us-accent);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.us-head h1{margin:0;font:700 clamp(26px,4vw,34px)/1.15 'Merriweather',serif}
+.us-head h1{margin:0;font:700 clamp(26px,4vw,34px)/1.15 var(--font-display)}
 .us-intro{margin:6px 0 0;color:var(--us-muted);font-size:14.5px}
 .us-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
 .us-tile{padding:14px 16px;border:1px solid var(--us-border);border-radius:14px;background:var(--us-card)}
-.us-tile b{display:block;font:700 26px/1.1 'Merriweather',serif}
+.us-tile b{display:block;font:700 26px/1.1 var(--font-display)}
 .us-tile span{color:var(--us-muted);font-size:12.5px}
 .us-tools{display:flex;gap:8px;margin-bottom:12px}
 .us-search{flex:1}
-.us-search input{width:100%;height:42px;padding:0 14px;border:1px solid var(--us-border);border-radius:999px;background:var(--us-card);color:var(--us-ink);font:14px 'Noto Sans',sans-serif}
-.us-btn{height:42px;padding:0 18px;border:1px solid var(--us-border);border-radius:999px;background:var(--us-card);color:var(--us-ink);font:600 13.5px 'Noto Sans',sans-serif;cursor:pointer}
+.us-search input{width:100%;height:42px;padding:0 14px;border:1px solid var(--us-border);border-radius:999px;background:var(--us-card);color:var(--us-ink);font:14px var(--font-sans)}
+.us-btn{height:42px;padding:0 18px;border:1px solid var(--us-border);border-radius:999px;background:var(--us-card);color:var(--us-ink);font:600 13.5px var(--font-sans);cursor:pointer}
 .us-btn:hover:not(:disabled){border-color:var(--us-accent)}
 .us-btn:disabled{opacity:.5;cursor:default}
 .us-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}

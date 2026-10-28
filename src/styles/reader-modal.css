@@ -1,20 +1,20 @@
 /* Article modal aligned with the law reader: same tokens, quieter chrome, text first.
    Layers on top of reader.css (sizes, 44px targets and reading preferences stay there). */
 #detail-modal{
-    --rm-paper:#faf8f5;--rm-card:#fff;--rm-ink:#302b27;--rm-muted:#6a655e;--rm-border:#e4ded5;--rm-line:#ece7df;--rm-guinda:#9b2247;--rm-guinda-bg:#9b22470f
+    --rm-paper:var(--surface-0);--rm-card:var(--surface-1);--rm-ink:var(--ink);--rm-muted:var(--ink-muted);--rm-border:var(--border);--rm-line:var(--hairline);--rm-guinda:var(--brand);--rm-guinda-bg:var(--brand-soft)
 }
 html.dark-mode #detail-modal{
     --rm-paper:#1e1c1a;--rm-card:#262321;--rm-ink:#f4efe7;--rm-muted:#c1b9af;--rm-border:#3d3833;--rm-line:#35302b;--rm-guinda:#eeb0c2;--rm-guinda-bg:#eeb0c214
 }
-#detail-modal{background:#302b2766!important;backdrop-filter:blur(3px)}
+#detail-modal{background:var(--scrim)!important;backdrop-filter:blur(3px)}
 html.dark-mode #detail-modal{background:#0009!important}
-#detail-modal #modal-panel{background:var(--rm-card)!important;border:1px solid var(--rm-border)!important;border-radius:14px;box-shadow:0 24px 70px #302b2733!important;color:var(--rm-ink)}
+#detail-modal #modal-panel{background:var(--rm-card)!important;border:1px solid var(--rm-line)!important;border-radius:var(--radius-xl);box-shadow:var(--shadow-lg)!important;color:var(--rm-ink);overflow:hidden}
 
 /* Header: instrument link over a plain title */
 #modal-panel > div:first-child{padding:18px 20px 14px 24px!important;border-bottom:1px solid var(--rm-line)!important;background:var(--rm-card)!important}
 #modal-panel #modal-ley{font-size:13px!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;color:var(--rm-guinda)!important;margin-bottom:4px!important;text-decoration:none}
 #modal-panel #modal-ley:hover{text-decoration:underline;text-underline-offset:3px}
-#modal-panel #modal-title{font-family:Patria,Georgia,serif!important;font-weight:700!important;color:var(--rm-ink)!important;border:0!important;padding:0!important;font-size:clamp(22px,2.2vw,30px)!important;letter-spacing:-.015em}
+#modal-panel #modal-title{font-family:var(--font-display)!important;font-weight:500!important;color:var(--rm-ink)!important;border:0!important;padding:0!important;font-size:clamp(22px,2.2vw,30px)!important;letter-spacing:-.015em}
 #modal-panel > div:first-child button:not(#modal-ley){border-radius:10px!important;color:var(--rm-muted)!important}
 #modal-panel > div:first-child button:not(#modal-ley):hover{background:var(--rm-paper)!important;color:var(--rm-guinda)!important}
 
@@ -29,7 +29,7 @@ html.dark-mode #detail-modal{background:#0009!important}
 
 /* Mode tabs and reading settings */
 #detail-modal .reader-toolbar{background:var(--rm-card)!important;border-color:var(--rm-line)!important;color:var(--rm-ink)!important;padding:6px 20px!important}
-#detail-modal .reader-modes{gap:2px}
+#detail-modal .reader-modes{gap:2px;padding:0;border:0;background:transparent}
 #detail-modal .reader-modes button{border-radius:0!important;background:transparent!important;color:var(--rm-muted)!important;border-bottom:3px solid transparent!important;font-weight:600}
 #detail-modal .reader-modes button[aria-pressed="true"]{color:var(--rm-ink)!important;border-bottom-color:var(--rm-guinda)!important}
 #detail-modal .reader-modes button:hover{color:var(--rm-ink)!important}
@@ -48,4 +48,42 @@ html.dark-mode #detail-modal{background:#0009!important}
     #modal-panel > div:first-child{padding:14px 12px 10px 16px!important}
     #detail-modal .reader-article-nav{padding:6px 10px!important}
     #detail-modal .reader-toolbar{padding:4px 10px!important}
+}
+
+/* ── ArticleReader del sistema de diseño ─────────────────────────────────────────
+   Progreso arriba, sigla + ley como antetítulo, número en display guinda, fracciones romanas
+   en filas con numeral mono, una acción principal (cita formal) y navegación al pie. */
+#modal-panel > div:first-child{position:relative}
+.reader-progress{position:absolute;inset:0 0 auto;height:3px;background:var(--surface-sunken)}
+.reader-progress > span{display:block;width:0;height:100%;background:var(--brand);transition:width var(--duration-base) var(--ease-out)}
+.reader-head{display:flex;flex-direction:column;gap:6px;min-width:0}
+.reader-head-kicker{display:flex;align-items:center;gap:10px;min-width:0}
+.reader-sigla{display:inline-flex;align-items:center;flex:none;height:22px;padding:0 7px;border-radius:var(--radius-xs);background:var(--surface-2);border:1px solid var(--hairline);font:600 11px/1 var(--font-mono);letter-spacing:.06em;color:var(--ink)}
+.reader-sigla[hidden]{display:none}
+#modal-panel #modal-ley.reader-ley{display:inline-flex;align-items:center;gap:10px;min-width:0;margin:0!important;font:700 11px/16px var(--font-sans)!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:var(--brand)!important;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#modal-panel #modal-ley.reader-ley::before{content:"";flex:none;width:18px;height:2px;background:var(--gold)}
+#modal-panel #modal-ley.reader-ley:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+#modal-panel #modal-title.reader-num{margin:0!important;font:500 clamp(30px,3.4vw,44px)/1.14 var(--font-display)!important;letter-spacing:-.015em!important;color:var(--brand)!important}
+.reader-published{margin:0;font:500 13px/18px var(--font-sans);color:var(--ink-muted)}
+.reader-published[hidden]{display:none}
+
+/* Texto a medida de lectura y fracciones en filas */
+#modal-content .reader-text{max-width:var(--measure,72ch);color:var(--ink-2)}
+#modal-content .reader-text p.bj-frac{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;margin:0 0 .9em!important;padding:0!important;border:0!important}
+html #detail-modal #modal-content .reader-text .bj-frac__n{font-family:var(--font-mono)!important;font-weight:600!important;font-size:.8em!important;color:var(--brand)!important;text-align:right;padding-top:.15em}
+#modal-content .rm-location{font:500 13px/18px var(--font-sans);color:var(--ink-muted)}
+#modal-content .rm-location span:last-child{color:var(--ink);font-weight:600}
+
+/* Navegación al pie: anterior · contador · siguiente */
+#detail-modal #modal-nav-controls.reader-article-nav{border-top:1px solid var(--hairline)!important;border-bottom:0!important;background:var(--surface-2)!important}
+#detail-modal .reader-nav-counter{font:500 13px/1 var(--font-mono)!important;color:var(--ink-muted)!important}
+
+/* Una sola acción principal: Copiar cita formal */
+#modal-panel > div:last-child #cite-btn{background:var(--primary)!important;color:var(--on-primary)!important;border-radius:var(--radius-sm)!important;font-weight:600!important}
+#modal-panel > div:last-child #cite-btn:hover{background:var(--primary-hover)!important;color:var(--on-primary)!important}
+#modal-panel > div:last-child #cite-btn svg{color:currentColor!important}
+@media (max-width:640px){
+    #modal-panel #modal-title.reader-num{font-size:28px!important}
+    #modal-content .reader-text p.bj-frac{grid-template-columns:32px minmax(0,1fr)}
+    #modal-panel > div:last-child #cite-btn .btn-label{display:inline!important}
 }

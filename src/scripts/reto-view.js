@@ -25,7 +25,7 @@ function explanationHtml(q) {
            <ol class="rt-steps">${(q.steps || []).map(step => `<li><span>${esc(step.name)}</span><time>${esc(step.date)}</time></li>`).join('')}</ol>`
         : `<p class="rt-answer"><span>Respuesta:</span> <b>${esc(q.answerText || q.options[q.answer])}</b></p>`;
     const details = (q.details || []).map(line => `<p class="rt-explain">${esc(line)}</p>`).join('');
-    const why = q.why ? `<p class="rt-why"><span aria-hidden="true">💡</span> ${esc(q.why)}</p>` : '';
+    const why = q.why ? `<p class="rt-why"><svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/></svg> ${esc(q.why)}</p>` : '';
     return `<div class="rt-explanation">${answer}${details}${why}</div>`;
 }
 
@@ -69,7 +69,7 @@ export function renderRetoView(container, catalog, { onOpenLaw = () => {}, lawId
         const streak = streakFrom(days, today) || streakFrom(days, dayKey(new Date(Date.now() - 864e5)));
         const perfect = days.filter(day => results[day].marks.every(Boolean)).length;
         root.querySelector('.rt-stats').innerHTML = `
-            <span>🔥 <b>${streak}</b> ${streak === 1 ? 'día seguido' : 'días seguidos'}</span>
+            <span><svg class="bj-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c.5 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2.2 1.2-3.6 2.2-4.6.2 1.7 1 2.6 2 2.6-.8-2.9-.2-5.6.3-8Z"/></svg> <b>${streak}</b> ${streak === 1 ? 'día seguido' : 'días seguidos'}</span>
             <span><b>${days.length}</b> ${days.length === 1 ? 'reto jugado' : 'retos jugados'}</span>
             <span><b>${perfect}</b> ${perfect === 1 ? 'perfecto' : 'perfectos'}</span>`;
     }
