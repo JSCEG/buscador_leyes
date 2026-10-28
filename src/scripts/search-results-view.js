@@ -21,6 +21,8 @@ const external = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24
  * favourites and navigation stay in the app and arrive as options/callbacks.
  */
 const MODE_KEY = 'buscador-vista';
+// FilterSheet (phones): the filters open in a bottom sheet; it stays open while the user picks.
+let sheetOpen = false;
 // The map is the default view; a click inside it shows the list once without changing that choice.
 let listOnce = false;
 const readMode = () => {
@@ -50,7 +52,9 @@ export function renderSearchResults(container, {
     const summaryLaws = activeLaw ? 1 : shownLaws.length;
 
     const facetButton = (attrs, active, icon, label, count, title = '') => `<li><button type="button" class="sr-facet ${active ? 'is-active' : ''}" ${attrs} aria-pressed="${active}" ${title ? `title="${esc(title)}"` : ''}>${icon}<span class="sr-facet-label">${label}</span><span class="sr-facet-count">${number(count)}</span></button></li>`;
-    const facets = `<aside class="sr-facets" aria-label="Filtrar resultados">
+    const activeCount = [filters.type !== 'all', filters.law !== 'all', Boolean(filters.artNum)].filter(Boolean).length;
+    const facets = `<aside class="sr-facets" id="sr-facets" aria-label="Filtrar resultados">
+        <div class="sr-sheet-head"><span class="sr-sheet-grab" aria-hidden="true"></span><h2 class="sr-sheet-title">Filtros</h2><button type="button" class="sr-sheet-x" data-sheet-close aria-label="Cerrar filtros">×</button></div>
         <section><h2>Colección</h2><ul class="sr-group-facets">
             ${facetButton('data-facet-group="all"', filters.type === 'all', `<span class="sr-ico" data-category="all">${collectionIcon('all', 15)}</span>`, 'Todas', allMatches)}
             ${ACERVO_GROUPS.filter(group => groupCounts.get(group.id)).map(group => facetButton(`data-facet-group="${group.id}"`, filters.type === group.id, `<span class="sr-ico" data-category="${group.id}">${collectionIcon(group.id, 15)}</span>`, esc(group.label), groupCounts.get(group.id))).join('')}
@@ -62,6 +66,7 @@ export function renderSearchResults(container, {
             <input id="sr-art-filter" class="sr-art" type="text" enterkeyhint="search" autocomplete="off" placeholder="Ej. 12, Transitorio" value="${esc(filters.artNum)}" maxlength="40">
         </section>
         ${hasFilters ? '<button type="button" class="sr-clear" data-clear-filters>Quitar filtros</button>' : ''}
+        <div class="sr-sheet-foot">${hasFilters ? '<button type="button" class="sr-sheet-clear" data-clear-filters>Limpiar</button>' : ''}<button type="button" class="sr-sheet-done" data-sheet-close>Ver ${plural(total, 'resultado', 'resultados')}</button></div>
     </aside>`;
 
     const chips = [
@@ -70,7 +75,7 @@ export function renderSearchResults(container, {
         filters.artNum ? `<button type="button" class="sr-chip" data-clear-art>Artículo: ${esc(filters.artNum)} ×</button>` : '',
     ].join('');
 
-    const items = results.map((item, index) => {
+    const itemHtml = (item, index) => {
         const law = lawById.get(String(item.ley_id));
         const group = law ? getAcervoGroup(law) : 'otros';
         const { fav, title } = favoriteState(item.id);
@@ -94,6 +99,29 @@ export function renderSearchResults(container, {
                 <button type="button" class="sr-action sr-fav ${fav ? 'is-fav' : ''}" data-favorite="${esc(item.id)}" title="${esc(title)}" aria-pressed="${fav}">${bookmark(fav)}<span>${fav ? 'Guardado' : 'Guardar'}</span></button>
             </div>
         </li>`;
+    };
+    const groups = [];
+    const groupOf = new Map();
+    results.forEach((item, index) => {
+        const key = String(item.ley_id ?? lawName(item, null) ?? '');
+        if (!groupOf.has(key)) { groupOf.set(key, { key, item, rows: [] }); groups.push(groupOf.get(key)); }
+        groupOf.get(key).rows.push(itemHtml(item, index));
+    });
+    const countFor = id => lawCounts.find(row => String(row.ley_id) === String(id))?.count;
+    const items = groups.map(({ key, item, rows }) => {
+        const law = lawById.get(key);
+        const group = law ? getAcervoGroup(law) : 'otros';
+        const matches = countFor(key) ?? rows.length;
+        const sigla = item.siglas_ley || law?.siglas || '';
+        return `<section class="sr-group" data-category="${group}">
+            <header class="sr-group-head">
+                ${sigla ? `<span class="sr-group-sigla"><i aria-hidden="true"></i>${esc(sigla)}</span>` : ''}
+                <h2 class="sr-group-title">${esc(lawName(item, law) || 'Instrumento')}</h2>
+                <span class="sr-group-count">${plural(matches, 'coincidencia', 'coincidencias')}</span>
+                ${!activeLaw && law && matches > rows.length ? `<button type="button" class="sr-group-more" data-facet-law="${esc(law.id)}">Ver todas <span aria-hidden="true">→</span></button>` : ''}
+            </header>
+            <ol class="sr-list">${rows.join('')}</ol>
+        </section>`;
     }).join('');
 
     const empty = `<div class="sr-empty">${emptyArt('search')}<h2>${hasFilters ? 'Sin resultados con estos filtros' : `Sin resultados para «${esc(query)}»`}</h2>
@@ -109,12 +137,21 @@ export function renderSearchResults(container, {
             <p class="sr-summary" role="status">${total ? `${plural(total, 'coincidencia', 'coincidencias')}${summaryLaws ? ` en ${plural(summaryLaws, 'instrumento', 'instrumentos')}` : ''}${ranked ? ' · ordenadas por relevancia' : ''}` : 'Sin coincidencias'}</p>
             ${total ? `<div class="sr-view-switch" role="group" aria-label="Cómo ver los resultados"><button type="button" data-view-mode="lista" aria-pressed="${mode === 'lista'}">${LIST_ICON}Lista</button><button type="button" data-view-mode="mapa" aria-pressed="${mode === 'mapa'}">${GRAPH_ICON}Mapa de relaciones</button></div>` : ''}
         </header>
-        <div class="sr-layout">${facets}<div class="sr-main"><section class="sr-graph" aria-label="Mapa de relaciones" ${mode === 'mapa' && total ? '' : 'hidden'}></section>${chips ? `<div class="sr-chips" aria-label="Filtros activos">${chips}</div>` : ''}${results.length ? `<ol class="sr-list">${items}</ol>` : empty}</div></div>
+        <div class="sr-layout">${facets}<div class="sr-main"><button type="button" class="sr-filter-btn" data-sheet-open aria-controls="sr-facets" aria-expanded="${sheetOpen}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg>Filtros${activeCount ? ` <span class="bj-count">${activeCount}</span>` : ''}</button><section class="sr-graph" aria-label="Mapa de relaciones" ${mode === 'mapa' && total ? '' : 'hidden'}></section>${chips ? `<div class="sr-chips" aria-label="Filtros activos">${chips}</div>` : ''}${results.length ? `<div class="sr-groups">${items}</div>` : empty}</div></div>
+        <div class="sr-sheet-scrim" data-sheet-close aria-hidden="true"></div>
     </section>`;
 
     const root = container.querySelector('.sr-view');
+    root.classList.toggle('is-sheet-open', sheetOpen);
     if (artFocus !== null) { const input = root.querySelector('#sr-art-filter'); input.focus(); input.setSelectionRange(artFocus, artFocus); }
     root.addEventListener('click', event => {
+        const sheetToggle = event.target.closest('[data-sheet-open], [data-sheet-close]');
+        if (sheetToggle && root.contains(sheetToggle)) {
+            sheetOpen = sheetToggle.hasAttribute('data-sheet-open');
+            root.classList.toggle('is-sheet-open', sheetOpen);
+            root.querySelector('.sr-filter-btn')?.setAttribute('aria-expanded', String(sheetOpen));
+            return;
+        }
         const target = event.target.closest('button, a, .sr-item');
         if (!target || !root.contains(target)) return;
         if (target.matches('a')) return; // external source link
