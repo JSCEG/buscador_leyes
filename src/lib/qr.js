@@ -102,10 +102,10 @@ export function stamp(date) {
     };
 }
 
-/** What the QR of a presentation carries: site, author and when it was made. */
-export function qrPayload({ title = 'Buscador Jurídico · Sector energético', url = 'https://buscador-juridico.com', author = 'Javier Sasso Celaya', date } = {}) {
+/** What the QR of a presentation carries: site and when it was made (and an author, only if given). */
+export function qrPayload({ title = 'Buscador Jurídico · Sector energético', url = 'https://buscador-juridico.com', author = '', date } = {}) {
     const s = stamp(date);
-    return [title, url, `Elaborado por: ${author}`, `Fecha: ${s.dia.toLowerCase()}, ${s.fecha}, ${s.hora}`].join('\n');
+    return [title, url, author && `Elaborado por: ${author}`, `Fecha: ${s.dia.toLowerCase()}, ${s.fecha}, ${s.hora}`].filter(Boolean).join('\n');
 }
 
 /** The QR as a PNG data URI (for PowerPoint), drawn on a canvas; null where there is no canvas. */

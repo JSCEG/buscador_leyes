@@ -71,6 +71,7 @@ export async function generateLawPresentation(law, articles = [], themes = []) {
     const model = buildPresentationModel(law, articles, themes);
 
     addCoverSlide(pptx, model, assets);
+    addIndexSlide(pptx, model, assets);
     addSummarySlide(pptx, model, assets);
     addStructureSlide(pptx, model, assets);
     if (model.themeLabels.length) addThemesSlide(pptx, model, assets);
@@ -522,6 +523,42 @@ function buildPresentationModel(law, articles, themes) {
     };
 }
 
+/** DeckProposal index: one row per section with its slide number (web deck has the treemap slide). */
+function deckIndex(model, { treemap }) {
+    const articleSlides = chunk(model.keyArticles, 2).length;
+    const sections = [
+        ['Resumen general', 'Qué es y qué tan extenso es'],
+        ['Estructura', 'Cómo está organizado por dentro'],
+        ...(treemap ? [['Mapa completo', 'Cómo se reparte el texto']] : []),
+        ...(model.themeLabels.length ? [['Temas principales', 'De qué se ocupa']] : []),
+        ...(articleSlides ? [[`${model.noun.Many} clave`, 'Lo que conviene leer primero', articleSlides]] : []),
+        ['Cierre', 'Dónde consultar el texto oficial'],
+    ];
+    let slideNumber = 3; // 1 cover, 2 index
+    return sections.map(([title, note, span = 1]) => {
+        const row = { title, note, slide: slideNumber };
+        slideNumber += span;
+        return row;
+    });
+}
+
+function renderIndexSlide(model) {
+    const rows = deckIndex(model, { treemap: true });
+    return `<section class="lp-slide lp-index-slide">
+        ${renderSlideShell('ÍNDICE', `
+            <p class="lp-eyebrow" data-animate>Contenido</p>
+            <h2 data-animate>Qué verás en esta presentación</h2>
+            <ol class="lp-index" data-animate>
+                ${rows.map((row, i) => `<li>
+                    <span class="lp-index-num">${String(i + 1).padStart(2, '0')}</span>
+                    <span class="lp-index-text"><strong>${escapeHtml(row.title)}</strong><small>${escapeHtml(row.note)}</small></span>
+                    <span class="lp-index-folio">${String(row.slide).padStart(2, '0')}</span>
+                </li>`).join('')}
+            </ol>
+        `)}
+    </section>`;
+}
+
 function renderWebDeck(model) {
     shellCount = 0;
     const articleChunks = chunk(model.keyArticles, 2);
@@ -565,6 +602,8 @@ function renderWebDeck(model) {
                 </div>
                 <div class="lp-cover-footer"><span></span><span></span><span></span></div>
             </section>
+
+            ${renderIndexSlide(model)}
 
             <section class="lp-slide">
                 ${renderSlideShell('RESUMEN GENERAL', `
@@ -638,10 +677,10 @@ function renderWebDeck(model) {
                 <div class="lp-bc-qr" data-animate>
                     ${qrSvg(qrPayload(), { size: 184 })}
                     <span>buscador-juridico.com</span>
-                    <small>Al escanear: liga al sitio, elaborado por y fecha de elaboración</small>
+                    <small>Al escanear: liga al sitio y fecha de elaboración</small>
                 </div>
                 <dl class="lp-bc-seal">
-                    ${(() => { const s = stamp(); return [['Autor', 'Javier Sasso Celaya'], ['Día', s.dia], ['Fecha', s.fecha], ['Hora', s.hora]].map(([k, v]) => `<div><dt>${k}</dt><dd>${escapeHtml(v)}</dd></div>`).join(''); })()}
+                    ${(() => { const s = stamp(); return [['Día', s.dia], ['Fecha', s.fecha], ['Hora', s.hora]].map(([k, v]) => `<div><dt>${k}</dt><dd>${escapeHtml(v)}</dd></div>`).join(''); })()}
                 </dl>
             </section>
         </div>
@@ -969,7 +1008,7 @@ function ensureWebDeckStyles() {
         .law-presentation-embed #lp-close{display:none}
         .law-presentation-embed .lp-progress-track{position:absolute}
         .law-presentation-embed .lp-interaction-detail{position:absolute;right:18px;top:18px;max-height:calc(100% - 90px)}
-        .lp-controls button{border:0;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;padding:8px 13px;font-weight:800;cursor:pointer}.lp-controls button:hover{background:#9B2247}.lp-controls button:disabled{opacity:.35;cursor:not-allowed}.lp-controls span{min-width:48px;text-align:center}
+        .lp-controls button{border:0;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;padding:8px 13px;font-weight:800;cursor:pointer}.lp-controls button:hover:not(:disabled){background:var(--guinda-500,#9B2247)}.lp-controls button:disabled{opacity:1;background:transparent;color:rgba(255,255,255,.35);cursor:not-allowed}.lp-controls span{min-width:48px;text-align:center}
         .lp-progress-track{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.12);z-index:10002}.lp-progress-track div{height:100%;background:#D6B46A;width:0;transition:width .22s ease}
         .lp-interaction-detail{position:fixed;right:28px;top:28px;width:390px;max-height:calc(100vh - 120px);z-index:10003;background:rgba(255,255,255,.97);border:1px solid rgba(165,127,44,.35);border-left:5px solid #9B2247;box-shadow:0 18px 44px rgba(0,0,0,.28);border-radius:8px;padding:18px 20px;color:#2b2b2b;display:none;overflow:auto}.lp-interaction-detail.active{display:block}.lp-interaction-detail button{position:sticky;float:right;right:0;top:0;border:0;background:#fff;color:#9B2247;font-size:22px;cursor:pointer}.lp-interaction-detail strong{display:block;font-family:'Patria';font-size:20px;color:#9B2247;margin-bottom:8px;padding-right:28px}.lp-interaction-detail p{font-size:13px;line-height:1.55;color:#555;padding-right:8px;white-space:pre-line}
         .law-presentation-embed .lp-progress-track{position:absolute;z-index:6}
@@ -1057,11 +1096,18 @@ function ensureWebDeckStyles() {
         .lp-bc-qr{position:relative;align-self:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px;border-radius:16px;background:rgba(242,237,228,.06);border:1px solid rgba(242,237,228,.14)}
         .lp-bc-qr span{font:500 12px/1 var(--font-mono);color:#e8cf8f}
         .lp-bc-qr small{max-width:184px;font:500 10px/14px var(--font-sans);color:#9aa6bc;text-align:center}
-        .lp-bc-seal{position:relative;grid-column:1/-1;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-top:16px;border-top:1px solid rgba(242,237,228,.16)}
+        .lp-bc-seal{position:relative;grid-column:1/-1;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-top:16px;border-top:1px solid rgba(242,237,228,.16)}
         .lp-bc-seal div{display:flex;flex-direction:column;gap:6px}
+        /* DeckProposal: índice con numerales display guinda y folio en mono. */
+        .lp-index{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 48px;counter-reset:none}
+        .lp-index li{display:grid;grid-template-columns:72px minmax(0,1fr) auto;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #e6dccb}
+        .lp-index-num{font:500 40px/1 var(--font-display);color:#9b2247}
+        .lp-index-text{display:flex;flex-direction:column;gap:4px}
+        .lp-index-text strong{font:500 22px/1.2 var(--font-display);color:#12213a}
+        .lp-index-text small{font:400 15px/1.4 var(--font-sans);color:#5e6475}
+        .lp-index-folio{font:600 13px/1 var(--font-mono);color:#5e6475}
         .lp-bc-seal dt{font:700 9.5px/1 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;color:#9aa6bc}
         .lp-bc-seal dd{margin:0;font:500 14px/20px var(--font-mono);color:#f2ede4}
-        .lp-bc-seal div:first-child dd{font:500 17px/22px var(--font-display)}
         @keyframes lpFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
         @media (max-width:700px){.law-presentation-embed{min-height:0}.lp-controls{bottom:12px;gap:6px;padding:7px;max-width:96vw;overflow:auto}.lp-controls button{padding:7px 9px;font-size:11px}.lp-long{display:none}#lp-fullscreen{display:none}}
     `;
@@ -1107,11 +1153,26 @@ function addCoverSlide(pptx, model, assets) {
         fontFace: FONT_BODY, fontSize: 11, color: COLORS.bruma,
         breakLine: false
     });
-    slide.addText('Javier Sasso Celaya', {
-        x: 0.63, y: 6.55, w: 6.5, h: 0.3,
-        fontFace: FONT_HEAD, fontSize: 14, color: COLORS.oroClaro
-    });
     addCoverFooter(slide);
+}
+
+function addIndexSlide(pptx, model, assets) {
+    // DeckProposal index: guinda display numerals, title and note per section, slide number in mono.
+    const slide = pptx.addSlide();
+    addContentShell(slide, assets, 'ÍNDICE');
+    addSectionTitle(slide, 'Contenido', 'Qué verás en esta presentación');
+    const rows = deckIndex(model, { treemap: false });
+    const perColumn = Math.ceil(rows.length / 2);
+    rows.forEach((row, i) => {
+        const col = Math.floor(i / perColumn);
+        const x = 0.82 + col * 6.1;
+        const y = 1.75 + (i % perColumn) * 1.4;
+        slide.addText(String(i + 1).padStart(2, '0'), { x, y, w: 0.9, h: 0.7, margin: 0, fontFace: FONT_HEAD, fontSize: 30, color: COLORS.guinda, valign: 'top' });
+        slide.addText(row.title, { x: x + 1.0, y, w: 4.0, h: 0.4, margin: 0, fontFace: FONT_HEAD, fontSize: 17, color: COLORS.navy, valign: 'top' });
+        slide.addText(row.note, { x: x + 1.0, y: y + 0.42, w: 4.0, h: 0.35, margin: 0, fontFace: FONT_BODY, fontSize: 11, color: COLORS.muted, valign: 'top' });
+        slide.addText(String(row.slide).padStart(2, '0'), { x: x + 5.0, y, w: 0.6, h: 0.35, margin: 0, align: 'right', fontFace: 'IBM Plex Mono', fontSize: 11, color: COLORS.muted, valign: 'top' });
+        slide.addShape(SHAPE.rect, { x: x + 1.0, y: y + 0.95, w: 4.6, h: 0.01, fill: { color: COLORS.grisClaro }, line: { color: COLORS.grisClaro } });
+    });
 }
 
 function addSummarySlide(pptx, model, assets) {
@@ -1259,14 +1320,14 @@ function addClosingSlide(pptx, model, assets) {
         slide.addShape(SHAPE.roundRect, { x: 9.35, y: 1.45, w: 3.2, h: 3.75, rectRadius: 0.12, fill: { color: 'F2EDE4', transparency: 94 }, line: { color: 'F2EDE4', transparency: 86 } });
         slide.addImage({ data: assets.qr, x: 9.65, y: 1.7, w: 2.6, h: 2.6 });
         slide.addText('buscador-juridico.com', { x: 9.35, y: 4.4, w: 3.2, h: 0.3, align: 'center', fontFace: 'IBM Plex Mono', fontSize: 10, color: COLORS.oroClaro });
-        slide.addText('Al escanear: liga al sitio, elaborado por y fecha de elaboración', { x: 9.5, y: 4.7, w: 2.9, h: 0.4, align: 'center', fontFace: FONT_BODY, fontSize: 8, color: '9AA6BC' });
+        slide.addText('Al escanear: liga al sitio y fecha de elaboración', { x: 9.5, y: 4.7, w: 2.9, h: 0.4, align: 'center', fontFace: FONT_BODY, fontSize: 8, color: '9AA6BC' });
     }
     slide.addShape(SHAPE.rect, { x: 0.8, y: 5.95, w: SLIDE.w - 1.6, h: 0.01, fill: { color: '3A4558' }, line: { color: '3A4558' } });
     const when = stamp();
-    [['AUTOR', 'Javier Sasso Celaya'], ['DÍA', when.dia], ['FECHA', when.fecha], ['HORA', when.hora]].forEach(([label, value], index) => {
-        const x = 0.8 + index * ((SLIDE.w - 1.6) / 4);
+    [['DÍA', when.dia], ['FECHA', when.fecha], ['HORA', when.hora]].forEach(([label, value], index) => {
+        const x = 0.8 + index * ((SLIDE.w - 1.6) / 3);
         slide.addText(label, { x, y: 6.1, w: 2.8, h: 0.25, margin: 0, fontFace: FONT_BODY, fontSize: 8, bold: true, color: '9AA6BC', charSpace: 1.6 });
-        slide.addText(value, { x, y: 6.4, w: 2.9, h: 0.4, margin: 0, fontFace: index === 0 ? FONT_HEAD : 'IBM Plex Mono', fontSize: index === 0 ? 15 : 12, color: 'F2EDE4' });
+        slide.addText(value, { x, y: 6.4, w: 3.6, h: 0.4, margin: 0, fontFace: 'IBM Plex Mono', fontSize: 12, color: 'F2EDE4' });
     });
 }
 
