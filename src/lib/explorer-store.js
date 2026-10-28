@@ -24,9 +24,9 @@ function persistenceError(error) {
         return new Error('La cuenta no tiene permiso de publicación en el servidor. El borrador permanece local.');
     }
     if (['PGRST202', 'PGRST205', '42P01', '42883'].includes(error?.code)) {
-        return new Error('La publicación compartida todavía no está habilitada en Supabase. Puedes guardar y exportar el borrador local.');
+        return new Error('La publicación compartida todavía no está habilitada. Puedes guardar y exportar el borrador local.');
     }
-    return new Error('No se pudo guardar la publicación en Supabase. Comprueba la conexión y vuelve a intentarlo. El borrador permanece local.');
+    return new Error('No se pudo guardar la publicación. Comprueba la conexión y vuelve a intentarlo. El borrador permanece local.');
 }
 
 // La fábrica permite probar fallos de red, permisos y almacenamiento sin escribir en Supabase.

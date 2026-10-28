@@ -3496,7 +3496,6 @@ export function initUI() {
                     </span>
                     <button id="save-note-btn" class="text-xs font-semibold transition-colors px-3 py-1.5 rounded-lg ${isLoggedIn() ? 'text-guinda hover:text-guinda/70 bg-guinda/5 hover:bg-guinda/10' : 'text-white bg-guinda hover:bg-guinda-dk shadow-sm'}" aria-label="Guardar nota">${isLoggedIn() ? 'Guardar' : 'Iniciar sesión'}</button>
                 </div>
-                ${isLoggedIn() ? '' : '<p class="mt-2 text-[11px] text-gray-500">Las notas se guardan solo en tu cuenta de Supabase.</p>'}
             </div>
         `);
 
