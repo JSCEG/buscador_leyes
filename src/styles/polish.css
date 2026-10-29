@@ -72,8 +72,8 @@ body:has(#mobile-menu-drawer:not(.translate-x-full)) :is(#desk-toggle,#bottom-na
 .nx-tabs [role=tab]{flex:none;white-space:nowrap}
 
 
-/* Law header "Más" menu opens above the tab cards that overlap the header. */
-.lr-header:has(.lr-more[open]){position:relative;z-index:6}
+/* Law header "Compartir" and "Más" menus open above the tab cards that overlap the header. */
+.lr-header:has(.lr-more[open],#law-share-menu:not(.hidden)){position:relative;z-index:6}
 .lr-more-menu{z-index:40}
 
 /* Long article/section labels wrap at every width instead of running off the card. */

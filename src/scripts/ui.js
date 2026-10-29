@@ -1832,6 +1832,13 @@ export function initUI() {
             lawShareBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 lawShareMenu.classList.toggle('hidden');
+                // On phones the button can sit near either edge; keep the whole menu on screen.
+                lawShareMenu.style.translate = '';
+                if (!lawShareMenu.classList.contains('hidden')) {
+                    const { left, right } = lawShareMenu.getBoundingClientRect();
+                    const shift = Math.max(8 - left, 0) - Math.max(right - (window.innerWidth - 8), 0);
+                    if (shift) lawShareMenu.style.translate = `${Math.round(shift)}px 0`;
+                }
             });
             document.addEventListener('click', function hideLawShareMenu(e) {
                 if (!e.target.closest('#law-share-wrapper')) {

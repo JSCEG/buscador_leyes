@@ -107,10 +107,22 @@ describe('edge cache of server pages', () => {
         await Promise.all(pending);
         expect(first.status).toBe(301);
         expect(first.headers.get('Location')).toBe('https://buscador-juridico.com/ley/lse/articulo-12-4446259e');
-        expect([...store.keys()]).toEqual(['https://buscador-juridico.com/ley/lse/viejo-4446259e?v=abc1']);
+        expect([...store.keys()].filter(k => !k.includes('/__seo-data/'))).toEqual(['https://buscador-juridico.com/ley/lse/viejo-4446259e?v=abc1']);
         const queries = calls.length;
         const again = await serveSeoPage(context, { cache, fetcher: fakeFetch(calls) });
         expect(again.status).toBe(301);
         expect(calls.length).toBe(queries);
+    });
+
+    it('keeps the acervo data at the edge, so other pages of the same instrument do not query it again', async () => {
+        const store = new Map();
+        const cache = { match: async req => store.get(req.url)?.clone(), put: async (req, res) => { store.set(req.url, res); } };
+        const calls = [];
+        const visit = path => resolveSeoPage(path, ENV, { cache, origin: 'https://buscador-juridico.com', fetcher: fakeFetch(calls) });
+        expect((await visit('/ley/lse')).status).toBe(200);
+        expect(calls).toHaveLength(2);
+        expect((await visit('/ley/lse/articulo-12-4446259e')).status).toBe(200);
+        expect(calls).toHaveLength(3);
+        expect(calls[2]).toContain(`id=eq.${ART_ID}`);
     });
 });
