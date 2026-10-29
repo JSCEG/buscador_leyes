@@ -8,8 +8,10 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { baseLayers, networkLayers, NETWORKS } from '../lib/map-common.js';
+import { infraType } from '../lib/infra-icons.js';
+import { techMarkerSVG } from '../lib/tech-markers.js';
 import { permitsHash } from '../lib/cne-api.js';
-import { FIGURAS, FIGURA, polosHash, stats, poloCenter, permitsNear, hitosOrdenados } from '../lib/polos.js';
+import { FIGURAS, FIGURA, polosHash, stats, poloCenter, permitsNear, hitosOrdenados, poloPinSVG } from '../lib/polos.js';
 import '../styles/polos.css';
 
 const MEXICO = [[14.3, -118.4], [32.8, -86.6]];
@@ -38,7 +40,14 @@ function areaNote(props, polo) {
     const off = drawn > 0 && declared > 0 && Math.abs(drawn - declared) / declared > 0.1;
     return `${source}.${off ? ` El polígono suma ${num(drawn)} ha y la declaratoria indica ${num(declared, 2)} ha.` : ''}`;
 }
-const safeUrl = u =>(/^https:\/\//i.test(u || '') ? u : '');
+// Design-system Separator: hairline with the gold diamond.
+const SEP = '<div class="pl-sep" aria-hidden="true"><span></span><i></i><span></span></div>';
+/** A list item that opens with its subject («PODEBI: …») sets that subject in bold. */
+const leadIn = text => {
+    const m = String(text ?? '').match(/^([^:]{2,40}):\s([\s\S]*)$/);
+    return m ? `<b>${esc(m[1])}:</b> ${esc(m[2])}` : esc(text);
+};
+const safeUrl = u => (/^https:\/\//i.test(u || '') ? u : '');
 
 async function getJson(url, signal) {
     const response = await fetch(url, { signal, credentials: 'same-origin' });
@@ -90,7 +99,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
                 <p class="pl-lead">${esc(lead)}</p>
                 ${basis ? `<p class="pl-basis">${esc(basis)}</p>` : ''}
                 <p class="pl-cut">Corte: ${esc(date(data.corte))} · Fuente: Diario Oficial de la Federación y sitios oficiales del Gobierno de México</p>
-                <div class="pl-sep" aria-hidden="true"><span></span><i></i><span></span></div>
+                ${SEP}
             </header>
 
             <div class="pl-kpis">
@@ -133,22 +142,23 @@ export function renderPolosView(container, { id = null, onRoute }) {
                 </aside>
                 <div class="pl-mapcol">
                     <div class="pl-map" data-map role="region" aria-label="Mapa de polos de desarrollo"></div>
-                    <p class="pl-legend">${FIGURAS.map(f => `<span><i style="--c:${f.color}"></i>${f.clave}</span>`).join('')}<span><i class="is-area"></i>Polígono del polo</span><span><i class="is-aprox"></i>Ubicación aproximada (municipio)</span></p>
+                    <p class="pl-legend">${FIGURAS.map(f => `<span class="pl-legend-pin">${poloPinSVG(f.clave)}${f.clave}</span>`).join('')}<span><i class="is-area"></i>Polígono del polo (al acercar)</span><span>Polo sin polígono: ubicación aproximada en su municipio</span></p>
                 </div>
                 <article class="pl-detail" data-detail hidden></article>
             </div>
 
-            <h2 class="pl-h2">Polos por estado</h2>
+            ${SEP}<h2 class="pl-h2">Polos por estado</h2>
             <ol class="pl-estados">
                 ${estados.map(([e, n]) => `<li><button type="button" data-estado="${esc(e)}"><span>${esc(e)}</span><span class="pl-bar-t"><i style="--w:${(n / estados[0][1]) * 100}%"></i></span><b>${n}</b></button></li>`).join('')}
             </ol>
 
-            ${data.incentivos?.length ? `<h2 class="pl-h2">Qué ofrece un polo</h2><ul class="pl-incentivos">${data.incentivos.map(i => `<li>${esc(i)}</li>`).join('')}</ul>` : ''}
+            ${data.incentivos?.length ? `${SEP}<h2 class="pl-h2">Qué ofrece un polo</h2><ul class="pl-bullets">${data.incentivos.map(i => `<li>${leadIn(i)}</li>`).join('')}</ul>` : ''}
 
-            ${data.aclaraciones?.length ? `<h2 class="pl-h2">Notas sobre los datos</h2><ul class="pl-incentivos">${data.aclaraciones.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+            ${data.aclaraciones?.length ? `${SEP}<h2 class="pl-h2">Notas sobre los datos</h2><ul class="pl-bullets">${data.aclaraciones.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
 
-            <h2 class="pl-h2">Fuentes oficiales</h2>
-            <ul class="pl-fuentes">${(data.fuentes || []).map(f => safeUrl(f.url) ? `<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a></li>` : `<li>${esc(f.titulo)}</li>`).join('')}</ul>        </section>`;
+            ${SEP}<h2 class="pl-h2">Fuentes oficiales</h2>
+            <ul class="pl-bullets pl-fuentes">${(data.fuentes || []).map(f => safeUrl(f.url) ? `<li><a class="pl-link pl-link--external" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a></li>` : `<li>${esc(f.titulo)}</li>`).join('')}</ul>
+        </section>`;
         renderList();
         mountMap();
         bind();
@@ -183,16 +193,28 @@ export function renderPolosView(container, { id = null, onRoute }) {
                     .bindTooltip(`${esc(p.nombre)} · polígono de la declaratoria`, { sticky: true })
                     .on('click', () => select(p.id))
                 : null;
-            L.circleMarker(where.latlng, {
-                pane: 'polos', radius: 8, color: '#fff', weight: 2, fillColor: color, fillOpacity: p.estatus === 'abrogada' ? 0.35 : 1,
-                dashArray: where.exacta ? null : '3 3', className: where.exacta ? '' : 'pl-aprox',
-            }).bindTooltip(`${esc(p.nombre)} · ${esc(p.figura)}`, { direction: 'top' }).addTo(group);
+            const pin = L.marker(where.latlng, { icon: pinIcon(p, false), riseOnHover: true, keyboard: true, title: p.nombre, alt: `${p.nombre}, ${p.figura}` })
+                .bindTooltip(`${esc(p.nombre)} · ${esc(p.figura)}`, { direction: 'top', offset: [0, -40] })
+                .addTo(group);
             group.on('click', () => select(p.id));
             group.addTo(map);
-            markers.set(p.id, { group, area, where, feature });
+            markers.set(p.id, { group, pin, area, where, feature, polo: p });
         });
         map.on('zoomend', paintAreas);
         setTimeout(() => map?.invalidateSize(), 50);
+    }
+
+    /** MarkerSet pin of a polo; the tip (x 18, y 42 of the 36 × 46 icon) sits on its location. */
+    function pinIcon(p, selected) {
+        return L.divIcon({ className: 'pl-pin', html: poloPinSVG(p.figura, { abrogada: p.estatus === 'abrogada', selected }), iconSize: [36, 46], iconAnchor: [18, 42], tooltipAnchor: [0, 0] });
+    }
+
+    /** Only the selected polo wears the accent halo, and it rises above its neighbours. */
+    function markSelected(pid) {
+        markers.forEach((m, id) => {
+            m.pin.setIcon(pinIcon(m.polo, id === pid));
+            m.pin.setZIndexOffset(id === pid ? 1000 : 0);
+        });
     }
 
     /** Polygons of the visible polos, only when zoomed in enough to read them. */
@@ -253,6 +275,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
 
     function clearSelection() {
         state.selected = null;
+        markSelected(null);
         clearNear();
         $('[data-detail]').hidden = true;
         renderList();
@@ -263,6 +286,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
         const polo = state.data?.polos.find(p => p.id === pid);
         if (!polo) return;
         state.selected = pid;
+        markSelected(pid);
         clearNear();
         if (route) onRoute(polosHash(pid));
         renderList();
@@ -318,7 +342,11 @@ export function renderPolosView(container, { id = null, onRoute }) {
             results.forEach(({ m, near }) => near.forEach(({ feature }) => {
                 const [lon, lat] = feature.geometry.coordinates;
                 const p = feature.properties;
-                L.circleMarker([lat, lon], { radius: 5, color: '#fff', weight: 1.5, fillColor: m.color, fillOpacity: 0.95 })
+                // Generation permits wear their technology marker (MarkerSet dot); gas keeps a plain dot.
+                const tech = m.key === 'electricidad' ? infraType(m.key, p).tech : '';
+                (tech
+                    ? L.marker([lat, lon], { icon: L.divIcon({ className: 'pl-pin', html: techMarkerSVG(tech, { variant: 'dot', size: 20 }), iconSize: [28, 28], iconAnchor: [14, 14] }) })
+                    : L.circleMarker([lat, lon], { radius: 6, color: '#fff', weight: 1.5, fillColor: m.color, fillOpacity: 0.95 }))
                     .bindPopup(`<strong>${esc(p.nombre)}</strong><br><small>${esc(p.numeroPermiso)} · ${esc(p.tecnologia || p.tipoPermiso || m.label)}</small><br><a href="${permitsHash({ permit: p.numeroPermiso })}">Ficha del permiso</a>`)
                     .addTo(state.nearLayer);
             }));
@@ -338,7 +366,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
         show(next) {
             if (!state.data) { id = next; return; }
             if (next) select(next, { route: false });
-            else if (state.selected) { state.selected = null; clearNear(); $('[data-detail]').hidden = true; renderList(); }
+            else if (state.selected) { state.selected = null; markSelected(null); clearNear(); $('[data-detail]').hidden = true; renderList(); }
         },
         destroy() {
             ctrl.abort();

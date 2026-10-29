@@ -20,6 +20,26 @@ export const FIGURAS = [
 ];
 export const FIGURA = Object.fromEntries(FIGURAS.map(f => [f.clave, f]));
 
+// White line glyph of each figure inside its pin: industrial park, logistics and trade, circular economy.
+const GLYPHS = {
+    PODEBI: '<path d="M3 20V11l5 3v-3l5 3V7h4v13z"/><path d="M3 20h18"/><path d="M15 4.5c0-1 1-1 1-2"/>',
+    PODECOBI: '<rect x="4" y="8" width="16" height="11" rx="1.5"/><path d="M9 8V5.5h6V8"/><path d="M4 13h16"/>',
+    PODECIBI: '<path d="M5 12a7 7 0 0 1 12-4.9L19 9"/><path d="M19 4v5h-5"/><path d="M19 12a7 7 0 0 1-12 4.9L5 15"/><path d="M5 20v-5h5"/>',
+};
+
+/**
+ * Pin of a polo (MarkerSet pin, 36 × 46 px, anchored at the tip) in its figure's colour token.
+ * An abrogated polo is the dashed outline; the selected one wears the accent halo.
+ */
+export function poloPinSVG(clave, { abrogada = false, selected = false } = {}) {
+    const f = FIGURA[clave] || FIGURAS[0];
+    const colour = `var(${f.token})`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="46" viewBox="-3 -3 42 52" aria-hidden="true" style="overflow:visible;filter:drop-shadow(0 3px 4px rgba(18,33,58,.28))">`
+        + (selected ? '<path d="M18 -2C7 -2 -2 6.7 -2 17.6 -2 31 18 48.5 18 48.5S38 31 38 17.6C38 6.7 29 -2 18 -2z" style="fill:none;stroke:var(--accent);stroke-width:3"/>' : '')
+        + `<path d="M18 1C8.6 1 1 8.4 1 17.6 1 29.5 18 45 18 45s17-15.5 17-27.4C35 8.4 27.4 1 18 1z" style="fill:${abrogada ? 'var(--surface-1)' : colour};stroke:${abrogada ? colour : '#ffffff'};stroke-width:2${abrogada ? ';stroke-dasharray:4 3' : ''}"/>`
+        + `<g transform="translate(7 6.6) scale(.92)" style="fill:none;stroke:${abrogada ? colour : '#ffffff'};stroke-width:2.17;stroke-linecap:round;stroke-linejoin:round">${GLYPHS[f.clave]}</g></svg>`;
+}
+
 /** Hash of the section or of one polo. */
 export const polosHash = id => (id ? `#polo=${encodeURIComponent(id)}` : '#polos');
 
