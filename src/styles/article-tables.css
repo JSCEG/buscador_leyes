@@ -66,3 +66,12 @@ html #law-articles-list .lr-card-preview::after{content:"";position:absolute;lef
 html[data-reader-surface="sepia"] #law-articles-list .lr-card-preview{--lr-card-fade:#f8efd9}
 html[data-reader-surface="dark"] #law-articles-list .lr-card-preview{--lr-card-fade:#222e29}
 html[data-reader-surface="light"] #law-articles-list .lr-card-preview{--lr-card-fade:#fff}
+
+/* Legal text without reviewed HTML: each fracción, inciso or numeral on its own indented line.
+   Font, size and surface come from the reader preferences when it sits inside the reader. */
+.legal-text{color:var(--ink);font-size:.92rem;line-height:1.85;text-align:justify;hyphens:auto}
+.legal-p{margin:0 0 1rem}
+.legal-frac,.legal-num{margin-left:1rem;padding-left:1rem;border-left:2px solid var(--hairline);color:var(--ink-2)}
+.legal-frac{border-left-color:color-mix(in srgb,var(--col-ley) 35%,transparent);font-weight:500}
+.legal-inciso{margin-left:2.5rem;padding-left:.75rem;border-left:1px solid var(--hairline);color:var(--ink-2);font-size:.85rem}
+@media (min-width:768px){.legal-frac,.legal-num{margin-left:2rem}.legal-inciso{margin-left:4rem}}
