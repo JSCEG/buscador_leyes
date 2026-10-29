@@ -70,8 +70,8 @@
             font-family: 'Noto Sans', sans-serif;
         }
         .prose th {
-            background-color: #9B2247 !important;
-            color: white !important;
+            background-color: var(--brand) !important;
+            color: var(--on-brand) !important;
             font-weight: 700 !important;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -101,8 +101,8 @@
             scrollbar-width: thin;
         }
     </style>
-  <script type="module" crossorigin src="/assets/index-C5RZ9ufm.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-bGvTGVpU.css">
+  <script type="module" crossorigin src="/assets/index-BdjgqnEE.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BxgcDZH9.css">
 </head>
 
 <body class="font-body min-h-screen flex flex-col antialiased">
@@ -307,8 +307,8 @@
                     <div class="h-px w-8 bg-guinda/30"></div>
                 </div>
                 <h1 class="mb-5 tracking-tight font-head"
-                    style="font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.05; color:#302b27;">
-                    Buscar por <em style="color:#9B2247; font-style:normal;">término</em>
+                    style="font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.05; color:var(--ink);">
+                    Buscar por <em style="color:var(--brand); font-style:normal;">término</em>
                 </h1>
                 <p class="sr-hero-intro text-gray-500 text-sm sm:text-base max-w-md mx-auto leading-relaxed"
                     style="letter-spacing:0.01em;">
@@ -1048,9 +1048,8 @@
             right: 0;
             height: 3px;
             background: linear-gradient(to right,
-                    #9B2247 0% 33.33%,
-                    #1E5B4F 33.33% 66.66%,
-                    #A57F2C 66.66% 100%);
+                    var(--brand) 0 72%,
+                    var(--gold) 72% 100%);
             z-index: 9999;
             pointer-events: none;
         }
@@ -1062,26 +1061,26 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #F7F5F2;
+            background: var(--surface-0);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #d4cfc9;
+            background: color-mix(in srgb, var(--ink-muted) 35%, transparent);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #9B2247;
+            background: var(--brand);
         }
 
         /* Selección de texto con color institucional */
         ::-moz-selection {
-            background: rgba(155, 34, 71, 0.15);
-            color: #9B2247;
+            background: color-mix(in srgb, var(--brand) 15%, transparent);
+            color: var(--brand);
         }
         ::selection {
-            background: rgba(155, 34, 71, 0.15);
-            color: #9B2247;
+            background: color-mix(in srgb, var(--brand) 15%, transparent);
+            color: var(--brand);
         }
 
         /* Doom-scroll smooth en contenedores de artículos */
