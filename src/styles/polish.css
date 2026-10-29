@@ -94,7 +94,7 @@ body:has(#mobile-menu-drawer:not(.translate-x-full)) :is(#desk-toggle,#bottom-na
 #net-banner{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:10040;max-width:min(560px,calc(100vw - 32px));padding:9px 16px;border-radius:12px;font:600 13px/1.4 var(--font-sans);text-align:center;box-shadow:0 10px 26px -10px #0006;animation:toast-in .25s ease-out}
 #net-banner[hidden]{display:none}
 #net-banner[data-kind=off]{background:var(--ink);color:var(--ink-inverse);border:1px solid color-mix(in srgb,var(--gold) 33%,transparent)}
-#net-banner[data-kind=on]{background:var(--col-disposicion);color:#fff}
+#net-banner[data-kind=on]{background:var(--col-disposicion);color:var(--ink-inverse)}
 @keyframes toast-in{from{opacity:0;transform:translate(-50%,-6px)}}
 
 /* ── Acervo cards, modern layout ─────────────────────────
