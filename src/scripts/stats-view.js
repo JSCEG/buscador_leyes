@@ -129,12 +129,13 @@ function tableShell(stats) {
 }
 
 /** "Uso del buscador": cumulative visits, visitors, searches, reads and accounts, plus 30 days of visits. */
-async function fillUsage(host, { lawById = new Map(), onOpenLaw = () => {} } = {}) {
+async function fillUsage(host, { lawById = new Map(), onOpenLaw = () => {}, onSearch = () => {} } = {}) {
     let data;
     let top = null;
+    let searches = [];
     try {
-        const { fetchUsageSummary, fetchTopConsulted } = await import('../lib/usage.js');
-        [data, top] = await Promise.all([fetchUsageSummary(), fetchTopConsulted(6).catch(() => null)]);
+        const { fetchUsageSummary, fetchTopConsulted, fetchTopSearches } = await import('../lib/usage.js');
+        [data, top, searches] = await Promise.all([fetchUsageSummary(), fetchTopConsulted(6).catch(() => null), fetchTopSearches(10).catch(() => [])]);
     } catch { return; } // counters not set up yet: the section stays hidden
     if (!data || !host?.isConnected) return;
     const totals = data.totales || {};
@@ -157,11 +158,14 @@ async function fillUsage(host, { lawById = new Map(), onOpenLaw = () => {} } = {
         </div>
         ${series.length ? `<div class="st-usage-chart"><p class="st-stack-label">Visitas por día · últimos 30 días</p>
             <div class="st-usage-bars" role="img" aria-label="Visitas por día en los últimos 30 días">${bars}</div></div>` : ''}
-        ${topLists(top)}`;
+        ${topLists(top)}
+        ${topSearches(searches)}`;
     host.hidden = false;
     host.addEventListener('click', event => {
         const lawButton = event.target.closest('[data-top-law]');
         if (lawButton) { const law = lawById.get(lawButton.dataset.topLaw); if (law) onOpenLaw(law); return; }
+        const searchButton = event.target.closest('[data-top-search]');
+        if (searchButton) { onSearch(searchButton.dataset.topSearch); return; }
         const articleButton = event.target.closest('[data-top-article]');
         if (articleButton) {
             const id = articleButton.dataset.topArticle;
@@ -191,8 +195,19 @@ function topLists(top) {
     </div>`;
 }
 
-/** Statistics dashboard. Navigation stays with the app via onOpenLaw/onOpenGroup. */
-export function renderStatsView(container, summaries, { onOpenLaw = () => {}, onOpenGroup = () => {}, today } = {}) {
+/** "Lo más buscado": terms searched at least three times in 30 days; each one runs its search again. */
+function topSearches(searches) {
+    if (!searches?.length) return '';
+    const max = Math.max(1, ...searches.map(item => Number(item.total) || 0));
+    return `<div class="st-searches"><h3>Lo más buscado <span>últimos 30 días</span></h3>
+        <ol class="st-search-list">${searches.map((item, i) => `<li><button type="button" class="st-search-item" data-top-search="${escape(item.termino)}">
+            <span class="st-top-rank">${i + 1}</span><span class="st-search-term">${escape(item.termino)}</span>
+            <span class="st-search-bar"><i style="width:${Math.max(4, (Number(item.total) / max) * 100)}%"></i></span><span class="st-top-count">${number(Number(item.total) || 0)}</span></button></li>`).join('')}</ol>
+        <p class="st-top-empty">Solo términos buscados tres veces o más; no se guarda quién busca.</p></div>`;
+}
+
+/** Statistics dashboard. Navigation stays with the app via onOpenLaw/onOpenGroup/onSearch. */
+export function renderStatsView(container, summaries, { onOpenLaw = () => {}, onOpenGroup = () => {}, onSearch = () => {}, today } = {}) {
     if (!container) throw new Error('Falta el contenedor de estadísticas.');
     mounted.get(container)?.destroy();
     const stats = computeStats(summaries, { today });
@@ -233,7 +248,7 @@ export function renderStatsView(container, summaries, { onOpenLaw = () => {}, on
         <div class="st-tip" role="tooltip" hidden></div>`;
     container.replaceChildren(root);
     const lawById = new Map(stats.rows.map(row => [String(row.law.id), row.law]));
-    fillUsage(root.querySelector('.st-usage'), { lawById, onOpenLaw });
+    fillUsage(root.querySelector('.st-usage'), { lawById, onOpenLaw, onSearch });
     const tbody = root.querySelector('tbody');
     const status = root.querySelector('.st-table-status');
     const search = root.querySelector('.st-search');

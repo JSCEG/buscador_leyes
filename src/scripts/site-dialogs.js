@@ -20,6 +20,7 @@ const PAGES = {
         body: `<p>Puedes consultar el buscador sin crear una cuenta.</p>
             <p>Si inicias sesión, guardamos tus artículos guardados, notas y mesas de consulta para que los tengas en cualquier equipo. Solo tú puedes verlos.</p>
             <p>Tus búsquedas recientes, preferencias de lectura y mesas sin sesión se guardan únicamente en este navegador.</p>
+            <p>Para mostrar «Lo más buscado», contamos por día los términos de las búsquedas que encontraron resultados, sin asociarlos a ti, a tu sesión ni a tu dirección de red. No guardamos términos que parezcan correos o números largos, y solo publicamos los buscados tres veces o más.</p>
             <p>Las estadísticas son aproximadas. Para limitar el abuso de sus contadores, el servidor conserva temporalmente una huella de la dirección de red, sin guardar la dirección en claro.</p>
             <p>Si nos envías un comentario, guardamos el mensaje, la página desde la que lo enviaste y, si lo escribes, tu correo para responderte.</p>`,
     },

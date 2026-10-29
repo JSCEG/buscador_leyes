@@ -35,12 +35,13 @@ import { polosRoute } from '../lib/polos.js';
 import { decorateDefinitions } from '../lib/definitions.js';
 import { tramitesForLaw } from '../data/tramites.js';
 import { authError } from '../lib/auth-errors.js';
-import { trackLaw, trackRead, trackSearch } from '../lib/usage.js';
+import { trackLaw, trackRead, trackSearch, trackSearchTerm } from '../lib/usage.js';
 import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyState, errorPage } from '../lib/empty-art.js';
 import { lawPath, articlePath, shareUrl } from '../lib/seo-paths.js';
 import { renderLawTree, splitHeading } from '../lib/law-tree.js';
+import { wordDiff } from '../lib/word-diff.js';
 import { separatorHtml } from '../lib/separator.js';
 import { shortTitle } from '../lib/short-title.js';
 
@@ -2689,6 +2690,53 @@ export function initUI() {
         });
     }
 
+    /** Article text as the reader shows it: reviewed HTML, Markdown tables or legal text with each fracción on its own line. */
+    function readerArticleHtml(texto) {
+        const item = { texto: String(texto ?? '') };
+        // 1. Detectar si el contenido es Markdown (especialmente si tiene tablas)
+        const hasMarkdown = item.texto.includes('|') || item.texto.includes('**') || item.texto.includes('###');
+        
+        let finalHtml = '';
+        if (/<(?:div|p|table|section|ul|ol|h[1-6])\b/i.test(item.texto)) {
+            // Reviewed HTML already carries its paragraph/table structure; keep it, made safe, with
+            // the reader's table presentation (scroll box, header scopes).
+            finalHtml = sanitizeArticleHtml(item.texto);
+        } else if (hasMarkdown && globalThis.marked?.parse) {
+            // Usar marked para el renderizado (especialmente para tablas); si el CDN no carga, sigue como texto simple
+            finalHtml = `<div class="prose-container">
+                <div class="prose prose-sm max-w-none prose-p:leading-relaxed">
+                    ${sanitizeArticleHtml(globalThis.marked.parse(item.texto))}
+                </div>
+            </div>`;
+        } else {
+            // Lógica de formateo legal tradicional (Legacy)
+            let cleanText = item.texto
+                .replace(/\r\n/g, '\n')
+                .replace(/\n\s*\n/g, '\n\n')
+                .replace(/([a-z,;])\n([a-z])/ig, '$1 $2')
+                .replace(/(?<=^|\s)(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/g, '\n\n$1. ')
+                .replace(/(?<=^|\s)([A-Z]+|\d+)\.\s/g, '\n\n$1. ')
+                .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
+                .replace(/\n{3,}/g, '\n\n');
+
+            finalHtml = `<div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Noto Sans',system-ui,sans-serif; text-align:justify; hyphens:auto;">
+                ${cleanText.split('\n\n').map(p => {
+                    let extraClass = '';
+                    const trimmed = p.trim();
+                    if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/.test(trimmed)) {
+                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-guinda/30 text-gray-700 font-medium';
+                    } else if (/^[a-z]\)\s/.test(trimmed)) {
+                        extraClass = 'ml-10 md:ml-16 pl-3 border-l text-gray-600 text-[0.85rem]';
+                    } else if (/^\d+\.\s/.test(trimmed) || /^[A-Z]+\.\s/.test(trimmed)) {
+                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-gray-200 text-gray-700';
+                    }
+                    return `<p class="mb-4 ${extraClass}">${p}</p>`;
+                }).join('')}
+            </div>`;
+        }
+        return finalHtml;
+    }
+
     function openCompare(...args) { return withProgress(() => openCompareNow(...args)); }
     async function openCompareNow(id1, id2) {
         const item1 = await getArticleById(id1);
@@ -2699,19 +2747,35 @@ export function initUI() {
         const comparePanel = document.getElementById('compare-panel');
         if (!compareModal || !compareContent) return;
 
-        const renderItem = (item) => `
-            <div class="flex flex-col">
-                <div class="mb-4 p-3 bg-guinda/5 rounded-xl border border-guinda/10">
-                    <span class="text-[10px] font-bold text-guinda uppercase tracking-wider block mb-1">${item.ley_origen}</span>
-                    <h4 class="font-bold text-gray-800 text-sm mb-0.5">${item.articulo_label}</h4>
-                    <span class="text-xs text-gray-400">${item.titulo_nombre || ''} ${item.capitulo_nombre ? '· ' + item.capitulo_nombre : ''}</span>
-                </div>
-                <div class="text-sm text-gray-700 font-serif leading-relaxed">
-                    ${item.texto.split('\n\n').map(p => `<p class="mb-3">${p}</p>`).join('')}
-                </div>
-            </div>`;
+        // CompareView: each article with its sigla, number in display guinda and its text as the reader
+        // formats it (fracciones on their own lines); «Resaltar diferencias» marks what each one says alone.
+        const plain = text => String(text ?? '').replace(/<br\s*\/?>/gi, '\n').replace(/<\/(p|li|div|tr)>/gi, '\n').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        const diff = wordDiff(plain(item1.texto), plain(item2.texto));
+        const renderItem = (item, marked) => {
+            const path = [item.titulo_nombre, item.capitulo_nombre].map(v => (v && v !== 'null' ? String(v).trim() : '')).filter(Boolean).join(' · ');
+            return `<article class="cmp-col">
+                <header class="cmp-head">
+                    <p class="cmp-law">${item.siglas_ley ? `<span class="cmp-sigla">${escapeHtml(item.siglas_ley)}</span>` : ''}${escapeHtml(item.ley_origen || '')}</p>
+                    <h4>${escapeHtml(item.articulo_label || '')}</h4>
+                    ${path ? `<p class="cmp-path">${escapeHtml(path)}</p>` : ''}
+                </header>
+                <div class="cmp-text reader-text" data-cmp-text>${readerArticleHtml(item.texto)}</div>
+                ${diff ? `<div class="cmp-text cmp-diff" data-cmp-diff hidden>${marked}</div>` : ''}
+            </article>`;
+        };
 
-        compareContent.innerHTML = renderItem(item1) + renderItem(item2);
+        compareContent.innerHTML = `${diff ? `<div class="cmp-tools">
+                <button type="button" class="cmp-diff-btn" data-cmp-toggle aria-pressed="false">Resaltar diferencias</button>
+                <p class="cmp-legend" hidden><del>Solo en ${escapeHtml(item1.articulo_label || '')}</del> <ins>Solo en ${escapeHtml(item2.articulo_label || '')}</ins>${diff.changed ? '' : ' · Los dos textos dicen lo mismo.'}</p>
+            </div>` : ''}${renderItem(item1, diff?.left)}${renderItem(item2, diff?.right)}`;
+        markScrollableTables(compareContent);
+        compareContent.querySelector('[data-cmp-toggle]')?.addEventListener('click', event => {
+            const on = event.currentTarget.getAttribute('aria-pressed') !== 'true';
+            event.currentTarget.setAttribute('aria-pressed', String(on));
+            compareContent.querySelectorAll('[data-cmp-text]').forEach(el => { el.hidden = on; });
+            compareContent.querySelectorAll('[data-cmp-diff]').forEach(el => { el.hidden = !on; });
+            compareContent.querySelector('.cmp-legend').hidden = !on;
+        });
         compareModal.classList.remove('hidden');
         compareModal.classList.add('flex');
         
@@ -2994,6 +3058,7 @@ export function initUI() {
             statsView = renderStatsView(resultsContainer, cachedSummaries, {
                 onOpenLaw: law => openLawDetail(law),
                 onOpenGroup: group => showLawsView({ ...acervoState, group, query: '' }),
+                onSearch: query => { resetToHero(); searchInput.value = query; searchInput.dispatchEvent(new Event('input')); },
             });
         });
     }
@@ -3233,6 +3298,8 @@ export function initUI() {
             searchCountsByLawId(query, { artNum: filters.artNum }),
         ]);
         if (request !== searchRenderRequest) return;
+        // «Lo más buscado»: only terms that found something, and only unfiltered first pages.
+        if (currentPage === 1 && !lawIds && !filters.artNum) trackSearchTerm(query, totalResults);
         currentSearchResults = results;
         currentModalList = results; // modal prev/next follows the visible page
         if (loadingIndicator) loadingIndicator.classList.add('hidden');
@@ -3300,47 +3367,7 @@ export function initUI() {
             if (law) { closeModalFunc(); setTimeout(() => openLawDetail(law), 310); }
         };
 
-        // 1. Detectar si el contenido es Markdown (especialmente si tiene tablas)
-        const hasMarkdown = item.texto.includes('|') || item.texto.includes('**') || item.texto.includes('###');
-        
-        let finalHtml = '';
-        if (/<(?:div|p|table|section|ul|ol|h[1-6])\b/i.test(item.texto)) {
-            // Reviewed HTML already carries its paragraph/table structure; keep it, made safe, with
-            // the reader's table presentation (scroll box, header scopes).
-            finalHtml = sanitizeArticleHtml(item.texto);
-        } else if (hasMarkdown && globalThis.marked?.parse) {
-            // Usar marked para el renderizado (especialmente para tablas); si el CDN no carga, sigue como texto simple
-            finalHtml = `<div class="prose-container">
-                <div class="prose prose-sm max-w-none prose-p:leading-relaxed">
-                    ${sanitizeArticleHtml(globalThis.marked.parse(item.texto))}
-                </div>
-            </div>`;
-        } else {
-            // Lógica de formateo legal tradicional (Legacy)
-            let cleanText = item.texto
-                .replace(/\r\n/g, '\n')
-                .replace(/\n\s*\n/g, '\n\n')
-                .replace(/([a-z,;])\n([a-z])/ig, '$1 $2')
-                .replace(/(?<=^|\s)(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/g, '\n\n$1. ')
-                .replace(/(?<=^|\s)([A-Z]+|\d+)\.\s/g, '\n\n$1. ')
-                .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
-                .replace(/\n{3,}/g, '\n\n');
-
-            finalHtml = `<div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Noto Sans',system-ui,sans-serif; text-align:justify; hyphens:auto;">
-                ${cleanText.split('\n\n').map(p => {
-                    let extraClass = '';
-                    const trimmed = p.trim();
-                    if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/.test(trimmed)) {
-                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-guinda/30 text-gray-700 font-medium';
-                    } else if (/^[a-z]\)\s/.test(trimmed)) {
-                        extraClass = 'ml-10 md:ml-16 pl-3 border-l text-gray-600 text-[0.85rem]';
-                    } else if (/^\d+\.\s/.test(trimmed) || /^[A-Z]+\.\s/.test(trimmed)) {
-                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-gray-200 text-gray-700';
-                    }
-                    return `<p class="mb-4 ${extraClass}">${p}</p>`;
-                }).join('')}
-            </div>`;
-        }
+        const finalHtml = readerArticleHtml(item.texto);
 
         // Highlight search terms in modal content
         // Usa el query global o, si estamos en la vista de ley, el del buscador interno
