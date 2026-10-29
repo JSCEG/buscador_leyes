@@ -33,7 +33,7 @@ export const TRAMITES = [
         base: ['LSE', 'RLSE', 'LCNE'],
         rules: ['DACG-PERMISOS-GA', 'ACUERDO-CNE-16/04/2026-DACG-SAE'],
         forms: ['FORMATOS-SAEE'],
-        calls: ['CONV-ESTRATEGICOS', 'CONV-ESTRATEGICOS-M1', 'CONV-ESTRATEGICOS-M2', 'CONV-ESTRATEGICOS-M3'],
+        calls: ['CONV-ESTRATEGICOS', 'CONV-ESTRATEGICOS-M1', 'CONV-ESTRATEGICOS-M2', 'CONV-ESTRATEGICOS-M3', 'CONV-ESTRATEGICOS-M4'],
         articles: { query: 'almacenamiento de energía', in: ['LSE', 'RLSE', 'DACG-PERMISOS-GA', 'ACUERDO-CNE-16/04/2026-DACG-SAE'] },
         resolutions: null,
     },

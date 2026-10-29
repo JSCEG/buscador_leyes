@@ -1,0 +1,16 @@
+{
+  "fuente_html": "https://dof.gob.mx/nota_detalle.php?codigo=5802463&fecha=29/10/2026",
+  "fuente_pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=29102026-MAT.pdf&repo=",
+  "sha256": "2f30744f130e1bf501a1ae5e5ca4b754f7e34fa2f80ccbcf5db52ac6bb9febad",
+  "bytes": 4386145,
+  "paginas_pdf": 184,
+  "pagina_acuerdo": 49,
+  "integridad_textual_html": true,
+  "parrafos_pdf_cotejados": 18,
+  "tabla": {
+    "filas": 2,
+    "columnas": 4,
+    "celdas_cotejadas": 8
+  },
+  "pdf_remoto": true
+}
