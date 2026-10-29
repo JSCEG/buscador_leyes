@@ -37,6 +37,31 @@ html body .lr-outline .lr-outline-title { padding: 0 10px 6px; font: 700 11px/16
 .lr-outline-item.is-active { background: var(--surface-1) !important; box-shadow: inset 2px 0 0 var(--brand) !important; }
 .lr-outline-item.is-active strong { color: var(--brand) !important; }
 .lr-outline-item.is-active span { color: var(--ink) !important; }
+/* Separator (src/lib/separator.js): hairline with the gold diamond. */
+.bj-sep { display: flex; align-items: center; gap: 10px; width: 100%; }
+.bj-sep__line { flex: 1; height: 1px; background: var(--hairline); }
+.bj-sep__diamond { flex: none; width: 9px; height: 9px; transform: rotate(45deg); background: var(--gold); }
+.bj-sep--brand .bj-sep__diamond { background: var(--brand); }
+#modal-content .rm-sep-block { margin: 0 0 22px; }
+#modal-content .rm-location:has(+ .bj-sep) { margin-bottom: 12px !important; padding-bottom: 0 !important; border-bottom: 0 !important; }
+.ap-view .ap-sep { max-width: 72ch; margin: 28px auto 0; }
+
+/* LawTree beside the articles: títulos fold their capítulos, numeral in mono guinda, chapter count,
+   capítulos hang from a vertical guide, the section being read in brand-soft. */
+.lr-tree-row { display: flex; align-items: flex-start; gap: 2px; }
+.lr-tree-row > .lr-outline-item { flex: 1; min-width: 0; position: relative; }
+.lr-tree-toggle { flex: none; display: grid; place-items: center; width: 28px; height: 34px; padding: 0; border: 0; border-radius: var(--radius-sm); background: none; color: var(--ink-muted); cursor: pointer; }
+.lr-tree-toggle:hover { background: var(--surface-1); color: var(--brand); }
+.lr-tree-toggle svg { transition: transform var(--duration-base) var(--ease-out); }
+.lr-tree-node.is-open > .lr-tree-row .lr-tree-toggle svg { transform: rotate(90deg); }
+.lr-tree-node.is-leaf > .lr-tree-row { padding-left: 30px; }
+.lr-tree-children { display: none; margin: 0 0 6px 13px; padding-left: 12px; border-left: 1px solid var(--hairline); }
+.lr-tree-node.is-open > .lr-tree-children { display: block; }
+.lr-tree-children .lr-outline-item.lr-level-2 { padding-left: 10px; }
+.lr-outline-item strong { color: var(--brand) !important; text-transform: uppercase; }
+.lr-outline-item:has(.lr-tree-count) { padding-right: 34px; }
+.lr-tree-count { position: absolute; top: 8px; right: 10px; font: 500 11px/16px var(--font-mono); font-style: normal; font-variant-numeric: tabular-nums; color: var(--ink-muted); }
+.lr-outline-item.is-active { background: var(--brand-soft) !important; }
 
 /* ── Breadcrumb (cabecera de ley: va sobre la banda) ───── */
 .lr-crumbs { gap: 6px !important; font: 500 13px/18px var(--font-sans) !important; }

@@ -8,6 +8,7 @@ import { getAcervoGroup, ACERVO_GROUPS } from '../lib/acervo-model.js';
 import { pinButtonHtml } from './desk-view.js';
 import '../styles/article-page.css';
 import { LEGAL_NOTE } from './site-dialogs.js';
+import { separatorHtml } from '../lib/separator.js';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
@@ -40,6 +41,7 @@ export function renderArticlePage(container, { item, law, sourceUrl = '', onOpen
             </div>
         </header>
         <div class="ap-text">${articleHtml(item.texto)}</div>
+        ${separatorHtml({ className: 'ap-sep' })}
         <p class="ap-note">${esc(LEGAL_NOTE)}</p>
     </article>`;
     document.title = `${item.articulo_label} · ${item.siglas_ley || item.ley_origen} · Buscador Jurídico`;
