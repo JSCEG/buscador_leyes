@@ -154,7 +154,6 @@ export function renderPolosView(container, { id = null, onRoute }) {
 
             ${data.incentivos?.length ? `${SEP}<h2 class="pl-h2">Qué ofrece un polo</h2><ul class="pl-bullets">${data.incentivos.map(i => `<li>${leadIn(i)}</li>`).join('')}</ul>` : ''}
 
-            ${data.aclaraciones?.length ? `${SEP}<h2 class="pl-h2">Notas sobre los datos</h2><ul class="pl-bullets">${data.aclaraciones.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
 
             ${SEP}<h2 class="pl-h2">Fuentes oficiales</h2>
             <ul class="pl-bullets pl-fuentes">${(data.fuentes || []).map(f => safeUrl(f.url) ? `<li><a class="pl-link pl-link--external" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a></li>` : `<li>${esc(f.titulo)}</li>`).join('')}</ul>
