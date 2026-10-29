@@ -301,7 +301,7 @@ function renderHighchartsTreemap(slide, model, attempt = 0) {
         chart: {
             backgroundColor: 'transparent',
             spacing: [0, 0, 0, 0],
-            style: { fontFamily: 'Noto Sans, Outfit, sans-serif' }
+            style: { fontFamily: 'Noto Sans, sans-serif' }
         },
         title: { text: null },
         credits: { enabled: false },
@@ -964,8 +964,8 @@ function ensureWebDeckStyles() {
     const style = document.createElement('style');
     style.id = 'law-presentation-web-style';
     style.innerHTML = `
-        .law-presentation-overlay{--lp-scale:1;position:fixed;inset:0;z-index:9999;background:#1E1E1E;color:#2b2b2b;overflow:hidden;font-family:'Noto Sans','Outfit',sans-serif}
-        .law-presentation-embed{--lp-scale:1;position:relative;width:100%;height:auto;aspect-ratio:1333/750;min-height:0;background:#fff;border:1px solid rgba(165,127,44,.35);border-radius:10px;box-shadow:0 16px 36px rgba(0,0,0,.16);overflow:hidden;font-family:'Noto Sans','Outfit',sans-serif}
+        .law-presentation-overlay{--lp-scale:1;position:fixed;inset:0;z-index:9999;background:#1E1E1E;color:#2b2b2b;overflow:hidden;font-family:'Noto Sans',sans-serif}
+        .law-presentation-embed{--lp-scale:1;position:relative;width:100%;height:auto;aspect-ratio:1333/750;min-height:0;background:#fff;border:1px solid rgba(165,127,44,.35);border-radius:10px;box-shadow:0 16px 36px rgba(0,0,0,.16);overflow:hidden;font-family:'Noto Sans',sans-serif}
         .law-presentation-embed.hidden{display:none}
         .lp-slide-container{width:1333px;height:750px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--lp-scale));transform-origin:center center;box-shadow:0 22px 60px rgba(0,0,0,.45);background:#fff}
         .lp-slide{position:absolute;inset:0;display:none;width:1333px;height:750px;background:#fff;opacity:0;transition:opacity .25s ease}

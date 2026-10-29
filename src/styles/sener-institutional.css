@@ -202,7 +202,7 @@ textarea {
 html.dark-mode,
 html.dark-mode body {
     background: #1E1E1E !important;
-    color: #F4F6F8 !important;
+    color: var(--ink) !important;
 }
 
 html.dark-mode .bg-white,
@@ -221,14 +221,14 @@ html.dark-mode .aart-card,
 html.dark-mode .aflujo-panel {
     background-color: #242424 !important;
     border-color: rgba(229, 229, 229, 0.14) !important;
-    color: #F4F6F8 !important;
+    color: var(--ink) !important;
 }
 
 html.dark-mode .text-gray-900,
 html.dark-mode .text-gray-800,
 html.dark-mode .text-gray-700,
 html.dark-mode .text-gray-600 {
-    color: #F4F6F8 !important;
+    color: var(--ink) !important;
 }
 
 html.dark-mode .text-gray-500,
@@ -256,7 +256,7 @@ html.dark-mode select,
 html.dark-mode textarea {
     background: #1E1E1E !important;
     border-color: rgba(214, 180, 106, 0.45) !important;
-    color: #F4F6F8 !important;
+    color: var(--ink) !important;
 }
 
 html.dark-mode #results-container thead tr,

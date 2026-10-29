@@ -1,5 +1,5 @@
 /* ¿Cómo funciona? (#como-funciona) */
-.cf-view{--cf-ink:var(--ink);--cf-muted:var(--ink-muted);--cf-card:var(--surface-1);--cf-border:var(--hairline);--cf-soft:var(--surface-2);--cf-accent:var(--brand);--cf-ok:#1E5B4F;width:100%;max-width:980px;margin:0 auto;padding:0 0 48px;color:var(--cf-ink);font-family:var(--font-sans)}
+.cf-view{--cf-ink:var(--ink);--cf-muted:var(--ink-muted);--cf-card:var(--surface-1);--cf-border:var(--hairline);--cf-soft:var(--surface-2);--cf-accent:var(--brand);--cf-ok:var(--col-disposicion);width:100%;max-width:980px;margin:0 auto;padding:0 0 48px;color:var(--cf-ink);font-family:var(--font-sans)}
 html.dark-mode .cf-view{--cf-ink:#f3ece4;--cf-muted:#b3a89e;--cf-card:#211b1d;--cf-border:#3a3034;--cf-soft:#2a2225;--cf-accent:#eeb0c2;--cf-ok:#6fc2ae}
 .cf-head{margin-bottom:20px}
 .cf-kicker{margin:0 0 6px;color:var(--cf-accent);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
@@ -37,7 +37,7 @@ html.dark-mode .cf-view{--cf-ink:#f3ece4;--cf-muted:#b3a89e;--cf-card:#211b1d;--
 .cf-opt{display:block;width:100%;margin:6px 0 0;padding:11px 14px;border:1px solid var(--cf-border);border-radius:12px;background:var(--cf-soft);color:var(--cf-ink);font:500 14.5px var(--font-sans);text-align:left;cursor:pointer}
 .cf-opt:hover{border-color:var(--cf-accent)}
 .cf-opt.is-right{border-color:var(--cf-ok);background:color-mix(in srgb,var(--cf-ok) 14%,var(--cf-card));color:var(--cf-ok);font-weight:700}
-.cf-opt.is-wrong{border-color:#c0392b;opacity:.7}
+.cf-opt.is-wrong{border-color:var(--danger);opacity:.7}
 .cf-verdict{margin:8px 0 0;font-weight:600;font-size:14px}
 .cf-verdict:empty{display:none}
 .cf-sources{margin-top:36px;padding-top:18px;border-top:1px solid var(--cf-border);color:var(--cf-muted);font-size:13px;line-height:1.6}
@@ -102,7 +102,7 @@ html.dark-mode .cf-level-num{color:#211b1d}
 .cf-section .cf-myth{color:var(--cf-muted)}
 .cf-section .cf-fact{margin-top:6px}
 .cf-myth>span[aria-hidden],.cf-fact>span[aria-hidden]{flex:none;font-weight:800}
-.cf-myth>span[aria-hidden]{color:#c0392b}
+.cf-myth>span[aria-hidden]{color:var(--danger)}
 .cf-fact>span[aria-hidden]{color:var(--cf-ok)}
 .cf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .cf-fun{margin-top:26px;padding:16px 18px;border-radius:14px;background:color-mix(in srgb,#e9c46a 22%,var(--cf-card));font-size:15px;line-height:1.6}

@@ -1962,7 +1962,7 @@ export function initUI() {
             .style("display", "none");
 
         svg.append("g")
-            .attr("fill", "#9B2247")
+            .style("fill", "var(--brand)")
             .selectAll("rect")
             .data(data)
             .join("rect")
@@ -1972,14 +1972,14 @@ export function initUI() {
             .attr("height", y.bandwidth())
             .attr("rx", 4)
             .on("mouseover", (event, d) => {
-                d3.select(event.target).attr("fill", "#7A1C39");
+                d3.select(event.target).style("fill", "var(--brand-hover)");
                 tooltip.style("opacity", "1").style("display", "block").text(isJudgment(law) ? `${d.name}: ${d.value}` : `${d.name}: ${d.value} artículos`);
             })
             .on("mousemove", (event) => {
                 tooltip.style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 10) + "px");
             })
             .on("mouseout", (event) => {
-                d3.select(event.target).attr("fill", "#9B2247");
+                d3.select(event.target).style("fill", null);
                 tooltip.style("opacity", "0").style("display", "none");
             });
 
