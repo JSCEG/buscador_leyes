@@ -82,7 +82,7 @@ it('reads a real structured instrument, shares preferences, switches source lazi
     increase.click(); increase.click(); increase.click();
     changeSelect('#law-detail-container [data-reader-spacing]', '2');
     changeSelect('#law-detail-container [data-reader-surface]', 'sepia');
-    expect(JSON.parse(localStorage.getItem('sener-reader-preferences-v1'))).toEqual({ fontSize: 24, lineHeight: 2, surface: 'sepia' });
+    expect(JSON.parse(localStorage.getItem('sener-reader-preferences-v1'))).toEqual({ fontSize: 24, lineHeight: 2, surface: 'sepia', measure: 68, typeface: 'sans' });
     expect(document.documentElement.style.fontSize).toBe('');
 
     const openTable = () => document.querySelector(`#law-articles-list [data-id="${tableArticle.id}"]`).click();

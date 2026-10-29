@@ -93,6 +93,21 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-column>header{padding:14px 18px 10px;border-top:4px solid var(--dk-dot,var(--dk-faint));border-bottom:1px solid var(--dk-border)}
 .desk-column h3{margin:2px 0 0;font-size:17px;font-weight:700}
 .desk-column-text{flex:1;overflow-y:auto;padding:14px 18px 24px;font-size:14.5px;line-height:1.65;overscroll-behavior:contain}
+/* CompareView: header on surface-2 with the desk and its count, article number in display guinda,
+   text at reading size, and the word-by-word marks (danger-soft struck through, success-soft underlined). */
+.desk-side-head{background:var(--surface-2);gap:12px}
+.desk-side-kicker{margin:0 0 2px;font:700 11px/16px var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.desk-side-head h2 span{margin-left:6px;font:500 13px/1 var(--font-mono);color:var(--ink-muted)}
+.desk-side-actions{display:flex;align-items:center;gap:8px}
+.desk-side-actions [data-side-diff][aria-pressed=true]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.desk-column h3{font:600 26px/1.15 var(--font-display);color:var(--brand)}
+.desk-column-text{font-family:var(--reader-font-family,var(--font-sans));font-size:min(var(--reader-font-size,18px),17px);line-height:var(--reader-line-height,1.7);color:var(--ink-2)}
+.desk-column-diff{white-space:pre-line}
+.desk-side-view :is(del,ins){padding:0 1px;border-radius:var(--radius-xs);color:var(--ink)}
+.desk-side-view del{background:var(--danger-soft);text-decoration:line-through;text-decoration-color:var(--danger)}
+.desk-side-view ins{background:var(--success-soft);text-decoration:underline;text-decoration-color:var(--success);text-underline-offset:3px}
+.desk-diff-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;padding:8px 20px;border-bottom:1px solid var(--dk-border);font-size:12.5px;color:var(--ink-muted)}
+.desk-diff-legend[hidden]{display:none}
 
 /* Phones: bottom sheet and swipeable columns */
 @media (max-width:640px){

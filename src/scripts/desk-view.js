@@ -13,7 +13,11 @@ import { collectionIcon } from '../lib/collection-icons.js';
 import { getAcervoGroup } from '../lib/acervo-model.js';
 import { withProgress } from '../lib/nav-progress.js';
 import { fetchPermit, permitFromPinId, permitKind, permitPdfUrl } from '../lib/cne-api.js';
+import { wordDiff } from '../lib/word-diff.js';
 import '../styles/desk.css';
+
+/** Article text without markup, for the word-by-word comparison. */
+const plainText = text => String(text ?? '').replace(/<br\s*\/?>/gi, '\n').replace(/<\/(p|li|div|tr)>/gi, '\n').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 // Value for a quoted attribute selector (CSS.escape is not available everywhere).
@@ -267,18 +271,25 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         await ensureLoaded();
         const ids = sideIds().filter(id => cache.has(id));
         if (ids.length < 2) { notify('Necesitas al menos dos artículos en tu mesa.', '!'); return; }
+        // CompareView: with two articles, «Resaltar diferencias» marks word by word what each one says alone.
+        const diff = ids.length === 2 ? wordDiff(plainText(cache.get(ids[0]).texto), plainText(cache.get(ids[1]).texto)) : null;
         side.innerHTML = `<div class="desk-side-inner">
             <header class="desk-side-head">
-                <h2 id="desk-side-title">Lado a lado</h2>
-                <button type="button" class="desk-close" data-side-close aria-label="Cerrar vista lado a lado">×</button>
+                <div><p class="desk-side-kicker">Lado a lado</p><h2 id="desk-side-title">${esc(getActiveDesk().name)} <span>${ids.length} artículos</span></h2></div>
+                <div class="desk-side-actions">
+                    ${diff ? `<button type="button" class="desk-tool" data-side-diff aria-pressed="false">Resaltar diferencias</button>` : ''}
+                    <button type="button" class="desk-close" data-side-close aria-label="Cerrar vista lado a lado">×</button>
+                </div>
             </header>
+            ${diff ? `<p class="desk-diff-legend" hidden><del>Solo en ${esc(cache.get(ids[0]).articulo_label)}</del> <ins>Solo en ${esc(cache.get(ids[1]).articulo_label)}</ins> ${diff.changed ? '' : '· Los dos textos dicen lo mismo.'}</p>` : ''}
             <div class="desk-columns" style="--cols:${ids.length}">
-                ${ids.map(id => {
+                ${ids.map((id, index) => {
                     const item = cache.get(id); const group = groupOf(item);
                     return `<article class="desk-column" data-category="${group}" aria-labelledby="side-${esc(id)}">
                         <header><p class="desk-card-law"><span class="desk-ico">${collectionIcon(group, 13)}</span>${esc(item.siglas_ley || '')}</p>
                             <h3 id="side-${esc(id)}">${esc(item.articulo_label)}</h3><p class="desk-card-source">${esc(item.ley_origen)}</p></header>
-                        <div class="desk-column-text">${articleHtml(item.texto)}</div>
+                        <div class="desk-column-text" data-side-text>${articleHtml(item.texto)}</div>
+                        ${diff ? `<div class="desk-column-text desk-column-diff" data-side-diff-text hidden>${index ? diff.right : diff.left}</div>` : ''}
                     </article>`;
                 }).join('')}
             </div></div>`;
@@ -286,6 +297,16 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         document.body.classList.add('desk-side-open');
         markScrollableTables(side);
         side.querySelector('[data-side-close]').focus();
+    }
+
+    /** Shows or hides the word-by-word marks of the side-by-side view. */
+    function toggleDiff(button) {
+        const on = button.getAttribute('aria-pressed') !== 'true';
+        button.setAttribute('aria-pressed', String(on));
+        side.querySelectorAll('[data-side-text]').forEach(el => { el.hidden = on; });
+        side.querySelectorAll('[data-side-diff-text]').forEach(el => { el.hidden = !on; });
+        const legend = side.querySelector('.desk-diff-legend');
+        if (legend) legend.hidden = !on;
     }
 
     function closeSide() {
@@ -467,6 +488,8 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
 
     side.addEventListener('click', event => {
         if (event.target.closest('[data-side-close]') || event.target === side) closeSide();
+        const diffButton = event.target.closest('[data-side-diff]');
+        if (diffButton) toggleDiff(diffButton);
     });
 
     document.addEventListener('keydown', event => {

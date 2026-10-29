@@ -45,7 +45,7 @@ it('keeps full-instrument and article controls synchronized and persists their s
     expect(document.documentElement.style.getPropertyValue('--reader-font-size')).toBe('26px');
     expect(document.documentElement.style.getPropertyValue('--reader-line-height')).toBe('1.6');
     expect(document.documentElement.dataset.readerSurface).toBe('dark');
-    expect(JSON.parse(localStorage.getItem(key))).toEqual({ fontSize: 26, lineHeight: 1.6, surface: 'dark' });
+    expect(JSON.parse(localStorage.getItem(key))).toEqual({ fontSize: 26, lineHeight: 1.6, surface: 'dark', measure: 68, typeface: 'sans' });
 });
 
 it('bounds the size controls, exposes their disabled state and resets all reading preferences', () => {
@@ -63,7 +63,7 @@ it('bounds the size controls, exposes their disabled state and resets all readin
     setSelect('[data-reader-spacing]', '2');
     setSelect('[data-reader-surface]', 'sepia');
     document.querySelector('[data-reader-reset]').click();
-    expect(JSON.parse(localStorage.getItem(key))).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
+    expect(JSON.parse(localStorage.getItem(key))).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
     expect(document.querySelector('[data-reader-size-output]').textContent).toBe('18 px');
     expect(increase.disabled || decrease.disabled).toBe(false);
 });

@@ -1,10 +1,13 @@
 /** Shared reading preferences for a complete instrument and the article dialog. */
 export const READER_PREFERENCES_KEY = 'sener-reader-preferences-v1';
-export const DEFAULT_READER_PREFERENCES = Object.freeze({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
+export const DEFAULT_READER_PREFERENCES = Object.freeze({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
 export const READER_FONT_SIZE_RANGE = Object.freeze({ min: 14, max: 28 });
 export const READER_FONT_SIZE_OPTIONS = Object.freeze([16, 18, 20, 22, 24, 26, 28]);
 export const READER_LINE_HEIGHT_OPTIONS = Object.freeze([1.6, 1.8, 2]);
 export const READER_SURFACE_OPTIONS = Object.freeze(['system', 'light', 'sepia', 'dark']);
+/** Column width in characters (narrow, normal, wide) and the face of the text. */
+export const READER_MEASURE_OPTIONS = Object.freeze([56, 68, 84]);
+export const READER_TYPEFACE_OPTIONS = Object.freeze({ sans: 'var(--font-sans)', serif: 'var(--font-display)' });
 
 // Private/session-only fallback: a denied or full storage must not disable Aa controls.
 let sessionPreferences = { ...DEFAULT_READER_PREFERENCES };
@@ -27,6 +30,10 @@ export function normalizeReaderPreferences(input) {
             ? value.lineHeight : DEFAULT_READER_PREFERENCES.lineHeight,
         surface: READER_SURFACE_OPTIONS.includes(value.surface)
             ? value.surface : DEFAULT_READER_PREFERENCES.surface,
+        measure: READER_MEASURE_OPTIONS.includes(value.measure)
+            ? value.measure : DEFAULT_READER_PREFERENCES.measure,
+        typeface: Object.hasOwn(READER_TYPEFACE_OPTIONS, value.typeface)
+            ? value.typeface : DEFAULT_READER_PREFERENCES.typeface,
     };
 }
 
@@ -69,6 +76,8 @@ export function applyReaderPreferences(root, preferences = loadReaderPreferences
     if (typeof root?.style?.setProperty === 'function') {
         root.style.setProperty('--reader-font-size', `${effective.fontSize}px`);
         root.style.setProperty('--reader-line-height', String(effective.lineHeight));
+        root.style.setProperty('--reader-measure', `${effective.measure}ch`);
+        root.style.setProperty('--reader-font-family', READER_TYPEFACE_OPTIONS[effective.typeface]);
     }
     if (root?.dataset) root.dataset.readerSurface = effective.surface;
     return effective;

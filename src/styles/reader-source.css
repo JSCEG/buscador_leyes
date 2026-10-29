@@ -67,6 +67,7 @@ html.dark-mode .reader-source-view .rs-loading-slow{color:#f2d27d;background:#3a
 .reader-source-view :is(button,select,a,.rs-viewport):focus-visible{outline:2px solid var(--focus)}
 .reader-source-view .rs-viewport{background:var(--surface-sunken)}
 .reader-source-view .rs-page{box-shadow:var(--shadow-md)}
-.reader-source-view .rs-highlight{border:2px solid var(--accent);border-radius:2px;background:var(--highlight);mix-blend-mode:multiply}
+/* SourceViewer: the article's zone in highlight with a guinda rule on its left, no box around each line. */
+.reader-source-view .rs-highlight{border:0;border-left:3px solid var(--brand);border-radius:0 2px 2px 0;background:var(--highlight);mix-blend-mode:multiply}
 html.dark-mode .reader-source-view .rs-highlight{mix-blend-mode:normal}
 .reader-source-view .rs-progress-fill{background:var(--brand)}
