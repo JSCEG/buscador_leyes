@@ -28,7 +28,17 @@ const date = v => {
     const d = v ? new Date(`${v}T12:00:00`) : null;
     return !d || Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
 };
-const safeUrl = u => (/^https:\/\//i.test(u || '') ? u : '');
+/** Where a polygon comes from and, when it differs by more than 10 %, its area against the declared one. */
+function areaNote(props, polo) {
+    const source = props?.figura === 'PODEBI'
+        ? 'Polígono trazado con las coordenadas de la declaratoria'
+        : 'Polígono de la cartografía de la DGMESNIE (julio de 2026)';
+    const drawn = Number(props?.superficie_calculada_ha);
+    const declared = Number(polo.superficie_ha);
+    const off = drawn > 0 && declared > 0 && Math.abs(drawn - declared) / declared > 0.1;
+    return `${source}.${off ? ` El polígono suma ${num(drawn)} ha y la declaratoria indica ${num(declared, 2)} ha.` : ''}`;
+}
+const safeUrl = u =>(/^https:\/\//i.test(u || '') ? u : '');
 
 async function getJson(url, signal) {
     const response = await fetch(url, { signal, credentials: 'same-origin' });
@@ -116,7 +126,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
                 </aside>
                 <div class="pl-mapcol">
                     <div class="pl-map" data-map role="region" aria-label="Mapa de polos de desarrollo"></div>
-                    <p class="pl-legend">${FIGURAS.map(f => `<span><i style="--c:${f.color}"></i>${f.clave}</span>`).join('')}<span><i class="is-area"></i>Polígono de la declaratoria</span><span><i class="is-aprox"></i>Ubicación aproximada (municipio)</span></p>
+                    <p class="pl-legend">${FIGURAS.map(f => `<span><i style="--c:${f.color}"></i>${f.clave}</span>`).join('')}<span><i class="is-area"></i>Polígono del polo</span><span><i class="is-aprox"></i>Ubicación aproximada (municipio)</span></p>
                 </div>
                 <article class="pl-detail" data-detail hidden></article>
             </div>
@@ -268,7 +278,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
                 ${figura ? `<dt>Declara</dt><dd>${esc(figura.autoridad)}</dd>` : ''}
                 ${polo.superficie_ha ? `<dt>Superficie</dt><dd>${num(polo.superficie_ha, 2)} ha</dd>` : ''}
                 ${polo.vocaciones?.length ? `<dt>Vocaciones</dt><dd>${polo.vocaciones.map(esc).join(' · ')}</dd>` : ''}
-                <dt>Ubicación</dt><dd>${m?.feature ? `Polígono trazado con las coordenadas de la declaratoria${area?.vertices ? ` (${area.vertices} vértices)` : ''}` : 'Aproximada, centro del municipio'}</dd>
+                <dt>Ubicación</dt><dd>${m?.feature ? areaNote(area, polo) : 'Aproximada, centro del municipio'}</dd>
             </dl>
             <h4>Trazabilidad oficial</h4>
             <ol class="pl-hitos">${hitosOrdenados(polo).map(h => `
