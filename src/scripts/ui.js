@@ -339,6 +339,10 @@ export function initUI() {
         const { summaries, relaciones } = e.detail;
         cachedSummaries = summaries;
         catalogLoaded = true;
+        // DotsLoader: the search says where it looks («Buscando en 5,778 artículos…»).
+        const fragments = summaries.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
+        const loadingLabel = loadingIndicator?.querySelector('[data-loading-label]');
+        if (loadingLabel && fragments) loadingLabel.textContent = `Buscando en ${fragments.toLocaleString('es-MX')} artículos…`;
         indexRelaciones(relaciones);
 
         // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
