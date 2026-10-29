@@ -13,6 +13,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* White panels in the markup are the card surface of each theme (text-white stays white on color). */
+.bg-white { background-color: var(--surface-1); }
+.bg-white\/70, .bg-white\/80, .bg-white\/95 { background-color: color-mix(in srgb, var(--surface-1) 88%, transparent); }
+
 /* Prose has one alignment across instruments, results and explanations.
    Keep the last line natural so short paragraphs do not stretch across mobile. */
 #main-container p,
