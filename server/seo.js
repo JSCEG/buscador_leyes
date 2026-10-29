@@ -47,13 +47,23 @@ async function config(env) {
     return url && key ? { url: url.replace(/\/+$/, ''), key } : null;
 }
 
-async function rest(cfg, path, { fetcher = fetch, ttl = PAGE_TTL } = {}) {
+/**
+ * One read of the REST API. The cf options alone did not keep Supabase answers at the edge (every
+ * server page still asked for the whole list of instruments), so with a cache and the site's origin
+ * the answer is also kept in this site's own edge cache under /__seo-data/.
+ */
+async function rest(cfg, path, { fetcher = fetch, ttl = PAGE_TTL, cache = null, origin = '' } = {}) {
+    const key = cache && origin ? new Request(`${origin}/__seo-data/${path}`) : null;
+    const hit = key && await cache.match(key).catch(() => null);
+    if (hit) return hit.json();
     const response = await fetcher(`${cfg.url}/rest/v1/${path}`, {
         headers: { apikey: cfg.key, Authorization: `Bearer ${cfg.key}`, Accept: 'application/json' },
         cf: { cacheTtl: ttl, cacheEverything: true },
     });
     if (!response.ok) throw Object.assign(new Error(`supabase ${new URL(cfg.url).host} ${response.status}: ${(await response.text()).slice(0, 200)}`), { status: response.status });
-    return response.json();
+    const body = await response.text();
+    if (key) await cache.put(key, new Response(body, { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${ttl}` } })).catch(() => {});
+    return JSON.parse(body);
 }
 
 export const getLaws = (cfg, opts) => rest(cfg, 'leyes?select=id,siglas,titulo,tipo,fecha_publicacion,fecha_ultima_reforma,url_original&order=titulo.asc', { ...opts, ttl: LAWS_TTL });
@@ -185,7 +195,7 @@ export async function serveSeoPage(context, opts = {}) {
         return response;
     };
     let page;
-    try { page = await resolveSeoPage(url.pathname, env, opts); } catch (error) {
+    try { page = await resolveSeoPage(url.pathname, env, { ...opts, cache, origin: url.origin }); } catch (error) {
         console.warn('[seo] page failed', { path: url.pathname, message: error?.message });
         return app;
     }

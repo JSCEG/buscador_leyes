@@ -1,10 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const fromMock = vi.fn();
+const rpcMock = vi.fn();
 
 vi.mock('../src/lib/supabase.js', () => ({
   supabase: {
     from: fromMock,
+    rpc: rpcMock,
   },
 }));
 
@@ -20,30 +22,26 @@ describe('Search Engine', () => {
         titulo: 'Ley Test',
         fecha_publicacion: '2024-01-01',
         temas_clave: ['mercado'],
-        articulos: [{ count: 2 }],
+        total_articulos: 2,
       },
       {
         id: 'ley-2',
         titulo: 'Reglamento Test',
         fecha_publicacion: null,
         temas_clave: null,
-        articulos: [{ count: 3 }],
+        total_articulos: '3',
       },
     ];
 
-    fromMock.mockReturnValueOnce({
-      select: vi.fn().mockResolvedValue({
-        data: leyesRows,
-        error: null,
-      }),
-    });
+    rpcMock.mockResolvedValueOnce({ data: leyesRows, error: null });
 
     const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
     const { initSearch } = await import('../src/scripts/search-engine.js');
 
     await initSearch();
 
-    expect(fromMock).toHaveBeenCalledWith('leyes');
+    expect(rpcMock).toHaveBeenCalledWith('leyes_con_conteo', { p_titulo: null });
+    expect(fromMock).not.toHaveBeenCalled();
     expect(dispatchSpy).toHaveBeenCalledTimes(1);
 
     const event = dispatchSpy.mock.calls[0][0];
@@ -80,6 +78,20 @@ describe('Search Engine', () => {
         },
       ],
     });
+  });
+
+  it('counts provisions with the old embed while leyes_con_conteo is not in the project', async () => {
+    rpcMock.mockResolvedValueOnce({ data: null, error: { code: 'PGRST202', message: 'Could not find the function' } });
+    fromMock.mockReturnValueOnce({
+      select: vi.fn().mockResolvedValue({ data: [{ id: 'ley-1', titulo: 'Ley Test', articulos: [{ count: 4 }] }], error: null }),
+    });
+    const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
+    const { initSearch } = await import('../src/scripts/search-engine.js');
+
+    await initSearch();
+
+    expect(fromMock).toHaveBeenCalledWith('leyes');
+    expect(dispatchSpy.mock.calls[0][0].detail.totalArticulos).toBe(4);
   });
 
   it('returns mapped paginated search results from Supabase', async () => {

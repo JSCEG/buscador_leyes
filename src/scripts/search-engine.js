@@ -34,18 +34,28 @@ export async function getLeyRelaciones() {
     }
 }
 
+// Instruments with their number of provisions (supabase/migrations/202610290002_leyes_conteo.sql).
+// The REST embed articulos(count) built every whole article row on each visit; it stays only as the
+// fallback while the function is not in the project.
+async function lawsWithCounts(titulo = null) {
+    const { data, error } = await supabase.rpc('leyes_con_conteo', { p_titulo: titulo });
+    if (!error) return (data || []).map(l => ({ ...l, total_articulos: Number(l.total_articulos) || 0 }));
+    if (!missingFunction(error)) throw error;
+    let q = supabase.from('leyes').select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)');
+    if (titulo) q = q.eq('titulo', titulo);
+    const { data: rows, error: legacyError } = await q;
+    if (legacyError) throw legacyError;
+    return (rows || []).map(({ articulos, ...l }) => ({ ...l, total_articulos: articulos?.[0]?.count || 0 }));
+}
+
 export async function initSearch() {
     try {
         console.log('[Search] Conectando a Supabase...');
         // ley_relaciones does not exist in this project: asking for it on every visit only produced a 404.
         const relaciones = [];
-        const { data: leyesData, error } = await supabase
-            .from('leyes')
-            .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, temas_clave, url_original, tipo, articulos(count)');
+        const leyesData = await lawsWithCounts();
 
-        if (error) throw error;
-
-        const totalArticulos = leyesData.reduce((acc, l) => acc + (l.articulos[0]?.count || 0), 0);
+        const totalArticulos = leyesData.reduce((acc, l) => acc + l.total_articulos, 0);
         const uniqueLeyes = leyesData.map(l => l.titulo);
 
         const summaries = leyesData.map(l => ({
@@ -54,7 +64,7 @@ export async function initSearch() {
             siglas: l.siglas || null,
             fecha_publicacion: l.fecha_publicacion,
             fecha_ultima_reforma: l.fecha_ultima_reforma,
-            articulos: l.articulos[0]?.count || 0,
+            articulos: l.total_articulos,
             temas_clave: l.temas_clave || [],
             resumen: l.titulo,
             url_original: l.url_original || null,
@@ -328,13 +338,8 @@ export async function getArticlesByLaw(lawName) {
 export async function getLawMetadata(lawName) {
     if (!lawName) return null;
     try {
-        const { data, error } = await supabase
-            .from('leyes')
-            .select('id, titulo, siglas, fecha_publicacion, fecha_ultima_reforma, url_original, temas_clave, articulos(count)')
-            .eq('titulo', lawName)
-            .single();
-
-        if (error || !data) return null;
+        const [data] = await lawsWithCounts(lawName);
+        if (!data) return null;
         return {
             id: data.id,
             titulo: data.titulo,
@@ -343,7 +348,7 @@ export async function getLawMetadata(lawName) {
             fecha_ultima_reforma: data.fecha_ultima_reforma || null,
             url_original: data.url_original || null,
             temas_clave: data.temas_clave || [],
-            total_articulos: data.articulos[0]?.count || 0
+            total_articulos: data.total_articulos
         };
     } catch (e) {
         console.error('[Search] Error obteniendo metadatos de ley:', e);
