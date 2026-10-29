@@ -4,7 +4,7 @@
    never changed (no uppercase, no truncation). Sizes are in em so the reader's letter-size and
    line-spacing controls scale them. */
 .lr-table{
-  --lr-line:#ddd3c8; --lr-head:#9b2247; --lr-head-ink:#fff; --lr-head-line:#7d1b39;
+  --lr-line:#ddd3c8; --lr-head:var(--guinda-500); --lr-head-ink:#fff; --lr-head-line:var(--guinda-700);
   --lr-row:#faf6f1;
   position:relative; max-width:100%; margin:1.2em 0; overflow-x:auto; overscroll-behavior-x:contain;
   border:1px solid var(--lr-line); border-radius:10px; -webkit-overflow-scrolling:touch;
@@ -46,9 +46,8 @@ html #modal-content .reader-text .lr-table :is(td,th) p{margin:0 0 .4em!importan
 html #modal-content .reader-text .lr-table :is(td,th) p:last-child{margin-bottom:0!important}
 
 /* Wide tables: a one-line hint above, shown only while the table is wider than its box. */
-.lr-table-hint{display:none; margin:.6em 0 -.6em; color:#6b6460; font:600 .78em/1.3 var(--font-sans)}
+.lr-table-hint{display:none; margin:.6em 0 -.6em; color:var(--ink-muted); font:600 .78em/1.3 var(--font-sans)}
 .lr-table-hint.is-on{display:block}
-html.dark-mode .lr-table-hint{color:#b3a89e}
 
 @media print{
   .lr-table{overflow:visible; border:0}

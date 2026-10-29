@@ -4,10 +4,9 @@
     --rm-paper:var(--surface-0);--rm-card:var(--surface-1);--rm-ink:var(--ink);--rm-muted:var(--ink-muted);--rm-border:var(--border);--rm-line:var(--hairline);--rm-guinda:var(--brand);--rm-guinda-bg:var(--brand-soft)
 }
 html.dark-mode #detail-modal{
-    --rm-paper:#1e1c1a;--rm-card:#262321;--rm-ink:#f4efe7;--rm-muted:#c1b9af;--rm-border:#3d3833;--rm-line:#35302b;--rm-guinda:#eeb0c2;--rm-guinda-bg:#eeb0c214
+    --rm-border:var(--hairline);--rm-guinda:var(--col-ley);--rm-guinda-bg:color-mix(in srgb,var(--col-ley) 8%,transparent)
 }
 #detail-modal{background:var(--scrim)!important;backdrop-filter:blur(3px)}
-html.dark-mode #detail-modal{background:#0009!important}
 #detail-modal #modal-panel{background:var(--rm-card)!important;border:1px solid var(--rm-line)!important;border-radius:var(--radius-xl);box-shadow:var(--shadow-lg)!important;color:var(--rm-ink);overflow:hidden}
 
 /* Header: instrument link over a plain title */
