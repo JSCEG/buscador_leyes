@@ -1,9 +1,8 @@
 /* Search relationship map */
 .sr-view-switch{display:inline-flex;gap:4px;margin-top:14px;padding:4px;border-radius:var(--radius-xl);background:#ffffff1f;border:1px solid #ffffff33}
 .sr-view-switch button{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:0;border-radius:var(--radius-xl);background:transparent;color:#fff;font:600 13px/1 var(--font-sans);cursor:pointer}
-.sr-view-switch button[aria-pressed=true]{background:var(--surface-1);color:var(--guinda-500)}
+.sr-view-switch button[aria-pressed=true]{background:var(--surface-1);color:var(--brand)}
 .sr-view-switch button:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
-html.dark-mode .sr-view-switch button[aria-pressed=true]{color:#5e1430}
 
 .sr-graph{margin:0 0 20px;padding:16px 18px 12px;border:1px solid var(--sr-border,var(--hairline));border-radius:var(--radius-lg);background:var(--sr-card,var(--surface-1));box-shadow:0 1px 2px #302b270a,0 8px 24px #302b270d}
 .sr-graph[hidden]{display:none}
@@ -25,25 +24,20 @@ html.dark-mode .sr-view-switch button[aria-pressed=true]{color:#5e1430}
 .sg-node-group circle{stroke-width:2}
 .sg-node-law{cursor:pointer}
 .sg-node-law:focus{outline:none}
-.sg-node-law:focus-visible circle,.sg-node-law.is-active circle{stroke:#f2c97a;stroke-width:4}
-.sg-label{font:600 11px var(--font-sans);fill:var(--ink);text-anchor:middle;paint-order:stroke;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round;pointer-events:none}
+.sg-node-law:focus-visible circle,.sg-node-law.is-active circle{stroke:var(--accent);stroke-width:4}
+.sg-label{font:600 11px var(--font-sans);fill:var(--ink);text-anchor:middle;paint-order:stroke;stroke:var(--sr-card,var(--surface-1));stroke-width:3.5px;stroke-linejoin:round;pointer-events:none}
 .sg-node-term .sg-label{font-size:13.5px;font-weight:700;fill:var(--brand)}
 .sg-node-group .sg-label{font-size:12px;font-weight:700}
 .is-focus .sg-node:not(.is-lit){opacity:.22}
 .is-focus .sg-link:not(.is-lit){stroke-opacity:.05}
 .sg-link.is-lit{stroke-opacity:.7;stroke-width:2}
 
-html.dark-mode .sr-graph{background:#262321;border-color:#3d3833}
-html.dark-mode .sg-link{stroke:#f4efe7}
-html.dark-mode .sg-label{fill:#f4efe7;stroke:#262321}
-html.dark-mode .sg-node-term circle{fill:#eeb0c2}
-html.dark-mode .sg-node-term .sg-label{fill:#eeb0c2}
+html.dark-mode .sg-node-term circle{fill:var(--brand)}
 @media (max-width:640px){.sr-graph{padding:12px 10px 10px}.sg-label{font-size:10px}.sr-view-switch button{padding:6px 11px}}
 
 /* Beat the search view's button reset */
 .sr-view .sr-view-switch button{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:0;border-radius:var(--radius-xl);background:transparent;color:#fff;font:600 13px/1 var(--font-sans);white-space:nowrap}
-.sr-view .sr-view-switch button[aria-pressed=true]{background:var(--surface-1);color:var(--guinda-500)}
-html.dark-mode .sr-view .sr-view-switch button[aria-pressed=true]{color:#5e1430}
+.sr-view .sr-view-switch button[aria-pressed=true]{background:var(--surface-1);color:var(--brand)}
 .sr-view .sg-reset{padding:6px 12px;border:1px solid var(--sr-border,var(--hairline));border-radius:var(--radius-xl)}
 .sr-view .sr-actions .pin-btn{padding:5px 11px!important;border:1px solid var(--sr-border,var(--hairline));border-radius:var(--radius-xl);white-space:nowrap}
 .sr-view .sr-actions .pin-btn.is-pinned{border-color:var(--brand)}
