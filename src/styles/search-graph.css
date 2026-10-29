@@ -12,7 +12,7 @@ html.dark-mode .sr-view-switch button[aria-pressed=true]{color:#5e1430}
 .sg-summary strong{color:var(--sr-ink,var(--ink))}
 .sg-reset{padding:6px 12px;border:1px solid var(--sr-border,var(--hairline));border-radius:var(--radius-xl);background:transparent;color:var(--sr-ink,var(--ink));font:600 12.5px/1 var(--font-sans);cursor:pointer}
 .sg-reset:hover{border-color:var(--brand);color:var(--brand)}
-.sg-canvas{position:relative;margin-top:8px;border-radius:var(--radius-md);background:radial-gradient(circle at 50% 50%,#9b22470a,transparent 70%);overflow:hidden;cursor:grab;touch-action:none}
+.sg-canvas{position:relative;margin-top:8px;border-radius:var(--radius-md);background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--brand) 4%,transparent),transparent 70%);overflow:hidden;cursor:grab;touch-action:none}
 .sg-canvas:active{cursor:grabbing}
 .sg-canvas svg{display:block}
 .sg-empty{padding:40px;text-align:center;color:var(--sr-muted,var(--ink-muted))}

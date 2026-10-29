@@ -17,9 +17,9 @@ html.is-loading,html.is-loading *{cursor:progress}
 /* Chip for waits longer than half a second: the bar alone blends with the page's top stripe */
 #nav-progress-pill{position:fixed;top:14px;left:50%;z-index:9999;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;
     border-radius:999px;background:var(--surface-1);color:var(--brand-hover);font:600 13.5px/1 var(--font-sans);
-    box-shadow:0 8px 24px #2a07142e,0 0 0 1px #9b224722;pointer-events:none;opacity:0;transform:translate(-50%,-8px);transition:opacity .2s,transform .2s}
+    box-shadow:0 8px 24px #2a07142e,0 0 0 1px color-mix(in srgb,var(--brand) 13%,transparent);pointer-events:none;opacity:0;transform:translate(-50%,-8px);transition:opacity .2s,transform .2s}
 #nav-progress-pill.np-active{opacity:1;transform:translate(-50%,0)}
-#nav-progress-pill .np-spinner{width:16px;height:16px;border-radius:50%;border:2px solid #9b224733;border-top-color:var(--brand);animation:np-spin .7s linear infinite}
+#nav-progress-pill .np-spinner{width:16px;height:16px;border-radius:50%;border:2px solid color-mix(in srgb,var(--brand) 20%,transparent);border-top-color:var(--brand);animation:np-spin .7s linear infinite}
 @keyframes np-spin{to{transform:rotate(360deg)}}
 html.dark-mode #nav-progress-pill{background:#262321;color:#f4d7e0;box-shadow:0 8px 24px #0008,0 0 0 1px #ffffff1f}
 html.dark-mode #nav-progress-pill .np-spinner{border-color:#ffffff33;border-top-color:#e8a3b9}

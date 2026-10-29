@@ -6,9 +6,9 @@
 import '../styles/terms.css';
 
 export const SECTORS = {
-    electricidad: { label: 'Electricidad', color: '#9b2247' },
-    hidrocarburos: { label: 'Hidrocarburos', color: '#a57f2c' },
-    transicion: { label: 'Transición y medio ambiente', color: '#1e5b4f' },
+    electricidad: { label: 'Electricidad', color: 'var(--brand)' },
+    hidrocarburos: { label: 'Hidrocarburos', color: 'var(--accent-ink)' },
+    transicion: { label: 'Transición y medio ambiente', color: 'var(--col-disposicion)' },
     planeacion: { label: 'Planeación y desarrollo', color: '#3f6fb5' },
     institucional: { label: 'Institucional y transparencia', color: '#6b4c9a' },
     transversal: { label: 'Transversales', color: '#7a6f63' },
@@ -155,7 +155,7 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
         const node = layer.append('g').selectAll('g').data(nodes).join('g')
             .attr('class', d => `tm-node${labelled.has(d.id) ? '' : ' is-minor'}`)
             .attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => `${d.label}, ${d.instruments.length} instrumentos`);
-        node.append('circle').attr('r', d => d.r).attr('fill', d => SECTORS[d.sector].color);
+        node.append('circle').attr('r', d => d.r).style('fill', d => SECTORS[d.sector].color);
         node.append('text').attr('dy', d => d.r + 12).text(d => d.label.length > 28 ? `${d.label.slice(0, 27)}…` : d.label);
         const neighbours = new Map(nodes.map(n => [n.id, new Set([n.id])]));
         links.forEach(l => { neighbours.get(l.source.id || l.source).add(l.target.id || l.target); neighbours.get(l.target.id || l.target).add(l.source.id || l.source); });

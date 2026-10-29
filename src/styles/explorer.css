@@ -1,6 +1,6 @@
 .nx-explorer{
     --nx-paper:var(--surface-0);--nx-card:var(--surface-1);--nx-ink:var(--ink);--nx-muted:var(--ink-muted);--nx-faint:var(--ink-muted);--nx-border:var(--hairline);--nx-line:var(--hairline);
-    --nx-guinda:var(--brand);--nx-guinda-bg:#9b22470d;--nx-green:var(--col-disposicion);--nx-green-bg:#1e5b4f12;--nx-gold:var(--accent-ink);--nx-gold-bg:#a57f2c14;
+    --nx-guinda:var(--brand);--nx-guinda-bg:color-mix(in srgb,var(--brand) 5%,transparent);--nx-green:var(--col-disposicion);--nx-green-bg:color-mix(in srgb,var(--col-disposicion) 7%,transparent);--nx-gold:var(--accent-ink);--nx-gold-bg:color-mix(in srgb,var(--accent) 8%,transparent);
     --nx-shadow:0 1px 2px #302b2708,0 8px 24px #302b270a;
     position:relative;width:100%;max-width:1320px;margin:0 auto 3rem;color:var(--nx-ink);font-family:var(--font-sans);font-size:15px;line-height:1.6;min-width:0
 }

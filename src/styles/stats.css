@@ -2,8 +2,8 @@
     --st-paper:var(--surface-0);--st-card:var(--surface-1);--st-ink:var(--ink);--st-muted:var(--ink-muted);--st-faint:var(--ink-muted);--st-border:var(--hairline);--st-grid:#ece7df;
     --st-guinda:var(--brand);--st-shadow:0 1px 2px #302b2708,0 8px 24px #302b270a;
     /* Categorical order validated for CVD; every mark is also direct-labelled or listed in the table. */
-    --st-c-leyes:#9b2247;--st-c-reglamentos:#138a6a;--st-c-acuerdos:#c09032;--st-c-dacg:#4477c4;--st-c-convocatorias:#e07a4f;--st-c-normas:#7e5bb5;--st-c-otros:#948c82;
-    --st-c-topic:#1e5b4f;
+    --st-c-leyes:var(--brand);--st-c-reglamentos:#138a6a;--st-c-acuerdos:#c09032;--st-c-dacg:#4477c4;--st-c-convocatorias:#e07a4f;--st-c-normas:#7e5bb5;--st-c-otros:#948c82;
+    --st-c-topic:var(--col-disposicion);
     position:relative;width:100%;max-width:1320px;margin:0 auto;color:var(--st-ink);font-family:var(--font-sans);font-size:15px;line-height:1.55;min-width:0
 }
 html.dark-mode .st-dashboard{
