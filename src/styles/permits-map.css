@@ -29,6 +29,11 @@
 .pmm-panel{left:12px;width:280px}
 .pmm-results{right:12px;width:340px;padding:0}
 .pmm-panel[hidden],.pmm-results[hidden]{display:none}
+.pmm-panel{padding-top:0}
+.pmm-panel-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 -12px 8px;padding:10px 12px 8px;border-bottom:1px solid var(--hairline);background:var(--glass-fill);backdrop-filter:blur(var(--blur-glass));-webkit-backdrop-filter:blur(var(--blur-glass))}
+.pmm-panel-head .pmm-close{display:grid;place-items:center;width:36px;height:36px;margin-right:-8px;border-radius:50%;font-size:24px}
+.pmm-panel-head .pmm-close:hover{background:var(--surface-2);color:var(--ink)}
+.pmm-panel-head strong{font:600 14px/20px var(--font-sans);color:var(--ink)}
 .pmm-h{margin:10px 0 6px;font:700 11px/16px var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted)}
 .pmm-h:first-child{margin-top:0}
 .pmm-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}

@@ -167,6 +167,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                     <div class="pmm-sheet-body" data-sheet-body></div>
                 </section>
                 <aside class="pmm-panel" data-panel aria-label="Capas del mapa">
+                    <div class="pmm-panel-head"><strong>Capas del mapa</strong><button type="button" class="pmm-close" data-panel-close aria-label="Cerrar capas">×</button></div>
                     <p class="pmm-h">Permisos</p>
                     <div class="pmm-chips" role="group" aria-label="Estatus">
                         <button type="button" data-status="vigentes" class="is-on">Vigentes</button>
@@ -796,6 +797,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         }
         if (t.closest('[data-mexico]')) { fitMexico(); return; }
         if (t.closest('[data-map-back]')) { location.hash = '#permisos'; return; }
+        if (t.closest('[data-panel-close]')) { closePanel(); return; }
         if (t.closest('[data-toggle-panel]')) {
             const panel = $('[data-panel]');
             panel.hidden = !panel.hidden;
@@ -812,6 +814,14 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     });
     renderChips();
     // «Mi mesa» lives in the toolbar here: the floating button would sit on the map's own controls.
+    function closePanel() {
+        $('[data-panel]').hidden = true;
+        $('[data-toggle-panel]').setAttribute('aria-expanded', 'false');
+    }
+    // On phones the layer sheet covers the map: Escape or a tap on the map closes it.
+    container.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('[data-panel]').hidden) closePanel(); });
+    map.on('click', () => { if (isMobile()) closePanel(); });
+
     const deskToggle = document.getElementById('desk-toggle');
     const syncDesk = () => {
         const count = deskToggle?.querySelector('.desk-badge')?.textContent || '0';
