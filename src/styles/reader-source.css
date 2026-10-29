@@ -31,9 +31,7 @@
 .reader-source-view .rs-fallback p,.reader-source-view .rs-image-error p{margin:0;font-size:14px;line-height:1.6}
 .reader-source-view .rs-image-error{background:var(--rs-paper);min-height:180px}
 .reader-source-view .rs-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-html.dark-mode .reader-source-view{--rs-ink:#f5efe8;--rs-muted:#c5bdb3;--rs-paper:#252322;--rs-border:#605750;--rs-guinda:#f0b3c4;--rs-green:#84c3b3}
 html.dark-mode .reader-source-view .rs-header,html.dark-mode .reader-source-view .rs-footer{background:var(--rs-paper)!important;color:var(--rs-ink)!important}
-html.dark-mode .reader-source-view .rs-viewport{background:#171514}
 @media(max-width:599px){.reader-source-view .rs-header{padding:14px 14px 0}.reader-source-view h3{font-size:19px}.reader-source-view .rs-status{padding:8px 14px}.reader-source-view .rs-toolbar{padding:8px;gap:6px}.reader-source-view .rs-pages{flex:1 1 100%;justify-content:space-between}.reader-source-view .rs-page-label{flex:1}.reader-source-view select{max-width:none}.reader-source-view .rs-zoom-controls{margin-left:auto}.reader-source-view .rs-viewport{max-height:60dvh;padding:8px}.reader-source-view .rs-footer{padding:10px 14px}.reader-source-view .rs-source-link{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.reader-source-view *{scroll-behavior:auto!important}}
 
@@ -49,7 +47,6 @@ html.dark-mode .reader-source-view .rs-viewport{background:#171514}
 .reader-source-view .rs-progress-text{font-size:13px;color:var(--rs-muted);font-variant-numeric:tabular-nums}
 .reader-source-view .rs-read-text{font-size:13px;font-weight:600}
 #reader-body[data-mode="split"] .rs-read-text{display:none}
-html.dark-mode .reader-source-view .rs-loading-slow{color:#f2d27d;background:#3a3021}
 @keyframes rs-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.reader-source-view .rs-loading-title::before{animation:none;border-top-color:var(--rs-border)}.reader-source-view .rs-progress-fill{transition:none}}
 

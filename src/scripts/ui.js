@@ -1985,7 +1985,7 @@ export function initUI() {
         d3.selectAll(".d3-tooltip").remove();
 
         const tooltip = d3.select("body").append("div")
-            .attr("class", "d3-tooltip absolute bg-gray-900/90 backdrop-blur text-white text-[10px] rounded-lg py-1.5 px-3 pointer-events-none opacity-0 transition-opacity z-50 shadow-xl border border-gray-700")
+            .attr("class", "d3-tooltip absolute bg-surface-inverse/90 backdrop-blur text-ink-inverse text-[10px] rounded-lg py-1.5 px-3 pointer-events-none opacity-0 transition-opacity z-50 shadow-xl border border-gray-700")
             .style("display", "none");
 
         svg.append("g")

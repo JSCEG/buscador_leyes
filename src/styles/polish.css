@@ -24,7 +24,7 @@ html.dark-mode .empty-art{--ea-paper:#262022;--ea-bg:#2e2226}
 
 /* One clear keyboard focus ring everywhere */
 :focus-visible{outline:3px solid color-mix(in srgb,var(--brand) 40%,transparent);outline-offset:2px;border-radius:6px}
-html.dark-mode :focus-visible{outline-color:#eeb0c288}
+html.dark-mode :focus-visible{outline-color:color-mix(in srgb,var(--col-ley) 53%,transparent)}
 
 @keyframes ea-float{50%{transform:translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){
@@ -67,7 +67,6 @@ body:has(#mobile-menu-drawer:not(.translate-x-full)) :is(#desk-toggle,#bottom-na
 
 
 /* Reader breadcrumb separator */
-html.dark-mode #modal-content .rm-sep{color:#8a7f78}
 
 /* Análisis tabs never squeeze into each other on phones. */
 .nx-tabs [role=tab]{flex:none;white-space:nowrap}
@@ -81,9 +80,8 @@ html.dark-mode #modal-content .rm-sep{color:#8a7f78}
 
 
 /* Light-mode contrast fixes (scan: anything under 3.5:1) */
-#modal-content .rm-sep{color:#9a9089}
+#modal-content .rm-sep{color:color-mix(in srgb,var(--ink-muted) 65%,transparent)}
 .st-kpi-note,.st-legend-frag{color:var(--ink-muted)!important}
-html.dark-mode :is(.st-kpi-note,.st-legend-frag){color:#b3a89e!important}
 
 /* Search terms: one highlight everywhere — a soft gold wash with a gold underline. */
 
@@ -95,14 +93,14 @@ html.dark-mode :is(.st-kpi-note,.st-legend-frag){color:#b3a89e!important}
 /* Offline / back-online bar */
 #net-banner{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:10040;max-width:min(560px,calc(100vw - 32px));padding:9px 16px;border-radius:12px;font:600 13px/1.4 var(--font-sans);text-align:center;box-shadow:0 10px 26px -10px #0006;animation:toast-in .25s ease-out}
 #net-banner[hidden]{display:none}
-#net-banner[data-kind=off]{background:var(--ink);color:#fbf6ef;border:1px solid #f2c97a55}
-#net-banner[data-kind=on]{background:var(--col-disposicion);color:#fff}
+#net-banner[data-kind=off]{background:var(--ink);color:var(--ink-inverse);border:1px solid color-mix(in srgb,var(--gold) 33%,transparent)}
+#net-banner[data-kind=on]{background:var(--col-disposicion);color:var(--ink-inverse)}
 @keyframes toast-in{from{opacity:0;transform:translate(-50%,-6px)}}
 
 /* ── Acervo cards, modern layout ─────────────────────────
    type chip + acronym / one-line title (glides sideways) / 3-line description (glides up)
    / date · fragments + "Consultar" pill. Same height for every card, nothing overlaps. */
-html .ac-library .ac-card{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"cat acr" "name name" "desc desc" "meta act";grid-template-rows:auto auto auto auto!important;align-content:start;column-gap:10px;row-gap:8px;height:auto!important;min-height:0!important;padding:18px 16px 14px!important;border:1px solid var(--ac-border)!important;border-radius:16px!important;background:var(--ac-card)!important;box-shadow:0 1px 2px #302b270a,0 8px 22px -16px #302b2740!important;overflow:hidden;position:relative;isolation:isolate;transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s,border-color .22s}
+html .ac-library .ac-card{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"cat acr" "name name" "desc desc" "meta act";grid-template-rows:auto auto auto auto!important;align-content:start;column-gap:10px;row-gap:8px;height:auto!important;min-height:0!important;padding:18px 16px 14px!important;border:1px solid var(--ac-border)!important;border-radius:16px!important;background:var(--ac-card)!important;box-shadow:var(--shadow-sm),0 8px 22px -16px #302b2740!important;overflow:hidden;position:relative;isolation:isolate;transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s,border-color .22s}
 html .ac-library .ac-card::before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--ac-accent),color-mix(in srgb,var(--ac-accent) 25%,transparent));z-index:1}
 html .ac-library .ac-card::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 70% at 100% 0%,color-mix(in srgb,var(--ac-accent) 9%,transparent),transparent 60%);z-index:-1;pointer-events:none}
 @media (hover:hover){html .ac-library .ac-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--ac-accent) 40%,var(--ac-border))!important;box-shadow:0 2px 4px #302b270d,0 18px 34px -20px color-mix(in srgb,var(--ac-accent) 70%,#000)!important}}
@@ -121,8 +119,7 @@ html .ac-library .ac-card .ac-card-meta>*+*::before{content:'·';margin-right:10
 html .ac-library .ac-card .ac-card-action{grid-area:act;justify-self:end;align-self:end;display:inline-flex;align-items:center;gap:5px;margin:0!important;padding:6px 12px!important;border:0!important;border-radius:999px;background:color-mix(in srgb,var(--ac-accent) 11%,transparent);color:var(--ac-accent)!important;font:700 12px/1 var(--font-sans);transition:background .2s,color .2s}
 html .ac-library .ac-card .ac-card-action>span{transition:transform .2s}
 @media (hover:hover){
-  html .ac-library .ac-card:hover .ac-card-action{background:var(--ac-accent);color:#fff!important}
-  html.dark-mode .ac-library .ac-card:hover .ac-card-action{color:#1e1c1a!important}
+  html .ac-library .ac-card:hover .ac-card-action{background:var(--ac-accent);color:var(--on-brand)!important}
   html .ac-library .ac-card:hover .ac-card-action>span{transform:translate(2px,-2px)}
 }
 @media (prefers-reduced-motion:reduce){html .ac-library .ac-card:hover{transform:none}}
@@ -135,16 +132,15 @@ html .ac-library .ac-card .ac-card-action{width:32px;height:32px;padding:0!impor
 html .ac-library .ac-card .ac-card-action>span{font-size:15px;line-height:1}
 
 /* Card tooltip: above (or below) the card, never over it. */
-#card-tip{position:fixed;z-index:10030;padding:9px 12px;border-radius:10px;background:var(--ink);color:#fbf6ef;font:500 12.5px/1.45 var(--font-sans);box-shadow:0 12px 28px -12px #0008;pointer-events:none;animation:tip-in .15s ease-out}
+#card-tip{position:fixed;z-index:10030;padding:9px 12px;border-radius:10px;background:var(--ink);color:var(--ink-inverse);font:500 12.5px/1.45 var(--font-sans);box-shadow:0 12px 28px -12px #0008;pointer-events:none;animation:tip-in .15s ease-out}
 #card-tip[hidden]{display:none}
 #card-tip::after{content:'';position:absolute;left:50%;width:10px;height:10px;background:inherit;transform:translateX(-50%) rotate(45deg)}
 #card-tip[data-side=top]::after{bottom:-5px}
 #card-tip[data-side=bottom]::after{top:-5px}
-html.dark-mode #card-tip{background:#f3ece4;color:#2b2326}
 @keyframes tip-in{from{opacity:0;transform:translateY(3px)}}
 
 /* "Índice" floating button: brand colors, and a pulse until it has been used once. */
-html #toc-toggle-btn{background:var(--guinda-500)!important;color:#fff!important;border:1px solid var(--brand-hover)!important;border-radius:999px!important;padding:11px 16px 11px 14px!important;font-size:13px!important;box-shadow:0 10px 24px -8px #9b2247aa!important;overflow:visible}
+html #toc-toggle-btn{background:var(--guinda-500)!important;color:#fff!important;border:1px solid var(--brand-hover)!important;border-radius:999px!important;padding:11px 16px 11px 14px!important;font-size:13px!important;box-shadow:0 10px 24px -8px color-mix(in srgb,var(--guinda-500) 67%,transparent)!important;overflow:visible}
 html #toc-toggle-btn:hover{background:var(--guinda-700)!important;color:#fff!important;transform:translateY(-1px)}
 html #toc-toggle-btn>span{background:#f2c97a!important;color:#5a1229!important;font-size:10px!important;padding:2px 7px!important}
 html.dark-mode #toc-toggle-btn{background:#b8375f!important;border-color:#d7678a!important}
@@ -164,13 +160,11 @@ html body:has(#lr-tab-texto[aria-selected="false"]) #toc-toggle-btn{display:none
 #auth-panel{max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain}
 .auth-resend{margin-top:8px;padding:6px 12px;border:1px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:700 12.5px/1 var(--font-sans);cursor:pointer}
 .auth-resend:disabled{opacity:.6;cursor:wait}
-.signup-spam{margin:4px 0 6px;padding:12px 14px;border-radius:12px;background:#fbf3e3;border:1px solid #ecd6a6;font-size:13.5px;line-height:1.5;color:#4a3a1c}
+.signup-spam{margin:4px 0 6px;padding:12px 14px;border-radius:12px;background:var(--warning-soft);border:1px solid color-mix(in srgb,var(--gold) 50%,transparent);font-size:13.5px;line-height:1.5;color:var(--accent-ink)}
 .signup-spam ul{margin:6px 0 0;padding-left:18px;list-style:disc}
 .signup-spam li+li{margin-top:3px}
-html.dark-mode .signup-spam{background:#2f2718;border-color:#5c4a24;color:#ecdcb8}
 .auth-pass-hint{margin:-12px 0 16px;font-size:12px;color:var(--ink-muted)}
 .auth-pass-hint[hidden]{display:none}
-html.dark-mode .auth-pass-hint{color:#b3a89e}
 
 /* Refining a search: current results dim while the new ones load (the box stays put). */
 .sr-view.is-refreshing>:not(.sr-head){opacity:.45;transition:opacity .15s;pointer-events:none}
@@ -181,20 +175,18 @@ html.dark-mode .auth-pass-hint{color:#b3a89e}
 .lr-guide{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--hairline);border-radius:10px;background:linear-gradient(120deg,var(--surface-sunken),var(--surface-1));color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.3;text-decoration:none;transition:border-color .15s,transform .15s}
 .lr-guide:hover{border-color:var(--brand);transform:translateY(-1px)}
 .lr-guide b{margin-left:auto;color:var(--brand)}
-html.dark-mode .lr-guides-note{color:#b3a89e}
-html.dark-mode .lr-guide{border-color:#3a3034;background:linear-gradient(120deg,#2a2124,#211b1d);color:#f3ece4}
-html.dark-mode .lr-guide b{color:#eeb0c2}
+html.dark-mode .lr-guide b{color:var(--col-ley)}
 .lr-guide-strip{margin:0 0 16px;font-size:14px}
 .lr-guide-strip summary{display:inline-flex;align-items:center;gap:6px;min-height:36px;cursor:pointer;color:var(--brand-hover);font-weight:600;list-style:none}
 .lr-guide-strip summary::-webkit-details-marker{display:none}
 .lr-guide-strip summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
 .lr-guide-strip[open] summary::after{transform:translateY(1px) rotate(-135deg)}
 .lr-guide-list{display:flex;flex-wrap:wrap;gap:6px 8px;padding:6px 0 4px}
-html.dark-mode .lr-guide-strip summary{color:#eeb0c2}
+html.dark-mode .lr-guide-strip summary{color:var(--col-ley)}
 .lr-guide-chip{padding:5px 11px;border:1px solid var(--hairline);border-radius:999px;background:var(--surface-sunken);color:var(--brand-hover);font-size:12.5px;font-weight:600;line-height:1.25;text-decoration:none;transition:background .15s,border-color .15s}
-.lr-guide-chip:hover{border-color:var(--brand);background:#f6e5ea}
-html.dark-mode .lr-guide-chip{border-color:#4a3a3f;background:#2a2124;color:#f3d3dc}
-html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
+.lr-guide-chip:hover{border-color:var(--brand);background:var(--brand-soft)}
+html.dark-mode .lr-guide-chip{color:color-mix(in srgb,var(--col-ley) 50%,var(--ink))}
+html.dark-mode .lr-guide-chip:hover{border-color:var(--col-ley)}
 
 /* Section changes fade in (ui.js setActiveNav). Opacity only, so fixed elements inside keep their place. */
 #main-container.view-fade{animation:view-fade-in .22s ease-out}
@@ -208,15 +200,12 @@ html.dark-mode .lr-guide-chip:hover{border-color:#eeb0c2}
 
 
 /* «Administración» in the account window (owner/admin only): Gestor and Usuarios. */
-.auth-admin-tools{margin:0 0 16px;padding:12px;border:1px solid #f3e3c2;border-radius:14px;background:#fffaf0;text-align:left}
-.auth-admin-title{margin:0 0 6px;color:#a16207;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.auth-admin-tools{margin:0 0 16px;padding:12px;border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);border-radius:14px;background:color-mix(in srgb,var(--warning-soft) 50%,var(--surface-1));text-align:left}
+.auth-admin-title{margin:0 0 6px;color:var(--accent-ink);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .auth-admin-link{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none}
 .auth-admin-link.hidden{display:none}
 .auth-admin-link:hover,.auth-admin-link:focus-visible{background:var(--surface-1);color:var(--brand)}
-html.dark-mode .auth-admin-tools{background:#2a2225;border-color:#4a3c2a}
-html.dark-mode .auth-admin-title{color:#e2b85a}
-html.dark-mode .auth-admin-link{color:#f3ece4}
-html.dark-mode .auth-admin-link:hover,html.dark-mode .auth-admin-link:focus-visible{background:#211b1d;color:#eeb0c2}
+html.dark-mode .auth-admin-link:hover,html.dark-mode .auth-admin-link:focus-visible{color:var(--col-ley)}
 
 
 /* Law reader: search and reading settings in one row above the text. */
@@ -225,7 +214,7 @@ html.dark-mode .auth-admin-link:hover,html.dark-mode .auth-admin-link:focus-visi
 .lr-tools-row .reader-law-toolbar{flex:none;max-width:none;margin:0;padding:0 4px;border-radius:10px}
 /* Phones: the button keeps only «Aa»; its name stays for screen readers. */
 @media (max-width:520px){.lr-tools-row .reader-settings-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
-html.dark-mode .lr-tools-row .reader-law-toolbar{background:var(--lr-card,#2a2326)!important;border-color:var(--lr-border,#3a3034)!important}
+html.dark-mode .lr-tools-row .reader-law-toolbar{background:var(--lr-card,var(--surface-1))!important;border-color:var(--lr-border,var(--hairline))!important}
 
 /* Leaflet stacks its panes with z-index 400–1000; without their own stacking context they rise above
    the app's overlays (the «Mi mesa» panel, the header menu, dialogs). Each map keeps them inside. */

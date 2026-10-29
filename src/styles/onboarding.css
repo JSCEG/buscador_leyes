@@ -15,9 +15,5 @@
 #welcome-tour .wt-skip{border:0;background:none;color:var(--ink-muted);padding-left:0}
 #welcome-tour .wt-back{border:1px solid var(--hairline);background:var(--surface-1);color:var(--ink)}
 #welcome-tour .wt-next{border:0;background:var(--guinda-500);color:#fff}
-#welcome-tour button:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
-html.dark-mode #welcome-tour .wt-card{background:#262321;color:#f4efe7}
-html.dark-mode #welcome-tour h2{color:#f4efe7}
-html.dark-mode #welcome-tour p#wt-text{color:#d8d0c6}
-html.dark-mode #welcome-tour .wt-back{background:#262321;color:#f4efe7;border-color:#3d3833}
+#welcome-tour button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){#welcome-tour .wt-spot,#welcome-tour .wt-card{transition:none}}

@@ -1,13 +1,13 @@
 /* Install page (/instalar, src/lib/install-page.js) */
 body.ip-open{overflow:hidden}
-.ip-page{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 80% at 50% 0%,#fbe9ee 0%,var(--surface-0) 55%);color:var(--ink);font-family:var(--font-sans);overflow-y:auto}
+.ip-page{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 80% at 50% 0%,var(--brand-soft) 0%,var(--surface-0) 55%);color:var(--ink);font-family:var(--font-sans);overflow-y:auto}
 .ip-card{width:100%;max-width:380px;text-align:center}
-.ip-mark{display:inline-flex;align-items:center;justify-content:center;width:96px;height:96px;margin-bottom:18px;border-radius:24px;background:var(--surface-1);box-shadow:0 18px 40px -18px rgba(155,34,71,.55)}
+.ip-mark{display:inline-flex;align-items:center;justify-content:center;width:96px;height:96px;margin-bottom:18px;border-radius:24px;background:var(--surface-1);box-shadow:0 18px 40px -18px color-mix(in srgb,var(--guinda-500) 55%,transparent)}
 .ip-logo{width:60px;height:auto}
 .ip-card h1{margin:0;font:700 28px/1.15 var(--font-display);color:var(--ink)}
 .ip-sub{margin:8px 0 26px;font-size:15px;line-height:1.5;color:var(--ink-2)}
 .ip-body{min-height:120px}
-.ip-install{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;padding:0 20px;border:0;border-radius:16px;background:var(--guinda-500);color:#fff!important;font:700 17px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;box-shadow:0 14px 30px -14px rgba(155,34,71,.8)}
+.ip-install{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;padding:0 20px;border:0;border-radius:16px;background:var(--guinda-500);color:#fff!important;font:700 17px/1.2 var(--font-sans);text-decoration:none;cursor:pointer;box-shadow:0 14px 30px -14px color-mix(in srgb,var(--guinda-500) 80%,transparent)}
 .ip-install:active{transform:scale(.98)}
 .ip-hint{margin:12px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-muted)}
 .ip-ok{margin:0;font:700 20px/1.3 var(--font-display);color:var(--col-disposicion)}
@@ -15,16 +15,8 @@ body.ip-open{overflow:hidden}
 .ip-steps li+li{margin-top:8px}
 .ip-key{display:inline-block;padding:0 5px;border:1px solid var(--hairline);border-radius:5px;font-size:12px}
 .ip-skip{margin-top:26px;padding:8px 12px;border:0;background:none;color:var(--ink-muted);font:600 13.5px var(--font-sans);text-decoration:underline;cursor:pointer}
-html.dark-mode .ip-page{background:radial-gradient(120% 80% at 50% 0%,#3a1a24 0%,#161213 60%);color:#f3ece4}
-html.dark-mode .ip-card h1{color:#f3ece4}
-html.dark-mode .ip-mark,html.dark-mode .ip-steps{background:#211b1d;border-color:#3a3034}
-html.dark-mode .ip-sub,html.dark-mode .ip-hint,html.dark-mode .ip-skip{color:#c9bfb6}
-html.dark-mode .ip-ok{color:#6fc2ae}
 .ip-steps+.ip-hint{margin-top:18px}
 .ip-install.ip-secondary{min-height:48px;margin-top:10px;border:1.5px solid var(--brand);background:transparent;color:var(--brand)!important;box-shadow:none;font-size:15.5px}
-.ip-copy{width:100%;min-height:48px;margin-top:10px;border:0;border-radius:14px;background:var(--ink);color:#fff;font:700 15px var(--font-sans);cursor:pointer}
-html.dark-mode .ip-install.ip-secondary{border-color:#eeb0c2;color:#eeb0c2!important}
-html.dark-mode .ip-copy{background:#f3ece4;color:#211b1d}
+.ip-copy{width:100%;min-height:48px;margin-top:10px;border:0;border-radius:14px;background:var(--ink);color:var(--ink-inverse);font:700 15px var(--font-sans);cursor:pointer}
 .ip-hint.ip-lead{margin:0 0 4px;font-size:15px;color:var(--ink)}
-html.dark-mode .ip-hint.ip-lead{color:#f3ece4}
-.ip-ua{margin:18px 0 0;font:11px/1.4 ui-monospace,monospace;color:var(--ink-muted);word-break:break-all;user-select:all}
+.ip-ua{margin:18px 0 0;font:11px/1.4 var(--font-mono);color:var(--ink-muted);word-break:break-all;user-select:all}

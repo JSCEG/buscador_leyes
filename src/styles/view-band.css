@@ -42,7 +42,7 @@
 
 /* Guardados export button on the band; its menu keeps the light look */
 .fv-view .fv-head .fv-export > summary { background: #fff !important; color: var(--vb-a) !important; border-color: #fff !important; }
-.fv-view .fv-head .fv-export-menu, .fv-view .fv-head .fv-export-menu * { color: #302b27 !important; }
+.fv-view .fv-head .fv-export-menu, .fv-view .fv-head .fv-export-menu * { color: var(--ink) !important; }
 
 :is(.sr-head, .st-header, .nx-header, .hp-head) :is(button, a, summary):focus-visible { outline: 3px solid #f6d9a8 !important; outline-offset: 2px; }
 
@@ -59,8 +59,7 @@ html.dark-mode :is(.st-dashboard .st-header, .hp-view .hp-head) { --vb-a: #0e2c2
 }
 
 /* Pinned state: white icon and label on guinda everywhere (the reader header styles its buttons gray) */
-.pin-btn.is-pinned, .pin-btn.is-pinned svg, .pin-btn.is-pinned .pin-label { color: #fff !important; }
-html.dark-mode .pin-btn.is-pinned, html.dark-mode .pin-btn.is-pinned svg, html.dark-mode .pin-btn.is-pinned .pin-label { color: #1e1c1a !important; }
+.pin-btn.is-pinned, .pin-btn.is-pinned svg, .pin-btn.is-pinned .pin-label { color: var(--on-brand) !important; }
 
 /* Views open right under the menu, like the acervo */
 #main-container:has(#results-container:not(.hidden) :is(.st-dashboard, .hp-view)), #main-container:has(#analisis-container:not(.hidden)) { padding-top: 20px !important; }
@@ -75,16 +74,15 @@ html.dark-mode .pin-btn.is-pinned, html.dark-mode .pin-btn.is-pinned svg, html.d
 #modal-panel > div:first-child button#modal-pin-btn { width: auto !important; height: 36px !important; padding: 0 12px !important; border-radius: 999px !important; gap: 6px; }
 #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: var(--brand) !important; border-color: color-mix(in srgb,var(--brand) 40%,transparent) !important; background: transparent !important; }
 #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #fff !important; background: var(--guinda-500) !important; border-color: var(--brand) !important; }
-html.dark-mode #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: #eeb0c2 !important; border-color: #eeb0c266 !important; }
-html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #1e1c1a !important; background: #eeb0c2 !important; border-color: #eeb0c2 !important; }
+html.dark-mode #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: var(--col-ley) !important; border-color: color-mix(in srgb,var(--col-ley) 40%,transparent) !important; }
+html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: var(--on-brand) !important; background: var(--col-ley) !important; border-color: var(--col-ley) !important; }
 @media (max-width: 640px) { #modal-panel > div:first-child button#modal-pin-btn .pin-label { display: none; } #modal-panel > div:first-child button#modal-pin-btn { width: 40px !important; padding: 0 !important; justify-content: center; } }
 
 /* Reader: open the article in its own tab */
-.modal-newtab{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#6a655e;transition:color .15s,background-color .15s}
+.modal-newtab{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:var(--ink-muted);transition:color .15s,background-color .15s}
 .modal-newtab:hover{color:var(--brand);background:color-mix(in srgb,var(--brand) 6%,transparent)}
-.modal-newtab:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
-html.dark-mode .modal-newtab{color:#c1b9af}
-html.dark-mode .modal-newtab:hover{color:#eeb0c2}
+.modal-newtab:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+html.dark-mode .modal-newtab:hover{color:var(--col-ley)}
 #main-container:has(#results-container:not(.hidden) .ap-view){padding-top:20px!important}
 
 /* Search box docked inside the results band */

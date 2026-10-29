@@ -10,9 +10,6 @@
 .install-actions button{min-height:40px;padding:8px 14px;border-radius:999px;font:600 13px/1.2 var(--font-sans);cursor:pointer}
 .install-yes{border:1px solid var(--brand);background:var(--guinda-500);color:#fff}
 .install-actions .install-no{display:grid;place-items:center;width:40px;padding:0;border:0;background:transparent;color:var(--ink-2)}
-html.dark-mode .install-sheet{border-color:#3a3034;background:#211b1d;color:#f3ece4}
-html.dark-mode .install-mark{background:#2e2427}
-html.dark-mode .install-body,html.dark-mode .install-no{color:#c9bfb6}
 
 @media (prefers-reduced-motion:reduce){.install-sheet{transition:none}}
 @media print{.install-sheet{display:none}}

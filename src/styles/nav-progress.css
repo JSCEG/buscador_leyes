@@ -21,7 +21,7 @@ html.is-loading,html.is-loading *{cursor:progress}
 #nav-progress-pill.np-active{opacity:1;transform:translate(-50%,0)}
 #nav-progress-pill .np-spinner{width:16px;height:16px;border-radius:50%;border:2px solid color-mix(in srgb,var(--brand) 20%,transparent);border-top-color:var(--brand);animation:np-spin .7s linear infinite}
 @keyframes np-spin{to{transform:rotate(360deg)}}
-html.dark-mode #nav-progress-pill{background:#262321;color:#f4d7e0;box-shadow:0 8px 24px #0008,0 0 0 1px #ffffff1f}
-html.dark-mode #nav-progress-pill .np-spinner{border-color:#ffffff33;border-top-color:#e8a3b9}
+html.dark-mode #nav-progress-pill{color:color-mix(in srgb,var(--col-ley) 50%,var(--ink));box-shadow:0 8px 24px #0008,0 0 0 1px color-mix(in srgb,var(--ink) 12%,transparent)}
+html.dark-mode #nav-progress-pill .np-spinner{border-color:color-mix(in srgb,var(--ink) 20%,transparent);border-top-color:var(--col-ley)}
 #nav-progress{height:4px}
 @media (prefers-reduced-motion:reduce){#nav-progress-pill{transition:none}#nav-progress-pill .np-spinner{animation-duration:1.6s}}

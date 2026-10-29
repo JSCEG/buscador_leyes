@@ -54,9 +54,8 @@ body.reader-modal-open { overflow:hidden !important; }
 .reader-nav-destination small { font:500 10px/1.3 var(--font-sans); text-transform:uppercase; letter-spacing:.08em; }
 .reader-nav-destination > span { font:700 13px/1.4 var(--font-sans); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow-wrap:anywhere; }
 .reader-nav-counter { font:500 12px/1.4 var(--font-mono); font-variant-numeric:tabular-nums; color:var(--ink-muted); white-space:nowrap; }
-html.dark-mode .reader-article-nav { background:#30242a !important; border-color:#6f4a58 !important; }
-html.dark-mode .reader-article-nav button { background:#3c2b33; color:#ffcfde; border-color:#b4788c; }
-html.dark-mode .reader-nav-counter { color:#ead7df; }
+html.dark-mode .reader-article-nav { background:color-mix(in srgb,var(--col-ley) 12%,var(--surface-2)) !important; border-color:color-mix(in srgb,var(--col-ley) 35%,transparent) !important; }
+html.dark-mode .reader-article-nav button { background:color-mix(in srgb,var(--col-ley) 18%,var(--surface-1)); color:color-mix(in srgb,var(--col-ley) 40%,var(--ink)); border-color:color-mix(in srgb,var(--col-ley) 70%,transparent); }
 #reader-body { display:grid; grid-template-columns:minmax(0,1fr); flex:1 1 auto; min-height:0; overflow:hidden; }
 #reader-body[data-mode="split"] { grid-template-columns:repeat(2,minmax(0,1fr)); }
 #reader-body > * { min-width:0; min-height:0; }
@@ -85,7 +84,7 @@ html[data-reader-surface="light"] #modal-content .reader-text *,html[data-reader
 html[data-reader-surface="sepia"] #modal-content,html[data-reader-surface="sepia"] #law-articles-list .result-item { background:#f8efd9 !important; }
 html[data-reader-surface="sepia"] #modal-content .reader-text *,html[data-reader-surface="sepia"] #law-articles-list .reader-preview { color:#4c3926 !important; }
 html.dark-mode .reader-toolbar,html.dark-mode .reader-settings-panel { background:#222e29; border-color:#415249; color:#eae8e3; }
-html.dark-mode .reader-settings-panel p,html.dark-mode .reader-settings summary span[aria-hidden] { color:#d6b46a; }
+html.dark-mode .reader-settings-panel p,html.dark-mode .reader-settings summary span[aria-hidden] { color:var(--accent); }
 html.dark-mode .reader-settings-panel select { background:#19231e; color:#eae8e3; border-color:#415249; }
 html.dark-mode[data-reader-surface="system"] #modal-content .reader-text *,html[data-reader-surface="dark"] #modal-content .reader-text *,html[data-reader-surface="dark"] #law-articles-list .reader-preview { color:#eae8e3 !important; }
 html[data-reader-surface="dark"] #modal-content,html[data-reader-surface="dark"] #law-articles-list .result-item { background:#222e29 !important; }
@@ -124,9 +123,6 @@ html[data-reader-surface="dark"] #modal-content,html[data-reader-surface="dark"]
 .reader-related-notice { flex-shrink:0; display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:10px 24px; border-bottom:1px solid var(--border); background:var(--warning-soft); color:var(--accent-ink); }
 .reader-related-notice[hidden] { display:none !important; }
 .reader-related-notice p { font:400 12px/1.5 var(--font-sans); margin:0; }
-html.dark-mode :is(.related-documents,.related-documents-index,.reader-related-notice) { background:#302b21 !important; border-color:#b89a59 !important; color:#efe4cf !important; }
-html.dark-mode .related-documents-title,html.dark-mode .related-documents-description,html.dark-mode .reader-related-notice p { color:#efe4cf !important; }
-html.dark-mode .related-document-badge { background:#463a23 !important; border-color:#b89a59 !important; color:#ffe7b1 !important; }
 @media(max-width:640px) { .related-documents { padding:14px; } .reader-related-notice { padding:8px 16px; } }
 @media print { .reader-toolbar,#reader-original { display:none !important; } #reader-body { display:block; overflow:visible; } #reader-body #modal-content { display:block !important; } }
 @media (prefers-reduced-motion:reduce) { #detail-modal,#modal-panel { animation:none !important; transition:none !important; transform:none !important; } }
