@@ -5,11 +5,18 @@
  * each declaratoria).
  */
 
-/** The three official figures, in the order the section shows them, with their map colour. */
+/** A design token's current value; Leaflet paints SVG attributes, which cannot read var(). */
+const cssToken = (name, fallback) => {
+    try { return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback; }
+    catch { return fallback; }
+};
+// The three official figures, in the order the section shows them. Their colour is a design token
+// (read on use, so a theme switch repaints): guinda for the Istmo, gold for Economía, green for SEMARNAT.
+const figura = (clave, corto, token, fallback) => ({ clave, corto, token, get color() { return cssToken(token, fallback); } });
 export const FIGURAS = [
-    { clave: 'PODEBI', corto: 'Bienestar', color: '#9B2247' },
-    { clave: 'PODECOBI', corto: 'Económico', color: '#A57F2C' },
-    { clave: 'PODECIBI', corto: 'Científico', color: '#1E5B4F' },
+    figura('PODEBI', 'Bienestar', '--col-ley', '#7f1734'),
+    figura('PODECOBI', 'Económico', '--accent', '#7a5a14'),
+    figura('PODECIBI', 'Economía circular', '--col-disposicion', '#0e735c'),
 ];
 export const FIGURA = Object.fromEntries(FIGURAS.map(f => [f.clave, f]));
 
