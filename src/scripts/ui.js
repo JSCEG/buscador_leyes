@@ -2719,18 +2719,18 @@ export function initUI() {
                 .replace(/(?<=^|\s)([a-z])\)\s/g, '\n\n$1) ')
                 .replace(/\n{3,}/g, '\n\n');
 
-            finalHtml = `<div class="text-gray-800 leading-[1.85] text-[0.92rem]" style="font-family:'Noto Sans',system-ui,sans-serif; text-align:justify; hyphens:auto;">
+            finalHtml = `<div class="legal-text">
                 ${cleanText.split('\n\n').map(p => {
                     let extraClass = '';
                     const trimmed = p.trim();
                     if (/^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX)\.\s/.test(trimmed)) {
-                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-guinda/30 text-gray-700 font-medium';
+                        extraClass = 'legal-frac';
                     } else if (/^[a-z]\)\s/.test(trimmed)) {
-                        extraClass = 'ml-10 md:ml-16 pl-3 border-l text-gray-600 text-[0.85rem]';
+                        extraClass = 'legal-inciso';
                     } else if (/^\d+\.\s/.test(trimmed) || /^[A-Z]+\.\s/.test(trimmed)) {
-                        extraClass = 'ml-4 md:ml-8 pl-4 border-l-2 border-gray-200 text-gray-700';
+                        extraClass = 'legal-num';
                     }
-                    return `<p class="mb-4 ${extraClass}">${p}</p>`;
+                    return `<p class="legal-p${extraClass ? ` ${extraClass}` : ''}">${p}</p>`;
                 }).join('')}
             </div>`;
         }
