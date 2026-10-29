@@ -155,8 +155,8 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-form-row{display:flex;gap:8px;flex-wrap:wrap}
 .desk-form input{flex:1;min-width:140px;padding:8px 10px;border:1px solid var(--dk-border);border-radius:8px;background:var(--dk-paper);color:var(--dk-ink);font:500 14px/1.3 var(--font-sans)}
 .desk-form input:focus-visible{outline:3px solid #f6d9a8;outline-offset:1px;border-color:var(--dk-guinda)}
-.desk-danger{background:var(--danger);border-color:var(--danger);color:#fff}
-.desk-danger:hover:not(:disabled){filter:brightness(1.08);color:#fff}
+.desk-danger{background:var(--danger);border-color:var(--danger);color:var(--ink-inverse)}
+.desk-danger:hover:not(:disabled){filter:brightness(1.08);color:var(--ink-inverse)}
 
 /* Labeled actions under each law card: pin, compare, save */
 .lr-card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--dk-border)}

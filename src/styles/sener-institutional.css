@@ -262,7 +262,7 @@ html.dark-mode textarea {
 html.dark-mode #results-container thead tr,
 html.dark-mode #admin-manage-view thead tr,
 html.dark-mode .prose th {
-    background: var(--sener-guinda-dark) !important;
+    background: var(--guinda-700) !important; /* fixed guinda: white text stays readable */
     color: #fff !important;
 }
 

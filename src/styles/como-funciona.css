@@ -71,7 +71,7 @@ html.dark-mode .cf-share{background:#eeb0c2;color:#211b1d}
 .cf-level-head p{margin:0;color:var(--cf-muted);font-size:14px;text-align:left!important}
 .cf-card.is-done{border-color:color-mix(in srgb,var(--cf-ok) 45%,var(--cf-border))}
 .cf-card.is-done .cf-card-sector{color:var(--cf-ok)}
-.cf-check{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-right:2px;border-radius:50%;background:var(--cf-ok);color:#fff;font-size:10px}
+.cf-check{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-right:2px;border-radius:50%;background:var(--cf-ok);color:var(--ink-inverse);font-size:10px}
 .cf-before{margin:-4px 0 18px;padding:10px 14px;border-radius:12px;background:var(--cf-soft);font-size:14.5px;line-height:1.55;text-align:left!important}
 .cf-before a{color:var(--cf-accent);font-weight:700}
 .cf-next{display:flex;flex-direction:column;gap:4px;margin-top:34px;padding:18px 20px;border:1px solid var(--cf-accent);border-radius:16px;background:var(--cf-card);color:inherit;text-decoration:none}
@@ -207,7 +207,7 @@ button.cf-chip-law:hover{border-color:var(--cf-accent);background:color-mix(in s
 .cf-stage-pill:hover{border-color:var(--cf-accent);transform:translateX(2px)}
 .cf-stage-pill.is-done{border-color:color-mix(in srgb,var(--cf-ok) 45%,var(--cf-border))}
 .cf-pill-num{display:inline-flex;align-items:center;justify-content:center;flex:none;width:19px;height:19px;border-radius:50%;background:var(--cf-soft);color:var(--cf-accent);font-size:11px;font-weight:800}
-.cf-stage-pill.is-done .cf-pill-num{background:var(--cf-ok);color:#fff}
+.cf-stage-pill.is-done .cf-pill-num{background:var(--cf-ok);color:var(--ink-inverse)}
 .cf-card-eslabon{color:var(--cf-ok);font-size:11.5px;font-weight:700;letter-spacing:.01em}
 
 /* Barra de Ruta Interactiva (Stepper Horizontal en vista de concepto) */
