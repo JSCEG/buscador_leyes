@@ -174,8 +174,7 @@ html.dark-mode .pmm-storm{background:#2b1d18;border-color:#7a2e14;color:#f3c8b4}
 html.dark-mode .pmm,html.dark-mode .pmm-pin-wrap{--c-electricidad:#6fc2ae;--c-petroliferos:#e0bd6d;--c-gaslp:#f29a62;--c-gasnatural:#8cc0e6}
 /* One bubble for every sector: a coloured ring split by sector, the count in a white centre. */
 .pmm-cluster{position:relative;border:0;color:var(--ink);box-shadow:0 1px 5px rgba(0,0,0,.35)}
-.pmm-cluster b{position:absolute;inset:5px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--surface-1);font:700 11.5px/1 var(--font-sans)}
-html.dark-mode .pmm-cluster b{background:#211b1d;color:#f3ece4}
+.pmm-cluster b{position:absolute;inset:5px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--surface-1);color:var(--ink);font:600 11.5px/1 var(--font-mono);font-variant-numeric:tabular-nums}
 
 /* ---------- Compact hurricane notice: one line, the list opens on tap ---------- */
 .pmm-storm{flex-wrap:nowrap;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:6px 12px 6px 10px;font-size:12.5px;box-shadow:0 2px 8px rgba(122,46,20,.18)}
@@ -361,6 +360,12 @@ html.dark-mode .map-tiles-neutral{filter:grayscale(1) invert(1) brightness(.82) 
 .bj-marker svg{display:block;transition:filter var(--duration-fast) var(--ease-out)}
 .bj-marker:hover svg{filter:drop-shadow(0 2px 6px rgba(18,33,58,.35))}
 .bj-marker.is-aprox svg{opacity:.7}
+/* No vigente: el mismo punto, apagado (el anillo punteado queda para lo que aún no opera). */
+.bj-marker.is-novig svg{opacity:.45;filter:grayscale(.65)}
+.pmm-legend--marks{gap:6px 14px}
+.pmm-legend--marks>span{display:inline-flex;align-items:center;gap:6px}
+.pmm-legend--marks .bj-marker{display:inline-flex;line-height:0}
+.pmm-legend-sizes{flex-basis:100%}
 .pmm-type-marker{display:inline-flex;vertical-align:middle;line-height:0;margin:-4px 0}
 /* MapPopup: antetítulo, título display, pares dato-valor y acciones. */
 .pmm-popup .leaflet-popup-content{margin:16px 16px 14px}

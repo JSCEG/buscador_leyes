@@ -15,7 +15,7 @@ import { infraType, infraIcon } from '../lib/infra-icons.js';
 import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
 import '../styles/permits-map.css';
 import { withMapBusy } from '../lib/map-busy.js';
-import { NETWORKS, KV_CLASSES, kvClass, baseLayers, networkLayers, pinIcon, sectorCluster } from '../lib/map-common.js';
+import { NETWORKS, KV_CLASSES, kvClass, baseLayers, networkLayers, pinIcon, sectorCluster, markerSize } from '../lib/map-common.js';
 import { techMarkerSVG } from '../lib/tech-markers.js';
 
 const API = '/api/mapa';
@@ -190,9 +190,12 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                         <label><input type="radio" name="pmm-base" value="calles"> Calles</label>
                         <label><input type="radio" name="pmm-base" value="satelite"> Satélite</label>
                     </div>
-                    <p class="pmm-legend"><span class="pmm-pin" data-sector="electricidad">${infraIcon('solar', 11)}</span> Ubicación del permiso
-                        <span class="pmm-pin is-aprox" data-sector="electricidad">${infraIcon('solar', 11)}</span> Aproximada
-                        <span class="pmm-pin is-novig" data-sector="electricidad">${infraIcon('solar', 11)}</span> No vigente</p>
+                    <p class="pmm-legend pmm-legend--marks">
+                        <span><span class="bj-marker">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> Ubicación del permiso</span>
+                        <span><span class="bj-marker is-aprox">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> Aproximada</span>
+                        <span><span class="bj-marker">${techMarkerSVG('fv', { variant: 'dot', size: 20, planned: true })}</span> Aún sin operar</span>
+                        <span><span class="bj-marker is-novig">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> No vigente</span>
+                        <span class="pmm-legend-sizes">${[14, 20, 28].map(size => `<span class="bj-marker">${techMarkerSVG('fv', { variant: 'dot', size })}</span>`).join('')} Tamaño según capacidad: menos de 30, 30 a 100, 100 a 300 y más de 300 MW</span></p>
                     <p class="pmm-updated" data-updated>Consultando fecha de actualización…</p>
                 </aside>
                 <aside class="pmm-results" data-results hidden aria-label="Resultados">
@@ -240,10 +243,13 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
 
     // ---------- permit layers ----------
     const icons = new Map();
-    const iconFor = (m, p) => {
+    const today = new Date();
+    // MarkerSet: dot sized by MW, dashed ring while operation has not started, accent halo when selected.
+    const iconFor = (m, p, selected = false) => {
         const mods = [p.vigente === false ? 'is-novig' : '', (p.precision || 'exacta') !== 'exacta' ? 'is-aprox' : ''].filter(Boolean).join(' ');
         const type = infraType(m.key, p);
-        return pinIcon(L, icons, m.sector, type.icon, mods, type.tech);
+        const planned = p.vigente !== false && Boolean(p.fechaOperacion) && new Date(p.fechaOperacion) > today;
+        return pinIcon(L, icons, m.sector, type.icon, mods, type.tech, { size: markerSize(p.capacidad), planned, selected });
     };
     // One cluster group for every market; each bubble is a ring split by sector.
     const newCluster = () => sectorCluster(L, MARKETS.map(m => m.sector));
@@ -278,8 +284,13 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                 marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
                 marker.on('popupopen', ev => {
                     if (isMobile()) { marker.closePopup(); openSheet(m, p, lat, lon); return; }
+                    marker.setIcon(iconFor(m, p, true)).setZIndexOffset(1000);
                     fillLinks(ev.popup, p.numeroPermiso);
                 });
+                marker.on('popupclose', () => marker.setIcon(iconFor(m, p)).setZIndexOffset(0));
+                // Hover brings the marker to the front without changing its size.
+                marker.on('mouseover', () => { if (!marker.isPopupOpen()) marker.setZIndexOffset(500); });
+                marker.on('mouseout', () => { if (!marker.isPopupOpen()) marker.setZIndexOffset(0); });
                 layer.index.set(p.numeroPermiso, marker);
                 markers.push(marker);
             }

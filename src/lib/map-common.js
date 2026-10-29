@@ -136,14 +136,21 @@ export function networkLayers(L, map, { pane = 'networks' } = {}) {
     return { toggle };
 }
 
-/** Round pin of one sector with its infrastructure icon; `mods`: 'is-novig', 'is-aprox'. */
-export function pinIcon(L, cache, sector, icon, mods = '', tech = '') {
-    const key = `${sector}|${icon}|${mods}|${tech}`;
+/** MarkerSet dot size by capacity: < 30, 30–100, 100–300, > 300 MW; unknown capacity takes 20. */
+export const markerSize = mw => (!(mw > 0) ? 20 : mw < 30 ? 14 : mw < 100 ? 20 : mw < 300 ? 28 : 38);
+
+/**
+ * Round pin of one sector with its infrastructure icon; `mods`: 'is-novig', 'is-aprox'.
+ * Generation permits wear their technology marker (MarkerSet): a dot of `size` px, the dashed ring when
+ * `planned` (operation still to start) and the accent halo when `selected`. Other markets keep their
+ * infrastructure pin.
+ */
+export function pinIcon(L, cache, sector, icon, mods = '', tech = '', { size = 20, planned = false, selected = false } = {}) {
+    const key = `${sector}|${icon}|${mods}|${tech}|${size}|${planned}|${selected}`;
     if (!cache.has(key)) {
-        // Generation permits wear their technology marker (MarkerSet); a permit no longer in force is the
-        // dashed ring. Other markets keep their infrastructure pin.
+        const box = size + 8;
         cache.set(key, tech
-            ? L.divIcon({ className: `pmm-pin-wrap bj-marker ${mods}`, html: techMarkerSVG(tech, { variant: mods.includes('is-novig') ? 'ring' : 'dot', size: 22 }), iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -13] })
+            ? L.divIcon({ className: `pmm-pin-wrap bj-marker ${mods}`, html: techMarkerSVG(tech, { variant: 'dot', size, planned, selected }), iconSize: [box, box], iconAnchor: [box / 2, box / 2], popupAnchor: [0, -box / 2 + 2] })
             : L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${sector}">${infraIcon(icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
     }
     return cache.get(key);
