@@ -78,28 +78,35 @@ export function renderPolosView(container, { id = null, onRoute }) {
         const s = stats(data.polos);
         const max = Math.max(...Object.values(s.porFigura), 1);
         const estados = s.porEstado;
+        // The definition reads first; its legal basis ("La figura nació…") follows in smaller type.
+        const cut = (data.definicion || '').indexOf(' La figura ');
+        const lead = cut > 0 ? data.definicion.slice(0, cut) : data.definicion || '';
+        const basis = cut > 0 ? data.definicion.slice(cut + 1) : '';
         container.innerHTML = `
         <section class="pl-view">
             <header class="pl-head">
-                <p class="pl-eyebrow">Plan México · información oficial</p>
-                <h1>Polos de Desarrollo para el Bienestar</h1>
-                <p class="pl-intro">${esc(data.definicion)}</p>
-                <p class="pl-cut">Corte: ${esc(date(data.corte))}. Fuente: Diario Oficial de la Federación y sitios oficiales del Gobierno de México.</p>
+                <p class="pl-kicker">Plan México · Información oficial</p>
+                <h1 class="pl-title">Polos de Desarrollo para el Bienestar</h1>
+                <p class="pl-lead">${esc(lead)}</p>
+                ${basis ? `<p class="pl-basis">${esc(basis)}</p>` : ''}
+                <p class="pl-cut">Corte: ${esc(date(data.corte))} · Fuente: Diario Oficial de la Federación y sitios oficiales del Gobierno de México</p>
+                <div class="pl-sep" aria-hidden="true"><span></span><i></i><span></span></div>
             </header>
 
             <div class="pl-kpis">
-                <div class="pl-kpi"><b>${s.total}</b><span>polos con declaratoria vigente</span></div>
-                <div class="pl-kpi"><b>${s.estados}</b><span>estados con al menos un polo</span></div>
-                <div class="pl-kpi"><b>${s.hectareas ? num(s.hectareas) : '—'}</b><span>hectáreas declaradas${s.conSuperficie < s.total ? ` <small>(${s.conSuperficie} de ${s.total} polos)</small>` : ''}</span></div>
+                <div class="pl-kpi"><p class="pl-kpi-k">Vigentes</p><b>${s.total}</b><span>polos con declaratoria en el DOF</span>${s.abrogadas ? `<small>${s.abrogadas} abrogada</small>` : ''}</div>
+                <div class="pl-kpi"><p class="pl-kpi-k">Territorio</p><b>${s.estados}</b><span>estados con al menos un polo</span></div>
+                <div class="pl-kpi"><p class="pl-kpi-k">Superficie</p><b>${s.hectareas ? num(s.hectareas) : '—'}<em>ha</em></b><span>declaradas en el DOF</span>${s.conSuperficie < s.total ? `<small>${s.conSuperficie} de ${s.total} polos con dato</small>` : ''}</div>
                 <div class="pl-kpi pl-kpi--bars">
-                    ${FIGURAS.map(f => `<div class="pl-bar"><span class="pl-bar-k">${f.clave}</span><span class="pl-bar-t"><i style="--w:${(s.porFigura[f.clave] / max) * 100}%;--c:${f.color}"></i></span><b>${s.porFigura[f.clave]}</b></div>`).join('')}
+                    <p class="pl-kpi-k">Por figura</p>
+                    ${FIGURAS.map(f => `<div class="pl-bar"><span class="pl-bar-k">${f.clave}</span><span class="pl-bar-t"><i style="--w:${(s.porFigura[f.clave] / max) * 100}%;--c:var(${f.token})"></i></span><b>${s.porFigura[f.clave]}</b></div>`).join('')}
                 </div>
             </div>
 
             <h2 class="pl-h2">Tres figuras, tres autoridades</h2>
             <div class="pl-figuras">
                 ${(data.figuras || []).map(f => `
-                <article class="pl-figura" style="--c:${FIGURA[f.clave]?.color || 'var(--brand)'}">
+                <article class="pl-figura" style="--c:var(${FIGURA[f.clave]?.token || '--brand'})">
                     <p class="pl-figura-k">${esc(f.clave)} · ${s.porFigura[f.clave] ?? 0} vigentes</p>
                     <h3>${esc(f.nombre)}</h3>
                     <p>${esc(f.descripcion)}</p>
@@ -165,7 +172,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
         nets = networkLayers(L, map);
         map.createPane('polos').style.zIndex = 420;
         state.data.polos.forEach(p => {
-            const color = FIGURA[p.figura]?.color || '#9B2247';
+            const color = FIGURA[p.figura]?.color || FIGURA.PODEBI.color;
             const feature = state.features.get(p.id);
             const where = poloCenter(p, feature);
             if (!where) return;
@@ -315,7 +322,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
                     .bindPopup(`<strong>${esc(p.nombre)}</strong><br><small>${esc(p.numeroPermiso)} · ${esc(p.tecnologia || p.tipoPermiso || m.label)}</small><br><a href="${permitsHash({ permit: p.numeroPermiso })}">Ficha del permiso</a>`)
                     .addTo(state.nearLayer);
             }));
-            L.circle(where.latlng, { radius: RADIUS_KM * 1000, color: '#9B2247', weight: 1, dashArray: '4 4', fill: false, interactive: false }).addTo(state.nearLayer);
+            L.circle(where.latlng, { radius: RADIUS_KM * 1000, color: FIGURA.PODEBI.color, weight: 1, dashArray: '4 4', fill: false, interactive: false }).addTo(state.nearLayer);
             const all = results.flatMap(({ m, near }) => near.map(n => ({ ...n, m }))).sort((a, b) => a.km - b.km);
             box.innerHTML = `
                 <ul class="pl-near-counts">${results.map(({ m, near }) => `<li style="--c:${m.color}"><b>${near.length}</b> ${esc(m.label.toLowerCase())}</li>`).join('')}</ul>
