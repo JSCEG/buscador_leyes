@@ -9,6 +9,15 @@ import { searchArticles } from './search-engine.js';
 import { esc, number, dateLabel, lawBySiglas } from './cne-shared.js';
 
 const SECTOR_LABEL = { electricidad: 'Electricidad', petroliferos: 'Petrolíferos', gaslp: 'Gas LP', gasnatural: 'Gas natural', otro: 'Otras energías' };
+const svg = path => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
+const SECTOR_ICON = {
+    electricidad: svg('<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'),
+    petroliferos: svg('<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/>'),
+    gaslp: svg('<rect x="7" y="6" width="10" height="15" rx="3"/><path d="M10 6V3h4v3"/>'),
+    gasnatural: svg('<path d="M12 22c4 0 7-3 7-7 0-5-5-7-4-12-3 2-5 5-5 8-1-1-2-2-2-4-2 2-3 4-3 8 0 4 3 7 7 7z"/>'),
+    otro: svg('<path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19 13 11"/>'),
+};
+const CHECK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>';
 const GROUPS = [
     { key: 'base', title: 'Normativa base', note: 'Leyes y reglamentos del sector.' },
     { key: 'rules', title: 'Disposiciones y requisitos específicos', note: 'Disposiciones administrativas y acuerdos que regulan este trámite.' },
@@ -35,10 +44,12 @@ export function renderTramitesView(container, catalog = [], { tramite = null, on
                     <ul class="pm-list">${TRAMITES.filter(item => item.sector === sector).map(item => {
                         const count = lawsOf([...item.base, ...item.rules, ...item.forms, ...item.calls]).length;
                         const forms = lawsOf(item.forms).length;
-                        return `<li><a class="pm-card tr-card" href="${permitsHash({ tramite: item.id })}" data-sector="${item.sector}">
-                            <span class="pm-num">${esc(SECTOR_LABEL[item.sector] || '')}</span>
-                            <span class="pm-holder">${esc(item.title)}</span>
-                            <span class="pm-meta"><span class="pm-tag">${number(count)} instrumentos</span>${forms ? '<span>Con formatos oficiales</span>' : ''}${lawsOf(item.calls).length ? '<span>Con convocatoria</span>' : ''}</span>
+                        const calls = lawsOf(item.calls).length;
+                        return `<li><a class="tr-card" href="${permitsHash({ tramite: item.id })}" data-sector="${item.sector}">
+                            <span class="tr-card-head"><span class="tr-card-icon" aria-hidden="true">${SECTOR_ICON[item.sector] || SECTOR_ICON.otro}</span><span class="tr-card-kicker">Guía de trámite</span></span>
+                            <span class="tr-card-title">${esc(item.title)}</span>
+                            <span class="tr-card-stats"><span class="tr-card-count"><b>${number(count)}</b> instrumentos</span>${forms ? `<span class="tr-card-flag">${CHECK}Formatos</span>` : ''}${calls ? `<span class="tr-card-flag">${CHECK}Convocatoria</span>` : ''}</span>
+                            <span class="tr-card-foot">Ver guía <span aria-hidden="true">→</span></span>
                         </a></li>`;
                     }).join('')}</ul>
                 </section>`).join('')}`;
