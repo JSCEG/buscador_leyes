@@ -22,7 +22,7 @@
 .reader-source-view .rs-viewport{overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;max-height:min(62dvh,800px);min-height:160px;background:var(--surface-2);padding:12px;position:relative}
 .reader-source-view .rs-page{position:relative;background:var(--surface-1);box-shadow:0 2px 9px #0002;max-width:none;margin-inline:auto;flex-shrink:0}
 .reader-source-view .rs-page-image{display:block;width:100%;height:auto;max-width:none;margin:0;border-radius:0;filter:none!important}
-.reader-source-view .rs-highlight{position:absolute;display:block;border:1px solid #9b224799;background:#f6c45342;pointer-events:none;mix-blend-mode:multiply}
+.reader-source-view .rs-highlight{position:absolute;display:block;border:1px solid color-mix(in srgb,var(--brand) 60%,transparent);background:#f6c45342;pointer-events:none;mix-blend-mode:multiply}
 .reader-source-view .rs-footer{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;background:var(--rs-paper);color:var(--rs-ink)}
 .reader-source-view .rs-caption{font-size:12px;margin:0;flex:1 1 180px}
 .reader-source-view .rs-muted{font-size:12px;color:var(--rs-muted);margin:0;flex:1 1 100%}
@@ -67,6 +67,7 @@ html.dark-mode .reader-source-view .rs-loading-slow{color:#f2d27d;background:#3a
 .reader-source-view :is(button,select,a,.rs-viewport):focus-visible{outline:2px solid var(--focus)}
 .reader-source-view .rs-viewport{background:var(--surface-sunken)}
 .reader-source-view .rs-page{box-shadow:var(--shadow-md)}
-.reader-source-view .rs-highlight{border:2px solid var(--accent);border-radius:2px;background:var(--highlight);mix-blend-mode:multiply}
+/* SourceViewer: the article's zone in highlight with a guinda rule on its left, no box around each line. */
+.reader-source-view .rs-highlight{border:0;border-left:3px solid var(--brand);border-radius:0 2px 2px 0;background:var(--highlight);mix-blend-mode:multiply}
 html.dark-mode .reader-source-view .rs-highlight{mix-blend-mode:normal}
 .reader-source-view .rs-progress-fill{background:var(--brand)}

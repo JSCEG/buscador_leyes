@@ -40,7 +40,8 @@ import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyState, errorPage } from '../lib/empty-art.js';
 import { lawPath, articlePath, shareUrl } from '../lib/seo-paths.js';
-import { renderLawTree } from '../lib/law-tree.js';
+import { renderLawTree, splitHeading } from '../lib/law-tree.js';
+import { separatorHtml } from '../lib/separator.js';
 import { shortTitle } from '../lib/short-title.js';
 
 export function initUI() {
@@ -1734,9 +1735,28 @@ export function initUI() {
                 entries.length = 0;
                 ordered.slice(0, 120).forEach(article => { push(1, article.articulo_label, article.id); sectionOf.set(article.id, entries.at(-1).key); });
             }
-            const split = label => { const [head, ...rest] = String(label).split(/\s+[—–-]\s+/); return rest.length ? `<strong>${escapeHtml(head)}</strong><span>${escapeHtml(rest.join(' — '))}</span>` : `<span>${escapeHtml(head)}</span>`; };
-            outline.innerHTML = entries.map(entry => `<button class="lr-outline-item lr-level-${entry.level}" data-outline-id="${escapeHtml(entry.id)}" data-outline-key="${entry.key}">${split(entry.label)}</button>`).join('');
+            // LawTree of the design system: each título folds its capítulos, numeral in mono guinda, chapter count.
+            const label = entry => {
+                const { num, name } = splitHeading(String(entry.label).replace(/\s+[—–-]\s+/, ' '));
+                return `${num ? `<strong>${escapeHtml(num)}</strong>` : ''}<span>${escapeHtml(name || num)}</span>`;
+            };
+            const item = (entry, count = 0) => `<button class="lr-outline-item lr-level-${entry.level}" data-outline-id="${escapeHtml(entry.id)}" data-outline-key="${entry.key}">${label(entry)}${count ? `<em class="lr-tree-count" aria-label="${count} capítulos">${count}</em>` : ''}</button>`;
+            const nodes = [];
+            entries.forEach(entry => { if (entry.level === 1 || !nodes.length) nodes.push({ head: entry, children: [] }); else nodes.at(-1).children.push(entry); });
+            const CHEVRON = '<svg class="bj-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
+            outline.innerHTML = nodes.map(({ head, children }, index) => children.length
+                ? `<div class="lr-tree-node${index === 0 ? ' is-open' : ''}" data-tree-node>
+                    <div class="lr-tree-row"><button type="button" class="lr-tree-toggle" data-outline-toggle aria-expanded="${index === 0}" aria-label="Capítulos de ${escapeHtml(head.label)}">${CHEVRON}</button>${item(head, children.length)}</div>
+                    <div class="lr-tree-children">${children.map(child => item(child)).join('')}</div>
+                </div>`
+                : `<div class="lr-tree-node is-leaf" data-tree-node><div class="lr-tree-row">${item(head)}</div></div>`).join('');
+            const openNode = (node, open) => {
+                node.classList.toggle('is-open', open);
+                node.querySelector('[data-outline-toggle]')?.setAttribute('aria-expanded', String(open));
+            };
             outline.onclick = event => {
+                const toggle = event.target.closest('[data-outline-toggle]');
+                if (toggle) { const node = toggle.closest('[data-tree-node]'); openNode(node, !node.classList.contains('is-open')); return; }
                 const button = event.target.closest('[data-outline-id]');
                 if (!button) return;
                 const id = button.dataset.outlineId;
@@ -1762,6 +1782,8 @@ export function initUI() {
                     const key = sectionOf.get(visible.target.dataset.id);
                     outline.querySelectorAll('.lr-outline-item').forEach(item => item.classList.toggle('is-active', item.dataset.outlineKey === key));
                     const active = outline.querySelector('.is-active');
+                    const node = active?.closest('[data-tree-node]');
+                    if (node && !node.classList.contains('is-open')) openNode(node, true);
                     if (active && outline.scrollHeight > outline.clientHeight) active.scrollIntoView({ block: 'nearest' });
                 }, { rootMargin: '-90px 0px -65% 0px' });
                 document.querySelectorAll('#law-articles-list .result-item').forEach(card => lawOutlineObserver.observe(card));
@@ -1962,7 +1984,7 @@ export function initUI() {
             .style("display", "none");
 
         svg.append("g")
-            .attr("fill", "#9B2247")
+            .style("fill", "var(--brand)")
             .selectAll("rect")
             .data(data)
             .join("rect")
@@ -1972,14 +1994,14 @@ export function initUI() {
             .attr("height", y.bandwidth())
             .attr("rx", 4)
             .on("mouseover", (event, d) => {
-                d3.select(event.target).attr("fill", "#7A1C39");
+                d3.select(event.target).style("fill", "var(--brand-hover)");
                 tooltip.style("opacity", "1").style("display", "block").text(isJudgment(law) ? `${d.name}: ${d.value}` : `${d.name}: ${d.value} artículos`);
             })
             .on("mousemove", (event) => {
                 tooltip.style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 10) + "px");
             })
             .on("mouseout", (event) => {
-                d3.select(event.target).attr("fill", "#9B2247");
+                d3.select(event.target).style("fill", null);
                 tooltip.style("opacity", "0").style("display", "none");
             });
 
@@ -3328,7 +3350,7 @@ export function initUI() {
         const locationParts = [tituloStr, capituloStr].filter(Boolean);
 
         modalContent.innerHTML = `
-            ${locationParts.length ? `<nav class="rm-location" aria-label="Ubicación en el documento">${locationParts.map(part => `<span>${escapeHtml(part)}</span>`).join('<span class="rm-sep" aria-hidden="true">›</span>')}</nav>` : ''}
+            ${locationParts.length ? `<nav class="rm-location" aria-label="Ubicación en el documento">${locationParts.map(part => `<span>${escapeHtml(part)}</span>`).join('<span class="rm-sep" aria-hidden="true">›</span>')}</nav>${separatorHtml({ className: 'rm-sep-block' })}` : ''}
             ${activeQuery ? `
             <div class="mb-5 flex items-center gap-2 text-[11px] text-guinda/70 bg-guinda/5 border border-guinda/10 px-3 py-2 rounded-lg">
                 <svg class="w-3 h-3 flex-shrink-0 text-guinda/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>

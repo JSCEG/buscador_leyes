@@ -24,7 +24,7 @@ export function lawTreeGroups(articles = []) {
 }
 
 /** «TÍTULO PRIMERO De las disposiciones» → numeral and name, for the mono numeral column. */
-function splitHeading(text) {
+export function splitHeading(text) {
     const match = text.match(/^((?:T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N|LIBRO)\s+[^\s.·—-]+)[\s.·—-]*(.*)$/i);
     return match ? { num: match[1], name: match[2] } : { num: '', name: text };
 }

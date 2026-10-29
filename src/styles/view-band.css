@@ -73,7 +73,7 @@ html.dark-mode .pin-btn.is-pinned, html.dark-mode .pin-btn.is-pinned svg, html.d
 
 /* Reader header: its icon-button rule (44px, gray) must not squeeze the labeled pin */
 #modal-panel > div:first-child button#modal-pin-btn { width: auto !important; height: 36px !important; padding: 0 12px !important; border-radius: 999px !important; gap: 6px; }
-#modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: var(--brand) !important; border-color: #9b224766 !important; background: transparent !important; }
+#modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: var(--brand) !important; border-color: color-mix(in srgb,var(--brand) 40%,transparent) !important; background: transparent !important; }
 #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #fff !important; background: var(--guinda-500) !important; border-color: var(--brand) !important; }
 html.dark-mode #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: #eeb0c2 !important; border-color: #eeb0c266 !important; }
 html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #1e1c1a !important; background: #eeb0c2 !important; border-color: #eeb0c2 !important; }
@@ -81,7 +81,7 @@ html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { c
 
 /* Reader: open the article in its own tab */
 .modal-newtab{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#6a655e;transition:color .15s,background-color .15s}
-.modal-newtab:hover{color:var(--brand);background:#9b22470f}
+.modal-newtab:hover{color:var(--brand);background:color-mix(in srgb,var(--brand) 6%,transparent)}
 .modal-newtab:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
 html.dark-mode .modal-newtab{color:#c1b9af}
 html.dark-mode .modal-newtab:hover{color:#eeb0c2}
@@ -95,7 +95,7 @@ html.dark-mode .modal-newtab:hover{color:#eeb0c2}
 
 /* Ayuda: tour and comment buttons on the band */
 .hp-head-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.hp-view .hp-head-btn{padding:8px 16px;border:0;border-radius:999px;background:#fff;color:#1e5b4f;font:600 13.5px/1.2 var(--font-sans);cursor:pointer}
+.hp-view .hp-head-btn{padding:8px 16px;border:0;border-radius:999px;background:#fff;color:var(--col-disposicion);font:600 13.5px/1.2 var(--font-sans);cursor:pointer}
 .hp-view .hp-head-btn-ghost{background:#ffffff1f;color:#fff;border:1px solid #ffffff55}
 .hp-view .hp-head-btn:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
 

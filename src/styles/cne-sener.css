@@ -1,7 +1,7 @@
 /* «CNE y SENER» tab of the permits section (src/scripts/cne-sener-view.js). Uses the section's --pm-* colours. */
 .cs-view{display:grid;gap:14px;margin-top:18px;color:var(--pm-ink);font-family:var(--font-sans)}
 .cs-muted{color:var(--pm-muted);font-size:13px}
-.cs-badge{display:inline-block;margin:0 6px;padding:2px 7px;border-radius:999px;background:#a57f2c1f;color:#7a5c1b;font:700 10.5px/1.4 var(--font-sans);letter-spacing:.06em;vertical-align:middle;white-space:nowrap}
+.cs-badge{display:inline-block;margin:0 6px;padding:2px 7px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:#7a5c1b;font:700 10.5px/1.4 var(--font-sans);letter-spacing:.06em;vertical-align:middle;white-space:nowrap}
 html.dark-mode .cs-badge{background:#e0bd6d26;color:#e9cf8f}
 
 .cs-updates{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:13.5px;color:var(--pm-muted)}
@@ -144,7 +144,7 @@ html.dark-mode .cs-btn-primary{color:#2b2326}
 .cs-guide ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:0;padding:0;list-style:none}
 .cs-guide-item{display:flex;gap:10px;align-items:flex-start;width:100%;height:100%;padding:12px;border:1px solid var(--pm-border);border-radius:14px;background:var(--pm-card);color:var(--pm-ink);text-align:left;cursor:pointer;transition:border-color .15s,box-shadow .15s}
 .cs-guide-item:hover{border-color:var(--sec,var(--accent))}
-.cs-guide-item.is-on{border-color:var(--sec,var(--accent));box-shadow:inset 0 0 0 1px var(--sec,#a57f2c);background:color-mix(in srgb,var(--pm-card) 92%,var(--accent))}
+.cs-guide-item.is-on{border-color:var(--sec,var(--accent));box-shadow:inset 0 0 0 1px var(--sec,var(--accent));background:color-mix(in srgb,var(--pm-card) 92%,var(--accent))}
 .cs-guide-item:focus-visible{outline:2px solid var(--pm-accent);outline-offset:2px}
 .cs-guide-item .pmm-pin{--sec:#a57f2c;margin-top:2px}
 .cs-guide-body{display:grid;gap:4px;min-width:0}

@@ -1,8 +1,8 @@
 /* Full-page article (its own tab) */
 .ap-view{max-width:860px;margin:0 auto;padding-bottom:40px;font-family:var(--font-sans)}
 .ap-head{--ap-a:var(--guinda-700);--ap-b:var(--guinda-500);--ap-c:color-mix(in srgb,var(--guinda-500) 70%,var(--guinda-300));position:relative;padding:28px 32px;border-radius:20px;color:#fff;
-    background:radial-gradient(110% 90% at 100% 0%,var(--ap-c) 0%,transparent 55%),linear-gradient(135deg,var(--ap-a),var(--ap-b) 60%,var(--ap-a));box-shadow:0 16px 36px #9b224733}
-.ap-head[data-category=reglamentos],.ap-head[data-category=dacg]{--ap-a:#143f37;--ap-b:#1e5b4f;--ap-c:#2f7a6a;box-shadow:0 16px 36px #1e5b4f33}
+    background:radial-gradient(110% 90% at 100% 0%,var(--ap-c) 0%,transparent 55%),linear-gradient(135deg,var(--ap-a),var(--ap-b) 60%,var(--ap-a));box-shadow:0 16px 36px color-mix(in srgb,var(--brand) 20%,transparent)}
+.ap-head[data-category=reglamentos],.ap-head[data-category=dacg]{--ap-a:#143f37;--ap-b:#1e5b4f;--ap-c:#2f7a6a;box-shadow:0 16px 36px color-mix(in srgb,var(--col-disposicion) 20%,transparent)}
 .ap-head[data-category=convocatorias],.ap-head[data-category=normas]{--ap-a:#5e4516;--ap-b:#8c6925;--ap-c:#b08a3c}
 .ap-head[data-category=otros]{--ap-a:#3d3833;--ap-b:#5b5249;--ap-c:#7a6f63}
 .ap-eyebrow{display:flex;align-items:center;gap:8px;margin:0 0 8px!important;font-size:13px;font-weight:600;color:#fde8ee!important}

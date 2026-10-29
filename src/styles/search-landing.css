@@ -73,18 +73,18 @@ html.dark-mode #hero-section{--hb-a:color-mix(in srgb,var(--guinda-700) 55%,#000
 .hero-emblem-float{position:absolute;inset:0;animation:hero-emblem-float 7s ease-in-out infinite;transform-style:preserve-3d}
 .hero-emblem-object{--em-rx:-8deg;--em-ry:-16deg;position:absolute;left:50%;top:50%;width:260px;height:230px;transform:translate(-50%,-50%) rotateX(var(--em-rx)) rotateY(var(--em-ry));transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .hero-paper{position:absolute;width:126px;height:166px;border-radius:12px;background:#f8f2e9;border:1px solid #ffffffaa;box-shadow:0 18px 30px #32081733;transform-style:preserve-3d}
-.hero-paper::before,.hero-paper::after,.hero-paper span{content:'';position:absolute;left:20px;height:5px;border-radius:5px;background:#9b22472e}
+.hero-paper::before,.hero-paper::after,.hero-paper span{content:'';position:absolute;left:20px;height:5px;border-radius:5px;background:color-mix(in srgb,var(--brand) 18%,transparent)}
 .hero-paper::before{top:30px;width:72px}.hero-paper::after{top:47px;width:86px}.hero-paper span{top:64px;width:58px}
 .hero-paper-back{left:38px;top:28px;background:#e8d8ce;transform:translate3d(-22px,12px,-45px) rotateZ(-13deg)}
 .hero-paper-middle{left:61px;top:24px;background:#f4e8df;transform:translate3d(-8px,4px,-15px) rotateZ(-5deg)}
 .hero-paper-front{left:88px;top:25px;transform:translateZ(12px) rotateZ(4deg)}
-.hero-paper-front::after{height:22px;width:22px;left:auto;right:16px;top:auto;bottom:16px;border-radius:50%;background:#1e5b4f}
+.hero-paper-front::after{height:22px;width:22px;left:auto;right:16px;top:auto;bottom:16px;border-radius:50%;background:var(--col-disposicion)}
 .hero-b-stack{position:absolute;left:86px;top:31px;width:119px;height:158px;transform:translateZ(48px) rotateZ(4deg);transform-style:preserve-3d}
 .hero-b-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 8px #3b091b22);transform:translate3d(calc(var(--layer) * -1.7px),calc(var(--layer) * 1.7px),calc(var(--layer) * -4px))}
 .hero-b-layer:not(:last-child){filter:brightness(.65)}
 .hero-lens{position:absolute;right:20px;bottom:40px;width:67px;height:67px;border:9px solid #d6b46a;border-radius:50%;background:radial-gradient(circle at 35% 28%,#ffffff70,transparent 52%),#f6d9a81a;box-shadow:inset 0 0 0 2px #8c69254d,0 10px 20px #3b091b33;transform:translateZ(96px) rotateY(-8deg);animation:hero-lens-drift 5s ease-in-out infinite}
 /* Handle starts on the ring's outer edge at 45° (coords are from the padding box, inside the 9px border). */
-.hero-lens::after{content:'';position:absolute;width:11px;height:48px;left:41px;top:45px;border-radius:8px;background:linear-gradient(90deg,#a57f2c,#e2c271 55%,#a57f2c);transform:rotate(-45deg);transform-origin:top center;box-shadow:3px 5px 8px #3b091b2e}
+.hero-lens::after{content:'';position:absolute;width:11px;height:48px;left:41px;top:45px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#e2c271 55%,var(--accent));transform:rotate(-45deg);transform-origin:top center;box-shadow:3px 5px 8px #3b091b2e}
 .hero-emblem-shadow{position:absolute;left:50%;bottom:17px;width:175px;height:24px;border-radius:50%;background:#2a07142e;filter:blur(10px);transform:translateX(-50%) rotateX(70deg) translateZ(-50px)}
 html.dark-mode .hero-paper{background:#eee2d8;border-color:#ffffff55}
 @keyframes hero-emblem-float{50%{transform:translateY(-8px)}}

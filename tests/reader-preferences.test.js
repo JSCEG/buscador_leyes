@@ -18,9 +18,9 @@ beforeEach(async () => {
 describe('reading preference persistence', () => {
     it('restores the shared settings after the module is loaded again, without storing theme data', async () => {
         const storage = memoryStorage();
-        expect(reader.loadReaderPreferences(storage)).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
+        expect(reader.loadReaderPreferences(storage)).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
         const value = reader.saveReaderPreferences({ fontSize: 24, lineHeight: 2, theme: 'dark' }, storage);
-        expect(value).toEqual({ fontSize: 24, lineHeight: 2, surface: 'system' });
+        expect(value).toEqual({ fontSize: 24, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' });
         expect(JSON.parse(storage.getItem(reader.READER_PREFERENCES_KEY))).toEqual(value);
         vi.resetModules();
         const reloaded = await import('../src/lib/reader-preferences.js');
@@ -28,48 +28,48 @@ describe('reading preference persistence', () => {
     });
 
     it('clamps finite sizes and rejects arbitrary line heights or CSS strings', () => {
-        expect(reader.normalizeReaderPreferences({ fontSize: 1000, lineHeight: 1.6, surface: 'system' })).toEqual({ fontSize: 28, lineHeight: 1.6, surface: 'system' });
-        expect(reader.normalizeReaderPreferences({ fontSize: -5, lineHeight: 0 })).toEqual({ fontSize: 14, lineHeight: 1.8, surface: 'system' });
-        expect(reader.normalizeReaderPreferences({ fontSize: 21.8, lineHeight: 1.8, surface: 'system' })).toEqual({ fontSize: 22, lineHeight: 1.8, surface: 'system' });
+        expect(reader.normalizeReaderPreferences({ fontSize: 1000, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' })).toEqual({ fontSize: 28, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' });
+        expect(reader.normalizeReaderPreferences({ fontSize: -5, lineHeight: 0 })).toEqual({ fontSize: 14, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
+        expect(reader.normalizeReaderPreferences({ fontSize: 21.8, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' })).toEqual({ fontSize: 22, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
         for (const fontSize of [NaN, Infinity, -Infinity, '24px', '24', 'var(--attack)']) {
-            expect(reader.normalizeReaderPreferences({ fontSize, lineHeight: '2' })).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
+            expect(reader.normalizeReaderPreferences({ fontSize, lineHeight: '2' })).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
         }
     });
 
     it.each(['broken json', 'null', '[]', '42', '"large"', '{"fontSize":null,"lineHeight":100}', ' '.repeat(1100)])('uses defaults for malformed persisted data: %.35s', raw => {
-        expect(reader.loadReaderPreferences(memoryStorage(raw))).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
+        expect(reader.loadReaderPreferences(memoryStorage(raw))).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
     });
 
     it('retains valid fields while normalizing a partially corrupt stored pair', () => {
-        expect(reader.loadReaderPreferences(memoryStorage('{"fontSize":26,"lineHeight":"bad"}'))).toEqual({ fontSize: 26, lineHeight: 1.8, surface: 'system' });
-        expect(reader.loadReaderPreferences(memoryStorage('{"fontSize":-100,"lineHeight":2}'))).toEqual({ fontSize: 14, lineHeight: 2, surface: 'system' });
+        expect(reader.loadReaderPreferences(memoryStorage('{"fontSize":26,"lineHeight":"bad"}'))).toEqual({ fontSize: 26, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
+        expect(reader.loadReaderPreferences(memoryStorage('{"fontSize":-100,"lineHeight":2}'))).toEqual({ fontSize: 14, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' });
     });
 
     it('keeps controls working for this session when storage is denied or its getter is unavailable', () => {
         const blocked = { getItem() { throw new Error('SecurityError'); }, setItem() { throw new Error('QuotaExceededError'); } };
-        expect(reader.loadReaderPreferences(blocked)).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
-        expect(reader.saveReaderPreferences({ fontSize: 22, lineHeight: 1.6, surface: 'system' }, blocked)).toEqual({ fontSize: 22, lineHeight: 1.6, surface: 'system' });
-        expect(reader.loadReaderPreferences(blocked)).toEqual({ fontSize: 22, lineHeight: 1.6, surface: 'system' });
+        expect(reader.loadReaderPreferences(blocked)).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
+        expect(reader.saveReaderPreferences({ fontSize: 22, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' }, blocked)).toEqual({ fontSize: 22, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' });
+        expect(reader.loadReaderPreferences(blocked)).toEqual({ fontSize: 22, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' });
         const localStorageGetter = vi.spyOn(globalThis, 'localStorage', 'get').mockImplementation(() => { throw new Error('SecurityError'); });
         try {
-            expect(reader.loadReaderPreferences()).toEqual({ fontSize: 22, lineHeight: 1.6, surface: 'system' });
-            expect(() => reader.saveReaderPreferences({ fontSize: 20, lineHeight: 2, surface: 'system' })).not.toThrow();
-            expect(reader.loadReaderPreferences()).toEqual({ fontSize: 20, lineHeight: 2, surface: 'system' });
+            expect(reader.loadReaderPreferences()).toEqual({ fontSize: 22, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' });
+            expect(() => reader.saveReaderPreferences({ fontSize: 20, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' })).not.toThrow();
+            expect(reader.loadReaderPreferences()).toEqual({ fontSize: 20, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' });
         } finally { localStorageGetter.mockRestore(); }
     });
 
     it('returns independent values so consumers cannot accidentally mutate the saved session pair', () => {
-        const returned = reader.saveReaderPreferences({ fontSize: 20, lineHeight: 2, surface: 'system' }, null);
+        const returned = reader.saveReaderPreferences({ fontSize: 20, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' }, null);
         returned.fontSize = 100;
-        expect(reader.loadReaderPreferences(null)).toEqual({ fontSize: 20, lineHeight: 2, surface: 'system' });
-        expect(reader.DEFAULT_READER_PREFERENCES).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system' });
+        expect(reader.loadReaderPreferences(null)).toEqual({ fontSize: 20, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' });
+        expect(reader.DEFAULT_READER_PREFERENCES).toEqual({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
     });
 
     it('does not reload stale preferences when quota prevents writes but reads still work', () => {
         const storage = memoryStorage('{"fontSize":16,"lineHeight":1.6,"surface":"light"}');
         storage.setItem = () => { throw new Error('QuotaExceededError'); };
         expect(reader.loadReaderPreferences(storage).fontSize).toBe(16);
-        const changed = { fontSize: 24, lineHeight: 2, surface: 'sepia' };
+        const changed = { fontSize: 24, lineHeight: 2, surface: 'sepia', measure: 68, typeface: 'sans' };
         reader.saveReaderPreferences(changed, storage);
         expect(reader.loadReaderPreferences(storage)).toEqual(changed);
         const recovered = memoryStorage();
@@ -104,7 +104,7 @@ describe('reader content roots', () => {
         const articleDialog = document.createElement('article');
         document.body.append(fullReader, articleDialog);
         for (const root of [fullReader, articleDialog]) {
-            expect(reader.applyReaderPreferences(root, { fontSize: 24, lineHeight: 2, surface: 'system' })).toEqual({ fontSize: 24, lineHeight: 2, surface: 'system' });
+            expect(reader.applyReaderPreferences(root, { fontSize: 24, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' })).toEqual({ fontSize: 24, lineHeight: 2, surface: 'system', measure: 68, typeface: 'sans' });
             expect(root.style.getPropertyValue('--reader-font-size')).toBe('24px');
             expect(root.style.getPropertyValue('--reader-line-height')).toBe('2');
             expect(root.style.fontSize).toBe('');
@@ -121,6 +121,6 @@ describe('reader content roots', () => {
         reader.applyReaderPreferences(root, { fontSize: Infinity, lineHeight: 'url(attack)' });
         expect(root.style.getPropertyValue('--reader-font-size')).toBe('18px');
         expect(root.style.getPropertyValue('--reader-line-height')).toBe('1.8');
-        expect(reader.applyReaderPreferences(null, { fontSize: 20, lineHeight: 1.6, surface: 'system' })).toEqual({ fontSize: 20, lineHeight: 1.6, surface: 'system' });
+        expect(reader.applyReaderPreferences(null, { fontSize: 20, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' })).toEqual({ fontSize: 20, lineHeight: 1.6, surface: 'system', measure: 68, typeface: 'sans' });
     });
 });
