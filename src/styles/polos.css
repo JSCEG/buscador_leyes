@@ -80,7 +80,7 @@
 .pl-mini{margin:0 0 4px;font-size:12px;color:var(--pl-muted)}
 
 .pl-mapcol{min-width:0}
-.pl-map{height:min(72vh,680px);min-height:440px;border:1px solid var(--pl-border);border-radius:16px;overflow:hidden;background:var(--map-water,#dfe7ea)}
+.pl-map{height:min(72vh,680px);min-height:440px;border:1px solid var(--pl-border);border-radius:16px;overflow:hidden;background:var(--map-water)}
 .pl-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 2px 0;font-size:12px;color:var(--pl-muted)}
 .pl-legend span{display:inline-flex;align-items:center;gap:6px}
 .pl-legend i{width:11px;height:11px;border-radius:50%;background:var(--c);border:2px solid #fff;box-shadow:0 0 0 1px var(--pl-border)}
