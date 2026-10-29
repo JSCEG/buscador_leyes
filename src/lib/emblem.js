@@ -14,6 +14,7 @@ const KINDS = {
     estadisticas: { glyph: 'barras', accent: 'dona' },
     ayuda: { glyph: 'dialogo', accent: 'brujula' },
     guardados: { glyph: 'marcador', accent: 'clip' },
+    polos: { glyph: 'pin', accent: 'brujula' },
 };
 
 /** Markup for a section emblem, pinned to the right edge of its `data-emblem-host` header. */

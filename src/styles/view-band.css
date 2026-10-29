@@ -1,6 +1,6 @@
 /* ── View headers as bands, like the acervo and law headers ─────────────────────────
    Search and Análisis in guinda, Guardados in gold, Estadísticas and Ayuda in green. */
-:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head) {
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) {
     --vb-a: var(--guinda-700); --vb-b: var(--guinda-500); --vb-c: color-mix(in srgb, var(--guinda-500) 70%, var(--guinda-300));
     position: relative;
     margin: 0 0 24px !important;
@@ -14,12 +14,12 @@
         linear-gradient(135deg, var(--vb-a) 0%, var(--vb-b) 60%, var(--vb-a) 100%) !important;
     box-shadow: 0 16px 36px color-mix(in srgb, var(--vb-b) 22%, transparent) !important;
 }
-:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head)::after {
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head)::after {
     content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .12;
     background-image: radial-gradient(circle at 20% 30%, #fff 0 1.4px, transparent 2px), radial-gradient(circle at 70% 60%, #fff 0 1px, transparent 1.5px);
     background-size: 44px 44px, 28px 28px;
 }
-:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head) > * { position: relative; z-index: 1; }
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) > * { position: relative; z-index: 1; }
 
 .fv-view .fv-head { --vb-a: #5e4516; --vb-b: #8c6925; --vb-c: #b08a3c; }
 .st-dashboard .st-header, .hp-view .hp-head { --vb-a: #143f37; --vb-b: #1e5b4f; --vb-c: #2f7a6a; }
@@ -47,13 +47,13 @@
 :is(.sr-head, .st-header, .nx-header, .hp-head) :is(button, a, summary):focus-visible { outline: 3px solid #f6d9a8 !important; outline-offset: 2px; }
 
 /* Dark mode: deeper bands */
-html.dark-mode :is(.sr-view .sr-head, .nx-explorer .nx-header) { --vb-a: #3d0b1c; --vb-b: #5e1430; --vb-c: #7a2344; box-shadow: none !important; }
+html.dark-mode :is(.sr-view .sr-head, .nx-explorer .nx-header, .pl-view .pl-head) { --vb-a: #3d0b1c; --vb-b: #5e1430; --vb-c: #7a2344; box-shadow: none !important; }
 html.dark-mode .fv-view .fv-head { --vb-a: #3e2d0d; --vb-b: #5e4718; --vb-c: #7a5f26; }
 html.dark-mode :is(.st-dashboard .st-header, .hp-view .hp-head) { --vb-a: #0e2c26; --vb-b: #174a40; --vb-c: #236152; box-shadow: none !important; }
 
 /* Phones: tighter band */
 @media (max-width: 640px) {
-    :is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head) { padding: 20px 18px !important; border-radius: 16px; margin-bottom: 18px !important; }
+    :is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) { padding: 20px 18px !important; border-radius: 16px; margin-bottom: 18px !important; }
     :is(.sr-head, .st-header, .nx-header, .hp-head) h1 { font-size: 26px !important; }
     .st-dashboard .st-updated { text-align: left !important; white-space: normal; }
 }
@@ -100,11 +100,11 @@ html.dark-mode .modal-newtab:hover{color:#eeb0c2}
 .hp-view .hp-head-btn:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
 
 /* Every section header opens at the same height, right under the menu */
-#main-container:has(#results-container:not(.hidden) :is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library)) { padding-top: 20px !important; }
-#results-container:not(.hidden):has(:is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library)) { margin-top: 0 !important; }
+#main-container:has(#results-container:not(.hidden) :is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library, .pl-view)) { padding-top: 20px !important; }
+#results-container:not(.hidden):has(:is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library, .pl-view)) { margin-top: 0 !important; }
 
 /* Every section header spans the full results width, even in narrower views (Reto, ¿Cómo funciona?) */
 #results-container { container-type: inline-size; }
-:is(.tl-view > .tl-head, .pm-view > .pm-head, .cf-view > .cf-head, .rt-view > .rt-head, .hp-view > .hp-head) { margin-inline: calc((100% - 100cqw) / 2) !important; }
+:is(.tl-view > .tl-head, .pm-view > .pm-head, .cf-view > .cf-head, .rt-view > .rt-head, .hp-view > .hp-head, .pl-view > .pl-head) { margin-inline: calc((100% - 100cqw) / 2) !important; }
 /* ¿Cómo funciona? has no band: keep its text aligned with the content below */
 .cf-view > .cf-head { padding-left: calc((100cqw - 100%) / 2) !important; }

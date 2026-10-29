@@ -7,10 +7,11 @@
  */
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { baseLayers, networkLayers, NETWORKS } from '../lib/map-common.js';
+import { baseLayers, networkLayers, NETWORKS, stateKey, cssToken } from '../lib/map-common.js';
 import { infraType } from '../lib/infra-icons.js';
 import { techMarkerSVG } from '../lib/tech-markers.js';
 import { permitsHash } from '../lib/cne-api.js';
+import { emblemHtml } from '../lib/emblem.js';
 import { FIGURAS, FIGURA, polosHash, stats, poloCenter, permitsNear, hitosOrdenados, poloPinSVG } from '../lib/polos.js';
 import '../styles/polos.css';
 
@@ -93,13 +94,13 @@ export function renderPolosView(container, { id = null, onRoute }) {
         const basis = cut > 0 ? data.definicion.slice(cut + 1) : '';
         container.innerHTML = `
         <section class="pl-view">
-            <header class="pl-head">
+            <header class="pl-head" data-emblem-host>
+                ${emblemHtml('polos')}
                 <p class="pl-kicker">Plan México · Información oficial</p>
                 <h1 class="pl-title">Polos de Desarrollo para el Bienestar</h1>
                 <p class="pl-lead">${esc(lead)}</p>
                 ${basis ? `<p class="pl-basis">${esc(basis)}</p>` : ''}
                 <p class="pl-cut">Corte: ${esc(date(data.corte))} · Fuente: Diario Oficial de la Federación y sitios oficiales del Gobierno de México</p>
-                ${SEP}
             </header>
 
             <div class="pl-kpis">
@@ -180,6 +181,8 @@ export function renderPolosView(container, { id = null, onRoute }) {
         baseLayers(L, map)('mapa');
         nets = networkLayers(L, map);
         map.createPane('polos').style.zIndex = 420;
+        // The chosen state sits under the polos and over the infrastructure networks (350).
+        map.createPane('estado').style.zIndex = 360;
         state.data.polos.forEach(p => {
             const color = FIGURA[p.figura]?.color || FIGURA.PODEBI.color;
             const feature = state.features.get(p.id);
@@ -237,8 +240,38 @@ export function renderPolosView(container, { id = null, onRoute }) {
         renderList();
         const bounds = L.latLngBounds([]);
         shown.forEach(pid => { const m = markers.get(pid); if (m) bounds.extend(boundsOf(m)); });
-        if (bounds.isValid() && (state.figura !== 'todas' || state.estado)) map.fitBounds(bounds.pad(0.3), { maxZoom: 10 });
-        else if (state.figura === 'todas' && !state.estado) map.fitBounds(MEXICO);
+        if (state.estado) paintState(bounds);
+        else {
+            clearState();
+            if (bounds.isValid() && state.figura !== 'todas') map.fitBounds(bounds.pad(0.3), { maxZoom: 10 });
+            else map.fitBounds(MEXICO);
+        }
+    }
+
+    function clearState() {
+        if (state.stateLayer) { map?.removeLayer(state.stateLayer); state.stateLayer = null; }
+    }
+
+    /**
+     * Outlines the chosen state (INEGI boundaries through /api/mapa/estados, loaded on first use) and
+     * frames it; while they load, or if they fail, the map frames that state's polos.
+     */
+    async function paintState(polosBounds) {
+        const wanted = state.estado;
+        if (polosBounds.isValid()) map.fitBounds(polosBounds.pad(0.3), { maxZoom: 10 });
+        try {
+            state.statesGeo ||= getJson('/api/mapa/estados', ctrl.signal);
+            const geo = await state.statesGeo;
+            if (!map || state.estado !== wanted) return;
+            const feature = (geo.features || []).find(f => stateKey(f.properties?.NOMGEO) === stateKey(wanted));
+            clearState();
+            if (!feature) return;
+            const brand = cssToken('--brand', '#9b2247');
+            state.stateLayer = L.geoJSON(feature, { pane: 'estado', interactive: false, style: { color: brand, weight: 2.5, fillColor: brand, fillOpacity: 0.07 } }).addTo(map);
+            map.fitBounds(state.stateLayer.getBounds().pad(0.05));
+        } catch (error) {
+            if (error.name !== 'AbortError') state.statesGeo = null;
+        }
     }
 
     function bind() {

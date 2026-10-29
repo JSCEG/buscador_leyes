@@ -69,7 +69,7 @@ export const NETWORKS = [
     { key: 'petroliferos', file: 'ductos-petroliferos.json', label: 'Ductos de petrolíferos', short: 'CNH · trazo aproximado', swatch: '#86671d', color: '#86671d', dash: '2 4' },
 ];
 /** A design token's current value; Leaflet paints SVG attributes, which cannot read var(). */
-const cssToken = (name, fallback) => {
+export const cssToken = (name, fallback) => {
     try { return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback; }
     catch { return fallback; }
 };
@@ -175,4 +175,25 @@ export function sectorCluster(L, sectors) {
             return L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-cluster" style="width:${size}px;height:${size}px;background:conic-gradient(${stops.join(',')})"><b>${label}</b></span>`, iconSize: [size, size] });
         },
     });
+}
+
+// States as DGMESNIE writes them (upper case, official long names), with the name people use.
+export const STATES = [
+    ['AGUASCALIENTES', 'Aguascalientes'], ['BAJA CALIFORNIA', 'Baja California'], ['BAJA CALIFORNIA SUR', 'Baja California Sur'],
+    ['CAMPECHE', 'Campeche'], ['CHIAPAS', 'Chiapas'], ['CHIHUAHUA', 'Chihuahua'], ['CIUDAD DE MEXICO', 'Ciudad de México'],
+    ['COAHUILA', 'Coahuila'], ['COLIMA', 'Colima'], ['DURANGO', 'Durango'], ['GUANAJUATO', 'Guanajuato'], ['GUERRERO', 'Guerrero'],
+    ['HIDALGO', 'Hidalgo'], ['JALISCO', 'Jalisco'], ['MEXICO', 'Estado de México'], ['MICHOACAN DE OCAMPO', 'Michoacán'],
+    ['MORELOS', 'Morelos'], ['NAYARIT', 'Nayarit'], ['NUEVO LEON', 'Nuevo León'], ['OAXACA', 'Oaxaca'], ['PUEBLA', 'Puebla'],
+    ['QUERETARO', 'Querétaro'], ['QUINTANA ROO', 'Quintana Roo'], ['SAN LUIS POTOSI', 'San Luis Potosí'], ['SINALOA', 'Sinaloa'],
+    ['SONORA', 'Sonora'], ['TABASCO', 'Tabasco'], ['TAMAULIPAS', 'Tamaulipas'], ['TLAXCALA', 'Tlaxcala'],
+    ['VERACRUZ DE IGNACIO DE LA LLAVE', 'Veracruz'], ['YUCATAN', 'Yucatán'], ['ZACATECAS', 'Zacatecas'],
+].map(([name, label]) => ({ key: name.toLowerCase(), label }));
+export const STATE_LABEL = Object.fromEntries(STATES.map(s => [s.key, s.label]));
+// Accents and case removed; a few sources write "Coahuila de Zaragoza" or "Michoacán".
+const STATE_ALIASES = { 'coahuila de zaragoza': 'coahuila', michoacan: 'michoacan de ocampo', veracruz: 'veracruz de ignacio de la llave', 'estado de mexico': 'mexico', cdmx: 'ciudad de mexico', 'distrito federal': 'ciudad de mexico' };
+/** Key of a state name as written in the data, or '' when it is not one of the 32. */
+export function stateKey(name) {
+    const folded = String(name ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+    const key = STATE_ALIASES[folded] || folded;
+    return STATE_LABEL[key] ? key : '';
 }
