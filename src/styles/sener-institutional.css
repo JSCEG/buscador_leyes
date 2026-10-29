@@ -163,7 +163,7 @@ textarea {
 
 #results-container tbody tr:hover,
 #admin-manage-view tbody tr:hover {
-    background: rgba(155, 34, 71, 0.035) !important;
+    background: color-mix(in srgb, var(--brand) 3.5%, transparent) !important;
 }
 
 .text-emerald-700,
@@ -180,17 +180,17 @@ textarea {
 
 .bg-emerald-50,
 .bg-green-50 {
-    background-color: rgba(30, 91, 79, 0.08) !important;
+    background-color: color-mix(in srgb, var(--sener-verde) 8%, transparent) !important;
 }
 
 .bg-amber-50 {
-    background-color: rgba(165, 127, 44, 0.1) !important;
+    background-color: color-mix(in srgb, var(--sener-dorado) 10%, transparent) !important;
 }
 
 .bg-blue-50,
 .bg-purple-50,
 .bg-violet-50 {
-    background-color: rgba(152, 152, 154, 0.12) !important;
+    background-color: color-mix(in srgb, var(--sener-gris) 12%, transparent) !important;
 }
 
 .text-blue-700,
@@ -201,7 +201,7 @@ textarea {
 
 html.dark-mode,
 html.dark-mode body {
-    background: #1E1E1E !important;
+    background: var(--surface-0) !important;
     color: var(--ink) !important;
 }
 
@@ -219,8 +219,8 @@ html.dark-mode .atema-hero,
 html.dark-mode .atema-attr,
 html.dark-mode .aart-card,
 html.dark-mode .aflujo-panel {
-    background-color: #242424 !important;
-    border-color: rgba(229, 229, 229, 0.14) !important;
+    background-color: var(--surface-1) !important;
+    border-color: var(--hairline) !important;
     color: var(--ink) !important;
 }
 
@@ -234,17 +234,17 @@ html.dark-mode .text-gray-600 {
 html.dark-mode .text-gray-500,
 html.dark-mode .text-gray-400,
 html.dark-mode .text-gray-300 {
-    color: #B6B6B8 !important;
+    color: var(--ink-muted) !important;
 }
 
 html.dark-mode .text-guinda,
 html.dark-mode .atema-titulo {
-    color: #D6B46A !important;
+    color: var(--brand) !important;
     text-shadow: none !important;
 }
 
 html.dark-mode .text-verde {
-    color: #7FB1A6 !important;
+    color: var(--col-disposicion) !important;
 }
 
 html.dark-mode .bg-guinda {
@@ -254,8 +254,8 @@ html.dark-mode .bg-guinda {
 html.dark-mode input:not(.bj-search__input),
 html.dark-mode select,
 html.dark-mode textarea {
-    background: #1E1E1E !important;
-    border-color: rgba(214, 180, 106, 0.45) !important;
+    background: var(--surface-0) !important;
+    border-color: color-mix(in srgb, var(--gold) 45%, transparent) !important;
     color: var(--ink) !important;
 }
 

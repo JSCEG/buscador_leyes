@@ -1,6 +1,5 @@
 /* ── Mesa de consulta ── */
-:root{--dk-paper:var(--surface-0);--dk-card:var(--surface-1);--dk-ink:var(--ink);--dk-muted:var(--ink-muted);--dk-border:var(--hairline);--dk-guinda:var(--brand);--dk-green:var(--col-disposicion);--dk-gold:var(--accent);--dk-faint:var(--ink-muted);--dk-shadow:var(--shadow-lg)}
-html.dark-mode{--dk-paper:#1e1c1a;--dk-card:#282522;--dk-ink:#f4efe7;--dk-muted:#c1b9af;--dk-border:#4a443e;--dk-guinda:#eeb0c2;--dk-green:#98c6b6;--dk-gold:#d9bb75;--dk-faint:#8f877d;--dk-shadow:0 18px 50px #0009}
+:root{--dk-paper:var(--surface-0);--dk-card:var(--surface-1);--dk-ink:var(--ink);--dk-muted:var(--ink-muted);--dk-border:var(--hairline);--dk-guinda:var(--col-ley);--dk-green:var(--col-disposicion);--dk-gold:var(--accent);--dk-faint:var(--ink-muted);--dk-shadow:var(--shadow-lg)}
 [data-category=leyes],[data-category=acuerdos]{--dk-dot:var(--dk-guinda)}
 [data-category=reglamentos],[data-category=dacg]{--dk-dot:var(--dk-green)}
 [data-category=convocatorias],[data-category=normas]{--dk-dot:var(--dk-gold)}
@@ -20,7 +19,7 @@ html.dark-mode .pin-btn.is-pinned{color:#1e1c1a;background:#eeb0c2;border-color:
 .pin-btn.pin-compact.is-pinned{border-color:var(--brand)}
 
 /* Floating toggle */
-.desk-toggle{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;align-items:center;gap:8px;padding:10px 14px 10px 12px;border:0;border-radius:999px;background:var(--guinda-500);color:#fff;font:700 14px/1 var(--font-sans);box-shadow:0 10px 28px #9b224759;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.desk-toggle{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;align-items:center;gap:8px;padding:10px 14px 10px 12px;border:0;border-radius:999px;background:var(--guinda-500);color:#fff;font:700 14px/1 var(--font-sans);box-shadow:0 10px 28px color-mix(in srgb,var(--guinda-500) 35%,transparent);cursor:pointer;transition:transform .2s,box-shadow .2s}
 .desk-toggle:hover{transform:translateY(-2px);box-shadow:0 14px 32px color-mix(in srgb,var(--brand) 40%,transparent)}
 .desk-toggle:focus-visible{outline:3px solid #f6d9a8;outline-offset:3px}
 .desk-toggle[hidden]{display:none}
@@ -83,7 +82,7 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-panel :is(button,input):focus-visible,.desk-side-view :is(button):focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
 
 /* Side by side */
-.desk-side-view{position:fixed;inset:0;z-index:70;background:#1e1c1acc;backdrop-filter:blur(3px);display:flex;padding:24px}
+.desk-side-view{position:fixed;inset:0;z-index:70;background:var(--scrim);backdrop-filter:blur(3px);display:flex;padding:24px}
 .desk-side-view[hidden]{display:none}
 .desk-side-inner{flex:1;display:flex;flex-direction:column;min-height:0;background:var(--dk-paper);border-radius:16px;box-shadow:var(--dk-shadow);overflow:hidden;font-family:var(--font-sans);color:var(--dk-ink)}
 .desk-side-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:3px solid var(--brand)}
