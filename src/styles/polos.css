@@ -9,8 +9,12 @@
 @keyframes pl-shine{to{background-position:-200% 0}}
 .pl-error{padding:20px;border:1px solid var(--pl-border);border-radius:16px;background:var(--pl-card)}
 
-/* View header (design system: Kicker + display title + lead, no band, no gradient). */
+/* View header: the guinda band and 3D emblem every section shares (view-band.css, emblem.js). */
 .pl-head{padding:8px 0 0}
+.pl-view .pl-head :is(.pl-title,.pl-lead,.pl-basis,.pl-cut){max-width:min(680px,calc(100% - 200px));color:#fff}
+.pl-view .pl-head :is(.pl-lead,.pl-basis,.pl-cut){opacity:.92}
+.pl-view .pl-head .pl-kicker{color:#fde8ee}
+@media (max-width:640px){.pl-view .pl-head :is(.pl-title,.pl-lead,.pl-basis,.pl-cut){max-width:none}}
 .pl-kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 10px;font:700 11px/16px var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
 .pl-kicker::before{content:"";width:18px;height:2px;background:var(--gold)}
 .pl-title{margin:0;font:600 clamp(30px,4.4vw,44px)/1.08 var(--font-display);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
