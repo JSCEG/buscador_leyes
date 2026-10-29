@@ -1,0 +1,1328 @@
+{
+ "corte": "2026-10-28",
+ "definicion": "Un Polo de Desarrollo para el Bienestar es un terreno de propiedad pública, con límites definidos, que el Gobierno de México prepara para que lleguen empresas e industrias y se generen empleos e inversión en una región. Las empresas que se instalan ahí pueden recibir apoyos fiscales por tiempo limitado y facilidades para hacer trámites, y cada polo nace con una «declaratoria» publicada en el Diario Oficial de la Federación (DOF). La figura nació en el Istmo de Tehuantepec: el artículo 4, fracción VIII, del «Decreto por el que se crea el organismo público descentralizado, con personalidad jurídica y patrimonio propio, no sectorizado, denominado Corredor Interoceánico del Istmo de Tehuantepec» (DOF 14/06/2019, reformado el 14/03/2023) encarga al Corredor emitir las declaratorias. En 2025 se extendió a todo el país con el «Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar» (DOF 22/05/2025) y el «Decreto por el que se otorgan beneficios fiscales en los Polos de Desarrollo de Economía Circular para el Bienestar» (DOF 04/07/2025).",
+ "figuras": [
+  {
+   "clave": "PODEBI",
+   "nombre": "Polo de Desarrollo para el Bienestar",
+   "autoridad": "Corredor Interoceánico del Istmo de Tehuantepec (CIIT), organismo vinculado a la Secretaría de Marina",
+   "fundamento": "Artículos 4, fracción VIII, y 9, fracción V, del «Decreto por el que se crea el organismo público descentralizado, con personalidad jurídica y patrimonio propio, no sectorizado, denominado Corredor Interoceánico del Istmo de Tehuantepec» (DOF 14/06/2019, reformado el 14/03/2023). Estímulos fiscales: decreto publicado en el DOF el 05/06/2023.",
+   "descripcion": "Polos junto a la ruta del Tren Interoceánico, en Oaxaca, Veracruz, Chiapas y Tabasco. El Corredor los declara y luego los entrega en concesión a un desarrollador mediante licitación pública."
+  },
+  {
+   "clave": "PODECOBI",
+   "nombre": "Polo de Desarrollo Económico para el Bienestar",
+   "autoridad": "Secretaría de Economía",
+   "fundamento": "«Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar» (DOF 22/05/2025), artículos Primero, segundo párrafo, y Décimo, tercer párrafo; y «Acuerdo por el que se emiten los Lineamientos para los Polos de Desarrollo Económico para el Bienestar» (DOF 22/05/2025).",
+   "descripcion": "Polos del Plan México repartidos por el país para atraer fábricas, logística y servicios. Cada declaratoria fija los sectores que se quieren atraer."
+  },
+  {
+   "clave": "PODECIBI",
+   "nombre": "Polo de Desarrollo de Economía Circular para el Bienestar",
+   "autoridad": "Secretaría de Medio Ambiente y Recursos Naturales (SEMARNAT)",
+   "fundamento": "«Decreto por el que se otorgan beneficios fiscales en los Polos de Desarrollo de Economía Circular para el Bienestar» (DOF 04/07/2025) y el Acuerdo que emite sus Lineamientos (DOF 21/07/2025); artículo 32 Bis de la Ley Orgánica de la Administración Pública Federal.",
+   "descripcion": "Polos para la economía circular: reciclar, aprovechar residuos y producir de forma más limpia. Las empresas deben informar cuánto ayudan a reducir la contaminación."
+  }
+ ],
+ "incentivos": [
+  "PODEBI (Istmo): descuento (crédito fiscal) del 100% del ISR los primeros 3 años y de 50% los 3 siguientes, que puede llegar a 90% si se cumplen metas de empleo; deducción inmediata del 100% de la inversión en activos fijos nuevos; crédito del 100% del IVA por 4 años. Fuente: decreto de estímulos fiscales del Istmo, DOF 05/06/2023; Hacienda (estimulosfiscales.hacienda.gob.mx).",
+  "PODECOBI: deducción inmediata del 100% de la inversión en activos fijos nuevos, más una deducción adicional de 25% en gastos de capacitación y otra de 25% en innovación; vigentes hasta 2030. Se requiere domicilio fiscal en el polo y convenio con la Secretaría de Economía. Fuente: decreto DOF 22/05/2025.",
+  "PODECIBI: beneficios fiscales para desarrolladores y empresas de economía circular hasta el ejercicio fiscal 2030, calculados solo sobre los ingresos de las actividades realizadas dentro del polo. Fuente: decreto DOF 04/07/2025.",
+  "Todas las figuras: terrenos con infraestructura y facilidades administrativas para hacer trámites. Fuente: Plan México, Secretaría de Economía (2025)."
+ ],
+ "fuentes": [
+  {
+   "titulo": "Diario Oficial de la Federación (DOF)",
+   "url": "https://dof.gob.mx"
+  },
+  {
+   "titulo": "Sistema de Información del DOF (SIDOF)",
+   "url": "https://sidof.segob.gob.mx"
+  },
+  {
+   "titulo": "Secretaría de Economía · Polos de Desarrollo Económico para el Bienestar",
+   "url": "https://www.gob.mx/se/acciones-y-programas/polos-de-desarrollo-economico-para-el-bienestar"
+  },
+  {
+   "titulo": "Corredor Interoceánico del Istmo de Tehuantepec · PODEBIS",
+   "url": "https://www.gob.mx/ciit/articulos/polos-de-desarrollo-para-el-bienestar-podebis"
+  },
+  {
+   "titulo": "Proyectos México · Polos de Desarrollo Económico para el Bienestar",
+   "url": "https://www.proyectosmexico.gob.mx/proyecto_inversion/polos-de-desarrollo-economico-para-el-bienestar/"
+  },
+  {
+   "titulo": "Hacienda · Estímulos fiscales PODEBI",
+   "url": "https://www.estimulosfiscales.hacienda.gob.mx/es/efiscales_mediante_decreto/podebi"
+  },
+  {
+   "titulo": "Decreto que crea el Corredor Interoceánico del Istmo de Tehuantepec (DOF 14/06/2019)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5562774&fecha=14/06/2019"
+  },
+  {
+   "titulo": "Decreto de estímulos fiscales del Istmo de Tehuantepec (DOF 05/06/2023)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5691049&fecha=05/06/2023"
+  },
+  {
+   "titulo": "Decreto de estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar (DOF 22/05/2025)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5758077&fecha=22/05/2025"
+  },
+  {
+   "titulo": "Lineamientos para los Polos de Desarrollo Económico para el Bienestar (DOF 22/05/2025)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5758079&fecha=22/05/2025"
+  }
+ ],
+ "aclaraciones": [
+  "Conteo verificado contra el DOF: 14 PODEBI + 15 PODECOBI + 3 PODECIBI = 32 declaratorias vigentes, más 1 abrogada (Parque Hidalgo). El reporte base de SENER y su bitácora cuentan 15 PODEBI porque incluyen los «Polos Industriales del Bienestar» Progreso I y Mérida I (Yucatán), que no son declaratorias del Corredor Interoceánico sino un decreto de Hacienda (DOF 28/06/2024); por eso no se incluyen aquí.",
+  "Las coordenadas son aproximadas: corresponden a la cabecera del municipio principal, no al terreno exacto del polo."
+ ],
+ "polos": [
+  {
+   "id": "podebi-coatzacoalcos-i",
+   "figura": "PODEBI",
+   "nombre": "Coatzacoalcos I",
+   "estado": "Veracruz",
+   "municipios": [
+    "Coatzacoalcos"
+   ],
+   "lat": 18.134,
+   "lng": -94.459,
+   "precision": "municipio",
+   "superficie_ha": 257.71,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-05-12",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Coatzacoalcos I",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5688608&fecha=12/05/2023"
+    },
+    {
+     "fecha": "2023-06-20",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-1-2023",
+     "url": "https://sidof.segob.gob.mx/notas/5692693"
+    },
+    {
+     "fecha": "2023-11-17",
+     "tipo": "fallo",
+     "titulo": "Fallo de la licitación LPIBI-013AYH-PODEBI-1-2023: el polo se asigna a un desarrollador",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_COATZA_I.pdf"
+  },
+  {
+   "id": "podebi-coatzacoalcos-ii",
+   "figura": "PODEBI",
+   "nombre": "Coatzacoalcos II",
+   "estado": "Veracruz",
+   "municipios": [
+    "Coatzacoalcos"
+   ],
+   "lat": 18.134,
+   "lng": -94.459,
+   "precision": "municipio",
+   "superficie_ha": 131.82,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-05-12",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Coatzacoalcos II",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5688609&fecha=12/05/2023"
+    },
+    {
+     "fecha": "2023-06-20",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-2-2023",
+     "url": "https://sidof.segob.gob.mx/notas/5692717"
+    },
+    {
+     "fecha": "2023-11-17",
+     "tipo": "fallo",
+     "titulo": "Fallo de la licitación LPIBI-013AYH-PODEBI-2-2023: el polo se asigna a un desarrollador",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_COATZA_II.pdf"
+  },
+  {
+   "id": "podebi-salina-cruz",
+   "figura": "PODEBI",
+   "nombre": "Salina Cruz",
+   "estado": "Oaxaca",
+   "municipios": [
+    "Salina Cruz"
+   ],
+   "lat": 16.171,
+   "lng": -95.195,
+   "precision": "municipio",
+   "superficie_ha": 82.09,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-05-12",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Salina Cruz",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5688610&fecha=12/05/2023"
+    },
+    {
+     "fecha": "2023-06-20",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-3-2023",
+     "url": "https://sidof.segob.gob.mx/notas/5692719"
+    },
+    {
+     "fecha": "2023-11-17",
+     "tipo": "fallo",
+     "titulo": "Fallo de la licitación LPIBI-013AYH-PODEBI-3-2023: el polo se asigna a un desarrollador",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_SC.pdf"
+  },
+  {
+   "id": "podebi-san-blas-atempa",
+   "figura": "PODEBI",
+   "nombre": "San Blas Atempa",
+   "estado": "Oaxaca",
+   "municipios": [
+    "San Blas Atempa"
+   ],
+   "lat": 16.326,
+   "lng": -95.226,
+   "precision": "municipio",
+   "superficie_ha": 331.54,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-05-12",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar San Blas Atempa",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5688611&fecha=12/05/2023"
+    },
+    {
+     "fecha": "2025-01-14",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-1-2025",
+     "url": "https://sidof.segob.gob.mx/notas/5747110"
+    },
+    {
+     "fecha": "2025-07-24",
+     "tipo": "fallo",
+     "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-1-2025 (fallo del 15/07/2025)",
+     "url": null
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podebi-san-juan-evangelista",
+   "figura": "PODEBI",
+   "nombre": "San Juan Evangelista",
+   "estado": "Veracruz",
+   "municipios": [
+    "San Juan Evangelista"
+   ],
+   "lat": 17.884,
+   "lng": -95.14,
+   "precision": "municipio",
+   "superficie_ha": 360.25,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-05-12",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar San Juan Evangelista",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5688612&fecha=12/05/2023"
+    },
+    {
+     "fecha": "2023-06-20",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-4-2023",
+     "url": "https://sidof.segob.gob.mx/notas/5692724"
+    },
+    {
+     "fecha": "2024-02-26",
+     "tipo": "otro",
+     "titulo": "El primer fallo de la licitación queda sin efectos",
+     "url": null
+    },
+    {
+     "fecha": "2024-03-05",
+     "tipo": "convocatoria",
+     "titulo": "Nueva convocatoria a licitación LPIBI-013AYH-PODEBI-1-2024",
+     "url": "https://sidof.segob.gob.mx/notas/5719087"
+    },
+    {
+     "fecha": "2024-05-30",
+     "tipo": "fallo",
+     "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-1-2024 (fallo del 20/05/2024)",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_SJE.pdf"
+  },
+  {
+   "id": "podebi-texistepec",
+   "figura": "PODEBI",
+   "nombre": "Texistepec",
+   "estado": "Veracruz",
+   "municipios": [
+    "Texistepec",
+    "Jáltipan"
+   ],
+   "lat": 17.896,
+   "lng": -94.815,
+   "precision": "municipio",
+   "superficie_ha": 462.39,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-05-12",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Texistepec",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5688613&fecha=12/05/2023"
+    },
+    {
+     "fecha": "2023-06-20",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-5-2023",
+     "url": "https://sidof.segob.gob.mx/notas/5692707"
+    },
+    {
+     "fecha": "2023-11-28",
+     "tipo": "fallo",
+     "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-5-2023 (fallo del 17/11/2023)",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_TEXISTEPEC.pdf"
+  },
+  {
+   "id": "podebi-matias-romero",
+   "figura": "PODEBI",
+   "nombre": "Matías Romero Avendaño",
+   "estado": "Oaxaca",
+   "municipios": [
+    "Matías Romero Avendaño"
+   ],
+   "lat": 16.879,
+   "lng": -95.039,
+   "precision": "municipio",
+   "superficie_ha": 179.27,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-10-11",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Matías Romero Avendaño",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5704695&fecha=11/10/2023"
+    },
+    {
+     "fecha": "2023-10-30",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-8-2023",
+     "url": null
+    },
+    {
+     "fecha": "2024-04-18",
+     "tipo": "fallo",
+     "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-8-2023 (fallo del 12/04/2024)",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_MATIAS_ROMERO.pdf"
+  },
+  {
+   "id": "podebi-santa-maria-mixtequilla",
+   "figura": "PODEBI",
+   "nombre": "Santa María Mixtequilla",
+   "estado": "Oaxaca",
+   "municipios": [
+    "Santa María Mixtequilla"
+   ],
+   "lat": 16.393,
+   "lng": -95.282,
+   "precision": "municipio",
+   "superficie_ha": 502.43,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-10-11",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Santa María Mixtequilla",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5704696&fecha=11/10/2023"
+    },
+    {
+     "fecha": "2023-10-30",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-9-2023",
+     "url": null
+    },
+    {
+     "fecha": "2024-04-18",
+     "tipo": "fallo",
+     "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-9-2023 (fallo del 12/04/2024)",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_MIXTEQUILLA.pdf"
+  },
+  {
+   "id": "podebi-ciudad-ixtepec",
+   "figura": "PODEBI",
+   "nombre": "Ciudad Ixtepec",
+   "estado": "Oaxaca",
+   "municipios": [
+    "Ciudad Ixtepec"
+   ],
+   "lat": 16.563,
+   "lng": -95.101,
+   "precision": "municipio",
+   "superficie_ha": 412.54,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-10-11",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Ciudad Ixtepec",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5704697&fecha=11/10/2023"
+    },
+    {
+     "fecha": "2023-10-30",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-7-2023",
+     "url": null
+    },
+    {
+     "fecha": "2023-11-30",
+     "tipo": "cancelacion",
+     "titulo": "Se publica el aviso de cancelación de la licitación LPIBI-013AYH-PODEBI-7-2023",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_CD._IXTEPEC.pdf"
+  },
+  {
+   "id": "podebi-asuncion-ixtaltepec",
+   "figura": "PODEBI",
+   "nombre": "Asunción Ixtaltepec",
+   "estado": "Oaxaca",
+   "municipios": [
+    "Asunción Ixtaltepec"
+   ],
+   "lat": 16.501,
+   "lng": -95.064,
+   "precision": "municipio",
+   "superficie_ha": 246.08,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2023-10-16",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Asunción Ixtaltepec",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5705269&fecha=16/10/2023"
+    },
+    {
+     "fecha": "2023-10-30",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional LPIBI-013AYH-PODEBI-6-2023",
+     "url": null
+    },
+    {
+     "fecha": "2024-04-12",
+     "tipo": "otro",
+     "titulo": "La primera licitación se declara desierta (no hubo ganador)",
+     "url": null
+    },
+    {
+     "fecha": "2024-09-10",
+     "tipo": "fallo",
+     "titulo": "Se publica el aviso del fallo de la nueva licitación LPIBI-013AYH-PODEBI-2-2024 (fallo del 30/08/2024)",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5738700&fecha=10/09/2024"
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_ASUNCIO╠üN_IXTALTEPEC.pdf"
+  },
+  {
+   "id": "podebi-tapachula-i",
+   "figura": "PODEBI",
+   "nombre": "Tapachula I",
+   "estado": "Chiapas",
+   "municipios": [
+    "Tapachula"
+   ],
+   "lat": 14.906,
+   "lng": -92.263,
+   "precision": "municipio",
+   "superficie_ha": 263.17,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-04-08",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Tapachula I",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5754325&fecha=08/04/2025"
+    },
+    {
+     "fecha": "2025-06-11",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional (concesión a 30 años) LPIBI-013AYH-PODEBI-2-2025",
+     "url": "https://sidof.segob.gob.mx/notas/5759865"
+    },
+    {
+     "fecha": "2026-01-22",
+     "tipo": "otro",
+     "titulo": "Se publica el aviso que declara desierta la licitación LPIBI-013AYH-PODEBI-2-2025 (no hubo ganador)",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_TAPACHULA I.pdf"
+  },
+  {
+   "id": "podebi-tapachula-ii",
+   "figura": "PODEBI",
+   "nombre": "Tapachula II",
+   "estado": "Chiapas",
+   "municipios": [
+    "Tapachula"
+   ],
+   "lat": 14.906,
+   "lng": -92.263,
+   "precision": "municipio",
+   "superficie_ha": 149.72,
+   "vocaciones": [
+    "Eléctrica y electrónica",
+    "Semiconductores",
+    "Automotriz (electromovilidad), autopartes y equipo de transporte",
+    "Dispositivos médicos",
+    "Farmacéutica",
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica (energías limpias)",
+    "Maquinaria y equipo",
+    "Tecnologías de la información y la comunicación",
+    "Metales",
+    "Petroquímica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-04-08",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Tapachula II",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5754326&fecha=08/04/2025"
+    },
+    {
+     "fecha": "2025-06-11",
+     "tipo": "convocatoria",
+     "titulo": "Convocatoria a licitación pública internacional (concesión a 30 años) LPIBI-013AYH-PODEBI-3-2025",
+     "url": "https://sidof.segob.gob.mx/notas/5759880"
+    },
+    {
+     "fecha": "2026-01-22",
+     "tipo": "otro",
+     "titulo": "Se publica el aviso que declara desierta la licitación LPIBI-013AYH-PODEBI-3-2025 (no hubo ganador)",
+     "url": null
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/Declaratoria_Tapachula_II.pdf"
+  },
+  {
+   "id": "podebi-arriaga",
+   "figura": "PODEBI",
+   "nombre": "Arriaga",
+   "estado": "Chiapas",
+   "municipios": [
+    "Arriaga"
+   ],
+   "lat": 16.236,
+   "lng": -93.899,
+   "precision": "municipio",
+   "superficie_ha": 48.83,
+   "vocaciones": [
+    "Agroindustria",
+    "Equipo de generación y distribución de energía eléctrica",
+    "Metales"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-06-08",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Arriaga",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5789894&fecha=08/06/2026"
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/7. Polos Arriaga y Teapa/Arriaga/Acuerdo CIIT-26-XXXIII-SE-02 Declaratoria Arriaga.pdf"
+  },
+  {
+   "id": "podebi-teapa",
+   "figura": "PODEBI",
+   "nombre": "Teapa",
+   "estado": "Tabasco",
+   "municipios": [
+    "Teapa"
+   ],
+   "lat": 17.549,
+   "lng": -92.952,
+   "precision": "municipio",
+   "superficie_ha": 96.14,
+   "vocaciones": [
+    "Agroindustria",
+    "Petroquímica",
+    "Comercio y logística"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-06-08",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Teapa",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5789895&fecha=08/06/2026"
+    }
+   ],
+   "fuente_local": "PODEBIS-SEMAR/7. Polos Arriaga y Teapa/Teapa/Acuerdo CIIT-26-XXXIII-SE-04 Declaratoria Teapa.pdf"
+  },
+  {
+   "id": "podecobi-seybaplaya-i",
+   "figura": "PODECOBI",
+   "nombre": "Seybaplaya I",
+   "estado": "Campeche",
+   "municipios": [
+    "Seybaplaya"
+   ],
+   "lat": 19.646,
+   "lng": -90.688,
+   "precision": "municipio",
+   "superficie_ha": 99.99,
+   "vocaciones": [
+    "Logística",
+    "Agroindustria",
+    "Manufactura ligada a la industria energética",
+    "Otras industrias ligeras"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-06-30",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Seybaplaya I",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761459&fecha=30/06/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-san-jeronimo",
+   "figura": "PODECOBI",
+   "nombre": "San Jerónimo",
+   "estado": "Chihuahua",
+   "municipios": [
+    "Juárez"
+   ],
+   "lat": 31.69,
+   "lng": -106.424,
+   "precision": "municipio",
+   "superficie_ha": 60.32,
+   "vocaciones": [
+    "Logística",
+    "Centro de innovación industrial",
+    "Automotriz",
+    "Electromovilidad",
+    "Dispositivos médicos",
+    "Servicios tecnológicos"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-06-30",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar San Jerónimo",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761460&fecha=30/06/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-reserva-zapotlan",
+   "figura": "PODECOBI",
+   "nombre": "Reserva Zapotlán",
+   "estado": "Hidalgo",
+   "municipios": [
+    "Zapotlán de Juárez"
+   ],
+   "lat": 19.973,
+   "lng": -98.861,
+   "precision": "municipio",
+   "superficie_ha": 922.2,
+   "vocaciones": [
+    "Logística",
+    "Manufactura",
+    "Farmacéutica y dispositivos médicos",
+    "Automotriz",
+    "Aeroespacial"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-06-30",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Reserva Zapotlán",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761461&fecha=30/06/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-futura-capital",
+   "figura": "PODECOBI",
+   "nombre": "Futura Capital de la Tecnología y la Sostenibilidad",
+   "estado": "Puebla",
+   "municipios": [
+    "San José Chiapa",
+    "Nopalucan"
+   ],
+   "lat": 19.237,
+   "lng": -97.766,
+   "precision": "municipio",
+   "superficie_ha": 275.2,
+   "vocaciones": [
+    "Manufactura avanzada",
+    "Automotriz",
+    "Textil especializada",
+    "Electrónica",
+    "Química",
+    "Plástico y hule"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-07-01",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Futura Capital de la Tecnología y la Sostenibilidad",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761567&fecha=01/07/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-chetumal",
+   "figura": "PODECOBI",
+   "nombre": "Chetumal",
+   "estado": "Quintana Roo",
+   "municipios": [
+    "Othón P. Blanco"
+   ],
+   "lat": 18.5,
+   "lng": -88.296,
+   "precision": "municipio",
+   "superficie_ha": 87.8,
+   "vocaciones": [
+    "Energía eléctrica",
+    "Textil",
+    "Metalurgia",
+    "Maquinaria y equipo",
+    "Agroindustria",
+    "Tecnologías de la información y comunicación",
+    "Actividades industriales y comercio internacional",
+    "Almacenamiento y distribución de mercancías"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-07-01",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Chetumal",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761568&fecha=01/07/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-parque-industrial-bajio",
+   "figura": "PODECOBI",
+   "nombre": "Parque Industrial Bajío",
+   "estado": "Michoacán",
+   "municipios": [
+    "Zinapécuaro"
+   ],
+   "lat": 19.861,
+   "lng": -100.826,
+   "precision": "municipio",
+   "superficie_ha": 342.08,
+   "vocaciones": [
+    "Agroindustria",
+    "Automotriz y autopartes",
+    "Electrodomésticos",
+    "Logística",
+    "Maquinaria y equipo"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-07-07",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Parque Industrial Bajío",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5762147&fecha=07/07/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-puerta-logistica-bajio",
+   "figura": "PODECOBI",
+   "nombre": "Puerta Logística del Bajío",
+   "estado": "Guanajuato",
+   "municipios": [
+    "Celaya"
+   ],
+   "lat": 20.523,
+   "lng": -100.815,
+   "precision": "municipio",
+   "superficie_ha": 52.41,
+   "vocaciones": [
+    "Industria",
+    "Manufactura avanzada",
+    "Logística y transporte",
+    "Agroindustria de valor agregado",
+    "Tecnologías de la información y servicios empresariales",
+    "Automotriz",
+    "Aeroespacial"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-07-21",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Puerta Logística del Bajío",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5763405&fecha=21/07/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-nezahualcoyotl",
+   "figura": "PODECOBI",
+   "nombre": "Nezahualcóyotl",
+   "estado": "Estado de México",
+   "municipios": [
+    "Nezahualcóyotl"
+   ],
+   "lat": 19.4,
+   "lng": -99.015,
+   "precision": "municipio",
+   "superficie_ha": 68.37,
+   "vocaciones": [
+    "Logística",
+    "Economía digital",
+    "Servicios tecnológicos",
+    "Electrónica",
+    "Industria ligera",
+    "Farmacéutica y dispositivos médicos"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-08-07",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Nezahualcóyotl",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5764903&fecha=07/08/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-huamantla",
+   "figura": "PODECOBI",
+   "nombre": "Huamantla",
+   "estado": "Tlaxcala",
+   "municipios": [
+    "Huamantla"
+   ],
+   "lat": 19.313,
+   "lng": -97.923,
+   "precision": "municipio",
+   "superficie_ha": 53.0,
+   "vocaciones": [
+    "Textil",
+    "Industrias metálicas básicas",
+    "Productos metálicos",
+    "Maquinaria y equipo",
+    "Equipo de cómputo",
+    "Aparatos eléctricos",
+    "Equipo de transporte",
+    "Bebidas y tabaco"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-08-14",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Huamantla",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5765468&fecha=14/08/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-durango",
+   "figura": "PODECOBI",
+   "nombre": "Centro Logístico e Industrial de Durango",
+   "estado": "Durango",
+   "municipios": [
+    "Durango"
+   ],
+   "lat": 24.027,
+   "lng": -104.653,
+   "precision": "municipio",
+   "superficie_ha": 315.42,
+   "vocaciones": [
+    "Electromovilidad",
+    "Industria cinematográfica",
+    "Autopartes",
+    "Electrónica especializada",
+    "Manufactura avanzada",
+    "Textil",
+    "Papel",
+    "Automotriz"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-08-26",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Centro Logístico e Industrial de Durango",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5766563&fecha=26/08/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-hermosillo",
+   "figura": "PODECOBI",
+   "nombre": "e Innovación de Hermosillo",
+   "estado": "Sonora",
+   "municipios": [
+    "Hermosillo"
+   ],
+   "lat": 29.073,
+   "lng": -110.956,
+   "precision": "municipio",
+   "superficie_ha": 546.46,
+   "vocaciones": [
+    "Manufactura automotriz",
+    "Chips y electrónica especializada",
+    "Agroindustria",
+    "Energía",
+    "Logística",
+    "Equipos médicos y de medición"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-08-26",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar e Innovación de Hermosillo",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5766564&fecha=26/08/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-tuxpan",
+   "figura": "PODECOBI",
+   "nombre": "Tuxpan",
+   "estado": "Veracruz",
+   "municipios": [
+    "Tuxpan"
+   ],
+   "lat": 20.957,
+   "lng": -97.406,
+   "precision": "municipio",
+   "superficie_ha": 235.1,
+   "vocaciones": [
+    "Logística",
+    "Agroindustria",
+    "Industria ligera",
+    "Energía",
+    "Industria pesada",
+    "Textil especializada",
+    "Actividades industriales y comercio internacional",
+    "Almacenamiento y distribución de mercancías"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-08-26",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Tuxpan",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5766562&fecha=26/08/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-altamira",
+   "figura": "PODECOBI",
+   "nombre": "Altamira",
+   "estado": "Tamaulipas",
+   "municipios": [
+    "Altamira"
+   ],
+   "lat": 22.393,
+   "lng": -97.944,
+   "precision": "municipio",
+   "superficie_ha": 1637.78,
+   "vocaciones": [
+    "Automotriz",
+    "Química",
+    "Farmacéutica",
+    "Petroquímica",
+    "Eléctrica y electrónica",
+    "Metalmecánica",
+    "Manufactura avanzada",
+    "Logística"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2025-10-21",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Altamira",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5770448&fecha=21/10/2025"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-topolobampo",
+   "figura": "PODECOBI",
+   "nombre": "Topolobampo",
+   "estado": "Sinaloa",
+   "municipios": [
+    "Ahome"
+   ],
+   "lat": 25.791,
+   "lng": -108.994,
+   "precision": "municipio",
+   "superficie_ha": 277.58,
+   "vocaciones": [
+    "Manufactura avanzada",
+    "Logística",
+    "Química y petroquímica (fertilizantes)",
+    "Plástico y hule",
+    "Industrias metálicas básicas"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-03-20",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Topolobampo",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5782770&fecha=20/03/2026"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecobi-cancun",
+   "figura": "PODECOBI",
+   "nombre": "Distrito Financiero y Tecnológico de Cancún",
+   "estado": "Quintana Roo",
+   "municipios": [
+    "Benito Juárez"
+   ],
+   "lat": 21.161,
+   "lng": -86.851,
+   "precision": "municipio",
+   "superficie_ha": 60.76,
+   "vocaciones": [
+    "Turismo médico",
+    "Producción audiovisual",
+    "Animación digital y contenidos",
+    "Servicios gastronómicos",
+    "Servicios educativos y formación profesional",
+    "Comercio al por mayor de alimentos y abarrotes",
+    "Centros de servicios empresariales y financieros",
+    "Centros de distribución para el Caribe"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-08-07",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Distrito Financiero y Tecnológico de Cancún",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5795731&fecha=07/08/2026"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecibi-puebla",
+   "figura": "PODECIBI",
+   "nombre": "Puebla",
+   "estado": "Puebla",
+   "municipios": [
+    "San José Chiapa"
+   ],
+   "lat": 19.237,
+   "lng": -97.766,
+   "precision": "municipio",
+   "superficie_ha": 40.43,
+   "vocaciones": [
+    "Economía circular (desarrolladores y empresas de economía circular)"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-03-02",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Puebla",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5781224&fecha=02/03/2026"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecibi-tlaxcala",
+   "figura": "PODECIBI",
+   "nombre": "Tlaxcala",
+   "estado": "Tlaxcala",
+   "municipios": [
+    "Atlangatepec"
+   ],
+   "lat": 19.528,
+   "lng": -98.205,
+   "precision": "municipio",
+   "superficie_ha": 20.0,
+   "vocaciones": [
+    "Economía circular y manejo de residuos",
+    "Investigación en economía circular"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-06-08",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Tlaxcala",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5789881&fecha=08/06/2026"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecibi-quintana-roo",
+   "figura": "PODECIBI",
+   "nombre": "Quintana Roo",
+   "estado": "Quintana Roo",
+   "municipios": [
+    "Puerto Morelos"
+   ],
+   "lat": 20.847,
+   "lng": -86.875,
+   "precision": "municipio",
+   "superficie_ha": 39.9,
+   "vocaciones": [
+    "Aprovechamiento de residuos y economía circular",
+    "Investigación sobre aprovechamiento del sargazo",
+    "Investigación, innovación y formación académica"
+   ],
+   "estatus": "vigente",
+   "hitos": [
+    {
+     "fecha": "2026-07-27",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Quintana Roo",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5794759&fecha=27/07/2026"
+    }
+   ],
+   "fuente_local": null
+  },
+  {
+   "id": "podecibi-parque-hidalgo",
+   "figura": "PODECIBI",
+   "nombre": "Parque Hidalgo",
+   "estado": "Hidalgo",
+   "municipios": [
+    "Atitalaquia",
+    "Tlaxcoapan"
+   ],
+   "lat": 20.059,
+   "lng": -99.221,
+   "precision": "municipio",
+   "superficie_ha": 275.1,
+   "vocaciones": [
+    "Uso industrial de economía circular",
+    "Investigación o educación",
+    "Comercio"
+   ],
+   "estatus": "abrogada",
+   "hitos": [
+    {
+     "fecha": "2025-08-01",
+     "tipo": "declaratoria",
+     "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Parque Hidalgo",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5764497&fecha=01/08/2025"
+    },
+    {
+     "fecha": "2025-12-14",
+     "tipo": "otro",
+     "titulo": "Consulta ciudadana en Tula de Allende, Tlaxcoapan y Atitalaquia: gana el «No» con 63.1% de los votos",
+     "url": null
+    },
+    {
+     "fecha": "2026-07-23",
+     "tipo": "abrogacion",
+     "titulo": "SEMARNAT publica en el DOF el acuerdo que abroga (deja sin efecto) la declaratoria",
+     "url": "https://dof.gob.mx/nota_detalle.php?codigo=5794523&fecha=23/07/2026"
+    }
+   ],
+   "fuente_local": null
+  }
+ ]
+}
