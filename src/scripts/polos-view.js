@@ -11,7 +11,6 @@ import { baseLayers, networkLayers, NETWORKS, stateKey, cssToken } from '../lib/
 import { infraType } from '../lib/infra-icons.js';
 import { techMarkerSVG } from '../lib/tech-markers.js';
 import { permitsHash } from '../lib/cne-api.js';
-import { emblemHtml } from '../lib/emblem.js';
 import { FIGURAS, FIGURA, polosHash, stats, poloCenter, permitsNear, hitosOrdenados, poloPinSVG } from '../lib/polos.js';
 import '../styles/polos.css';
 
@@ -94,8 +93,7 @@ export function renderPolosView(container, { id = null, onRoute }) {
         const basis = cut > 0 ? data.definicion.slice(cut + 1) : '';
         container.innerHTML = `
         <section class="pl-view">
-            <header class="pl-head" data-emblem-host>
-                ${emblemHtml('polos')}
+            <header class="pl-head">
                 <p class="pl-kicker">Plan México · Información oficial</p>
                 <h1 class="pl-title">Polos de Desarrollo para el Bienestar</h1>
                 <p class="pl-lead">${esc(lead)}</p>

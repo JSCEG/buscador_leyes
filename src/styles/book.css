@@ -92,3 +92,4 @@ html .lr-table.is-pagina :is(thead th, thead td, tbody th) { position: static; b
 }
 @media (prefers-reduced-motion: reduce) { .bk-tb-card { transition: none; } }
 @media print { .bk-bar, .bk-pie { display: none; } }
+.bk-ajustes{margin:0;padding:0;border:0;background:none}

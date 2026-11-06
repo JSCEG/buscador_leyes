@@ -8,7 +8,6 @@ import { tramiteById } from '../data/tramites.js';
 import { lawBySiglas } from './cne-shared.js';
 import { learnPath, shareUrl } from '../lib/seo-paths.js';
 import '../styles/como-funciona.css';
-import { emblemHtml } from '../lib/emblem.js';
 
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const dark = () => document.documentElement.classList.contains('dark-mode');
@@ -155,8 +154,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
 
         container.innerHTML = `
             <section class="cf-view" aria-labelledby="cf-title">
-                <header class="cf-head" data-emblem-host>
-                    ${emblemHtml('como-funciona')}
+                <header class="cf-head">
                     <p class="cf-kicker">Aprende con ejemplos y dibujos</p>
                     <h1 id="cf-title">¿Cómo funciona el sector energético?</h1>
                     <p class="cf-intro">Cómo llega la luz a tu casa y la gasolina a tu coche, explicado desde lo más básico: qué es la corriente, cómo funcionan una central, una refinería o un gasoducto, y qué dicen las leyes de energía de 2025.</p>

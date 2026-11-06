@@ -404,7 +404,7 @@ mark, mark.hl, .hl { background: var(--highlight); color: var(--ink); border-rad
   --radius-xs: 6px; --radius-sm: 11px; --radius-md: 12px; --radius-nest: 13px; --radius-lg: 20px; --radius-xl: 24px; --radius-2xl: 33px;
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  --font-mono: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --t-rapido: 160ms; --t-medio: 320ms; --t-lento: 800ms;
   --ease-entrada: cubic-bezier(.16, 1, .3, 1); --ease-menu: cubic-bezier(.32, .72, 0, 1); --ease-resorte: cubic-bezier(.34, 1.4, .64, 1);
   --z-menu: 50; --z-dock: 60; --z-desplegable: 70; --z-visor: 90;

@@ -53,7 +53,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
     root.className = 'pm-view';
     root.setAttribute('aria-labelledby', 'pm-title');
     root.innerHTML = `
-        <div class="pm-head" data-emblem-host>
+        <div class="pm-head">
             <p class="pm-autoridad" data-authority></p>
             <h1 id="pm-title">Permisos de energía</h1>
             <p class="pm-intro"></p>

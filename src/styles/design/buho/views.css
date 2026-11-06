@@ -1,0 +1,37 @@
+/* Lo común a las demás vistas: encabezados de tinta sobre papel, sin bandas de color, y una acción principal en tinta.
+   Va con selector largo porque cada vista carga su hoja al abrirse. */
+
+/* Encabezados */
+html body :is(.tl-head, .rt-head, .cf-head, .ac-library .ac-hero) { margin: 0 0 14px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--tinta); }
+html body :is(.tl-head, .rt-head, .ac-library .ac-hero)::before,
+html body :is(.tl-head, .rt-head, .ac-library .ac-hero)::after { display: none; }
+html body :is(.tl-head, .rt-head, .cf-head, .pl-head, .hp-head) h1,
+html body .ac-library .ac-hero h1 { color: var(--tinta) !important; font-family: var(--font-display); font-weight: 400; letter-spacing: -.01em; }
+html body :is(.tl-head, .rt-head, .pl-head, .hp-head) :is(p, span, em, b, strong),
+html body .ac-library .ac-hero :is(p, span, em) { color: var(--tinta-suave) !important; }
+html body .pl-view .pl-head :is(.pl-title, .pl-lead, .pl-basis, .pl-cut) { max-width: 76ch; color: var(--tinta-suave) !important; }
+html body .pl-view .pl-head h1.pl-title, html body .pl-view .pl-head .pl-title { color: var(--tinta) !important; }
+html body .ac-library .ac-hero .ac-header { color: var(--tinta); }
+html body .ac-library .ac-hero input { color: var(--tinta) !important; }
+
+/* Pie del sitio */
+.site-footer::before { display: none; }
+.site-footer { background: none; }
+
+/* Acción principal */
+html body :is(.bg-guinda, .wt-next, .install-yes, .rt-btn-primary, .cf-share) { background: var(--accion); border-color: var(--accion); color: var(--on-accion); }
+html body :is(.bg-guinda, .wt-next, .install-yes, .rt-btn-primary, .cf-share):hover { background: var(--accion); opacity: .88; }
+html body .cf-thread-cta { background: var(--accion); color: var(--on-accion); }
+html body .cf-thread-cta:hover { background: var(--accion); color: var(--on-accion); opacity: .88; }
+html body #welcome-tour .wt-dots i.is-on { background: var(--rojo); }
+html body #welcome-tour { border-top: 0; }
+
+/* Mi mesa */
+html body .desk-head { background: none; color: var(--tinta); border-bottom: 1px solid var(--linea); }
+html body .desk-head :is(h2, p, span, label) { color: var(--tinta); }
+html body .desk-eyebrow { color: var(--tinta-suave); }
+html body .desk-side { background: var(--accion); border-color: var(--accion); color: var(--on-accion); }
+
+/* Avisos */
+html body #app-toast::before { background: var(--rojo); }
+html body .read-progress > span { background: var(--rojo); }
