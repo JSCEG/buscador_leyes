@@ -9,6 +9,7 @@
 @import './design/legacy-dark.css';
 @import './design/chrome.css';
 @import './design/components-extra.css';
+@import './design/buho/index.css';
 
 @tailwind base;
 @tailwind components;

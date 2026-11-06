@@ -1,0 +1,10 @@
+/* Fondo de la app: papel y retícula neutra. Sin manchas de color. */
+.bu-escena { position: relative; isolation: isolate; background-color: var(--papel); }
+.bu-escena::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  opacity: calc(var(--escena) * .5);
+  background-image: radial-gradient(var(--enlace) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse at 55% 35%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse at 55% 35%, #000, transparent 75%);
+}

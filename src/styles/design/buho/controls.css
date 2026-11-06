@@ -1,0 +1,46 @@
+.bu-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 18px;
+  border: 1px solid transparent; border-radius: var(--radius-md); background: none; color: var(--tinta);
+  font: 600 14.5px/1 var(--font-sans); white-space: nowrap; cursor: pointer; text-decoration: none;
+  transition: background-color var(--t-rapido), border-color var(--t-rapido), opacity var(--t-rapido), color var(--t-rapido);
+}
+.bu-btn:disabled { opacity: .5; cursor: not-allowed; }
+.bu-btn:focus-visible, .bu-campo:focus-within, .bu-chip:focus-visible, .bu-seg button:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
+.bu-btn-primario { background: var(--accion); color: var(--on-accion); }
+.bu-btn-primario:hover:not(:disabled) { opacity: .88; }
+.bu-btn-contorno { border-color: var(--tinta); }
+.bu-btn-contorno:hover:not(:disabled) { opacity: .75; }
+.bu-btn-fantasma:hover:not(:disabled) { background: var(--ceniza); }
+.bu-btn-sm { height: 36px; padding: 0 14px; font-size: 13.5px; border-radius: var(--radius-sm); }
+
+.bu-chip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 12px;
+  border: 1px solid var(--cristal-borde); border-radius: 999px; background: var(--cristal); color: var(--tinta-suave);
+  font: 500 13px/1 var(--font-sans); cursor: pointer; transition: border-color var(--t-rapido), background-color var(--t-rapido), color var(--t-rapido);
+}
+.bu-chip:hover { border-color: var(--cristal-borde-hover); color: var(--tinta); }
+.bu-chip[aria-pressed="true"], .bu-chip.is-active { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); font-weight: 600; }
+
+.bu-insignia {
+  display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 9px; border-radius: 6px;
+  background: var(--ceniza); color: var(--tinta-suave); font: 700 11px/1 var(--font-sans); letter-spacing: .02em; white-space: nowrap;
+}
+.bu-insignia-rojo { background: var(--rojo-suave); color: var(--rojo); }
+.bu-insignia-ok { background: color-mix(in srgb, var(--exito) 14%, transparent); color: var(--exito); }
+
+.bu-campo {
+  display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px;
+  border: 1px solid var(--linea); border-radius: var(--radius-md); background: var(--papel-alto); color: var(--tinta);
+}
+.bu-campo input, .bu-campo select { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; color: inherit; font: 450 14.5px/1.3 var(--font-sans); }
+.bu-campo input::placeholder { color: var(--tinta-suave); }
+
+.bu-seg { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--linea); border-radius: 13px; background: var(--papel-alto); }
+.bu-seg button { padding: 6px 12px; border: 0; border-radius: 10px; background: none; color: var(--tinta-suave); font: 500 13px/1.2 var(--font-sans); cursor: pointer; }
+.bu-seg button[aria-checked="true"], .bu-seg button[aria-pressed="true"], .bu-seg button[aria-selected="true"] { background: var(--accion); color: var(--on-accion); }
+
+.bu-ico { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; background: var(--c, var(--ceniza)); color: var(--t, var(--tinta)); }
+.bu-ico svg { display: block; width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.bu-ico.is-ch { width: 24px; height: 24px; border-radius: 7px; }
+.bu-ico.is-ch svg { width: 15px; height: 15px; }
+.bu-ico.is-gd { width: 48px; height: 48px; border-radius: 13px; }

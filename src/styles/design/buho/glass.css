@@ -1,0 +1,18 @@
+/* Dos densidades de cristal, nunca una encima de otra. Contraste los deja opacos desde los tokens. */
+.bu-cristal, .bu-cristal-fuerte {
+  border: 1px solid var(--cristal-borde);
+  background-image: linear-gradient(135deg, var(--cristal-brillo), transparent 45%);
+}
+.bu-cristal {
+  background-color: var(--cristal);
+  -webkit-backdrop-filter: blur(var(--blur-cristal)) saturate(160%);
+  backdrop-filter: blur(var(--blur-cristal)) saturate(160%);
+  box-shadow: var(--sombra-cristal), inset 0 1px 0 var(--cristal-brillo);
+}
+.bu-cristal-fuerte {
+  background-color: var(--cristal-fuerte);
+  -webkit-backdrop-filter: blur(var(--blur-flotante)) saturate(160%);
+  backdrop-filter: blur(var(--blur-flotante)) saturate(160%);
+  box-shadow: var(--sombra-flotante), inset 0 1px 0 var(--cristal-brillo);
+}
+[data-theme="contraste"] .bu-cristal, [data-theme="contraste"] .bu-cristal-fuerte { background-image: none; }

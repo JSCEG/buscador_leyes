@@ -1,0 +1,5 @@
+/* Componentes del sistema Búho, sin React. Cada vista migra a ellos y deja sus clases bj-. */
+@import './scene.css';
+@import './glass.css';
+@import './controls.css';
+@import './dialog.css';
