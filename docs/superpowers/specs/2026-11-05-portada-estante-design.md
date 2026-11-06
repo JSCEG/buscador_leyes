@@ -177,6 +177,14 @@ Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al 
 | `src/scripts/ui.js` | Solo enlace: `showHomeView()`, rutas, `popstate`, logo, `hideAllViews`, inicio de carga | Vista nueva |
 | `index.html` | Contenedor `#home-view` fuera de `#main-container`, que limita el ancho | |
 
+## Logo
+
+La B se sustituye por una S con cejas y ojo de búho (S de Sasso), dibujada desde cero con trazos afilados. La imagen de referencia tenía marcas de agua, así que se tomó el concepto y no sus trazos.
+
+- Fuente única: `src/lib/brand-mark.js`. De ahí salen `logo-mark.svg`, `logo-mark-claro.svg` (modo oscuro), `hero-mark.svg`, `logo-mark-blanco.png`, `logo-buscador.png`, `logo-buscador-claro.png`, favicon, íconos de app e imagen para redes.
+- Colores: guinda con ojo dorado; marfil con ojo dorado en fondos oscuros. Íconos de app sobre guinda.
+- La imagen para redes actualiza sus cifras a 124 documentos y 5,793 artículos.
+
 ## Temas y textos
 
 - Funciona en los cuatro temas (`light`, `dark`, `sepia`, `contraste`) con los tokens existentes.
@@ -226,7 +234,7 @@ Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al 
 
 ## Fuera de alcance
 
-- Barra lateral, logo de búho, resumen, «Leyes populares» y «Lecturas recientes» de las imágenes de referencia.
+- Barra lateral, resumen, «Leyes populares» y «Lecturas recientes» de las imágenes de referencia.
 - Filtrar el estante al escribir.
 - Resúmenes de documentos (no hay datos) y guardar documentos completos (los favoritos son por artículo).
 - Ilustraciones únicas por documento.

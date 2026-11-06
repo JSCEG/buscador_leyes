@@ -1,25 +1,27 @@
 /**
- * The buscador's mark: a "B" built from a bar and a document page, with a gold search lens in its
- * counter. Vector redraw of the reference artwork; `cut` is the background color seen through it.
- * `shine` adds a light sweep clipped to the mark (used by the entrance animation).
+ * The buscador's mark: an S under a sharp owl brow, with one eye. `color` draws the letter and the
+ * brow, `lens` the eye. `shine` adds a light sweep clipped to the mark. The class names `bm-bar`,
+ * `bm-page`, and `bm-lens` are what the entrance animation plays, so they stay on these parts.
  */
-const BAR = { x: 217, y: 211, width: 175, height: 841 };
-const PAGE = 'M462 211 H710 A185 200 0 0 1 790 590 A230 230 0 0 1 745 1052 H683 V830 A140 140 0 0 0 543 690 H462 Z';
+const FRAME = 'translate(190 190) scale(6.53)';
+const BROW = 'M6 2 C22 24 50 31 78 29 C94 28 108 18 118 2 C116 24 106 44 90 66 C90 52 82 41 68 40 C42 38 22 26 6 2 Z';
+const BODY = 'M58 42 C36 42 18 56 22 72 C26 86 52 87 68 91 C84 95 91 105 88 119 C86 127 81 138 72 150 L32 124 C22 116 12 114 2 122 L72 162 C92 150 106 128 105 106 C104 88 86 80 68 75 C52 71 36 68 36 58 C36 50 46 44 58 42 Z';
+const EYE = 'M56 49 C60 60 70 64 84 59 C74 72 54 68 56 49 Z';
 
-export function brandMarkSvg({ cut = '#0d0b0b', color = '#9b2247', lens = '#d0a94e', title = 'Buscador Jurídico', className = '', shine = false } = {}) {
+export function brandMarkSvg({ color = '#9b2247', lens = '#c9a24c', title = 'Buscador Jurídico', className = '', shine = false } = {}) {
     const sweep = shine ? `
   <defs>
-    <clipPath id="bm-clip"><rect x="${BAR.x}" y="${BAR.y}" width="${BAR.width}" height="${BAR.height}" rx="4"/><path d="${PAGE}"/></clipPath>
+    <clipPath id="bm-clip"><path transform="${FRAME}" d="${BROW}"/><path transform="${FRAME}" d="${BODY}"/></clipPath>
     <linearGradient id="bm-shine-grad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#ffe9c2" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <g clip-path="url(#bm-clip)"><rect class="bm-shine" x="0" y="150" width="260" height="1000" fill="url(#bm-shine-grad)" transform="skewX(-18)"/></g>` : '';
-    return `<svg class="${className}" viewBox="190 190 810 890" role="img" aria-label="${title}" xmlns="http://www.w3.org/2000/svg">
-  <rect class="bm-bar" x="${BAR.x}" y="${BAR.y}" width="${BAR.width}" height="${BAR.height}" rx="4" fill="${color}"/>
-  <path class="bm-page" fill="${color}" d="${PAGE}"/>
-  <rect class="bm-line bm-line-1" x="550" y="330" width="242" height="24" rx="12" fill="${cut}"/>
-  <rect class="bm-line bm-line-2" x="550" y="398" width="242" height="24" rx="12" fill="${cut}"/>${sweep}
-  <g class="bm-lens"><circle class="bm-ripple" cx="528" cy="817" r="56" fill="none" stroke="${lens}" stroke-width="6" opacity="0"/><circle cx="528" cy="817" r="56" fill="${lens}"/><path d="M572 858 L613 895" stroke="${lens}" stroke-width="14" stroke-linecap="round"/></g>
+  <g clip-path="url(#bm-clip)"><rect class="bm-shine" x="0" y="150" width="260" height="1200" fill="url(#bm-shine-grad)" transform="skewX(-18)"/></g>` : '';
+    return `<svg class="${className}" viewBox="190 190 810 1084" role="img" aria-label="${title}" xmlns="http://www.w3.org/2000/svg">
+  <g transform="${FRAME}">
+    <path class="bm-body bm-bar" d="${BODY}" fill="${color}"/>
+    <path class="bm-brow bm-page" d="${BROW}" fill="${color}"/>
+    <g class="bm-lens"><path class="bm-eye" d="${EYE}" fill="${lens}"/><circle class="bm-ripple" cx="68" cy="60" r="12" fill="none" stroke="${lens}" stroke-width="1" opacity="0"/></g>
+  </g>${sweep}
 </svg>`;
 }

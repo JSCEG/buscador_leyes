@@ -22,7 +22,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll(['/img/b-mark.svg', '/offline.html', '/img/favicon-64.png']).catch(() => {})
+      cache.addAll(['/img/logo-mark.svg', '/offline.html', '/img/favicon-64.png']).catch(() => {})
     )
   );
 });

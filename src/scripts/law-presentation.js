@@ -36,7 +36,7 @@ const FONT_BODY = 'Noto Sans';
 const LOGO = '/img/logo-buscador.png';
 const LOGO_LIGHT = '/img/logo-buscador-claro.png';
 const LOGO_RATIO = 1426 / 228;
-const COVER_IMAGE = '/img/b-mark-blanco.png';
+const COVER_IMAGE = '/img/logo-mark-blanco.png';
 const ACCENTS = ['guinda', 'verde', 'dorado', 'petroleo'];
 const ANIME_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js';
 const HIGHCHARTS_CDN = 'https://code.highcharts.com/highcharts.js';
@@ -587,7 +587,7 @@ function renderWebDeck(model) {
     return `
         <div id="lp-slide-container" class="lp-slide-container">
             <section class="lp-slide lp-cover active">
-                <div class="lp-cover-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#7a1a38', lens: '#f2c97a' })}</div>
+                <div class="lp-cover-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', lens: '#f2c97a' })}</div>
                 <div class="lp-cover-overlay"></div>
                 <div class="lp-cover-top">
                     <img class="lp-lockup" src="${LOGO_LIGHT}" alt="Buscador Jurídico">
@@ -666,7 +666,7 @@ function renderWebDeck(model) {
             ${articleSlides}
 
             <section class="lp-slide lp-close-slide lp-backcover">
-                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', cut: '#0b1526', lens: '#d0a94e' })}</div>
+                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', lens: '#d0a94e' })}</div>
                 <div class="lp-bc-main">
                     <span class="lp-bc-brand" data-animate>Buscador Jurídico · Sector energético</span>
                     <h2 data-animate>Gracias.</h2>
@@ -746,7 +746,7 @@ function renderSlideShell(title, content) {
             <header class="lp-header">
                 <div class="lp-brand">Buscador Jurídico</div>
                 <div class="lp-title">${escapeHtml(title)}</div>
-                <img src="/img/b-mark.svg" alt="">
+                <img src="/img/logo-mark.svg" alt="">
             </header>
             <main class="lp-content">${content}</main>
             <footer class="lp-footer"></footer>
@@ -1027,7 +1027,7 @@ function ensureWebDeckStyles() {
         .law-presentation-embed .lp-progress-track{bottom:0;border-radius:0 0 10px 10px;overflow:hidden}
         .lp-cover-top .lp-lockup{height:46px;width:auto}
         .lp-close-logos .lp-lockup{height:44px;width:auto}
-        .lp-header img[src$="b-mark.svg"]{height:40px}
+        .lp-header img[src$="logo-mark.svg"]{height:40px}
         .lp-brand{font-size:19px}
         .lp-cover{background:radial-gradient(90% 120% at 100% 0%,#b8375f 0%,transparent 55%),radial-gradient(70% 90% at 0% 100%,#1e5b4f66 0%,transparent 60%),linear-gradient(135deg,#5e1530 0%,#8a1d40 55%,#6d1631 100%)}
         .lp-cover:before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#ffffff1f 1.4px,transparent 1.8px);background-size:34px 34px;z-index:1}

@@ -57,12 +57,14 @@
 
 /* ── Marca ─────────────────────────────────────────────── */
 .bj-lockup { display: inline-flex; align-items: center; gap: 10px; min-width: 0; color: var(--ink); text-decoration: none; border-radius: var(--radius-sm); }
-.bj-lockup__mark { width: 34px; height: auto; flex: none; transition: transform var(--duration-slow) var(--ease-out); }
+.bj-lockup__mark { width: 30px; height: auto; flex: none; transition: transform var(--duration-slow) var(--ease-out); }
 a.bj-lockup:hover .bj-lockup__mark { transform: rotate(-4deg) scale(1.05); }
 .bj-lockup__text { display: flex; flex-direction: column; min-width: 0; }
 .bj-lockup__name { display: block; font: 600 19px/1.05 var(--font-display); letter-spacing: -.01em; color: var(--ink); white-space: nowrap; }
 .bj-lockup__sub { display: block; margin-top: 4px; font: 700 10px/1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); white-space: nowrap; }
-.bj-lockup--sm .bj-lockup__mark { width: 26px; }
+.bj-lockup--sm .bj-lockup__mark { width: 24px; }
+/* En modo oscuro la marca va en marfil: el guinda no se distingue sobre fondo profundo. */
+html.dark-mode .bj-lockup__mark { content: url("/img/logo-mark-claro.svg"); }
 .bj-lockup--sm .bj-lockup__name { font-size: 16px; }
 .bj-lockup--sm .bj-lockup__sub { font-size: 9px; }
 
@@ -111,7 +113,7 @@ a.bj-lockup:hover .bj-lockup__mark { transform: rotate(-4deg) scale(1.05); }
     .site-header__inner { height: calc(var(--nav-height) + 3px); padding: 3px var(--space-4) 0; }
 }
 @media (max-width: 420px) {
-    .site-header .bj-lockup__mark { width: 30px; }
+    .site-header .bj-lockup__mark { width: 27px; }
     .site-header .bj-lockup__name { font-size: 17px; }
 }
 
