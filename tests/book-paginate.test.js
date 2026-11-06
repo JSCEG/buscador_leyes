@@ -90,6 +90,19 @@ describe('book pagination', () => {
     const blocks = articleBlocks('La Comisión\nregulará los permisos:\n\nI. Primera\nparte;\nII. Segunda.');
     expect(blocks.map(block => block.text)).toEqual(['La Comisión regulará los permisos:', 'I. Primera parte;', 'II. Segunda.']);
   });
+  it('does not repeat an inferred first row as a header', () => {
+    const rows = Array.from({ length: 60 }, (_, r) => `<tr><td>Firma ${r}</td><td>Cargo ${r}</td><td>Entidad ${r}</td></tr>`).join('');
+    const { pages } = paginate([{ id: 't', label: 'Anexo', texto: `<table>${rows}</table>` }], { fits: fits(300), maxTableCols: 5 });
+    const text = pages.map(page => page.html).join('');
+    expect(pages.filter(page => page.html.includes('<table')).length).toBeGreaterThan(1);
+    expect(text.match(/Firma 0</g)).toHaveLength(1);
+    for (let r = 0; r < 60; r++) expect(text).toContain(`Firma ${r}<`);
+  });
+  it('keeps a table with a caption whole, on a card', () => {
+    const { pages, tables } = paginate([{ id: 't', label: 'A', texto: `<table><caption>Capacidad oficial</caption><thead><tr><th>A</th><th>B</th></tr></thead><tbody><tr><td>1</td><td>2</td></tr></tbody></table>` }], OPT);
+    expect(pages[0].html).toContain('bk-tb-card');
+    expect(tables['t:0'].html).toContain('Capacidad oficial');
+  });
   it('slices give the same result and yield', async () => {
     const yieldFn = vi.fn(() => Promise.resolve());
     const whole = paginate(SAMPLE, { fits: fits(600), maxTableCols: 5 });

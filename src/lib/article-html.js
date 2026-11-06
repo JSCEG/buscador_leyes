@@ -86,6 +86,8 @@ export function enhanceTables(root) {
         if (isHeaderRow(table)) {
             const head = table.ownerDocument.createElement('thead');
             head.append(table.rows[0]);
+            // Not declared by the source: a reader may style it, the book must not repeat it as if it were.
+            head.dataset.inferred = '';
             table.prepend(head);
             table.classList.add('tb-header');
         } else if (table.tHead) table.classList.add('tb-header');

@@ -1015,11 +1015,16 @@ export function initUI() {
         acervoView = null;
     }
 
-    function hideAllViews() {
+    // The picker and the book belong to the document on screen.
+    function releaseDocumentTools() {
         docPicker = null;
         document.body.classList.remove('has-doc-picker');
         lawBookView?.destroy();
         lawBookView = null;
+    }
+
+    function hideAllViews() {
+        releaseDocumentTools();
         releaseHome();
         undockSearch();
         cancelPendingSearch();
@@ -1229,6 +1234,7 @@ export function initUI() {
         if (!lawDetailContainer) return;
         const request = ++lawOpenRequest;
         const originHash = location.hash;
+        releaseDocumentTools();
         trackLaw(law);
         destroyTOC(); // Remove any previous TOC before building a new one
         hideGlobalSearch(); // Single search bar: use the scoped one inside the law view
@@ -2729,9 +2735,12 @@ export function initUI() {
         return dbNotesMap.get(id) || '';
     }
     function saveNote(id, text) {
-        if (!isLoggedIn() || dbNotesMap === null) {
-            showToast('Inicia sesión para guardar notas', '🔐', 'bg-gray-800');
-            openAuthModal();
+        if (!isLoggedIn()) {
+            requireAccount('escribir notas', { reason: 'guardar' });
+            return false;
+        }
+        if (dbNotesMap === null) {
+            showToast('Espera un momento: estamos cargando tus notas', '⏳', 'bg-gray-800');
             return false;
         }
         if (text.trim()) dbNotesMap.set(id, text.trim());

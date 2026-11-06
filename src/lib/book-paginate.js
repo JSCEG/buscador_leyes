@@ -2,7 +2,7 @@
  * Splits a document into book pages without ever changing its text. Each block is placed on the
  * current page if `fits` says it fits: the browser measures with the real letter, tests simulate it.
  * A long paragraph splits by words. A narrow table splits by rows repeating its header; a wide one,
- * one with rowspan or one with a row bigger than a page goes on a card that opens the whole table.
+ * one with rowspan or a caption, or one with a row bigger than a page goes on a card that opens the whole table.
  */
 import { articleHtml, paragraphClass } from './article-html.js';
 
@@ -24,16 +24,18 @@ function columnCount(table) {
 }
 
 function tableBlock(table) {
-    const body = [...table.rows].filter(row => row.parentElement?.tagName !== 'THEAD').map(row => row.outerHTML);
+    const inferred = table.tHead?.hasAttribute('data-inferred');
+    const body = [...table.rows].filter(row => inferred || row.parentElement?.tagName !== 'THEAD').map(row => row.outerHTML);
     return {
         type: 'table',
         html: table.outerHTML,
         className: table.className,
         cols: columnCount(table),
         rows: table.rows.length,
-        head: table.tHead ? table.tHead.outerHTML : '',
+        head: table.tHead && !inferred ? table.tHead.outerHTML : '',
         body,
         hasRowspan: Boolean(table.querySelector('[rowspan]:not([rowspan="1"])')),
+        hasCaption: Boolean(table.caption),
     };
 }
 
@@ -126,7 +128,7 @@ function* build(articles, { fits, maxTableCols }) {
         tables[id] = { html: block.html, title: article.label || 'Tabla' };
         ids.add(article.id);
         const oversize = () => block.body.some(row => !fits([tablePiece(article, block, [row])]));
-        if (block.cols > maxTableCols || block.hasRowspan || !block.body.length || oversize()) { force(tableCard(article, block, id)); return; }
+        if (block.cols > maxTableCols || block.hasRowspan || block.hasCaption || !block.body.length || oversize()) { force(tableCard(article, block, id)); return; }
         let pile = [];
         for (const row of block.body) {
             if (fits([...current, tablePiece(article, block, [...pile, row])])) { pile.push(row); continue; }
