@@ -1,5 +1,6 @@
 /* Ventana de cuenta: cristal y papel. La acción es tinta; el guinda marca el foco y el lomo del librito. */
-#auth-modal { background: var(--scrim); }
+/* Encima del menú inferior del celular, que tiene capa 60 y taparía lo último de la ventana. */
+#auth-modal { z-index: 61; background: var(--scrim); }
 #auth-modal #auth-panel {
   border: 1px solid var(--cristal-borde); border-radius: var(--radius-xl);
   background-color: var(--cristal-fuerte); background-image: linear-gradient(135deg, var(--cristal-brillo), transparent 45%);
