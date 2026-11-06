@@ -54,9 +54,11 @@ it('loads the acervo once ready and preserves its independent route, filters and
     acervoSearch().dispatchEvent(new Event('input', { bubbles: true }));
   };
 
-  // The bare home URL starts with the library, including its loading state.
-  expect(results.querySelector('[aria-label="Cargando acervo"]')).not.toBeNull();
+  // The bare home URL starts with the shelf, including its loading state; the library keeps its own.
+  expect(document.querySelector('#home-view .sh-status[data-state="loading"]')).not.toBeNull();
   expect(location.hash).toBe('');
+  document.getElementById('nav-leyes').click();
+  expect(results.querySelector('[aria-label="Cargando acervo"]')).not.toBeNull();
 
   const summaries = [
     { id: 'ley-electrica', titulo: 'Ley del Sector Eléctrico', tipo: 'ley', fecha_publicacion: '2025-03-18' },
@@ -163,7 +165,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   window.dispatchEvent(new PopStateEvent('popstate'));
   await settle();
   expect(document.getElementById('hero-section').classList.contains('hidden')).toBe(true);
-  expect(results.querySelector('.ac-library')).not.toBeNull();
+  expect(document.body.classList.contains('home-active')).toBe(true);
   expect(globalSearch.classList.contains('hidden')).toBe(true);
   expect(location.hash).toBe('');
   document.getElementById('nav-inicio').click();

@@ -7,6 +7,7 @@ import { createDesk, deleteDesk, getDesks, parseDeskHash, setActiveDesk } from '
 import { initDeskSync } from './desk-sync.js';
 import { renderArticlePage, articlePageHash, parseArticlePageHash } from './article-page-view.js';
 import { renderSearchLanding } from './search-landing.js';
+import { renderShelfView } from './shelf-view.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
@@ -265,6 +266,9 @@ export function initUI() {
     let activeNavId = 'nav-inicio';
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
+    let homeView = null;
+    let sheetPushed = false;
+    let catalogFailed = false;
     let statsView = null;
     let statsViewRequest = 0;
     let lawOutlineSync = null;
@@ -335,6 +339,11 @@ export function initUI() {
         if (summary) openLawDetail(summary);
     });
 
+    window.addEventListener('search-failed', () => {
+        catalogFailed = true;
+        homeView?.setFailed();
+    });
+
     // Stats Listener
     window.addEventListener('search-ready', (e) => {
         const { summaries, relaciones } = e.detail;
@@ -347,6 +356,7 @@ export function initUI() {
         indexRelaciones(relaciones);
 
         // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
+        homeView?.setCatalog(summaries);
         if (activeNavId === 'nav-leyes' && !location.hash) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
         if (activeNavId === 'nav-inicio') renderLanding();
@@ -487,9 +497,25 @@ export function initUI() {
         window.scrollTo({ top: context.scrollY, behavior: 'instant' });
     }
 
+    function decodeHashId(value) {
+        try { return decodeURIComponent(value); } catch { return ''; }
+    }
+
     async function handleInitialHash() {
         const hash = location.hash;
         if (!hash) return;
+        if (hash.startsWith('#ficha-')) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            explorerModalReturn = null;
+            showHomeView({ updateHistory: false });
+            if (catalogLoaded && !homeView.openSheet(decodeHashId(hash.slice(7)), { silent: true })) {
+                history.replaceState(null, '', location.pathname);
+            }
+            return;
+        }
         const pageId = parseArticlePageHash(hash);
         if (pageId) {
             clearTimeout(closeModalTimer);
@@ -667,13 +693,14 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            showLawsView(acervoState, { updateHistory: false });
+            if (homeView) homeView.closeSheet({ silent: true });
+            else showHomeView({ updateHistory: false });
         } else {
             await handleInitialHash();
         }
     });
     // El explorador local y Polos no necesitan esperar a que termine la consulta del acervo.
-    if (explorerRoute(location.hash) || acervoRoute(location.hash) || polosRoute(location.hash)) setTimeout(handleInitialHash, 0);
+    if (location.hash.startsWith('#ficha-') || explorerRoute(location.hash) || acervoRoute(location.hash) || polosRoute(location.hash)) setTimeout(handleInitialHash, 0);
 
     // Toast del sistema: sin emoji, un ícono de trazo según el tono ('!' avisa, lo demás confirma).
     const TOAST_ICONS = {
@@ -816,10 +843,10 @@ export function initUI() {
             showLawsView();
         });
     }
-    // The brand in the header goes home, like "Acervo".
+    // The brand in the header goes home: the shelf.
     document.getElementById('brand-home')?.addEventListener('click', (e) => {
         e.preventDefault();
-        showLawsView();
+        showHomeView();
     });
 
     // ── Limpieza global del TOC ────────────────────────────────────────────────
@@ -844,6 +871,7 @@ export function initUI() {
     function setActiveNav(activeId) {
         undockSearch();
         cancelPendingSearch();
+        if (activeId) releaseHome();
         if (activeId !== 'nav-leyes') releaseAcervo();
         // Leaving the CNE section closes it (the map's timers, its full-screen state on phones).
         if (activeId !== 'nav-permisos' && cneView) { cneView.destroy(); cneView = null; }
@@ -965,6 +993,7 @@ export function initUI() {
     }
 
     function hideAllViews() {
+        releaseHome();
         undockSearch();
         cancelPendingSearch();
         releaseAcervo();
@@ -1064,6 +1093,59 @@ export function initUI() {
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         setActiveNav('nav-inicio');
     
+    function releaseHome() {
+        if (!homeView) return;
+        homeView.destroy();
+        homeView = null;
+        document.getElementById('home-view')?.classList.add('hidden');
+        document.body.classList.remove('home-active');
+    }
+
+    function shareLaw(law) {
+        const url = lawShareUrl(law);
+        if (navigator.share) {
+            navigator.share({ title: law.titulo, url }).catch(() => {});
+            return;
+        }
+        navigator.clipboard?.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
+    }
+
+    /** Home: the 3D shelf. Other sections release it through hideAllViews or setActiveNav. */
+    function showHomeView({ updateHistory = true } = {}) {
+        lawOpenRequest++;
+        if (updateHistory) setHash('');
+        if (homeView) return;
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('');
+        const host = document.getElementById('home-view');
+        document.body.classList.add('home-active');
+        host.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        homeView = renderShelfView(host, {
+            summaries: cachedSummaries,
+            status: catalogLoaded ? 'ready' : 'loading',
+            onSearch: query => { resetToHero(); searchInput.value = query; searchInput.dispatchEvent(new Event('input')); },
+            onOpenLaw: law => openLawDetail(law),
+            onShare: shareLaw,
+            onBrowse: () => showLawsView(),
+            onLegal: kind => openLegalPage(kind),
+            onFeedback: () => openFeedback({ context: 'inicio' }),
+            onSheetChange: law => {
+                if (law) {
+                    sheetPushed = true;
+                    setHash(`#ficha-${encodeURIComponent(law.id)}`);
+                } else if (sheetPushed) {
+                    sheetPushed = false;
+                    history.back();
+                } else {
+                    history.replaceState(null, '', location.pathname);
+                }
+            },
+        });
+        if (catalogFailed) homeView.setFailed();
+    }
+
     function showLawsView(state = acervoState, { updateHistory = true } = {}) {
         lawOpenRequest++;
         acervoState = { ...state };
@@ -4540,5 +4622,5 @@ export function initUI() {
             });
         }
     };
-    if (!location.hash) showLawsView(acervoState, { updateHistory: false });
+    if (!location.hash) showHomeView({ updateHistory: false });
 }

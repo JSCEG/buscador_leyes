@@ -85,6 +85,7 @@ export async function initSearch() {
         console.log('[Search] Conectado a Supabase y metadatos listos.');
     } catch (e) {
         console.error('[Search] Error inicializando Supabase:', e);
+        window.dispatchEvent(new CustomEvent('search-failed'));
     }
 }
 
