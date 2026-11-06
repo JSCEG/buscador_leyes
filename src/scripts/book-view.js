@@ -4,6 +4,8 @@
  * citation stays per article, because pages change with the letter size.
  */
 import { paginateInSlices, pageOfArticle } from '../lib/book-paginate.js';
+import { OUTLINE_HEAD, bookOutline, outlineRowHtml, paginateOutline } from '../lib/book-outline.js';
+import { bookShareTargets } from '../lib/book-share.js';
 import { coverData } from '../lib/law-cover.js';
 import { openPickerSheet } from '../lib/article-picker.js';
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
@@ -24,7 +26,9 @@ const TURN_EASE = 'cubic-bezier(.45,.05,.25,1)';
 const DRAG_TO_TURN = 40;
 const REPAGINATE_MS = 200;
 const COVER = 'cover';
+const INDEX = 'index';
 const END = 'end';
+const SAMPLE_PAGE_NUMBER = '000';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const storageKey = id => `libro-v1:${id}`;
@@ -44,6 +48,8 @@ const ICON = {
     next: '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>',
     index: '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>',
     mark: '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>',
+    articles: '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>',
+    share: '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="m8.3 10.7 7.4-4.3M8.3 13.3l7.4 4.3"/></svg>',
 };
 const MENU = [['leer', 'Leer por artículo'], ['original', 'Ver el original'], ['cita', 'Copiar cita formal'], ['copiar', 'Copiar'], ['compartir', 'Compartir'], ['fijar', 'Fijar'], ['guardar', 'Guardar']];
 
@@ -73,10 +79,10 @@ function createMeasurer(host, w, h) {
 
 /**
  * @param {HTMLElement} host
- * @param {{ law: object, articles: object[], pickerArticles?: object[], indexLabel?: Function, onOpenArticle?: Function, onArticleAction?: Function, onExit?: Function, notify?: Function, paginator?: Function }} options
- * @returns {{ destroy: Function, goToArticle: Function, currentArticle: Function }}
+ * @param {{ law: object, articles: object[], pickerArticles?: object[], indexLabel?: Function, onOpenArticle?: Function, onArticleAction?: Function, onExit?: Function, notify?: Function, paginator?: Function, getShareUrl?: Function, initialArticle?: string|null }} options
+ * @returns {{ destroy: Function, goToArticle: Function, goToIndex: Function, currentArticle: Function }}
  */
-export function renderBookView(host, { law, articles, pickerArticles = articles, indexLabel, onArticleAction = () => {}, onExit = () => {}, notify = () => {}, paginator = paginateInSlices }) {
+export function renderBookView(host, { law, articles, pickerArticles = articles, indexLabel, onArticleAction = () => {}, onExit = () => {}, notify = () => {}, paginator = paginateInSlices, getShareUrl = () => location.href, initialArticle = null }) {
     const state = loadState(law.id);
     const data = coverData(law);
     let destroyed = false;
@@ -91,28 +97,31 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
     let build = 0;
     // The article asked for stays current until the reader turns the page: a spread shows two pages.
     let pinnedArticle = null;
+    let startArticle = initialArticle;
+    let articlePage = new Map();
 
     host.innerHTML = `<div class="bk" data-category="${data.group}">
         <div class="bk-bar">
             <button type="button" class="bu-btn bu-btn-contorno bu-btn-sm bk-regreso" data-book-exit aria-label="Volver a Por artículo">${ICON.back}Volver</button>
             <button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-book-index>${ICON.index}Índice</button>
+            <button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-book-articles>${ICON.articles}Artículos</button>
             <span class="bk-caption" data-book-caption></span>
             <button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-book-mark aria-pressed="false">${ICON.mark}Marcar</button>
+            <button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-book-share aria-haspopup="menu">${ICON.share}Compartir</button>
             <div class="reader-toolbar bk-ajustes" data-book-settings>${readerControlsHtml()}</div>
         </div>
-        <div class="bk-escena" tabindex="0" role="group" aria-label="Libro. Usa las flechas para cambiar de página."><div class="bk-libro" data-book></div></div>
+        <div class="bk-escena" tabindex="0" role="group" aria-label="Libro. Usa las flechas para cambiar de página."><div class="bk-libro" data-book></div><div class="bk-carga" data-book-loading role="status" hidden><svg viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg><p>Preparando el libro<span data-book-percent></span></p><span class="bk-barra" aria-hidden="true"><i data-book-bar></i></span></div></div>
         <div class="bk-pie">
             <button type="button" class="bk-fl" data-book-prev aria-label="Página anterior">${ICON.back}</button>
             <div class="bk-scrub"><input type="range" data-book-range min="0" max="0" step="1" aria-label="Ir a la página"><span data-book-count aria-live="polite" role="status"></span></div>
             <button type="button" class="bk-fl" data-book-next aria-label="Página siguiente">${ICON.next}</button>
         </div>
-        <p class="bk-aviso" data-book-status role="status"></p>
     </div>`;
     const root = host.querySelector('.bk');
     initReaderControls(root.querySelector('[data-book-settings]'));
     const book = root.querySelector('[data-book]');
     const scene = root.querySelector('.bk-escena');
-    const statusBox = root.querySelector('[data-book-status]');
+    const loader = root.querySelector('[data-book-loading]');
     const range = root.querySelector('[data-book-range]');
     const countBox = root.querySelector('[data-book-count]');
 
@@ -138,10 +147,14 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         if (page.kind === COVER) {
             return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-portada"><span class="bk-kick">${esc(data.typeLabel)}</span><strong>${esc(data.siglas || data.name)}</strong><span class="bk-regla"></span><span class="bk-nombre">${esc(data.name)}</span><span class="bk-meta">${esc(data.year)}</span><svg class="bk-buho" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg></div></div>`;
         }
+        if (page.kind === INDEX) {
+            const rows = page.entries.map(entry => outlineRowHtml(entry, articlePage.get(entry.articleId) ?? '')).join('');
+            return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-cab"><span>${esc(data.siglas)}</span><span>Índice</span></div><div class="bk-tx bk-ind">${page.first ? OUTLINE_HEAD : ''}${rows}</div><div class="bk-num">${index}</div></div>`;
+        }
         if (page.kind === END) {
             return `<div class="bk-pg ${sideClass}"><div class="bk-final"><svg class="bk-buho" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg><p>Herramienta de consulta y apoyo. El texto con validez jurídica es el publicado en el Diario Oficial de la Federación o en la fuente oficial de cada documento.</p></div></div>`;
         }
-        return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-cab"><span>${esc(data.siglas)}</span><span>${esc(page.caption)}</span></div><div class="bk-tx">${page.html}</div><div class="bk-num">${index}</div></div>`;
+        return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-cab"><span>${esc(data.siglas)}</span><span>${esc(page.caption)}</span></div><div class="bk-tx">${page.html}</div><button type="button" class="bk-al-indice" data-book-toindex>Índice</button><div class="bk-num">${index}</div></div>`;
     }
 
     function syncChrome(index = spread) {
@@ -237,6 +250,43 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         return true;
     }
 
+    function goToIndex() {
+        pinnedArticle = null;
+        if (turn) turn.finish?.();
+        const first = pages.findIndex(page => page.kind === INDEX);
+        spread = align(first < 0 ? 0 : first);
+        paint();
+    }
+
+    function placeMenu(menu, button) {
+        root.append(menu);
+        const box = button.getBoundingClientRect();
+        const home = root.getBoundingClientRect();
+        menu.style.left = `${Math.max(0, Math.min(box.left - home.left, home.width - 260))}px`;
+        menu.style.top = `${box.bottom - home.top + 6}px`;
+        menu.addEventListener('keydown', event => { if (event.key === 'Escape') { menu.remove(); button.focus?.(); } });
+    }
+
+    function openShareMenu(button) {
+        root.querySelector('.bk-menu')?.remove();
+        const url = getShareUrl(currentArticle());
+        const title = data.siglas || data.name;
+        const menu = document.createElement('div');
+        menu.className = 'bk-menu bu-cristal-fuerte';
+        menu.setAttribute('role', 'menu');
+        menu.innerHTML = `<h5>Compartir esta lectura</h5>${bookShareTargets({ title, url }).map(target => `<a role="menuitem" data-share="${target.id}" href="${esc(target.href)}" target="_blank" rel="noopener noreferrer">${esc(target.label)}</a>`).join('')}<button type="button" role="menuitem" data-share-copy>Copiar enlace</button>${navigator.share ? '<button type="button" role="menuitem" data-share-native>Más opciones…</button>' : ''}`;
+        placeMenu(menu, button);
+        menu.addEventListener('click', event => {
+            if (event.target.closest('[data-share-copy]')) {
+                navigator.clipboard?.writeText(url).then(() => notify('Enlace copiado'), () => notify('No se pudo copiar el enlace'));
+            } else if (event.target.closest('[data-share-native]')) {
+                navigator.share({ title, url }).catch(() => {});
+            } else if (!event.target.closest('a')) return;
+            menu.remove();
+        });
+        menu.querySelector('a').focus({ preventScroll: true });
+    }
+
     function openMenu(button) {
         root.querySelector('.bk-menu')?.remove();
         const id = button.dataset.bookArticle;
@@ -244,12 +294,7 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         menu.className = 'bk-menu bu-cristal-fuerte';
         menu.setAttribute('role', 'menu');
         menu.innerHTML = `<h5>${esc(button.textContent)}</h5>${MENU.map(([key, label]) => `<button type="button" role="menuitem" data-book-action="${key}">${label}</button>`).join('')}`;
-        root.append(menu);
-        const box = button.getBoundingClientRect();
-        const home = root.getBoundingClientRect();
-        menu.style.left = `${Math.max(0, Math.min(box.left - home.left, home.width - 260))}px`;
-        menu.style.top = `${box.bottom - home.top + 6}px`;
-        menu.addEventListener('keydown', event => { if (event.key === 'Escape') { menu.remove(); button.focus?.(); } });
+        placeMenu(menu, button);
         menu.addEventListener('click', event => {
             const action = event.target.closest('[data-book-action]')?.dataset.bookAction;
             if (!action) return;
@@ -315,28 +360,45 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         root.style.setProperty('--pg-w', `${layout.w}px`);
         root.style.setProperty('--pg-h', `${layout.h}px`);
         const key = [law.id, layout.w, layout.h, layout.double, settingsKey()].join('::');
-        const keepArticle = currentArticleBeforeBuild();
+        const keepArticle = startArticle ?? currentArticleBeforeBuild();
+        startArticle = null;
         let result = memory.get(key);
         if (!result) {
-            statusBox.textContent = 'Preparando el libro…';
+            showLoader();
             await Promise.resolve(document.fonts?.ready);
             if (destroyed || mine !== build) return;
             const measurer = createMeasurer(root, layout.w, layout.h);
             try {
-                result = await paginator(articles, { fits: measurer.fits, maxTableCols: layout.double ? MAX_COLS_DOUBLE : MAX_COLS_SINGLE });
+                const content = await paginator(articles, { fits: measurer.fits, maxTableCols: layout.double ? MAX_COLS_DOUBLE : MAX_COLS_SINGLE }, { onProgress: fraction => { if (mine === build) progress(fraction); } });
+                const outline = paginateOutline(bookOutline(articles), list => measurer.fits([OUTLINE_HEAD, ...list.map(entry => outlineRowHtml(entry, SAMPLE_PAGE_NUMBER))]));
+                result = { ...content, outline };
             } finally {
                 measurer.remove();
             }
             if (destroyed || mine !== build) return;
             memory.set(key, result);
         }
-        statusBox.textContent = '';
-        pages = [{ kind: COVER }, ...result.pages, { kind: END }];
+        loader.hidden = true;
+        pages = [{ kind: COVER }, ...result.outline.map((entries, index) => ({ kind: INDEX, entries, first: index === 0, caption: 'Índice' })), ...result.pages, { kind: END }];
         tables = result.tables;
+        articlePage = new Map();
+        pages.forEach((page, index) => (page.articleIds || []).forEach(id => { if (!articlePage.has(id)) articlePage.set(id, index); }));
         if (keepArticle == null || !goToArticle(keepArticle)) {
             spread = align(Math.min(Number(state.page) || 0, lastIndex()));
             paint();
         }
+    }
+
+    function progress(fraction) {
+        const percent = Math.round(Math.min(1, Math.max(0, fraction)) * 100);
+        loader.querySelector('[data-book-percent]').textContent = ` · ${percent}%`;
+        loader.querySelector('[data-book-bar]').style.width = `${percent}%`;
+    }
+
+    function showLoader() {
+        progress(0);
+        loader.hidden = false;
+        if (!pages.length) book.innerHTML = layout.double ? pageHtml(-1, 'iz') + pageHtml(-1, 'de') : pageHtml(-1, 'de');
     }
 
     function currentArticleBeforeBuild() {
@@ -349,7 +411,12 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         if (event.target.closest('[data-book-next]')) { turnPage(1); return; }
         if (event.target.closest('[data-book-exit]')) { onExit(currentArticle()); return; }
         if (event.target.closest('[data-book-mark]')) { toggleMark(); return; }
-        if (event.target.closest('[data-book-index]')) {
+        if (event.target.closest('[data-book-index], [data-book-toindex]')) { goToIndex(); return; }
+        const shareButton = event.target.closest('[data-book-share]');
+        if (shareButton) { openShareMenu(shareButton); return; }
+        const entry = event.target.closest('[data-book-goto]');
+        if (entry) { goToArticle(entry.dataset.bookGoto); return; }
+        if (event.target.closest('[data-book-articles]')) {
             openPickerSheet(pickerArticles, id => goToArticle(id), indexLabel ? { indexLabel } : {});
             return;
         }
@@ -401,5 +468,5 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         host.innerHTML = '';
     }
 
-    return { destroy, goToArticle, currentArticle, ready, turnPage };
+    return { destroy, goToArticle, goToIndex, currentArticle, ready, turnPage };
 }

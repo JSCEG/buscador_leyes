@@ -223,3 +223,12 @@ html.dark-mode .sr-view{background:transparent!important}
     .sr-group .bu-mini{width:46px;height:64px;font-size:0}
 }
 @media (prefers-reduced-motion:reduce){.sr-cf-hoja,.sr-view .sr-cf .bu-cf-frente,.bu-mini{transition:none}}
+
+/* Abrir el instrumento desde sus resultados */
+button.sr-group-book { border: 0; font: inherit; text-align: left; cursor: pointer; }
+button.sr-group-book:hover { box-shadow: 0 8px 18px #0a070726, inset 0 0 0 1px var(--ac); transform: translateY(-2px); }
+button.sr-group-book:focus-visible, .sr-group-open:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
+.sr-group-open { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.sr-group-open:hover { color: var(--rojo); text-decoration: underline; }
+.sr-group-open span { color: var(--rojo); font-size: .85em; }
+@media (prefers-reduced-motion: reduce) { button.sr-group-book:hover { transform: none; } }

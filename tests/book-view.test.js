@@ -93,7 +93,7 @@ describe('book view', () => {
     await open();
     expect(host.querySelector('.bk-libro').classList.contains('is-una')).toBe(true);
     host.querySelector('[data-book-next]').click();
-    expect(count()).toBe('Página 1 de 7');
+    expect(count()).toBe('Página 1 de 8');
   });
   it('offers the article menu', async () => {
     const onArticleAction = vi.fn();

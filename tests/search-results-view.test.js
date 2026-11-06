@@ -91,3 +91,19 @@ describe('search results, Búho', () => {
         expect(onFilter).toHaveBeenLastCalledWith({ type: 'all', law: 'all', artNum: '' });
     });
 });
+
+
+describe('opening the instrument from its results', () => {
+    it('opens it from the little book and from the title, and does not open an article', () => {
+        document.body.innerHTML = '<div id="r"></div>';
+        const container = document.getElementById('r');
+        const onOpenLaw = vi.fn(), onOpenArticle = vi.fn();
+        renderSearchResults(container, { query: 'red', results, total: 2, summaries, onOpenLaw, onOpenArticle, lawCounts: [{ ley_id: 'lse', count: 1 }, { ley_id: 'rlse', count: 1 }] });
+        const group = container.querySelector('.sr-group');
+        group.querySelector('.sr-group-title [data-open-law]').click();
+        group.querySelector('button.bu-mini').click();
+        expect(onOpenLaw.mock.calls).toEqual([['lse'], ['lse']]);
+        expect(onOpenArticle).not.toHaveBeenCalled();
+        expect(group.querySelector('button.bu-mini').getAttribute('aria-label')).toContain('Abrir');
+    });
+});

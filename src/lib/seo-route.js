@@ -6,13 +6,15 @@
  * Must run before the UI reads the initial hash.
  */
 import { parseSeoPath, lawSlug } from './seo-paths.js';
+import { withReading } from './book-share.js';
 
 /** @returns {boolean} whether the visit came through a readable address */
 export function takeSeoRoute({ resolve = resolveSeoRoute } = {}) {
     const route = window.__SEO_ROUTE__;
+    const search = location.search;
     document.getElementById('seo-ssr')?.remove();
     if (route?.hash) {
-        history.replaceState(null, '', `/${route.hash}`);
+        history.replaceState(null, '', `/${withReading(route.hash, search)}`);
         return true;
     }
     const parsed = parseSeoPath(location.pathname);
@@ -22,7 +24,7 @@ export function takeSeoRoute({ resolve = resolveSeoRoute } = {}) {
         return true;
     }
     history.replaceState(null, '', '/');
-    resolve(parsed).then(hash => { location.hash = hash || '#acervo'; }, () => { location.hash = '#acervo'; });
+    resolve(parsed).then(hash => { location.hash = hash ? withReading(hash, search) : '#acervo'; }, () => { location.hash = '#acervo'; });
     return true;
 }
 

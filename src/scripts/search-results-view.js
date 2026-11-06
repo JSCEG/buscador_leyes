@@ -39,7 +39,7 @@ export function renderSearchResults(container, {
     query, results = [], total = 0, ranked = false, lawCounts = [], summaries = [],
     filters = { type: 'all', law: 'all', artNum: '' },
     favoriteState = () => ({ fav: false, title: 'Guardar' }), relationBadge = () => '',
-    onOpenArticle = () => {}, onToggleFavorite = () => {}, onFilter = () => {},
+    onOpenArticle = () => {}, onOpenLaw = () => {}, onToggleFavorite = () => {}, onFilter = () => {},
 } = {}) {
     const mode = readMode();
     container.__srGraphDestroy?.();
@@ -124,10 +124,10 @@ export function renderSearchResults(container, {
         const year = dateLabel(item.fecha_publicacion || law?.fecha_publicacion);
         return `<section class="sr-group bu-cristal" data-category="${group}">
             <header class="sr-group-head">
-                <span class="bu-mini" aria-hidden="true"><span>${esc(sigla)}</span></span>
+                ${law ? `<button type="button" class="bu-mini sr-group-book" data-open-law="${esc(law.id)}" aria-label="Abrir ${esc(lawLabel(law))}"><span>${esc(sigla)}</span></button>` : `<span class="bu-mini" aria-hidden="true"><span>${esc(sigla)}</span></span>`}
                 <div class="sr-group-text">
                     <span class="sr-group-type">${esc(groupLabel.get(group) || 'Otros')}</span>
-                    <h2 class="sr-group-title">${esc((law && lawLabel(law)) || lawName(item, law) || 'Documento')}</h2>
+                    <h2 class="sr-group-title">${law ? `<button type="button" class="sr-group-open" data-open-law="${esc(law.id)}">${esc(lawLabel(law))}<span aria-hidden="true"> ↗</span></button>` : esc(lawName(item, law) || 'Documento')}</h2>
                     <p class="sr-group-count">${esc([sigla, year, plural(matches, 'coincidencia', 'coincidencias')].filter(Boolean).join(' · '))}</p>
                 </div>
                 ${!activeLaw && law && matches > rows.length ? `<button type="button" class="sr-group-more" data-facet-law="${esc(law.id)}">Ver todas</button>` : ''}
@@ -187,6 +187,7 @@ export function renderSearchResults(container, {
             showGraph(target.dataset.viewMode === 'mapa');
             return;
         }
+        if (target.dataset.openLaw) return onOpenLaw(target.dataset.openLaw);
         if (target.dataset.favorite) { event.stopPropagation(); onToggleFavorite(target.dataset.favorite); return; }
         if (target.dataset.facetGroup) return onFilter({ ...filters, type: filters.type === target.dataset.facetGroup ? 'all' : target.dataset.facetGroup, law: 'all' });
         if (target.dataset.facetLaw) return onFilter({ ...filters, law: String(filters.law) === target.dataset.facetLaw ? 'all' : target.dataset.facetLaw });

@@ -140,7 +140,8 @@ function* build(articles, { fits, maxTableCols }) {
         if (pile.length) current.push(tablePiece(article, block, pile));
     }
 
-    for (const article of articles) {
+    for (const [articleIndex, article] of articles.entries()) {
+        const done = articleIndex / articles.length;
         const title = article.titulo || '';
         const chapter = article.capitulo || '';
         if (title !== lastTitle || chapter !== lastChapter) {
@@ -175,9 +176,9 @@ function* build(articles, { fits, maxTableCols }) {
             } else if (block.type === 'figure') {
                 force(`<figure class="bk-fig" data-article="${esc(article.id)}"><button type="button" data-book-figure="${esc(block.src)}" aria-label="Ampliar figura"><img src="${esc(block.src)}" alt="${esc(block.alt || 'Figura de la publicación oficial')}" loading="lazy"></button></figure>`);
             } else placeTable(article, block, `${article.id}:${index}`);
-            yield;
+            yield done;
         }
-        if (!blocks.length) yield;
+        if (!blocks.length) yield done;
     }
     closePage();
     return { pages, tables };
@@ -191,12 +192,13 @@ export function paginate(articles, options) {
 }
 
 /** The same work in slices, so a long document does not freeze the screen. */
-export async function paginateInSlices(articles, options, { budgetMs = 16, yieldFn = () => new Promise(resolve => setTimeout(resolve)) } = {}) {
+export async function paginateInSlices(articles, options, { budgetMs = 16, yieldFn = () => new Promise(resolve => setTimeout(resolve)), onProgress = () => {} } = {}) {
     const run = build(articles, options);
     let started = performance.now();
     let step = run.next();
     while (!step.done) {
         if (performance.now() - started >= budgetMs) {
+            onProgress(step.value);
             await yieldFn();
             started = performance.now();
         }

@@ -44,6 +44,7 @@ import { suggestDomain } from './password-recovery.js';
 import { requireAccount, lockLabel } from '../lib/require-account.js';
 import { emptyState, errorPage } from '../lib/empty-art.js';
 import { lawPath, articlePath, shareUrl } from '../lib/seo-paths.js';
+import { bookLink, bookRoute } from '../lib/book-share.js';
 import { renderLawTree, splitHeading } from '../lib/law-tree.js';
 import { wordDiff } from '../lib/word-diff.js';
 import { separatorHtml } from '../lib/separator.js';
@@ -643,9 +644,9 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            const leyId = decodeURIComponent(hash.slice(5));
+            const { lawId: leyId, book } = bookRoute(hash);
             const law = cachedSummaries.find(l => l.id === leyId);
-            if (law) await openLawDetail(law, { updateHistory: false });
+            if (law) await openLawDetail(law, { updateHistory: false, book });
             else showErrorView({ title: 'No encontramos este instrumento', body: 'El enlace puede ser antiguo o el instrumento ya no forma parte del acervo. Búscalo por su nombre o revisa la lista completa.', actions: [['Ir al acervo', '#acervo'], ['Buscar', '#buscar']] });
         } else if (hash === '#no-encontrado') {
             clearTimeout(closeModalTimer);
@@ -1230,7 +1231,7 @@ export function initUI() {
     }
 
     function openLawDetail(...args) { return withProgress(() => openLawDetailNow(...args)); }
-    async function openLawDetailNow(law, { updateHistory = true } = {}) {
+    async function openLawDetailNow(law, { updateHistory = true, book = null } = {}) {
         if (!lawDetailContainer) return;
         const request = ++lawOpenRequest;
         const originHash = location.hash;
@@ -1932,6 +1933,7 @@ export function initUI() {
             const leaveBook = articleId => {
                 lawBookView?.destroy();
                 lawBookView = null;
+                if (location.hash.includes('?libro')) history.replaceState(null, '', `${location.pathname}${location.hash.split('?')[0]}`);
                 showReadMode('articulo');
                 if (articleId) goToArticle(articleId);
             };
@@ -1959,8 +1961,11 @@ export function initUI() {
                     onArticleAction: bookAction,
                     onExit: leaveBook,
                     notify: message => showToast(message, '!'),
+                    getShareUrl: articleId => bookLink(lawShareUrl(law), articleId),
+                    initialArticle: book?.articleId ?? null,
                 });
             });
+            if (book) bookHost?.parentElement.querySelector('[data-read-mode="libro"]')?.click();
             lawOutlineSync = () => {
                 lawOutlineObserver?.disconnect();
                 if (typeof IntersectionObserver !== 'function') return;
@@ -3518,6 +3523,7 @@ export function initUI() {
             favoriteState: id => { const { fav, title } = getFavoriteUiState(id); return { fav, title }; },
             relationBadge: buildRelacionBadge,
             onOpenArticle: id => openDetail(id),
+            onOpenLaw: id => { const law = cachedSummaries.find(item => String(item.id) === String(id)); if (law) openLawDetail(law); },
             onToggleFavorite: id => { if (toggleFavorite(id)) renderResults(); },
             onFilter: next => {
                 currentFilters = { type: next.type, law: next.law, artNum: next.artNum };
