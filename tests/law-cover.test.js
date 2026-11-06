@@ -1,14 +1,20 @@
 import { describe, expect, it } from 'vitest';
-import { COVER_COLORS, GROUP_LABELS, coverData, coverHTML, spineHTML } from '../src/lib/law-cover.js';
+import { BOOK_COLORS, GROUP_LABELS, bookColor, coverData, coverHTML, spineHTML } from '../src/lib/law-cover.js';
 
 const ley = { id: 'a', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'ley', fecha_publicacion: '2025-03-18' };
 const lum = hex => { const c = [1, 3, 5].map(i => parseInt(hex.substr(i, 2), 16) / 255).map(v => v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; };
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
 
 describe('law covers', () => {
-  it('meets 4.5:1 in every collection', () => {
-    expect(Object.keys(COVER_COLORS)).toHaveLength(7);
-    for (const { bg, ink } of Object.values(COVER_COLORS)) expect(ratio(bg, ink)).toBeGreaterThanOrEqual(4.5);
+  it('meets 4.5:1 in every book colour', () => {
+    expect(BOOK_COLORS.length).toBeGreaterThanOrEqual(8);
+    for (const bg of BOOK_COLORS) expect(ratio(bg, '#FFFAF1')).toBeGreaterThanOrEqual(4.5);
+  });
+  it('gives each document a stable colour, varied across documents', () => {
+    expect(bookColor(ley)).toBe(bookColor({ ...ley }));
+    const names = ['LSE', 'LCNE', 'LGEC', 'LPTE', 'LBio', 'LGeo', 'RLSE', 'LSH', 'LASE', 'LGER'];
+    expect(new Set(names.map(siglas => bookColor({ ...ley, siglas }))).size).toBeGreaterThanOrEqual(4);
+    expect(BOOK_COLORS).toContain(bookColor({ id: 'x' }));
   });
   it('uses plain collection labels', () => { expect(GROUP_LABELS.dacg).toBe('Disposiciones'); });
   it('big acronym only up to 14 characters', () => {
@@ -38,14 +44,13 @@ describe('law covers', () => {
     expect(document.querySelector('.sh-spine-year').textContent).toBe('2025');
     expect(document.querySelector('.sh-spine').children).toHaveLength(2);
   });
-  it('keeps covers minimal and fits the acronym to its length', () => {
+  it('draws the cover with ribbon, curve and accent, and fits the acronym', () => {
     document.body.innerHTML = coverHTML(ley);
-    expect(document.querySelector('.sh-cover-frame')).toBeNull();
-    expect(document.querySelector('.sh-cover-rule')).toBeNull();
-    expect(document.querySelector('.sh-cover-art')).toBeNull();
+    expect(document.querySelector('.sh-cover-ribbon')).not.toBeNull();
+    expect(document.querySelector('.sh-cover-curve')).not.toBeNull();
+    expect(document.querySelector('.sh-cover-accent')).not.toBeNull();
     expect(document.querySelector('.sh-cover-foot').textContent).toContain('2025');
     expect(document.querySelector('.sh-cover-foot svg')).not.toBeNull();
-    expect(COVER_COLORS.leyes.ink).toBe('#FFFAF1');
     expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('l');
     document.body.innerHTML = coverHTML({ ...ley, siglas: 'LEPEPM' });
     expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('m');

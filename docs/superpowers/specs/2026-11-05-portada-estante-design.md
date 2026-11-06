@@ -30,7 +30,7 @@ Cambiar la portada (`/`) por una pantalla de alto impacto: un estante curvo en 3
 | Resorte, arrastre, rueda, flechas e inclinación de portada | Cursor personalizado |
 | Cambio de texto con máscara | `user-select:none` global y `overflow:hidden` en `body` |
 | Hoja que crece desde la portada | Revelado de póster con tinta (la ficha muestra la portada directamente) |
-| Regla inferior con punto que se desliza | Regla por años |
+| Regla inferior con punto que se desliza | Regla por años y punto deslizante |
 
 ## Datos reales que condicionan el diseño
 
@@ -38,8 +38,8 @@ Consulta a `leyes` del 5 de noviembre de 2026 (124 documentos):
 
 | Dato | Valor | Consecuencia |
 |---|---|---|
-| Fechas | 110 de 2024–2026, 11 sin fecha | La regla va por colección, no por año |
-| Colecciones | leyes 11, reglamentos 9, acuerdos 34, DACG 10, convocatorias 30, normas 3, otros 27 | Segmentos proporcionales con ancho mínimo |
+| Fechas | 110 de 2024–2026, 11 sin fecha | Las pestañas van por colección, no por año |
+| Colecciones | leyes 11, reglamentos 9, acuerdos 34, DACG 10, convocatorias 30, normas 3, otros 27 | Pestañas de igual ancho |
 | Siglas | mediana 16 caracteres, máximo 31 (`ACUERDO-CNE-16/04/2026-DACG-SAE`) | Solo las cortas van en grande |
 | Nombre corto (`shortTitle` o título) | mediana 146, p90 350, máximo 778 caracteres | Recorte por líneas; título completo en la ficha |
 | Resumen | No existe esa columna | La ficha usa `temas_clave`; no se inventan resúmenes |
@@ -55,7 +55,7 @@ De arriba abajo, en una sección de alto `100svh` menos encabezado (y menos barr
 2. **Búsqueda:** frase breve «Leyes y reglas de energía de México, en un solo lugar» (`h1`) y campo con el componente `.bj-search`, placeholder «Busca una ley, un artículo o un tema».
 3. **Estante:** ocupa el centro.
 4. **Texto del documento activo:** título (2 líneas como máximo), línea «siglas · colección · año» y flechas a los lados.
-5. **Regla por colección:** segmentos proporcionales. El punto marca el documento activo. Clic en un segmento salta al primer documento de esa colección.
+5. **Pestañas por colección:** ícono y nombre, de igual ancho, con la colección activa resaltada. Clic salta al primer documento de esa colección.
 6. **Línea inferior:** «Ver todos los documentos» (`#acervo`), Términos, Privacidad, Enviar comentario y el aviso de que el texto con validez jurídica es el publicado en el Diario Oficial de la Federación. Sustituye a `#institutional-footer`, oculto solo en esta vista.
 
 El botón flotante «Mi mesa» (`.desk-toggle`) se mantiene. La línea inferior y la regla reservan su espacio para que no se encimen.
@@ -69,10 +69,10 @@ Con altura menor a 620 px, la página permite scroll en vez de recortar contenid
 **Valores iniciales** (ajustables al verlo en navegador):
 
 ```text
-H  = min(46svh, 33vw)     móvil: min(62vw, 36svh)
-ws = H * 0.12             grosor del lomo
-d  = H * 0.68             ancho de la portada
-gap = H * 0.035
+H  = min(43svh, 33vw)     móvil: min(62vw, 36svh)
+ws = H * 0.16             grosor del lomo
+d  = H * 0.72             ancho de la portada
+gap = H * 0.012
 U  = H * 1.3              móvil: H * 1.05
 P  = 1400                 perspectiva CSS
 ```
@@ -93,7 +93,7 @@ Por cada tomo, con `o = smoothstep(max(0, 1 - |r|))`, `u = F(r)`, `sc = scl(u)` 
 z = P * (1 - k) + o * H * 0.1
 x = xsc(u) * k
 y = (H * 0.5 * (1 - sc) * 0.42 + o * H * 0.012 - lift * H * 0.05) * k
-rotateY = sign(u) * min(1, |u| / U) * 26° * (1 - o) - 90° * o + tiltY * o
+rotateY = sign(u) * min(1, |u| / U) * 14° * (1 - o) - 90° * o + tiltY * o
 rotateX = tiltX * o
 ```
 
@@ -123,42 +123,33 @@ Las flechas del teclado no actúan mientras el foco está en el campo de búsque
 
 ## Lomos y portadas
 
-Se generan por código con datos reales. Son objetos físicos: sus colores no cambian con el tema.
+Se generan por código con datos reales. Su diseño sigue la segunda imagen de referencia entregada el 5 de noviembre de 2026.
 
-| Colección | Fondo | Texto |
-|---|---|---|
-| Leyes | Guinda `#9B2247` | Marfil |
-| Acuerdos | Guinda oscuro `#611232` | Marfil |
-| Reglamentos | Verde `#1E5B4F` | Marfil |
-| Disposiciones (DACG) | Verde oscuro `#13322B` | Marfil |
-| Convocatorias | Dorado `#A57F2C` | Tinta `#1C1915` |
-| Normas | Dorado claro `#D4C19C` | Tinta `#1C1915` |
-| Otros | Gris cálido `#6C5B58` | Marfil |
-
-- **Estilo:** minimalista y moderno: color plano, tipografía protagonista, sin marcos ni adornos. Se definió tras revisar en navegador.
-- **Lomo:** plano con luz muy suave. Siglas verticales arriba, en una línea con puntos suspensivos, y año abajo.
-- **Portada:** un pliegue fino y canto de páginas apenas visible. Tipo de documento y nombre arriba, a la izquierda; año o «Sin fecha» abajo, con el ícono de colección (`collectionIcon`) a la derecha.
+- **Color:** propio de cada documento, estable por siglas o id, tomado de diez tonos (`BOOK_COLORS`): guinda, dorado, azul petróleo, verde, índigo, lila, turquesa, ámbar, terracota y azul pizarra. Son objetos físicos: no cambian con el tema. Todos llevan texto marfil a 4.5:1 como mínimo, por eso el dorado, ámbar, lila y turquesa son más profundos que los de la imagen.
+- **Lomo:** esquinas redondeadas y luz de cilindro. Siglas verticales en negrita arriba, en una línea con puntos suspensivos, y año abajo.
+- **Portada:** esquinas redondeadas, banda de luz en el pliegue, listón dorado y curva suave abajo a la derecha. Tipo de documento, siglas o nombre, filete dorado y nombre corto arriba, a la izquierda. Año o «Sin fecha» abajo, con el ícono de colección (`collectionIcon`) en dorado a la derecha.
 - **Nombre en la portada:** siglas en grande si tienen hasta 14 caracteres, en tres tamaños según su largo; si no, nombre corto en serif a 7 líneas como máximo.
 - **Sentencias:** usan `isJudgment` y `judgmentCase`, igual que `search-landing.js`.
 - **Sin siglas:** se usa la colección como respaldo.
-- **Sombreado:** los lomos lejanos se oscurecen, hasta 60 %, y las tapas vistas de lado llegan a 40 %, sin texto. Cada tomo tiene contratapa para verse sólido por ambos lados. En el tema `contraste` no hay sombreado y sí borde visible.
+- **Sombreado:** lomos lejanos hasta 35 %, tapas vistas de lado hasta 30 %, sin texto. Cada tomo tiene contratapa. En el tema `contraste` no hay sombreado y sí borde visible.
 
 ## Ficha
 
-Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al abrir y 850 ms al cerrar, con la curva `cubic-bezier(.76,0,.18,1)`. Las líneas de texto suben con máscara.
+Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al abrir y 850 ms al cerrar, con la curva `cubic-bezier(.76,0,.18,1)`. Las líneas de texto suben con máscara. Su diseño sigue la primera imagen de referencia en lo que tiene datos reales.
 
 **Contenido, en dos columnas (una en móvil, con scroll):**
 
-- Portada grande.
-- Nombre corto en `--font-display` y, debajo, siempre el título oficial completo.
-- Tipo, fecha de publicación, última reforma y número de artículos. Cada dato se oculta si falta.
-- Temas (`temas_clave`), hasta 8, con «ver todos» si hay más.
-- Acciones:
-  - **Leer** (principal): `openLawDetail(law)`.
+- Ruta «Inicio › colección › nombre» y botón «Cerrar». «Inicio» cierra la ficha.
+- Portada grande, igual a la del estante.
+- Nombre corto en sans negrita, siglas, filete dorado y, debajo, siempre el título oficial completo si difiere.
+- Colección, publicación, última reforma y número de artículos. Cada dato se oculta si falta.
+- Temas (`temas_clave`) como etiquetas de color suave, hasta 8, con «ver todos» si hay más.
+- Acciones con ícono:
+  - **Leer** (principal): `openLawDetail(law)`. Estante y ficha siguen visibles hasta que llegan los artículos.
   - **Compartir:** `navigator.share` o copiar enlace, con `lawShareUrl(law)`.
   - **Ver fuente original:** `url_original`.
 
-**Cierre:** botón «Cerrar», Esc o Atrás. El foco entra a la hoja al abrir, queda atrapado en ella y vuelve a la portada al cerrar.
+**Cierre:** botón «Cerrar», «Inicio», Esc o Atrás. El foco entra a la hoja al abrir, queda atrapado en ella y vuelve a la portada al cerrar.
 
 ## Rutas
 
@@ -178,7 +169,7 @@ Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al 
 
 | Archivo | Responsabilidad | Depende de |
 |---|---|---|
-| `src/lib/shelf-geometry.js` | Funciones puras de arco, resorte y regla, sin DOM | Nada |
+| `src/lib/shelf-geometry.js` | Funciones puras de arco y resorte, sin DOM | Nada |
 | `src/lib/law-cover.js` | HTML de lomo y portada a partir de un documento | `acervo-model`, `short-title`, `judgment`, `collection-icons`, `acervo-art` |
 | `src/scripts/shelf-view.js` | `renderShelfView(host, opciones)`: orden del estante, pantalla, regla y entradas; devuelve `{ destroy, setCatalog, setFailed, focusLaw, openSheet, closeSheet }` | Los dos anteriores, `law-sheet`, `acervo-model` |
 | `src/scripts/law-sheet.js` | `openLawSheet(law, { originRect, onRead, onShare, onClose })` | `law-cover` |
@@ -189,7 +180,7 @@ Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al 
 ## Temas y textos
 
 - Funciona en los cuatro temas (`light`, `dark`, `sepia`, `contraste`) con los tokens existentes.
-- Títulos con `--font-display` (Newsreader) e interfaz con `--font-sans` (Noto Sans). `DESIGN.md` aún cita Merriweather; manda el token real.
+- Siglas y frase principal con `--font-display` (Newsreader); títulos e interfaz con `--font-sans` (Noto Sans). No se agrega la tipografía Inter sugerida en la imagen. `DESIGN.md` aún cita Merriweather; manda el token real.
 - Textos visibles en lenguaje sencillo: «documentos», no «instrumentos» ni «acervo». En la regla, «Disposiciones» en vez de «DACG». El enlace «Acervo» del menú no cambia en este trabajo.
 
 ## Accesibilidad
@@ -202,7 +193,7 @@ Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al 
 ## Móvil (767 px o menos)
 
 - Arrastre con el dedo y `touch-action:pan-y` en el estante.
-- Regla simplificada: segmentos sin etiquetas y, debajo, solo el nombre de la colección activa.
+- Pestañas solo con ícono; la colección activa conserva su nombre. Aplica hasta 1023 px, donde aparece la barra inferior.
 - Flechas junto al título, con objetivo táctil de 44 px como mínimo.
 - La sección descuenta la barra inferior de 68 px y el área segura.
 - La línea inferior conserva todos sus enlaces y el aviso legal, en letra pequeña y hasta tres renglones.
@@ -235,7 +226,7 @@ Hoja de superficie crema que crece desde la portada con `clip-path`: 1050 ms al 
 
 ## Fuera de alcance
 
-- Barra lateral de la imagen de referencia.
+- Barra lateral, logo de búho, resumen, «Leyes populares» y «Lecturas recientes» de las imágenes de referencia.
 - Filtrar el estante al escribir.
 - Resúmenes de documentos (no hay datos) y guardar documentos completos (los favoritos son por artículo).
 - Ilustraciones únicas por documento.

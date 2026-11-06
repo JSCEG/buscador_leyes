@@ -96,6 +96,16 @@ describe('shelf view', () => {
     view.destroy(); view = null; release(); await frame();
     expect(host.querySelector('.sh-tome')).toBeNull();
   });
+  it('offers collections as tabs with an icon, marking the active one', async () => {
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
+    const tabs = [...host.querySelectorAll('[data-sh-segment]')];
+    expect(tabs.map(tab => tab.textContent.trim())).toEqual(['Leyes', 'Reglamentos']);
+    expect(tabs[0].querySelector('svg')).not.toBeNull();
+    expect(tabs[0].getAttribute('aria-current')).toBe('true');
+    expect(tabs[1].hasAttribute('aria-current')).toBe(false);
+    expect(host.querySelector('.sh-ruler-dot')).toBeNull();
+    expect(host.querySelector('h1 em').textContent).toBe('energía');
+  });
   it('shows cover text only on the open book', async () => {
     view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
     const text = id => host.querySelector(`.sh-tome[data-law-id="${id}"]`).style.getPropertyValue('--cover-text');

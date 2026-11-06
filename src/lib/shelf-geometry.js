@@ -1,14 +1,15 @@
 /**
  * Geometry of the home shelf: where each tome sits on the curved arc, how the spring moves and how
- * the collection ruler divides its width. Pure functions, no DOM, so every value can be tested.
+ * the shelf behaves. Pure functions, no DOM, so every value can be tested.
  */
-const SPINE = 0.12;
-const COVER = 0.68;
-const GAP = 0.035;
+const SPINE = 0.16;
+const COVER = 0.72;
+const GAP = 0.012;
 const FALLOFF_DESKTOP = 1.3;
 const FALLOFF_MOBILE = 1.05;
 const PERSPECTIVE = 1400;
 const VISIBLE_RANGE = 1.95;
+const MAX_TURN = 14;
 const TABLE_STEP = 2;
 const MAX_DT = 0.05;
 
@@ -64,12 +65,12 @@ export function tomeTransform(r, m, { lift = 0, tiltX = 0, tiltY = 0 } = {}) {
         y: (m.H * 0.5 * (1 - sc) * 0.42 + o * m.H * 0.012 - lift * m.H * 0.05) * k,
         z,
         rotateX: tiltX * o,
-        rotateY: Math.sign(u) * Math.min(1, Math.abs(u) / m.U) * 26 * (1 - o) - 90 * o + tiltY * o,
+        rotateY: Math.sign(u) * Math.min(1, Math.abs(u) / m.U) * MAX_TURN * (1 - o) - 90 * o + tiltY * o,
         o,
         sc,
         zIndex: Math.round(3000 + z),
-        spineShade: Math.min(0.6, o * 0.55 + (1 - sc) * 0.32),
-        coverShade: (1 - o) * 0.4,
+        spineShade: Math.min(0.35, o * 0.55 + (1 - sc) * 0.2),
+        coverShade: (1 - o) * 0.3,
     };
 }
 
@@ -77,37 +78,3 @@ export function stepSpring(s, T, dt, k) {
     return s + (T - s) * (1 - Math.exp(-k * Math.min(dt, MAX_DT)));
 }
 
-/** Width of each ruler segment: proportional to its documents, never below minFraction. */
-export function rulerSegments(counts, minFraction = 0.06) {
-    const total = counts.reduce((sum, count) => sum + count, 0);
-    const widths = new Array(counts.length).fill(0);
-    const pinned = new Set();
-    if (minFraction * counts.length >= 1 || !total) widths.fill(1 / (counts.length || 1));
-    else {
-        for (let changed = true; changed;) {
-            changed = false;
-            const free = counts.reduce((sum, count, i) => (pinned.has(i) ? sum : sum + count), 0);
-            const room = 1 - pinned.size * minFraction;
-            counts.forEach((count, i) => {
-                if (pinned.has(i)) { widths[i] = minFraction; return; }
-                widths[i] = (count / free) * room;
-                if (widths[i] < minFraction) { pinned.add(i); changed = true; }
-            });
-        }
-    }
-    let start = 0;
-    let firstIndex = 0;
-    return counts.map((count, index) => {
-        const segment = { index, start, end: start + widths[index], firstIndex, count };
-        start = segment.end;
-        firstIndex += count;
-        return segment;
-    });
-}
-
-/** Where a document falls on the ruler, from 0 to 1. */
-export function rulerPosition(docIndex, segments) {
-    const segment = segments.find(item => docIndex >= item.firstIndex && docIndex < item.firstIndex + item.count) || segments[0];
-    if (!segment) return 0;
-    return segment.start + ((docIndex - segment.firstIndex + 0.5) / segment.count) * (segment.end - segment.start);
-}

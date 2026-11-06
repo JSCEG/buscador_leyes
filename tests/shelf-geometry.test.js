@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { arcLength, rel, rulerPosition, rulerSegments, screenScale, screenX, shelfMetrics, stepSpring, tomeTransform } from '../src/lib/shelf-geometry.js';
+import { arcLength, rel, screenScale, screenX, shelfMetrics, stepSpring, tomeTransform } from '../src/lib/shelf-geometry.js';
 
 const m = shelfMetrics(400, { mobile: false });
 
 describe('shelf geometry', () => {
   it('derives measures from H', () => {
-    expect(m.ws).toBeCloseTo(48); expect(m.d).toBeCloseTo(272); expect(m.gap).toBeCloseTo(14);
+    expect(m.ws).toBeCloseTo(64); expect(m.d).toBeCloseTo(288); expect(m.gap).toBeCloseTo(4.8);
     expect(m.U).toBeCloseTo(520); expect(shelfMetrics(400, { mobile: true }).U).toBeCloseTo(420);
     expect(m.P).toBe(1400);
   });
@@ -32,20 +32,12 @@ describe('shelf geometry', () => {
     expect(tomeTransform(3, m).rotateY).toBeGreaterThan(0); expect(tomeTransform(-3, m).rotateY).toBeLessThan(0);
     expect(tomeTransform(60, m).visible).toBe(false);
     expect(tomeTransform(5, m).spineShade).toBeLessThanOrEqual(0.6);
-    expect(tomeTransform(3, m).coverShade).toBeCloseTo(0.4);
+    expect(tomeTransform(3, m).coverShade).toBeCloseTo(0.3);
+    expect(tomeTransform(3, m).rotateY).toBeLessThanOrEqual(14);
+    expect(tomeTransform(10, m).spineShade).toBeLessThanOrEqual(0.35);
   });
   it('spring approaches the target and caps dt', () => {
     expect(stepSpring(0, 10, 0.05, 5.2)).toBeCloseTo(10 * (1 - Math.exp(-0.26)));
     expect(stepSpring(0, 10, 5, 5.2)).toBeCloseTo(stepSpring(0, 10, 0.05, 5.2));
-  });
-  it('ruler gives proportional segments with a minimum width', () => {
-    const segments = rulerSegments([11, 9, 34, 10, 30, 3, 27]);
-    expect(segments[0].start).toBe(0); expect(segments.at(-1).end).toBeCloseTo(1);
-    expect(segments[5].end - segments[5].start).toBeGreaterThanOrEqual(0.06 - 1e-9);
-    expect(segments[2].firstIndex).toBe(20);
-    expect(rulerPosition(0, segments)).toBeGreaterThan(0);
-    expect(rulerPosition(123, segments)).toBeLessThan(1);
-    expect(rulerPosition(20, segments)).toBeGreaterThanOrEqual(segments[2].start);
-    expect(rulerSegments([5])).toHaveLength(1);
   });
 });

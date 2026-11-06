@@ -32,6 +32,15 @@ describe('law sheet', () => {
     element.querySelector('[data-sheet-more]').click();
     expect(element.querySelectorAll('[data-sheet-topics] li')).toHaveLength(10);
   });
+  it('shows the path, an accent and icons on its actions', () => {
+    const onRequestClose = vi.fn();
+    const { element } = open(law, { onRequestClose });
+    expect(element.querySelector('.sh-sheet-crumbs').textContent).toContain('Leyes');
+    expect(element.querySelector('.sh-sheet-accent')).not.toBeNull();
+    for (const action of ['read', 'share', 'source']) expect(element.querySelector(`[data-sheet-${action}] svg`)).not.toBeNull();
+    element.querySelector('[data-sheet-home]').click();
+    expect(onRequestClose).toHaveBeenCalledTimes(1);
+  });
   it('sets long names at a calmer size so the details stay close', () => {
     const short = open();
     expect(short.element.querySelector('h2').hasAttribute('data-long')).toBe(false);

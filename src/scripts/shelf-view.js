@@ -4,7 +4,8 @@
  */
 import { groupAcervo, selectAcervo } from '../lib/acervo-model.js';
 import { GROUP_LABELS, coverData, coverHTML, spineHTML, tomeBackStyle } from '../lib/law-cover.js';
-import { rel, rulerPosition, rulerSegments, shelfMetrics, stepSpring, tomeTransform } from '../lib/shelf-geometry.js';
+import { collectionIcon } from '../lib/collection-icons.js';
+import { rel, shelfMetrics, stepSpring, tomeTransform } from '../lib/shelf-geometry.js';
 import { openLawSheet } from './law-sheet.js';
 import '../styles/shelf.css';
 
@@ -28,11 +29,13 @@ const mod = (value, n) => ((value % n) + n) % n;
 /** Shelf order: collections in their usual order, each one by title. Empty collections are left out. */
 export function buildShelf(summaries) {
     const groups = groupAcervo(selectAcervo(summaries, { sort: 'title' })).filter(group => group.items.length);
-    const widths = rulerSegments(groups.map(group => group.items.length));
-    return {
-        items: groups.flatMap(group => group.items),
-        segments: widths.map((segment, index) => ({ ...segment, group: groups[index].id })),
-    };
+    let firstIndex = 0;
+    const segments = groups.map(group => {
+        const segment = { group: group.id, firstIndex, count: group.items.length };
+        firstIndex += group.items.length;
+        return segment;
+    });
+    return { items: groups.flatMap(group => group.items), segments };
 }
 
 const metaLine = data => [data.siglas, data.groupLabel, data.year].filter(Boolean).join(' · ');
@@ -49,7 +52,7 @@ function statusHTML(state) {
 export function renderShelfView(host, { summaries = [], status = 'loading', onSearch = () => {}, onOpenLaw = () => {}, onShare = () => {}, onSheetChange = () => {}, onBrowse = () => {}, onLegal = () => {}, onFeedback = () => {} } = {}) {
     host.innerHTML = `<div class="sh-view">
         <div class="sh-top">
-            <h1>Leyes y reglas de energía de México, en un solo lugar</h1>
+            <h1>Leyes y reglas de <em>energía</em> de México, en un solo lugar</h1>
             <div class="sh-search">${SEARCH_ICON}<input type="search" class="bj-search__input" aria-label="Buscar en los documentos" placeholder="Busca una ley, un artículo o un tema" autocomplete="off"></div>
         </div>
         <section class="sh-shelf" aria-roledescription="carrusel" aria-label="Estante de documentos" tabindex="0">
@@ -67,11 +70,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
             <button type="button" class="sh-arrow" data-sh-next aria-label="Documento siguiente">${ARROW(1)}</button>
             <p class="sh-sr" aria-live="polite"></p>
         </div>
-        <div class="sh-ruler" hidden>
-            <div class="sh-ruler-line" aria-hidden="true"></div>
-            <div class="sh-ruler-dot" aria-hidden="true"></div>
-            <p class="sh-ruler-active" aria-hidden="true"></p>
-        </div>
+        <div class="sh-ruler" role="group" aria-label="Colecciones" hidden></div>
         <footer class="sh-foot">
             <button type="button" class="sh-foot-browse" data-sh-browse>Ver todos los documentos</button>
             <p>Herramienta de consulta y apoyo. El texto con validez jurídica es el publicado en el Diario Oficial de la Federación o en la fuente oficial de cada documento.</p>
@@ -92,8 +91,6 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     const metaBox = view.querySelector('.sh-caption-meta');
     const live = view.querySelector('.sh-sr');
     const ruler = view.querySelector('.sh-ruler');
-    const dotEl = view.querySelector('.sh-ruler-dot');
-    const rulerLabel = view.querySelector('.sh-ruler-active');
     const field = view.querySelector('.sh-search input');
 
     const reduced = () => Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
@@ -105,7 +102,6 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     let metrics = null;
     let s = 0;
     let T = 0;
-    let dot = 0;
     let active = -1;
     let handle = null;
     let last = 0;
@@ -187,7 +183,6 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
         live.textContent = `${data.name}. ${metaLine(data)}`;
         view.querySelector('[data-sh-open]').setAttribute('aria-label', `Abrir ficha de ${data.name}`);
         const segment = segments.find(item => index >= item.firstIndex && index < item.firstIndex + item.count);
-        rulerLabel.textContent = segment ? GROUP_LABELS[segment.group] : '';
         view.querySelectorAll('[data-sh-segment]').forEach(button => {
             if (button.dataset.shSegment === segment?.group) button.setAttribute('aria-current', 'true');
             else button.removeAttribute('aria-current');
@@ -205,13 +200,9 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
         const n = items.length;
         const index = mod(Math.round(s), n);
         if (index !== active) showActive(index, Math.sign(T - s) || 1);
-        const target = rulerPosition(index, segments);
-        dot = instant || Math.abs(target - dot) > 0.5 ? target : dot + (target - dot) * (1 - Math.exp(-14 * dt));
-        if (Math.abs(target - dot) < 0.0005) dot = target;
-        dotEl.style.left = `${dot * 100}%`;
         const easing = easeHover(dt);
         drawTomes();
-        if (s !== T || dot !== target || easing || drag) wake();
+        if (s !== T || easing || drag) wake();
         else last = 0;
     }
 
@@ -248,15 +239,13 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
         ({ items, segments } = buildShelf(next));
         tomes.forEach(tome => tome.remove());
         tomes.clear();
-        ruler.querySelectorAll('[data-sh-segment]').forEach(button => button.remove());
-        ruler.insertAdjacentHTML('beforeend', segments.map(segment => `<button type="button" class="sh-segment" data-sh-segment="${segment.group}" style="left:${segment.start * 100}%;width:${(segment.end - segment.start) * 100}%" aria-label="Ir a ${esc(GROUP_LABELS[segment.group])}"><span>${esc(GROUP_LABELS[segment.group])}</span></button>`).join(''));
+        ruler.innerHTML = segments.map(segment => `<button type="button" class="sh-segment" data-sh-segment="${segment.group}" aria-label="Ir a ${esc(GROUP_LABELS[segment.group])}">${collectionIcon(segment.group, 22)}<span>${esc(GROUP_LABELS[segment.group])}</span></button>`).join('');
         if (!items.length) { setStatus('error'); return; }
         setStatus(null);
         const single = items.length < 2;
         view.querySelector('[data-sh-prev]').hidden = single;
         view.querySelector('[data-sh-next]').hidden = single;
         s = 0; T = 0; active = -1; last = 0;
-        dot = rulerPosition(0, segments);
         measure();
         wake();
     }

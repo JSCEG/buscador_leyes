@@ -14,6 +14,12 @@ const LINE_MS = 900;
 const SHEET_EASE = 'cubic-bezier(.76,0,.18,1)';
 const LINE_EASE = 'cubic-bezier(.2,.8,.2,1)';
 const FOCUSABLE = 'button:not([disabled]), a[href]';
+const icon = paths => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+const ICONS = {
+    read: icon('<path d="M12 6.5C10 5 7.5 4.5 4 4.5v14c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-14c-3.5 0-6 .5-8 2Z"/><path d="M12 6.5v14"/>'),
+    share: icon('<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="m8.3 10.7 7.4-4.3M8.3 13.3l7.4 4.3"/>'),
+    source: icon('<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
+};
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
@@ -39,18 +45,24 @@ function sheetHTML(law) {
     const topics = topicsOf(law);
     const source = /^https?:\/\//i.test(String(law.url_original ?? '')) ? law.url_original : '';
     const showTitle = data.title && data.title !== data.name;
-    return `<button type="button" class="bj-btn bj-btn--secondary bj-btn--sm sh-sheet-close" data-sheet-close>Cerrar</button>
+    return `<div class="sh-sheet-bar">
+        <nav class="sh-sheet-crumbs" aria-label="Ruta">
+            <button type="button" data-sheet-home>Inicio</button><span aria-hidden="true">›</span><span>${esc(data.groupLabel)}</span><span aria-hidden="true">›</span><span class="sh-sheet-crumb-now" aria-current="page">${esc(data.name)}</span>
+        </nav>
+        <button type="button" class="bj-btn bj-btn--secondary bj-btn--sm sh-sheet-close" data-sheet-close>Cerrar</button>
+    </div>
     <div class="sh-sheet-body">
         <div class="sh-sheet-book">${coverHTML(law)}</div>
         <div class="sh-sheet-main">
             <p class="sh-sheet-eyebrow" data-sheet-line>${esc(data.typeLabel)}</p>
             <h2 id="sh-sheet-title" data-sheet-line${data.name.length > LONG_NAME ? ' data-long' : ''}>${esc(data.name)}</h2>
             ${data.siglas ? `<p class="sh-sheet-siglas" data-sheet-line>${esc(data.siglas)}</p>` : ''}
+            <span class="sh-sheet-accent" data-sheet-line></span>
             ${showTitle ? `<p class="sh-sheet-official" data-sheet-line>${esc(data.title)}</p>` : ''}
             <div class="sh-sheet-actions" data-sheet-line>
-                <button type="button" class="bj-btn sh-sheet-read" data-sheet-read>Leer</button>
-                <button type="button" class="bj-btn bj-btn--secondary" data-sheet-share>Compartir</button>
-                ${source ? `<a class="bj-btn bj-btn--secondary" data-sheet-source href="${esc(source)}" target="_blank" rel="noopener noreferrer">Ver fuente original</a>` : ''}
+                <button type="button" class="bj-btn sh-sheet-read" data-sheet-read>${ICONS.read}Leer</button>
+                <button type="button" class="bj-btn bj-btn--secondary" data-sheet-share>${ICONS.share}Compartir</button>
+                ${source ? `<a class="bj-btn bj-btn--secondary" data-sheet-source href="${esc(source)}" target="_blank" rel="noopener noreferrer">${ICONS.source}Ver fuente original</a>` : ''}
             </div>
             <div class="sh-sheet-details" data-sheet-line>
                 <dl>
@@ -85,7 +97,7 @@ export function openLawSheet(law, { host, getOriginRect = () => null, reducedMot
     host.appendChild(element);
 
     element.addEventListener('click', event => {
-        if (event.target.closest('[data-sheet-close]')) onRequestClose();
+        if (event.target.closest('[data-sheet-close], [data-sheet-home]')) onRequestClose();
         else if (event.target.closest('[data-sheet-read]')) onRead(law);
         else if (event.target.closest('[data-sheet-share]')) onShare(law);
         else if (event.target.closest('[data-sheet-more]')) {
