@@ -117,6 +117,22 @@ describe('shelf input', () => {
     view.destroy(); view = renderShelfView(host, { summaries: [mixed[0]], status: 'ready' }); await frame();
     expect(host.querySelector('[data-sh-next]').hidden).toBe(true);
   });
+  it('never stacks caption lines during a long jump', async () => {
+    view.destroy();
+    vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener() {}, removeEventListener() {} }));
+    const animate = vi.fn(() => ({ cancel() {}, onfinish: null, oncancel: null }));
+    Element.prototype.animate = animate;
+    const docs = Array.from({ length: 60 }, (_, i) => ({ id: `d${i}`, titulo: `Acuerdo ${String(i).padStart(3, '0')}`, siglas: `A${i}`, tipo: 'acuerdo' }));
+    view = renderShelfView(host, { summaries: docs, status: 'ready' }); await frame();
+    view.focusLaw('d25');
+    let most = 0;
+    for (let i = 0; i < 30; i++) {
+      await frame();
+      most = Math.max(most, host.querySelectorAll('.sh-caption-title .is-leaving').length);
+    }
+    delete Element.prototype.animate;
+    expect(most).toBeLessThanOrEqual(1);
+  });
   it('removes its listeners on destroy', async () => {
     view.destroy();
     expect(() => window.dispatchEvent(new Event('resize'))).not.toThrow();

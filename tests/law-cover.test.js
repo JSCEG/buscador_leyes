@@ -42,6 +42,8 @@ describe('law covers', () => {
     expect(document.querySelector('.sh-cover-frame')).not.toBeNull();
     expect(document.querySelector('.sh-cover-rule')).not.toBeNull();
     expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('l');
+    document.body.innerHTML = coverHTML({ ...ley, siglas: 'LEPEPM' });
+    expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('m');
     document.body.innerHTML = coverHTML({ ...ley, siglas: 'ABCDEFGH' });
     expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('m');
     document.body.innerHTML = coverHTML({ ...ley, siglas: 'ABCDEFGHIJKLMN' });

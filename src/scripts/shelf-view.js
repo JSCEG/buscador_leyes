@@ -16,6 +16,7 @@ const WHEEL_SNAP_MS = 160;
 const MAX_DT = 0.05;
 const SETTLED = 0.01;
 const REST = 0.001;
+const CAPTION_FAST = 1.5;
 const CAPTION_MS = 650;
 const CAPTION_EASE = 'cubic-bezier(.2,.8,.2,1)';
 const SEARCH_ICON = '<svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>';
@@ -156,11 +157,13 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
 
     function setCaptionLine(box, text, direction, title = '') {
         box.title = title;
+        // Only the line on screen slides out; a long jump swaps text directly so lines never stack.
+        box.querySelectorAll('.is-leaving').forEach(node => node.remove());
         const previous = [...box.children];
         const line = document.createElement('span');
         line.textContent = text;
         box.appendChild(line);
-        if (!previous.length || !direction || reduced() || !line.animate) {
+        if (!previous.length || !direction || reduced() || !line.animate || Math.abs(T - s) > CAPTION_FAST) {
             previous.forEach(node => node.remove());
             return;
         }

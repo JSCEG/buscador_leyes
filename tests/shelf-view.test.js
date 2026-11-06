@@ -94,6 +94,18 @@ describe('shelf view', () => {
     view.destroy(); view = null; release(); await frame();
     expect(host.querySelector('.sh-tome')).toBeNull();
   });
+  it('stops asking for frames once at rest', async () => {
+    const raf = vi.fn(cb => setTimeout(() => cb(performance.now()), 0));
+    vi.stubGlobal('requestAnimationFrame', raf);
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' });
+    for (let i = 0; i < 5; i++) await frame();
+    const calls = raf.mock.calls.length;
+    for (let i = 0; i < 5; i++) await frame();
+    expect(raf.mock.calls.length).toBe(calls);
+    host.querySelector('[data-sh-next]').click();
+    await frame();
+    expect(raf.mock.calls.length).toBeGreaterThan(calls);
+  });
   it('stops its loop on destroy', async () => {
     const raf = vi.fn(cb => setTimeout(() => cb(performance.now()), 0));
     vi.stubGlobal('requestAnimationFrame', raf);

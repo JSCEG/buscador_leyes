@@ -7,6 +7,7 @@ import { countFragments } from '../lib/judgment.js';
 import '../styles/shelf.css';
 
 const TOPICS_SHOWN = 8;
+const LONG_NAME = 70;
 const OPEN_MS = 1050;
 const CLOSE_MS = 850;
 const LINE_MS = 900;
@@ -43,7 +44,7 @@ function sheetHTML(law) {
         <div class="sh-sheet-book">${coverHTML(law)}</div>
         <div class="sh-sheet-main">
             <p class="sh-sheet-eyebrow" data-sheet-line>${esc(data.typeLabel)}</p>
-            <h2 id="sh-sheet-title" data-sheet-line>${esc(data.name)}</h2>
+            <h2 id="sh-sheet-title" data-sheet-line${data.name.length > LONG_NAME ? ' data-long' : ''}>${esc(data.name)}</h2>
             ${data.siglas ? `<p class="sh-sheet-siglas" data-sheet-line>${esc(data.siglas)}</p>` : ''}
             ${showTitle ? `<p class="sh-sheet-official" data-sheet-line>${esc(data.title)}</p>` : ''}
             <div class="sh-sheet-actions" data-sheet-line>

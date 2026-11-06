@@ -46,6 +46,7 @@
 .sh-sheet-book .sh-cover { box-shadow: 1px 1px 0 #f4ecda, 2px 2px 0 #cfc5ae, 3px 3px 0 #f4ecda, 4px 4px 0 #b9ae97, 6px 8px 0 -1px rgba(20,16,10,.18), 0 34px 60px -24px rgba(20,16,10,.55); }
 .sh-sheet-eyebrow { margin: 0 0 12px; font: 600 12px/1 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
 .sh-sheet h2 { margin: 0; font: 500 clamp(30px, 3.6vw, 48px)/1.12 var(--font-display); letter-spacing: -.01em; color: var(--ink); }
+.sh-sheet h2[data-long] { font-size: clamp(22px, 2.3vw, 30px); line-height: 1.2; }
 .sh-sheet-siglas { margin: 14px 0 0; font: 600 15px/1.3 var(--font-sans); color: var(--ink-2); overflow-wrap: anywhere; }
 .sh-sheet-official { margin: 12px 0 0; font: italic 400 15px/1.55 var(--font-sans); color: var(--ink-muted); }
 .sh-sheet-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--hairline, var(--border)); }
@@ -116,11 +117,15 @@ body.home-active #main-container, body.home-active #institutional-footer { displ
 .sh-arrow[hidden] { visibility: hidden; display: inline-flex; }
 .sh-arrow:hover { background: var(--surface-2); }
 .sh-caption-text { display: grid; justify-items: center; gap: 4px; min-width: 0; text-align: center; }
+.sh-caption { --sh-title-size: clamp(20px, 2.1vw, 28px); }
 .sh-caption-title, .sh-caption-meta { position: relative; width: 100%; overflow: hidden; }
+/* Dos renglones reservados: el estante no salta cuando cambia el largo del título. */
+.sh-caption-title { display: flex; align-items: center; min-height: calc(var(--sh-title-size) * 2.4); }
+.sh-caption-title span { width: 100%; }
 .sh-caption-title span, .sh-caption-meta span { display: block; }
-.sh-caption-title span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font: 500 clamp(20px, 2.1vw, 28px)/1.2 var(--font-display); color: var(--ink); }
+.sh-caption-title span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font: 500 var(--sh-title-size)/1.2 var(--font-display); color: var(--ink); }
 .sh-caption-meta span { font: 500 12px/1.5 var(--font-sans); letter-spacing: .03em; color: var(--ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sh-caption .is-leaving { position: absolute; inset: 0 0 auto; }
+.sh-caption .is-leaving { position: absolute; inset: 0; }
 .sh-open { position: absolute; width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip: rect(0,0,0,0); }
 .sh-open:focus-visible { position: static; width: auto; height: auto; padding: 4px 12px; clip: auto; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface-1); color: var(--ink); font: 600 13px/1.4 var(--font-sans); }
 
@@ -157,7 +162,7 @@ html[data-theme="contraste"] .sh-spine, html[data-theme="contraste"] .sh-cover {
     .sh-top h1 { font-size: 15px; }
     .sh-search { height: 44px; padding: 0 14px; }
     .sh-caption { padding: 0 6px; gap: 2px; }
-    .sh-caption-title span { font-size: 19px; }
+    .sh-caption { --sh-title-size: 19px; }
     .sh-ruler { width: calc(100% - 32px); height: 34px; margin-top: 4px; }
     .sh-foot { padding: 4px 12px 0; font-size: 10.5px; gap: 0 10px; }
 }

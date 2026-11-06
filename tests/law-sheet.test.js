@@ -32,6 +32,12 @@ describe('law sheet', () => {
     element.querySelector('[data-sheet-more]').click();
     expect(element.querySelectorAll('[data-sheet-topics] li')).toHaveLength(10);
   });
+  it('sets long names at a calmer size so the details stay close', () => {
+    const short = open();
+    expect(short.element.querySelector('h2').hasAttribute('data-long')).toBe(false);
+    const long = open({ ...law, siglas: 'X', titulo: `Ley ${'muy larga '.repeat(12)}` });
+    expect(long.element.querySelector('h2').hasAttribute('data-long')).toBe(true);
+  });
   it('escapes HTML from data', () => {
     const { element } = open({ ...law, titulo: '<img src=x onerror=alert(1)>', temas_clave: ['<b>x</b>'] });
     expect(element.querySelector('img')).toBeNull();

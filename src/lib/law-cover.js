@@ -54,7 +54,7 @@ export function coverData(law) {
     };
 }
 
-const acronymSize = siglas => (siglas.length <= 6 ? 'l' : siglas.length <= 10 ? 'm' : 's');
+const acronymSize = siglas => (siglas.length <= 4 ? 'l' : siglas.length <= 8 ? 'm' : 's');
 
 const paint = group => `--sh-bg:${COVER_COLORS[group].bg};--sh-ink:${COVER_COLORS[group].ink}`;
 
