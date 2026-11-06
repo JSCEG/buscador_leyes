@@ -221,11 +221,15 @@ html.dark-mode .sr-view{background:transparent!important}
     .sr-facets{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--papel-alto)}
     .sr-group-head{flex-wrap:wrap}
     .sr-group .bu-mini{width:46px;height:64px;font-size:0}
+    .sr-group .bu-mini>span[data-size]{font-size:0}
+    /* El titulo ocupa el renglon junto al libro; «Ver todas» baja, en vez de apretarlo hasta cortarlo. */
+    .sr-group-text{flex:1 1 calc(100% - 62px);min-width:0}
+    .sr-group-more{margin-left:auto}
 }
 @media (prefers-reduced-motion:reduce){.sr-cf-hoja,.sr-view .sr-cf .bu-cf-frente,.bu-mini{transition:none}}
 
 /* Abrir el instrumento desde sus resultados */
-button.sr-group-book { border: 0; font: inherit; text-align: left; cursor: pointer; }
+button.sr-group-book { border: 0; padding: 8px 5px 6px 13px; font: 500 9px/1.05 var(--font-display); text-align: left; cursor: pointer; }
 button.sr-group-book:hover { box-shadow: 0 8px 18px #0a070726, inset 0 0 0 1px var(--ac); transform: translateY(-2px); }
 button.sr-group-book:focus-visible, .sr-group-open:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
 .sr-group-open { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }

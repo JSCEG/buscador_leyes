@@ -2,6 +2,7 @@ import { ACERVO_GROUPS, getAcervoGroup } from '../lib/acervo-model.js';
 import { pinButtonHtml } from './desk-view.js';
 import { renderSearchGraph } from './search-graph-view.js';
 import { collectionIcon } from '../lib/collection-icons.js';
+import { miniBookLabel } from '../lib/mini-book.js';
 import { shortTitle } from '../lib/short-title.js';
 import { contextSnippet, highlightTerms, markedFragment } from '../lib/search-snippet.js';
 import '../styles/search.css';
@@ -31,6 +32,11 @@ const readMode = () => {
     try { return localStorage.getItem(MODE_KEY) === 'mapa' ? 'mapa' : 'lista'; } catch { return 'lista'; }
 };
 const FOLDER_SHAPE = 'M0 14A8 8 0 0 1 8 6H44C52 6 53 0 60 0H116A8 8 0 0 1 124 8V104A8 8 0 0 1 116 112H8A8 8 0 0 1 0 104Z';
+function miniCover(sigla, group) {
+    const { text, size } = miniBookLabel(sigla);
+    return text ? `<span data-size="${size}">${esc(text)}</span>` : `<span class="bu-mini-icon">${collectionIcon(group, 24)}</span>`;
+}
+
 const lawLabel = law => shortTitle(law.titulo) || law.titulo || law.siglas || 'Documento';
 const GRAPH_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="18.5" r="2"/><path d="M9.6 10.3 6.2 7.3M14.4 10.3l3.4-3M10 14.2l-2.6 3.3M14 14.2l2.6 2.8"/></svg>';
 const LIST_ICON = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>';
@@ -124,7 +130,7 @@ export function renderSearchResults(container, {
         const year = dateLabel(item.fecha_publicacion || law?.fecha_publicacion);
         return `<section class="sr-group bu-cristal" data-category="${group}">
             <header class="sr-group-head">
-                ${law ? `<button type="button" class="bu-mini sr-group-book" data-open-law="${esc(law.id)}" aria-label="Abrir ${esc(lawLabel(law))}"><span>${esc(sigla)}</span></button>` : `<span class="bu-mini" aria-hidden="true"><span>${esc(sigla)}</span></span>`}
+                ${law ? `<button type="button" class="bu-mini sr-group-book" data-open-law="${esc(law.id)}" aria-label="Abrir ${esc(lawLabel(law))}">${miniCover(sigla, group)}</button>` : `<span class="bu-mini" aria-hidden="true">${miniCover(sigla, group)}</span>`}
                 <div class="sr-group-text">
                     <span class="sr-group-type">${esc(groupLabel.get(group) || 'Otros')}</span>
                     <h2 class="sr-group-title">${law ? `<button type="button" class="sr-group-open" data-open-law="${esc(law.id)}">${esc(lawLabel(law))}<span aria-hidden="true"> ↗</span></button>` : esc(lawName(item, law) || 'Documento')}</h2>
