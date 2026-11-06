@@ -176,17 +176,14 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 
 /* ── Refreshed desk panel: band header, softer cards ── */
 .desk-panel{background:var(--dk-paper);border-left:0;box-shadow:-24px 0 60px #2a071433}
-.desk-head{position:relative;padding:20px 20px 16px;border-bottom:0;color:#fff;
-    background:radial-gradient(110% 120% at 100% 0%,#b8375f 0%,transparent 60%),linear-gradient(135deg,var(--guinda-700),var(--guinda-500) 60%,var(--guinda-700))}
-.desk-head::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(circle at 20% 30%,var(--surface-1) 0 1.4px,transparent 2px);background-size:34px 34px}
+.desk-head{position:relative;padding:20px 20px 16px;border-bottom:1px solid var(--linea);background:none;color:var(--tinta)}
 .desk-head>*{position:relative;z-index:1}
-.desk-head .desk-eyebrow{color:#fde8ee!important}
-.desk-head .desk-count{color:#ffffffc7}
-.desk-head .desk-switch select{background:#ffffff1f;border-color:#ffffff40;color:#fff;font-size:19px}
-.desk-head .desk-switch select option{color:var(--ink)}
-.desk-head .desk-menu-btn{background:#ffffff1f;border-color:#ffffff40!important;color:#fff}
-.desk-head .desk-close{background:#ffffff1f;border-color:#ffffff40;color:#fff}
-.desk-head .desk-close:hover{background:#ffffff33;color:#fff}
+.desk-head .desk-count{color:var(--tinta-suave)}
+.desk-head .desk-switch select{background:var(--papel-alto);border-color:var(--linea);color:var(--tinta);font-size:19px}
+.desk-head .desk-switch select option{background:var(--papel-alto);color:var(--tinta)}
+.desk-head .desk-menu-btn{background:var(--papel-alto);color:var(--tinta)}
+.desk-head .desk-close{background:var(--papel-alto);border-color:var(--linea);color:var(--tinta)}
+.desk-head .desk-close:hover{background:var(--ceniza);color:var(--tinta)}
 .desk-head .desk-form{color:var(--dk-ink)}
 .desk-tools{padding:14px 20px 0}
 .desk-tool{border-radius:999px}
@@ -197,7 +194,6 @@ html.dark-mode .desk-side{background:#eeb0c2;border-color:#eeb0c2;color:#1e1c1a}
 .desk-card h3{margin-top:6px;font-family:var(--font-display)}
 .desk-empty{margin:18px 20px;padding:28px 22px;border:1.5px dashed var(--dk-border);border-radius:14px;text-align:center}
 .desk-status{background:var(--dk-card)}
-html.dark-mode .desk-head{background:radial-gradient(110% 120% at 100% 0%,#7a2344 0%,transparent 60%),linear-gradient(135deg,#3d0b1c,#5e1430 60%,#3d0b1c)}
 @media (prefers-reduced-motion:reduce){.desk-card:hover{transform:none}}
 /* Desk cards are small: tables at a compact size (borders and scroll box: article-tables.css). */
 .desk-text .lr-table table.lr-tb,.desk-column-text .lr-table table.lr-tb{font-size:12.5px;line-height:1.45}
