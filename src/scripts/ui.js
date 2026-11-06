@@ -693,8 +693,10 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            if (homeView) homeView.closeSheet({ silent: true });
-            else showHomeView({ updateHistory: false });
+            if (homeView) {
+                setActiveNav('');
+                homeView.closeSheet({ silent: true });
+            } else showHomeView({ updateHistory: false });
         } else {
             await handleInitialHash();
         }
@@ -871,7 +873,8 @@ export function initUI() {
     function setActiveNav(activeId) {
         undockSearch();
         cancelPendingSearch();
-        if (activeId) releaseHome();
+        // A law keeps the shelf on screen until its articles arrive, like the library does.
+        if (activeId && activeId !== 'nav-leyes') releaseHome();
         if (activeId !== 'nav-leyes') releaseAcervo();
         // Leaving the CNE section closes it (the map's timers, its full-screen state on phones).
         if (activeId !== 'nav-permisos' && cneView) { cneView.destroy(); cneView = null; }
@@ -1219,6 +1222,7 @@ export function initUI() {
             getArticlesByLaw(law.titulo), getThemesByLawName(law.titulo),
         ]);
         if (request !== lawOpenRequest || location.hash !== originHash || activeNavId !== 'nav-leyes') return;
+        releaseHome();
         releaseAcervo();
         currentLawArticles = articles;
 

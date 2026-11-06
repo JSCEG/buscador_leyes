@@ -84,7 +84,16 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   document.querySelector('#home-view [data-sh-open]').click();
   await settle();
   expect(location.hash).toBe('#ficha-ley-a');
+  let deliverArticles = () => {};
+  getArticlesByLaw.mockImplementationOnce(() => new Promise(resolve => {
+    deliverArticles = () => resolve([{ id: 'art-1', articulo_label: 'Artículo 1', tipo_articulo: 'ordinario', texto: 'Contenido.', ley_origen: 'Ley A del Sector' }]);
+  }));
   document.querySelector('.sh-sheet [data-sheet-read]').click();
+  await settle();
+  // The shelf and its sheet stay on screen while the law loads, so the page is never blank.
+  expect(isHome()).toBe(true);
+  expect(document.querySelector('.sh-sheet')).not.toBeNull();
+  deliverArticles();
   await settle();
   expect(location.hash).toBe('#ley-ley-a');
   expect(isHome()).toBe(false);

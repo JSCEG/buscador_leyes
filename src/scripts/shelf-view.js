@@ -50,7 +50,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     host.innerHTML = `<div class="sh-view">
         <div class="sh-top">
             <h1>Leyes y reglas de energía de México, en un solo lugar</h1>
-            <div class="sh-search">${SEARCH_ICON}<input type="search" aria-label="Buscar en los documentos" placeholder="Busca una ley, un artículo o un tema" autocomplete="off"></div>
+            <div class="sh-search">${SEARCH_ICON}<input type="search" class="bj-search__input" aria-label="Buscar en los documentos" placeholder="Busca una ley, un artículo o un tema" autocomplete="off"></div>
         </div>
         <section class="sh-shelf" aria-roledescription="carrusel" aria-label="Estante de documentos" tabindex="0">
             <div class="sh-probe" aria-hidden="true"></div>
