@@ -24,12 +24,6 @@ export function shelfMetrics(H, { mobile = false } = {}) {
     return { H, ws: H * SPINE, d: H * COVER, gap: H * GAP, U, P: PERSPECTIVE, xs };
 }
 
-/** Shortest signed distance from s to v on a circular shelf of n tomes, in [-n/2, n/2). */
-export function rel(v, s, n) {
-    const offset = (((v - s) % n) + n) % n;
-    return offset >= n / 2 ? offset - n : offset;
-}
-
 const blend = r => (Math.abs(r) < 1 ? (r + Math.sin(Math.PI * r) / Math.PI) / 2 : Math.sign(r) * 0.5);
 
 /** Distance along the arc from the centre; the open cover pushes its neighbours apart smoothly. */
@@ -74,7 +68,29 @@ export function tomeTransform(r, m, { lift = 0, tiltX = 0, tiltY = 0 } = {}) {
     };
 }
 
-export function stepSpring(s, T, dt, k) {
-    return s + (T - s) * (1 - Math.exp(-k * Math.min(dt, MAX_DT)));
+/**
+ * One step of a critically damped spring, integrated semi-implicitly. The caps keep a long jump from
+ * starting with a kick: it accelerates, cruises and settles, with no overshoot.
+ */
+export function springStep(state, target, dt, omega, { maxAccel = Infinity, maxSpeed = Infinity } = {}) {
+    const step = Math.min(dt, MAX_DT);
+    const accel = Math.max(-maxAccel, Math.min(maxAccel, omega * omega * (target - state.x) - 2 * omega * state.v));
+    const v = Math.max(-maxSpeed, Math.min(maxSpeed, state.v + accel * step));
+    return { x: state.x + v * step, v };
 }
 
+/** Where each tome sits on the line: the sum of the presences before it, so leaving books close the gap. */
+export function presencePositions(presences) {
+    let position = 0;
+    return presences.map(presence => {
+        const here = position;
+        position += presence;
+        return here;
+    });
+}
+
+/** The visible index nearest to `index`. With nothing visible the index stays as it is. */
+export function clampIndex(index, visibleIndexes) {
+    if (!visibleIndexes.length) return index;
+    return visibleIndexes.reduce((best, candidate) => (Math.abs(candidate - index) < Math.abs(best - index) ? candidate : best));
+}

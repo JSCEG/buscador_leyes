@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { arcLength, rel, screenScale, screenX, shelfMetrics, stepSpring, tomeTransform } from '../src/lib/shelf-geometry.js';
+import { arcLength, clampIndex, presencePositions, screenScale, screenX, shelfMetrics, springStep, tomeTransform } from '../src/lib/shelf-geometry.js';
 
 const m = shelfMetrics(400, { mobile: false });
 
@@ -8,10 +8,6 @@ describe('shelf geometry', () => {
     expect(m.ws).toBeCloseTo(64); expect(m.d).toBeCloseTo(288); expect(m.gap).toBeCloseTo(4.8);
     expect(m.U).toBeCloseTo(520); expect(shelfMetrics(400, { mobile: true }).U).toBeCloseTo(420);
     expect(m.P).toBe(1400);
-  });
-  it('wraps relative index', () => {
-    expect(rel(1, 0, 124)).toBe(1); expect(rel(123, 0, 124)).toBe(-1);
-    expect(rel(62, 0, 124)).toBe(-62); expect(rel(0, 0, 1)).toBe(0); expect(rel(1, 0, 2)).toBe(-1);
   });
   it('pushes neighbours apart around the open cover', () => {
     expect(arcLength(0, m)).toBe(0);
@@ -36,8 +32,31 @@ describe('shelf geometry', () => {
     expect(tomeTransform(3, m).rotateY).toBeLessThanOrEqual(14);
     expect(tomeTransform(10, m).spineShade).toBeLessThanOrEqual(0.35);
   });
-  it('spring approaches the target and caps dt', () => {
-    expect(stepSpring(0, 10, 0.05, 5.2)).toBeCloseTo(10 * (1 - Math.exp(-0.26)));
-    expect(stepSpring(0, 10, 5, 5.2)).toBeCloseTo(stepSpring(0, 10, 0.05, 5.2));
+  it('starts gently on a long jump', () => {
+    const s = springStep({ x: 0, v: 0 }, 26, 1 / 60, 7.5, { maxAccel: 60, maxSpeed: 13 });
+    expect(s.x).toBeLessThan(0.02);
+  });
+  it('settles without overshoot', () => {
+    let s = { x: 0, v: 0 }, max = 0;
+    for (let i = 0; i < 600; i++) { s = springStep(s, 5, 1 / 60, 7.5); max = Math.max(max, s.x); }
+    expect(s.x).toBeCloseTo(5, 2); expect(max).toBeLessThanOrEqual(5.001);
+  });
+  it('never moves faster than its cap', () => {
+    let s = { x: 0, v: 0 };
+    for (let i = 0; i < 300; i++) {
+      const next = springStep(s, 100, 1 / 60, 7.5, { maxAccel: 60, maxSpeed: 13 });
+      expect(Math.abs(next.x - s.x)).toBeLessThanOrEqual(13 / 60 + 1e-9);
+      s = next;
+    }
+  });
+  it('caps a long frame', () => {
+    expect(springStep({ x: 0, v: 0 }, 10, 5, 7.5)).toEqual(springStep({ x: 0, v: 0 }, 10, 0.05, 7.5));
+  });
+  it('stacks positions by presence', () => { expect(presencePositions([1, 0, 0.5, 1])).toEqual([0, 1, 1, 1.5]); });
+  it('clamps to the nearest visible index', () => {
+    expect(clampIndex(5, [1, 2, 8])).toBe(2);
+    expect(clampIndex(0, [3, 4])).toBe(3);
+    expect(clampIndex(9, [3, 4])).toBe(4);
+    expect(clampIndex(4, [])).toBe(4);
   });
 });

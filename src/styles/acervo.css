@@ -531,3 +531,21 @@ html body .ac-library .ac-card:hover .ac-card-action>span,html body .ac-library 
 /* Insignia «Nuevo» (BadgeSet) dentro del antetítulo de las promociones: en línea, sin el punto que ya sobra. */
 html body .ac-library .ac-map-promo-eyebrow .bj-new{display:inline-flex!important;width:auto;margin-right:8px;vertical-align:1px}
 .ac-library .ac-map-promo-eyebrow:has(.bj-new)::before{display:none}
+
+/* Búho: tarjeta con librito neutro; banda y listón del color del tipo. */
+.ac-library .ac-card { display: flex; flex-direction: row; gap: 14px; padding: 12px; border: 1px solid var(--cristal-borde); border-radius: var(--radius-lg); background: var(--cristal); box-shadow: var(--sombra-cristal); text-align: left; transition: transform var(--t-medio) var(--ease-entrada), border-color var(--t-rapido); }
+.ac-library .ac-card:hover { transform: translateY(-3px); border-color: var(--enlace); }
+.ac-library .ac-card-cover { position: relative; flex: none; display: block; box-sizing: border-box; width: 70px; height: 100px; min-height: 0; margin: 0; padding: 9px 6px 7px 14px; border: 0; border-radius: 3px 7px 7px 3px; background: var(--lb-bg); color: var(--lb-ink); box-shadow: inset 0 0 0 1px var(--lb-edge), 0 12px 18px -10px #0a070780; overflow: hidden; transform-origin: left center; transition: transform var(--t-medio) var(--ease-entrada); }
+.ac-library .ac-card-cover::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 7px; background: var(--ac); }
+.ac-library .ac-card-cover::after { content: ''; position: absolute; right: 7px; top: 0; width: 9px; height: 20px; background: var(--ac); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%); }
+.ac-library .ac-card:hover .ac-card-cover { transform: perspective(500px) rotateY(-14deg); }
+.ac-library .ac-card-acronym, .ac-library .ac-card-acronym.is-long { display: block; margin: 16px 0 0; color: var(--lb-ink); font: 500 12.5px/1.05 var(--font-display); overflow-wrap: anywhere; }
+.ac-library .ac-card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.ac-library .ac-card-category { display: inline-flex; align-items: center; gap: 6px; padding: 0; background: none; color: var(--tinta-suave); font: 600 12px/1.2 var(--font-sans); }
+.ac-library .ac-card-category svg { color: var(--ac); }
+.ac-library .ac-card-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; color: var(--tinta); font: 500 16px/1.22 var(--font-display); }
+.ac-library .ac-card-title { color: var(--tinta-suave); font: 400 12.5px/1.35 var(--font-sans); }
+.ac-library .ac-card-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: auto; color: var(--tinta-suave); font: 500 12.5px/1.3 var(--font-sans); font-variant-numeric: tabular-nums; }
+.ac-library .ac-card-action { color: var(--rojo); font: 600 13px/1 var(--font-sans); }
+@media (prefers-reduced-motion: reduce) { .ac-library .ac-card, .ac-library .ac-card-cover { transition: none; } }
+

@@ -307,7 +307,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         category.prepend(iconNode(groupId));
         const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
         if ((law.siglas || '').length > 9) acronym.classList.add('is-long');
-        // The top of the card carries the collection (colored, with its icon) and the acronym set large.
+        // A little neutral book with the acronym, beside the document's data.
         const cover = element('span', 'ac-card-cover');
         cover.setAttribute('aria-hidden', 'true');
         const cardTitle = element('span', 'ac-card-title', title);
@@ -324,8 +324,10 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         metadata.append(dateNode, element('span', '', fragments));
         const action = element('span', 'ac-card-action', 'Consultar');
         const arrow = element('span', '', '↗'); arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);
-        cover.append(category, acronym);
-        card.append(cover, ...(cardName ? [cardName] : []), cardTitle, metadata, action);
+        cover.append(acronym);
+        const body = element('span', 'ac-card-body');
+        body.append(category, ...(cardName ? [cardName] : []), cardTitle, metadata, action);
+        card.append(cover, body);
         card.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
         return card;
     }

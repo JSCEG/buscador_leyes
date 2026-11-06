@@ -37,7 +37,7 @@ describe('shelf input', () => {
   it('steps and wraps with the arrows', async () => {
     next.click(); await frame(); expect(title()).toContain('Ley Z');
     prev.click(); await frame(); prev.click(); await frame();
-    expect(title()).toContain('Reglamento B');
+    expect(title()).toContain('Ley A');
   });
   it('uses arrow keys inside the carousel, not in the search field', async () => {
     arrow(region); await frame();
@@ -45,9 +45,11 @@ describe('shelf input', () => {
     arrow(field); await frame();
     expect(title()).toContain('Ley Z');
   });
-  it('brings a clicked spine to the centre without opening it', async () => {
-    tome('l2').dispatchEvent(new MouseEvent('click', { bubbles: true })); await frame();
-    expect(title()).toContain('Ley Z'); expect(document.querySelector('.sh-sheet')).toBeNull();
+  it('brings a clicked spine to the centre and opens its sheet when it arrives', async () => {
+    tome('l2').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(document.querySelector('.sh-sheet')).toBeNull();
+    await frame();
+    expect(title()).toContain('Ley Z'); expect(document.querySelector('.sh-sheet')).not.toBeNull();
   });
   it('opens the sheet from the active cover and reports it', async () => {
     tome('l1').dispatchEvent(new MouseEvent('click', { bubbles: true })); await frame();
@@ -77,10 +79,6 @@ describe('shelf input', () => {
     pointer('pointerdown', 300); pointer('pointerup', 301);
     tome('l1').dispatchEvent(new MouseEvent('click', { bubbles: true })); await frame();
     expect(document.querySelector('.sh-sheet')).not.toBeNull();
-  });
-  it('jumps to a collection from the ruler', async () => {
-    host.querySelector('[data-sh-segment="reglamentos"]').click(); await frame();
-    expect(title()).toContain('Reglamento B');
   });
   it('wheel moves the shelf only when the page does not scroll', async () => {
     setScrollable(true);

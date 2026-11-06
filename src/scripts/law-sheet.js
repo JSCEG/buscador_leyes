@@ -8,11 +8,11 @@ import '../styles/shelf.css';
 
 const TOPICS_SHOWN = 8;
 const LONG_NAME = 70;
-const OPEN_MS = 1050;
-const CLOSE_MS = 850;
-const LINE_MS = 900;
-const SHEET_EASE = 'cubic-bezier(.76,0,.18,1)';
-const LINE_EASE = 'cubic-bezier(.2,.8,.2,1)';
+const OPEN_MS = 620;
+const CLOSE_MS = 480;
+const LINE_MS = 520;
+const SHEET_EASE = 'cubic-bezier(.32,.72,0,1)';
+const LINE_EASE = 'cubic-bezier(.16,1,.3,1)';
 const FOCUSABLE = 'button:not([disabled]), a[href]';
 const icon = paths => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
 const ICONS = {
@@ -31,10 +31,10 @@ function longDate(value) {
 const topicsOf = law => (Array.isArray(law.temas_clave) ? law.temas_clave.filter(topic => typeof topic === 'string' && topic.trim()) : []);
 const topicItems = topics => topics.map(topic => `<li>${esc(topic)}</li>`).join('');
 
-function clipFrom(rect) {
-    if (!rect) return 'inset(0 round 0)';
-    const { innerWidth: width, innerHeight: height } = window;
-    return `inset(${rect.top}px ${width - rect.right}px ${height - rect.bottom}px ${rect.left}px round 3px)`;
+/** A clip on the sheet's own box, so it starts exactly over the cover wherever the sheet sits. */
+function clipFrom(rect, box) {
+    if (!rect || !box) return 'inset(0 round 0)';
+    return `inset(${rect.top - box.top}px ${box.right - rect.right}px ${box.bottom - rect.bottom}px ${rect.left - box.left}px round 8px)`;
 }
 
 function sheetHTML(law) {
@@ -49,7 +49,7 @@ function sheetHTML(law) {
         <nav class="sh-sheet-crumbs" aria-label="Ruta">
             <button type="button" data-sheet-home>Inicio</button><span aria-hidden="true">›</span><span>${esc(data.groupLabel)}</span><span aria-hidden="true">›</span><span class="sh-sheet-crumb-now" aria-current="page">${esc(data.name)}</span>
         </nav>
-        <button type="button" class="bj-btn bj-btn--secondary bj-btn--sm sh-sheet-close" data-sheet-close>Cerrar</button>
+        <button type="button" class="bu-btn bu-btn-contorno bu-btn-sm sh-sheet-close" data-sheet-close>Cerrar</button>
     </div>
     <div class="sh-sheet-body">
         <div class="sh-sheet-book">${coverHTML(law)}</div>
@@ -60,9 +60,9 @@ function sheetHTML(law) {
             <span class="sh-sheet-accent" data-sheet-line></span>
             ${showTitle ? `<p class="sh-sheet-official" data-sheet-line>${esc(data.title)}</p>` : ''}
             <div class="sh-sheet-actions" data-sheet-line>
-                <button type="button" class="bj-btn sh-sheet-read" data-sheet-read>${ICONS.read}Leer</button>
-                <button type="button" class="bj-btn bj-btn--secondary" data-sheet-share>${ICONS.share}Compartir</button>
-                ${source ? `<a class="bj-btn bj-btn--secondary" data-sheet-source href="${esc(source)}" target="_blank" rel="noopener noreferrer">${ICONS.source}Ver fuente original</a>` : ''}
+                <button type="button" class="bu-btn bu-btn-primario sh-sheet-read" data-sheet-read>${ICONS.read}Leer</button>
+                <button type="button" class="bu-btn bu-btn-contorno" data-sheet-share>${ICONS.share}Compartir</button>
+                ${source ? `<a class="bu-btn bu-btn-contorno" data-sheet-source href="${esc(source)}" target="_blank" rel="noopener noreferrer">${ICONS.source}Ver fuente original</a>` : ''}
             </div>
             <div class="sh-sheet-details" data-sheet-line>
                 <dl>
@@ -116,10 +116,10 @@ export function openLawSheet(law, { host, getOriginRect = () => null, reducedMot
     });
 
     const ms = value => (reducedMotion ? 1 : value);
-    element.animate?.([{ clipPath: clipFrom(getOriginRect()) }, { clipPath: 'inset(0 round 0)' }], { duration: ms(OPEN_MS), easing: SHEET_EASE, fill: 'both' });
+    element.animate?.([{ clipPath: clipFrom(getOriginRect(), element.getBoundingClientRect()) }, { clipPath: 'inset(0 round 0)' }], { duration: ms(OPEN_MS), easing: SHEET_EASE, fill: 'both' });
     element.querySelectorAll('[data-sheet-line]').forEach((line, index) => {
-        line.animate?.([{ transform: 'translateY(32px)', clipPath: 'inset(0 0 100% 0)' }, { transform: 'none', clipPath: 'inset(-8px)' }], {
-            duration: ms(LINE_MS), delay: reducedMotion ? 0 : 620 + index * 75, easing: LINE_EASE, fill: 'both',
+        line.animate?.([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], {
+            duration: ms(LINE_MS), delay: reducedMotion ? 0 : OPEN_MS * 0.55 + index * 50, easing: LINE_EASE, fill: 'both',
         });
     });
     element.querySelector('[data-sheet-close]').focus({ preventScroll: true });
@@ -129,7 +129,7 @@ export function openLawSheet(law, { host, getOriginRect = () => null, reducedMot
         if (closing) return closing;
         closing = (async () => {
             element.classList.add('is-closing');
-            const animation = element.animate?.([{ clipPath: 'inset(0 round 0)' }, { clipPath: clipFrom(getOriginRect()) }], { duration: ms(CLOSE_MS), easing: SHEET_EASE, fill: 'both' });
+            const animation = element.animate?.([{ clipPath: 'inset(0 round 0)' }, { clipPath: clipFrom(getOriginRect(), element.getBoundingClientRect()) }], { duration: ms(CLOSE_MS), easing: SHEET_EASE, fill: 'both' });
             await animation?.finished?.catch(() => {});
             element.remove();
             if (returnFocus?.isConnected) returnFocus.focus?.({ preventScroll: true });

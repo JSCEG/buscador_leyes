@@ -1,20 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { BOOK_COLORS, GROUP_LABELS, bookColor, coverData, coverHTML, spineHTML } from '../src/lib/law-cover.js';
+import { GROUP_LABELS, coverData, coverHTML, spineHTML } from '../src/lib/law-cover.js';
 
 const ley = { id: 'a', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'ley', fecha_publicacion: '2025-03-18' };
-const lum = hex => { const c = [1, 3, 5].map(i => parseInt(hex.substr(i, 2), 16) / 255).map(v => v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; };
-const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
-
 describe('law covers', () => {
-  it('meets 4.5:1 in every book colour', () => {
-    expect(BOOK_COLORS.length).toBeGreaterThanOrEqual(8);
-    for (const bg of BOOK_COLORS) expect(ratio(bg, '#FFFAF1')).toBeGreaterThanOrEqual(4.5);
+  it('takes its accent from the document type, not its acronym', () => {
+    const html = coverHTML({ titulo: 'Ley X', siglas: 'LX', tipo: 'Ley' });
+    expect(html).toContain('data-category="leyes"');
+    expect(html).not.toContain('--sh-bg');
+    expect(spineHTML({ titulo: 'Ley X', siglas: 'LX', tipo: 'Ley' })).not.toContain('--sh-bg');
   });
-  it('gives each document a stable colour, varied across documents', () => {
-    expect(bookColor(ley)).toBe(bookColor({ ...ley }));
-    const names = ['LSE', 'LCNE', 'LGEC', 'LPTE', 'LBio', 'LGeo', 'RLSE', 'LSH', 'LASE', 'LGER'];
-    expect(new Set(names.map(siglas => bookColor({ ...ley, siglas }))).size).toBeGreaterThanOrEqual(4);
-    expect(BOOK_COLORS).toContain(bookColor({ id: 'x' }));
+  it.each([{}, { titulo: 'x'.repeat(600) }, { siglas: 'NOM-EM-008-ASEA-2026' }])('survives %j', law => {
+    expect(() => coverHTML(law)).not.toThrow();
+    expect(spineHTML(law)).toContain('sh-spine');
   });
   it('uses plain collection labels', () => { expect(GROUP_LABELS.dacg).toBe('Disposiciones'); });
   it('big acronym only up to 14 characters', () => {
@@ -42,12 +39,12 @@ describe('law covers', () => {
     document.body.innerHTML = spineHTML(ley);
     expect(document.querySelector('.sh-spine-label').textContent).toBe('LSE');
     expect(document.querySelector('.sh-spine-year').textContent).toBe('2025');
-    expect(document.querySelector('.sh-spine').children).toHaveLength(2);
+    expect(document.querySelector('.sh-spine').textContent.replace(/\s+/g, ' ').trim()).toBe('LSE 2025');
   });
-  it('draws the cover with ribbon, curve and accent, and fits the acronym', () => {
+  it('draws the cover with ribbon, band and accent, and fits the acronym', () => {
     document.body.innerHTML = coverHTML(ley);
     expect(document.querySelector('.sh-cover-ribbon')).not.toBeNull();
-    expect(document.querySelector('.sh-cover-curve')).not.toBeNull();
+    expect(document.querySelector('.sh-cover-band')).not.toBeNull();
     expect(document.querySelector('.sh-cover-accent')).not.toBeNull();
     expect(document.querySelector('.sh-cover-foot').textContent).toContain('2025');
     expect(document.querySelector('.sh-cover-foot svg')).not.toBeNull();

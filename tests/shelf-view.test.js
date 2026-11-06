@@ -46,7 +46,8 @@ describe('shelf view', () => {
   it('gives each tome a back so it looks solid from both sides', async () => {
     view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
     const back = host.querySelector('.sh-tome .sh-face--back');
-    expect(back.getAttribute('style')).toContain('--sh-bg:');
+    expect(back).not.toBeNull();
+    expect(back.hasAttribute('style')).toBe(false);
   });
   it('leaves room for the bottom navigation the page reserves', async () => {
     document.body.style.paddingBottom = '68px';
@@ -96,15 +97,44 @@ describe('shelf view', () => {
     view.destroy(); view = null; release(); await frame();
     expect(host.querySelector('.sh-tome')).toBeNull();
   });
-  it('offers collections as tabs with an icon, marking the active one', async () => {
+  it('offers each collection as a folder with its real count', async () => {
     view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
-    const tabs = [...host.querySelectorAll('[data-sh-segment]')];
-    expect(tabs.map(tab => tab.textContent.trim())).toEqual(['Leyes', 'Reglamentos']);
-    expect(tabs[0].querySelector('svg')).not.toBeNull();
-    expect(tabs[0].getAttribute('aria-current')).toBe('true');
-    expect(tabs[1].hasAttribute('aria-current')).toBe(false);
-    expect(host.querySelector('.sh-ruler-dot')).toBeNull();
+    const fronts = [...host.querySelectorAll('[data-folder] [aria-pressed]')];
+    expect(fronts.map(front => front.querySelector('b').textContent)).toEqual(['Leyes', 'Reglamentos']);
+    expect(fronts[0].textContent).toContain('2 documentos');
+    expect(fronts[1].textContent).toContain('1 documento');
     expect(host.querySelector('h1 em').textContent).toBe('energía');
+  });
+  it('a second press on a folder clears the filter', async () => {
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
+    const front = host.querySelector('[data-folder="reglamentos"] [aria-pressed]');
+    front.click(); await frame();
+    expect(front.getAttribute('aria-pressed')).toBe('true');
+    expect(host.querySelector('.sh-tome[data-law-id="l1"]')).toBeNull();
+    expect(host.querySelector('.sh-caption-title').textContent).toContain('Reglamento B');
+    front.click(); await frame();
+    expect(front.getAttribute('aria-pressed')).toBe('false');
+    expect(host.querySelector('.sh-tome[data-law-id="l1"]')).not.toBeNull();
+  });
+  it('stops at both ends instead of wrapping', async () => {
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
+    expect(host.querySelector('[data-sh-prev]').disabled).toBe(true);
+    for (let i = 0; i < 4; i++) { host.querySelector('[data-sh-next]').click(); await frame(); }
+    expect(host.querySelector('.sh-caption-title').textContent).toContain('Reglamento B');
+    expect(host.querySelector('[data-sh-next]').disabled).toBe(true);
+  });
+  it('sheet opens after the book arrives, and focus returns on close', async () => {
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
+    const front = host.querySelector('[data-folder="reglamentos"] [aria-pressed]');
+    front.click(); await frame();
+    const page = host.querySelector('[data-folder="reglamentos"] [data-sheet-doc]');
+    page.focus();
+    page.click();
+    expect(document.querySelector('.sh-sheet')).toBeNull();
+    await frame();
+    expect(document.querySelector('.sh-sheet')).not.toBeNull();
+    await view.closeSheet();
+    expect(document.activeElement).toBe(page);
   });
   it('shows cover text only on the open book', async () => {
     view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
