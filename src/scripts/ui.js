@@ -8,6 +8,7 @@ import { initDeskSync } from './desk-sync.js';
 import { renderArticlePage, articlePageHash, parseArticlePageHash } from './article-page-view.js';
 import { renderSearchLanding } from './search-landing.js';
 import { renderShelfView } from './shelf-view.js';
+import { initRailGroups, openMoreSheet, syncRailGroups } from './shell-more.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
@@ -846,10 +847,11 @@ export function initUI() {
         });
     }
     // The brand in the header goes home: the shelf.
-    document.getElementById('brand-home')?.addEventListener('click', (e) => {
+    document.querySelectorAll('#brand-home, [data-brand-home]').forEach(link => link.addEventListener('click', (e) => {
         e.preventDefault();
         showHomeView();
-    });
+    }));
+    initRailGroups();
 
     // ── Limpieza global del TOC ────────────────────────────────────────────────
     function destroyTOC() {
@@ -896,11 +898,10 @@ export function initUI() {
         document.querySelectorAll('#bottom-nav [data-nav]').forEach(button => {
             if (button.dataset.nav === activeId) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
         });
-        document.getElementById('nav-more-btn')?.classList.toggle('is-active', MORE_NAV_IDS.includes(activeId));
+        syncRailGroups();
     }
 
-    // Desktop: the less used sections live in the header's «Más» menu.
-    const MORE_NAV_IDS = ['nav-polos', 'nav-reto', 'nav-analisis', 'nav-stats', 'nav-ayuda'];
+    // The rail's settings menu: theme and shortcuts.
     (() => {
         const button = document.getElementById('nav-more-btn');
         const menu = document.getElementById('nav-more-menu');
@@ -919,27 +920,26 @@ export function initUI() {
         });
     })();
 
-    // Phones: a fixed bar with the main destinations; "Más" opens the full menu.
+    // Phones: a fixed bar with the main destinations; "Más" opens the sheet with the rest.
     (() => {
         const items = [
-            ['nav-leyes', 'Acervo', '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'],
             ['nav-inicio', 'Buscar', '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/>'],
-            // The CNE section (permits, resolutions, trámites) earns a place on phones; Análisis stays under "Más".
-            ['nav-permisos', 'Permisos', '<path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/>'],
-            ['nav-favorites', 'Guardados', '<path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/>'],
+            ['nav-leyes', 'Acervo', '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'],
+            ['nav-cronologia', 'Cronología', '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'],
+            ['nav-permisos', 'Permisos', '<path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/>'],
             ['more', 'Más', '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>'],
         ];
         const bar = document.createElement('nav');
         bar.id = 'bottom-nav';
-        bar.className = 'bj-bottomnav';
+        bar.className = 'bu-minf bu-cristal-fuerte';
         bar.setAttribute('aria-label', 'Navegación principal');
-        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" class="bj-bottomnav__item" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg class="bj-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24">${path}</svg><span>${label}</span></button>`).join('');
+        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" class="bu-minf__it" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg class="bj-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24">${path}</svg><span>${label}</span></button>`).join('');
         document.body.append(bar);
         document.body.classList.add('has-bottom-nav');
         bar.addEventListener('click', event => {
             const button = event.target.closest('button');
             if (!button) return;
-            if (button.hasAttribute('data-more')) document.getElementById('mobile-menu-btn')?.click();
+            if (button.hasAttribute('data-more')) openMoreSheet();
             else document.getElementById(button.dataset.nav)?.click();
         });
     })();
@@ -2609,7 +2609,6 @@ export function initUI() {
         const notesCount = Object.keys(getAllNotes()).length;
         document.querySelectorAll('#nav-favorites, #mobile-nav-favorites').forEach(btn => {
             if (!btn) return;
-            btn.classList.toggle('hidden', count === 0 && notesCount === 0);
             btn.querySelectorAll('.fav-count').forEach(el => el.textContent = count);
         });
     }

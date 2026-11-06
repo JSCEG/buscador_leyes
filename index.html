@@ -103,87 +103,89 @@
 
 <body class="bu-escena font-body min-h-screen flex flex-col antialiased">
 
-    <!-- Cabecera (TopNav del sistema de diseño) -->
-    <header class="site-header">
-        <div class="site-header__inner">
-            <a href="/" id="brand-home" class="bj-lockup brand-link" aria-label="Buscador Jurídico · ir al inicio"><img src="/img/logo-mark.svg" alt="" class="bj-lockup__mark" width="30" height="40"><span class="bj-lockup__text"><span class="bj-lockup__name">Buscador Jurídico</span><span class="bj-lockup__sub">Sector energético</span></span></a>
-            <nav class="bj-topnav__links" aria-label="Secciones">
-                <a href="#acervo" id="nav-leyes" class="bj-navlink">Acervo</a>
-                <a href="#cronologia" id="nav-cronologia" class="bj-navlink">Cronología</a>
-                <a href="#permisos" id="nav-permisos" class="bj-navlink">Permisos</a>
-                <a href="#como-funciona" id="nav-como-funciona" class="bj-navlink">¿Cómo funciona?</a>
-                <a href="#buscar" id="nav-inicio" class="bj-navlink">Buscar</a>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="buho-mark" viewBox="33 24 379 448"><path d="M279.0,465.7C276.5,464.0 258.5,450.8 239.0,436.5C165.3,382.3 129.1,358.1 100.3,343.6C83.7,335.3 76.1,333.0 62.7,332.3C52.9,331.8 50.8,332.0 45.5,333.9C37.3,336.8 37.5,336.8 37.8,334.0C38.9,325.8 57.5,312.6 76.5,306.7C92.9,301.5 118.1,300.7 133.5,304.8C152.6,309.9 169.2,318.5 193.5,335.8C222.9,356.9 275.6,394.9 298.6,411.7C312.5,421.7 324.2,430.0 324.7,430.0C325.8,430.0 344.4,411.0 351.1,403.0C361.1,391.2 371.1,372.8 374.5,360.4C378.0,347.1 377.4,326.6 372.9,309.5C367.2,287.7 353.6,268.6 334.9,256.1C321.8,247.3 309.7,243.5 287.0,241.0C274.8,239.6 267.2,240.1 238.5,244.0C209.8,247.9 202.2,248.4 190.2,247.0C157.1,243.4 134.9,229.6 122.0,205.0C114.0,189.4 111.1,169.5 114.4,152.0C119.1,127.2 142.3,97.8 166.9,85.4C176.1,80.8 175.3,83.0 163.6,94.1C153.6,103.7 148.6,111.4 145.6,122.0C137.6,150.8 151.0,172.2 184.4,183.6C202.3,189.8 227.2,191.5 257.0,188.5C276.2,186.6 300.0,186.6 312.0,188.5C349.2,194.6 382.5,218.8 398.6,251.5C407.9,270.6 411.4,297.6 407.4,321.1C400.0,365.3 371.7,402.1 306.9,452.1C295.5,460.8 285.6,468.2 284.9,468.4C284.1,468.7 281.5,467.5 279.0,465.7Z" fill="currentColor"/><path d="M304.6,153.2C302.0,143.8 298.9,139.0 290.0,130.0C282.8,122.7 280.0,120.7 272.0,116.8C259.9,110.9 247.6,106.6 221.8,99.0C179.5,86.5 162.2,77.6 144.3,58.6C133.0,46.7 122.7,29.0 127.0,29.0C127.5,29.0 131.0,31.6 134.7,34.8C148.7,46.8 161.2,56.0 169.0,59.9C197.6,74.2 239.8,80.0 295.0,77.2C329.0,75.4 344.9,71.5 360.9,61.0C371.2,54.3 377.3,48.4 386.1,37.0C389.6,32.3 393.0,28.7 393.5,29.0C395.6,30.1 394.1,36.2 389.7,45.3C384.0,56.9 374.4,67.5 358.3,80.0C344.5,90.7 338.3,96.6 330.6,106.5C322.9,116.5 318.9,122.8 315.5,130.5C312.7,136.7 309.1,151.4 309.0,156.2C309.0,161.2 306.3,159.4 304.6,153.2Z" fill="currentColor"/><path d="M242.2,151.5C232.3,149.1 223.4,140.6 222.3,132.3C221.8,128.4 221.9,128.2 228.5,122.6C232.1,119.5 236.4,116.3 238.0,115.5L240.9,114.0L240.8,122.4C240.7,131.6 242.1,136.9 245.7,141.8C249.0,146.2 252.9,148.0 259.0,148.0C265.0,148.0 265.4,149.6 259.9,151.6C255.5,153.2 248.9,153.2 242.2,151.5Z" fill="var(--rojo)"/></symbol></svg>
+
+    <!-- Riel de navegación (tablet y escritorio) -->
+    <aside class="bu-riel bu-cristal" aria-label="Navegación principal">
+        <a href="/" id="brand-home" class="bu-marca brand-link" aria-label="Buscador Jurídico · ir al inicio"><svg class="bu-marca__s" width="26" height="30" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg><span>Buscador Jurídico</span></a>
+        <nav class="bu-riel__nav" aria-label="Secciones">
+            <div data-nav="buscar"><a href="#buscar" id="nav-inicio" class="bu-riel__it" title="Buscar"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>Buscar</span></a></div>
+            <div data-nav="acervo"><a href="#acervo" id="nav-leyes" class="bu-riel__it" title="Acervo"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Acervo</span></a></div>
+            <div data-nav="cronologia"><a href="#cronologia" id="nav-cronologia" class="bu-riel__it" title="Cronología"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Cronología</span></a></div>
+            <div data-nav="permisos"><a href="#permisos" id="nav-permisos" class="bu-riel__it" title="Permisos"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/></svg><span>Permisos</span></a></div>
+            <div data-nav="polos"><a href="#polos" id="nav-polos" class="bu-riel__it" title="Polos"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Polos</span></a></div>
+            <details class="bu-riel__grupo" data-nav="analisis">
+                    <summary class="bu-riel__it" title="Análisis"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/></svg><span>Análisis</span><svg class="bu-i bu-riel__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></summary>
+                    <div class="bu-riel__subs"><a href="#" id="nav-analisis" class="bu-riel__sub">Temas transversales</a><a href="#" id="nav-stats" class="bu-riel__sub">Estadísticas</a></div>
+                </details>
+            <details class="bu-riel__grupo" data-nav="aprende">
+                    <summary class="bu-riel__it" title="Aprende"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg><span>Aprende</span><svg class="bu-i bu-riel__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></summary>
+                    <div class="bu-riel__subs"><a href="#como-funciona" id="nav-como-funciona" class="bu-riel__sub">¿Cómo funciona?</a><a href="#reto" id="nav-reto" class="bu-riel__sub">Reto</a><a href="#" id="nav-ayuda" class="bu-riel__sub">Ayuda</a></div>
+                </details>
+        </nav>
+        <div class="bu-riel__pie">
+            <div class="bu-riel__mesa" aria-hidden="true"></div>
+            <button type="button" id="nav-favorites" class="bu-riel__it" title="Guardados" aria-label="Guardados"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg><span>Guardados</span><b class="bu-riel__n fav-count">0</b></button>
+            <div class="bu-riel__cuenta">
+                <button type="button" id="nav-login-btn" class="bu-riel__it" title="Cuenta de usuario"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg><span id="nav-user-label">Entrar</span></button>
                 <div class="nav-more" id="nav-more">
-                    <button type="button" id="nav-more-btn" class="bj-navlink nav-more-btn" aria-expanded="false" aria-controls="nav-more-menu">Más <svg class="bj-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-                    <div class="bj-menu nav-more-menu hidden" id="nav-more-menu">
-                        <a href="#polos" id="nav-polos" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>Polos de Desarrollo</a>
-                        <a href="#reto" id="nav-reto" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Reto del día</a>
-                        <a href="#" id="nav-analisis" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/></svg>Análisis</a>
-                        <a href="#" id="nav-stats" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg>Estadísticas</a>
-                        <a href="#" id="nav-ayuda" class="bj-menu__item"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg>Ayuda</a>
-                        <div class="bj-menu__sep" role="separator"></div>
-                        <button type="button" id="keyboard-help-btn" class="bj-menu__item" aria-label="Mostrar atajos de teclado"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>Atajos de teclado <kbd class="bj-kbd">?</kbd></button>
-                        <div class="bj-menu__sep" role="separator"></div>
-                        <div class="nav-more-theme">
-                            <span class="nav-more-theme-label" id="nav-theme-label">Tema</span>
-                            <div class="bj-seg" role="radiogroup" aria-labelledby="nav-theme-label">
-                                <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="light" aria-checked="false">Claro</button>
-                                <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="dark" aria-checked="false">Oscuro</button>
-                                <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="sepia" aria-checked="false">Sepia</button>
-                                <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="contraste" aria-checked="false">Contraste</button>
-                            </div>
+                    <button type="button" id="nav-more-btn" class="bu-riel__ajustes" title="Tema y atajos" aria-label="Tema y atajos" aria-expanded="false" aria-controls="nav-more-menu"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg></button>
+                    <div class="bu-menu bu-cristal-fuerte nav-more-menu hidden" id="nav-more-menu">
+                        <p class="bu-menu__t" id="nav-theme-label">Tema</p>
+                        <div class="bu-seg" role="radiogroup" aria-labelledby="nav-theme-label">
+                            <button type="button" role="radio" data-theme-choice="light" aria-checked="false">Claro</button>
+                            <button type="button" role="radio" data-theme-choice="dark" aria-checked="false">Oscuro</button>
+                            <button type="button" role="radio" data-theme-choice="sepia" aria-checked="false">Sepia</button>
+                            <button type="button" role="radio" data-theme-choice="contraste" aria-checked="false">Contraste</button>
                         </div>
+                        <button type="button" id="darkmode-toggle" class="bu-menu__it" title="Alternar modo oscuro" aria-label="Alternar modo oscuro"><svg class="bu-i" id="darkmode-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.4A9 9 0 0 1 8.6 3.6 9 9 0 1 0 20.4 15.4Z"/></svg><svg class="bu-i hidden" id="darkmode-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>Claro u oscuro</button>
+                        <button type="button" id="keyboard-help-btn" class="bu-menu__it" aria-label="Mostrar atajos de teclado"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>Atajos de teclado <kbd>?</kbd></button>
                     </div>
                 </div>
-            </nav>
-            <div class="bj-topnav__tools">
-                <button type="button" id="darkmode-toggle" class="bj-btn bj-btn--ghost bj-btn--icon bj-btn--sm" title="Alternar modo oscuro" aria-label="Alternar modo oscuro"><svg class="bj-icon" id="darkmode-icon-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.4A9 9 0 0 1 8.6 3.6 9 9 0 1 0 20.4 15.4Z"/></svg><svg class="bj-icon hidden" id="darkmode-icon-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg></button>
-                <button type="button" id="nav-favorites" class="bj-btn bj-btn--ghost bj-btn--sm site-header__saved" title="Guardados" aria-label="Guardados"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg><span class="bj-count fav-count">0</span></button>
-                <button type="button" id="nav-login-btn" class="bj-btn bj-btn--secondary bj-btn--sm site-header__account" title="Cuenta de usuario"><svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg><span id="nav-user-label">Entrar</span></button>
             </div>
-            <button type="button" id="mobile-menu-btn" class="bj-btn bj-btn--ghost bj-btn--icon site-header__menu" aria-label="Abrir menú"><svg class="bj-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         </div>
+    </aside>
+
+    <!-- Cabecera de celular -->
+    <header class="bu-cab-m bu-cristal">
+        <a href="/" class="bu-marca brand-link" data-brand-home aria-label="Buscador Jurídico · ir al inicio"><svg class="bu-marca__s" width="26" height="30" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg><span>Buscador Jurídico</span></a>
+        <div class="bu-cab-m__acciones" id="cab-m-actions"></div>
+        <button type="button" id="mobile-menu-btn" hidden aria-label="Abrir menú"></button>
     </header>
 
-    <!-- Cajón móvil (Drawer del sistema de diseño) -->
+    <!-- Hoja «Más» de celular -->
     <div id="mobile-menu-overlay" class="site-scrim hidden opacity-0"></div>
-    <div id="mobile-menu-drawer" class="bj-drawer site-drawer translate-x-full" aria-label="Menú">
-        <div class="bj-drawer__head">
-            <span class="bj-lockup bj-lockup--sm"><img src="/img/logo-mark.svg" alt="" class="bj-lockup__mark" width="30" height="40"><span class="bj-lockup__text"><span class="bj-lockup__name">Buscador Jurídico</span><span class="bj-lockup__sub">Sector energético</span></span></span>
-            <button type="button" id="close-mobile-menu" class="bj-btn bj-btn--ghost bj-btn--icon" aria-label="Cerrar menú"><svg class="bj-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div id="mobile-menu-drawer" class="bu-mas bu-cristal-fuerte translate-x-full" aria-label="Más opciones">
+        <div class="bu-hoja-asa"></div>
+        <div class="bu-mas__cab">
+            <b>Más</b>
+            <button type="button" id="close-mobile-menu" class="bu-btn bu-btn-fantasma bu-btn-sm" aria-label="Cerrar menú">Cerrar</button>
         </div>
-        <nav class="bj-drawer__body" aria-label="Menú">
-            <p class="bj-drawer__group">Consultar</p>
-            <a href="#buscar" id="mobile-nav-inicio" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>Buscar</span></a>
-            <a href="#acervo" id="mobile-nav-leyes" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Acervo</span></a>
-            <a href="#cronologia" id="mobile-nav-cronologia" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Cronología</span></a>
-            <a href="#permisos" id="mobile-nav-permisos" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/></svg><span>Permisos y resoluciones CNE</span></a>
-            <a href="#polos" id="mobile-nav-polos" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Polos de Desarrollo</span></a>
-            <a href="#" id="mobile-nav-analisis" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/></svg><span>Análisis</span></a>
-            <a href="#" id="mobile-nav-stats" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg><span>Estadísticas</span></a>
-            <p class="bj-drawer__group">Aprender</p>
-            <a href="#reto" id="mobile-nav-reto" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span>Reto Jurídico del día</span></a>
-            <a href="#como-funciona" id="mobile-nav-como-funciona" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.5"/><path d="M12 17h.01"/></svg><span>¿Cómo funciona?</span></a>
-            <a href="#" id="mobile-nav-ayuda" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg><span>Ayuda</span></a>
-            <p class="bj-drawer__group">Mi espacio</p>
-            <button type="button" id="mobile-nav-favorites" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>Guardados <span class="bj-count fav-count">0</span></button>
-            <button type="button" id="mobile-nav-desk" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg>Mi mesa de consulta</button>
-            <button type="button" id="mobile-nav-login-btn" class="bj-drawer__link"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg><span id="mobile-user-label">Entrar</span></button>
-            <p class="bj-drawer__group bj-drawer__group--admin">Administración</p>
-            <a href="#" id="mobile-nav-admin" class="bj-drawer__link hidden"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg><span>Gestor Admin</span></a>
-            <a href="#usuarios" id="mobile-nav-usuarios" class="bj-drawer__link hidden"><svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2a6 6 0 0 1 3 5.8"/></svg><span>Usuarios</span></a>
+        <nav class="bu-mas__cuerpo" aria-label="Menú">
+            <a href="#buscar" id="mobile-nav-inicio" class="bu-mas__it is-en-barra"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>Buscar</span></a>
+            <a href="#acervo" id="mobile-nav-leyes" class="bu-mas__it is-en-barra"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Acervo</span></a>
+            <a href="#cronologia" id="mobile-nav-cronologia" class="bu-mas__it is-en-barra"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Cronología</span></a>
+            <a href="#permisos" id="mobile-nav-permisos" class="bu-mas__it is-en-barra"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/></svg><span>Permisos</span></a>
+            <a href="#polos" id="mobile-nav-polos" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Polos</span></a>
+            <a href="#" id="mobile-nav-analisis" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/></svg><span>Temas transversales</span></a>
+            <a href="#" id="mobile-nav-stats" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg><span>Estadísticas</span></a>
+            <a href="#como-funciona" id="mobile-nav-como-funciona" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.5"/><path d="M12 17h.01"/></svg><span>¿Cómo funciona?</span></a>
+            <a href="#reto" id="mobile-nav-reto" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span>Reto</span></a>
+            <a href="#" id="mobile-nav-ayuda" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg><span>Ayuda</span></a>
+            <button type="button" id="mobile-nav-favorites" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg><span>Guardados</span><b class="bu-riel__n fav-count">0</b></button>
+            <button type="button" id="mobile-nav-desk" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg><span>Mi mesa de consulta</span></button>
+            <button type="button" id="mobile-nav-login-btn" class="bu-mas__it"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg><span id="mobile-user-label">Entrar</span></button>
+            <a href="#" id="mobile-nav-admin" class="bu-mas__it hidden"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg><span>Gestor de ingesta</span></a>
+            <a href="#usuarios" id="mobile-nav-usuarios" class="bu-mas__it hidden"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2a6 6 0 0 1 3 5.8"/></svg><span>Usuarios registrados</span></a>
         </nav>
-        <div class="bj-drawer__foot">
-            <div>
-                <p class="bj-drawer__label" id="drawer-theme-label">Tema</p>
-                <div class="bj-seg site-theme-seg" role="radiogroup" aria-labelledby="drawer-theme-label">
-                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="light" aria-checked="false">Claro</button>
-                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="dark" aria-checked="false">Oscuro</button>
-                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="sepia" aria-checked="false">Sepia</button>
-                    <button type="button" role="radio" class="bj-seg__opt" data-theme-choice="contraste" aria-checked="false">Contraste</button>
-                </div>
+        <div class="bu-mas__pie">
+            <p class="bu-menu__t" id="drawer-theme-label">Tema</p>
+            <div class="bu-seg" role="radiogroup" aria-labelledby="drawer-theme-label">
+                            <button type="button" role="radio" data-theme-choice="light" aria-checked="false">Claro</button>
+                            <button type="button" role="radio" data-theme-choice="dark" aria-checked="false">Oscuro</button>
+                            <button type="button" role="radio" data-theme-choice="sepia" aria-checked="false">Sepia</button>
+                            <button type="button" role="radio" data-theme-choice="contraste" aria-checked="false">Contraste</button>
             </div>
-            <p class="site-drawer__note">Normativa del sector energético de México</p>
         </div>
     </div>
 

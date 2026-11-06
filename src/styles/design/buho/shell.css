@@ -1,0 +1,112 @@
+/* Armazón: riel a 1200 px o más, solo iconos a 768–1199 px, cabecera y menú inferior debajo. */
+:root { --riel-w: 220px; --riel-off: 234px; }
+@media (max-width: 1199px) { :root { --riel-w: 72px; --riel-off: 86px; } }
+@media (max-width: 767px) { :root { --riel-w: 0px; --riel-off: 0px; } }
+
+body.bu-escena { padding-left: var(--riel-off); }
+.bu-i { display: block; flex: none; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.bu-marca { display: inline-flex; align-items: center; gap: 9px; color: var(--tinta); font: 500 16.5px/1.1 var(--font-display); text-decoration: none; white-space: nowrap; }
+.bu-marca__s { flex: none; width: 26px; height: 30px; fill: currentColor; }
+
+.bu-riel { position: fixed; left: 14px; top: 14px; bottom: 14px; z-index: var(--z-menu); display: flex; flex-direction: column; width: var(--riel-w); padding: 16px 10px 10px; border-radius: var(--radius-2xl); }
+.bu-riel .bu-marca { flex: none; padding: 0 8px 14px; }
+.bu-riel__nav { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; }
+.bu-riel__it { display: flex; align-items: center; gap: 10px; width: 100%; height: 38px; margin-bottom: 3px; padding: 0 13px; border: 1px solid transparent; border-radius: 999px; background: none; color: var(--tinta-suave); font: 500 14px/1 var(--font-sans); text-align: left; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color var(--t-rapido), border-color var(--t-rapido), color var(--t-rapido); }
+.bu-riel__it > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.bu-riel__it:hover { background: var(--ceniza); color: var(--tinta); }
+.bu-riel__it[aria-current="page"], .bu-riel__grupo.is-current > summary { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); font-weight: 600; }
+.bu-riel :focus-visible, .bu-cab-m :focus-visible, .bu-minf :focus-visible, .bu-mas :focus-visible { outline: 2px solid var(--rojo); outline-offset: 1px; }
+
+.bu-riel__grupo summary { list-style: none; }
+.bu-riel__grupo summary::-webkit-details-marker { display: none; }
+.bu-riel__chev { width: 14px; height: 14px; margin-left: auto; transition: transform var(--t-rapido); }
+.bu-riel__grupo[open] .bu-riel__chev { transform: rotate(90deg); }
+.bu-riel__subs { display: grid; gap: 1px; margin: 0 0 6px 22px; padding-left: 8px; border-left: 1px solid var(--cristal-borde); }
+.bu-riel__sub { display: block; padding: 7px 10px; border-radius: 10px; color: var(--tinta-suave); font: 500 13px/1.2 var(--font-sans); text-decoration: none; }
+.bu-riel__sub:hover { background: var(--ceniza); color: var(--tinta); }
+.bu-riel__sub[aria-current="page"] { color: var(--rojo); font-weight: 700; }
+
+.bu-riel__pie { flex: none; padding-top: 8px; border-top: 1px solid var(--cristal-borde); }
+.bu-riel__mesa { height: 42px; }
+.bu-riel__n { margin-left: auto; padding: 2px 7px; border-radius: 999px; background: var(--ceniza); color: var(--tinta); font: 700 11px/1.2 var(--font-sans); }
+.bu-riel__cuenta { display: flex; align-items: center; gap: 4px; }
+.bu-riel__cuenta > .bu-riel__it { flex: 1; min-width: 0; margin: 0; }
+.bu-riel__ajustes { display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: none; color: var(--tinta-suave); cursor: pointer; }
+.bu-riel__ajustes:hover, .bu-riel__ajustes[aria-expanded="true"] { background: var(--ceniza); color: var(--tinta); }
+
+.nav-more { position: relative; }
+.bu-menu { position: absolute; left: calc(100% + 10px); bottom: -6px; z-index: var(--z-desplegable); width: 320px; padding: 14px; border-radius: var(--radius-lg); }
+.bu-menu__t { margin: 0 0 8px; color: var(--tinta-suave); font: 700 11px/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
+.bu-menu__it { display: flex; align-items: center; gap: 10px; width: 100%; height: 38px; margin-top: 4px; padding: 0 10px; border: 0; border-radius: 10px; background: none; color: var(--tinta); font: 500 13.5px/1 var(--font-sans); cursor: pointer; }
+.bu-menu__it:hover { background: var(--ceniza); }
+.bu-menu__it kbd { margin-left: auto; padding: 2px 6px; border-radius: 6px; background: var(--ceniza); font: 600 11px/1 var(--font-sans); }
+.bu-menu .bu-seg { display: flex; margin-bottom: 8px; }
+.bu-menu .bu-seg button { flex: 1; padding: 6px 4px; font-size: 12.5px; }
+
+/* Mi mesa la crea desk-view fuera del riel; aquí se coloca sobre su hueco. */
+body #desk-toggle { position: fixed; left: 24px; right: auto; top: auto; bottom: 114px; width: 200px; height: 38px; min-height: 0; padding: 0 13px; gap: 10px; justify-content: flex-start; border: 1px solid transparent; border-radius: 999px; background: none; box-shadow: none; color: var(--tinta-suave); font: 500 14px/1 var(--font-sans); animation: none; transform: none; }
+body #desk-toggle:hover { background: var(--ceniza); color: var(--tinta); }
+body #desk-toggle .desk-badge { margin-left: auto; background: var(--ceniza); color: var(--tinta); }
+body #desk-toggle:not(.is-empty) { color: var(--rojo); font-weight: 600; }
+body:has(#compare-bar) #desk-toggle { bottom: 114px; }
+body:not(.desk-open) #desk-toggle { display: flex; }
+
+/* Solo iconos */
+@media (max-width: 1199px) {
+  .bu-riel { align-items: center; padding: 14px 8px 10px; }
+  .bu-riel .bu-marca { padding: 0 0 12px; }
+  .bu-riel .bu-marca span, .bu-riel__it > span, .bu-riel__chev, .bu-riel__n { display: none; }
+  .bu-riel__it { justify-content: center; width: 48px; height: 42px; padding: 0; }
+  .bu-riel__it .bu-i { width: 20px; height: 20px; }
+  .bu-riel__nav { overflow: visible; }
+  .bu-riel__grupo { position: relative; }
+  .bu-riel__subs { position: absolute; left: calc(100% + 14px); top: -6px; z-index: var(--z-desplegable); width: 210px; margin: 0; padding: 8px; border: 1px solid var(--cristal-borde); border-radius: var(--radius-lg); background: var(--cristal-fuerte); box-shadow: var(--sombra-flotante); }
+  .bu-riel__cuenta { flex-direction: column; }
+  .bu-riel__it > #nav-user-label { display: none; }
+  body #desk-toggle { left: 26px; bottom: 136px; width: 48px; height: 42px; padding: 0; justify-content: center; }
+  body:has(#compare-bar) #desk-toggle { bottom: 136px; }
+  body #desk-toggle .desk-toggle-label { display: none; }
+  body #desk-toggle .desk-badge { position: absolute; top: 0; right: 0; }
+}
+@media (min-width: 768px) {
+  .bu-cab-m, #bottom-nav.bu-minf, #mobile-menu-drawer, #mobile-menu-overlay { display: none; }
+}
+
+/* Celular */
+.bu-cab-m { display: none; }
+#bottom-nav.bu-minf { display: none; }
+@media (max-width: 767px) {
+  .bu-riel { display: none; }
+  .bu-cab-m { position: sticky; top: 0; z-index: var(--z-menu); display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; border-width: 0 0 1px; box-shadow: none; }
+  .bu-cab-m .bu-marca { margin-right: auto; }
+  .bu-cab-m .bu-marca__s { width: 24px; height: 28px; }
+  .bu-cab-m__acciones { display: flex; align-items: center; gap: 6px; padding-right: 44px; }
+  body #desk-toggle { left: auto; right: 12px; top: 8px; bottom: auto; width: 40px; height: 40px; padding: 0; justify-content: center; z-index: calc(var(--z-menu) + 1); }
+  body:has(#compare-bar) #desk-toggle { bottom: auto; }
+  body #desk-toggle .desk-toggle-label { display: none; }
+  body #desk-toggle .desk-badge { position: absolute; top: 0; right: 0; }
+
+  #bottom-nav.bu-minf { position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: var(--z-dock); display: grid; grid-template-columns: repeat(5, 1fr); height: 64px; border-radius: var(--radius-xl); }
+  .bu-minf__it { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0; padding: 0; border: 0; background: none; color: var(--tinta-suave); font: 500 10.5px/1.1 var(--font-sans); cursor: pointer; }
+  .bu-minf__it svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .bu-minf__it[aria-current="page"] { color: var(--tinta); font-weight: 700; }
+  .bu-minf__it[aria-current="page"]::before { content: ""; position: absolute; top: 0; width: 22px; height: 3px; border-radius: 3px; background: var(--rojo); }
+  body.has-bottom-nav { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+
+  #mobile-menu-overlay { position: fixed; inset: 0; z-index: calc(var(--z-dock) + 1); background: #0a070773; transition: opacity var(--t-medio); }
+  #mobile-menu-drawer { position: fixed; left: 0; right: 0; bottom: 0; z-index: calc(var(--z-dock) + 2); display: flex; flex-direction: column; max-height: 84dvh; padding: 10px 16px calc(16px + env(safe-area-inset-bottom)); border-radius: var(--radius-xl) var(--radius-xl) 0 0; transform: none; transition: transform var(--t-medio) var(--ease-menu), visibility var(--t-medio); }
+  #mobile-menu-drawer.translate-x-full { transform: translateY(102%); visibility: hidden; }
+  .bu-mas__cab { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .bu-mas__cab b { font: 500 20px/1.2 var(--font-display); }
+  .bu-mas__cuerpo { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 8px; }
+  .bu-mas__it { display: flex; align-items: center; gap: 9px; min-width: 0; min-height: 50px; padding: 8px 12px; border: 1px solid var(--cristal-borde); border-radius: var(--radius-md); background: var(--papel-alto); color: var(--tinta); font: 500 13.5px/1.2 var(--font-sans); text-align: left; text-decoration: none; }
+  .bu-mas__it .bu-riel__n { margin-left: auto; }
+  .bu-mas__it.is-en-barra { display: none; }
+  .bu-mas__it[aria-current="page"] { border-color: var(--rojo); background: var(--rojo-suave); color: var(--rojo); }
+  .bu-mas__pie { flex: none; margin-top: 12px; }
+  .bu-mas__pie .bu-seg { display: flex; }
+  .bu-mas__pie .bu-seg button { flex: 1; padding: 8px 4px; }
+}
+@media (prefers-reduced-motion: reduce) { #mobile-menu-drawer { transition: none; } }
+@media print { .bu-riel, .bu-cab-m, #bottom-nav, #mobile-menu-drawer, #mobile-menu-overlay { display: none; } body.bu-escena { padding-left: 0; } }

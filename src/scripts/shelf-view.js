@@ -119,8 +119,8 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     let wheelTimer = null;
 
     function measure() {
-        const header = document.querySelector('.site-header');
-        if (header?.offsetHeight) view.style.setProperty('--sh-header', `${header.offsetHeight}px`);
+        const header = document.querySelector('.bu-cab-m');
+        view.style.setProperty('--sh-header', `${header?.offsetHeight || 0}px`);
         view.style.setProperty('--sh-bottom', getComputedStyle(document.body).paddingBottom || '0px');
         metrics = shelfMetrics(probe.getBoundingClientRect().height || FALLBACK_H, { mobile: mobile() });
     }
