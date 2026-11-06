@@ -47,12 +47,13 @@ function begin() {
     clearTimeout(hideTimer);
     setBusy(true);
     showTimer = setTimeout(() => {
+        if (typeof document === 'undefined') return;
         const el = ensureBar();
         el.classList.remove('np-done');
         void el.offsetWidth;            // restart the animation from zero
         el.classList.add('np-active');
     }, SHOW_DELAY);
-    pillTimer = setTimeout(() => ensurePill().classList.add('np-active'), PILL_DELAY);
+    pillTimer = setTimeout(() => { if (typeof document !== 'undefined') ensurePill().classList.add('np-active'); }, PILL_DELAY);
 }
 
 function end() {

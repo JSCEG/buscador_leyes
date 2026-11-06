@@ -72,7 +72,7 @@ html.dark-mode .reader-article-nav button { background:color-mix(in srgb,var(--c
 #reader-original .rs-footer::before { display:none; }
 #reader-original .rs-footer .rs-muted { font-size:11px; }
 #modal-content .reader-text,#law-articles-list .reader-preview { font-family:var(--reader-font-family); font-size:var(--reader-font-size) !important; line-height:var(--reader-line-height) !important; text-align:justify !important; text-align-last:start; text-justify:inter-word; hyphens:auto; font-weight:400; overflow-wrap:anywhere; }
-#modal-content .reader-text { max-width:var(--reader-measure); margin-inline:auto; color:var(--ink-2); }
+#modal-content .reader-text { max-width:var(--reader-measure); margin-inline:auto; color:var(--tinta); }
 #law-articles-list .reader-preview { max-width:var(--reader-measure); }
 #modal-content .reader-text :is(div,p,li,td,th,blockquote,span) { font-size:inherit !important; line-height:inherit !important; text-align:justify !important; text-align-last:start; hyphens:auto !important; }
 #modal-content .reader-text p { margin-block:0 1.15em; }

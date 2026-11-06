@@ -3,13 +3,17 @@
  * keeps its structure, Markdown tables go through `marked` when it is loaded, plain text becomes
  * paragraphs. Tables keep every official cell, header and span (table, thead, tbody, tr, th, td,
  * colspan, rowspan); the readers only add presentation around them: a scroll box so a wide table
- * scrolls sideways instead of overflowing a phone, header scopes, and classes for numeric cells.
- * Text content is never changed.
+ * scrolls sideways instead of overflowing a phone, header scopes, and classes for numeric cells,
+ * totals and titles. Text content is never changed.
  */
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const DROP = 'script,style,iframe,object,embed,link,meta,form,input,button,textarea,select';
 // Short figures (IDs, quantities, percentages, money) are centred and use tabular digits.
-const NUMERIC = /^[(]?[-+]?[$]?\s?\d[\d\s.,]*\s?(%|°|º)?[)]?$/;
+const NUMERIC = /^[(]?[-−+]?[$]?\s?\d[\d\s.,]*\s?(%|°|º)?[)]?$/;
+const YEAR = /^(19|20)\d\d$/;
+const HEADER_CELL_MAX = 80;
+const FROZEN_COLUMN_FROM = 5;
+const cellText = cell => cell.textContent.replace(/\s+/g, ' ').trim();
 
 function clean(root) {
     root.querySelectorAll(DROP).forEach(node => node.remove());
@@ -35,19 +39,58 @@ function columnCount(table) {
     return widest;
 }
 
+/** Without a thead, the first row is a header only if its only figures are years. */
+export function isHeaderRow(table) {
+    if (table.tHead || table.rows.length < 2) return false;
+    const cells = [...table.rows[0].cells];
+    const clean = cells.every(cell => { const text = cellText(cell); return text.length < HEADER_CELL_MAX && (!NUMERIC.test(text) || YEAR.test(text)); });
+    const nextHasFigures = [...table.rows[1].cells].some(cell => /\d/.test(cell.textContent));
+    return cells.length > 1 && clean && (cells.some(cell => cell.tagName === 'TH') || nextHasFigures || cells.length >= 3);
+}
+
+/** Table titles and sources get their own look. Empty string for any other paragraph. */
+export function paragraphClass(text) {
+    const value = String(text ?? '').trim();
+    if (/^(Tabla|Cuadro|Gráfica|Grafica|Figura)\s+[\dIVXA-Z]/.test(value) && value.length < 180) return 'lr-tit';
+    return /^(Fuente|Notas?)\s*:/.test(value) ? 'lr-fue' : '';
+}
+
+function markRows(table) {
+    for (const td of table.querySelectorAll('td')) {
+        const text = cellText(td);
+        if (text && text.length <= 14 && NUMERIC.test(text)) {
+            td.classList.add('lr-num');
+            if (/^\+.*%$/.test(text)) td.classList.add('lr-pos');
+            else if (/^[-−].*%$/.test(text)) td.classList.add('lr-neg');
+        }
+    }
+    const bodyRows = [...table.rows].filter(row => row.parentElement?.tagName !== 'THEAD');
+    const withFigures = bodyRows.filter(row => row.querySelector('.lr-num')).length >= 2;
+    for (const row of bodyRows) {
+        const figures = Boolean(row.querySelector('.lr-num'));
+        if (figures && /^(sub)?total\b/i.test(cellText(row.cells[0] ?? { textContent: '' }))) row.classList.add('lr-total');
+        for (const td of row.cells) {
+            // Blank layout cells (spacers in official forms) must not widen the table; a gap in figures shows a dash from CSS.
+            if (td.tagName === 'TD' && !cellText(td) && !td.querySelector('img, svg, table')) td.classList.add(withFigures && figures ? 'lr-nd' : 'lr-empty');
+        }
+    }
+}
+
 /** Wraps each table in a labelled scroll region and adds presentation-only hints. */
 export function enhanceTables(root) {
     const tables = [...root.querySelectorAll('table')];
     tables.forEach((table, index) => {
         const columns = columnCount(table);
         table.classList.add('lr-tb', `lr-cols-${Math.min(8, Math.max(1, columns))}`);
+        if (columns >= FROZEN_COLUMN_FROM) table.classList.add('lr-fija');
+        if (isHeaderRow(table)) {
+            const head = table.ownerDocument.createElement('thead');
+            head.append(table.rows[0]);
+            table.prepend(head);
+            table.classList.add('tb-header');
+        } else if (table.tHead) table.classList.add('tb-header');
         for (const th of table.querySelectorAll('thead th')) if (!th.hasAttribute('scope')) th.setAttribute('scope', th.getAttribute('colspan') > 1 ? 'colgroup' : 'col');
-        for (const td of table.querySelectorAll('td')) {
-            const text = td.textContent.replace(/\s+/g, ' ').trim();
-            if (text && text.length <= 14 && NUMERIC.test(text)) td.classList.add('lr-num');
-            // Blank layout cells (spacers in official forms) must not widen the table.
-            else if (!text && !td.querySelector('img, svg, table')) td.classList.add('lr-empty');
-        }
+        markRows(table);
         let box = table.parentElement;
         const ownBox = box && box !== root && box.tagName === 'DIV' && box.children.length === 1 && box.classList.contains('overflow-x-auto');
         if (!ownBox && !box?.classList.contains('lr-table')) {
@@ -65,8 +108,8 @@ export function enhanceTables(root) {
 }
 
 /**
- * In a rendered reader, shows "Desliza…" above each table that is wider than its box (phones,
- * the split Text and PDF view, large letter sizes). Call after the HTML is in the page.
+ * In a rendered reader, shows "Desliza…" and "Ver en grande" above each table wider than its box
+ * (phones, the split Text and PDF view, large letter sizes). Call after the HTML is in the page.
  */
 export function markScrollableTables(root) {
     if (!root?.querySelectorAll) return;
@@ -80,8 +123,8 @@ export function markScrollableTables(root) {
         if (!box.previousElementSibling?.classList.contains('lr-table-hint')) {
             const hint = box.ownerDocument.createElement('p');
             hint.className = 'lr-table-hint';
-            hint.setAttribute('aria-hidden', 'true');
-            hint.textContent = 'Desliza la tabla hacia los lados para ver todas las columnas →';
+            hint.innerHTML = '<span>Desliza para ver toda la tabla →</span><button type="button" class="lr-table-big">Ver en grande</button>';
+            hint.querySelector('button').addEventListener('click', () => openTableViewer(box));
             box.before(hint);
         }
         sync(box);
@@ -92,12 +135,38 @@ export function markScrollableTables(root) {
     }
 }
 
+/** The same table on a full screen, closed with Escape or its button. */
+function openTableViewer(box) {
+    const doc = box.ownerDocument;
+    const returnFocus = doc.activeElement;
+    const viewer = doc.createElement('div');
+    viewer.className = 'lr-table-viewer';
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-modal', 'true');
+    viewer.setAttribute('aria-label', box.getAttribute('aria-label') || 'Tabla');
+    viewer.innerHTML = '<button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-close>Cerrar</button>';
+    viewer.append(box.cloneNode(true));
+    const close = () => { viewer.remove(); returnFocus?.focus?.({ preventScroll: true }); };
+    viewer.querySelector('[data-close]').addEventListener('click', close);
+    viewer.addEventListener('keydown', event => { if (event.key === 'Escape') { event.stopPropagation(); close(); } });
+    doc.body.append(viewer);
+    viewer.querySelector('[data-close]').focus({ preventScroll: true });
+}
+
+function markParagraphs(root) {
+    for (const p of root.querySelectorAll('p')) {
+        const name = paragraphClass(p.textContent);
+        if (name) p.classList.add(name);
+    }
+}
+
 /** Safe copy of reviewed HTML, with the readers' table presentation. */
 export function sanitizeArticleHtml(html) {
     const template = document.createElement('template');
     template.innerHTML = html;
     clean(template.content);
     enhanceTables(template.content);
+    markParagraphs(template.content);
     return template.innerHTML;
 }
 
@@ -146,5 +215,5 @@ export function articleHtml(text) {
     const marked = globalThis.marked;
     if (marked?.parse && /\|.+\||\*\*|###/.test(value)) return sanitizeArticleHtml(marked.parse(value));
     return value.replace(/\r\n/g, '\n').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
-        .map(p => `<p>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`).join('');
+        .map(p => { const name = paragraphClass(p); return `<p${name ? ` class="${name}"` : ''}>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`; }).join('');
 }

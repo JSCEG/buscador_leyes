@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { articleHtml, sanitizeArticleHtml, markScrollableTables, articlePreviewHtml } from '../src/lib/article-html.js';
+import { articleHtml, enhanceTables, isHeaderRow, paragraphClass, sanitizeArticleHtml, markScrollableTables, articlePreviewHtml } from '../src/lib/article-html.js';
 
 const OFFICIAL = `<p>Se dan a conocer los reactivos resultantes:</p>
 <table><thead><tr><th>ID</th><th>REACTIVO</th><th colspan="2">CLASIFICACIÓN</th></tr></thead>
@@ -79,6 +79,58 @@ describe('article HTML tables', () => {
         markScrollableTables(root);
         markScrollableTables(root);
         expect(root.querySelectorAll('.lr-table-hint')).toHaveLength(1);
-        expect(root.querySelector('.lr-table-hint').getAttribute('aria-hidden')).toBe('true');
+        expect(root.querySelector('.lr-table-hint button').textContent).toBe('Ver en grande');
+    });
+});
+
+describe('Excel table format', () => {
+    const textOf = el => el.textContent.replace(/\s+/g, ' ').trim();
+    const html = source => { const box = document.createElement('div'); box.innerHTML = source; return box; };
+    const table = (first, second = ['x', '12', '13']) => html(`<table><tr>${first.map(cell => `<td>${cell}</td>`).join('')}</tr><tr>${second.map(cell => `<td>${cell}</td>`).join('')}</tr></table>`).querySelector('table');
+    const TABLE_WITH_TOTAL = '<table><tr><td>Tecnología</td><td>2024</td><td>2025</td></tr><tr><td>Solar</td><td>5,393</td><td></td></tr><tr><td>Eólica</td><td>7,000</td><td>+3.5%</td></tr><tr><td>Total</td><td>12,393</td><td>-1.2%</td></tr></table>';
+
+    it('never changes official text', () => {
+        const box = html(TABLE_WITH_TOTAL); const before = textOf(box);
+        enhanceTables(box);
+        expect(textOf(box)).toBe(before);
+        expect(box.querySelectorAll('td')).toHaveLength(12);
+    });
+    it('marks a total row only when it has figures', () => {
+        const box = html(TABLE_WITH_TOTAL); enhanceTables(box);
+        expect(box.querySelectorAll('tr.lr-total')).toHaveLength(1);
+        const noFigures = html('<table><tr><td>Total de requisitos</td><td>Ver anexo</td></tr><tr><td>Otro</td><td>Dato</td></tr></table>'); enhanceTables(noFigures);
+        expect(noFigures.querySelector('tr.lr-total')).toBeNull();
+    });
+    it('recognizes years as a header, not figures', () => { expect(isHeaderRow(table(['(MW)', '2010', '2011']))).toBe(true); });
+    it('does not treat a data row as a header', () => { expect(isHeaderRow(table(['Carbo', '5,393'], ['Gas', '7,000']))).toBe(false); });
+    it('moves a recognized header to thead, keeping every cell', () => {
+        const box = html(TABLE_WITH_TOTAL); enhanceTables(box);
+        expect(box.querySelector('table').classList.contains('tb-header')).toBe(true);
+        expect(box.querySelectorAll('thead td')).toHaveLength(3);
+    });
+    it('marks missing data only in tables with figures', () => {
+        const box = html(TABLE_WITH_TOTAL); enhanceTables(box);
+        expect(box.querySelectorAll('td.lr-nd')).toHaveLength(1);
+        const form = html('<table><tr><td>Nombre</td><td></td></tr><tr><td>RFC</td><td></td></tr></table>'); enhanceTables(form);
+        expect(form.querySelector('td.lr-nd')).toBeNull();
+        expect(form.querySelectorAll('td.lr-empty')).toHaveLength(2);
+    });
+    it('signs variations', () => {
+        const box = html(TABLE_WITH_TOTAL); enhanceTables(box);
+        expect(box.querySelector('td.lr-pos').textContent).toBe('+3.5%');
+        expect(box.querySelector('td.lr-neg').textContent).toBe('-1.2%');
+    });
+    it('freezes the first column from five columns', () => {
+        const box = html('<table><tr><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td></tr></table>'); enhanceTables(box);
+        expect(box.querySelector('table').classList.contains('lr-fija')).toBe(true);
+    });
+    it('classifies titles and sources', () => {
+        expect(paragraphClass('Tabla 2.1. Capacidad instalada')).toBe('lr-tit');
+        expect(paragraphClass('Fuente: Elaboración SENER')).toBe('lr-fue');
+        expect(paragraphClass('La Tabla 2 muestra')).toBe('');
+    });
+    it('uses those classes on paragraphs', () => {
+        expect(sanitizeArticleHtml('<p>Tabla 2. Capacidad</p>')).toContain('class="lr-tit"');
+        expect(articleHtml('Fuente: SENER')).toContain('class="lr-fue"');
     });
 });

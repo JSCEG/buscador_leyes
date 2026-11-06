@@ -19,20 +19,6 @@
 .bg-white { background-color: var(--surface-1); }
 .bg-white\/70, .bg-white\/80, .bg-white\/95 { background-color: color-mix(in srgb, var(--surface-1) 88%, transparent); }
 
-/* Prose has one alignment across instruments, results and explanations.
-   Keep the last line natural so short paragraphs do not stretch across mobile. */
-#main-container p,
-#main-container blockquote,
-#analisis-container .nx-description,
-#analisis-container .nx-relation > p,
-#analisis-container .nx-sources blockquote {
-    text-align: justify;
-    text-align-last: start;
-    text-justify: inter-word;
-    hyphens: auto;
-    overflow-wrap: anywhere;
-}
-
 @layer utilities {
 
     /* Hide scrollbar for Chrome, Safari and Opera */
@@ -103,17 +89,5 @@
 @media (min-width: 640px) {
     .toc-grid-layout {
         grid-template-columns: repeat(6, minmax(4.5rem, 1fr));
-    }
-}
-
-/* Phones: a narrow column justified opens wide gaps between words; prose aligns left there.
-   The legal text in the reader keeps its own justified setting (reader.css). */
-@media (max-width: 640px) {
-    #main-container p,
-    #main-container blockquote,
-    #analisis-container .nx-description,
-    #analisis-container .nx-relation > p,
-    #analisis-container .nx-sources blockquote {
-        text-align: start;
     }
 }
