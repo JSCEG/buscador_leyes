@@ -74,26 +74,10 @@ h6,
     max-width: 1180px;
 }
 
-#hero-section {
-    max-width: 760px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /* The hero is a guinda band: light text from the first paint (search-landing.css loads later). */
-#hero-section h1 {
-    color: #fff !important;
-}
 
-#hero-section em {
-    color: color-mix(in srgb, var(--gold) 50%, #fff) !important;
-    font-style: normal !important;
-}
 
-#hero-section p {
-    color: var(--guinda-100) !important;
-    font-weight: 400 !important;
-}
 
 #watermark-symbol {
     font-family: var(--font-display) !important;
@@ -267,7 +251,4 @@ html.dark-mode .prose th {
 }
 
 @media (max-width: 640px) {
-    #hero-section h1 {
-        font-size: clamp(2.1rem, 11vw, 3rem) !important;
-    }
 }

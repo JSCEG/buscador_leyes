@@ -954,6 +954,20 @@ export function initUI() {
     const searchWrapper = document.getElementById('global-search-wrapper');
     const searchHome = searchWrapper ? document.createComment('global-search-home') : null;
     if (searchWrapper) searchWrapper.before(searchHome);
+    // The box travels from the centre to the top: measured before and after, animated only with transform.
+    function travelSearchBox(change) {
+        const before = searchWrapper?.getBoundingClientRect();
+        change();
+        const after = searchWrapper?.getBoundingClientRect();
+        if (!before?.width || !after?.width || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+        const dx = before.left - after.left;
+        const dy = before.top - after.top;
+        if (dx || dy) searchWrapper.animate?.([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: 620, easing: 'cubic-bezier(.32,.72,0,1)' });
+    }
+    document.getElementById('search-go')?.addEventListener('click', () => {
+        searchInput.focus();
+        if (searchInput.value.trim()) searchInput.dispatchEvent(new Event('input'));
+    });
     function undockSearch() {
         if (!searchWrapper || !searchHome?.isConnected || searchWrapper.previousSibling === searchHome) return;
         const focused = document.activeElement === searchInput;
@@ -1048,13 +1062,13 @@ export function initUI() {
         const latest = cachedSummaries.map(l => l.fecha_publicacion).filter(Boolean).sort().at(-1);
         if (cutoff && latest) {
             const date = new Date(`${String(latest).slice(0, 10)}T12:00:00`).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
-            cutoff.innerHTML = `Acervo con <strong>${cachedSummaries.length} instrumentos</strong> · publicación más reciente: <strong>${date}</strong>`;
+            cutoff.innerHTML = `Acervo con <strong>${cachedSummaries.length} documentos</strong> · publicación más reciente: <strong>${date}</strong>`;
             cutoff.hidden = false;
         }
         if (!statsMinimal || heroSection?.classList.contains('hidden')) return;
         statsMinimal.classList.remove('hidden', 'opacity-0');
         void renderSearchLanding(statsMinimal, {
-            summaries: cachedSummaries, history: getHistory(),
+            summaries: cachedSummaries,
             onSearch: query => { searchInput.value = query; searchInput.dispatchEvent(new Event('input')); },
             onOpenLaw: id => { const law = cachedSummaries.find(l => String(l.id) === String(id)); if (law) openLawDetail(law); },
             onOpenTerms: () => showAnalisisView({}),
@@ -2254,8 +2268,9 @@ export function initUI() {
     // Quick Filters
     if (quickFilters) {
         quickFilters.addEventListener('click', (e) => {
-            if (e.target.tagName === 'BUTTON') {
-                searchInput.value = e.target.textContent;
+            const example = e.target.closest('button');
+            if (example) {
+                searchInput.value = example.dataset.query || example.textContent;
                 searchInput.dispatchEvent(new Event('input'));
             }
         });
@@ -2389,6 +2404,15 @@ export function initUI() {
                     }))
                 });
             } else {
+                // The whole archive comes first: it is what a term search means.
+                sections.push({
+                    label: 'Buscar',
+                    items: [{
+                        html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+                            <span class="sr-suggest-main">Buscar «${escapeHtml(query)}» en todo el acervo</span>`,
+                        attrs: `data-navigable role="option" data-query="${escapeHtml(query)}" class="bj-menu__item history-item"`,
+                    }],
+                });
                 // Law-level suggestions
                 const lawMatches = cachedSummaries
                     .filter(s => normalizeText(s.titulo).includes(normalizeText(query)))
@@ -2396,7 +2420,7 @@ export function initUI() {
 
                 if (lawMatches.length > 0) {
                     sections.push({
-                        label: 'Instrumentos',
+                        label: 'Documentos',
                         items: lawMatches.map(s => ({
                             html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg>
                                 <span class="sr-suggest-main">${highlightMatch(s.titulo, query)}</span>
@@ -2520,10 +2544,12 @@ export function initUI() {
                 // UI Transition to "Search Mode"
                 destroyTOC();
                 if (lawDetailContainer) lawDetailContainer.classList.add('hidden', 'opacity-0');
-                heroSection.classList.add('hidden');
-                heroSection.classList.remove('block');
-                quickFilters.classList.add('hidden');
-                statsMinimal.classList.add('hidden');
+                travelSearchBox(() => {
+                    heroSection.classList.add('hidden');
+                    heroSection.classList.remove('block');
+                    quickFilters.classList.add('hidden');
+                    statsMinimal.classList.add('hidden');
+                });
 
                 mainContainer.classList.remove('justify-center', 'pt-24');
                 mainContainer.classList.add('pt-8');

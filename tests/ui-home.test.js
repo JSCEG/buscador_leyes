@@ -137,3 +137,13 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   expect(document.querySelector('#home-view .sh-status[data-state="error"]')).not.toBeNull();
   expect(document.querySelector('#home-view .sh-search input').disabled).toBe(false);
 });
+
+it('uses the approved headline, without italics', () => {
+  document.body.innerHTML = new DOMParser().parseFromString(readFileSync('index.html', 'utf8'), 'text/html').body.innerHTML;
+  const heading = document.querySelector('#hero-section h1');
+  expect(heading.textContent.trim()).toBe('Busca un término en el marco energético');
+  expect(heading.querySelector('em, i')).toBeNull();
+  expect(document.getElementById('search-input').placeholder).toBe('Busca una palabra, ley o artículo');
+  expect(document.querySelector('.hero-emblem')).toBeNull();
+  expect(document.querySelector('#quick-filters [data-query="interconexión"]')).not.toBeNull();
+});

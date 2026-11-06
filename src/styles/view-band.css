@@ -1,62 +1,13 @@
-/* ── View headers as bands, like the acervo and law headers ─────────────────────────
-   Search and Análisis in guinda, Guardados in gold, Estadísticas and Ayuda in green. */
-:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) {
-    --vb-a: var(--guinda-700); --vb-b: var(--guinda-500); --vb-c: color-mix(in srgb, var(--guinda-500) 70%, var(--guinda-300));
-    position: relative;
-    margin: 0 0 24px !important;
-    padding: 28px 32px !important;
-    border: 0 !important;
-    border-radius: 20px;
-    color: #fff;
-    background:
-        radial-gradient(110% 90% at 100% 0%, var(--vb-c) 0%, transparent 55%),
-        radial-gradient(80% 90% at 0% 100%, #0000002e 0%, transparent 60%),
-        linear-gradient(135deg, var(--vb-a) 0%, var(--vb-b) 60%, var(--vb-a) 100%) !important;
-    box-shadow: 0 16px 36px color-mix(in srgb, var(--vb-b) 22%, transparent) !important;
-}
-:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head)::after {
-    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .12;
-    background-image: radial-gradient(circle at 20% 30%, #fff 0 1.4px, transparent 2px), radial-gradient(circle at 70% 60%, #fff 0 1px, transparent 1.5px);
-    background-size: 44px 44px, 28px 28px;
-}
-:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) > * { position: relative; z-index: 1; }
-
-.fv-view .fv-head { --vb-a: #5e4516; --vb-b: #8c6925; --vb-c: #b08a3c; }
-.st-dashboard .st-header, .hp-view .hp-head { --vb-a: #143f37; --vb-b: #1e5b4f; --vb-c: #2f7a6a; }
-
-/* Text on the band */
-:is(.sr-head, .st-header, .nx-header, .hp-head) :is(h1, .sr-summary, .st-intro, .nx-intro, .hp-intro) { color: #fff !important; }
-:is(.sr-head, .st-header, .nx-header, .hp-head) :is(.sr-summary, .st-intro, .nx-intro, .hp-intro) { opacity: .92; }
-:is(.sr-head .sr-eyebrow, .st-header .st-eyebrow, .nx-header .nx-eyebrow, .hp-head .hp-eyebrow) { color: #fde8ee !important; font-weight: 600; }
-.st-dashboard .st-header .st-eyebrow, .hp-view .hp-head .hp-eyebrow { color: #d7f0e8 !important; }
-.fv-view .fv-head .sr-eyebrow { color: #fbefd4 !important; }
-
-/* Side notes become translucent chips */
-.st-dashboard .st-updated, .nx-explorer .nx-header-aside > span:not([data-editor-control]) {
-    padding: 8px 14px; border-radius: 12px; background: #ffffff1f; border: 1px solid #ffffff2e; color: #ffffffd9 !important;
-}
-.st-dashboard .st-updated strong { color: #fff !important; }
-.nx-explorer .nx-header-aside { gap: 6px !important; }
-.nx-explorer .nx-header-aside > span:not([data-editor-control]) { padding: 4px 12px; border-radius: 999px; font-size: 12.5px; }
-.nx-explorer .nx-header .nx-button { background: #fff !important; color: var(--vb-b) !important; border-color: #fff !important; }
-
-/* Guardados export button on the band; its menu keeps the light look */
-.fv-view .fv-head .fv-export > summary { background: #fff !important; color: var(--vb-a) !important; border-color: #fff !important; }
-.fv-view .fv-head .fv-export-menu, .fv-view .fv-head .fv-export-menu * { color: var(--ink) !important; }
-
-:is(.sr-head, .st-header, .nx-header, .hp-head) :is(button, a, summary):focus-visible { outline: 3px solid #f6d9a8 !important; outline-offset: 2px; }
-
-/* Dark mode: deeper bands */
-html.dark-mode :is(.sr-view .sr-head, .nx-explorer .nx-header, .pl-view .pl-head) { --vb-a: #3d0b1c; --vb-b: #5e1430; --vb-c: #7a2344; box-shadow: none !important; }
-html.dark-mode .fv-view .fv-head { --vb-a: #3e2d0d; --vb-b: #5e4718; --vb-c: #7a5f26; }
-html.dark-mode :is(.st-dashboard .st-header, .hp-view .hp-head) { --vb-a: #0e2c26; --vb-b: #174a40; --vb-c: #236152; box-shadow: none !important; }
-
-/* Phones: tighter band */
-@media (max-width: 640px) {
-    :is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) { padding: 20px 18px !important; border-radius: 16px; margin-bottom: 18px !important; }
-    :is(.sr-head, .st-header, .nx-header, .hp-head) h1 { font-size: 26px !important; }
-    .st-dashboard .st-updated { text-align: left !important; white-space: normal; }
-}
+/* ── Encabezados de vista: tinta sobre papel, sin banda de color. ─────────────── */
+:is(.sr-view .sr-head, .st-dashboard .st-header, .nx-explorer .nx-header, .hp-view .hp-head, .pl-view .pl-head) { margin: 0 0 18px !important; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; color: var(--tinta); }
+:is(.sr-head, .st-header, .nx-header, .hp-head, .pl-head) h1 { color: var(--tinta) !important; font-family: var(--font-display); font-weight: 400; letter-spacing: -.01em; }
+:is(.sr-head, .st-header, .nx-header, .hp-head) :is(.sr-summary, .st-intro, .nx-intro, .hp-intro) { color: var(--tinta-suave) !important; }
+:is(.sr-head .sr-eyebrow, .st-header .st-eyebrow, .nx-header .nx-eyebrow, .hp-head .hp-eyebrow) { color: var(--tinta-suave) !important; font-weight: 700; }
+.st-dashboard .st-updated { color: var(--tinta-suave) !important; }
+.hp-head-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.hp-view .hp-head-btn { padding: 8px 16px; border: 0; border-radius: 999px; background: var(--accion); color: var(--on-accion); font: 600 13.5px/1.2 var(--font-sans); cursor: pointer; }
+.hp-view .hp-head-btn-ghost { background: none; color: var(--tinta); border: 1px solid var(--linea); }
+.hp-view .hp-head-btn:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
 
 /* Pinned state: white icon and label on guinda everywhere (the reader header styles its buttons gray) */
 .pin-btn.is-pinned, .pin-btn.is-pinned svg, .pin-btn.is-pinned .pin-label { color: var(--on-brand) !important; }
@@ -85,24 +36,9 @@ html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { c
 html.dark-mode .modal-newtab:hover{color:var(--col-ley)}
 #main-container:has(#results-container:not(.hidden) .ap-view){padding-top:20px!important}
 
-/* Search box docked inside the results band */
-#global-search-wrapper.is-docked{max-width:none!important;width:100%;margin:0 0 20px}
-.sr-view .sr-head:has(#global-search-wrapper.is-docked) .sr-eyebrow{margin-top:2px}
 #main-container:has(#results-container:not(.hidden) .sr-view){padding-top:20px!important}
-@media (max-width:640px){#global-search-wrapper.is-docked{margin-bottom:14px}}
-
-/* Ayuda: tour and comment buttons on the band */
-.hp-head-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.hp-view .hp-head-btn{padding:8px 16px;border:0;border-radius:999px;background:#fff;color:var(--col-disposicion);font:600 13.5px/1.2 var(--font-sans);cursor:pointer}
-.hp-view .hp-head-btn-ghost{background:#ffffff1f;color:#fff;border:1px solid #ffffff55}
-.hp-view .hp-head-btn:focus-visible{outline:3px solid #f6d9a8;outline-offset:2px}
 
 /* Every section header opens at the same height, right under the menu */
 #main-container:has(#results-container:not(.hidden) :is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library, .pl-view)) { padding-top: 20px !important; }
 #results-container:not(.hidden):has(:is(.tl-view, .pm-view, .cf-view, .rt-view, .st-dashboard, .hp-view, .sr-view, .ac-library, .pl-view)) { margin-top: 0 !important; }
 
-/* Every section header spans the full results width, even in narrower views (Reto, ¿Cómo funciona?) */
-#results-container { container-type: inline-size; }
-:is(.tl-view > .tl-head, .pm-view > .pm-head, .cf-view > .cf-head, .rt-view > .rt-head, .hp-view > .hp-head, .pl-view > .pl-head) { margin-inline: calc((100% - 100cqw) / 2) !important; }
-/* ¿Cómo funciona? has no band: keep its text aligned with the content below */
-.cf-view > .cf-head { padding-left: calc((100cqw - 100%) / 2) !important; }

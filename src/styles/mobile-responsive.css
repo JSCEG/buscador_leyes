@@ -39,14 +39,7 @@
     }
 
     /* Hero section: tighten spacing */
-    #hero-section h1 {
-        font-size: clamp(1.9rem, 8vw, 2.8rem) !important;
-        line-height: 1.15 !important;
-    }
 
-    #hero-section p {
-        font-size: 0.85rem !important;
-    }
 
     /* Autocomplete dropdown: full width, constrained height */
     #autocomplete-results {
@@ -208,9 +201,6 @@
 
 /* ── Very small screens (< 375 px) ──────────────────────── */
 @media (max-width: 374px) {
-    #hero-section h1 {
-        font-size: 1.75rem !important;
-    }
 
     #main-container {
         padding-left: 0.75rem !important;

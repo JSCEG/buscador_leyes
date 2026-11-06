@@ -296,78 +296,35 @@
         id="main-container">
 
         <!-- Hero Section (Collapses on search) -->
-        <div id="hero-section" class="text-center mb-10 transition-all duration-500 ease-in-out relative" data-emblem-host>
-            <div class="hero-copy relative" style="z-index:1">
-                <!-- Thin decorative rule -->
-                <div class="flex items-center justify-center gap-3 mb-5">
-                    <div class="h-px w-8 bg-guinda/30"></div>
-                    <span class="text-[10px] font-semibold tracking-[0.25em] text-guinda/60 uppercase">Sector energético · México</span>
-                    <div class="h-px w-8 bg-guinda/30"></div>
-                </div>
-                <h1 class="mb-5 tracking-tight font-head"
-                    style="font-size:clamp(2.4rem,6vw,4.2rem); font-weight:700; line-height:1.05; color:var(--ink);">
-                    Buscar por <em style="color:var(--brand); font-style:normal;">término</em>
-                </h1>
-                <p class="sr-hero-intro text-gray-500 text-sm sm:text-base max-w-md mx-auto leading-relaxed"
-                    style="letter-spacing:0.01em;">
-                    Encuentra coincidencias en el texto de todos los instrumentos del acervo: leyes, reglamentos, acuerdos y demás disposiciones.
-                </p>
+        <div id="hero-section" class="relative" data-emblem-host>
+            <div class="hero-copy">
+                <h1 class="bu-portada-t">Busca un término en el marco energético</h1>
+                <p class="sr-hero-intro">Encuentra coincidencias en el texto de leyes, reglamentos, acuerdos y demás documentos del sector.</p>
                 <p class="sl-cutoff" id="acervo-cutoff" hidden></p>
-            </div>
-            <div class="hero-emblem" aria-hidden="true">
-                <div class="hero-emblem-float">
-                    <div class="hero-emblem-object" data-emblem-object>
-                        <div class="hero-emblem-shadow"></div>
-                        <div class="hero-paper hero-paper-back"><span></span></div>
-                        <div class="hero-paper hero-paper-middle"><span></span></div>
-                        <div class="hero-paper hero-paper-front"><span></span></div>
-                        <div class="hero-b-stack">
-                            <img class="hero-b-layer" style="--layer:5" src="/img/hero-mark.svg" alt="" width="119" height="158">
-                            <img class="hero-b-layer" style="--layer:4" src="/img/hero-mark.svg" alt="" width="119" height="158">
-                            <img class="hero-b-layer" style="--layer:3" src="/img/hero-mark.svg" alt="" width="119" height="158">
-                            <img class="hero-b-layer" style="--layer:2" src="/img/hero-mark.svg" alt="" width="119" height="158">
-                            <img class="hero-b-layer" style="--layer:1" src="/img/hero-mark.svg" alt="" width="119" height="158">
-                            <img class="hero-b-layer" style="--layer:0" src="/img/hero-mark.svg" alt="" width="119" height="158">
-                        </div>
-                        <div class="hero-lens"></div>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Search Bar -->
-        <!-- Search Bar (SearchBar del sistema de diseño) -->
-        <div id="global-search-wrapper" class="bj-search w-full max-w-2xl z-30">
-            <svg class="bj-icon bj-search__icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
-            <input type="text" id="search-input" class="bj-search__input" aria-label="Buscar en el acervo"
-                placeholder="¿Qué artículo o término buscas?">
+        <!-- La caja de búsqueda: una sola, viaja del centro a la parte de arriba -->
+        <div id="global-search-wrapper" class="bu-caja bu-cristal-fuerte w-full z-30">
+            <svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+            <input type="text" id="search-input" class="bj-search__input" aria-label="Buscar en los documentos"
+                placeholder="Busca una palabra, ley o artículo">
             <div id="loading-indicator" class="hidden" role="status" aria-live="polite">
                 <span class="bj-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="bj-dots__label" data-loading-label>Buscando…</span>
             </div>
+            <button type="button" id="search-go" class="bu-caja-go" aria-label="Buscar">Buscar</button>
         </div>
 
         <!-- Quick Filters / Suggestions -->
-        <div id="quick-filters" class="mt-7 opacity-0 animate-fade-in-up"
-            style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-            <p class="sr-suggest-label">Temas frecuentes en el acervo</p>
-            <div class="flex flex-wrap justify-center gap-2">
-                <button type="button" class="bj-chip sr-suggestion">Interconexión</button>
-                <button type="button" class="bj-chip sr-suggestion">Autoconsumo</button>
-                <button type="button" class="bj-chip sr-suggestion">Planeación vinculante</button>
-                <button type="button" class="bj-chip sr-suggestion">Permisos de generación</button>
-                <button type="button" class="bj-chip sr-suggestion">Almacenamiento</button>
-                <button type="button" class="bj-chip sr-suggestion">CENACE</button>
-            </div>
+        <div id="quick-filters" class="bu-modos">
+            <span>Por ejemplo:</span>
+            <button type="button" data-query="interconexión">una palabra: interconexión</button>
+            <button type="button" data-query="Ley del Sector Eléctrico">una ley: Ley del Sector Eléctrico</button>
+            <button type="button" data-query="artículo 12">un artículo: artículo 12</button>
         </div>
 
         <!-- Stats (Minimal) -->
-        <div id="stats-minimal" class="mt-14 text-center opacity-0 animate-fade-in-up"
-            style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-            <div class="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.15em] text-gray-300 uppercase"
-                style="font-family:'Manrope',sans-serif;">
-                &nbsp;
-            </div>
-        </div>
+        <div id="stats-minimal" class="w-full">&nbsp;</div>
 
         <!-- Results Area -->
         <div id="results-container" class="w-full mt-8 space-y-6 hidden opacity-0 transition-opacity duration-500">

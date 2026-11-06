@@ -6,8 +6,8 @@ import { buildSearchGraph } from '../lib/search-graph.js';
 import '../styles/search-graph.css';
 
 const COLORS = {
-    leyes: '#9b2247', reglamentos: '#1e5b4f', acuerdos: '#b8375f', dacg: '#2f7a6a',
-    convocatorias: '#a57f2c', normas: '#8c6925', otros: '#7a6f63',
+    leyes: 'var(--col-leyes)', reglamentos: 'var(--col-reglamentos)', acuerdos: 'var(--col-acuerdos)', dacg: 'var(--col-dacg)',
+    convocatorias: 'var(--col-convocatorias)', normas: 'var(--col-normas)', otros: 'var(--col-otros)',
 };
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
@@ -18,14 +18,14 @@ export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw
     const laws = graph.nodes.filter(node => node.kind === 'law');
     const cites = graph.links.filter(link => link.kind === 'cites').length;
     host.innerHTML = `<div class="sg-head">
-            <p class="sg-summary"><strong>${laws.length}</strong> instrumentos en <strong>${graph.nodes.filter(n => n.kind === 'group').length}</strong> colecciones${cites ? ` · <strong>${cites}</strong> relaciones entre ellos` : ''}${graph.hidden ? ` · se muestran los ${laws.length} con más coincidencias` : ''}</p>
+            <p class="sg-summary"><strong>${laws.length}</strong> documentos en <strong>${graph.nodes.filter(n => n.kind === 'group').length}</strong> colecciones${cites ? ` · <strong>${cites}</strong> relaciones entre ellos` : ''}${graph.hidden ? ` · se muestran los ${laws.length} con más coincidencias` : ''}</p>
             <button type="button" class="sg-reset" data-sg-reset>Reacomodar</button>
         </div>
-        <div class="sg-canvas" role="img" aria-label="Mapa de relaciones de «${esc(query)}»: ${laws.length} instrumentos agrupados por colección"></div>
-        <p class="sg-hint">Clic en una colección o instrumento: ve sus resultados · Arrastra: mueve · Rueda o pellizco: acerca y aleja</p>`;
+        <div class="sg-canvas" role="img" aria-label="Mapa de relaciones de «${esc(query)}»: ${laws.length} documentos agrupados por colección"></div>
+        <p class="sg-hint">Clic en una colección o documento: ve sus resultados · Arrastra: mueve · Rueda o pellizco: acerca y aleja</p>`;
     const canvas = host.querySelector('.sg-canvas');
     if (!d3 || !laws.length) {
-        canvas.innerHTML = `<p class="sg-empty">${laws.length ? 'El mapa no pudo cargarse.' : 'Sin instrumentos para mostrar.'}</p>`;
+        canvas.innerHTML = `<p class="sg-empty">${laws.length ? 'El mapa no pudo cargarse.' : 'Sin documentos para mostrar.'}</p>`;
         return () => {};
     }
 
@@ -76,7 +76,7 @@ export function renderSearchGraph(host, { query, lawCounts, summaries, activeLaw
         .attr('role', d => d.kind === 'term' ? null : 'button')
         .attr('aria-label', d => d.kind === 'law' ? `${d.title}: ${d.count} coincidencias. Ver sus resultados` : d.kind === 'group' ? `${d.label}: ${d.count} coincidencias. Ver sus resultados` : null);
     node.append('circle').attr('r', radius)
-        .attr('fill', d => d.kind === 'term' ? '#302b27' : COLORS[d.group] || '#7a6f63')
+        .attr('fill', d => d.kind === 'term' ? 'var(--accion)' : COLORS[d.group] || 'var(--col-otros)')
         .attr('fill-opacity', d => d.kind === 'group' ? 0.18 : 1)
         .attr('stroke', d => d.kind === 'group' ? COLORS[d.group] : '#fff');
     node.append('text').attr('class', 'sg-label')
