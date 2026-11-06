@@ -3,6 +3,7 @@
  * permit's card — data and status, its resolutions in order, annexes and the acervo instruments
  * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
  */
+import { loadTechIndex, permitType, techOf, typeTile } from '../lib/permit-type.js';
 import { emptyState } from '../lib/empty-art.js';
 import { pinButtonHtml } from './desk-view.js';
 import { tramiteForPermit } from '../data/tramites.js';
@@ -10,6 +11,7 @@ import { permitPinId, permitsHash, searchPermits, fetchResolutions, fetchAnnexes
 import { esc, fold, number, plural, dateLabel, skeleton, failure as failureFor, lawBySiglas, PDF_ICON, guideLinkHtml } from './cne-shared.js';
 
 const PAGE = 20;
+const TECH_WAIT_MS = 1500;
 const failure = what => failureFor(what, REGISTRY_URL);
 const ESTADO_TONE = { 'Operando': 'ok', 'Por iniciar operaciones': 'info', 'En Construcción': 'info', 'Por iniciar obras': 'info' };
 
@@ -41,15 +43,23 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     const status = root.querySelector('.pm-status');
     const body = root.querySelector('.pm-body');
 
+    // Cards wait a moment for the technologies; without them the tile reads the code of the number.
+    let techIndex = null;
+    const waitForTechIndex = async () => {
+        techIndex ??= await Promise.race([loadTechIndex(), new Promise(resolve => setTimeout(() => resolve(null), TECH_WAIT_MS))]);
+    };
+
     function estadoChip(estado) {
         return estado ? `<span class="pm-estado is-${ESTADO_TONE[estado] || 'off'}">${esc(estado)}</span>` : '';
     }
 
     function card(row) {
+        const type = permitType(row.Numero, { technology: techOf(techIndex, row.Numero) });
         const { sector, activity } = permitKind(row.Numero);
         return `
             <li><button type="button" class="pm-card" data-permit="${esc(row.PermisoId)}" data-sector="${sector?.id || 'otro'}">
                 <span class="pm-card-top"><span class="pm-num">${esc(row.Numero)}</span>${estadoChip(row.Estado)}</span>
+                <span class="pm-tipo">${typeTile(type)}<span class="pm-tipo-t">${esc(type.label)}</span></span>
                 <span class="pm-holder">${esc(row.Persona || 'Titular sin dato')}</span>
                 ${row.AliasProyecto ? `<span class="pm-alias">${esc(row.AliasProyecto)}</span>` : ''}
                 <span class="pm-meta">
@@ -83,7 +93,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         body.innerHTML = skeleton(6);
         status.textContent = 'Consultando el registro de la CNE…';
         try {
-            const result = await searchPermits({ ...state, length: PAGE });
+            const [result] = await Promise.all([searchPermits({ ...state, length: PAGE }), waitForTechIndex()]);
             if (!alive || id !== request) return;
             rows = result.rows;
             total = result.total;

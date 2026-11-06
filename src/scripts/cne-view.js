@@ -9,7 +9,6 @@ import { renderPanoramaView } from './cne-panorama-view.js';
 import { renderTramitesView } from './tramites-view.js';
 import { permitsHash } from '../lib/cne-api.js';
 import '../styles/permits.css';
-import { emblemHtml } from '../lib/emblem.js';
 
 // Tabs a visitor has not opened yet pulse and say "Nuevo" until they do (remembered per browser).
 const SEEN_KEY = 'cne-pestanas-vistas';
@@ -30,6 +29,17 @@ const TABS = [
     { id: 'sener', group: 'SENER', label: 'Títulos y permisos', intro: 'Títulos y permisos de la Secretaría de Energía: asignaciones, pozos, contratos de exploración y extracción, comercio exterior y biocombustibles, con su fuente oficial.' },
 ];
 
+const AUTHORITIES = [
+    { id: 'cne', short: 'CNE', name: 'Comisión Nacional de Energía' },
+    { id: 'sener', short: 'SENER', name: 'Secretaría de Energía' },
+];
+
+/** The authority behind a view, with its acronym and full name. */
+export function authorityTag(aut) {
+    const authority = AUTHORITIES.find(item => item.id === aut) || AUTHORITIES[0];
+    return `<b>${authority.short}</b>${authority.name}`;
+}
+
 /**
  * @param {HTMLElement} container
  * @param {() => object[]} catalog acervo summaries (read on demand)
@@ -44,12 +54,11 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
     root.setAttribute('aria-labelledby', 'pm-title');
     root.innerHTML = `
         <div class="pm-head" data-emblem-host>
-            ${emblemHtml('permisos')}
-            <p class="pm-eyebrow">Registro público · CNE y SENER</p>
+            <p class="pm-autoridad" data-authority></p>
             <h1 id="pm-title">Permisos de energía</h1>
             <p class="pm-intro"></p>
             <nav class="pm-tabs" role="tablist" aria-label="Secciones de permisos">
-                ${TABS.map((tab, i) => `${tab.group !== TABS[i - 1]?.group ? `<span class="pm-tab-group" aria-hidden="true">${tab.group}</span>` : ''}<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel" aria-label="${tab.label} · ${tab.group}">${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}
+                ${AUTHORITIES.map(aut => `<div class="pm-tab-grupo" data-aut="${aut.id}"><span class="pm-tab-group" aria-hidden="true">${aut.short}</span>${TABS.filter(tab => tab.group === aut.short).map(tab => `<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel" aria-label="${tab.label} · ${tab.group}">${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}</div>`).join('')}
             </nav>
         </div>
         <div id="pm-tabpanel" class="pm-tabpanel" role="tabpanel"></div>`;
@@ -68,6 +77,9 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         });
         const info = TABS.find(item => item.id === tab) || TABS[0];
         root.querySelector('.pm-intro').textContent = info.intro;
+        root.querySelector('[data-authority]').innerHTML = authorityTag(tab === 'sener' ? 'sener' : 'cne');
+        root.classList.toggle('en-sener', tab === 'sener');
+        root.classList.toggle('en-mapa', tab === 'mapa');
         root.querySelectorAll('.pm-tab').forEach(link => {
             const on = link.dataset.tab === tab;
             link.setAttribute('aria-selected', String(on));

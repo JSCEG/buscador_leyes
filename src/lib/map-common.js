@@ -62,6 +62,9 @@ export function baseLayers(L, map, { onFallback = () => {} } = {}) {
     return setBase;
 }
 
+/** Height of a teardrop by capacity in MW. */
+export const pinSize = capacity => (capacity >= 300 ? 30 : capacity >= 30 ? 26 : 22);
+
 // Network layers (scripts/build-map-networks.mjs builds the files under public/mapa/).
 export const NETWORKS = [
     { key: 'transmision', file: 'red-transmision.json', label: 'Líneas de transmisión', short: '69 kV o más · OpenStreetMap', get swatch() { return KV_CLASSES[1].color; } },
@@ -73,14 +76,17 @@ export const cssToken = (name, fallback) => {
     try { return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback; }
     catch { return fallback; }
 };
-// CENACE voltage colour code (tokens --map-kv*). Read on use, so a theme switch repaints in its colours.
+// Búho voltage standard (tokens --map-kv*), the same in every theme. Read on use, so a theme switch repaints in its colours.
 const kv = (min, token, fallback, weight, label) => ({ min, token, weight, label, get color() { return cssToken(token, fallback); } });
 export const KV_CLASSES = [
-    kv(400, '--map-kv400', '#0000ff', 2.6, '400 kV'),
-    kv(230, '--map-kv230', '#ff6600', 2, '230 kV'),
-    kv(138, '--map-kv161', '#008000', 1.6, '138 a 161 kV'),
-    kv(69, '--map-kv115', '#ff00ff', 1.3, '69 a 115 kV'),
-    kv(0, '--map-kv34', '#000000', 1, '34.5 kV o menor'),
+    kv(400, '--map-kv400', '#9b2247', 2.6, '400 kV'),
+    kv(230, '--map-kv230', '#c0552e', 2.2, '230 kV'),
+    kv(161, '--map-kv161', '#e0a12e', 1.8, '161 kV'),
+    kv(138, '--map-kv138', '#9aae3b', 1.6, '138 kV'),
+    kv(115, '--map-kv115', '#1e9cb8', 1.4, '115 kV'),
+    kv(85, '--map-kv85', '#2e6fb0', 1.2, '85 kV'),
+    kv(69, '--map-kv69', '#3ba98c', 1.1, '69 kV'),
+    kv(0, '--map-kv35', '#8a9099', 1, '35 kV o menor'),
 ];
 export const kvClass = kv => KV_CLASSES.find(c => kv >= c.min) || KV_CLASSES[KV_CLASSES.length - 1];
 
@@ -137,31 +143,33 @@ export function networkLayers(L, map, { pane = 'networks' } = {}) {
 }
 
 /** MarkerSet dot size by capacity: < 30, 30–100, 100–300, > 300 MW; unknown capacity takes 20. */
-export const markerSize = mw => (!(mw > 0) ? 20 : mw < 30 ? 14 : mw < 100 ? 20 : mw < 300 ? 28 : 38);
 
 /**
  * Round pin of one sector with its infrastructure icon; `mods`: 'is-novig', 'is-aprox'.
- * Generation permits wear their technology marker (MarkerSet): a dot of `size` px, the dashed ring when
- * `planned` (operation still to start) and the accent halo when `selected`. Other markets keep their
- * infrastructure pin.
+ * Generation permits wear their technology teardrop of `size` px, dashed when `planned` (operation still
+ * to start) and with a guinda ring when `selected`. Other markets keep their infrastructure pin.
  */
-export function pinIcon(L, cache, sector, icon, mods = '', tech = '', { size = 20, planned = false, selected = false } = {}) {
-    const key = `${sector}|${icon}|${mods}|${tech}|${size}|${planned}|${selected}`;
+export function pinIcon(L, cache, sector, icon, mods = '', tech = '', { size = 22, planned = false, selected = false } = {}) {
+    const key = [sector, icon, mods, tech, size, planned, selected].join('|');
     if (!cache.has(key)) {
-        const box = size + 8;
-        cache.set(key, tech
-            ? L.divIcon({ className: `pmm-pin-wrap bj-marker ${mods}`, html: techMarkerSVG(tech, { variant: 'dot', size, planned, selected }), iconSize: [box, box], iconAnchor: [box / 2, box / 2], popupAnchor: [0, -box / 2 + 2] })
-            : L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-pin ${mods}" data-sector="${sector}">${infraIcon(icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -10] }));
+        const classes = `${mods}${selected ? ' is-sel' : ''}`.trim();
+        if (tech) {
+            const height = Math.round(size * 46 / 36);
+            cache.set(key, L.divIcon({ className: `pmm-pin-wrap bj-marker ${classes}`, html: techMarkerSVG(tech, { variant: 'pin', size, planned }), iconSize: [size, height], iconAnchor: [size / 2, height], popupAnchor: [0, -height + 4] }));
+        } else {
+            cache.set(key, L.divIcon({ className: `pmm-pin-wrap ${selected ? 'is-sel' : ''}`, html: `<span class="pmm-pin ${mods}" data-sector="${sector}">${infraIcon(icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -12] }));
+        }
     }
     return cache.get(key);
 }
 
 /**
  * One cluster group for every sector, so groups of different sectors do not cover each other. Each bubble
- * is a ring split by sector (markers carry `options.sector`), in proportion to what it holds.
- * @param {string[]} sectors order of the ring
+ * is a ring of the real mix it holds, with the total inside.
+ * @param {string[]} sectors kept for callers; the ring is ordered by size
+ * @param {{ toneOf?: (marker: object) => string }} options colour of a marker in the ring
  */
-export function sectorCluster(L, sectors) {
+export function sectorCluster(L, sectors, { toneOf = marker => `var(--c-${marker.options.sector})` } = {}) {
     return L.markerClusterGroup({
         chunkedLoading: true,
         showCoverageOnHover: false,
@@ -169,17 +177,21 @@ export function sectorCluster(L, sectors) {
         maxClusterRadius: z => (z < 8 ? 60 : 40),
         iconCreateFunction: cluster => {
             const n = cluster.getChildCount();
-            const size = n < 50 ? 32 : n < 500 ? 38 : 46;
-            const bySector = {};
-            for (const child of cluster.getAllChildMarkers()) bySector[child.options.sector] = (bySector[child.options.sector] || 0) + 1;
-            let at = 0;
-            const stops = sectors.filter(sector => bySector[sector]).map(sector => {
-                const from = at;
-                at += (bySector[sector] / n) * 100;
-                return `var(--c-${sector}) ${from.toFixed(1)}% ${at.toFixed(1)}%`;
-            });
+            const mix = new Map();
+            for (const child of cluster.getAllChildMarkers()) { const tone = toneOf(child); mix.set(tone, (mix.get(tone) || 0) + 1); }
+            const size = n < 50 ? 36 : n < 500 ? 44 : 52;
+            const middle = size / 2;
+            const radius = middle - 3;
+            const circumference = 2 * Math.PI * radius;
+            let done = 0;
+            const arcs = [...mix].sort((a, b) => b[1] - a[1]).map(([tone, count]) => {
+                const length = (count / n) * circumference;
+                const arc = `<circle cx="${middle}" cy="${middle}" r="${radius}" fill="none" stroke="${tone}" stroke-width="5" stroke-dasharray="${length} ${circumference - length}" stroke-dashoffset="${-done}" transform="rotate(-90 ${middle} ${middle})"/>`;
+                done += length;
+                return arc;
+            }).join('');
             const label = n >= 1000 ? `${Math.round(n / 100) / 10}k` : n;
-            return L.divIcon({ className: 'pmm-pin-wrap', html: `<span class="pmm-cluster" style="width:${size}px;height:${size}px;background:conic-gradient(${stops.join(',')})"><b>${label}</b></span>`, iconSize: [size, size] });
+            return L.divIcon({ className: 'pmm-cl', iconSize: [size, size], html: `<svg width="${size}" height="${size}" role="img" aria-label="${n} permisos"><circle class="pmm-cl-fondo" cx="${middle}" cy="${middle}" r="${radius + 2.5}"/>${arcs}<text x="${middle}" y="${middle}" text-anchor="middle" dominant-baseline="central">${label}</text></svg>` });
         },
     });
 }

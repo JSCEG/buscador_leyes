@@ -113,12 +113,13 @@ describe('network layers', () => {
     it('groups transmission lines by voltage', () => {
         expect(kvClass(400).label).toBe('400 kV');
         expect(kvClass(230).label).toBe('230 kV');
-        expect(kvClass(138).label).toBe('138 a 161 kV');
-        expect(kvClass(115).label).toBe('69 a 115 kV');
-        expect(kvClass(69).label).toBe('69 a 115 kV');
-        expect(kvClass(34.5).label).toBe('34.5 kV o menor');
+        expect(kvClass(161).label).toBe('161 kV');
+        expect(kvClass(138).label).toBe('138 kV');
+        expect(kvClass(115).label).toBe('115 kV');
+        expect(kvClass(69).label).toBe('69 kV');
+        expect(kvClass(34.5).label).toBe('35 kV o menor');
         // Colours come from the CENACE tokens; without the stylesheet they fall back to the same code.
-        expect(kvClass(400).color).toBe('#0000ff');
+        expect(kvClass(400).color).toBe('#9b2247');
     });
 });
 

@@ -10,12 +10,14 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
-import { permitsHash, permitKind } from '../lib/cne-api.js';
+import { fetchPermit, permitsHash, permitKind } from '../lib/cne-api.js';
+import { popupCounts, registryCounts } from '../lib/permit-popup.js';
+import { permitType, typeTile } from '../lib/permit-type.js';
 import { infraType, infraIcon } from '../lib/infra-icons.js';
 import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
 import '../styles/permits-map.css';
 import { withMapBusy } from '../lib/map-busy.js';
-import { NETWORKS, KV_CLASSES, kvClass, baseLayers, networkLayers, pinIcon, sectorCluster, markerSize, STATES, STATE_LABEL, stateKey } from '../lib/map-common.js';
+import { NETWORKS, KV_CLASSES, kvClass, baseLayers, networkLayers, pinIcon, sectorCluster, pinSize, STATES, STATE_LABEL, stateKey } from '../lib/map-common.js';
 import { techMarkerSVG } from '../lib/tech-markers.js';
 
 const API = '/api/mapa';
@@ -204,7 +206,8 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     // On phones the map takes the whole screen, like a maps app (styles under body.pmm-open).
     document.body.classList.add('pmm-open');
     // Fit México in the part of the screen the search box and chips leave free.
-    const fitMexico = () => map.fitBounds(MEXICO, isMobile() ? { paddingTopLeft: [0, 110], paddingBottomRight: [0, 10] } : {});
+    const mapMargins = () => (isMobile() ? { paddingTopLeft: [0, 110], paddingBottomRight: [0, 10] } : { paddingTopLeft: [Math.round(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--riel-off')) || 0) + 20, 130], paddingBottomRight: [$('[data-panel]')?.hidden ? 20 : 340, 40] });
+    const fitMexico = () => map.fitBounds(MEXICO, mapMargins());
     if (!isMobile()) {
         L.control.zoom({ position: 'bottomright' }).addTo(map);
         L.control.scale({ position: 'bottomright', imperial: false }).addTo(map);
@@ -224,15 +227,15 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
     // ---------- permit layers ----------
     const icons = new Map();
     const today = new Date();
-    // MarkerSet: dot sized by MW, dashed ring while operation has not started, accent halo when selected.
+    // Teardrop sized by capacity, dashed while operation has not started, guinda ring when selected.
     const iconFor = (m, p, selected = false) => {
         const mods = [p.vigente === false ? 'is-novig' : '', (p.precision || 'exacta') !== 'exacta' ? 'is-aprox' : ''].filter(Boolean).join(' ');
         const type = infraType(m.key, p);
         const planned = p.vigente !== false && Boolean(p.fechaOperacion) && new Date(p.fechaOperacion) > today;
-        return pinIcon(L, icons, m.sector, type.icon, mods, type.tech, { size: markerSize(p.capacidad), planned, selected });
+        return pinIcon(L, icons, m.sector, type.icon, mods, type.tech, { size: pinSize(p.capacidad), planned, selected });
     };
-    // One cluster group for every market; each bubble is a ring split by sector.
-    const newCluster = () => sectorCluster(L, MARKETS.map(m => m.sector));
+    // One cluster group for every market; each bubble is a ring of the technologies it holds.
+    const newCluster = () => sectorCluster(L, MARKETS.map(m => m.sector), { toneOf: marker => marker.options.tone });
 
     const typeKey = (m, label) => `${m.key}|${label}`;
     const stateKeys = new Map();
@@ -259,13 +262,14 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                 const p = f.properties || {};
                 if (!visible(m, p)) continue;
                 const [lon, lat] = f.geometry.coordinates;
-                const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false, sector: m.sector });
+                const marker = L.marker([lat, lon], { icon: iconFor(m, p), title: `${infraType(m.key, p).label} · ${p.nombre}`, keyboard: false, sector: m.sector, tone: infraType(m.key, p).tech ? `var(--tec-${infraType(m.key, p).tech})` : `var(--c-${m.sector})` });
                 marker.feature = f;
                 marker.bindPopup(() => popupHtml(m, p, lat, lon), { className: 'pmm-popup', maxWidth: 340 });
                 marker.on('popupopen', ev => {
                     if (isMobile()) { marker.closePopup(); openSheet(m, p, lat, lon); return; }
                     marker.setIcon(iconFor(m, p, true)).setZIndexOffset(1000);
                     fillLinks(ev.popup, p.numeroPermiso);
+                    fillCounts(ev.popup, p.numeroPermiso);
                 });
                 marker.on('popupclose', () => marker.setIcon(iconFor(m, p)).setZIndexOffset(0));
                 // Hover brings the marker to the front without changing its size.
@@ -373,7 +377,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         if (!key) { fitMexico(); status(''); return; }
         const bounds = cluster?.getLayers().length ? cluster.getBounds() : null;
         const shown = cluster?.getLayers().length || 0;
-        if (bounds?.isValid()) map.fitBounds(bounds.pad(0.05), isMobile() ? { paddingTopLeft: [0, 110], paddingBottomRight: [0, 10], maxZoom: 11 } : { maxZoom: 11 });
+        if (bounds?.isValid()) map.fitBounds(bounds.pad(0.05), { ...mapMargins(), maxZoom: 11 });
         status(`${shown.toLocaleString('es-MX')} ${shown === 1 ? 'permiso' : 'permisos'} en ${STATE_LABEL[key]} con las capas encendidas.`, 4000);
     }
 
@@ -393,9 +397,10 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         add('Ubicación', [p.municipioNombre, p.entidadNombre].filter(Boolean).join(', '));
         add('Precisión', PRECISION[p.precision || 'exacta'] || PRECISION.exacta);
         return `<div class="pmm-pop" data-sector="${m.sector}">
-            <p class="pmm-pop-kicker"><span class="pmm-pin" data-sector="${m.sector}">${infraIcon(type.icon, 12)}</span> ${esc(type.label)}</p>
+            <p class="pmm-pop-kicker">${typeTile(permitType(p.numeroPermiso, { technology: p.tecnologia }), { size: 'ch' })} ${esc(type.label)}</p>
             <strong>${esc(p.nombre)}</strong>
             <p class="pmm-pop-num">${esc(p.numeroPermiso)}</p>
+            ${popupCounts(countsCache.get(p.numeroPermiso))}
             <dl>${rows.join('')}</dl>
             <div class="pmm-pop-actions">
                 <a class="pm-btn pm-btn-primary" href="${permitsHash({ permit: p.numeroPermiso })}">Ficha y normativa</a>
@@ -416,6 +421,14 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         const resolutions = l.resoluciones || [];
         return link(l.ligaPermiso, 'Ver permiso') + link(l.ligaResolucion, 'Ver resolución')
             + (resolutions.length > 1 ? `<details class="pmm-res"><summary>Resoluciones (${resolutions.length})</summary><ul>${resolutions.map(r => `<li><a href="${esc(r.liga)}" target="_blank" rel="noopener">${esc(r.numero)}</a></li>`).join('')}</ul></details>` : '');
+    }
+    // Counts come from the public registry when the window opens; without them the window still works.
+    const countsCache = new Map();
+    const askCounts = registryCounts(fetchPermit, countsCache);
+    async function fillCounts(popup, numero) {
+        if (countsCache.has(numero)) return;
+        await askCounts(numero);
+        if (popup.isOpen() && countsCache.get(numero)) popup.update();
     }
     async function fillLinks(popup, numero) {
         if (linksCache.has(numero)) return;
@@ -440,6 +453,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         // Point above the sheet, as in Google Maps: shift by half the sheet height.
         const target = map.project([lat, lon]).add([0, sheet.offsetHeight / 2]);
         map.panTo(map.unproject(target), { animate: true });
+        if (!countsCache.has(p.numeroPermiso)) askCounts(p.numeroPermiso).then(() => { if (sheetKey === p.numeroPermiso && !sheet.hidden) render(); });
         if (!linksCache.has(p.numeroPermiso)) {
             try { linksCache.set(p.numeroPermiso, await getJson(`ligas?numero=${encodeURIComponent(p.numeroPermiso)}`)); } catch { linksCache.set(p.numeroPermiso, null); }
             if (sheetKey === p.numeroPermiso && !sheet.hidden) render();

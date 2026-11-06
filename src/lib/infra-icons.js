@@ -31,6 +31,8 @@ const PATHS = Object.freeze({
     area: '<path d="M4 7.5 9 4l6 2.5 5-1.5v11.5L15 18l-6-2.5L4 17z"/><path d="M9 4v11.5M15 6.5V18"/>',
     // Documento firmado: contrato
     contrato: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h6M9.5 15h6M9.5 18h3"/>',
+    ducto: '<path d="M2 9h20M2 15h20M7 7v10M17 7v10"/>',
+    comercio: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
     otro: '<circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/>',
 });
 
@@ -53,6 +55,7 @@ const TECHNOLOGIES = [
     ['geoterm', 'geotermia', 'Geotérmica', 'geo'],
     ['nucle', 'nuclear', 'Nucleoeléctrica', 'nuc'],
     ['importacion', 'importacion', 'Importación'],
+    ['almacen', 'almacenamiento', 'Almacenamiento', 'alm'],
 ];
 
 /** { icon, label } of a permit of the given market ('electricidad' | 'petroliferos' | 'gas-lp' | 'gas-natural'). */

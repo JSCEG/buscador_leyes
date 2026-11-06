@@ -169,8 +169,7 @@ html.dark-mode .pmm-pin b,html.dark-mode .pmm-cluster{color:#20171B}
 }
 
 /* ---------- Sector colours for the shared cluster rings ---------- */
-.pmm,.pmm-pin-wrap{--c-electricidad:#1E5B4F;--c-petroliferos:#86671d;--c-gaslp:#a84a14;--c-gasnatural:#2f6690}
-html.dark-mode .pmm,html.dark-mode .pmm-pin-wrap{--c-electricidad:#6fc2ae;--c-petroliferos:#e0bd6d;--c-gaslp:#f29a62;--c-gasnatural:#8cc0e6}
+.pmm,.pmm-pin-wrap,.pmm-cl{--c-electricidad:var(--col-leyes);--c-petroliferos:var(--col-convocatorias);--c-gaslp:var(--col-normas);--c-gasnatural:var(--col-dacg)}
 /* One bubble for every sector: a coloured ring split by sector, the count in a white centre. */
 .pmm-cluster{position:relative;border:0;color:var(--ink);box-shadow:0 1px 5px rgba(0,0,0,.35)}
 .pmm-cluster b{position:absolute;inset:5px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--surface-1);color:var(--ink);font:600 11.5px/1 var(--font-mono);font-variant-numeric:tabular-nums}
@@ -186,7 +185,7 @@ html.dark-mode .pmm,html.dark-mode .pmm-pin-wrap{--c-electricidad:#6fc2ae;--c-pe
 /* ---------- Phones: the map takes the screen between the top and the bottom bar ---------- */
 @media (max-width:1023px){
   body.pmm-open{overflow:hidden}
-  body.pmm-open .desk-toggle,body.pmm-open #toc-toggle-btn,body.pmm-open .install-sheet{display:none!important}
+  body.pmm-open #toc-toggle-btn,body.pmm-open .install-sheet{display:none!important}
   body.pmm-open .pmm-body{position:fixed;top:0;left:0;right:0;bottom:calc(61px + env(safe-area-inset-bottom));height:auto;min-height:0;margin:0;z-index:55}
   body.pmm-open .pmm-bar{position:fixed;top:calc(8px + env(safe-area-inset-top));left:8px;right:8px;z-index:57;gap:6px}
   body.pmm-open .pmm-chipbar{top:calc(64px + env(safe-area-inset-top))}
@@ -312,7 +311,6 @@ html.dark-mode .pmm [data-sector="cne-terceros"]{--sec:#c7c1bb}
 }
 
 /* «Mi mesa» on the map: a toolbar button instead of the floating one, which covered the map controls. */
-body.pmm-open .desk-toggle{display:none!important}
 .pmm-desk{display:inline-flex;align-items:center;gap:6px}
 .pmm-desk-count{min-width:20px;padding:1px 6px;border-radius:999px;background:var(--brand);color:var(--on-brand);font-size:11.5px;font-weight:700;line-height:1.5;text-align:center}
 .pmm:fullscreen .pmm-desk{display:none}
@@ -373,3 +371,64 @@ html.dark-mode .map-tiles-neutral{filter:grayscale(1) invert(1) brightness(.82) 
 .pmm-popup .pmm-pop-actions{border-top-color:var(--hairline)}
 /* MapControls: pila glass de 44 px. */
 .pmm-body .leaflet-bar a{width:44px!important;height:44px!important;line-height:44px!important}
+
+/* ── Búho: mapa a sangre con panel de cristal ─────────────────────────── */
+.pm-view.en-mapa .pm-head{position:fixed;left:calc(var(--riel-off) + 10px);top:14px;right:340px;z-index:1200;margin:0!important;padding:0!important;background:none!important;box-shadow:none!important;pointer-events:none}
+.pm-view.en-mapa .pm-head > :not(.pm-tabs){display:none}
+.pm-view.en-mapa .pm-tabs{margin:0;flex-wrap:nowrap;pointer-events:auto}
+.pmm-qstate select{height:100%;border:0;background:none;color:inherit;font:inherit}
+.pm-view.en-mapa .pm-tabpanel{margin:0}
+.pmm{position:fixed;inset:0;margin:0;gap:0;z-index:1}
+.pmm-body{position:absolute;inset:0;height:auto!important;min-height:0;margin:0!important;border:0;border-radius:0}
+.pmm-note{display:none}
+.pmm-bar{position:absolute;left:calc(var(--riel-off) + 10px);top:62px;right:auto;z-index:1150;flex-wrap:nowrap;width:min(560px,calc(100vw - var(--riel-off) - 370px))}
+.pmm-search{flex:1;min-width:0;height:44px;border:1px solid var(--cristal-borde);border-radius:999px;background:var(--cristal-fuerte);box-shadow:var(--sombra-cristal);-webkit-backdrop-filter:blur(var(--blur-flotante));backdrop-filter:blur(var(--blur-flotante))}
+.pmm-search input{height:100%;padding:0 18px;border:0;background:none;color:var(--tinta);font:450 14px/1 var(--font-sans);outline:0}
+.pmm-tools{display:flex;gap:6px;flex:none}
+.pmm-tools .pm-btn{height:44px;padding:0 14px;border:1px solid var(--cristal-borde);border-radius:999px;background:var(--cristal-fuerte);color:var(--tinta);font:600 13px/1 var(--font-sans);box-shadow:var(--sombra-cristal);-webkit-backdrop-filter:blur(var(--blur-flotante));backdrop-filter:blur(var(--blur-flotante));white-space:nowrap}
+.pmm-tools [data-desk]{display:none}
+.pmm-chipbar{position:absolute;left:calc(var(--riel-off) + 10px);top:116px;right:340px;z-index:1100;display:flex;flex-wrap:wrap;gap:6px}
+.pmm-qchip{height:32px;padding:0 12px;border:1px solid var(--cristal-borde);border-radius:999px;background:var(--cristal-fuerte);color:var(--tinta-suave);font:500 12.5px/1 var(--font-sans);box-shadow:var(--sombra-cristal);-webkit-backdrop-filter:blur(var(--blur-flotante));backdrop-filter:blur(var(--blur-flotante))}
+.pmm-qchip.is-on{background:var(--rojo-suave);border-color:var(--rojo);color:var(--rojo);font-weight:600}
+.pmm-panel{left:auto;right:14px;top:14px;bottom:14px;width:310px;max-height:none;padding:0 14px 14px;overflow:auto;border:1px solid var(--cristal-borde);border-radius:var(--radius-2xl);background:var(--cristal-fuerte);box-shadow:var(--sombra-flotante);-webkit-backdrop-filter:blur(var(--blur-flotante));backdrop-filter:blur(var(--blur-flotante));color:var(--tinta)}
+.pmm-panel-head{background:none;padding:14px 0 6px}
+.pmm-panel-head strong{font:500 18px/1.2 var(--font-display)}
+.pmm-h{margin:12px 0 5px;color:var(--tinta-suave);font:700 11px/1.3 var(--font-sans);letter-spacing:.1em;text-transform:uppercase}
+.pmm-chips button{border:1px solid var(--linea);border-radius:999px;background:none;color:var(--tinta-suave);font:500 12.5px/1 var(--font-sans);padding:6px 11px}
+.pmm-chips button.is-on{background:var(--rojo-suave);border-color:var(--rojo);color:var(--rojo);font-weight:600}
+.pmm-results{left:calc(var(--riel-off) + 10px);top:172px;bottom:14px;width:340px;border:1px solid var(--cristal-borde);border-radius:var(--radius-lg);background:var(--cristal-fuerte);box-shadow:var(--sombra-flotante)}
+.leaflet-control-zoom,.leaflet-control-scale{margin-right:340px!important}
+.leaflet-control-zoom a{background:var(--cristal-fuerte)!important;color:var(--tinta)!important;border-color:var(--cristal-borde)!important}
+.leaflet-control-attribution{background:var(--cristal)!important;color:var(--tinta-suave)!important}
+.pmm-popup .leaflet-popup-content-wrapper{border:1px solid var(--cristal-borde);border-radius:var(--radius-lg);background:var(--cristal-fuerte);color:var(--tinta);box-shadow:var(--sombra-flotante);-webkit-backdrop-filter:blur(var(--blur-flotante));backdrop-filter:blur(var(--blur-flotante))}
+.pmm-popup .leaflet-popup-tip{background:var(--papel-alto)}
+.pmm-pop strong{font:500 17px/1.2 var(--font-display);color:var(--tinta)}
+.pmm-pop-kicker{display:flex;align-items:center;gap:7px;color:var(--tinta-suave);font:600 12.5px/1.2 var(--font-sans)}
+.pmm-pop-num{font:600 12px/1.3 var(--font-sans);color:var(--tinta-suave)}
+.pmm-pop .pm-btn{border-radius:11px;border-color:var(--linea);background:none;color:var(--tinta);font:600 12.5px/1 var(--font-sans)}
+.pmm-pop .pm-btn-primary{background:var(--accion);border-color:var(--accion);color:var(--on-accion)}
+.pmm-cuentas{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0;padding:8px;border-radius:12px;background:var(--ceniza)}
+.pmm-cuentas div{display:block}
+.pmm-cuentas dt{color:var(--tinta-suave);font:600 10.5px/1.2 var(--font-sans)}
+.pmm-cuentas dd{margin:2px 0 0;color:var(--tinta);font:700 15px/1 var(--font-sans);font-variant-numeric:tabular-nums}
+.pmm-cl svg{display:block;filter:drop-shadow(0 2px 6px #0a070740)}
+.pmm-cl-fondo{fill:var(--papel-alto)}
+.pmm-cl text{fill:var(--tinta);font:700 12px var(--font-sans)}
+.pmm-pin-wrap.is-sel{filter:drop-shadow(0 0 0 var(--rojo)) drop-shadow(0 0 4px var(--rojo))}
+.pmm-pin-wrap.is-novig svg{filter:grayscale(1);opacity:.75}
+.pmm-pin-wrap.is-aprox svg path:first-child{stroke-dasharray:3 2}
+@media (max-width:1023px){
+  .pm-view.en-mapa .pm-head{left:8px;right:8px;top:62px}
+  .pmm-bar{left:8px;right:8px;top:106px;width:auto}
+  .pmm-tools{display:none}
+  .pmm-chipbar{left:8px;right:8px;top:158px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .pmm-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:70dvh;border-radius:var(--radius-xl) var(--radius-xl) 0 0}
+  .pmm-results{left:0;right:0;width:auto;top:auto;max-height:70dvh;border-radius:var(--radius-xl) var(--radius-xl) 0 0}
+  .leaflet-control-zoom,.leaflet-control-scale{margin-right:10px!important}
+}
+@media (min-width:768px) and (max-width:1023px){
+  .pm-view.en-mapa .pm-head{left:calc(var(--riel-off) + 8px);top:14px}
+  .pmm-bar{left:calc(var(--riel-off) + 8px);top:60px}
+  .pmm-chipbar{left:calc(var(--riel-off) + 8px);top:112px}
+}
+@media print{.pmm{position:static}}

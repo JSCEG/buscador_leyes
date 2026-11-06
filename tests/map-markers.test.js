@@ -1,29 +1,22 @@
 import { describe, it, expect } from 'vitest';
-import { markerSize, pinIcon } from '../src/lib/map-common.js';
+import { pinIcon, pinSize } from '../src/lib/map-common.js';
 
 // Minimal Leaflet stand-in: divIcon keeps its options so the test can read them.
 const L = { divIcon: options => ({ options }) };
 
 describe('MarkerSet markers on the permits map', () => {
-    it('sizes the dot by capacity: < 30, 30–100, 100–300, > 300 MW', () => {
-        expect([0.5, 29.9, 30, 99, 100, 299, 300, 5000].map(markerSize)).toEqual([14, 14, 20, 20, 28, 28, 38, 38]);
-        expect(markerSize(0)).toBe(20);
-        expect(markerSize(undefined)).toBe(20);
+    it('sizes the teardrop by capacity', () => {
+        expect([0.5, 29.9, 30, 299, 300, 5000].map(pinSize)).toEqual([22, 22, 26, 26, 30, 30]);
     });
 
-    it('draws generation permits as technology dots, rings while not operating and a halo when selected', () => {
+    it('draws generation permits as technology teardrops, dashed while not operating and marked when selected', () => {
         const cache = new Map();
-        const dot = pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 28 });
-        expect(dot.options.iconSize).toEqual([36, 36]);
-        expect(dot.options.html).toContain('var(--tec-eo)');
-        expect(dot.options.html).not.toContain('stroke-dasharray');
-
-        const planned = pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 28, planned: true });
-        expect(planned.options.html).toContain('stroke-dasharray');
-
-        const selected = pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 28, selected: true });
-        expect(selected.options.html).toContain('var(--accent)');
-        expect(pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 28 })).toBe(dot);
+        const pin = pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 26 });
+        expect(pin.options.html).toContain('var(--tec-eo)');
+        expect(pin.options.html).not.toContain('stroke-dasharray');
+        expect(pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 26, planned: true }).options.html).toContain('stroke-dasharray');
+        expect(pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 26, selected: true }).options.className).toContain('is-sel');
+        expect(pinIcon(L, cache, 'electricidad', 'solar', '', 'eo', { size: 26 })).toBe(pin);
     });
 
     it('keeps the infrastructure pin for markets without a technology', () => {
