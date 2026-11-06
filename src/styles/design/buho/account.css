@@ -1,0 +1,79 @@
+/* Ventana de cuenta: cristal y papel. La acción es tinta; el guinda marca el foco y el lomo del librito. */
+#auth-modal { background: var(--scrim); }
+#auth-modal #auth-panel {
+  border: 1px solid var(--cristal-borde); border-radius: var(--radius-xl);
+  background-color: var(--cristal-fuerte); background-image: linear-gradient(135deg, var(--cristal-brillo), transparent 45%);
+  -webkit-backdrop-filter: blur(var(--blur-flotante)) saturate(160%); backdrop-filter: blur(var(--blur-flotante)) saturate(160%);
+  box-shadow: var(--sombra-flotante), inset 0 1px 0 var(--cristal-brillo); color: var(--tinta);
+}
+[data-theme="contraste"] #auth-modal #auth-panel { background-image: none; }
+#auth-panel #close-auth-modal { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; color: var(--tinta-suave); transition: background-color var(--t-rapido), color var(--t-rapido); z-index: 2; }
+#auth-panel #close-auth-modal:hover { background: var(--ceniza); color: var(--tinta); }
+#auth-panel #close-auth-modal:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
+
+/* ── Entrar y registrarse ──────────────────────────────── */
+#auth-panel #auth-tabs { padding: 3px; border: 1px solid var(--linea); border-radius: 13px; background: var(--papel-alto); }
+#auth-panel .auth-tab { min-height: 40px; border-radius: 10px; background: transparent; box-shadow: none; color: var(--tinta-suave); }
+#auth-panel .auth-tab.bg-white { background: var(--accion); color: var(--on-accion); }
+#auth-form label { font: 600 13px/18px var(--font-sans); letter-spacing: 0; text-transform: none; color: var(--tinta); }
+#auth-form :is(input[type="text"], input[type="email"], input[type="password"]) { min-height: 44px; border: 1px solid var(--linea); border-radius: var(--radius-md); background: var(--papel-alto); color: var(--tinta); font-size: 16px; }
+#auth-form :is(input[type="text"], input[type="email"], input[type="password"]):focus { border-color: var(--rojo); box-shadow: 0 0 0 3px var(--rojo-halo); }
+#auth-panel #auth-submit-btn { min-height: 44px; border-radius: var(--radius-md); background: var(--accion); color: var(--on-accion); box-shadow: none; }
+#auth-panel #auth-submit-btn:hover { opacity: .88; }
+#auth-panel #auth-google-btn { min-height: 44px; border-radius: var(--radius-md); border-color: var(--linea); background: var(--papel-alto); color: var(--tinta); }
+#auth-panel #auth-google-btn:hover { background: var(--ceniza); }
+
+/* ── Mi cuenta ─────────────────────────────────────────── */
+#auth-modal #auth-panel:has(#auth-logged-in:not(.hidden)) { padding: 0; max-width: 420px; }
+#auth-logged-in.hidden { display: none; }
+.bu-cuenta { display: flex; flex-direction: column; gap: 20px; padding: 28px 24px 12px; text-align: left; }
+.bu-cuenta-id { display: flex; align-items: center; gap: 18px; padding-right: 28px; }
+.bu-cuenta-quien { min-width: 0; }
+.bu-cuenta-nombre { margin: 0; font: 500 26px/1.15 var(--font-display); color: var(--tinta); overflow-wrap: anywhere; }
+.bu-cuenta-correo { margin: 6px 0 0; font: 500 13.5px/1.35 var(--font-sans); color: var(--tinta-suave); overflow-wrap: anywhere; }
+
+/* El lector es un libro más del estante: sus iniciales en una portada, con lomo y listón. */
+.bu-cuenta-libro {
+  position: relative; flex: none; display: grid; place-items: center; width: 62px; height: 84px; padding-left: 7px; overflow: hidden;
+  border-radius: 3px 6px 6px 3px; background: var(--lb-bg); color: var(--lb-ink); font: 500 21px/1 var(--font-display);
+  box-shadow: inset 0 0 0 1px var(--lb-edge), var(--sombra-cristal); transform: perspective(260px) rotateY(-12deg);
+}
+.bu-cuenta-libro::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 7px; background: var(--rojo); }
+.bu-cuenta-libro::after { content: ""; position: absolute; top: 0; right: 8px; width: 9px; height: 14px; background: var(--rojo); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%); }
+
+/* Cada cifra abre lo que cuenta. */
+.bu-cuenta-accesos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--linea); }
+.bu-cuenta-accesos button { display: flex; flex-direction: column; gap: 5px; min-width: 0; padding: 12px 10px; border: 0; border-radius: var(--radius-sm); background: none; color: var(--tinta); text-align: left; cursor: pointer; transition: background-color var(--t-rapido); }
+.bu-cuenta-accesos button:hover { background: var(--ceniza); }
+.bu-cuenta-accesos button:focus-visible { outline: 2px solid var(--rojo); outline-offset: -2px; }
+.bu-cuenta-accesos b { font: 500 26px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.bu-cuenta-accesos span { font: 500 12.5px/1.2 var(--font-sans); color: var(--tinta-suave); }
+
+#account-panel { display: flex; flex-direction: column; gap: 16px; }
+#account-panel .bu-cuenta-tabs { display: flex; width: 100%; }
+#account-panel .bu-cuenta-tabs button { flex: 1; min-height: 38px; }
+#account-panel .bu-cuenta-tabs button:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
+#account-panel .bu-cuenta-form { display: flex; flex-direction: column; gap: 14px; }
+#account-panel .bu-cuenta-form[hidden] { display: none; }
+#account-panel .bu-cuenta-field { display: flex; flex-direction: column; gap: 6px; }
+#account-panel .bu-cuenta-field label { font: 600 13px/18px var(--font-sans); color: var(--tinta); }
+#account-panel .bu-cuenta-field input { font-size: 16px; }
+#account-panel .bu-campo:focus-within { border-color: var(--rojo); outline: 0; box-shadow: 0 0 0 3px var(--rojo-halo); }
+#account-panel .bu-cuenta-hint { font: 500 12px/16px var(--font-sans); color: var(--tinta-suave); }
+#account-panel .bu-cuenta-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 2px 0 0; }
+#account-panel .bu-cuenta-facts div { display: flex; flex-direction: column; gap: 3px; }
+#account-panel .bu-cuenta-facts dt { font: 500 12.5px/1.2 var(--font-sans); color: var(--tinta-suave); }
+#account-panel .bu-cuenta-facts dd { margin: 0; font: 500 14px/20px var(--font-sans); color: var(--tinta); }
+#account-panel .bu-cuenta-status { margin: 0; font: 500 13px/18px var(--font-sans); color: var(--tinta-suave); }
+#account-panel .bu-cuenta-status:empty { display: none; }
+#account-panel .bu-cuenta-btn:disabled { cursor: wait; }
+
+.auth-admin-tools { display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px solid var(--linea); }
+.auth-admin-tools.hidden { display: none; }
+.auth-admin-title { margin: 0 0 4px; font: 500 12.5px/1.2 var(--font-sans); color: var(--tinta-suave); }
+.auth-admin-link { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: var(--radius-sm); color: var(--tinta); font: 600 14px/1.2 var(--font-sans); text-decoration: none; transition: background-color var(--t-rapido); }
+.auth-admin-link.hidden { display: none; }
+.auth-admin-link:hover, .auth-admin-link:focus-visible { background: var(--ceniza); }
+.auth-admin-link:focus-visible { outline: 2px solid var(--rojo); outline-offset: -2px; }
+
+.bu-cuenta-salir { justify-content: flex-start; width: 100%; margin-top: -8px; padding: 0 10px; color: var(--error); }

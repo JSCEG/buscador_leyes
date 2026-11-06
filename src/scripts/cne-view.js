@@ -85,6 +85,10 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             link.setAttribute('aria-selected', String(on));
             link.classList.toggle('is-on', on);
         });
+        // Over the map the tabs stay in one sliding row: keep the open one in view, with its neighbours showing.
+        const row = root.querySelector('.pm-tabs');
+        const active = root.querySelector('.pm-tab.is-on');
+        if (active) row.scrollLeft += active.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - active.offsetWidth) / 2;
         host.setAttribute('aria-labelledby', `pm-tab-${tab}`);
         if (tab === 'resoluciones') {
             current = renderResolutionsView(host, catalog, {

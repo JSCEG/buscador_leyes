@@ -4229,7 +4229,7 @@ export function initUI() {
         let currentTab = 'login';
         // Admin tools in the account window close it when used.
         document.getElementById('auth-admin-tools')?.addEventListener('click', event => { if (event.target.closest('a')) closeAuthModalBtn?.click(); });
-        // UserMenu shortcuts: close the account window, then open saved articles or the desk.
+        // Shortcuts: close the account window, then open saved articles or the desk.
         authLoggedIn?.addEventListener('click', event => {
             const go = event.target.closest('[data-account-go]')?.dataset.accountGo;
             if (!go) return;
@@ -4377,10 +4377,10 @@ export function initUI() {
                 authLoggedIn.classList.remove('hidden');
                 if (authUserName) authUserName.textContent = getUserDisplayName(user);
                 authUserEmail.textContent = user.email;
-                // AccountPanel counters, in mono on the account band.
+                // Counts on the shortcuts of the account window.
                 const counts = { saved: getFavorites().length, desks: getDesks().filter(d => d.ids.length).length, notes: Object.keys(getAllNotes()).length };
                 authLoggedIn.querySelectorAll('[data-account-count]').forEach(el => { el.textContent = counts[el.dataset.accountCount] ?? 0; });
-                // UserMenu avatar: the initials of the display name (or of the e-mail).
+                // The little book of the account window: the initials of the display name (or of the e-mail).
                 const initialsEl = document.getElementById('auth-user-initials');
                 if (initialsEl) {
                     const words = (getUserDisplayName(user) || user.email || '').replace(/@.*/, '').split(/[\s._-]+/).filter(Boolean);

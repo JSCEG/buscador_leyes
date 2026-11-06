@@ -4,10 +4,11 @@
  * permits have their own tabs (Permisos, Mapa), so this one shows SENER alone.
  * One set of filters drives three views of the same records: points with clusters (only what has valid
  * coordinates, e.g. SENER wells), states coloured by count (e.g. assignments, which carry a state but no
- * point), and a table of what has no location. Each record opens a card with its source documents.
+ * point), and a table of what has no location. A selection with no location at all shows only the table; the
+ * map returns by itself if the source starts publishing one. Each record opens a card with its source documents.
  */
 import { SENER_GUIDE, SECTORS, markerOf, SOURCES, SOURCE, MARKETS, LAWS, getPermisos, getAllPages, stateLabel, marketLabel, statusLabel, shortDate, localDate,
-    updatesSummary, detailFields, recordLinks } from '../lib/permisos-api.js';
+    updatesSummary, detailFields, recordLinks, hasMapLocation } from '../lib/permisos-api.js';
 import { featureStateId, choroplethClass, mexicoCityTime } from '../lib/cne-tables.js';
 import { withMapBusy } from '../lib/map-busy.js';
 import { BASE_OPTIONS, NETWORKS, KV_CLASSES, baseLayers, networkLayers, pinIcon, sectorCluster } from '../lib/map-common.js';
@@ -50,6 +51,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     let setBase = null;
     let resizeObserver = null;
     let networks = null;
+    let mapShown = true;
     const icons = new Map();
     const narrow = () => matchMedia('(max-width: 720px)').matches;
 
@@ -229,6 +231,31 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
     // ---------- loading ----------
     const apiFilters = () => Object.fromEntries(Object.entries(filters).filter(([, value]) => value));
 
+    function renderTableHead() {
+        const title = $('#cs-table-title');
+        const intro = $('[data-table-intro]');
+        if (filters.q) {
+            title.textContent = `Resultados de «${filters.q}»`;
+            intro.textContent = 'Todos los registros cuyo número o razón social contienen ese texto, tengan o no punto en el mapa.';
+        } else if (!mapShown) {
+            title.textContent = 'Registros';
+            intro.textContent = 'La fuente no publica dónde están estos registros, así que no aparecen en un mapa.';
+        } else {
+            title.textContent = 'Sin ubicación en el mapa';
+            intro.textContent = 'Comercio exterior, contratos de exploración y extracción, biocombustibles y las asignaciones, que la fuente ubica por estado y municipio pero sin coordenadas.';
+        }
+    }
+
+    // With nothing to place, an empty map only confuses: the search stays, the map and its tools go.
+    function showMap(shown) {
+        if (shown === mapShown) return;
+        mapShown = shown;
+        const root = $('[data-map-root]');
+        if (!shown && document.fullscreenElement === root) document.exitFullscreen?.();
+        root.classList.toggle('sin-ubicacion', !shown);
+        renderTableHead();
+    }
+
     async function load() {
         loadCtrl?.abort();
         loadCtrl = new AbortController();
@@ -254,7 +281,11 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
             note.hidden = !points.tooMany;
             if (points.tooMany) note.textContent = `Hay ${count(points.total)} registros con ubicación, demasiados para verlos uno por uno. Elige una fuente, un mercado o busca un titular para acotarlos; mientras, el mapa colorea cada estado según cuántos tiene.`;
             const located = (estados.data || []).reduce((sum, row) => sum + (row.efId && row.efId !== '--' ? Number(row.permisos) || 0 : 0), 0);
-            summary.innerHTML = `<strong>${count(points.total)}</strong> con punto en el mapa · <strong>${count(located)}</strong> con estado identificado`;
+            const shown = hasMapLocation(points.total, estados.data || []);
+            showMap(shown);
+            summary.innerHTML = shown
+                ? `<strong>${count(points.total)}</strong> con punto en el mapa · <strong>${count(located)}</strong> con estado identificado`
+                : 'Sin ubicación publicada: los registros están en la tabla.';
         };
         try {
             await (map ? withMapBusy(map, null, 'Cargando registros…', work) : work());
@@ -273,10 +304,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
         try {
             // A search lists every match (with or without a point); otherwise the table holds what the map cannot show.
             const searching = Boolean(filters.q);
-            $('#cs-table-title').textContent = searching ? `Resultados de «${filters.q}»` : 'Sin ubicación en el mapa';
-            $('[data-table-intro]').textContent = searching
-                ? 'Todos los registros cuyo número o razón social contienen ese texto, tengan o no punto en el mapa.'
-                : 'Comercio exterior, contratos de exploración y extracción, biocombustibles y las asignaciones, que la fuente ubica por estado y municipio pero sin coordenadas.';
+            renderTableHead();
             const body = await getPermisos(searching ? 'permisos' : 'sin-ubicacion', { ...apiFilters(), page, pageSize: PAGE_SIZE }, tableCtrl.signal);
             if (destroyed) return;
             const rows = body.data || [];

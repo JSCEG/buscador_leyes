@@ -129,23 +129,6 @@ a.bux-lockup:hover .bux-lockup__mark { transform: rotate(-4deg) scale(1.05); }
 @media print {
 }
 
-/* ── Ventana de cuenta (SignInCard, AccountPanel) ──────── */
-#auth-modal { background: var(--scrim); }
-#auth-modal #auth-panel { background: var(--surface-1); color: var(--ink); border: 1px solid var(--hairline); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); }
-#auth-panel #auth-tabs { padding: 3px; border-radius: var(--radius-md); background: var(--surface-2); border: 1px solid var(--hairline); }
-#auth-panel .auth-tab { min-height: 40px; border-radius: 8px; background: transparent; box-shadow: none; color: var(--ink-2); }
-#auth-panel .auth-tab.bg-white { background: var(--primary) !important; color: var(--on-primary) !important; box-shadow: var(--shadow-sm); }
-#auth-panel label { color: var(--ink-muted); letter-spacing: .14em; }
-#auth-panel :is(input[type="text"], input[type="email"], input[type="password"]) { min-height: var(--touch); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-1); color: var(--ink); }
-#auth-panel :is(input[type="text"], input[type="email"], input[type="password"]):focus { border-color: var(--border-strong); box-shadow: 0 0 0 3px var(--highlight); }
-#auth-panel #auth-submit-btn { min-height: var(--touch); border-radius: var(--radius-md); background: var(--brand); color: var(--on-brand); box-shadow: none; }
-#auth-panel #auth-submit-btn:hover { background: var(--brand-hover); }
-#auth-panel #auth-google-btn { min-height: var(--touch); border-radius: var(--radius-md); border-color: var(--border); background: var(--surface-1); color: var(--ink); }
-#auth-panel .auth-admin-tools { border-color: var(--hairline); border-radius: var(--radius-lg); background: var(--surface-sunken); }
-#auth-panel .auth-admin-title { color: var(--ink-muted); letter-spacing: .14em; }
-#auth-panel .auth-admin-link { color: var(--ink); border-radius: var(--radius-sm); }
-#auth-panel .auth-admin-link:hover, #auth-panel .auth-admin-link:focus-visible { background: var(--surface-1); color: var(--ink); }
-
 /* ── Pestañas del Gestor (segmentado) ──────────────────── */
 #admin-ingest-container > div:first-child { padding: 3px; gap: 2px; border-radius: var(--radius-md); background: var(--surface-2); border: 1px solid var(--hairline); box-shadow: none; }
 #admin-ingest-container :is(#admin-tab-ingest, #admin-tab-manage) { min-height: 40px; border-radius: 8px; color: var(--ink-2); background: transparent; box-shadow: none; }
@@ -175,65 +158,6 @@ a.bux-lockup:hover .bux-lockup__mark { transform: rotate(-4deg) scale(1.05); }
 .bux-tag { display: inline-flex; align-items: center; gap: 4px; height: 28px; padding: 0 4px 0 10px; border-radius: var(--radius-pill); background: var(--brand-soft); color: var(--brand); font: 600 12.5px/1 var(--font-sans); }
 .bux-tag button { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
 .bux-tag button:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
-
-/* ── UserMenu (UserModule) ─────────────────────────────── */
-.bux-usermenu { text-align: left; }
-.bux-usermenu__head { display: flex; align-items: center; gap: var(--space-3); padding-bottom: var(--space-4); margin-bottom: 6px; border-bottom: 1px solid var(--hairline); }
-.bux-avatar { display: inline-grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: var(--on-primary); box-shadow: 0 0 0 2px var(--surface-1), 0 0 0 4px var(--accent); font: 600 17px/1 var(--font-sans); letter-spacing: .02em; }
-.bux-usermenu__who { min-width: 0; }
-.bux-usermenu__who p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.bux-usermenu__hint { font: 700 11px/16px var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); }
-.bux-usermenu__name { font: 600 18px/1.25 var(--font-display); color: var(--ink); }
-.bux-usermenu__email { font: 500 13px/18px var(--font-sans); color: var(--ink-muted); }
-.bux-usermenu__links { display: flex; flex-direction: column; gap: 2px; margin: 6px 0; }
-.bux-usermenu .auth-admin-tools { margin: 6px 0; }
-.bux-usermenu__logout { color: var(--danger) !important; }
-.bux-usermenu__logout .bux-icon { color: var(--danger) !important; }
-
-/* ── AccountPanel (Mi cuenta) ───────────────────────────── */
-/* Signed in, the window loses its padding so the account band runs edge to edge. */
-#auth-modal #auth-panel:has(#auth-logged-in:not(.hidden)) { padding: 0; overflow: hidden auto; max-width: 420px; max-height: calc(100dvh - 32px); }
-#auth-panel:has(#auth-logged-in:not(.hidden)) #close-auth-modal { z-index: 2; color: var(--ink-inverse); opacity: .75; }
-#auth-panel:has(#auth-logged-in:not(.hidden)) #close-auth-modal:hover { opacity: 1; }
-#auth-logged-in.bux-usermenu { display: flex; flex-direction: column; }
-#auth-logged-in.hidden { display: none; }
-#auth-logged-in .bux-usermenu__head { flex-wrap: wrap; gap: var(--space-4); margin: 0; padding: var(--space-6) var(--space-6) var(--space-5); border: 0; background: var(--surface-inverse); color: var(--ink-inverse); }
-#auth-logged-in .bux-avatar { width: 64px; height: 64px; font-size: 24px; box-shadow: 0 0 0 2px var(--surface-inverse), 0 0 0 3.5px var(--accent); }
-#auth-logged-in .bux-usermenu__who { flex: 1 1 180px; padding-right: var(--space-6); }
-#auth-logged-in .bux-usermenu__hint { font: 700 10px/14px var(--font-sans); letter-spacing: .16em; color: var(--gold); }
-/* Dark keeps the charcoal and gold balance: a sunken band instead of the inverted cream one. */
-html:is(.dark-mode, [data-theme="dark"]) #auth-logged-in { --surface-inverse: var(--surface-sunken); --ink-inverse: var(--ink); }
-html:is(.dark-mode, [data-theme="dark"]) #auth-panel:has(#auth-logged-in:not(.hidden)) #close-auth-modal { color: var(--ink); }
-#auth-logged-in .bux-usermenu__name { margin-top: 2px; font: 500 24px/30px var(--font-display); color: var(--ink-inverse); }
-#auth-logged-in .bux-usermenu__email { font: 500 13px/18px var(--font-sans); color: var(--ink-inverse); opacity: .78; }
-.bux-usermenu__counts { display: flex; gap: var(--space-6); width: 100%; margin: var(--space-2) 0 0; padding-top: var(--space-4); border-top: 1px solid color-mix(in srgb, var(--ink-inverse) 16%, transparent); }
-.bux-usermenu__counts div { display: flex; flex-direction: column-reverse; gap: 4px; }
-.bux-usermenu__counts dd { margin: 0; font: 600 24px/1 var(--font-mono); color: var(--ink-inverse); }
-.bux-usermenu__counts dt { font: 500 11px/14px var(--font-sans); color: var(--ink-inverse); opacity: .75; }
-#account-panel { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-5) var(--space-6) var(--space-4); text-align: left; }
-#account-panel .ap-tabs { width: 100%; }
-#account-panel .ap-tabs .bux-seg__opt { flex: 1; }
-#account-panel .ap-form { display: flex; flex-direction: column; gap: 14px; }
-#account-panel .ap-form[hidden] { display: none; }
-#account-panel .ap-field { display: flex; flex-direction: column; gap: 6px; }
-#auth-panel #account-panel .ap-field label { font: 600 13px/18px var(--font-sans); letter-spacing: 0; text-transform: none; color: var(--ink); }
-#auth-panel #account-panel .ap-field input { height: var(--touch); padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-2); color: var(--ink); font: 400 15px/1 var(--font-sans); letter-spacing: 0; }
-#auth-panel #account-panel .ap-field input:focus { outline: none; border-color: var(--border-strong); box-shadow: 0 0 0 3px var(--highlight); }
-#account-panel .ap-hint { font: 500 12px/16px var(--font-sans); color: var(--ink-muted); }
-#account-panel .ap-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; }
-#account-panel .ap-facts div { display: flex; flex-direction: column; gap: 4px; }
-#account-panel .ap-facts dt { font: 700 10px/14px var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
-#account-panel .ap-facts dd { margin: 0; font: 500 14px/20px var(--font-sans); color: var(--ink); }
-#account-panel .ap-status { margin: 0; font: 500 13px/18px var(--font-sans); color: var(--ink-2); }
-#account-panel .ap-status:empty { display: none; }
-#account-panel .ap-actions { display: flex; gap: 8px; }
-#account-panel .ap-btn { background: var(--brand); color: var(--on-brand); }
-#account-panel .ap-btn:hover { background: var(--brand-hover); }
-#account-panel .ap-btn:disabled { opacity: .6; cursor: wait; }
-#auth-logged-in :is(.bux-usermenu__links, .auth-admin-tools, .bux-usermenu__logout), #auth-logged-in > .bux-menu__sep { margin-left: var(--space-4); margin-right: var(--space-4); width: auto; }
-#auth-logged-in .bux-usermenu__links { margin-top: 0; padding-top: var(--space-2); border-top: 1px solid var(--hairline); }
-#auth-logged-in .auth-admin-tools { padding: 8px; }
-#auth-logged-in .bux-usermenu__logout { margin-bottom: var(--space-3); }
 
 /* ── SearchSuggest: sugerencias bajo el buscador ───────── */
 #autocomplete-results.sr-suggest { position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 60; max-height: min(60vh, 460px); overflow-y: auto; padding: 8px; border-radius: var(--radius-lg) !important; }

@@ -102,6 +102,11 @@ export function markerOf(row) {
     return (MARKER[row?.tabla] || (() => ({ sector: 'sener', icon: 'otro', label: SOURCE[row?.tabla]?.label || 'Registro' })))(row || {});
 }
 
+/** Whether a selection has anything to place on the map: coordinates, or at least an identified state. */
+export function hasMapLocation(pointsTotal, states = []) {
+    return Number(pointsTotal) > 0 || states.some(row => row.efId && row.efId !== '--' && Number(row.permisos) > 0);
+}
+
 /** «NUEVO LEÓN» → «Nuevo León», from the INEGI code when there is one. */
 export function stateLabel(efId, entidad) {
     if (efId && STATE_NAME[efId]) return STATE_NAME[efId];

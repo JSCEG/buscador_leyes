@@ -261,23 +261,18 @@
             </form>
 
             <!-- Logged-in state (visible when authenticated) -->
-            <div id="auth-logged-in" class="hidden bux-usermenu">
-                <div class="bux-usermenu__head">
-                    <span class="bux-avatar" id="auth-user-initials" aria-hidden="true"></span>
-                    <div class="bux-usermenu__who">
-                        <p class="bux-usermenu__hint">Mi cuenta</p>
-                        <p class="bux-usermenu__name" id="auth-user-name"></p>
-                        <p class="bux-usermenu__email" id="auth-user-email"></p>
+            <div id="auth-logged-in" class="hidden bu-cuenta" role="group" aria-label="Mi cuenta">
+                <div class="bu-cuenta-id">
+                    <span class="bu-cuenta-libro" id="auth-user-initials" aria-hidden="true"></span>
+                    <div class="bu-cuenta-quien">
+                        <p class="bu-cuenta-nombre" id="auth-user-name"></p>
+                        <p class="bu-cuenta-correo" id="auth-user-email"></p>
                     </div>
-                    <dl class="bux-usermenu__counts">
-                        <div><dt>Guardados</dt><dd data-account-count="saved">0</dd></div>
-                        <div><dt>Mesas</dt><dd data-account-count="desks">0</dd></div>
-                        <div><dt>Notas</dt><dd data-account-count="notes">0</dd></div>
-                    </dl>
                 </div>
-                <nav class="bux-usermenu__links" aria-label="Tu cuenta">
-                    <button type="button" class="bux-menu__item" data-account-go="favorites"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>Guardados</button>
-                    <button type="button" class="bux-menu__item" data-account-go="desk"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg>Mi mesa de consulta</button>
+                <nav class="bu-cuenta-accesos" aria-label="Lo tuyo">
+                    <button type="button" data-account-go="favorites"><b data-account-count="saved">0</b><span>Guardados</span></button>
+                    <button type="button" data-account-go="desk"><b data-account-count="desks">0</b><span>Mesas</span></button>
+                    <button type="button" data-account-go="favorites"><b data-account-count="notes">0</b><span>Notas</span></button>
                 </nav>
                 <!-- Owner/admin tools: only accounts the database recognizes see them. -->
                 <div id="auth-admin-tools" class="auth-admin-tools hidden">
@@ -285,8 +280,7 @@
                     <a href="#" id="nav-admin" class="hidden auth-admin-link"><svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg> Gestor de ingesta</a>
                     <a href="#usuarios" id="nav-usuarios" class="hidden auth-admin-link"><svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-5-3.9M9 20H2v-2a4 4 0 014-4h3a4 4 0 014 4v2zm4-12a4 4 0 11-8 0 4 4 0 018 0zm6 2a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Usuarios registrados</a>
                 </div>
-                <div class="bux-menu__sep" role="separator"></div>
-                <button id="auth-logout-btn" type="button" class="bux-menu__item bux-usermenu__logout"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M15 16l4-4-4-4M19 12H9"/></svg>Cerrar sesión</button>
+                <button id="auth-logout-btn" type="button" class="bu-btn bu-btn-fantasma bu-cuenta-salir"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M15 16l4-4-4-4M19 12H9"/></svg>Cerrar sesión</button>
             </div>
         </div>
     </div>

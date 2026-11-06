@@ -199,12 +199,6 @@ html.dark-mode .lr-guide-chip:hover{border-color:var(--col-ley)}
 
 
 /* «Administración» in the account window (owner/admin only): Gestor and Usuarios. */
-.auth-admin-tools{margin:0 0 16px;padding:12px;border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);border-radius:14px;background:color-mix(in srgb,var(--warning-soft) 50%,var(--surface-1));text-align:left}
-.auth-admin-title{margin:0 0 6px;color:var(--accent-ink);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.auth-admin-link{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none}
-.auth-admin-link.hidden{display:none}
-.auth-admin-link:hover,.auth-admin-link:focus-visible{background:var(--surface-1);color:var(--brand)}
-html.dark-mode .auth-admin-link:hover,html.dark-mode .auth-admin-link:focus-visible{color:var(--col-ley)}
 
 
 /* Law reader: search and reading settings in one row above the text. */
