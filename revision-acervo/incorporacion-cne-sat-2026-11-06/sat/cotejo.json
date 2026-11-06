@@ -1,0 +1,77 @@
+{
+  "pdfBytes": 17373874,
+  "pdfSha256": "0d188b1c9bbf2a26b59dca07a189ca7403a8dfc884858e1977a1ecc2f13a11ba",
+  "htmlSha256": "248656e59b5379a110cc2833331e9739748d6f21026d1b0fc59dcd4fe1cec19b",
+  "fragments": [
+    {
+      "id": "230e460d-a5e9-5f5c-a3f8-70cec2eaef2d",
+      "label": "Presentación y contenido",
+      "pages": [
+        229
+      ],
+      "htmlTextExact": true,
+      "pdfTextExact": true,
+      "htmlNormalizedLength": 260,
+      "pdfNormalizedLength": 260
+    },
+    {
+      "id": "124bd3a7-13d2-576f-9e80-8e45d5cf385e",
+      "label": "III.1 · Listado de Contribuyentes Obligados (LCO)",
+      "pages": [
+        229
+      ],
+      "htmlTextExact": true,
+      "pdfTextExact": true,
+      "htmlNormalizedLength": 359,
+      "pdfNormalizedLength": 359
+    },
+    {
+      "id": "2bfabed7-38d1-5a26-9eaf-7ee74f56ddf7",
+      "label": "III.2 · Lista de contribuyentes inscritos no cancelados (LRFC)",
+      "pages": [
+        229
+      ],
+      "htmlTextExact": true,
+      "pdfTextExact": true,
+      "htmlNormalizedLength": 347,
+      "pdfNormalizedLength": 347
+    },
+    {
+      "id": "40273c3b-2517-5965-bae3-b59622b2506b",
+      "label": "III.3 · Listado de la Comisión Nacional de Energía (L_CNE)",
+      "pages": [
+        230,
+        231
+      ],
+      "htmlTextExact": true,
+      "pdfTextExact": true,
+      "htmlNormalizedLength": 3426,
+      "pdfNormalizedLength": 3426
+    },
+    {
+      "id": "b4c6db35-a82b-5ad4-8ac8-3cae7a838d13",
+      "label": "VI.3 · Servicio de cancelación de CFDI",
+      "pages": [
+        231,
+        232
+      ],
+      "htmlTextExact": true,
+      "pdfTextExact": true,
+      "htmlNormalizedLength": 2137,
+      "pdfNormalizedLength": 2137
+    },
+    {
+      "id": "e1384b17-0c08-571a-93db-d8515dcf381e",
+      "label": "Firma de la modificación",
+      "pages": [
+        232
+      ],
+      "htmlTextExact": true,
+      "pdfTextExact": true,
+      "htmlNormalizedLength": 272,
+      "pdfNormalizedLength": 272
+    }
+  ],
+  "scannedAnnexes": [],
+  "tableCellsVerified": 0
+}
