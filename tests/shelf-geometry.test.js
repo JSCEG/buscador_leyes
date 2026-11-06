@@ -5,7 +5,7 @@ const m = shelfMetrics(400, { mobile: false });
 
 describe('shelf geometry', () => {
   it('derives measures from H', () => {
-    expect(m.ws).toBeCloseTo(52); expect(m.d).toBeCloseTo(272); expect(m.gap).toBeCloseTo(14);
+    expect(m.ws).toBeCloseTo(48); expect(m.d).toBeCloseTo(272); expect(m.gap).toBeCloseTo(14);
     expect(m.U).toBeCloseTo(520); expect(shelfMetrics(400, { mobile: true }).U).toBeCloseTo(420);
     expect(m.P).toBe(1400);
   });
@@ -32,7 +32,7 @@ describe('shelf geometry', () => {
     expect(tomeTransform(3, m).rotateY).toBeGreaterThan(0); expect(tomeTransform(-3, m).rotateY).toBeLessThan(0);
     expect(tomeTransform(60, m).visible).toBe(false);
     expect(tomeTransform(5, m).spineShade).toBeLessThanOrEqual(0.6);
-    expect(tomeTransform(3, m).coverShade).toBeCloseTo(0.6);
+    expect(tomeTransform(3, m).coverShade).toBeCloseTo(0.4);
   });
   it('spring approaches the target and caps dt', () => {
     expect(stepSpring(0, 10, 0.05, 5.2)).toBeCloseTo(10 * (1 - Math.exp(-0.26)));

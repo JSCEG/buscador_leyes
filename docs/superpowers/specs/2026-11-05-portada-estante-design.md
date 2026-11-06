@@ -70,7 +70,7 @@ Con altura menor a 620 px, la página permite scroll en vez de recortar contenid
 
 ```text
 H  = min(46svh, 33vw)     móvil: min(62vw, 36svh)
-ws = H * 0.13             grosor del lomo
+ws = H * 0.12             grosor del lomo
 d  = H * 0.68             ancho de la portada
 gap = H * 0.035
 U  = H * 1.3              móvil: H * 1.05
@@ -127,21 +127,21 @@ Se generan por código con datos reales. Son objetos físicos: sus colores no ca
 
 | Colección | Fondo | Texto |
 |---|---|---|
-| Leyes | Guinda `#9B2247` | Dorado `#F0E0B4` |
-| Acuerdos | Guinda oscuro `#611232` | Dorado `#F0E0B4` |
-| Reglamentos | Verde `#1E5B4F` | Dorado `#F0E0B4` |
-| Disposiciones (DACG) | Verde oscuro `#13322B` | Dorado `#F0E0B4` |
+| Leyes | Guinda `#9B2247` | Marfil |
+| Acuerdos | Guinda oscuro `#611232` | Marfil |
+| Reglamentos | Verde `#1E5B4F` | Marfil |
+| Disposiciones (DACG) | Verde oscuro `#13322B` | Marfil |
 | Convocatorias | Dorado `#A57F2C` | Tinta `#1C1915` |
 | Normas | Dorado claro `#D4C19C` | Tinta `#1C1915` |
-| Otros | Gris cálido `#6C5B58` | Dorado `#F0E0B4` |
+| Otros | Gris cálido `#6C5B58` | Marfil |
 
-- **Estilo:** volumen de derecho encuadernado en tela con estampado dorado. Se ajustó tras revisar en navegador.
-- **Lomo:** redondeado con luz al centro y dos nervaduras. Lleva ícono de colección (`collectionIcon`) arriba, placa con siglas verticales en una línea con puntos suspensivos y año abajo.
-- **Portada:** tapa dura con bisagra, doble marco dorado y canto de páginas. Lleva tipo de documento arriba, nombre al centro, filete e ilustración (`collectionSpot`), con año o «Sin fecha» abajo.
-- **Nombre en la portada:** siglas en grande si tienen hasta 14 caracteres, en tres tamaños según su largo; si no, nombre corto en serif a 6 líneas como máximo.
+- **Estilo:** minimalista y moderno: color plano, tipografía protagonista, sin marcos ni adornos. Se definió tras revisar en navegador.
+- **Lomo:** plano con luz muy suave. Siglas verticales arriba, en una línea con puntos suspensivos, y año abajo.
+- **Portada:** un pliegue fino y canto de páginas apenas visible. Tipo de documento y nombre arriba, a la izquierda; año o «Sin fecha» abajo, con el ícono de colección (`collectionIcon`) a la derecha.
+- **Nombre en la portada:** siglas en grande si tienen hasta 14 caracteres, en tres tamaños según su largo; si no, nombre corto en serif a 7 líneas como máximo.
 - **Sentencias:** usan `isJudgment` y `judgmentCase`, igual que `search-landing.js`.
 - **Sin siglas:** se usa la colección como respaldo.
-- **Sombreado:** los lomos lejanos se oscurecen, hasta 60 %, y las tapas vistas de lado llegan a 60 %. Cada tomo tiene contratapa para verse sólido por ambos lados. En el tema `contraste` no hay sombreado y sí borde visible.
+- **Sombreado:** los lomos lejanos se oscurecen, hasta 60 %, y las tapas vistas de lado llegan a 40 %, sin texto. Cada tomo tiene contratapa para verse sólido por ambos lados. En el tema `contraste` no hay sombreado y sí borde visible.
 
 ## Ficha
 

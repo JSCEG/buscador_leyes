@@ -2,7 +2,7 @@
  * Geometry of the home shelf: where each tome sits on the curved arc, how the spring moves and how
  * the collection ruler divides its width. Pure functions, no DOM, so every value can be tested.
  */
-const SPINE = 0.13;
+const SPINE = 0.12;
 const COVER = 0.68;
 const GAP = 0.035;
 const FALLOFF_DESKTOP = 1.3;
@@ -69,7 +69,7 @@ export function tomeTransform(r, m, { lift = 0, tiltX = 0, tiltY = 0 } = {}) {
         sc,
         zIndex: Math.round(3000 + z),
         spineShade: Math.min(0.6, o * 0.55 + (1 - sc) * 0.32),
-        coverShade: (1 - o) * 0.6,
+        coverShade: (1 - o) * 0.4,
     };
 }
 

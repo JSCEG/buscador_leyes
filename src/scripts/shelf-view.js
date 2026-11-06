@@ -152,6 +152,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
             tome.style.zIndex = place.zIndex;
             tome.style.setProperty('--spine-shade', place.spineShade.toFixed(3));
             tome.style.setProperty('--cover-shade', place.coverShade.toFixed(3));
+            tome.style.setProperty('--cover-text', place.o.toFixed(3));
         });
     }
 

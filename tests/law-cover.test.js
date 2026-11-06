@@ -32,15 +32,20 @@ describe('law covers', () => {
     const data = coverData({ id: 's', titulo: 'Sentencia de la Suprema Corte. Controversia constitucional 1/2025', siglas: 'SCJN-CC-1-2025', tipo: 'sentencia', fecha_publicacion: '2025-01-01' });
     expect(data.typeLabel.startsWith('Sentencia')).toBe(true);
   });
-  it('binds spines like a law volume: raised bands and a title plate', () => {
+  it('keeps spines minimal: acronym and year only', () => {
     document.body.innerHTML = spineHTML(ley);
-    expect(document.querySelectorAll('.sh-spine-band')).toHaveLength(2);
-    expect(document.querySelector('.sh-spine-plate .sh-spine-label').textContent).toBe('LSE');
+    expect(document.querySelector('.sh-spine-label').textContent).toBe('LSE');
+    expect(document.querySelector('.sh-spine-year').textContent).toBe('2025');
+    expect(document.querySelector('.sh-spine').children).toHaveLength(2);
   });
-  it('frames the cover and fits the acronym to its length', () => {
+  it('keeps covers minimal and fits the acronym to its length', () => {
     document.body.innerHTML = coverHTML(ley);
-    expect(document.querySelector('.sh-cover-frame')).not.toBeNull();
-    expect(document.querySelector('.sh-cover-rule')).not.toBeNull();
+    expect(document.querySelector('.sh-cover-frame')).toBeNull();
+    expect(document.querySelector('.sh-cover-rule')).toBeNull();
+    expect(document.querySelector('.sh-cover-art')).toBeNull();
+    expect(document.querySelector('.sh-cover-foot').textContent).toContain('2025');
+    expect(document.querySelector('.sh-cover-foot svg')).not.toBeNull();
+    expect(COVER_COLORS.leyes.ink).toBe('#FFFAF1');
     expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('l');
     document.body.innerHTML = coverHTML({ ...ley, siglas: 'LEPEPM' });
     expect(document.querySelector('.sh-cover-siglas').dataset.size).toBe('m');

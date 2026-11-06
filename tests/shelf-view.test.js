@@ -94,6 +94,12 @@ describe('shelf view', () => {
     view.destroy(); view = null; release(); await frame();
     expect(host.querySelector('.sh-tome')).toBeNull();
   });
+  it('shows cover text only on the open book', async () => {
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
+    const text = id => host.querySelector(`.sh-tome[data-law-id="${id}"]`).style.getPropertyValue('--cover-text');
+    expect(text('l1')).toBe('1.000');
+    expect(text('r')).toBe('0.000');
+  });
   it('stops asking for frames once at rest', async () => {
     const raf = vi.fn(cb => setTimeout(() => cb(performance.now()), 0));
     vi.stubGlobal('requestAnimationFrame', raf);
