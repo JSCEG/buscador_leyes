@@ -17,6 +17,12 @@ describe('brand mark', () => {
     expect(svg.querySelectorAll('path.bm-eye')).toHaveLength(1);
     expect(svg.querySelector('.bm-head')).toBeNull();
   });
+  it('draws the official Búho mark in one ink with a red eye', () => {
+    const svg = draw();
+    expect(svg.getAttribute('viewBox')).toBe('33 24 379 448');
+    expect(svg.querySelector('.bm-body').getAttribute('fill')).toBe('currentColor');
+    expect(svg.querySelector('.bm-eye').getAttribute('fill')).toBe('var(--rojo)');
+  });
   it('keeps the parts the entrance animation plays', () => {
     const svg = draw({ shine: true });
     for (const part of ['.bm-bar', '.bm-page', '.bm-lens', '.bm-ripple', '.bm-shine']) {

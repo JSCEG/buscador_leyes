@@ -5,8 +5,8 @@
   "description": "Leyes, reglamentos, acuerdos y demás disposiciones del sector energético en un solo lugar.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f7f5f2",
-  "theme_color": "#9B2247",
+  "background_color": "#fafafa",
+  "theme_color": "#0a0707",
   "orientation": "any",
   "lang": "es-MX",
   "icons": [

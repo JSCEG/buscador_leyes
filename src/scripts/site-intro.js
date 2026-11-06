@@ -156,7 +156,7 @@ export function playIntro() {
             <div class="si-emblem">
                 ${wingsSvg({ className: 'si-wings' })}
                 <span class="si-sheet si-sheet-1"></span><span class="si-sheet si-sheet-2"></span><span class="si-sheet si-sheet-3"></span>
-                ${brandMarkSvg({ className: 'si-mark', shine: true })}
+                ${brandMarkSvg({ className: 'si-mark', color: '#f1efea', lens: '#e57a9a', shine: true })}
             </div>
             <div class="si-words">
                 <p class="si-name" aria-label="${NAME}">${letters(NAME)}</p>

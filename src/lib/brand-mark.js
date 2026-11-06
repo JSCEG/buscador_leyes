@@ -1,27 +1,24 @@
 /**
- * The buscador's mark: an S under a sharp owl brow, with one eye. `color` draws the letter and the
+ * The official Búho mark: an S under a sharp owl brow, with one eye. `color` draws the letter and the
  * brow, `lens` the eye. `shine` adds a light sweep clipped to the mark. The class names `bm-bar`,
  * `bm-page`, and `bm-lens` are what the entrance animation plays, so they stay on these parts.
  */
-const FRAME = 'translate(190 190) scale(6.53)';
-const BROW = 'M6 2 C22 24 50 31 78 29 C94 28 108 18 118 2 C116 24 106 44 90 66 C90 52 82 41 68 40 C42 38 22 26 6 2 Z';
-const BODY = 'M58 42 C36 42 18 56 22 72 C26 86 52 87 68 91 C84 95 91 105 88 119 C86 127 81 138 72 150 L32 124 C22 116 12 114 2 122 L72 162 C92 150 106 128 105 106 C104 88 86 80 68 75 C52 71 36 68 36 58 C36 50 46 44 58 42 Z';
-const EYE = 'M56 49 C60 60 70 64 84 59 C74 72 54 68 56 49 Z';
+const BODY = 'M279.0,465.7C276.5,464.0 258.5,450.8 239.0,436.5C165.3,382.3 129.1,358.1 100.3,343.6C83.7,335.3 76.1,333.0 62.7,332.3C52.9,331.8 50.8,332.0 45.5,333.9C37.3,336.8 37.5,336.8 37.8,334.0C38.9,325.8 57.5,312.6 76.5,306.7C92.9,301.5 118.1,300.7 133.5,304.8C152.6,309.9 169.2,318.5 193.5,335.8C222.9,356.9 275.6,394.9 298.6,411.7C312.5,421.7 324.2,430.0 324.7,430.0C325.8,430.0 344.4,411.0 351.1,403.0C361.1,391.2 371.1,372.8 374.5,360.4C378.0,347.1 377.4,326.6 372.9,309.5C367.2,287.7 353.6,268.6 334.9,256.1C321.8,247.3 309.7,243.5 287.0,241.0C274.8,239.6 267.2,240.1 238.5,244.0C209.8,247.9 202.2,248.4 190.2,247.0C157.1,243.4 134.9,229.6 122.0,205.0C114.0,189.4 111.1,169.5 114.4,152.0C119.1,127.2 142.3,97.8 166.9,85.4C176.1,80.8 175.3,83.0 163.6,94.1C153.6,103.7 148.6,111.4 145.6,122.0C137.6,150.8 151.0,172.2 184.4,183.6C202.3,189.8 227.2,191.5 257.0,188.5C276.2,186.6 300.0,186.6 312.0,188.5C349.2,194.6 382.5,218.8 398.6,251.5C407.9,270.6 411.4,297.6 407.4,321.1C400.0,365.3 371.7,402.1 306.9,452.1C295.5,460.8 285.6,468.2 284.9,468.4C284.1,468.7 281.5,467.5 279.0,465.7Z';
+const BROW = 'M304.6,153.2C302.0,143.8 298.9,139.0 290.0,130.0C282.8,122.7 280.0,120.7 272.0,116.8C259.9,110.9 247.6,106.6 221.8,99.0C179.5,86.5 162.2,77.6 144.3,58.6C133.0,46.7 122.7,29.0 127.0,29.0C127.5,29.0 131.0,31.6 134.7,34.8C148.7,46.8 161.2,56.0 169.0,59.9C197.6,74.2 239.8,80.0 295.0,77.2C329.0,75.4 344.9,71.5 360.9,61.0C371.2,54.3 377.3,48.4 386.1,37.0C389.6,32.3 393.0,28.7 393.5,29.0C395.6,30.1 394.1,36.2 389.7,45.3C384.0,56.9 374.4,67.5 358.3,80.0C344.5,90.7 338.3,96.6 330.6,106.5C322.9,116.5 318.9,122.8 315.5,130.5C312.7,136.7 309.1,151.4 309.0,156.2C309.0,161.2 306.3,159.4 304.6,153.2Z';
+const EYE = 'M242.2,151.5C232.3,149.1 223.4,140.6 222.3,132.3C221.8,128.4 221.9,128.2 228.5,122.6C232.1,119.5 236.4,116.3 238.0,115.5L240.9,114.0L240.8,122.4C240.7,131.6 242.1,136.9 245.7,141.8C249.0,146.2 252.9,148.0 259.0,148.0C265.0,148.0 265.4,149.6 259.9,151.6C255.5,153.2 248.9,153.2 242.2,151.5Z';
 
-export function brandMarkSvg({ color = '#9b2247', lens = '#c9a24c', title = 'Buscador Jurídico', className = '', shine = false } = {}) {
+export function brandMarkSvg({ color = 'currentColor', lens = 'var(--rojo)', title = 'Buscador Jurídico', className = '', shine = false } = {}) {
     const sweep = shine ? `
   <defs>
-    <clipPath id="bm-clip"><path transform="${FRAME}" d="${BROW}"/><path transform="${FRAME}" d="${BODY}"/></clipPath>
+    <clipPath id="bm-clip"><path d="${BROW}"/><path d="${BODY}"/></clipPath>
     <linearGradient id="bm-shine-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#ffe9c2" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <g clip-path="url(#bm-clip)"><rect class="bm-shine" x="0" y="150" width="260" height="1200" fill="url(#bm-shine-grad)" transform="skewX(-18)"/></g>` : '';
-    return `<svg class="${className}" viewBox="190 190 810 1084" role="img" aria-label="${title}" xmlns="http://www.w3.org/2000/svg">
-  <g transform="${FRAME}">
-    <path class="bm-body bm-bar" d="${BODY}" fill="${color}"/>
-    <path class="bm-brow bm-page" d="${BROW}" fill="${color}"/>
-    <g class="bm-lens"><path class="bm-eye" d="${EYE}" fill="${lens}"/><circle class="bm-ripple" cx="68" cy="60" r="12" fill="none" stroke="${lens}" stroke-width="1" opacity="0"/></g>
-  </g>${sweep}
+  <g clip-path="url(#bm-clip)"><rect class="bm-shine" x="33" y="24" width="125" height="448" fill="url(#bm-shine-grad)" transform="skewX(-18)"/></g>` : '';
+    return `<svg class="${className}" viewBox="33 24 379 448" role="img" aria-label="${title}" xmlns="http://www.w3.org/2000/svg">
+  <path class="bm-body bm-bar" d="${BODY}" fill="${color}"/>
+  <path class="bm-brow bm-page" d="${BROW}" fill="${color}"/>
+  <g class="bm-lens"><path class="bm-eye" d="${EYE}" fill="${lens}"/><circle class="bm-ripple" cx="244" cy="134" r="30" fill="none" stroke="${lens}" stroke-width="2.4" opacity="0"/></g>${sweep}
 </svg>`;
 }

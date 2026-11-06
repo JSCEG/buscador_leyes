@@ -587,7 +587,7 @@ function renderWebDeck(model) {
     return `
         <div id="lp-slide-container" class="lp-slide-container">
             <section class="lp-slide lp-cover active">
-                <div class="lp-cover-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', lens: '#f2c97a' })}</div>
+                <div class="lp-cover-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', lens: '#e57a9a' })}</div>
                 <div class="lp-cover-overlay"></div>
                 <div class="lp-cover-top">
                     <img class="lp-lockup" src="${LOGO_LIGHT}" alt="Buscador Jurídico">
@@ -666,7 +666,7 @@ function renderWebDeck(model) {
             ${articleSlides}
 
             <section class="lp-slide lp-close-slide lp-backcover">
-                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', lens: '#d0a94e' })}</div>
+                <div class="lp-close-mark" aria-hidden="true">${brandMarkSvg({ color: '#ffffff', lens: '#e57a9a' })}</div>
                 <div class="lp-bc-main">
                     <span class="lp-bc-brand" data-animate>Buscador Jurídico · Sector energético</span>
                     <h2 data-animate>Gracias.</h2>
