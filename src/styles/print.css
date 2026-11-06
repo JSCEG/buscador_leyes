@@ -7,8 +7,8 @@
 
   #print-brand{display:flex!important;align-items:flex-end;justify-content:space-between;gap:16px;padding:0 0 10px;margin:0 0 18px;border-bottom:2px solid #9b2247}
   #print-brand img{height:30px;width:auto}
-  #print-brand p{margin:0;font:500 9pt/1.4 'Noto Sans',Arial,sans-serif;color:#5f5852;text-align:right}
-  #print-legal{display:block!important;margin-top:18px;padding-top:8px;border-top:1px solid #d9d3ca;font:400 8pt/1.4 'Noto Sans',Arial,sans-serif;color:#6f675f}
+  #print-brand p{margin:0;font:500 9pt/1.4 'Manrope',Arial,sans-serif;color:#5f5852;text-align:right}
+  #print-legal{display:block!important;margin-top:18px;padding-top:8px;border-top:1px solid #d9d3ca;font:400 8pt/1.4 'Manrope',Arial,sans-serif;color:#6f675f}
 
   /* App chrome */
   header,#institutional-footer,#bottom-nav,#desk-toggle,#desk-panel,#desk-side,#mobile-menu-drawer,#mobile-menu-overlay,

@@ -18,7 +18,7 @@ function roundRect(ctx, x, y, w, h, r) {
 async function fontsReady() {
     try {
         await Promise.race([
-            Promise.all([document.fonts.load('700 120px Patria'), document.fonts.load('600 40px "Noto Sans"')]),
+            Promise.all([document.fonts.load('700 120px Patria'), document.fonts.load('600 40px "Manrope"')]),
             new Promise(resolve => setTimeout(resolve, 1500)),
         ]);
     } catch { /* fonts API not available */ }
@@ -54,7 +54,7 @@ export async function drawResultImage({ number, score, total, marks, streak, tit
 
     ctx.textAlign = 'center';
     ctx.fillStyle = '#f6d9a8';
-    ctx.font = '700 38px "Noto Sans", sans-serif';
+    ctx.font = '700 38px "Manrope", sans-serif';
     ctx.fillText(`RETO JURÍDICO #${number}`, SIZE / 2, 190);
 
     // Title, wrapped on two lines at most.
@@ -98,10 +98,10 @@ export async function drawResultImage({ number, score, total, marks, streak, tit
     // Streak and address.
     ctx.textAlign = 'center';
     ctx.fillStyle = '#fde8ee';
-    ctx.font = '600 40px "Noto Sans", sans-serif';
+    ctx.font = '600 40px "Manrope", sans-serif';
     if (streak > 0) ctx.fillText(`${streak} ${streak === 1 ? 'día seguido' : 'días seguidos'}`, SIZE / 2, 860);
     ctx.fillStyle = '#f6d9a8';
-    ctx.font = '700 40px "Noto Sans", sans-serif';
+    ctx.font = '700 40px "Manrope", sans-serif';
     ctx.fillText('buscador-juridico.com/#reto', SIZE / 2, 950);
 
     return new Promise((resolve, reject) => canvas.toBlob(blob => (blob ? resolve(blob) : reject(new Error('no image'))), 'image/jpeg', 0.9));

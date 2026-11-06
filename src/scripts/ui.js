@@ -2671,7 +2671,7 @@ export function initUI() {
         const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
         <title>${escapeHtml(title)} — Buscador Jurídico</title>
         <style>
-            body{font-family:'Noto Sans',Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 24px;color:#1f2937;}
+            body{font-family:'Manrope',Arial,sans-serif;max-width:860px;margin:40px auto;padding:0 24px;color:#1f2937;}
             h1{font-size:22px;font-weight:700;color:#9B2247;margin-bottom:4px;}
             .meta{font-size:11px;color:#9ca3af;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid #f3f4f6;}
             @media print{body{margin:16px;}h1{font-size:18px;}}

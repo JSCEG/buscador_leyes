@@ -28,7 +28,7 @@ export function readerControlsHtml() {
             </div>
             <div class="reader-settings-theme">Tipografía
                 <div class="bj-seg" role="radiogroup" aria-label="Tipografía del texto">
-                    ${segOption('data-reader-typeface', 'sans', 'Noto Sans')}${segOption('data-reader-typeface', 'serif', 'Newsreader')}
+                    ${segOption('data-reader-typeface', 'sans', 'Manrope')}${segOption('data-reader-typeface', 'serif', 'Fraunces')}
                 </div>
             </div>
             <label>Fondo<select data-reader-surface aria-label="Fondo de lectura"><option value="system">Automático</option><option value="light">Blanco</option><option value="sepia">Sepia</option><option value="dark">Oscuro</option></select></label>

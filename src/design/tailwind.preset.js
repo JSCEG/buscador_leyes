@@ -107,13 +107,13 @@ const preset = {
       },
       "fontFamily": {
         "display": [
-          "Newsreader",
+          "Fraunces",
           "Patria",
           "Georgia",
           "serif"
         ],
         "sans": [
-          "Noto Sans",
+          "Manrope",
           "Segoe UI",
           "system-ui",
           "sans-serif"
@@ -125,13 +125,13 @@ const preset = {
           "monospace"
         ],
         "head": [
-          "Newsreader",
+          "Fraunces",
           "Patria",
           "Georgia",
           "serif"
         ],
         "body": [
-          "Noto Sans",
+          "Manrope",
           "Segoe UI",
           "system-ui",
           "sans-serif"
