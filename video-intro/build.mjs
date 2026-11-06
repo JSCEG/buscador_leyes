@@ -110,6 +110,8 @@ const html = `<!doctype html>
       const tl = gsap.timeline({ paused: true });
       // The camera settles for the whole film.
       tl.fromTo("#stage", { scale: 1.06 }, { scale: 1, duration: ${DURATION}, ease: "expo.out", transformOrigin: "${LAYOUT.focus}" }, 0);
+      // The glow arrives with the mark: on its own, over black, it reads as a dark disc.
+      tl.fromTo('#aura', { opacity: 0 }, { opacity: 1, duration: 0.9, ease: 'sine.inOut' }, 0.7);
       // 1. In the dark, the eye opens first.
       tl.fromTo(["#eye", "#glow"], { scaleY: 0.05, scaleX: 0.3, opacity: 0, svgOrigin: "68 59" }, { scaleY: 1, scaleX: 1, opacity: 1, duration: 0.55, ease: "expo.out" }, 0.08);
       tl.to("#glow", { opacity: 0.45, duration: 0.8, ease: "sine.inOut" }, 0.7);

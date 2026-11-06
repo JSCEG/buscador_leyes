@@ -134,3 +134,29 @@ describe('Excel table format', () => {
         expect(articleHtml('Fuente: SENER')).toContain('class="lr-fue"');
     });
 });
+
+describe('wrapped lines in plain articles', () => {
+    const text = plain => render(articleHtml(plain)).querySelector('p').innerHTML;
+
+    it('joins a line the source wrapped in the middle of a sentence', () => {
+        expect(text('limitaciones o dificultades\nque impidan el acceso')).toBe('limitaciones o dificultades que impidan el acceso');
+        expect(text('Productos Asociados del mercado de energía eléctrica\nMayorista a que se refiere')).toBe('Productos Asociados del mercado de energía eléctrica Mayorista a que se refiere');
+    });
+    it('keeps breaks that carry meaning', () => {
+        for (const plain of [
+            'se entiende por:\nI.  Accesibilidad',
+            'Principio de acceso;\nII. Bases',
+            'las siguientes obligaciones de servicio\na) Atender',
+            'las siguientes obligaciones de servicio\n1) Atender',
+            'las siguientes obligaciones de servicio\n• Atender',
+            'quedan establecidas en este decreto del sector\nPRIMERO.- Se aprueba',
+            'quedan establecidas en este decreto del sector\nArtículo 2 Las autoridades',
+            'CAPÍTULO I\nDisposiciones generales',
+            'Del objeto\nEl presente documento',
+        ]) expect(text(plain), plain).toContain('<br>');
+    });
+    it('changes nothing but the line break', () => {
+        const plain = 'dificultades\nque impidan;\nII. Bases';
+        expect(text(plain).replace(/<br>/g, ' ')).toBe(plain.replace(/\n/g, ' '));
+    });
+});

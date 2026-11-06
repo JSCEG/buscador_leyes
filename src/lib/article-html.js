@@ -211,11 +211,31 @@ export function articlePreviewHtml(content, { chars = 700, rows = 5 } = {}) {
     return { html: out.innerHTML, truncated };
 }
 
+// A new item, heading or clause keeps its own line, even when the previous one does not close a sentence.
+const STARTS_ITEM = /^(?:[IVXLC]+[.)-]|[A-Za-zñ][).]\s|\d+[.)-]|[-•*·]\s|(?:PRIMER|SEGUND|TERCER|CUART|QUINT|SEXT|S[ÉE]PTIM|OCTAV|NOVEN|D[ÉE]CIM)[OA]\b|(?:Art[íi]culo|Cap[íi]tulo|T[íi]tulo|Secci[óo]n|Transitorio)\b)/;
+const ENDS_MID_SENTENCE = /[a-záéíóúüñ,]$/;
+const STARTS_LOWERCASE = /^[a-záéíóúüñ]/;
+// Short lines ending in lowercase are often headings, so a capital after them is not a continuation.
+const WRAPPED_LINE_MIN = 40;
+
+/** Sources wrap lines at the width of the page. This rejoins them; only the line break changes. */
+function joinWrappedLines(paragraph) {
+    return paragraph.split('\n').reduce((lines, line) => {
+        const previous = lines.at(-1);
+        const next = line.trim();
+        const continues = previous !== undefined && next && ENDS_MID_SENTENCE.test(previous) && !STARTS_ITEM.test(next)
+            && (STARTS_LOWERCASE.test(next) || previous.length >= WRAPPED_LINE_MIN);
+        if (continues) lines[lines.length - 1] = `${previous} ${next}`;
+        else lines.push(next);
+        return lines;
+    }, []).join('\n');
+}
+
 export function articleHtml(text) {
     const value = String(text || '');
     if (/<(?:div|p|table|section|ul|ol|h[1-6])\b/i.test(value)) return sanitizeArticleHtml(value);
     const marked = globalThis.marked;
     if (marked?.parse && /\|.+\||\*\*|###/.test(value)) return sanitizeArticleHtml(marked.parse(value));
-    return value.replace(/\r\n/g, '\n').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
+    return value.replace(/\r\n/g, '\n').split(/\n\s*\n/).map(p => joinWrappedLines(p.trim())).filter(Boolean)
         .map(p => { const name = paragraphClass(p); return `<p${name ? ` class="${name}"` : ''}>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`; }).join('');
 }

@@ -1,6 +1,8 @@
 /* Animated entrance */
 html.intro-on{overflow:hidden}
-#site-intro{--r:0px;--ix:50%;--iy:50%;position:fixed;inset:0;z-index:10050;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(70% 60% at 50% 45%,#1f1316 0%,#0b0909 72%)}
+#site-intro{--r:0px;--ix:50%;--iy:50%;position:fixed;inset:0;z-index:10050;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0d0b0b}
+/* Flat while the film gets ready, like its first frame; the CSS intro brings its own light. */
+#site-intro.is-playing{background:radial-gradient(70% 60% at 50% 45%,#1f1316 0%,#0b0909 72%)}
 #site-intro.is-opening{-webkit-mask-image:radial-gradient(circle at var(--ix) var(--iy),transparent var(--r),#000 calc(var(--r) + 1px));mask-image:radial-gradient(circle at var(--ix) var(--iy),transparent var(--r),#000 calc(var(--r) + 1px))}
 #site-intro.is-opening .si-stage{transform:scale(1.06);opacity:0;filter:blur(6px);transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .5s ease-in,filter .5s}
 #site-intro.is-opening .si-map{opacity:0;transition:opacity .4s}

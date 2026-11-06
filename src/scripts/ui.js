@@ -444,6 +444,10 @@ export function initUI() {
     });
 
     // ── Deep Linking, Toast & Skeleton Loaders ────────────────────────────────
+    // The view behind the reader, so closing an article returns the address to it.
+    let viewBehindReader = '';
+    const noteViewBehindReader = () => { if (!location.hash.startsWith('#art-')) viewBehindReader = location.hash; };
+
     function setHash(hash) {
         // pushState en lugar de replaceState para que el botón Atrás del navegador
         // pueda retroceder entre artículos, leyes y la vista de inicio.
@@ -510,6 +514,7 @@ export function initUI() {
 
     async function handleInitialHash() {
         const hash = location.hash;
+        noteViewBehindReader();
         if (!hash) return;
         if (hash.startsWith('#ficha-')) {
             clearTimeout(closeModalTimer);
@@ -694,6 +699,7 @@ export function initUI() {
     // Maneja el botón Atrás / Adelante del navegador.
     // Restaura la vista correcta según el hash de la URL.
     window.addEventListener('popstate', async () => {
+        noteViewBehindReader();
         if (!location.hash) {
             // Sin hash → regresar a la pantalla de inicio
             clearTimeout(closeModalTimer);
@@ -3545,6 +3551,7 @@ export function initUI() {
     function openDetail(...args) { return withProgress(() => openDetailNow(...args)); }
     async function openDetailNow(id, { updateHistory = true } = {}) {
         const request = ++readerOpenRequest;
+        noteViewBehindReader();
         trackRead(id);
         // También preserva el regreso al usar Adelante del navegador desde el explorador.
         if (!explorerModalReturn && activeNavId === 'nav-analisis') {
@@ -4001,7 +4008,7 @@ export function initUI() {
         readerOpenRequest++;
         const returnContext = explorerModalReturn;
         explorerModalReturn = null;
-        setHash(returnContext?.hash || null);
+        setHash(returnContext?.hash || viewBehindReader || null);
         modalPanel.classList.remove('scale-100', 'opacity-100');
         modalPanel.classList.add('scale-95', 'opacity-0');
 
