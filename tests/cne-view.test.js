@@ -3,6 +3,7 @@ import { authorityTag, renderCneView } from '../src/scripts/cne-view.js';
 import { resetTechIndexForTests } from '../src/lib/permit-type.js';
 import { searchPermits } from '../src/lib/cne-api.js';
 
+vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
 vi.mock('../src/lib/cne-api.js', async original => ({ ...(await original()), searchPermits: vi.fn(), fetchResolutions: vi.fn(async () => []) }));
 
 const row = { PermisoId: 1, Numero: 'E/1/GEN/2020', Persona: 'Titular', Estado: 'Operando', ResolucionesAsociadas: 2 };
