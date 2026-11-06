@@ -51,6 +51,7 @@ body #desk-toggle .desk-badge { margin-left: auto; background: var(--ceniza); co
 body #desk-toggle:not(.is-empty) { color: var(--rojo); font-weight: 600; }
 body:has(#compare-bar) #desk-toggle { bottom: 114px; }
 body:not(.desk-open) #desk-toggle { display: flex; }
+body #desk-toggle::before, body #desk-toggle::after { display: none; }
 
 /* Solo iconos */
 @media (max-width: 1199px) {
@@ -78,7 +79,7 @@ body:not(.desk-open) #desk-toggle { display: flex; }
 #bottom-nav.bu-minf { display: none; }
 @media (max-width: 767px) {
   .bu-riel { display: none; }
-  .bu-cab-m { position: sticky; top: 0; z-index: var(--z-menu); display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; border-width: 0 0 1px; box-shadow: none; }
+  .bu-cab-m { position: fixed; left: 0; right: 0; top: 0; z-index: var(--z-menu); display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; border-width: 0 0 1px; box-shadow: none; }
   .bu-cab-m .bu-marca { margin-right: auto; }
   .bu-cab-m .bu-marca__s { width: 24px; height: 28px; }
   .bu-cab-m__acciones { display: flex; align-items: center; gap: 6px; padding-right: 44px; }
@@ -92,6 +93,7 @@ body:not(.desk-open) #desk-toggle { display: flex; }
   .bu-minf__it svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .bu-minf__it[aria-current="page"] { color: var(--tinta); font-weight: 700; }
   .bu-minf__it[aria-current="page"]::before { content: ""; position: absolute; top: 0; width: 22px; height: 3px; border-radius: 3px; background: var(--rojo); }
+  body.bu-escena { padding-top: 56px; }
   body.has-bottom-nav { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 
   #mobile-menu-overlay { position: fixed; inset: 0; z-index: calc(var(--z-dock) + 1); background: #0a070773; transition: opacity var(--t-medio); }
@@ -110,3 +112,11 @@ body:not(.desk-open) #desk-toggle { display: flex; }
 }
 @media (prefers-reduced-motion: reduce) { #mobile-menu-drawer { transition: none; } }
 @media print { .bu-riel, .bu-cab-m, #bottom-nav, #mobile-menu-drawer, #mobile-menu-overlay { display: none; } body.bu-escena { padding-left: 0; } }
+
+/* Selector de artículos: solo en la vista de documento, junto a la mesa. */
+.bu-doc-idx { display: none; }
+@media (max-width: 899px) { body.has-doc-picker .bu-riel .bu-doc-idx { display: flex; } }
+body.has-doc-picker .bu-cab-m__idx { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: none; color: var(--tinta-suave); cursor: pointer; }
+body.has-doc-picker .bu-riel .bu-doc-idx { margin-bottom: 3px; }
+@media (max-width: 767px) { #toc-toggle-btn { display: none !important; } }
+@media (min-width: 768px) and (max-width: 899px) { #toc-toggle-btn { display: none !important; } }

@@ -214,3 +214,10 @@ it('reads a real structured instrument, shares preferences, switches source lazi
     expect(document.getElementById('modal-title').textContent).toBe(nextArticle.articulo_label);
     expect(sources.at(-1).articleId).toBe(nextArticle.id);
 }, 20000);
+
+it('asks for an account to save, keeps the reader actions and the three source modes', () => {
+    const html = readFileSync('index.html', 'utf8');
+    for (const id of ['share-btn', 'cite-btn', 'copy-btn', 'modal-prev-btn', 'modal-next-btn', 'modal-bookmark-btn', 'reader-original', 'reader-settings-slot']) expect(html).toContain(`id="${id}"`);
+    for (const mode of ['text', 'original', 'split']) expect(html).toContain(`data-reader-mode="${mode}"`);
+    expect(readFileSync('src/scripts/ui.js', 'utf8')).toContain("requireAccount('guardar', { reason: 'guardar' })");
+});

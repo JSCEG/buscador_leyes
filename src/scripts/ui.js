@@ -9,6 +9,7 @@ import { renderArticlePage, articlePageHash, parseArticlePageHash } from './arti
 import { renderSearchLanding } from './search-landing.js';
 import { renderShelfView } from './shelf-view.js';
 import { initRailGroups, openMoreSheet, syncRailGroups } from './shell-more.js';
+import { articlePickerHtml, initArticlePicker, openPickerSheet } from '../lib/article-picker.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
@@ -265,6 +266,8 @@ export function initUI() {
         `#art-${encodeURIComponent(item.id)}`, location.origin);
     let catalogLoaded = false;
     let activeNavId = 'nav-inicio';
+    // Opens the article picker of the document on screen; null outside a document.
+    let docPicker = null;
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
     let homeView = null;
@@ -902,6 +905,7 @@ export function initUI() {
     }
 
     // The rail's settings menu: theme and shortcuts.
+    document.addEventListener('click', event => { if (event.target.closest('[data-doc-picker]')) docPicker?.(); });
     (() => {
         const button = document.getElementById('nav-more-btn');
         const menu = document.getElementById('nav-more-menu');
@@ -1010,6 +1014,8 @@ export function initUI() {
     }
 
     function hideAllViews() {
+        docPicker = null;
+        document.body.classList.remove('has-doc-picker');
         releaseHome();
         undockSearch();
         cancelPendingSearch();
@@ -1367,8 +1373,12 @@ export function initUI() {
             <section id="lr-panel-texto" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-texto" data-law-panel="texto">
                 <div class="lr-reading">
                     <aside class="lr-outline" aria-label="Índice del instrumento">
-                        <p class="lr-outline-title">Índice</p>
-                        <nav id="law-outline"></nav>
+                        <div class="bu-seg lr-idx-tabs" role="tablist" aria-label="Índice">
+                            <button type="button" role="tab" aria-selected="true" data-idx-tab="articulos">Artículos</button>
+                            <button type="button" role="tab" aria-selected="false" data-idx-tab="capitulos">Capítulos</button>
+                        </div>
+                        <div id="law-picker" data-idx-panel="articulos"></div>
+                        <nav id="law-outline" data-idx-panel="capitulos" hidden></nav>
                     </aside>
                     <div class="lr-body">
                         <!-- Search and reading settings share one row, so the text starts right below. -->
@@ -1859,12 +1869,7 @@ export function initUI() {
                 node.classList.toggle('is-open', open);
                 node.querySelector('[data-outline-toggle]')?.setAttribute('aria-expanded', String(open));
             };
-            outline.onclick = event => {
-                const toggle = event.target.closest('[data-outline-toggle]');
-                if (toggle) { const node = toggle.closest('[data-tree-node]'); openNode(node, !node.classList.contains('is-open')); return; }
-                const button = event.target.closest('[data-outline-id]');
-                if (!button) return;
-                const id = button.dataset.outlineId;
+            const goToArticle = id => {
                 const lawSearch = document.getElementById('law-search-input');
                 if (lawSearch?.value) { lawSearch.value = ''; lawSearch.dispatchEvent(new Event('input')); }
                 const index = ordered.findIndex(article => article.id === id);
@@ -1878,6 +1883,28 @@ export function initUI() {
                 card.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 card.classList.remove('lr-flash'); void card.offsetWidth; card.classList.add('lr-flash');
             };
+            outline.onclick = event => {
+                const toggle = event.target.closest('[data-outline-toggle]');
+                if (toggle) { const node = toggle.closest('[data-tree-node]'); openNode(node, !node.classList.contains('is-open')); return; }
+                const button = event.target.closest('[data-outline-id]');
+                if (button) goToArticle(button.dataset.outlineId);
+            };
+            // With an article open, choosing another one opens it directly.
+            const pickArticle = id => { if (document.body.classList.contains('reader-modal-open')) openDetail(id); else goToArticle(id); };
+            const picker = document.getElementById('law-picker');
+            if (picker) {
+                picker.innerHTML = articlePickerHtml(ordered, { indexLabel: article => indexLabel(article).short });
+                initArticlePicker(picker, pickArticle);
+                picker.closest('.lr-outline').querySelector('.lr-idx-tabs').onclick = event => {
+                    const tab = event.target.closest('[data-idx-tab]');
+                    if (!tab) return;
+                    tab.parentElement.querySelectorAll('[data-idx-tab]').forEach(other => other.setAttribute('aria-selected', String(other === tab)));
+                    picker.hidden = tab.dataset.idxTab !== 'articulos';
+                    outline.hidden = tab.dataset.idxTab !== 'capitulos';
+                };
+            }
+            docPicker = () => openPickerSheet(ordered, pickArticle, { indexLabel: article => indexLabel(article).short, chaptersHtml: entries.length > 1 ? outline.innerHTML : '' });
+            document.body.classList.add('has-doc-picker');
             lawOutlineSync = () => {
                 lawOutlineObserver?.disconnect();
                 if (typeof IntersectionObserver !== 'function') return;
@@ -2614,9 +2641,12 @@ export function initUI() {
         return dbFavoritesSet.has(id);
     }
     function toggleFavorite(id) {
-        if (!isLoggedIn() || dbFavoritesSet === null) {
-            showToast('Inicia sesión para guardar favoritos', '🔐', 'bg-gray-800');
-            openAuthModal();
+        if (!isLoggedIn()) {
+            requireAccount('guardar', { reason: 'guardar' });
+            return false;
+        }
+        if (dbFavoritesSet === null) {
+            showToast('Espera un momento: estamos cargando tus guardados', '⏳', 'bg-gray-800');
             return false;
         }
 

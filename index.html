@@ -124,6 +124,7 @@
                 </details>
         </nav>
         <div class="bu-riel__pie">
+            <button type="button" class="bu-riel__it bu-doc-idx" data-doc-picker title="Ir a un artículo" aria-label="Ir a un artículo"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
             <div class="bu-riel__mesa" aria-hidden="true"></div>
             <button type="button" id="nav-favorites" class="bu-riel__it" title="Guardados" aria-label="Guardados"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg><span>Guardados</span><b class="bu-riel__n fav-count">0</b></button>
             <div class="bu-riel__cuenta">
@@ -149,7 +150,7 @@
     <!-- Cabecera de celular -->
     <header class="bu-cab-m bu-cristal">
         <a href="/" class="bu-marca brand-link" data-brand-home aria-label="Buscador Jurídico · ir al inicio"><svg class="bu-marca__s" width="26" height="30" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg><span>Buscador Jurídico</span></a>
-        <div class="bu-cab-m__acciones" id="cab-m-actions"></div>
+        <div class="bu-cab-m__acciones" id="cab-m-actions"><button type="button" class="bu-doc-idx bu-cab-m__idx" data-doc-picker aria-label="Ir a un artículo"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button></div>
         <button type="button" id="mobile-menu-btn" hidden aria-label="Abrir menú"></button>
     </header>
 
@@ -645,6 +646,7 @@
                     <p id="modal-published" class="reader-published" hidden></p>
                 </div>
                 <div class="flex items-center gap-1">
+                    <button type="button" class="reader-idx bu-doc-idx" data-doc-picker title="Ir a un artículo" aria-label="Ir a un artículo"><svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
                     <button id="modal-edit-btn"
                         class="hidden p-2 text-amber-500 hover:text-amber-600 hover:bg-amber-50 rounded-full transition-colors"
                         title="Editar artículo (Admin)" aria-label="Editar artículo">

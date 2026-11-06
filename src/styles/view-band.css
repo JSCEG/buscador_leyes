@@ -10,7 +10,7 @@
 .hp-view .hp-head-btn:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
 
 /* Pinned state: white icon and label on guinda everywhere (the reader header styles its buttons gray) */
-.pin-btn.is-pinned, .pin-btn.is-pinned svg, .pin-btn.is-pinned .pin-label { color: var(--on-brand) !important; }
+.pin-btn.is-pinned, .pin-btn.is-pinned svg, .pin-btn.is-pinned .pin-label { color: var(--rojo) !important; }
 
 /* Views open right under the menu, like the acervo */
 #main-container:has(#results-container:not(.hidden) :is(.st-dashboard, .hp-view)), #main-container:has(#analisis-container:not(.hidden)) { padding-top: 20px !important; }
@@ -24,9 +24,9 @@
 /* Reader header: its icon-button rule (44px, gray) must not squeeze the labeled pin */
 #modal-panel > div:first-child button#modal-pin-btn { width: auto !important; height: 36px !important; padding: 0 12px !important; border-radius: 999px !important; gap: 6px; }
 #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: var(--brand) !important; border-color: color-mix(in srgb,var(--brand) 40%,transparent) !important; background: transparent !important; }
-#modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: #fff !important; background: var(--guinda-500) !important; border-color: var(--brand) !important; }
+#modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: var(--rojo) !important; background: var(--rojo-suave) !important; border-color: var(--rojo) !important; }
 html.dark-mode #modal-panel > div:first-child button#modal-pin-btn:not(.is-pinned) { color: var(--col-ley) !important; border-color: color-mix(in srgb,var(--col-ley) 40%,transparent) !important; }
-html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: var(--on-brand) !important; background: var(--col-ley) !important; border-color: var(--col-ley) !important; }
+html.dark-mode #modal-panel > div:first-child button#modal-pin-btn.is-pinned { color: var(--rojo) !important; background: var(--rojo-suave) !important; border-color: var(--rojo) !important; }
 @media (max-width: 640px) { #modal-panel > div:first-child button#modal-pin-btn .pin-label { display: none; } #modal-panel > div:first-child button#modal-pin-btn { width: 40px !important; padding: 0 !important; justify-content: center; } }
 
 /* Reader: open the article in its own tab */

@@ -201,3 +201,9 @@ html.dark-mode .desk-head{background:radial-gradient(110% 120% at 100% 0%,#7a234
 @media (prefers-reduced-motion:reduce){.desk-card:hover{transform:none}}
 /* Desk cards are small: tables at a compact size (borders and scroll box: article-tables.css). */
 .desk-text .lr-table table.lr-tb,.desk-column-text .lr-table table.lr-tb{font-size:12.5px;line-height:1.45}
+
+/* ── Búho ─────────────────────────────────────────────────────────────── */
+.desk-panel{border-left:1px solid var(--cristal-borde);background:var(--papel-alto)}
+.pin-btn.is-pinned,html.dark-mode .pin-btn.is-pinned{background:var(--rojo-suave);border-color:var(--rojo);color:var(--rojo)}
+.pin-btn:focus-visible,.desk-toggle:focus-visible{outline:2px solid var(--rojo)}
+.desk-panel button:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}

@@ -86,3 +86,40 @@ html #detail-modal #modal-content .reader-text .bj-frac__n{font-family:var(--fon
     #modal-content .reader-text p.bj-frac{grid-template-columns:32px minmax(0,1fr)}
     #modal-panel > div:last-child #cite-btn .btn-label{display:inline!important}
 }
+
+/* ── Búho: una capa de papel sobre el documento ───────────────────────── */
+#detail-modal{align-items:stretch!important;justify-content:stretch!important;padding:14px 14px 14px calc(var(--riel-off) + 8px)!important;background:#0a070759!important;backdrop-filter:blur(2px)}
+#detail-modal #modal-panel{width:100%;max-width:none!important;height:100%;max-height:none;border:1px solid var(--cristal-borde)!important;border-radius:var(--radius-xl);background:var(--papel-alto)!important;box-shadow:var(--sombra-flotante)!important}
+#detail-modal #modal-panel h3#modal-title{font:400 25px/1.1 var(--font-display)!important;color:var(--tinta)!important}
+#modal-panel #modal-ley{color:var(--tinta-suave)!important;font-size:12px!important}
+.reader-sigla{background:var(--ceniza);border:0;color:var(--tinta);font:700 11px/1 var(--font-sans);border-radius:6px}
+.reader-progress > span{background:var(--rojo)}
+#detail-modal .reader-toolbar{padding:9px 18px!important}
+#detail-modal .reader-modes{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--linea);border-radius:13px;background:var(--papel-alto)}
+#detail-modal .reader-modes button{padding:5px 12px!important;border:0!important;border-radius:10px!important;font:500 13px/1.2 var(--font-sans)!important;color:var(--tinta-suave)!important}
+#detail-modal .reader-modes button[aria-pressed="true"]{background:var(--accion)!important;color:var(--on-accion)!important}
+#modal-content .reader-text{font-family:var(--reader-font-family)}
+#detail-modal .reader-article-nav{order:9;background:none!important;border:0!important;border-top:1px solid var(--linea)!important;padding:9px 18px!important}
+#detail-modal .reader-article-nav button{min-height:38px;padding:0 14px;border:1px solid var(--linea)!important;border-radius:12px}
+#detail-modal .reader-article-nav button:hover:not(:disabled){background:none!important;border-color:var(--enlace)!important;color:var(--tinta)!important}
+#detail-modal .reader-nav-arrow{color:var(--tinta)}
+#modal-panel > div:last-child{order:10;background:none!important;border-top:1px solid var(--linea)!important;padding:8px 14px!important;overflow-x:auto;scrollbar-width:none}
+#modal-panel > div:last-child button{height:36px;padding:0 11px!important;border-radius:11px!important;color:var(--tinta-suave)!important;font:600 13px/1 var(--font-sans)!important;background:none!important;box-shadow:none!important;white-space:nowrap}
+#modal-panel > div:last-child button:hover{background:var(--ceniza)!important;color:var(--tinta)!important}
+.reader-idx{width:36px;height:36px;border:0;border-radius:50%;background:none;color:var(--tinta-suave);cursor:pointer}
+body.has-doc-picker .reader-idx{display:grid;place-items:center}
+@media (max-width:767px){
+  #detail-modal{padding:0!important}
+  #detail-modal #modal-panel{border:0!important;border-radius:0}
+}
+
+/* Comparar */
+#compare-modal{padding:14px 14px 14px calc(var(--riel-off) + 8px)!important;background:#0a070759!important}
+#compare-panel{width:100%;max-width:none!important;max-height:none!important;height:100%;border:1px solid var(--cristal-borde);border-radius:var(--radius-xl)!important;background:var(--papel-alto)!important;box-shadow:var(--sombra-flotante)!important}
+#compare-panel h3{font:500 19px/1.2 var(--font-display);color:var(--tinta)}
+#compare-content{padding:0!important;gap:0!important}
+#compare-content > *{min-width:0;padding:18px 20px;border-right:1px solid var(--linea);border-radius:0!important;background:none!important;box-shadow:none!important;text-align:justify;text-align-last:start;hyphens:auto}
+#compare-content > *:last-child{border-right:0}
+#compare-content ins{background:color-mix(in srgb,var(--col-acuerdos) 18%,transparent);text-decoration:none}
+#compare-content del{background:color-mix(in srgb,var(--rojo) 15%,transparent)}
+@media (max-width:767px){#compare-modal{padding:0!important}#compare-panel{border:0;border-radius:0!important}#compare-content > *{border-right:0;border-bottom:1px solid var(--linea)}}
