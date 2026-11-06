@@ -53,3 +53,6 @@ skills-lock.json
 chunks_*.json
 public/data/*.json
 !public/data/manifest.json
+
+# Brainstorm mockups and execution ledgers
+.superpowers/
