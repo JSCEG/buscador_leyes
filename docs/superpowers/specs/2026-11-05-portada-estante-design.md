@@ -127,20 +127,21 @@ Se generan por código con datos reales. Son objetos físicos: sus colores no ca
 
 | Colección | Fondo | Texto |
 |---|---|---|
-| Leyes | Guinda `#9B2247` | Marfil |
-| Acuerdos | Guinda oscuro `#611232` | Marfil |
-| Reglamentos | Verde `#1E5B4F` | Marfil |
-| Disposiciones (DACG) | Verde oscuro `#13322B` | Marfil |
+| Leyes | Guinda `#9B2247` | Dorado `#F0E0B4` |
+| Acuerdos | Guinda oscuro `#611232` | Dorado `#F0E0B4` |
+| Reglamentos | Verde `#1E5B4F` | Dorado `#F0E0B4` |
+| Disposiciones (DACG) | Verde oscuro `#13322B` | Dorado `#F0E0B4` |
 | Convocatorias | Dorado `#A57F2C` | Tinta `#1C1915` |
 | Normas | Dorado claro `#D4C19C` | Tinta `#1C1915` |
-| Otros | Gris cálido `#6C5B58` | Marfil |
+| Otros | Gris cálido `#6C5B58` | Dorado `#F0E0B4` |
 
-- **Lomo:** ícono de colección (`collectionIcon`) arriba, siglas verticales en una línea con puntos suspensivos y año abajo.
-- **Portada:** tipo de documento arriba, nombre al centro e ilustración (`collectionSpot`), con año o «Sin fecha» abajo.
-- **Nombre en la portada:** siglas en grande si tienen hasta 14 caracteres; si no, nombre corto en serif a 5 líneas como máximo.
+- **Estilo:** volumen de derecho encuadernado en tela con estampado dorado. Se ajustó tras revisar en navegador.
+- **Lomo:** redondeado con luz al centro y dos nervaduras. Lleva ícono de colección (`collectionIcon`) arriba, placa con siglas verticales en una línea con puntos suspensivos y año abajo.
+- **Portada:** tapa dura con bisagra, doble marco dorado y canto de páginas. Lleva tipo de documento arriba, nombre al centro, filete e ilustración (`collectionSpot`), con año o «Sin fecha» abajo.
+- **Nombre en la portada:** siglas en grande si tienen hasta 14 caracteres, en tres tamaños según su largo; si no, nombre corto en serif a 6 líneas como máximo.
 - **Sentencias:** usan `isJudgment` y `judgmentCase`, igual que `search-landing.js`.
 - **Sin siglas:** se usa la colección como respaldo.
-- **Sombreado:** los lomos lejanos se oscurecen, hasta 60 %. En el tema `contraste` no hay sombreado y sí borde visible.
+- **Sombreado:** los lomos lejanos se oscurecen, hasta 60 %, y las tapas vistas de lado llegan a 60 %. Cada tomo tiene contratapa para verse sólido por ambos lados. En el tema `contraste` no hay sombreado y sí borde visible.
 
 ## Ficha
 

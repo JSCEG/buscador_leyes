@@ -69,7 +69,7 @@ export function tomeTransform(r, m, { lift = 0, tiltX = 0, tiltY = 0 } = {}) {
         sc,
         zIndex: Math.round(3000 + z),
         spineShade: Math.min(0.6, o * 0.55 + (1 - sc) * 0.32),
-        coverShade: (1 - o) * 0.82,
+        coverShade: (1 - o) * 0.6,
     };
 }
 

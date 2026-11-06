@@ -41,6 +41,17 @@ describe('shelf view', () => {
     const count = host.querySelectorAll('.sh-tome').length;
     expect(count).toBeGreaterThan(5); expect(count).toBeLessThanOrEqual(30);
   });
+  it('gives each tome a back so it looks solid from both sides', async () => {
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();
+    const back = host.querySelector('.sh-tome .sh-face--back');
+    expect(back.getAttribute('style')).toContain('--sh-bg:');
+  });
+  it('leaves room for the bottom navigation the page reserves', async () => {
+    document.body.style.paddingBottom = '68px';
+    view = renderShelfView(host, { summaries: mixed, status: 'ready' });
+    expect(host.querySelector('.sh-view').style.getPropertyValue('--sh-bottom')).toBe('68px');
+    document.body.style.paddingBottom = '';
+  });
   it('searches on Enter and ignores blanks', () => {
     const onSearch = vi.fn();
     view = renderShelfView(host, { summaries: mixed, status: 'ready', onSearch });

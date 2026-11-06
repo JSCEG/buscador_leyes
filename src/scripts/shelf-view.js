@@ -3,7 +3,7 @@
  * Only the tomes the arc can show exist in the DOM. One frame loop drives them and it stops at rest.
  */
 import { groupAcervo, selectAcervo } from '../lib/acervo-model.js';
-import { GROUP_LABELS, coverData, coverHTML, spineHTML } from '../lib/law-cover.js';
+import { GROUP_LABELS, coverData, coverHTML, spineHTML, tomeBackStyle } from '../lib/law-cover.js';
 import { rel, rulerPosition, rulerSegments, shelfMetrics, stepSpring, tomeTransform } from '../lib/shelf-geometry.js';
 import { openLawSheet } from './law-sheet.js';
 import '../styles/shelf.css';
@@ -124,6 +124,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     function measure() {
         const header = document.querySelector('.site-header');
         if (header?.offsetHeight) view.style.setProperty('--sh-header', `${header.offsetHeight}px`);
+        view.style.setProperty('--sh-bottom', getComputedStyle(document.body).paddingBottom || '0px');
         metrics = shelfMetrics(probe.getBoundingClientRect().height || FALLBACK_H, { mobile: mobile() });
     }
 
@@ -131,7 +132,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
         const tome = document.createElement('div');
         tome.className = 'sh-tome';
         tome.dataset.lawId = law.id;
-        tome.innerHTML = `<div class="sh-face sh-face--spine">${spineHTML(law)}</div><div class="sh-face sh-face--cover">${coverHTML(law)}</div>`;
+        tome.innerHTML = `<div class="sh-face sh-face--spine">${spineHTML(law)}</div><div class="sh-face sh-face--cover">${coverHTML(law)}</div><div class="sh-face sh-face--back" style="${tomeBackStyle(law)}"></div>`;
         stage.appendChild(tome);
         return tome;
     }
