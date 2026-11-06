@@ -6,6 +6,7 @@ import { getAcervoGroup } from './acervo-model.js';
 import { shortTitle } from './short-title.js';
 import { instrumentTypeLabel, isJudgment, judgmentCase } from './judgment.js';
 import { collectionIcon } from './collection-icons.js';
+import { ISSUER_LOGOS, issuerMark } from './issuer-logos.js';
 
 const BIG_ACRONYM_MAX = 14;
 
@@ -53,7 +54,13 @@ export function spineHTML(law) {
     </div>`;
 }
 
-export function coverHTML(law) {
+function issuerHTML(law, logos) {
+    const mark = issuerMark(law, logos);
+    if (!mark) return '';
+    return `<span class="sh-cover-issuer" title="${esc(mark.label)}">${mark.logo ? `<img src="${esc(mark.logo)}" alt="${esc(mark.label)}" loading="lazy" decoding="async">` : esc(mark.short)}</span>`;
+}
+
+export function coverHTML(law, logos = ISSUER_LOGOS) {
     const data = coverData(law);
     const heading = data.display === 'siglas'
         ? `<strong class="sh-cover-siglas" data-size="${acronymSize(data.siglas)}">${esc(data.siglas)}</strong><span class="sh-cover-accent"></span><span class="sh-cover-name">${esc(data.name)}</span>`
@@ -63,6 +70,6 @@ export function coverHTML(law) {
         <span class="sh-cover-ribbon"></span>
         <span class="sh-cover-type">${esc(data.typeLabel)}</span>
         <div class="sh-cover-heading">${heading}</div>
-        <div class="sh-cover-foot"><span>${esc(data.year)}</span>${collectionIcon(data.group, 18)}</div>
+        <div class="sh-cover-foot"><span>${esc(data.year)}</span>${issuerHTML(law, logos)}${collectionIcon(data.group, 18)}</div>
     </div>`;
 }

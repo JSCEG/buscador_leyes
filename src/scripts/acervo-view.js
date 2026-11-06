@@ -6,6 +6,7 @@ import { isJudgment, instrumentTypeLabel, fragmentNoun } from '../lib/judgment.j
 import { heroArt, collectionSpot } from '../lib/acervo-art.js';
 import { acervoThemes } from '../lib/analisis-model.js';
 import '../styles/acervo.css';
+import '../styles/acervo-compact.css';
 
 const mountedViews = new WeakMap();
 let nextViewId = 0;
@@ -68,7 +69,7 @@ function publicationDate(value) {
 }
 
 /** A presentational library. Navigation and persistence remain owned by the app. */
-export function renderAcervoView(container, summaries, { state: initialState = {}, onStateChange = () => {}, onOpenLaw = () => {}, onOpenStats = null } = {}) {
+export function renderAcervoView(container, summaries, { state: initialState = {}, onStateChange = () => {}, onOpenLaw = () => {}, onOpenStats = null, onShowShelf = null } = {}) {
     if (!container || typeof container.replaceChildren !== 'function') throw new Error('Falta el contenedor del acervo.');
     mountedViews.get(container)?.destroy();
     const laws = selectAcervo(Array.isArray(summaries) ? summaries : []);
@@ -105,6 +106,11 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     quick.setAttribute('aria-label', 'Otras secciones');
     const timeline = element('a', 'ac-stats-link', 'Línea del tiempo'); timeline.href = '#cronologia';
     const reto = element('a', 'ac-stats-link ac-reto-link', 'Reto del día'); reto.href = '#reto';
+    if (typeof onShowShelf === 'function') {
+        const shelf = element('button', 'ac-stats-link', 'Ver como estante'); shelf.type = 'button';
+        shelf.addEventListener('click', () => onShowShelf());
+        quick.append(shelf);
+    }
     quick.append(timeline, reto);
     if (typeof onOpenStats === 'function') {
         const more = element('button', 'ac-stats-link', 'Estadísticas'); more.type = 'button';

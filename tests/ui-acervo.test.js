@@ -58,6 +58,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(document.querySelector('#home-view .sh-status[data-state="loading"]')).not.toBeNull();
   expect(location.hash).toBe('');
   document.getElementById('nav-leyes').click();
+  document.querySelector('[data-sh-browse]').click();
   expect(results.querySelector('[aria-label="Cargando acervo"]')).not.toBeNull();
 
   const summaries = [
@@ -102,6 +103,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   await settle();
   expect(globalSearch.classList.contains('hidden')).toBe(false);
   document.getElementById('mobile-nav-leyes').click();
+  document.querySelector('[data-sh-browse]').click();
   await settle();
   expect(results.classList.contains('hidden')).toBe(false);
   expect(results.classList.contains('opacity-0')).toBe(false);
@@ -181,6 +183,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   globalInput.value = 'circular pendiente';
   globalInput.dispatchEvent(new Event('input', { bubbles: true }));
   document.getElementById('nav-leyes').click();
+  document.querySelector('[data-sh-browse]').click();
   const libraryHash = location.hash;
   await vi.advanceTimersByTimeAsync(300);
   expect(searchArticles).not.toHaveBeenCalled();
@@ -200,6 +203,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(searchArticles).toHaveBeenCalledTimes(1);
   expect(searchArticles.mock.calls[0][0]).toBe('generación pendiente');
   document.getElementById('nav-leyes').click();
+  document.querySelector('[data-sh-browse]').click();
   await settle();
   const visibleLibrary = results.querySelector('.ac-library');
   expect(visibleLibrary).not.toBeNull();

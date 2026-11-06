@@ -7,6 +7,7 @@ import { paginateInSlices, pageOfArticle } from '../lib/book-paginate.js';
 import { OUTLINE_HEAD, bookOutline, outlineRowHtml, paginateOutline } from '../lib/book-outline.js';
 import { bookShareTargets } from '../lib/book-share.js';
 import { coverData } from '../lib/law-cover.js';
+import { issuerMark } from '../lib/issuer-logos.js';
 import { openPickerSheet } from '../lib/article-picker.js';
 import { initReaderControls, readerControlsHtml } from './reader-controls.js';
 import '../styles/book.css';
@@ -145,7 +146,7 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         if (!page) return `<div class="bk-pg ${sideClass}"><div class="bk-vacia"><svg viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg></div></div>`;
         const marked = state.marks.includes(index) ? '<span class="bk-marca"></span>' : '';
         if (page.kind === COVER) {
-            return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-portada"><span class="bk-kick">${esc(data.typeLabel)}</span><strong>${esc(data.siglas || data.name)}</strong><span class="bk-regla"></span><span class="bk-nombre">${esc(data.name)}</span><span class="bk-meta">${esc(data.year)}</span><svg class="bk-buho" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg></div></div>`;
+            return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-portada"><span class="bk-kick">${esc(data.typeLabel)}</span><strong>${esc(data.siglas || data.name)}</strong><span class="bk-regla"></span><span class="bk-nombre">${esc(data.name)}</span><span class="bk-meta">${esc([data.year, issuerMark(law)?.short].filter(Boolean).join(' · '))}</span><svg class="bk-buho" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg></div></div>`;
         }
         if (page.kind === INDEX) {
             const rows = page.entries.map(entry => outlineRowHtml(entry, articlePage.get(entry.articleId) ?? '')).join('');

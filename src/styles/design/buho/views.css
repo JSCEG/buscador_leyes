@@ -35,3 +35,4 @@ html body .desk-side { background: var(--accion); border-color: var(--accion); c
 /* Avisos */
 html body #app-toast::before { background: var(--rojo); }
 html body .read-progress > span { background: var(--rojo); }
+

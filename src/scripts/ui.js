@@ -183,7 +183,7 @@ export function initUI() {
     if (mobileNavLeyes) {
         mobileNavLeyes.addEventListener('click', (e) => {
             e.preventDefault();
-            showLawsView();
+            showAcervo();
             toggleMobileMenu(false);
         });
     }
@@ -241,7 +241,7 @@ export function initUI() {
     if (mobileNavLeyes) {
         mobileNavLeyes.addEventListener('click', (e) => {
             e.preventDefault();
-            showLawsView();
+            showAcervo();
             toggleMobileMenu(false);
         });
     }
@@ -364,7 +364,7 @@ export function initUI() {
 
         // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
         homeView?.setCatalog(summaries);
-        if (activeNavId === 'nav-leyes' && !location.hash) showLawsView(acervoState, { updateHistory: false });
+        if (activeNavId === 'nav-leyes' && !location.hash && !homeView) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
         if (activeNavId === 'nav-inicio') renderLanding();
         // First visit: a short welcome tour once the page has settled. Never over the install screen
@@ -424,7 +424,7 @@ export function initUI() {
         explorerViewHash = explorerHash(e.detail);
         setHash(explorerViewHash);
     });
-    document.addEventListener('analisis:goHome', () => showLawsView());
+    document.addEventListener('analisis:goHome', () => showAcervo());
     document.addEventListener('analisis:search', (e) => {
         const query = String(e.detail?.query || '').trim();
         if (!query) return;
@@ -465,11 +465,11 @@ export function initUI() {
     }
 
     function acervoHash(state) {
-        const params = new URLSearchParams();
+        const params = new URLSearchParams({ vista: 'lista' });
         if (state.query) params.set('q', state.query);
         if (state.group !== 'all') params.set('grupo', state.group);
         if (state.sort !== 'title') params.set('orden', state.sort);
-        return `#acervo${params.size ? `?${params}` : ''}`;
+        return `#acervo?${params}`;
     }
 
     function acervoRoute(hash) {
@@ -616,7 +616,8 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            showLawsView(acervo, { updateHistory: false });
+            if (hash === '#acervo') showHomeView({ updateHistory: false });
+            else showLawsView(acervo, { updateHistory: false });
         } else if (explorer) {
             const returnContext = explorerModalReturn?.hash === hash ? explorerModalReturn : null;
             clearTimeout(closeModalTimer);
@@ -701,7 +702,7 @@ export function initUI() {
             releaseReader();
             explorerModalReturn = null;
             if (homeView) {
-                setActiveNav('');
+                setActiveNav('nav-leyes');
                 homeView.closeSheet({ silent: true });
             } else showHomeView({ updateHistory: false });
         } else {
@@ -849,7 +850,7 @@ export function initUI() {
     if (navLeyes) {
         navLeyes.addEventListener('click', (e) => {
             e.preventDefault();
-            showLawsView();
+            showAcervo();
         });
     }
     // The brand in the header goes home: the shelf.
@@ -1144,13 +1145,14 @@ export function initUI() {
     }
 
     /** Home: the 3D shelf. Other sections release it through hideAllViews or setActiveNav. */
-    function showHomeView({ updateHistory = true } = {}) {
+    function showHomeView({ updateHistory = true, hash = '' } = {}) {
         lawOpenRequest++;
-        if (updateHistory) setHash('');
+        if (updateHistory) setHash(hash);
         if (homeView) return;
+        acervoReturnFocusId = null;
         destroyTOC();
         hideAllViews();
-        setActiveNav('');
+        setActiveNav('nav-leyes');
         const host = document.getElementById('home-view');
         document.body.classList.add('home-active');
         host.classList.remove('hidden');
@@ -1179,6 +1181,8 @@ export function initUI() {
         if (catalogFailed) homeView.setFailed();
     }
 
+    const showAcervo = () => showHomeView({ hash: '#acervo' });
+
     function showLawsView(state = acervoState, { updateHistory = true } = {}) {
         lawOpenRequest++;
         acervoState = { ...state };
@@ -1204,6 +1208,7 @@ export function initUI() {
         }
         acervoView = renderAcervoView(resultsContainer, cachedSummaries, {
             onOpenStats: () => showStatsView(),
+            onShowShelf: showAcervo,
             state: acervoState,
             onStateChange(next) {
                 acervoState = { ...next };
@@ -2076,8 +2081,9 @@ export function initUI() {
         });
 
         // Breadcrumb listeners
-        document.getElementById('crumb-inicio')?.addEventListener('click', () => showLawsView({ group: 'all', query: '', sort: 'title' }));
-        document.getElementById('crumb-categoria')?.addEventListener('click', () => showLawsView());
+        document.getElementById('crumb-inicio')?.addEventListener('click', () => showHomeView());
+        // Back to where the document was opened: the filtered list, or the shelf.
+        document.getElementById('crumb-categoria')?.addEventListener('click', () => (acervoReturnFocusId ? showLawsView() : showAcervo()));
         lawDetailContainer.querySelectorAll('[data-open-article]').forEach(button => button.addEventListener('click', () => {
             currentModalList = [...currentLawArticles.filter(article => !relatedDocumentLabel(article)), ...currentLawArticles.filter(article => relatedDocumentLabel(article))];
             openDetail(button.dataset.openArticle);
@@ -3479,7 +3485,7 @@ export function initUI() {
 
         renderHelpView(resultsContainer, {
             onGo: target => {
-                if (target === 'acervo') showLawsView();
+                if (target === 'acervo') showAcervo();
                 else if (target === 'analisis') showAnalisisView();
                 else if (target === 'buscar') { resetToHero(); searchInput?.focus(); }
             },

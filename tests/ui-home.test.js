@@ -60,8 +60,16 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   expect(document.querySelector('#home-view .sh-tome')).not.toBeNull();
   expect(location.hash).toBe('');
 
-  // 3. Going to the full list releases the home screen and brings the footer back.
+  // The acervo is this same shelf, at its own address.
   document.getElementById('nav-leyes').click();
+  await settle();
+  expect(isHome()).toBe(true);
+  expect(location.hash).toBe('#acervo');
+  expect(document.querySelector('#home-view .sh-tome')).not.toBeNull();
+  expect(document.querySelector('.ac-library')).toBeNull();
+
+  // 3. Going to the full list releases the home screen and brings the footer back.
+  document.querySelector('[data-sh-browse]').click();
   await settle();
   expect(isHome()).toBe(false);
   expect(document.getElementById('home-view').classList.contains('hidden')).toBe(true);
