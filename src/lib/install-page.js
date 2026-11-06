@@ -5,7 +5,6 @@
  * Chrome first. iPhone has no install dialog, so it shows the Safari steps. Opened from the
  * installed app, it goes straight to the search engine.
  */
-import { brandMarkSvg } from './brand-mark.js';
 import '../styles/install-page.css';
 
 /** Whether this page load is the install page (exported for tests). */
@@ -77,7 +76,7 @@ export function initInstallPage() {
     page.setAttribute('aria-labelledby', 'ip-title');
     page.innerHTML = `
         <div class="ip-card">
-            <div class="ip-mark">${brandMarkSvg({ className: 'ip-logo' })}</div>
+            <img class="ip-mark" src="/img/icon-192.png" alt="" width="96" height="96" decoding="async">
             <h1 id="ip-title">Buscador Jurídico</h1>
             <p class="ip-sub">Leyes, reglamentos y permisos del sector energético, en tu celular.</p>
             <div class="ip-body" data-body></div>

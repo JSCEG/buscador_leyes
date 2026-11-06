@@ -4,7 +4,6 @@
  * Android/Chrome gets the browser's own install dialog; iPhone/iPad (no such dialog in Safari) gets
  * the two steps to add it from the share menu.
  */
-import { brandMarkSvg } from './brand-mark.js';
 import '../styles/install-prompt.css';
 
 const VISITS_KEY = 'app-visitas';
@@ -56,7 +55,7 @@ export function initInstallPrompt() {
         sheet.setAttribute('role', 'dialog');
         sheet.setAttribute('aria-labelledby', 'install-title');
         sheet.innerHTML = `
-            <div class="install-mark">${brandMarkSvg({ className: 'install-logo' })}</div>
+            <img class="install-mark" src="/img/icon-192.png" alt="" width="36" height="36" decoding="async">
             <div class="install-text">
                 <p id="install-title" class="install-title">Instala la app</p>
                 <p class="install-body">${deferred ? 'Se abre desde tu pantalla de inicio.' : 'Toca <b>Compartir</b> <span class="install-share" aria-hidden="true">⬆</span> y luego <b>Agregar a inicio</b>.'}</p>

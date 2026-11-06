@@ -11,22 +11,45 @@
   "lang": "es-MX",
   "icons": [
     {
-      "src": "/img/icon-192.png?v=3",
+      "src": "/img/icon-192.png?v=a671ab0b2d",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/img/icon-512.png?v=3",
+      "src": "/img/icon-512.png?v=a671ab0b2d",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/img/icon-maskable-512.png?v=3",
+      "src": "/img/icon-maskable-512.png?v=a671ab0b2d",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/img/capturas/celular-acervo.jpg",
+      "sizes": "824x1784",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Todos los documentos, como libros en un estante"
+    },
+    {
+      "src": "/img/capturas/celular-libro.jpg",
+      "sizes": "824x1784",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Lee cualquier ley como libro"
+    },
+    {
+      "src": "/img/capturas/escritorio-acervo.jpg",
+      "sizes": "1280x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Leyes y reglas de energía de México, en un solo lugar"
     }
   ],
   "categories": [
@@ -40,7 +63,7 @@
       "url": "/#buscar",
       "icons": [
         {
-          "src": "/img/icon-192.png?v=3",
+          "src": "/img/icon-192.png?v=a671ab0b2d",
           "sizes": "192x192"
         }
       ]
@@ -51,7 +74,7 @@
       "url": "/#acervo",
       "icons": [
         {
-          "src": "/img/icon-192.png?v=3",
+          "src": "/img/icon-192.png?v=a671ab0b2d",
           "sizes": "192x192"
         }
       ]
@@ -62,7 +85,7 @@
       "url": "/#explorar",
       "icons": [
         {
-          "src": "/img/icon-192.png?v=3",
+          "src": "/img/icon-192.png?v=a671ab0b2d",
           "sizes": "192x192"
         }
       ]
@@ -73,7 +96,7 @@
       "url": "/#permisos",
       "icons": [
         {
-          "src": "/img/icon-192.png?v=3",
+          "src": "/img/icon-192.png?v=a671ab0b2d",
           "sizes": "192x192"
         }
       ]

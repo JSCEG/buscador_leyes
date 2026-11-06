@@ -53,6 +53,8 @@ html .lr-table.is-pagina :is(thead th, thead td, tbody th) { position: static; b
 .bk-regla { flex: none; width: 46px; height: 3px; margin: 18px 0 16px; background: var(--ac); }
 .bk-nombre { font: 400 clamp(17px, 1.8vw, 23px)/1.25 var(--font-display); }
 .bk-meta { margin-top: auto; padding-bottom: 12px; color: var(--lb-suave); font-size: 13px; }
+.bk-logo { align-self: flex-start; box-sizing: border-box; max-width: 62%; height: 52px; margin-top: auto; padding: 3px; border-radius: 5px; background: var(--lb-logo-plate); object-fit: contain; }
+.bk-logo + .bk-meta { margin-top: 10px; }
 .bk-buho { position: absolute; right: 8px; bottom: 12px; width: 34px; height: 40px; color: var(--lb-ink); fill: currentColor; }
 .bk-final { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; height: 100%; padding: 0 12px; text-align: center; }
 .bk-final .bk-buho { position: static; width: 52px; height: 62px; }

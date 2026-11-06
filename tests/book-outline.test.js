@@ -19,6 +19,30 @@ describe('book outline', () => {
     expect(entries.map(entry => entry.text)).toEqual(['TÍTULO I', 'Transitorio Primero', 'Transitorio Segundo']);
     expect(entries[1].level).toBe(3);
   });
+  it('does not list a numbered section again when its articles resume after a subsection', () => {
+    const titulo = 'Operación';
+    const entries = bookOutline([
+      article('1', { titulo, capitulo: '7.2 · Auto-tanque' }), article('2', { titulo, capitulo: '7.2.1 · Manual' }),
+      article('3', { titulo, capitulo: '7.2 · Auto-tanque' }), article('4', { titulo, capitulo: '7.2.2 · Integridad' }),
+      article('5', { titulo, capitulo: '7.2.2.5 · Pruebas' }), article('6', { titulo, capitulo: '7.2.2 · Integridad' }),
+      article('7', { titulo, capitulo: '7.2 · Auto-tanque' }), article('8', { titulo }),
+      article('9', { titulo, capitulo: '7.2.3 · Parte motriz' }), article('10', { titulo, capitulo: '7.3 · Reparto' }),
+    ]);
+    expect(entries.map(entry => [entry.text, entry.articleId])).toEqual([
+      ['Operación', '1'], ['7.2 · Auto-tanque', '1'], ['7.2.1 · Manual', '2'], ['7.2.2 · Integridad', '4'],
+      ['7.2.2.5 · Pruebas', '5'], ['7.2.3 · Parte motriz', '9'], ['7.3 · Reparto', '10'],
+    ]);
+  });
+  it('keeps a numbered section that appears under another title', () => {
+    const entries = bookOutline([
+      article('1', { titulo: 'A', capitulo: '1 · Generales' }), article('2', { titulo: 'B', capitulo: '1 · Generales' }),
+    ]);
+    expect(entries.map(entry => entry.text)).toEqual(['A', '1 · Generales', 'B', '1 · Generales']);
+  });
+  it('does not list a chapter that only repeats its title', () => {
+    const entries = bookOutline([article('1', { titulo: 'Apéndice A', capitulo: 'Apéndice A' }), article('2', { titulo: 'Apéndice A', capitulo: 'Tabla 1' })]);
+    expect(entries.map(entry => entry.text)).toEqual(['Apéndice A', 'Tabla 1']);
+  });
   it('names attached documents', () => {
     expect(bookOutline([article('1', { badge: 'Guía de trámite', capitulo: 'Pasos' })])[0]).toEqual({ level: 1, text: 'Guía de trámite', articleId: '1' });
   });

@@ -4,7 +4,10 @@
  */
 import { issuerOf } from './issuer.js';
 
-export const ISSUER_LOGOS = Object.freeze({});
+export const ISSUER_LOGOS = Object.freeze({
+    sener: '/img/instituciones/sener.png',
+    ejecutivo: '/img/instituciones/ejecutivo.png',
+});
 
 /** @returns {{ id: string, short: string, label: string, logo: string|null }|null} null when the document does not say */
 export function issuerMark(law, logos = ISSUER_LOGOS) {
