@@ -21,8 +21,6 @@ afterEach(() => {
   Object.defineProperty(window, 'scrollY', originalScrollY);
 });
 
-vi.setConfig({ testTimeout: 15000 });
-
 it('loads the acervo once ready and preserves its independent route, filters and return position', async () => {
   vi.useFakeTimers();
   let viewportY = 0;

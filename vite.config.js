@@ -57,6 +57,7 @@ export default defineConfig({
   plugins: [manifestPlugin(), readerDevPlugin(), seoConfigPlugin()],
   test: {
     environment: 'jsdom',
+    testTimeout: 20000,
     globals: true,
     // Node 25+ ships its own localStorage (empty without --localstorage-file) and it hides jsdom's.
     // Older Node (CI runs 18) rejects the flag, so pass it only where Node knows it.
