@@ -1,6 +1,6 @@
 /** Shared reading preferences for a complete instrument and the article dialog. */
 export const READER_PREFERENCES_KEY = 'sener-reader-preferences-v1';
-export const DEFAULT_READER_PREFERENCES = Object.freeze({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'sans' });
+export const DEFAULT_READER_PREFERENCES = Object.freeze({ fontSize: 18, lineHeight: 1.8, surface: 'system', measure: 68, typeface: 'serif' });
 export const READER_FONT_SIZE_RANGE = Object.freeze({ min: 14, max: 28 });
 export const READER_FONT_SIZE_OPTIONS = Object.freeze([16, 18, 20, 22, 24, 26, 28]);
 export const READER_LINE_HEIGHT_OPTIONS = Object.freeze([1.6, 1.8, 2]);

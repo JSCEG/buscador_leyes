@@ -280,3 +280,4 @@ html.dark-mode:not([data-reader-surface=light]):not([data-reader-surface=sepia])
 .ap-capitulos button{width:100%;padding:8px 6px;border:0;background:none;color:var(--tinta);text-align:left;cursor:pointer}
 .ap-capitulos [data-picker-panel][hidden]{display:none}
 @media (max-width:767px){.ap-hoja{left:0;right:0;top:auto;bottom:0;width:auto;max-width:none;max-height:82dvh;border-radius:var(--radius-xl) var(--radius-xl) 0 0}}
+.lr-reading[hidden],#law-book[hidden]{display:none}

@@ -10,6 +10,7 @@ import { renderSearchLanding } from './search-landing.js';
 import { renderShelfView } from './shelf-view.js';
 import { initRailGroups, openMoreSheet, syncRailGroups } from './shell-more.js';
 import { articlePickerHtml, initArticlePicker, openPickerSheet } from '../lib/article-picker.js';
+import { renderBookView } from './book-view.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
@@ -268,6 +269,7 @@ export function initUI() {
     let activeNavId = 'nav-inicio';
     // Opens the article picker of the document on screen; null outside a document.
     let docPicker = null;
+    let lawBookView = null;
     let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
     let homeView = null;
@@ -1016,6 +1018,8 @@ export function initUI() {
     function hideAllViews() {
         docPicker = null;
         document.body.classList.remove('has-doc-picker');
+        lawBookView?.destroy();
+        lawBookView = null;
         releaseHome();
         undockSearch();
         cancelPendingSearch();
@@ -1371,6 +1375,11 @@ export function initUI() {
             </nav>
 
             <section id="lr-panel-texto" class="lr-panel" role="tabpanel" aria-labelledby="lr-tab-texto" data-law-panel="texto">
+                <div class="lr-modo"><span>Cómo leer</span><div class="bu-seg" role="group" aria-label="Cómo leer">
+                    <button type="button" data-read-mode="articulo" aria-pressed="true">Por artículo</button>
+                    <button type="button" data-read-mode="libro" aria-pressed="false">Como libro</button>
+                </div></div>
+                <div id="law-book" hidden></div>
                 <div class="lr-reading">
                     <aside class="lr-outline" aria-label="Índice del instrumento">
                         <div class="bu-seg lr-idx-tabs" role="tablist" aria-label="Índice">
@@ -1905,6 +1914,47 @@ export function initUI() {
             }
             docPicker = () => openPickerSheet(ordered, pickArticle, { indexLabel: article => indexLabel(article).short, chaptersHtml: entries.length > 1 ? outline.innerHTML : '' });
             document.body.classList.add('has-doc-picker');
+
+            // Como libro: the same articles on pages; coming back continues on the same article.
+            const bookHost = document.getElementById('law-book');
+            const reading = bookHost?.parentElement.querySelector('.lr-reading');
+            const showReadMode = mode => {
+                bookHost.parentElement.querySelectorAll('[data-read-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.readMode === mode)));
+                bookHost.hidden = mode !== 'libro';
+                reading.hidden = mode === 'libro';
+            };
+            const leaveBook = articleId => {
+                lawBookView?.destroy();
+                lawBookView = null;
+                showReadMode('articulo');
+                if (articleId) goToArticle(articleId);
+            };
+            const bookAction = async (action, id) => {
+                if (action === 'guardar') { toggleFavorite(id); return; }
+                leaveBook(id);
+                await openDetail(id);
+                if (action === 'original') document.querySelector('[data-reader-mode="original"]')?.click();
+                else if (action === 'cita') document.getElementById('cite-btn')?.click();
+                else if (action === 'copiar') document.getElementById('copy-btn')?.click();
+                else if (action === 'compartir') document.getElementById('share-btn')?.click();
+                else if (action === 'fijar') document.getElementById('modal-pin-btn')?.click();
+            };
+            bookHost?.parentElement.querySelector('.lr-modo')?.addEventListener('click', event => {
+                const mode = event.target.closest('[data-read-mode]')?.dataset.readMode;
+                if (!mode) return;
+                if (mode === 'articulo') { leaveBook(lawBookView?.currentArticle()); return; }
+                if (lawBookView) return;
+                showReadMode('libro');
+                lawBookView = renderBookView(bookHost, {
+                    law,
+                    articles: ordered.map(article => ({ id: article.id, label: article.articulo_label, titulo: article.titulo_nombre, capitulo: article.capitulo_nombre, texto: article.texto, badge: relatedDocumentLabel(article) || (isGuide(article) ? 'Guía de trámite' : '') })),
+                    pickerArticles: ordered,
+                    indexLabel: article => indexLabel(article).short,
+                    onArticleAction: bookAction,
+                    onExit: leaveBook,
+                    notify: message => showToast(message, '!'),
+                });
+            });
             lawOutlineSync = () => {
                 lawOutlineObserver?.disconnect();
                 if (typeof IntersectionObserver !== 'function') return;
