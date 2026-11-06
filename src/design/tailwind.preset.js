@@ -105,7 +105,7 @@ const preset = {
       "fontFamily": {
         "display": [
           "Fraunces",
-          "Patria",
+          "Fraunces",
           "Georgia",
           "serif"
         ],
@@ -123,7 +123,7 @@ const preset = {
         ],
         "head": [
           "Fraunces",
-          "Patria",
+          "Fraunces",
           "Georgia",
           "serif"
         ],

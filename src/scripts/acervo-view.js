@@ -126,7 +126,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
             <path d="M40.5 33.5s-4.2 4.6-4.2 7.4a4.2 4.2 0 0 0 8.4 0c0-2.8-4.2-7.4-4.2-7.4z" fill="#1e5b4f" stroke="#fff" stroke-width="1.4"/>
         </svg></span>
         <span class="ac-map-promo-copy">
-            <span class="ac-map-promo-eyebrow"><span class="bj-new">Nuevo</span> ¿Cómo funciona?</span>
+            <span class="ac-map-promo-eyebrow"><span class="bux-new">Nuevo</span> ¿Cómo funciona?</span>
             <strong>Aprende</strong>
             <span>Cómo funciona la energía, paso a paso: electricidad e hidrocarburos, de lo básico a las centrales, los gasoductos, las refinerías y los mercados. Con ilustraciones que puedes mover.</span>
         </span>
@@ -139,7 +139,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
     mapPromo.innerHTML = `
         <span class="ac-map-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6Z"/><path d="M9 4v14M15 6v14"/><circle cx="12" cy="10.5" r="1.6"/></svg></span>
         <span class="ac-map-promo-copy">
-            <span class="ac-map-promo-eyebrow"><span class="bj-new">Nuevo</span> Registro CNE</span>
+            <span class="ac-map-promo-eyebrow"><span class="bux-new">Nuevo</span> Registro CNE</span>
             <strong>Mapa de permisos energéticos</strong>
             <span>Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, sus resoluciones, la normativa que los regula y los ciclones activos.</span>
         </span>

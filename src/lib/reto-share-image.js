@@ -18,7 +18,7 @@ function roundRect(ctx, x, y, w, h, r) {
 async function fontsReady() {
     try {
         await Promise.race([
-            Promise.all([document.fonts.load('700 120px Patria'), document.fonts.load('600 40px "Manrope"')]),
+            Promise.all([document.fonts.load('700 120px Fraunces'), document.fonts.load('600 40px "Manrope"')]),
             new Promise(resolve => setTimeout(resolve, 1500)),
         ]);
     } catch { /* fonts API not available */ }
@@ -59,7 +59,7 @@ export async function drawResultImage({ number, score, total, marks, streak, tit
 
     // Title, wrapped on two lines at most.
     ctx.fillStyle = '#ffffff';
-    ctx.font = '700 58px Patria, Georgia, serif';
+    ctx.font = '700 58px Fraunces, Georgia, serif';
     const words = title.split(' ');
     const lines = [];
     let line = '';
@@ -71,19 +71,19 @@ export async function drawResultImage({ number, score, total, marks, streak, tit
     lines.slice(0, 2).forEach((text, i) => ctx.fillText(text, SIZE / 2, 280 + i * 70));
 
     // Score.
-    ctx.font = '700 230px Patria, Georgia, serif';
+    ctx.font = '700 230px Fraunces, Georgia, serif';
     ctx.fillStyle = '#ffffff';
     const scoreText = String(score);
     const scoreWidth = ctx.measureText(scoreText).width;
-    ctx.font = '700 90px Patria, Georgia, serif';
+    ctx.font = '700 90px Fraunces, Georgia, serif';
     const totalText = `/${total}`;
     const totalWidth = ctx.measureText(totalText).width;
     const startX = SIZE / 2 - (scoreWidth + totalWidth) / 2;
     ctx.textAlign = 'left';
-    ctx.font = '700 230px Patria, Georgia, serif';
+    ctx.font = '700 230px Fraunces, Georgia, serif';
     ctx.fillText(scoreText, startX, 620);
     ctx.fillStyle = 'rgba(255,255,255,0.7)';
-    ctx.font = '700 90px Patria, Georgia, serif';
+    ctx.font = '700 90px Fraunces, Georgia, serif';
     ctx.fillText(totalText, startX + scoreWidth + 8, 620);
 
     // Squares.

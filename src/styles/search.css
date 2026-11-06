@@ -47,12 +47,12 @@
 .sr-view .sr-clear:hover{border-color:var(--border-strong)}
 .sr-ico{display:inline-flex;flex:0 0 auto;color:var(--sr-dot,var(--ink-muted))}
 
-/* Filtros activos como chips oprimidos (bj-chip). */
+/* Filtros activos como chips oprimidos (bux-chip). */
 .sr-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .sr-view .sr-chip{display:inline-flex;align-items:center;gap:var(--space-2);min-height:36px;padding:0 14px;border-radius:var(--radius-pill);border:1px solid var(--brand);background:var(--brand-soft);color:var(--brand);font:500 14px/1 var(--font-sans)}
 .sr-view .sr-chip:hover{background:var(--surface-1)}
 
-/* Ficha de resultado (bj-card): filete de colección arriba, sigla en mono, número en display. */
+/* Ficha de resultado (bux-card): filete de colección arriba, sigla en mono, número en display. */
 .sr-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .sr-item{position:relative;display:grid;gap:6px;padding:var(--space-5);background:var(--surface-1);border:1px solid var(--hairline);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);cursor:pointer;transition:border-color var(--duration-base) var(--ease-out),transform var(--duration-base) var(--ease-out);animation:sr-in .35s var(--ease-out) both;animation-delay:calc(var(--i) * 30ms)}
 .sr-item::before{content:"";position:absolute;top:0;left:var(--space-5);width:40px;height:3px;border-radius:0 0 2px 2px;background:var(--sr-dot,var(--hairline))}
@@ -75,7 +75,7 @@
 .sr-view .sr-fav.is-fav{color:var(--brand)}
 .sr-action:disabled{opacity:.45;cursor:default}
 
-/* Estado vacío (bj-empty). */
+/* Estado vacío (bux-empty). */
 .sr-empty{display:flex;flex-direction:column;align-items:center;gap:var(--space-3);padding:var(--space-12) var(--space-6);background:var(--surface-1);border:1px solid var(--hairline);border-radius:var(--radius-lg);text-align:center}
 .sr-view .sr-empty :is(h2,p){text-align:center!important;max-width:440px}
 .sr-empty h2{font:500 26px/32px var(--font-display);text-wrap:balance}

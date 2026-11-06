@@ -155,7 +155,7 @@ export function pinIcon(L, cache, sector, icon, mods = '', tech = '', { size = 2
         const classes = `${mods}${selected ? ' is-sel' : ''}`.trim();
         if (tech) {
             const height = Math.round(size * 46 / 36);
-            cache.set(key, L.divIcon({ className: `pmm-pin-wrap bj-marker ${classes}`, html: techMarkerSVG(tech, { variant: 'pin', size, planned }), iconSize: [size, height], iconAnchor: [size / 2, height], popupAnchor: [0, -height + 4] }));
+            cache.set(key, L.divIcon({ className: `pmm-pin-wrap bux-marker ${classes}`, html: techMarkerSVG(tech, { variant: 'pin', size, planned }), iconSize: [size, height], iconAnchor: [size / 2, height], popupAnchor: [0, -height + 4] }));
         } else {
             cache.set(key, L.divIcon({ className: `pmm-pin-wrap ${selected ? 'is-sel' : ''}`, html: `<span class="pmm-pin ${mods}" data-sector="${sector}">${infraIcon(icon, 13)}</span>`, iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -12] }));
         }

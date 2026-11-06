@@ -21,8 +21,8 @@
 .reader-settings-panel select { font:500 14px/1.2 var(--font-sans); letter-spacing:0; text-transform:none; padding:0 12px; min-height:var(--touch); width:100%; border:1px solid var(--border); border-radius:var(--radius-md); background:var(--surface-1); color:var(--ink); }
 .reader-settings-panel p { margin:0; font-size:12px; line-height:1.5; color:var(--ink-muted); }
 .reader-settings-panel [data-reader-reset] { justify-self:start; min-height:36px; padding:0 14px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--surface-1); color:var(--ink); font-weight:600; font-size:13px; }
-.reader-settings-theme .bj-seg { letter-spacing:0; text-transform:none; }
-.reader-settings-theme .bj-seg__opt { padding:0 6px; font-size:12px; }
+.reader-settings-theme .bux-seg { letter-spacing:0; text-transform:none; }
+.reader-settings-theme .bux-seg__opt { padding:0 6px; font-size:12px; }
 .reader-size { display:flex; align-items:center; justify-content:space-between; padding:3px; border:1px solid var(--hairline); border-radius:var(--radius-md); background:var(--surface-2); }
 .reader-size button { min-width:52px; min-height:40px; font:600 18px/1 var(--font-display); color:var(--ink); border-radius:8px; }
 .reader-size output { font:600 14px/1 var(--font-mono); color:var(--ink); font-variant-numeric:tabular-nums; }

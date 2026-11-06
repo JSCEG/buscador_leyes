@@ -173,11 +173,11 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                         <label><input type="radio" name="pmm-base" value="satelite"> Satélite</label>
                     </div>
                     <p class="pmm-legend pmm-legend--marks">
-                        <span><span class="bj-marker">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> Ubicación del permiso</span>
-                        <span><span class="bj-marker is-aprox">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> Aproximada</span>
-                        <span><span class="bj-marker">${techMarkerSVG('fv', { variant: 'dot', size: 20, planned: true })}</span> Aún sin operar</span>
-                        <span><span class="bj-marker is-novig">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> No vigente</span>
-                        <span class="pmm-legend-sizes">${[14, 20, 28].map(size => `<span class="bj-marker">${techMarkerSVG('fv', { variant: 'dot', size })}</span>`).join('')} Tamaño según capacidad: menos de 30, 30 a 100, 100 a 300 y más de 300 MW</span></p>
+                        <span><span class="bux-marker">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> Ubicación del permiso</span>
+                        <span><span class="bux-marker is-aprox">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> Aproximada</span>
+                        <span><span class="bux-marker">${techMarkerSVG('fv', { variant: 'dot', size: 20, planned: true })}</span> Aún sin operar</span>
+                        <span><span class="bux-marker is-novig">${techMarkerSVG('fv', { variant: 'dot', size: 20 })}</span> No vigente</span>
+                        <span class="pmm-legend-sizes">${[14, 20, 28].map(size => `<span class="bux-marker">${techMarkerSVG('fv', { variant: 'dot', size })}</span>`).join('')} Tamaño según capacidad: menos de 30, 30 a 100, 100 a 300 y más de 300 MW</span></p>
                     <p class="pmm-updated" data-updated>Consultando fecha de actualización…</p>
                 </aside>
                 <aside class="pmm-results" data-results hidden aria-label="Resultados">

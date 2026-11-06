@@ -56,7 +56,7 @@ const SORTS = {
     actividad: r => time(r.ultima_actividad),
     estado: r => (r.confirmado ? 1 : 0),
 };
-const SORT_ICON = '<svg class="bj-icon" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4M8 15l4 4 4-4"/></svg>';
+const SORT_ICON = '<svg class="bux-icon" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4M8 15l4 4 4-4"/></svg>';
 const shortDate = value => (value ? new Date(value).toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' }) : '—');
 
 /**
@@ -78,7 +78,7 @@ export function renderUsersView(container) {
             <div class="us-tools">
                 <label class="us-search"><span class="us-sr">Buscar usuario</span>
                     <input type="search" placeholder="Buscar por correo o nombre" autocomplete="off" data-q></label>
-                <button type="button" class="bj-btn bj-btn--secondary us-btn" data-reload><svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>Actualizar</button>
+                <button type="button" class="bux-btn bux-btn--secondary us-btn" data-reload><svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>Actualizar</button>
             </div>
             <div data-list><p class="us-muted">Cargando usuarios…</p></div>
             <p class="us-note"><b>Último acceso</b>: última vez que inició sesión. <b>Última actividad</b>: última vez que usó el sitio con su sesión abierta (quien se queda conectado no vuelve a iniciar sesión).</p>
@@ -107,11 +107,11 @@ export function renderUsersView(container) {
                 <tbody>${list.map(r => {
                     const recent = r.ultima_actividad && now - new Date(r.ultima_actividad).getTime() <= 7 * DAY;
                     return `<tr>
-                        <td data-label="Persona"><span class="us-person"><span class="bj-avatar us-avatar" aria-hidden="true">${esc(initials(r.nombre, r.email))}</span><span><strong>${esc(r.nombre || r.email)}</strong>${r.nombre ? `<small>${esc(r.email)}</small>` : ''}</span></span></td>
+                        <td data-label="Persona"><span class="us-person"><span class="bux-avatar us-avatar" aria-hidden="true">${esc(initials(r.nombre, r.email))}</span><span><strong>${esc(r.nombre || r.email)}</strong>${r.nombre ? `<small>${esc(r.email)}</small>` : ''}</span></span></td>
                         <td data-label="Registro">${shortDate(r.registrado)}</td>
                         <td data-label="Último acceso"><span title="${esc(fullDate(r.ultimo_acceso))}">${relativeTime(r.ultimo_acceso, now)}</span><small>${esc(fullDate(r.ultimo_acceso))}</small></td>
                         <td data-label="Última actividad"><span class="${recent ? 'us-recent' : ''}" title="${esc(fullDate(r.ultima_actividad))}">${relativeTime(r.ultima_actividad, now)}</span>${r.sesiones_abiertas ? `<small>${r.sesiones_abiertas} ${r.sesiones_abiertas === 1 ? 'sesión abierta' : 'sesiones abiertas'}</small>` : ''}</td>
-                        <td data-label="Estado">${r.confirmado ? '<span class="bj-badge bj-badge--success"><span class="bj-badge__dot"></span>Confirmada</span>' : '<span class="bj-badge bj-badge--warning"><span class="bj-badge__dot"></span>Pendiente</span>'}</td>
+                        <td data-label="Estado">${r.confirmado ? '<span class="bux-badge bux-badge--success"><span class="bux-badge__dot"></span>Confirmada</span>' : '<span class="bux-badge bux-badge--warning"><span class="bux-badge__dot"></span>Pendiente</span>'}</td>
                     </tr>`;
                 }).join('')}</tbody>
             </table></div>`;

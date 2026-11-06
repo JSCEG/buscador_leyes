@@ -1,92 +1,85 @@
 ---
-version: alpha
-name: SENER Legal Search Design System
-description: Sistema visual institucional para el buscador jurídico energético.
+version: 2
+name: Búho · Buscador Jurídico
+description: Sistema visual Búho aplicado al buscador de normativa energética. Papel, tinta, cristal y un acento por tipo de documento.
 colors:
-  background: "#F7F1E7"
-  surface: "#FFFAF1"
-  text: "#20171B"
-  muted: "#6C5B58"
-  border: "#E8D8C7"
-  accent: "#9B2247"
-  success: "#1E5B4F"
-  warning: "#A57F2C"
+  papel: "#fafafa"
+  papel-alto: "#ffffff"
+  tinta: "#0a0707"
+  tinta-suave: "#5b5e63"
+  rojo: "#9b2247"
+  accion: "#0a0707"
 typography:
-  display:
-    fontFamily: Merriweather
-    fontSize: 64px
-    fontWeight: 700
-    lineHeight: 1.1
-  body:
-    fontFamily: Noto Sans
-    fontSize: 16px
-    fontWeight: 400
-    lineHeight: 1.65
-rounded:
-  sm: 10px
-  md: 16px
-  lg: 24px
-spacing:
-  sm: 8px
-  md: 16px
-  lg: 32px
-components:
-  hero-panel:
-    backgroundColor: "#FFFAF1"
-    textColor: "#20171B"
-    rounded: "{rounded.lg}"
-    padding: 32px
-  search-input:
-    backgroundColor: "#FFFFFF"
-    textColor: "#20171B"
-    rounded: "{rounded.lg}"
-    padding: 16px
-  feature-card:
-    backgroundColor: "#FFFAF1"
-    textColor: "#20171B"
-    rounded: "{rounded.lg}"
-    padding: 24px
+  display: Fraunces
+  body: Manrope
 ---
 
-## Overview
+# Búho en el Buscador Jurídico
 
-Dirección visual para una aplicación institucional de consulta jurídica: cálida, editorial y sobria, con acentos SENER en guinda, verde energía y dorado.
+La fuente de los valores es `src/styles/design/variables.css`. Los componentes viven en `src/styles/design/buho/`.
 
-## Colors
+## Principios
 
-- `accent` se usa para acciones, énfasis jurídico e indicadores de navegación.
-- `success` se reserva para energía, temas y estados positivos.
-- `warning` funciona como acento patrimonial y foco accesible.
-- Los fondos nunca son blanco puro; usan superficies crema con grano sutil.
+- **Papel y tinta.** El fondo es papel con retícula neutra. Sin bandas ni difuminados rojos.
+- **El color es un acento.** Cada tipo de documento tiene el suyo (`--col-*`) y aparece en banda, listón, regla e icono. El texto nunca lleva el color del tipo.
+- **La acción principal es tinta** (`--accion`). El guinda (`--rojo`) marca dónde estás y lo seleccionado.
+- **Cristal en dos densidades**, `bu-cristal` y `bu-cristal-fuerte`, nunca una encima de otra. En Contraste se apaga.
+- **El contenido oficial no cambia.** La presentación solo añade clases; `scripts/audit-tables.mjs` lo comprueba.
 
-## Typography
+## Temas
 
-Merriweather sostiene titulares con tono jurídico/editorial. Noto Sans se usa para lectura de interfaz, filtros y textos largos.
+`data-theme`: `light`, `dark`, `sepia` y `contraste`. Claro y Oscuro son los de Búho; Sepia y Contraste se derivan. Las preferencias siguen en `app-theme` y `app-dark-mode`.
 
-## Layout
+## Tipos de documento
 
-La portada prioriza una tarjeta hero amplia, buscador elevado y tarjetas informativas con profundidad ligera. En móvil se reduce a una columna sin recortes horizontales.
+| Tipo | Claro | Oscuro |
+|---|---|---|
+| Leyes | `#9b2247` | `#e57a9a` |
+| Reglamentos | `#2e6fb0` | `#6ea8e0` |
+| Acuerdos | `#0e8a6e` | `#3ba98c` |
+| Disposiciones | `#0e7f99` | `#39b5d1` |
+| Convocatorias | `#a8720c` | `#e0a12e` |
+| Normas | `#b84f29` | `#e0784f` |
+| Otros | `#5e6671` | `#9aa3ae` |
 
-## Elevation & Depth
+`[data-category]` fija `--ac` con el color que corresponde. La autoridad SENER usa `--aut-sener`; la CNE, `--rojo`.
 
-Sombras cálidas, bordes guinda translúcidos y capas con blur ligero para separar header, buscador y tarjetas sin parecer genérico.
+## Armazón
 
-## Shapes
+| Ancho | Navegación |
+|---|---|
+| 1200 px o más | Riel de 220 px |
+| 768–1199 px | Riel de iconos |
+| Menos de 768 px | Cabecera y menú inferior con hoja «Más» |
 
-Radios grandes en superficies principales; chips y controles usan píldoras para sugerencias y metadatos.
+`--riel-w` y `--riel-off` dicen cuánto ocupa el riel. Lo que se fija a pantalla completa debe respetar `--riel-off`.
 
-## Components
+## Componentes
 
-- Header translúcido con borde institucional fino.
-- Menú con subrayado activo guinda/dorado, hover elevado y `aria-current` en la sección vigente.
-- Drawer móvil cálido con estados activos laterales y foco visible.
-- Toggle de modo oscuro persistente, respetando guinda, verde energía y dorado sobre superficies profundas.
-- Hero panel con sello tipográfico y órbitas decorativas.
-- Search input prominente con foco dorado.
-- Feature cards con iconografía monocroma y copy específico.
+| Clase | Uso |
+|---|---|
+| `.bu-escena` | Fondo de la app |
+| `.bu-cristal`, `.bu-cristal-fuerte` | Superficies de vidrio |
+| `.bu-btn` con `-primario`, `-contorno`, `-fantasma`, `-sm` | Botones |
+| `.bu-chip`, `.bu-insignia`, `.bu-campo`, `.bu-seg` | Controles |
+| `.bu-ico` | Mosaico de tipo de permiso (`typeTile`) |
+| `.bu-cf` | Carpeta animada (`folderHtml`) |
+| `.bu-mini` | Librito neutro |
+| `.bu-modal`, `.bu-telon`, `.bu-hoja`, `.bu-toast` | Capas |
+| `.bux-*` | Componentes anteriores aún en uso, en `buho/components.css`; leen tokens |
 
-## Do's and Don'ts
+## Tablas
 
-- Do: mantener guinda, verde y dorado como acentos jerárquicos.
-- Do: preservar lectura jurídica, sobria y de alta confianza.
-- Don't: introducir gradientes morados, blanco plano o tarjetas genéricas sin contenido normativo.
+Formato de hoja de cálculo en `article-tables.css`: sin cuadrícula, encabezado guinda con borde de 2 px, cifras tabulares a la derecha, «–» donde falta el dato (solo CSS), total guinda con borde superior. Desde 5 columnas, primera columna fija. Si no cabe, «Desliza» y «Ver en grande».
+
+## Movimiento
+
+Tres velocidades (160, 320 y 800 ms). El estante usa resorte críticamente amortiguado con topes (`springStep`). El grafo de resultados conserva su física. Con `prefers-reduced-motion` todo cambia sin animar.
+
+## Mapas
+
+Las líneas de transmisión usan el estándar por tensión (`--map-kv*`), igual en todos los temas. Marcadores en gota por tecnología (`--tec-*`), de 22, 26 o 30 px según capacidad.
+
+## Deuda conocida
+
+`tests/design-leftovers.test.js` fija un tope de `!important` y de colores fuera de tokens, y solo puede bajar. Cada vista que se reescriba debe bajar esos números.

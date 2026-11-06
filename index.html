@@ -261,32 +261,32 @@
             </form>
 
             <!-- Logged-in state (visible when authenticated) -->
-            <div id="auth-logged-in" class="hidden bj-usermenu">
-                <div class="bj-usermenu__head">
-                    <span class="bj-avatar" id="auth-user-initials" aria-hidden="true"></span>
-                    <div class="bj-usermenu__who">
-                        <p class="bj-usermenu__hint">Mi cuenta</p>
-                        <p class="bj-usermenu__name" id="auth-user-name"></p>
-                        <p class="bj-usermenu__email" id="auth-user-email"></p>
+            <div id="auth-logged-in" class="hidden bux-usermenu">
+                <div class="bux-usermenu__head">
+                    <span class="bux-avatar" id="auth-user-initials" aria-hidden="true"></span>
+                    <div class="bux-usermenu__who">
+                        <p class="bux-usermenu__hint">Mi cuenta</p>
+                        <p class="bux-usermenu__name" id="auth-user-name"></p>
+                        <p class="bux-usermenu__email" id="auth-user-email"></p>
                     </div>
-                    <dl class="bj-usermenu__counts">
+                    <dl class="bux-usermenu__counts">
                         <div><dt>Guardados</dt><dd data-account-count="saved">0</dd></div>
                         <div><dt>Mesas</dt><dd data-account-count="desks">0</dd></div>
                         <div><dt>Notas</dt><dd data-account-count="notes">0</dd></div>
                     </dl>
                 </div>
-                <nav class="bj-usermenu__links" aria-label="Tu cuenta">
-                    <button type="button" class="bj-menu__item" data-account-go="favorites"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>Guardados</button>
-                    <button type="button" class="bj-menu__item" data-account-go="desk"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg>Mi mesa de consulta</button>
+                <nav class="bux-usermenu__links" aria-label="Tu cuenta">
+                    <button type="button" class="bux-menu__item" data-account-go="favorites"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17l-6-3.5L6 21Z"/></svg>Guardados</button>
+                    <button type="button" class="bux-menu__item" data-account-go="desk"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/></svg>Mi mesa de consulta</button>
                 </nav>
                 <!-- Owner/admin tools: only accounts the database recognizes see them. -->
                 <div id="auth-admin-tools" class="auth-admin-tools hidden">
                     <p class="auth-admin-title">Administración</p>
-                    <a href="#" id="nav-admin" class="hidden auth-admin-link"><svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg> Gestor de ingesta</a>
+                    <a href="#" id="nav-admin" class="hidden auth-admin-link"><svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg> Gestor de ingesta</a>
                     <a href="#usuarios" id="nav-usuarios" class="hidden auth-admin-link"><svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-5-3.9M9 20H2v-2a4 4 0 014-4h3a4 4 0 014 4v2zm4-12a4 4 0 11-8 0 4 4 0 018 0zm6 2a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Usuarios registrados</a>
                 </div>
-                <div class="bj-menu__sep" role="separator"></div>
-                <button id="auth-logout-btn" type="button" class="bj-menu__item bj-usermenu__logout"><svg class="bj-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M15 16l4-4-4-4M19 12H9"/></svg>Cerrar sesión</button>
+                <div class="bux-menu__sep" role="separator"></div>
+                <button id="auth-logout-btn" type="button" class="bux-menu__item bux-usermenu__logout"><svg class="bux-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M15 16l4-4-4-4M19 12H9"/></svg>Cerrar sesión</button>
             </div>
         </div>
     </div>
@@ -308,10 +308,10 @@
         <!-- La caja de búsqueda: una sola, viaja del centro a la parte de arriba -->
         <div id="global-search-wrapper" class="bu-caja bu-cristal-fuerte w-full z-30">
             <svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
-            <input type="text" id="search-input" class="bj-search__input" aria-label="Buscar en los documentos"
+            <input type="text" id="search-input" class="bux-search__input" aria-label="Buscar en los documentos"
                 placeholder="Busca una palabra, ley o artículo">
             <div id="loading-indicator" class="hidden" role="status" aria-live="polite">
-                <span class="bj-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="bj-dots__label" data-loading-label>Buscando…</span>
+                <span class="bux-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="bux-dots__label" data-loading-label>Buscando…</span>
             </div>
             <button type="button" id="search-go" class="bu-caja-go" aria-label="Buscar">Buscar</button>
         </div>
@@ -612,11 +612,11 @@
     <footer id="institutional-footer" class="site-footer">
         <div class="site-footer__inner">
             <div class="site-footer__brand">
-                <span class="bj-lockup"><img src="/img/logo-mark.svg" alt="" class="bj-lockup__mark" width="30" height="40"><span class="bj-lockup__text"><span class="bj-lockup__name">Buscador Jurídico</span><span class="bj-lockup__sub">Sector energético</span></span></span>
+                <span class="bux-lockup"><img src="/img/logo-mark.svg" alt="" class="bux-lockup__mark" width="30" height="40"><span class="bux-lockup__text"><span class="bux-lockup__name">Buscador Jurídico</span><span class="bux-lockup__sub">Sector energético</span></span></span>
                 <p class="site-footer__credit">© 2026 Buscador Jurídico<br>Elaborado por JSC</p>
             </div>
             <nav class="site-footer__links" aria-label="Información del sitio">
-                <button type="button" class="bj-btn bj-btn--secondary bj-btn--sm" data-feedback>Enviar comentario</button>
+                <button type="button" class="bux-btn bux-btn--secondary bux-btn--sm" data-feedback>Enviar comentario</button>
                 <a href="#" class="site-footer__link" data-legal="terminos">Términos de uso</a>
                 <a href="#" class="site-footer__link" data-legal="privacidad">Privacidad</a>
             </nav>

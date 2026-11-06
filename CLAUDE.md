@@ -47,6 +47,9 @@ SPA de una sola página (`index.html`) sin framework. Vite como bundler, Tailwin
 | `src/scripts/ui.js` | Manejo de todas las vistas (hero, resultados, detalle de ley, favoritos, estadísticas), modo oscuro, deep linking con `history.pushState` |
 | `src/scripts/analisis.js` | Vista de Temas Transversales: datos hardcodeados en `TEMAS[]`, renderizado con D3 y HTML dinámico |
 | `src/scripts/admin-ingest.js` | Panel para subir PDFs vía drag-and-drop, parsear con pdf.js y escribir artículos a Supabase |
+| `src/lib/book-paginate.js`, `src/scripts/book-view.js` | Lectura como libro: paginación que nunca pierde texto y giro 3D |
+| `src/lib/article-picker.js` | Selector de artículos del panel y de la hoja |
+| `src/lib/permit-type.js` | Tipo de permiso por número y mosaico de icono |
 | `src/lib/supabase.js` | Singleton del cliente Supabase (usa `import.meta.env.VITE_*`) |
 
 ### Base de datos Supabase
@@ -61,12 +64,14 @@ La búsqueda usa `.textSearch('fts', query)` con operador `&` entre palabras.
 ### Vistas de la SPA
 
 Las vistas son secciones del DOM que se muestran/ocultan con `classList.add/remove('hidden')`. No hay router. Las vistas son:
-- `#hero-section` — pantalla inicial con buscador
-- `#results-container` — resultados de búsqueda
-- `#law-detail-container` — TOC + artículos de una ley completa
+- `#hero-section` — portada de búsqueda (`#buscar`)
+- `#home-view` — estante de documentos (`shelf-view.js`), con carpetas por tipo
+- `#results-container` — resultados de búsqueda y secciones que se pintan ahí
+- `#law-detail-container` — documento: por artículo o como libro (`book-view.js`)
 - `#analisis-container` — Temas Transversales (renderizado por `analisis.js`)
 - `#admin-ingest-container` — panel de ingesta
-- `#stats-minimal` — contador de leyes/artículos en el header
+
+El armazón es `.bu-riel` (riel), `.bu-cab-m` (cabecera de celular) y `#bottom-nav` (menú inferior); la hoja «Más» conserva el `id` `mobile-menu-drawer`.
 
 ### Deep linking
 
@@ -84,12 +89,7 @@ Solo se registra en producción (`!import.meta.env.DEV`). La versión se pasa co
 
 ### Tema visual
 
-Colores institucionales SENER definidos en `tailwind.config.js`:
-- `guinda` / `guinda-dk` / `guinda-lt` — rojo institucional (`#9B2247`)
-- `verde` / `verde-lt` — verde energía (`#1E5B4F`)
-- `dorado` — hidrocarburos (`#A57F2C`)
-
-El modo oscuro inyecta un `<style id="global-dark-style">` en `<head>` con overrides `!important` sobre clases de Tailwind. No usa `dark:` variants de Tailwind. Se persiste en `localStorage` con key `app-dark-mode`.
+Sistema Búho (ver `DESIGN.md`). Tokens en `src/styles/design/variables.css` para los 4 temas de `data-theme` (`light`, `dark`, `sepia`, `contraste`); componentes `bu-*` en `src/styles/design/buho/`. Tailwind apunta a esos tokens. Letras: Fraunces y Manrope, servidas desde `public/fonts/`. Marca: `src/lib/brand-mark.js`; los archivos de `public/img` se regeneran con `node scripts/generate-brand-assets.mjs`.
 
 ### `generate-manifest.js`
 
@@ -101,3 +101,5 @@ En la raíz (no son parte del bundle):
 - `ingestar_pdf.js` — parsea PDFs con pdf2json y sube artículos a Supabase
 - `rechunk_leyes.js` / `fix_rechunk.js` — re-chunking de leyes existentes
 - `backfill_temas.js` — rellena tabla `temas` desde los JSONs de `public/data/`
+
+En `scripts/`: `audit-tables.mjs` compara texto y celdas de todas las tablas antes y después del formato (`--local` usa `public/data`).

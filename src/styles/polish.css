@@ -1,6 +1,6 @@
 /* App-wide finish: type scale, empty states, view entrance and small interaction feedback. */
 
-/* Typography: Patria for display, Manrope for reading; numbers line up in tables and counters. */
+/* Typography: Fraunces for display, Manrope for reading; numbers line up in tables and counters. */
 body{font-family:var(--font-sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 h1,h2,.sr-empty h2{font-family:var(--font-display);letter-spacing:-.01em;text-wrap:balance}
 p,li{text-wrap:pretty}

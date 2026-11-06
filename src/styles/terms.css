@@ -61,7 +61,7 @@
 /* ── Glossary del sistema: índice A–Z y entradas con cita ──────────────────── */
 .tm-mode{flex:none}
 .tm-mode{width:auto;max-width:none}
-.tm-mode .bj-seg__opt{flex:none;white-space:nowrap;padding:0 12px}
+.tm-mode .bux-seg__opt{flex:none;white-space:nowrap;padding:0 12px}
 .tm-layout .tm-glossary{display:none}
 .tm-layout[data-mode=glosario] .tm-glossary{display:flex;flex-direction:column;gap:12px;min-width:0}
 .tm-layout[data-mode=glosario] .tm-graph{display:none}

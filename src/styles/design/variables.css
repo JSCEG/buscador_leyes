@@ -304,7 +304,7 @@
   --nav-height: 64px;
   --toc-width: 288px;
   --touch: 44px;
-  --font-display: "Fraunces", "Patria", Georgia, "Times New Roman", serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-sans: "Manrope", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   --ease-out: cubic-bezier(.2,.7,.2,1);

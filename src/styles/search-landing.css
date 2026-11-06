@@ -17,8 +17,8 @@
 #global-search-wrapper.is-docked .bu-caja-go{height:36px;padding:0 15px;font-size:13.5px}
 
 #global-search-wrapper #autocomplete-results.sr-suggest{top:calc(100% + 8px);padding:8px;border:1px solid var(--cristal-borde);border-radius:var(--radius-xl);background:var(--cristal-fuerte);box-shadow:var(--sombra-flotante);-webkit-backdrop-filter:blur(var(--blur-flotante));backdrop-filter:blur(var(--blur-flotante))}
-#autocomplete-results .bj-menu__item{border-radius:13px;min-height:42px;color:var(--tinta)}
-#autocomplete-results .bj-menu__item:hover,#autocomplete-results .bj-menu__item.is-active{background:var(--rojo-suave)}
+#autocomplete-results .bux-menu__item{border-radius:13px;min-height:42px;color:var(--tinta)}
+#autocomplete-results .bux-menu__item:hover,#autocomplete-results .bux-menu__item.is-active{background:var(--rojo-suave)}
 
 .bu-modos{display:flex;width:100%;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin:14px 0 0;color:var(--tinta-suave);font-size:13.5px}
 .bu-modos.hidden{display:none}

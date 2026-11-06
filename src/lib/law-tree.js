@@ -5,7 +5,7 @@
  */
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const clean = value => (value && value !== 'null' && value !== 'undefined' ? String(value).trim() : '');
-const CHEVRON = '<svg class="bj-icon law-tree-chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
+const CHEVRON = '<svg class="bux-icon law-tree-chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
 
 /** Groups articles by título and capítulo, in reading order. */
 export function lawTreeGroups(articles = []) {

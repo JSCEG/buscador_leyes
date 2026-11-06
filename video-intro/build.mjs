@@ -7,15 +7,18 @@ import { pathToFileURL } from 'url';
 const root = process.cwd();
 const load = file => import(pathToFileURL(path.join(root, file)).href);
 const { wingsSvg } = await load('src/lib/brand-wings.js');
+const { MARK_BODY, MARK_BROW, MARK_EYE } = await load('src/lib/brand-mark.js');
 const { MEXICO_VIEWBOX, MEXICO_STATES } = await load('src/lib/mexico-map.js');
 
-// Same outlines as src/lib/brand-mark.js.
-const BROW = 'M6 2 C22 24 50 31 78 29 C94 28 108 18 118 2 C116 24 106 44 90 66 C90 52 82 41 68 40 C42 38 22 26 6 2 Z';
-const BODY = 'M58 42 C36 42 18 56 22 72 C26 86 52 87 68 91 C84 95 91 105 88 119 C86 127 81 138 72 150 L32 124 C22 116 12 114 2 122 L72 162 C92 150 106 128 105 106 C104 88 86 80 68 75 C52 71 36 68 36 58 C36 50 46 44 58 42 Z';
-const EYE = 'M56 49 C60 60 70 64 84 59 C74 72 54 68 56 49 Z';
+// The official mark, brought to the film's drawing units: the eye keeps its place at (68, 59).
+const MARK_SCALE = 0.31;
+const fit = d => d.replace(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g, (_, x, y) => `${(x * MARK_SCALE - 7.6).toFixed(2)},${(y * MARK_SCALE + 17.5).toFixed(2)}`);
+const BROW = fit(MARK_BROW);
+const BODY = fit(MARK_BODY);
+const EYE = fit(MARK_EYE);
 
 const IVORY = '#F6EFE6';
-const GOLD = '#D9B765';
+const ROSE = '#E57A9A';
 const NAME = 'Buscador Jurídico';
 const SUBTITLE = 'Leyes y reglas de energía de México';
 const DURATION = 3.8;
@@ -28,7 +31,7 @@ const { W, H } = LAYOUT;
 const box = ([left, top, width, height]) => `left: ${left}px; top: ${top}px; width: ${width}px; height: ${height}px;`
 
 // Open the wings wider than the intro in the page: here the mark stands alone, without sheets.
-const wings = wingsSvg({ blade: IVORY, feather: GOLD, className: 'wings' })
+const wings = wingsSvg({ blade: IVORY, feather: ROSE, className: 'wings' })
   .replace('<g><g class="si-wing">', '<g transform="translate(-48 0)"><g class="si-wing">')
   .replace('matrix(-1 0 0 1 900 0)', 'matrix(-1 0 0 1 948 0)');
 
@@ -57,8 +60,8 @@ const html = `<!doctype html>
       #name { display: flex; overflow: hidden; padding: 4px 8px 10px; font: 600 ${LAYOUT.name}px/1.1 Newsreader, serif; letter-spacing: -.01em; }
       #name .ch { display: inline-block; }
       #name .gap { display: inline-block; width: .26em; }
-      #rule { width: 150px; height: 3px; margin-top: 14px; background: ${GOLD}; transform-origin: center; }
-      #sub { margin-top: 22px; overflow: hidden; font: 400 ${LAYOUT.sub}px/1.3 "Noto Sans", sans-serif; color: #E9DFD0; }
+      #rule { width: 150px; height: 3px; margin-top: 14px; background: ${ROSE}; transform-origin: center; }
+      #sub { margin-top: 22px; overflow: hidden; font: 400 ${LAYOUT.sub}px/1.3 "Manrope", sans-serif; color: #E9DFD0; }
       #sub span { display: block; }
     </style>
   </head>
@@ -73,16 +76,16 @@ const html = `<!doctype html>
             <filter id="soft" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="9" /></filter>
             <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0" stop-color="#fff" stop-opacity="0" />
-              <stop offset=".5" stop-color="#FFE9C2" stop-opacity=".95" />
+              <stop offset=".5" stop-color="#FFFFFF" stop-opacity=".95" />
               <stop offset="1" stop-color="#fff" stop-opacity="0" />
             </linearGradient>
             <mask id="ink-brow" maskUnits="userSpaceOnUse" x="-20" y="-20" width="170" height="200">
-              <path class="reveal" id="r-left" pathLength="1" stroke-width="44" d="M72 34 C40 34 20 22 2 -4" />
-              <path class="reveal" id="r-right" pathLength="1" stroke-width="44" d="M54 33 C92 36 110 20 122 -4" />
-              <path class="reveal" id="r-beak" pathLength="1" stroke-width="34" d="M82 30 L92 72" />
+              <path class="reveal" id="r-left" pathLength="1" stroke-width="44" d="M72 46 C44 46 24 38 6 18" />
+              <path class="reveal" id="r-right" pathLength="1" stroke-width="44" d="M54 44 C90 46 108 36 124 18" />
+              <path class="reveal" id="r-beak" pathLength="1" stroke-width="34" d="M84 40 L88 72" />
             </mask>
             <mask id="ink-body" maskUnits="userSpaceOnUse" x="-20" y="-20" width="170" height="200">
-              <path class="reveal" id="r-body" pathLength="1" stroke-width="40" d="M64 40 C34 40 24 58 29 70 C34 82 56 81 68 84 C88 88 98 100 96 116 C94 132 82 146 72 158 L18 120 L-6 122" />
+              <path class="reveal" id="r-body" pathLength="1" stroke-width="56" d="M64 40 C34 40 24 58 29 70 C34 82 56 81 68 84 C88 88 98 100 96 116 C94 132 82 146 72 158 L18 120 L-6 122" />
             </mask>
             <mask id="whole" maskUnits="userSpaceOnUse" x="-20" y="-20" width="170" height="200">
               <path fill="#fff" d="${BROW}" /><path fill="#fff" d="${BODY}" />
@@ -92,8 +95,8 @@ const html = `<!doctype html>
             <path id="brow" d="${BROW}" fill="${IVORY}" mask="url(#ink-brow)" />
             <path id="body" d="${BODY}" fill="${IVORY}" mask="url(#ink-body)" />
             <g mask="url(#whole)"><rect id="sweep" x="-70" y="-20" width="46" height="210" fill="url(#sheen)" /></g>
-            <path id="glow" d="${EYE}" fill="${GOLD}" filter="url(#soft)" />
-            <path id="eye" d="${EYE}" fill="${GOLD}" />
+            <path id="glow" d="${EYE}" fill="${ROSE}" filter="url(#soft)" />
+            <path id="eye" d="${EYE}" fill="${ROSE}" />
           </g>
         </svg>
         <div id="words">

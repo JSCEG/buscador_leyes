@@ -30,8 +30,8 @@
 #results-container .us-view .us-table th,.us-view .us-table th{padding:10px 16px;border-bottom:1px solid var(--border)!important;background:transparent!important;color:var(--ink-muted)!important;font:700 10.5px/14px var(--font-sans)!important;letter-spacing:.12em;text-align:left;text-transform:uppercase;white-space:nowrap}
 .us-table th button{all:unset;display:inline-flex;align-items:center;gap:4px;cursor:pointer}
 .us-table th button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
-.us-table th .bj-icon{opacity:.45}
-.us-table th[aria-sort] .bj-icon{opacity:1;color:var(--brand)}
+.us-table th .bux-icon{opacity:.45}
+.us-table th[aria-sort] .bux-icon{opacity:1;color:var(--brand)}
 #results-container .us-view .us-table td,.us-view .us-table td{padding:11px 16px;border-bottom:1px solid var(--hairline)!important;background:transparent!important;vertical-align:middle;font-variant-numeric:tabular-nums}
 .us-table tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--brand) 3%,transparent)!important}
 .us-table tbody tr:last-child td{border-bottom:0!important}

@@ -68,8 +68,8 @@ html.dark-mode #detail-modal{
 
 /* Texto a medida de lectura y fracciones en filas */
 #modal-content .reader-text{max-width:var(--measure,72ch);color:var(--ink-2)}
-#modal-content .reader-text p.bj-frac{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;margin:0 0 .9em!important;padding:0!important;border:0!important}
-html #detail-modal #modal-content .reader-text .bj-frac__n{font-family:var(--font-mono)!important;font-weight:600!important;font-size:.8em!important;color:var(--brand)!important;text-align:right;padding-top:.15em}
+#modal-content .reader-text p.bux-frac{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;margin:0 0 .9em!important;padding:0!important;border:0!important}
+html #detail-modal #modal-content .reader-text .bux-frac__n{font-family:var(--font-mono)!important;font-weight:600!important;font-size:.8em!important;color:var(--brand)!important;text-align:right;padding-top:.15em}
 #modal-content .rm-location{font:500 13px/18px var(--font-sans);color:var(--ink-muted)}
 #modal-content .rm-location span:last-child{color:var(--ink);font-weight:600}
 
@@ -83,7 +83,7 @@ html #detail-modal #modal-content .reader-text .bj-frac__n{font-family:var(--fon
 #modal-panel > div:last-child #cite-btn svg{color:currentColor!important}
 @media (max-width:640px){
     #modal-panel #modal-title.reader-num{font-size:28px!important}
-    #modal-content .reader-text p.bj-frac{grid-template-columns:32px minmax(0,1fr)}
+    #modal-content .reader-text p.bux-frac{grid-template-columns:32px minmax(0,1fr)}
     #modal-panel > div:last-child #cite-btn .btn-label{display:inline!important}
 }
 

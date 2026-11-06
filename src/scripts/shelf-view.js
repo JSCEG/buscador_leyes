@@ -31,7 +31,7 @@ const OPENING_INDEX = 3;
 const OPENING_MIN_ITEMS = 12;
 const CAPTION_MS = 420;
 const CAPTION_EASE = 'cubic-bezier(.16,1,.3,1)';
-const SEARCH_ICON = '<svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>';
+const SEARCH_ICON = '<svg class="bux-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>';
 const ARROW = direction => `<svg width="24" height="12" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${direction < 0 ? 'M6 1 1 6l5 5M1 6h22' : 'm18 1 5 5-5 5m5-5H1'}"/></svg>`;
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -51,8 +51,8 @@ export function buildShelf(summaries) {
 const metaLine = data => [data.siglas, data.groupLabel, data.year].filter(Boolean).join(' · ');
 
 function statusHTML(state) {
-    if (state === 'loading') return '<div class="sh-status" data-state="loading" role="status"><span class="bj-dots" aria-hidden="true"><i></i><i></i><i></i></span><p>Cargando documentos…</p></div>';
-    return '<div class="sh-status" data-state="error" role="alert"><p>No pudimos mostrar el estante en este momento.</p><button type="button" class="bj-btn bj-btn--secondary" data-sh-browse>Ver todos los documentos</button></div>';
+    if (state === 'loading') return '<div class="sh-status" data-state="loading" role="status"><span class="bux-dots" aria-hidden="true"><i></i><i></i><i></i></span><p>Cargando documentos…</p></div>';
+    return '<div class="sh-status" data-state="error" role="alert"><p>No pudimos mostrar el estante en este momento.</p><button type="button" class="bux-btn bux-btn--secondary" data-sh-browse>Ver todos los documentos</button></div>';
 }
 
 /**
@@ -63,7 +63,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     host.innerHTML = `<div class="sh-view">
         <div class="sh-top">
             <h1>Leyes y reglas de <em>energía</em> de México, en un solo lugar</h1>
-            <div class="sh-search bu-cristal">${SEARCH_ICON}<input type="search" class="bj-search__input" aria-label="Buscar en los documentos" placeholder="Busca una ley, un artículo o un tema" autocomplete="off"></div>
+            <div class="sh-search bu-cristal">${SEARCH_ICON}<input type="search" class="bux-search__input" aria-label="Buscar en los documentos" placeholder="Busca una ley, un artículo o un tema" autocomplete="off"></div>
         </div>
         <section class="sh-shelf" aria-roledescription="carrusel" aria-label="Estante de documentos" tabindex="0">
             <div class="sh-probe" aria-hidden="true"></div>

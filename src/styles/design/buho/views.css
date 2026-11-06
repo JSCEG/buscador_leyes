@@ -8,7 +8,7 @@ html body :is(.tl-head, .rt-head, .ac-library .ac-hero)::after { display: none; 
 html body :is(.tl-head, .rt-head, .cf-head, .pl-head, .hp-head) h1,
 html body .ac-library .ac-hero h1 { color: var(--tinta) !important; font-family: var(--font-display); font-weight: 400; letter-spacing: -.01em; }
 html body :is(.tl-head, .rt-head, .pl-head, .hp-head) :is(p, span, em, b, strong),
-html body .ac-library .ac-hero :is(p, span, em) { color: var(--tinta-suave) !important; }
+html body .ac-library .ac-hero :is(p, span, em, label) { color: var(--tinta-suave) !important; }
 html body .pl-view .pl-head :is(.pl-title, .pl-lead, .pl-basis, .pl-cut) { max-width: 76ch; color: var(--tinta-suave) !important; }
 html body .pl-view .pl-head h1.pl-title, html body .pl-view .pl-head .pl-title { color: var(--tinta) !important; }
 html body .ac-library .ac-hero .ac-header { color: var(--tinta); }

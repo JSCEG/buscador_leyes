@@ -4,8 +4,7 @@
 @import './mobile-responsive.css';
 @import './polish.css';
 @import './article-tables.css';
-@import './design/chrome.css';
-@import './design/components-extra.css';
+@import './design/buho/components.css';
 @import './design/buho/index.css';
 
 @tailwind base;

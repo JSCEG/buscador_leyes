@@ -46,9 +46,9 @@ export async function renderTermsView(host, { summaries = [], selected = '', onS
             <div class="tm-search"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
                 <input type="search" data-tm-search placeholder="Buscar un término (ej. almacenamiento)" aria-label="Buscar un término" autocomplete="off" list="tm-term-list">
                 <datalist id="tm-term-list">${terms.map(t => `<option value="${esc(t.label)}">`).join('')}</datalist></div>
-            <div class="bj-seg tm-mode" role="radiogroup" aria-label="Cómo ver los términos">
-                <button type="button" role="radio" class="bj-seg__opt" data-tm-mode="mapa" aria-checked="${state.mode === 'mapa'}">Mapa</button>
-                <button type="button" role="radio" class="bj-seg__opt" data-tm-mode="glosario" aria-checked="${state.mode === 'glosario'}">Glosario A–Z</button>
+            <div class="bux-seg tm-mode" role="radiogroup" aria-label="Cómo ver los términos">
+                <button type="button" role="radio" class="bux-seg__opt" data-tm-mode="mapa" aria-checked="${state.mode === 'mapa'}">Mapa</button>
+                <button type="button" role="radio" class="bux-seg__opt" data-tm-mode="glosario" aria-checked="${state.mode === 'glosario'}">Glosario A–Z</button>
             </div>
             <div class="tm-sectors" role="group" aria-label="Mostrar sectores">${Object.entries(SECTORS).filter(([id]) => sectorCounts.get(id)).map(([id, s]) =>
                 `<button type="button" class="tm-sector" data-tm-sector="${id}" aria-pressed="true" style="--c:${s.color}"><i></i>${esc(s.label)} <span>${sectorCounts.get(id)}</span></button>`).join('')}</div>

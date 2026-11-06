@@ -17,9 +17,9 @@ export function initAccountPanel() {
     const panel = document.createElement('div');
     panel.id = 'account-panel';
     panel.innerHTML = `
-        <div class="bj-seg ap-tabs" role="tablist" aria-label="Secciones de la cuenta">
-            <button type="button" role="tab" class="bj-seg__opt" id="ap-tab-datos" aria-controls="ap-pane-datos" aria-selected="true" aria-checked="true" data-ap-tab="datos">Tus datos</button>
-            <button type="button" role="tab" class="bj-seg__opt" id="ap-tab-seguridad" aria-controls="ap-pane-seguridad" aria-selected="false" aria-checked="false" tabindex="-1" data-ap-tab="seguridad">Seguridad</button>
+        <div class="bux-seg ap-tabs" role="tablist" aria-label="Secciones de la cuenta">
+            <button type="button" role="tab" class="bux-seg__opt" id="ap-tab-datos" aria-controls="ap-pane-datos" aria-selected="true" aria-checked="true" data-ap-tab="datos">Tus datos</button>
+            <button type="button" role="tab" class="bux-seg__opt" id="ap-tab-seguridad" aria-controls="ap-pane-seguridad" aria-selected="false" aria-checked="false" tabindex="-1" data-ap-tab="seguridad">Seguridad</button>
         </div>
         <form class="ap-form ap-pane" id="ap-pane-datos" role="tabpanel" aria-labelledby="ap-tab-datos" data-form="name" novalidate>
             <div class="ap-field"><label for="ap-name-input">Nombre</label><input id="ap-name-input" name="name" maxlength="80" autocomplete="name"></div>
@@ -28,14 +28,14 @@ export function initAccountPanel() {
                 <div><dt>Último acceso</dt><dd data-fact="last"></dd></div>
             </dl>
             <p class="ap-status" role="status" aria-live="polite"></p>
-            <div class="ap-actions"><button type="submit" class="bj-btn bj-btn--sm ap-btn">Guardar cambios</button></div>
+            <div class="ap-actions"><button type="submit" class="bux-btn bux-btn--sm ap-btn">Guardar cambios</button></div>
         </form>
         <form class="ap-form ap-pane" id="ap-pane-seguridad" role="tabpanel" aria-labelledby="ap-tab-seguridad" data-form="password" novalidate hidden>
             <div class="ap-field"><label for="ap-current">Contraseña actual</label><input id="ap-current" type="password" name="current" autocomplete="current-password"></div>
             <div class="ap-field"><label for="ap-p1">Nueva contraseña</label><input id="ap-p1" type="password" name="p1" minlength="8" autocomplete="new-password"><span class="ap-hint">Al menos 8 caracteres, con letras y números.</span></div>
             <div class="ap-field"><label for="ap-p2">Confirma la nueva contraseña</label><input id="ap-p2" type="password" name="p2" minlength="8" autocomplete="new-password"></div>
             <p class="ap-status" role="status" aria-live="polite"></p>
-            <div class="ap-actions"><button type="submit" class="bj-btn bj-btn--sm ap-btn">Cambiar contraseña</button></div>
+            <div class="ap-actions"><button type="submit" class="bux-btn bux-btn--sm ap-btn">Cambiar contraseña</button></div>
         </form>`;
     const showTab = name => panel.querySelectorAll('[data-ap-tab]').forEach(tab => {
         const on = tab.dataset.apTab === name;
@@ -49,7 +49,7 @@ export function initAccountPanel() {
         if (tab) showTab(tab.dataset.apTab);
     });
     // Below the identity block, not inside it: the avatar row stays one line.
-    (host.querySelector('.bj-usermenu__head') || email).after(panel);
+    (host.querySelector('.bux-usermenu__head') || email).after(panel);
 
     const nameForm = panel.querySelector('[data-form="name"]');
     const passForm = panel.querySelector('[data-form="password"]');

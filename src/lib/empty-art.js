@@ -32,7 +32,7 @@ const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&'
  * what to do, with an optional action button (`action` = [label, attribute string]).
  */
 export function emptyState({ kind = 'search', title = '', body = '', action = null } = {}) {
-    return `<div class="bj-empty" role="status">${emptyArt(kind)}<h3>${escapeHtml(title)}</h3>${body ? `<p>${escapeHtml(body)}</p>` : ''}${action ? `<button type="button" class="bj-btn bj-btn--secondary" ${action[1]}>${escapeHtml(action[0])}</button>` : ''}</div>`;
+    return `<div class="bux-empty" role="status">${emptyArt(kind)}<h3>${escapeHtml(title)}</h3>${body ? `<p>${escapeHtml(body)}</p>` : ''}${action ? `<button type="button" class="bux-btn bux-btn--secondary" ${action[1]}>${escapeHtml(action[0])}</button>` : ''}</div>`;
 }
 
 /**
@@ -40,13 +40,13 @@ export function emptyState({ kind = 'search', title = '', body = '', action = nu
  * left the acervo). Big mono code, a plain explanation and ways back; actions are [label, href].
  */
 export function errorPage({ code = '404', kind = 'missing', title = '', body = '', detail = '', actions = [] } = {}) {
-    const links = actions.map(([label, href], index) => `<a class="bj-btn ${index ? 'bj-btn--secondary' : 'bj-btn--primary'}" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`).join('');
-    return `<section class="bj-error" aria-labelledby="bj-error-title">
-        <div class="bj-error__art">${emptyArt(kind)}</div>
-        <p class="bj-error__code">Error ${escapeHtml(code)}</p>
-        <h1 id="bj-error-title" tabindex="-1">${escapeHtml(title)}</h1>
-        ${body ? `<p class="bj-error__body">${escapeHtml(body)}</p>` : ''}
-        ${detail ? `<p class="bj-error__detail"><code>${escapeHtml(detail)}</code></p>` : ''}
-        ${links ? `<div class="bj-error__actions">${links}</div>` : ''}
+    const links = actions.map(([label, href], index) => `<a class="bux-btn ${index ? 'bux-btn--secondary' : 'bux-btn--primary'}" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`).join('');
+    return `<section class="bux-error" aria-labelledby="bux-error-title">
+        <div class="bux-error__art">${emptyArt(kind)}</div>
+        <p class="bux-error__code">Error ${escapeHtml(code)}</p>
+        <h1 id="bux-error-title" tabindex="-1">${escapeHtml(title)}</h1>
+        ${body ? `<p class="bux-error__body">${escapeHtml(body)}</p>` : ''}
+        ${detail ? `<p class="bux-error__detail"><code>${escapeHtml(detail)}</code></p>` : ''}
+        ${links ? `<div class="bux-error__actions">${links}</div>` : ''}
     </section>`;
 }

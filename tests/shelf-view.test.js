@@ -29,7 +29,7 @@ describe('shelf view', () => {
     expect(host.querySelector('h1').textContent).toBe('Leyes y reglas de energía de México, en un solo lugar');
     expect(host.querySelector('.sh-search input').placeholder).toBe('Busca una ley, un artículo o un tema');
     // The dark theme paints every other input; this class is the one it exempts.
-    expect(host.querySelector('.sh-search input').classList.contains('bj-search__input')).toBe(true);
+    expect(host.querySelector('.sh-search input').classList.contains('bux-search__input')).toBe(true);
   });
   it('opens on the first law, with accessible structure', async () => {
     view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();

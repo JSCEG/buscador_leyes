@@ -435,7 +435,7 @@ html.dark-mode .ac-library .ac-map-promo-icon,html.dark-mode .ac-library .ac-map
 .ac-library .ac-recent-card{transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
 .ac-library .ac-recent-card:hover{transform:translateY(-2px);box-shadow:0 16px 30px -22px #2a071466}
 
-/* Instrument cards: type-led and quiet. The acronym in Patria is the face of the card, the collection shows in the
+/* Instrument cards: type-led and quiet. The acronym in Fraunces is the face of the card, the collection shows in the
    colored category and its icon, and a rule in the collection's color draws across the top on hover.
    The card grid lives in polish.css (html .ac-library .ac-card); this adds a full-width "cover" row on top. */
 html body .ac-library .ac-card{--ac-cover:var(--col-ley);--ac-cover-ink:var(--ac-cover);grid-template-areas:"cover cover" "name name" "desc desc" "meta act"!important;text-align:left;border-radius:var(--radius-lg)!important;box-shadow:var(--shadow-sm),0 12px 30px -22px #302b2766!important}
@@ -529,8 +529,8 @@ html body .ac-library .ac-tiles>li:not(.is-featured):last-child{grid-column:auto
    (blanco en claro, carbón en oscuro) para no perderse sobre el relleno. */
 html body .ac-library .ac-card:hover .ac-card-action>span,html body .ac-library .ac-card:focus-visible .ac-card-action>span{color:inherit}
 /* Insignia «Nuevo» (BadgeSet) dentro del antetítulo de las promociones: en línea, sin el punto que ya sobra. */
-html body .ac-library .ac-map-promo-eyebrow .bj-new{display:inline-flex!important;width:auto;margin-right:8px;vertical-align:1px}
-.ac-library .ac-map-promo-eyebrow:has(.bj-new)::before{display:none}
+html body .ac-library .ac-map-promo-eyebrow .bux-new{display:inline-flex!important;width:auto;margin-right:8px;vertical-align:1px}
+.ac-library .ac-map-promo-eyebrow:has(.bux-new)::before{display:none}
 
 /* Búho: tarjeta con librito neutro; banda y listón del color del tipo. */
 .ac-library .ac-card { display: flex; flex-direction: row; gap: 14px; padding: 12px; border: 1px solid var(--cristal-borde); border-radius: var(--radius-lg); background: var(--cristal); box-shadow: var(--sombra-cristal); text-align: left; transition: transform var(--t-medio) var(--ease-entrada), border-color var(--t-rapido); }

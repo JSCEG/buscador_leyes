@@ -5,8 +5,8 @@ import '../styles/reader.css';
 // reader surface and site theme, with a live preview that reads the same variables as the text.
 export function readerControlsHtml() {
     const theme = document.documentElement.dataset.theme || 'light';
-    const themeOption = (value, label) => `<button type="button" role="radio" class="bj-seg__opt" data-theme-choice="${value}" aria-checked="${value === theme}">${label}</button>`;
-    const segOption = (attr, value, label) => `<button type="button" role="radio" class="bj-seg__opt" ${attr}="${value}" aria-checked="false">${label}</button>`;
+    const themeOption = (value, label) => `<button type="button" role="radio" class="bux-seg__opt" data-theme-choice="${value}" aria-checked="${value === theme}">${label}</button>`;
+    const segOption = (attr, value, label) => `<button type="button" role="radio" class="bux-seg__opt" ${attr}="${value}" aria-checked="false">${label}</button>`;
     const { min, max } = READER_FONT_SIZE_RANGE;
     return `<details class="reader-settings">
         <summary><span aria-hidden="true">Aa</span> <span class="reader-settings-label">Ajustes de lectura</span></summary>
@@ -22,18 +22,18 @@ export function readerControlsHtml() {
             </div>
             <label>Interlineado<select data-reader-spacing aria-label="Interlineado"><option value="1.6">Compacto</option><option value="1.8">Normal</option><option value="2">Amplio</option></select></label>
             <div class="reader-settings-theme">Ancho de columna
-                <div class="bj-seg" role="radiogroup" aria-label="Ancho de columna">
+                <div class="bux-seg" role="radiogroup" aria-label="Ancho de columna">
                     ${segOption('data-reader-measure', 56, 'Estrecho')}${segOption('data-reader-measure', 68, 'Normal')}${segOption('data-reader-measure', 84, 'Amplio')}
                 </div>
             </div>
             <div class="reader-settings-theme">Tipografía
-                <div class="bj-seg" role="radiogroup" aria-label="Tipografía del texto">
+                <div class="bux-seg" role="radiogroup" aria-label="Tipografía del texto">
                     ${segOption('data-reader-typeface', 'sans', 'Manrope')}${segOption('data-reader-typeface', 'serif', 'Fraunces')}
                 </div>
             </div>
             <label>Fondo<select data-reader-surface aria-label="Fondo de lectura"><option value="system">Automático</option><option value="light">Blanco</option><option value="sepia">Sepia</option><option value="dark">Oscuro</option></select></label>
             <div class="reader-settings-theme">Tema del sitio
-                <div class="bj-seg" role="radiogroup" aria-label="Tema del sitio">
+                <div class="bux-seg" role="radiogroup" aria-label="Tema del sitio">
                     ${themeOption('light', 'Claro')}${themeOption('dark', 'Oscuro')}${themeOption('sepia', 'Sepia')}${themeOption('contraste', 'Contraste')}
                 </div>
             </div>

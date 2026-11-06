@@ -671,7 +671,7 @@ export function initUI() {
         resultsContainer.classList.remove('hidden', 'opacity-0');
         resultsContainer.innerHTML = errorPage(options);
         window.scrollTo({ top: 0, behavior: 'instant' });
-        resultsContainer.querySelector('#bj-error-title')?.focus({ preventScroll: true });
+        resultsContainer.querySelector('#bux-error-title')?.focus({ preventScroll: true });
     }
 
     document.getElementById('institutional-footer')?.addEventListener('click', event => {
@@ -726,7 +726,7 @@ export function initUI() {
         toast.style.left = '50%';
 
         const tone = icon === '!' || icon === '🔐' ? 'alert' : 'done';
-        toast.innerHTML = `<svg class="bj-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">${TOAST_ICONS[tone]}</svg><span>${message}</span>`;
+        toast.innerHTML = `<svg class="bux-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">${TOAST_ICONS[tone]}</svg><span>${message}</span>`;
         document.body.appendChild(toast);
         
         // Use timeout to ensure DOM insertion before animation
@@ -896,7 +896,7 @@ export function initUI() {
         NAV_IDS.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
-            // The look of the current section comes from aria-current (chrome.css).
+            // The look of the current section comes from aria-current (shell.css).
             if (id === activeId || id === 'mobile-' + activeId) el.setAttribute('aria-current', 'page');
             else el.removeAttribute('aria-current');
         });
@@ -939,7 +939,7 @@ export function initUI() {
         bar.id = 'bottom-nav';
         bar.className = 'bu-minf bu-cristal-fuerte';
         bar.setAttribute('aria-label', 'Navegación principal');
-        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" class="bu-minf__it" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg class="bj-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24">${path}</svg><span>${label}</span></button>`).join('');
+        bar.innerHTML = items.map(([id, label, path]) => `<button type="button" class="bu-minf__it" ${id === 'more' ? 'data-more' : `data-nav="${id}"`}><svg class="bux-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24">${path}</svg><span>${label}</span></button>`).join('');
         document.body.append(bar);
         document.body.classList.add('has-bottom-nav');
         bar.addEventListener('click', event => {
@@ -1867,7 +1867,7 @@ export function initUI() {
             const item = (entry, count = 0) => `<button class="lr-outline-item lr-level-${entry.level}" data-outline-id="${escapeHtml(entry.id)}" data-outline-key="${entry.key}">${label(entry)}${count ? `<em class="lr-tree-count" aria-label="${count} capítulos">${count}</em>` : ''}</button>`;
             const nodes = [];
             entries.forEach(entry => { if (entry.level === 1 || !nodes.length) nodes.push({ head: entry, children: [] }); else nodes.at(-1).children.push(entry); });
-            const CHEVRON = '<svg class="bj-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
+            const CHEVRON = '<svg class="bux-icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
             outline.innerHTML = nodes.map(({ head, children }, index) => children.length
                 ? `<div class="lr-tree-node${index === 0 ? ' is-open' : ''}" data-tree-node>
                     <div class="lr-tree-row"><button type="button" class="lr-tree-toggle" data-outline-toggle aria-expanded="${index === 0}" aria-label="Capítulos de ${escapeHtml(head.label)}">${CHEVRON}</button>${item(head, children.length)}</div>
@@ -2383,9 +2383,9 @@ export function initUI() {
             const body = document.createElement('span');
             body.append(...p.childNodes);
             const numeral = document.createElement('span');
-            numeral.className = 'bj-frac__n';
+            numeral.className = 'bux-frac__n';
             numeral.textContent = match[1];
-            p.className = 'bj-frac';
+            p.className = 'bux-frac';
             p.append(numeral, body);
         });
     }
@@ -2400,7 +2400,7 @@ export function initUI() {
         const autocompleteContainer = document.createElement('div');
         autocompleteContainer.id = 'autocomplete-results';
         // SearchSuggest of the design system: grouped suggestions under the search bar.
-        autocompleteContainer.className = 'bj-menu sr-suggest hidden';
+        autocompleteContainer.className = 'bux-menu sr-suggest hidden';
         autocompleteContainer.setAttribute('role', 'listbox');
         autocompleteContainer.setAttribute('aria-label', 'Sugerencias');
         searchInput.parentNode.appendChild(autocompleteContainer);
@@ -2474,10 +2474,10 @@ export function initUI() {
                     label: 'Búsquedas recientes',
                     extra: `<button type="button" id="clear-all-history" class="sr-suggest-clear">Borrar todo</button>`,
                     items: history.slice(0, 7).map(q => ({
-                        html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                        html: `<svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
                             <span class="sr-suggest-main">${escapeHtml(q)}</span>
                             <button type="button" class="remove-history-item" data-query="${escapeHtml(q)}" aria-label="Quitar ${escapeHtml(q)} del historial">×</button>`,
-                        attrs: `data-navigable role="option" data-query="${escapeHtml(q)}" class="bj-menu__item history-item"`,
+                        attrs: `data-navigable role="option" data-query="${escapeHtml(q)}" class="bux-menu__item history-item"`,
                     }))
                 });
             } else {
@@ -2485,9 +2485,9 @@ export function initUI() {
                 sections.push({
                     label: 'Buscar',
                     items: [{
-                        html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+                        html: `<svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
                             <span class="sr-suggest-main">Buscar «${escapeHtml(query)}» en todo el acervo</span>`,
-                        attrs: `data-navigable role="option" data-query="${escapeHtml(query)}" class="bj-menu__item history-item"`,
+                        attrs: `data-navigable role="option" data-query="${escapeHtml(query)}" class="bux-menu__item history-item"`,
                     }],
                 });
                 // Law-level suggestions
@@ -2499,10 +2499,10 @@ export function initUI() {
                     sections.push({
                         label: 'Documentos',
                         items: lawMatches.map(s => ({
-                            html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg>
+                            html: `<svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/></svg>
                                 <span class="sr-suggest-main">${highlightMatch(s.titulo, query)}</span>
                                 ${s.siglas ? `<span class="sr-suggest-meta">${escapeHtml(s.siglas)}</span>` : ''}`,
-                            attrs: `data-navigable role="option" data-law-title="${escapeHtml(s.titulo)}" class="bj-menu__item suggestion-law"`,
+                            attrs: `data-navigable role="option" data-law-title="${escapeHtml(s.titulo)}" class="bux-menu__item suggestion-law"`,
                         }))
                     });
                 }
@@ -2527,10 +2527,10 @@ export function initUI() {
                     sections.push({
                         label: currentLawArticles.length > 0 ? 'Artículos de esta ley' : 'Artículos visibles',
                         items: artMatches.map(({ art, matchField }) => ({
-                            html: `<svg class="bj-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></svg>
+                            html: `<svg class="bux-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></svg>
                                 <span class="sr-suggest-main">${highlightMatch(matchField, query)}<small>${escapeHtml(art.ley_origen || '')}</small></span>
                                 ${art.siglas_ley ? `<span class="sr-suggest-meta">${escapeHtml(art.siglas_ley)}</span>` : ''}`,
-                            attrs: `data-navigable role="option" data-article-id="${escapeHtml(art.id)}" class="bj-menu__item suggestion-article"`,
+                            attrs: `data-navigable role="option" data-article-id="${escapeHtml(art.id)}" class="bux-menu__item suggestion-article"`,
                         }))
                     });
                 }
@@ -2542,8 +2542,8 @@ export function initUI() {
             autocompleteContainer.innerHTML = sections.map(sec => `
                 <div class="sr-suggest-group"><span>${sec.label}</span>${sec.extra || ''}</div>
                 ${sec.items.map(it => `<div ${it.attrs}>${it.html}</div>`).join('')}
-            `).join('') + `<div class="bj-menu__sep" role="separator"></div>
-                <p class="sr-suggest-help"><span><kbd class="bj-kbd">↑↓</kbd> navegar</span><span><kbd class="bj-kbd">↵</kbd> abrir</span><span><kbd class="bj-kbd">"…"</kbd> frase exacta</span><span><kbd class="bj-kbd">-palabra</kbd> excluir</span></p>`;
+            `).join('') + `<div class="bux-menu__sep" role="separator"></div>
+                <p class="sr-suggest-help"><span><kbd class="bux-kbd">↑↓</kbd> navegar</span><span><kbd class="bux-kbd">↵</kbd> abrir</span><span><kbd class="bux-kbd">"…"</kbd> frase exacta</span><span><kbd class="bux-kbd">-palabra</kbd> excluir</span></p>`;
 
             autocompleteContainer.classList.remove('hidden');
 
