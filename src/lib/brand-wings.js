@@ -4,7 +4,7 @@
  */
 const WIDTH = 900;
 const ROOT_DIRECTION = [0.89, 0.46];
-const BLADE = 'M14 22 C120 66 260 122 396 196 L386 246 C270 174 130 100 14 22 Z';
+const BLADE = 'M14 22 C120 62 280 120 408 222 C270 176 130 104 14 22 Z';
 // x, y of the sharp tip, length and thickness, from the wing's tip toward the body.
 const FEATHERS = [
     [40, 58, 140, 18], [190, 150, 118, 18], [310, 212, 72, 16],

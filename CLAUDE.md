@@ -17,6 +17,11 @@ Correr un solo test:
 npx vitest run tests/search.test.js
 ```
 
+Video de la intro (requiere FFmpeg; publica en `public/video/`):
+```bash
+node video-intro/render.mjs
+```
+
 Variables de entorno requeridas (archivo `.env`):
 ```
 VITE_SUPABASE_URL=

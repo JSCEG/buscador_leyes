@@ -1,7 +1,7 @@
 /**
- * Animated entrance: the states of Mexico trace themselves and light up, three sheets land, the mark
- * builds on them (bar, page, lines, lens), the name writes in with the size of the acervo counting up,
- * and the site opens through the lens like an iris.
+ * Animated entrance. A short film (made in video-intro/) plays when it is ready in time: the eye opens,
+ * the mark is written, the wings unfold and the site opens from that eye like an iris. If the film is
+ * late, refused or the visitor saves data, the same story plays in CSS, without any wait.
  * Once a day, skippable, and never for deep links or reduced motion.
  */
 import { brandMarkSvg } from '../lib/brand-mark.js';
@@ -14,6 +14,13 @@ const FIGURES_KEY = 'intro-cifras';
 const NAME = 'Buscador Jurídico';
 const HOLD_MS = 3400;
 const OPEN_MS = 800;
+const VIDEO_WAIT_MS = 900;
+const VIDEO_LIMIT_MS = 6000;
+// eye: where the owl's eye sits in the last frame, as a fraction of the film. See video-intro/build.mjs.
+const FILMS = {
+    landscape: { src: '/video/intro-landscape.mp4', width: 1920, height: 1080, eye: [0.5079, 0.3194] },
+    portrait: { src: '/video/intro-portrait.mp4', width: 720, height: 1280, eye: [0.5122, 0.3604] },
+};
 const today = () => new Date().toISOString().slice(0, 10);
 
 // The acervo's size arrives after the intro starts, so the intro shows the figures of the last visit.
@@ -63,11 +70,58 @@ const letters = text => [...text].map((ch, i) => ch === ' '
     ? '<span class="si-gap"> </span>'
     : `<span class="si-ch" style="--i:${i}">${ch}</span>`).join('');
 
-/** Opens a growing hole centred on the lens; the ring traces its edge. */
-function openIris(layer) {
-    const lens = layer.querySelector('.bm-lens circle:last-of-type')?.getBoundingClientRect();
-    const x = lens ? lens.left + lens.width / 2 : innerWidth / 2;
-    const y = lens ? lens.top + lens.height / 2 : innerHeight / 2;
+/** Where a film's eye lands on screen when it is fitted inside `box` without cropping. */
+export function eyeCenter(box, { width, height, eye }) {
+    const scale = Math.min(box.width / width, box.height / height);
+    const shownWidth = width * scale;
+    const shownHeight = height * scale;
+    return {
+        x: box.left + (box.width - shownWidth) / 2 + shownWidth * eye[0],
+        y: box.top + (box.height - shownHeight) / 2 + shownHeight * eye[1],
+    };
+}
+
+function canPlayFilm() {
+    const connection = navigator.connection;
+    if (connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '')) return false;
+    return Boolean(document.createElement('video').canPlayType?.('video/mp4'));
+}
+
+/** Starts the film out of sight. Resolves with it once it really plays, or with null to use the CSS intro. */
+function startFilm(layer) {
+    const film = innerHeight > innerWidth ? FILMS.portrait : FILMS.landscape;
+    const video = document.createElement('video');
+    video.className = 'si-video';
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('aria-hidden', 'true');
+    video.src = film.src;
+    layer.prepend(video);
+    return new Promise(resolve => {
+        let settled = false;
+        let waiting = null;
+        const settle = playing => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(waiting);
+            if (!playing) video.remove();
+            resolve(playing ? { video, film } : null);
+        };
+        waiting = setTimeout(() => settle(false), VIDEO_WAIT_MS);
+        video.addEventListener('playing', () => settle(true), { once: true });
+        video.addEventListener('error', () => settle(false), { once: true });
+        Promise.resolve(video.play()).catch(() => settle(false));
+    });
+}
+
+/** Opens a growing hole centred on the eye; the ring traces its edge. */
+function openIris(layer, point = null) {
+    const lens = point ? null : layer.querySelector('.bm-lens circle:last-of-type')?.getBoundingClientRect();
+    const x = point ? point.x : lens ? lens.left + lens.width / 2 : innerWidth / 2;
+    const y = point ? point.y : lens ? lens.top + lens.height / 2 : innerHeight / 2;
     const max = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y)) + 40;
     const ring = layer.querySelector('.si-ring');
     layer.style.setProperty('--ix', `${x}px`);
@@ -108,7 +162,7 @@ export function playIntro() {
                 <p class="si-name" aria-label="${NAME}">${letters(NAME)}</p>
                 <span class="si-rule"></span>
                 <p class="si-sub">Normativa del sector energético</p>
-                ${figures ? `<p class="si-figures"><span><b data-to="${figures.leyes}">0</b> instrumentos</span><span><b data-to="${figures.articulos}">0</b> artículos y disposiciones</span></p>` : ''}
+                ${figures ? `<p class="si-figures"><span><b data-to="${figures.leyes}">0</b> documentos</span><span><b data-to="${figures.articulos}">0</b> artículos y disposiciones</span></p>` : ''}
             </div>
         </div>
         <span class="si-ring" style="left:var(--ix);top:var(--iy)"></span>
@@ -117,21 +171,36 @@ export function playIntro() {
     document.documentElement.classList.add('intro-on');
     return new Promise(resolve => {
         let done = false;
+        let timer = null;
+        let playing = null;
         const finish = async () => {
             if (done) return;
             done = true;
+            clearTimeout(timer);
             document.removeEventListener('keydown', onKey);
             document.documentElement.classList.remove('intro-on');
-            await openIris(layer);
+            await openIris(layer, playing ? eyeCenter(playing.video.getBoundingClientRect(), playing.film) : null);
             layer.remove();
             resolve();
         };
-        const timer = setTimeout(finish, HOLD_MS);
-        const skip = () => { clearTimeout(timer); finish(); };
-        const onKey = event => { if (event.key === 'Escape' || event.key === 'Enter') skip(); };
-        layer.querySelector('.si-skip').addEventListener('click', skip);
+        const onKey = event => { if (event.key === 'Escape' || event.key === 'Enter') finish(); };
+        layer.querySelector('.si-skip').addEventListener('click', finish);
         document.addEventListener('keydown', onKey);
-        requestAnimationFrame(() => layer.classList.add('is-playing'));
-        countUp(layer, 2450);
+        const playCss = () => {
+            requestAnimationFrame(() => layer.classList.add('is-playing'));
+            countUp(layer, 2450);
+            timer = setTimeout(finish, HOLD_MS);
+        };
+        if (!canPlayFilm()) { playCss(); return; }
+        startFilm(layer).then(started => {
+            if (done) return;
+            if (!started) { playCss(); return; }
+            playing = started;
+            layer.classList.add('is-video');
+            started.video.addEventListener('ended', finish, { once: true });
+            started.video.addEventListener('error', finish, { once: true });
+            // A film that stalls halfway must not trap the visitor.
+            timer = setTimeout(finish, VIDEO_LIMIT_MS);
+        });
     });
 }

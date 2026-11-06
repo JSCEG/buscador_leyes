@@ -185,7 +185,9 @@ La B se sustituye por una S con cejas y ojo de búho (S de Sasso), dibujada desd
 - Colores: guinda con ojo dorado; marfil con ojo dorado en fondos oscuros. Íconos de app sobre guinda.
 - La imagen para redes actualiza sus cifras a 124 documentos y 5,793 artículos.
 
-**Alas en la intro:** solo ahí, dos alas simétricas (`src/lib/brand-wings.js`) se despliegan detrás de las hojas una vez que la S se forma, pluma por pluma. Trazos propios: la referencia era una plantilla de stock.
+**Alas en la intro:** solo ahí, dos alas simétricas (`src/lib/brand-wings.js`) se abren pluma por pluma. Trazos propios: la referencia era una plantilla de stock.
+
+**Video de la intro:** se genera con HyperFrames desde `video-intro/` (`node video-intro/render.mjs`) con los mismos trazos del sitio, en horizontal 1920×1080 y vertical 720×1280 (`public/video/`, 3.8 s, sin sonido). Solo se muestra si empieza a reproducirse en 900 ms; si tarda, se rechaza, falla o la persona ahorra datos, corre la intro CSS sin espera. Un video que se detiene no atrapa: límite de 6 s. El sitio se abre desde el ojo. El service worker no intercepta `/video/`, porque los videos se piden por rangos.
 
 ## Temas y textos
 

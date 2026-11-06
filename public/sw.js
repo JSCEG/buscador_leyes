@@ -58,6 +58,9 @@ self.addEventListener('fetch', (event) => {
   // Map layers weigh several MB and already carry their own edge/browser cache.
   if (url.pathname.startsWith('/api/mapa/')) return;
 
+  // Films are read by byte ranges, which the cache strategies below cannot answer.
+  if (url.pathname.startsWith('/video/')) return;
+
   // ── 1. Navegación (index.html) — NETWORK FIRST ───────────────────────────
   // Siempre obtiene el HTML más reciente del servidor; cae al caché sólo si
   // no hay red (modo offline).
