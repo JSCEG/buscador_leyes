@@ -5,6 +5,7 @@
  * Once a day, skippable, and never for deep links or reduced motion.
  */
 import { brandMarkSvg } from '../lib/brand-mark.js';
+import { wingsSvg } from '../lib/brand-wings.js';
 import { MEXICO_VIEWBOX, MEXICO_STATES } from '../lib/mexico-map.js';
 import '../styles/site-intro.css';
 
@@ -99,6 +100,7 @@ export function playIntro() {
     layer.innerHTML = `<div class="si-aura si-aura-a"></div><div class="si-aura si-aura-b"></div>${mapSvg()}<div class="si-grain"></div>
         <div class="si-stage">
             <div class="si-emblem">
+                ${wingsSvg({ className: 'si-wings' })}
                 <span class="si-sheet si-sheet-1"></span><span class="si-sheet si-sheet-2"></span><span class="si-sheet si-sheet-3"></span>
                 ${brandMarkSvg({ className: 'si-mark', shine: true })}
             </div>

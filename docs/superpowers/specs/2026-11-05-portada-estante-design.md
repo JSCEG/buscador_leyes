@@ -185,6 +185,8 @@ La B se sustituye por una S con cejas y ojo de búho (S de Sasso), dibujada desd
 - Colores: guinda con ojo dorado; marfil con ojo dorado en fondos oscuros. Íconos de app sobre guinda.
 - La imagen para redes actualiza sus cifras a 124 documentos y 5,793 artículos.
 
+**Alas en la intro:** solo ahí, dos alas simétricas (`src/lib/brand-wings.js`) se despliegan detrás de las hojas una vez que la S se forma, pluma por pluma. Trazos propios: la referencia era una plantilla de stock.
+
 ## Temas y textos
 
 - Funciona en los cuatro temas (`light`, `dark`, `sepia`, `contraste`) con los tokens existentes.
