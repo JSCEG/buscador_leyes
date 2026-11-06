@@ -22,7 +22,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll(['/img/b-mark.svg', '/offline.html', '/img/favicon-64.png']).catch(() => {})
+      cache.addAll(['/img/logo-mark.svg', '/offline.html', '/img/favicon-64.png']).catch(() => {})
     )
   );
 });
@@ -57,6 +57,9 @@ self.addEventListener('fetch', (event) => {
   if (url.pathname.startsWith('/api/reader/')) return;
   // Map layers weigh several MB and already carry their own edge/browser cache.
   if (url.pathname.startsWith('/api/mapa/')) return;
+
+  // Films are read by byte ranges, which the cache strategies below cannot answer.
+  if (url.pathname.startsWith('/video/')) return;
 
   // ── 1. Navegación (index.html) — NETWORK FIRST ───────────────────────────
   // Siempre obtiene el HTML más reciente del servidor; cae al caché sólo si
