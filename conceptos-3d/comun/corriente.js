@@ -32,7 +32,8 @@ export function crearCorriente({ raiz, escena, curvas, P, puntosPorCable = 22, r
         material,
         // avance: fracción del cable que recorre la carga por unidad de corriente y de tiempo
         // corriente: de −1 a 1 (relativa); dt: tiempo de la escena; visible: de 0 a 1; camara, w, h: para las marcas
-        actualizar({ avance, corriente, dt, visible, camara, w, h }) {
+        // polos: de 0 a 1; la máquina lo baja cuando la polaridad cambia tan rápido que las marcas solo parpadearían
+        actualizar({ avance, corriente, dt, visible, polos = 1, camara, w, h }) {
             carga += avance * corriente * dt;
             material.opacity = visible;
             puntos.visible = visible > 0.02;
@@ -49,7 +50,7 @@ export function crearCorriente({ raiz, escena, curvas, P, puntosPorCable = 22, r
                 puntos.instanceMatrix.needsUpdate = true;
             }
             // polos: el cable de ida es + cuando la corriente es positiva; el de regreso, lo contrario
-            const nitidez = visible * Math.min(1, Math.abs(corriente) / 0.25);
+            const nitidez = visible * polos * Math.min(1, Math.abs(corriente) / 0.25);
             curvas.forEach((curva, c) => {
                 const el = marcas[c];
                 if (nitidez < 0.02) { el.style.opacity = '0'; return; }

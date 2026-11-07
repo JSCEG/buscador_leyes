@@ -245,7 +245,7 @@ raiz.add(estator);
 const voltimetro = new THREE.Group();
 voltimetro.position.set(2.25, 0.16, 1.0);
 voltimetro.add(contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.92, 0.7, 0.32), M.ceramica))).translateY(0.35));
-voltimetro.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.64, 0.006), M.borde)).translateY(0.37).translateZ(0.157));
+voltimetro.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.64, 0.006), M.borde)).translateY(0.37).translateZ(0.166)); // frente de la caja en 0.16: el marco va 3 mm delante, nunca en el mismo plano
 const caratula = (() => {
     const c = document.createElement('canvas');
     c.width = 512;
@@ -278,10 +278,10 @@ const caratula = (() => {
     return t;
 })();
 const cara = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.594), new THREE.MeshBasicMaterial({ map: caratula }));
-cara.position.set(0, 0.37, 0.162);
+cara.position.set(0, 0.37, 0.175);
 voltimetro.add(cara);
 const pivote = new THREE.Group();
-pivote.position.set(0, 0.37 - 0.594 / 2 + 0.594 * (50 / 380), 0.168);
+pivote.position.set(0, 0.37 - 0.594 / 2 + 0.594 * (50 / 380), 0.183);
 const aguja = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.34, 0.006), new THREE.MeshBasicMaterial({ color: PALETA.acento }));
 aguja.position.y = 0.17;
 pivote.add(aguja, new THREE.Mesh(new THREE.CircleGeometry(0.03, 20), new THREE.MeshBasicMaterial({ color: PALETA.tinta })));
@@ -401,6 +401,7 @@ let bajada = 0;
 let desarme = 0; // lo que pide el deslizador, de 0 (armado) a 1 (desarmado)
 let desarmeVis = 0; // lo que se ve, con su transición
 let vista = 'general';
+let agujaV = 0; // lo que marca la aguja, con su inercia
 
 const elegirLento = id => {
     lento = LENTO.find(l => l.id === id) || LENTO[0];
@@ -719,18 +720,27 @@ function cuadro(ahora) {
     rpm += (rpmMeta - rpm) * (1 - Math.exp(-dt / 0.6));
     const omega = (rpm / 60) * Math.PI * 2; // rad/s reales
     const dtSim = dt * lento.k;
+    const anguloAntes = angulo;
     angulo += omega * dtSim;
     const vPico = V_PICO_NOMINAL * (rpm / RPM_NOMINAL) * acople;
     const v = vPico * Math.sin(angulo);
+    // promedio del voltaje durante este cuadro: a velocidad real caben muchos ciclos en un cuadro y el valor de un solo
+    // instante saldría al azar (la aguja temblaría); el promedio exacto de un seno entre dos ángulos no tiene ese problema
+    const giroCuadro = angulo - anguloAntes;
+    const vCuadro = giroCuadro > 1e-4 ? vPico * (Math.cos(anguloAntes) - Math.cos(angulo)) / giroCuadro : v;
     // el filamento sigue a la potencia (v²) con su propio retraso, en el tiempo de la escena
-    const potencia = 2 * (v / V_PICO_NOMINAL) ** 2;
+    // (también promediada en el cuadro: el promedio de sen² entre dos ángulos)
+    const sen2Cuadro = giroCuadro > 1e-4 ? 0.5 - (Math.sin(2 * angulo) - Math.sin(2 * anguloAntes)) / (4 * giroCuadro) : Math.sin(angulo) ** 2;
+    const potencia = 2 * (vPico / V_PICO_NOMINAL) ** 2 * sen2Cuadro;
     brillo += (potencia - brillo) * (1 - Math.exp(-dtSim / TAU_FILAMENTO));
 
     // poses
     turbina.rotation.x = angulo;
     eje.rotation.x = angulo;
     rotor.rotation.x = angulo;
-    pivote.rotation.z = -clamp(v / V_PICO_NOMINAL, -1.1, 1.1) * (Math.PI * 0.33) / 2 * (170 / 170);
+    // la aguja tiene inercia (≈ 0.08 s de pantalla): sigue el voltaje en cámara lenta y, a velocidad real, ya no tiembla
+    agujaV += (vCuadro - agujaV) * (1 - Math.exp(-dt / 0.08));
+    pivote.rotation.z = -clamp(agujaV / V_PICO_NOMINAL, -1.1, 1.1) * (Math.PI * 0.33) / 2;
     vidrio.material.emissiveIntensity = clamp(brillo, 0, 1.6) * 1.4;
     filamento.material.color.set(brillo > 0.08 ? '#ffd27a' : '#5a4a3a');
     luz.intensity = clamp(brillo, 0, 1.6) * 3;
@@ -789,7 +799,9 @@ function cuadro(ahora) {
     camera.position.set(cam.tx + cam.d * Math.cos(cam.el * D2R) * Math.sin(cam.az * D2R), cam.ty - bajada + cam.d * Math.sin(cam.el * D2R), cam.tz + cam.d * Math.cos(cam.el * D2R) * Math.cos(cam.az * D2R));
     camera.lookAt(cam.tx, cam.ty - bajada, cam.tz);
     renderer.render(scene, camera);
-    corriente.actualizar({ avance: AVANCE, corriente: v / V_PICO_NOMINAL, dt: dtSim, visible: verCorriente, camara: camera, w: escena.clientWidth, h: escena.clientHeight });
+    // las marcas ± solo se leen si cambian despacio: a más de 2 ciclos por segundo en pantalla se ocultan
+    const ciclosEnPantalla = (rpm / 60) * lento.k;
+    corriente.actualizar({ avance: AVANCE, corriente: v / V_PICO_NOMINAL, dt: dtSim, visible: verCorriente, polos: 1 - clamp(ciclosEnPantalla - 2, 0, 1), camara: camera, w: escena.clientWidth, h: escena.clientHeight });
 
     // etiqueta con su guía hacia la pieza
     const w = escena.clientWidth;
