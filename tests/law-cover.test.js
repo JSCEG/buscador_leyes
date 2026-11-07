@@ -35,6 +35,18 @@ describe('law covers', () => {
     const data = coverData({ id: 's', titulo: 'Sentencia de la Suprema Corte. Controversia constitucional 1/2025', siglas: 'SCJN-CC-1-2025', tipo: 'sentencia', fecha_publicacion: '2025-01-01' });
     expect(data.typeLabel.startsWith('Sentencia')).toBe(true);
   });
+  it('prints the full publication date on the cover', () => {
+    const data = coverData({ ...ley, fecha_publicacion: '2025-03-18' });
+    expect(data.date).toBe('18 mar 2025');
+    expect(data.year).toBe('2025');
+    document.body.innerHTML = coverHTML({ ...ley, fecha_publicacion: '2026-10-05' });
+    expect(document.querySelector('.sh-cover-date').textContent).toBe('5 oct 2026');
+  });
+  it('does not invent a day or a month the document does not have', () => {
+    expect(coverData({ ...ley, fecha_publicacion: '2025' }).date).toBe('2025');
+    expect(coverData({ ...ley, fecha_publicacion: '2025-13-40' }).date).toBe('2025');
+    expect(coverData({ ...ley, fecha_publicacion: null }).date).toBe('Sin fecha');
+  });
   it('keeps spines minimal: acronym and year only', () => {
     document.body.innerHTML = spineHTML(ley);
     expect(document.querySelector('.sh-spine-label').textContent).toBe('LSE');

@@ -147,7 +147,7 @@ export function renderBookView(host, { law, articles, pickerArticles = articles,
         const marked = state.marks.includes(index) ? '<span class="bk-marca"></span>' : '';
         if (page.kind === COVER) {
             const issuer = issuerMark(law);
-            return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-portada"><span class="bk-kick">${esc(data.typeLabel)}</span><strong>${esc(data.siglas || data.name)}</strong><span class="bk-regla"></span><span class="bk-nombre">${esc(data.name)}</span>${issuer?.logo ? `<img class="bk-logo" src="${esc(issuer.logo)}" alt="${esc(issuer.label)}" decoding="async">` : ''}<span class="bk-meta">${esc([data.year, issuer?.logo ? '' : issuer?.short].filter(Boolean).join(' · '))}</span><svg class="bk-buho" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg></div></div>`;
+            return `<div class="bk-pg ${sideClass}">${marked}<div class="bk-portada"><span class="bk-kick">${esc(data.typeLabel)}</span><strong>${esc(data.siglas || data.name)}</strong><span class="bk-regla"></span><span class="bk-nombre">${esc(data.name)}</span>${issuer?.logo ? `<img class="bk-logo" src="${esc(issuer.logo)}" alt="${esc(issuer.label)}" decoding="async">` : ''}<span class="bk-meta">${esc([data.date, issuer?.logo ? '' : issuer?.short].filter(Boolean).join(' · '))}</span><svg class="bk-buho" viewBox="33 24 379 448" aria-hidden="true"><use href="#buho-mark"/></svg></div></div>`;
         }
         if (page.kind === INDEX) {
             const rows = page.entries.map(entry => outlineRowHtml(entry, articlePage.get(entry.articleId) ?? '')).join('');

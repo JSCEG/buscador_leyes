@@ -241,7 +241,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         text.append(element('p', 'ac-cartel-tag', 'Lo más reciente'), element('h2', '', data.name));
         if (data.title && data.title !== data.name) text.append(element('p', 'ac-cartel-titulo', data.title));
         const noun = isJudgment(law) ? fragmentNoun(law) : { one: 'disposición', many: 'disposiciones' };
-        const facts = [data.typeLabel, data.year === 'Sin fecha' ? '' : data.year, issuerMark(law)?.label, law.articulos > 0 ? `${number(law.articulos)} ${law.articulos === 1 ? noun.one : noun.many}` : ''].filter(Boolean);
+        const facts = [data.typeLabel, data.date === 'Sin fecha' ? '' : data.date, issuerMark(law)?.label, law.articulos > 0 ? `${number(law.articulos)} ${law.articulos === 1 ? noun.one : noun.many}` : ''].filter(Boolean);
         const list = element('ul', 'ac-cartel-datos');
         facts.forEach(fact => list.append(element('li', '', fact)));
         const actions = element('div', 'ac-cartel-acciones');

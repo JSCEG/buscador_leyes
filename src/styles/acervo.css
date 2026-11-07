@@ -68,6 +68,8 @@
 /* El libro es la portada del estante, a la escala de la hilera. */
 .ac-card { --sh-h: var(--ac-u); display: block; padding: 0; border: 0; border-radius: calc(var(--sh-h) * .022); background: none; cursor: pointer; box-shadow: 0 10px 20px -14px #0a070759; transition: transform var(--t-rapido, .16s) ease, box-shadow var(--t-rapido, .16s) ease; }
 .ac-card .sh-cover, .ac-cartel-libro .sh-cover { pointer-events: none; text-align: left; }
+.ac-card .sh-cover-foot, .ac-cartel-libro .sh-cover-foot { font-size: max(10.5px, calc(var(--sh-u) * .037)); }
+.ac-card .sh-cover-issuer, .ac-cartel-libro .sh-cover-issuer { font-size: max(10px, calc(var(--sh-u) * .032)); }
 @media (hover: hover) {
   .ac-card:hover { transform: translateY(-6px) scale(1.035); box-shadow: 0 22px 32px -18px #0a070780; }
   .ac-cartel-libro:hover { transform: perspective(900px) rotateY(3deg); }
@@ -100,6 +102,11 @@
 /* ── Celular: libros más chicos ── */
 @media (max-width: 767px) {
   .ac-library { --ac-u: 196px; }
+  /* A esta escala la fecha y la autoridad necesitan el espacio; el tipo ya lo dicen la banda y la etiqueta. */
+  .ac-card .sh-cover-foot svg, .ac-cartel-libro .sh-cover-foot svg { display: none; }
+  .ac-card .sh-cover-issuer, .ac-cartel-libro .sh-cover-issuer { margin-right: 0; letter-spacing: 0; }
+  .ac-issuer, .ac-type { padding: 0 8px 0 11px; }
+  .ac-issuer select, .ac-type select { font-size: 12px; }
   .ac-links { order: 2; margin-left: -10px; }
   .ac-search-form { flex: 1 1 100%; order: 3; }
   .ac-bar { position: static; }

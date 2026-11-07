@@ -22,6 +22,17 @@ const SINGULAR = Object.freeze({
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
+/** «18 mar 2025». Only a real calendar day gets day and month; otherwise the year, if there is one. */
+function coverDate(value) {
+    const text = String(value ?? '');
+    const day = /^\d{4}-\d{2}-\d{2}/.exec(text)?.[0];
+    const parsed = day ? new Date(`${day}T00:00:00.000Z`) : null;
+    if (parsed && Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === day) {
+        return new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(parsed).replace(/\./g, '').replace(/ de /g, ' ');
+    }
+    return /^\d{4}/.exec(text)?.[0] || 'Sin fecha';
+}
+
 export function coverData(law) {
     const group = getAcervoGroup(law);
     const groupLabel = GROUP_LABELS[group];
@@ -38,6 +49,7 @@ export function coverData(law) {
         title,
         siglas,
         year: published ? published[0] : 'Sin fecha',
+        date: coverDate(law?.fecha_publicacion),
         display: siglas && siglas.length <= BIG_ACRONYM_MAX ? 'siglas' : 'name',
     };
 }
@@ -70,6 +82,6 @@ export function coverHTML(law, logos = ISSUER_LOGOS) {
         <span class="sh-cover-ribbon"></span>
         <span class="sh-cover-type">${esc(data.typeLabel)}</span>
         <div class="sh-cover-heading">${heading}</div>
-        <div class="sh-cover-foot"><span>${esc(data.year)}</span>${issuerHTML(law, logos)}${collectionIcon(data.group, 18)}</div>
+        <div class="sh-cover-foot"><span class="sh-cover-date">${esc(data.date)}</span>${issuerHTML(law, logos)}${collectionIcon(data.group, 18)}</div>
     </div>`;
 }
