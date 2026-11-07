@@ -29,6 +29,16 @@ const TABS = [
     { id: 'sener', group: 'SENER', label: 'Títulos y permisos', intro: 'Títulos y permisos de la Secretaría de Energía: asignaciones, pozos, contratos de exploración y extracción, comercio exterior y biocombustibles, con su fuente oficial.' },
 ];
 
+const MAP_ICON = '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6Z"/><path d="M9 4v14M15 6v14"/></svg>';
+// The map, drawn small: a few streets and pins in the colours of its permits.
+const MAP_ART = `<svg class="pm-mapa-art" viewBox="0 0 120 80" aria-hidden="true">
+    <rect x="1" y="1" width="118" height="78" rx="12" class="pm-mapa-fondo"/>
+    <path class="pm-mapa-calle" d="M-2 52c22-6 34 10 58 2s30-24 66-14M30-2c4 24-6 40 4 84M86-2c-6 30 10 50 0 84"/>
+    <g class="pm-mapa-pin" style="--c:var(--rojo)"><path d="M36 38c-6 0-10 4-10 9 0 7 10 15 10 15s10-8 10-15c0-5-4-9-10-9Z"/><circle cx="36" cy="47" r="3.4"/></g>
+    <g class="pm-mapa-pin" style="--c:var(--col-acuerdos)"><path d="M78 16c-5 0-8 3.5-8 7.5 0 6 8 12.5 8 12.5s8-6.5 8-12.5c0-4-3-7.5-8-7.5Z"/><circle cx="78" cy="23.5" r="2.8"/></g>
+    <g class="pm-mapa-pin" style="--c:var(--col-convocatorias)"><path d="M96 46c-4 0-7 3-7 6.5 0 5 7 11 7 11s7-6 7-11c0-3.5-3-6.5-7-6.5Z"/><circle cx="96" cy="52.5" r="2.4"/></g>
+</svg>`;
+
 const AUTHORITIES = [
     { id: 'cne', short: 'CNE', name: 'Comisión Nacional de Energía' },
     { id: 'sener', short: 'SENER', name: 'Secretaría de Energía' },
@@ -59,9 +69,14 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             <h1 id="pm-title">Permisos de energía</h1>
             <p class="pm-intro"></p>
             <nav class="pm-tabs" role="tablist" aria-label="Secciones de permisos">
-                ${AUTHORITIES.map(aut => `<div class="pm-tab-grupo" data-aut="${aut.id}"><span class="pm-tab-group" aria-hidden="true">${aut.short}</span>${TABS.filter(tab => tab.group === aut.short).map(tab => `<a role="tab" class="pm-tab" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel" aria-label="${tab.label} · ${tab.group}">${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}</div>`).join('')}
+                ${AUTHORITIES.map(aut => `<div class="pm-tab-grupo" data-aut="${aut.id}"><span class="pm-tab-group" aria-hidden="true">${aut.short}</span>${TABS.filter(tab => tab.group === aut.short).map(tab => `<a role="tab" class="pm-tab${tab.id === 'mapa' ? ' is-destacado' : ''}" id="pm-tab-${tab.id}" href="${permitsHash({ tab: tab.id })}" data-tab="${tab.id}" aria-controls="pm-tabpanel" aria-label="${tab.label} · ${tab.group}">${tab.id === 'mapa' ? MAP_ICON : ''}${tab.label}<span class="pm-tab-new" aria-hidden="true">Nuevo</span></a>`).join('')}</div>`).join('')}
             </nav>
         </div>
+        <a class="pm-mapa-promo" href="${permitsHash({ tab: 'mapa' })}">
+            ${MAP_ART}
+            <span class="pm-mapa-texto"><strong>Ve los permisos en el mapa</strong><span>Centrales, gasolineras, ductos y almacenes, con su estatus y sus resoluciones. Filtra por estado o por tipo.</span></span>
+            <span class="bu-btn bu-btn-primario pm-mapa-cta">${MAP_ICON}Abrir el mapa</span>
+        </a>
         <div id="pm-tabpanel" class="pm-tabpanel" role="tabpanel"></div>`;
     container.replaceChildren(root);
     const host = root.querySelector('.pm-tabpanel');
@@ -88,6 +103,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
             if (link.dataset.autLink === authority) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
         });
         root.classList.toggle('en-mapa', tab === 'mapa');
+        root.querySelector('.pm-mapa-promo').hidden = tab !== 'permisos';
         root.querySelectorAll('.pm-tab').forEach(link => {
             const on = link.dataset.tab === tab;
             link.setAttribute('aria-selected', String(on));
