@@ -102,4 +102,6 @@ En la raíz (no son parte del bundle):
 - `rechunk_leyes.js` / `fix_rechunk.js` — re-chunking de leyes existentes
 - `backfill_temas.js` — rellena tabla `temas` desde los JSONs de `public/data/`
 
+Figuras 3D de «¿Cómo funciona?»: fuentes en `conceptos-3d/<figura>/` (`main.js` con three.js, `style.css` Búho); `node scripts/build-conceptos-3d.mjs [figura]` las arma con la skill teardown (`~/.claude/skills/teardown`) y escribe `public/conceptos/<figura>.html` (oscuro) y `<figura>-light.html` (claro). Hablan con Aprende por `postMessage` (`concepto-height`, `concepto-part`, `concepto-select-part`).
+
 En `scripts/`: `audit-tables.mjs` compara texto y celdas de todas las tablas antes y después del formato (`--local` usa `public/data`).
