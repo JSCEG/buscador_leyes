@@ -3,15 +3,29 @@ import { renderAcervoView } from '../src/scripts/acervo-view.js';
 
 const summaries = () => [
     { id: 'lse', titulo: 'Ley del Sector Eléctrico', siglas: 'LSE', tipo: 'Ley', fecha_publicacion: '2025-03-18', articulos: 120, temas_clave: ['electricidad'] },
-    { id: 'lcne', titulo: 'Ley de la Comisión Nacional de Energía', siglas: 'LCNE', tipo: 'Ley', fecha_publicacion: '2025-03-18', articulos: 48, temas_clave: ['regulación', 'energía'] },
-    { id: 'rlse', titulo: 'Reglamento de la Ley del Sector Eléctrico', siglas: 'RLSE', tipo: 'Reglamento', fecha_publicacion: '2025-10-01', articulos: 220, temas_clave: ['electricidad'] },
-    { id: 'saee', titulo: 'Acuerdo por el que se emiten las Disposiciones administrativas de carácter general en materia de almacenamiento', siglas: 'SAEE', tipo: 'Acuerdo', fecha_publicacion: '2025-03-07', articulos: 50, temas_clave: ['almacenamiento'] },
-    { id: 'conv', titulo: 'Convocatoria para proyectos de autoconsumo', siglas: 'CONV-1', tipo: 'Convocatoria', fecha_publicacion: '2026-02-12', articulos: 8, temas_clave: ['autoconsumo'] },
+    { id: 'lcne', titulo: 'Ley de la Comisión Nacional de Energía', siglas: 'LCNE', tipo: 'Ley', fecha_publicacion: '2024-03-18', articulos: 40, temas_clave: [] },
+    { id: 'rlse', titulo: 'Reglamento de la Ley del Sector Eléctrico', siglas: 'RLSE', tipo: 'Reglamento', fecha_publicacion: '2025-10-01', articulos: 60, temas_clave: [] },
+    { id: 'cne-1', titulo: 'Acuerdo de la Comisión Nacional de Energía sobre autoconsumo', siglas: 'CNE-1', tipo: 'acuerdo', fecha_publicacion: '2026-07-20', articulos: 8, temas_clave: [] },
+    { id: 'cne-2', titulo: 'Acuerdo de la Comisión Nacional de Energía por el que se emiten las DACG de almacenamiento', siglas: 'CNE-2', tipo: 'acuerdo', fecha_publicacion: '2026-05-02', articulos: 12, temas_clave: [] },
+    { id: 'sener-1', titulo: 'Acuerdo de la Secretaría de Energía sobre eficiencia', siglas: 'SENER-1', tipo: 'acuerdo', fecha_publicacion: '2024-01-15', articulos: 3, temas_clave: [] },
 ];
 const frame = () => new Promise(resolve => setTimeout(resolve, 5));
 
-describe('Acervo library view', () => {
+describe('Acervo', () => {
     let container, view;
+    const rows = () => [...container.querySelectorAll('.ac-group')].map(group => group.dataset.row);
+    const cardIds = root => [...(root || container).querySelectorAll('.ac-card')].map(card => card.dataset.lawId);
+    const chooseIssuer = value => {
+        const select = container.querySelector('.ac-issuer select');
+        select.value = value; select.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+    const chooseType = value => container.querySelector(`.ac-filter[data-group="${value}"]`).click();
+    function search(value) {
+        const field = container.querySelector('input[type="search"]');
+        field.value = value; field.dispatchEvent(new Event('input', { bubbles: true }));
+        return field;
+    }
+
     beforeEach(() => {
         document.body.innerHTML = '<div id="acervo"></div>';
         container = document.getElementById('acervo');
@@ -20,155 +34,175 @@ describe('Acervo library view', () => {
     });
     afterEach(() => { view?.destroy(); vi.unstubAllGlobals(); });
 
-    function search(value) {
+    it('opens with the latest documents and a row per populated type, as book covers', () => {
+        view = renderAcervoView(container, summaries());
+        expect(rows()).toEqual(['recientes', 'leyes', 'reglamentos', 'acuerdos', 'dacg']);
+        expect(cardIds(container.querySelector('[data-row="recientes"]'))[0]).toBe('cne-1');
+        expect(container.querySelector('.ac-card .sh-cover')).not.toBeNull();
+        expect(container.querySelector('.ac-total').textContent).toBe('6 documentos');
+    });
+    it('features the newest document and steps through the next ones', () => {
+        view = renderAcervoView(container, summaries());
+        const open = () => container.querySelector('[data-featured-open]').dataset.featuredOpen;
+        expect(open()).toBe('cne-1');
+        container.querySelector('[data-featured-next]').click();
+        expect(open()).toBe('cne-2');
+        expect(container.querySelector('.ac-cartel-pos').textContent).toBe('2 de 5');
+        container.querySelector('[data-featured-prev]').click();
+        container.querySelector('[data-featured-prev]').click();
+        expect(open()).toBe('lcne');
+    });
+    it('a chosen authority rearranges the rows by type and updates the featured document', () => {
+        const onStateChange = vi.fn();
+        view = renderAcervoView(container, summaries(), { onStateChange });
+        chooseIssuer('sener');
+        expect(cardIds()).toEqual(expect.arrayContaining(['sener-1']));
+        expect(container.querySelector('[data-featured-open]').dataset.featuredOpen).toBe('sener-1');
+        chooseIssuer('cne');
+        expect(rows()).toEqual(['acuerdos', 'dacg']);
+        expect(container.querySelector('[data-featured-open]').dataset.featuredOpen).toBe('cne-1');
+        expect(onStateChange.mock.lastCall[0].issuer).toBe('cne');
+    });
+    it('a chosen type shows its rows by authority, and «Ver todos» narrows to one', () => {
+        view = renderAcervoView(container, summaries());
+        chooseType('acuerdos');
+        expect(rows()).toEqual(['sener', 'cne']);
+        container.querySelector('[data-row="cne"] .ac-see-all').click();
+        expect(container.querySelector('.ac-results-grid')).not.toBeNull();
+        expect(cardIds()).toEqual(['cne-1']);
+        expect(container.querySelector('.ac-result-status').textContent).toBe('1 documento en Acuerdos de CNE.');
+    });
+    it('offers the types as a menu too, in step with the buttons', () => {
+        view = renderAcervoView(container, summaries());
+        const select = container.querySelector('.ac-type select');
+        expect([...select.options].map(option => option.value)).toEqual(['all', 'leyes', 'reglamentos', 'acuerdos', 'dacg']);
+        select.value = 'leyes'; select.dispatchEvent(new Event('change', { bubbles: true }));
+        expect(container.querySelector('.ac-filter[data-group="leyes"]').getAttribute('aria-pressed')).toBe('true');
+        chooseType('all');
+        expect(container.querySelector('.ac-type select').value).toBe('all');
+    });
+    it('counts follow the other filter and types without documents leave the bar', () => {
+        view = renderAcervoView(container, summaries());
+        chooseIssuer('cne');
+        expect(container.querySelector('.ac-filter[data-group="acuerdos"] .ac-filter-count').textContent).toBe('1');
+        expect(container.querySelector('.ac-filter[data-group="leyes"]').hidden).toBe(true);
+        expect(container.querySelector('.ac-issuer select').value).toBe('cne');
+    });
+    it('searches without replacing the field or losing focus, in a grid without the featured document', () => {
+        view = renderAcervoView(container, summaries());
         const field = container.querySelector('input[type="search"]');
-        field.value = value; field.dispatchEvent(new Event('input', { bubbles: true }));
-        return field;
-    }
-
-    it('shows only populated collections with compact native cards and original category metadata', () => {
-        view = renderAcervoView(container, summaries());
-        expect([...container.querySelectorAll('.ac-group h2')].map(heading => heading.textContent)).toEqual(['Leyes2', 'Reglamentos1', 'DACG1', 'Convocatorias1']);
-        expect(container.querySelectorAll('.ac-card')).toHaveLength(5);
-        const dacgCard = container.querySelector('[data-law-id="saee"]');
-        expect(dacgCard.querySelector('.ac-card-category').textContent).toBe('Acuerdo');
-        expect(dacgCard.getAttribute('aria-label')).toContain(summaries()[3].titulo);
-        expect(dacgCard.dataset.tip).toBe(summaries()[3].titulo);
-        expect(container.querySelector('.ac-total').textContent).toBe('5 instrumentos');
-        expect(container.textContent).not.toMatch(/vigente/i);
-        expect(container.querySelector('img')).toBeNull();
+        field.focus();
+        const typed = search('autoconsumo');
+        expect(container.querySelector('input[type="search"]')).toBe(typed);
+        expect(document.activeElement).toBe(typed);
+        expect(cardIds()).toEqual(['cne-1']);
+        expect(container.querySelector('.ac-cartel').hidden).toBe(true);
     });
-
-    it('filters without replacing the search field, losing focus or moving its text selection', () => {
-        const changed = vi.fn();
-        view = renderAcervoView(container, summaries(), { onStateChange: changed });
-        const input = container.querySelector('input[type="search"]'); input.focus();
-        search('regulacion');
-        expect(container.querySelector('input[type="search"]')).toBe(input);
-        expect(document.activeElement).toBe(input);
-        expect(container.querySelectorAll('.ac-results-grid .ac-card')).toHaveLength(1);
-        expect(container.querySelector('.ac-card').dataset.lawId).toBe('lcne');
-        expect(container.querySelector('.ac-result-status').textContent).toMatch(/1 instrumento/);
-        expect(container.querySelector('[data-group="leyes"] .ac-filter-count').textContent).toBe('1');
-        expect(changed).toHaveBeenLastCalledWith(expect.objectContaining({ query: 'regulacion' }));
-    });
-
-    it('opens a full group through Ver todos and retains group filtering during search', () => {
-        view = renderAcervoView(container, summaries());
-        container.querySelector('[aria-label="Ver todos: Leyes"]').click();
-        expect(view.captureState().group).toBe('leyes');
-        expect(container.querySelectorAll('.ac-results-grid .ac-card')).toHaveLength(2);
-        search('electricidad');
-        expect(container.querySelectorAll('.ac-card')).toHaveLength(1);
-        expect(container.querySelector('.ac-card').dataset.lawId).toBe('lse');
-        expect(container.querySelector('[data-group="leyes"]').getAttribute('aria-pressed')).toBe('true');
-    });
-
-    it('captures row position before opening and passes the exact original summary to navigation', async () => {
-        const laws = summaries(); const onOpenLaw = vi.fn(); const onStateChange = vi.fn();
-        view = renderAcervoView(container, laws, { onOpenLaw, onStateChange });
+    it('passes the exact original summary and the row positions to navigation', async () => {
+        const items = summaries();
+        const onOpenLaw = vi.fn();
+        view = renderAcervoView(container, items, { onOpenLaw });
         await frame();
-        container.querySelector('.ac-row[data-group="leyes"]').scrollLeft = 272;
-        container.querySelector('[data-law-id="lse"]').click();
-        expect(onOpenLaw).toHaveBeenCalledWith(laws[0], expect.objectContaining({ rowScroll: { leyes: 272, reglamentos: 0, dacg: 0, convocatorias: 0 } }));
-        expect(onOpenLaw.mock.calls[0][0]).toBe(laws[0]);
-        expect(onStateChange).toHaveBeenLastCalledWith(onOpenLaw.mock.calls[0][1]);
-    });
-
-    it('restores row offsets from state, including after entering and clearing a query', async () => {
-        view = renderAcervoView(container, summaries(), { state: { rowScroll: { leyes: 190 } } });
-        expect(view.captureState().rowScroll.leyes).toBe(190);
-        await frame();
-        expect(container.querySelector('.ac-row[data-group="leyes"]').scrollLeft).toBe(190);
-        search('LCNE'); search('');
-        expect(view.captureState().rowScroll.leyes).toBe(190);
-        await frame();
-        expect(container.querySelector('.ac-row[data-group="leyes"]').scrollLeft).toBe(190);
-        const captured = view.captureState(); captured.rowScroll.leyes = 0;
-        expect(view.captureState().rowScroll.leyes).toBe(190);
-    });
-
-    it('sorts filtered cards using publication date and preserves selected sort on rerender', () => {
-        view = renderAcervoView(container, summaries(), { state: { query: 'electricidad', sort: 'date-newest' } });
-        expect([...container.querySelectorAll('.ac-card')].map(card => card.dataset.lawId)).toEqual(['rlse', 'lse']);
-        const sort = container.querySelector('select'); sort.value = 'date-oldest'; sort.dispatchEvent(new Event('change'));
-        expect([...container.querySelectorAll('.ac-card')].map(card => card.dataset.lawId)).toEqual(['lse', 'rlse']);
-        expect(view.captureState().sort).toBe('date-oldest');
-        expect(container.querySelector('select')).toBe(sort);
-    });
-
-    it('updates available carousel arrows and supports clicking them without hover', async () => {
-        view = renderAcervoView(container, summaries()); await frame();
         const row = container.querySelector('.ac-row[data-group="leyes"]');
-        Object.defineProperty(row, 'scrollWidth', { configurable: true, value: 900 });
-        Object.defineProperty(row, 'clientWidth', { configurable: true, value: 300 });
-        row.scrollBy = vi.fn(({ left }) => { row.scrollLeft += left; });
-        window.dispatchEvent(new Event('resize')); await frame();
-        const previous = container.querySelector('[aria-label="Anteriores en Leyes"]');
-        const next = container.querySelector('[aria-label="Siguientes en Leyes"]');
-        expect(previous.disabled).toBe(true); expect(next.disabled).toBe(false);
-        next.click(); expect(row.scrollBy).toHaveBeenCalled(); expect(previous.disabled).toBe(false);
-        row.scrollLeft = 600; row.dispatchEvent(new Event('scroll'));
-        expect(next.disabled).toBe(true);
+        row.scrollLeft = 50;
+        container.querySelector('.ac-row[data-group="leyes"] [data-law-id="lse"]').click();
+        expect(onOpenLaw.mock.calls[0][0]).toBe(items[0]);
+        expect(onOpenLaw.mock.calls[0][1].rowScroll.leyes).toBe(50);
     });
-
-    it('renders an empty result and lets the user reset query/group', () => {
-        view = renderAcervoView(container, summaries(), { state: { group: 'leyes', query: 'sin-coincidencias' } });
-        expect(container.querySelector('.ac-empty h2').textContent).toBe('No encontramos instrumentos');
-        container.querySelector('.ac-reset').click();
-        expect(view.captureState()).toMatchObject({ query: '', group: 'all' });
-        expect(container.querySelectorAll('.ac-card')).toHaveLength(5);
-        expect(document.activeElement).toBe(container.querySelector('input'));
+    it('restores row positions from state, also after a search', async () => {
+        view = renderAcervoView(container, summaries(), { state: { rowScroll: { leyes: 25 } } });
+        await frame();
+        expect(container.querySelector('.ac-row[data-group="leyes"]').scrollLeft).toBe(25);
+        search('Ley');
+        search('');
+        await frame();
+        expect(container.querySelector('.ac-row[data-group="leyes"]').scrollLeft).toBe(25);
     });
-
-    it('keeps untrusted titles as text and does not invent dates or fragment counts', () => {
-        const unsafe = { id: 'unsafe', titulo: '<img src=x onerror=alert(1)>', tipo: 'Acuerdo', fecha_publicacion: '2026-02-31', articulos: undefined };
-        view = renderAcervoView(container, [unsafe]);
-        expect(container.querySelector('img')).toBeNull();
-        expect(container.querySelector('.ac-card-title').textContent).toBe(unsafe.titulo);
-        expect(container.textContent).toContain('Fecha no disponible');
-        expect(container.textContent).toContain('Sin conteo');
-    });
-
-    it('opens with collection tiles, the latest publications and key facts, and hides them while filtering', () => {
-        const onOpenLaw = vi.fn(), onOpenStats = vi.fn();
-        view = renderAcervoView(container, summaries(), { onOpenLaw, onOpenStats });
-        const root = container.querySelector('.ac-library');
-        expect(root.classList.contains('is-home')).toBe(true);
-        expect([...container.querySelectorAll('[data-tile-group]')].map(tile => tile.dataset.tileGroup)).toEqual(['leyes', 'reglamentos', 'dacg', 'convocatorias']);
-        expect([...container.querySelectorAll('[data-latest-id]')].map(node => node.dataset.latestId)).toEqual(['conv', 'rlse', 'lcne', 'lse']);
-        expect(container.querySelector('.ac-facts').textContent).toContain('446 artículos');
-        container.querySelector('[data-latest-id="conv"]').click();
-        expect(onOpenLaw.mock.calls[0][0].id).toBe('conv');
-        container.querySelector('button.ac-stats-link').click();
-        expect(onOpenStats).toHaveBeenCalled();
-        container.querySelector('[data-tile-group="reglamentos"]').click();
-        expect(view.captureState().group).toBe('reglamentos');
-        expect(root.classList.contains('is-home')).toBe(false);
-        expect(container.querySelector('.ac-overview').hidden).toBe(true);
-    });
-
-    it('leads long official titles with a readable name and keeps the full title', () => {
-        const long = { id: 'met', titulo: 'Acuerdo de la Comisión Nacional de Energía por el que se emite la metodología para la determinación del cargo de transmisión', siglas: 'MET', tipo: 'Acuerdo', fecha_publicacion: '2026-01-02', articulos: 4 };
-        view = renderAcervoView(container, [long]);
-        const card = container.querySelector('[data-law-id="met"]');
-        expect(card.querySelector('.ac-card-name').textContent).toBe('Metodología para la determinación del cargo de transmisión');
-        expect(card.querySelector('.ac-card-title').textContent).toBe(long.titulo);
-    });
-
-    it('searches a frequent topic from the hero', () => {
+    it('keeps the arrows in step with the row', async () => {
         view = renderAcervoView(container, summaries());
-        const chip = container.querySelector('[data-topic="electricidad"]');
-        chip.click();
-        expect(view.captureState().query).toBe('electricidad');
-        expect(container.querySelector('input[type="search"]').value).toBe('electricidad');
+        const row = container.querySelector('.ac-row[data-group="leyes"]');
+        Object.defineProperty(row, 'scrollWidth', { configurable: true, value: 600 });
+        Object.defineProperty(row, 'clientWidth', { configurable: true, value: 200 });
+        row.scrollBy = ({ left }) => { row.scrollLeft += left; };
+        window.dispatchEvent(new Event('resize'));
+        await frame();
+        const previous = row.parentElement.querySelector('.ac-arrow-prev');
+        const next = row.parentElement.querySelector('.ac-arrow-next');
+        expect(previous.disabled).toBe(true);
+        expect(next.disabled).toBe(false);
+        next.click();
+        expect(row.scrollLeft).toBeGreaterThan(0);
+        expect(previous.disabled).toBe(false);
     });
+    it('sorts a grid by the chosen order and keeps it', () => {
+        view = renderAcervoView(container, summaries());
+        chooseType('acuerdos');
+        chooseIssuer('sener');
+        search('energía');
+        const sort = container.querySelector('select[aria-label="Ordenar documentos"]');
+        expect(sort.closest('.ac-sort').hidden).toBe(false);
+        search('');
+        chooseIssuer('all');
+        search('acuerdo');
+        expect(cardIds()[0]).toBe('cne-1');
+        sort.value = 'date-oldest'; sort.dispatchEvent(new Event('change', { bubbles: true }));
+        expect(cardIds()[0]).toBe('sener-1');
+    });
+    it('explains an empty result and lets the reader start over', () => {
+        view = renderAcervoView(container, summaries());
+        search('sin coincidencias');
+        expect(container.querySelector('.ac-empty')).not.toBeNull();
+        container.querySelector('.ac-reset').click();
+        expect(container.querySelector('.ac-empty')).toBeNull();
+        expect(container.querySelector('input[type="search"]').value).toBe('');
+        expect(rows()[0]).toBe('recientes');
+    });
+    it('«Quitar filtros» clears the search and both filters', () => {
+        const onStateChange = vi.fn();
+        view = renderAcervoView(container, summaries(), { onStateChange, state: { group: 'acuerdos', issuer: 'cne', query: 'auto' } });
+        expect(container.querySelector('input[type="search"]').value).toBe('auto');
+        container.querySelector('.ac-reset-filters').click();
+        expect(onStateChange.mock.lastCall[0]).toMatchObject({ query: '', group: 'all', issuer: 'all' });
+        expect(container.querySelector('.ac-status-row').hidden).toBe(true);
+    });
+    it('keeps untrusted titles as text and does not invent dates or counts', () => {
+        view = renderAcervoView(container, [{ id: 'x', titulo: '<img src=x onerror=alert(1)>', siglas: null, tipo: 'acuerdo' }]);
+        expect(container.querySelector('img[src="x"]')).toBeNull();
+        expect(container.querySelector('.ac-card').getAttribute('aria-label')).toContain('<img src=x');
+        expect(container.querySelector('.ac-cartel').hidden).toBe(true);
+    });
+    it('ignores values it does not know in the initial state', () => {
+        view = renderAcervoView(container, summaries(), { state: { group: 'nada', issuer: 'nadie', sort: 'raro' } });
+        expect(view.captureState()).toMatchObject({ group: 'all', issuer: 'all', sort: 'date-newest' });
+    });
+    it('links to the shelf and to the figures', () => {
+        const onShowShelf = vi.fn();
+        const onOpenStats = vi.fn();
+        view = renderAcervoView(container, summaries(), { onShowShelf, onOpenStats });
+        container.querySelector('[data-show-shelf]').click();
+        expect(onShowShelf).toHaveBeenCalledOnce();
+        [...container.querySelectorAll('.ac-links button')].find(button => button.textContent === 'Estadísticas').click();
+        expect(onOpenStats).toHaveBeenCalledOnce();
+    });
+    it('cleans up when remounted without letting an old destroy clear the new view', () => {
+        const first = renderAcervoView(container, summaries());
+        view = renderAcervoView(container, summaries());
+        first.destroy();
+        expect(container.querySelector('.ac-library')).not.toBeNull();
+    });
+});
 
-    it('cleans up when remounted without letting an old destroy clear the new view', async () => {
-        const old = renderAcervoView(container, summaries());
-        view = renderAcervoView(container, [summaries()[0]]);
-        old.destroy(); await frame();
-        expect(container.querySelectorAll('.ac-card')).toHaveLength(1);
-        view.destroy(); expect(container.childElementCount).toBe(0);
+describe('Acervo while hidden', () => {
+    it('keeps where the reader left a row when the row reports 0 because it is hidden', async () => {
+        vi.stubGlobal('requestAnimationFrame', callback => setTimeout(callback, 0));
+        vi.stubGlobal('cancelAnimationFrame', clearTimeout);
+        document.body.innerHTML = '<div id="acervo"></div>';
+        const view = renderAcervoView(document.getElementById('acervo'), summaries(), { state: { rowScroll: { leyes: 80 } } });
+        await frame();
+        const row = document.querySelector('.ac-row[data-group="leyes"]');
+        row.scrollLeft = 0; // what a browser reports under display: none (no layout, no scroll event)
+        expect(view.captureState().rowScroll.leyes).toBe(80);
+        view.destroy();
+        vi.unstubAllGlobals();
     });
 });

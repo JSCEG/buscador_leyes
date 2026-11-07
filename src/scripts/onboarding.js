@@ -8,7 +8,7 @@ const KEY = 'bienvenida-v1';
 export const WELCOME_STEPS = [
     { title: 'Bienvenida al Buscador Jurídico', text: 'Leyes, reglamentos, acuerdos y demás reglas del sector energético, en un solo lugar. Te mostramos lo esencial en cuatro pasos.' },
     { target: '#nav-inicio, #bottom-nav [data-nav="nav-inicio"]', title: 'Buscar', text: 'Escribe una palabra y encuéntrala en el texto de todos los documentos. Verás los resultados en lista o en un mapa de relaciones.' },
-    { target: '#nav-leyes, #bottom-nav [data-nav="nav-leyes"]', title: 'Acervo', text: 'Todos los documentos, ordenados por tipo. Abre cualquiera para leerlo por artículos o como libro, y ver su línea del tiempo.' },
+    { target: '#nav-leyes, #bottom-nav [data-nav="nav-leyes"]', title: 'Acervo', text: 'Todos los documentos, por tipo y por dependencia. Abre cualquiera para leerlo por artículos o como libro, y ver su línea del tiempo.' },
     { target: '[data-nav="analisis"] > summary, #bottom-nav [data-more]', title: 'Análisis', text: 'Los temas que cruzan varias leyes y los términos clave: dónde se usan y cómo se conectan. En celular está en «Más».' },
     { target: '#desk-toggle, #bottom-nav [data-more]', title: 'Tu mesa de consulta', text: 'Fija artículos con el botón «Fijar» y tenlos a la mano mientras sigues navegando. Puedes verlos lado a lado y organizarlos por tema.' },
 ];

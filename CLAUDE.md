@@ -65,8 +65,8 @@ La búsqueda usa `.textSearch('fts', query)` con operador `&` entre palabras.
 
 Las vistas son secciones del DOM que se muestran/ocultan con `classList.add/remove('hidden')`. No hay router. Las vistas son:
 - `#hero-section` — portada de búsqueda (`#buscar`)
-- `#home-view` — estante de documentos (`shelf-view.js`), con carpetas por tipo
-- `#results-container` — resultados de búsqueda y secciones que se pintan ahí
+- `#home-view` — entrada: estante 3D de documentos (`shelf-view.js`), sin dirección y al tocar el logo
+- `#results-container` — resultados de búsqueda y secciones que se pintan ahí; entre ellas `#acervo` (`acervo-view.js`), hileras de portadas con filtros por tipo y dependencia (`acervoReels` en `acervo-model.js`)
 - `#law-detail-container` — documento: por artículo o como libro (`book-view.js`)
 - `#analisis-container` — Temas Transversales (renderizado por `analisis.js`)
 - `#admin-ingest-container` — panel de ingesta

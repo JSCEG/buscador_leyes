@@ -11,12 +11,11 @@ export const MARQUEE_SELECTOR = [
     '#law-articles-list .lr-card-label',
     '#detail-modal .reader-nav-destination > span',
     '.desk-card-head h3',
-    '.ac-library .ac-card.has-name .ac-card-name',
 ].join(', ');
 // Vertical: a fixed number of lines at rest.
-export const MARQUEE_Y_SELECTOR = '.ac-library .ac-card .ac-card-title, .tl-view .tl-name';
+export const MARQUEE_Y_SELECTOR = '.tl-view .tl-name';
 // Hovering anywhere on these starts the glide of the texts inside them.
-const HOSTS = '.ac-card, #law-articles-list > div, .desk-card, .tl-item';
+const HOSTS = '#law-articles-list > div, .desk-card, .tl-item';
 const ALL = `${MARQUEE_SELECTOR}, ${MARQUEE_Y_SELECTOR}`;
 
 const SPEED_X = 45;    // px per second: a comfortable reading pace

@@ -1,4 +1,5 @@
 import { PLANNING_FILTER, isPlanning, planningRank } from './planning.js';
+import { ISSUERS, issuerId } from './issuer.js';
 /** Navigation collections; these do not replace an instrument's legal `tipo` metadata. */
 export const ACERVO_GROUPS = Object.freeze([
     { id: 'leyes', label: 'Leyes', description: 'Legislación para consultar por instrumento.' },
@@ -71,13 +72,14 @@ function publicationDay(law) {
 }
 
 /** Return a fresh filtered/sorted list; retain original objects and every legal metadata field. */
-export function selectAcervo(summaries, { query = '', group = 'all', sort = 'title' } = {}) {
+export function selectAcervo(summaries, { query = '', group = 'all', issuer = 'all', sort = 'title' } = {}) {
     if (!Array.isArray(summaries) || (group !== 'all' && group !== PLANNING_FILTER.id && !GROUP_IDS.has(group))) return [];
     const terms = normalize(query).split(' ').filter(Boolean);
     const selected = summaries.filter(law => {
         if (!isSummary(law)) return false;
         // «Planeación» cuts across collections; the others are collections.
         if (group === PLANNING_FILTER.id ? !isPlanning(law) : group !== 'all' && getAcervoGroup(law) !== group) return false;
+        if (issuer !== 'all' && issuerId(law) !== issuer) return false;
         const themes = Array.isArray(law.temas_clave) ? law.temas_clave.filter(item => typeof item === 'string').join(' ') : text(law.temas_clave);
         const haystack = normalize(`${text(law.titulo)} ${text(law.siglas)} ${themes}`);
         return terms.every(term => haystack.includes(term));
@@ -107,4 +109,44 @@ export function groupAcervo(summaries) {
         if (isSummary(law)) byId.get(getAcervoGroup(law)).items.push(law);
     }
     return groups;
+}
+
+/** Authorities with documents in this list, in the order of ISSUERS («Por precisar» last). */
+export function acervoIssuers(summaries) {
+    const counts = new Map();
+    for (const law of Array.isArray(summaries) ? summaries : []) {
+        if (isSummary(law)) counts.set(issuerId(law), (counts.get(issuerId(law)) || 0) + 1);
+    }
+    return ISSUERS.filter(issuer => counts.has(issuer.id)).map(issuer => ({ ...issuer, count: counts.get(issuer.id) }));
+}
+
+const RECENT_IN_ROW = 15;
+const FEATURED = 5;
+
+/**
+ * How the Acervo shows a selection. With no filter: the latest documents and a row per type. An authority
+ * shows its documents by type, a type by authority. A search, both filters or a single row become a grid.
+ */
+export function acervoReels(summaries, { query = '', group = 'all', issuer = 'all', sort = 'date-newest' } = {}) {
+    const items = selectAcervo(summaries, { query, group, issuer, sort });
+    const dated = selectAcervo(items, { sort: 'date-newest' }).filter(law => publicationDay(law) !== null);
+    const featured = dated.slice(0, FEATURED);
+    const grid = () => ({ layout: 'grid', rows: [], items, featured });
+    if (!items.length || query.trim() || (group !== 'all' && issuer !== 'all')) return grid();
+    const byType = () => groupAcervo(items).filter(row => row.items.length).map(row => ({ id: row.id, label: row.label, filter: { group: row.id }, items: row.items }));
+    if (group === 'all' && issuer === 'all') {
+        const planning = items.filter(isPlanning);
+        return {
+            layout: 'rows', items, featured,
+            rows: [
+                ...(dated.length ? [{ id: 'recientes', label: 'Lo más reciente', items: dated.slice(0, RECENT_IN_ROW) }] : []),
+                ...byType(),
+                ...(planning.length ? [{ id: PLANNING_FILTER.id, label: PLANNING_FILTER.label, filter: { group: PLANNING_FILTER.id }, items: planning }] : []),
+            ],
+        };
+    }
+    const rows = issuer !== 'all' ? byType() : acervoIssuers(items).map(item => ({
+        id: item.id, label: item.label, filter: { issuer: item.id }, items: items.filter(law => issuerId(law) === item.id),
+    }));
+    return rows.length > 1 ? { layout: 'rows', rows, items, featured } : grid();
 }

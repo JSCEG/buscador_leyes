@@ -17,9 +17,9 @@ const PHONE_UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (K
 const PHONE = { width: 412, height: 892, deviceScaleFactor: 2, mobile: true };
 const DESK = { width: 1280, height: 800, deviceScaleFactor: 1, mobile: false };
 const SHOTS = [
-    { name: 'celular-acervo.jpg', hash: '#acervo', ready: '.sh-cover', metrics: PHONE },
+    { name: 'celular-acervo.jpg', hash: '', ready: '.sh-cover', metrics: PHONE },
     { name: 'celular-libro.jpg', hash: `#ley-${LSE}?libro=1&art=${LSE_ART_3}`, ready: '.bk-escena:has([data-book-loading][hidden]) .bk-tx', metrics: PHONE },
-    { name: 'escritorio-acervo.jpg', hash: '#acervo', ready: '.sh-cover', metrics: DESK },
+    { name: 'escritorio-acervo.jpg', hash: '', ready: '.sh-cover', metrics: DESK },
 ];
 
 const sleep = ms => new Promise(done => setTimeout(done, ms));

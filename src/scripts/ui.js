@@ -271,7 +271,7 @@ export function initUI() {
     // Opens the article picker of the document on screen; null outside a document.
     let docPicker = null;
     let lawBookView = null;
-    let acervoState = { query: '', group: 'all', sort: 'title', rowScroll: {}, scrollY: 0 };
+    let acervoState = { query: '', group: 'all', issuer: 'all', sort: 'date-newest', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
     let homeView = null;
     let sheetPushed = false;
@@ -469,11 +469,13 @@ export function initUI() {
     }
 
     function acervoHash(state) {
-        const params = new URLSearchParams({ vista: 'lista' });
+        const params = new URLSearchParams();
         if (state.query) params.set('q', state.query);
         if (state.group !== 'all') params.set('grupo', state.group);
-        if (state.sort !== 'title') params.set('orden', state.sort);
-        return `#acervo?${params}`;
+        if (state.issuer && state.issuer !== 'all') params.set('dep', state.issuer);
+        if (state.sort !== 'date-newest') params.set('orden', state.sort);
+        const query = params.toString();
+        return query ? `#acervo?${query}` : '#acervo';
     }
 
     function acervoRoute(hash) {
@@ -483,7 +485,8 @@ export function initUI() {
             ...acervoState,
             query: (params.get('q') || '').slice(0, 500),
             group: params.get('grupo') === 'planeacion' || ACERVO_GROUPS.some(group => group.id === params.get('grupo')) ? params.get('grupo') : 'all',
-            sort: ['date-newest', 'date-oldest'].includes(params.get('orden')) ? params.get('orden') : 'title',
+            issuer: params.get('dep') || 'all',
+            sort: ['title', 'date-oldest'].includes(params.get('orden')) ? params.get('orden') : 'date-newest',
         };
     }
 
@@ -621,8 +624,7 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            if (hash === '#acervo') showHomeView({ updateHistory: false });
-            else showLawsView(acervo, { updateHistory: false });
+            showLawsView(acervo, { updateHistory: false });
         } else if (explorer) {
             const returnContext = explorerModalReturn?.hash === hash ? explorerModalReturn : null;
             clearTimeout(closeModalTimer);
@@ -708,7 +710,7 @@ export function initUI() {
             releaseReader();
             explorerModalReturn = null;
             if (homeView) {
-                setActiveNav('nav-leyes');
+                setActiveNav(null);
                 homeView.closeSheet({ silent: true });
             } else showHomeView({ updateHistory: false });
         } else {
@@ -1150,7 +1152,7 @@ export function initUI() {
         navigator.clipboard?.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
     }
 
-    /** Home: the 3D shelf. Other sections release it through hideAllViews or setActiveNav. */
+    /** Home: the 3D shelf, on arrival and from the logo. Other sections release it through hideAllViews or setActiveNav. */
     function showHomeView({ updateHistory = true, hash = '' } = {}) {
         lawOpenRequest++;
         if (updateHistory) setHash(hash);
@@ -1158,7 +1160,7 @@ export function initUI() {
         acervoReturnFocusId = null;
         destroyTOC();
         hideAllViews();
-        setActiveNav('nav-leyes');
+        setActiveNav(null);
         const host = document.getElementById('home-view');
         document.body.classList.add('home-active');
         host.classList.remove('hidden');
@@ -1187,7 +1189,7 @@ export function initUI() {
         if (catalogFailed) homeView.setFailed();
     }
 
-    const showAcervo = () => showHomeView({ hash: '#acervo' });
+    const showAcervo = () => showLawsView();
 
     function showLawsView(state = acervoState, { updateHistory = true } = {}) {
         lawOpenRequest++;
@@ -1214,7 +1216,7 @@ export function initUI() {
         }
         acervoView = renderAcervoView(resultsContainer, cachedSummaries, {
             onOpenStats: () => showStatsView(),
-            onShowShelf: showAcervo,
+            onShowShelf: () => showHomeView(),
             state: acervoState,
             onStateChange(next) {
                 acervoState = { ...next };

@@ -43,10 +43,10 @@ it('loads the acervo once ready and preserves its independent route, filters and
 
   const results = document.getElementById('results-container');
   const globalSearch = document.getElementById('global-search-wrapper');
-  const cards = () => [...results.querySelectorAll('.ac-card')];
+  const cards = () => [...results.querySelectorAll('.ac-group:not([data-row="recientes"]):not([data-row="planeacion"]) .ac-card, .ac-results-grid .ac-card')];
   const cardIds = () => cards().map(card => card.dataset.lawId);
   const acervoSearch = () => results.querySelector('.ac-search-form input');
-  const sortSelect = () => results.querySelector('select[aria-label="Ordenar instrumentos"]');
+  const sortSelect = () => results.querySelector('select[aria-label="Ordenar documentos"]');
   const routeParams = () => new URLSearchParams(location.hash.split('?')[1]);
   const settle = () => vi.advanceTimersByTimeAsync(150);
   const enterQuery = value => {
@@ -58,7 +58,6 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(document.querySelector('#home-view .sh-status[data-state="loading"]')).not.toBeNull();
   expect(location.hash).toBe('');
   document.getElementById('nav-leyes').click();
-  document.querySelector('[data-sh-browse]').click();
   expect(results.querySelector('[aria-label="Cargando acervo"]')).not.toBeNull();
 
   const summaries = [
@@ -78,9 +77,8 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(results.querySelector('.animate-spin')).toBeNull();
   expect(cards()).toHaveLength(summaries.length);
   expect(new Set(cardIds())).toEqual(new Set(summaries.map(law => law.id)));
-  expect(results.querySelector('.ac-total').textContent).toBe('9 instrumentos');
+  expect(results.querySelector('.ac-total').textContent).toBe('9 documentos');
   expect(results.querySelector('.ac-card[data-law-id="convocatoria"]').dataset.category).toBe('convocatorias');
-  expect(results.querySelector('.ac-card[data-law-id="convocatoria"] .ac-card-category').textContent).toBe('acuerdo');
   expect([...results.querySelectorAll('.ac-row[data-group="otros"] .ac-card')].map(card => card.dataset.lawId))
     .toEqual(expect.arrayContaining(['sin-tipo', 'circular']));
   expect(globalSearch.classList.contains('hidden')).toBe(true);
@@ -103,7 +101,6 @@ it('loads the acervo once ready and preserves its independent route, filters and
   await settle();
   expect(globalSearch.classList.contains('hidden')).toBe(false);
   document.getElementById('mobile-nav-leyes').click();
-  document.querySelector('[data-sh-browse]').click();
   await settle();
   expect(results.classList.contains('hidden')).toBe(false);
   expect(results.classList.contains('opacity-0')).toBe(false);
@@ -117,13 +114,11 @@ it('loads the acervo once ready and preserves its independent route, filters and
   lawsRow.dispatchEvent(new Event('scroll'));
   results.querySelector('button[aria-label="Ver todos: Leyes"]').click();
   enterQuery('sector');
-  sortSelect().value = 'date-newest';
-  sortSelect().dispatchEvent(new Event('change', { bubbles: true }));
   await settle();
   expect(cardIds()).toEqual(['ley-hidrocarburos', 'ley-electrica']);
   const filteredHash = location.hash;
   expect(routeParams().get('grupo')).toBe('leyes');
-  expect(routeParams().get('orden')).toBe('date-newest');
+  expect(routeParams().get('orden')).toBeNull();
   viewportY = 640;
   cards()[0].click();
   await settle();
@@ -183,7 +178,6 @@ it('loads the acervo once ready and preserves its independent route, filters and
   globalInput.value = 'circular pendiente';
   globalInput.dispatchEvent(new Event('input', { bubbles: true }));
   document.getElementById('nav-leyes').click();
-  document.querySelector('[data-sh-browse]').click();
   const libraryHash = location.hash;
   await vi.advanceTimersByTimeAsync(300);
   expect(searchArticles).not.toHaveBeenCalled();
@@ -203,7 +197,6 @@ it('loads the acervo once ready and preserves its independent route, filters and
   expect(searchArticles).toHaveBeenCalledTimes(1);
   expect(searchArticles.mock.calls[0][0]).toBe('generación pendiente');
   document.getElementById('nav-leyes').click();
-  document.querySelector('[data-sh-browse]').click();
   await settle();
   const visibleLibrary = results.querySelector('.ac-library');
   expect(visibleLibrary).not.toBeNull();

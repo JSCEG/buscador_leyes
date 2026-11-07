@@ -66,6 +66,7 @@ La fuente de los valores es `src/styles/design/variables.css`. Los componentes v
 | `.bu-cf` | Carpeta animada (`folderHtml`) |
 | `.bu-mini` | Librito neutro |
 | `.bu-modal`, `.bu-telon`, `.bu-hoja`, `.bu-toast` | Capas |
+| `.ac-*` | Acervo en `styles/acervo.css`: cartel, hileras de portadas (`.sh-cover`) y filtros |
 | `.bu-cuenta` | Ventana de cuenta en `buho/account.css`: el lector es un librito y cada cifra abre lo que cuenta |
 | `.bux-*` | Componentes anteriores aún en uso, en `buho/components.css`; leen tokens |
 

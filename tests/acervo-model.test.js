@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { ACERVO_GROUPS, getAcervoGroup, groupAcervo, selectAcervo } from '../src/lib/acervo-model.js';
+import { ACERVO_GROUPS, getAcervoGroup, groupAcervo, selectAcervo, acervoIssuers, acervoReels } from '../src/lib/acervo-model.js';
 
 const realCatalog = JSON.parse(readFileSync('revision-acervo/incorporacion-autoconsumo-2026-09-18/despues-verificado/leyes.json', 'utf8'));
 const instrument = siglas => realCatalog.find(item => item.siglas === siglas);
@@ -115,5 +115,59 @@ describe('acervo selection', () => {
         expect(selectAcervo(laws, { sort: 'unknown-sort' })).toEqual(selectAcervo(laws));
         expect(selectAcervo(null)).toEqual([]);
         expect(selectAcervo([null, false, [], ...laws])).toHaveLength(2);
+    });
+});
+
+describe('acervo reels', () => {
+    const laws = [
+        { id: 'lse', titulo: 'Ley del Sector Eléctrico', tipo: 'ley', fecha_publicacion: '2025-03-18' },
+        { id: 'prosener', titulo: 'Programa Sectorial de Energía', siglas: 'PROSENER', tipo: 'plan', fecha_publicacion: '2025-10-01' },
+        { id: 'dacg-cne', titulo: 'Acuerdo de la Comisión Nacional de Energía por el que se emiten las DACG de almacenamiento', tipo: 'acuerdo', fecha_publicacion: '2026-05-02' },
+        { id: 'acuerdo-cne', titulo: 'Acuerdo de la Comisión Nacional de Energía sobre autoconsumo', tipo: 'acuerdo', fecha_publicacion: '2026-07-20' },
+        { id: 'acuerdo-sener', titulo: 'Acuerdo de la Secretaría de Energía sobre eficiencia', tipo: 'acuerdo', fecha_publicacion: '2024-01-15' },
+        { id: 'sin-fecha', titulo: 'Acuerdo sin autoridad identificada', tipo: 'acuerdo' },
+    ];
+    const ids = row => row.items.map(law => law.id);
+
+    it('filters by the authority that issued the document', () => {
+        expect(selectAcervo(laws, { issuer: 'cne', sort: 'title' }).map(law => law.id).sort()).toEqual(['acuerdo-cne', 'dacg-cne']);
+        expect(selectAcervo(laws, { issuer: 'cne', group: 'dacg' }).map(law => law.id)).toEqual(['dacg-cne']);
+    });
+    it('lists only authorities with documents, with their counts', () => {
+        const issuers = acervoIssuers(laws);
+        expect(issuers.find(item => item.id === 'cne')).toMatchObject({ short: 'CNE', count: 2 });
+        expect(issuers.find(item => item.id === 'pemex')).toBeUndefined();
+        expect(issuers.reduce((sum, item) => sum + item.count, 0)).toBe(laws.length);
+    });
+    it('opens with the latest documents and a row per type', () => {
+        const reels = acervoReels(laws);
+        expect(reels.layout).toBe('rows');
+        expect(reels.rows[0].id).toBe('recientes');
+        expect(ids(reels.rows[0])[0]).toBe('acuerdo-cne');
+        expect(ids(reels.rows[0])).not.toContain('sin-fecha');
+        expect(reels.rows.map(row => row.id)).toEqual(expect.arrayContaining(['leyes', 'acuerdos', 'dacg']));
+    });
+    it('an authority shows its documents by type', () => {
+        const reels = acervoReels(laws, { issuer: 'cne' });
+        expect(reels.layout).toBe('rows');
+        expect(reels.rows.map(row => row.id)).toEqual(['acuerdos', 'dacg']);
+    });
+    it('a type shows its documents by authority', () => {
+        const reels = acervoReels(laws, { group: 'acuerdos' });
+        expect(reels.layout).toBe('rows');
+        expect(reels.rows.map(row => row.id)).toEqual(expect.arrayContaining(['sener', 'cne', 'otra']));
+        expect(reels.rows.flatMap(ids).sort()).toEqual(['acuerdo-cne', 'acuerdo-sener', 'sin-fecha']);
+    });
+    it('uses a grid for a search, for both filters, or when a single row would remain', () => {
+        expect(acervoReels(laws, { query: 'autoconsumo' }).layout).toBe('grid');
+        expect(acervoReels(laws, { group: 'acuerdos', issuer: 'cne' }).layout).toBe('grid');
+        const single = acervoReels(laws, { group: 'dacg' });
+        expect(single.layout).toBe('grid');
+        expect(single.items.map(law => law.id)).toEqual(['dacg-cne']);
+    });
+    it('features the newest dated documents of the selection', () => {
+        expect(acervoReels(laws).featured.map(law => law.id).slice(0, 2)).toEqual(['acuerdo-cne', 'dacg-cne']);
+        expect(acervoReels(laws, { issuer: 'sener' }).featured[0].id).toBe('prosener');
+        expect(acervoReels([{ id: 'x', titulo: 'Acuerdo sin fecha', tipo: 'acuerdo' }]).featured).toEqual([]);
     });
 });

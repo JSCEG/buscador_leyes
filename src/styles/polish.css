@@ -100,36 +100,12 @@ body:has(#mobile-menu-drawer:not(.translate-x-full)) :is(#desk-toggle,#bottom-na
 /* ── Acervo cards, modern layout ─────────────────────────
    type chip + acronym / one-line title (glides sideways) / 3-line description (glides up)
    / date · fragments + "Consultar" pill. Same height for every card, nothing overlaps. */
-html .ac-library .ac-card{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"cat acr" "name name" "desc desc" "meta act";grid-template-rows:auto auto auto auto!important;align-content:start;column-gap:10px;row-gap:8px;height:auto!important;min-height:0!important;padding:18px 16px 14px!important;border:1px solid var(--ac-border)!important;border-radius:16px!important;background:var(--ac-card)!important;box-shadow:var(--shadow-sm),0 8px 22px -16px #302b2740!important;overflow:hidden;position:relative;isolation:isolate;transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s,border-color .22s}
-html .ac-library .ac-card::before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--ac-accent),color-mix(in srgb,var(--ac-accent) 25%,transparent));z-index:1}
-html .ac-library .ac-card::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 70% at 100% 0%,color-mix(in srgb,var(--ac-accent) 9%,transparent),transparent 60%);z-index:-1;pointer-events:none}
-@media (hover:hover){html .ac-library .ac-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--ac-accent) 40%,var(--ac-border))!important;box-shadow:0 2px 4px #302b270d,0 18px 34px -20px color-mix(in srgb,var(--ac-accent) 70%,#000)!important}}
-html .ac-library .ac-card:focus-visible{outline:3px solid color-mix(in srgb,var(--ac-accent) 55%,transparent);outline-offset:2px}
 
-html .ac-library .ac-card .ac-card-category{grid-area:cat;align-self:center;display:inline-flex;align-items:center;gap:5px;width:auto;max-width:none;padding:3px 10px 3px 7px;border-radius:999px;background:color-mix(in srgb,var(--ac-accent) 11%,transparent)!important;color:var(--ac-accent)!important;font:700 11.5px/1.3 var(--font-sans);text-transform:capitalize;letter-spacing:0;white-space:nowrap}
-html .ac-library .ac-card .ac-card-acronym{grid-area:acr;justify-self:end;align-self:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 10.5px/1.2 var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--ac-muted)!important}
-html .ac-library .ac-card .ac-card-name{grid-area:name;margin-top:4px;font:700 16.5px/1.35 var(--font-sans)!important;color:var(--ac-ink)!important;-webkit-line-clamp:unset}
-html .ac-library .ac-card .ac-card-title{grid-area:desc;height:calc(1.5em * 3)!important;max-height:none!important;overflow:hidden!important;font:400 13px/1.5 var(--font-sans)!important;color:var(--ac-muted)!important;padding:0!important;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
-html .ac-library .ac-card .ac-card-title.mq-run{-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
 /* Cards without a short name: the full title is the heading. */
-html .ac-library .ac-card:not(.has-name) .ac-card-title{margin-top:4px;height:calc(1.35em * 3)!important;font:700 16px/1.35 var(--font-sans)!important;color:var(--ac-ink)!important}
 
-html .ac-library .ac-card .ac-card-meta{grid-area:meta;align-self:end;display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:2px 10px;margin:4px 0 0!important;font:500 11.5px/1.4 var(--font-sans);color:var(--ac-muted)}
-html .ac-library .ac-card .ac-card-meta>*+*::before{content:'·';margin-right:10px;opacity:.6}
-html .ac-library .ac-card .ac-card-action{grid-area:act;justify-self:end;align-self:end;display:inline-flex;align-items:center;gap:5px;margin:0!important;padding:6px 12px!important;border:0!important;border-radius:999px;background:color-mix(in srgb,var(--ac-accent) 11%,transparent);color:var(--ac-accent)!important;font:700 12px/1 var(--font-sans);transition:background .2s,color .2s}
-html .ac-library .ac-card .ac-card-action>span{transition:transform .2s}
 @media (hover:hover){
-  html .ac-library .ac-card:hover .ac-card-action{background:var(--ac-accent);color:var(--on-brand)!important}
-  html .ac-library .ac-card:hover .ac-card-action>span{transform:translate(2px,-2px)}
 }
-@media (prefers-reduced-motion:reduce){html .ac-library .ac-card:hover{transform:none}}
 /* Acronym gets its own full line; "Consultar" becomes a round arrow so it never meets the meta. */
-html .ac-library .ac-card{grid-template-areas:"cat cat" "acr acr" "name name" "desc desc" "meta act"!important;row-gap:6px}
-html .ac-library .ac-card .ac-card-acronym{justify-self:start;margin-top:2px;color:var(--ac-accent)!important;opacity:.85}
-html .ac-library .ac-card .ac-card-name{margin-top:0}
-html .ac-library .ac-card .ac-card-meta{min-width:0}
-html .ac-library .ac-card .ac-card-action{width:32px;height:32px;padding:0!important;justify-content:center;font-size:0!important;gap:0}
-html .ac-library .ac-card .ac-card-action>span{font-size:15px;line-height:1}
 
 /* Card tooltip: above (or below) the card, never over it. */
 #card-tip{position:fixed;z-index:10030;padding:9px 12px;border-radius:10px;background:var(--ink);color:var(--ink-inverse);font:500 12.5px/1.45 var(--font-sans);box-shadow:0 12px 28px -12px #0008;pointer-events:none;animation:tip-in .15s ease-out}

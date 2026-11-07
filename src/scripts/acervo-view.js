@@ -1,245 +1,157 @@
+/**
+ * The Acervo: every document as a book cover, in rows that slide sideways. Filters by type and by authority
+ * rearrange the rows (see acervoReels); navigation and persistence remain owned by the app.
+ */
 import { PLANNING_FILTER, isPlanning } from '../lib/planning.js';
-import { ACERVO_GROUPS, getAcervoGroup, selectAcervo, groupAcervo } from '../lib/acervo-model.js';
-import { collectionIcon } from '../lib/collection-icons.js';
-import { shortTitle } from '../lib/short-title.js';
-import { isJudgment, instrumentTypeLabel, fragmentNoun } from '../lib/judgment.js';
-import { heroArt, collectionSpot } from '../lib/acervo-art.js';
-import { acervoThemes } from '../lib/analisis-model.js';
+import { ACERVO_GROUPS, acervoIssuers, acervoReels, getAcervoGroup, selectAcervo } from '../lib/acervo-model.js';
+import { ISSUERS } from '../lib/issuer.js';
+import { issuerMark } from '../lib/issuer-logos.js';
+import { coverData, coverHTML } from '../lib/law-cover.js';
+import { fragmentNoun, isJudgment } from '../lib/judgment.js';
+import '../styles/shelf.css';
 import '../styles/acervo.css';
-import '../styles/acervo-compact.css';
 
 const mountedViews = new WeakMap();
 let nextViewId = 0;
 const number = value => new Intl.NumberFormat('es-MX').format(value);
-const countLabel = count => `${number(count)} ${count === 1 ? 'instrumento' : 'instrumentos'}`;
-const ENTRANCE_KEY = 'acervo-entrada';
-/** True once per browser session, and only when motion is welcome (never in tests: no matchMedia). */
-function firstEntrance() {
-    if (!globalThis.matchMedia?.('(prefers-reduced-motion: no-preference)')?.matches) return false;
-    try {
-        if (sessionStorage.getItem(ENTRANCE_KEY)) return false;
-        sessionStorage.setItem(ENTRANCE_KEY, '1');
-        return true;
-    } catch { return false; }
-}
-/** Counts a figure up from zero with an ease-out; `format` writes the text for each value. */
-function countUp(node, target, format, delay = 420) {
-    if (!(target > 0)) return;
-    node.textContent = format(0);
-    setTimeout(() => {
-        const start = performance.now();
-        const step = now => {
-            const t = Math.min(1, (now - start) / 1100);
-            node.textContent = format(Math.round(target * (1 - (1 - t) ** 3)));
-            if (t < 1 && node.isConnected) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-    }, delay);
-}
-const iconNode = (groupId, className = '') => {
-    const node = document.createElement('span');
-    node.className = `ac-icon ${className}`.trim();
-    node.setAttribute('aria-hidden', 'true');
-    node.innerHTML = collectionIcon(groupId); // static markup from collection-icons.js
-    return node;
-};
+const countLabel = count => `${number(count)} ${count === 1 ? 'documento' : 'documentos'}`;
+const SORTS = ['date-newest', 'title', 'date-oldest'];
+const TYPE_FILTERS = [{ id: 'all', label: 'Todos' }, ...ACERVO_GROUPS, PLANNING_FILTER];
+const ISSUER_IDS = new Set(ISSUERS.map(issuer => issuer.id));
+const ARROW = direction => `<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><path d="${direction < 0 ? 'm14 6-6 6 6 6' : 'm10 6 6 6-6 6'}"/></svg>`;
+
 const element = (tag, className, text) => {
     const node = document.createElement(tag);
     if (className) node.className = className;
     if (text !== undefined) node.textContent = text;
     return node;
 };
+const inGroup = (law, groupId) => (groupId === PLANNING_FILTER.id ? isPlanning(law) : getAcervoGroup(law) === groupId);
 
-// Plain one-liners for the collection tiles on the home view.
-const COLLECTION_BLURBS = {
-    leyes: 'Las leyes del sector energético.',
-    reglamentos: 'Detallan cómo se aplica cada ley.',
-    acuerdos: 'Metodologías, formatos y criterios de las autoridades.',
-    dacg: 'Reglas administrativas de carácter general.',
-    convocatorias: 'Convocatorias y sus modificaciones.',
-    normas: 'Normas oficiales y referencias técnicas.',
-    otros: 'Planes, programas, decretos, manuales y avisos.',
-};
-
-function publicationDate(value) {
-    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}/.test(value)) return null;
-    const day = value.slice(0, 10);
-    const date = new Date(`${day}T00:00:00.000Z`);
-    return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === day ? new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date) : null;
+function readState(initial) {
+    const group = initial.group === PLANNING_FILTER.id || ACERVO_GROUPS.some(item => item.id === initial.group) ? initial.group : 'all';
+    const rowScroll = {};
+    for (const [key, offset] of Object.entries(initial.rowScroll || {})) if (Number.isFinite(offset) && offset >= 0) rowScroll[key] = offset;
+    return {
+        query: typeof initial.query === 'string' ? initial.query.slice(0, 500) : '',
+        group,
+        issuer: ISSUER_IDS.has(initial.issuer) ? initial.issuer : 'all',
+        sort: SORTS.includes(initial.sort) ? initial.sort : 'date-newest',
+        rowScroll,
+        scrollY: Math.max(0, Number(initial.scrollY) || 0),
+    };
 }
 
-/** A presentational library. Navigation and persistence remain owned by the app. */
 export function renderAcervoView(container, summaries, { state: initialState = {}, onStateChange = () => {}, onOpenLaw = () => {}, onOpenStats = null, onShowShelf = null } = {}) {
     if (!container || typeof container.replaceChildren !== 'function') throw new Error('Falta el contenedor del acervo.');
     mountedViews.get(container)?.destroy();
-    const laws = selectAcervo(Array.isArray(summaries) ? summaries : []);
-    const state = {
-        query: typeof initialState.query === 'string' ? initialState.query.slice(0, 500) : '',
-        group: initialState.group === 'all' || initialState.group === PLANNING_FILTER.id || ACERVO_GROUPS.some(group => group.id === initialState.group) ? initialState.group : 'all',
-        sort: ['title', 'date-newest', 'date-oldest'].includes(initialState.sort) ? initialState.sort : 'title',
-        rowScroll: {},
-        scrollY: Math.max(0, Number(initialState.scrollY) || 0),
-    };
-    for (const group of ACERVO_GROUPS) {
-        const offset = initialState.rowScroll?.[group.id];
-        if (Number.isFinite(offset) && offset >= 0) state.rowScroll[group.id] = offset;
-    }
+    const laws = selectAcervo(Array.isArray(summaries) ? summaries : [], { sort: 'date-newest' });
+    const state = readState(initialState);
     const id = `acervo-${++nextViewId}`;
-    const root = element('section', 'ac-library');
-    root.setAttribute('aria-labelledby', `${id}-title`);
-    const hero = element('div', 'ac-hero');
-    const header = element('header', 'ac-header');
-    const titleBlock = element('div', 'ac-title-block');
-    titleBlock.append(element('p', 'ac-eyebrow', 'Buscador Jurídico · Acervo'));
-    const title = element('h1', '', 'Normativa del sector energético'); title.id = `${id}-title`;
-    titleBlock.append(title, element('p', 'ac-intro', 'Leyes, reglamentos, acuerdos y demás documentos oficiales, en un solo lugar.'));
-    header.append(titleBlock);
-    const facts = element('div', 'ac-facts');
-    const total = element('p', 'ac-total', countLabel(laws.length));
-    const totalFragments = laws.reduce((sum, law) => sum + (Number.isFinite(law.articulos) && law.articulos > 0 ? law.articulos : 0), 0);
-    const newest = selectAcervo(laws, { sort: 'date-newest' }).find(law => publicationDate(law.fecha_publicacion));
-    const fragmentsFact = element('p', 'ac-fact', `${number(totalFragments)} artículos y disposiciones`);
-    facts.append(total, fragmentsFact);
-    if (newest) facts.append(element('p', 'ac-fact', `Última publicación: ${publicationDate(newest.fecha_publicacion)}`));
-    // Other sections, in one quiet row; the map and «¿Cómo funciona?» have their own cards below.
-    const quick = element('nav', 'ac-quick');
-    quick.setAttribute('aria-label', 'Otras secciones');
-    const timeline = element('a', 'ac-stats-link', 'Línea del tiempo'); timeline.href = '#cronologia';
-    const reto = element('a', 'ac-stats-link ac-reto-link', 'Reto del día'); reto.href = '#reto';
-    if (typeof onShowShelf === 'function') {
-        const shelf = element('button', 'ac-stats-link', 'Ver como estante'); shelf.type = 'button';
-        shelf.addEventListener('click', () => onShowShelf());
-        quick.append(shelf);
-    }
-    quick.append(timeline, reto);
-    if (typeof onOpenStats === 'function') {
-        const more = element('button', 'ac-stats-link', 'Estadísticas'); more.type = 'button';
-        more.addEventListener('click', () => onOpenStats());
-        quick.append(more);
-    }
-
-    // "¿Cómo funciona?": the card opens the list of every topic (electricity and hydrocarbons). The icon is a
-    // light bulb with a bolt (electricity) and a drop (hydrocarbons); its rays pulse.
-    const howPromo = element('a', 'ac-map-promo ac-cf-promo');
-    howPromo.href = '#como-funciona';
-    howPromo.setAttribute('aria-label', 'Aprende: abrir todos los temas de electricidad e hidrocarburos, con ilustraciones animadas');
-    howPromo.innerHTML = `
-        <span class="ac-map-promo-icon ac-cf-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path class="ac-cf-rays" d="M24 1.5v3.5M9.5 7.5l2.6 2.6M38.5 7.5l-2.6 2.6M4 20.5h3.6M40.4 20.5H44" stroke="#e9c46a" stroke-width="2.2"/>
-            <path d="M16.5 30c-3.3-2.6-5.5-6.5-5.5-10.8C11 12.1 16.8 7 24 7s13 5.1 13 12.2c0 4.3-2.2 8.2-5.5 10.8v4.5h-15z" fill="#fff" stroke="#9b2247" stroke-width="2"/>
-            <path d="M25.4 11.5 19.6 21h4.8l-1.8 7.4 6.6-10.2h-4.9l1.1-6.7z" fill="#e9c46a" stroke="#a57f2c" stroke-width="1.1"/>
-            <path d="M18 38.5h12M19.5 42.5h9" stroke="#9b2247" stroke-width="2.2"/>
-            <path d="M40.5 33.5s-4.2 4.6-4.2 7.4a4.2 4.2 0 0 0 8.4 0c0-2.8-4.2-7.4-4.2-7.4z" fill="#1e5b4f" stroke="#fff" stroke-width="1.4"/>
-        </svg></span>
-        <span class="ac-map-promo-copy">
-            <span class="ac-map-promo-eyebrow"><span class="bux-new">Nuevo</span> ¿Cómo funciona?</span>
-            <strong>Aprende</strong>
-            <span>Cómo funciona la energía, paso a paso: electricidad e hidrocarburos, de lo básico a las centrales, los gasoductos, las refinerías y los mercados. Con ilustraciones que puedes mover.</span>
-        </span>
-        <span class="ac-map-promo-cta">Ver todos los temas</span>`;
-
-    // Map of energy permits (CNE section): a visible entry point so people find it from the home.
-    const mapPromo = element('a', 'ac-map-promo');
-    mapPromo.href = '#mapa-permisos';
-    mapPromo.setAttribute('aria-label', 'Abrir el mapa de permisos energéticos');
-    mapPromo.innerHTML = `
-        <span class="ac-map-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6Z"/><path d="M9 4v14M15 6v14"/><circle cx="12" cy="10.5" r="1.6"/></svg></span>
-        <span class="ac-map-promo-copy">
-            <span class="ac-map-promo-eyebrow"><span class="bux-new">Nuevo</span> Registro CNE</span>
-            <strong>Mapa de permisos energéticos</strong>
-            <span>Dónde están los permisos de electricidad, petrolíferos, gas LP y gas natural, con su estatus, sus resoluciones, la normativa que los regula y los ciclones activos.</span>
-        </span>
-        <span class="ac-map-promo-cta">Abrir el mapa</span>`;
-    const topics = element('div', 'ac-topics');
-    const topThemes = acervoThemes(laws).slice(0, 6);
-    if (topThemes.length) {
-        topics.append(element('span', 'ac-topics-label', 'Temas frecuentes:'));
-        for (const theme of topThemes) {
-            const chip = element('button', 'ac-topic', theme.label); chip.type = 'button'; chip.dataset.topic = theme.label;
-            topics.append(chip);
-        }
-    }
-
-    const tools = element('div', 'ac-tools');
-    const searchForm = element('form', 'ac-search-form');
-    searchForm.setAttribute('role', 'search'); searchForm.setAttribute('aria-label', 'Buscar instrumentos en el acervo');
-    const searchLabel = element('label', 'ac-label', 'Buscar en el acervo'); searchLabel.htmlFor = `${id}-search`;
-    const searchBox = element('div', 'ac-search-box');
-    const searchIcon = element('span', 'ac-search-icon'); searchIcon.setAttribute('aria-hidden', 'true');
-    searchIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>';
-    const searchInput = element('input'); searchInput.type = 'search'; searchInput.id = `${id}-search`; searchInput.maxLength = 500; searchInput.autocomplete = 'off'; searchInput.placeholder = 'Instrumento, siglas o tema'; searchInput.value = state.query;
-    const clear = element('button', 'ac-clear', '×'); clear.type = 'button'; clear.setAttribute('aria-label', 'Limpiar búsqueda');
-    searchBox.append(searchIcon, searchInput, clear); searchForm.append(searchLabel, searchBox);
-    const sortLabel = element('label', 'ac-sort-label'); sortLabel.append(element('span', 'ac-label', 'Ordenar por'));
-    const sortSelect = element('select'); sortSelect.setAttribute('aria-label', 'Ordenar instrumentos');
-    for (const [value, text] of [['title', 'Título'], ['date-newest', 'Más recientes'], ['date-oldest', 'Más antiguos']]) {
-        const option = element('option', '', text); option.value = value; option.selected = value === state.sort; sortSelect.append(option);
-    }
-    sortLabel.append(sortSelect); tools.append(searchForm, sortLabel);
-    const filters = element('div', 'ac-filters'); filters.setAttribute('role', 'group'); filters.setAttribute('aria-label', 'Tipo de instrumento');
-    // «Planeación» right after «Todos», so it is seen without scrolling the bar.
-    const groups = [{ id: 'all', label: 'Todos' }, PLANNING_FILTER, ...ACERVO_GROUPS];
-    const filterButtons = new Map();
-    for (const group of groups) {
-        const button = element('button', 'ac-filter'); button.type = 'button'; button.dataset.group = group.id;
-        button.append(iconNode(group.id), element('span', '', group.label), element('span', 'ac-filter-count'));
-        // A collection with nothing loaded yet stays reachable by URL but does not take up the bar.
-        if (group.id === PLANNING_FILTER.id) button.classList.add('ac-filter-cross');
-        if (group.id !== 'all' && group.id !== state.group && !laws.some(law => (group.id === PLANNING_FILTER.id ? isPlanning(law) : getAcervoGroup(law) === group.id))) button.hidden = true;
-        filters.append(button); filterButtons.set(group.id, button);
-    }
-    const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
-    const overview = renderOverview();
-    const body = element('div', 'ac-collections');
-    const art = element('div', 'ac-hero-art'); art.setAttribute('aria-hidden', 'true'); art.innerHTML = heroArt();
-    const promos = element('div', 'ac-promos');
-    promos.append(howPromo, mapPromo);
-    hero.append(header, tools, facts, quick, topics, promos, art);
-    root.append(hero, filters, status, overview, body);
-    container.replaceChildren(root);
-    // First view of the session: once the entrance animation is gone, the hero settles in and its figures count up.
-    if (firstEntrance()) {
-        hero.classList.add('is-waiting');
-        Promise.resolve(window.__introDone).then(() => {
-            hero.classList.replace('is-waiting', 'is-entering');
-            countUp(total, laws.length, countLabel);
-            countUp(fragmentsFact, totalFragments, n => `${number(n)} artículos y disposiciones`);
-        });
-    }
     let destroyed = false;
     let frame = null;
     let restoreRowsOnFrame = false;
     let rowBindings = [];
+    let featuredIndex = 0;
+    let featured = [];
     const requestFrame = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : callback => setTimeout(callback, 0);
     const cancelFrame = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : clearTimeout;
 
-    function captureRows() {
-        for (const { row, groupId, restored } of rowBindings) if (restored) state.rowScroll[groupId] = Math.max(0, row.scrollLeft);
+    // ---------- header and filters ----------
+    const root = element('section', 'ac-library');
+    root.setAttribute('aria-labelledby', `${id}-title`);
+    const head = element('header', 'ac-head');
+    const heading = element('div', 'ac-head-text');
+    const title = element('h1', '', 'Acervo'); title.id = `${id}-title`;
+    heading.append(title, element('p', 'ac-total', countLabel(laws.length)));
+    const links = element('nav', 'ac-links'); links.setAttribute('aria-label', 'Otras vistas');
+    if (typeof onShowShelf === 'function') {
+        const shelf = element('button', 'bu-btn bu-btn-fantasma bu-btn-sm', 'Estante 3D'); shelf.type = 'button'; shelf.dataset.showShelf = '';
+        shelf.addEventListener('click', () => onShowShelf());
+        links.append(shelf);
     }
+    if (typeof onOpenStats === 'function') {
+        const stats = element('button', 'bu-btn bu-btn-fantasma bu-btn-sm', 'Estadísticas'); stats.type = 'button';
+        stats.addEventListener('click', () => onOpenStats());
+        links.append(stats);
+    }
+    const searchForm = element('form', 'ac-search-form');
+    searchForm.setAttribute('role', 'search'); searchForm.setAttribute('aria-label', 'Buscar en el acervo');
+    const searchBox = element('div', 'bu-campo ac-search-box');
+    searchBox.innerHTML = '<svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>';
+    const searchInput = element('input');
+    searchInput.type = 'search'; searchInput.id = `${id}-search`; searchInput.maxLength = 500; searchInput.autocomplete = 'off';
+    searchInput.placeholder = 'Busca por nombre, siglas o tema'; searchInput.value = state.query;
+    searchInput.setAttribute('aria-label', 'Buscar en el acervo');
+    const clear = element('button', 'ac-clear', '×'); clear.type = 'button'; clear.setAttribute('aria-label', 'Limpiar búsqueda');
+    searchBox.append(searchInput, clear); searchForm.append(searchBox);
+    head.append(heading, searchForm, links);
 
+    const bar = element('div', 'ac-bar bu-cristal-fuerte');
+    const issuerBox = element('label', 'bu-campo ac-issuer');
+    issuerBox.append(element('span', 'ac-sr', 'Filtrar por dependencia'));
+    const issuerSelect = element('select'); issuerSelect.setAttribute('aria-label', 'Filtrar por dependencia');
+    issuerBox.append(issuerSelect);
+    const filters = element('div', 'ac-filters'); filters.setAttribute('role', 'group'); filters.setAttribute('aria-label', 'Tipo de documento');
+    const filterButtons = new Map();
+    for (const group of TYPE_FILTERS) {
+        const button = element('button', 'bu-chip ac-filter'); button.type = 'button'; button.dataset.group = group.id;
+        button.append(element('span', '', group.label), element('span', 'ac-filter-count'));
+        filters.append(button); filterButtons.set(group.id, button);
+    }
+    // On phones the types are a menu beside the authorities: one line, and every option is a tap away.
+    const typeBox = element('label', 'bu-campo ac-type');
+    const typeSelect = element('select'); typeSelect.setAttribute('aria-label', 'Filtrar por tipo de documento');
+    typeBox.append(typeSelect);
+    bar.append(typeBox, issuerBox, filters);
+
+    const billboard = element('section', 'ac-cartel');
+    const statusRow = element('div', 'ac-status-row');
+    const status = element('p', 'ac-result-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
+    const reset = element('button', 'bu-btn bu-btn-fantasma bu-btn-sm ac-reset-filters', 'Quitar filtros'); reset.type = 'button';
+    const sortBox = element('label', 'bu-campo ac-sort');
+    const sortSelect = element('select'); sortSelect.setAttribute('aria-label', 'Ordenar documentos');
+    for (const [value, text] of [['date-newest', 'Más recientes'], ['title', 'Por nombre'], ['date-oldest', 'Más antiguos']]) {
+        const option = element('option', '', text); option.value = value; option.selected = value === state.sort; sortSelect.append(option);
+    }
+    sortBox.append(sortSelect);
+    statusRow.append(status, reset, sortBox);
+    const body = element('div', 'ac-collections');
+    root.append(head, bar, billboard, statusRow, body);
+    container.replaceChildren(root);
+
+    // ---------- state ----------
+    function captureRows() {
+        // A hidden row reports 0: that is not where the reader left it.
+        for (const { row, rowId, restored } of rowBindings) if (restored && (row.scrollLeft > 0 || row.clientWidth > 0)) state.rowScroll[rowId] = Math.max(0, row.scrollLeft);
+    }
     function captureState() {
         captureRows();
         state.scrollY = Math.max(0, Number(window.scrollY) || 0);
         return { ...state, rowScroll: { ...state.rowScroll } };
     }
-
     function notify() { if (!destroyed) onStateChange(captureState()); }
+    function open(law) {
+        const snapshot = captureState();
+        onStateChange(snapshot);
+        onOpenLaw(law, snapshot);
+    }
+    function applyFilter(next) {
+        captureRows();
+        Object.assign(state, next);
+        featuredIndex = 0;
+        renderBody();
+        notify();
+    }
 
     function updateRows() {
         if (destroyed) return;
-        for (const { row, previous, next, dots } of rowBindings) {
+        for (const { row, previous, next } of rowBindings) {
             const maximum = Math.max(0, row.scrollWidth - row.clientWidth);
             previous.disabled = row.scrollLeft <= 1;
             next.disabled = row.scrollLeft >= maximum - 1;
-            // Carousel dots: one per screenful; the current one stretches.
-            const pages = row.clientWidth ? Math.max(1, Math.ceil((row.scrollWidth - 1) / row.clientWidth)) : 1;
-            if (dots.childElementCount !== pages) dots.replaceChildren(...Array.from({ length: pages }, () => element('span', 'ac-dot')));
-            const current = maximum ? Math.round(row.scrollLeft / maximum * (pages - 1)) : 0;
-            [...dots.children].forEach((dot, index) => dot.classList.toggle('is-on', index === current));
-            dots.hidden = pages < 2;
         }
     }
-
     function scheduleRows({ restore = false } = {}) {
         restoreRowsOnFrame ||= restore;
         if (frame !== null) cancelFrame(frame);
@@ -248,7 +160,7 @@ export function renderAcervoView(container, summaries, { state: initialState = {
             if (destroyed) return;
             if (restoreRowsOnFrame) {
                 for (const binding of rowBindings) {
-                    binding.row.scrollLeft = state.rowScroll[binding.groupId] || 0;
+                    binding.row.scrollLeft = state.rowScroll[binding.rowId] || 0;
                     binding.restored = true;
                 }
                 restoreRowsOnFrame = false;
@@ -257,173 +169,185 @@ export function renderAcervoView(container, summaries, { state: initialState = {
         });
     }
 
-    /** Home entry points: collections as tiles and the latest publications. Hidden while filtering. */
-    function renderOverview() {
-        const panel = element('section', 'ac-overview');
-        panel.setAttribute('aria-label', 'Explorar el acervo');
-        const tilesHead = element('h2', 'ac-section-title', 'Explora por colección');
-        const tiles = element('ul', 'ac-tiles');
-        // CardGallery: the largest collection is the featured card (two columns, inverse band).
-        const galleryGroups = groupAcervo(laws).filter(item => item.items.length);
-        const featuredId = [...galleryGroups].sort((a, b) => b.items.length - a.items.length)[0]?.id;
-        for (const group of galleryGroups) {
-            const item = element('li');
-            if (group.id === featuredId) item.classList.add('is-featured');
-            const tile = element('button', 'ac-tile'); tile.type = 'button'; tile.dataset.tileGroup = group.id; tile.dataset.category = group.id;
-            const count = element('span', 'ac-tile-count');
-            count.append(element('b', '', number(group.items.length)), ` ${group.items.length === 1 ? 'instrumento' : 'instrumentos'}`);
-            const spot = element('span', 'ac-tile-icon'); spot.setAttribute('aria-hidden', 'true'); spot.innerHTML = collectionSpot(group.id);
-            const band = element('span', 'ac-tile-band'); band.append(count, spot);
-            const cta = element('span', 'ac-tile-cta', 'Ver colección');
-            const arrow = element('span', '', '→'); arrow.setAttribute('aria-hidden', 'true'); cta.append(arrow);
-            tile.append(band, element('span', 'ac-tile-kicker', 'Colección'), element('span', 'ac-tile-name', group.label), element('span', 'ac-tile-blurb', COLLECTION_BLURBS[group.id] || ''), cta);
-            tile.addEventListener('click', () => {
-                captureRows(); state.group = group.id; renderBody(); notify();
-                filterButtons.get(group.id)?.focus({ preventScroll: true });
-                root.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
-            });
-            item.append(tile); tiles.append(item);
-        }
-        const recentHead = element('h2', 'ac-section-title', 'Lo más reciente');
-        const list = element('ol', 'ac-recent');
-        for (const law of selectAcervo(laws, { sort: 'date-newest' }).filter(item => publicationDate(item.fecha_publicacion)).slice(0, 4)) {
-            const item = element('li');
-            const button = element('button', 'ac-recent-card'); button.type = 'button'; button.dataset.latestId = law.id;
-            const groupId = getAcervoGroup(law);
-            button.dataset.category = groupId; button.title = law.titulo || '';
-            const top = element('span', 'ac-recent-top');
-            const date = element('time', 'ac-recent-date', publicationDate(law.fecha_publicacion)); date.dateTime = law.fecha_publicacion;
-            top.append(iconNode(groupId, 'ac-recent-icon'), element('span', 'ac-recent-group', [ACERVO_GROUPS.find(group => group.id === groupId)?.label, isJudgment(law) ? 'Sentencia' : ''].filter(Boolean).join(' · ')), date);
-            button.append(top, element('span', 'ac-recent-name', shortTitle(law.titulo) || law.titulo || 'Instrumento sin título'), element('span', 'ac-recent-sigla', law.siglas || ''));
-            button.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
-            item.append(button); list.append(item);
-        }
-        panel.append(tilesHead, tiles, recentHead, list);
-        return panel;
-    }
-
+    // ---------- pieces ----------
     function makeCard(law) {
         const card = element('button', 'ac-card'); card.type = 'button'; card.dataset.lawId = law.id;
-        const title = law.titulo || 'Instrumento sin título';
-        card.dataset.tip = title; card.setAttribute('aria-label', `Abrir ${title}`);
-        const groupId = getAcervoGroup(law);
-        card.dataset.category = groupId;
-        const category = element('span', 'ac-card-category', instrumentTypeLabel(law) || ACERVO_GROUPS.find(group => group.id === groupId)?.label || 'Instrumento');
-        if (isJudgment(law)) category.classList.add('is-judgment');
-        category.prepend(iconNode(groupId));
-        const acronym = element('span', 'ac-card-acronym', law.siglas || 'Sin siglas');
-        if ((law.siglas || '').length > 9) acronym.classList.add('is-long');
-        // A little neutral book with the acronym, beside the document's data.
-        const cover = element('span', 'ac-card-cover');
-        cover.setAttribute('aria-hidden', 'true');
-        const cardTitle = element('span', 'ac-card-title', title);
-        const readable = shortTitle(title);
-        const cardName = readable ? element('span', 'ac-card-name', readable) : null;
-        if (cardName) card.classList.add('has-name');
-        const metadata = element('span', 'ac-card-meta');
-        const date = publicationDate(law.fecha_publicacion);
-        const dateNode = element(date ? 'time' : 'span', '', date || 'Fecha no disponible');
-        if (date) { dateNode.dateTime = law.fecha_publicacion; dateNode.title = `Fecha de publicación: ${date}`; }
-        const rawCount = law.articulos;
-        const noun = isJudgment(law) ? fragmentNoun(law) : { one: 'disposición', many: 'disposiciones' };
-        const fragments = typeof rawCount === 'number' && Number.isFinite(rawCount) && rawCount >= 0 ? `${number(rawCount)} ${rawCount === 1 ? noun.one : noun.many}` : 'Sin conteo';
-        metadata.append(dateNode, element('span', '', fragments));
-        const action = element('span', 'ac-card-action', 'Consultar');
-        const arrow = element('span', '', '↗'); arrow.setAttribute('aria-hidden', 'true'); action.append(arrow);
-        cover.append(acronym);
-        const body = element('span', 'ac-card-body');
-        body.append(category, ...(cardName ? [cardName] : []), cardTitle, metadata, action);
-        card.append(cover, body);
-        card.addEventListener('click', () => { const snapshot = captureState(); onStateChange(snapshot); onOpenLaw(law, snapshot); });
+        const name = law.titulo || 'Documento sin título';
+        card.title = name; card.setAttribute('aria-label', `Abrir ${name}`);
+        card.dataset.category = getAcervoGroup(law);
+        card.innerHTML = coverHTML(law); // coverHTML escapes every value
+        card.addEventListener('click', () => open(law));
         return card;
     }
 
-    function renderGroup(group) {
-        const section = element('section', 'ac-group'); section.setAttribute('aria-labelledby', `${id}-${group.id}`); section.dataset.category = group.id;
-        const groupHeader = element('div', 'ac-group-header');
-        const heading = element('h2', '', group.label); heading.id = `${id}-${group.id}`; heading.prepend(iconNode(group.id, 'ac-group-icon'));
-        heading.append(element('span', 'ac-group-count', String(group.items.length)));
-        const all = element('button', 'ac-see-all', 'Ver todos'); all.type = 'button'; all.setAttribute('aria-label', `Ver todos: ${group.label}`);
-        all.addEventListener('click', () => {
-            captureRows(); state.group = group.id; renderBody(); notify();
-            filterButtons.get(group.id)?.focus({ preventScroll: true });
-        });
-        groupHeader.append(heading, all);
-        const row = element('ul', 'ac-row'); row.dataset.group = group.id;
-        row.setAttribute('aria-label', `${group.label}: ${countLabel(group.items.length)}`);
-        group.items.forEach(law => { const item = element('li'); item.append(makeCard(law)); row.append(item); });
-        const rowFooter = element('div', 'ac-row-footer');
-        const dots = element('div', 'ac-dots'); dots.setAttribute('aria-hidden', 'true');
-        rowFooter.append(element('span', 'ac-row-hint', 'Desliza o usa las flechas'), dots);
-        const arrows = element('div', 'ac-row-arrows');
-        const previous = element('button', 'ac-arrow', '←'); previous.type = 'button'; previous.setAttribute('aria-label', `Anteriores en ${group.label}`); previous.setAttribute('aria-controls', `${id}-${group.id}-row`);
-        const next = element('button', 'ac-arrow', '→'); next.type = 'button'; next.setAttribute('aria-label', `Siguientes en ${group.label}`); next.setAttribute('aria-controls', `${id}-${group.id}-row`);
-        row.id = `${id}-${group.id}-row`;
-        const move = direction => {
-            const cardWidth = row.firstElementChild?.getBoundingClientRect().width || Math.max(200, row.clientWidth * .85);
-            const reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (typeof row.scrollBy === 'function') row.scrollBy({ left: direction * (cardWidth + 14), behavior: reduced ? 'auto' : 'smooth' });
-            else row.scrollLeft += direction * (cardWidth + 14);
-            state.rowScroll[group.id] = row.scrollLeft; updateRows(); notify();
+    function renderRow(reel) {
+        const section = element('section', 'ac-group'); section.dataset.row = reel.id;
+        const label = `${id}-${reel.id}`;
+        section.setAttribute('aria-labelledby', label);
+        const rowHead = element('div', 'ac-group-header');
+        const name = element('h2', '', reel.label); name.id = label;
+        name.append(element('span', 'ac-group-count', String(reel.items.length)));
+        rowHead.append(name);
+        if (reel.filter) {
+            const all = element('button', 'ac-see-all', 'Ver todos'); all.type = 'button'; all.setAttribute('aria-label', `Ver todos: ${reel.label}`);
+            all.addEventListener('click', () => {
+                applyFilter(reel.filter);
+                root.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
+            });
+            rowHead.append(all);
+        }
+        const frameBox = element('div', 'ac-row-frame');
+        const row = element('ul', 'ac-row'); row.dataset.group = reel.id; row.id = `${label}-row`;
+        row.setAttribute('aria-label', `${reel.label}: ${countLabel(reel.items.length)}`);
+        reel.items.forEach(law => { const item = element('li'); item.append(makeCard(law)); row.append(item); });
+        const arrow = (direction, text) => {
+            const button = element('button', `ac-arrow ac-arrow-${direction < 0 ? 'prev' : 'next'}`); button.type = 'button';
+            button.innerHTML = ARROW(direction);
+            button.setAttribute('aria-label', `${text} en ${reel.label}`); button.setAttribute('aria-controls', row.id);
+            button.addEventListener('click', () => {
+                const reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const left = direction * Math.max(200, row.clientWidth * 0.85);
+                if (typeof row.scrollBy === 'function') row.scrollBy({ left, behavior: reduced ? 'auto' : 'smooth' });
+                else row.scrollLeft += left;
+                state.rowScroll[reel.id] = row.scrollLeft; updateRows(); notify();
+            });
+            return button;
         };
-        previous.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
-        row.addEventListener('scroll', () => { if (!destroyed) { state.rowScroll[group.id] = row.scrollLeft; updateRows(); notify(); } }, { passive: true });
-        row.addEventListener('focusin', event => event.target.closest('.ac-card')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest', behavior: 'auto' }));
-        arrows.append(previous, next); rowFooter.append(arrows);
-        section.append(groupHeader, row, rowFooter);
-        rowBindings.push({ row, groupId: group.id, previous, next, dots, restored: false });
+        const previous = arrow(-1, 'Anteriores');
+        const next = arrow(1, 'Siguientes');
+        row.addEventListener('scroll', () => { if (!destroyed) { state.rowScroll[reel.id] = row.scrollLeft; updateRows(); notify(); } }, { passive: true });
+        // Only keyboard focus brings a card into view: returning from a document must not move the row.
+        row.addEventListener('focusin', event => { if (event.target.matches(':focus-visible')) event.target.closest('.ac-card')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest', behavior: 'auto' }); });
+        frameBox.append(row, previous, next);
+        section.append(rowHead, frameBox);
+        rowBindings.push({ row, rowId: reel.id, previous, next, restored: false });
         return section;
+    }
+
+    // The newest document of the selection, with the next ones a click away.
+    function renderBillboard() {
+        billboard.hidden = !featured.length;
+        billboard.replaceChildren();
+        if (!featured.length) return;
+        const law = featured[Math.min(featuredIndex, featured.length - 1)];
+        const data = coverData(law);
+        billboard.dataset.category = data.group;
+        billboard.setAttribute('aria-label', 'Lo más reciente');
+        const cover = element('button', 'ac-cartel-libro'); cover.type = 'button';
+        cover.setAttribute('aria-label', `Abrir ${data.title || data.name}`);
+        cover.innerHTML = coverHTML(law); // coverHTML escapes every value
+        cover.addEventListener('click', () => open(law));
+        const text = element('div', 'ac-cartel-texto');
+        text.append(element('p', 'ac-cartel-tag', 'Lo más reciente'), element('h2', '', data.name));
+        if (data.title && data.title !== data.name) text.append(element('p', 'ac-cartel-titulo', data.title));
+        const noun = isJudgment(law) ? fragmentNoun(law) : { one: 'disposición', many: 'disposiciones' };
+        const facts = [data.typeLabel, data.year === 'Sin fecha' ? '' : data.year, issuerMark(law)?.label, law.articulos > 0 ? `${number(law.articulos)} ${law.articulos === 1 ? noun.one : noun.many}` : ''].filter(Boolean);
+        const list = element('ul', 'ac-cartel-datos');
+        facts.forEach(fact => list.append(element('li', '', fact)));
+        const actions = element('div', 'ac-cartel-acciones');
+        const read = element('button', 'bu-btn bu-btn-primario', 'Abrir'); read.type = 'button'; read.dataset.featuredOpen = law.id;
+        read.addEventListener('click', () => open(law));
+        actions.append(read);
+        if (featured.length > 1) {
+            const step = direction => {
+                featuredIndex = (featuredIndex + direction + featured.length) % featured.length;
+                renderBillboard();
+                billboard.querySelector(direction < 0 ? '[data-featured-prev]' : '[data-featured-next]')?.focus();
+            };
+            const previous = element('button', 'bu-btn bu-btn-contorno ac-cartel-paso'); previous.type = 'button'; previous.dataset.featuredPrev = '';
+            previous.innerHTML = ARROW(-1); previous.setAttribute('aria-label', 'Documento anterior');
+            previous.addEventListener('click', () => step(-1));
+            const next = element('button', 'bu-btn bu-btn-contorno ac-cartel-paso'); next.type = 'button'; next.dataset.featuredNext = '';
+            next.innerHTML = ARROW(1); next.setAttribute('aria-label', 'Documento siguiente');
+            next.addEventListener('click', () => step(1));
+            actions.append(previous, next, element('span', 'ac-cartel-pos', `${Math.min(featuredIndex, featured.length - 1) + 1} de ${featured.length}`));
+        }
+        text.append(list, actions);
+        billboard.append(cover, text);
+    }
+
+    function renderFilters() {
+        const byQuery = selectAcervo(laws, { query: state.query, issuer: state.issuer });
+        for (const group of TYPE_FILTERS) {
+            const button = filterButtons.get(group.id);
+            const count = group.id === 'all' ? byQuery.length : byQuery.filter(law => inGroup(law, group.id)).length;
+            button.setAttribute('aria-pressed', String(state.group === group.id));
+            button.querySelector('.ac-filter-count').textContent = String(count);
+            button.hidden = !count && group.id !== 'all' && group.id !== state.group;
+        }
+        const shown = TYPE_FILTERS.filter(group => !filterButtons.get(group.id).hidden);
+        typeSelect.replaceChildren(...shown.map(group => {
+            const option = element('option', '', group.id === 'all' ? 'Todos los tipos' : `${group.label} (${filterButtons.get(group.id).querySelector('.ac-filter-count').textContent})`);
+            option.value = group.id;
+            return option;
+        }));
+        typeSelect.value = state.group;
+        typeBox.classList.toggle('is-on', state.group !== 'all');
+        const byType = selectAcervo(laws, { query: state.query, group: state.group });
+        const options = acervoIssuers(byType);
+        const entries = [{ id: 'all', text: 'Todas las dependencias' }, ...options.map(item => ({ id: item.id, text: `${item.label} (${item.count})` }))];
+        if (state.issuer !== 'all' && !options.some(item => item.id === state.issuer)) {
+            entries.push({ id: state.issuer, text: `${ISSUERS.find(item => item.id === state.issuer).label} (0)` });
+        }
+        issuerSelect.replaceChildren(...entries.map(entry => { const option = element('option', '', entry.text); option.value = entry.id; return option; }));
+        issuerSelect.value = state.issuer;
+        issuerBox.classList.toggle('is-on', state.issuer !== 'all');
+    }
+
+    function statusText(count) {
+        const parts = [countLabel(count)];
+        const group = TYPE_FILTERS.find(item => item.id === state.group && item.id !== 'all');
+        const issuer = ISSUERS.find(item => item.id === state.issuer);
+        if (group) parts.push(`en ${group.label}`);
+        if (issuer) parts.push(`de ${issuer.short}`);
+        if (state.query.trim()) parts.push(`para «${state.query.trim()}»`);
+        return `${parts.join(' ')}.`;
     }
 
     function renderBody() {
         captureRows(); rowBindings = [];
-        const selected = selectAcervo(laws, state);
-        const queryMatches = selectAcervo(laws, { query: state.query, sort: state.sort });
-        for (const group of groups) {
-            const button = filterButtons.get(group.id);
-            const count = group.id === 'all' ? queryMatches.length : queryMatches.filter(law => (group.id === PLANNING_FILTER.id ? isPlanning(law) : getAcervoGroup(law) === group.id)).length;
-            button.setAttribute('aria-pressed', String(state.group === group.id));
-            button.querySelector('.ac-filter-count').textContent = String(count);
-        }
+        const reels = acervoReels(laws, state);
+        const filtered = state.group !== 'all' || state.issuer !== 'all' || Boolean(state.query.trim());
+        renderFilters();
         clear.hidden = !state.query;
-        const grouped = !state.query.trim() && state.group === 'all';
-        overview.hidden = !grouped || !laws.length;
-        root.classList.toggle('is-home', grouped && laws.length > 0);
+        root.classList.toggle('is-home', !filtered && laws.length > 0);
+        featured = state.query.trim() ? [] : reels.featured;
+        renderBillboard();
+        status.textContent = statusText(reels.items.length);
+        statusRow.hidden = !filtered && reels.items.length > 0;
+        reset.hidden = !filtered;
+        sortBox.hidden = reels.layout !== 'grid' || !reels.items.length;
         body.replaceChildren();
-        const groupLabel = [...ACERVO_GROUPS, PLANNING_FILTER].find(group => group.id === state.group)?.label;
-        status.textContent = grouped ? `${countLabel(selected.length)} para explorar por tipo de instrumento.` : `${countLabel(selected.length)}${groupLabel ? ` en ${groupLabel}` : ''}${state.query.trim() ? ` para «${state.query.trim()}»` : ''}.`;
-        if (!selected.length) {
+        if (!reels.items.length) {
             const empty = element('div', 'ac-empty');
-            empty.append(element('h2', '', laws.length ? 'No encontramos instrumentos' : 'El acervo está vacío'), element('p', '', laws.length ? 'Prueba otras siglas, un tema o un título más corto.' : 'Los instrumentos aparecerán aquí cuando el acervo esté disponible.'));
+            empty.append(element('h2', '', laws.length ? 'No encontramos documentos' : 'El acervo está vacío'), element('p', '', laws.length ? 'Prueba otras siglas, un tema o quita algún filtro.' : 'Los documentos aparecerán aquí cuando el acervo esté disponible.'));
             if (laws.length) {
-                const reset = element('button', 'ac-reset', 'Ver todo el acervo'); reset.type = 'button';
-                reset.addEventListener('click', () => { state.query = ''; state.group = 'all'; searchInput.value = ''; renderBody(); notify(); searchInput.focus(); });
-                empty.append(reset);
+                const resetAll = element('button', 'bu-btn bu-btn-primario ac-reset', 'Ver todo el acervo'); resetAll.type = 'button';
+                resetAll.addEventListener('click', () => { searchInput.value = ''; applyFilter({ query: '', group: 'all', issuer: 'all' }); searchInput.focus(); });
+                empty.append(resetAll);
             }
             body.append(empty);
-        } else if (grouped) {
-            groupAcervo(selected).filter(group => group.items.length).forEach(group => body.append(renderGroup(group)));
+        } else if (reels.layout === 'rows') {
+            reels.rows.forEach(reel => body.append(renderRow(reel)));
         } else {
-            const list = element('ul', 'ac-results-grid'); list.setAttribute('aria-label', 'Instrumentos encontrados');
-            selected.forEach(law => { const item = element('li'); item.append(makeCard(law)); list.append(item); });
+            const list = element('ul', 'ac-results-grid'); list.setAttribute('aria-label', 'Documentos encontrados');
+            reels.items.forEach(law => { const item = element('li'); item.append(makeCard(law)); list.append(item); });
             body.append(list);
         }
         scheduleRows({ restore: true });
     }
 
+    // ---------- events ----------
     searchForm.addEventListener('submit', event => event.preventDefault());
     searchInput.addEventListener('input', () => { state.query = searchInput.value; renderBody(); notify(); });
-    clear.addEventListener('click', () => { state.query = ''; searchInput.value = ''; renderBody(); notify(); searchInput.focus(); });
+    clear.addEventListener('click', () => { searchInput.value = ''; applyFilter({ query: '' }); searchInput.focus(); });
     sortSelect.addEventListener('change', () => { state.sort = sortSelect.value; renderBody(); notify(); });
-    topics.addEventListener('click', event => {
-        const chip = event.target.closest('[data-topic]');
-        if (!chip) return;
-        state.query = chip.dataset.topic; searchInput.value = state.query; renderBody(); notify();
-    });
+    issuerSelect.addEventListener('change', () => applyFilter({ issuer: issuerSelect.value }));
+    typeSelect.addEventListener('change', () => applyFilter({ group: typeSelect.value }));
+    reset.addEventListener('click', () => { searchInput.value = ''; applyFilter({ query: '', group: 'all', issuer: 'all' }); });
     filters.addEventListener('click', event => {
         const button = event.target.closest('button[data-group]');
-        if (!button) return;
-        state.group = button.dataset.group; renderBody(); notify();
+        if (button) applyFilter({ group: button.dataset.group });
     });
     const resize = () => scheduleRows();
     const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(resize) : null;

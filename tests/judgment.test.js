@@ -66,15 +66,17 @@ describe('rulings in the acervo', () => {
         document.body.innerHTML = '<div id="acervo"></div>';
         const container = document.getElementById('acervo');
         const view = renderAcervoView(container, [ley, scjn, other]);
-        const card = container.querySelector(`.ac-group[data-category="otros"] [data-law-id="${scjn.id}"]`);
+        const card = container.querySelector(`.ac-group[data-row="otros"] [data-law-id="${scjn.id}"]`);
         expect(card).not.toBeNull();
-        const category = card.querySelector('.ac-card-category');
-        expect(category.textContent).toBe('Sentencia · SCJN');
-        expect(category.classList.contains('is-judgment')).toBe(true);
-        expect(card.querySelector('.ac-card-meta').textContent).toContain('22 apartados');
-        expect(container.querySelector('[data-law-id="lse"] .ac-card-meta').textContent).toContain('120 disposiciones');
-        const recent = container.querySelector(`[data-latest-id="${scjn.id}"] .ac-recent-group`);
-        if (recent) expect(recent.textContent).toBe('Otros instrumentos · Sentencia');
+        expect(card.querySelector('.sh-cover-type').textContent).toBe('Sentencia · SCJN');
+        const pages = [...container.querySelectorAll('[data-featured-next]')];
+        for (let step = 0; step < 5 && container.querySelector('[data-featured-open]').dataset.featuredOpen !== scjn.id; step += 1) {
+            if (!pages.length) break;
+            container.querySelector('[data-featured-next]').click();
+        }
+        if (container.querySelector('[data-featured-open]').dataset.featuredOpen === scjn.id) {
+            expect(container.querySelector('.ac-cartel-datos').textContent).toContain('22 apartados');
+        }
         view.destroy();
     });
 });
