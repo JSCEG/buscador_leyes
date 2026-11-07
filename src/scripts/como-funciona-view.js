@@ -113,46 +113,15 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
         check: '<svg class="cf-icon cf-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>',
     };
 
-    let currentSector = 'electricidad';
-
-    function card(c, isDone) {
-        const sectorConcepts = CONCEPTOS.filter(x => x.sector === c.sector);
-        const stepNum = sectorConcepts.indexOf(c) + 1;
-        const isHidro = c.sector === 'hidrocarburos';
-        const puente = PUENTE_HILO[c.id];
-        const badge = isHidro
-            ? `<span class="cf-badge-sector cf-badge-hidro">${ICONS.hidrocarburos} Hidrocarburos</span>`
-            : `<span class="cf-badge-sector cf-badge-elec">${ICONS.electricidad} Electricidad</span>`;
-        return `
-            <a class="cf-card${isDone ? ' is-done' : ''}" href="#como-funciona=${esc(c.id)}">
-                <span class="cf-card-thumb"><img data-thumb="${esc(c.figura)}" src="${thumbUrl(c.figura)}" alt="" loading="lazy" decoding="async"></span>
-                <div class="cf-card-top">
-                    <span class="cf-card-sector">${isDone ? `<span class="cf-check">${ICONS.check}</span> Paso ${stepNum} · Visto` : `Paso ${stepNum} de ${sectorConcepts.length}`}</span>
-                    ${badge}
-                </div>
-                <strong>${esc(c.titulo)}</strong>
-                ${puente?.eslabon ? `<span class="cf-card-eslabon">${esc(puente.eslabon)}</span>` : ''}
-                <span class="cf-card-text">${esc(c.resumen)}</span>
-                <span class="cf-card-go">${isDone ? 'Volver a ver →' : 'Explorar paso →'}</span>
-            </a>`;
-    }
-
-    function progress() {
-        const sectorConcepts = CONCEPTOS.filter(c => c.sector === currentSector);
-        const count = sectorConcepts.filter(c => done.has(c.id)).length;
-        const sectorName = currentSector === 'hidrocarburos' ? 'de hidrocarburos' : 'de electricidad';
-        return count
-            ? `Llevas ${count} de ${sectorConcepts.length} temas ${sectorName}. Puedes seguir en orden o saltar al que te interese.`
-            : 'Empieza por el paso 1 o salta directo al tema que necesites.';
-    }
+    // el mercado elegido se recuerda en este navegador
+    const MERCADO_KEY = 'cf-mercado';
+    let currentSector = (() => { try { return localStorage.getItem(MERCADO_KEY) === 'hidrocarburos' ? 'hidrocarburos' : 'electricidad'; } catch { return 'electricidad'; } })();
 
     let done = seen();
     function showList() {
         activeConcept = null;
         done = seen();
         const summaries = typeof catalog === 'function' ? catalog() || [] : catalog;
-        const elecCount = CONCEPTOS.filter(c => c.sector === 'electricidad').length;
-        const hidroCount = CONCEPTOS.filter(c => c.sector === 'hidrocarburos').length;
         const activeConcepts = CONCEPTOS.filter(c => c.sector === currentSector);
         const sectorGlosario = GLOSARIO_REGULATORIO.filter(g => g.sector === 'ambos' || g.sector === currentSector);
         const hilo = HILO_SECTOR[currentSector];
@@ -160,136 +129,126 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
         const nextStepIdx = activeConcepts.indexOf(nextUnseen) + 1;
         const seenInSector = activeConcepts.filter(c => done.has(c.id)).length;
 
+        const mercado = id => {
+            const temas = CONCEPTOS.filter(c => c.sector === id);
+            const vistos = temas.filter(c => done.has(c.id)).length;
+            return { temas, vistos };
+        };
+        const MERCADOS = [
+            { id: 'electricidad', titulo: 'Mercado eléctrico', frase: 'De la central a tu casa', figura: 'generador' },
+            { id: 'hidrocarburos', titulo: 'Mercado de hidrocarburos', frase: 'Del pozo a la gasolinera', figura: 'refinacion' },
+        ];
+        const soonCards = Object.values(SOON[currentSector] || {});
         container.innerHTML = `
-            <section class="cf-view" aria-labelledby="cf-title">
+            <section class="cf-view cf-portada" aria-labelledby="cf-title">
                 <header class="cf-head">
-                    <p class="cf-kicker">Aprende con ejemplos y dibujos</p>
-                    <h1 id="cf-title">¿Cómo funciona el sector energético?</h1>
-                    <p class="cf-intro">Cómo llega la luz a tu casa y la gasolina a tu coche, explicado desde lo más básico: qué es la corriente, cómo funcionan una central, una refinería o un gasoducto, y qué dicen las leyes de energía de 2025.</p>
-                    
-                    <div class="cf-sectors-nav" role="group" aria-label="Elegir sector">
-                        <button type="button" class="cf-sector-tab ${currentSector === 'electricidad' ? 'is-active' : ''}" data-sector="electricidad" aria-pressed="${currentSector === 'electricidad'}">
-                            <span class="cf-tab-icon">${ICONS.electricidad}</span>
-                            <span class="cf-tab-text">Mercado Eléctrico (SEN / MEM)</span>
-                            <span class="cf-tab-count">${elecCount} conceptos</span>
-                        </button>
-                        <button type="button" class="cf-sector-tab ${currentSector === 'hidrocarburos' ? 'is-active' : ''}" data-sector="hidrocarburos" aria-pressed="${currentSector === 'hidrocarburos'}">
-                            <span class="cf-tab-icon">${ICONS.hidrocarburos}</span>
-                            <span class="cf-tab-text">Mercado de Hidrocarburos</span>
-                            <span class="cf-tab-count">${hidroCount} conceptos</span>
-                        </button>
-                    </div>
+                    <p class="cf-kicker">Aprende</p>
+                    <h1 id="cf-title">¿Cómo funciona?</h1>
+                    <p class="cf-intro">Elige un mercado y toca un tema: cada uno es una máquina que puedes mover, abrir y desarmar.</p>
                 </header>
 
-                ${hilo ? `
-                <section class="cf-thread-map" aria-label="Hilo conductor de la cadena de valor">
-                    <div class="cf-thread-top">
-                        <div>
-                            <p class="cf-kicker">El recorrido en cuatro pasos</p>
-                            <h2 class="cf-thread-title">${esc(hilo.subtitulo)}</h2>
-                            <p class="cf-thread-desc">${esc(hilo.resumen)}</p>
-                        </div>
-                        ${nextUnseen ? `
-                        <a class="cf-thread-cta" href="#como-funciona=${esc(nextUnseen.id)}">
-                            <span>${seenInSector > 0 && seenInSector < activeConcepts.length ? `Continuar (${seenInSector}/${activeConcepts.length} vistos)` : 'Recorrido guiado'}</span>
-                            <strong>Paso ${nextStepIdx}: ${esc(nextUnseen.titulo)} →</strong>
-                        </a>` : ''}
-                    </div>
-                    <ol class="cf-thread-stages">
-                        ${hilo.etapas.map(etapa => `
-                            <li class="cf-thread-stage">
-                                <div class="cf-stage-head">
-                                    <span class="cf-stage-num">Paso ${esc(etapa.num)}</span>
-                                    <strong>${esc(etapa.titulo)}</strong>
-                                </div>
-                                <p>${esc(etapa.desc)}</p>
-                                <div class="cf-stage-pills">
-                                    ${etapa.ids.map(cid => {
-                                        const cObj = CONCEPTO[cid];
-                                        if (!cObj) return '';
-                                        const sIdx = activeConcepts.indexOf(cObj) + 1;
-                                        const visited = done.has(cid);
-                                        return `<a class="cf-stage-pill${visited ? ' is-done' : ''}" href="#como-funciona=${esc(cid)}"><span class="cf-pill-num">${visited ? '✓' : sIdx}</span><span>${esc(cObj.titulo)}</span></a>`;
-                                    }).join('')}
-                                </div>
-                            </li>`).join('')}
-                    </ol>
-                </section>` : ''}
+                <div class="cf-mercados" role="group" aria-label="Elegir mercado">
+                    ${MERCADOS.map(m => {
+                        const { temas, vistos } = mercado(m.id);
+                        const activo = currentSector === m.id;
+                        return `
+                        <button type="button" class="cf-mercado${activo ? ' is-active' : ''}" data-sector="${m.id}" aria-pressed="${activo}">
+                            <span class="cf-mercado-img"><img data-thumb="${m.figura}" src="${thumbUrl(m.figura)}" alt="" decoding="async"></span>
+                            <span class="cf-mercado-txt">
+                                <span class="cf-mercado-icon">${ICONS[m.id]}</span>
+                                <strong>${m.titulo}</strong>
+                                <span>${m.frase}</span>
+                                <span class="cf-mercado-meta">${temas.length} temas${vistos ? ` · ${vistos} vistos` : ''}</span>
+                            </span>
+                        </button>`;
+                    }).join('')}
+                </div>
 
-                <p class="cf-progress">${progress()}</p>
-                <div class="cf-progress-bar" role="img" aria-label="${seenInSector} de ${activeConcepts.length} conceptos vistos">${activeConcepts.map(c => `<span${done.has(c.id) ? ' class="is-done"' : ''}></span>`).join('')}</div>
-                <ol class="cf-route">${NIVELES.map(nivel => {
-                    const levelConcepts = activeConcepts.filter(c => c.nivel === nivel.id);
-                    const soon = SOON[currentSector]?.[nivel.id];
-                    if (!levelConcepts.length && !soon) return '';
-                    return `
-                    <li class="cf-level" aria-labelledby="cf-nivel-${nivel.id}">
-                        <div class="cf-level-head">
-                            <span class="cf-level-num" aria-hidden="true">${nivel.id}</span>
-                            <div><h2 id="cf-nivel-${nivel.id}">Nivel ${nivel.id} · ${esc(nivel.titulo)}</h2><p>${esc(nivel.texto)}</p></div>
-                        </div>
-                        <div class="cf-grid">
-                            ${levelConcepts.map(c => card(c, done.has(c.id))).join('')}
-                            ${soon ? `<div class="cf-card cf-soon" aria-hidden="true"><strong>Próximamente</strong><span class="cf-card-text">${esc(soon)}</span></div>` : ''}
-                        </div>
-                    </li>`;
-                }).filter(Boolean).join('')}
+                <div class="cf-temas-cab">
+                    <h2>${currentSector === 'hidrocarburos' ? 'Mercado de hidrocarburos' : 'Mercado eléctrico'}</h2>
+                    ${nextUnseen ? `<a class="cf-seguir" href="#como-funciona=${esc(nextUnseen.id)}">${seenInSector > 0 && seenInSector < activeConcepts.length ? 'Seguir' : 'Empezar'}: ${nextStepIdx}. ${esc(nextUnseen.titulo)} →</a>` : ''}
+                </div>
+                <div class="cf-progress-bar" role="img" aria-label="${seenInSector} de ${activeConcepts.length} temas vistos">${activeConcepts.map(c => `<span${done.has(c.id) ? ' class="is-done"' : ''}></span>`).join('')}</div>
+                <ol class="cf-temas">
+                    ${activeConcepts.map((c, i) => `
+                    <li><a class="cf-tema${done.has(c.id) ? ' is-done' : ''}" href="#como-funciona=${esc(c.id)}" title="${esc(c.resumen)}">
+                        <span class="cf-tema-img"><img data-thumb="${esc(c.figura)}" src="${thumbUrl(c.figura)}" alt="" loading="lazy" decoding="async"></span>
+                        <span class="cf-tema-num" aria-hidden="true">${done.has(c.id) ? ICONS.check : i + 1}</span>
+                        <strong>${esc(c.titulo)}</strong>
+                        <span class="cf-tema-nivel">${esc(NIVELES.find(n => n.id === c.nivel)?.titulo || '')}${done.has(c.id) ? ' · Visto' : ''}</span>
+                    </a></li>`).join('')}
+                    ${soonCards.map(t => `<li><div class="cf-tema cf-tema-pronto" aria-hidden="true"><strong>Próximamente</strong><span class="cf-tema-nivel">${esc(t)}</span></div></li>`).join('')}
                 </ol>
 
-                <section class="cf-section cf-ejes-section" aria-labelledby="cf-ejes-title">
-                    <div class="cf-subhead">
-                        <p class="cf-kicker">Arquitectura constitucional y legal · DOF 18/03/2025 y 03/10/2025</p>
-                        <h2 id="cf-ejes-title">Ejes Rectores del Nuevo Marco Regulatorio (2025)</h2>
-                        <p class="cf-subintro">Los cinco pilares transversales que rigen tanto al Sistema Eléctrico Nacional (SEN) como a la cadena de valor de los Hidrocarburos.</p>
-                    </div>
-                    <div class="cf-ejes-grid">
-                        ${EJES_RECTORES.map(eje => `
-                            <article class="cf-eje-card">
-                                <h3>${esc(eje.titulo)}</h3>
-                                <p>${esc(eje.texto)}</p>
-                                <div class="cf-eje-tags">
-                                    ${(eje.siglas || []).map(s => {
-                                        const law = lawBySiglas(summaries, s);
-                                        return law ? `<button type="button" class="cf-chip-law" data-open-siglas="${esc(s)}" title="${esc(law.titulo)}">${esc(s)}</button>` : `<span class="cf-chip-law">${esc(s)}</span>`;
-                                    }).join('')}
-                                </div>
-                            </article>`).join('')}
-                    </div>
-                </section>
-
-                <section class="cf-section cf-glosario-section" aria-labelledby="cf-glosario-title">
-                    <div class="cf-subhead">
-                        <p class="cf-kicker">Diccionario técnico-jurídico integrado</p>
-                        <h2 id="cf-glosario-title">Glosario Regulatorio Esencial</h2>
-                        <p class="cf-subintro">Conceptos clave vigentes en la LSE, LSH, LPTE y sus Reglamentos para interpretar permisos, asignaciones y despacho.</p>
-                    </div>
-                    <div class="cf-glosario-grid">
-                        ${sectorGlosario.map(item => {
-                            const targetConcept = item.conceptoId ? CONCEPTO[item.conceptoId] : null;
-                            const linkLabel = targetConcept?.nivel === 4 ? 'Ver esquema interactivo →' : 'Ver anatomía 3D →';
-                            return `
-                            <article class="cf-glosario-card">
-                                <div class="cf-glosario-head">
+                <div class="cf-mas">
+                    <p class="cf-mas-titulo">Para saber más</p>
+                    ${hilo ? `<details class="cf-section cf-plegable">
+                        <summary><h2>El recorrido en cuatro pasos</h2></summary>
+                        <p>${esc(hilo.resumen)}</p>
+                        <ol class="cf-thread-stages">
+                            ${hilo.etapas.map(etapa => `
+                                <li class="cf-thread-stage">
+                                    <div class="cf-stage-head"><span class="cf-stage-num">Paso ${esc(etapa.num)}</span><strong>${esc(etapa.titulo)}</strong></div>
+                                    <p>${esc(etapa.desc)}</p>
+                                    <div class="cf-stage-pills">
+                                        ${etapa.ids.map(cid => {
+                                            const cObj = CONCEPTO[cid];
+                                            if (!cObj) return '';
+                                            const visited = done.has(cid);
+                                            return `<a class="cf-stage-pill${visited ? ' is-done' : ''}" href="#como-funciona=${esc(cid)}"><span class="cf-pill-num">${visited ? '✓' : activeConcepts.indexOf(cObj) + 1}</span><span>${esc(cObj.titulo)}</span></a>`;
+                                        }).join('')}
+                                    </div>
+                                </li>`).join('')}
+                        </ol>
+                    </details>` : ''}
+                    <details class="cf-section cf-plegable">
+                        <summary><h2>Los ejes de la reforma de 2025</h2></summary>
+                        <p>Los cinco pilares que rigen al sistema eléctrico y a los hidrocarburos desde las leyes publicadas el 18 de marzo y el 3 de octubre de 2025.</p>
+                        <div class="cf-ejes-grid">
+                            ${EJES_RECTORES.map(eje => `
+                                <article class="cf-eje-card">
+                                    <h3>${esc(eje.titulo)}</h3>
+                                    <p>${esc(eje.texto)}</p>
                                     <div class="cf-eje-tags">
-                                        ${(Array.isArray(item.siglas) ? item.siglas : [item.siglas]).map(s => {
+                                        ${(eje.siglas || []).map(s => {
                                             const law = lawBySiglas(summaries, s);
                                             return law ? `<button type="button" class="cf-chip-law" data-open-siglas="${esc(s)}" title="${esc(law.titulo)}">${esc(s)}</button>` : `<span class="cf-chip-law">${esc(s)}</span>`;
                                         }).join('')}
                                     </div>
-                                    ${item.conceptoId ? `<a class="cf-glosario-link" href="#como-funciona=${esc(item.conceptoId)}">${linkLabel}</a>` : ''}
-                                </div>
-                                <h3>${esc(item.termino)}</h3>
-                                <p>${esc(item.definicion)}</p>
-                                <span class="cf-glosario-fund">${esc(item.articulos)}</span>
-                            </article>`;
-                        }).join('')}
-                    </div>
-                </section>
+                                </article>`).join('')}
+                        </div>
+                    </details>
+                    <details class="cf-section cf-plegable">
+                        <summary><h2>Glosario</h2></summary>
+                        <div class="cf-glosario-grid">
+                            ${sectorGlosario.map(item => {
+                                const targetConcept = item.conceptoId ? CONCEPTO[item.conceptoId] : null;
+                                const linkLabel = targetConcept?.nivel === 4 ? 'Ver esquema →' : 'Ver la máquina →';
+                                return `
+                                <article class="cf-glosario-card">
+                                    <div class="cf-glosario-head">
+                                        <div class="cf-eje-tags">
+                                            ${(Array.isArray(item.siglas) ? item.siglas : [item.siglas]).map(s => {
+                                                const law = lawBySiglas(summaries, s);
+                                                return law ? `<button type="button" class="cf-chip-law" data-open-siglas="${esc(s)}" title="${esc(law.titulo)}">${esc(s)}</button>` : `<span class="cf-chip-law">${esc(s)}</span>`;
+                                            }).join('')}
+                                        </div>
+                                        ${item.conceptoId ? `<a class="cf-glosario-link" href="#como-funciona=${esc(item.conceptoId)}">${linkLabel}</a>` : ''}
+                                    </div>
+                                    <h3>${esc(item.termino)}</h3>
+                                    <p>${esc(item.definicion)}</p>
+                                    <span class="cf-glosario-fund">${esc(item.articulos)}</span>
+                                </article>`;
+                            }).join('')}
+                        </div>
+                    </details>
+                </div>
             </section>`;
 
-        container.querySelectorAll('.cf-sector-tab').forEach(btn => {
+        container.querySelectorAll('.cf-mercado').forEach(btn => {
             btn.addEventListener('click', () => {
                 currentSector = btn.dataset.sector;
+                try { localStorage.setItem(MERCADO_KEY, currentSector); } catch { /* sin almacenamiento */ }
                 showList();
             });
         });
