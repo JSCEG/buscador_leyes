@@ -70,6 +70,11 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
         }
     }
 
+    function setFrameFullscreen(on) {
+        container.querySelector('iframe[data-concepto]')?.classList.toggle('cf-figura-completa', on);
+        document.documentElement.classList.toggle('cf-bloqueo', on);
+    }
+
     const onMessage = event => {
         if (event.origin !== location.origin) return;
         if (event.data?.type === 'concepto-height') {
@@ -79,6 +84,9 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
             if (frame && Number.isFinite(event.data.h)) frame.style.height = `${Math.ceil(event.data.h)}px`;
         } else if (event.data?.type === 'concepto-part') {
             selectPartUI(event.data.n, false);
+        } else if (event.data?.type === 'concepto-fullscreen') {
+            // Sin pantalla completa del navegador (iPhone), la figura pide que su marco cubra la ventana.
+            setFrameFullscreen(Boolean(event.data.on));
         }
     };
     window.addEventListener('message', onMessage);
@@ -338,40 +346,51 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <button type="button" class="cf-share" data-share><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Compartir</span></button>
                 </header>
                 <div class="cf-figure">
-                    <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy" scrolling="no"></iframe>
+                    <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy" scrolling="no" allow="fullscreen" allowfullscreen></iframe>
                 </div>
                 ${before.length ? `<p class="cf-before">Para entenderlo mejor, antes mira: ${before.map(c => `<a href="#como-funciona=${esc(c.id)}">${esc(c.titulo)}</a>`).join(', ')}.</p>` : ''}
                 <div id="cf-active-part" class="cf-part-banner" aria-live="polite" hidden></div>
-                ${concept.definiciones?.length ? `<section class="cf-section" aria-labelledby="cf-defs">
-                    <h2 id="cf-defs">${concept.definiciones.length > 1 ? 'Definiciones' : 'Definición'}</h2>
-                    <dl class="cf-defs">${concept.definiciones.map(d => `<div><dt>${esc(d.termino)}${d.unidad ? ` <span class="cf-unit">${esc(d.unidad)}</span>` : ''}</dt><dd>${esc(d.texto)}</dd></div>`).join('')}</dl>
-                </section>` : ''}
-                <section class="cf-section" aria-labelledby="cf-claves">
-                    <h2 id="cf-claves">En palabras simples</h2>
-                    <ol class="cf-steps">${concept.claves.map(text => `<li>${esc(text)}</li>`).join('')}</ol>
+                <section class="cf-section" aria-labelledby="cf-partes">
+                    <div class="cf-parts-header">
+                        <h2 id="cf-partes">${concept.partesTitulo ? esc(concept.partesTitulo) : 'Sus partes'}</h2>
+                        <span class="cf-parts-hint">Toca una parte para verla en ${isLevel4 ? 'el diagrama' : 'la máquina'}</span>
+                    </div>
+                    <dl class="cf-parts">${concept.partes.map((p, i) => `<div id="cf-part-card-${i + 1}" data-part-n="${i + 1}" role="button" tabindex="0" aria-pressed="false"><dt><span class="cf-num" aria-hidden="true">${i + 1}</span>${esc(p.nombre)}</dt><dd>${esc(p.texto)}</dd></div>`).join('')}</dl>
                 </section>
-                ${concept.formulas?.length ? `<section class="cf-section" aria-labelledby="cf-formulas">
-                    <h2 id="cf-formulas">${concept.formulas.length > 1 ? 'Las fórmulas' : 'La fórmula'}</h2>
+                ${concept.dato ? `<aside class="cf-fun" aria-label="¿Sabías que…?"><b>¿Sabías que…?</b> ${esc(concept.dato)}</aside>` : ''}
+                <section class="cf-section" aria-labelledby="cf-prueba">
+                    <h2 id="cf-prueba">Ponte a prueba</h2>
+                    <div class="cf-quiz">${concept.preguntas.map((q, i) => `
+                        <fieldset class="cf-q" data-q="${i}">
+                            <legend>${esc(q.pregunta)}</legend>
+                            ${q.opciones.map((o, j) => `<button type="button" class="cf-opt" data-opt="${j}">${esc(o)}</button>`).join('')}
+                            <p class="cf-verdict" aria-live="polite"></p>
+                        </fieldset>`).join('')}</div>
+                </section>
+                <div class="cf-mas">
+                    <p class="cf-mas-titulo">Para saber más</p>
+                    ${concept.definiciones?.length ? `<details class="cf-section cf-plegable">
+                    <summary><h2 id="cf-defs">${concept.definiciones.length > 1 ? 'Definiciones' : 'Definición'}</h2></summary>
+                    <dl class="cf-defs">${concept.definiciones.map(d => `<div><dt>${esc(d.termino)}${d.unidad ? ` <span class="cf-unit">${esc(d.unidad)}</span>` : ''}</dt><dd>${esc(d.texto)}</dd></div>`).join('')}</dl>
+                </details>` : ''}
+                <details class="cf-section cf-plegable">
+                    <summary><h2 id="cf-claves">En palabras simples</h2></summary>
+                    <ol class="cf-steps">${concept.claves.map(text => `<li>${esc(text)}</li>`).join('')}</ol>
+                </details>
+                ${concept.formulas?.length ? `<details class="cf-section cf-plegable">
+                    <summary><h2 id="cf-formulas">${concept.formulas.length > 1 ? 'Las fórmulas' : 'La fórmula'}</h2></summary>
                     <div class="cf-formulas">${concept.formulas.map(f => `<div class="cf-formula">
                         <p class="cf-expr">${esc(f.expresion)}</p>
                         <p class="cf-reading">${esc(f.lectura)}</p>
                         ${f.ejemplo ? `<p class="cf-example"><b>Ejemplo:</b> ${esc(f.ejemplo)}</p>` : ''}
                     </div>`).join('')}</div>
-                </section>` : ''}
-                ${concept.errores?.length ? `<section class="cf-section" aria-labelledby="cf-errores">
-                    <h2 id="cf-errores">Ideas equivocadas comunes</h2>
+                </details>` : ''}
+                ${concept.errores?.length ? `<details class="cf-section cf-plegable">
+                    <summary><h2 id="cf-errores">Ideas equivocadas comunes</h2></summary>
                     <ul class="cf-myths">${concept.errores.map(e => `<li><p class="cf-myth"><span aria-hidden="true">✗</span><span class="cf-sr">Idea equivocada: </span>${esc(e.idea)}</p><p class="cf-fact"><span aria-hidden="true">✓</span><span class="cf-sr">En realidad: </span>${esc(e.realidad)}</p></li>`).join('')}</ul>
-                </section>` : ''}
-                <section class="cf-section" aria-labelledby="cf-partes">
-                    <div class="cf-parts-header">
-                        <h2 id="cf-partes">${concept.partesTitulo ? esc(concept.partesTitulo) : 'Sus partes'}</h2>
-                        <span class="cf-parts-hint">Haz clic en un número en ${isLevel4 ? 'el diagrama interactivo' : 'la figura 3D'} o en las tarjetas para resaltar cada parte</span>
-                    </div>
-                    <dl class="cf-parts">${concept.partes.map((p, i) => `<div id="cf-part-card-${i + 1}" data-part-n="${i + 1}" role="button" tabindex="0" aria-pressed="false"><dt><span class="cf-num" aria-hidden="true">${i + 1}</span>${esc(p.nombre)}</dt><dd>${esc(p.texto)}</dd></div>`).join('')}</dl>
-                </section>
-                ${concept.dato ? `<aside class="cf-fun" aria-label="¿Sabías que…?"><b>¿Sabías que…?</b> ${esc(concept.dato)}</aside>` : ''}
-                ${concept.ley ? `<section class="cf-section" aria-labelledby="cf-ley">
-                    <h2 id="cf-ley">Qué dice la ley</h2>
+                </details>` : ''}
+                    ${concept.ley ? `<details class="cf-section cf-plegable">
+                    <summary><h2 id="cf-ley">Qué dice la ley</h2></summary>
                     ${puente ? `
                     <div class="cf-bridge-box" aria-label="Puente entre realidad física y regulación">
                         <div class="cf-bridge-col">
@@ -416,23 +435,15 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <div class="cf-links">${laws.map(({ siglas, law }) => (law
                         ? `<button type="button" class="cf-law" data-law="${esc(law.id)}"><b>${esc(law.siglas || siglas)}</b><span>${esc(law.titulo)}</span></button>`
                         : '')).join('')}</div>
-                </section>` : ''}
-                ${tramites.length || concept.mapa ? `<section class="cf-section" aria-labelledby="cf-permisos">
-                    <h2 id="cf-permisos">Permisos y trámites</h2>
+                </details>` : ''}
+                ${tramites.length || concept.mapa ? `<details class="cf-section cf-plegable">
+                    <summary><h2 id="cf-permisos">Permisos y trámites</h2></summary>
                     <div class="cf-links">
                         ${tramites.map(t => `<a class="cf-link" href="#tramite=${esc(t.id)}"><b>Guía de trámite</b><span>${esc(t.title)}</span></a>`).join('')}
                         ${concept.mapa ? `<a class="cf-link" href="${esc(concept.mapa.hash)}"><b>Mapa</b><span>${esc(concept.mapa.texto)}</span></a>` : ''}
                     </div>
-                </section>` : ''}
-                <section class="cf-section" aria-labelledby="cf-prueba">
-                    <h2 id="cf-prueba">Ponte a prueba</h2>
-                    <div class="cf-quiz">${concept.preguntas.map((q, i) => `
-                        <fieldset class="cf-q" data-q="${i}">
-                            <legend>${esc(q.pregunta)}</legend>
-                            ${q.opciones.map((o, j) => `<button type="button" class="cf-opt" data-opt="${j}">${esc(o)}</button>`).join('')}
-                            <p class="cf-verdict" aria-live="polite"></p>
-                        </fieldset>`).join('')}</div>
-                </section>
+                </details>` : ''}
+                </div>
                 <div class="cf-journey-footer">
                     ${puente?.transicion ? `
                     <div class="cf-transition-box">
@@ -444,15 +455,15 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                         ${next ? `<a class="cf-next" href="#como-funciona=${esc(next.id)}"><span>Siguiente en la ruta (Paso ${stepIndex + 1} de ${sectorConcepts.length})</span><strong>${esc(next.titulo)} →</strong></a>` : `<a class="cf-next" href="#como-funciona"><span>Llegaste al final de la ruta por ahora</span><strong>Ver la ruta completa →</strong></a>`}
                     </div>
                 </div>
-                <section class="cf-sources" aria-labelledby="cf-fuentes">
-                    <h2 id="cf-fuentes">Fuentes</h2>
+                <details class="cf-sources cf-plegable">
+                    <summary><h2 id="cf-fuentes">Fuentes</h2></summary>
                     <ol class="cf-refs">${concept.fuentes.map(f => {
                         const law = f.acervo ? laws.find(item => item.siglas === f.acervo)?.law : null;
                         const title = f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener"><i>${esc(f.titulo)}</i></a>` : `<i>${esc(f.titulo)}</i>`;
                         return `<li>${esc(f.autor)}${f.url ? ` (${esc(f.fecha)}). ${title}${/[?!.]$/.test(f.titulo) ? "" : "."}${f.editorial ? ` ${esc(f.editorial)}.` : ''}` : `. ${title}, ${esc(f.fecha)}.`}${f.consulta ? ` Consultado el ${esc(f.consulta)}.` : ''}${law ? ` <button type="button" class="cf-ref-law" data-law="${esc(law.id)}">Ver en el acervo</button>` : ''}</li>`;
                     }).join('')}</ol>
                     <p class="cf-note">Explicación general con fines informativos; no es texto legal ni sustituye la normativa. ${concept.revisado ? `Revisado el ${esc(concept.revisado)}.` : '<span class="cf-draft">Borrador en revisión.</span>'}</p>
-                </section>
+                </details>
             </article>`;
         // Share the explainer: the phone's share sheet (WhatsApp…), or copy the link on a computer.
         container.querySelector('[data-share]')?.addEventListener('click', async event => {
@@ -522,6 +533,6 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
     show(id);
     return {
         show,
-        destroy() { alive = false; window.removeEventListener('message', onMessage); themeWatch.disconnect(); container.replaceChildren(); },
+        destroy() { alive = false; setFrameFullscreen(false); window.removeEventListener('message', onMessage); themeWatch.disconnect(); container.replaceChildren(); },
     };
 }

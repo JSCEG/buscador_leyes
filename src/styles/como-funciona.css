@@ -289,3 +289,24 @@ span.cf-route-arrow{border-color:transparent}
 .cf-concept .cf-figure{margin:6px 0 22px;padding:6px;border:1px solid var(--cf-border);border-radius:22px;background:radial-gradient(120% 80% at 50% 0%,color-mix(in srgb,var(--cf-accent) 6%,var(--cf-card)),var(--cf-card));box-shadow:0 24px 50px -36px #2a071466}
 .cf-concept .cf-figure iframe{border-radius:16px}
 @media (max-width:640px){.cf-concept .cf-figure{margin:4px -8px 20px;padding:0;border-radius:14px}}
+
+/* Pantalla completa sin la API del navegador (iPhone): el marco de la figura cubre la ventana */
+.cf-figure iframe.cf-figura-completa{position:fixed;inset:0;z-index:calc(var(--z-visor, 90) + 10);width:100vw;height:100vh!important;height:100dvh!important;border-radius:0;background:var(--papel)}
+html.cf-bloqueo,html.cf-bloqueo body{overflow:hidden}
+/* la animación de entrada de la vista crea una capa propia que dejaría el menú encima de la figura */
+html.cf-bloqueo #main-container{animation:none;opacity:1;transform:none;filter:none}
+
+/* Lo que se lee va plegado: la máquina y sus partes mandan */
+.cf-mas{margin-top:34px;border-top:1px solid var(--cf-border)}
+.cf-mas-titulo{margin:18px 0 4px;color:var(--cf-muted);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.cf-plegable{margin-top:0;border-bottom:1px solid var(--cf-border)}
+.cf-plegable>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:6px 2px;cursor:pointer;list-style:none}
+.cf-plegable>summary::-webkit-details-marker{display:none}
+.cf-plegable>summary h2{margin:0;font-size:19px}
+.cf-plegable>summary::after{content:"";flex:none;width:9px;height:9px;margin-right:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s cubic-bezier(.65,0,.35,1);opacity:.6}
+.cf-plegable[open]>summary::after{transform:rotate(225deg) translateY(-3px)}
+.cf-plegable>summary:focus-visible{outline:2px solid var(--cf-accent);outline-offset:2px;border-radius:8px}
+.cf-plegable[open]{padding-bottom:18px}
+.cf-sources.cf-plegable{margin-top:28px;padding-top:0;border-top:1px solid var(--cf-border)}
+.cf-sources.cf-plegable>summary h2{font-size:15px}
+@media (prefers-reduced-motion:reduce){.cf-plegable>summary::after{transition:none}}

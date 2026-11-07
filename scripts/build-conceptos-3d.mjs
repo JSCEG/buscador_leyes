@@ -19,6 +19,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKILL = process.env.TEARDOWN_DIR || path.join(os.homedir(), '.claude', 'skills', 'teardown');
 const FUENTES = path.join(ROOT, 'conceptos-3d');
 const DESTINO = path.join(ROOT, 'public', 'conceptos');
+const COMUN_CSS = fs.readFileSync(path.join(FUENTES, 'comun', 'estilo.css'), 'utf8');
 const TITULOS = JSON.parse(fs.readFileSync(path.join(FUENTES, 'titulos.json'), 'utf8'));
 
 const nombres = process.argv.slice(2).length ? process.argv.slice(2) : fs.readdirSync(FUENTES).filter(d => fs.existsSync(path.join(FUENTES, d, 'main.js')));
@@ -27,7 +28,11 @@ const trabajo = fs.mkdtempSync(path.join(os.tmpdir(), 'conceptos-3d-'));
 for (const figura of nombres) {
     const carpeta = path.join(FUENTES, figura);
     execFileSync(process.execPath, [path.join(SKILL, 'sims', 'build.mjs'), carpeta], { cwd: trabajo, stdio: 'inherit' });
-    const html = fs.readFileSync(path.join(trabajo, 'teardown-out', 'dist', `${figura}.html`), 'utf8');
+    let html = fs.readFileSync(path.join(trabajo, 'teardown-out', 'dist', `${figura}.html`), 'utf8');
+    // el estilo común va justo antes del style.css de la máquina, para que ella pueda ajustarlo
+    const propio = fs.existsSync(path.join(carpeta, 'style.css')) ? fs.readFileSync(path.join(carpeta, 'style.css'), 'utf8') : '';
+    if (!propio || !html.includes(propio)) throw new Error(`${figura}: falta su style.css (aunque sea solo un comentario)`);
+    html = html.replace(propio, () => `${COMUN_CSS}\n${propio}`);
     const titulo = TITULOS[figura] || figura;
     for (const [tema, sufijo] of [['oscuro', ''], ['claro', '-light']]) {
         const pagina = html
