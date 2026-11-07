@@ -745,6 +745,8 @@ function cuadro(ahora) {
     TORNILLOS.forEach((t, i) => {
         posTornillo.copy(t.base).addScaledVector(t.sale, e).add(carcasa.position).add(estator.position);
         mtx.makeTranslation(posTornillo.x, posTornillo.y, posTornillo.z);
+        // con «Ver por dentro» la mitad de enfrente no está: sus tornillos tampoco (el corte deja z ≤ plano.constant)
+        if (posTornillo.z > plano.constant + 0.01) mtx.scale(new THREE.Vector3(0, 0, 0));
         tornillos.setMatrixAt(i, mtx);
     });
     tornillos.instanceMatrix.needsUpdate = true;
