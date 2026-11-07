@@ -33,6 +33,29 @@ describe('permits section', () => {
     expect(host.querySelector('[data-authority]').textContent).toContain('CNE');
     expect(host.querySelector('.pm-view').classList.contains('en-sener')).toBe(false);
   });
+  it('shows only the tabs of the authority on screen', () => {
+    const shown = aut => !host.querySelector(`.pm-tab-grupo[data-aut="${aut}"]`).hidden;
+    view = renderCneView(host, () => [], {});
+    expect(shown('cne')).toBe(true);
+    expect(shown('sener')).toBe(false);
+    view.go({ tab: 'sener' });
+    expect(shown('cne')).toBe(false);
+    expect(host.querySelector('.pm-view').classList.contains('en-sener')).toBe(true);
+    // One tab is no choice: the SENER page has no tab row.
+    expect(host.querySelector('.pm-tabs').hidden).toBe(true);
+    view.go({ tab: 'mapa' });
+    expect(shown('cne')).toBe(true);
+    expect(host.querySelector('.pm-tabs').hidden).toBe(false);
+  });
+  it('switches authority from the page, for phones without the side menu', () => {
+    view = renderCneView(host, () => [], {});
+    const links = [...host.querySelectorAll('.pm-aut-switch a')];
+    expect(links.map(link => [link.textContent, link.getAttribute('href')])).toEqual([['CNE', '#permisos'], ['SENER', '#sener']]);
+    expect(links[0].getAttribute('aria-current')).toBe('page');
+    view.go({ tab: 'sener' });
+    expect(links[1].getAttribute('aria-current')).toBe('page');
+    expect(links[0].hasAttribute('aria-current')).toBe(false);
+  });
   it('cards still render, with a type tile, if the technology index fails', async () => {
     view = renderCneView(host, () => [], {});
     for (let i = 0; i < 6; i++) await tick();

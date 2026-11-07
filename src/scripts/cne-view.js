@@ -54,6 +54,7 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
     root.setAttribute('aria-labelledby', 'pm-title');
     root.innerHTML = `
         <div class="pm-head">
+            <nav class="bu-seg pm-aut-switch" aria-label="Autoridad">${AUTHORITIES.map(aut => `<a href="${aut.id === 'sener' ? '#sener' : '#permisos'}" data-aut-link="${aut.id}">${aut.short}</a>`).join('')}</nav>
             <p class="pm-autoridad" data-authority></p>
             <h1 id="pm-title">Permisos de energía</h1>
             <p class="pm-intro"></p>
@@ -79,6 +80,13 @@ export function renderCneView(container, catalog, { route = { tab: 'permisos' },
         root.querySelector('.pm-intro').textContent = info.intro;
         root.querySelector('[data-authority]').innerHTML = authorityTag(tab === 'sener' ? 'sener' : 'cne');
         root.classList.toggle('en-sener', tab === 'sener');
+        // One authority per page: its own tabs only, and no tab row when there is a single tab.
+        const authority = tab === 'sener' ? 'sener' : 'cne';
+        root.querySelectorAll('.pm-tab-grupo').forEach(group => { group.hidden = group.dataset.aut !== authority; });
+        root.querySelector('.pm-tabs').hidden = TABS.filter(item => item.group === authority.toUpperCase()).length < 2;
+        root.querySelectorAll('[data-aut-link]').forEach(link => {
+            if (link.dataset.autLink === authority) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+        });
         root.classList.toggle('en-mapa', tab === 'mapa');
         root.querySelectorAll('.pm-tab').forEach(link => {
             const on = link.dataset.tab === tab;

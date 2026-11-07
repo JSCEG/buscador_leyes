@@ -20,6 +20,13 @@ describe('app shell', () => {
     for (const id of KEPT_IDS) expect(document.getElementById(id), id).not.toBeNull();
   });
 
+  it('splits Permisos into the CNE and the SENER', () => {
+    const permisos = document.querySelector('.bu-riel [data-nav="permisos"]');
+    expect(permisos.matches('details.bu-riel__grupo')).toBe(true);
+    expect(permisos.querySelector('#nav-permisos').getAttribute('href')).toBe('#permisos');
+    expect(permisos.querySelector('#nav-permisos-sener').getAttribute('href')).toBe('#sener');
+    expect(document.getElementById('mobile-nav-permisos-sener').getAttribute('href')).toBe('#sener');
+  });
   it('groups Estadísticas in Análisis and the rest in Aprende', () => {
     const analisis = document.querySelector('.bu-riel [data-nav="analisis"]');
     expect(analisis.querySelector('#nav-analisis')).not.toBeNull();

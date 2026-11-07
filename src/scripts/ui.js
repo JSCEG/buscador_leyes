@@ -903,6 +903,7 @@ export function initUI() {
             mainContainer.classList.add('view-fade');
         }
         activeNavId = activeId;
+        if (activeId !== 'nav-permisos') ['nav-permisos-sener', 'mobile-nav-permisos-sener'].forEach(id => document.getElementById(id)?.removeAttribute('aria-current'));
         NAV_IDS.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
@@ -3325,6 +3326,7 @@ export function initUI() {
         // Back and forward inside the section keep its tabs instead of rebuilding them.
         if (cneView && activeNavId === 'nav-permisos' && resultsContainer.querySelector('.pm-view')) {
             cneView.go(route);
+            markPermitsAuthority(tab);
             return;
         }
         destroyTOC();
@@ -3339,6 +3341,7 @@ export function initUI() {
         const request = ++cneRequest;
         withProgress(import('./cne-view.js')).then(({ renderCneView }) => {
             if (request !== cneRequest || !permitsRoute(location.hash)) return;
+            markPermitsAuthority(route.tab);
             cneView = renderCneView(resultsContainer, () => cachedSummaries, {
                 route,
                 onOpenLaw: law => openLawDetail(law),
@@ -3347,7 +3350,19 @@ export function initUI() {
             window.scrollTo({ top: 0 });
         });
     }
+    /** Permisos is split in the menus: the CNE or the SENER is the current one, not both. */
+    function markPermitsAuthority(tab) {
+        const sener = tab === 'sener';
+        const pairs = [['nav-permisos', !sener], ['nav-permisos-sener', sener], ['mobile-nav-permisos', !sener], ['mobile-nav-permisos-sener', sener]];
+        for (const [id, on] of pairs) {
+            const link = document.getElementById(id);
+            if (!link) continue;
+            if (on) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+        }
+        syncRailGroups();
+    }
     document.getElementById('mobile-nav-permisos')?.addEventListener('click', () => toggleMobileMenu(false));
+    document.getElementById('mobile-nav-permisos-sener')?.addEventListener('click', () => toggleMobileMenu(false));
 
     let comoView = null;
     let comoRequest = 0;
