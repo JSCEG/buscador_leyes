@@ -63,8 +63,8 @@ export function crearDiagrama(lienzo) {
         const col = 62;
         // gas
         caja(6, y0, col - 10, 100 * escala, 7, c.fondoTinta);
-        texto('Gas', 6 + (col - 10) / 2, y0 + (100 * escala) / 2 - 7, c.fondoPanel, 11, 700);
-        texto('100', 6 + (col - 10) / 2, y0 + (100 * escala) / 2 + 8, c.fondoPanel, 13, 750);
+        texto('Gas', 6 + (col - 10) / 2, y0 + (100 * escala) / 2 - 7, '#ffffff', 11, 700);
+        texto('100', 6 + (col - 10) / 2, y0 + (100 * escala) / 2 + 8, '#ffffff', 13, 750);
         const g = R.gas * 100 * escala;
         const v = R.vapor * 100 * escala;
         const tor = R.torre * 100 * escala;
