@@ -336,6 +336,7 @@ export function construirBuho(M, P) {
 
     // Corazas: piezas curvas del cuerpo y de la cabeza (por fuera marfil, por dentro grafito) que salen volando.
     const coraza = (E, phi0, phiL, th0, thL, extra) => {
+        const PI = Math.PI;
         const g = new THREE.Group();
         const geo = new THREE.SphereGeometry(1, 24, 14, phi0, phiL, th0, thL);
         const radios = E.r.map(r => r * extra);
@@ -345,6 +346,25 @@ export function construirBuho(M, P) {
         geo.translate(-centro.x, -centro.y, -centro.z);
         g.add(sombra(new THREE.Mesh(geo, M.marfil)), new THREE.Mesh(geo, M.grafitoDoble));
         g.position.set(...E.c).add(centro);
+        // en el cuerpo, cada coraza lleva su plumaje: filas de plumas que se traslapan hacia abajo y tapan las juntas
+        if (E === CUERPO) {
+            const filas = Math.max(3, Math.round(thL / 0.17));
+            for (let f = 0; f <= filas; f++) {
+                const th = th0 + thL * (f / filas) * 0.96 + 0.02;
+                const cols = Math.max(2, Math.round((phiL * Math.sin(th) * E.r[0]) / 0.14));
+                for (let k = 0; k <= cols; k++) {
+                    const ph = phi0 + phiL * (k + (f % 2 ? 0.5 : 0)) / (cols + 1);
+                    const u = new THREE.Vector3(-Math.cos(ph) * Math.sin(th), Math.cos(th), Math.sin(ph) * Math.sin(th));
+                    const q = u.clone().multiply(new THREE.Vector3(...radios)).multiplyScalar(1.01);
+                    const nn = new THREE.Vector3(q.x / radios[0] ** 2, q.y / radios[1] ** 2, q.z / radios[2] ** 2).normalize();
+                    const ultima = f === filas && th > PI * 0.62;
+                    const m = sombra(new THREE.Mesh(hoja(0.32 - f * 0.012, 0.27, 0.32, false, true), ultima ? M.pluma : M.marfil));
+                    m.position.copy(q).sub(centro).addScaledVector(nn, 0.01);
+                    orientar(m, nn, new THREE.Vector3(0, -1, 0));
+                    g.add(m);
+                }
+            }
+        }
         g.userData = { p0: g.position.clone(), dir: medio.clone().normalize(), h: hash(vivos.corazas.length + 50), cabeza: E === CABEZA };
         raiz.add(g);
         vivos.corazas.push(g);
@@ -757,7 +777,7 @@ export function construirBuho(M, P) {
     for (const lado of [1, -1]) {
         const g = new THREE.Group();
         g.scale.set(lado * 1.25, 1.25, 1.25);
-        g.position.set(lado * 0.26, -0.9, 0.26);
+        g.position.set(lado * 0.26, -1.03, 0.26);
         // cadera: la pierna sale del cuerpo por una bisagra grande con aro neón, girada hacia el costado
         const cadera = bisagra(0.12, M);
         cadera.rotation.y = Math.PI / 2;
@@ -770,7 +790,7 @@ export function construirBuho(M, P) {
         muslo.rotation.set(0, -0.5, -1.75);
         muslo.add(hueso(0.42, 0.08, M, M.acero));
         // muslo emplumado, como el de un búho real: tres anillos de plumas que bajan hacia la rodilla
-        for (let anillo = 0; anillo < 4; anillo++) {
+        for (let anillo = 0; anillo < 3; anillo++) {
             for (let k = 0; k < 9; k++) {
                 const th = (k / 9) * Math.PI * 2 + anillo * 0.35;
                 const n = new THREE.Vector3(0, Math.cos(th), Math.sin(th));
@@ -788,6 +808,9 @@ export function construirBuho(M, P) {
         aroRodilla.position.z = 0.06;
         rodilla.add(aroRodilla);
         muslo.add(rodilla);
+        // la rodilla mira hacia afuera, al costado (su eje es el de la flexión), para que se vea de lado como en la propuesta
+        rodilla.quaternion.copy(muslo.quaternion).invert().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2));
+        rodilla.position.z = 0;
 
         // espinilla: sale de la rodilla hacia abajo y al frente; acero con pistón de marfil
         const tibia = new THREE.Group();

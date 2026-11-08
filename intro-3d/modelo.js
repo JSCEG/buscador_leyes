@@ -23,7 +23,7 @@ export const OJOS = [-0.23, 0.23].map(x => {
 });
 export const OJO = enCabeza([OJOS[0][0], OJOS[0][1], OJOS[0][2] + 0.15]); // el iris, en el mundo, ya con la cabeza agrandada
 export const HOMBRO = [0.5, 0.25, -0.05]; // ala derecha; la izquierda es su espejo
-export const PIE = -1.95; // punta de las garras (la pierna sale bajo el cuerpo: muslo, rodilla y espinilla)
+export const PIE = -2.08; // punta de las garras (la pierna sale bajo el cuerpo: muslo, rodilla y espinilla)
 export const ENGRANE = { centro: [0, -0.12, 0.5], radio: 0.16 }; // el engrane del pecho, de donde salen las secciones
 export const N_SECUNDARIAS = 10;
 export const N_PLUMAS = 22; // por ala: 10 secundarias en el antebrazo y 12 primarias en la mano
