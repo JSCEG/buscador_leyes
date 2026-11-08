@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { eyeCenter, openOwlGuide, playIntro, shouldShowIntro } from '../src/scripts/site-intro.js';
+import { eyeCenter, openOwlGuide, playIntro } from '../src/scripts/site-intro.js';
 
 const layer = () => document.getElementById('site-intro');
 const video = () => layer()?.querySelector('video.si-video');
@@ -248,18 +248,15 @@ describe('intro live owl', () => {
     expect(layer()).toBeNull();
     expect(document.getElementById('welcome-tour')).toBeTruthy();
   });
-  it('the brand (the S) opens the owl as a quick guide', () => {
-    document.body.insertAdjacentHTML('beforeend', '<a href="/" id="brand-home"><svg></svg></a>');
+  it('the brand (the S) only goes home: it does not load the owl', () => {
+    document.body.insertAdjacentHTML('beforeend', '<a href="#x" id="brand-home"><svg></svg></a>');
     document.querySelector('#brand-home svg').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro&modo=guia');
+    expect(layer()).toBeNull();
   });
-  it('plays on the first visit of a browser only', () => {
-    vi.stubEnv('DEV', false);
-    localStorage.removeItem('intro-visto');
-    expect(shouldShowIntro()).toBe(true);
-    playIntro();
-    expect(shouldShowIntro()).toBe(false);
-    vi.unstubAllEnvs();
+  it('«Abrir la guía» of the landing opens the owl as a quick guide', () => {
+    document.body.insertAdjacentHTML('beforeend', '<button type="button" data-abrir-buho>Abrir la guía</button>');
+    document.querySelector('[data-abrir-buho]').click();
+    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro&modo=guia');
   });
   it('does not load the owl when the visitor saves data', async () => {
     navigator.connection = { saveData: true };

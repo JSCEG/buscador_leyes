@@ -18,7 +18,7 @@ describe('shelf view', () => {
     vi.stubGlobal('cancelAnimationFrame', clearTimeout);
     vi.stubGlobal('matchMedia', q => ({ matches: q.includes('reduce'), addEventListener() {}, removeEventListener() {} }));
   });
-  afterEach(() => { view?.destroy(); view = null; vi.unstubAllGlobals(); delete window.__introDone; });
+  afterEach(() => { view?.destroy(); view = null; vi.unstubAllGlobals(); });
 
   it('orders by collection, then title', () => {
     expect(buildShelf(mixed).items.map(l => l.id)).toEqual(['l1', 'l2', 'r']);
@@ -90,12 +90,6 @@ describe('shelf view', () => {
     host.querySelector('[data-feedback]').click(); expect(onFeedback).toHaveBeenCalled();
     host.querySelector('[data-sh-browse]').click(); expect(onBrowse).toHaveBeenCalled();
     expect(host.textContent).toContain('Diario Oficial de la Federación');
-  });
-  it('does not fail if destroyed while the intro is pending', async () => {
-    let release; window.__introDone = new Promise(r => { release = r; });
-    view = renderShelfView(host, { summaries: mixed, status: 'ready' });
-    view.destroy(); view = null; release(); await frame();
-    expect(host.querySelector('.sh-tome')).toBeNull();
   });
   it('offers each collection as a folder with its real count', async () => {
     view = renderShelfView(host, { summaries: mixed, status: 'ready' }); await frame();

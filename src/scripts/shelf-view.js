@@ -532,8 +532,7 @@ export function renderShelfView(host, { summaries = [], status = 'loading', onSe
     measure();
     if (status === 'ready') setCatalog(summaries);
     else setStatus('loading');
-    // The shelf unfolds once the intro has finished.
-    Promise.resolve(window.__introDone).then(() => { if (!destroyed) view.classList.add('is-entered'); });
+    view.classList.add('is-entered');
 
     function destroy() {
         destroyed = true;

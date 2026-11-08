@@ -54,8 +54,8 @@ it('loads the acervo once ready and preserves its independent route, filters and
     acervoSearch().dispatchEvent(new Event('input', { bubbles: true }));
   };
 
-  // The bare home URL starts with the shelf, including its loading state; the library keeps its own.
-  expect(document.querySelector('#home-view .sh-status[data-state="loading"]')).not.toBeNull();
+  // The bare home URL starts with the landing, waiting for its data; the library keeps its own loading state.
+  expect(document.querySelector('#landing-view [data-landing-card]').dataset.state).toBe('loading');
   expect(location.hash).toBe('');
   document.getElementById('nav-leyes').click();
   expect(results.querySelector('[aria-label="Cargando acervo"]')).not.toBeNull();
@@ -162,7 +162,7 @@ it('loads the acervo once ready and preserves its independent route, filters and
   window.dispatchEvent(new PopStateEvent('popstate'));
   await settle();
   expect(document.getElementById('hero-section').classList.contains('hidden')).toBe(true);
-  expect(document.body.classList.contains('home-active')).toBe(true);
+  expect(document.documentElement.classList.contains('landing-on')).toBe(true);
   expect(globalSearch.classList.contains('hidden')).toBe(true);
   expect(location.hash).toBe('');
   document.getElementById('nav-inicio').click();

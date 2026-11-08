@@ -68,6 +68,7 @@ La fuente de los valores es `src/styles/design/variables.css`. Los componentes v
 | `.bu-modal`, `.bu-telon`, `.bu-hoja`, `.bu-toast` | Capas |
 | `.ac-*` | Acervo en `styles/acervo.css`: cartel, hileras de portadas (`.sh-cover`) y filtros |
 | `.bu-cuenta` | Ventana de cuenta en `buho/account.css`: el lector es un librito y cada cifra abre lo que cuenta |
+| `.lp-*` | Landing en `styles/landing.css`: primera pantalla (viene en `index.html`) y galería |
 | `.bux-*` | Componentes anteriores aún en uso, en `buho/components.css`; leen tokens |
 
 ## Tablas

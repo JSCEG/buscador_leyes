@@ -22,7 +22,7 @@ Video de la intro: el búho mecánico en 3D de `intro-3d/` (skill teardown + FFm
 node scripts/render-intro-3d.mjs          # los dos videos
 node scripts/render-intro-3d.mjs hojas    # solo hojas de revisión
 ```
-Intro viva (la que sale al cargar): el mismo búho en tiempo real, con menú de secciones, giro, alas y desarme. Fuente en `intro-3d/vivo/`; `site-intro.js` la carga en un iframe sobre el mapa y habla con ella por `postMessage` (`buho-listo`, `buho-ir`, `buho-entrar`, `buho-error`). Si no responde a tiempo, sale la imagen del emblema:
+Guía del búho (ya no sale al cargar; se abre con `data-abrir-buho`: «Abrir la guía» de la landing, «Guía rápida» y Ayuda): el mismo búho en tiempo real, con menú de secciones, giro, alas y desarme. Fuente en `intro-3d/vivo/`; `site-intro.js` la carga en un iframe sobre el mapa y habla con ella por `postMessage` (`buho-listo`, `buho-ir`, `buho-entrar`, `buho-error`). Si no responde a tiempo, sale la imagen del emblema:
 ```bash
 node scripts/build-intro-3d.mjs           # → public/intro/buho.html (?tema=claro|oscuro)
 ```
@@ -71,7 +71,8 @@ La búsqueda usa `.textSearch('fts', query)` con operador `&` entre palabras.
 
 Las vistas son secciones del DOM que se muestran/ocultan con `classList.add/remove('hidden')`. No hay router. Las vistas son:
 - `#hero-section` — portada de búsqueda (`#buscar`)
-- `#home-view` — entrada: estante 3D de documentos (`shelf-view.js`), sin dirección y al tocar el logo
+- `#landing-view` — portada: sin dirección y al tocar el logo. Su primera pantalla viene en `index.html` (un script en `<head>` pone `html.landing-on`) para pintarse sin esperar al JavaScript; `landing-view.js` la conecta y dibuja la galería
+- `#home-view` — estante 3D de documentos (`shelf-view.js`), en `#estante`; también abre las fichas (`#ficha-…`)
 - `#results-container` — resultados de búsqueda y secciones que se pintan ahí; entre ellas `#acervo` (`acervo-view.js`), hileras de portadas con filtros por tipo y dependencia (`acervoReels` en `acervo-model.js`)
 - `#law-detail-container` — documento: por artículo o como libro (`book-view.js`)
 - `#analisis-container` — Temas Transversales (renderizado por `analisis.js`)

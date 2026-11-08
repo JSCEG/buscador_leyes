@@ -6,7 +6,6 @@ import './styles/index.css';
 import { initSearch } from './scripts/search-engine.js';
 import { initUI } from './scripts/ui.js';
 import { initPasswordRecovery } from './scripts/password-recovery.js';
-import { shouldShowIntro, playIntro } from './scripts/site-intro.js';
 import { initAuth, isAdmin, onAuthChange } from './scripts/auth.js';
 
 // The content manager (PDF parsing, editing) is only for admins: load it when the server says so.
@@ -31,9 +30,9 @@ import { takeSeoRoute } from './lib/seo-route.js';
 const isAppPath = (pathname = location.pathname) => ['/', '/index.html'].includes(pathname.replace(/\/{2,}/g, '/'));
 
 document.addEventListener('DOMContentLoaded', () => {
-  // /ley/… and /aprende/… (search engines, shared links): open that content, without the intro.
+  // /ley/… and /aprende/… (search engines, shared links): open that content.
   const fromSeoPage = takeSeoRoute();
-  // /instalar (the link sent by WhatsApp): the install screen instead of the intro and the usual invitation.
+  // /instalar (the link sent by WhatsApp): the install screen instead of the usual invitation.
   const installPage = isInstallPath();
   // Any other address the server answered with the app (a typo, an old link): the error page.
   if (!fromSeoPage && !installPage && !isAppPath()) {
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     history.replaceState(null, '', '/#no-encontrado');
   }
   if (installPage) initInstallPage();
-  else if (!fromSeoPage && shouldShowIntro()) window.__introDone = playIntro();
   initAppLinks();
   initPasswordRecovery();
   initMarquee();

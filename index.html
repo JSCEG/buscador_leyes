@@ -15,6 +15,25 @@
             } catch (e) { document.documentElement.dataset.theme = 'light'; }
         })();
     </script>
+    <script>
+        // La landing se pinta sola, antes del JavaScript: esto la muestra solo en la dirección de inicio,
+        // y guarda lo que alguien busque antes de que arranque la aplicación.
+        (function () {
+            if ((location.pathname === '/' || location.pathname === '/index.html') && !location.hash) {
+                document.documentElement.classList.add('landing-on');
+            }
+            document.addEventListener('submit', function (event) {
+                if (event.target.id !== 'landing-search') return;
+                event.preventDefault();
+                window.__landingQuery = event.target.elements.q.value.trim();
+            });
+        })();
+    </script>
+    <style>
+        #landing-view { display: none; }
+        html.landing-on #landing-view { display: block; }
+        html.landing-on #main-container, html.landing-on #institutional-footer { display: none; }
+    </style>
     <!-- Cache-busting: evita que el browser sirva index.html desde caché HTTP.
          El Service Worker (registrado en main.js) es la solución principal;
          estos meta tags actúan como defensa adicional para navegadores sin SW. -->
@@ -293,6 +312,59 @@
             </div>
         </div>
     </div>
+
+    <!-- Landing: la primera pantalla viene en el HTML para pintarse sin esperar al JavaScript (landing-view.js la conecta) -->
+    <section id="landing-view" class="lp" aria-label="Inicio">
+        <div class="lp-first">
+            <div class="lp-copy">
+                <h1 class="lp-title">Las reglas de la energía en México, <span>a la mano.</span></h1>
+                <p class="lp-lead">Escribe una palabra y ve en qué ley, reglamento o acuerdo aparece. Gratis y sin registrarte.</p>
+                <form id="landing-search" class="lp-search bu-cristal-fuerte" role="search">
+                    <svg class="bu-i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+                    <input type="search" name="q" aria-label="Buscar en los documentos" placeholder="Busca una ley, un artículo o un tema" autocomplete="off">
+                    <button type="submit" class="bu-btn bu-btn-primario">Buscar</button>
+                </form>
+                <a class="lp-more" href="#acervo" data-landing-go="nav-leyes">Ver los documentos <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="lp-stage">
+                <div class="lp-books" data-landing-books>
+                    <a class="lp-book lp-book-1" href="#ficha-bdfc48ed-5ff9-4746-9251-6e1fdc989c58" aria-label="Reglamento de la Ley del Sector de Hidrocarburos"><div class="sh-cover" data-category="reglamentos"><span class="sh-cover-band"></span><span class="sh-cover-ribbon"></span><span class="sh-cover-type">Reglamento</span><div class="sh-cover-heading"><strong class="sh-cover-siglas" data-size="l">RLSH</strong><span class="sh-cover-accent"></span><span class="sh-cover-name">Reglamento de la Ley del Sector de Hidrocarburos</span></div><div class="sh-cover-foot"><span class="sh-cover-date">3 oct 2025</span><span class="sh-cover-issuer" title="Ejecutivo Federal">Ejecutivo</span><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2.5 2.5 0 0 1 2.5-2.5H20v17H6.5A2.5 2.5 0 0 0 4 22a2.5 2.5 0 0 1 2.5-2.5"/><path d="M9 7.5h7M9 11.5h5"/></svg></div></div></a>
+                    <a class="lp-book lp-book-2" href="#ficha-8e404121-3502-4f47-937d-a43762c52da8" aria-label="Ley del Sector Eléctrico"><div class="sh-cover" data-category="leyes"><span class="sh-cover-band"></span><span class="sh-cover-ribbon"></span><span class="sh-cover-type">Ley</span><div class="sh-cover-heading"><strong class="sh-cover-siglas" data-size="l">LSE</strong><span class="sh-cover-accent"></span><span class="sh-cover-name">Ley del Sector Eléctrico</span></div><div class="sh-cover-foot"><span class="sh-cover-date">18 mar 2025</span><span class="sh-cover-issuer" title="Congreso de la Unión">Congreso</span><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v17M8 20h8M5 7h14M12 4.5 5 7M12 4.5 19 7"/><path d="m5 7-2.8 6.2a3 3 0 0 0 5.6 0Z"/><path d="m19 7-2.8 6.2a3 3 0 0 0 5.6 0Z"/></svg></div></div></a>
+                    <a class="lp-book lp-book-3" href="#ficha-c30cb5dd-e944-52fd-8818-518a56b57fae" aria-label="Plan de Desarrollo del Sector Eléctrico"><div class="sh-cover" data-category="acuerdos"><span class="sh-cover-band"></span><span class="sh-cover-ribbon"></span><span class="sh-cover-type">Acuerdo</span><div class="sh-cover-heading"><strong class="sh-cover-siglas" data-size="m">PLADESE</strong><span class="sh-cover-accent"></span><span class="sh-cover-name">Plan de Desarrollo del Sector Eléctrico</span></div><div class="sh-cover-foot"><span class="sh-cover-date">17 oct 2025</span><span class="sh-cover-issuer" title="Secretaría de Energía">SENER</span><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8Z"/><path d="M14 2.5V8h5.5"/><path d="M8 17.5c1.2-1.8 2.2-1.8 2.8 0s1.6 1.8 2.8 0 1.8-1 2.6.3"/></svg></div></div></a>
+                </div>
+                <aside class="lp-card bu-cristal" data-landing-card data-state="loading" aria-label="Qué hay en el acervo">
+                    <h2>Qué hay en el acervo</h2>
+                    <ul data-landing-bars></ul>
+                </aside>
+            </div>
+            <div class="lp-strip">
+                <div class="lp-desk">
+                    <span class="lp-desk-ico" aria-hidden="true"><svg class="bu-i" viewBox="0 0 24 24"><rect x="3.5" y="5" width="7.5" height="14" rx="1.5"/><rect x="13" y="5" width="7.5" height="14" rx="1.5"/></svg></span>
+                    <div>
+                        <h2>Tu mesa de consulta</h2>
+                        <p>Junta artículos de varias leyes y léelos lado a lado.</p>
+                        <button type="button" class="lp-link" data-landing-desk>Abrir mi mesa</button>
+                    </div>
+                </div>
+                <div class="bu-seg lp-themes" role="radiogroup" aria-label="Tema de color">
+                    <button type="button" role="radio" data-theme-choice="light" aria-checked="false">Claro</button>
+                    <button type="button" role="radio" data-theme-choice="dark" aria-checked="false">Oscuro</button>
+                    <button type="button" role="radio" data-theme-choice="sepia" aria-checked="false">Sepia</button>
+                    <button type="button" role="radio" data-theme-choice="contraste" aria-checked="false">Contraste</button>
+                </div>
+                <p class="lp-figures" data-landing-figures aria-live="polite"></p>
+            </div>
+        </div>
+        <div data-landing-gallery></div>
+        <footer class="lp-foot" data-landing-foot>
+            <p>Herramienta de consulta y apoyo. El texto con validez jurídica es el publicado en el Diario Oficial de la Federación o en la fuente oficial de cada documento.</p>
+            <nav aria-label="Información del sitio">
+                <a href="#" data-legal="terminos">Términos de uso</a>
+                <a href="#" data-legal="privacidad">Privacidad</a>
+                <button type="button" data-feedback>Enviar comentario</button>
+            </nav>
+        </footer>
+    </section>
 
     <!-- Main Search Area -->
     <main

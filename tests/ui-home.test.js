@@ -24,7 +24,7 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-it('uses the shelf as home, with its sheet route and without disturbing other routes', async () => {
+it('keeps the shelf at its own address, with its sheet route and without disturbing other routes', async () => {
   vi.useFakeTimers();
   vi.stubGlobal('requestAnimationFrame', cb => setTimeout(() => cb(Date.now()), 0));
   vi.stubGlobal('cancelAnimationFrame', clearTimeout);
@@ -38,6 +38,12 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   document.body.innerHTML = new DOMParser().parseFromString(html, 'text/html').body.innerHTML;
   const settle = () => vi.advanceTimersByTimeAsync(150);
   const isHome = () => document.body.classList.contains('home-active');
+  const isLanding = () => document.documentElement.classList.contains('landing-on');
+  const toShelf = async () => {
+    history.pushState(null, '', '/#estante');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    await settle();
+  };
   const ready = () => window.dispatchEvent(new CustomEvent('search-ready', { detail: { summaries, relaciones: [] } }));
 
   // 1. A direct link to a sheet, before the catalog: the sheet opens when the data arrives.
@@ -52,15 +58,15 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   await settle();
   expect(document.querySelector('.sh-sheet')).not.toBeNull();
 
-  // 2. Back closes the sheet and the shelf stays.
-  history.replaceState(null, '', '/');
-  window.dispatchEvent(new PopStateEvent('popstate'));
+  // 2. Closing a sheet opened by a direct link stays on the shelf, at its own address.
+  document.querySelector('.sh-sheet [data-sheet-close], .sh-sheet [aria-label="Cerrar"]').click();
   await settle();
   expect(document.querySelector('.sh-sheet')).toBeNull();
   expect(document.querySelector('#home-view .sh-tome')).not.toBeNull();
-  expect(location.hash).toBe('');
+  expect(location.hash).toBe('#estante');
+  expect(isLanding()).toBe(false);
 
-  // The Acervo is its own view, at its own address; the logo brings the shelf back.
+  // The Acervo is its own view, at its own address; the logo brings the landing.
   document.getElementById('nav-leyes').click();
   await settle();
   expect(isHome()).toBe(false);
@@ -69,10 +75,22 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   expect(document.getElementById('nav-leyes').getAttribute('aria-current')).toBe('page');
   document.getElementById('brand-home').click();
   await settle();
-  expect(isHome()).toBe(true);
+  expect(isLanding()).toBe(true);
+  expect(isHome()).toBe(false);
   expect(location.hash).toBe('');
-  expect(document.querySelector('#home-view .sh-tome')).not.toBeNull();
+  expect(document.querySelector('#home-view .sh-tome')).toBeNull();
   expect(document.getElementById('nav-leyes').getAttribute('aria-current')).toBeNull();
+  // Its gallery is drawn once, however many times the visitor comes back.
+  expect(document.querySelectorAll('#landing-view .lp-sec')).toHaveLength(6);
+
+  // The Acervo keeps its way to the shelf.
+  document.getElementById('nav-leyes').click();
+  await settle();
+  expect(isLanding()).toBe(false);
+  document.querySelector('[data-show-shelf]').click();
+  await settle();
+  expect(isHome()).toBe(true);
+  expect(location.hash).toBe('#estante');
 
   // 3. Going to the full list releases the home screen and brings the footer back.
   document.querySelector('[data-sh-browse]').click();
@@ -88,11 +106,20 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   expect(isHome()).toBe(false);
   expect(location.hash.startsWith('#acervo')).toBe(true);
 
-  // 5. The logo returns to the shelf.
+  // 5. The logo goes to the landing, and back to the bare address too.
   document.getElementById('brand-home').click();
   await settle();
-  expect(isHome()).toBe(true);
+  expect(isLanding()).toBe(true);
   expect(location.hash).toBe('');
+  await toShelf();
+  expect(isHome()).toBe(true);
+  expect(isLanding()).toBe(false);
+  history.replaceState(null, '', '/');
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  await settle();
+  expect(isLanding()).toBe(true);
+  expect(isHome()).toBe(false);
+  await toShelf();
 
   // 6. Opening a sheet adds history, and reading then going back reopens it.
   document.querySelector('#home-view [data-sh-open]').click();
@@ -117,23 +144,18 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   expect(isHome()).toBe(true);
   expect(document.querySelector('.sh-sheet')).not.toBeNull();
 
-  // 7. An unknown document shows the shelf without a sheet.
-  history.replaceState(null, '', '/');
-  window.dispatchEvent(new PopStateEvent('popstate'));
-  await settle();
+  // 7. An unknown document shows the shelf without a sheet, at the shelf's address.
   history.replaceState(null, '', '/#ficha-no-existe');
   window.dispatchEvent(new PopStateEvent('popstate'));
   await settle();
   expect(isHome()).toBe(true);
   expect(document.querySelector('.sh-sheet')).toBeNull();
+  expect(location.hash).toBe('#estante');
   history.replaceState(null, '', '/#ficha-%E0%A4%A');
   window.dispatchEvent(new PopStateEvent('popstate'));
   await settle();
   expect(isHome()).toBe(true);
   expect(document.querySelector('.sh-sheet')).toBeNull();
-  history.replaceState(null, '', '/');
-  window.dispatchEvent(new PopStateEvent('popstate'));
-  await settle();
 
   // 8. Searching from the shelf uses the usual search.
   const field = document.querySelector('#home-view .sh-search input');
@@ -144,8 +166,7 @@ it('uses the shelf as home, with its sheet route and without disturbing other ro
   expect(document.getElementById('search-input').value).toBe('interconexión');
 
   // 9. A failed catalog keeps the page usable.
-  document.getElementById('brand-home').click();
-  await settle();
+  await toShelf();
   window.dispatchEvent(new CustomEvent('search-failed'));
   await settle();
   expect(document.querySelector('#home-view .sh-status[data-state="error"]')).not.toBeNull();

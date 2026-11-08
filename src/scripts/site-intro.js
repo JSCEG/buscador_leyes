@@ -1,12 +1,10 @@
 /**
- * Animated entrance: the mechanical owl in real time (public/intro/buho.html, built from intro-3d/vivo/ with
- * scripts/build-intro-3d.mjs) over the map of Mexico. It opens its wings and shows the site's sections; picking
- * one, or «Entrar al sitio», opens the site from its eye like an iris and goes there. The visitor can also turn it,
- * open and close the wings, and take it apart.
- * If the 3D page does not answer in time (no WebGL, slow network, saving data), the owl emblem picture plays instead
- * (public/img/intro-buho-*.webp); the recorded film stays behind playIntro({ kind: 'video' }), and the CSS intro is
- * the last fallback. Once per browser (the first visit), skippable, and never for deep links or reduced motion; after
- * that, the brand (the S) opens the owl again as a quick guide.
+ * The owl's guide: the mechanical owl in real time (public/intro/buho.html, built from intro-3d/vivo/ with
+ * scripts/build-intro-3d.mjs). It opens its wings and shows the site's sections; picking one, or «Cerrar guía», opens
+ * the site from its eye like an iris and goes there. The visitor can also turn it, open and close the wings, and take
+ * it apart. It no longer plays on arrival (the landing does, landing-view.js): only when someone asks for it, through
+ * [data-abrir-buho] («Abrir la guía», «Guía rápida») or Ayuda's tour button. Without WebGL, the classic tour plays.
+ * The emblem, film and CSS entrances below are not reached any more; they stay behind playIntro({ kind }).
  */
 import { brandMarkSvg } from '../lib/brand-mark.js';
 import { wingsSvg } from '../lib/brand-wings.js';
@@ -14,7 +12,6 @@ import { MEXICO_VIEWBOX, MEXICO_STATES } from '../lib/mexico-map.js';
 import { markWelcomeSeen, startWelcomeTour } from './onboarding.js';
 import '../styles/site-intro.css';
 
-const KEY = 'intro-visto'; // the first visit of this browser already had the owl
 const FIGURES_KEY = 'intro-cifras';
 const NAME = 'Buscador Jurídico';
 const HOLD_MS = 3400;
@@ -49,7 +46,7 @@ window.addEventListener('search-ready', event => {
     if (!totalLeyes || !totalArticulos) return;
     try { localStorage.setItem(FIGURES_KEY, JSON.stringify({ leyes: totalLeyes, articulos: totalArticulos })); } catch { /* ignore */ }
 });
-function savedFigures() {
+export function savedFigures() {
     try {
         const { leyes, articulos } = JSON.parse(localStorage.getItem(FIGURES_KEY)) || {};
         return leyes > 0 && articulos > 0 ? { leyes, articulos } : null;
@@ -76,16 +73,6 @@ function countUp(layer, delay) {
         };
         requestAnimationFrame(step);
     }, delay);
-}
-
-export function shouldShowIntro() {
-    if (globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
-    if (/^#(art-|lectura-|mesa-|ley-)/.test(location.hash)) return false;
-    // Coming back from an auth email (reset, confirmation): go straight to the dialog.
-    if (/access_token|error_description|(^|[#&])type=/.test(location.hash) || /[?&](code|type)=/.test(location.search)) return false;
-    // To watch it again: every reload while developing, or ?intro on the published site.
-    if (import.meta.env?.DEV || /[?&]intro(=|&|$)/.test(location.search)) return true;
-    try { return localStorage.getItem(KEY) !== '1'; } catch { return false; }
 }
 
 const letters = text => [...text].map((ch, i) => ch === ' '
@@ -140,9 +127,9 @@ function startFilm(layer) {
 }
 
 /**
- * Opens the live owl on purpose, as a quick tutorial: the brand (the S, which also goes home), «Guía rápida» (Aprende
- * menu and the phone's «Más») and Ayuda's tour button play its tour of the sections. Without WebGL, the classic
- * welcome tour plays instead.
+ * Opens the live owl on purpose, as a quick tutorial: «Abrir la guía» (landing), «Guía rápida» (Aprende menu and the
+ * phone's «Más») and Ayuda's tour button play its tour of the sections. Without WebGL, the classic welcome tour plays
+ * instead.
  */
 export function openOwlGuide({ tour = true } = {}) {
     if (document.getElementById('site-intro')) return null;
@@ -150,9 +137,8 @@ export function openOwlGuide({ tour = true } = {}) {
     return playIntro({ kind: 'buho3d', tour, guide: true, onUnavailable: startWelcomeTour });
 }
 document.addEventListener('click', event => {
-    const brand = event.target.closest?.('#brand-home, [data-brand-home]');
-    if (!brand && !event.target.closest?.('[data-abrir-buho]')) return;
-    event.preventDefault(); // the brand still goes home (ui.js): the owl opens over the shelf
+    if (!event.target.closest?.('[data-abrir-buho]')) return;
+    event.preventDefault();
     // from the phone's «Más» sheet: close it, so the site is there when the owl leaves
     if (document.getElementById('mobile-menu-drawer')?.contains(event.target)) document.getElementById('close-mobile-menu')?.click();
     openOwlGuide();
@@ -254,7 +240,6 @@ function openIris(layer, point = null) {
  * automatic tour of its parts (the «Guía del búho» button: the visitor already saw it).
  */
 export function playIntro({ kind = INTRO_KIND, tour = true, guide = false, onUnavailable = null } = {}) {
-    try { localStorage.setItem(KEY, '1'); } catch { /* ignore */ }
     const layer = document.createElement('div');
     layer.id = 'site-intro';
     layer.setAttribute('role', 'presentation');

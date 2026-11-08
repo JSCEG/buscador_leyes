@@ -13,6 +13,7 @@ import { articlePickerHtml, initArticlePicker, openPickerSheet } from '../lib/ar
 import { renderBookView } from './book-view.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
 import { openOwlGuide } from './site-intro.js';
+import { renderLandingView } from './landing-view.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 import { sanitizeArticleHtml, markScrollableTables, articlePreviewHtml } from '../lib/article-html.js';
@@ -275,6 +276,8 @@ export function initUI() {
     let acervoState = { query: '', group: 'all', issuer: 'all', sort: 'date-newest', rowScroll: {}, scrollY: 0 };
     let acervoView = null;
     let homeView = null;
+    let landingView = null;
+    const arrivedAtLanding = !location.hash;
     let sheetPushed = false;
     let catalogFailed = false;
     let statsView = null;
@@ -350,6 +353,7 @@ export function initUI() {
     window.addEventListener('search-failed', () => {
         catalogFailed = true;
         homeView?.setFailed();
+        landingView?.setFailed();
     });
 
     // Stats Listener
@@ -365,17 +369,23 @@ export function initUI() {
 
         // Si se abrió una vista durante la consulta, sustituir su indicador de carga.
         homeView?.setCatalog(summaries);
+        landingView?.setCatalog(summaries);
         if (activeNavId === 'nav-leyes' && !location.hash && !homeView) showLawsView(acervoState, { updateHistory: false });
         if (activeNavId === 'nav-stats' && !location.hash) showStatsView();
         if (activeNavId === 'nav-inicio') renderLanding();
         // First visit: a short welcome tour once the page has settled. Never over the install screen
         // (/instalar): the tour would cover its button; it plays on the next visit instead.
-        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) Promise.resolve(window.__introDone).then(() => setTimeout(() => { if (!hasSeenWelcome() && !document.getElementById('welcome-tour') && !document.body.classList.contains('ip-open')) startWelcomeTour(); }, 600)); // the owl's own tour marks it seen
+        // Nor for whoever arrived at the landing: it is the welcome, and it offers the owl's guide.
+        if (!arrivedAtLanding && !hasSeenWelcome() && !landingView && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) setTimeout(() => { if (!landingView && !hasSeenWelcome() && !document.getElementById('welcome-tour') && !document.body.classList.contains('ip-open')) startWelcomeTour(); }, 600); // the owl's own tour marks it seen
 
         // No longer auto-rendering on home, user wants it only in stats
 
-        // Handle URL hash (deep link) once data is ready
-        setTimeout(handleInitialHash, 0);
+        // Handle URL hash (deep link) once data is ready. A search made while the catalog was loading stays:
+        // routing #buscar again would put the search page back over its results.
+        setTimeout(() => {
+            if (location.hash === '#buscar' && searchInput.value.trim()) return;
+            handleInitialHash();
+        }, 0);
     });
 
     // Favorites nav buttons
@@ -520,6 +530,16 @@ export function initUI() {
         const hash = location.hash;
         noteViewBehindReader();
         if (!hash) return;
+        if (hash === '#estante') {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            explorerModalReturn = null;
+            if (homeView) homeView.closeSheet({ silent: true });
+            else showHomeView({ updateHistory: false });
+            return;
+        }
         if (hash.startsWith('#ficha-')) {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -528,7 +548,8 @@ export function initUI() {
             explorerModalReturn = null;
             showHomeView({ updateHistory: false });
             if (catalogLoaded && !homeView.openSheet(decodeHashId(hash.slice(7)), { silent: true })) {
-                history.replaceState(null, '', location.pathname);
+                homeView.closeSheet({ silent: true });
+                history.replaceState(null, '', `${location.pathname}#estante`);
             }
             return;
         }
@@ -710,16 +731,13 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             explorerModalReturn = null;
-            if (homeView) {
-                setActiveNav(null);
-                homeView.closeSheet({ silent: true });
-            } else showHomeView({ updateHistory: false });
+            showLandingView({ updateHistory: false });
         } else {
             await handleInitialHash();
         }
     });
     // El explorador local y Polos no necesitan esperar a que termine la consulta del acervo.
-    if (location.hash.startsWith('#ficha-') || explorerRoute(location.hash) || acervoRoute(location.hash) || polosRoute(location.hash)) setTimeout(handleInitialHash, 0);
+    if (location.hash === '#estante' || location.hash.startsWith('#ficha-') || explorerRoute(location.hash) || acervoRoute(location.hash) || polosRoute(location.hash)) setTimeout(handleInitialHash, 0);
 
     // Toast del sistema: sin emoji, un ícono de trazo según el tono ('!' avisa, lo demás confirma).
     const TOAST_ICONS = {
@@ -862,10 +880,15 @@ export function initUI() {
             showAcervo();
         });
     }
-    // The brand in the header goes home: the shelf.
+    // The content manager (main.js) lives inside #main-container, which the landing and the shelf hide.
+    ['nav-admin', 'mobile-nav-admin'].forEach(id => document.getElementById(id)?.addEventListener('click', event => {
+        event.preventDefault();
+        if (isAdmin()) releaseHome();
+    }));
+    // The brand in the header goes home: the landing.
     document.querySelectorAll('#brand-home, [data-brand-home]').forEach(link => link.addEventListener('click', (e) => {
         e.preventDefault();
-        showHomeView();
+        showLandingView();
     }));
     initRailGroups();
 
@@ -1136,8 +1159,41 @@ export function initUI() {
         currentPage = 1;
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         setActiveNav('nav-inicio');
+        // index.html painted the landing for a bare address, but a link was touched before the app started.
+        if (location.hash) document.documentElement.classList.remove('landing-on');
     
+    function releaseLanding() {
+        if (!landingView) return; // on arrival the landing is already on screen: it stays, without a flicker
+        landingView.destroy();
+        landingView = null;
+        document.documentElement.classList.remove('landing-on');
+    }
+
+    /** Home: the landing, on arrival and from the logo. index.html already painted its first screen. */
+    function showLandingView({ updateHistory = true } = {}) {
+        lawOpenRequest++;
+        if (updateHistory) setHash('');
+        if (landingView) return;
+        acervoReturnFocusId = null;
+        destroyTOC();
+        hideAllViews();
+        setActiveNav(null);
+        // Already on screen means this is the arrival: whoever has started reading or scrolling stays where they are.
+        const root = document.documentElement;
+        if (!root.classList.contains('landing-on')) window.scrollTo({ top: 0, behavior: 'instant' });
+        root.classList.add('landing-on');
+        landingView = renderLandingView(document.getElementById('landing-view'), {
+            summaries: catalogLoaded ? cachedSummaries : null,
+            onSearch: query => { resetToHero(); searchInput.value = query; searchInput.dispatchEvent(new Event('input')); },
+            onLegal: kind => openLegalPage(kind),
+            onFeedback: () => openFeedback({ context: 'inicio' }),
+        });
+        if (catalogFailed) landingView.setFailed();
+        landingView.runPendingSearch(); // after landingView is set, so leaving for the results really releases it
+    }
+
     function releaseHome() {
+        releaseLanding();
         if (!homeView) return;
         homeView.destroy();
         homeView = null;
@@ -1154,8 +1210,8 @@ export function initUI() {
         navigator.clipboard?.writeText(url).then(() => showToast('¡Enlace copiado!', '🔗', 'bg-blue-600'));
     }
 
-    /** Home: the 3D shelf, on arrival and from the logo. Other sections release it through hideAllViews or setActiveNav. */
-    function showHomeView({ updateHistory = true, hash = '' } = {}) {
+    /** The 3D shelf, at #estante. Other sections release it through hideAllViews or setActiveNav. */
+    function showHomeView({ updateHistory = true, hash = '#estante' } = {}) {
         lawOpenRequest++;
         if (updateHistory) setHash(hash);
         if (homeView) return;
@@ -1184,7 +1240,7 @@ export function initUI() {
                     sheetPushed = false;
                     history.back();
                 } else {
-                    history.replaceState(null, '', location.pathname);
+                    history.replaceState(null, '', `${location.pathname}#estante`);
                 }
             },
         });
@@ -2091,7 +2147,7 @@ export function initUI() {
         });
 
         // Breadcrumb listeners
-        document.getElementById('crumb-inicio')?.addEventListener('click', () => showHomeView());
+        document.getElementById('crumb-inicio')?.addEventListener('click', () => showLandingView());
         // Back to where the document was opened: the filtered list, or the shelf.
         document.getElementById('crumb-categoria')?.addEventListener('click', () => (acervoReturnFocusId ? showLawsView() : showAcervo()));
         lawDetailContainer.querySelectorAll('[data-open-article]').forEach(button => button.addEventListener('click', () => {
@@ -4777,5 +4833,5 @@ export function initUI() {
             });
         }
     };
-    if (!location.hash) showHomeView({ updateHistory: false });
+    if (!location.hash) showLandingView({ updateHistory: false });
 }
