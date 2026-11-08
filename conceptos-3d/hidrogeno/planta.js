@@ -16,8 +16,8 @@ const fract = x => x - Math.floor(x);
 const azar = (a, b = 0) => { const x = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return x - Math.floor(x); };
 
 export const P_PLANTA = {
-    papel: '#faf8f5', noche: '#0a0e12', tinta: '#171317', marfil: '#eee7dc', grafito: '#303137', acero: '#a7abb3', guinda: '#9b2247',
-    concretoDia: '#c9c3b8', concretoNoche: '#1b2026', panel: '#1b2a44', rosa: '#e57a9a',
+    papel: '#fafafa', noche: '#0a0e12', tinta: '#171317', marfil: '#f3f1ec', grafito: '#303137', acero: '#a7abb3', guinda: '#9b2247',
+    concretoDia: '#d4d5d3', concretoNoche: '#1b2026', panel: '#1b2a44', rosa: '#e57a9a',
 };
 // las luces de las baterías: guardan electricidad, no hidrógeno, y por eso no son verdes
 const COLOR_BATERIA = '#ff4f86';
@@ -106,29 +106,18 @@ export function estudio(renderer, scene, M, { movil = false, oscuro = false } = 
     scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
 
     const cielo = new THREE.HemisphereLight('#ffffff', '#b8b2a8', 0.7);
-    const sol = new THREE.DirectionalLight('#fff3e0', 2.2);
+    const sol = new THREE.DirectionalLight('#ffffff', 2.2);
     sol.castShadow = !movil;
     Object.assign(sol.shadow.camera, { left: -10, right: 10, top: 10, bottom: -10, near: 1, far: 40 });
     sol.shadow.mapSize.set(2048, 2048);
     sol.shadow.bias = -0.0006;
     sol.shadow.normalBias = 0.025;
-    const reflector = new THREE.DirectionalLight('#ffd9a8', 0.1);
+    const reflector = new THREE.DirectionalLight('#ffe6c8', 0.1);
     reflector.position.set(3, 8, 7);
     scene.add(cielo, sol, reflector);
 
-    const radial = (() => {
-        const c = document.createElement('canvas');
-        c.width = c.height = 256;
-        const x = c.getContext('2d');
-        const g = x.createRadialGradient(128, 128, 40, 128, 128, 128);
-        g.addColorStop(0, '#fff');
-        g.addColorStop(0.6, '#999');
-        g.addColorStop(1, '#000');
-        x.fillStyle = g;
-        x.fillRect(0, 0, 256, 256);
-        return new THREE.CanvasTexture(c);
-    })();
-    const suelo = new THREE.Mesh(new THREE.CircleGeometry(26, 64).rotateX(-PI / 2), new THREE.MeshStandardMaterial({ color: '#efeadf', roughness: 0.95, envMapIntensity: 0.15, transparent: true, alphaMap: radial, depthWrite: false }));
+    // como en las demás figuras de Aprende: solo recibe sombra y deja ver el papel del sitio
+    const suelo = new THREE.Mesh(new THREE.CircleGeometry(26, 64).rotateX(-PI / 2), new THREE.ShadowMaterial({ color: '#000000', opacity: oscuro ? 0.35 : 0.14 }));
     suelo.position.y = -0.14;
     suelo.receiveShadow = true;
 
@@ -177,9 +166,8 @@ export function estudio(renderer, scene, M, { movil = false, oscuro = false } = 
         return m;
     })();
 
-    // en el tema oscuro del sitio el piso de alrededor no debe parecer una mancha de luz
-    const dia = { sol: new THREE.Color('#fff3e0'), losa: new THREE.Color(oscuro ? '#9c978d' : P.concretoDia), suelo: new THREE.Color(oscuro ? '#191c28' : '#efeadf') };
-    const noche = { sol: new THREE.Color('#9db6ff'), losa: new THREE.Color(P.concretoNoche), suelo: new THREE.Color(P.noche) };
+    const dia = { sol: new THREE.Color('#ffffff'), losa: new THREE.Color(oscuro ? '#9a9b9a' : P.concretoDia) };
+    const noche = { sol: new THREE.Color('#9db6ff'), losa: new THREE.Color(P.concretoNoche) };
     const v = new THREE.Vector3();
     function actualizar(e) {
         const n = e.noche;
@@ -194,7 +182,6 @@ export function estudio(renderer, scene, M, { movil = false, oscuro = false } = 
         reflector.intensity = lerp(0.1, 0.55, n);
         scene.environmentIntensity = lerp(0.5, 0.2, n);
         losa.material.color.copy(dia.losa).lerp(noche.losa, n);
-        suelo.material.color.copy(dia.suelo).lerp(noche.suelo, n);
         M.neonVerde.color.set(FLUIDOS.h2.color).multiplyScalar(0.4 + 0.6 * n);
         borde.visible = n > 0.05;
         estrellas.material.opacity = clamp01((n - 0.3) * 1.5);
