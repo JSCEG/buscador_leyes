@@ -3,5 +3,6 @@
   "motor": "Motor eléctrico",
   "transformador": "Transformador",
   "fotovoltaica": "Central fotovoltaica",
-  "ciclo-combinado": "Central de ciclo combinado"
+  "ciclo-combinado": "Central de ciclo combinado",
+  "gasoductos": "Gasoductos"
 }
