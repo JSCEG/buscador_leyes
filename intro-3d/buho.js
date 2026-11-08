@@ -111,9 +111,10 @@ export function materiales(P) {
     const placaLogo = new THREE.MeshBasicMaterial({ map: texturaLuz(), toneMapped: false });
     const vidrioLogo = new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: 0.08, transparent: true, opacity: 0.08, envMapIntensity: 0.35, depthWrite: false });
     // negro laca: brillo leve sin metal (el metal reflejaba blanco de frente)
-    const negroLogo = new THREE.MeshPhysicalMaterial({ color: '#0f0f12', roughness: 0.4, metalness: 0, clearcoat: 0.5, clearcoatRoughness: 0.35, envMapIntensity: 0.25 });
-    const ojoLogo = new THREE.MeshBasicMaterial({ color: '#ff2a5f', toneMapped: false });
-    return { placaLogo, vidrioLogo, negroLogo, ojoLogo, picoMetal, neon, marfil, marfilDoble, pico, grafito, grafitoDoble, acero, borde, cable, garra, pluma, iris, pupila, vidrio, ceramica, tinta, orbita };
+    const negroLogo = new THREE.MeshBasicMaterial({ color: '#0b0b0d' }); // negro pleno, como la silueta de una insignia
+    const ojoLogo = new THREE.MeshBasicMaterial({ color: '#fff3e6', toneMapped: false }); // ojo blanco encendido sobre el guinda
+    const resplandor = new THREE.MeshBasicMaterial({ map: texturaResplandor(), transparent: true, depthWrite: false, toneMapped: false });
+    return { resplandor, placaLogo, vidrioLogo, negroLogo, ojoLogo, picoMetal, neon, marfil, marfilDoble, pico, grafito, grafitoDoble, acero, borde, cable, garra, pluma, iris, pupila, vidrio, ceramica, tinta, orbita };
 }
 
 // ---------------------------------------------------------------- piezas básicas
@@ -162,17 +163,33 @@ function hueso(largo, radio, M, mat = M.marfil) {
 }
 
 /** Bisagra: disco grafito, aro guinda y eje de acero, con el eje en z. */
-/** Fondo iluminado desde el centro: blanco cálido que baja a marfil en la orilla. */
+/** Fondo encendido desde el centro: guinda brillante que se apaga hacia la orilla. */
 function texturaLuz() {
     const c = document.createElement('canvas');
     c.width = c.height = 256;
     const g = c.getContext('2d');
     const r = g.createRadialGradient(128, 118, 10, 128, 128, 128);
-    r.addColorStop(0, '#ffffff');
-    r.addColorStop(0.6, '#fbf4ea');
-    r.addColorStop(1, '#e9dccb');
+    r.addColorStop(0, '#ff6f8f');
+    r.addColorStop(0.45, '#e8285a');
+    r.addColorStop(0.85, '#a3173f');
+    r.addColorStop(1, '#6d0d29');
     g.fillStyle = r;
     g.fillRect(0, 0, 256, 256);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+}
+
+function texturaResplandor() {
+    const c = document.createElement('canvas');
+    c.width = c.height = 128;
+    const g = c.getContext('2d');
+    const r = g.createRadialGradient(64, 64, 30, 64, 64, 64);
+    r.addColorStop(0, 'rgba(232,40,90,0.55)');
+    r.addColorStop(0.5, 'rgba(232,40,90,0.18)');
+    r.addColorStop(1, 'rgba(232,40,90,0)');
+    g.fillStyle = r;
+    g.fillRect(0, 0, 128, 128);
     const t = new THREE.CanvasTexture(c);
     t.colorSpace = THREE.SRGBColorSpace;
     return t;
@@ -346,8 +363,11 @@ export function construirBuho(M, P) {
         const bisel = sombra(new THREE.Mesh(new THREE.TorusGeometry(1, 0.055, 12, 72), M.acero));
         bisel.scale.z = 0.4;
         ovalo(1, 0.03).add(bisel);
-        const aroGuinda = new THREE.Mesh(new THREE.TorusGeometry(0.9, 0.018, 8, 72), M.neon);
+        const aroGuinda = new THREE.Mesh(new THREE.TorusGeometry(0.92, 0.022, 8, 72), M.ojoLogo);
         ovalo(1, 0.026).add(aroGuinda);
+        // resplandor guinda alrededor de la insignia, como si la luz saliera hacia las plumas
+        const resplandor = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), M.resplandor);
+        ovalo(1.9, -0.01).add(resplandor);
         for (let q = 0; q < 4; q++) {
             const ang = Math.PI / 4 + q * Math.PI / 2;
             const t = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.02, 14).rotateX(Math.PI / 2), M.acero));
@@ -869,63 +889,79 @@ export function construirBuho(M, P) {
         // muslo: baja recto y apenas al frente (de frente las dos piernas quedan paralelas)
         const muslo = new THREE.Group();
         muslo.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, 0.22).normalize());
-        muslo.add(hueso(0.42, 0.1, M, M.acero));
+        const MUSLO = 0.2, TIBIA = 0.6;
+        muslo.add(hueso(MUSLO, 0.1, M, M.acero));
         // muslo emplumado, como el de un búho real: tres anillos de plumas que bajan hacia la rodilla
         for (let anillo = 0; anillo < 3; anillo++) {
             for (let k = 0; k < 9; k++) {
                 const th = (k / 9) * Math.PI * 2 + anillo * 0.35;
                 const n = new THREE.Vector3(0, Math.cos(th), Math.sin(th));
-                const m = sombra(new THREE.Mesh(hoja(0.2 - anillo * 0.03, 0.17, 0.3, true), (k + anillo) % 4 === 0 ? M.pluma : M.marfilDoble));
-                m.position.set(0.0 + anillo * 0.08, n.y * 0.135, n.z * 0.135);
+                const m = sombra(new THREE.Mesh(hoja(0.2 - anillo * 0.03, 0.17, 0.3, true), anillo === 2 && k % 2 === 0 ? M.pluma : M.marfilDoble));
+                m.position.set(-0.12 + anillo * 0.06, n.y * 0.135, n.z * 0.135);
                 orientar(m, n, new THREE.Vector3(1, 0, 0));
                 muslo.add(m);
             }
         }
-        // rodilla: bisagra grande con aro neón y una tapa de marfil
-        const rodilla = bisagra(0.13, M);
-        rodilla.position.x = 0.42;
-        rodilla.position.z = 0.03;
-        const aroRodilla = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.011, 8, 32), M.neon);
-        aroRodilla.position.z = 0.06;
-        rodilla.add(aroRodilla);
+        // rodilla: tambor grafito ancho que asoma a los dos lados de la pierna, aro neón y tapa de marfil acanalada al frente
+        const rodilla = new THREE.Group();
+        rodilla.position.x = MUSLO;
         muslo.add(rodilla);
-        // la rodilla mira hacia afuera, al costado (su eje es el de la flexión), para que se vea de lado como en la propuesta
         rodilla.quaternion.copy(muslo.quaternion).invert().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2));
-        rodilla.position.z = 0;
-
-        // espinilla: sale de la rodilla hacia abajo y al frente; acero con pistón de marfil
-        const tibia = new THREE.Group();
-        tibia.position.x = 0.42;
-        muslo.add(tibia);
-        // espinilla recta hacia abajo, un poco hacia atrás, como la pata de un ave
-        tibia.quaternion.copy(muslo.quaternion).invert().multiply(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, -0.08).normalize()));
-        // espinilla de acero pulido, larga y recta como en la propuesta de la pierna, con pistón grafito detrás
-        tibia.add(hueso(0.36, 0.085, M, M.acero));
-        // dos pistones a los lados de la espinilla: camisa grafito y vástago de acero
-        for (const z of [-0.09, 0.09]) {
-            const camisa = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.18, 14).rotateZ(Math.PI / 2), M.grafito));
-            camisa.position.set(0.12, 0.0, z);
-            const vastago = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.14, 10).rotateZ(Math.PI / 2), M.acero);
-            vastago.position.set(0.27, 0.0, z);
-            tibia.add(camisa, vastago);
+        const tambor = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.26, 32).rotateX(Math.PI / 2), M.grafito));
+        rodilla.add(tambor);
+        for (const z of [-0.132, 0.132]) {
+            const cara = new THREE.Group();
+            cara.position.z = z;
+            if (z < 0) cara.rotation.y = Math.PI;
+            const aro = new THREE.Mesh(new THREE.TorusGeometry(0.105, 0.013, 8, 40), M.neon);
+            const tapa = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.02, 28).rotateX(Math.PI / 2), M.acero));
+            const eje = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.03, 16).rotateX(Math.PI / 2), M.grafito);
+            eje.position.z = 0.012;
+            cara.add(aro, tapa, eje);
+            rodilla.add(cara);
         }
-        for (const x of [0.06, 0.3]) {
-            const anillo = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.012, 8, 28).rotateY(Math.PI / 2), M.borde);
-            anillo.position.x = x;
-            tibia.add(anillo);
+        // rótula de marfil acanalada, al frente de la rodilla (como en la propuesta)
+        const rotula = new THREE.Group();
+        // casco abierto: eje lateral (z de la rodilla) y centrado al frente de la pierna (-x de la rodilla)
+        const casco = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.165, 0.165, 0.2, 28, 1, true, -Math.PI * 0.42, Math.PI * 0.84).rotateX(Math.PI / 2).rotateZ(-Math.PI / 2), M.marfilDoble));
+        rotula.add(casco);
+        for (let k = -2; k <= 2; k++) {
+            const ranura = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.012, 0.17), M.grafito);
+            const ang = k * 0.22;
+            ranura.position.set(-Math.cos(ang) * 0.168, Math.sin(ang) * 0.168, 0);
+            rotula.add(ranura);
+        }
+        rodilla.add(rotula);
+
+        // espinilla: acero pulido, larga y recta hacia abajo, con un pistón de marfil detrás y cables a lo largo
+        const tibia = new THREE.Group();
+        tibia.position.x = MUSLO;
+        muslo.add(tibia);
+        tibia.quaternion.copy(muslo.quaternion).invert().multiply(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, -0.06).normalize()));
+        tibia.add(hueso(TIBIA, 0.07, M, M.acero));
+        const camisa = sombra(new THREE.Mesh(new THREE.CapsuleGeometry(0.042, TIBIA * 0.4, 6, 16).rotateZ(Math.PI / 2), M.marfil));
+        camisa.position.set(TIBIA * 0.34, 0, -0.085);
+        const vastago = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.2, 12).rotateZ(Math.PI / 2), M.acero);
+        vastago.position.set(TIBIA * 0.72, 0, -0.085);
+        const ojal = sombra(new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.01, 8, 20), M.acero));
+        ojal.position.set(TIBIA * 0.9, 0, -0.085);
+        tibia.add(camisa, vastago, ojal);
+        for (const y of [-0.05, 0.05]) {
+            const hilo = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, TIBIA * 0.8, 8).rotateZ(Math.PI / 2), M.grafito);
+            hilo.position.set(TIBIA * 0.45, y, 0.06);
+            tibia.add(hilo);
         }
         g.add(muslo);
         // el tobillo, al final de la espinilla, vuelve a la orientación de la pata: los dedos conservan su ángulo
         const tobillo = new THREE.Group();
-        tobillo.position.x = 0.36;
+        tobillo.position.x = TIBIA;
         tibia.add(tobillo);
         tobillo.quaternion.copy(muslo.quaternion.clone().multiply(tibia.quaternion)).invert();
-        const bis = bisagra(0.1, M);
-        bis.rotation.y = Math.PI / 2; // de lado, como la rodilla
-        const aroT = new THREE.Mesh(new THREE.TorusGeometry(0.065, 0.009, 8, 32).rotateY(Math.PI / 2), M.neon);
-        aroT.position.set(0.05, 0, 0);
-        aroT.position.z = 0.05;
-        aroT.position.set(0.05, 0, 0);
+        // tobillo: bola grafito con su aro neón (el único guinda de la pata, como en la propuesta)
+        const bis = sombra(new THREE.Mesh(new THREE.SphereGeometry(0.085, 24, 16), M.grafito));
+        const aroT = new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.012, 8, 32).rotateY(Math.PI / 2), M.neon);
+        aroT.position.x = 0.075;
+        aroT.rotation.y = 0;
         tobillo.add(bis, aroT);
         // garra abierta: los tres dedos de enfrente en abanico y el de atrás bien separado
         for (const [giro, largo, caida] of [[-0.78, 1.05, 0.28], [0, 1.2, 0.24], [0.78, 1.05, 0.28], [Math.PI, 0.8, 0.18]]) {
@@ -934,7 +970,7 @@ export function construirBuho(M, P) {
             let padre = dedo;
             for (const [l, r] of [[0.14, 0.046], [0.12, 0.041], [0.1, 0.037]]) {
                 padre.add(hueso(l * largo, r, M, M.acero));
-                const aroDedo = new THREE.Mesh(new THREE.TorusGeometry(r * 1.05, r * 0.28, 8, 20).rotateY(Math.PI / 2), M.borde);
+                const aroDedo = new THREE.Mesh(new THREE.TorusGeometry(r * 1.05, r * 0.28, 8, 20).rotateY(Math.PI / 2), M.acero);
                 aroDedo.position.x = l * largo * 0.88;
                 padre.add(aroDedo);
                 const tapa = sombra(new THREE.Mesh(new THREE.CapsuleGeometry(r * 0.55, l * largo * 0.45, 4, 10).rotateZ(Math.PI / 2), M.marfil));
