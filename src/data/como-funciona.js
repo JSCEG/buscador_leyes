@@ -1148,16 +1148,15 @@ export const CONCEPTOS = [
         dato: 'Las cifras de la figura son las de una unidad de Laguna Verde: 2,317 MW de calor, 810 MW en el generador y 777 a la red. No es el plano de la central ni un simulador. Cuánto frena el vapor a la reacción, cuánto se calienta el mar y las 83 toneladas de uranio son cifras de ejemplo, para ver la tendencia.',
         ley: {
             texto: 'Solo la Comisión Federal de Electricidad (CFE) puede generar electricidad con combustibles nucleares. La Secretaría de Energía (SENER) autoriza las instalaciones y la Comisión Nacional de Seguridad Nuclear y Salvaguardias (CNSNS) las inspecciona. La Ley del Sector Eléctrico cuenta la energía nucleoeléctrica entre las Energías Limpias.',
-            siglas: ['LSE', 'BME', 'RISENER'],
+            siglas: ['LSE', 'RISENER'],
             ficha: {
                 elQue: 'A la Nación corresponde el aprovechamiento de los combustibles nucleares para generar energía nuclear, y su uso solo puede tener fines pacíficos (Constitución, art. 27); la generación de energía nuclear es un área estratégica (art. 28). La Ley Reglamentaria del Artículo 27 Constitucional en Materia Nuclear regula esta materia (art. 1). Entre las Energías Limpias, la Ley del Sector Eléctrico considera la energía nucleoeléctrica (LSE, art. 3, fracc. XXI, inciso i).',
-                elComo: 'La generación de electricidad a partir de combustibles nucleares se lleva a cabo en forma exclusiva por la CFE (Ley nuclear, art. 15), y el combustible nuclear es propiedad de la Nación (art. 17). El emplazamiento, diseño, construcción, operación y cierre de las instalaciones nucleares requieren autorización de la SENER (art. 26), y la CNSNS las inspecciona (art. 32). Todas las Centrales Eléctricas de 0.7 MW o más deben contar con permiso de generación (LSE, art. 19). Las Bases del Mercado ponen la generación nucleoeléctrica como ejemplo de fuente firme no despachable (BME, base 3.3.16).',
+                elComo: 'La generación de electricidad a partir de combustibles nucleares se lleva a cabo en forma exclusiva por la CFE (Ley nuclear, art. 15), y el combustible nuclear es propiedad de la Nación (art. 17). El emplazamiento, diseño, construcción, operación y cierre de las instalaciones nucleares requieren autorización de la SENER (art. 26), y la CNSNS las inspecciona (art. 32). Todas las Centrales Eléctricas de 0.7 MW o más deben contar con permiso de generación (LSE, art. 19).',
                 articulos: [
                     { siglas: 'Constitución', refs: 'Arts. 27 y 28', nota: 'Combustibles nucleares, fines pacíficos y área estratégica. No está en el acervo de este sitio: ver Fuentes.' },
                     { siglas: 'Ley nuclear', refs: 'Arts. 1, 2, 15, 17, 19, 26 y 32', nota: 'Fines pacíficos, CFE en exclusiva, combustible de la Nación, autorización de la SENER e inspección de la CNSNS. No está en el acervo de este sitio: ver Fuentes.' },
                     { siglas: 'LSE', refs: 'Art. 3, fracc. XXI, inciso i)', nota: 'La energía nucleoeléctrica como Energía Limpia.' },
                     { siglas: 'LSE', refs: 'Art. 19', nota: 'Permiso de generación.' },
-                    { siglas: 'BME', refs: 'Base 3.3.16', nota: 'La generación nucleoeléctrica como ejemplo de fuente firme no despachable.' },
                     { siglas: 'RISENER', refs: 'Arts. 18, fracc. XXXII a XXXIV, y 72 a 74', nota: 'Política nuclear de la SENER y Comisión Nacional de Seguridad Nuclear y Salvaguardias.' },
                 ],
             },
@@ -1174,8 +1173,7 @@ export const CONCEPTOS = [
         fuentes: [
             ...FUENTES_NUCLEAR,
             LSE,
-            { autor: 'Bases del Mercado Eléctrico', titulo: 'Diario Oficial de la Federación', fecha: '8 de septiembre de 2015', acervo: 'BME' },
-            { autor: 'Reglamento Interior de la Secretaría de Energía', titulo: 'Acervo de este sitio', fecha: 'texto vigente', acervo: 'RISENER' },
+            { autor: 'Reglamento Interior de la Secretaría de Energía', titulo: 'Diario Oficial de la Federación', fecha: '17 de abril de 2025', acervo: 'RISENER' },
         ],
         revisado: null,
     },

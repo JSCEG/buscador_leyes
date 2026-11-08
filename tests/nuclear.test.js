@@ -156,7 +156,8 @@ describe('Central nuclear', () => {
         }
         const acervos = CONCEPTO.nuclear.fuentes.map(f => f.acervo);
         expect(acervos).toContain('LSE');
-        expect(acervos).toContain('BME');
+        // las Bases del Mercado de 2015 no están en el acervo y el sitio las trata como referencia heredada
+        expect(acervos).not.toContain('BME');
         expect(acervos).toContain('RISENER');
     });
 

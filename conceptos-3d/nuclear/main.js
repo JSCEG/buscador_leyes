@@ -87,7 +87,7 @@ const FICHAS = [
         texto: 'El voltaje que da el generador es muy poco para viajar lejos. Este transformador lo sube a 400 kV: con más voltaje, la misma potencia viaja con menos corriente y los cables se calientan menos. El pórtico de al lado conecta la central con la línea.' },
     { parte: 'red', nombre: 'RNT y RGD', modo: 'operar', accion: 'noche', recorrido: { noche: true, adentro: false },
         icono: '<path d="M12 3 6 21M12 3l6 18M8 9h8M7 14h10"/>',
-        texto: 'La electricidad sale por la RNT, la Red Nacional de Transmisión, que la lleva lejos y a grandes usuarios. Cerca del pueblo, otra subestación baja el voltaje y las RGD, las Redes Generales de Distribución, la reparten al público. Da lo mismo de día que de noche: por eso las Bases del Mercado la cuentan como firme. En 2024, Laguna Verde entregó 11,978 GWh, trabajando al 87.9 % de su capacidad.' },
+        texto: 'La electricidad sale por la RNT, la Red Nacional de Transmisión, que la lleva lejos y a grandes usuarios. Cerca del pueblo, otra subestación baja el voltaje y las RGD, las Redes Generales de Distribución, la reparten al público. Da lo mismo de día que de noche: no depende del sol ni del viento. En 2024, Laguna Verde entregó 11,978 GWh, trabajando al 87.9 % de su capacidad.' },
 ];
 const PARTES = FICHAS.map(f => f.parte);
 const FINAL = FICHAS.length;
@@ -230,7 +230,6 @@ app.innerHTML = `
             <ul>
                 ${FUENTES.map(f => `<li><span class="h-fuente-para">${f.para}</span><a href="${f.url}" target="_blank" rel="noopener">${f.titulo}</a><small>${f.autor}, ${f.fecha}${f.editorial ? `. ${f.editorial}` : ''}</small></li>`).join('')}
                 <li><span class="h-fuente-para">Energía Limpia, permiso de generación, RNT y RGD</span><b>Ley del Sector Eléctrico, arts. 3 y 19</b><small>Diario Oficial de la Federación, 18 de marzo de 2025. Está en el acervo de este sitio</small></li>
-                <li><span class="h-fuente-para">Por qué se cuenta como firme, sin seguir el despacho en tiempo real</span><b>Bases del Mercado Eléctrico, base 3.3.16</b><small>Diario Oficial de la Federación, 8 de septiembre de 2015. Está en el acervo de este sitio</small></li>
                 <li><span class="h-fuente-para">Quién conduce la política nuclear y quién vigila la seguridad</span><b>Reglamento Interior de la SENER, arts. 18 y 72 a 74</b><small>Está en el acervo de este sitio</small></li>
             </ul>
         </section>
