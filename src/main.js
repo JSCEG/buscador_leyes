@@ -20,6 +20,7 @@ import { initCardTip } from './lib/card-tip.js';
 import { initTocAttention } from './lib/toc-attention.js';
 import { initReadingProgress } from './lib/reading-progress.js';
 import { initInstallPrompt } from './lib/install-prompt.js';
+import { initAppLinks } from './lib/app-links.js';
 // Imported up front: it listens for Chrome's install event from the first moment.
 import { isInstallPath, initInstallPage } from './lib/install-page.js';
 import { initAccountPanel } from './scripts/account-panel.js';
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (installPage) initInstallPage();
   else if (!fromSeoPage && shouldShowIntro()) window.__introDone = playIntro();
+  initAppLinks();
   initPasswordRecovery();
   initMarquee();
   initPrintBrand();

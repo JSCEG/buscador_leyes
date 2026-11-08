@@ -128,3 +128,6 @@ body { background-image: url('/img/fondo-mexico-claro.svg'); background-repeat: 
 [data-theme="contraste"] body { background-image: url('/img/fondo-mexico-contraste.svg'); }
 @media (max-width: 767px) { body { background-position: 50% 62%; background-size: 190vw auto; } }
 @media print { body { background-image: none !important; } }
+
+/* «Instalar la app»: ya instalada, no hace falta */
+@media (display-mode: standalone) { [data-instalar-app] { display: none !important; } }
