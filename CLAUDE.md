@@ -22,6 +22,10 @@ Video de la intro: el búho mecánico en 3D de `intro-3d/` (skill teardown + FFm
 node scripts/render-intro-3d.mjs          # los dos videos
 node scripts/render-intro-3d.mjs hojas    # solo hojas de revisión
 ```
+Intro viva (la que sale al cargar): el mismo búho en tiempo real, con menú de secciones, giro, alas y desarme. Fuente en `intro-3d/vivo/`; `site-intro.js` la carga en un iframe sobre el mapa y habla con ella por `postMessage` (`buho-listo`, `buho-ir`, `buho-entrar`, `buho-error`). Si no responde a tiempo, sale la imagen del emblema:
+```bash
+node scripts/build-intro-3d.mjs           # → public/intro/buho.html (?tema=claro|oscuro)
+```
 `video-intro/` (HyperFrames) es la intro anterior en 2D.
 
 Variables de entorno requeridas (archivo `.env`):

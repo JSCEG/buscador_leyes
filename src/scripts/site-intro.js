@@ -1,9 +1,11 @@
 /**
- * Animated entrance. For now it is the mechanical owl emblem (public/img/intro-buho-*.webp, light or dark with the
- * theme) over the map of Mexico, and the site opens from its eye like an iris. The 3D film (made in intro-3d/,
- * recorded with scripts/render-intro-3d.mjs) stays ready behind playIntro({ kind: 'video' }). If the film is
- * late, refused or the visitor saves data, the same story plays in CSS, without any wait.
- * Once a day, skippable, and never for deep links or reduced motion.
+ * Animated entrance: the mechanical owl in real time (public/intro/buho.html, built from intro-3d/vivo/ with
+ * scripts/build-intro-3d.mjs) over the map of Mexico. It opens its wings and shows the site's sections; picking
+ * one, or «Entrar al sitio», opens the site from its eye like an iris and goes there. The visitor can also turn it,
+ * open and close the wings, and take it apart.
+ * If the 3D page does not answer in time (no WebGL, slow network, saving data), the owl emblem picture plays instead
+ * (public/img/intro-buho-*.webp); the recorded film stays behind playIntro({ kind: 'video' }), and the CSS intro is
+ * the last fallback. Once a day, skippable, and never for deep links or reduced motion.
  */
 import { brandMarkSvg } from '../lib/brand-mark.js';
 import { wingsSvg } from '../lib/brand-wings.js';
@@ -29,7 +31,15 @@ const EMBLEMS = {
 };
 const EMBLEM_HOLD_MS = 3000;
 const EMBLEM_WAIT_MS = 1500; // the picture is small; the map already draws while it arrives
-const INTRO_KIND = 'emblem';
+// The live owl: about 0.7 MB with three.js. It must say it is drawing within this time, or the emblem plays.
+const BUHO_SRC = '/intro/buho.html';
+const BUHO_WAIT_MS = 4500;
+// Where each section of the owl's menu goes: the rail link that opens it.
+const BUHO_NAV = {
+    buscar: 'nav-inicio', acervo: 'nav-leyes', cronologia: 'nav-cronologia', permisos: 'nav-permisos',
+    polos: 'nav-polos', analisis: 'nav-analisis', aprende: 'nav-como-funciona',
+};
+const INTRO_KIND = 'buho3d';
 const today = () => new Date().toISOString().slice(0, 10);
 
 // The acervo's size arrives after the intro starts, so the intro shows the figures of the last visit.
@@ -156,6 +166,42 @@ function startEmblem(layer) {
     });
 }
 
+/**
+ * Loads the live owl out of sight. Calls `onMessage` with every message it sends; resolves with the iframe once it
+ * draws its first frame, or with null (no answer in time, an error, or the visitor saves data).
+ */
+function startBuho3d(layer, onMessage) {
+    const connection = navigator.connection;
+    if (connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '')) return Promise.resolve(null);
+    const frame = document.createElement('iframe');
+    frame.className = 'si-buho3d';
+    frame.title = 'Búho mecánico: elige una sección del sitio';
+    frame.src = `${BUHO_SRC}?tema=${darkTheme() ? 'oscuro' : 'claro'}`;
+    frame.setAttribute('allowtransparency', 'true');
+    layer.querySelector('.si-map').after(frame);
+    return new Promise(resolve => {
+        let settled = false;
+        const settle = ready => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(waiting);
+            if (!ready) { window.removeEventListener('message', listen); frame.remove(); }
+            resolve(ready ? frame : null);
+        };
+        const listen = event => {
+            if (event.source !== frame.contentWindow || event.origin !== location.origin) return;
+            const { type } = event.data || {};
+            if (type === 'buho-listo') settle(true);
+            else if (type === 'buho-error') settle(false);
+            else if (settled) onMessage(event.data);
+        };
+        const waiting = setTimeout(() => settle(false), BUHO_WAIT_MS);
+        window.addEventListener('message', listen);
+        frame.addEventListener('error', () => settle(false), { once: true });
+        layer.addEventListener('si-done', () => window.removeEventListener('message', listen), { once: true });
+    });
+}
+
 /** Opens a growing hole centred on the eye; the ring traces its edge. */
 function openIris(layer, point = null) {
     const lens = point ? null : layer.querySelector('.bm-lens circle:last-of-type')?.getBoundingClientRect();
@@ -212,13 +258,15 @@ export function playIntro({ kind = INTRO_KIND } = {}) {
         let done = false;
         let timer = null;
         let playing = null;
+        let eye = null; // where the live owl's eye is, in px, when the visitor leaves it
         const finish = async () => {
             if (done) return;
             done = true;
             clearTimeout(timer);
             document.removeEventListener('keydown', onKey);
             document.documentElement.classList.remove('intro-on');
-            await openIris(layer, playing ? eyeCenter(playing.video.getBoundingClientRect(), playing.film) : null);
+            layer.dispatchEvent(new Event('si-done'));
+            await openIris(layer, eye || (playing ? eyeCenter(playing.video.getBoundingClientRect(), playing.film) : null));
             layer.remove();
             resolve();
         };
@@ -230,6 +278,30 @@ export function playIntro({ kind = INTRO_KIND } = {}) {
             countUp(layer, 2450);
             timer = setTimeout(finish, HOLD_MS);
         };
+        const playEmblem = () => startEmblem(layer).then(started => {
+            if (done) return;
+            if (!started) { playCss(); return; }
+            playing = started;
+            // keyframes, not transitions: the class can go on at once, without waiting for a frame
+            layer.classList.add('is-buho', 'is-buho-on', darkTheme() ? 'is-oscuro' : 'is-claro');
+            timer = setTimeout(finish, EMBLEM_HOLD_MS);
+        });
+        if (kind === 'buho3d') {
+            // the map draws while the owl loads; the owl stays until the visitor picks a section or enters
+            layer.classList.add('is-buho', 'is-buho-on', 'is-buho3d', darkTheme() ? 'is-oscuro' : 'is-claro');
+            const onMessage = ({ type, seccion, ojo } = {}) => {
+                if (type !== 'buho-ir' && type !== 'buho-entrar') return;
+                if (Array.isArray(ojo)) eye = { x: ojo[0], y: ojo[1] };
+                finish().then(() => { if (type === 'buho-ir') document.getElementById(BUHO_NAV[seccion])?.click(); });
+            };
+            startBuho3d(layer, onMessage).then(frame => {
+                if (done) return;
+                if (!frame) { layer.classList.remove('is-buho', 'is-buho-on', 'is-buho3d'); playEmblem(); return; }
+                layer.classList.add('is-buho3d-on');
+                frame.focus();
+            });
+            return;
+        }
         if (kind === 'emblem') {
             startEmblem(layer).then(started => {
                 if (done) return;

@@ -133,7 +133,7 @@ describe('intro emblem', () => {
 
   it('shows the light owl over the map and opens the site from its eye', async () => {
     document.documentElement.dataset.theme = 'light';
-    const done = playIntro();
+    const done = playIntro({ kind: 'emblem' });
     expect(emblem().getAttribute('src')).toBe('/img/intro-buho-claro.webp');
     expect(layer().querySelector('.si-map')).toBeTruthy();
     emblem().dispatchEvent(new Event('load'));
@@ -149,13 +149,86 @@ describe('intro emblem', () => {
   });
   it('uses the dark owl on the dark themes', () => {
     document.documentElement.dataset.theme = 'contraste';
-    playIntro();
+    playIntro({ kind: 'emblem' });
     expect(emblem().getAttribute('src')).toBe('/img/intro-buho-oscuro.webp');
   });
   it('falls back to the CSS intro if the picture is late', async () => {
-    playIntro();
+    playIntro({ kind: 'emblem' });
     await vi.advanceTimersByTimeAsync(1600);
     expect(emblem()).toBeFalsy();
     expect(layer().classList.contains('is-playing')).toBe(true);
+  });
+});
+
+describe('intro live owl', () => {
+  const frame = () => layer()?.querySelector('iframe.si-buho3d');
+  const say = data => window.dispatchEvent(new MessageEvent('message', { data, origin: location.origin, source: frame().contentWindow }));
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.stubGlobal('requestAnimationFrame', callback => setTimeout(() => callback(performance.now() + 2000), 0));
+    document.body.innerHTML = '<a id="nav-leyes" href="#acervo"></a>';
+  });
+  afterEach(() => {
+    vi.clearAllTimers();
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+    delete navigator.connection;
+    document.body.innerHTML = '';
+    delete document.documentElement.dataset.theme;
+    document.documentElement.classList.remove('intro-on');
+  });
+
+  it('loads the owl over the map in the theme of the site, and shows it once it draws', async () => {
+    document.documentElement.dataset.theme = 'dark';
+    playIntro();
+    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=oscuro');
+    expect(layer().classList.contains('is-buho3d')).toBe(true);
+    expect(layer().classList.contains('is-buho3d-on')).toBe(false);
+    say({ type: 'buho-listo' });
+    await flush();
+    expect(layer().classList.contains('is-buho3d-on')).toBe(true);
+    // it waits for the visitor: no timer closes it
+    await vi.advanceTimersByTimeAsync(30000);
+    expect(layer()).toBeTruthy();
+  });
+  it('goes to the section the visitor picks, opening from the eye', async () => {
+    const click = vi.fn();
+    document.getElementById('nav-leyes').addEventListener('click', click);
+    const done = playIntro();
+    say({ type: 'buho-listo' });
+    await flush();
+    say({ type: 'buho-ir', seccion: 'acervo', ojo: [300, 200] });
+    expect(layer().style.getPropertyValue('--ix')).toBe('300px');
+    await vi.advanceTimersByTimeAsync(1000);
+    await done;
+    await flush();
+    expect(layer()).toBeNull();
+    expect(click).toHaveBeenCalledTimes(1);
+  });
+  it('ignores messages from other windows', async () => {
+    playIntro();
+    window.dispatchEvent(new MessageEvent('message', { data: { type: 'buho-listo' }, origin: location.origin, source: window }));
+    await flush();
+    expect(layer().classList.contains('is-buho3d-on')).toBe(false);
+  });
+  it('falls back to the emblem if the owl does not answer in time', async () => {
+    playIntro();
+    await vi.advanceTimersByTimeAsync(4600);
+    expect(frame()).toBeFalsy();
+    expect(layer().querySelector('img.si-buho')).toBeTruthy();
+  });
+  it('falls back to the emblem without WebGL', async () => {
+    playIntro();
+    say({ type: 'buho-error' });
+    await flush();
+    expect(frame()).toBeFalsy();
+    expect(layer().querySelector('img.si-buho')).toBeTruthy();
+  });
+  it('does not load the owl when the visitor saves data', async () => {
+    navigator.connection = { saveData: true };
+    playIntro();
+    await flush();
+    expect(frame()).toBeFalsy();
+    expect(layer().querySelector('img.si-buho')).toBeTruthy();
   });
 });
