@@ -23,5 +23,6 @@
   "eolica": "Central eólica",
   "hidroelectrica": "Central hidroeléctrica",
   "geotermica": "Central geotérmica",
-  "nuclear": "Central nuclear"
+  "nuclear": "Central nuclear",
+  "hidrogeno": "Planta de hidrógeno"
 }

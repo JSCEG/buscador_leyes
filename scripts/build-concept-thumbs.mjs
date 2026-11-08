@@ -22,7 +22,7 @@ const SETTLE_MS = 2600;
 // Only the drawing: no buttons, chips or part names.
 const CLEAN_CSS = '.cf-names-toggle,.cf-chips,[data-part="labels"],.iso-plate-corners{display:none!important}'
     // 3D: only the canvas, on a transparent page
-    + '.g-escena-acciones,.g-hud,.g-nums,.g-marca,.g-flot,.g-etiqueta,.g-guia{display:none!important}'
+    + '.g-escena-acciones,.g-hud,.g-nums,.g-marca,.g-flot,.g-etiqueta,.g-guia,.h-cielo,.h-pines,.h-giros,.h-ficha{display:none!important}'
     + 'html,body,#app,.g-escena{background:transparent!important;border:0!important}.g-escena::before,.g-escena::after{display:none!important}';
 const SOLO = arg('--solo', '').split(',').filter(Boolean);
 
