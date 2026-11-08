@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { eyeCenter, playIntro } from '../src/scripts/site-intro.js';
+import { eyeCenter, openOwlGuide, playIntro } from '../src/scripts/site-intro.js';
 
 const layer = () => document.getElementById('site-intro');
 const video = () => layer()?.querySelector('video.si-video');
@@ -223,6 +223,30 @@ describe('intro live owl', () => {
     await flush();
     expect(frame()).toBeFalsy();
     expect(layer().querySelector('img.si-buho')).toBeTruthy();
+  });
+  it('«Guía del búho» opens the owl straight on its menu, without the tour', () => {
+    document.body.insertAdjacentHTML('beforeend', '<button data-abrir-buho><svg></svg></button>');
+    document.querySelector('[data-abrir-buho] svg').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro&recorrido=no');
+    // a second click while it is open does not stack another one
+    document.querySelector('[data-abrir-buho]').click();
+    expect(document.querySelectorAll('#site-intro')).toHaveLength(1);
+  });
+  it('its tour replaces the classic welcome tour', async () => {
+    localStorage.removeItem('bienvenida-v1');
+    playIntro();
+    say({ type: 'buho-listo' });
+    await flush();
+    expect(localStorage.getItem('bienvenida-v1')).toBe('1');
+  });
+  it('opened on purpose without WebGL, it plays the classic tour instead of the picture', async () => {
+    openOwlGuide({ tour: true });
+    say({ type: 'buho-error' });
+    await flush();
+    await vi.advanceTimersByTimeAsync(1000);
+    await flush();
+    expect(layer()).toBeNull();
+    expect(document.getElementById('welcome-tour')).toBeTruthy();
   });
   it('does not load the owl when the visitor saves data', async () => {
     navigator.connection = { saveData: true };

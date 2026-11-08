@@ -29,6 +29,10 @@ const parametros = new URLSearchParams(location.search);
 const OSCURO = parametros.get('tema') ? parametros.get('tema') === 'oscuro' : matchMedia('(prefers-color-scheme: dark)').matches;
 const REDUCIR = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const EN_SITIO = parent !== window;
+// Al entrar, el búho se presenta solo: recorre sus partes una por una y termina invitando a tocarlo. Cuando el sitio lo
+// abre desde su botón (?recorrido=no) va directo al menú.
+const RECORRIDO = parametros.get('recorrido') !== 'no' && !REDUCIR;
+const PASO_S = 4.6; // segundos por parte en el recorrido automático
 document.documentElement.dataset.tema = OSCURO ? 'oscuro' : 'claro';
 
 // Las secciones: el id que entiende el sitio y a dónde ir si la página se abre sola.
@@ -56,6 +60,9 @@ const FICHAS = [
         texto: 'Cómo funcionan una planta solar, un transformador o una refinería, en modelos 3D que puedes girar y desarmar.' },
 ];
 
+const FINAL = FICHAS.length; // la ficha de cierre del recorrido
+const ICONO_TOCAR = '<path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10"/><path d="M12 9.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.6-2.2L4.4 15.6a1.5 1.5 0 0 1 2.3-1.9L9 16"/><path d="M5 4 3.5 2.5M8.5 2V0.5M12 4l1.5-1.5"/>';
+
 const P = {
     fondo: '#faf8f5', tinta: '#171317', suave: '#5b5e63', rosa: '#e57a9a', guinda: '#9b2247',
     ceramica: '#f4f1ec', marfil: '#eee7dc', grafito: '#303137', acero: '#a7abb3',
@@ -78,6 +85,7 @@ app.innerHTML = `
     <section class="b-ficha" role="dialog" aria-labelledby="b-ficha-t" aria-describedby="b-ficha-texto" hidden>
         <button type="button" class="b-ficha-x" data-cerrar aria-label="Cerrar">×</button>
         <p class="b-ficha-paso"></p>
+        <span class="b-ficha-avance" aria-hidden="true"><i></i></span>
         <div class="b-ficha-cab"><span class="b-ficha-ico"><svg viewBox="0 0 24 24" aria-hidden="true"></svg></span><h2 id="b-ficha-t"></h2></div>
         <p class="b-ficha-texto" id="b-ficha-texto"></p>
         <div class="b-ficha-pie">
@@ -85,6 +93,7 @@ app.innerHTML = `
             <button type="button" class="b-ficha-flecha" data-sig aria-label="Parte siguiente">›</button>
             <button type="button" class="b-ficha-ir" data-ir></button>
         </div>
+        <button type="button" class="b-ficha-saltar" data-saltar>Saltar recorrido</button>
     </section>
     <div class="b-barra" role="toolbar" aria-label="Controles del búho">
         <button type="button" class="b-chip" data-recorrido>¿Qué es cada parte?</button>
@@ -182,6 +191,13 @@ const NUCLEO = new THREE.Vector3(...ENGRANE.centro);
 const DUENO = new Map();
 FICHAS.forEach((f, i) => buho.partes[f.parte].forEach(o => DUENO.set(o, i)));
 const objetosDe = i => buho.partes[FICHAS[i].parte].filter(o => o !== buho.engrane);
+// a dónde se acerca la cámara: los dos ojos juntos; de lo demás, una sola pieza (un ala, una garra, un costado)
+const enfoqueDe = i => (FICHAS[i].parte === 'ojos' ? objetosDe(i) : objetosDe(i).slice(0, 1));
+const piezasDe = FICHAS.map((_, i) => {
+    const lista = [];
+    enfoqueDe(i).forEach(o => o.traverse(m => { if (m.isMesh) lista.push(m); }));
+    return lista;
+});
 const texturaHalo = (() => {
     const c = document.createElement('canvas');
     c.width = c.height = 256;
@@ -230,7 +246,11 @@ const camara = { az: 0, el: 6, k: 1, vaz: 0, vel: 0, auto: true };
 let hover = -1;       // módulo (sección) bajo el puntero o con foco
 let hoverParte = -1;  // parte del búho bajo el puntero
 let elegida = -1;     // parte con su ficha abierta
+let ultimaElegida = -1; // la última parte acercada: se sigue armando mientras la cámara regresa
 const foco = { v: new THREE.Vector3() }; // centro de la parte elegida, para la línea a su ficha
+// acercamiento a la parte elegida: la cámara va a ella y solo esa parte se desarma (vista explotada); al cerrar la
+// ficha regresa a la vista general y la parte se vuelve a armar
+const zoom = { f: 0, centro: new THREE.Vector3(0, 0.3, 0), tam: 1, piezas: [] };
 const acento = SECCIONES.map(() => 0);
 const t0 = performance.now();
 let entrada = REDUCIR ? 99 : 0; // segundos desde que empezó la entrada
@@ -256,6 +276,7 @@ let movido = 0;
 let ultimaMano = performance.now();
 const tomar = () => { camara.auto = false; ultimaMano = performance.now(); pista.classList.add('is-oculta'); };
 lienzo.addEventListener('pointerdown', e => {
+    if (auto.on) pararRecorrido();
     punteros.set(e.pointerId, [e.clientX, e.clientY]);
     lienzo.setPointerCapture(e.pointerId);
     movido = 0;
@@ -341,33 +362,50 @@ botones.forEach((b, i) => {
     b.addEventListener('blur', () => { if (hover === i) hover = -1; });
 });
 
-function elegir(i) {
-    elegida = (i + FICHAS.length) % FICHAS.length;
+const auto = { on: false, hecho: false, t: 0 };
+function pararRecorrido() {
+    auto.on = false;
+    auto.hecho = true;
+    app.classList.remove('is-auto');
+}
+function elegir(i, { solo = false } = {}) {
+    if (!solo) pararRecorrido();
+    elegida = (i + FICHAS.length + 1) % (FICHAS.length + 1);
+    const final = elegida === FINAL;
     const f = FICHAS[elegida];
     const nombre = SECCIONES[elegida];
-    ficha.querySelector('.b-ficha-paso').textContent = `${elegida + 1} de ${FICHAS.length} · ${f.donde}`;
-    ficha.querySelector('.b-ficha-ico svg').innerHTML = f.icono;
-    ficha.querySelector('#b-ficha-t').textContent = nombre;
-    ficha.querySelector('.b-ficha-texto').textContent = f.texto;
-    ficha.querySelector('[data-ir]').textContent = `Ir a ${nombre} →`;
+    ficha.querySelector('.b-ficha-paso').textContent = final ? 'Listo' : `${elegida + 1} de ${FICHAS.length} · ${f.donde}`;
+    ficha.querySelector('.b-ficha-ico svg').innerHTML = final ? ICONO_TOCAR : f.icono;
+    ficha.querySelector('#b-ficha-t').textContent = final ? '¿Alguna no quedó clara?' : nombre;
+    ficha.querySelector('.b-ficha-texto').textContent = final
+        ? 'Toca esa parte del búho y te la vuelve a explicar. También puedes elegir una sección abajo o entrar al sitio.'
+        : f.texto;
+    ficha.querySelector('[data-ir]').textContent = final ? 'Entrar al sitio →' : `Ir a ${nombre} →`;
+    ficha.classList.toggle('is-final', final);
+    // reinicia la barrita de avance del recorrido automático
+    const barrita = ficha.querySelector('.b-ficha-avance i');
+    barrita.style.animation = 'none';
+    void barrita.offsetWidth;
+    barrita.style.animation = '';
     ficha.hidden = false;
     app.classList.add('is-ficha');
     pista.classList.add('is-oculta');
     camara.auto = false;
     ultimaMano = performance.now();
     // las alas se ven mejor abiertas; para las garras y la cara no estorban
-    if (f.parte === 'alas') pide.alas = 1;
+    if (f?.parte === 'alas') pide.alas = 1;
 }
 function cerrarFicha() {
     elegida = -1;
     ficha.hidden = true;
     app.classList.remove('is-ficha');
 }
-ficha.querySelector('[data-cerrar]').addEventListener('click', cerrarFicha);
+ficha.querySelector('[data-cerrar]').addEventListener('click', () => { pararRecorrido(); cerrarFicha(); });
+ficha.querySelector('[data-saltar]').addEventListener('click', () => elegir(FINAL));
 ficha.querySelector('[data-ant]').addEventListener('click', () => elegir(elegida - 1));
 ficha.querySelector('[data-sig]').addEventListener('click', () => elegir(elegida + 1));
-ficha.querySelector('[data-ir]').addEventListener('click', () => ir(elegida));
-barra.querySelector('[data-recorrido]').addEventListener('click', () => elegir(elegida >= 0 ? elegida + 1 : 0));
+ficha.querySelector('[data-ir]').addEventListener('click', () => (elegida === FINAL ? salir('buho-entrar') : ir(elegida)));
+barra.querySelector('[data-recorrido]').addEventListener('click', () => elegir(elegida >= 0 && elegida < FINAL ? elegida + 1 : 0));
 
 const botonAlas = barra.querySelector('[data-alas]');
 const botonDesarme = barra.querySelector('[data-desarme]');
@@ -452,9 +490,25 @@ function cuadro(ahora) {
         az += Math.sin(t * 0.35) * 9;
         el += Math.sin(t * 0.27) * 2;
     }
-    const d = distanciaParaCaber() * camara.k * (1 + 0.35 * (1 - sale(entrada / 2.2)));
+    let d = distanciaParaCaber() * camara.k * (1 + 0.35 * (1 - sale(entrada / 2.2)));
 
-    const e = pose({ alas: ve.alas, desarme: ve.desarme * 0.999, t, aspecto: innerWidth / innerHeight, camara: { mira: mira(), az, el, d } });
+    const enfoca = elegida >= 0 && elegida < FINAL;
+    zoom.f = seguir(zoom.f, enfoca ? 1 : 0, 2.2);
+    const zf = zoom.f;
+    let ojoCam = mira();
+    if (zf > 0.001) {
+        const c = zoom.centro;
+        // de frente a la parte: si está a un lado (un ala, un costado), la cámara se va hacia ese lado
+        const azParte = clamp(Math.atan2(c.x, Math.max(0.35, c.z + 0.9)) / D2R, -62, 62);
+        // que la parte quepa a lo ancho también (celular vertical), y en celular solo en la mitad de arriba: abajo va la ficha
+        const angosto = Math.min(1, innerWidth / innerHeight) * (acomodo.vertical ? 0.75 : 1);
+        const dParte = clamp((zoom.tam * 1.9) / (2 * Math.tan((camera.fov * D2R) / 2) * angosto), 2.3, 14);
+        ojoCam = ojoCam.map((m, k) => m + (c.getComponent(k) - m) * zf);
+        az += (azParte - az) * zf;
+        el += (8 - el) * zf;
+        d += (dParte - d) * zf;
+    }
+    const e = pose({ alas: ve.alas, desarme: ve.desarme * 0.999, t, aspecto: innerWidth / innerHeight, camara: { mira: ojoCam, az, el, d } });
     e.luz = ve.luz;
     e.ojo = ve.ojo * (1 + 0.08 * Math.sin(t * 2.2));
     // las secciones no dependen del desarme: salen del pecho con la entrada, una tras otra
@@ -463,6 +517,20 @@ function cuadro(ahora) {
         const f = sale((menu * 1.3 - 0.05 * i) / 0.95);
         return { f, acento: Math.min(1, acento[i]), etiqueta: clamp01((menu - 0.55 - 0.03 * i) / 0.35), destino };
     });
+    // recorrido automático: empieza con el menú afuera y avanza solo; termina en la ficha de cierre
+    if (RECORRIDO && !auto.hecho && !auto.on && menu >= 1 && entrada > 3.6) {
+        auto.on = true;
+        auto.t = 0;
+        app.classList.add('is-auto');
+        elegir(0, { solo: true });
+    }
+    if (auto.on) {
+        auto.t += dt;
+        if (auto.t >= PASO_S) {
+            auto.t = 0;
+            if (elegida + 1 >= FINAL) { elegir(FINAL, { solo: true }); pararRecorrido(); } else elegir(elegida + 1, { solo: true });
+        }
+    }
     // la parte señalada: la de la ficha abierta, o la que está bajo el puntero (en el búho o en su sección)
     const señalada = elegida >= 0 ? elegida : hoverParte >= 0 ? hoverParte : hover;
     dibujar(e, t);
@@ -473,6 +541,7 @@ function cuadro(ahora) {
         app.classList.add('is-listo');
     }
     app.classList.toggle('is-menu', menu > 0.75);
+    app.classList.toggle('is-cerca', zoom.f > 0.3);
     requestAnimationFrame(cuadro);
 }
 
@@ -509,13 +578,23 @@ function dibujar(e, t) {
         g.position.z += Math.sin(Math.PI * m.f) * 0.9 + 0.22 * m.acento;
         g.rotation.set(0, (1 - m.f) * Math.PI * 0.9, (1 - m.f) * (i - 3) * 0.25);
         g.quaternion.slerp(camera.quaternion, m.f);
-        g.scale.setScalar((0.15 + 0.85 * m.f) * (1 + 0.14 * m.acento));
+        // de cerca, las secciones vuelven al pecho para no estorbar
+        g.scale.setScalar(Math.max(0.001, (0.15 + 0.85 * m.f) * (1 + 0.14 * m.acento) * (1 - zoom.f)));
+        if (zoom.f > 0.98) g.visible = false;
         mod.cara.color.copy(COLOR.cara).lerp(COLOR.acento, m.acento);
         mod.icono.material.color.copy(COLOR.icono).lerp(COLOR.blanco, m.acento);
     });
 
     raiz.updateMatrixWorld(true);
+    // la ficha tapa un lado (escritorio) o abajo (celular): la imagen se corre para que la parte quede a la vista
+    const r = zoom.f > 0.001 && !ficha.hidden ? ficha.getBoundingClientRect() : null;
+    if (r) {
+        const abajo = r.width > innerWidth * 0.7; // en celular la ficha va abajo, a lo ancho
+        camera.setViewOffset(innerWidth, innerHeight, abajo ? 0 : ((r.width / 2) + 12) * zoom.f, abajo ? ((innerHeight - r.top) / 2) * zoom.f : 0, innerWidth, innerHeight);
+    } else camera.clearViewOffset();
+    const deshacer = explotar();
     renderer.render(scene, camera);
+    deshacer();
 
     // etiquetas (botones) bajo cada módulo y guías del pecho a cada módulo
     const [nx, ny] = pantalla(buho.engrane.getWorldPosition(new THREE.Vector3()));
@@ -524,20 +603,46 @@ function dibujar(e, t) {
         const b = botones[i];
         const [x, y] = pantalla(g.position.clone().add(v.set(0, -(MODULO / 2) * g.scale.x - 0.06, 0)));
         b.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, 0)`;
-        b.style.opacity = m.etiqueta.toFixed(3);
-        b.style.visibility = m.etiqueta > 0.02 ? 'visible' : 'hidden';
+        b.style.opacity = (m.etiqueta * (1 - zoom.f)).toFixed(3);
+        b.style.visibility = m.etiqueta * (1 - zoom.f) > 0.02 ? 'visible' : 'hidden';
         b.classList.toggle('is-activo', m.acento > 0.5);
         const [mx, my] = pantalla(g.position.clone().add(v.set(0, (MODULO / 2) * g.scale.x, 0)));
         const l = guias[i];
         l.setAttribute('x1', nx.toFixed(1)); l.setAttribute('y1', ny.toFixed(1));
         l.setAttribute('x2', mx.toFixed(1)); l.setAttribute('y2', my.toFixed(1));
-        l.style.opacity = (m.etiqueta * (0.25 + 0.75 * m.acento) * (1 - e.abierto)).toFixed(3);
+        l.style.opacity = (m.etiqueta * (0.25 + 0.75 * m.acento) * (1 - e.abierto) * (1 - zoom.f)).toFixed(3);
     });
+}
+
+// Vista explotada de la parte elegida: cada pieza se aleja del centro de la parte, en proporción a qué tan lejos está.
+// Se aplica solo para dibujar el cuadro y se deshace enseguida, así la pose del búho no se toca.
+const pw = new THREE.Vector3();
+const pd = new THREE.Vector3();
+function explotar() {
+    const i = elegida >= 0 && elegida < FINAL ? elegida : ultimaElegida;
+    const f = sale(zoom.f);
+    if (i < 0 || f < 0.002) return () => {};
+    const piezas = piezasDe[i];
+    const guardadas = piezas.map(m => m.position.clone());
+    const hacia = camera.position.clone().sub(zoom.centro).normalize();
+    buho.raiz.updateMatrixWorld(true);
+    const destinos = piezas.map(m => {
+        m.getWorldPosition(pw);
+        pd.copy(pw).sub(zoom.centro);
+        const largo = pd.length();
+        if (largo < 0.02) pd.copy(hacia); else pd.divideScalar(largo);
+        // hacia afuera y un poco hacia la cámara, para que se vea por dentro
+        pd.addScaledVector(hacia, 0.35).normalize();
+        pw.addScaledVector(pd, zoom.tam * 0.28 * f * (0.35 + Math.min(1.4, largo / Math.max(0.1, zoom.tam * 0.5))));
+        return m.parent.worldToLocal(pw.clone());
+    });
+    piezas.forEach((m, k) => m.position.copy(destinos[k]));
+    return () => piezas.forEach((m, k) => m.position.copy(guardadas[k]));
 }
 
 // halo guinda sobre la parte señalada y, con la ficha abierta, una línea de la parte a la ficha
 function marcar(i, t) {
-    const objetos = i >= 0 && ve.menu > 0.6 ? objetosDe(i) : [];
+    const objetos = i >= 0 && i < FICHAS.length && ve.menu > 0.6 ? objetosDe(i) : [];
     halos.forEach((h, k) => {
         const o = objetos[k];
         h.visible = Boolean(o);
@@ -551,6 +656,15 @@ function marcar(i, t) {
         h.material.opacity = elegida === i ? 0.9 : 0.55;
         if (k === 0 && elegida === i) foco.v.copy(centro3);
     });
+    if (elegida === i && i >= 0 && i < FINAL) {
+        caja3.makeEmpty();
+        enfoqueDe(i).forEach(o => caja3.expandByObject(o));
+        caja3.getCenter(zoom.centro);
+        caja3.getSize(tam3);
+        zoom.tam = Math.max(tam3.x, tam3.y, tam3.z * 0.6);
+        ultimaElegida = i;
+    }
+    halos.forEach(h => { h.material.opacity *= 1 - zoom.f; }); // de cerca no hace falta el aro: la parte ya está al frente
     renderer.autoClear = false;
     renderer.clearDepth();
     halos.forEach(h => { if (h.visible) renderer.render(h, camera); });

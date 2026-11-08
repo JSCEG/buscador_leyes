@@ -20,6 +20,11 @@ export function hasSeenWelcome() {
     try { return localStorage.getItem(KEY) === '1'; } catch { return true; }
 }
 
+/** The live owl tours the sections on its own; once it did, this tour is not needed. */
+export function markWelcomeSeen() {
+    try { localStorage.setItem(KEY, '1'); } catch { /* ignore */ }
+}
+
 export function startWelcomeTour() {
     document.getElementById('welcome-tour')?.remove();
     let index = 0;

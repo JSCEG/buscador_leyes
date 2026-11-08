@@ -87,6 +87,15 @@ html, body { margin: 0; height: 100%; overflow: hidden; background: transparent 
 :root[data-tema="oscuro"] .b-ficha-ir { color: #141114; }
 .b-ficha button:focus-visible { outline: 2px solid var(--guinda); outline-offset: 2px; }
 #app.is-ficha .b-pista { opacity: 0; }
+#app.is-cerca .b-titulo { opacity: 0; }
+/* recorrido automático: barrita de avance arriba de la ficha y «Saltar recorrido» */
+.b-ficha-avance { display: none; position: absolute; left: 20px; right: 20px; top: 0; height: 3px; border-radius: 0 0 3px 3px; background: var(--linea); overflow: hidden; }
+.b-ficha-avance i { display: block; height: 100%; width: 100%; background: var(--guinda); transform-origin: left; transform: scaleX(0); animation: b-avance 4.6s linear forwards; }
+@keyframes b-avance { to { transform: scaleX(1); } }
+#app.is-auto .b-ficha-avance { display: block; }
+.b-ficha-saltar { display: none; margin: 10px auto 0; border: 0; background: none; color: var(--suave); font: 600 12px/1 'Manrope', system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 6px; }
+#app.is-auto .b-ficha-saltar { display: block; }
+.b-ficha.is-final .b-ficha-ico { background: var(--tinta); }
 
 @media (max-width: 599px) {
     .b-ficha { right: 16px; left: 16px; top: auto; bottom: calc(118px + env(safe-area-inset-bottom)); transform: none; width: auto; padding: 14px 16px 12px; animation-name: b-ficha-in-m; }

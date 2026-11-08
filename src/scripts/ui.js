@@ -12,6 +12,7 @@ import { initRailGroups, openMoreSheet, syncRailGroups } from './shell-more.js';
 import { articlePickerHtml, initArticlePicker, openPickerSheet } from '../lib/article-picker.js';
 import { renderBookView } from './book-view.js';
 import { hasSeenWelcome, startWelcomeTour } from './onboarding.js';
+import { openOwlGuide } from './site-intro.js';
 import { openDialog, openFeedback, openLegalPage } from './site-dialogs.js';
 import { getTextPreview, highlightText, highlightHtml } from '../lib/article-preview.js';
 import { sanitizeArticleHtml, markScrollableTables, articlePreviewHtml } from '../lib/article-html.js';
@@ -369,7 +370,7 @@ export function initUI() {
         if (activeNavId === 'nav-inicio') renderLanding();
         // First visit: a short welcome tour once the page has settled. Never over the install screen
         // (/instalar): the tour would cover its button; it plays on the next visit instead.
-        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) Promise.resolve(window.__introDone).then(() => setTimeout(() => { if (!document.getElementById('welcome-tour') && !document.body.classList.contains('ip-open')) startWelcomeTour(); }, 600));
+        if (!hasSeenWelcome() && !location.hash.startsWith('#lectura-') && !location.hash.startsWith('#art-')) Promise.resolve(window.__introDone).then(() => setTimeout(() => { if (!hasSeenWelcome() && !document.getElementById('welcome-tour') && !document.body.classList.contains('ip-open')) startWelcomeTour(); }, 600)); // the owl's own tour marks it seen
 
         // No longer auto-rendering on home, user wants it only in stats
 
@@ -3513,7 +3514,7 @@ export function initUI() {
                 else if (target === 'buscar') { resetToHero(); searchInput?.focus(); }
             },
             onShortcuts: () => showKeyboardHelp(),
-            onTour: () => startWelcomeTour(),
+            onTour: () => openOwlGuide({ tour: true }),
             onFeedback: () => openFeedback({ context: 'Ayuda' }),
         });
         window.scrollTo({ top: 0, behavior: 'instant' });

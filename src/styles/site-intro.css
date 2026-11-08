@@ -139,3 +139,8 @@ html.intro-on{overflow:hidden}
 #site-intro.is-buho .si-ring{border-color:#9b2247;box-shadow:0 0 24px #9b224755}
 #site-intro.is-buho.is-oscuro .si-ring{border-color:#e57a9a;box-shadow:0 0 24px #e57a9a55}
 @keyframes si-buho-in{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+
+/* «Guía del búho»: the owl mark is filled, not stroked like the other rail icons */
+.bu-i.bu-i-buho{stroke:none;width:20px;height:22px}
+.bu-cab-m__buho{display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:50%;background:none;color:var(--tinta-suave);cursor:pointer}
+.bu-cab-m__buho:focus-visible{outline:2px solid var(--guinda-500);outline-offset:2px}
