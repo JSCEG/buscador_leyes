@@ -81,7 +81,7 @@ const FICHAS = [
         texto: `Un inversor y un transformador suben el voltaje y la electricidad sale por la RNT, la Red Nacional de Transmisión. Las RGD, las Redes Generales de Distribución, la llevan hasta las casas. De cada 100 kWh guardados regresan unos ${REGRESA_BAT} en baterías y unos ${REGRESA_H2} con hidrógeno.` },
     { parte: 'pirolisis', nombre: 'Pirólisis', proceso: 'turquesa', abrir: true, accion: 'desarme', eq: 'CH₄ + calor → C + 2 H₂', recorrido: { noche: false },
         icono: '<path d="M7 21h10M9 21V8a3 3 0 0 1 6 0v13"/><path d="M12 14v3M10.5 11h3"/>',
-        texto: `Otra ruta, que da hidrógeno turquesa, no verde. El metano burbujea en metal fundido a unos 1,000 °C y se parte en hidrógeno y carbono sólido: ${num(C_POR_KG)} kilos de carbono por cada kilo de hidrógeno. El reactor no suelta CO₂, pero usa gas natural, que puede fugarse al extraerlo.` },
+        texto: `Otra ruta, que da hidrógeno turquesa, no verde. El metano llega del tanque esférico de franja morada, burbujea en metal fundido a unos 1,000 °C y se parte en hidrógeno y carbono sólido: ${num(C_POR_KG)} kilos de carbono por cada kilo de hidrógeno. El reactor no suelta CO₂, pero usa gas natural, que puede fugarse al extraerlo.` },
 ];
 const PARTES = FICHAS.map(f => f.parte);
 const FINAL = FICHAS.length;
@@ -1007,7 +1007,9 @@ function pantalla(p) {
 function apuntarZoom() {
     if (elegida < 0 || elegida >= FINAL) return;
     const f = FICHAS[elegida];
-    planta.anclas[f.parte].getWorldPosition(centro);
+    const V = VISTAS[f.parte];
+    // la cámara mira al punto clave, o a donde su vista diga si debe entrar algo más en la toma
+    if (V.mira) centro.set(...V.mira); else planta.anclas[f.parte].getWorldPosition(centro);
     if (elegida !== zoom.parte) {
         if (zoom.parte >= 0 && zoom.f > 0.2) {
             vuelo.c0.copy(vuelo.t < 1 ? cVuelo : zoom.centro);
@@ -1020,7 +1022,6 @@ function apuntarZoom() {
         zoom.az0 = camara.az;
         zoom.el0 = camara.el;
         zoom.k0 = camara.k;
-        const V = VISTAS[f.parte];
         zoom.az = V.az;
         zoom.el = V.el;
         zoom.tam = V.tam;
@@ -1040,7 +1041,8 @@ function marcar() {
     const linea = senal.querySelector('line');
     const punto = senal.querySelector('circle');
     if (elegida < 0 || elegida >= FINAL || ficha.hidden) { senal.style.opacity = '0'; return; }
-    const [px, py] = pantalla(zoom.centro);
+    planta.anclas[FICHAS[elegida].parte].getWorldPosition(centro);
+    const [px, py] = pantalla(centro);
     const re = escena.getBoundingClientRect();
     const rf = ficha.getBoundingClientRect();
     const r = { left: rf.left - re.left, right: rf.right - re.left, top: rf.top - re.top, bottom: rf.bottom - re.top };

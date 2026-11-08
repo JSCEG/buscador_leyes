@@ -250,7 +250,7 @@ export const PARTES = [
     { id: 'baterias', ancla: [-2.36, 0.85, 4.2], vista: { az: -12, el: 30, tam: 3.1 } },
     { id: 'pila', ancla: [1.6, 0.9, 3], vista: { az: 16, el: 26, tam: 3.2 } },
     { id: 'red', ancla: [-3.5, 1, 3.3], vista: { az: -14, el: 24, tam: 5 } },
-    { id: 'pirolisis', ancla: [2.6, 1.8, -3.4], vista: { az: 158, el: 20, tam: 4.6 } },
+    { id: 'pirolisis', ancla: [2.6, 1.8, -3.4], vista: { az: 158, el: 20, tam: 5.7, mira: [3.45, 1.05, -3.45] } }, // que entren el reactor y el tanque de metano
 ];
 
 // ------------------------------------------------------------------ la pose

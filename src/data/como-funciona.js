@@ -1172,7 +1172,7 @@ export const CONCEPTOS = [
             { nombre: 'SAE de baterías', texto: 'Guardan electricidad de día y la entregan en la tarde, durante unas horas.' },
             { nombre: 'SAE de hidrógeno', texto: 'Su celda de combustible regresa a electricidad el hidrógeno de los tanques.' },
             { nombre: 'RNT y RGD', texto: 'La Red Nacional de Transmisión lleva la electricidad y las Redes Generales de Distribución la entregan a las casas.' },
-            { nombre: 'Pirólisis', texto: 'Otra ruta: parte metano en hidrógeno y carbono sólido.' },
+            { nombre: 'Pirólisis', texto: 'Otra ruta: el metano llega de un tanque esférico y se parte en hidrógeno y carbono sólido.' },
         ],
         dato: 'Las cifras de la figura son de ejemplo: 10 MW de paneles, 3 MW de viento, un electrolizador de 10 MW, baterías de 4 MW y 16 MWh, y 2,000 kilos de hidrógeno en tanques. No son de una planta real.',
         ley: {
