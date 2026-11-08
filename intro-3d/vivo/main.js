@@ -1,6 +1,9 @@
 // La entrada viva del Buscador Jurídico: el búho mecánico en tiempo real. Al cargar se enciende, abre las alas y saca
-// del pecho las secciones del sitio; cada sección es un botón que lleva a ella. Se puede girar arrastrando, acercar con
-// la rueda o pellizcando, abrir y cerrar las alas, desarmarlo y armarlo.
+// del pecho las secciones del sitio; cada sección es un botón que lleva a ella. Cada sección vive además en una parte
+// del búho (ojos = Buscar, insignia = Acervo, engranes = Cronología, garras = Permisos, alas = Polos, disco de la cara =
+// Análisis, emblema de energía = Aprende): al tocarla se marca con un aro y sale su ficha, como el recorrido del sitio.
+// Se puede girar arrastrando, acercar con la rueda o pellizcando (de cerca se desarma; al alejarse se vuelve a armar),
+// abrir y cerrar las alas, y desarmarlo con el botón.
 //
 // Es el mismo búho del video (../buho.js, ../modelo.js): aquí las entradas (alas, desarme, menú) vienen de los botones y
 // se suavizan en el tiempo, en vez de salir de estado(t).
@@ -34,6 +37,25 @@ const DESTINOS = {
     Permisos: ['permisos', '/#permisos'], Polos: ['polos', '/#polos'], 'Análisis': ['analisis', '/'], Aprende: ['aprende', '/#como-funciona'],
 };
 
+// Cada sección vive en una parte del búho. Al tocar la parte (o «¿Qué es cada parte?») sale su ficha, como el
+// recorrido del sitio: icono, qué es, y el botón para ir. Los iconos son los del menú del sitio (index.html).
+const FICHAS = [
+    { parte: 'ojos', donde: 'Los ojos', icono: '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/>',
+        texto: 'Escribe una palabra y encuéntrala en el texto de todos los documentos. Ves los resultados en lista o en un mapa de relaciones.' },
+    { parte: 'pecho', donde: 'La insignia del pecho', icono: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+        texto: 'Todos los documentos, por tipo y por dependencia. Abre cualquiera para leerlo por artículos o como libro.' },
+    { parte: 'engranes', donde: 'Los engranes del costado', icono: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+        texto: 'Cuándo salió cada ley, reglamento o acuerdo, y cómo han cambiado con el tiempo.' },
+    { parte: 'garras', donde: 'Las garras', icono: '<path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.6"/><path d="m10.6 16.2-.9 3.3 2.3-1.1 2.3 1.1-.9-3.3"/>',
+        texto: 'Los permisos de energía que otorgan la CNE y la SENER: quién los tiene, de qué tipo y dónde.' },
+    { parte: 'alas', donde: 'Las alas', icono: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>',
+        texto: 'Los polos de desarrollo del país: dónde están en el mapa y qué se planea en cada uno.' },
+    { parte: 'cara', donde: 'El disco de la cara', icono: '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="m8.4 6.4 7.2 1.2M6.9 8.4l2.2 7.2M16.6 10.1l-5 6"/>',
+        texto: 'Los temas que cruzan varias leyes y los términos clave: dónde se usan y cómo se conectan.' },
+    { parte: 'emblema', donde: 'El emblema de energía', icono: '<path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z"/><path d="M12 6.5V20"/>',
+        texto: 'Cómo funcionan una planta solar, un transformador o una refinería, en modelos 3D que puedes girar y desarmar.' },
+];
+
 const P = {
     fondo: '#faf8f5', tinta: '#171317', suave: '#5b5e63', rosa: '#e57a9a', guinda: '#9b2247',
     ceramica: '#f4f1ec', marfil: '#eee7dc', grafito: '#303137', acero: '#a7abb3',
@@ -52,19 +74,34 @@ app.innerHTML = `
         ${SECCIONES.map((s, i) => `<button type="button" class="b-sec" data-i="${i}">${s}</button>`).join('')}
     </nav>
     <header class="b-titulo"><p class="b-nombre">Buscador Jurídico</p><span class="b-raya"></span><p class="b-sub">Elige una sección o explora al búho</p></header>
+    <svg class="b-senal" aria-hidden="true"><line/><circle r="4"/></svg>
+    <section class="b-ficha" role="dialog" aria-labelledby="b-ficha-t" aria-describedby="b-ficha-texto" hidden>
+        <button type="button" class="b-ficha-x" data-cerrar aria-label="Cerrar">×</button>
+        <p class="b-ficha-paso"></p>
+        <div class="b-ficha-cab"><span class="b-ficha-ico"><svg viewBox="0 0 24 24" aria-hidden="true"></svg></span><h2 id="b-ficha-t"></h2></div>
+        <p class="b-ficha-texto" id="b-ficha-texto"></p>
+        <div class="b-ficha-pie">
+            <button type="button" class="b-ficha-flecha" data-ant aria-label="Parte anterior">‹</button>
+            <button type="button" class="b-ficha-flecha" data-sig aria-label="Parte siguiente">›</button>
+            <button type="button" class="b-ficha-ir" data-ir></button>
+        </div>
+    </section>
     <div class="b-barra" role="toolbar" aria-label="Controles del búho">
+        <button type="button" class="b-chip" data-recorrido>¿Qué es cada parte?</button>
         <button type="button" class="b-chip" data-alas aria-pressed="true">Cerrar alas</button>
         <button type="button" class="b-chip" data-desarme aria-pressed="false">Desarmar</button>
         <button type="button" class="b-chip" data-girar aria-pressed="false">Girar</button>
         <button type="button" class="b-chip b-entrar" data-entrar>Entrar al sitio <span aria-hidden="true">→</span></button>
     </div>
-    <p class="b-pista" aria-hidden="true">Arrastra para girarlo</p>`;
+    <p class="b-pista" aria-hidden="true">Toca una parte · arrastra para girar · acércate para desarmarlo</p>`;
 const lienzo = app.querySelector('.b-lienzo');
 const botones = [...app.querySelectorAll('.b-sec')];
 const guias = [...app.querySelectorAll('.b-guias line')];
 const titulo = app.querySelector('.b-titulo');
 const barra = app.querySelector('.b-barra');
 const pista = app.querySelector('.b-pista');
+const ficha = app.querySelector('.b-ficha');
+const senal = app.querySelector('.b-senal');
 
 // ------------------------------------------------------------------ escena
 let renderer;
@@ -141,6 +178,36 @@ modulos.forEach((m, i) => { m.grupo.userData.i = i; raiz.add(m.grupo); });
 const COLOR = { cara: new THREE.Color(P.ceramica), acento: new THREE.Color(P.guinda), icono: new THREE.Color(P.grafito), blanco: new THREE.Color('#ffffff') };
 const NUCLEO = new THREE.Vector3(...ENGRANE.centro);
 
+// partes del búho → sección; el engrane central queda fuera de los halos (está bajo la insignia)
+const DUENO = new Map();
+FICHAS.forEach((f, i) => buho.partes[f.parte].forEach(o => DUENO.set(o, i)));
+const objetosDe = i => buho.partes[FICHAS[i].parte].filter(o => o !== buho.engrane);
+const texturaHalo = (() => {
+    const c = document.createElement('canvas');
+    c.width = c.height = 256;
+    const x = c.getContext('2d');
+    const g = x.createRadialGradient(128, 128, 60, 128, 128, 128);
+    g.addColorStop(0, 'rgba(232,40,90,0)');
+    g.addColorStop(0.72, 'rgba(232,40,90,0.42)');
+    g.addColorStop(0.82, 'rgba(255,120,150,0.9)');
+    g.addColorStop(0.9, 'rgba(232,40,90,0.35)');
+    g.addColorStop(1, 'rgba(232,40,90,0)');
+    x.fillStyle = g;
+    x.fillRect(0, 0, 256, 256);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+})();
+const halos = [0, 1, 2].map(() => {
+    const h = new THREE.Sprite(new THREE.SpriteMaterial({ map: texturaHalo, transparent: true, depthTest: false, depthWrite: false, toneMapped: false }));
+    h.renderOrder = 10;
+    h.visible = false;
+    return h; // se dibujan aparte, encima del búho
+});
+const caja3 = new THREE.Box3();
+const centro3 = new THREE.Vector3();
+const tam3 = new THREE.Vector3();
+
 // ------------------------------------------------------------------ acomodo: horizontal o vertical
 // Horizontal: alas abiertas y las secciones en una sonrisa bajo las garras. Vertical (celular): alas a medias, para
 // que el búho no quede diminuto, y las secciones en dos filas.
@@ -152,15 +219,18 @@ function acomodar() {
         : SECCIONES.map((_, i) => { const x = -3.6 + 1.2 * i; return [x, -2.3 - 0.45 * Math.sqrt(Math.max(0, 1 - (x / 4.2) ** 2)), 0.9]; });
     // la caja que debe caber en pantalla (búho con las alas del acomodo, más las secciones con sus etiquetas)
     // abajo queda lugar para la barra de controles
-    const caja = vertical ? { x: [-3.2, 3.2], y: [-4.75, 2.3] } : { x: [-4.9, 4.9], y: [-4.0, 2.9] };
-    acomodo = { vertical, destinos, caja, alas: vertical ? 0.5 : 1 };
+    const caja = vertical ? { x: [-3.9, 3.9], y: [-4.75, 2.6] } : { x: [-4.9, 4.9], y: [-4.0, 2.9] };
+    acomodo = { vertical, destinos, caja, alas: vertical ? 0.85 : 1 };
 }
 
 // ------------------------------------------------------------------ estado: lo que el visitante pide y lo que se ve
 const pide = { alas: 1, desarme: 0, menu: 1, girar: false };
 const ve = { alas: 0, desarme: 0, menu: 0, luz: 0, ojo: 0 };
 const camara = { az: 0, el: 6, k: 1, vaz: 0, vel: 0, auto: true };
-let hover = -1;
+let hover = -1;       // módulo (sección) bajo el puntero o con foco
+let hoverParte = -1;  // parte del búho bajo el puntero
+let elegida = -1;     // parte con su ficha abierta
+const foco = { v: new THREE.Vector3() }; // centro de la parte elegida, para la línea a su ficha
 const acento = SECCIONES.map(() => 0);
 const t0 = performance.now();
 let entrada = REDUCIR ? 99 : 0; // segundos desde que empezó la entrada
@@ -198,7 +268,7 @@ lienzo.addEventListener('pointermove', e => {
     if (punteros.size === 2) {
         const [a, b] = [...punteros.values()];
         const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
-        if (pinza) camara.k = clamp(camara.k * (pinza / d), 0.55, 1.6);
+        if (pinza) camara.k = clamp(camara.k * (pinza / d), 0.45, 1.6);
         pinza = d;
         tomar();
         return;
@@ -219,12 +289,16 @@ const soltar = e => {
     punteros.delete(e.pointerId);
     pinza = 0;
     if (!punteros.size) lienzo.classList.remove('arrastra');
-    if (clic) { const i = tocar(e.clientX, e.clientY); if (i >= 0) ir(i); }
+    if (!clic) return;
+    const i = tocar(e.clientX, e.clientY);
+    if (i >= 0) { ir(i); return; }
+    const j = parteEn(e.clientX, e.clientY);
+    if (j >= 0) elegir(j); else if (elegida >= 0) cerrarFicha();
 };
 lienzo.addEventListener('pointerup', soltar);
 lienzo.addEventListener('pointercancel', e => { punteros.delete(e.pointerId); pinza = 0; lienzo.classList.remove('arrastra'); });
 lienzo.addEventListener('pointerleave', () => { if (!punteros.size) hover = -1; });
-lienzo.addEventListener('wheel', e => { e.preventDefault(); tomar(); camara.k = clamp(camara.k * Math.exp(e.deltaY * 0.0012), 0.55, 1.6); }, { passive: false });
+lienzo.addEventListener('wheel', e => { e.preventDefault(); tomar(); camara.k = clamp(camara.k * Math.exp(e.deltaY * 0.0012), 0.45, 1.6); }, { passive: false });
 
 const rayo = new THREE.Raycaster();
 const ndc = new THREE.Vector2();
@@ -238,9 +312,25 @@ function tocar(x, y) {
     while (o && o.userData.i === undefined) o = o.parent;
     return o ? o.userData.i : -1;
 }
+function parteEn(x, y) {
+    if (ve.menu < 0.6) return -1;
+    ndc.set((x / innerWidth) * 2 - 1, -(y / innerHeight) * 2 + 1);
+    rayo.setFromCamera(ndc, camera);
+    for (const golpe of rayo.intersectObject(buho.raiz, true)) {
+        if (!golpe.object.visible) continue;
+        let o = golpe.object;
+        while (o && !DUENO.has(o)) o = o.parent;
+        return o ? DUENO.get(o) : -1; // la primera superficie que se ve decide
+    }
+    return -1;
+}
+let ultimoApunte = 0;
 function apuntar(x, y) {
     hover = tocar(x, y);
-    lienzo.style.cursor = hover >= 0 ? 'pointer' : '';
+    const ahora = performance.now();
+    if (hover < 0 && ahora - ultimoApunte > 60) { ultimoApunte = ahora; hoverParte = parteEn(x, y); }
+    if (hover >= 0) hoverParte = -1;
+    lienzo.style.cursor = hover >= 0 || hoverParte >= 0 ? 'pointer' : '';
 }
 
 botones.forEach((b, i) => {
@@ -250,6 +340,34 @@ botones.forEach((b, i) => {
     b.addEventListener('focus', () => { hover = i; });
     b.addEventListener('blur', () => { if (hover === i) hover = -1; });
 });
+
+function elegir(i) {
+    elegida = (i + FICHAS.length) % FICHAS.length;
+    const f = FICHAS[elegida];
+    const nombre = SECCIONES[elegida];
+    ficha.querySelector('.b-ficha-paso').textContent = `${elegida + 1} de ${FICHAS.length} · ${f.donde}`;
+    ficha.querySelector('.b-ficha-ico svg').innerHTML = f.icono;
+    ficha.querySelector('#b-ficha-t').textContent = nombre;
+    ficha.querySelector('.b-ficha-texto').textContent = f.texto;
+    ficha.querySelector('[data-ir]').textContent = `Ir a ${nombre} →`;
+    ficha.hidden = false;
+    app.classList.add('is-ficha');
+    pista.classList.add('is-oculta');
+    camara.auto = false;
+    ultimaMano = performance.now();
+    // las alas se ven mejor abiertas; para las garras y la cara no estorban
+    if (f.parte === 'alas') pide.alas = 1;
+}
+function cerrarFicha() {
+    elegida = -1;
+    ficha.hidden = true;
+    app.classList.remove('is-ficha');
+}
+ficha.querySelector('[data-cerrar]').addEventListener('click', cerrarFicha);
+ficha.querySelector('[data-ant]').addEventListener('click', () => elegir(elegida - 1));
+ficha.querySelector('[data-sig]').addEventListener('click', () => elegir(elegida + 1));
+ficha.querySelector('[data-ir]').addEventListener('click', () => ir(elegida));
+barra.querySelector('[data-recorrido]').addEventListener('click', () => elegir(elegida >= 0 ? elegida + 1 : 0));
 
 const botonAlas = barra.querySelector('[data-alas]');
 const botonDesarme = barra.querySelector('[data-desarme]');
@@ -270,7 +388,11 @@ botonGirar.addEventListener('click', () => {
     if (pide.girar) { camara.auto = false; ultimaMano = performance.now(); }
 });
 barra.querySelector('[data-entrar]').addEventListener('click', () => salir('buho-entrar'));
-addEventListener('keydown', e => { if (e.key === 'Escape') salir('buho-entrar'); });
+addEventListener('keydown', e => {
+    if (e.key === 'Escape') { if (elegida >= 0) cerrarFicha(); else salir('buho-entrar'); }
+    if (elegida >= 0 && e.key === 'ArrowRight') elegir(elegida + 1);
+    if (elegida >= 0 && e.key === 'ArrowLeft') elegir(elegida - 1);
+});
 
 let saliendo = false;
 function ojoEnPantalla() {
@@ -308,7 +430,9 @@ function cuadro(ahora) {
     ve.luz = encender;
     ve.ojo = clamp01((entrada - 0.4) / 0.6);
     ve.alas = seguir(ve.alas, pide.alas * acomodo.alas * abrir, 3.2);
-    ve.desarme = seguir(ve.desarme, pide.desarme, 2.6);
+    // acercarse lo desarma (por debajo de 0.8 de la distancia de encuadre); alejarse lo vuelve a armar
+    const porZoom = clamp01((0.8 - camara.k) / 0.3);
+    ve.desarme = seguir(ve.desarme, Math.max(pide.desarme, porZoom), 2.6);
     ve.menu = menu;
 
     // cámara: entra de lejos; luego se mece sola o sigue al visitante (con inercia), y vuelve a mecerse tras 12 s quieto
@@ -339,7 +463,10 @@ function cuadro(ahora) {
         const f = sale((menu * 1.3 - 0.05 * i) / 0.95);
         return { f, acento: Math.min(1, acento[i]), etiqueta: clamp01((menu - 0.55 - 0.03 * i) / 0.35), destino };
     });
+    // la parte señalada: la de la ficha abierta, o la que está bajo el puntero (en el búho o en su sección)
+    const señalada = elegida >= 0 ? elegida : hoverParte >= 0 ? hoverParte : hover;
     dibujar(e, t);
+    marcar(señalada, t);
     if (!listo) {
         listo = true;
         avisar('buho-listo');
@@ -406,6 +533,40 @@ function dibujar(e, t) {
         l.setAttribute('x2', mx.toFixed(1)); l.setAttribute('y2', my.toFixed(1));
         l.style.opacity = (m.etiqueta * (0.25 + 0.75 * m.acento) * (1 - e.abierto)).toFixed(3);
     });
+}
+
+// halo guinda sobre la parte señalada y, con la ficha abierta, una línea de la parte a la ficha
+function marcar(i, t) {
+    const objetos = i >= 0 && ve.menu > 0.6 ? objetosDe(i) : [];
+    halos.forEach((h, k) => {
+        const o = objetos[k];
+        h.visible = Boolean(o);
+        if (!o) return;
+        caja3.setFromObject(o);
+        caja3.getCenter(centro3);
+        caja3.getSize(tam3);
+        h.position.copy(centro3);
+        // aro ajustado a la parte, sin pasar de 1.5 (las alas son enormes: ahí marca el centro del ala)
+        h.scale.setScalar(clamp(Math.max(tam3.x, tam3.y) * 1.15, 0.35, 1.5) * (1 + 0.04 * Math.sin(t * 4)));
+        h.material.opacity = elegida === i ? 0.9 : 0.55;
+        if (k === 0 && elegida === i) foco.v.copy(centro3);
+    });
+    renderer.autoClear = false;
+    renderer.clearDepth();
+    halos.forEach(h => { if (h.visible) renderer.render(h, camera); });
+    renderer.autoClear = true;
+    const linea = senal.querySelector('line');
+    const punto = senal.querySelector('circle');
+    if (elegida < 0 || !objetos.length) { senal.style.opacity = '0'; return; }
+    const [px, py] = pantalla(foco.v);
+    const r = ficha.getBoundingClientRect();
+    const fx = clamp(px, r.left + 16, r.right - 16);
+    const fy = py < r.top ? r.top : py > r.bottom ? r.bottom : r.top + 16;
+    const ex = px < r.left ? r.left : px > r.right ? r.right : fx;
+    linea.setAttribute('x1', px.toFixed(1)); linea.setAttribute('y1', py.toFixed(1));
+    linea.setAttribute('x2', ex.toFixed(1)); linea.setAttribute('y2', fy.toFixed(1));
+    punto.setAttribute('cx', px.toFixed(1)); punto.setAttribute('cy', py.toFixed(1));
+    senal.style.opacity = '1';
 }
 
 function ajustar() {

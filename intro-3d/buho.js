@@ -270,6 +270,8 @@ export function construirBuho(M, P) {
     if (P) P_MARFIL = P.marfil;
     const raiz = new THREE.Group();
     const vivos = { escamas: [], corazas: [], piezas: [], alas: [], frontales: [], patas: [] };
+    // partes que la entrada viva explica (cada una es una sección del sitio): grupos que se pueden señalar y tocar
+    const partes = { ojos: [], pecho: [], engranes: [], garras: [], alas: [], cara: [], emblema: [] };
 
     // Núcleo: el mecanismo grafito que se ve entre las escamas, con cables guinda y engranes.
     const nucleo = sombra(new THREE.Mesh(new THREE.SphereGeometry(1, 40, 28), M.grafito));
@@ -304,6 +306,7 @@ export function construirBuho(M, P) {
     for (const { lado, a, u, tam } of VENTANAS) {
         const { p, n: nn } = sobre(CUERPO, lado * a * D2R, u, 0.93);
         const g = new THREE.Group();
+        partes.engranes.push(g);
         g.position.copy(p);
         orientar(g, nn, new THREE.Vector3(0, 1, 0));
         g.scale.set(tam * OVALO[0], tam * OVALO[1], tam);
@@ -342,11 +345,13 @@ export function construirBuho(M, P) {
     engrane.add(cubo);
     engrane.position.set(...ENGRANE.centro);
     raiz.add(engrane);
+    partes.engranes.push(engrane);
 
     // Logo del sitio en el pecho, iluminado: placa grafito con borde de acero, el búho (S y ceja) en neón guinda, el
     // ojo en blanco, y un halo suave detrás. Al desarmarse sale al frente con las demás piezas.
     const LOGO = { u: 0.13, ancho: 0.36 };
     const logo = new THREE.Group();
+    partes.pecho.push(logo);
     {
         const { p, n: nn } = sobre(CUERPO, 0, LOGO.u, 1.0);
         logo.position.copy(p).addScaledVector(nn, 0.07);
@@ -579,6 +584,7 @@ export function construirBuho(M, P) {
         discos.setColorAt(i, r.guinda ? new THREE.Color('#b0284f') : claro.clone().lerp(new THREE.Color('#ffffff'), 0.5).multiplyScalar(0.92 + 0.08 * r.tono));
     });
     cara.add(discos);
+    partes.cara.push(discos);
 
     // Collar: plumas que bordean toda la cara en forma de corazón, con algunas puntas guinda.
     for (let k = 0; k < 44; k++) {
@@ -596,6 +602,7 @@ export function construirBuho(M, P) {
     OJOS.forEach(([ox, oy, oz], lado) => {
         const s = lado === 0 ? -1 : 1;
         const g = new THREE.Group();
+        partes.ojos.push(g);
         const c = enCara(ox, oy);
         g.position.copy(c.p).addScaledVector(c.n, 0.02);
         g.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), c.n.clone().lerp(new THREE.Vector3(0, 0, 1), 0.55).normalize());
@@ -711,6 +718,7 @@ export function construirBuho(M, P) {
     // neón y una concha de marfil que lo enmarca por arriba.
     const ventana = sobreCara(0, 1.2, -0.012);
     const coronilla = new THREE.Group();
+    partes.emblema.push(coronilla);
     coronilla.position.copy(ventana.p);
     coronilla.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), ventana.n);
     cara.add(coronilla);
@@ -836,6 +844,7 @@ export function construirBuho(M, P) {
         ala.raiz.scale.x = lado;
         raiz.add(ala.raiz);
         vivos.alas.push(ala);
+        partes.alas.push(ala.raiz);
         // dos pistones hidráulicos del costado del cuerpo al brazo del ala: sostienen el ala y su largo sale de la pose
         for (const [desde, padre, hasta] of [[[lado * 0.36, 0.12, 0.26], ala.brazo, [0.5, -0.1, 0.16]], [[lado * 0.4, -0.18, 0.22], ala.codo, [0.22, -0.08, 0.14]]]) {
             const g = new THREE.Group();
@@ -993,6 +1002,7 @@ export function construirBuho(M, P) {
         }
         raiz.add(g);
         vivos.patas.push(g);
+        partes.garras.push(g);
     }
 
     // Cola: abanico de 7 plumas hacia abajo y atrás.
@@ -1103,7 +1113,7 @@ export function construirBuho(M, P) {
         posarPistones();
     }
 
-    return { raiz, posar, lentes, engrane };
+    return { raiz, posar, lentes, engrane, partes };
 }
 
 /** Placa de blindaje: una lámina de marfil con bisel, punta redondeada y dos tornillos, a lo largo de +x. */
