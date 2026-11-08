@@ -3,6 +3,8 @@
 // garras, y las piezas sueltas que salen al desarmarse (corazas, tornillos, rodamientos, engranes) con órbitas finas.
 // Referencia: la ilustración del búho mecánico. posar(e) pone cada pieza donde dice estado(t) en modelo.js.
 import * as THREE from 'three';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import { MARK_BODY, MARK_BROW, MARK_EYE } from '../src/lib/brand-mark.js';
 import { MODULO, ENGRANE, OJOS, CUERPO, CABEZA, ESCALA_CABEZA, HOMBRO, N_PLUMAS, N_SECUNDARIAS } from './modelo.js';
 
 const D2R = Math.PI / 180;
@@ -104,7 +106,11 @@ export function materiales(P) {
     const orbita = new THREE.LineBasicMaterial({ color: P.guinda, transparent: true, opacity: 0 });
     // neón guinda: los aros que brillan dentro del mecanismo (no reciben luz: su color es su brillo)
     const neon = new THREE.MeshBasicMaterial({ color: '#ff2a5f', toneMapped: false });
-    return { picoMetal, neon, marfil, marfilDoble, pico, grafito, grafitoDoble, acero, borde, cable, garra, pluma, iris, pupila, vidrio, ceramica, tinta, orbita };
+    // el logo se voltea en y al pasar del SVG a 3D: sus caras van por los dos lados
+    const ojoLogo = new THREE.MeshBasicMaterial({ color: '#fff4f6', side: THREE.DoubleSide, toneMapped: false });
+    const neonLogo = new THREE.MeshBasicMaterial({ color: '#ff2a5f', side: THREE.DoubleSide, toneMapped: false });
+    const halo = new THREE.MeshBasicMaterial({ map: texturaHalo(), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false });
+    return { ojoLogo, neonLogo, halo, picoMetal, neon, marfil, marfilDoble, pico, grafito, grafitoDoble, acero, borde, cable, garra, pluma, iris, pupila, vidrio, ceramica, tinta, orbita };
 }
 
 // ---------------------------------------------------------------- piezas básicas
@@ -153,6 +159,22 @@ function hueso(largo, radio, M, mat = M.marfil) {
 }
 
 /** Bisagra: disco grafito, aro guinda y eje de acero, con el eje en z. */
+/** Halo radial guinda para lo que brilla (el logo del pecho). */
+function texturaHalo() {
+    const c = document.createElement('canvas');
+    c.width = c.height = 128;
+    const g = c.getContext('2d');
+    const r = g.createRadialGradient(64, 64, 8, 64, 64, 64);
+    r.addColorStop(0, 'rgba(255,42,95,0.55)');
+    r.addColorStop(0.45, 'rgba(255,42,95,0.18)');
+    r.addColorStop(1, 'rgba(255,42,95,0)');
+    g.fillStyle = r;
+    g.fillRect(0, 0, 128, 128);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+}
+
 function bisagra(r, M) {
     const g = new THREE.Group();
     const disco = sombra(new THREE.Mesh(new THREE.CylinderGeometry(r, r, 0.07, 28).rotateX(Math.PI / 2), M.grafito));
@@ -301,6 +323,38 @@ export function construirBuho(M, P) {
     engrane.position.set(...ENGRANE.centro);
     raiz.add(engrane);
 
+    // Logo del sitio en el pecho, iluminado: placa grafito con borde de acero, el búho (S y ceja) en neón guinda, el
+    // ojo en blanco, y un halo suave detrás. Al desarmarse sale al frente con las demás piezas.
+    const LOGO = { u: 0.2, ancho: 0.4 };
+    const logo = new THREE.Group();
+    {
+        const { p, n: nn } = sobre(CUERPO, 0, LOGO.u, 1.0);
+        logo.position.copy(p).addScaledVector(nn, 0.07);
+        orientar(logo, nn, new THREE.Vector3(0, 1, 0));
+        const placa = sombra(new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.04, 56).rotateX(Math.PI / 2), M.grafito));
+        placa.scale.set(0.25, 0.28, 1);
+        const borde = sombra(new THREE.Mesh(new THREE.TorusGeometry(1, 0.06, 10, 64), M.acero));
+        borde.scale.set(0.25, 0.28, 0.35);
+        borde.position.z = 0.02;
+        logo.add(placa, borde);
+        const svg = new SVGLoader().parse(`<svg xmlns="http://www.w3.org/2000/svg"><path d="${MARK_BODY}"/><path d="${MARK_BROW}"/><path d="${MARK_EYE}"/></svg>`);
+        const k = LOGO.ancho / 379;
+        svg.paths.forEach((ruta, i) => {
+            const geo = new THREE.ExtrudeGeometry(ruta.toShapes(true), { depth: 12, bevelEnabled: false, curveSegments: 10 });
+            geo.translate(-222.5, -248, 0);
+            geo.scale(k, -k, k);
+            const m = new THREE.Mesh(geo, i === 2 ? M.ojoLogo : M.neonLogo);
+            m.position.z = 0.03;
+            logo.add(m);
+        });
+        const halo = new THREE.Mesh(new THREE.PlaneGeometry(0.75, 0.8), M.halo);
+        halo.position.z = 0.025;
+        logo.add(halo);
+        raiz.add(logo);
+        vivos.frontales.push({ obj: logo, p0: logo.position.clone(), q0: logo.quaternion.clone(), dir: new THREE.Vector3(0, 0.3, 1) });
+    }
+    const bajoLogo = (a, u) => Math.abs(a) < 0.4 && u > LOGO.u - 0.08 && u < LOGO.u + 0.42;
+
     // Escamas del pecho: filas de marfil que se traslapan, cada una apuntando hacia abajo.
     let n = 0;
     for (let fila = 0; fila < 10; fila++) {
@@ -309,7 +363,7 @@ export function construirBuho(M, P) {
         for (let k = 0; k < cuantas; k++) {
             const ancho = fila < 3 ? 115 : fila < 6 ? 84 : 58; // arriba la gola da la vuelta; abajo asoma el mecanismo
             const a = lerp(-ancho, ancho, k / (cuantas - 1)) * D2R + (fila % 2 ? 0.05 : 0);
-            if (enVentana(a, u)) continue;
+            if (enVentana(a, u) || bajoLogo(a, u)) continue;
             const { p, n: nn } = sobre(CUERPO, a, u, 1.0);
             // las puntas guinda dibujan una V de chevrón en el pecho, como en la propuesta del torso
             const brazoV = (fila - 2) * 0.12;
@@ -786,16 +840,17 @@ export function construirBuho(M, P) {
         aroCadera.position.z = 0.075;
         cadera.add(aroCadera);
         g.add(cadera);
+        // muslo: baja recto y apenas al frente (de frente las dos piernas quedan paralelas)
         const muslo = new THREE.Group();
-        muslo.rotation.set(0, -0.5, -1.75);
-        muslo.add(hueso(0.42, 0.08, M, M.acero));
+        muslo.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, 0.22).normalize());
+        muslo.add(hueso(0.42, 0.1, M, M.acero));
         // muslo emplumado, como el de un búho real: tres anillos de plumas que bajan hacia la rodilla
         for (let anillo = 0; anillo < 3; anillo++) {
             for (let k = 0; k < 9; k++) {
                 const th = (k / 9) * Math.PI * 2 + anillo * 0.35;
                 const n = new THREE.Vector3(0, Math.cos(th), Math.sin(th));
-                const m = sombra(new THREE.Mesh(hoja(0.2 - anillo * 0.025, 0.12, 0.3, true), (k + anillo) % 4 === 0 ? M.pluma : M.marfilDoble));
-                m.position.set(0.02 + anillo * 0.1, n.y * 0.1, n.z * 0.1);
+                const m = sombra(new THREE.Mesh(hoja(0.2 - anillo * 0.03, 0.17, 0.3, true), (k + anillo) % 4 === 0 ? M.pluma : M.marfilDoble));
+                m.position.set(0.0 + anillo * 0.08, n.y * 0.135, n.z * 0.135);
                 orientar(m, n, new THREE.Vector3(1, 0, 0));
                 muslo.add(m);
             }
@@ -815,37 +870,47 @@ export function construirBuho(M, P) {
         // espinilla: sale de la rodilla hacia abajo y al frente; acero con pistón de marfil
         const tibia = new THREE.Group();
         tibia.position.x = 0.42;
-        tibia.rotation.z = 0.75;
         muslo.add(tibia);
+        // espinilla recta hacia abajo, un poco hacia atrás, como la pata de un ave
+        tibia.quaternion.copy(muslo.quaternion).invert().multiply(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, -0.08).normalize()));
         // espinilla de acero pulido, larga y recta como en la propuesta de la pierna, con pistón grafito detrás
-        tibia.add(hueso(0.38, 0.06, M, M.acero));
-        const camisa = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.2, 12).rotateZ(Math.PI / 2), M.grafito));
-        camisa.position.set(0.12, 0.075, -0.01);
-        const vastago = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.16, 10).rotateZ(Math.PI / 2), M.acero);
-        vastago.position.set(0.29, 0.075, -0.01);
-        const anillo = new THREE.Mesh(new THREE.TorusGeometry(0.064, 0.01, 8, 24).rotateY(Math.PI / 2), M.borde);
-        anillo.position.x = 0.3;
-        tibia.add(camisa, vastago, anillo);
+        tibia.add(hueso(0.36, 0.085, M, M.acero));
+        // dos pistones a los lados de la espinilla: camisa grafito y vástago de acero
+        for (const z of [-0.09, 0.09]) {
+            const camisa = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.18, 14).rotateZ(Math.PI / 2), M.grafito));
+            camisa.position.set(0.12, 0.0, z);
+            const vastago = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.14, 10).rotateZ(Math.PI / 2), M.acero);
+            vastago.position.set(0.27, 0.0, z);
+            tibia.add(camisa, vastago);
+        }
+        for (const x of [0.06, 0.3]) {
+            const anillo = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.012, 8, 28).rotateY(Math.PI / 2), M.borde);
+            anillo.position.x = x;
+            tibia.add(anillo);
+        }
         g.add(muslo);
         // el tobillo, al final de la espinilla, vuelve a la orientación de la pata: los dedos conservan su ángulo
         const tobillo = new THREE.Group();
-        tobillo.position.x = 0.38;
+        tobillo.position.x = 0.36;
         tibia.add(tobillo);
         tobillo.quaternion.copy(muslo.quaternion.clone().multiply(tibia.quaternion)).invert();
-        const bis = bisagra(0.085, M);
-        const aroT = new THREE.Mesh(new THREE.TorusGeometry(0.05, 0.008, 8, 32), M.neon);
+        const bis = bisagra(0.1, M);
+        bis.rotation.y = Math.PI / 2; // de lado, como la rodilla
+        const aroT = new THREE.Mesh(new THREE.TorusGeometry(0.065, 0.009, 8, 32).rotateY(Math.PI / 2), M.neon);
+        aroT.position.set(0.05, 0, 0);
         aroT.position.z = 0.05;
+        aroT.position.set(0.05, 0, 0);
         tobillo.add(bis, aroT);
         for (const [giro, largo, caida] of [[-0.42, 1, 0.55], [0, 1.15, 0.5], [0.42, 1, 0.55], [Math.PI, 0.7, 0.3]]) {
             const dedo = new THREE.Group();
             dedo.rotation.set(0, -Math.PI / 2 + giro, -caida);
             let padre = dedo;
-            for (const [l, r] of [[0.14, 0.036], [0.12, 0.032], [0.1, 0.029]]) {
+            for (const [l, r] of [[0.14, 0.046], [0.12, 0.041], [0.1, 0.037]]) {
                 padre.add(hueso(l * largo, r, M, M.acero));
                 const aroDedo = new THREE.Mesh(new THREE.TorusGeometry(r * 1.05, r * 0.28, 8, 20).rotateY(Math.PI / 2), M.borde);
                 aroDedo.position.x = l * largo * 0.88;
                 padre.add(aroDedo);
-                const tapa = sombra(new THREE.Mesh(new THREE.BoxGeometry(l * largo * 0.7, r * 0.9, r * 2.1), M.marfil));
+                const tapa = sombra(new THREE.Mesh(new THREE.CapsuleGeometry(r * 0.55, l * largo * 0.45, 4, 10).rotateZ(Math.PI / 2), M.marfil));
                 tapa.position.set(l * largo * 0.5, r * 0.75, 0);
                 padre.add(tapa);
                 const nudo = bisagra(r * 1.15, M);
@@ -858,7 +923,7 @@ export function construirBuho(M, P) {
                 padre.add(sig);
                 padre = sig;
             }
-            const una = sombra(new THREE.Mesh(geometriaUna(0.05, 0.32 * largo), M.garra));
+            const una = sombra(new THREE.Mesh(geometriaUna(0.06, 0.32 * largo), M.garra));
             una.rotation.z = -Math.PI / 2;
             padre.add(una);
             tobillo.add(dedo);
