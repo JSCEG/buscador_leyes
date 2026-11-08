@@ -375,7 +375,8 @@ function elegir(i, { solo = false } = {}) {
     const final = elegida === FINAL;
     const f = FICHAS[elegida];
     const nombre = SECCIONES[elegida];
-    ficha.querySelector('.b-ficha-paso').textContent = final ? 'Listo' : `${elegida + 1} de ${FICHAS.length} · ${f.donde}`;
+    // solo el número: el nombre de la sección ya va en grande (decir «los ojos» además confundía)
+    ficha.querySelector('.b-ficha-paso').textContent = final ? 'Listo' : `${elegida + 1} de ${FICHAS.length}`;
     ficha.querySelector('.b-ficha-ico svg').innerHTML = final ? ICONO_TOCAR : f.icono;
     ficha.querySelector('#b-ficha-t').textContent = final ? (GUIA ? 'Elige una sección' : '¿Alguna no quedó clara?') : nombre;
     ficha.querySelector('.b-ficha-texto').textContent = final
