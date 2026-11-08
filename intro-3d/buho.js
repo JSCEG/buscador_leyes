@@ -106,11 +106,12 @@ export function materiales(P) {
     const orbita = new THREE.LineBasicMaterial({ color: P.guinda, transparent: true, opacity: 0 });
     // neón guinda: los aros que brillan dentro del mecanismo (no reciben luz: su color es su brillo)
     const neon = new THREE.MeshBasicMaterial({ color: '#ff2a5f', toneMapped: false });
-    // el logo se voltea en y al pasar del SVG a 3D: sus caras van por los dos lados
-    const ojoLogo = new THREE.MeshBasicMaterial({ color: '#fff4f6', side: THREE.DoubleSide, toneMapped: false });
-    const neonLogo = new THREE.MeshBasicMaterial({ color: '#ff2a5f', side: THREE.DoubleSide, toneMapped: false });
-    const halo = new THREE.MeshBasicMaterial({ map: texturaHalo(), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false });
-    return { ojoLogo, neonLogo, halo, picoMetal, neon, marfil, marfilDoble, pico, grafito, grafitoDoble, acero, borde, cable, garra, pluma, iris, pupila, vidrio, ceramica, tinta, orbita };
+    // logo del pecho: placa iluminada marfil, búho negro brillante y ojo neón guinda (el logo se voltea en y al pasar
+    // del SVG a 3D, por eso sus caras van por los dos lados)
+    const placaLogo = new THREE.MeshBasicMaterial({ color: '#fffaf2', toneMapped: false });
+    const negroLogo = new THREE.MeshBasicMaterial({ color: '#141417', side: THREE.DoubleSide }); // negro mate: el metal reflejaba blanco de frente
+    const ojoLogo = new THREE.MeshBasicMaterial({ color: '#ff2a5f', side: THREE.DoubleSide, toneMapped: false });
+    return { placaLogo, negroLogo, ojoLogo, picoMetal, neon, marfil, marfilDoble, pico, grafito, grafitoDoble, acero, borde, cable, garra, pluma, iris, pupila, vidrio, ceramica, tinta, orbita };
 }
 
 // ---------------------------------------------------------------- piezas básicas
@@ -159,22 +160,6 @@ function hueso(largo, radio, M, mat = M.marfil) {
 }
 
 /** Bisagra: disco grafito, aro guinda y eje de acero, con el eje en z. */
-/** Halo radial guinda para lo que brilla (el logo del pecho). */
-function texturaHalo() {
-    const c = document.createElement('canvas');
-    c.width = c.height = 128;
-    const g = c.getContext('2d');
-    const r = g.createRadialGradient(64, 64, 8, 64, 64, 64);
-    r.addColorStop(0, 'rgba(255,42,95,0.55)');
-    r.addColorStop(0.45, 'rgba(255,42,95,0.18)');
-    r.addColorStop(1, 'rgba(255,42,95,0)');
-    g.fillStyle = r;
-    g.fillRect(0, 0, 128, 128);
-    const t = new THREE.CanvasTexture(c);
-    t.colorSpace = THREE.SRGBColorSpace;
-    return t;
-}
-
 function bisagra(r, M) {
     const g = new THREE.Group();
     const disco = sombra(new THREE.Mesh(new THREE.CylinderGeometry(r, r, 0.07, 28).rotateX(Math.PI / 2), M.grafito));
@@ -331,7 +316,7 @@ export function construirBuho(M, P) {
         const { p, n: nn } = sobre(CUERPO, 0, LOGO.u, 1.0);
         logo.position.copy(p).addScaledVector(nn, 0.07);
         orientar(logo, nn, new THREE.Vector3(0, 1, 0));
-        const placa = sombra(new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.04, 56).rotateX(Math.PI / 2), M.grafito));
+        const placa = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.04, 56).rotateX(Math.PI / 2), M.placaLogo);
         placa.scale.set(0.25, 0.28, 1);
         const borde = sombra(new THREE.Mesh(new THREE.TorusGeometry(1, 0.06, 10, 64), M.acero));
         borde.scale.set(0.25, 0.28, 0.35);
@@ -343,13 +328,10 @@ export function construirBuho(M, P) {
             const geo = new THREE.ExtrudeGeometry(ruta.toShapes(true), { depth: 12, bevelEnabled: false, curveSegments: 10 });
             geo.translate(-222.5, -248, 0);
             geo.scale(k, -k, k);
-            const m = new THREE.Mesh(geo, i === 2 ? M.ojoLogo : M.neonLogo);
+            const m = new THREE.Mesh(geo, i === 2 ? M.ojoLogo : M.negroLogo);
             m.position.z = 0.03;
             logo.add(m);
         });
-        const halo = new THREE.Mesh(new THREE.PlaneGeometry(0.75, 0.8), M.halo);
-        halo.position.z = 0.025;
-        logo.add(halo);
         raiz.add(logo);
         vivos.frontales.push({ obj: logo, p0: logo.position.clone(), q0: logo.quaternion.clone(), dir: new THREE.Vector3(0, 0.3, 1) });
     }
