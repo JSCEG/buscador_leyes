@@ -2,7 +2,9 @@
  * Thumbnails for the «¿Cómo funciona?» cards: each figure, light and dark, captured from the dev
  * server with headless Chrome (DevTools protocol, no extra packages) and saved as transparent WebP in
  * public/conceptos/miniaturas/. Needs `npm run dev` running.
- * Run: node scripts/build-concept-thumbs.mjs [--base http://localhost:5173] [--chrome "C:\\...\\chrome.exe"]
+ * The 3D machines (conceptos-3d) are captured from their WebGL canvas in the general view, without the page's
+ * buttons, labels or sketch background.
+ * Run: node scripts/build-concept-thumbs.mjs [--base http://localhost:5173] [--chrome "C:\\...\\chrome.exe"] [--solo motor,refinacion]
  */
 import { spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
@@ -18,11 +20,15 @@ const PORT = 9333;
 const WIDTH = 760;
 const SETTLE_MS = 2600;
 // Only the drawing: no buttons, chips or part names.
-const CLEAN_CSS = '.cf-names-toggle,.cf-chips,[data-part="labels"],.iso-plate-corners{display:none!important}';
+const CLEAN_CSS = '.cf-names-toggle,.cf-chips,[data-part="labels"],.iso-plate-corners{display:none!important}'
+    // 3D: only the canvas, on a transparent page
+    + '.g-escena-acciones,.g-hud,.g-nums,.g-marca,.g-flot,.g-etiqueta,.g-guia{display:none!important}'
+    + 'html,body,#app,.g-escena{background:transparent!important;border:0!important}.g-escena::before,.g-escena::after{display:none!important}';
+const SOLO = arg('--solo', '').split(',').filter(Boolean);
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const profile = mkdtempSync(join(tmpdir(), 'thumbs-'));
-const chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${profile}`, '--hide-scrollbars', '--force-device-scale-factor=1', 'about:blank'], { stdio: 'ignore' });
+const chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${profile}`, '--hide-scrollbars', '--force-device-scale-factor=1', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', 'about:blank'], { stdio: 'ignore' });
 
 let target;
 for (let i = 0; i < 40 && !target; i++) {
@@ -53,7 +59,7 @@ await send('Emulation.setDeviceMetricsOverride', { width: WIDTH, height: 900, de
 await send('Emulation.setDefaultBackgroundColorOverride', { color: { r: 0, g: 0, b: 0, a: 0 } });
 
 mkdirSync(OUT, { recursive: true });
-const figures = [...new Set(CONCEPTOS.map(c => c.figura))];
+const figures = [...new Set(CONCEPTOS.map(c => c.figura))].filter(f => !SOLO.length || SOLO.includes(f));
 let bytes = 0;
 for (const figura of figures) {
     for (const theme of ['light', 'dark']) {
@@ -62,8 +68,17 @@ for (const figura of figures) {
         await send('Page.navigate', { url: `${BASE}/conceptos/${file}.html` });
         await loaded;
         await send('Runtime.evaluate', { expression: `document.head.insertAdjacentHTML('beforeend', '<style>${CLEAN_CSS}</style>')` });
-        await sleep(SETTLE_MS);
-        const { result } = await send('Runtime.evaluate', {
+        // 3D: stop the tour, go to the general view and let the camera settle
+        const { result: es3d } = await send('Runtime.evaluate', {
+            expression: `(async () => { if (!document.querySelector('.g-lienzo')) return false; await new Promise(r => setTimeout(r, 1500)); document.querySelector('[data-recorrido][aria-pressed=true]')?.click(); document.querySelector('[data-vista=general]')?.click(); return true; })()`,
+            awaitPromise: true,
+            returnByValue: true,
+        });
+        await sleep(es3d.value ? 3500 : SETTLE_MS);
+        const { result } = es3d.value ? await send('Runtime.evaluate', {
+            expression: `JSON.stringify((() => { const b = document.querySelector('.g-lienzo').getBoundingClientRect(); return { x: b.x, y: b.y + scrollY, width: b.width, height: b.height }; })())`,
+            returnByValue: true,
+        }) : await send('Runtime.evaluate', {
             // The anatomy figures draw in .iso-stage; the visual-explainer ones have their own markup: take the largest svg.
             expression: `JSON.stringify((() => { const b = [...document.querySelectorAll('.iso-stage svg, svg')].map(s => s.getBoundingClientRect()).sort((a, c) => c.width * c.height - a.width * a.height)[0]; return { x: b.x, y: b.y + scrollY, width: b.width, height: b.height }; })())`,
             returnByValue: true,
