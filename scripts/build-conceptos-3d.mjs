@@ -20,6 +20,7 @@ const SKILL = process.env.TEARDOWN_DIR || path.join(os.homedir(), '.claude', 'sk
 const FUENTES = path.join(ROOT, 'conceptos-3d');
 const DESTINO = path.join(ROOT, 'public', 'conceptos');
 const COMUN_CSS = fs.readFileSync(path.join(FUENTES, 'comun', 'estilo.css'), 'utf8');
+const PLANTA_CSS = fs.readFileSync(path.join(FUENTES, 'planta-comun', 'estilo.css'), 'utf8');
 const TITULOS = JSON.parse(fs.readFileSync(path.join(FUENTES, 'titulos.json'), 'utf8'));
 
 const nombres = process.argv.slice(2).length ? process.argv.slice(2) : fs.readdirSync(FUENTES).filter(d => fs.existsSync(path.join(FUENTES, d, 'main.js')));
@@ -32,7 +33,9 @@ for (const figura of nombres) {
     // el estilo común va justo antes del style.css de la máquina, para que ella pueda ajustarlo
     const propio = fs.existsSync(path.join(carpeta, 'style.css')) ? fs.readFileSync(path.join(carpeta, 'style.css'), 'utf8') : '';
     if (!propio || !html.includes(propio)) throw new Error(`${figura}: falta su style.css (aunque sea solo un comentario)`);
-    html = html.replace(propio, () => `${COMUN_CSS}\n${propio}`);
+    // las plantas con física empiezan su style.css con la marca «usa planta-comun» y llevan también ese estilo
+    const planta = propio.startsWith('/* usa planta-comun') ? `${PLANTA_CSS}\n` : '';
+    html = html.replace(propio, () => `${COMUN_CSS}\n${planta}${propio}`);
     const titulo = TITULOS[figura] || figura;
     for (const [tema, sufijo] of [['oscuro', ''], ['claro', '-light']]) {
         const pagina = html

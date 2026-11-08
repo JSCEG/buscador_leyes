@@ -1,1 +1,4 @@
-/* Lo propio del ciclo combinado. Lo común está en conceptos-3d/comun/estilo.css. */
+/* usa planta-comun. Lo propio de la central de ciclo combinado; lo común está en conceptos-3d/comun/estilo.css y conceptos-3d/planta-comun/estilo.css. */
+.h-tabla-texto td:nth-child(2), .h-tabla-texto td:nth-child(3), .h-tabla-texto th:nth-child(2), .h-tabla-texto th:nth-child(3) { text-align: right; }
+.h-barra-f { grid-template-columns: 196px 1fr 34px; }
+@media (max-width: 619px) { .h-barra-f { grid-template-columns: 132px 1fr 30px; } }

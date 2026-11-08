@@ -1,387 +1,350 @@
-// «Central de ciclo combinado», en 3D: una turbina de gas mueve el primer generador; sus gases de escape, aún muy
-// calientes, hierven agua en el recuperador de calor (HRSG), y ese vapor mueve una turbina de vapor con el segundo
-// generador. El vapor se vuelve agua en el condensador, que se enfría con la torre, y regresa al recuperador.
+// «Central de ciclo combinado», en 3D y con el formato Búho de «¿Cómo funciona?». Una central con el equipo de Empalme I (CFE, Sonora): dos
+// turbinas de gas con sus generadores, dos recuperadores de calor y una turbina de vapor con su generador, el condensador, la torre, la
+// chimenea, la subestación, la RNT y las RGD. Cuatro formas de verla: ciclo combinado, ciclo abierto, clima y arranque. Puntos clave con su
+// ficha, ver por dentro, desarmar, día y noche, y gráficas que leen las mismas cifras que mueven la central (modelo.js). Se arma con:
+// node scripts/build-conceptos-3d.mjs ciclo-combinado
 //
-// Entrada: la carga de la planta (30 a 100 %). Los dos generadores giran siempre a 3,600 vueltas por minuto (60 Hz,
-// dos polos): la carga cambia la potencia, no la velocidad.
-//
-// Cifras de una planta típica «1×1» (una turbina de gas y una de vapor). Son aproximadas: sirven para ver las
-// proporciones, no los datos de una central en particular.
-// - A plena carga: 450 MW, 300 de la turbina de gas y 150 de la de vapor (la de vapor da 50 % más con el mismo gas).
-// - Eficiencia: ≈ 58 % en ciclo combinado; la turbina de gas sola, ≈ 38 %. A carga parcial baja: η ≈ 0.58 − 0.12 (1 − c)².
-// - Gases de escape de la turbina de gas: ≈ 600 °C (bajan con la carga); salen por la chimenea a ≈ 90 °C.
-// - Vapor ≈ 565 °C; condensador ≈ 40 °C.
-// - Gas natural: poder calorífico ≈ 50 MJ/kg y densidad ≈ 0.8 kg/m³: a plena carga, 450 ÷ 0.58 ≈ 776 MW de calor
-//   = 15.5 kg/s ≈ 19 m³/s ≈ 1.7 millones de m³ al día.
-import * as THREE from 'three';
-import { crearMaquina, clamp, num } from '../comun/maquina.js';
-import { crearCorriente } from '../comun/corriente.js';
+// Lo que se repite entre las plantas con física está en conceptos-3d/planta-comun/.
+import { clamp, clamp01, num } from '../planta-comun/ayudas.js';
+import { barrasHTML, leyenda, pintarGrafica, seccionBarras, seccionColores, seccionDiagrama, seccionFuentes, seccionGrafica, seccionTabla, tablaHTML } from '../planta-comun/graficas.js';
+import { crearPagina } from '../planta-comun/pagina.js';
+import { ARRANQUES, DEF, EQUIPO, FLUIDOS, LIMITES, PARTES as PARTES_M, RAMPA_MW_MIN, RECUPERADOR, SITIOS, arranque, central, estadoPlanta, pasoPlanta, pose, tEnQueDa } from './modelo.js';
+import { P_PLANTA, construir, escenario, materiales } from './planta.js';
+import { crearDiagrama } from './diagrama.js';
+import { FUENTES } from './fuentes.js';
 
-const MW_GAS = 300;
-const MW_VAPOR = 150;
-const F = 60;
-const Y1 = 0.95; // eje de la turbina de gas
-const ZV = 1.15; // línea de la turbina de vapor (adelante: la torre va atrás para no taparla)
-const Y2 = 0.75; // eje de la turbina de vapor
-const PISO = 0.18;
+const FIGURA = 'ciclo-combinado';
+const BASE = central();
+const UNO = central({ dos: false });
+const ABIERTO = central({ abierto: 1 });
+const G = BASE.g;
+const T_EMPALME = tEnQueDa(EQUIPO.empalme1);
 
-let carga = 1;
-let fase = 0;
-let cifrasCC = null;
-let piezasCC = null;
+// ------------------------------------------------------------------ puntos clave
+// En el mismo orden y con el mismo número que las partes de la ficha de Aprende (src/data/como-funciona.js).
+const FICHAS = [
+    { parte: 'gas', nombre: 'Gas natural', modo: 'combinado', accion: 'desarme', eq: `${num(BASE.m3Dia, 1)} millones de m³ de gas al día`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M12 3c3 4 6 6.5 6 11a6 6 0 0 1-12 0c0-2 1-3.500 2-5 .5 1.500 1.500 2 2 2 0-3 1-5 2-8Z"/>',
+        texto: 'Llega por un gasoducto enterrado: por eso el tubo verde sale por el corte del terreno, a la izquierda. Esta estación lo filtra, lo mide y lo calienta un poco antes de mandarlo a las dos turbinas. En México, la red principal de ductos es el Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural, que coordina el CENAGAS.' },
+    { parte: 'compresor', nombre: 'Aire y compresor', modo: 'combinado', abrir: true, accion: 'enfriar', eq: `${num(G.m)} kg de aire por segundo, a ${num(G.tComp)} °C al salir`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M4 8h9a3 3 0 1 0-3-3"/><path d="M4 12h14a3 3 0 1 1-3 3"/><path d="M4 16h6a2.500 2.500 0 1 1-2.500 2.500"/>',
+        texto: `La turbina respira. El aire pasa por esos filtros, que le quitan el polvo, y luego por muchas hileras de álabes que lo aprietan unas ${num(G.rp)} veces: se calienta a ${num(G.tComp)} °C con solo apretarlo. Mover este compresor se lleva cerca de la mitad de lo que produce la turbina. Por eso importa tanto qué tan fresco y denso entra el aire.` },
+    { parte: 'combustion', nombre: 'Combustión', modo: 'combinado', abrir: true, accion: 'desarme', eq: `${num(G.kgGas, 1)} kg de gas por segundo en cada turbina`, recorrido: { noche: false, adentro: false },
+        icono: '<circle cx="12" cy="12" r="8"/><path d="M12 8c1.500 2 3 3 3 5a3 3 0 0 1-6 0c0-1 .5-1.800 1-2.500.3.8.8 1 1 1 0-1.300.5-2.300 1-3.500Z"/>',
+        texto: `El gas entra por las boquillas verdes, se mezcla con el aire apretado y arde en un anillo de cámaras. Los gases llegan a cerca de ${num(G.tEntra, 0)} °C, más calientes de lo que aguanta el metal: por eso el aire que sobra y un sistema de enfriamiento cuidan las piezas. Por cada kilo de gas entran unos ${num(1 / G.f)} kilos de aire.` },
+    { parte: 'turbinaGas', nombre: 'Turbina de gas', modo: 'combinado', abrir: true, accion: 'desarme', eq: `${num(G.W)} MW con ${num(G.eficiencia * 100)} de cada 100 del gas`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M4 12h16"/><path d="M8 7v10M12 5v14M16 3v18"/>',
+        texto: `Los gases se abren paso por cuatro hileras de álabes y empujan el eje, a ${num(EQUIPO.rpm)} vueltas por minuto. Es el mismo eje que mueve al compresor. Salen todavía a ${num(G.tEscape)} °C. Hasta aquí llega una central de ciclo abierto: de cada 100 de energía del gas, unos ${num(G.eficiencia * 100)} se vuelven electricidad y lo demás se va por la chimenea.` },
+    { parte: 'gen1', nombre: 'Primer generador', modo: 'combinado', abrir: true, accion: 'desarme', eq: `${num(G.W)} MW en cada generador de gas`, recorrido: { noche: false, adentro: false },
+        icono: '<circle cx="12" cy="12" r="7.5"/><path d="M12.8 7.5 9.7 12.600h4.600l-3 4"/>',
+        texto: `El mismo eje hace girar un imán de dos polos dentro de las bobinas de cobre, y ahí nace la electricidad. Con dos polos, ${num(EQUIPO.rpm)} vueltas por minuto dan los 60 ciclos por segundo de la red mexicana. Cada turbina de gas tiene el suyo, del lado del aire frío, y la cubierta lleva su propio enfriamiento.` },
+    { parte: 'recuperador', nombre: 'Recuperador de calor', modo: 'combinado', abrir: true, accion: 'dos', eq: `${num(BASE.Qrec / BASE.n)} MW de calor; los gases entran a ${num(G.tEscape)} °C y salen a ${num(BASE.r.tChim)} °C`, recorrido: { noche: false, adentro: false },
+        icono: '<rect x="4" y="5" width="16" height="14" rx="1.500"/><path d="M8 5v14M12 5v14M16 5v14"/>',
+        texto: 'Es la pieza que hace «combinado» al ciclo: una caja llena de tubos con agua, que los gases cruzan antes de irse. No quema nada. Hierve agua a tres presiones, una en cada tambor de arriba, para sacarles más calor a los gases aunque se vayan enfriando. Los tubos van del más caliente, naranja, al más frío, azul. Hay uno por cada turbina de gas: eso es un arreglo 2×1.' },
+    { parte: 'turbinaVapor', nombre: 'Turbina de vapor', modo: 'combinado', abrir: true, accion: 'arranque', eq: `${num(BASE.brutaVapor)} MW sin quemar más gas`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M3 12h18"/><path d="M7 8v8M11 6v12M16 4v16"/><path d="M5 4c1 1-1 2 0 3"/>',
+        texto: `El vapor de los dos recuperadores entra por la parte chica, de alta presión; regresa al recuperador a calentarse otra vez y sigue por la de media y la de baja, con álabes cada vez más largos porque se va expandiendo. Sin quemar más gas, da cerca de la mitad de lo que dan las turbinas de gas. Tarda más en reaccionar, porque el recuperador tarda en agarrar calor. El marco de arriba es una grúa para abrirla al darle mantenimiento.` },
+    { parte: 'gen2', nombre: 'Segundo generador', modo: 'combinado', abrir: true, accion: 'desarme', eq: `${num(BASE.brutaVapor)} MW; en Empalme I es de la clase de ${num(EQUIPO.vaporClase)}`, recorrido: { noche: false, adentro: false },
+        icono: '<circle cx="12" cy="12" r="7.5"/><path d="M12.8 7.5 9.7 12.600h4.600l-3 4"/>',
+        texto: 'Igual que el primero, pero lo mueve el vapor. Por eso a estas centrales se les llama de dos ciclos: el gas mueve unos generadores y el calor que sobró mueve otro. Si la turbina de vapor sale de servicio, las de gas pueden seguir solas, en ciclo abierto, gracias a la compuerta.' },
+    { parte: 'condensador', nombre: 'Condensador', modo: 'combinado', abrir: true, accion: 'desarme', eq: `${num(BASE.st.tC)} °C y ${num(BASE.st.pC, 2)} bar`, recorrido: { noche: false, adentro: false },
+        icono: '<rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 10h10M7 14h10"/>',
+        texto: 'Abajo de la turbina, el vapor cae sobre tubos llenos de agua fría y se vuelve líquido. Al ocupar mucho menos lugar deja un vacío que jala más vapor. Una bomba regresa el agua al recuperador: es siempre la misma agua, en un circuito cerrado. La de la torre corre aparte, por dentro de los tubos; nunca se mezclan.' },
+    { parte: 'enfriamiento', nombre: 'Torre de enfriamiento', modo: 'combinado', abrir: true, accion: 'noche', eq: `Se evaporan ${num(BASE.evapora)} toneladas de agua por hora`, recorrido: { adentro: false },
+        icono: '<path d="M7 21c1-5 1-7 0-12h10c-1 5-1 7 0 12Z"/><path d="M10 6c1 1-1 2 0 3M14 6c1 1-1 2 0 3"/>',
+        texto: 'Aquí se le saca al agua el calor del condensador. Cae en gotas mientras los ventiladores jalan aire, y una parte se evapora y se lleva el calor: esa nube es vapor de agua, no humo. Esta torre es de ejemplo. Empalme enfría con agua de mar, por una toma de mil metros; donde hay poca agua existe el enfriamiento con aire.' },
+    { parte: 'chimenea', nombre: 'Chimenea', modo: 'combinado', abrir: true, accion: 'abierto', eq: `${num(BASE.co2MWh, 2)} toneladas de CO₂ por MWh; en ciclo abierto, ${num(ABIERTO.co2MWh, 2)}`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M9 21V6h6v15"/><path d="M12 6c-1-1 1-2 0-3"/><path d="M6 21h12"/>',
+        texto: `Por aquí se van los gases, ya a ${num(BASE.r.tChim)} °C, con el CO₂ del gas quemado. El gas natural no está en la lista de Energías Limpias de la ley. La chimenea más corta, junto a la turbina, es la de paso: una compuerta guinda manda los gases directo afuera, a ${num(G.tEscape)} °C. Así la central trabaja en ciclo abierto: arranca más rápido, pero gasta cerca de la mitad más de gas por cada MWh. Las luces rojas avisan a los aviones.` },
+    { parte: 'subestacion', nombre: 'Subestación', modo: 'combinado', abrir: true, accion: 'desarme', eq: `${num(BASE.neta)} MW: ${num((BASE.neta * 1e3) / (Math.sqrt(3) * 400))} amperes a 400 kV`, recorrido: { noche: false, adentro: false },
+        icono: '<circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/>',
+        texto: 'El voltaje que da un generador es muy poco para viajar lejos. Cada generador tiene su propio transformador, que lo sube; aquí, a 400 kV de ejemplo. Con más voltaje, la misma potencia viaja con menos corriente y los cables se calientan menos. El pórtico de al lado conecta la central con la línea.' },
+    { parte: 'red', nombre: 'RNT y RGD', modo: 'combinado', accion: 'noche', recorrido: { noche: true, adentro: false },
+        icono: '<path d="M12 3 6 21M12 3l6 18M8 9h8M7 14h10"/>',
+        texto: 'La electricidad sale por la RNT, la Red Nacional de Transmisión, que la lleva lejos y a grandes usuarios. Cerca del pueblo, otra subestación baja el voltaje y las RGD, las Redes Generales de Distribución, la reparten al público. El CENACE decide cuándo entra cada central. Las de ciclo combinado dan más de la mitad de la electricidad del país: 61 % entre enero y septiembre de 2025.' },
+];
+const VISTAS = Object.fromEntries(PARTES_M.map(p => [p.id, p.vista]));
 
-const eficiencia = c => 0.58 - 0.12 * (1 - c) ** 2;
+const textoT = v => `${num(v)} °C`;
+const textoC = v => `${num(v)} %`;
+const textoM = v => `${num(v)} m`;
+const MODOS = {
+    combinado: { nombre: 'Ciclo combinado', corto: 'Combinado', resumen: 'Dos turbinas de gas y una de vapor, como en Empalme I. Mueve la carga: la de gas responde luego luego y la de vapor le sigue después, cuando el recuperador agarra calor.', aclara: 'Cada 100 de energía del gas se reparten así. Lo que el ciclo abierto tira por la chimenea, aquí todavía mueve una turbina.', mando: { nombre: 'Carga de la central', campo: 'carga', rango: LIMITES.carga, texto: textoC, pinta: false }, mando2: { nombre: 'Temperatura del aire', campo: 'tAire', rango: LIMITES.tAire, texto: textoT, pinta: true } },
+    abierto: { nombre: 'Ciclo abierto', corto: 'Abierto', resumen: 'La compuerta manda los gases directo por la chimenea de paso, sin recuperador ni turbina de vapor. Es más rápido y más sencillo, pero tira el calor: gasta cerca de la mitad más de gas por cada MWh.', aclara: 'Sin recuperador, todo lo que no se volvió electricidad se va al aire, muy caliente.', mando: { nombre: 'Carga de la central', campo: 'carga', rango: LIMITES.carga, texto: textoC, pinta: false } },
+    clima: { nombre: 'Clima', corto: 'Clima', resumen: 'El aire caliente o de mucha altura pesa menos, y a la turbina le cabe menos. Mueve la temperatura y la altura, y prueba el enfriador de la entrada: evapora agua en el aire que entra.', aclara: 'La turbina siempre mete el mismo volumen. Si el aire pesa menos, le llega menos aire por segundo y quema menos gas.', mando: { nombre: 'Temperatura del aire', campo: 'tAire', rango: LIMITES.tAire, texto: textoT, pinta: true }, mando2: { nombre: 'Altura del sitio', campo: 'altitud', rango: LIMITES.altitud, texto: textoM, pinta: true } },
+    arranque: { nombre: 'Arranque', corto: 'Arranque', resumen: 'Cuando el sistema la pide, primero sube la turbina de gas. El vapor tarda: hay que calentar el recuperador y la turbina poco a poco. Por eso ayuda a cubrir cuando cae el sol, si ya viene caliente.', aclara: 'Solo el tiempo total y la rampa salen de fuentes: en caliente, 30 minutos; en frío, hasta 240. El reparto de cada etapa es de ejemplo.', mando: { nombre: 'Minutos desde la orden', campo: 'minutos', rango: p => [0, ARRANQUES[p.tipo].total], texto: (v, p) => `${num(v)} de ${num(ARRANQUES[p.tipo].total)} min`, detiene: true },
+        reloj: { texto: 'los minutos', avanzar: (p, dt) => { const A = ARRANQUES[p.tipo]; p.minutos = Math.min(A.total, p.minutos + (dt * A.total) / (p.tipo === 'frio' ? 40 : 30)); return p.minutos >= A.total; }, alSeguir: p => { if (p.minutos >= ARRANQUES[p.tipo].total - 0.01) p.minutos = 0; } } },
+};
+const BOTONES = [
+    { id: 'dos', visible: () => true, pulsado: p => p.dos, texto: p => (p.dos ? 'Dos turbinas de gas (2×1)' : 'Una turbina de gas (1×1)'), alTocar: p => { p.dos = !p.dos; } },
+    { id: 'enfriar', visible: p => p.modo === 'clima', pulsado: p => p.enfriar, texto: p => (p.enfriar ? 'Quitar el enfriador' : 'Enfriar el aire de entrada'), alTocar: p => { p.enfriar = !p.enfriar; } },
+    { id: 'tipo', visible: p => p.modo === 'arranque', pulsado: p => p.tipo === 'frio', texto: p => (p.tipo === 'frio' ? 'Arranque en frío' : 'Arranque en caliente'), alTocar: p => { p.tipo = p.tipo === 'frio' ? 'caliente' : 'frio'; p.minutos = 0; p.corre = true; } },
+];
+const ACCIONES = {
+    enfriar: { texto: p => (p.modo === 'clima' ? (p.enfriar ? 'Quitar el enfriador' : 'Enfriar el aire') : 'Ver el efecto del clima'), hacer: (p, pag) => { if (p.modo === 'clima') { p.enfriar = !p.enfriar; pag.invalidar(); } else pag.cambiarModo('clima'); } },
+    dos: { texto: p => (p.dos ? 'Ver con una turbina (1×1)' : 'Ver con dos turbinas (2×1)'), hacer: (p, pag) => { p.dos = !p.dos; pag.invalidar(); } },
+    abierto: { texto: p => (p.modo === 'abierto' ? 'Volver al ciclo combinado' : 'Pasar a ciclo abierto'), hacer: (p, pag) => pag.cambiarModo(p.modo === 'abierto' ? 'combinado' : 'abierto') },
+    arranque: { texto: p => (p.modo === 'arranque' ? 'Volver al ciclo combinado' : 'Ver cómo arranca'), hacer: (p, pag) => pag.cambiarModo(p.modo === 'arranque' ? 'combinado' : 'arranque') },
+};
 
-crearMaquina({
-    figura: 'ciclo-combinado',
-    nombre: 'la central',
-    partes: [
-        { n: 1, nombre: 'Entrada de gas natural', ancla: [-2.6, 0.7, 1.4], vista: { tx: -2.4, ty: 0.5, tz: 1.1, az: 20, el: 22, d: 3.2 } },
-        { n: 2, nombre: 'Compresor y cámara de combustión', ancla: [-1.6, 1.65, 0.2], vista: { tx: -1.6, ty: 0.95, tz: 0, az: 28, el: 18, d: 3.6 }, corte: true },
-        { n: 3, nombre: 'Turbina de gas', ancla: [-0.6, 1.7, 0.2], vista: { tx: -1.4, ty: 0.95, tz: 0, az: 32, el: 16, d: 4.6 }, corte: true },
-        { n: 4, nombre: 'Recuperador de calor (HRSG)', ancla: [1.1, 2.3, 0.3], vista: { tx: 1.1, ty: 1.2, tz: 0, az: 26, el: 18, d: 4.4 }, corte: true },
-        { n: 5, nombre: 'Turbina de vapor', ancla: [2.4, 1.45, ZV], vista: { tx: 2.6, ty: 0.8, tz: ZV, az: 30, el: 18, d: 3.6 }, corte: true },
-        { n: 6, nombre: 'Torre de enfriamiento / Condensador', ancla: [2.85, 1.7, -0.95], vista: { tx: 2.6, ty: 0.9, tz: -0.3, az: 36, el: 16, d: 4.6 } },
-    ],
-    vistas: [
-        { id: 'general', texto: 'General', tx: 0, ty: 1.1, tz: 0, az: 22, el: 22, d: 10.4 },
-        { id: 'frente', texto: 'Frente', tx: 0, ty: 1.0, tz: 0, az: 0, el: 8, d: 9.6 },
-        { id: 'atras', texto: 'Atrás', tx: 0.4, ty: 1.0, tz: -0.5, az: 160, el: 14, d: 9.0 },
-        { id: 'arriba', texto: 'Arriba', tx: 0, ty: 0.5, tz: 0, az: 0, el: 68, d: 10.4 },
-        { id: 'adentro', texto: 'Adentro', tx: -0.4, ty: 1.1, tz: 0, az: 20, el: 14, d: 6.0, corte: true },
-    ],
-    entrada: { etiqueta: 'Carga de la planta', min: 30, max: 100, paso: 1, valor: 100, aria: 'Carga de la planta, en porcentaje' },
-    anchoVertical: 1.55,
-    lejaniaMax: 3.5,
-    hud: '<b data-c="total"></b><span data-c="hud"></span>',
-    cifras: [
-        { id: 'total', etiqueta: 'Potencia', nota: 'de los dos generadores' },
-        { id: 'eficiencia', etiqueta: 'Eficiencia', nota: 'la turbina de gas sola: ≈ 38 %' },
-        { id: 'escape', etiqueta: 'Gases de escape', nota: 'al salir de la turbina de gas' },
-        { id: 'gas', etiqueta: 'Gas natural', nota: 'lo que consume' },
-    ],
-    curva: {
-        titulo: 'De cada 100 unidades de energía del gas',
-        leyenda: [{ texto: 'turbina de gas' }, { texto: 'turbina de vapor' }, { texto: 'calor que se pierde' }],
-        nota: 'Sin el recuperador y la turbina de vapor, ese tramo también se perdería por la chimenea.',
-        dibujar(g, w, h, estado) {
-            if (!cifrasCC) return;
-            const { gasPct, vaporPct } = cifrasCC;
-            const tramos = [[gasPct, estado.P.acento], [vaporPct, estado.P.tinta], [100 - gasPct - vaporPct, estado.TEMA === 'oscuro' ? '#3a3c44' : '#d9dbdb']];
-            g.clearRect(0, 0, w, h);
-            let x = 0;
-            const alto = Math.min(46, h - 30);
-            const y = (h - alto) / 2;
-            g.font = '600 13px Manrope, sans-serif';
-            g.textBaseline = 'middle';
-            for (const [pct, color] of tramos) {
-                const ancho = (pct / 100) * w;
-                g.fillStyle = color;
-                g.fillRect(x, y, Math.max(0, ancho - 2), alto);
-                if (ancho > 36) {
-                    g.fillStyle = color === estado.P.acento || color === estado.P.tinta ? (estado.TEMA === 'oscuro' ? '#0a0707' : '#ffffff') : estado.P.tinta;
-                    if (color === estado.P.tinta && estado.TEMA === 'oscuro') g.fillStyle = '#0a0707';
-                    g.fillText(`${Math.round(pct)}`, x + 10, y + alto / 2);
-                }
-                x += ancho;
-            }
-        },
-    },
-    corte: true,
+// ------------------------------------------------------------------ el tablero
+const secciones = () => `
+    ${seccionDiagrama('A dónde va la energía')}
+    ${seccionGrafica('b')}
+    ${seccionGrafica('c')}
+    ${seccionBarras()}
+    ${seccionTabla('Una o dos turbinas de gas', 'h-arreglos', 'Lo normal es 2×1: en Estados Unidos, la mayoría de los ciclos combinados tienen dos turbinas de gas por una de vapor (EIA). Dos recuperadores le dan vapor a una sola turbina, más grande y más eficiente.')}
+    ${seccionTabla('Ciclo abierto y ciclo combinado', 'h-comparar', 'La misma turbina de gas, con y sin recuperador. Los datos salen del modelo con el aire a 15 °C.', 'h-tabla-texto')}
+    ${seccionTabla('Ciclos combinados de CFE', 'h-mexico', `Las fuentes no dicen a qué temperatura se midieron los 770 MW de Empalme I; este modelo los da con el aire a unos ${num(T_EMPALME)} °C. El arreglo de las tres de 2025 no viene en las fuentes.`)}
+    <section class="g-curva h-media">
+        <div class="g-curva-cab"><b>Cuánto pesa en México</b></div>
+        <div class="h-barras" id="h-pesa"></div>
+        <p>Más de la mitad de la electricidad del país, con menos de la mitad de la capacidad: trabajan muchas horas al año. Por eso México depende tanto del gas natural.</p>
+    </section>
+    ${seccionColores(FLUIDOS, 'Central de ejemplo con el equipo de Empalme I; no es el plano real ni un simulador. No está a escala: las turbinas se dibujaron más grandes para poder verlas. Empalme enfría con agua de mar; aquí se dibuja una torre, como en el estudio de JICA. Lo que no sale de una fuente (las presiones del vapor, la carga parcial, las etapas del arranque y el voltaje de 400 kV) es de ejemplo, para ver la tendencia.')}
+    ${seccionFuentes(FUENTES, [
+        { para: 'Permiso de generación, interconexión, quién decide el despacho, RNT y RGD', titulo: 'Ley del Sector Eléctrico, arts. 3, 19, 36 a 40, 49, 114 y 117', nota: 'Diario Oficial de la Federación, 18 de marzo de 2025. Está en el acervo de este sitio' },
+        { para: 'Transporte de gas por ducto, su sistema nacional y el acceso abierto', titulo: 'Ley del Sector Hidrocarburos, arts. 99, 100 y 104', nota: 'Está en el acervo de este sitio' },
+    ])}`;
 
-    construir({ raiz, M, P, TEMA, sombra, contorno, aro, conCorte, escena }) {
-        raiz.add(contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(7.6, 0.16, 3.8), M.ceramica))).translateY(0.08));
-        const vidrio = new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: 0.08, transparent: true, opacity: 0.22, clearcoat: 1, depthWrite: false });
-        // una pieza torneada a lo largo del eje x: perfil de [x, radio]
-        const torneado = (perfil, material) => {
-            const puntos = perfil.map(([x, r]) => new THREE.Vector2(r, x));
-            const m = sombra(new THREE.Mesh(new THREE.LatheGeometry(puntos, 56).rotateZ(-Math.PI / 2), material));
-            return m;
-        };
-        const ruedaAlabes = (x, radio, alabes, ancho, mat) => {
-            const g = new THREE.Group();
-            g.position.x = x;
-            g.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(radio * 0.45, radio * 0.45, ancho, 24).rotateZ(Math.PI / 2), M.grafito)));
-            for (let i = 0; i < alabes; i++) {
-                const b = new THREE.Group();
-                b.rotation.x = (i / alabes) * Math.PI * 2;
-                const a = sombra(new THREE.Mesh(new THREE.BoxGeometry(ancho * 0.8, radio * 0.55, 0.02), mat));
-                a.position.y = radio * 0.7;
-                a.rotation.y = 0.5;
-                b.add(a);
-                g.add(b);
-            }
-            return g;
-        };
-
-        // ------------------------------------------------ 2 y 3 · turbina de gas: rotor, carcasa, combustores, generador
-        const rotorGas = new THREE.Group();
-        rotorGas.position.set(0, Y1, 0);
-        rotorGas.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.4, 16).rotateZ(Math.PI / 2), M.acero)).translateX(-1.55));
-        // los álabes llegan a 0.975 del radio de su rueda: cada rueda se calcula para quedar 2 cm dentro de su carcasa
-        const dentroCompresor = x => 0.41 - (x + 2.25) * (0.11 / 1.05);
-        const dentroTurbina = x => 0.32 + (x + 0.95) * (0.17 / 0.75);
-        for (let k = 0; k < 6; k++) { const x = -2.1 + k * 0.17; rotorGas.add(ruedaAlabes(x, (dentroCompresor(x) - 0.02) / 0.975, 18, 0.06, M.acero)); }
-        for (let k = 0; k < 3; k++) { const x = -0.8 + k * 0.2; rotorGas.add(ruedaAlabes(x, (dentroTurbina(x) - 0.02) / 0.975, 14, 0.08, M.cobre)); }
-        raiz.add(rotorGas);
-        const carcasaCompresor = torneado([[-2.32, 0.55], [-2.25, 0.47], [-1.2, 0.36], [-1.2, 0.3], [-2.25, 0.41], [-2.32, 0.5]], conCorte(M.ceramica.clone()));
-        const carcasaTurbina = torneado([[-0.95, 0.38], [-0.2, 0.55], [-0.2, 0.49], [-0.95, 0.32]], conCorte(M.ceramica.clone()));
-        for (const c of [carcasaCompresor, carcasaTurbina]) { c.position.y = Y1; contorno(c, 30, Object.assign(M.contorno.clone(), { clippingPlanes: [c.material.clippingPlanes[0]] })); }
-        const bocaAire = Object.assign(aro(0.53, 0.03, -2.32), { material: conCorte(M.borde.clone()) });
-        bocaAire.position.y = Y1;
-        // cámara de combustión: ocho latas alrededor del eje, con banda guinda
-        const combustores = new THREE.Group();
-        combustores.position.set(-1.08, Y1, 0);
-        for (let i = 0; i < 8; i++) {
-            const a = (i / 8) * Math.PI * 2;
-            const lata = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.34, 16).rotateZ(Math.PI / 2), M.ceramica));
-            lata.position.set(0, Math.cos(a) * 0.44, Math.sin(a) * 0.44);
-            const banda = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.06, 16).rotateZ(Math.PI / 2), M.borde));
-            banda.position.copy(lata.position);
-            combustores.add(lata, banda);
-        }
-        const llama = new THREE.Mesh(new THREE.TorusGeometry(0.44, 0.05, 10, 48).rotateY(Math.PI / 2), new THREE.MeshBasicMaterial({ color: P.acento, transparent: true, opacity: 0 }));
-        llama.userData.sinResalte = true;
-        combustores.add(llama);
-        const carcasaGas = new THREE.Group();
-        carcasaGas.add(carcasaCompresor, bocaAire, combustores);
-        const carcasaTG = new THREE.Group();
-        carcasaTG.add(carcasaTurbina);
-        raiz.add(carcasaGas, carcasaTG);
-        // generador 1 (en el extremo frío) y su base
-        const generador = (x, y, z, r, largo) => {
-            const g = new THREE.Group();
-            g.position.set(x, y, z);
-            g.add(contorno(sombra(new THREE.Mesh(new THREE.CylinderGeometry(r, r, largo, 40).rotateZ(Math.PI / 2), M.ceramica)), 40));
-            g.add(aro(r, 0.026, largo / 2), aro(r, 0.026, -largo / 2));
-            const pie = contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(largo * 0.8, y - 0.16 - r * 0.5, r * 1.4), M.ceramica)));
-            pie.position.y = -(y - 0.16) / 2 - r * 0.25;
-            g.add(pie);
-            return g;
-        };
-        const gen1 = generador(-2.95, Y1, 0, 0.4, 0.8);
-        raiz.add(gen1);
-        // ducto de escape: de la turbina al recuperador
-        const ducto = contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.62, 1.2, 0.84), conCorte(M.ceramica.clone()))));
-        ducto.position.set(0.1, 0.16 + 0.6 + 0.1, 0);
-        raiz.add(ducto);
-
-        // ------------------------------------------------ 4 · recuperador de calor: caja, chimenea, domo y tubos por dentro
-        const hrsg = new THREE.Group();
-        const cajaHRSG = contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.74, 0.9), conCorte(M.ceramica.clone()))), 30, Object.assign(M.contorno.clone(), { clippingPlanes: [] }));
-        cajaHRSG.position.set(1.1, 0.16 + 0.87, 0);
-        cajaHRSG.children[0].material.clippingPlanes = cajaHRSG.material.clippingPlanes;
-        const chimenea = contorno(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 1.2, 28), M.ceramica)));
-        chimenea.position.set(1.55, 1.9 + 0.6, 0);
-        const bocaChimenea = sombra(new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.025, 10, 32).rotateX(Math.PI / 2), M.borde));
-        bocaChimenea.position.set(1.55, 3.1, 0);
-        const domo = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.8, 24).rotateX(Math.PI / 2), M.ceramica));
-        domo.position.set(0.85, 2.04, 0);
-        const tapasDomo = [-0.4, 0.4].map(z => { const t = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.135, 0.03, 24).rotateX(Math.PI / 2), M.borde)); t.position.set(0.85, 2.04, z); return t; });
-        hrsg.add(cajaHRSG, chimenea, bocaChimenea, domo, ...tapasDomo);
-        raiz.add(hrsg);
-        const tubos = new THREE.Group();
-        const tuboMat = M.cobre.clone();
-        for (const x of [0.65, 0.95, 1.25]) for (let i = 0; i < 6; i++) {
-            const t = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.3, 10), tuboMat));
-            t.position.set(x, 0.95, -0.32 + i * 0.13);
-            tubos.add(t);
-        }
-        raiz.add(tubos);
-
-        // ------------------------------------------------ 5 · turbina de vapor y generador 2
-        const rotorVapor = new THREE.Group();
-        rotorVapor.position.set(0, Y2, ZV);
-        rotorVapor.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.7, 14).rotateZ(Math.PI / 2), M.acero)).translateX(2.55));
-        for (let k = 0; k < 4; k++) rotorVapor.add(ruedaAlabes(1.95 + k * 0.17, 0.22 + k * 0.05, 14, 0.06, M.acero));
-        raiz.add(rotorVapor);
-        const carcasaVapor = torneado([[1.82, 0.28], [2.6, 0.44], [2.6, 0.38], [1.82, 0.22]], conCorte(M.ceramica.clone()));
-        carcasaVapor.position.set(0, Y2, ZV);
-        contorno(carcasaVapor, 30, Object.assign(M.contorno.clone(), { clippingPlanes: [carcasaVapor.material.clippingPlanes[0]] }));
-        const turbinaVapor = new THREE.Group();
-        turbinaVapor.add(carcasaVapor);
-        for (const x of [1.82, 2.6]) { const a = Object.assign(aro(x < 2 ? 0.28 : 0.44, 0.022, x), { material: conCorte(M.borde.clone()) }); a.position.y = Y2; a.position.z = ZV; turbinaVapor.add(a); }
-        raiz.add(turbinaVapor);
-        const gen2 = generador(3.1, Y2, ZV, 0.36, 0.7);
-        raiz.add(gen2);
-
-        // ------------------------------------------------ 6 · condensador y torre de enfriamiento
-        const enfriamiento = new THREE.Group();
-        const condensador = contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.42, 0.45), M.ceramica)));
-        condensador.position.set(2.35, 0.37, 0.45);
-        const perfilTorre = [];
-        for (let i = 0; i <= 16; i++) {
-            const t = i / 16;
-            const y = 0.16 + t * 1.6;
-            const r = 0.38 + 0.2 * (2 * t - 1.25) ** 2 * (t < 0.62 ? 1 : 0.75);
-            perfilTorre.push(new THREE.Vector2(r, y));
-        }
-        const torre = sombra(new THREE.Mesh(new THREE.LatheGeometry(perfilTorre, 48), new THREE.MeshPhysicalMaterial({ color: P.ceramica, roughness: 0.5, clearcoat: 0.6, side: THREE.DoubleSide })));
-        contorno(torre, 50);
-        torre.position.set(2.85, 0, -0.95);
-        torre.scale.setScalar(0.85);
-        const bocaTorre = sombra(new THREE.Mesh(new THREE.TorusGeometry(perfilTorre.at(-1).x, 0.025, 10, 48).rotateX(Math.PI / 2), M.borde));
-        bocaTorre.position.set(2.85, 0.16 + 1.6 * 0.85, -0.95);
-        bocaTorre.scale.setScalar(0.85);
-        enfriamiento.add(condensador, torre, bocaTorre);
-        raiz.add(enfriamiento);
-
-        // ------------------------------------------------ 1 · entrada de gas: tubo de vidrio, válvula y medidor
-        const entradaGas = new THREE.Group();
-        const valvula = sombra(new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.02, 10, 32).rotateY(Math.PI / 2), M.borde));
-        valvula.position.set(-2.6, 0.48, 1.4);
-        const vastago = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.22, 10), M.grafito));
-        vastago.position.set(-2.6, 0.36, 1.4);
-        const medidor = contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.26, 0.24), M.ceramica)));
-        medidor.position.set(-2.05, 0.31, 1.4);
-        entradaGas.add(valvula, vastago, medidor);
-        raiz.add(entradaGas);
-
-        // ------------------------------------------------ tuberías de vidrio y lo que corre por ellas
-        const curva = (...p) => new THREE.CatmullRomCurve3(p.map(v => new THREE.Vector3(...v)));
-        const tubo = (c, r) => { const m = new THREE.Mesh(new THREE.TubeGeometry(c, 80, r, 12, false), vidrio); m.renderOrder = 2; raiz.add(m); return m; };
-        const rutas = {
-            gas: curva([-3.7, 0.26, 1.4], [-2.6, 0.26, 1.4], [-1.6, 0.26, 1.2], [-1.15, 0.3, 0.7], [-1.08, 0.5, 0.48]),
-            aire: curva([-3.3, 2.0, 0.6], [-2.9, 1.6, 0.35], [-2.5, Y1 + 0.05, 0.1], [-2.0, Y1, 0]),
-            escape: curva([-0.4, Y1, 0], [0.1, 0.95, 0], [0.6, 0.95, 0.15], [1.1, 1.15, -0.15], [1.45, 1.6, 0], [1.55, 2.0, 0], [1.55, 3.1, 0], [1.6, 3.8, 0.05]),
-            vapor: curva([0.85, 2.04, 0.4], [1.0, 2.3, 0.75], [1.65, 1.9, ZV], [1.78, Y2 + 0.06, ZV]),
-            aCondensador: curva([2.62, Y2, ZV], [2.7, 0.5, 0.9], [2.45, 0.5, 0.6]),
-            alimentacion: curva([2.1, 0.26, 0.45], [1.85, PISO + 0.08, 0.3], [1.7, PISO + 0.08, 0.3], [1.65, 0.3, 0.3]),
-            torreIda: curva([2.6, 0.3, 0.25], [2.65, PISO + 0.08, -0.2], [2.72, PISO + 0.1, -0.62]),
-            torreVuelta: curva([2.98, PISO + 0.1, -0.62], [2.85, PISO + 0.08, -0.2], [2.5, 0.3, 0.25]),
-            pluma: curva([2.85, 1.45, -0.95], [2.88, 2.2, -0.95], [3.0, 3.0, -1.0]),
-        };
-        tubo(rutas.gas, 0.05);
-        tubo(rutas.vapor, 0.05);
-        tubo(rutas.aCondensador, 0.06);
-        tubo(rutas.alimentacion, 0.035);
-        tubo(rutas.torreIda, 0.04);
-        tubo(rutas.torreVuelta, 0.04);
-        // flujos: puntos que corren por cada ruta, con su color
-        const flujo = (ruta, n, radio, color, opacidad = 1) => {
-            const mat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: opacidad });
-            const im = new THREE.InstancedMesh(new THREE.SphereGeometry(radio, 10, 8), mat, n);
-            im.frustumCulled = false;
-            im.renderOrder = 3;
-            raiz.add(im);
-            return { ruta, n, im, mat, f: 0 };
-        };
-        const flujos = {
-            gas: flujo(rutas.gas, 20, 0.028, P.tinta, 0.7),
-            aire: flujo(rutas.aire, 26, 0.03, P.suave, 0.55),
-            escape: flujo(rutas.escape, 40, 0.045, '#ffffff'), // el color de cada punto lo pone paso()
-            vapor: flujo(rutas.vapor, 18, 0.035, TEMA === 'oscuro' ? '#ffffff' : '#c9ccd3'),
-            aCondensador: flujo(rutas.aCondensador, 10, 0.035, TEMA === 'oscuro' ? '#ffffff' : '#c9ccd3'),
-            alimentacion: flujo(rutas.alimentacion, 10, 0.026, P.agua),
-            torreIda: flujo(rutas.torreIda, 10, 0.028, P.agua),
-            torreVuelta: flujo(rutas.torreVuelta, 10, 0.028, P.agua),
-            pluma: flujo(rutas.pluma, 16, 0.09, TEMA === 'oscuro' ? '#ffffff' : '#e6e4df', 0.55),
-        };
-        // los gases se enfrían: guinda a la salida de la turbina, gris al salir por la chimenea
-        const caliente = new THREE.Color(P.acento);
-        const frio = new THREE.Color(P.suave);
-        for (let i = 0; i < flujos.escape.n; i++) flujos.escape.im.setColorAt(i, caliente);
-
-        // ------------------------------------------------ electricidad: de cada generador por la base a la red
-        const poste = new THREE.Group();
-        poste.position.set(0.6, 0.16, -1.7);
-        poste.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, 1.5, 10), M.grafito)).translateY(0.75));
-        poste.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.05, 0.05), M.grafito)).translateY(1.4));
-        raiz.add(poste);
-        const cables = [
-            curva([-2.95, 0.45, -0.3], [-2.9, PISO, -0.6], [-1.5, PISO, -1.55], [0.45, PISO, -1.62], [0.55, 0.25, -1.68]),
-            curva([3.1, 0.4, ZV - 0.28], [3.35, PISO, 0.6], [3.4, PISO, -1.3], [1.4, PISO, -1.76], [0.68, PISO, -1.74], [0.65, 0.25, -1.72]),
+const f1 = x => num(x, 1);
+function tabla41(fn, a, b) {
+    const n = 40;
+    const puntos = Array.from({ length: n + 1 }, (_, i) => { const x = a + ((b - a) * i) / n; return [x, fn(x)]; });
+    return x => {
+        const k = clamp((x - a) / (b - a), 0, 1) * n;
+        const i = Math.min(n - 1, Math.floor(k));
+        return puntos[i][1] + (puntos[i + 1][1] - puntos[i][1]) * (k - i);
+    };
+}
+function alPintarGraficas(L, pag) {
+    const { $, pide, graficas } = pag;
+    const m = pide.modo;
+    const clima = { tAire: pide.tAire, altitud: pide.altitud, humedad: DEF.humedad, enfriar: pide.enfriar, dos: pide.dos };
+    const MAX_MW = pide.dos ? 1000 : 500;
+    const ticksMW = pide.dos ? [0, 250, 500, 750, 1000] : [0, 125, 250, 375, 500];
+    graficas.b = null;
+    graficas.c = null;
+    if (m === 'combinado') {
+        const lineas = [
+            { clase: 'h-s-actual', nombre: 'Total a la red', f: tabla41(x => central({ ...clima, carga: x / 100 }).neta, 40, 100) },
+            { clase: 'h-s-max', nombre: 'Turbinas de gas', f: tabla41(x => central({ ...clima, carga: x / 100 }).brutaGas, 40, 100) },
+            { clase: 'h-s-sin', nombre: 'Turbina de vapor', f: tabla41(x => central({ ...clima, carga: x / 100 }).brutaVapor, 40, 100) },
         ];
-        cables.forEach(c => raiz.add(sombra(new THREE.Mesh(new THREE.TubeGeometry(c, 64, 0.022, 8, false), M.cable))));
-        const corrientes = cables.map(c => crearCorriente({ raiz, escena, curvas: [c], P }));
+        $('#h-b-t').textContent = 'Potencia según la carga';
+        $('#h-b-ley').innerHTML = leyenda(lineas);
+        $('#h-b-pie').textContent = `Con el aire a ${num(pide.tAire)} °C. La turbina de vapor baja menos: al principio, la de gas cierra los álabes de entrada y deja los gases casi igual de calientes. De aquí sale que siga siendo eficiente con poca carga.`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'Potencia según la carga', xMin: 40, xMax: 100, yMin: 0, yMax: MAX_MW, ticksX: [40, 55, 70, 85, 100], ticksY: ticksMW, etX: 'Carga de la central (%)', etY: 'MW', lineas, fx: x => num(x), fy: y => num(y), punta: x => `${num(x)} % · total ${num(lineas[0].f(x))} · gas ${num(lineas[1].f(x))} · vapor ${num(lineas[2].f(x))} MW` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Carga', 'A la red, MW', 'Gas, MW', 'Vapor, MW', 'Eficiencia'], [100, 85, 70, 55, 40].map(c => { const q = central({ ...clima, carga: c / 100 }); return [`${num(c)} %`, num(q.neta), num(q.brutaGas), num(q.brutaVapor), `${f1(q.eficiencia * 100)} %`]; }));
+        const r = L.c.r;
+        const Qt = Math.max(1, r.Q / 1000);
+        const agua = r.perfil.map(([q, t]) => [q / 1000, t]);
+        const gases = [[0, r.tChim], [Qt, r.T4]];
+        const series = [{ clase: 'h-s-actual', nombre: 'Gases, se enfrían' }, { clase: 'h-s-max', nombre: 'Agua y vapor, se calientan' }];
+        const aguaEn = q => { for (let i = 0; i < agua.length - 1; i++) if (q <= agua[i + 1][0]) return agua[i][1] + ((agua[i + 1][1] - agua[i][1]) * (q - agua[i][0])) / Math.max(0.001, agua[i + 1][0] - agua[i][0]); return agua.at(-1)[1]; };
+        $('#h-c-t').textContent = 'Cómo pasa el calor del gas al agua';
+        $('#h-c-ley').innerHTML = leyenda(series);
+        $('#h-c-pie').textContent = `Dentro del recuperador. Los tramos planos son el agua hirviendo, a tres presiones. Mientras la línea azul vaya pegada a la de los gases, se pierde poco; por eso tres presiones sacan más que una. Los gases nunca bajan de unos ${num(RECUPERADOR.pinch)} °C sobre el agua que hierve.`;
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'Cómo pasa el calor del gas al agua', xMin: 0, xMax: Qt, yMin: 0, yMax: 700, ticksX: [0, Math.round(Qt / 2), Math.round(Qt)], ticksY: [0, 175, 350, 525, 700], etX: 'Calor que ya pasó, en MW', etY: '°C', quebradas: [{ clase: 'h-s-actual', puntos: gases }, { clase: 'h-s-max', puntos: agua }], fx: x => num(x), fy: y => num(y), punta: q => `${num(q)} MW · gases ${num(r.tChim + ((r.T4 - r.tChim) * q) / Qt)} °C · agua ${num(aguaEn(q))} °C` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Presión', 'Hierve a', 'Vapor, kg/s'], [['Alta, 150 bar', '342 °C', num(r.mAP)], ['Media, 30 bar', '234 °C', num(r.mMP)], ['Baja, 4 bar', '144 °C', num(r.mBP)]]);
+    } else if (m === 'abierto') {
+        const cc = tabla41(x => central({ ...clima, carga: x / 100 }).eficiencia * 100, 40, 100);
+        const ab = tabla41(x => central({ ...clima, carga: x / 100, abierto: 1 }).eficiencia * 100, 40, 100);
+        const lineas = [{ clase: 'h-s-actual', nombre: 'Ciclo combinado', f: cc }, { clase: 'h-s-sin', nombre: 'Ciclo abierto', f: ab }];
+        $('#h-b-t').textContent = 'Cuánto aprovecha del gas, según la carga';
+        $('#h-b-ley').innerHTML = leyenda(lineas);
+        $('#h-b-pie').textContent = 'Con poca carga, las dos pierden. En ciclo abierto cae más rápido porque la turbina es lo único que convierte el calor en electricidad.';
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'Cuánto aprovecha del gas', xMin: 40, xMax: 100, yMin: 0, yMax: 70, ticksX: [40, 55, 70, 85, 100], ticksY: [0, 20, 40, 60], etX: 'Carga de la central (%)', etY: '% del gas', lineas, fx: x => num(x), fy: y => num(y), punta: x => `${num(x)} % · combinado ${f1(cc(x))} · abierto ${f1(ab(x))} %` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Carga', 'Combinado', 'Abierto'], [100, 85, 70, 55, 40].map(c => [`${num(c)} %`, `${f1(cc(c))} %`, `${f1(ab(c))} %`]));
+        const cCO = tabla41(x => central({ ...clima, carga: x / 100 }).co2MWh, 40, 100);
+        const aCO = tabla41(x => central({ ...clima, carga: x / 100, abierto: 1 }).co2MWh, 40, 100);
+        const l2 = [{ clase: 'h-s-actual', nombre: 'Ciclo combinado', f: cCO }, { clase: 'h-s-sin', nombre: 'Ciclo abierto', f: aCO }];
+        $('#h-c-t').textContent = 'CO₂ por cada MWh';
+        $('#h-c-ley').innerHTML = leyenda(l2);
+        $('#h-c-pie').textContent = 'Es el CO₂ del gas quemado, con el factor de la EIA. No cuenta el metano que se fuga al extraer y mover el gas.';
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'CO₂ por cada MWh', xMin: 40, xMax: 100, yMin: 0, yMax: 0.8, ticksX: [40, 55, 70, 85, 100], ticksY: [0, 0.2, 0.4, 0.6, 0.8], etX: 'Carga de la central (%)', etY: 't/MWh', lineas: l2, fx: x => num(x), fy: y => num(y, 1), punta: x => `${num(x)} % · combinado ${num(cCO(x), 2)} · abierto ${num(aCO(x), 2)} t/MWh` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Carga', 'Combinado', 'Abierto'], [100, 70, 40].map(c => [`${num(c)} %`, num(cCO(c), 2), num(aCO(c), 2)]));
+    } else if (m === 'clima') {
+        const sinA = { enfriar: pide.enfriar, dos: pide.dos, humedad: DEF.humedad };
+        const lineas = [
+            { clase: 'h-s-max', nombre: 'Nivel del mar', f: tabla41(x => central({ ...sinA, tAire: x, altitud: 0 }).neta, 5, 45) },
+            { clase: 'h-s-sin', nombre: '1,000 m', f: tabla41(x => central({ ...sinA, tAire: x, altitud: 1000 }).neta, 5, 45) },
+            { clase: 'h-s-actual', nombre: '2,240 m, Valle de México', f: tabla41(x => central({ ...sinA, tAire: x, altitud: 2240 }).neta, 5, 45) },
+        ];
+        $('#h-b-t').textContent = 'Potencia según el calor y la altura';
+        $('#h-b-ley').innerHTML = leyenda(lineas);
+        $('#h-b-pie').textContent = `Las máquinas se venden a 15 °C y nivel del mar. De 10 a 35 °C pierden cerca de 13 % (JICA). Cada 1,000 pies de altura quitan cerca de 3.5 % más (Power Engineering). La tabla usa un día caluroso de ejemplo en cada sitio. ${pide.enfriar ? 'Con el enfriador, baja menos cuando hace calor.' : ''}`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'Potencia según el calor y la altura', xMin: 5, xMax: 45, yMin: 0, yMax: MAX_MW, ticksX: [5, 15, 25, 35, 45], ticksY: ticksMW, etX: 'Temperatura del aire (°C)', etY: 'MW a la red', lineas, fx: x => num(x), fy: y => num(y), punta: x => `${num(x)} °C · mar ${num(lineas[0].f(x))} · 1,000 m ${num(lineas[1].f(x))} · 2,240 m ${num(lineas[2].f(x))} MW` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Sitio', 'Altura', 'Aire', 'MW a la red'], SITIOS.map(s => [s.nombre, `${num(s.m)} m`, `${num(s.t)} °C`, num(central({ ...sinA, tAire: s.t, altitud: s.m }).neta)]));
+        const ef = tabla41(x => central({ ...sinA, tAire: x, altitud: pide.altitud }).eficiencia * 100, 5, 45);
+        $('#h-c-t').textContent = 'Eficiencia según el calor';
+        $('#h-c-ley').textContent = '';
+        $('#h-c-pie').textContent = 'Con calor pierde poco de eficiencia y mucho de potencia: el problema es que cabe menos aire, no que aproveche peor el gas. El condensador también trabaja peor, porque el agua de la torre sale más caliente.';
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'Eficiencia según el calor', xMin: 5, xMax: 45, yMin: 50, yMax: 65, ticksX: [5, 15, 25, 35, 45], ticksY: [50, 55, 60, 65], etX: 'Temperatura del aire (°C)', etY: '% del gas', f: ef, fx: x => num(x), fy: y => num(y), punta: x => `${num(x)} °C · ${f1(ef(x))} %` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Aire', 'Eficiencia'], [5, 15, 25, 35, 45].map(t => [`${num(t)} °C`, `${f1(ef(t))} %`]));
+    } else {
+        const A = ARRANQUES[pide.tipo];
+        const f = min => { const a = arranque(min, pide.tipo); return central({ ...clima, carga: Math.max(a.tg, 0.001), cargaVapor: Math.max(a.tg, 0.001), vapor: a.vapor }); };
+        const lineas = [
+            { clase: 'h-s-actual', nombre: 'Total a la red', f: tabla41(x => (arranque(x, pide.tipo).tg > 0 ? f(x).neta : 0), 0, A.total) },
+            { clase: 'h-s-max', nombre: 'Turbinas de gas', f: tabla41(x => (arranque(x, pide.tipo).tg > 0 ? f(x).brutaGas : 0), 0, A.total) },
+            { clase: 'h-s-sin', nombre: 'Turbina de vapor', f: tabla41(x => (arranque(x, pide.tipo).tg > 0 ? f(x).brutaVapor : 0), 0, A.total) },
+        ];
+        const ticks = pide.tipo === 'frio' ? [0, 60, 120, 180, 240] : [0, 10, 20, 30];
+        $('#h-b-t').textContent = `Megawatts en un arranque ${pide.tipo === 'frio' ? 'en frío' : 'en caliente'}`;
+        $('#h-b-ley').innerHTML = leyenda(lineas);
+        $('#h-b-pie').textContent = pide.tipo === 'frio'
+            ? 'Tras muchas horas parada, el metal está frío: subir de golpe lo dañaría. La turbina de gas espera con poca carga hasta que todo se calienta. JICA pide un máximo de 240 minutos en una planta de clase F.'
+            : `Con el equipo aún caliente: Siemens da plena carga en 30 minutos, subiendo ${num(RAMPA_MW_MIN)} MW por minuto cada turbina de gas, y la de vapor arranca sin esperar a que terminen.`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'Megawatts en el arranque', xMin: 0, xMax: A.total, yMin: 0, yMax: MAX_MW, ticksX: ticks, ticksY: ticksMW, etX: 'Minutos desde la orden', etY: 'MW', lineas, fx: x => num(x), fy: y => num(y), punta: x => `Minuto ${num(x)} · total ${num(lineas[0].f(x))} · gas ${num(lineas[1].f(x))} · vapor ${num(lineas[2].f(x))} MW` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Minuto', 'Total', 'Gas', 'Vapor'], ticks.map(x => [num(x), num(lineas[0].f(x)), num(lineas[1].f(x)), num(lineas[2].f(x))]));
+        const cal = x => arranque(x, 'caliente');
+        const fri = x => arranque(x, 'frio');
+        const pot = (a, d) => (a.tg > 0 ? central({ dos: d, carga: Math.max(a.tg, 0.001), cargaVapor: Math.max(a.tg, 0.001), vapor: a.vapor }).neta / central({ dos: d }).neta : 0);
+        const l2 = [{ clase: 'h-s-max', nombre: 'En caliente', f: tabla41(x => pot(cal(x), pide.dos) * 100, 0, 240) }, { clase: 'h-s-sin', nombre: 'En frío', f: tabla41(x => pot(fri(x), pide.dos) * 100, 0, 240) }];
+        $('#h-c-t').textContent = 'Caliente contra frío';
+        $('#h-c-ley').innerHTML = leyenda(l2);
+        $('#h-c-pie').textContent = 'Por eso, si se espera que el sistema la pida pronto, conviene mantenerla caliente. Cuando cae el sol, las centrales que ya están listas son las que ayudan.';
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'Caliente contra frío', xMin: 0, xMax: 240, yMin: 0, yMax: 105, ticksX: [0, 60, 120, 180, 240], ticksY: [0, 25, 50, 75, 100], etX: 'Minutos desde la orden', etY: '% de plena carga', lineas: l2, fx: x => num(x), fy: y => num(y), punta: x => `Minuto ${num(x)} · caliente ${num(l2[0].f(x))} % · frío ${num(l2[1].f(x))} %` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Tipo', 'Minutos a plena carga', 'Fuente'], [['En caliente', '30', 'Siemens'], ['En frío', 'Hasta 240', 'JICA']]);
+    }
+}
+function pintarBarras(L, pag) {
+    const { $, pide } = pag;
+    const c = L.c;
+    const R = c.reparto;
+    let filas;
+    if (pide.modo === 'clima') {
+        const ref = central({ dos: pide.dos }).neta;
+        const soloT = central({ dos: pide.dos, tAire: pide.tAire }).neta;
+        const soloA = central({ dos: pide.dos, altitud: pide.altitud }).neta;
+        const conE = central({ dos: pide.dos, tAire: pide.tAire, altitud: pide.altitud, enfriar: true }).neta;
+        filas = [{ t: 'Catálogo: 15 °C, nivel del mar', v: 1, escala: 1.1 }, { t: `Con ${num(pide.tAire)} °C`, v: soloT / ref, escala: 1.1 }, { t: `A ${num(pide.altitud)} m`, v: soloA / ref, escala: 1.1 }, { t: 'Con las dos', v: c.neta / ref, activa: true, escala: 1.1 }, { t: 'Con enfriador', v: conE / ref, escala: 1.1 }];
+        $('#h-d-t').textContent = 'Lo que da, de cada 100 del catálogo';
+        $('#h-d-pie').textContent = 'En un caso real de Power Engineering, enfriar el aire 12 °C recuperó cerca de 8.5 %. Solo sirve donde el aire es seco: no puede bajar del bulbo húmedo.';
+    } else if (pide.modo === 'arranque') {
+        const A = L.arranque;
+        filas = ARRANQUES[pide.tipo].etapas.map(e => ({ t: e[0], v: clamp01((A.min - e[1]) / Math.max(0.01, e[2] - e[1])), activa: A.min >= e[1] && A.min < e[2] }));
+        $('#h-d-t').textContent = 'Por dónde va, de cada 100';
+        $('#h-d-pie').textContent = 'Las etapas se enciman: la turbina de vapor empieza antes de que termine de subir la de gas.';
+    } else {
+        filas = [{ t: 'Electricidad, turbinas de gas', v: R.gas, activa: true }, { t: 'Electricidad, turbina de vapor', v: R.vapor, activa: true }, { t: 'Se va en la torre', v: R.torre }, { t: 'Se va por la chimenea', v: R.chimenea }, { t: 'La usa la propia central', v: R.propia, d: 1 }];
+        $('#h-d-t').textContent = 'A dónde va cada 100 del gas';
+        $('#h-d-pie').textContent = pide.modo === 'abierto' ? 'Sin recuperador no hay vapor ni torre: lo demás se va por la chimenea, muy caliente.' : 'Toda central de vapor tira calor en su condensador: sin esa parte fría, la turbina no podría girar.';
+    }
+    $('#h-barras').innerHTML = barrasHTML(filas);
+}
+function alPintarFijas({ $ }) {
+    $('#h-pesa').innerHTML = barrasHTML([{ t: 'Electricidad, enero a septiembre de 2025', v: 0.61, activa: true }, { t: 'Electricidad, 2022', v: 0.5505 }, { t: 'Capacidad instalada, 2025', v: 0.43 }, { t: 'Horas que trabajan al año', v: 0.683 }]);
+    $('#h-arreglos').innerHTML = tablaHTML(['', '1×1', '2×1'], [
+        ['Turbinas de gas', '1', '2'],
+        ['Recuperadores', '1', '2'],
+        ['Turbinas de vapor', '1', '1'],
+        ['Catálogo, MW', num(EQUIPO.unoPorUno), num(EQUIPO.dosPorUno)],
+        ['Este modelo, MW', num(UNO.neta), num(BASE.neta)],
+        ['Eficiencia del modelo', `${f1(UNO.eficiencia * 100)} %`, `${f1(BASE.eficiencia * 100)} %`],
+    ]);
+    $('#h-comparar').innerHTML = tablaHTML(['', 'Abierto', 'Combinado'], [
+        ['Aprovecha del gas', `${num(ABIERTO.eficiencia * 100)} %`, `${num(BASE.eficiencia * 100)} %`],
+        ['MW con el mismo gas', num(ABIERTO.neta), num(BASE.neta)],
+        ['Gases a la chimenea', `${num(ABIERTO.tChim)} °C`, `${num(BASE.tChim)} °C`],
+        ['CO₂ por MWh', `${num(ABIERTO.co2MWh, 2)} t`, `${num(BASE.co2MWh, 2)} t`],
+        ['Agua de enfriamiento', 'Casi nada', `${num(BASE.evapora)} t/h que se evaporan`],
+        ['Arranque', 'Más rápido', 'El vapor tarda'],
+    ]);
+    $('#h-mexico').innerHTML = `<thead><tr><th scope="col">Central</th><th scope="col">Arreglo</th><th scope="col">MW</th></tr></thead><tbody>${[
+        ['Empalme I', 'Sonora, SGT6-8000H', '2×1', num(EQUIPO.empalme1)],
+        ['Empalme II', 'Sonora, SGT6-8000H', '2×1', num(EQUIPO.empalme2)],
+        ['Salamanca', 'Guanajuato, 2025', '—', '958'],
+        ['Villa de Reyes', 'San Luis Potosí, 2025', '—', '449'],
+        ['El Sauz II', 'Querétaro, 2025', '—', '269'],
+    ].map(([n, d, a, m]) => `<tr><td><b>${n}</b><small>${d}</small></td><td>${a}</td><td>${m}</td></tr>`).join('')}</tbody>`;
+}
+function alActualizar(L, pag) {
+    const { pide, ponerCifra, ponerLecturas, nivel, graficas } = pag;
+    const c = L.c;
+    const g = c.g;
+    const n = L.neta;
+    pintarBarras(L, pag);
+    const lenta = Math.abs(L.carga - L.cargaVapor) > 0.03;
+    if (pide.modo === 'combinado') {
+        ponerLecturas([['A la red', num(n), 'MW'], ['Turbinas de gas', num(c.brutaGas), 'MW'], ['Turbina de vapor', num(c.brutaVapor), 'MW'], ['Aprovecha', num(c.eficiencia * 100, 1), '% del gas'], ['Gas', num(c.m3Dia, 1), 'millones de m³ al día'], ['CO₂', num(c.co2MWh, 2), 't por MWh']], lenta ? 'La turbina de gas ya llegó; la de vapor viene detrás, porque el recuperador tarda en cambiar de temperatura.' : null);
+        ponerCifra('hud', `${num(n)} MW`);
+        ponerCifra('hud2', `${pide.dos ? '2×1' : '1×1'}: ${num(c.brutaGas)} de gas y ${num(c.brutaVapor)} de vapor`);
+        graficas.b?.marcar(L.carga * 100, n);
+        nivel(1, 'Gas', L.carga, `${num(L.carga * 100)} %`);
+        nivel(2, 'Vapor', c.brutaVapor / (c.n * 160), `${num(c.brutaVapor)} MW`);
+    } else if (pide.modo === 'abierto') {
+        const cerrando = c.abierto < 0.98;
+        ponerLecturas([['A la red', num(n), 'MW'], ['Turbinas de gas', num(c.brutaGas), 'MW'], ['Turbina de vapor', num(c.brutaVapor), 'MW'], ['Aprovecha', num(c.eficiencia * 100, 1), '% del gas'], ['Gases a la chimenea', num(g.tEscape), '°C'], ['CO₂', num(c.co2MWh, 2), 't por MWh']], cerrando ? 'La compuerta está cambiando: el recuperador se va quedando sin gases calientes y el vapor se acaba.' : null);
+        ponerCifra('hud', `${num(n)} MW`);
+        ponerCifra('hud2', `solo con las turbinas de gas: ${num(c.eficiencia * 100)} %`);
+        graficas.b?.marcar(L.carga * 100, c.eficiencia * 100);
+        graficas.c?.marcar(L.carga * 100, c.co2MWh);
+        nivel(1, 'Gas', L.carga, `${num(L.carga * 100)} %`);
+        nivel(2, 'Compuerta', c.abierto, `${num(c.abierto * 100)} % abierta`);
+    } else if (pide.modo === 'clima') {
+        const ref = central({ dos: pide.dos }).neta;
+        const aviso = pide.tAire >= 38 ? 'Mucho calor: entra menos aire y, además, el agua de la torre sale más caliente y el condensador empeora.' : pide.altitud >= 1500 ? 'A esta altura el aire pesa bastante menos. Por eso una central en el Altiplano no da lo mismo que en la costa con el mismo equipo.' : null;
+        ponerLecturas([['A la red', num(n), 'MW'], ['Del catálogo', num((n / ref) * 100), '%'], ['Aire al compresor', num(g.tAireC), '°C'], ['Aire', num(g.m), 'kg/s por turbina'], ['Aprovecha', num(c.eficiencia * 100, 1), '% del gas'], ['Condensador', num(c.st.tC), '°C']], aviso);
+        ponerCifra('hud', `${num(n)} MW`);
+        ponerCifra('hud2', `con ${num(pide.tAire)} °C a ${num(pide.altitud)} m`);
+        const serie = pide.altitud < 500 ? 0 : pide.altitud < 1600 ? 1 : 2;
+        const alt = [0, 1000, 2240][serie];
+        graficas.b?.marcar(pide.tAire, alt === pide.altitud ? n : graficas.b.cfg.lineas[serie].f(pide.tAire));
+        graficas.c?.marcar(pide.tAire, c.eficiencia * 100);
+        nivel(1, 'Aire', g.m / 625.3, `${num((g.m / 625.3) * 100)} %`);
+        nivel(2, 'Enfriador', pide.enfriar ? 1 : 0, pide.enfriar ? 'Encendido' : 'Apagado');
+    } else {
+        const A = L.arranque;
+        ponerLecturas([['A la red', num(n), 'MW'], ['Turbinas de gas', num(A.tg > 0 ? c.brutaGas : 0), 'MW'], ['Turbina de vapor', num(A.tg > 0 ? c.brutaVapor : 0), 'MW'], ['Tiempo', num(A.min), 'minutos'], ['Falta', num(A.total - A.min), 'minutos'], ['Etapa', A.min >= A.total ? 'Lista' : `${A.etapa.split(' ')[0]}…`, A.min >= A.total ? 'a plena carga' : 'ver abajo']], A.min >= A.total ? 'Ya está a plena carga. Pulsa «Seguir los minutos» para verlo otra vez.' : A.etapa);
+        ponerCifra('hud', `${num(n)} MW`);
+        ponerCifra('hud2', `minuto ${num(A.min)} de ${num(A.total)}, ${A.tipo === 'frio' ? 'en frío' : 'en caliente'}`);
+        graficas.b?.ahora(A.min);
+        graficas.c?.ahora(A.min);
+        nivel(1, 'Gas', A.tg, `${num(A.tg * 100)} %`);
+        nivel(2, 'Vapor', A.vapor, `${num(A.vapor * 100)} %`);
+    }
+}
 
-        piezasCC = { rotorGas, rotorVapor, llama, tuboMat, flujos, caliente, frio, corrientes, vidrio };
-        return {
-            piezas: { 1: [entradaGas], 2: [carcasaGas], 3: [carcasaTG, rotorGas, gen1], 4: [hrsg, tubos, ducto], 5: [turbinaVapor, rotorVapor, gen2], 6: [enfriamiento] },
-            // las carcasas suben y dejan ver los álabes y los tubos; generadores y torre se abren hacia afuera
-            movibles: [
-                { parte: 1, objetos: [entradaGas], hacia: [-0.3, 0, 0.35] },
-                { parte: 2, objetos: [carcasaGas], hacia: [0, 1.05, 0] },
-                { parte: 3, objetos: [carcasaTG], hacia: [0, 1.05, 0] },
-                { parte: 3, objetos: [gen1], hacia: [-0.45, 0, 0] },
-                { parte: 4, objetos: [hrsg], hacia: [0, 1.5, 0] },
-                { parte: 5, objetos: [turbinaVapor], hacia: [0, 0.9, 0] },
-                { parte: 5, objetos: [gen2], hacia: [0.45, 0, 0] },
-                { parte: 6, objetos: [enfriamiento], hacia: [0.4, 0, -0.35] },
-            ],
-            anclas: { 1: [entradaGas, [-2.3, 0.75, 1.4]], 2: [carcasaGas, [-1.7, 1.7, 0]], 3: [carcasaTG, [-0.55, 1.75, 0]], 4: [hrsg, [1.1, 2.35, 0]], 5: [turbinaVapor, [2.2, 1.45, ZV]], 6: [enfriamiento, [2.85, 1.75, -0.95]] },
-        };
+// ------------------------------------------------------------------ la central
+let planta = estadoPlanta({ carga: DEF.carga / 100 });
+const mover = { verDos: 1 };
+
+crearPagina({
+    figura: FIGURA,
+    fichas: FICHAS,
+    vistas: VISTAS,
+    modos: MODOS,
+    botones: BOTONES,
+    acciones: ACCIONES,
+    modo0: 'combinado',
+    pide: { carga: DEF.carga, tAire: DEF.tAire, altitud: DEF.altitud, minutos: DEF.minutos, tipo: 'caliente', dos: true, enfriar: false },
+    general: { Lx: 15.4, Lz: 8.6, alto: 6.2, mira: [0.27, 1.45, 0.25], az: -20, el: 22, azVertical: -14, elVertical: 26 },
+    etiquetas: { lienzo: 'Central de ciclo combinado en 3D: arrastra para girarla, toca un punto para conocerlo' },
+    textoFinal: 'Toca cualquier punto para volver a verlo. Mueve la carga y mira cómo responde primero la turbina de gas, prueba el ciclo abierto, sube el calor en «Clima» o mira cómo arranca.',
+    colores: { fondoTinta: '#3a3b40', tintaSuave: '#8a8d93', elec: FLUIDOS.elec.color, caliente: FLUIDOS.caliente.color, frio: FLUIDOS.frio.color, torre: FLUIDOS.torre.color, aire: FLUIDOS.aire.color },
+    crearDiagrama,
+    secciones,
+    escena: (renderer, scene, { movil, oscuro }) => {
+        const M = materiales(P_PLANTA);
+        const est = escenario(renderer, scene, M, { movil, oscuro });
+        return { planta: construir(M, P_PLANTA, { movil }), est };
     },
-
-    paso(estado) {
-        const { rotorGas, rotorVapor, llama, tuboMat, flujos, caliente, frio, vidrio } = piezasCC;
-        const { dt, dtSim, e, arrastre, M } = estado;
-        estado.entrada += (estado.entradaObjetivo - estado.entrada) * (1 - Math.exp(-dt / 0.6));
-        carga = estado.entrada / 100;
-        // desarmado o con una pieza fuera, la planta se detiene
-        const armado = 1 - clamp(Math.max(e * 8, ...[1, 2, 3, 4, 5, 6].map(n => arrastre[n].length() * 3)), 0, 1);
-        const c = carga * armado;
-        fase += 2 * Math.PI * F * dtSim * armado;
-        rotorGas.rotation.x = fase;
-        rotorVapor.rotation.x = fase;
-        const eta = eficiencia(carga);
-        const mwGas = MW_GAS * c;
-        const mwVapor = MW_VAPOR * c;
-        const total = mwGas + mwVapor;
-        const calor = total / eta; // MW de calor del gas
-        const m3dia = (calor * 1e6 / 50e6) / 0.8 * 86400 / 1e6; // millones de m³ al día
-        const escape = 600 - 120 * (1 - carga);
-        cifrasCC = { gasPct: (mwGas / calor) * 100 || 0, vaporPct: (mwVapor / calor) * 100 || 0 };
-        if (!c) cifrasCC = { gasPct: 0, vaporPct: 0 };
-        llama.material.opacity = 0.75 * c;
-        tuboMat.emissive.set(estado.P.acento);
-        tuboMat.emissiveIntensity = 0.25 * c;
-
-        // los flujos avanzan con la carga (en tiempo de pantalla, para que se vean a cualquier cámara lenta)
-        const m4 = new THREE.Matrix4();
-        const p = new THREE.Vector3();
-        const col = new THREE.Color();
-        const vel = { gas: 0.35, aire: 0.4, escape: 0.22, vapor: 0.35, aCondensador: 0.3, alimentacion: 0.25, torreIda: 0.25, torreVuelta: 0.25, pluma: 0.08 };
-        for (const [k, fl] of Object.entries(flujos)) {
-            fl.f = (fl.f + dt * vel[k] * (0.3 + 0.7 * c)) % 1;
-            fl.im.visible = c > 0.02;
-            for (let i = 0; i < fl.n; i++) {
-                const u = ((i / fl.n) + fl.f) % 1;
-                fl.ruta.getPointAt(u, p);
-                const s = k === 'pluma' ? 0.4 + u * 1.4 : 1;
-                m4.makeScale(s, s, s).setPosition(p);
-                fl.im.setMatrixAt(i, m4);
-                if (k === 'escape') fl.im.setColorAt(i, col.copy(caliente).lerp(frio, clamp((u - 0.35) / 0.5, 0, 1)));
-            }
-            fl.im.instanceMatrix.needsUpdate = true;
-            if (fl.im.instanceColor) fl.im.instanceColor.needsUpdate = true;
-            if (k === 'pluma') fl.mat.opacity = 0.5 * c;
-        }
-        const visibles = 1 - clamp(e * 6, 0, 1);
-        vidrio.opacity = 0.22 * visibles;
-        M.cable.opacity = visibles;
-        M.cable.visible = visibles > 0.02;
-        estado.cc = { c, visibles };
-
-        return {
-            cifras: {
-                total: `${num(total)} MW`,
-                hud: c ? `${num(mwGas)} de gas + ${num(mwVapor)} de vapor · ${num(eta * 100)} %` : 'Detenida',
-                eficiencia: `${num(eta * 100 * (c ? 1 : 0))} %`,
-                escape: `${num(c ? escape : 25)} °C`,
-                gas: `${num(m3dia * (c ? 1 : 0), 1)} millones de m³/día`,
-            },
-        };
+    alCambiarModo: (p, m, reducir) => {
+        if (m === 'arranque') { p.minutos = 0; p.corre = !reducir; }
+        else p.corre = false;
+        if (m === 'clima') { p.tAntes = p.tAire; if (p.tAire === DEF.tAire && p.altitud === DEF.altitud) p.tAire = 35; }
+        if (p.modo === 'clima') { p.tAire = p.tAntes ?? DEF.tAire; p.altitud = DEF.altitud; p.enfriar = false; }
     },
-
-    despues(estado) {
-        const { corrientes } = piezasCC;
-        const { c, visibles } = estado.cc;
-        const polos = 1 - clamp(F * estado.lento.k * 2 - 2, 0, 1);
-        const avance = 0.05 * (2 * Math.PI * F);
-        const sen = Math.sin(fase);
-        // corriente alterna de 60 Hz de cada generador: la del de gas es el doble que la del de vapor
-        corrientes[0].actualizar({ avance, corriente: sen * c, dt: estado.dtSim, visible: visibles * clamp(c * 4, 0, 1), polos, camara: estado.camara, w: estado.w, h: estado.h });
-        corrientes[1].actualizar({ avance: avance * 0.5, corriente: sen * c, dt: estado.dtSim, visible: visibles * clamp(c * 4, 0, 1), polos, camara: estado.camara, w: estado.w, h: estado.h });
+    alCuadro: ({ dt, pide }) => {
+        planta = pasoPlanta(planta, { modo: pide.modo, carga: pide.carga / 100, min: pide.minutos, tipo: pide.tipo }, dt);
+        mover.verDos += clamp((pide.dos ? 1 : 0) - mover.verDos, -dt / 1.1, dt / 1.1);
     },
+    poseDe: ({ pide, ve, encendido, t, dt, camara }) => pose({ modo: pide.modo, planta, carga: pide.carga / 100, tAire: pide.tAire, altitud: pide.altitud, humedad: DEF.humedad, enfriar: pide.enfriar, dos: pide.dos, min: pide.minutos, tipo: pide.tipo, noche: ve.noche, adentro: ve.adentro, desarme: ve.desarme, encendido, verDos: mover.verDos, t, dt, camara }),
+    firma: p => [p.modo, p.tAire, p.altitud, p.enfriar, p.dos, p.tipo],
+    alPintarFijas,
+    alPintarGraficas,
+    alActualizar,
+    prueba: p => ({ carga: +planta.tg.toFixed(3), vapor: +planta.vapor.toFixed(3), abierto: +planta.abierto.toFixed(3), minutos: +p.minutos.toFixed(1), dos: p.dos, tAire: p.tAire, altitud: p.altitud, tipo: p.tipo }),
 });
