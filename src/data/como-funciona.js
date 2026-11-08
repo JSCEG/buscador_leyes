@@ -1165,7 +1165,7 @@ export const CONCEPTOS = [
             { nombre: 'Sol y viento', texto: 'Dan la electricidad renovable que mueve toda la planta.' },
             { nombre: 'Agua pura', texto: 'Se le quitan las sales antes de entrar al electrolizador.' },
             { nombre: 'Electrolizador', texto: 'Parte el agua en hidrógeno y oxígeno con electricidad.' },
-            { nombre: 'Separadores', texto: 'Le quitan el agua al gas; el agua regresa al electrolizador.' },
+            { nombre: 'Separadores', texto: 'Le quitan el agua al gas. El agua regresa al electrolizador y el oxígeno sale al aire por el tubo azul.' },
             { nombre: 'Refinación', texto: 'Limpia el hidrógeno hasta dejarlo casi puro.' },
             { nombre: 'Compresor', texto: 'Aprieta el hidrógeno para que quepa en los tanques.' },
             { nombre: 'Tanques', texto: 'Guardan el hidrógeno a alta presión.' },

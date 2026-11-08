@@ -493,6 +493,20 @@ export function construir(M, P) {
         const retorno = cilX(0.03, 0.8, M.acero, 10);
         retorno.position.set(-0.85, 0.3, 0.15);
         partes.separadores[0].parent.add(retorno);
+        // venteo del oxígeno: el cuello de ganso va sujeto a un mástil y por la punta salen los soplos al aire
+        const o2 = partes.separadores[1];
+        const mastil = cil(0.013, 2.5, M.acero, 0.013, 8);
+        mastil.position.set(0, 0, 0.32);
+        o2.add(mastil);
+        for (const y of [1.75, 2.35]) {
+            const brazo = caja(0.012, 0.012, 0.32, M.acero);
+            brazo.position.set(0, y, 0.16);
+            o2.add(brazo);
+        }
+        const boca = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.078, 0.078, 0.03, 16), M.acero));
+        boca.position.set(0, 1.83 + 0.75, 0.25);
+        o2.add(boca);
+        for (let k = 0; k < 7; k++) burbuja('o2', 'verde', -0.35, 1.0, 2.5, 3.2, 0.34, 0.024, 0.09);
     }
 
     // --------- 5 · refinación: catalizador y dos torres que se turnan
@@ -528,6 +542,9 @@ export function construir(M, P) {
         };
         torre(1.35, -0.3);
         torre(1.95, -0.3);
+        const cabezal = cilX(0.038, 0.62, M.acero);
+        cabezal.position.set(1.65, 2.2, -0.3);
+        g.add(mover(cabezal, [0, 2.6, 0]));
         // catalizador (deoxo): convierte el oxígeno que queda en agua
         const pd = cil(0.04, 0.2, M.grafito);
         pd.position.set(0.85, 0, 0.62);

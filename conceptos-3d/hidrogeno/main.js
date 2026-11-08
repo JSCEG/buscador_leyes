@@ -60,7 +60,7 @@ const FICHAS = [
         texto: 'Aquí nace el hidrógeno verde. La electricidad parte el agua en una membrana: el hidrógeno sale por un lado y el oxígeno por el otro, dos de hidrógeno por cada uno de oxígeno. Gasta unos 55 kWh por kilo.' },
     { parte: 'separadores', nombre: 'Separadores', proceso: 'verde', abrir: true, accion: 'desarme',
         icono: '<rect x="5" y="4" width="6" height="16" rx="3"/><rect x="13" y="7" width="6" height="13" rx="3"/><path d="M5 13h6M13 14h6"/>',
-        texto: `El gas sale mezclado con agua. En estos recipientes el agua cae y regresa al electrolizador, y el hidrógeno sigue su camino. Por cada kilo de hidrógeno salen ${num(O2_POR_KG, 1)} kilos de oxígeno, que se liberan al aire o se venden.` },
+        texto: `El gas sale mezclado con agua. En estos recipientes el agua cae y regresa al electrolizador, y el hidrógeno sigue su camino. Por cada kilo de hidrógeno salen ${num(O2_POR_KG, 1)} kilos de oxígeno, que se venden o se liberan al aire por el tubo azul.` },
     { parte: 'refinacion', nombre: 'Refinación', proceso: 'verde', abrir: true, accion: 'desarme', eq: `Pureza: ${PLANTA.pureza} %`,
         icono: '<rect x="4" y="3" width="7" height="18" rx="3.5"/><rect x="13" y="3" width="7" height="18" rx="3.5"/><path d="M4 11h7M13 15h7"/>',
         texto: 'Aquí se refina el gas. Un catalizador convierte los restos de oxígeno en agua, y dos torres rellenas de material absorbente atrapan lo demás. Se turnan: mientras una limpia, la otra se regenera.' },
