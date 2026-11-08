@@ -8,6 +8,7 @@
  * - `revisado` stays null until the owner approves the text; the page then shows the date.
  */
 import { FUENTES as FUENTES_HIDROGENO } from '../../conceptos-3d/hidrogeno/fuentes.js';
+import { FUENTES as FUENTES_GEOTERMICA } from '../../conceptos-3d/geotermica/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -1033,37 +1034,52 @@ export const CONCEPTOS = [
         antes: ['generador', 'ciclo-combinado'],
         titulo: 'Central geotérmica',
         sector: 'electricidad',
-        resumen: 'Aprovecha el calor de la Tierra. Pozos profundos suben agua muy caliente del subsuelo; el vapor que sale de ella mueve una turbina y el agua regresa a la tierra por otro pozo.',
+        resumen: 'Aprovecha el calor de la Tierra. Unos pozos sacan agua muy caliente del subsuelo; al bajarle la presión, parte se vuelve vapor y mueve una turbina y un generador. La electricidad sale a la Red Nacional de Transmisión (RNT) y el agua que sobra regresa bajo tierra.',
         figura: 'geotermica',
+        partesTitulo: 'Los puntos clave de la central',
         claves: [
-            'En algunas zonas, la roca caliente del subsuelo calienta agua atrapada en la roca: es un yacimiento geotérmico.',
-            'Para producir electricidad hace falta agua o vapor muy calientes, de unos 150 a 370 °C, que se sacan con pozos que pueden llegar a unos 3 km de profundidad.',
-            'En una planta de vapor flasheado, el agua del pozo pierde presión en el separador y parte se vuelve vapor; ese vapor mueve la turbina y el generador.',
-            'El vapor se enfría, se vuelve agua y regresa al subsuelo por un pozo de reinyección, para volver a usarse.',
-            'Con agua menos caliente se usan plantas binarias: el agua calienta otro líquido que hierve más fácil, y ese líquido mueve la turbina.',
+            'A varios kilómetros, una roca muy caliente calienta el agua guardada en las grietas de otra roca. Una capa que no deja pasar el agua la mantiene apretada: por esa presión sigue líquida aunque esté a 280 °C. Eso es un yacimiento geotérmico.',
+            'Los pozos sacan esa agua. Al subir pierde presión y empieza a hervir, así que arriba llega agua con vapor.',
+            'Hay tres tipos de central. La de vapor seco usa directamente el vapor del pozo; la de vapor flasheado baja la presión del agua para sacarle vapor; y la binaria usa agua menos caliente para hervir otro líquido.',
+            'El vapor mueve la turbina y esta, el generador. Después, en el condensador, el vapor se vuelve agua y deja un vacío que jala más vapor.',
+            'Una subestación sube el voltaje para que la electricidad viaje por la Red Nacional de Transmisión (RNT). Las Redes Generales de Distribución (RGD) la reparten al público. Da lo mismo de día que de noche.',
+            'El agua que no se evaporó regresa bajo tierra por otros pozos. Así se sostiene la presión y el yacimiento dura más.',
         ],
         formulas: [
-            { expresion: 'x = c × (T − T sep) ÷ h fg', lectura: 'la parte del agua que se vuelve vapor depende de cuánto más caliente está que el separador', ejemplo: 'agua a 280 °C con el separador a 160 °C: 4.2 × 120 ÷ 2,083 ≈ 24 % se vuelve vapor.' },
+            { expresion: 'x = (h agua − h líquido) ÷ h evaporar', lectura: 'la parte del agua que se vuelve vapor depende de cuánta energía le sobra al llegar al separador y de cuánta hace falta para evaporarla', ejemplo: 'agua a 280 °C con el separador a 8 bar: (1,237 − 721) ÷ 2,047 ≈ 25 % se vuelve vapor.' },
+            { expresion: 'P = vapor × energía que deja en la turbina × 0.98', lectura: 'la potencia sale de cuánto vapor pasa y de cuánta energía le quita la turbina; el 0.98 es lo que aprovecha el generador', ejemplo: '55 kg de vapor por segundo × 502 kJ/kg × 0.98 ≈ 27 MW.' },
+        ],
+        errores: [
+            { idea: 'Lo blanco que sale de la torre es humo.', realidad: 'Es vapor de agua. Ahí no se quema nada: la torre enfría agua y una parte se evapora.' },
+            { idea: 'El calor del subsuelo no se acaba, así que un campo dura para siempre.', realidad: 'Si se saca más agua de la que entra, la presión baja y el campo da menos. Por eso se reinyecta, y aun así hay que cuidar dónde: si el agua entra demasiado cerca de los pozos, enfría el yacimiento.' },
+            { idea: 'Se puede regresar toda el agua que sale.', realidad: 'En una central de vapor flasheado con torre húmeda, una parte se evapora y no regresa. En esta central de ejemplo regresan unos 83 de cada 100 kilos.' },
         ],
         partes: [
-            { nombre: 'Roca caliente', texto: 'La fuente de calor, en lo profundo.' },
-            { nombre: 'Yacimiento geotérmico', texto: 'Roca porosa con agua caliente atrapada.' },
-            { nombre: 'Pozo productor', texto: 'Sube el agua caliente a la superficie.' },
-            { nombre: 'Separador', texto: 'Al bajar la presión, separa el vapor del agua.' },
-            { nombre: 'Turbina y generador', texto: 'El vapor gira la turbina y el generador produce electricidad.' },
-            { nombre: 'Torre de enfriamiento', texto: 'Enfría el vapor que sale de la turbina para volverlo agua.' },
-            { nombre: 'Pozo de reinyección', texto: 'Regresa el agua al yacimiento.' },
+            { nombre: 'Roca caliente', texto: 'La fuente de calor, a varios kilómetros. Aquí no se quema nada.' },
+            { nombre: 'Yacimiento', texto: 'Agua muy caliente en las grietas de la roca, apretada bajo una capa sello.' },
+            { nombre: 'Pozos productores', texto: 'Tubos de acero que suben el agua con vapor hasta la superficie.' },
+            { nombre: 'Separador', texto: 'Baja la presión, parte del agua se vuelve vapor y el vapor sale por arriba.' },
+            { nombre: 'Turbina', texto: 'El vapor empuja sus álabes y hace girar el eje.' },
+            { nombre: 'Generador', texto: 'El mismo eje gira dentro de las bobinas y ahí nace la electricidad.' },
+            { nombre: 'Condensador', texto: 'Vuelve agua el vapor y deja un vacío que jala más vapor por la turbina.' },
+            { nombre: 'Torre de enfriamiento', texto: 'Enfría el agua del condensador. Lo blanco que sale es vapor de agua.' },
+            { nombre: 'Pozos de reinyección', texto: 'Regresan bajo tierra el agua que no se evaporó y sostienen la presión.' },
+            { nombre: 'Planta binaria', texto: 'Con agua menos caliente: hierve isopentano en un circuito cerrado, y su vapor mueve una turbina chica.' },
+            { nombre: 'Subestación', texto: 'Sube el voltaje para que la electricidad viaje con menos pérdidas.' },
+            { nombre: 'RNT y RGD', texto: 'La Red Nacional de Transmisión lleva la electricidad lejos y las Redes Generales de Distribución la reparten al público.' },
         ],
-        dato: 'Las cifras de la figura son de ejemplo: un pozo de 400 kg de agua por segundo y una turbina que usa 7.5 toneladas de vapor por hora por cada MW.',
+        dato: 'Las cifras de la figura son de ejemplo: cuatro pozos con 220 kg de agua por segundo, un yacimiento a 280 °C y un separador a 8 bar dan unos 25 MW a la red. No son de una central real. Los voltajes también son de ejemplo y lo que pasa a 30 años solo muestra la tendencia.',
         ley: {
-            texto: 'El calor de los yacimientos geotérmicos es una Energía Limpia. Su exploración y explotación se rigen por la Ley de Geotermia, con permisos y concesiones que otorga la SENER.',
+            texto: 'El calor de los yacimientos geotérmicos es una Energía Limpia. Su exploración y explotación se rigen por la Ley de Geotermia, con permisos y concesiones que otorga la Secretaría de Energía (SENER). Esa ley también pide regresar el agua geotérmica al área de donde salió.',
             siglas: ['LGeo', 'RLGeo', 'LSE'],
             ficha: {
-                elQue: 'La Ley de Geotermia regula la exploración y la explotación de los recursos geotérmicos para generar energía eléctrica o para otros usos (LGeo, art. 1). La Ley del Sector Eléctrico considera Energía Limpia el calor de los yacimientos geotérmicos (LSE, art. 3).',
-                elComo: 'Explorar requiere un Permiso de Exploración previo de la SENER (LGeo, art. 8). Quien cumple con él puede solicitar la Concesión, que da el derecho de usar, aprovechar y explotar el área y el yacimiento geotérmico (arts. 20 y 21). La central de 0.7 MW o más necesita además permiso de generación (LSE, art. 19).',
+                elQue: 'La Ley de Geotermia regula la exploración y la explotación de los recursos geotérmicos para generar energía eléctrica o para otros usos (LGeo, art. 1). La Ley del Sector Eléctrico considera Energía Limpia el calor de los yacimientos geotérmicos (LSE, art. 3, fracc. XXI, inciso d).',
+                elComo: 'Explorar requiere un Permiso de Exploración previo de la SENER (LGeo, art. 8). Quien cumple con él puede solicitar la Concesión, que da el derecho de usar, aprovechar y explotar el área y el yacimiento geotérmico (arts. 20 y 21). Las aguas geotérmicas deben reinyectarse al área geotérmica (art. 29). La central de 0.7 MW o más necesita además permiso de generación (LSE, art. 19).',
                 articulos: [
                     { siglas: 'LGeo', refs: 'Arts. 1, 8, 20 y 21', nota: 'Objeto de la ley, Permiso de Exploración y Concesión geotérmica.' },
-                    { siglas: 'LSE', refs: 'Arts. 3, 19 y 88', nota: 'Energía Limpia, permiso de generación y utilidad pública para aprovechar un yacimiento geotérmico.' },
+                    { siglas: 'LGeo', refs: 'Art. 29', nota: 'Las aguas geotérmicas deben reinyectarse al área geotérmica.' },
+                    { siglas: 'LSE', refs: 'Art. 3, fracc. XXI, inciso d)', nota: 'El calor de los yacimientos geotérmicos como Energía Limpia.' },
+                    { siglas: 'LSE', refs: 'Arts. 19 y 88', nota: 'Permiso de generación y utilidad pública para aprovechar un yacimiento geotérmico.' },
                 ],
             },
         },
@@ -1071,11 +1087,13 @@ export const CONCEPTOS = [
         mapa: { texto: 'Ver las centrales de generación en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
             { pregunta: '¿De dónde viene la energía de una central geotérmica?', opciones: ['Del calor del subsuelo', 'Del viento', 'Del gas natural'], correcta: 0 },
-            { pregunta: '¿Qué pasa con el agua después de usar su vapor?', opciones: ['Regresa al subsuelo por un pozo de reinyección', 'Se tira al mar', 'Se quema'], correcta: 0 },
+            { pregunta: '¿Qué pasa en el separador?', opciones: ['Se quema el vapor', 'Baja la presión y parte del agua se vuelve vapor', 'Se limpia la electricidad'], correcta: 1 },
+            { pregunta: '¿Por qué regresa el agua bajo tierra?', opciones: ['Para sostener la presión y que el yacimiento dure más', 'Porque no se puede guardar', 'Para enfriar la turbina'], correcta: 0 },
+            { pregunta: '¿Cuándo conviene una planta binaria?', opciones: ['Cuando sobra viento', 'Cuando el agua está menos caliente y da poco vapor', 'Cuando la central es nuclear'], correcta: 1 },
             { pregunta: '¿Quién otorga los permisos de exploración y las concesiones geotérmicas?', opciones: ['La Secretaría de Energía (SENER)', 'El municipio', 'Cada empresa'], correcta: 0 },
         ],
         fuentes: [
-            { autor: 'U.S. Energy Information Administration', fecha: 's. f.', titulo: 'Geothermal power plants', url: 'https://www.eia.gov/energyexplained/geothermal/geothermal-power-plants.php', consulta: '8 de noviembre de 2026' },
+            ...FUENTES_GEOTERMICA,
             { autor: 'Ley de Geotermia', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LGeo' },
             LSE,
         ],

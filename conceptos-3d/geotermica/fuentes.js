@@ -1,0 +1,15 @@
+// Las fuentes de la central geotérmica, en un solo lugar: las muestra la figura junto a sus gráficas y las cita su ficha de
+// Aprende (src/data/como-funciona.js). `para` dice en lenguaje sencillo qué respalda cada una. Todas se abrieron y se leyeron.
+const consulta = '8 de noviembre de 2026';
+
+export const FUENTES = [
+    { autor: 'Gutiérrez-Negrín, L. C. A.', fecha: '2019', titulo: 'Current status of geothermal-electric production in Mexico', editorial: 'IOP Conference Series: Earth and Environmental Science, 249, 012017', url: 'https://iopscience.iop.org/article/10.1088/1755-1315/249/1/012017', consulta, para: 'Campos de México: potencia, pozos, generación y baja de Cerro Prieto' },
+    { autor: 'Flores-Armenta, M., Ramírez-Montes, M. y Morales-Alcalá, L., Comisión Federal de Electricidad', fecha: 'marzo de 2014', titulo: 'Geothermal activity and development in Mexico: keeping the production going', editorial: 'UNU-GTP y LaGeo', url: 'https://gogn.orkustofnun.is/unu-gtp-sc/UNU-GTP-SC-18-03.pdf', consulta, para: 'Vapor por MWh en Cerro Prieto y profundidad de los pozos' },
+    { autor: 'U.S. Energy Information Administration', fecha: 'sin fecha', titulo: 'Geothermal power plants', url: 'https://www.eia.gov/energyexplained/geothermal/geothermal-power-plants.php', consulta, para: 'Vapor seco, flasheo y binaria: cómo funciona cada una' },
+    { autor: 'U.S. Department of Energy', fecha: 'sin fecha', titulo: 'Geothermal Electricity Generation', url: 'https://www.energy.gov/eere/geothermal/electricity-generation', consulta, para: 'Por qué 182 °C separan el flasheo de la binaria' },
+    { autor: 'Gicquel, R., Mines ParisTech', fecha: '11 de julio de 2007', titulo: 'Guidance page for practical work: electricity production from geothermal energy', url: 'https://direns.minesparis.psl.eu/Sites/Thopt/en/res/FicheGuideGeothermieCPS_Sujet-en.pdf', consulta, para: 'Los casos con los que se comprobó el modelo: 9.6 % en flasheo, 12 % en binaria' },
+    { autor: 'Monroy Parada, A. F., UNU-GTP', fecha: '2013', titulo: 'Geothermal binary cycle power plant principles, operation and maintenance', url: 'https://gogn.orkustofnun.is/unu-gtp-report/UNU-GTP-2013-20.pdf', consulta, para: 'Planta binaria: isopentano, Berlín (El Salvador) y el límite de la sílice' },
+    { autor: 'Axelsson, G., UNU-GTP y LaGeo', fecha: 'marzo de 2012', titulo: 'Role and management of geothermal reinjection', url: 'https://gogn.orkustofnun.is/unu-gtp-sc/UNU-GTP-SC-14-29.pdf', consulta, para: 'Para qué se reinyecta y el riesgo de enfriar el yacimiento' },
+    { autor: 'Schroeder, J. N., Harto, C. B., Horner, R. M. y Clark, C. E., Argonne National Laboratory', fecha: '2014', titulo: 'Geothermal Water Use: Life Cycle Water Consumption, Water Resource Assessment, and Water Policy Framework', url: 'https://gdr.openei.org/submissions/420', consulta, para: 'Agua que se pierde en una planta de flasheo con torre húmeda' },
+    { autor: 'Bell, I. H. y otros', fecha: '2014', titulo: 'CoolProp: propiedades termofísicas de fluidos', url: 'https://coolprop.org/', consulta, para: 'Tablas de vapor de agua e isopentano del modelo' },
+];
