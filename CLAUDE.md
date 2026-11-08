@@ -22,11 +22,14 @@ Video de la intro: el búho mecánico en 3D de `intro-3d/` (skill teardown + FFm
 node scripts/render-intro-3d.mjs          # los dos videos
 node scripts/render-intro-3d.mjs hojas    # solo hojas de revisión
 ```
-Guía del búho (ya no sale al cargar; se abre con `data-abrir-buho`: «Abrir la guía» de la landing, «Guía rápida» y Ayuda): el mismo búho en tiempo real, con menú de secciones, giro, alas y desarme. Fuente en `intro-3d/vivo/`; `site-intro.js` la carga en un iframe sobre el mapa y habla con ella por `postMessage` (`buho-listo`, `buho-ir`, `buho-entrar`, `buho-error`). Si no responde a tiempo, sale la imagen del emblema:
+Guía del búho (no sale al cargar; se abre con `data-abrir-buho`: «Abrir la guía» de la landing, «Guía rápida» y Ayuda, y vive también al final de la portada): el búho biomecánico en tiempo real, con menú de secciones, giro, alas, por dentro y desarme. Carga en azul o verde (se turnan por visita, `src/lib/buho-vidrio.js`). Fuente en `buho-bio/vivo/`; `site-intro.js` (a pantalla completa) y `landing-owl.js` (`?modo=portada`, solo cuando la sección se acerca) la cargan en un iframe y hablan con ella por `postMessage` (`buho-listo`, `buho-ir`, `buho-entrar`, `buho-error`, `buho-visible`, `buho-tema`; en la portada también `buho-parte` y `buho-elegir`: ahí no lleva menú propio, su menú es el principal). Si no responde a tiempo, sale la imagen:
 ```bash
-node scripts/build-intro-3d.mjs           # → public/intro/buho.html (?tema=claro|oscuro)
+node scripts/build-buho-bio.mjs           # → public/intro/buho-bio.html (?tema=claro|oscuro&vidrio=azul|verde&modo=guia|portada)
+node scripts/build-intro-3d.mjs           # el búho mecánico anterior → public/intro/buho.html, ya sin usar
 ```
 `video-intro/` (HyperFrames) es la intro anterior en 2D.
+
+`buho-bio/` por dentro: `motor.js` es el búho sobre un `<canvas>` y no arma interfaz; `node buho-bio/build.mjs` deja en `.local/buho-bio/` la toma para calcar y `buho-bio.js`, el paquete del lienzo de diseño.
 
 Variables de entorno requeridas (archivo `.env`):
 ```

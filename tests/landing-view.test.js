@@ -140,7 +140,7 @@ describe('links of the landing', () => {
 });
 
 describe('gallery', () => {
-  it('has six sections and the owl, with its picture lazy and the 3D only behind the button', () => {
+  it('has six sections and the owl, with its picture lazy and the 3D only when the section comes near', () => {
     mount({});
     expect([...host.querySelectorAll('.lp-sec h3')].map(title => title.textContent)).toEqual(['Buscar', 'Acervo', 'Cronología', 'Permisos', 'Polos', 'Aprende']);
     const owl = host.querySelector('.lp-owl');
@@ -148,7 +148,7 @@ describe('gallery', () => {
     expect(owl.querySelector('[data-abrir-buho]').textContent.trim()).toBe('Abrir la guía');
     const pictures = [...owl.querySelectorAll('img')];
     expect(pictures).toHaveLength(1);
-    expect(pictures[0].getAttribute('src')).toBe('/img/landing-buho.webp');
+    expect(pictures[0].getAttribute('src')).toMatch(/^\/img\/buho-bio-(azul|verde)\.webp$/);
     expect(pictures[0].getAttribute('loading')).toBe('lazy');
     expect(host.querySelector('iframe')).toBeNull();
   });

@@ -58,7 +58,7 @@ describe('landing boot', () => {
     expect(fakeWindow.__landingQuery).toBe('interconexión');
   });
   it('never loads the live owl on arrival', () => {
-    expect(html).not.toContain('/intro/buho.html');
+    expect(html).not.toContain('/intro/buho');
     expect(readFileSync('src/main.js', 'utf8')).not.toMatch(/playIntro|shouldShowIntro/);
   });
 });
