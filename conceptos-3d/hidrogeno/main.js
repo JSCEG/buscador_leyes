@@ -13,6 +13,7 @@ import { brandMarkSvg } from '../../src/lib/brand-mark.js';
 import { BATERIA, FLUIDOS, PARTES as PARTES_M, PASO_HORAS, PLANTA, calcular, conversionEquilibrio, diaCompleto, energiaUtil, idaYVuelta, nocheEnHora, pose, posicionCamara, voltajeElectrolisis, voltajePila, V_REVERSIBLE, V_TERMONEUTRO, AGUA_POR_KG, O2_POR_KG, C_POR_KG } from './modelo.js';
 import { P_PLANTA, materiales, estudio, construir } from './planta.js';
 import { crearDiagrama } from './diagrama.js';
+import { FUENTES } from './fuentes.js';
 
 const FIGURA = 'hidrogeno';
 const D2R = Math.PI / 180;
@@ -195,6 +196,13 @@ app.innerHTML = `
             <div class="g-curva-cab"><b>Colores de los tubos</b></div>
             <ul class="h-tubos">${Object.values(FLUIDOS).map(f => `<li><i style="background:${f.color}"></i>${f.nombre}</li>`).join('')}</ul>
             <p>Planta de ejemplo con cifras típicas de estos equipos, no de una planta real.</p>
+        </section>
+        <section class="g-curva h-fuentes" aria-labelledby="h-fuentes-t">
+            <div class="g-curva-cab"><b id="h-fuentes-t">Fuentes</b></div>
+            <ul>
+                ${FUENTES.map(f => `<li><span class="h-fuente-para">${f.para}</span><a href="${f.url}" target="_blank" rel="noopener">${f.titulo}</a><small>${f.autor}, ${f.fecha}${f.editorial ? `. ${f.editorial}` : ''}</small></li>`).join('')}
+                <li><span class="h-fuente-para">Hidrógeno como energía limpia y almacenamiento</span><b>Ley del Sector Eléctrico, arts. 3, 19 y 82 a 85</b><small>Diario Oficial de la Federación, 18 de marzo de 2025. Está en el acervo de este sitio</small></li>
+            </ul>
         </section>
         <nav class="g-partes" aria-label="Puntos clave de la planta">${botonesDePartes()}</nav>
     </div>`;

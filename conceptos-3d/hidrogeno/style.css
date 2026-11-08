@@ -113,9 +113,19 @@
 .h-tubos li { display: inline-flex; align-items: center; gap: 6px; }
 .h-tubos i { width: 16px; height: 6px; border-radius: 3px; }
 
+/* fuentes: a la vista, junto a lo que respaldan */
+.g-tablero .h-fuentes { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; }
+.h-fuentes ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; margin: 0; padding: 0; list-style: none; }
+.h-fuentes li { display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: 13px; line-height: 1.35; }
+.h-fuente-para { color: var(--tinta-suave); font-size: 12px; font-weight: 600; }
+.h-fuentes a { color: var(--rojo); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+.h-fuentes li b { font-weight: 600; }
+.h-fuentes small { color: var(--tinta-suave); font-size: 12px; }
+
 .sin-webgl .g-lienzo, .sin-webgl .h-pines { display: none; }
 
 @media (max-width: 760px) {
+  .h-fuentes ul { grid-template-columns: minmax(0, 1fr); }
   .g-tablero .h-media { grid-column: 1 / -1; }
   .h-lecturas { grid-column: 1 / -1; }
   .g-control { grid-column: 1 / -1; }

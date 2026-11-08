@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { CONCEPTO } from '../src/data/como-funciona.js';
+import { readFileSync } from 'node:fs';
 import { BATERIA, COMPROMISO, PARTES, PASO_HORAS, calcular, compromisoEnHora, diaCompleto, enHora, nocheEnHora, pose, revisar } from '../conceptos-3d/hidrogeno/modelo.js';
+import { FUENTES } from '../conceptos-3d/hidrogeno/fuentes.js';
 
 const suma = c => diaCompleto().reduce((a, f) => a + f[c] * PASO_HORAS, 0);
 
@@ -62,6 +64,19 @@ describe('Planta de hidrógeno', () => {
         expect(calcular({ proceso: 'verde', carga: 1, sol: 1 }).dia).toBeNull();
         expect(pose({ proceso: 'verde', carga: 1 }).flujos.bus).toBe(0);
         expect(pose({ proceso: 'pila', carga: 1 }).f.red).toBeGreaterThan(0.8);
+    });
+
+    it('sus fuentes están a la vista en la figura y citadas en la ficha', () => {
+        expect(FUENTES.length).toBeGreaterThan(0);
+        const paginas = ['hidrogeno', 'hidrogeno-light'].map(n => readFileSync(`public/conceptos/${n}.html`, 'utf8'));
+        const citadas = CONCEPTO.hidrogeno.fuentes.map(f => f.url);
+        for (const f of FUENTES) {
+            expect(f.url).toMatch(/^https:\/\//);
+            expect(f.para).toBeTruthy();
+            expect(citadas).toContain(f.url);
+            for (const p of paginas) expect(p).toContain(f.url);
+        }
+        expect(CONCEPTO.hidrogeno.fuentes.some(f => f.acervo === 'LSE')).toBe(true);
     });
 
     it('su ficha de Aprende tiene una parte por cada punto clave y usa SAE, no «pila»', () => {
