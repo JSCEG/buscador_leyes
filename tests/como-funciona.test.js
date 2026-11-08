@@ -26,7 +26,7 @@ describe('¿Cómo funciona?', () => {
         }
     });
     it('forms a learning route from the basics up to the power plants', () => {
-        expect(CONCEPTOS.map(c => c.id).slice(0, 11)).toEqual(['electricidad', 'voltaje', 'cd-ca', 'motor', 'generador', 'transformador', 'inversor', 'red-transmision', 'subestacion', 'distribucion', 'fotovoltaica']);
+        expect(CONCEPTOS.map(c => c.id).slice(0, 12)).toEqual(['electricidad', 'voltaje', 'cd-ca', 'motor', 'generador', 'transformador', 'inversor', 'red-transmision', 'subestacion', 'distribucion', 'equilibrio-red', 'fotovoltaica']);
         const levels = NIVELES.map(n => n.id);
         // One route per sector, each going up through the levels.
         const sectors = [...new Set(CONCEPTOS.map(c => c.sector))];

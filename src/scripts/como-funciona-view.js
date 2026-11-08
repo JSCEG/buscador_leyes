@@ -24,12 +24,7 @@ function markSeen(id) {
     try { const ids = seen(); ids.add(id); localStorage.setItem(SEEN_KEY, JSON.stringify([...ids])); } catch { /* private mode */ }
 }
 // Lo que falta por sector y nivel.
-const SOON = {
-    electricidad: {
-        2: 'Cómo se equilibra la red: frecuencia y reservas.',
-        3: 'Eólica, hidroeléctrica, geotérmica y nuclear.',
-    },
-};
+const SOON = {};
 
 /**
  * @param {HTMLElement} container

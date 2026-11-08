@@ -18,5 +18,10 @@
   "inversor": "Inversor: de corriente directa a alterna",
   "subestacion": "Subestación eléctrica",
   "distribucion": "Red de distribución",
-  "red-transmision": "Red Nacional de Transmisión"
+  "red-transmision": "Red Nacional de Transmisión",
+  "equilibrio-red": "Cómo se equilibra la red",
+  "eolica": "Central eólica",
+  "hidroelectrica": "Central hidroeléctrica",
+  "geotermica": "Central geotérmica",
+  "nuclear": "Central nuclear"
 }
