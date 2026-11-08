@@ -17,10 +17,12 @@ Correr un solo test:
 npx vitest run tests/search.test.js
 ```
 
-Video de la intro (requiere FFmpeg; publica en `public/video/`):
+Video de la intro: el búho mecánico en 3D de `intro-3d/` (skill teardown + FFmpeg; graba en `.local/intro-3d` a 60 cuadros, publica en `public/video/` a 30 y dice dónde queda el ojo para `FILMS` en `src/scripts/site-intro.js`):
 ```bash
-node video-intro/render.mjs
+node scripts/render-intro-3d.mjs          # los dos videos
+node scripts/render-intro-3d.mjs hojas    # solo hojas de revisión
 ```
+`video-intro/` (HyperFrames) es la intro anterior en 2D.
 
 Variables de entorno requeridas (archivo `.env`):
 ```

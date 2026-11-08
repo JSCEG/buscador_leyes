@@ -1,0 +1,15 @@
+/* Papel Búho claro: letras Fraunces y Manrope. Medidas relativas a la ventana para que horizontal (1600×900)
+   y vertical (540×960) den el mismo tamaño de letra en el video: 34 px a 1080 y 28 px a 720. */
+html, body { background: #fafafa; }
+#app { background: radial-gradient(110% 85% at 50% 42%, #fbfaf8 0%, #f3f1ed 50%, #e2dfda 100%); }
+.capa { position: absolute; inset: 0; pointer-events: none; color: #0a0707; font-family: 'Manrope', system-ui, sans-serif; }
+.etq {
+    position: absolute; left: 0; top: 0; white-space: nowrap; font-weight: 650; letter-spacing: .01em;
+    font-size: min(3.15vh, 3.9vw); text-shadow: 0 1px 8px #fafafa;
+}
+.titulo { position: absolute; left: 0; top: 0; text-align: center; white-space: nowrap; }
+.nombre { margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 560; font-size: min(5.9vh, 6.1vw); letter-spacing: -.01em; line-height: 1.05; }
+.raya { display: block; width: 2.6em; height: 2px; margin: .55em auto .5em; background: #9b2247; font-size: min(3.15vh, 3.9vw); }
+.sub { margin: 0; font-weight: 500; font-size: min(3vh, 3.6vw); color: #5b5e63; letter-spacing: .02em; }
+.guias { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.guias line { stroke: #9b2247; stroke-width: 1.4; stroke-dasharray: 3 5; opacity: 0; }

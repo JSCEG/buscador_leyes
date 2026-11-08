@@ -56,3 +56,6 @@ public/data/*.json
 
 # Brainstorm mockups and execution ledgers
 .superpowers/
+
+# Referencias del búho 3D (imágenes de trabajo, no se publican)
+/intro-3d/ref/

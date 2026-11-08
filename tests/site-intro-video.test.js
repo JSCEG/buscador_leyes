@@ -27,7 +27,7 @@ describe('intro video', () => {
   });
 
   it('plays muted and inline, hidden until it really starts', async () => {
-    playIntro();
+    playIntro({ kind: 'video' });
     const element = video();
     expect(element.muted).toBe(true);
     expect(element.hasAttribute('playsinline')).toBe(true);
@@ -42,11 +42,11 @@ describe('intro video', () => {
   it('picks the vertical film on a tall screen', () => {
     vi.stubGlobal('innerWidth', 390);
     vi.stubGlobal('innerHeight', 844);
-    playIntro();
+    playIntro({ kind: 'video' });
     expect(video().getAttribute('src')).toBe('/video/intro-portrait.mp4');
   });
   it('opens the page from the eye when the film ends', async () => {
-    const done = playIntro();
+    const done = playIntro({ kind: 'video' });
     const element = video();
     element.dispatchEvent(new Event('playing'));
     await flush();
@@ -58,7 +58,7 @@ describe('intro video', () => {
     expect(layer()).toBeNull();
   });
   it('falls back to the CSS intro if the film is not ready in time', async () => {
-    playIntro();
+    playIntro({ kind: 'video' });
     await vi.advanceTimersByTimeAsync(1000);
     expect(video()).toBeFalsy();
     expect(layer().classList.contains('is-playing')).toBe(true);
@@ -66,14 +66,14 @@ describe('intro video', () => {
   });
   it('falls back when autoplay is refused', async () => {
     play.mockImplementation(() => Promise.reject(new Error('NotAllowedError')));
-    playIntro();
+    playIntro({ kind: 'video' });
     await flush();
     await vi.advanceTimersByTimeAsync(20);
     expect(video()).toBeFalsy();
     expect(layer().classList.contains('is-playing')).toBe(true);
   });
   it('falls back when the file fails', async () => {
-    playIntro();
+    playIntro({ kind: 'video' });
     video().dispatchEvent(new Event('error'));
     await flush();
     await vi.advanceTimersByTimeAsync(20);
@@ -82,22 +82,22 @@ describe('intro video', () => {
   });
   it('does not download the film when the visitor saves data', async () => {
     Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData: true } });
-    playIntro();
+    playIntro({ kind: 'video' });
     await vi.advanceTimersByTimeAsync(20);
     expect(video()).toBeFalsy();
     expect(play).not.toHaveBeenCalled();
     expect(layer().classList.contains('is-playing')).toBe(true);
   });
   it('never hangs on a stalled film', async () => {
-    const done = playIntro();
+    const done = playIntro({ kind: 'video' });
     video().dispatchEvent(new Event('playing'));
     await flush();
-    await vi.advanceTimersByTimeAsync(7000);
+    await vi.advanceTimersByTimeAsync(12000);
     await done;
     expect(layer()).toBeNull();
   });
   it('can be skipped while the film plays', async () => {
-    const done = playIntro();
+    const done = playIntro({ kind: 'video' });
     video().dispatchEvent(new Event('playing'));
     await flush();
     layer().querySelector('.si-skip').click();
@@ -112,5 +112,50 @@ describe('intro video', () => {
   });
   it('leaves films out of the service worker, which cannot answer range requests', () => {
     expect(readFileSync('public/sw.js', 'utf8')).toContain("url.pathname.startsWith('/video/')");
+  });
+});
+
+describe('intro emblem', () => {
+  const emblem = () => layer()?.querySelector('img.si-buho');
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.stubGlobal('requestAnimationFrame', callback => setTimeout(() => callback(performance.now() + 2000), 0));
+    document.body.innerHTML = '';
+  });
+  afterEach(() => {
+    vi.clearAllTimers();
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+    document.body.innerHTML = '';
+    delete document.documentElement.dataset.theme;
+    document.documentElement.classList.remove('intro-on');
+  });
+
+  it('shows the light owl over the map and opens the site from its eye', async () => {
+    document.documentElement.dataset.theme = 'light';
+    const done = playIntro();
+    expect(emblem().getAttribute('src')).toBe('/img/intro-buho-claro.webp');
+    expect(layer().querySelector('.si-map')).toBeTruthy();
+    emblem().dispatchEvent(new Event('load'));
+    await flush();
+    await vi.advanceTimersByTimeAsync(20);
+    expect(layer().classList.contains('is-buho')).toBe(true);
+    expect(layer().classList.contains('is-claro')).toBe(true);
+    await vi.advanceTimersByTimeAsync(2900);
+    expect(layer()).toBeTruthy();
+    await vi.advanceTimersByTimeAsync(200);
+    await done;
+    expect(layer()).toBeNull();
+  });
+  it('uses the dark owl on the dark themes', () => {
+    document.documentElement.dataset.theme = 'contraste';
+    playIntro();
+    expect(emblem().getAttribute('src')).toBe('/img/intro-buho-oscuro.webp');
+  });
+  it('falls back to the CSS intro if the picture is late', async () => {
+    playIntro();
+    await vi.advanceTimersByTimeAsync(1600);
+    expect(emblem()).toBeFalsy();
+    expect(layer().classList.contains('is-playing')).toBe(true);
   });
 });

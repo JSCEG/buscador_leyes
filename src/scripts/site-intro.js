@@ -1,6 +1,7 @@
 /**
- * Animated entrance. A short film (made in video-intro/) plays when it is ready in time: the eye opens,
- * the mark is written, the wings unfold and the site opens from that eye like an iris. If the film is
+ * Animated entrance. For now it is the mechanical owl emblem (public/img/intro-buho-*.webp, light or dark with the
+ * theme) over the map of Mexico, and the site opens from its eye like an iris. The 3D film (made in intro-3d/,
+ * recorded with scripts/render-intro-3d.mjs) stays ready behind playIntro({ kind: 'video' }). If the film is
  * late, refused or the visitor saves data, the same story plays in CSS, without any wait.
  * Once a day, skippable, and never for deep links or reduced motion.
  */
@@ -15,12 +16,20 @@ const NAME = 'Buscador Jurídico';
 const HOLD_MS = 3400;
 const OPEN_MS = 800;
 const VIDEO_WAIT_MS = 900;
-const VIDEO_LIMIT_MS = 6000;
-// eye: where the owl's eye sits in the last frame, as a fraction of the film. See video-intro/build.mjs.
+const VIDEO_LIMIT_MS = 11000;
+// eye: where the owl's eye sits in the last frame, as a fraction of the film. scripts/render-intro-3d.mjs prints it.
 const FILMS = {
-    landscape: { src: '/video/intro-landscape.mp4', width: 1920, height: 1080, eye: [0.5079, 0.3194] },
-    portrait: { src: '/video/intro-portrait.mp4', width: 720, height: 1280, eye: [0.5122, 0.3604] },
+    landscape: { src: '/video/intro-landscape.mp4', width: 1920, height: 1080, eye: [0.4268, 0.5396] },
+    portrait: { src: '/video/intro-portrait.mp4', width: 720, height: 1280, eye: [0.3613, 0.5238] },
 };
+// The owl emblem: one picture per theme, square and transparent, with its left eye as a fraction of the picture.
+const EMBLEMS = {
+    light: { src: '/img/intro-buho-claro.webp', width: 842, height: 842, eye: [0.3808, 0.4618] },
+    dark: { src: '/img/intro-buho-oscuro.webp', width: 842, height: 842, eye: [0.3797, 0.4643] },
+};
+const EMBLEM_HOLD_MS = 3000;
+const EMBLEM_WAIT_MS = 1500; // the picture is small; the map already draws while it arrives
+const INTRO_KIND = 'emblem';
 const today = () => new Date().toISOString().slice(0, 10);
 
 // The acervo's size arrives after the intro starts, so the intro shows the figures of the last visit.
@@ -63,6 +72,8 @@ export function shouldShowIntro() {
     if (/^#(art-|lectura-|mesa-|ley-)/.test(location.hash)) return false;
     // Coming back from an auth email (reset, confirmation): go straight to the dialog.
     if (/access_token|error_description|(^|[#&])type=/.test(location.hash) || /[?&](code|type)=/.test(location.search)) return false;
+    // To watch it again: every reload while developing, or ?intro on the published site.
+    if (import.meta.env?.DEV || /[?&]intro(=|&|$)/.test(location.search)) return true;
     try { return localStorage.getItem(KEY) !== today(); } catch { return false; }
 }
 
@@ -117,6 +128,34 @@ function startFilm(layer) {
     });
 }
 
+const darkTheme = () => ['dark', 'contraste'].includes(document.documentElement.dataset.theme);
+
+/** Loads the emblem for the current theme out of sight. Resolves with it once it can be shown, or with null. */
+function startEmblem(layer) {
+    const emblem = darkTheme() ? EMBLEMS.dark : EMBLEMS.light;
+    const img = new Image();
+    img.className = 'si-buho';
+    img.alt = '';
+    img.decoding = 'async';
+    img.setAttribute('aria-hidden', 'true');
+    img.src = emblem.src;
+    layer.querySelector('.si-map').after(img);
+    return new Promise(resolve => {
+        let settled = false;
+        const settle = ready => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(waiting);
+            if (!ready) img.remove();
+            resolve(ready ? { video: img, film: emblem } : null);
+        };
+        const waiting = setTimeout(() => settle(false), EMBLEM_WAIT_MS);
+        img.addEventListener('load', () => settle(true), { once: true });
+        img.addEventListener('error', () => settle(false), { once: true });
+        if (img.complete && img.naturalWidth) settle(true);
+    });
+}
+
 /** Opens a growing hole centred on the eye; the ring traces its edge. */
 function openIris(layer, point = null) {
     const lens = point ? null : layer.querySelector('.bm-lens circle:last-of-type')?.getBoundingClientRect();
@@ -145,7 +184,7 @@ function openIris(layer, point = null) {
 }
 
 /** Resolves when the intro has left the screen. */
-export function playIntro() {
+export function playIntro({ kind = INTRO_KIND } = {}) {
     try { localStorage.setItem(KEY, today()); } catch { /* ignore */ }
     const layer = document.createElement('div');
     layer.id = 'site-intro';
@@ -191,6 +230,17 @@ export function playIntro() {
             countUp(layer, 2450);
             timer = setTimeout(finish, HOLD_MS);
         };
+        if (kind === 'emblem') {
+            startEmblem(layer).then(started => {
+                if (done) return;
+                if (!started) { playCss(); return; }
+                playing = started;
+                // keyframes, not transitions: the class can go on at once, without waiting for a frame
+                layer.classList.add('is-buho', 'is-buho-on', darkTheme() ? 'is-oscuro' : 'is-claro');
+                timer = setTimeout(finish, EMBLEM_HOLD_MS);
+            });
+            return;
+        }
         if (!canPlayFilm()) { playCss(); return; }
         startFilm(layer).then(started => {
             if (done) return;
