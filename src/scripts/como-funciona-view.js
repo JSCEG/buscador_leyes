@@ -84,12 +84,78 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
             if (frame && Number.isFinite(event.data.h)) frame.style.height = `${Math.ceil(event.data.h)}px`;
         } else if (event.data?.type === 'concepto-part') {
             selectPartUI(event.data.n, false);
+        } else if (event.data?.type === 'concepto-listo') {
+            figuraLista();
         } else if (event.data?.type === 'concepto-fullscreen') {
             // Sin pantalla completa del navegador (iPhone), la figura pide que su marco cubra la ventana.
             setFrameFullscreen(Boolean(event.data.on));
         }
     };
     window.addEventListener('message', onMessage);
+
+    // Carga de la figura: se descarga primero con fetch para mostrar el avance real (en el celular las figuras 3D pesan
+    // unos 650 KB y tardan); luego el marco la abre desde la caché y la figura avisa «concepto-listo» al dibujar su
+    // primer cuadro. Las figuras viejas no avisan: a ellas se les quita el aviso un momento después de cargar.
+    const PESO_ESPERADO = 650 * 1024; // el servidor la manda comprimida y sin tamaño: se estima
+    let cargaActual = 0;
+    let esperaLarga = 0;
+    function figuraLista(id = cargaActual) {
+        if (id !== cargaActual) return;
+        clearTimeout(esperaLarga);
+        const capa = container.querySelector('[data-carga]');
+        if (!capa) return;
+        capa.classList.add('is-lista');
+        setTimeout(() => { if (id === cargaActual) capa.hidden = true; }, 450);
+    }
+    async function cargarFigura(frame, url, alAbrir) {
+        const id = ++cargaActual;
+        const capa = container.querySelector('[data-carga]');
+        const texto = capa?.querySelector('[data-carga-texto]');
+        const barra = capa?.querySelector('[data-carga-barra]');
+        const pct = capa?.querySelector('[data-carga-pct]');
+        const otra = capa?.querySelector('[data-carga-otra]');
+        const pintar = (avance, mensaje) => {
+            if (!capa || id !== cargaActual) return;
+            if (mensaje) texto.textContent = mensaje;
+            barra.style.transform = `scaleX(${avance})`;
+            pct.textContent = `${Math.round(avance * 100)} %`;
+        };
+        if (capa) {
+            capa.hidden = false;
+            capa.classList.remove('is-lista', 'is-armando', 'is-lenta');
+            otra.hidden = true;
+            otra.onclick = () => cargarFigura(frame, url, alAbrir);
+        }
+        pintar(0, 'Cargando la máquina 3D');
+        try {
+            const respuesta = await fetch(url);
+            const total = Number(respuesta.headers.get('content-length')) || PESO_ESPERADO;
+            const lector = respuesta.body?.getReader();
+            let recibido = 0;
+            while (lector) {
+                const { done, value } = await lector.read();
+                if (done || id !== cargaActual) break;
+                recibido += value.length;
+                pintar(Math.min(0.97, recibido / total));
+            }
+        } catch { /* sin red o sin streams: el marco la carga por su cuenta */ }
+        if (id !== cargaActual) return;
+        pintar(1, 'Armando la máquina…');
+        capa?.classList.add('is-armando');
+        frame.addEventListener('load', () => {
+            alAbrir?.();
+            setTimeout(() => figuraLista(id), 2500);
+        }, { once: true });
+        frame.src = url;
+        // si después de 25 segundos no está, se ofrece reintentar
+        clearTimeout(esperaLarga);
+        esperaLarga = setTimeout(() => {
+            if (id !== cargaActual || !capa || capa.hidden) return;
+            capa.classList.add('is-lenta');
+            texto.textContent = 'Está tardando más de lo normal';
+            otra.hidden = false;
+        }, 25000);
+    }
 
     // Each figure has a light and a dark file: swap it when the site theme changes, keeping the selected part.
     let wasDark = dark();
@@ -100,10 +166,7 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
         const frame = container.querySelector('iframe[data-concepto]');
         if (!frame || !activeConcept) return;
         const selected = Number(container.querySelector('.cf-parts [data-part-n].is-selected')?.dataset.partN) || 0;
-        if (selected) {
-            frame.addEventListener('load', () => frame.contentWindow?.postMessage({ type: 'concepto-select-part', n: selected }, location.origin), { once: true });
-        }
-        frame.src = figureUrl(activeConcept.figura);
+        cargarFigura(frame, figureUrl(activeConcept.figura), selected ? () => frame.contentWindow?.postMessage({ type: 'concepto-select-part', n: selected }, location.origin) : null);
     });
     themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
@@ -305,7 +368,17 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <button type="button" class="cf-share" data-share><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Compartir</span></button>
                 </header>
                 <div class="cf-figure">
-                    <iframe data-concepto="${esc(concept.id)}" src="${figureUrl(concept.figura)}" title="Ilustración interactiva: ${esc(concept.titulo)}" loading="lazy" scrolling="no" allow="fullscreen" allowfullscreen></iframe>
+                    <iframe data-concepto="${esc(concept.id)}" title="Ilustración interactiva: ${esc(concept.titulo)}" scrolling="no" allow="fullscreen" allowfullscreen></iframe>
+                    <div class="cf-carga" data-carga role="status" aria-live="polite">
+                        <img class="cf-carga-fondo" data-thumb="${esc(concept.figura)}" src="${thumbUrl(concept.figura)}" alt="">
+                        <div class="cf-carga-caja">
+                            <span class="cf-carga-giro" aria-hidden="true"></span>
+                            <b data-carga-texto>Cargando la máquina 3D</b>
+                            <span class="cf-carga-barra" aria-hidden="true"><i data-carga-barra></i></span>
+                            <small data-carga-pct>0 %</small>
+                            <button type="button" class="cf-carga-otra" data-carga-otra hidden>Reintentar</button>
+                        </div>
+                    </div>
                 </div>
                 ${before.length ? `<p class="cf-before">Para entenderlo mejor, antes mira: ${before.map(c => `<a href="#como-funciona=${esc(c.id)}">${esc(c.titulo)}</a>`).join(', ')}.</p>` : ''}
                 <div id="cf-active-part" class="cf-part-banner" aria-live="polite" hidden></div>
@@ -424,6 +497,8 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <p class="cf-note">Explicación general con fines informativos; no es texto legal ni sustituye la normativa. ${concept.revisado ? `Revisado el ${esc(concept.revisado)}.` : '<span class="cf-draft">Borrador en revisión.</span>'}</p>
                 </details>
             </article>`;
+        const marco = container.querySelector('iframe[data-concepto]');
+        if (marco) cargarFigura(marco, figureUrl(concept.figura));
         // Share the explainer: the phone's share sheet (WhatsApp…), or copy the link on a computer.
         container.querySelector('[data-share]')?.addEventListener('click', async event => {
             const button = event.currentTarget;

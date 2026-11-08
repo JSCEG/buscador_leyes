@@ -6,6 +6,10 @@
 import { MeshStandardMaterial, MeshPhysicalMaterial, LineBasicMaterial, LineSegments, EdgesGeometry, Mesh, TorusGeometry, WebGLRenderer, SRGBColorSpace, NeutralToneMapping, PCFSoftShadowMap, Scene, PerspectiveCamera, HemisphereLight, DirectionalLight, PlaneGeometry, ShadowMaterial } from 'three';
 
 // three se importa por nombre (no se pasa el módulo entero) para que el empaquetador quite lo que no se usa.
+// en un celular (pantalla táctil o angosta) todo se dibuja más ligero: sombras a la mitad y menos píxeles
+export const MOVIL = typeof matchMedia === 'function' && (matchMedia('(pointer: coarse)').matches || innerWidth < 700);
+export const PIXELES_MAX = MOVIL ? 1.5 : 2;
+
 export const tema = () => (document.documentElement.dataset.tema === 'oscuro' ? 'oscuro' : 'claro');
 
 export function paleta(t = tema()) {
@@ -68,7 +72,7 @@ export function estudio(lienzo, P, t = tema()) {
     sol.position.set(-3, 7, 5);
     sol.castShadow = true;
     Object.assign(sol.shadow.camera, { left: -5, right: 5, top: 4, bottom: -3, near: 1, far: 20 });
-    sol.shadow.mapSize.set(2048, 2048);
+    sol.shadow.mapSize.set(MOVIL ? 1024 : 2048, MOVIL ? 1024 : 2048);
     sol.shadow.radius = 4;
     sol.shadow.bias = -0.0006;
     scene.add(sol);

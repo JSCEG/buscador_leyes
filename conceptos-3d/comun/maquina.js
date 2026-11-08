@@ -20,7 +20,7 @@
 // Una sola entrada mueve todo: el deslizador. La máquina decide qué hace con ella en paso(); nada se anima a mano.
 import { Vector3, Vector2, Plane, Raycaster, Group, DoubleSide, Color } from 'three';
 import { brandMarkSvg } from '../../src/lib/brand-mark.js';
-import { tema, paleta, materiales, ayudantes, estudio } from './estilo.js';
+import { tema, paleta, materiales, ayudantes, estudio, PIXELES_MAX } from './estilo.js';
 
 const ICONO_ABRIR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
 const ICONO_CERRAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>';
@@ -357,7 +357,7 @@ export function crearMaquina(def) {
     function medir() {
         const w = escena.clientWidth;
         const h = escena.clientHeight;
-        renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+        renderer.setPixelRatio(Math.min(devicePixelRatio || 1, PIXELES_MAX));
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
         camera.fov = w / h < 1.1 ? 42 : 30;
@@ -409,6 +409,7 @@ export function crearMaquina(def) {
     const numEls = Object.fromEntries([...nums.children].map(el => [el.dataset.num, el]));
     let antes = performance.now();
     let visible = true;
+    let avisoListo = false;
     document.addEventListener('visibilitychange', () => { visible = document.visibilityState === 'visible'; });
     function cuadro(ahora) {
         requestAnimationFrame(cuadro);
@@ -454,6 +455,8 @@ export function crearMaquina(def) {
         camera.position.set(cam.tx + cam.d * Math.cos(cam.el * D2R) * Math.sin(cam.az * D2R), cam.ty - bajada + cam.d * Math.sin(cam.el * D2R), cam.tz + cam.d * Math.cos(cam.el * D2R) * Math.cos(cam.az * D2R));
         camera.lookAt(cam.tx, cam.ty - bajada, cam.tz);
         renderer.render(scene, camera);
+        // el primer cuadro dibujado: Aprende quita su aviso de «cargando»
+        if (!avisoListo) { avisoListo = true; parent.postMessage({ type: 'concepto-listo', id: FIGURA }, location.origin); }
         def.despues?.(estado);
 
         // etiqueta con su guía hacia la pieza

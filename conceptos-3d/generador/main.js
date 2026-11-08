@@ -6,7 +6,7 @@
 // (concepto-height, concepto-part y concepto-select-part).
 import * as THREE from 'three';
 import { brandMarkSvg } from '../../src/lib/brand-mark.js';
-import { tema, paleta, materiales, ayudantes, estudio } from '../comun/estilo.js';
+import { tema, paleta, materiales, ayudantes, estudio, PIXELES_MAX } from '../comun/estilo.js';
 import { crearCorriente } from '../comun/corriente.js';
 
 const FIGURA = 'generador';
@@ -642,7 +642,7 @@ const avisarAltura = () => {
 function medir() {
     const w = escena.clientWidth;
     const h = escena.clientHeight;
-    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, PIXELES_MAX));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.fov = w / h < 1.1 ? 42 : 30;
@@ -691,6 +691,7 @@ const nums = $('.g-nums');
 const numEls = Object.fromEntries([...nums.children].map(el => [el.dataset.num, el]));
 let antes = performance.now();
 let visible = true;
+let avisoListo = false;
 document.addEventListener('visibilitychange', () => { visible = document.visibilityState === 'visible'; });
 function cuadro(ahora) {
     requestAnimationFrame(cuadro);
@@ -799,6 +800,8 @@ function cuadro(ahora) {
     camera.position.set(cam.tx + cam.d * Math.cos(cam.el * D2R) * Math.sin(cam.az * D2R), cam.ty - bajada + cam.d * Math.sin(cam.el * D2R), cam.tz + cam.d * Math.cos(cam.el * D2R) * Math.cos(cam.az * D2R));
     camera.lookAt(cam.tx, cam.ty - bajada, cam.tz);
     renderer.render(scene, camera);
+    // el primer cuadro dibujado: Aprende quita su aviso de «cargando»
+    if (!avisoListo) { avisoListo = true; parent.postMessage({ type: 'concepto-listo', id: FIGURA }, location.origin); }
     // las marcas ± solo se leen si cambian despacio: a más de 2 ciclos por segundo en pantalla se ocultan
     const ciclosEnPantalla = (rpm / 60) * lento.k;
     corriente.actualizar({ avance: AVANCE, corriente: v / V_PICO_NOMINAL, dt: dtSim, visible: verCorriente, polos: 1 - clamp(ciclosEnPantalla - 2, 0, 1), camara: camera, w: escena.clientWidth, h: escena.clientHeight });
