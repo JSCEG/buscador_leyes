@@ -145,7 +145,8 @@ function startFilm(layer) {
  */
 export function openOwlGuide({ tour = true } = {}) {
     if (document.getElementById('site-intro')) return null;
-    return playIntro({ kind: 'buho3d', tour, onUnavailable: startWelcomeTour });
+    // as a guide, the owl is a way to pick a section: «Entrar al sitio» becomes «Cerrar guía»
+    return playIntro({ kind: 'buho3d', tour, guide: true, onUnavailable: startWelcomeTour });
 }
 document.addEventListener('click', event => {
     if (!event.target.closest?.('[data-abrir-buho]')) return;
@@ -187,13 +188,13 @@ function startEmblem(layer) {
  * Loads the live owl out of sight. Calls `onMessage` with every message it sends; resolves with the iframe once it
  * draws its first frame, or with null (no answer in time, an error, or the visitor saves data).
  */
-function startBuho3d(layer, onMessage, tour = true) {
+function startBuho3d(layer, onMessage, tour = true, guide = false) {
     const connection = navigator.connection;
     if (connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '')) return Promise.resolve(null);
     const frame = document.createElement('iframe');
     frame.className = 'si-buho3d';
     frame.title = 'Búho mecánico: elige una sección del sitio';
-    frame.src = `${BUHO_SRC}?tema=${darkTheme() ? 'oscuro' : 'claro'}${tour ? '' : '&recorrido=no'}`;
+    frame.src = `${BUHO_SRC}?tema=${darkTheme() ? 'oscuro' : 'claro'}${tour ? '' : '&recorrido=no'}${guide ? '&modo=guia' : ''}`;
     frame.setAttribute('allowtransparency', 'true');
     layer.querySelector('.si-map').after(frame);
     return new Promise(resolve => {
@@ -250,7 +251,7 @@ function openIris(layer, point = null) {
  * Resolves when the intro has left the screen. `tour: false` opens the live owl straight on its menu, without the
  * automatic tour of its parts (the «Guía del búho» button: the visitor already saw it).
  */
-export function playIntro({ kind = INTRO_KIND, tour = true, onUnavailable = null } = {}) {
+export function playIntro({ kind = INTRO_KIND, tour = true, guide = false, onUnavailable = null } = {}) {
     try { localStorage.setItem(KEY, today()); } catch { /* ignore */ }
     const layer = document.createElement('div');
     layer.id = 'site-intro';
@@ -314,7 +315,7 @@ export function playIntro({ kind = INTRO_KIND, tour = true, onUnavailable = null
                 if (Array.isArray(ojo)) eye = { x: ojo[0], y: ojo[1] };
                 finish().then(() => { if (type === 'buho-ir') document.getElementById(BUHO_NAV[seccion])?.click(); });
             };
-            startBuho3d(layer, onMessage, tour).then(frame => {
+            startBuho3d(layer, onMessage, tour, guide).then(frame => {
                 if (done) return;
                 if (!frame) {
                     // opened on purpose (Ayuda, «Guía del búho»): without the 3D owl, the classic tour instead of a picture

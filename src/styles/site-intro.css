@@ -125,7 +125,8 @@ html.intro-on{overflow:hidden}
 #site-intro .si-buho3d{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;color-scheme:normal;opacity:0;transition:opacity .5s cubic-bezier(.16,1,.3,1)}
 #site-intro.is-buho3d-on .si-buho3d{opacity:1}
 #site-intro.is-buho3d-on .si-skip{display:none}
-#site-intro.is-buho3d .si-map{opacity:.55}
+/* the live owl stands alone: the map of Mexico is the site's own background now (shell.css) */
+#site-intro.is-buho3d .si-map{display:none}
 #site-intro .si-buho{position:absolute;left:50%;top:50%;width:min(84vmin,620px);height:auto;aspect-ratio:1;transform:translate(-50%,-50%) scale(.94);opacity:0;pointer-events:none}
 #site-intro.is-buho-on .si-buho{animation:si-buho-in 1.1s cubic-bezier(.16,1,.3,1) .2s forwards}
 #site-intro.is-buho .si-map{opacity:1;transform:translate(-50%,-50%)}

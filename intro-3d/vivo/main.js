@@ -33,6 +33,9 @@ const EN_SITIO = parent !== window;
 // abre desde su botón (?recorrido=no) va directo al menú.
 const RECORRIDO = parametros.get('recorrido') !== 'no' && !REDUCIR;
 const PASO_S = 4.6; // segundos por parte en el recorrido automático
+// Abierto desde «Guía rápida» (?modo=guia): ya estás en el sitio, así que el búho sirve para elegir a qué sección ir;
+// «Entrar al sitio» se vuelve «Cerrar guía».
+const GUIA = parametros.get('modo') === 'guia';
 document.documentElement.dataset.tema = OSCURO ? 'oscuro' : 'claro';
 
 // Las secciones: el id que entiende el sitio y a dónde ir si la página se abre sola.
@@ -80,7 +83,7 @@ app.innerHTML = `
     <nav class="b-menu" aria-label="Secciones del sitio">
         ${SECCIONES.map((s, i) => `<button type="button" class="b-sec" data-i="${i}">${s}</button>`).join('')}
     </nav>
-    <header class="b-titulo"><p class="b-nombre">Buscador Jurídico</p><span class="b-raya"></span><p class="b-sub">Elige una sección o explora al búho</p></header>
+    <header class="b-titulo"><p class="b-nombre">${GUIA ? 'Guía rápida' : 'Buscador Jurídico'}</p><span class="b-raya"></span><p class="b-sub">${GUIA ? 'Elige la sección a la que quieres ir' : 'Elige una sección o explora al búho'}</p></header>
     <svg class="b-senal" aria-hidden="true"><line/><circle r="4"/></svg>
     <section class="b-ficha" role="dialog" aria-labelledby="b-ficha-t" aria-describedby="b-ficha-texto" hidden>
         <button type="button" class="b-ficha-x" data-cerrar aria-label="Cerrar">×</button>
@@ -100,7 +103,7 @@ app.innerHTML = `
         <button type="button" class="b-chip" data-alas aria-pressed="true">Cerrar alas</button>
         <button type="button" class="b-chip" data-desarme aria-pressed="false">Desarmar</button>
         <button type="button" class="b-chip" data-girar aria-pressed="false">Girar</button>
-        <button type="button" class="b-chip b-entrar" data-entrar>Entrar al sitio <span aria-hidden="true">→</span></button>
+        ${GUIA ? '<button type="button" class="b-chip" data-entrar>Cerrar guía</button>' : '<button type="button" class="b-chip b-entrar" data-entrar>Entrar al sitio <span aria-hidden="true">→</span></button>'}
     </div>
     <p class="b-pista" aria-hidden="true">Toca una parte · arrastra para girar · acércate para desarmarlo</p>`;
 const lienzo = app.querySelector('.b-lienzo');
@@ -374,11 +377,13 @@ function elegir(i, { solo = false } = {}) {
     const nombre = SECCIONES[elegida];
     ficha.querySelector('.b-ficha-paso').textContent = final ? 'Listo' : `${elegida + 1} de ${FICHAS.length} · ${f.donde}`;
     ficha.querySelector('.b-ficha-ico svg').innerHTML = final ? ICONO_TOCAR : f.icono;
-    ficha.querySelector('#b-ficha-t').textContent = final ? '¿Alguna no quedó clara?' : nombre;
+    ficha.querySelector('#b-ficha-t').textContent = final ? (GUIA ? 'Elige una sección' : '¿Alguna no quedó clara?') : nombre;
     ficha.querySelector('.b-ficha-texto').textContent = final
-        ? 'Toca esa parte del búho y te la vuelve a explicar. También puedes elegir una sección abajo o entrar al sitio.'
+        ? (GUIA
+            ? 'Toca una parte del búho o una de las secciones de abajo para ir a ella. Si alguna no quedó clara, toca esa parte y te la vuelve a explicar.'
+            : 'Toca esa parte del búho y te la vuelve a explicar. También puedes elegir una sección abajo o entrar al sitio.')
         : f.texto;
-    ficha.querySelector('[data-ir]').textContent = final ? 'Entrar al sitio →' : `Ir a ${nombre} →`;
+    ficha.querySelector('[data-ir]').textContent = final ? (GUIA ? 'Ver otra vez' : 'Entrar al sitio →') : `Ir a ${nombre} →`;
     ficha.classList.toggle('is-final', final);
     // reinicia la barrita de avance del recorrido automático
     const barrita = ficha.querySelector('.b-ficha-avance i');
@@ -403,7 +408,11 @@ ficha.querySelector('[data-cerrar]').addEventListener('click', () => { pararReco
 ficha.querySelector('[data-saltar]').addEventListener('click', () => elegir(FINAL));
 ficha.querySelector('[data-ant]').addEventListener('click', () => elegir(elegida - 1));
 ficha.querySelector('[data-sig]').addEventListener('click', () => elegir(elegida + 1));
-ficha.querySelector('[data-ir]').addEventListener('click', () => (elegida === FINAL ? salir('buho-entrar') : ir(elegida)));
+ficha.querySelector('[data-ir]').addEventListener('click', () => {
+    if (elegida !== FINAL) ir(elegida);
+    else if (GUIA) elegir(0); // la guía no se cierra sola: vuelve a empezar
+    else salir('buho-entrar');
+});
 barra.querySelector('[data-recorrido]').addEventListener('click', () => elegir(elegida >= 0 && elegida < FINAL ? elegida + 1 : 0));
 
 const botonAlas = barra.querySelector('[data-alas]');

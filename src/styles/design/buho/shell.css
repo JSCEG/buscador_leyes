@@ -119,3 +119,12 @@ body #desk-toggle::before, body #desk-toggle::after { display: none; }
 body.has-doc-picker .bu-cab-m__idx { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: none; color: var(--tinta-suave); cursor: pointer; }
 body.has-doc-picker .bu-riel .bu-doc-idx { margin-bottom: 3px; }
 #toc-toggle-btn { display: none !important; }
+
+/* Fondo de todo el sitio: el mapa de México, apenas visible, quieto detrás de todas las secciones
+   (scripts/generate-mapa-fondo.mjs dibuja un SVG por tema). */
+body { background-image: url('/img/fondo-mexico-claro.svg'); background-repeat: no-repeat; background-attachment: fixed; background-position: 58% 56%; background-size: min(1500px, 135vw) auto; }
+[data-theme="dark"] body { background-image: url('/img/fondo-mexico-oscuro.svg'); }
+[data-theme="sepia"] body { background-image: url('/img/fondo-mexico-sepia.svg'); }
+[data-theme="contraste"] body { background-image: url('/img/fondo-mexico-contraste.svg'); }
+@media (max-width: 767px) { body { background-position: 50% 62%; background-size: 190vw auto; } }
+@media print { body { background-image: none !important; } }
