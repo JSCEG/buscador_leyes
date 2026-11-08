@@ -750,10 +750,12 @@ export const CONCEPTOS = [
             { idea: 'El gas natural y el gas LP son el mismo gas.', realidad: 'El gas natural es metano (CH₄) y se distribuye por tuberías; el gas LP es propano/butano y se vende en pipas, cilindros o tanques estacionarios.' },
         ],
         partes: [
-            { nombre: 'Metano (CH₄)', texto: '1 carbono y 4 hidrógenos: gas natural de red.' },
-            { nombre: 'Propano y Butano', texto: '3 y 4 carbonos: gas LP doméstico.' },
-            { nombre: 'Octano (C₈H₁₈)', texto: '8 carbonos: base representativa de las gasolinas de motor.' },
-            { nombre: 'Hidrocarburos pesados', texto: 'Más de 20 carbonos: combustóleo, ceras y asfalto para pavimentación.' },
+            { nombre: 'Átomo de carbono', texto: 'El esqueleto de la molécula. Con 1 carbono es metano (gas natural); con 3 y 4, gas LP; con 8, octano (gasolinas).' },
+            { nombre: 'Átomo de hidrógeno', texto: 'Cada carbono se rodea de hidrógenos: una cadena de n carbonos lleva 2n + 2 hidrógenos.' },
+            { nombre: 'Enlace químico', texto: 'La unión entre átomos. Ahí se guarda la energía que se suelta al quemar el combustible.' },
+            { nombre: 'Frasco', texto: 'Muestra la sustancia a 25 °C: hasta 4 carbonos es gas, de 5 a 17 líquido y de 18 en adelante sólido, como la cera.' },
+            { nombre: 'Termómetro', texto: 'Marca a qué temperatura hierve: cuanto más larga la cadena, más calor necesita. Más de 20 carbonos: combustóleo y asfalto.' },
+            { nombre: 'Quemador', texto: 'Al quemarse con oxígeno, el hidrocarburo suelta calor y deja dióxido de carbono y vapor de agua.' },
         ],
         dato: 'El crudo mexicano de exportación de referencia mundial se llama crudo Maya: es denso, pesado y con alto contenido de azufre, extraído principalmente costa afuera en Campeche.',
         ley: {
