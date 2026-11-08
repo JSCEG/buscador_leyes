@@ -1,7 +1,7 @@
 // La entrada viva del Buscador Jurídico: el búho mecánico en tiempo real. Al cargar se enciende, abre las alas y saca
 // del pecho las secciones del sitio; cada sección es un botón que lleva a ella. Cada sección vive además en una parte
 // del búho (ojos = Buscar, insignia = Acervo, engranes = Cronología, garras = Permisos, alas = Polos, disco de la cara =
-// Análisis, emblema de energía = Aprende): al tocarla se marca con un aro y sale su ficha, como el recorrido del sitio.
+// Análisis, emblema de energía = Aprende): al tocarla la cámara se acerca a ella y sale su ficha, como el recorrido del sitio.
 // Se puede girar arrastrando, acercar con la rueda o pellizcando (de cerca se desarma; al alejarse se vuelve a armar),
 // abrir y cerrar las alas, y desarmarlo con el botón.
 //
@@ -193,11 +193,6 @@ FICHAS.forEach((f, i) => buho.partes[f.parte].forEach(o => DUENO.set(o, i)));
 const objetosDe = i => buho.partes[FICHAS[i].parte].filter(o => o !== buho.engrane);
 // a dónde se acerca la cámara: los dos ojos juntos; de lo demás, una sola pieza (un ala, una garra, un costado)
 const enfoqueDe = i => (FICHAS[i].parte === 'ojos' ? objetosDe(i) : objetosDe(i).slice(0, 1));
-const piezasDe = FICHAS.map((_, i) => {
-    const lista = [];
-    enfoqueDe(i).forEach(o => o.traverse(m => { if (m.isMesh) lista.push(m); }));
-    return lista;
-});
 const texturaHalo = (() => {
     const c = document.createElement('canvas');
     c.width = c.height = 256;
@@ -246,11 +241,10 @@ const camara = { az: 0, el: 6, k: 1, vaz: 0, vel: 0, auto: true };
 let hover = -1;       // módulo (sección) bajo el puntero o con foco
 let hoverParte = -1;  // parte del búho bajo el puntero
 let elegida = -1;     // parte con su ficha abierta
-let ultimaElegida = -1; // la última parte acercada: se sigue armando mientras la cámara regresa
 const foco = { v: new THREE.Vector3() }; // centro de la parte elegida, para la línea a su ficha
-// acercamiento a la parte elegida: la cámara va a ella y solo esa parte se desarma (vista explotada); al cerrar la
-// ficha regresa a la vista general y la parte se vuelve a armar
-const zoom = { f: 0, centro: new THREE.Vector3(0, 0.3, 0), tam: 1, piezas: [] };
+// acercamiento a la parte elegida: la cámara va a ella (el búho sigue armado); al cerrar la ficha regresa a la vista
+// general
+const zoom = { f: 0, centro: new THREE.Vector3(0, 0.3, 0), tam: 1 };
 const acento = SECCIONES.map(() => 0);
 const t0 = performance.now();
 let entrada = REDUCIR ? 99 : 0; // segundos desde que empezó la entrada
@@ -499,7 +493,7 @@ function cuadro(ahora) {
     if (zf > 0.001) {
         const c = zoom.centro;
         // de frente a la parte: si está a un lado (un ala, un costado), la cámara se va hacia ese lado
-        const azParte = clamp(Math.atan2(c.x, Math.max(0.35, c.z + 0.9)) / D2R, -62, 62);
+        const azParte = clamp(Math.atan2(c.x, Math.max(0.35, c.z + 0.45)) / D2R, -62, 62);
         // que la parte quepa a lo ancho también (celular vertical), y en celular solo en la mitad de arriba: abajo va la ficha
         const angosto = Math.min(1, innerWidth / innerHeight) * (acomodo.vertical ? 0.75 : 1);
         const dParte = clamp((zoom.tam * 1.9) / (2 * Math.tan((camera.fov * D2R) / 2) * angosto), 2.3, 14);
@@ -592,9 +586,7 @@ function dibujar(e, t) {
         const abajo = r.width > innerWidth * 0.7; // en celular la ficha va abajo, a lo ancho
         camera.setViewOffset(innerWidth, innerHeight, abajo ? 0 : ((r.width / 2) + 12) * zoom.f, abajo ? ((innerHeight - r.top) / 2) * zoom.f : 0, innerWidth, innerHeight);
     } else camera.clearViewOffset();
-    const deshacer = explotar();
     renderer.render(scene, camera);
-    deshacer();
 
     // etiquetas (botones) bajo cada módulo y guías del pecho a cada módulo
     const [nx, ny] = pantalla(buho.engrane.getWorldPosition(new THREE.Vector3()));
@@ -612,32 +604,6 @@ function dibujar(e, t) {
         l.setAttribute('x2', mx.toFixed(1)); l.setAttribute('y2', my.toFixed(1));
         l.style.opacity = (m.etiqueta * (0.25 + 0.75 * m.acento) * (1 - e.abierto) * (1 - zoom.f)).toFixed(3);
     });
-}
-
-// Vista explotada de la parte elegida: cada pieza se aleja del centro de la parte, en proporción a qué tan lejos está.
-// Se aplica solo para dibujar el cuadro y se deshace enseguida, así la pose del búho no se toca.
-const pw = new THREE.Vector3();
-const pd = new THREE.Vector3();
-function explotar() {
-    const i = elegida >= 0 && elegida < FINAL ? elegida : ultimaElegida;
-    const f = sale(zoom.f);
-    if (i < 0 || f < 0.002) return () => {};
-    const piezas = piezasDe[i];
-    const guardadas = piezas.map(m => m.position.clone());
-    const hacia = camera.position.clone().sub(zoom.centro).normalize();
-    buho.raiz.updateMatrixWorld(true);
-    const destinos = piezas.map(m => {
-        m.getWorldPosition(pw);
-        pd.copy(pw).sub(zoom.centro);
-        const largo = pd.length();
-        if (largo < 0.02) pd.copy(hacia); else pd.divideScalar(largo);
-        // hacia afuera y un poco hacia la cámara, para que se vea por dentro
-        pd.addScaledVector(hacia, 0.35).normalize();
-        pw.addScaledVector(pd, zoom.tam * 0.28 * f * (0.35 + Math.min(1.4, largo / Math.max(0.1, zoom.tam * 0.5))));
-        return m.parent.worldToLocal(pw.clone());
-    });
-    piezas.forEach((m, k) => m.position.copy(destinos[k]));
-    return () => piezas.forEach((m, k) => m.position.copy(guardadas[k]));
 }
 
 // halo guinda sobre la parte señalada y, con la ficha abierta, una línea de la parte a la ficha
@@ -661,8 +627,7 @@ function marcar(i, t) {
         enfoqueDe(i).forEach(o => caja3.expandByObject(o));
         caja3.getCenter(zoom.centro);
         caja3.getSize(tam3);
-        zoom.tam = Math.max(tam3.x, tam3.y, tam3.z * 0.6);
-        ultimaElegida = i;
+        zoom.tam = Math.min(2.4, Math.max(tam3.x, tam3.y, tam3.z * 0.6)); // un ala es enorme: se acerca a la mitad de ella
     }
     halos.forEach(h => { h.material.opacity *= 1 - zoom.f; }); // de cerca no hace falta el aro: la parte ya está al frente
     renderer.autoClear = false;
