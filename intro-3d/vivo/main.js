@@ -244,7 +244,11 @@ let elegida = -1;     // parte con su ficha abierta
 const foco = { v: new THREE.Vector3() }; // centro de la parte elegida, para la línea a su ficha
 // acercamiento a la parte elegida: la cámara va a ella (el búho sigue armado); al cerrar la ficha regresa a la vista
 // general
-const zoom = { f: 0, centro: new THREE.Vector3(0, 0.3, 0), tam: 1 };
+const zoom = { f: 0, centro: new THREE.Vector3(0, 0.3, 0), tam: 1, parte: -1 };
+// vuelo de una parte a otra: la cámara se aleja un poco a medio camino y se vuelve a acercar a la nueva parte
+const VUELO_S = 1.25;
+const vuelo = { t: 1, c0: new THREE.Vector3(), tam0: 1 };
+const cVuelo = new THREE.Vector3();
 const acento = SECCIONES.map(() => 0);
 const t0 = performance.now();
 let entrada = REDUCIR ? 99 : 0; // segundos desde que empezó la entrada
@@ -391,6 +395,7 @@ function elegir(i, { solo = false } = {}) {
 }
 function cerrarFicha() {
     elegida = -1;
+    zoom.parte = -1;
     ficha.hidden = true;
     app.classList.remove('is-ficha');
 }
@@ -491,12 +496,19 @@ function cuadro(ahora) {
     const zf = zoom.f;
     let ojoCam = mira();
     if (zf > 0.001) {
-        const c = zoom.centro;
+        let c = zoom.centro;
+        let tam = zoom.tam;
+        if (vuelo.t < 1) {
+            vuelo.t = Math.min(1, vuelo.t + dt / VUELO_S);
+            const k = suave(vuelo.t);
+            c = cVuelo.copy(vuelo.c0).lerp(zoom.centro, k);
+            tam = (vuelo.tam0 + (zoom.tam - vuelo.tam0) * k) * (1 + 0.6 * Math.sin(Math.PI * vuelo.t));
+        }
         // de frente a la parte: si está a un lado (un ala, un costado), la cámara se va hacia ese lado
         const azParte = clamp(Math.atan2(c.x, Math.max(0.35, c.z + 0.45)) / D2R, -62, 62);
         // que la parte quepa a lo ancho también (celular vertical), y en celular solo en la mitad de arriba: abajo va la ficha
         const angosto = Math.min(1, innerWidth / innerHeight) * (acomodo.vertical ? 0.75 : 1);
-        const dParte = clamp((zoom.tam * 1.9) / (2 * Math.tan((camera.fov * D2R) / 2) * angosto), 2.3, 14);
+        const dParte = clamp((tam * 1.9) / (2 * Math.tan((camera.fov * D2R) / 2) * angosto), 2.3, 14);
         ojoCam = ojoCam.map((m, k) => m + (c.getComponent(k) - m) * zf);
         az += (azParte - az) * zf;
         el += (8 - el) * zf;
@@ -623,6 +635,13 @@ function marcar(i, t) {
         if (k === 0 && elegida === i) foco.v.copy(centro3);
     });
     if (elegida === i && i >= 0 && i < FINAL) {
+        // otra parte con la cámara ya de cerca: vuela desde donde está
+        if (i !== zoom.parte && zoom.parte >= 0 && zoom.f > 0.2) {
+            vuelo.c0.copy(vuelo.t < 1 ? cVuelo : zoom.centro);
+            vuelo.tam0 = zoom.tam;
+            vuelo.t = 0;
+        }
+        zoom.parte = i;
         caja3.makeEmpty();
         enfoqueDe(i).forEach(o => caja3.expandByObject(o));
         caja3.getCenter(zoom.centro);
