@@ -8,6 +8,7 @@ dist
 # Logs and temporary files
 .local/
 .wrangler/
+supabase/.temp/
 .playwright-mcp/
 graphify-out/
 /tmp/
