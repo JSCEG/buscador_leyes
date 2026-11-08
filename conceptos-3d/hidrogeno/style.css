@@ -20,6 +20,8 @@
 /* girar y acercar */
 .h-giros { position: absolute; left: 50%; bottom: 12px; display: flex; gap: 6px; transform: translateX(-50%); transition: left .3s cubic-bezier(.16, 1, .3, 1); }
 #app.is-ficha .h-giros { left: calc(50% - 165px); }
+/* en anchos medianos la ficha empuja los botones de giro sobre la cifra: la cifra se quita mientras está abierta */
+@media (max-width: 905px) { #app.is-ficha .g-hud { display: none; } }
 .g-escena.completa .h-giros { bottom: calc(var(--flot, 0px) + 8px); }
 
 /* la ficha de cada punto */
