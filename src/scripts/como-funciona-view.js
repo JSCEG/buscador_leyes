@@ -26,7 +26,7 @@ function markSeen(id) {
 // Lo que falta por sector y nivel.
 const SOON = {
     electricidad: {
-        2: 'Subestación, inversor y cómo se equilibra la red.',
+        2: 'Cómo se equilibra la red: frecuencia y reservas.',
         3: 'Eólica, hidroeléctrica, geotérmica y nuclear.',
     },
 };

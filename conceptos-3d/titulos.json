@@ -14,5 +14,9 @@
   "mercado-cenace": "CENACE y el despacho eléctrico",
   "desarrollo-mixto-sen": "Planeación vinculante, regla 54/46 y Desarrollo Mixto",
   "cadena-hidrocarburos": "Soberanía, PLADESHi y Asignaciones",
-  "mercado-hidrocarburos": "Precios, expendio y mercado de combustibles"
+  "mercado-hidrocarburos": "Precios, expendio y mercado de combustibles",
+  "inversor": "Inversor: de corriente directa a alterna",
+  "subestacion": "Subestación eléctrica",
+  "distribucion": "Red de distribución",
+  "red-transmision": "Red Nacional de Transmisión"
 }
