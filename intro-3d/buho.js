@@ -877,7 +877,7 @@ export function construirBuho(M, P) {
     for (const lado of [1, -1]) {
         const g = new THREE.Group();
         g.scale.set(lado * 1.25, 1.25, 1.25);
-        g.position.set(lado * 0.26, -1.03, 0.26);
+        g.position.set(lado * 0.32, -1.03, 0.26);
         // cadera: la pierna sale del cuerpo por una bisagra grande con aro neón, girada hacia el costado
         const cadera = bisagra(0.12, M);
         cadera.rotation.y = Math.PI / 2;
@@ -888,8 +888,8 @@ export function construirBuho(M, P) {
         g.add(cadera);
         // muslo: baja recto y apenas al frente (de frente las dos piernas quedan paralelas)
         const muslo = new THREE.Group();
-        muslo.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, 0.22).normalize());
-        const MUSLO = 0.2, TIBIA = 0.42;
+        muslo.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0.18, -1, 0.22).normalize()); // un poco hacia afuera: postura abierta
+        const MUSLO = 0.2, TIBIA = 0.36;
         muslo.add(hueso(MUSLO, 0.1, M, M.acero));
         // muslo emplumado, como el de un búho real: tres anillos de plumas que bajan hacia la rodilla
         for (let anillo = 0; anillo < 3; anillo++) {
@@ -964,7 +964,7 @@ export function construirBuho(M, P) {
         aroT.rotation.y = 0;
         tobillo.add(bis, aroT);
         // garra abierta: los tres dedos de enfrente en abanico y el de atrás bien separado
-        for (const [giro, largo, caida] of [[-0.78, 1.05, 0.28], [0, 1.2, 0.24], [0.78, 1.05, 0.28], [Math.PI, 0.8, 0.18]]) {
+        for (const [giro, largo, caida] of [[-0.9, 1.05, 0.26], [0, 1.2, 0.22], [0.9, 1.05, 0.26], [Math.PI, 0.8, 0.16]]) {
             const dedo = new THREE.Group();
             dedo.rotation.set(0, -Math.PI / 2 + giro, -caida);
             let padre = dedo;
