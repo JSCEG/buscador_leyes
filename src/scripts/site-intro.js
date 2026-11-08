@@ -34,7 +34,7 @@ const EMBLEM_HOLD_MS = 3000;
 const EMBLEM_WAIT_MS = 1500; // the picture is small; the map already draws while it arrives
 // The live owl: about 0.7 MB with three.js. It must say it is drawing within this time, or the emblem plays.
 const BUHO_SRC = '/intro/buho.html';
-const BUHO_WAIT_MS = 4500;
+const BUHO_WAIT_MS = 7000; // phones on mobile data: the map keeps drawing while it loads
 // Where each section of the owl's menu goes: the rail link that opens it.
 const BUHO_NAV = {
     buscar: 'nav-inicio', acervo: 'nav-leyes', cronologia: 'nav-cronologia', permisos: 'nav-permisos',

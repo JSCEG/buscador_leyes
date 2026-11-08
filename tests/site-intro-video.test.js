@@ -213,7 +213,7 @@ describe('intro live owl', () => {
   });
   it('falls back to the emblem if the owl does not answer in time', async () => {
     playIntro();
-    await vi.advanceTimersByTimeAsync(4600);
+    await vi.advanceTimersByTimeAsync(7100);
     expect(frame()).toBeFalsy();
     expect(layer().querySelector('img.si-buho')).toBeTruthy();
   });
