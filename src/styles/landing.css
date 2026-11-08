@@ -141,9 +141,20 @@
 html[data-theme="dark"] .lp .lp-if-claro { display: none; }
 html[data-theme="dark"] .lp .lp-if-oscuro { display: block; }
 
-.lp-owl { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(16px, 4vw, 48px); padding: clamp(32px, 6svh, 64px) 0 0; opacity: 0; transform: translateY(14px); transition: opacity 320ms var(--lp-ease), transform 320ms var(--lp-ease); }
-.lp-owl img { flex: none; width: clamp(180px, 24vw, 300px); height: auto; }
-.lp-owl > div { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; max-width: 22em; }
+.lp-owl { display: flex; flex-direction: column; gap: clamp(12px, 2.4svh, 24px); padding: clamp(32px, 6svh, 64px) 0 0; opacity: 0; transform: translateY(14px); transition: opacity 320ms var(--lp-ease), transform 320ms var(--lp-ease); }
+.lp-owl-text { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; }
+.lp-owl-text > div { display: flex; flex-direction: column; gap: 6px; max-width: 34em; }
+.lp-owl-text p { font: 400 15.5px/1.5 var(--font-sans); color: var(--tinta-suave); }
+.lp-owl-stage { position: relative; height: clamp(480px, calc(100svh - 200px), 780px); }
+.lp-owl-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .5s var(--lp-ease); }
+.lp-owl-stage.is-on .lp-owl-photo { opacity: 0; }
+/* color-scheme normal: si no, el iframe se pinta opaco en el tema oscuro */
+.lp-owl-frame { --borde: 28px; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; color-scheme: normal; opacity: 0; transition: opacity .5s var(--lp-ease);
+  /* lo que se sale de la sección se desvanece en vez de cortarse en línea recta */
+  -webkit-mask-image: linear-gradient(90deg, #0000, #000 var(--borde), #000 calc(100% - var(--borde)), #0000), linear-gradient(#0000, #000 var(--borde), #000 calc(100% - var(--borde)), #0000);
+  mask-image: linear-gradient(90deg, #0000, #000 var(--borde), #000 calc(100% - var(--borde)), #0000), linear-gradient(#0000, #000 var(--borde), #000 calc(100% - var(--borde)), #0000);
+  -webkit-mask-composite: source-in; mask-composite: intersect; }
+.lp-owl-stage.is-on .lp-owl-frame { opacity: 1; }
 .lp-owl h3 { font: 500 clamp(24px, 2.6vw, 34px)/1.15 var(--font-display); }
 
 @media (max-width: 767px) {
@@ -152,9 +163,14 @@ html[data-theme="dark"] .lp .lp-if-oscuro { display: block; }
   .lp-sec-show, .lp-sec[data-sec="permisos"] .lp-sec-show { min-height: 0; }
   .lp-sec[data-sec="permisos"] .lp-map { position: static; height: auto; }
   .lp-techs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .lp-owl { flex-direction: column; text-align: center; }
-  .lp-owl > div { align-items: center; }
+  .lp-owl-text { align-items: flex-start; flex-direction: column; }
+  .lp-owl-stage { height: clamp(500px, calc(100svh - 140px), 720px); }
+  .lp-owl-frame { --borde: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .lp-sec, .lp-owl { opacity: 1; transform: none; }
 }
+
+/* El búho señala su sección en el menú principal: mismo aspecto que la sección actual (shell.css), sin ser aria-current. */
+.bu-riel .is-senal-buho > .bu-riel__it, .bu-riel .bu-riel__grupo.is-senal-buho > summary { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+#bottom-nav .is-senal-buho { color: var(--rojo); font-weight: 700; }

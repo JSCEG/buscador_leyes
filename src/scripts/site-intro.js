@@ -1,8 +1,8 @@
 /**
- * The owl's guide: the mechanical owl in real time (public/intro/buho.html, built from intro-3d/vivo/ with
- * scripts/build-intro-3d.mjs). It opens its wings and shows the site's sections; picking one, or «Cerrar guía», opens
- * the site from its eye like an iris and goes there. The visitor can also turn it, open and close the wings, and take
- * it apart. It no longer plays on arrival (the landing does, landing-view.js): only when someone asks for it, through
+ * The owl's guide: the biomechanical owl in real time (public/intro/buho-bio.html, built from buho-bio/vivo/ with
+ * scripts/build-buho-bio.mjs). It tours its parts and shows the site's sections; picking one, or «Cerrar guía», opens
+ * the site from its eye like an iris and goes there. The visitor can also turn it, open and close the wings, see inside
+ * and take it apart. It no longer plays on arrival (the landing does, landing-view.js): only when someone asks for it, through
  * [data-abrir-buho] («Abrir la guía», «Guía rápida») or Ayuda's tour button. Without WebGL, the classic tour plays.
  * The emblem, film and CSS entrances below are not reached any more; they stay behind playIntro({ kind }).
  */
@@ -10,6 +10,7 @@ import { brandMarkSvg } from '../lib/brand-mark.js';
 import { wingsSvg } from '../lib/brand-wings.js';
 import { MEXICO_VIEWBOX, MEXICO_STATES } from '../lib/mexico-map.js';
 import { markWelcomeSeen, startWelcomeTour } from './onboarding.js';
+import { vidrioDelBuho } from '../lib/buho-vidrio.js';
 import '../styles/site-intro.css';
 
 const FIGURES_KEY = 'intro-cifras';
@@ -31,10 +32,10 @@ const EMBLEMS = {
 const EMBLEM_HOLD_MS = 3000;
 const EMBLEM_WAIT_MS = 1500; // the picture is small; the map already draws while it arrives
 // The live owl: about 0.7 MB with three.js. It must say it is drawing within this time, or the emblem plays.
-const BUHO_SRC = '/intro/buho.html';
-const BUHO_WAIT_MS = 7000; // phones on mobile data: the map keeps drawing while it loads
+export const BUHO_SRC = '/intro/buho-bio.html';
+export const BUHO_WAIT_MS = 7000; // phones on mobile data: the map keeps drawing while it loads
 // Where each section of the owl's menu goes: the rail link that opens it.
-const BUHO_NAV = {
+export const BUHO_NAV = {
     buscar: 'nav-inicio', acervo: 'nav-leyes', cronologia: 'nav-cronologia', permisos: 'nav-permisos',
     polos: 'nav-polos', analisis: 'nav-analisis', aprende: 'nav-como-funciona',
 };
@@ -144,7 +145,11 @@ document.addEventListener('click', event => {
     openOwlGuide();
 });
 
-const darkTheme = () => ['dark', 'contraste'].includes(document.documentElement.dataset.theme);
+export const darkTheme = () => ['dark', 'contraste'].includes(document.documentElement.dataset.theme);
+export const savesData = () => {
+    const connection = navigator.connection;
+    return Boolean(connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || ''));
+};
 
 /** Loads the emblem for the current theme out of sight. Resolves with it once it can be shown, or with null. */
 function startEmblem(layer) {
@@ -177,12 +182,11 @@ function startEmblem(layer) {
  * draws its first frame, or with null (no answer in time, an error, or the visitor saves data).
  */
 function startBuho3d(layer, onMessage, tour = true, guide = false) {
-    const connection = navigator.connection;
-    if (connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '')) return Promise.resolve(null);
+    if (savesData()) return Promise.resolve(null);
     const frame = document.createElement('iframe');
     frame.className = 'si-buho3d';
-    frame.title = 'Búho mecánico: elige una sección del sitio';
-    frame.src = `${BUHO_SRC}?tema=${darkTheme() ? 'oscuro' : 'claro'}${tour ? '' : '&recorrido=no'}${guide ? '&modo=guia' : ''}`;
+    frame.title = 'Búho biomecánico: elige una sección del sitio';
+    frame.src = `${BUHO_SRC}?tema=${darkTheme() ? 'oscuro' : 'claro'}&vidrio=${vidrioDelBuho()}${tour ? '' : '&recorrido=no'}${guide ? '&modo=guia' : ''}`;
     frame.setAttribute('allowtransparency', 'true');
     layer.querySelector('.si-map').after(frame);
     return new Promise(resolve => {

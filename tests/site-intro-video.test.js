@@ -181,7 +181,7 @@ describe('intro live owl', () => {
   it('loads the owl over the map in the theme of the site, and shows it once it draws', async () => {
     document.documentElement.dataset.theme = 'dark';
     playIntro();
-    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=oscuro');
+    expect(frame().getAttribute('src')).toMatch(/^\/intro\/buho-bio\.html\?tema=oscuro&vidrio=(azul|verde)$/);
     expect(layer().classList.contains('is-buho3d')).toBe(true);
     expect(layer().classList.contains('is-buho3d-on')).toBe(false);
     say({ type: 'buho-listo' });
@@ -227,7 +227,7 @@ describe('intro live owl', () => {
   it('«Guía rápida» opens the owl with its tour, as a quick tutorial', () => {
     document.body.insertAdjacentHTML('beforeend', '<button data-abrir-buho><svg></svg></button>');
     document.querySelector('[data-abrir-buho] svg').dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro&modo=guia');
+    expect(frame().getAttribute('src')).toMatch(/^\/intro\/buho-bio\.html\?tema=claro&vidrio=(azul|verde)&modo=guia$/);
     // a second click while it is open does not stack another one
     document.querySelector('[data-abrir-buho]').click();
     expect(document.querySelectorAll('#site-intro')).toHaveLength(1);
@@ -256,7 +256,7 @@ describe('intro live owl', () => {
   it('«Abrir la guía» of the landing opens the owl as a quick guide', () => {
     document.body.insertAdjacentHTML('beforeend', '<button type="button" data-abrir-buho>Abrir la guía</button>');
     document.querySelector('[data-abrir-buho]').click();
-    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro&modo=guia');
+    expect(frame().getAttribute('src')).toMatch(/^\/intro\/buho-bio\.html\?tema=claro&vidrio=(azul|verde)&modo=guia$/);
   });
   it('does not load the owl when the visitor saves data', async () => {
     navigator.connection = { saveData: true };

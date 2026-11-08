@@ -1,7 +1,8 @@
 /**
  * Landing: connects the first screen that index.html already painted and draws the gallery below it. It asks nothing
  * of Supabase: the figures come from `search-ready`, the polos from a static file when their section comes near, and
- * the owl's 3D only downloads if someone presses «Abrir la guía» (data-abrir-buho, site-intro.js).
+ * the owl's 3D only downloads when its section comes near (landing-owl.js) or someone presses «Abrir la guía»
+ * (data-abrir-buho, site-intro.js).
  */
 import { catalogFigures, figuresLine, mexicoPoint, recentDocuments, typeBars } from '../lib/landing-model.js';
 import { groupAcervo, selectAcervo } from '../lib/acervo-model.js';
@@ -11,6 +12,8 @@ import { stats, vigentes } from '../lib/polos.js';
 import { typeTile } from '../lib/permit-type.js';
 import { TECH_MARKERS } from '../lib/tech-markers.js';
 import { savedFigures } from './site-intro.js';
+import { mountLandingOwl } from './landing-owl.js';
+import { vidrioDelBuho } from '../lib/buho-vidrio.js';
 import '../styles/landing.css';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -37,6 +40,9 @@ const section = ({ id, title, text, nav, action, show }) => `<section class="lp-
     <div class="lp-sec-show">${show}</div>
 </section>`;
 
+// ámbar y guinda no tienen foto propia: mientras llega el búho se ve la azul
+const vidrioFoto = () => (vidrioDelBuho() === 'verde' ? 'verde' : 'azul');
+
 const galleryHTML = () => `<h2 class="lp-gal-title">Lo que encuentras aquí</h2>
 ${section({ id: 'buscar', nav: 'nav-inicio', title: 'Buscar', text: 'Escribe una palabra y ve cada artículo donde aparece.', action: 'Ir a Buscar',
         show: `<p class="lp-show-note">Prueba con:</p><div class="lp-chips">${EXAMPLES.map(query => `<button type="button" class="lp-chip" data-query="${esc(query)}">${esc(query)}</button>`).join('')}</div>` })}
@@ -54,10 +60,15 @@ ${section({ id: 'como-funciona', nav: 'nav-como-funciona', title: 'Aprende', tex
             <img class="lp-if-oscuro" src="/conceptos/miniaturas/${id}.webp" alt="" loading="lazy" decoding="async">
             <span>${name}</span></li>`).join('')}</ul>` })}
 <section class="lp-owl">
-    <img src="/img/landing-buho.webp" alt="" width="640" height="991" loading="lazy" decoding="async">
-    <div>
-        <h3>¿Primera vez? El búho te enseña el sitio.</h3>
+    <div class="lp-owl-text">
+        <div>
+            <h3>¿Primera vez? El búho te enseña el sitio.</h3>
+            <p>Gíralo y toca sus partes: cada una lleva a una sección.</p>
+        </div>
         <button type="button" class="bu-btn bu-btn-primario" data-abrir-buho>Abrir la guía</button>
+    </div>
+    <div class="lp-owl-stage" data-owl-stage>
+        <img class="lp-owl-photo" src="/img/buho-bio-${vidrioFoto()}.webp" alt="Búho biomecánico de marfil, oro y vidrio, de pie sobre tres libros del sitio" width="900" height="900" loading="lazy" decoding="async">
     </div>
 </section>`;
 
@@ -80,6 +91,8 @@ export function renderLandingView(host, { summaries = null, onSearch = () => {},
     let observer = null;
 
     gallery.innerHTML = galleryHTML();
+    const owlStage = gallery.querySelector('[data-owl-stage]');
+    const owl = owlStage ? mountLandingOwl(owlStage) : null;
 
     function showFigures(data) {
         const [number, ...rest] = figuresLine(data).split(' ');
@@ -180,6 +193,7 @@ export function renderLandingView(host, { summaries = null, onSearch = () => {},
             destroyed = true;
             listeners.abort();
             observer?.disconnect();
+            owl?.destroy();
             gallery.innerHTML = '';
             field.value = '';
         },
