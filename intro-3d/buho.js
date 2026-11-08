@@ -889,7 +889,7 @@ export function construirBuho(M, P) {
         // muslo: baja recto y apenas al frente (de frente las dos piernas quedan paralelas)
         const muslo = new THREE.Group();
         muslo.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -1, 0.22).normalize());
-        const MUSLO = 0.2, TIBIA = 0.6;
+        const MUSLO = 0.2, TIBIA = 0.42;
         muslo.add(hueso(MUSLO, 0.1, M, M.acero));
         // muslo emplumado, como el de un búho real: tres anillos de plumas que bajan hacia la rodilla
         for (let anillo = 0; anillo < 3; anillo++) {
