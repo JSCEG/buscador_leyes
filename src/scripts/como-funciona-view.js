@@ -284,9 +284,9 @@ export function renderComoFuncionaView(container, catalog, { id = null, onOpenLa
                     <a class="cf-back" href="#como-funciona">← Volver a la ruta de ${sectorName}</a>
                     <nav class="cf-route-bar" aria-label="Progreso en la ruta de ${sectorName}">
                         <div class="cf-route-bar-meta">
-                            ${prev ? `<a class="cf-route-arrow" href="#como-funciona=${esc(prev.id)}" aria-label="Paso anterior: ${esc(prev.titulo)}">←</a>` : '<span class="cf-route-arrow" aria-hidden="true"></span>'}
+                            ${prev ? `<a class="cf-route-arrow cf-route-prev" href="#como-funciona=${esc(prev.id)}" aria-label="Paso anterior: ${esc(prev.titulo)}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Anterior</span></a>` : '<span class="cf-route-arrow is-vacio" aria-hidden="true"></span>'}
                             <span class="cf-route-where"><span class="cf-route-step-count">Paso ${stepIndex} de ${sectorConcepts.length}</span>${puente?.eslabon ? `<span class="cf-route-eslabon">${esc(puente.eslabon)}</span>` : ''}</span>
-                            ${next ? `<a class="cf-route-arrow" href="#como-funciona=${esc(next.id)}" aria-label="Paso siguiente: ${esc(next.titulo)}">→</a>` : '<span class="cf-route-arrow" aria-hidden="true"></span>'}
+                            ${next ? `<a class="cf-route-arrow cf-route-next" href="#como-funciona=${esc(next.id)}" aria-label="Paso siguiente: ${esc(next.titulo)}"><span>Siguiente</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>` : '<span class="cf-route-arrow is-vacio" aria-hidden="true"></span>'}
                         </div>
                         <ol class="cf-route-dots cf-route-segments">
                             ${sectorConcepts.map((c, idx) => {

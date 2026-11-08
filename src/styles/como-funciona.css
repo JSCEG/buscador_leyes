@@ -351,3 +351,17 @@ a.cf-tema:focus-visible{outline:2px solid var(--cf-accent);outline-offset:3px}
   .cf-tema-nivel{display:none}
 }
 @media (prefers-reduced-motion:reduce){.cf-mercado,.cf-tema{transition:none}.cf-mercado:hover,a.cf-tema:hover{transform:none}}
+
+/* Flechas de la ruta: botones claros con texto; «Siguiente» es la acción principal */
+.cf-route-bar-meta{grid-template-columns:minmax(0,auto) 1fr minmax(0,auto)}
+.cf-route-arrow{width:auto;min-width:44px;height:44px;gap:6px;padding:0 16px;border:1.5px solid var(--cf-border);border-radius:999px;background:var(--cf-card);color:var(--cf-ink);font-size:14px;font-weight:700;box-shadow:0 2px 8px -4px #0a070733}
+.cf-route-arrow svg{flex:none}
+.cf-route-next{border-color:var(--cf-ink);background:var(--cf-ink);color:var(--surface-1)}
+a.cf-route-prev:hover{border-color:var(--cf-accent);background:var(--cf-card);color:var(--cf-accent)}
+a.cf-route-next:hover{border-color:var(--cf-accent);background:var(--cf-accent);color:var(--on-brand)}
+a.cf-route-prev:hover svg{transform:translateX(-2px)}
+a.cf-route-next:hover svg{transform:translateX(2px)}
+.cf-route-arrow svg{transition:transform .15s cubic-bezier(.16,1,.3,1)}
+span.cf-route-arrow.is-vacio{min-width:44px;padding:0;border-color:transparent;background:none;box-shadow:none}
+@media (max-width:620px){.cf-route-arrow{padding:0;width:44px}.cf-route-arrow>span{display:none}}
+@media (prefers-reduced-motion:reduce){.cf-route-arrow svg{transition:none}a.cf-route-arrow:hover svg{transform:none}}

@@ -11,8 +11,10 @@
 //     cifras: [{ id, etiqueta, nota }], hud,                   // tablero y cifra grande (HTML con data-c)
 //     curva: { titulo, leyenda: [{ texto, color }], nota, dibujar(g, w, h, estado) },
 //     corte: true,                    // si tiene «Ver por dentro»
+//     anchoVertical: 1.1, lejaniaMax: 2.4,   // en un celular vertical: qué tan ancha es la máquina y cuánto se aleja
 //     construir(k) → { piezas, movibles, anclas },             // las piezas (k trae raiz, M, P, ayudas, plano…)
 //     paso(estado) → { cifras: { id: texto } },                // la física de cada cuadro
+//     despues(estado), entradaRecorrido(t)                     // opcionales: tras la cámara; entrada en el recorrido
 //   })
 //
 // Una sola entrada mueve todo: el deslizador. La máquina decide qué hace con ella en paso(); nada se anima a mano.
@@ -91,7 +93,7 @@ export function crearMaquina(def) {
     const escena = $('.g-escena');
 
     // ------------------------------------------------------------------ la escena
-    const { renderer, scene, camera } = estudio(lienzo, P, TEMA);
+    const { renderer, scene, camera, sol } = estudio(lienzo, P, TEMA);
     const M = materiales(P);
     const { sombra, contorno, aro } = ayudantes(M);
     // «Ver por dentro»: una pared invisible en z = 0 quita la mitad de enfrente de lo que lleve conCorte
@@ -99,7 +101,7 @@ export function crearMaquina(def) {
     const conCorte = material => { material.clippingPlanes = [plano]; material.side = DoubleSide; return material; };
     const raiz = new Group();
     scene.add(raiz);
-    const { piezas, movibles, anclas } = def.construir({ raiz, M, P, TEMA, sombra, contorno, aro, plano, conCorte, escena });
+    const { piezas, movibles, anclas } = def.construir({ raiz, M, P, TEMA, sombra, contorno, aro, plano, conCorte, escena, sol, scene });
 
     // resaltar la pieza elegida con un tinte guinda
     const acento = new Color(P.acento);
@@ -380,7 +382,9 @@ export function crearMaquina(def) {
             if (desarme) ponerDesarme(0);
             return;
         }
-        if (estado.entradaObjetivo !== Number(ent.valor)) ponerEntrada(Number(ent.valor));
+        // la máquina puede mover su entrada durante el recorrido (p. ej. la hora del día); si no, se queda en su valor
+        if (def.entradaRecorrido) ponerEntrada(def.entradaRecorrido(t - 4));
+        else if (estado.entradaObjetivo !== Number(ent.valor)) ponerEntrada(Number(ent.valor));
         const finPartes = 4 + PARTES.length * PASO;
         if (t < finPartes) {
             const paso = Math.floor((t - 4) / PASO);
@@ -443,7 +447,7 @@ export function crearMaquina(def) {
         cam.az += (meta.az + orbita.az + giro - cam.az) * k;
         cam.el += (clamp(meta.el + orbita.el, -10, 70) - cam.el) * k;
         // en vertical la máquina, que es ancha, necesita más distancia para caber
-        const lejania = camera.aspect < 1.1 ? clamp(1.1 / camera.aspect, 1.25, 2.4) : 1;
+        const lejania = camera.aspect < 1.1 ? clamp((def.anchoVertical || 1.1) / camera.aspect, 1.25, def.lejaniaMax || 2.4) : 1;
         cam.d += (meta.d * orbita.k * lejania - cam.d) * k;
         // en pantalla completa las barras de abajo tapan; la cámara baja un poco y la máquina sube en el cuadro
         bajada += ((estado.completa ? 0.05 * cam.d : 0) - bajada) * k;
