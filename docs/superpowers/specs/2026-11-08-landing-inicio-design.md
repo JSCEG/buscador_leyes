@@ -65,7 +65,9 @@ Pie: el aviso legal y los enlaces que hoy tiene el estante (`Términos de uso`, 
 
 ## Arranque y rutas
 
-- Un script en `<head>` marca `html.landing-boot` cuando la ruta es `/` o `/index.html`, sin hash. Una regla en línea oculta `#main-container` y el pie y muestra la landing, sin destello del buscador viejo. Las direcciones profundas, `/instalar`, `/ley/…` y los retornos de autenticación no la llevan.
+- Un script en `<head>` marca `html.landing-on` cuando la ruta es `/` o `/index.html`, sin hash o con el token de un correo de acceso (su diálogo se abre sobre la landing; `?code=` y `?token_hash=` tampoco llevan hash). Una regla en línea oculta `#main-container` y el pie y muestra la landing, sin destello del buscador viejo. Las direcciones profundas, `/instalar` y `/ley/…` no la llevan.
+- Cualquier otra dirección de `/`, salvo `#buscar`, marca `html.route-wait`: oculta el buscador y dice «Cargando…» hasta que su vista aparece o falla el catálogo.
+- Una dirección vacía sin vista detrás (al cerrar un artículo abierto por enlace directo, o al abrir una mesa compartida) muestra la landing.
 - `main.js` deja de llamar `playIntro`. Se quitan `shouldShowIntro` y `window.__introDone`.
 - `ui.js`: dirección vacía y logo muestran la landing (`showLandingView`), que libera y crea su vista como hoy `showHomeView` hace con el estante.
 - Estante: `#estante` nueva. `#ficha-…` lo sigue abriendo; cerrar una ficha deja `#estante`, no la dirección vacía. «Estante 3D» de Acervo y el enlace de la landing van ahí.

@@ -20,7 +20,8 @@ const COVERS_SHOWN = 4;
 const TECHS = ['fv', 'eo', 'hid', 'cc', 'geo', 'alm'];
 const THUMBS = [['eolica', 'Eólica'], ['fotovoltaica', 'Fotovoltaica'], ['ciclo-combinado', 'Ciclo combinado']];
 
-const mapSvg = (dots = '') => `<svg class="lp-map" viewBox="${MEXICO_VIEWBOX}" aria-hidden="true"><g>${MEXICO_STATES.map(state => `<path d="${state.d}"/>`).join('')}</g><g data-map-dots>${dots}</g></svg>`;
+const mapSvg = () => `<svg class="lp-map" viewBox="${MEXICO_VIEWBOX}" aria-hidden="true"><g>${MEXICO_STATES.map(state => `<path d="${state.d}"/>`).join('')}</g><g data-map-dots></g></svg>`;
+const catalogNote = '<p class="lp-show-note" data-landing-note>Cargando documentos…</p>';
 
 const defaultFetchPolos = () => fetch('/polos/polos.json', { credentials: 'same-origin' }).then(response => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -40,9 +41,9 @@ const galleryHTML = () => `<h2 class="lp-gal-title">Lo que encuentras aquí</h2>
 ${section({ id: 'buscar', nav: 'nav-inicio', title: 'Buscar', text: 'Escribe una palabra y ve cada artículo donde aparece.', action: 'Ir a Buscar',
         show: `<p class="lp-show-note">Prueba con:</p><div class="lp-chips">${EXAMPLES.map(query => `<button type="button" class="lp-chip" data-query="${esc(query)}">${esc(query)}</button>`).join('')}</div>` })}
 ${section({ id: 'acervo', nav: 'nav-leyes', title: 'Acervo', text: 'Todos los documentos, por tipo y dependencia. Por artículo o como libro.', action: 'Ir al Acervo',
-        show: '<div class="lp-covers" data-landing-covers></div><a class="lp-link lp-shelf" href="#estante">Ver el estante 3D</a>' })}
+        show: `${catalogNote}<div class="lp-covers" data-landing-covers></div><a class="lp-link lp-shelf" href="#estante">Ver el estante 3D</a>` })}
 ${section({ id: 'cronologia', nav: 'nav-cronologia', title: 'Cronología', text: 'Qué se publicó y cuándo, en una sola línea.', action: 'Ir a Cronología',
-        show: '<ol class="lp-line" data-landing-line></ol>' })}
+        show: `${catalogNote}<ol class="lp-line" data-landing-line></ol>` })}
 ${section({ id: 'permisos', nav: 'nav-permisos', title: 'Permisos', text: 'Quién tiene permiso de energía y dónde, en el mapa.', action: 'Ir a Permisos',
         show: `${mapSvg()}<ul class="lp-techs">${TECHS.map(tech => `<li>${typeTile({ tech })}<span>${esc(TECH_MARKERS[tech].name)}</span></li>`).join('')}</ul>` })}
 ${section({ id: 'polos', nav: 'nav-polos', title: 'Polos', text: 'Los polos de desarrollo: dónde están y cómo van.', action: 'Ir a Polos',
@@ -104,6 +105,7 @@ export function renderLandingView(host, { summaries = null, onSearch = () => {},
         bars.innerHTML = typeBars(list).map(bar => `<li><a class="lp-bar" data-category="${esc(bar.id)}" href="#acervo?grupo=${esc(bar.id)}" style="--w:${(bar.share * 100).toFixed(1)}%"><span>${esc(bar.label)}</span><b>${bar.count}</b><i></i></a></li>`).join('');
         card.dataset.state = 'ready';
         showFigures(catalogFigures(list));
+        gallery.querySelectorAll('[data-landing-note]').forEach(note => note.remove());
         drawCovers(list);
         drawLine(list);
     }
@@ -112,6 +114,7 @@ export function renderLandingView(host, { summaries = null, onSearch = () => {},
         if (destroyed) return;
         card.dataset.state = 'failed';
         figures.textContent = '';
+        gallery.querySelectorAll('[data-landing-note]').forEach(note => { note.textContent = 'No pudimos traer la lista por ahora.'; });
     }
 
     function loadPolos(place) {
@@ -156,7 +159,7 @@ export function renderLandingView(host, { summaries = null, onSearch = () => {},
         if (legal) { event.preventDefault(); onLegal(legal.dataset.legal); return; }
         if (event.target.closest('[data-feedback]')) { onFeedback(); return; }
         const go = event.target.closest('[data-landing-go]');
-        if (!go) return;
+        if (!go || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return; // a new tab is the browser's
         event.preventDefault();
         document.getElementById(go.dataset.landingGo)?.click();
     }, { signal });

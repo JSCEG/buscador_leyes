@@ -82,7 +82,7 @@ El armazón es `.bu-riel` (riel), `.bu-cab-m` (cabecera de celular) y `#bottom-n
 
 ### Deep linking
 
-Las URLs usan hash: `#art:ID` para artículo, `#ley:NOMBRE` para ley. Al cargar, `handleInitialHash()` en `ui.js` parsea el hash y navega al contenido correcto.
+Las URLs usan hash: `#art:ID` para artículo, `#ley:NOMBRE` para ley. Al cargar, `handleInitialHash()` en `ui.js` parsea el hash y navega al contenido correcto. Mientras tanto, `html.route-wait` oculta el buscador y dice «Cargando…».
 
 ### Service Worker
 

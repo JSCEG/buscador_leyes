@@ -19,9 +19,12 @@
         // La landing se pinta sola, antes del JavaScript: esto la muestra solo en la dirección de inicio,
         // y guarda lo que alguien busque antes de que arranque la aplicación.
         (function () {
-            if ((location.pathname === '/' || location.pathname === '/index.html') && !location.hash) {
-                document.documentElement.classList.add('landing-on');
-            }
+            var home = location.pathname === '/' || location.pathname === '/index.html';
+            // Volver de un correo de acceso trae un token en la dirección, y sigue siendo el inicio.
+            var authReturn = /access_token|error_description|(^|[#&])type=/.test(location.hash);
+            if (home && (!location.hash || authReturn)) document.documentElement.classList.add('landing-on');
+            // Otra dirección espera su vista (a veces, al catálogo): sin mostrar antes el buscador.
+            else if (home && location.hash !== '#buscar') document.documentElement.classList.add('route-wait');
             document.addEventListener('submit', function (event) {
                 if (event.target.id !== 'landing-search') return;
                 event.preventDefault();
@@ -33,6 +36,8 @@
         #landing-view { display: none; }
         html.landing-on #landing-view { display: block; }
         html.landing-on #main-container, html.landing-on #institutional-footer { display: none; }
+        html.route-wait #hero-section, html.route-wait #global-search-wrapper, html.route-wait #quick-filters, html.route-wait #stats-minimal, html.route-wait #features-section { display: none; }
+        html.route-wait #main-container::before { content: "Cargando…"; color: var(--tinta-suave); font-size: 15px; }
     </style>
     <!-- Cache-busting: evita que el browser sirva index.html desde caché HTTP.
          El Service Worker (registrado en main.js) es la solución principal;
@@ -314,7 +319,7 @@
     </div>
 
     <!-- Landing: la primera pantalla viene en el HTML para pintarse sin esperar al JavaScript (landing-view.js la conecta) -->
-    <section id="landing-view" class="lp" aria-label="Inicio">
+    <section id="landing-view" class="lp" role="main" aria-label="Inicio">
         <div class="lp-first">
             <div class="lp-copy">
                 <h1 class="lp-title">Las reglas de la energía en México, <span>a la mano.</span></h1>

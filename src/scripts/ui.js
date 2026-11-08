@@ -52,6 +52,10 @@ import { wordDiff } from '../lib/word-diff.js';
 import { separatorHtml } from '../lib/separator.js';
 import { shortTitle } from '../lib/short-title.js';
 
+// Coming back from an auth email: the address still carries its token, and it is the home address all the same.
+const AUTH_RETURN = /access_token|error_description|(^|[#&])type=/;
+const isBareAddress = () => !location.hash || AUTH_RETURN.test(location.hash);
+
 export function initUI() {
     const searchInput = document.getElementById('search-input');
     const resultsContainer = document.getElementById('results-container');
@@ -144,7 +148,9 @@ export function initUI() {
         document.getElementById('darkmode-icon-moon')?.classList.toggle('hidden', dark);
         document.getElementById('darkmode-icon-sun')?.classList.toggle('hidden', !dark);
         document.querySelectorAll('[data-theme-choice]').forEach(option => {
-            option.setAttribute('aria-checked', String(option.dataset.themeChoice === theme));
+            const checked = option.dataset.themeChoice === theme;
+            option.setAttribute('aria-checked', String(checked));
+            option.tabIndex = checked ? 0 : -1; // the group is one stop for Tab; the arrows move inside it
         });
     }
 
@@ -203,6 +209,16 @@ export function initUI() {
         if (!option) return;
         const theme = option.dataset.themeChoice;
         applyGlobalDark(theme === 'dark', theme);
+    });
+    document.addEventListener('keydown', event => {
+        const option = event.target.closest?.('[data-theme-choice]');
+        const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+        if (!option || !step) return;
+        event.preventDefault();
+        const group = [...option.parentElement.querySelectorAll('[data-theme-choice]')];
+        const next = group[(group.indexOf(option) + step + group.length) % group.length];
+        next.click();
+        next.focus();
     });
     // ── Fin Modo Oscuro ────────────────────────────────────────────────────────
 
@@ -277,7 +293,10 @@ export function initUI() {
     let acervoView = null;
     let homeView = null;
     let landingView = null;
-    const arrivedAtLanding = !location.hash;
+    const arrivedAtLanding = isBareAddress();
+    // Typed, and then a link touched before the app started: the last thing touched wins.
+    if (!arrivedAtLanding) delete window.__landingQuery;
+    const endRouteWait = () => document.documentElement.classList.remove('route-wait');
     let sheetPushed = false;
     let catalogFailed = false;
     let statsView = null;
@@ -352,6 +371,7 @@ export function initUI() {
 
     window.addEventListener('search-failed', () => {
         catalogFailed = true;
+        endRouteWait();
         homeView?.setFailed();
         landingView?.setFailed();
     });
@@ -382,9 +402,9 @@ export function initUI() {
 
         // Handle URL hash (deep link) once data is ready. A search made while the catalog was loading stays:
         // routing #buscar again would put the search page back over its results.
-        setTimeout(() => {
+        setTimeout(async () => {
             if (location.hash === '#buscar' && searchInput.value.trim()) return;
-            handleInitialHash();
+            try { await handleInitialHash(); } finally { endRouteWait(); }
         }, 0);
     });
 
@@ -581,6 +601,7 @@ export function initUI() {
         const sharedDesk = parseDeskHash(hash);
         if (sharedDesk) {
             history.replaceState(null, '', location.pathname + location.search);
+            landIfBare();
             const same = getDesks().find(d => d.ids.join('|') === sharedDesk.ids.join('|'));
             const [onlyDesk, ...rest] = getDesks();
             const untouched = !rest.length && !onlyDesk.ids.length ? onlyDesk.id : null;
@@ -912,6 +933,7 @@ export function initUI() {
     const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-como-funciona', 'mobile-nav-como-funciona', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-polos', 'mobile-nav-polos', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
+        endRouteWait();
         undockSearch();
         cancelPendingSearch();
         // A law keeps the shelf on screen until its articles arrive, like the library does.
@@ -1011,19 +1033,19 @@ export function initUI() {
     });
     function undockSearch() {
         if (!searchWrapper || !searchHome?.isConnected || searchWrapper.previousSibling === searchHome) return;
-        const focused = document.activeElement === searchInput;
+        const focused = [searchInput, searchWrapper].find(element => element === document.activeElement); // moving it drops the focus
         searchHome.after(searchWrapper);
         searchWrapper.classList.remove('is-docked');
-        if (focused) searchInput.focus({ preventScroll: true });
+        focused?.focus({ preventScroll: true });
     }
     function dockSearch() {
         const slot = resultsContainer?.querySelector('.sr-head');
         if (!searchWrapper || !slot) return;
-        const focused = document.activeElement === searchInput;
+        const focused = [searchInput, searchWrapper].find(element => element === document.activeElement); // moving it drops the focus
         slot.prepend(searchWrapper);
         searchWrapper.classList.add('is-docked');
         searchWrapper.classList.remove('hidden', 'opacity-0');
-        if (focused) searchInput.focus({ preventScroll: true });
+        focused?.focus({ preventScroll: true });
     }
 
     function showGlobalSearch() {
@@ -1160,7 +1182,7 @@ export function initUI() {
         currentFilters = { type: 'all', law: 'all', artNum: '' };
         setActiveNav('nav-inicio');
         // index.html painted the landing for a bare address, but a link was touched before the app started.
-        if (location.hash) document.documentElement.classList.remove('landing-on');
+        if (!isBareAddress()) document.documentElement.classList.remove('landing-on');
     
     function releaseLanding() {
         if (!landingView) return; // on arrival the landing is already on screen: it stays, without a flicker
@@ -1184,7 +1206,14 @@ export function initUI() {
         root.classList.add('landing-on');
         landingView = renderLandingView(document.getElementById('landing-view'), {
             summaries: catalogLoaded ? cachedSummaries : null,
-            onSearch: query => { resetToHero(); searchInput.value = query; searchInput.dispatchEvent(new Event('input')); },
+            onSearch: query => {
+                resetToHero();
+                searchInput.value = query;
+                searchInput.dispatchEvent(new Event('input'));
+                // What had the focus just left. Not the box itself: on a phone it would open the keyboard over the results.
+                globalSearchWrapper.tabIndex = -1;
+                globalSearchWrapper.focus({ preventScroll: true });
+            },
             onLegal: kind => openLegalPage(kind),
             onFeedback: () => openFeedback({ context: 'inicio' }),
         });
@@ -1192,11 +1221,18 @@ export function initUI() {
         landingView.runPendingSearch(); // after landingView is set, so leaving for the results really releases it
     }
 
+    /** An empty address shows the landing. The views that keep it empty (favorites, stats, help) hide the search page. */
+    function landIfBare() {
+        if (location.hash || landingView || homeView || heroSection?.classList.contains('hidden') || searchInput.value.trim()) return;
+        showLandingView({ updateHistory: false });
+    }
+
     function releaseHome() {
         releaseLanding();
         if (!homeView) return;
         homeView.destroy();
         homeView = null;
+        sheetPushed = false;
         document.getElementById('home-view')?.classList.add('hidden');
         document.body.classList.remove('home-active');
     }
@@ -1211,9 +1247,9 @@ export function initUI() {
     }
 
     /** The 3D shelf, at #estante. Other sections release it through hideAllViews or setActiveNav. */
-    function showHomeView({ updateHistory = true, hash = '#estante' } = {}) {
+    function showHomeView({ updateHistory = true } = {}) {
         lawOpenRequest++;
-        if (updateHistory) setHash(hash);
+        if (updateHistory) setHash('#estante');
         if (homeView) return;
         acervoReturnFocusId = null;
         destroyTOC();
@@ -4091,6 +4127,7 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             restoreExplorerPosition(returnContext);
+            landIfBare(); // arrived straight at the article: there was nothing behind it
             if (!returnContext && readerReturnFocus?.isConnected) readerReturnFocus.focus({ preventScroll: true });
         }, 300);
     }
@@ -4220,7 +4257,14 @@ export function initUI() {
         // / — focus search (not in input)
         if (e.key === '/' && !inInput) {
             e.preventDefault();
-            if (!modalOpen && globalSearchWrapper.classList.contains('hidden')) resetToHero();
+            // The landing has its own box on screen.
+            const landingBox = !modalOpen && landingView ? document.querySelector('#landing-search input') : null;
+            if (landingBox) {
+                landingBox.focus();
+                landingBox.select();
+                return;
+            }
+            if (!modalOpen && (globalSearchWrapper.classList.contains('hidden') || document.documentElement.classList.contains('route-wait'))) resetToHero();
             if (searchInput) {
                 searchInput.focus();
                 searchInput.select();
@@ -4833,5 +4877,6 @@ export function initUI() {
             });
         }
     };
-    if (!location.hash) showLandingView({ updateHistory: false });
+    if (isBareAddress()) showLandingView({ updateHistory: false });
+    else if (location.hash !== '#buscar') document.documentElement.classList.add('route-wait');
 }

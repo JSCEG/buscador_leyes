@@ -37,7 +37,6 @@ describe('recentDocuments', () => {
     expect(recent.map(item => item.id)).toEqual(['b', 'd']);
     expect(recent[0].name).toBe('Documento b');
     expect(recent[1].name).toBe('Documento d');
-    expect(recent[0].year).toBe('2025');
     expect(recent[0].date).toMatch(/2025/);
   });
   it('is empty without dated documents', () => { expect(recentDocuments([law('a', 'ley', 1, null)])).toEqual([]); });

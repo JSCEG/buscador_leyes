@@ -5,7 +5,7 @@ import '../styles/reader.css';
 // reader surface and site theme, with a live preview that reads the same variables as the text.
 export function readerControlsHtml() {
     const theme = document.documentElement.dataset.theme || 'light';
-    const themeOption = (value, label) => `<button type="button" role="radio" class="bux-seg__opt" data-theme-choice="${value}" aria-checked="${value === theme}">${label}</button>`;
+    const themeOption = (value, label) => `<button type="button" role="radio" class="bux-seg__opt" data-theme-choice="${value}" aria-checked="${value === theme}" tabindex="${value === theme ? 0 : -1}">${label}</button>`;
     const segOption = (attr, value, label) => `<button type="button" role="radio" class="bux-seg__opt" ${attr}="${value}" aria-checked="false">${label}</button>`;
     const { min, max } = READER_FONT_SIZE_RANGE;
     return `<details class="reader-settings">

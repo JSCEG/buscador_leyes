@@ -27,6 +27,25 @@ describe('landing boot', () => {
     expect(marks('/instalar')).toBe(false);
     expect(marks('/otra')).toBe(false);
   });
+  it('marks the home address when an auth email comes back to it, whose dialog opens over the landing', () => {
+    expect(marks('/', '#access_token=abc&type=recovery')).toBe(true);
+    expect(marks('/', '#error=access_denied&error_description=x')).toBe(true);
+    expect(marks('/ley/x', '#access_token=abc')).toBe(false);
+  });
+  it('hides the search page while an address waits for its view', () => {
+    const waits = (pathname, hash) => {
+      const code = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]).find(text => text.includes('landing-on'));
+      const added = [];
+      new Function('location', 'document', 'window', code)({ pathname, hash }, { documentElement: { classList: { add: name => added.push(name) } }, addEventListener() {} }, {});
+      return added.includes('route-wait');
+    };
+    expect(waits('/', '#cronologia')).toBe(true);
+    expect(waits('/', '#art-1')).toBe(true);
+    expect(waits('/', '#buscar')).toBe(false);
+    expect(waits('/', '')).toBe(false);
+    expect(waits('/', '#access_token=abc')).toBe(false);
+    expect(html).toMatch(/html\.route-wait #hero-section/);
+  });
   it('keeps the search typed before the app starts', () => {
     const code = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]).find(text => text.includes('landing-on'));
     let submit = null;
@@ -50,6 +69,9 @@ describe('landing first screen', () => {
     view = new DOMParser().parseFromString(html, 'text/html').getElementById('landing-view');
   });
 
+  it('is the page\'s main landmark while it is on screen', () => {
+    expect(view.getAttribute('role')).toBe('main');
+  });
   it('sits before the search area, so it paints first', () => {
     expect(html.indexOf('id="landing-view"')).toBeLessThan(html.indexOf('id="main-container"'));
   });

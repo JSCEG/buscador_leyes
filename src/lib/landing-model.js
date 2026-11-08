@@ -27,7 +27,7 @@ export function recentDocuments(summaries, count = 5) {
         .map(law => {
             const cover = coverData(law);
             // the short title: many documents only have an internal code as their acronym
-            return { id: law.id, name: cover.name, date: cover.date, year: cover.year };
+            return { id: law.id, name: cover.name, date: cover.date };
         });
 }
 

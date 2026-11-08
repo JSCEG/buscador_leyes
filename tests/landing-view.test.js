@@ -97,6 +97,48 @@ describe('search', () => {
   });
 });
 
+describe('gallery while the catalog is not there', () => {
+  const notes = () => [...host.querySelectorAll('[data-landing-note]')].map(note => note.textContent);
+  it('says it is loading, instead of showing an empty space', () => {
+    mount({});
+    expect(notes()).toEqual(['Cargando documentos…', 'Cargando documentos…']);
+  });
+  it('says so when the catalog fails, and the links stay', () => {
+    mount({});
+    view.setFailed();
+    expect(notes()).toEqual(['No pudimos traer la lista por ahora.', 'No pudimos traer la lista por ahora.']);
+    expect(host.querySelector('[data-sec="acervo"] .lp-link')).not.toBeNull();
+    expect(host.querySelector('.lp-shelf')).not.toBeNull();
+  });
+  it('removes the note when the catalog arrives', () => {
+    mount({});
+    view.setCatalog(summaries);
+    expect(notes()).toEqual([]);
+    expect(host.querySelector('[data-landing-covers] a')).not.toBeNull();
+    expect(host.querySelector('[data-landing-line] a')).not.toBeNull();
+  });
+});
+
+describe('links of the landing', () => {
+  it('lets the browser open a section in a new tab', () => {
+    const target = document.createElement('a');
+    target.id = 'nav-leyes';
+    const opened = vi.fn(event => event.preventDefault());
+    target.addEventListener('click', opened);
+    document.body.append(target);
+    mount({});
+    const link = host.querySelector('[data-sec="acervo"] [data-landing-go]');
+    const modified = new MouseEvent('click', { bubbles: true, cancelable: true, ctrlKey: true });
+    link.dispatchEvent(modified);
+    expect(modified.defaultPrevented).toBe(false);
+    expect(opened).not.toHaveBeenCalled();
+    const plain = new MouseEvent('click', { bubbles: true, cancelable: true });
+    link.dispatchEvent(plain);
+    expect(plain.defaultPrevented).toBe(true);
+    expect(opened).toHaveBeenCalledTimes(1);
+  });
+});
+
 describe('gallery', () => {
   it('has six sections and the owl, with its picture lazy and the 3D only behind the button', () => {
     mount({});
