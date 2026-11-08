@@ -140,15 +140,19 @@ function startFilm(layer) {
 }
 
 /**
- * Opens the live owl on purpose: «Guía del búho» (rail and phone header) goes straight to its menu; Ayuda's tour
- * button plays its tour of the sections. Without WebGL, the classic welcome tour plays instead.
+ * Opens the live owl on purpose, as a quick tutorial: «Guía rápida» (rail, Aprende menu, phone header and «Más») and
+ * Ayuda's tour button play its tour of the sections. Without WebGL, the classic welcome tour plays instead.
  */
-export function openOwlGuide({ tour = false } = {}) {
+export function openOwlGuide({ tour = true } = {}) {
     if (document.getElementById('site-intro')) return null;
     return playIntro({ kind: 'buho3d', tour, onUnavailable: startWelcomeTour });
 }
 document.addEventListener('click', event => {
-    if (event.target.closest?.('[data-abrir-buho]')) openOwlGuide();
+    if (!event.target.closest?.('[data-abrir-buho]')) return;
+    event.preventDefault();
+    // from the phone's «Más» sheet: close it, so the site is there when the owl leaves
+    if (document.getElementById('mobile-menu-drawer')?.contains(event.target)) document.getElementById('close-mobile-menu')?.click();
+    openOwlGuide();
 });
 
 const darkTheme = () => ['dark', 'contraste'].includes(document.documentElement.dataset.theme);

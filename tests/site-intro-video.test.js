@@ -224,10 +224,10 @@ describe('intro live owl', () => {
     expect(frame()).toBeFalsy();
     expect(layer().querySelector('img.si-buho')).toBeTruthy();
   });
-  it('«Guía del búho» opens the owl straight on its menu, without the tour', () => {
+  it('«Guía rápida» opens the owl with its tour, as a quick tutorial', () => {
     document.body.insertAdjacentHTML('beforeend', '<button data-abrir-buho><svg></svg></button>');
     document.querySelector('[data-abrir-buho] svg').dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro&recorrido=no');
+    expect(frame().getAttribute('src')).toBe('/intro/buho.html?tema=claro');
     // a second click while it is open does not stack another one
     document.querySelector('[data-abrir-buho]').click();
     expect(document.querySelectorAll('#site-intro')).toHaveLength(1);
