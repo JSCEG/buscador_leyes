@@ -3,7 +3,8 @@
 //
 // Entrada: el nivel de los tanques (0 a 100 %). El techo flotante va encima del combustible: sube y baja con él, así
 // no queda aire con vapores entre el líquido y el techo. Dos pruebas: una fuga (el dique la retiene) y el sistema
-// contra incendios (los monitores lanzan espuma).
+// contra incendios (los monitores lanzan espuma contra las paredes de los tanques para enfriarlos).
+// Todo el combustible va por tubería: entra por el ducto a la base de cada tanque y sale por tubería a la isleta.
 //
 // Cifras:
 // - Cada tanque: 100,000 barriles (la ficha: «hasta 100,000 barriles»). 1 barril = 158.987 L → 15.9 millones de litros.
@@ -162,14 +163,32 @@ crearMaquina({
             raiz.add(g);
             return { g, casco, liquido, techo };
         });
-        // tubería de llegada (del ducto) a los tanques, por el piso
+        // Tuberías de vidrio, a ras de piso: el combustible es flamable, así que nunca va por el aire. Llega por el ducto
+        // a la base de cada tanque y sale de los tanques a la isleta de llenado. Los puntos tienen el color del producto.
         const curva = (...p) => new THREE.CatmullRomCurve3(p.map(v => new THREE.Vector3(...v)));
-        const tuboG = (c, r = 0.035) => raiz.add(sombra(new THREE.Mesh(new THREE.TubeGeometry(c, 64, r, 10, false), M.grafito)));
-        tuboG(curva([-3.8, 0.22, -1.25], [-3.0, 0.22, -1.25], [-2.55, 0.22, -1.25], [-2.55, 0.3, -1.36]));
-        tuboG(curva([-2.55, 0.22, -1.25], [-0.65, 0.22, -1.25], [-0.65, 0.3, -1.36]));
-        tuboG(curva([-3.0, 0.22, -1.25], [-3.2, 0.22, 0.75], [-2.3, 0.22, 0.75]));
-        // de los tanques a la isleta
-        tuboG(curva([0.05, 0.25, -0.65], [1.4, 0.22, -0.4], [2.0, 0.22, -0.25], [2.1, 0.25, -0.1]));
+        const vidrio = new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: 0.08, transparent: true, opacity: 0.25, clearcoat: 1, depthWrite: false });
+        const tuboV = (c, r = 0.04) => { const m = new THREE.Mesh(new THREE.TubeGeometry(c, 64, r, 10, false), vidrio); m.renderOrder = 2; raiz.add(m); };
+        const llegadas = [
+            curva([-3.8, 0.22, -1.3], [-3.0, 0.22, -1.3], [-2.55, 0.22, -1.32], [-2.55, 0.3, -1.38]),
+            curva([-3.8, 0.22, -1.3], [-2.0, 0.22, -1.3], [-0.65, 0.22, -1.32], [-0.65, 0.3, -1.38]),
+            curva([-3.8, 0.22, -1.3], [-3.2, 0.22, -0.4], [-3.15, 0.22, 0.75], [-2.33, 0.3, 0.75]),
+        ];
+        const salidas = [
+            curva([-2.25, 0.28, -1.32], [-2.15, 0.2, -1.5], [0.6, 0.2, -1.5], [1.3, 0.2, -0.95], [2.05, 0.2, -0.45], [2.3, 0.3, -0.45]),
+            curva([-0.87, 0.28, 0.78], [-0.65, 0.2, 0.95], [0.6, 0.2, 1.3], [1.35, 0.2, 0.95], [2.05, 0.2, 0.45], [2.3, 0.3, 0.45]),
+        ];
+        llegadas.forEach(c => tuboV(c, 0.045));
+        salidas.forEach(c => tuboV(c, 0.035));
+        const flujo = (ruta, color, n = 18) => {
+            const im = new THREE.InstancedMesh(new THREE.SphereGeometry(0.032, 8, 6), new THREE.MeshBasicMaterial({ color }), n);
+            im.frustumCulled = false;
+            im.renderOrder = 3;
+            im.visible = false;
+            raiz.add(im);
+            return { im, ruta, n, f: 0 };
+        };
+        const entradas = llegadas.map((c, i) => flujo(c, TANQUES[i].color));
+        const despachos = [flujo(salidas[0], TANQUES[0].color, 22), flujo(salidas[1], TANQUES[2].color, 22)];
 
         // 3 · isleta de llenado: techo con borde guinda, postes, dos brazos de carga y medidores
         const isleta = new THREE.Group();
@@ -262,7 +281,9 @@ crearMaquina({
             cabeza.rotation.set(-0.6, Math.atan2(tx - x, tz - z), 0, 'YXZ');
             m.add(cabeza);
             fuego.add(m);
-            return { m, objetivo: new THREE.Vector3(tx, BASE + ALTO_TANQUE + 0.1, tz) };
+            // la espuma (prueba) va contra la pared del tanque, del lado del monitor: enfría el casco; no entra al tanque
+            const haciaMonitor = new THREE.Vector3(x - tx, 0, z - tz).normalize().multiplyScalar(R_TANQUE + 0.02);
+            return { m, objetivo: new THREE.Vector3(tx, BASE + ALTO_TANQUE * 0.6, tz).add(haciaMonitor) };
         });
         raiz.add(fuego);
         // la espuma: puntos blancos en arco de cada monitor a su tanque
@@ -271,7 +292,7 @@ crearMaquina({
         const espumaMat = new THREE.MeshBasicMaterial({ color: TEMA === 'oscuro' ? '#ffffff' : '#cfe0ea', transparent: true, opacity: 0.95 });
         const chorros = monitores.map(() => { const im = new THREE.InstancedMesh(new THREE.SphereGeometry(0.055, 8, 6), espumaMat, ESPUMA); im.frustumCulled = false; raiz.add(im); return im; });
 
-        piezasT = { tanques, charco, pipas, brazos, monitores, chorros, ESPUMA, isleta };
+        piezasT = { tanques, charco, pipas, brazos, monitores, chorros, ESPUMA, isleta, entradas, despachos, vidrio };
         return {
             piezas: { 1: tanques.map(t => t.g), 2: [dique], 3: [isleta], 4: [fuego] },
             // los cascos suben y dejan ver el producto y el techo flotante; el dique se abre; la isleta sube
@@ -286,10 +307,13 @@ crearMaquina({
     },
 
     paso(estado) {
-        const { tanques, charco, pipas, brazos, monitores, chorros, ESPUMA } = piezasT;
+        const { tanques, charco, pipas, brazos, monitores, chorros, ESPUMA, entradas, despachos, vidrio } = piezasT;
         const { dt, e } = estado;
         estado.entrada += (estado.entradaObjetivo - estado.entrada) * (1 - Math.exp(-dt / 0.5));
+        const antes = nivel;
         nivel = estado.entrada / 100;
+        // el ducto solo manda combustible mientras los tanques suben
+        const llenando = clamp(((nivel - antes) / Math.max(dt, 1e-3)) * 25, 0, 1) * (1 - clamp(e * 8, 0, 1));
         const fuga = estado.sel.fuga === 'si';
         // nivel y techo flotante de cada tanque (el que fuga baja a cero; su producto llena el dique)
         derrame += ((fuga ? 1 : 0) - derrame) * (1 - Math.exp(-dt / 2.5));
@@ -321,6 +345,7 @@ crearMaquina({
             else z = bahia - ((u - 0.75) / 0.25) * 3.2;
             p.g.position.set(2.35 + 0.42, BASE, z);
             p.g.visible = Math.abs(z) < 2.3;
+            p.llenando = llenado > 0 && llenado < 1;
             p.barra.scale.z = Math.max(0.02, llenado);
             p.barra.position.z = -0.05 - 0.45 * (1 - llenado);
             // el brazo baja mientras llena
@@ -332,7 +357,25 @@ crearMaquina({
             if (u < 0.1) p.contada = false;
         });
 
-        // espuma: arcos de cada monitor a su tanque
+        // combustible por las tuberías: entra a los tanques mientras suben; sale a cada bahía mientras su pipa se llena
+        const mover = (fl, rapidez) => {
+            fl.im.visible = rapidez > 0.02;
+            if (!fl.im.visible) return;
+            fl.f = (fl.f + dt * 0.35 * rapidez) % 1;
+            const m = new THREE.Matrix4();
+            const q = new THREE.Vector3();
+            for (let i = 0; i < fl.n; i++) {
+                fl.ruta.getPointAt(((i / fl.n) + fl.f) % 1, q);
+                m.makeTranslation(q.x, q.y, q.z);
+                fl.im.setMatrixAt(i, m);
+            }
+            fl.im.instanceMatrix.needsUpdate = true;
+        };
+        entradas.forEach((fl, i) => mover(fl, i === 1 ? llenando * (1 - derrame) : llenando));
+        despachos.forEach((fl, i) => mover(fl, pipas[i].llenando ? 1 - clamp(e * 8, 0, 1) : 0));
+        vidrio.opacity = 0.25 * (1 - clamp(e * 6, 0, 1));
+
+        // espuma: arcos de cada monitor a la pared de su tanque
         espuma += ((estado.sel.fuego === 'prueba' && e < 0.05 ? 1 : 0) - espuma) * (1 - Math.exp(-dt / 0.4));
         const m4 = new THREE.Matrix4();
         const p = new THREE.Vector3();
@@ -343,7 +386,7 @@ crearMaquina({
             for (let i = 0; i < ESPUMA; i++) {
                 const u = ((i / ESPUMA) + estado.T * 0.6) % 1;
                 p.lerpVectors(desde, mon.objetivo, u);
-                p.y += Math.sin(u * Math.PI) * 0.9;
+                p.y += Math.sin(u * Math.PI) * 0.45;
                 const s = espuma * (0.6 + u * 0.8);
                 m4.makeScale(s, s, s).setPosition(p);
                 chorros[k].setMatrixAt(i, m4);
