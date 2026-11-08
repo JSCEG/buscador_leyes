@@ -2,5 +2,6 @@
   "generador": "Cómo se genera la electricidad",
   "motor": "Motor eléctrico",
   "transformador": "Transformador",
-  "fotovoltaica": "Central fotovoltaica"
+  "fotovoltaica": "Central fotovoltaica",
+  "ciclo-combinado": "Central de ciclo combinado"
 }
