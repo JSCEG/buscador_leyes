@@ -1005,21 +1005,21 @@ export function construirBuho(M, P) {
         partes.garras.push(g);
     }
 
-    // Cola: abanico ancho de 11 plumas largas hacia abajo y atrás, una capa de coberteras de marfil encima y una
+    // Cola: abanico ancho y largo (más de dos veces el cuerpo) de 11 plumas hacia abajo y atrás, una capa de coberteras de marfil encima y una
     // bisagra grafito con aro neón en la base (de lado y por detrás se lee como cola de búho, no como un hilo).
     const cola = new THREE.Group();
     cola.position.set(0, -0.8, -0.34);
-    cola.rotation.x = -2.35;
+    cola.rotation.x = -2.0; // más hacia atrás que hacia abajo: así de larga no toca el piso
     for (let k = 0; k < 11; k++) {
         const d = k - 5;
-        const m = entintar(sombra(new THREE.Mesh(hoja(1.3 - Math.abs(d) * 0.05, 0.4, 0.18, false, true), M.pluma)), M, 32);
+        const m = entintar(sombra(new THREE.Mesh(hoja(2.25 - Math.abs(d) * 0.09, 0.42, 0.22, false, true), M.pluma)), M, 32);
         m.rotation.z = d * 0.13;
         m.position.z = -Math.abs(d) * 0.012;
         cola.add(m);
     }
     for (let k = 0; k < 7; k++) {
         const d = k - 3;
-        const m = sombra(new THREE.Mesh(hoja(0.62 - Math.abs(d) * 0.04, 0.36, 0.2, true), M.marfilDoble));
+        const m = sombra(new THREE.Mesh(hoja(0.95 - Math.abs(d) * 0.05, 0.38, 0.2, true), M.marfilDoble));
         m.rotation.z = d * 0.17;
         m.position.set(0, 0.02, 0.05);
         cola.add(m);
