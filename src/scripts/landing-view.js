@@ -54,8 +54,7 @@ ${section({ id: 'como-funciona', nav: 'nav-como-funciona', title: 'Aprende', tex
             <img class="lp-if-oscuro" src="/conceptos/miniaturas/${id}.webp" alt="" loading="lazy" decoding="async">
             <span>${name}</span></li>`).join('')}</ul>` })}
 <section class="lp-owl">
-    <img class="lp-if-claro" src="/img/intro-buho-claro.webp" alt="" width="842" height="842" loading="lazy" decoding="async">
-    <img class="lp-if-oscuro" src="/img/intro-buho-oscuro.webp" alt="" width="842" height="842" loading="lazy" decoding="async">
+    <img src="/img/landing-buho.webp" alt="" width="640" height="991" loading="lazy" decoding="async">
     <div>
         <h3>¿Primera vez? El búho te enseña el sitio.</h3>
         <button type="button" class="bu-btn bu-btn-primario" data-abrir-buho>Abrir la guía</button>

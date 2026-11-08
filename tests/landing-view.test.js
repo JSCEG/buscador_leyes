@@ -147,8 +147,9 @@ describe('gallery', () => {
     expect(owl.textContent).toContain('¿Primera vez? El búho te enseña el sitio.');
     expect(owl.querySelector('[data-abrir-buho]').textContent.trim()).toBe('Abrir la guía');
     const pictures = [...owl.querySelectorAll('img')];
-    expect(pictures).toHaveLength(2);
-    pictures.forEach(picture => expect(picture.getAttribute('loading')).toBe('lazy'));
+    expect(pictures).toHaveLength(1);
+    expect(pictures[0].getAttribute('src')).toBe('/img/landing-buho.webp');
+    expect(pictures[0].getAttribute('loading')).toBe('lazy');
     expect(host.querySelector('iframe')).toBeNull();
   });
   it('uses the approved words', () => {
