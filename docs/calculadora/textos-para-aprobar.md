@@ -79,7 +79,7 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 - 64 800 pies cúbicos estándar
 - 3.58 toneladas de CO₂
 - Para darte idea: unos 73 cilindros de 20 kg. _NOM-213_
-- Origen: «Valor típico, puede variar»
+- Origen: «Valor publicado por SENER, 2026»
 - Aviso: «Usamos 38.64 MJ por metro cúbico estándar: es un valor típico, no oficial. Puedes cambiarlo en «Ajustar».»
 - Aviso: «Pemex usa otra equivalencia para reservas; aquí se usa la del gas seco de la Lista.»
 
