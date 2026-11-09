@@ -35,7 +35,7 @@ describe('calculator view', () => {
     expect($('principal').textContent).toContain('15.9 millones de litros al día');
     expect($('frente').textContent).toContain('561 terajoules');
     expect($('comparacion').textContent).toContain('Para darte idea');
-    expect($('origen').textContent).toContain('Valor publicado por SENER, 2026');
+    expect($('origen').textContent).toContain('Valor publicado por CONUEE (SENER), 2026');
   });
   it('recalculates while typing, keeps the address and the focus', () => {
     const { $, onRoute } = montar('#calculadora=gas-lp');

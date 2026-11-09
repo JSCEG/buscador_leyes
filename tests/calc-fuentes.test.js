@@ -15,7 +15,8 @@ describe('sources', () => {
   });
   it('name the fuel list the way people search for it', () => {
     expect(FUENTES['lista-2026'].titulo).toContain('Lista de combustibles');
-    expect(FUENTES['lista-2026'].emisor).toBe('SENER');
+    // Signed by CONUEE's Director General on SENER letterhead (user's call, 2026-11-09).
+    expect(FUENTES['lista-2026'].emisor).toBe('CONUEE (SENER)');
     expect(FUENTES['acuerdo-rene-2015'].emisor).toBe('Semarnat');
   });
   it('are flagged when pending or out of date', () => {

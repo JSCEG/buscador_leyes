@@ -27,7 +27,7 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 - 5.61 gigajoules de energía
 - 389 kilos de CO₂
 - Para darte idea: unos 3.2 tanques de coche de 50 L. _Ilustrativo_
-- Origen: «Valor publicado por SENER, 2026»
+- Origen: «Valor publicado por CONUEE (SENER), 2026»
 - Aviso: «La Lista no separa Magna y Premium ni los tipos de crudo.»
 
 ### Atajo «¿Cuánto trae mi tanque?»
@@ -45,7 +45,7 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 - 561 terajoules de energía al día
 - 38 900 toneladas de CO₂ al día
 - Para darte idea: unos 320 mil tanques de coche de 50 L. _Ilustrativo_
-- Origen: «Valor publicado por SENER, 2026»
+- Origen: «Valor publicado por CONUEE (SENER), 2026»
 - Aviso: «La Lista no separa Magna y Premium ni los tipos de crudo.»
 
 ### 20 000 L de diésel a 35 °C
@@ -62,7 +62,7 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 
 - **345 gigajoules de energía**
 - 33.7 toneladas de CO₂
-- Origen: «Valor publicado por SENER, 2026»
+- Origen: «Valor publicado por CONUEE (SENER), 2026»
 
 ### 1 MMpc de gas natural
 
@@ -79,7 +79,7 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 - 64 800 pies cúbicos estándar
 - 3.58 toneladas de CO₂
 - Para darte idea: unos 73 cilindros de 20 kg. _NOM-213_
-- Origen: «Valor publicado por SENER, 2026»
+- Origen: «Valor publicado por CONUEE (SENER), 2026»
 - Aviso: «Usamos 38.64 MJ por metro cúbico estándar: es un valor típico, no oficial. Puedes cambiarlo en «Ajustar».»
 - Aviso: «Pemex usa otra equivalencia para reservas; aquí se usa la del gas seco de la Lista.»
 
@@ -123,7 +123,7 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 - 3.53 gigajoules de energía
 - 245 kilos de CO₂
 - Para darte idea: unos 2 tanques de coche de 50 L. _Ilustrativo_
-- Origen: «Valor publicado por SENER, 2026»
+- Origen: «Valor publicado por CONUEE (SENER), 2026»
 - Aviso: «La Lista no separa Magna y Premium ni los tipos de crudo.»
 - Aviso: «La temperatura de 90 °C está fuera del rango del ajuste (−10 a 60 °C); se calculó sin ajuste.»
 

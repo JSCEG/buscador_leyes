@@ -24,7 +24,7 @@ const AVISO_LISTA = ['gasolina', 'maya', 'istmo', 'olmeca'];
 // Where a figure comes from.
 const P = {
     exacto: { clase: 'exacto', fuente: 'nist-811' },
-    lista: { clase: 'oficial', fuente: 'lista-2026', anio: 2026, emisor: 'SENER' },
+    lista: { clase: 'oficial', fuente: 'lista-2026', anio: 2026, emisor: FUENTES['lista-2026'].emisor },
     ipcc: { clase: 'tipico', fuente: 'ipcc-2006', anio: 2006 },
     rene: { clase: 'oficial', fuente: 'acuerdo-rene-2015', anio: 2015, emisor: 'Semarnat' },
     gas: { clase: 'tipico', fuente: 'eia-gas', anio: 2026 },

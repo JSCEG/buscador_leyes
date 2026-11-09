@@ -11,7 +11,8 @@ const f = (id, titulo, emisor, url, fecha, cotejado = null) => ({ id, titulo, em
 
 const LISTA = [
     // Checked against the scan by the user on 2026-11-09: the eight values the calculator uses (page 1).
-    f('lista-2026', 'Lista de combustibles y sus poderes caloríficos 2026', 'SENER', 'https://www.gob.mx/cms/uploads/attachment/file/1071250/lista_de_combustibles_2026.pdf', '2026-02-12', '2026-11-09'),
+    // Signed by CONUEE's Director General on SENER letterhead.
+    f('lista-2026', 'Lista de combustibles y sus poderes caloríficos 2026', 'CONUEE (SENER)', 'https://www.gob.mx/cms/uploads/attachment/file/1071250/lista_de_combustibles_2026.pdf', '2026-02-12', '2026-11-09'),
     f('ipcc-2006', 'Directrices del IPCC de 2006, volumen 2, cuadro 1.2', 'IPCC', 'https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_1_Ch1_Introduction.pdf', '2006'),
     f('acuerdo-rene-2015', 'Acuerdo de factores de emisión del Registro Nacional de Emisiones', 'Semarnat', 'https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03%2F09%2F2015', '2015-09-03'),
     f('aviso-semarnat-2026', 'Aviso del factor de emisión del sistema eléctrico nacional', 'Semarnat', 'https://www.gob.mx/cms/uploads/attachment/file/1081506/aviso_factor_de_emision_electrico_coa_2026.pdf', '2026'),

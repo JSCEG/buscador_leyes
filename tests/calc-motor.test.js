@@ -15,7 +15,7 @@ describe('what goes in front', () => {
     expect(r.otras.filter(x => x.frente).map(textoFrente)).toEqual(['561 terajoules de energía al día', '38 900 toneladas de CO₂ al día']);
     expect(r.comparacion.texto).toBe('unos 320 mil tanques de coche de 50 L');
     expect(r.comparacion.rotulo).toBe('Ilustrativo');
-    expect(r.origen).toBe('Valor publicado por SENER, 2026');
+    expect(r.origen).toBe('Valor publicado por CONUEE (SENER), 2026');
     expect(rotulo(r.otras.find(x => x.unidad === 'tco2'))).toBe('Valor publicado por Semarnat, 2015');
     near(r.otras.find(x => x.unidad === 'bep').valor, 88435, 1);
     expect(r.pasos.length).toBeGreaterThan(0);
