@@ -20,8 +20,13 @@ describe('sources', () => {
   });
   it('are flagged when pending or out of date', () => {
     const hoy = new Date('2026-11-09T12:00:00Z');
-    expect(auditarFuentes(hoy).find(x => x.id === 'lista-2026').problema).toBe('pendiente');
+    expect(auditarFuentes(hoy).find(x => x.id === 'ipcc-2006').problema).toBe('pendiente');
     expect(auditarFuentes(new Date('2028-03-01T12:00:00Z')).every(x => x.problema)).toBe(true);
+  });
+  // The user checked the 8 values against the scan on 2026-11-09 (page 1, signed 2026-02-12).
+  it('keeps the 2026 fuel list as checked by a person', () => {
+    expect(FUENTES['lista-2026']).toMatchObject({ cotejo: 'humano', revisado: '2026-11-09', fecha: '2026-02-12' });
+    expect(auditarFuentes(new Date('2026-11-09T12:00:00Z')).find(x => x.id === 'lista-2026').problema).toBeNull();
   });
 });
 
