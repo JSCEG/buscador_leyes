@@ -3,16 +3,19 @@
  * mercado.js; they are reviewed each February, when SENER publishes the fuel list.
  * `cotejo` is 'pendiente' until a person has checked the value against the document and the user
  * approved it; `node scripts/audit-calc-fuentes.mjs --strict` fails while any is pending or a review
- * is older than 14 months.
+ * is older than 14 months. A source added later starts with `cotejo: 'pendiente'` until approved.
  */
 
-const REVISADO = '2026-11-08';
-const f = (id, titulo, emisor, url, fecha, cotejado = null) => ({ id, titulo, emisor, url, fecha, revisado: cotejado ?? REVISADO, cotejo: cotejado ? 'humano' : 'pendiente' });
+// When the research consulted the web pages that have no publication date.
+const CONSULTADO = '2026-11-08';
+// The user approved every source on 2026-11-09 (docs/calculadora/fuentes-para-aprobar.md).
+const COTEJADO = '2026-11-09';
+const f = (id, titulo, emisor, url, fecha, revisado = COTEJADO) => ({ id, titulo, emisor, url, fecha, revisado, cotejo: 'humano' });
 
 const LISTA = [
     // Checked against the scan by the user on 2026-11-09: the eight values the calculator uses (page 1).
     // Signed by CONUEE's Director General on SENER letterhead.
-    f('lista-2026', 'Lista de combustibles y sus poderes caloríficos 2026', 'CONUEE (SENER)', 'https://www.gob.mx/cms/uploads/attachment/file/1071250/lista_de_combustibles_2026.pdf', '2026-02-12', '2026-11-09'),
+    f('lista-2026', 'Lista de combustibles y sus poderes caloríficos 2026', 'CONUEE (SENER)', 'https://www.gob.mx/cms/uploads/attachment/file/1071250/lista_de_combustibles_2026.pdf', '2026-02-12'),
     f('ipcc-2006', 'Directrices del IPCC de 2006, volumen 2, cuadro 1.2', 'IPCC', 'https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_1_Ch1_Introduction.pdf', '2006'),
     f('acuerdo-rene-2015', 'Acuerdo de factores de emisión del Registro Nacional de Emisiones', 'Semarnat', 'https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03%2F09%2F2015', '2015-09-03'),
     f('aviso-semarnat-2026', 'Aviso del factor de emisión del sistema eléctrico nacional', 'Semarnat', 'https://www.gob.mx/cms/uploads/attachment/file/1081506/aviso_factor_de_emision_electrico_coa_2026.pdf', '2026'),
@@ -31,17 +34,17 @@ const LISTA = [
     // Article 19 of the LSE on this site (Supabase id; the LSE-Art-019 chunk id does not open).
     f('lse', 'Ley del Sector Eléctrico', 'Congreso de la Unión', '#art-07b3add5-c54c-401a-8332-1941d39b0b70', '2025-03-18'),
     f('pladese', 'Plan de Desarrollo del Sector Eléctrico', 'SENER', 'https://sidof.segob.gob.mx/notas/docFuente/5770297', '2025'),
-    f('global-solar-atlas', 'Global Solar Atlas', 'Banco Mundial', 'https://globalsolaratlas.info', REVISADO),
+    f('global-solar-atlas', 'Global Solar Atlas', 'Banco Mundial', 'https://globalsolaratlas.info', CONSULTADO),
     f('copar-2012', 'Costos y parámetros de referencia (COPAR) 2012', 'CFE', 'https://ewsdata.rightsindevelopment.org/files/documents/05/IADB-ME-G1005_0SXE4Uh.pdf', '2012'),
     f('codigo-red', 'Código de Red', 'CRE', 'https://sidof.segob.gob.mx/notas/5639920', '2021'),
     f('acuerdo-shcp-2000', 'Acuerdo de tarifas con cargo por factor de potencia', 'SHCP', 'https://sidof.segob.gob.mx/notas/docFuente/2062903', '2000'),
     f('convocatoria-sae', 'Segunda Convocatoria de SENER, numeral 1.2.1', 'SENER', 'https://sidof.segob.gob.mx/notas/5787117', '2026-05-11'),
-    f('gpsa', 'Correlación de compresibilidad de GPSA', 'Technical Toolboxes', 'https://help.technicaltoolboxes.com/knowledge-base/compressibility/', REVISADO),
-    f('vcf', 'Corrección de volumen por temperatura (API MPMS 11.1)', 'Wikipedia', 'https://en.wikipedia.org/wiki/Volume_correction_factor', REVISADO),
-    f('nist-webbook', 'NIST Chemistry WebBook, propano y n-butano', 'NIST', 'https://webbook.nist.gov/cgi/cbook.cgi?ID=C74986&Mask=1', REVISADO),
-    f('nws-altitud', 'Pressure altitude', 'Servicio Meteorológico de EE. UU.', 'https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf', REVISADO),
-    f('eia-gas', 'Contenido de energía del gas natural', 'EIA', 'https://www.eia.gov/tools/faqs/faq.php?id=45&t=8', REVISADO),
-    f('pemex-crudos', 'Hojas de datos de crudos Maya, Istmo y Olmeca', 'Pemex', 'https://www.pemex.com/comercializacion/productos/HDS/petroleo/HDS_Crudo_Maya.pdf', REVISADO),
+    f('gpsa', 'Correlación de compresibilidad de GPSA', 'Technical Toolboxes', 'https://help.technicaltoolboxes.com/knowledge-base/compressibility/', CONSULTADO),
+    f('vcf', 'Corrección de volumen por temperatura (API MPMS 11.1)', 'Wikipedia', 'https://en.wikipedia.org/wiki/Volume_correction_factor', CONSULTADO),
+    f('nist-webbook', 'NIST Chemistry WebBook, propano y n-butano', 'NIST', 'https://webbook.nist.gov/cgi/cbook.cgi?ID=C74986&Mask=1', CONSULTADO),
+    f('nws-altitud', 'Pressure altitude', 'Servicio Meteorológico de EE. UU.', 'https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf', CONSULTADO),
+    f('eia-gas', 'Contenido de energía del gas natural', 'EIA', 'https://www.eia.gov/tools/faqs/faq.php?id=45&t=8', CONSULTADO),
+    f('pemex-crudos', 'Hojas de datos de crudos Maya, Istmo y Olmeca', 'Pemex', 'https://www.pemex.com/comercializacion/productos/HDS/petroleo/HDS_Crudo_Maya.pdf', CONSULTADO),
     f('anexo-21', 'Anexo 21 de la Resolución Miscelánea Fiscal 2026', 'SAT', 'https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/anexos/Anexo_21_RMF2026-13012026.pdf', '2026-01-13'),
 ];
 
@@ -50,8 +53,8 @@ export const FUENTES = Object.freeze(Object.fromEntries(LISTA.map(x => [x.id, Ob
 const MESES_VIGENCIA = 14;
 
 /** Each source with what is wrong with it today: 'pendiente', 'vencida' or null. */
-export function auditarFuentes(hoy = new Date()) {
-    return Object.values(FUENTES).map(({ id, fecha, revisado, cotejo }) => {
+export function auditarFuentes(hoy = new Date(), fuentes = Object.values(FUENTES)) {
+    return fuentes.map(({ id, fecha, revisado, cotejo }) => {
         const limite = new Date(`${revisado}T00:00:00Z`);
         limite.setUTCMonth(limite.getUTCMonth() + MESES_VIGENCIA);
         const problema = cotejo === 'pendiente' ? 'pendiente' : (hoy > limite ? 'vencida' : null);

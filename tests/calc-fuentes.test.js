@@ -20,9 +20,14 @@ describe('sources', () => {
     expect(FUENTES['acuerdo-rene-2015'].emisor).toBe('Semarnat');
   });
   it('are flagged when pending or out of date', () => {
-    const hoy = new Date('2026-11-09T12:00:00Z');
-    expect(auditarFuentes(hoy).find(x => x.id === 'ipcc-2006').problema).toBe('pendiente');
-    expect(auditarFuentes(new Date('2028-03-01T12:00:00Z')).every(x => x.problema)).toBe(true);
+    const pendiente = { id: 'x', fecha: '2026', revisado: '2026-11-09', cotejo: 'pendiente' };
+    expect(auditarFuentes(new Date('2026-11-09T12:00:00Z'), [pendiente])[0].problema).toBe('pendiente');
+    expect(auditarFuentes(new Date('2028-03-01T12:00:00Z')).every(x => x.problema === 'vencida')).toBe(true);
+  });
+  // The user approved all sources on 2026-11-09 (docs/calculadora/fuentes-para-aprobar.md).
+  it('are all checked by a person, so the strict audit passes', () => {
+    expect(Object.values(FUENTES).every(f => f.cotejo === 'humano' && f.revisado === '2026-11-09')).toBe(true);
+    expect(auditarFuentes(new Date('2026-11-09T12:00:00Z')).filter(x => x.problema)).toEqual([]);
   });
   // Read in the Diario Oficial on 2026-11-09: Artículo Único, 13.9 % for 2025 and 2026, published 2026-08-17.
   it('cites the CEL agreement from the Diario Oficial', () => {
