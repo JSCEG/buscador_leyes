@@ -92,6 +92,16 @@ export function buildInstrumentTimeline({ law, summaries = [], articles = [], re
     for (const article of articles) {
         const type = relatedDocumentLabel(article);
         if (!article.id || !type || entries.some(entry => entry.key === `article:${article.id}`)) continue;
+        const publication = article.resultPublication;
+        if (publication) {
+            entries.push({
+                key: `article:${article.id}`, id: article.id, kind: 'complement', title: article.articulo_label,
+                acronym: '', type: 'Ficha de resultados', role: 'Resultados de la convocatoria',
+                date: publication.date, dateLabel: 'Publicación de resultados', current: false,
+                source: timelineSource(publication.source), sourceLabel: publication.publisher, context: '',
+            });
+            continue;
+        }
         const dated = complementDate(article);
         entries.push({
             key: `article:${article.id}`, id: article.id, kind: 'complement',

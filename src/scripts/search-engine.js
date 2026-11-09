@@ -1,8 +1,10 @@
 import { supabase } from '../lib/supabase.js';
 import articleRedirects from '../lib/article-redirects.json';
 import { friendlyLabel, friendlyText } from '../lib/friendly-text.js';
+import { resultPublication } from '../lib/related-document.js';
 
 function mapRowToLocalItem(row) {
+    const publication = resultPublication(row.tipo_articulo, row.contenido);
     return {
         id: row.id,
         ley_id: row.ley_id || null,
@@ -14,7 +16,8 @@ function mapRowToLocalItem(row) {
         titulo_nombre: friendlyText(row.titulo_nombre || ''),
         capitulo_nombre: friendlyText(row.capitulo_nombre || ''),
         texto: friendlyText(row.contenido),
-        url_original: row.leyes?.url_original || null,
+        url_original: publication?.source || row.leyes?.url_original || null,
+        ...(publication && { resultPublication: publication }),
         score: row.score || 1
     };
 }

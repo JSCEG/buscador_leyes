@@ -3686,11 +3686,12 @@ export function initUI() {
         const modalPublished = document.getElementById('modal-published');
         const sigla = item.siglas_ley || modalLaw?.siglas || '';
         if (modalSigla) { modalSigla.textContent = sigla; modalSigla.hidden = !sigla; }
-        const published = item.fecha_publicacion || modalLaw?.fecha_publicacion;
+        const published = item.resultPublication?.date || item.fecha_publicacion || modalLaw?.fecha_publicacion;
         const publishedDate = published ? new Date(`${String(published).slice(0, 10)}T12:00:00`) : null;
         if (modalPublished) {
             const valid = publishedDate && !Number.isNaN(publishedDate.getTime());
-            modalPublished.textContent = valid ? `Publicada en el DOF el ${publishedDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}` : '';
+            const publicationLabel = item.resultPublication ? `Resultados publicados en ${item.resultPublication.publisher} el` : 'Publicada en el DOF el';
+            modalPublished.textContent = valid ? `${publicationLabel} ${publishedDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}` : '';
             modalPublished.hidden = !valid;
         }
         const relatedLabel = relatedDocumentLabel(item);
