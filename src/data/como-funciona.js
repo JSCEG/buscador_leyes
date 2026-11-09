@@ -16,6 +16,7 @@ import { FUENTES as FUENTES_EOLICA } from '../../conceptos-3d/eolica/fuentes.js'
 import { FUENTES as FUENTES_HIDRO } from '../../conceptos-3d/hidroelectrica/fuentes.js';
 import { FUENTES as FUENTES_REFINERIA } from '../../conceptos-3d/refinacion/fuentes.js';
 import { FUENTES as FUENTES_GASODUCTOS } from '../../conceptos-3d/gasoductos/fuentes.js';
+import { FUENTES as FUENTES_TAR } from '../../conceptos-3d/almacenamiento-tar/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -168,7 +169,6 @@ const RLSH = { autor: 'Reglamento de la Ley del Sector Hidrocarburos', titulo: '
 const LPTE = { autor: 'Ley de Planeación y Transición Energética', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LPTE' };
 const LEPE_CFE = { autor: 'Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LEPE-CFE' };
 const LEPE_PEMEX = { autor: 'Ley de la Empresa Pública del Estado, Petróleos Mexicanos', titulo: 'Diario Oficial de la Federación', fecha: '18 de marzo de 2025', acervo: 'LEPE-PEMEX' };
-const LASEA = { autor: 'Ley de la Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '11 de agosto de 2014', acervo: 'LASEA' };
 const CEPAL = { autor: 'Comisión Económica para América Latina y el Caribe (CEPAL)', fecha: '2021', titulo: 'Síntesis de definiciones clave para la transición energética en México', url: 'https://repositorio.cepal.org/bitstream/handle/11362/47656/6/S2100521_Mexico_es.pdf', consulta };
 const CENACE = { autor: 'Centro Nacional de Control de Energía (CENACE)', fecha: '2024', titulo: 'Manual del Mercado del Día en Adelanto y Mercado en Tiempo Real', url: 'https://www.cenace.gob.mx', consulta };
 const IEA_OIL = { autor: 'International Energy Agency (IEA)', fecha: '2024', titulo: 'Oil & Gas Supply and Refining', url: 'https://www.iea.org/energy-system/fossil-fuels', consulta };
@@ -1645,49 +1645,87 @@ export const CONCEPTOS = [
         id: 'almacenamiento-tar',
         nivel: 2,
         antes: ['hidrocarburos-moleculas', 'gasoductos'],
-        titulo: 'Almacenamiento de petrolíferos (TAR)',
+        titulo: 'Terminal de almacenamiento (TAR)',
         sector: 'hidrocarburos',
-        resumen: 'Grandes tanques de almacenamiento que guardan combustibles de reserva para asegurar que las ciudades y carreteras nunca se queden sin gasolina ni diésel.',
+        resumen: 'Una terminal guarda gasolina y diésel entre el ducto, que trae a su ritmo, y las pipas, que salen todo el día. Las tandas llegan por el mismo tubo, cada una va a su tanque, y los techos y el dique evitan que el combustible se escape.',
         figura: 'almacenamiento-tar',
-        definiciones: [
-            { termino: 'Terminal de Almacenamiento y Reparto (TAR)', texto: 'Instalación industrial que recibe combustibles por poliducto, buque o carrotanque, los guarda en tanques verticales y los despacha a camiones pipa.' },
-            { termino: 'Tanque de techo flotante', texto: 'Tanque cilíndrico donde el techo flota directamente sobre la gasolina, reduciendo casi por completo el espacio de vapor para evitar evaporación y riesgo de ignición. Puede ser externo o interno (bajo un techo fijo).' },
-            { termino: 'Inventario mínimo de seguridad', texto: 'Días de reserva de combustible que la política pública de SENER exige mantener para resistir eventualidades climáticas o de suministro.' },
-        ],
+        partesTitulo: 'Los puntos clave de la terminal',
         claves: [
-            'Los combustibles no se pueden almacenar en cualquier sitio: requieren terminales con sistemas avanzados de control de derrames y prevención de incendios.',
-            'En las TAR se mezclan los aditivos finales y detergentes antes de cargar los camiones cisterna que van a las gasolineras.',
-            'La Política Pública de Almacenamiento Mínimo de Petrolíferos de la SENER (2017, modificada en 2019) pide a comercializadores y distribuidores inventarios mínimos de 5 días de venta promedio de gasolina y diésel, y de 1.5 días de turbosina; el reglamento de la LSH exige acreditarlos (art. 109).',
-            'La Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos (ASEA) supervisa las medidas de seguridad industrial y protección ambiental en cada terminal.',
+            'Una Terminal de Almacenamiento y Reparto (TAR), que Pemex también llama de Despacho, es el colchón entre quien trae el combustible y las pipas que lo llevan a las gasolineras. En 2026 se contaban 77 de Pemex y 14 privadas. La figura usa el tamaño de la TAR Añil, en la Ciudad de México: 235 mil barriles y cinco tanques.',
+            'Lo que mide no es lo que se usa. Añil mide 235 mil barriles, pero su capacidad operativa es de 158 mil. En todas las terminales de Pemex, en 2018: 16.6 millones contra 11.97 millones.',
+            'La reserva se cuenta en días de venta. En una hora de enero de 2019 salieron 11 pipas de Añil: si fuera así todo el día, serían unos 33 mil barriles, y la terminal llena alcanzaría para 4.8 días. La política pide 5 días de gasolina y diésel de 2020 a 2025, a quien vende. Pemex promediaba 2.9 días en 2019, y en 2026 el sector estimaba de 3 a 6.',
+            'Por un poliducto viajan gasolina y diésel, una tanda tras otra. Donde se tocan se mezclan, y esa mezcla se aparta. En este modelo, en 311 km a 1.5 metros por segundo salen unos 1,158 barriles de mezcla entre regular y diésel. Con cuatro veces el camino, sale el doble.',
+            'La gasolina se evapora, y el techo decide cuánto. En este modelo, un tanque de 70 mil barriles con techo fijo pierde unos 1,261 kg al día a 25 °C; con techo flotante, 12; con membrana, 6. El diésel casi no se evapora: en un tanque de techo fijo pierde 2.8 kg.',
+            'Una pipa vacía está llena de vapores, y al cargarla el líquido los empuja: unos 18 kg en una pipa de 20 mil litros. Por eso la gasolina se carga solo por el fondo, y un segundo tubo se lleva los vapores a una unidad que los recupera. La norma pone un límite de 80 mg por litro.',
+            'La gasolina caliente ocupa más. Una pipa de 20,000 litros cargada a 30 °C son 19,746 litros a 20 °C, la temperatura con la que se reportan los petrolíferos en México.',
+            'Si un tanque se rompe, el dique detiene el combustible. La norma pide que quepa 1.1 veces lo que guarda el tanque; si hay varios en el mismo dique, lo del mayor más la lluvia esperada. En este modelo, con muros de 1.8 m, tres tanques piden unos 8,500 m² de terreno.',
+        ],
+        formulas: [
+            { expresion: 'Días de reserva = lo que hay ÷ lo que sale al día', lectura: 'para cuánto alcanza si deja de llegar combustible', ejemplo: 'Añil, llena: 158 mil barriles ÷ 33.2 mil al día = 4.8 días.' },
+            { expresion: 'Largo de la mezcla = 11.75 × √(D × L) ÷ Re^0.1', lectura: 'la fórmula de Austin y Palfrey, con mucha turbulencia. D es el diámetro, L el camino y Re (el número de Reynolds) dice qué tan revuelto va el líquido', ejemplo: '11.75 × √(0.44 m × 311,000 m) ÷ 460,000^0.1 = cerca de 1,190 m. Con un tubo de 18 pulgadas, unos 1,158 barriles.' },
+            { expresion: 'Vapor al cargar = 12.46 × S × P × M ÷ T', lectura: 'cuánto vapor empuja una pipa, en libras por cada 1,000 galones. S dice qué tan lleno de vapor iba el espacio, P es la presión de vapor, M el peso de ese vapor y T la temperatura absoluta', ejemplo: '12.46 × 1 × 4.87 × 68 ÷ 536.7 = 7.7 libras por cada 1,000 galones: unos 18 kg por pipa.' },
+            { expresion: 'Lo que cabe en el dique = (área − tanques) × altura del muro', lectura: 'los tanques que están adentro le quitan lugar', ejemplo: '(8,600 − 1,884) m² × 1.8 m = 12,088 m³. La norma pide 11,990 m³.' },
+            { expresion: 'Espuma = área del tanque × 4.1 litros por minuto y m²', lectura: 'lo que indica una guía de ingeniería para un tanque de techo fijo, durante 55 minutos', ejemplo: 'un tanque de 30 m de diámetro: 707 m² × 4.1 = cerca de 2,900 litros por minuto.' },
+        ],
+        errores: [
+            { idea: 'Las terminales guardan gasolina para semanas.', realidad: 'La política pide 5 días de venta de gasolina y diésel, y en 2019 las terminales de Pemex promediaban 2.9 días. La Agencia Internacional de Energía pide 90 a los países que importan petróleo.' },
+            { idea: 'Si una terminal mide 235 mil barriles, puede usarlos todos.', realidad: 'Esa es su capacidad nominal. La operativa de Añil es de 158 mil barriles. Además, lo que hay guardado cambia cada día.' },
+            { idea: 'Cada combustible viaja por su propio tubo.', realidad: 'Un poliducto lleva varios, una tanda tras otra. Donde se tocan se mezclan un poco, y esa parte se aparta en un tanque propio.' },
+            { idea: 'El techo flotante sirve para que no entre la lluvia.', realidad: 'Sirve para que no quede espacio donde se junte vapor. Un techo flotante externo está abierto al cielo, y en este modelo evita cerca de 99 % de lo que perdería un techo fijo.' },
+            { idea: 'El diésel se guarda igual que la gasolina.', realidad: 'A 25 °C, su presión de vapor es unas 437 veces menor. Por eso le basta un techo fijo, y la gasolina debe llevar algún control de vapores.' },
+            { idea: 'El dique debe ser del tamaño de todo lo que guarda la terminal.', realidad: 'Con varios tanques en un dique, la norma pide lo del mayor más la lluvia esperada, porque no se espera que se rompan todos a la vez.' },
+            { idea: 'Cada terminal debe tener 5 días de reserva.', realidad: 'La obligación es de quien comercializa o distribuye, sobre lo que vende. Al menos la mitad debe estar en terminales que surten en pipa.' },
         ],
         partes: [
-            { nombre: 'Tanques verticales', texto: 'Estructuras de acero de hasta 100,000 barriles de capacidad con techo flotante.' },
-            { nombre: 'Dique de contención', texto: 'Muro de concreto alrededor de los tanques capaz de retener el 100 % del líquido en caso de fuga.' },
-            { nombre: 'Isleta de llenado de pipas', texto: 'Brazos de carga herméticos con medición fiscal de volumen y temperatura.' },
-            { nombre: 'Sistema contra incendios', texto: 'Red de agua y espuma formadora de película acuosa (AFFF) con monitores automáticos.' },
+            { nombre: 'Poliducto', texto: 'Por el mismo tubo llegan gasolina y diésel, una tanda tras otra. Aquí sube a la superficie.' },
+            { nombre: 'Densímetro y válvulas', texto: 'Cada producto pesa distinto. Con esa lectura, el múltiple manda cada tanda a su tanque.' },
+            { nombre: 'Tanque de mezcla', texto: 'Aparta lo que llegó revuelto entre dos tandas. Después se reprocesa o se desecha.' },
+            { nombre: 'Techo flotante', texto: 'El techo flota sobre la gasolina, y sube y baja con ella. Casi no queda espacio para el vapor.' },
+            { nombre: 'Membrana flotante', texto: 'Un techo fijo que lleva por dentro una cubierta de aluminio, flotando sobre la gasolina.' },
+            { nombre: 'Techo fijo', texto: 'Le basta al diésel, que casi no se evapora. Una válvula de presión y vacío lo deja respirar.' },
+            { nombre: 'Medición', texto: 'Cada tanque mide su nivel y su temperatura, y el cuarto de control lo ve todo.' },
+            { nombre: 'Dique y drenaje', texto: 'Si un tanque se rompe, el combustible se queda en este corral. El piso baja hacia el drenaje y el separador.' },
+            { nombre: 'Bombas', texto: 'Llevan cada producto, por su propia línea, de los tanques a las llenaderas.' },
+            { nombre: 'Aditivos', texto: 'Se le agregan a la gasolina con una bomba dosificadora. Tienen su propio tanque.' },
+            { nombre: 'Llenaderas', texto: 'Aquí se cargan las pipas. La gasolina entra solo por el fondo, y un controlador mide y corta.' },
+            { nombre: 'Recuperación de vapores', texto: 'Recibe los vapores que empuja cada pipa al cargarse, y los recupera en vez de soltarlos.' },
+            { nombre: 'Agua y espuma', texto: 'El agua sola no apaga la gasolina, porque esta flota. La espuma la tapa. Sale de las cajas rojas en lo alto de los tanques.' },
+            { nombre: 'Pipa y gasolinera', texto: 'El combustible sale en pipa. Al descargar, la pipa puede recoger los vapores y traerlos de regreso.' },
         ],
+        dato: 'La figura tiene el tamaño de la TAR Añil y sus cinco tanques, pero no es su plano ni un simulador, y no está a escala. Las pipas se contaron en una sola hora, en plena escasez de enero de 2019. Son de ejemplo: cómo se reparte su capacidad entre tanques y qué techo lleva cada uno, el reparto de la venta, el caudal de cada brazo, el diámetro del poliducto, el viento y los accesorios de los techos, y el modelo del derrame. El tanque de mezcla se agregó para explicarlo. No se halló una versión de la política de almacenamiento posterior a 2025.',
         ley: {
-            texto: 'El almacenamiento de petrolíferos requiere permiso de la Comisión Nacional de Energía (CNE) y autorización en materia de seguridad industrial, operativa y protección ambiental de la ASEA.',
+            texto: 'Guardar petrolíferos requiere permiso de la Comisión Nacional de Energía (CNE). Quien da ese servicio a otros debe dar acceso abierto, si tiene capacidad disponible. La Secretaría de Energía (SENER) fija la política de niveles mínimos, y quien comercializa debe acreditarlos. La seguridad de la instalación sigue la NOM-006-ASEA-2017, de la Agencia de seguridad y medio ambiente (ASEA).',
             siglas: ['LSH', 'RLSH', 'LCNE'],
             ficha: {
-                elQue: 'Las Terminales de Almacenamiento y Reparto (TAR) resguardan inventarios estratégicos y operativos de gasolinas, diésel y turbosina bajo permiso de la CNE y supervisión técnica y ambiental de la ASEA.',
-                elComo: 'El interesado solicita el permiso de almacenamiento ante la CNE (LSH, arts. 76 fr. II y 80), acredita el cumplimiento de inventarios mínimos conforme a la política de SENER (RLSH, art. 109) y registra sus sistemas de administración de seguridad industrial ante la ASEA.',
+                elQue: 'El Almacenamiento es el depósito y resguardo de Hidrocarburos, Petrolíferos y Petroquímicos en depósitos e instalaciones confinados (LSH, art. 5, fracc. II). Comprende recibir el producto de terceros, medirlo, conservar su calidad y cantidad, resguardarlo y devolverlo (RLSH, art. 111). Los Petrolíferos son productos como gasolinas, diésel y querosenos (LSH, art. 5, fracc. XXXVII). «TAR» es el nombre que usa la industria: la ley habla de Almacenamiento.',
+                elComo: 'El Almacenamiento de Petrolíferos requiere permiso de la CNE (LSH, art. 76, fracc. II, inciso b; LCNE, art. 9, fracc. III), que lo otorga, lo regula y lo supervisa, sin perjuicio de las atribuciones de la Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos (LSH, arts. 5, fracc. I, y 116, fracc. I, inciso b). El permiso dura hasta treinta años (RLSH, art. 93) y se otorga para un Sistema específico, una capacidad y una modalidad determinadas (RLSH, art. 112). Quien presta el servicio a terceros debe dar acceso abierto no indebidamente discriminatorio, sujeto a su capacidad disponible, y publicar en boletines electrónicos la que no use. Esto no aplica a las Empresas Públicas del Estado ni a sus filiales (LSH, art. 104). Salvo emergencia, quien está sujeto a acceso abierto no puede comprar ni vender lo que guarda (LSH, art. 105). La SENER determina la política de niveles de Almacenamiento y las medidas que deben cumplir los permisionarios (LSH, art. 115, fracc. II), y quien comercializa debe acreditar el Almacenamiento mínimo (RLSH, art. 109, fracc. III). La Política Pública de Almacenamiento Mínimo de Petrolíferos, modificada en 2019, fija 5 días de gasolina y diésel y 3 de turbosina para 2020 a 2025, y se revisa cada 5 años. Los techos, las distancias, el dique, la carga y la recuperación de vapores de esta figura salen de la NOM-006-ASEA-2017.',
                 articulos: [
-                    { siglas: 'LSH', refs: 'Arts. 5 fr. I, 76 fr. II, 80 y 81', nota: 'Permisos de almacenamiento de petrolíferos y atribuciones de CNE y ASEA.' },
-                    { siglas: 'RLSH', refs: 'Art. 109 fr. III', nota: 'El comercializador debe acreditar con contratos su inventario y el Almacenamiento mínimo que determine la Secretaría.' },
+                    { siglas: 'LSH', refs: 'Art. 5, fraccs. I, II y XXXVII', nota: 'Qué son la Agencia, el Almacenamiento y los Petrolíferos.' },
+                    { siglas: 'LSH', refs: 'Art. 76, fracc. II, inciso b)', nota: 'Guardar petrolíferos requiere permiso de la CNE.' },
+                    { siglas: 'LSH', refs: 'Arts. 104 y 105', nota: 'El acceso abierto, y por qué quien guarda no vende lo que guarda.' },
+                    { siglas: 'LSH', refs: 'Art. 115, fracc. II', nota: 'La SENER fija la política de niveles de Almacenamiento.' },
+                    { siglas: 'LSH', refs: 'Art. 116, fracc. I, inciso b)', nota: 'Atribuciones de la CNE sobre esos permisos.' },
+                    { siglas: 'RLSH', refs: 'Art. 93', nota: 'El permiso de Almacenamiento de petrolíferos: hasta treinta años.' },
+                    { siglas: 'RLSH', refs: 'Art. 109, fracc. III', nota: 'Quien comercializa debe acreditar el Almacenamiento mínimo.' },
+                    { siglas: 'RLSH', refs: 'Arts. 111 y 112', nota: 'Qué comprende el Almacenamiento, y para qué se otorga el permiso.' },
+                    { siglas: 'LCNE', refs: 'Art. 9, fracc. III', nota: 'La CNE otorga los permisos de petrolíferos.' },
+                    { siglas: 'NOM-006-ASEA-2017', refs: 'Tanques, dique, carga y vapores', nota: 'Las reglas de seguridad de las terminales. No está en el acervo de este sitio: ver Fuentes.' },
+                    { siglas: 'Política de Almacenamiento Mínimo', refs: 'DOF, 6 de diciembre de 2019', nota: 'Los días de reserva, de 2020 a 2025. No está en el acervo de este sitio: ver Fuentes.' },
                 ],
             },
         },
         tramites: ['petroliferos'],
-        mapa: { texto: 'Ver terminales de almacenamiento en el mapa de permisos', hash: '#mapa-permisos' },
+        mapa: { texto: 'Ver los permisos de petrolíferos en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
-            { pregunta: '¿Para qué sirve el techo flotante en un tanque de gasolina?', opciones: ['Para evitar que se acumulen vapores inflamables al subir y bajar con el líquido', 'Para que entre luz solar al tanque', 'Solo por estética'], correcta: 0 },
-            { pregunta: '¿Qué autoridad mexicana supervisa la seguridad industrial y ambiental de las terminales petroleras?', opciones: ['La ASEA', 'El Servicio Meteorológico Nacional', 'La Secretaría de Hacienda'], correcta: 0 },
-            { pregunta: '¿Cuál es el objetivo de la política de almacenamiento mínimo de petrolíferos?', opciones: ['Tener días de reserva para garantizar abasto ante emergencias', 'Aumentar los impuestos', 'Prohibir la venta de diésel'], correcta: 0 },
+            { pregunta: '¿Para qué sirve el techo flotante de un tanque de gasolina?', opciones: ['Para que entre la luz', 'Para que no quede espacio donde se junte vapor', 'Para medir la temperatura'], correcta: 1 },
+            { pregunta: '¿Qué le pasa a dos tandas que viajan juntas por un poliducto?', opciones: ['Se mezclan un poco donde se tocan', 'Nunca se tocan', 'Se mezclan por completo'], correcta: 0 },
+            { pregunta: '¿Por qué la gasolina se carga en las pipas por el fondo?', opciones: ['Porque es más barato', 'Para que pese menos', 'Para que no salpique ni haga vapor de más'], correcta: 2 },
+            { pregunta: '¿Para qué sirve el dique?', opciones: ['Para que el combustible no se salga si un tanque se rompe', 'Para enfriar los tanques', 'Para guardar agua de lluvia'], correcta: 0 },
+            { pregunta: '¿Quién da el permiso para guardar petrolíferos?', opciones: ['El municipio', 'La Comisión Nacional de Energía', 'Cada gasolinera'], correcta: 1 },
         ],
         fuentes: [
+            ...FUENTES_TAR,
             LSH,
-            LASEA,
             RLSH,
             LCNE,
         ],
@@ -1951,7 +1989,7 @@ export const HILO_SECTOR = {
             {
                 num: 'III',
                 titulo: 'Refinerías y almacenes',
-                desc: 'Cómo el petróleo, calentado a unos 400 °C, se separa en gasolina y diésel, y por qué deben guardarse reservas para cinco días de consumo.',
+                desc: 'Cómo una refinería convierte el petróleo en gasolina y diésel, y cómo se guardan en terminales, con unos días de venta de reserva.',
                 ids: ['almacenamiento-tar', 'refinacion'],
             },
             {
@@ -2040,8 +2078,8 @@ export const PUENTE_HILO = {
     },
     'almacenamiento-tar': {
         eslabon: 'Eslabón 3 · Seguridad energética e inventarios estratégicos',
-        fisica: 'A diferencia de la electricidad, los petrolíferos líquidos sí pueden almacenarse en tanques atmosféricos de techo flotante o fijo con sistemas contra incendio y recuperación de vapores.',
-        regulacion: 'Aprovechando esa capacidad física, la política de almacenamiento y el RLSH (art. 109) obligan a mantener inventarios mínimos estratégicos (p. ej. 5 días de gasolina y diésel) bajo permiso CNE.',
+        fisica: 'A diferencia de la electricidad, los petrolíferos se pueden guardar. La gasolina va en tanques con techo flotante o membrana, para que no se evapore; al diésel le basta un techo fijo.',
+        regulacion: 'Guardar petrolíferos requiere permiso de la CNE (LSH, arts. 76, fracc. II, y 116, fracc. I). La SENER fija la política de niveles mínimos (LSH, art. 115, fracc. II): 5 días de gasolina y diésel de 2020 a 2025. Quien comercializa debe acreditarlos (RLSH, art. 109, fracc. III).',
         transicion: '¿Y de dónde salen la gasolina, el diésel y la turbosina que llenan esas terminales TAR? Del proceso industrial de destilación y conversión en una refinería.',
     },
     refinacion: {
