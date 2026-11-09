@@ -6,9 +6,9 @@
  */
 import '../styles/calculadora.css';
 import { calcular, normalizarEstado } from '../lib/calc/motor.js';
-import { ATAJOS, PESTANA, PESTANAS, PRODUCTOS_PETROLIFEROS, nombreUnidad, simboloUnidad, unidadesValidas } from '../lib/calc/pestanas.js';
+import { ATAJOS, PESTANA, PESTANAS, PRODUCTOS_PETROLIFEROS, nombreUnidadEn, simboloUnidad, unidadesValidas } from '../lib/calc/pestanas.js';
 import { calcHash } from '../lib/calc/ruta.js';
-import { formatoClase, formatoDinero, leerNumero, rotulo, textoFrente } from '../lib/calc/formato.js';
+import { formatoClase, formatoDinero, formatoFijo, leerNumero, rotulo, textoFrente } from '../lib/calc/formato.js';
 import { NOTA_PIE, PARA_ENTENDER, SUBTITULO, TITULO } from '../lib/calc/textos.js';
 import { MAGNITUDES, UNIDADES, convertir, convertirTemperatura } from '../lib/calc/unidades.js';
 import { CIUDADES, CONDICIONES, MEZCLAS_LP } from '../lib/calc/ajustes.js';
@@ -34,12 +34,18 @@ const hoyLocal = () => { const d = new Date(); return `${d.getFullYear()}-${dos(
 const horaLocal = () => { const d = new Date(); return `${dos(d.getHours())}:${dos(d.getMinutes())}`; };
 const enlaceFuente = f => (/^https?:/.test(f.url) ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a>` : `<a href="${esc(f.url)}">${esc(f.titulo)}</a>`);
 
-/** A line of a small calculation: pesos with two decimals, the rest by class. */
+/** A line of a small calculation: fixed decimals when it says so, pesos with two decimals, the rest by class. */
 function valorLinea(l) {
     const simbolo = SIMBOLO_LINEA[l.unidad] ?? '';
-    const numero = l.unidad?.startsWith('mxn') ? formatoDinero(l.valor) : formatoClase(l.valor, l.clase);
+    const numero = l.decimales != null ? formatoFijo(l.valor, l.decimales)
+        : l.unidad?.startsWith('mxn') ? formatoDinero(l.valor) : formatoClase(l.valor, l.clase);
     return `${numero} ${simbolo}`.trim();
 }
+const oracion = s => (s ? `${s[0].toUpperCase()}${s.slice(1)}` : s);
+/** The origin of a figure; its note is added as its own sentence unless the label already holds it. */
+const origenCifra = c => `${rotulo(c)}${c.nota && c.clase !== 'convencion' ? `. ${oracion(c.nota)}` : ''}`;
+const lineaFuentes = fuentes => (fuentes.length
+    ? `<p class="ce-nota">Fuente: ${fuentes.map(f => `${enlaceFuente(f)}. ${esc(f.emisor)}, ${esc(f.fecha)}`).join('; ')}.</p>` : '');
 const rotuloLinea = l => rotulo({ clase: l.clase, anio: l.anio, emisor: FUENTES[l.fuente]?.emisor, nota: l.clase === 'convencion' ? 'las tablas de precios' : undefined });
 
 function valorInicial(f) {
@@ -51,7 +57,7 @@ function valorInicial(f) {
 
 const tablaPuntas = () => `<table class="ce-cifras ce-puntas"><caption>Punta en DIST y DIT, Sistema Interconectado Nacional</caption>
     <thead><tr><th>Temporada</th><th>DIST, lunes a viernes</th><th>DIT, lunes a viernes</th><th>Sábado</th></tr></thead>
-    <tbody>${PUNTAS_DIST_DIT.map(f => `<tr><td>${esc(f.temporada)}</td><td>${esc(f.dist)}</td><td>${esc(f.dit)}</td><td>${esc(f.sabado)}</td></tr>`).join('')}</tbody></table>`;
+    <tbody>${PUNTAS_DIST_DIT.map(f => `<tr><td data-etq="Temporada">${esc(f.temporada)}</td><td data-etq="DIST, lunes a viernes">${esc(f.dist)}</td><td data-etq="DIT, lunes a viernes">${esc(f.dit)}</td><td data-etq="Sábado">${esc(f.sabado)}</td></tr>`).join('')}</tbody></table>`;
 
 export function renderCalculadoraView(container, { ruta = null, onRoute = () => {} } = {}) {
     const ac = new AbortController();
@@ -109,7 +115,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
 
     function conversorHtml() {
         const tab = PESTANA[estado.pestana];
-        const unidades = unidadesValidas(estado).map(id => ({ id, nombre: nombreUnidad(id) }));
+        const unidades = unidadesValidas(estado).map(id => ({ id, nombre: nombreUnidadEn(estado.pestana, id) }));
         const oficial = textoOficial();
         const partes = [];
         if (estado.pestana === 'otras') partes.push(campo('Qué quieres convertir', `<select data-ce="magnitud" data-foco="magnitud">${opciones(MAGNITUDES.map(id => ({ id, nombre: NOMBRE_MAGNITUD[id] })), estado.magnitud)}</select>`, { clase: 'ce-campo--magnitud' }));
@@ -168,7 +174,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
             ? `<div class="ce-base"><span class="ce-etq">Valor que se usa</span>${seg('base', 'Valor que se usa', BASES, estado.base, 'data-ce="base"')}</div>`
             : '';
         if (!r.ok) return `${base}<p class="ce-nota">Escribe un número para ver la fórmula.</p>`;
-        const filas = [r.principal, ...r.otras].map(c => `<tr><td class="ce-num">${esc(formatoClase(c.valor, c.clase))} ${esc(simboloUnidad(c.unidad))}</td><td>${esc(c.etiqueta)}</td><td class="ce-rotulo">${esc(rotulo(c))}${c.nota ? `. ${esc(c.nota)}` : ''}</td></tr>`).join('');
+        const filas = [r.principal, ...r.otras].map(c => `<tr><td class="ce-num">${esc(formatoClase(c.valor, c.clase))} ${esc(simboloUnidad(c.unidad))}</td><td>${esc(c.etiqueta)}</td><td class="ce-rotulo">${esc(origenCifra(c))}</td></tr>`).join('');
         const fuentes = r.fuentes.map(f => {
             const externo = /^https?:/.test(f.url);
             return `<li><a href="${esc(f.url)}"${externo ? ' target="_blank" rel="noopener"' : ''}>${esc(f.titulo)}</a>. ${esc(f.emisor)}, ${esc(f.fecha)}.</li>`;
@@ -210,7 +216,8 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         salida.innerHTML = `<ul class="ce-lineas">${r.lineas.map(l => (l.valor == null
             ? `<li class="ce-linea-texto">${esc(l.texto)}</li>`
             : `<li><span>${esc(l.texto)}</span> <b>${esc(valorLinea(l))}</b>${l.clase !== 'exacto' ? `<small>${esc(rotuloLinea(l))}</small>` : ''}</li>`)).join('')}</ul>
-            ${r.avisos.length ? `<ul class="ce-avisos">${r.avisos.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}`;
+            ${r.avisos.length ? `<ul class="ce-avisos">${r.avisos.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+            ${lineaFuentes(r.fuentes)}`;
     }
 
     function entenderHtml(t) {
@@ -303,7 +310,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         const tab = PESTANA[estado.pestana];
         const valor = r.ejemplo ? tab.ejemplo.valor : textoValor.trim();
         const producto = estado.producto ? ` de ${PRODUCTOS_PETROLIFEROS.find(p => p.id === estado.producto).nombre}` : '';
-        const lineas = [`${valor} ${nombreUnidad(estado.unidad)}${producto}`, `= ${textoCifra(r.principal)}`, ...r.otras.filter(c => c.frente).map(c => `= ${textoCifra(c)}`), r.origen];
+        const lineas = [`${valor} ${nombreUnidadEn(estado.pestana, estado.unidad)}${producto}`, `= ${textoCifra(r.principal)}`, ...r.otras.filter(c => c.frente).map(c => `= ${textoCifra(c)}`), r.origen];
         if (r.fuentes.length) lineas.push(`Fuente: ${r.fuentes.map(f => `${f.titulo} (${f.emisor}, ${f.fecha})`).join('; ')}`);
         lineas.push(enlace());
         return plano(lineas.join('\n'));
@@ -356,8 +363,9 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
             compartir();
         } else if (t.closest('[data-ce="base"]')) {
             actualizar({ base: t.dataset.valor });
-            for (const b of t.parentElement.children) b.setAttribute('aria-checked', String(b === t));
             pintarResultado();
+            // The selector lives inside the repainted formula: give the keyboard focus back to the same button.
+            container.querySelector(`[data-ce="base"] [data-valor="${t.dataset.valor}"]`)?.focus();
         } else {
             const clave = t.closest('[data-seg]').dataset.seg;
             textoAjustes[clave] = clave === 'dt' ? t.dataset.valor === 'si' : t.dataset.valor;

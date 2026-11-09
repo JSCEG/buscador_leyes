@@ -174,6 +174,46 @@ describe('calculator view', () => {
     fijar('input[type="time"]', '19:00');
     expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toMatch(/intermedio/i);
   });
+  it('writes each note of the formula table once, as a sentence', () => {
+    for (const hash of ['#calculadora=gas-lp', '#calculadora=otras&mg=energia&v=1&u=tep', '#calculadora=petroliferos&v=1&u=t&p=diesel']) {
+      const { host } = montar(hash);
+      for (const td of host.querySelectorAll('.ce-rotulo')) {
+        expect(td.textContent, hash).not.toMatch(/\.\s[a-záéíóúñ]/);
+        expect(td.textContent, hash).not.toMatch(/las tablas de precios\.\s*las tablas de precios|balances de energía\.\s*balances de energía/);
+      }
+      document.body.innerHTML = '';
+    }
+  });
+  const abrir = (host, sel) => { const d = host.querySelector(sel); d.open = true; d.dispatchEvent(new Event('toggle')); return d; };
+  it('shows dilatation lines that add up', () => {
+    const { host } = montar('#calculadora=petroliferos');
+    const texto = abrir(host, '[data-ce="cuenta"][data-id="dilatacion"]').querySelector('[data-ce="cuenta-resultado"]').textContent.replaceAll(' ', ' ');
+    expect(texto).toContain('19 623 L');
+    expect(texto).toContain('−377 L');
+  });
+  it('names the source of a small calculation', () => {
+    const { host } = montar();
+    const d = abrir(host, '[data-ce="cuenta"][data-id="central"]');
+    expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toContain('Plan de Desarrollo del Sector Eléctrico');
+  });
+  it('says which cubic metres each gas tab means', () => {
+    const opcion = (hash, v) => [...montar(hash).$('unidad').options].find(o => o.value === v).textContent;
+    expect(opcion('#calculadora=gas-lp', 'm3')).toContain('líquido');
+    expect(opcion('#calculadora=gas-natural', 'm3')).toContain('condición');
+  });
+  it('labels each cell of the DIST and DIT table for phones', () => {
+    const { host } = montar();
+    const d = abrir(host, '[data-ce="entender"][data-id="hora-pico"]');
+    for (const td of d.querySelectorAll('.ce-puntas tbody td')) expect(td.dataset.etq).toBeTruthy();
+  });
+  it('keeps the keyboard focus on the base selector', () => {
+    const { host } = montar('#calculadora=petroliferos&v=1&u=l&p=gasolina');
+    const boton = host.querySelector('[data-ce="base"] [data-valor="fisica"]');
+    boton.focus();
+    boton.click();
+    expect(document.activeElement.dataset.foco).toBe('base-fisica');
+    expect(document.activeElement.getAttribute('aria-checked')).toBe('true');
+  });
   it('shows a new route and cleans up', () => {
     const { view, host, $, $$ } = montar();
     view.show(calcRoute('#calculadora=otras'));

@@ -46,6 +46,12 @@ describe('the report examples', () => {
     expect(linea(r, 'periodo').texto).toMatch(/punta/i);
     expect(linea(r, 'periodo').texto).toMatch(/verano/i);
   });
+  it('writes the CEL share without float noise', () => expect(linea(calcularCuenta('cel', { mwh: 10000, anio: 2026 }), 'requeridos').texto).toMatch(/\(13\.9\s%\)$/));
+  it('keeps the two dilatation lines on whole litres so they add up', () => {
+    const r = calcularCuenta('dilatacion', { litros: 20000, t: 35, tRef: 20, producto: 'gasolina' });
+    expect(linea(r, 'litros').decimales).toBe(0);
+    expect(linea(r, 'diferencia').decimales).toBe(0);
+  });
   it('names the permit', () => expect(linea(calcularCuenta('permiso', { mw: 0.5, autoconsumo: false }), 'figura').texto).toContain('Generadora Exenta'));
 });
 
@@ -62,6 +68,11 @@ describe('limits', () => {
       const v = Object.fromEntries(c.campos.map(f => [f.id, f.porDefecto]));
       for (const l of calcularCuenta(c.id, v).lineas) if (l.valor != null) expect(Number.isFinite(l.valor), c.id).toBe(true);
     }
+  });
+  it.each([['medidor-altitud', { volumen: 100, presion: 2, t: -300, altitud: 0 }], ['medidor-altitud', { volumen: 100, presion: 2, t: -273.15, altitud: 0 }], ['presion-z', { volumen: 1000, presion: 50, t: -280 }]])('refuses temperatures at or below absolute zero in %s', (id, v) => {
+    const r = calcularCuenta(id, v);
+    expect(r.ok).toBe(false);
+    expect(r.errores[0].campo).toBe('t');
   });
   it('closes LNG both ways', () => {
     const r = calcularCuenta('gnl', { m3: 1 });

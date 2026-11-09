@@ -31,6 +31,14 @@ export const UNIDADES_PESTANA = Object.freeze({
 
 export const infoUnidad = id => UNIDADES[id] ?? UNIDADES_PESTANA[id] ?? null;
 export const nombreUnidad = id => infoUnidad(id)?.nombre ?? id;
+
+// The same unit means something narrower inside a tab: gas LP cubic metres are liquid (a vapour m³
+// holds about 290 times less energy), natural gas cubic metres are at the condition chosen in «Ajustar».
+const NOMBRES_POR_PESTANA = {
+    'gas-lp': { m3: 'metros cúbicos de gas líquido' },
+    'gas-natural': { m3: 'metros cúbicos, en la condición de «Ajustar»' },
+};
+export const nombreUnidadEn = (pestana, id) => NOMBRES_POR_PESTANA[pestana]?.[id] ?? nombreUnidad(id);
 export const simboloUnidad = id => infoUnidad(id)?.simbolo ?? id;
 
 export const PESTANAS = Object.freeze([

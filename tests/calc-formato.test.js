@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatoClase, formatoComparacion, formatoDinero, formatoFrente, leerNumero, rotulo, textoFrente } from '../src/lib/calc/formato.js';
+import { formatoClase, formatoComparacion, formatoDinero, formatoFijo, formatoFrente, leerNumero, rotulo, textoFrente } from '../src/lib/calc/formato.js';
 
 const NB = ' ';
 
@@ -28,6 +28,10 @@ describe('formatoComparacion', () => {
 
 describe('formatoDinero', () => {
   it.each([[219889850.5, `219${NB}889${NB}850.50`], [366.4830842, '366.48'], [1867.4, `1${NB}867.40`], [0.254, '0.254'], [0, '0.00']])('%s', (v, t) => expect(formatoDinero(v)).toBe(t));
+});
+
+describe('formatoFijo', () => {
+  it.each([[19623.3, 0, `19${NB}623`], [-377.2, 0, '−377'], [0.4, 0, '0'], [1.255, 1, '1.3']])('%s with %s decimals', (v, d, t) => expect(formatoFijo(v, d)).toBe(t));
 });
 
 describe('rotulo', () => {

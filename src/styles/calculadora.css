@@ -108,6 +108,7 @@
   .ce-cuenta-campos { flex-direction: column; }
   .ce-cuenta-campos > .ce-campo { flex: none; }
   .ce-puntas thead { display: none; }
+  .ce-puntas td[data-etq]::before { content: attr(data-etq) ": "; font-weight: 600; color: var(--tinta-suave); }
   .ce-calculo { padding: 14px; }
   .ce-conversor { flex-direction: column; align-items: stretch; }
   .ce-conversor > .ce-campo { flex: none; }

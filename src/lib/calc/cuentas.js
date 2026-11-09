@@ -10,7 +10,7 @@ import { CIUDADES, RANGO_ALTITUD, RANGO_T_LIQUIDOS, corregirGas, densidadDeApi, 
 import { FACTOR_PLANTA, FACTOR_SEN, NOMBRES_TECNOLOGIA, SITIOS_SOLARES, compensacion, corrienteTrifasica, energiaMWh, hidro, sae, solar, spq, viento } from './electricidad.js';
 import { LEYENDA_MERCADO, PRECIO_NETO_2025, REQUISITO_CEL, SISTEMAS, celGenerados, celRequeridos, figuraPermiso, kwMes, pagoPotencia, periodoGDMTH } from './mercado.js';
 import { FUENTES } from './fuentes.js';
-import { leerNumero } from './formato.js';
+import { formatoClase, leerNumero } from './formato.js';
 
 const MENSAJE_NUMERO = 'Escribe un número, como 1 234.5';
 const MJ_POR_MMBTU = 1055.05585262;
@@ -18,6 +18,8 @@ const KPA_POR_KGF_CM2 = 98.0665;
 
 // ── Fields ───────────────────────────────────────────────────────────────────
 const num = (id, etiqueta, porDefecto, unidad, opciones = {}) => ({ id, etiqueta, tipo: 'numero', porDefecto, unidad, obligatorio: true, positivo: false, negativo: false, max: null, sugerencia: null, opciones: null, ...opciones });
+// A temperature in °C: negative is fine, absolute zero or below is not.
+const temperatura = (id, etiqueta, porDefecto) => num(id, etiqueta, porDefecto, '°C', { negativo: true, sobreCeroAbsoluto: true });
 const opc = (id, etiqueta, opciones, porDefecto) => ({ id, etiqueta, tipo: 'opcion', porDefecto, opciones, obligatorio: true });
 const casilla = (id, etiqueta, porDefecto = false) => ({ id, etiqueta, tipo: 'casilla', porDefecto, obligatorio: false });
 const fecha = (id, etiqueta) => ({ id, etiqueta, tipo: 'fecha', porDefecto: null, obligatorio: true });
@@ -30,7 +32,8 @@ const LIQUIDOS = ['gasolina', 'diesel', 'turbosina', 'combustoleo', 'maya', 'ist
 
 // ── Lines ───────────────────────────────────────────────────────────────────
 const EX = { clase: 'exacto', fuente: 'nist-811', anio: null };
-const linea = (id, texto, valor, unidad, proc = EX) => ({ id, texto, valor, unidad, clase: proc.clase, fuente: proc.fuente, anio: proc.anio ?? null });
+// `decimales` fixes the precision of lines that are compared with each other, so they add up on screen.
+const linea = (id, texto, valor, unidad, proc = EX, extra = {}) => ({ id, texto, valor, unidad, clase: proc.clase, fuente: proc.fuente, anio: proc.anio ?? null, ...extra });
 const textoSolo = (id, texto, proc = EX) => ({ id, texto, valor: null, unidad: null, clase: proc.clase, fuente: proc.fuente, anio: proc.anio ?? null });
 
 const PROC = {
@@ -176,7 +179,7 @@ const LISTA = [
             const avisos = [];
             const req = celRequeridos(v.mwh, v.anio);
             if (req == null) avisos.push(`Para ${v.anio} no hay requisito de CEL publicado; solo hay para 2025 y 2026.`);
-            else lineas.push(linea('requeridos', `CEL que debes tener (${REQUISITO_CEL[v.anio] * 100} %)`, req, 'cel', PROC.cel));
+            else lineas.push(linea('requeridos', `CEL que debes tener (${formatoClase(REQUISITO_CEL[v.anio] * 100, 'oficial')} %)`, req, 'cel', PROC.cel));
             if (v.generados != null) lineas.push(linea('generados', 'CEL que generas', celGenerados(v.generados, v.limpia / 100), 'cel', PROC.cel));
             return { lineas, avisos };
         },
@@ -209,12 +212,13 @@ const LISTA = [
     {
         id: 'dilatacion', pestana: 'petroliferos', titulo: 'Dilatación por calor',
         nota: 'No es fraude: el mismo combustible ocupa más litros cuando está caliente. Es un cálculo orientativo.',
-        campos: [num('litros', 'Litros', 20000, 'L'), num('t', 'Temperatura del combustible', 35, '°C', { negativo: true }), num('tRef', 'Temperatura de referencia', 20, '°C', { negativo: true }), opc('producto', 'Producto', LIQUIDOS, 'gasolina')],
+        campos: [num('litros', 'Litros', 20000, 'L'), temperatura('t', 'Temperatura del combustible', 35), temperatura('tRef', 'Temperatura de referencia', 20), opc('producto', 'Producto', LIQUIDOS, 'gasolina')],
         calcular: v => {
             if (![v.t, v.tRef].every(t => t >= RANGO_T_LIQUIDOS[0] && t <= RANGO_T_LIQUIDOS[1])) return { errores: [{ campo: 't', mensaje: 'Usa temperaturas de −10 a 60 °C' }] };
             const e = ENERGETICOS[v.producto];
             const litros = v.litros * factorTemperatura(v.t, { kgPorL: e.densidadKgL, tRef: v.tRef, crudo: e.crudo });
-            return { lineas: [linea('litros', `Litros a ${v.tRef} °C`, litros, 'l', PROC.vcf), linea('diferencia', 'Diferencia', litros - v.litros, 'l', PROC.vcf)] };
+            const entero = { decimales: 0 };
+            return { lineas: [linea('litros', `Litros a ${v.tRef} °C`, litros, 'l', PROC.vcf, entero), linea('diferencia', 'Diferencia', litros - v.litros, 'l', PROC.vcf, entero)] };
         },
     },
     {
@@ -246,13 +250,13 @@ const LISTA = [
     {
         id: 'medidor-altitud', pestana: 'gas-natural', titulo: 'Medidor y altitud',
         nota: `Un medidor de casa marca metros cúbicos a la presión del lugar. A más altura, el mismo gas ocupa más. Altitudes de ejemplo: ${Object.values(CIUDADES).map(c => `${c.nombre} ${c.altitud} m`).join(', ')}.`,
-        campos: [num('volumen', 'Lo que marca el medidor', 100, 'm³'), num('presion', 'Presión de servicio', 2, 'kPa manométricos'), num('t', 'Temperatura del gas', 20, '°C', { negativo: true }), num('altitud', 'Altitud', 2240, 'm', { max: RANGO_ALTITUD[1] })],
+        campos: [num('volumen', 'Lo que marca el medidor', 100, 'm³'), num('presion', 'Presión de servicio', 2, 'kPa manométricos'), temperatura('t', 'Temperatura del gas', 20), num('altitud', 'Altitud', 2240, 'm', { max: RANGO_ALTITUD[1] })],
         calcular: v => ({ lineas: [linea('estandar', 'Gas en condición estándar', corregirGas({ volumen: v.volumen, pManKpa: v.presion, tC: v.t, altitud: v.altitud }).sm3SinZ, 'sm3', PROC.atmosfera)] }),
     },
     {
         id: 'presion-z', pestana: 'gas-natural', titulo: 'Presión, temperatura y Z',
         nota: 'Cálculo orientativo con la correlación de GPSA: no sirve para medir ni facturar.',
-        campos: [num('volumen', 'Volumen en la línea', 1000, 'm³'), num('presion', 'Presión', 50, 'kg/cm² manométricos'), num('t', 'Temperatura', 20, '°C', { negativo: true })],
+        campos: [num('volumen', 'Volumen en la línea', 1000, 'm³'), num('presion', 'Presión', 50, 'kg/cm² manométricos'), temperatura('t', 'Temperatura', 20)],
         calcular: v => {
             const r = corregirGas({ volumen: v.volumen, pManKpa: v.presion * KPA_POR_KGF_CM2, tC: v.t });
             const avisos = [];
@@ -334,6 +338,7 @@ function leerCampo(campo, crudo) {
     if (!r.ok) return { error: MENSAJE_NUMERO };
     if (campo.positivo && !(r.valor > 0)) return { error: 'Escribe un número mayor que cero' };
     if (!campo.negativo && r.valor < 0) return { error: 'Este valor no puede ser negativo' };
+    if (campo.sobreCeroAbsoluto && !(r.valor > -273.15)) return { error: 'Esa temperatura está en el cero absoluto o por debajo' };
     if (campo.max != null && r.valor > campo.max) return { error: `Escribe un número de hasta ${campo.max}` };
     return { valor: r.valor };
 }

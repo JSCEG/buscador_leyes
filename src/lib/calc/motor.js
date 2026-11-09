@@ -244,7 +244,9 @@ function petroliferos(e, s) {
     const litrosC = deUnidad(litros, 'l', procL, op);
     const barrilesC = deUnidad(litros / BARRIL_L, 'bl', procL, op);
     const refC = factor !== 1 ? cifra(refL, 'l', `litros a ${p.tRef} °C${sufijo}`, { ...P.vcf, frente: true, etiquetaUna: `litro a ${p.tRef} °C${sufijo}` }) : null;
-    const energiaC = energiaCombustible(mj, mag === 'energia' ? P.exacto : proc, op);
+    // Energy typed in MJ is exact; energy from barrels of oil equivalent carries the 2026 list's 6 347 MJ.
+    const procEnergia = mag === 'energia' ? (u === 'bep' ? P.lista : P.exacto) : proc;
+    const energiaC = energiaCombustible(mj, procEnergia, op);
     const co2C = co2(kgCo2, { ...op, frente: true });
     const kgProc = mag === 'masa' ? P.exacto : (mag === 'energia' ? proc : procKg);
 
@@ -260,7 +262,7 @@ function petroliferos(e, s) {
     s.otras.push(
         deUnidad(litros / 1000, 'm3', procL, op), deUnidad(convertir(litros, 'l', 'gal'), 'gal', procL, op),
         deUnidad(kg, 'kg', kgProc, op), deUnidad(kg / 1000, 't', kgProc, op),
-        ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, mag === 'energia' ? P.exacto : proc, op)),
+        ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, procEnergia, op)),
         deUnidad(mj / BEP_MJ, 'bep', P.lista, op),
     );
     if (CON_TANQUE.includes(e.producto)) s.comparacion = tanques(litros);
@@ -304,12 +306,16 @@ function gasNatural(e, s) {
     s.pasos.push(`${fmt(sm3)} m³ estándar × ${formatoClase(g.mjPorSm3, 'tipico')} MJ/m³ (${inferior ? 'poder calorífico inferior' : 'poder calorífico superior'}) = ${fmt(mj)} MJ`);
     s.pasos.push(`${fmt(sm3)} m³ estándar × ${formatoClase(g.co2KgPorSm3, 'oficial')} kg de CO₂ por m³ = ${fmt(sm3 * g.co2KgPorSm3)} kg de CO₂`);
 
-    const m3C = cifra(sm3, 'm3', `metros cúbicos estándar${sufijo}`, { ...(mag === 'volumen' ? P.condicion : procE), etiquetaUna: `metro cúbico estándar${sufijo}` });
-    const pcC = cifra(sm3 / PC_M3, 'pc', `pies cúbicos estándar${sufijo}`, { ...(mag === 'volumen' ? P.condicion : procE), etiquetaUna: `pie cúbico estándar${sufijo}` });
+    // From bep the volume comes from the list's dry gas and the energy from the typical heating value.
+    const desdeBep = u === 'bep';
+    const procVolumen = mag === 'volumen' ? P.condicion : (desdeBep ? P.lista : procE);
+    const procEnergia = mag === 'energia' && !desdeBep ? P.exacto : procE;
+    const m3C = cifra(sm3, 'm3', `metros cúbicos estándar${sufijo}`, { ...procVolumen, etiquetaUna: `metro cúbico estándar${sufijo}` });
+    const pcC = cifra(sm3 / PC_M3, 'pc', `pies cúbicos estándar${sufijo}`, { ...procVolumen, etiquetaUna: `pie cúbico estándar${sufijo}` });
     const co2C = co2(sm3 * g.co2KgPorSm3, { ...op, frente: true });
-    const energiaC = energiaCombustible(mj, mag === 'energia' ? P.exacto : procE, op);
+    const energiaC = energiaCombustible(mj, procEnergia, op);
     const resto = [
-        ...['gj', 'mmbtu', 'therm', 'kwh'].map(x => deUnidad(convertir(mj, 'mj', x), x, mag === 'energia' ? P.exacto : procE, op)),
+        ...['gj', 'mmbtu', 'therm', 'kwh'].map(x => deUnidad(convertir(mj, 'mj', x), x, procEnergia, op)),
         deUnidad(sm3 * g.kgPorSm3, 'kg', P.gas, op),
         { ...deUnidad(sm3 * g.bepPorSm3, 'bep', P.lista, op), nota: 'Pemex usa otra equivalencia para reservas' },
     ];
@@ -329,16 +335,16 @@ function gasNatural(e, s) {
 
 function gasLP(e, s) {
     const a = e.ajustes ?? {};
-    const usaTabla = a.t !== undefined || a.m !== undefined;
+    // A temperature outside the table is ignored entirely, so «se calculó sin ajuste» stays true.
+    const tValida = a.t !== undefined && dentro(a.t, RANGO_T_LP);
+    const usaTabla = tValida || a.m !== undefined;
     const mezcla = a.m ?? '60-40';
     const ch = cadena('gas-lp', e.base, { densidad: usaTabla ? densidadLP(15.56, mezcla) : undefined });
     const proc = e.base === 'fisica' ? P.ipcc : P.lista;
     const procKg = e.base !== 'fisica' && !usaTabla ? P.convencionLP : P.nistLP;
     let factor = 1;
-    if (a.t !== undefined) {
-        if (dentro(a.t, RANGO_T_LP)) factor = densidadLP(a.t, mezcla) / densidadLP(15.56, mezcla);
-        else s.avisos.push(`La temperatura de ${fmt(a.t)} °C está fuera del rango del ajuste (−10 a 50 °C); se calculó sin ajuste.`);
-    }
+    if (tValida) factor = densidadLP(a.t, mezcla) / densidadLP(15.56, mezcla);
+    else if (a.t !== undefined) s.avisos.push(`La temperatura de ${fmt(a.t)} °C está fuera del rango del ajuste (−10 a 50 °C); se calculó sin ajuste.`);
     const u = e.unidad;
     const v = e.valor;
     const info = infoUnidad(u);
@@ -375,7 +381,8 @@ function gasLP(e, s) {
         s.otras.push(...[refC, energiaC, co2C].filter(Boolean), mag === 'volumen' ? litrosC : kgC);
     }
     s.otras.push(
-        deUnidad(litros / 1000, 'm3', mag === 'volumen' ? P.exacto : procKg), deUnidad(litros / BARRIL_L, 'bl', mag === 'volumen' ? P.exacto : procKg),
+        // Liquid, never vapour: one liquid m³ holds about 290 times the energy of one m³ of vapour.
+        deUnidad(litros / 1000, 'm3', mag === 'volumen' ? P.exacto : procKg, { extra: ' de gas líquido' }), deUnidad(litros / BARRIL_L, 'bl', mag === 'volumen' ? P.exacto : procKg),
         deUnidad(kg / 1000, 't', mag === 'masa' ? P.exacto : procKg),
         ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, mag === 'energia' ? P.exacto : proc)),
     );

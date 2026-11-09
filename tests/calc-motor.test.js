@@ -55,6 +55,28 @@ describe('what goes in front', () => {
   });
 });
 
+describe('labels of origin', () => {
+  const energia = r => todas(r).find(x => ['mj', 'gj', 'tj', 'pj'].includes(x.unidad));
+  it('labels energy that comes from barrels of oil equivalent with the fuel list', () => {
+    expect(energia(c({ pestana: 'petroliferos', valor: 10, unidad: 'bep', producto: 'gasolina' }))).toMatchObject({ clase: 'oficial', fuente: 'lista-2026' });
+  });
+  it('labels gas volume from bep with the list and its energy as typical', () => {
+    const r = c({ pestana: 'gas-natural', valor: 1, unidad: 'bep' });
+    expect(r.principal).toMatchObject({ unidad: 'm3', fuente: 'lista-2026' });
+    expect(energia(r).clase).toBe('tipico');
+  });
+  it('leaves gas LP on the convention when the temperature is out of range', () => {
+    const r = c({ pestana: 'gas-lp', valor: 300, unidad: 'tanque-agua', ajustes: { t: 60 } });
+    expect(r.principal.valor).toBeCloseTo(137.7, 9);
+    expect(r.principal.clase).toBe('convencion');
+    expect(r.avisos.join()).toContain('sin ajuste');
+  });
+  it('says gas LP cubic metres are liquid', () => {
+    const r = c({ pestana: 'gas-lp', valor: 1, unidad: 'cil20' });
+    expect(todas(r).find(x => x.unidad === 'm3').etiqueta).toContain('líquido');
+  });
+});
+
 describe('Otras', () => {
   it('shows the official unit first', () => {
     const r = c({ pestana: 'otras', magnitud: 'presion', valor: 1, unidad: 'bar' });

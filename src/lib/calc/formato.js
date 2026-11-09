@@ -66,13 +66,20 @@ export function formatoComparacion(valor) {
     return conEscala(redondo, 2);
 }
 
+/** A fixed number of decimals, grouped: figures that are compared with each other (litres and their difference). */
+export function formatoFijo(valor, decimales) {
+    if (!Number.isFinite(valor)) return '';
+    const [entero, fraccion] = Math.abs(valor).toFixed(decimales).split('.');
+    const signo = valor < 0 && Number(`${entero}.${fraccion ?? 0}`) !== 0 ? MENOS : '';
+    return `${signo}${agrupar(entero)}${fraccion ? `.${fraccion}` : ''}`;
+}
+
 /** Pesos: two decimals from one peso up; below one, three significant digits («0.254»). */
 export function formatoDinero(valor) {
     if (!Number.isFinite(valor)) return '';
     const abs = Math.abs(valor);
     if (abs > 0 && abs < 1) return numero(valor, 3);
-    const [entero, decimales] = abs.toFixed(2).split('.');
-    return `${valor < 0 ? MENOS : ''}${agrupar(entero)}.${decimales}`;
+    return formatoFijo(valor, 2);
 }
 
 /** The line that says where a figure comes from. */
