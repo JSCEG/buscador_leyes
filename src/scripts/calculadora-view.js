@@ -8,11 +8,14 @@ import '../styles/calculadora.css';
 import { calcular, normalizarEstado } from '../lib/calc/motor.js';
 import { ATAJOS, PESTANA, PESTANAS, PRODUCTOS_PETROLIFEROS, nombreUnidad, simboloUnidad, unidadesValidas } from '../lib/calc/pestanas.js';
 import { calcHash } from '../lib/calc/ruta.js';
-import { formatoClase, leerNumero, rotulo, textoFrente } from '../lib/calc/formato.js';
-import { NOTA_PIE, SUBTITULO, TITULO } from '../lib/calc/textos.js';
+import { formatoClase, formatoDinero, leerNumero, rotulo, textoFrente } from '../lib/calc/formato.js';
+import { NOTA_PIE, PARA_ENTENDER, SUBTITULO, TITULO } from '../lib/calc/textos.js';
 import { MAGNITUDES, UNIDADES, convertir, convertirTemperatura } from '../lib/calc/unidades.js';
 import { CIUDADES, CONDICIONES, MEZCLAS_LP } from '../lib/calc/ajustes.js';
 import { ENERGETICOS } from '../lib/calc/energeticos.js';
+import { CUENTAS, SIMBOLO_LINEA, calcularCuenta, cuentasDe } from '../lib/calc/cuentas.js';
+import { PUNTAS_DIST_DIT } from '../lib/calc/mercado.js';
+import { FUENTES } from '../lib/calc/fuentes.js';
 
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const plano = s => String(s).replaceAll(' ', ' ');
@@ -26,6 +29,29 @@ const opciones = (lista, actual) => lista.map(o => `<option value="${esc(o.id)}"
 const seg = (clave, etiqueta, lista, actual, atributo = `data-seg="${clave}"`) => `<div class="bu-seg ce-seg" role="radiogroup" aria-label="${esc(etiqueta)}" ${atributo}>${lista.map(o => `<button type="button" role="radio" aria-checked="${o.id === actual}" data-valor="${esc(o.id)}" data-foco="${clave}-${esc(o.id)}">${esc(o.nombre)}</button>`).join('')}</div>`;
 const campo = (etiqueta, control, { clase = '', ayuda = '' } = {}) => `<label class="ce-campo ${clase}"><span class="ce-etq">${esc(etiqueta)}</span><span class="bu-campo">${control}</span>${ayuda ? `<span class="ce-ayuda">${esc(ayuda)}</span>` : ''}</label>`;
 const entrada = (atributos, valor, placeholder = '') => `<input type="text" inputmode="decimal" autocomplete="off" ${atributos} value="${esc(valor)}" placeholder="${esc(placeholder)}">`;
+const dos = n => String(n).padStart(2, '0');
+const hoyLocal = () => { const d = new Date(); return `${d.getFullYear()}-${dos(d.getMonth() + 1)}-${dos(d.getDate())}`; };
+const horaLocal = () => { const d = new Date(); return `${dos(d.getHours())}:${dos(d.getMinutes())}`; };
+const enlaceFuente = f => (/^https?:/.test(f.url) ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a>` : `<a href="${esc(f.url)}">${esc(f.titulo)}</a>`);
+
+/** A line of a small calculation: pesos with two decimals, the rest by class. */
+function valorLinea(l) {
+    const simbolo = SIMBOLO_LINEA[l.unidad] ?? '';
+    const numero = l.unidad?.startsWith('mxn') ? formatoDinero(l.valor) : formatoClase(l.valor, l.clase);
+    return `${numero} ${simbolo}`.trim();
+}
+const rotuloLinea = l => rotulo({ clase: l.clase, anio: l.anio, emisor: FUENTES[l.fuente]?.emisor, nota: l.clase === 'convencion' ? 'las tablas de precios' : undefined });
+
+function valorInicial(f) {
+    if (f.tipo === 'fecha') return hoyLocal();
+    if (f.tipo === 'hora') return horaLocal();
+    if (f.tipo === 'casilla') return Boolean(f.porDefecto);
+    return f.porDefecto == null ? '' : String(f.porDefecto);
+}
+
+const tablaPuntas = () => `<table class="ce-cifras ce-puntas"><caption>Punta en DIST y DIT, Sistema Interconectado Nacional</caption>
+    <thead><tr><th>Temporada</th><th>DIST, lunes a viernes</th><th>DIT, lunes a viernes</th><th>Sábado</th></tr></thead>
+    <tbody>${PUNTAS_DIST_DIT.map(f => `<tr><td>${esc(f.temporada)}</td><td>${esc(f.dist)}</td><td>${esc(f.dit)}</td><td>${esc(f.sabado)}</td></tr>`).join('')}</tbody></table>`;
 
 export function renderCalculadoraView(container, { ruta = null, onRoute = () => {} } = {}) {
     const ac = new AbortController();
@@ -34,6 +60,8 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
     let textoValor = '';
     let textoHoras = '';
     let textoAjustes = {};
+    // What the person typed in each small calculation, kept while they move around the page.
+    const valoresCuenta = {};
 
     function cargar(r) {
         estado = normalizarEstado(r ?? {});
@@ -150,12 +178,75 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
             ${fuentes ? `<h3 class="ce-h3">Fuentes</h3><ul class="ce-fuentes">${fuentes}</ul>` : ''}`;
     }
 
+    // ── Cards ───────────────────────────────────────────────────────────────
+    function campoCuenta(c, f) {
+        const v = valoresCuenta[c.id][f.id];
+        const atributos = `data-cuenta-campo="${esc(f.id)}" data-foco="cu-${esc(c.id)}-${esc(f.id)}"`;
+        if (f.tipo === 'casilla') return `<label class="ce-casilla"><input type="checkbox" ${atributos}${v ? ' checked' : ''}><span>${esc(f.etiqueta)}</span></label>`;
+        if (f.tipo === 'opcion') return campo(f.etiqueta, `<select ${atributos}>${opciones(f.opciones, v)}</select>`);
+        if (f.tipo === 'fecha') return campo(f.etiqueta, `<input type="date" ${atributos} value="${esc(v)}">`);
+        if (f.tipo === 'hora') return campo(f.etiqueta, `<input type="time" ${atributos} value="${esc(v)}">`);
+        return campo(`${f.etiqueta}${f.unidad ? ` (${f.unidad})` : ''}`, entrada(atributos, v), { ayuda: f.sugerencia ? `Sugerencia: ${f.sugerencia}` : '' });
+    }
+
+    function cuentaHtml(c) {
+        valoresCuenta[c.id] ??= Object.fromEntries(c.campos.map(f => [f.id, valorInicial(f)]));
+        return `<div class="ce-cuenta" data-cuenta="${esc(c.id)}">
+            ${c.nota ? `<p class="ce-nota">${esc(c.nota)}</p>` : ''}
+            <div class="ce-cuenta-campos">${c.campos.map(f => campoCuenta(c, f)).join('')}</div>
+            <div class="ce-cuenta-resultado" data-ce="cuenta-resultado" aria-live="polite"></div>
+        </div>`;
+    }
+
+    function pintarCuenta(caja) {
+        const c = CUENTAS[caja.dataset.cuenta];
+        const r = calcularCuenta(c.id, valoresCuenta[c.id]);
+        const salida = caja.querySelector('[data-ce="cuenta-resultado"]');
+        if (!r.ok) {
+            const etiqueta = id => c.campos.find(f => f.id === id)?.etiqueta;
+            salida.innerHTML = r.errores.map(e => `<p class="ce-error">${esc(etiqueta(e.campo) ? `${etiqueta(e.campo)}: ${e.mensaje}` : e.mensaje)}</p>`).join('');
+            return;
+        }
+        salida.innerHTML = `<ul class="ce-lineas">${r.lineas.map(l => (l.valor == null
+            ? `<li class="ce-linea-texto">${esc(l.texto)}</li>`
+            : `<li><span>${esc(l.texto)}</span> <b>${esc(valorLinea(l))}</b>${l.clase !== 'exacto' ? `<small>${esc(rotuloLinea(l))}</small>` : ''}</li>`)).join('')}</ul>
+            ${r.avisos.length ? `<ul class="ce-avisos">${r.avisos.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}`;
+    }
+
+    function entenderHtml(t) {
+        const fuente = t.fuente && FUENTES[t.fuente];
+        return `${t.parrafos.map(p => `<p>${esc(p)}</p>`).join('')}
+            ${t.id === 'hora-pico' ? tablaPuntas() : ''}
+            ${t.cuenta ? cuentaHtml(CUENTAS[t.cuenta]) : ''}
+            ${t.articulos.length ? `<ul class="ce-articulos">${t.articulos.map(a => `<li><a href="#art-${esc(a.id)}">${esc(a.texto)}</a></li>`).join('')}</ul>` : ''}
+            ${fuente ? `<p class="ce-nota">Fuente: ${enlaceFuente(fuente)}. ${esc(fuente.emisor)}, ${esc(fuente.fecha)}.</p>` : ''}`;
+    }
+
+    function llenarTarjeta(d) {
+        const cuerpo = d.querySelector('[data-cuerpo]');
+        if (!cuerpo || cuerpo.dataset.lleno) return;
+        cuerpo.dataset.lleno = '1';
+        cuerpo.innerHTML = d.dataset.ce === 'cuenta'
+            ? cuentaHtml(CUENTAS[d.dataset.id])
+            : entenderHtml(PARA_ENTENDER[estado.pestana].find(t => t.id === d.dataset.id));
+        for (const caja of cuerpo.querySelectorAll('[data-cuenta]')) pintarCuenta(caja);
+    }
+
+    function tarjetasHtml() {
+        const tarjeta = (tipo, id, titulo) => `<details class="ce-tarjeta" data-ce="${tipo}" data-id="${esc(id)}" data-abre="${tipo}-${esc(id)}"><summary>${esc(titulo)}</summary><div class="ce-tarjeta-cuerpo" data-cuerpo></div></details>`;
+        const cuentas = cuentasDe(estado.pestana);
+        const entender = PARA_ENTENDER[estado.pestana] ?? [];
+        return `${cuentas.length ? `<section class="ce-seccion" aria-labelledby="ce-h-cuentas"><h2 class="ce-h2" id="ce-h-cuentas">Otras cuentas</h2><div class="ce-tarjetas">${cuentas.map(c => tarjeta('cuenta', c.id, c.titulo)).join('')}</div></section>` : ''}
+            ${entender.length ? `<section class="ce-seccion" aria-labelledby="ce-h-entender"><h2 class="ce-h2" id="ce-h-entender">Para entender</h2><div class="ce-tarjetas">${entender.map(t => tarjeta('entender', t.id, t.titulo)).join('')}</div></section>` : ''}`;
+    }
+
     const panelHtml = () => `
         <div class="ce-calculo bu-cristal">${conversorHtml()}<div class="ce-resultado" data-ce="resultado" aria-live="polite">${resultadoHtml()}</div></div>
         ${ajustarHtml()}
         <details class="ce-desplegable" data-ce="formula" data-abre="formula"><summary>Ver fórmula y fuente</summary><div class="ce-formula" data-ce="formula-cuerpo">${formulaHtml()}</div></details>
         <div class="ce-acciones"><button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-ce="copiar" data-foco="copiar">Copiar</button><button type="button" class="bu-btn bu-btn-fantasma bu-btn-sm" data-ce="compartir" data-foco="compartir">Compartir</button><span class="ce-estado" role="status" data-ce="estado"></span></div>
-        <div data-ce="manual-caja"></div>`;
+        <div data-ce="manual-caja"></div>
+        ${tarjetasHtml()}`;
 
     const $ = s => container.querySelector(`[data-ce="${s}"]`);
 
@@ -176,7 +267,11 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         const panel = $('panel');
         panel.setAttribute('aria-labelledby', `ce-tab-${estado.pestana}`);
         panel.innerHTML = panelHtml();
-        for (const d of panel.querySelectorAll('details[data-abre]')) if (abiertos.has(d.dataset.abre)) d.open = true;
+        for (const d of panel.querySelectorAll('details[data-abre]')) {
+            if (!abiertos.has(d.dataset.abre)) continue;
+            d.open = true;
+            if (d.matches('.ce-tarjeta')) llenarTarjeta(d);
+        }
         pintarResultado();
         if (foco) container.querySelector(`[data-foco="${foco}"]`)?.focus();
     }
@@ -271,9 +366,22 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         }
     }, { signal: ac.signal });
 
+    // Opening a card fills it the first time; toggle does not bubble, so listen while capturing.
+    container.addEventListener('toggle', e => {
+        const d = e.target;
+        if (d.matches?.('details.ce-tarjeta') && d.open) llenarTarjeta(d);
+    }, { capture: true, signal: ac.signal });
+
+    const campoDeCuenta = t => {
+        const caja = t.closest('[data-cuenta]');
+        valoresCuenta[caja.dataset.cuenta][t.dataset.cuentaCampo] = t.type === 'checkbox' ? t.checked : t.value;
+        pintarCuenta(caja);
+    };
+
     container.addEventListener('input', e => {
         const t = e.target;
         if (t.tagName !== 'INPUT' || t.type === 'checkbox') return;
+        if (t.dataset.cuentaCampo) { campoDeCuenta(t); return; }
         if (t.dataset.ce === 'valor') textoValor = t.value;
         else if (t.dataset.ce === 'horas') textoHoras = t.value;
         else if (t.dataset.ajuste) textoAjustes[t.dataset.ajuste] = t.value;
@@ -284,6 +392,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
 
     container.addEventListener('change', e => {
         const t = e.target;
+        if (t.dataset.cuentaCampo && (t.tagName === 'SELECT' || t.type === 'checkbox')) { campoDeCuenta(t); return; }
         if (t.tagName !== 'SELECT') return;
         if (t.dataset.ce === 'unidad') actualizar({ unidad: t.value });
         else if (t.dataset.ce === 'producto') actualizar({ producto: t.value });

@@ -66,6 +66,15 @@ export function formatoComparacion(valor) {
     return conEscala(redondo, 2);
 }
 
+/** Pesos: two decimals from one peso up; below one, three significant digits («0.254»). */
+export function formatoDinero(valor) {
+    if (!Number.isFinite(valor)) return '';
+    const abs = Math.abs(valor);
+    if (abs > 0 && abs < 1) return numero(valor, 3);
+    const [entero, decimales] = abs.toFixed(2).split('.');
+    return `${valor < 0 ? MENOS : ''}${agrupar(entero)}.${decimales}`;
+}
+
 /** The line that says where a figure comes from. */
 export function rotulo({ clase, anio, nota, emisor } = {}) {
     if (clase === 'exacto') return 'Exacto por definición';

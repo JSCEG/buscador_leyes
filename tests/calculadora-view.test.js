@@ -119,6 +119,60 @@ describe('calculator view', () => {
     escribir($('valor'), '<img src=x onerror=alert(1)>');
     expect(host.querySelector('img')).toBeNull();
   });
+  it('offers the cards of each tab', () => {
+    const { host } = montar('#calculadora=gas-lp');
+    const ids = s => [...host.querySelectorAll(`[data-ce="${s}"]`)].map(d => d.dataset.id);
+    expect(ids('cuenta')).toEqual(['tanque', 'quemador', 'costo-lp', 'emisiones-lp']);
+    expect(ids('entender')).toEqual(['convencion-054', 'litros-agua', 'vapor']);
+  });
+  it('has no «Otras cuentas» in Otras', () => {
+    const { host } = montar('#calculadora=otras');
+    expect(host.querySelectorAll('[data-ce="cuenta"]')).toHaveLength(0);
+    expect(host.textContent).not.toContain('Otras cuentas');
+  });
+  it('calculates a small calculation in place', () => {
+    const { host } = montar('#calculadora=gas-lp');
+    const d = host.querySelector('[data-ce="cuenta"][data-id="tanque"]');
+    d.open = true;
+    d.dispatchEvent(new Event('toggle'));
+    expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toContain('255');
+    const campo = d.querySelector('input');
+    campo.focus();
+    campo.value = '500';
+    campo.dispatchEvent(new Event('input', { bubbles: true }));
+    expect(document.activeElement).toBe(campo);
+    expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toContain('425');
+  });
+  it('suggests the DC/AC ratio without assuming it', () => {
+    const { host } = montar();
+    const d = host.querySelector('[data-ce="cuenta"][data-id="solar"]');
+    d.open = true;
+    d.dispatchEvent(new Event('toggle'));
+    expect(d.textContent).toContain('1.3');
+    expect(d.textContent).toContain('sin dato mexicano');
+  });
+  it('puts the law and a calculation inside a card', () => {
+    const { host } = montar();
+    const d = host.querySelector('[data-ce="entender"][data-id="precio-potencia"]');
+    d.open = true;
+    d.dispatchEvent(new Event('toggle'));
+    expect(d.querySelector('a[href="#art-LSE-Art-112"]')).not.toBeNull();
+    expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toContain('366.48');
+  });
+  it('answers «¿En qué periodo estoy?»', () => {
+    const { host } = montar();
+    const d = host.querySelector('[data-ce="entender"][data-id="hora-pico"]');
+    d.open = true;
+    d.dispatchEvent(new Event('toggle'));
+    expect(d.querySelector('input[type="checkbox"]')).not.toBeNull();
+    expect(d.textContent).toContain('DIST');
+    const fijar = (sel, v) => { const el = d.querySelector(sel); el.value = v; el.dispatchEvent(new Event('input', { bubbles: true })); };
+    fijar('input[type="date"]', '2026-07-15');
+    fijar('input[type="time"]', '20:00');
+    expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toMatch(/punta/i);
+    fijar('input[type="time"]', '19:00');
+    expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toMatch(/intermedio/i);
+  });
   it('shows a new route and cleans up', () => {
     const { view, host, $, $$ } = montar();
     view.show(calcRoute('#calculadora=otras'));
