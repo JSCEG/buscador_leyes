@@ -16,7 +16,8 @@ const crudo = api => 141.5 / (131.5 + api) * 0.999016;
 export const ENERGETICOS = Object.freeze({
     gasolina: { id: 'gasolina', nombre: 'Gasolinas y naftas', oficialMjBl: 5613, fisicaMjKg: 44.3, densidadKgL: 0.735, tRef: 20, co2TJ: 69.3 },
     diesel: { id: 'diesel', nombre: 'Diésel', oficialMjBl: 6065, fisicaMjKg: 43.0, densidadKgL: 0.84, tRef: 20, co2TJ: 74.1, densidadSinFuente: true },
-    turbosina: { id: 'turbosina', nombre: 'Turbosina', oficialMjBl: 5888, fisicaMjKg: 44.1, densidadKgL: 0.8045, tRef: 20, co2TJ: 71.5 },
+    // The 2026 list groups jet fuel under «Querosenos».
+    turbosina: { id: 'turbosina', nombre: 'Turbosina (querosenos)', oficialMjBl: 5888, fisicaMjKg: 44.1, densidadKgL: 0.8045, tRef: 20, co2TJ: 71.5 },
     combustoleo: { id: 'combustoleo', nombre: 'Combustóleo', oficialMjBl: 6656, fisicaMjKg: 40.4, densidadKgL: 0.9941, tRef: 20, co2TJ: 77.4 },
     coque: { id: 'coque', nombre: 'Coque de petróleo', oficialMjKg: 34.518, fisicaMjKg: 32.5, densidadKgL: null, tRef: null, co2TJ: 97.5, soloMasa: true },
     maya: { id: 'maya', nombre: 'Crudo Maya', oficialMjBl: 6347, fisicaMjKg: 42.3, api: 21.5, densidadKgL: crudo(21.5), tRef: 15.56, co2TJ: 73.3, crudo: true },

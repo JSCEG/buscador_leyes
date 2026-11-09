@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ENERGETICOS, bep, cadena, cadenaGas, co2Kg, gnl } from '../src/lib/calc/energeticos.js';
+import { PRODUCTOS_PETROLIFEROS } from '../src/lib/calc/pestanas.js';
 
 const near = (g, w, t) => expect(Math.abs(g - w)).toBeLessThanOrEqual(t);
 
@@ -21,6 +22,11 @@ describe('fuel chains', () => {
   it('labels each base', () => {
     expect(cadena('gasolina')).toMatchObject({ clase: 'oficial', fuente: 'lista-2026', anio: 2026 });
     expect(cadena('gasolina', 'fisica')).toMatchObject({ fuente: 'ipcc-2006' });
+  });
+  // The 2026 list has no «Turbosina» row: 5 888 MJ/bl is «Querosenos» (user's call, 2026-11-09).
+  it('names jet fuel the way the list groups it', () => {
+    expect(ENERGETICOS.turbosina.nombre).toBe('Turbosina (querosenos)');
+    expect(PRODUCTOS_PETROLIFEROS.find(p => p.id === 'turbosina').nombre).toBe('Turbosina (querosenos)');
   });
   it('closes the chain with an edited density', () => near(cadena('diesel', 'fisica', { densidad: 0.85 }).mjPorL, 43 * 0.85, 1e-9));
 });

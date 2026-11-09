@@ -9,7 +9,7 @@ import { UNIDADES, unidadesDe } from './unidades.js';
 export const PRODUCTOS_PETROLIFEROS = Object.freeze([
     { id: 'gasolina', nombre: 'Gasolinas y naftas' },
     { id: 'diesel', nombre: 'Diésel' },
-    { id: 'turbosina', nombre: 'Turbosina' },
+    { id: 'turbosina', nombre: 'Turbosina (querosenos)' },
     { id: 'combustoleo', nombre: 'Combustóleo' },
     { id: 'coque', nombre: 'Coque de petróleo' },
     { id: 'maya', nombre: 'Crudo Maya' },
