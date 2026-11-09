@@ -25,7 +25,8 @@ const LISTA = [
     f('acuerdo-cne-2026', 'Acuerdo de tarifas finales de suministro básico 2026', 'CNE', 'https://dof.gob.mx/nota_detalle_popup.php?codigo=5783862', '2026'),
     f('acuerdo-cel-2026', 'Requisitos de Certificados de Energías Limpias para 2025 y 2026 (leído en despachos; falta el Diario Oficial)', 'SENER', 'https://www.cuatrecasas.com/es/spain/publico/art/sener-cels-requisitos-2025-2026', '2026-08-17'),
     f('bme-2015', 'Bases del Mercado Eléctrico', 'SENER', 'http://www.dof.gob.mx/nota_detalle.php?codigo=5407715&fecha=08/09/2015', '2015-09-08'),
-    f('lse', 'Ley del Sector Eléctrico', 'Congreso de la Unión', '#art-LSE-Art-019', '2025-03-18'),
+    // Article 19 of the LSE on this site (Supabase id; the LSE-Art-019 chunk id does not open).
+    f('lse', 'Ley del Sector Eléctrico', 'Congreso de la Unión', '#art-07b3add5-c54c-401a-8332-1941d39b0b70', '2025-03-18'),
     f('pladese', 'Plan de Desarrollo del Sector Eléctrico', 'SENER', 'https://sidof.segob.gob.mx/notas/docFuente/5770297', '2025'),
     f('global-solar-atlas', 'Global Solar Atlas', 'Banco Mundial', 'https://globalsolaratlas.info', REVISADO),
     f('copar-2012', 'Costos y parámetros de referencia (COPAR) 2012', 'CFE', 'https://ewsdata.rightsindevelopment.org/files/documents/05/IADB-ME-G1005_0SXE4Uh.pdf', '2012'),

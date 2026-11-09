@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { renderCalculadoraView } from '../src/scripts/calculadora-view.js';
 import { calcRoute } from '../src/lib/calc/ruta.js';
+import { idArticulo } from '../src/lib/calc/textos.js';
 
 const montar = (hash = '#calculadora') => {
   const host = document.createElement('div');
@@ -156,7 +157,7 @@ describe('calculator view', () => {
     const d = host.querySelector('[data-ce="entender"][data-id="precio-potencia"]');
     d.open = true;
     d.dispatchEvent(new Event('toggle'));
-    expect(d.querySelector('a[href="#art-LSE-Art-112"]')).not.toBeNull();
+    expect(d.querySelector(`a[href="#art-${idArticulo('LSE-Art-112')}"]`)).not.toBeNull();
     expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toContain('366.48');
   });
   it('answers «¿En qué periodo estoy?»', () => {

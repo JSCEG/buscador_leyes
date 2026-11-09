@@ -30,11 +30,19 @@ describe('provenance', () => {
     const d = JSON.parse(readFileSync(`public/data/${f}`, 'utf8'));
     return (Array.isArray(d) ? d : d.articulos || d.chunks || []).map(a => a.id);
   }));
-  const enlazados = Object.values(PARA_ENTENDER).flat().flatMap(t => t.articulos.map(a => a.id));
+  const articulos = Object.values(PARA_ENTENDER).flat().flatMap(t => t.articulos);
+  const enlazados = articulos.map(a => a.ref);
+  const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 
   it('links only articles that exist', () => {
     expect(enlazados.length).toBeGreaterThanOrEqual(13);
-    for (const id of enlazados) expect(ids.has(id), id).toBe(true);
+    for (const ref of enlazados) expect(ids.has(ref), ref).toBe(true);
+  });
+  // Supabase keys articles by UUID; the chunk ids of public/data do not open anything (#art-LSE-Art-112 gave 400).
+  it('opens each article by its Supabase id', () => {
+    for (const a of articulos) expect(a.id, a.ref).toMatch(UUID);
+    expect(new Set(articulos.map(a => a.id)).size).toBe(new Set(enlazados).size);
+    expect(FUENTES.lse.url).toMatch(/^#art-[0-9a-f-]{36}$/);
   });
   it('does not link articles with known defects', () => {
     expect(enlazados).not.toContain('LSH-Art-027');

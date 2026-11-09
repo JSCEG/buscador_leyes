@@ -13,7 +13,26 @@ export const NOTA_PIE = 'Cálculo orientativo. No sirve para medir ni facturar.'
 // Thousands keep a no-break space so «90 543» never splits across lines.
 const nb = s => s.replace(/(\d) (\d)/g, '$1 $2');
 const LEYENDA = `${LEYENDA_MERCADO}.`;
-const art = (id, texto) => ({ id, texto });
+
+// Articles open at #art-<Supabase id>. `ref` is the id in public/data, which the tests check offline;
+// the UUIDs were read from `articulos` by law and number on 2026-11-09 and their text matched.
+const ARTICULO = {
+    'LSE-Art-019': '07b3add5-c54c-401a-8332-1941d39b0b70',
+    'LSE-Art-025': 'bf41e0f7-29df-4935-b6db-241e72e0644d',
+    'LSE-Art-030': 'edb39cdd-7287-47b2-80ae-cae16548ef6c',
+    'LSE-Art-032': '8832fe98-64a2-4d74-940a-6e6588e920c4',
+    'LSE-Art-112': 'd97ee72c-d7ad-4e0c-b44e-a2fbc1784f74',
+    'LSE-Art-115': 'fc2f1aa7-cd74-43c1-aaaa-a1aa4347fa4c',
+    'LSE-Art-143': '743708b1-32e9-4448-9ddc-dec029a054d4',
+    'LSE-Art-144': '8a751121-c54b-49e9-ad9a-2219b4ae2025',
+    'LSE-Art-145': '265501b0-5347-45ce-9c4d-0ad2e824514b',
+    'LSE-Trans-03': 'ca928c82-61cd-435c-baaa-989fc8795670',
+    'RLSE-Art-002': 'b305cd86-0ace-4160-bfae-dfca7796cc46',
+    'RLSE-Art-191': '3ac19827-1561-4986-9bac-a33770b24274',
+    'RLPTE-Art-075': '76ee9daa-cfc6-4ec0-82fd-19d3b189e90f',
+};
+export const idArticulo = ref => ARTICULO[ref];
+const art = (ref, texto) => ({ id: ARTICULO[ref], ref, texto });
 const LSE = n => `Ley del Sector Eléctrico, artículo ${n}`;
 
 const tarjeta = (id, titulo, parrafos, { articulos = [], fuente = null, cuenta = null } = {}) => Object.freeze({ id, titulo, parrafos: parrafos.map(nb), articulos, fuente, cuenta });
