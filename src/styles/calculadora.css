@@ -1,0 +1,91 @@
+/* Calculadora de energía (#calculadora). Tokens of variables.css only: no hex, no !important.
+   One glass density (the calculation block); selected tab in guinda, main action in ink. */
+.ce-view { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 0 48px; color: var(--tinta); }
+.ce-view p { margin: 0; }
+
+.ce-cab { padding: 8px 0 0; }
+.ce-titulo { margin: 0; font: 600 clamp(30px, 4.4vw, 44px)/1.08 var(--font-display); letter-spacing: -.01em; color: var(--tinta); text-wrap: balance; }
+.ce-sub { margin-top: 10px; font: 400 17px/26px var(--font-sans); color: var(--tinta-suave); }
+.ce-atajos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+
+/* Tabs: slide sideways on phones. */
+.ce-tabs { display: flex; gap: 4px; margin-top: 22px; border-bottom: 1px solid var(--linea); overflow-x: auto; scrollbar-width: none; }
+.ce-tabs::-webkit-scrollbar { display: none; }
+.ce-tab { flex: none; min-height: 44px; padding: 10px 14px; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--tinta-suave); font: 600 14.5px/1.2 var(--font-sans); white-space: nowrap; cursor: pointer; transition: color var(--t-rapido), border-color var(--t-rapido); }
+.ce-tab:hover { color: var(--tinta); }
+.ce-tab[aria-selected="true"] { color: var(--rojo); border-bottom-color: var(--rojo); }
+.ce-tab:focus-visible { outline: 2px solid var(--rojo); outline-offset: -2px; }
+
+.ce-panel { margin-top: 18px; }
+.ce-calculo { padding: 18px; border-radius: var(--radius-lg); }
+
+/* Converter: one line where it fits, stacked below 768 px. */
+.ce-conversor { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; }
+.ce-campo { display: grid; gap: 5px; min-width: 0; }
+.ce-campo .ce-campo { gap: 5px; }
+.ce-etq { font: 600 12.5px/16px var(--font-sans); color: var(--tinta-suave); }
+.ce-ayuda { font: 400 12.5px/17px var(--font-sans); color: var(--tinta-suave); }
+.ce-campo--magnitud { flex: 1 1 200px; }
+.ce-campo--valor { flex: 1 1 160px; }
+.ce-campo--unidad { flex: 2 1 260px; }
+.ce-campo--producto { flex: 1.5 1 220px; }
+.ce-campo--horas { flex: 1 1 140px; }
+.ce-campo .bu-campo input { font-variant-numeric: tabular-nums; }
+.ce-oficial { font: 500 13px/18px var(--font-mono); color: var(--tinta-suave); font-variant-numeric: tabular-nums; }
+.ce-aviso-campo { min-height: 18px; margin-top: 6px; font: 500 13px/18px var(--font-sans); color: var(--tinta-suave); }
+.ce-aviso-campo:empty { min-height: 0; margin: 0; }
+
+/* Result. */
+.ce-resultado { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--linea); }
+.ce-ejemplo { margin-bottom: 8px; }
+.ce-principal { font: 600 clamp(26px, 4vw, 36px)/1.15 var(--font-display); color: var(--tinta); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ce-frente { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 10px 0 0; padding: 0; list-style: none; font: 500 16px/24px var(--font-sans); color: var(--tinta); font-variant-numeric: tabular-nums; }
+.ce-idea { margin-top: 12px; font: 400 15px/22px var(--font-sans); color: var(--tinta); }
+.ce-idea > span { font-weight: 600; }
+.ce-idea small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--tinta-suave); }
+.ce-origen { margin-top: 10px; font: 600 12px/16px var(--font-sans); letter-spacing: .02em; color: var(--tinta-suave); }
+.ce-avisos { display: grid; gap: 6px; margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--linea); list-style: none; font: 400 13.5px/20px var(--font-sans); color: var(--tinta-suave); }
+.ce-error { margin-top: 6px; font: 500 14px/20px var(--font-sans); color: var(--danger); }
+
+/* Disclosures. */
+.ce-desplegable { margin-top: 12px; border-top: 1px solid var(--linea); }
+.ce-desplegable > summary { display: flex; align-items: center; min-height: 44px; font: 600 14.5px/1.2 var(--font-sans); color: var(--tinta); cursor: pointer; }
+.ce-desplegable > summary:focus-visible { outline: 2px solid var(--rojo); outline-offset: 2px; }
+.ce-ajustes { display: flex; flex-wrap: wrap; gap: 14px; padding: 4px 0 14px; }
+.ce-ajustes > .ce-campo { flex: 1 1 220px; }
+.ce-seg { flex-wrap: wrap; }
+.ce-seg button { min-height: 36px; }
+.ce-formula { padding: 4px 0 16px; }
+.ce-base { display: grid; gap: 6px; margin-bottom: 12px; }
+.ce-pasos { margin: 0 0 14px; padding-left: 20px; font: 400 14px/22px var(--font-mono); color: var(--tinta); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ce-cifras { width: 100%; border-collapse: collapse; font: 400 13.5px/19px var(--font-sans); }
+.ce-cifras caption { padding: 0 0 6px; text-align: left; font: 600 12.5px/16px var(--font-sans); color: var(--tinta-suave); }
+.ce-cifras td { padding: 7px 8px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+.ce-cifras .ce-num { white-space: nowrap; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.ce-cifras .ce-rotulo { color: var(--tinta-suave); }
+.ce-h3 { margin: 16px 0 6px; font: 600 14px/20px var(--font-sans); color: var(--tinta); }
+.ce-fuentes { display: grid; gap: 6px; margin: 0; padding-left: 18px; font: 400 13.5px/20px var(--font-sans); color: var(--tinta-suave); }
+.ce-fuentes a { color: var(--tinta); text-decoration: underline; text-underline-offset: 2px; }
+.ce-nota { font: 400 13.5px/20px var(--font-sans); color: var(--tinta-suave); }
+
+/* Actions. */
+.ce-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.ce-estado { font: 500 13px/18px var(--font-sans); color: var(--tinta-suave); }
+.ce-manual { width: 100%; min-height: 96px; margin-top: 8px; padding: 10px 12px; border: 1px solid var(--linea); border-radius: var(--radius-md); background: var(--papel-alto); color: var(--tinta); font: 400 13px/19px var(--font-mono); resize: vertical; }
+
+.ce-pie { margin-top: 32px; font: 400 12.5px/18px var(--font-sans); color: var(--tinta-suave); }
+
+@media (max-width: 767px) {
+  .ce-calculo { padding: 14px; }
+  .ce-conversor { flex-direction: column; align-items: stretch; }
+  .ce-conversor > .ce-campo { flex: none; }
+  .ce-ajustes { flex-direction: column; }
+  .ce-ajustes > .ce-campo { flex: none; }
+  .ce-cifras, .ce-cifras tbody, .ce-cifras tr, .ce-cifras td { display: block; }
+  .ce-cifras tr { padding: 6px 0; border-bottom: 1px solid var(--linea); }
+  .ce-cifras td { padding: 1px 0; border: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ce-tab { transition: none; }
+}
