@@ -1,294 +1,369 @@
-// «Subestación eléctrica», en 3D: una subestación de distribución que recibe una línea de 115 kV y entrega 13.8 kV a
-// los circuitos de la ciudad. De izquierda a derecha: la línea que llega a su marco, las cuchillas (seccionadores), el
-// interruptor de potencia, el transformador, las barras de 13.8 kV con sus alimentadores, y la caseta de control.
+// «Subestación eléctrica», en 3D y con el formato Búho de «¿Cómo funciona?». Con el diseño de la subestación Coatepec, en Veracruz: dos líneas
+// de 115 kV llegan a sus barras, un transformador de 12/16/20 MVA baja a 13.8 kV y cuatro circuitos salen a la ciudad. Cuatro formas de verla:
+// un día de carga, el voltaje, una falla y un mantenimiento sin apagar.
+// Se arma con: node scripts/build-conceptos-3d.mjs subestacion
 //
-// Entrada: la carga de la zona (MW). Con la misma potencia, del lado de 13.8 kV pasa unas 8.3 veces más corriente que
-// del lado de 115 kV. Botón «Mantenimiento»: primero abre el interruptor (corta la corriente) y después las cuchillas
-// (dejan una abertura que se ve); al volver, se cierran en orden inverso.
-//
-// Cifras: I = P ÷ (√3 × V), con factor de potencia 1 para no complicar; transformador de ejemplo de 30 MVA.
-import * as THREE from 'three';
-import { crearMaquina, clamp, num } from '../comun/maquina.js';
-import { crearCorriente } from '../comun/corriente.js';
+// Lo que se repite entre las plantas con física está en conceptos-3d/planta-comun/.
+import { clamp01, num } from '../planta-comun/ayudas.js';
+import { barrasHTML, leyenda, pintarGrafica, seccionBarras, seccionColores, seccionDiagrama, seccionFuentes, seccionGrafica, seccionTabla, tablaHTML } from '../planta-comun/graficas.js';
+import { crearPagina } from '../planta-comun/pagina.js';
+import { APARTARRAYOS, CAMBIADOR, CAPACITOR, DEF, FLUIDOS, INTERRUPTOR, LIMITE, LIMITES, PARTES as PARTES_M, PASOS, RECIERRE, REPARTO, SUB, TC, TIERRA, TRAFO, amperes, bloqueo, dia, estadoPlanta, fallaEn, formaEn, mvaDe, pasoPlanta, pose, tRele, tapIdeal, tension } from './modelo.js';
+import { P_PLANTA, construir, escenario, materiales } from './planta.js';
+import { crearDiagrama } from './diagrama.js';
+import { FUENTES } from './fuentes.js';
 
-const F = 60;
-const V_ALTA = 115;
-const V_MEDIA = 13.8;
-const CAPACIDAD = 30;
-const BASE = 0.16;
-const FASES = [-0.35, 0, 0.35];
-const Y_ALTA = 1.35;
+const FIGURA = 'subestacion';
+const f1 = x => num(x, 1);
+const f2 = x => num(x, 2);
+const hora = h => { const x = ((h % 24) + 24) % 24; const m = Math.floor((x % 1) * 60); return `${String(Math.floor(x)).padStart(2, '0')}:${String(m).padStart(2, '0')}`; };
 
-let piezasS = null;
-let fase = 0;
-let maniobra = 0; // 0 cerrado · 1 interruptor abierto · 2 cuchillas abiertas
-let carga = 18;
-const amperes = (mw, kv) => (mw * 1000) / (Math.sqrt(3) * kv);
-
-crearMaquina({
-    figura: 'subestacion',
-    nombre: 'la subestación',
-    partes: [
-        { n: 1, nombre: 'Línea de llegada (115 kV)', ancla: [-2.9, 2.0, 0], vista: { tx: -2.6, ty: 1.0, tz: 0, az: 22, el: 14, d: 3.2 } },
-        { n: 2, nombre: 'Cuchillas (seccionadores)', ancla: [-1.75, 1.9, 0.5], vista: { tx: -1.75, ty: 1.1, tz: 0, az: 16, el: 16, d: 2.6 } },
-        { n: 3, nombre: 'Interruptor de potencia', ancla: [-0.95, 1.9, 0.5], vista: { tx: -0.95, ty: 0.9, tz: 0, az: 12, el: 14, d: 2.6 } },
-        { n: 4, nombre: 'Transformador de potencia', ancla: [0.25, 2.0, 0], vista: { tx: 0.25, ty: 0.8, tz: 0, az: 10, el: 16, d: 3.0 } },
-        { n: 5, nombre: 'Barras y alimentadores (13.8 kV)', ancla: [2.0, 1.4, 0.4], vista: { tx: 2.0, ty: 0.7, tz: 0.1, az: -14, el: 16, d: 3.0 } },
-        { n: 6, nombre: 'Caseta de control', ancla: [1.5, 1.3, -1.1], vista: { tx: 1.5, ty: 0.6, tz: -1.0, az: -6, el: 10, d: 2.4 } },
-    ],
-    vistas: [
-        { id: 'general', texto: 'General', tx: -0.2, ty: 0.85, tz: 0, az: 14, el: 20, d: 7.6 },
-        { id: 'alta', texto: 'Lado de 115 kV', tx: -1.6, ty: 1.0, tz: 0, az: 20, el: 14, d: 3.8 },
-        { id: 'arriba', texto: 'Arriba', tx: 0, ty: 0.3, tz: 0, az: 0, el: 70, d: 7.6 },
-    ],
-    entrada: { etiqueta: 'Carga de la zona', min: 0, max: 30, paso: 0.5, valor: 18, aria: 'Carga eléctrica de la zona en megawatts' },
-    selectores: [{ id: 'servicio', etiqueta: 'Operación', valor: 'servicio', opciones: [{ id: 'servicio', texto: 'En servicio' }, { id: 'mantenimiento', texto: 'Mantenimiento' }] }],
-    lento: [
-        { id: 'lento', texto: '1/60', k: 1 / 60, nota: 'Cámara lenta: un ciclo de la red dura un segundo.' },
-        { id: 'real', texto: 'Real', k: 1, nota: 'La corriente de cada fase va y viene 60 veces por segundo, desfasada un tercio de ciclo de las otras.' },
-    ],
-    hud: '<b data-c="mw"></b><span data-c="hud"></span>',
-    cifras: [
-        { id: 'ialta', etiqueta: 'Corriente en 115 kV', nota: 'por fase' },
-        { id: 'imedia', etiqueta: 'Corriente en 13.8 kV', nota: 'por fase, 8.3 veces más' },
-        { id: 'uso', etiqueta: 'Uso del transformador', nota: `de ${CAPACIDAD} MVA (ejemplo)` },
-        { id: 'estado', etiqueta: 'Estado', nota: 'interruptor y cuchillas' },
-    ],
-    curva: {
-        titulo: 'Corriente de cada lado según la carga',
-        leyenda: [{ texto: '13.8 kV' }, { texto: '115 kV' }],
-        nota: 'La misma potencia pasa con mucha menos corriente en alta tensión. I = P ÷ (√3 × V).',
-        dibujar(g, w, h, estado) {
-            const x = p => (p / 30) * (w - 10) + 5;
-            const y = a => h - 6 - (a / 1300) * (h - 14);
-            g.lineWidth = 1.4;
-            g.strokeStyle = estado.P.tinta;
-            g.beginPath(); g.moveTo(x(0), y(0)); g.lineTo(x(30), y(amperes(30, V_ALTA))); g.stroke();
-            g.lineWidth = 2.4;
-            g.strokeStyle = estado.P.acento;
-            g.beginPath(); g.moveTo(x(0), y(0)); g.lineTo(x(30), y(amperes(30, V_MEDIA))); g.stroke();
-            g.fillStyle = estado.P.acento;
-            g.beginPath(); g.arc(x(carga), y(amperes(carga, V_MEDIA)), 4.5, 0, Math.PI * 2); g.fill();
-        },
-    },
-    corte: false,
-    anchoVertical: 1.8,
-    lejaniaMax: 3.0,
-    entradaRecorrido: t => 15 + 12 * Math.sin(t * 0.3),
-
-    construir({ raiz, M, P, sombra, contorno, escena }) {
-        raiz.add(contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.16, 3.2), M.mat(P.ceramica === '#f7f5f1' ? '#ecebe6' : '#d9d7d1', { roughness: 0.9 })))).translateY(0.08));
-        const curva = (...p) => new THREE.CatmullRomCurve3(p.map(v => new THREE.Vector3(...v)));
-        // aislador de porcelana: columna de discos
-        const aislador = (alto, radio = 0.045) => {
-            const g = new THREE.Group();
-            const n = Math.max(3, Math.round(alto / 0.07));
-            g.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(radio * 0.6, radio * 0.6, alto, 12), M.ceramica)).translateY(alto / 2));
-            for (let i = 0; i < n; i++) g.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(radio, radio, 0.018, 18), M.ceramica)).translateY(0.04 + (i * (alto - 0.08)) / (n - 1)));
-            return g;
-        };
-        const pata = (x, z, alto) => { const m = sombra(new THREE.Mesh(new THREE.BoxGeometry(0.06, alto, 0.06), M.grafito)); m.position.set(x, BASE + alto / 2, z); return m; };
-
-        // 1 · torre y marco de remate de la línea de 115 kV
-        const llegada = new THREE.Group();
-        for (const z of [-0.6, 0.6]) llegada.add(pata(-2.4, z, 1.55));
-        llegada.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 1.4), M.borde)).translateX(-2.4).translateY(BASE + 1.55));
-        const torre = new THREE.Group();
-        torre.position.set(-3.15, BASE, 0);
-        for (const [dx, dz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) {
-            const p = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.02, 2.0, 6), M.borde));
-            p.position.set(dx * 0.1, 1.0, dz * 0.1);
-            p.rotation.set(dz * 0.05, 0, -dx * 0.05);
-            torre.add(p);
-        }
-        torre.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.04, 1.0), M.borde)).translateY(1.75));
-        llegada.add(torre);
-        raiz.add(llegada);
-
-        // 2 · cuchillas: dos aisladores por fase y una navaja que gira hacia arriba al abrir
-        const cuchillas = new THREE.Group();
-        const navajas = [];
-        for (const z of FASES) {
-            for (const x of [-1.95, -1.55]) { const a = aislador(0.55); a.position.set(x, BASE + 0.6, z); cuchillas.add(a); }
-            const base = sombra(new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.05, 0.1), M.grafito));
-            base.position.set(-1.75, BASE + 0.58, z);
-            cuchillas.add(base, pata(-1.75, z, 0.56));
-            const bisagra = new THREE.Group();
-            bisagra.position.set(-1.95, BASE + 1.17, z);
-            bisagra.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.025, 0.04), M.acero)).translateX(0.21));
-            cuchillas.add(bisagra);
-            navajas.push(bisagra);
-        }
-        raiz.add(cuchillas);
-
-        // 3 · interruptor de potencia: tres polos sobre un gabinete con su mecanismo y una lámpara de estado
-        const interruptor = new THREE.Group();
-        interruptor.position.set(-0.95, BASE, 0);
-        interruptor.add(contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 1.0), M.ceramica))).translateY(0.25));
-        interruptor.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.04, 1.02), M.borde)).translateY(0.5));
-        for (const z of FASES) {
-            const polo = aislador(0.55, 0.07);
-            polo.position.set(0, 0.52, z);
-            interruptor.add(polo, sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.08, 16), M.acero)).translateY(1.12).translateZ(z));
-        }
-        const lampara = new THREE.Mesh(new THREE.SphereGeometry(0.045, 16, 12), new THREE.MeshBasicMaterial({ color: P.positivo }));
-        lampara.position.set(0.21, 0.36, 0.3);
-        lampara.userData.sinResalte = true;
-        interruptor.add(lampara);
-        raiz.add(interruptor);
-
-        // 4 · transformador de potencia: tanque, radiadores, boquillas de alta (altas) y de media (bajas), tanque conservador
-        const trafo = new THREE.Group();
-        trafo.position.set(0.25, BASE, 0);
-        trafo.add(contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.85, 1.0), M.ceramica))).translateY(0.425));
-        trafo.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.97, 0.04, 1.02), M.borde)).translateY(0.85));
-        for (const s of [-1, 1]) for (let i = 0; i < 5; i++) trafo.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 0.025), M.acero)).translateY(0.4).translateZ(s * (0.53 + i * 0.06)));
-        for (const z of FASES) {
-            const b = aislador(0.45, 0.055);
-            b.position.set(-0.3, 0.86, z);
-            const bm = aislador(0.2, 0.04);
-            bm.position.set(0.3, 0.86, z);
-            trafo.add(b, bm);
-        }
-        trafo.add(contorno(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.8, 24).rotateX(Math.PI / 2), M.ceramica)), 40).translateY(1.15).translateX(0.05).translateZ(0));
-        trafo.children.at(-1).position.set(0.05, 1.12, 0);
-        raiz.add(trafo);
-
-        // 5 · barras de 13.8 kV y tres alimentadores que salen hacia la ciudad
-        const barras = new THREE.Group();
-        for (const z of [-0.6, 0.6]) barras.add(pata(1.4, z, 0.95), pata(2.4, z, 0.95));
-        barras.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.06, 0.06), M.borde)).translateX(1.9).translateY(BASE + 0.95).translateZ(-0.6));
-        barras.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.06, 0.06), M.borde)).translateX(1.9).translateY(BASE + 0.95).translateZ(0.6));
-        for (const z of FASES) barras.add(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.0, 10).rotateZ(Math.PI / 2), M.cobre)).translateX(1.9).translateY(BASE + 0.85).translateZ(z));
-        const salidas = [];
-        for (const [i, z] of [[0, -0.9], [1, 0.05], [2, 1.0]]) {
-            const poste = sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.04, 0.9, 10), M.ceramica));
-            poste.position.set(3.15, BASE + 0.45, z);
-            const cruceta = sombra(new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.03, 0.4), M.grafito));
-            cruceta.position.set(3.15, BASE + 0.85, z);
-            const caja = contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.32, 0.22), M.ceramica)));
-            caja.position.set(2.65, BASE + 0.16, z * 0.8);
-            barras.add(poste, cruceta, caja);
-            salidas.push(curva([2.3, BASE + 0.85, FASES[i]], [2.6, BASE + 0.55, z * 0.8], [2.9, BASE + 0.8, z], [3.15, BASE + 0.87, z]));
-        }
-        raiz.add(barras);
-
-        // 6 · caseta de control con su pantalla
-        const caseta = new THREE.Group();
-        caseta.position.set(1.5, BASE, -1.1);
-        caseta.add(contorno(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.5), M.ceramica))).translateY(0.25));
-        caseta.add(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.98, 0.05, 0.58), M.borde)).translateY(0.52));
-        const tablero = pantalla(0.7, 0.32);
-        tablero.position.set(0, 0.28, 0.255);
-        caseta.add(tablero);
-        raiz.add(caseta);
-
-        // conductores: de la torre al marco, a las cuchillas, al interruptor y a las boquillas de alta; de las de media a las barras
-        const conductores = new THREE.Group();
-        const altas = [];
-        const medias = [];
-        FASES.forEach(z => {
-            const tramo1 = curva([-3.15, BASE + 1.75, z * 1.3], [-2.8, BASE + 1.45, z * 1.15], [-2.4, BASE + 1.5, z], [-2.1, BASE + 1.25, z], [-1.95, BASE + 1.19, z]);
-            const tramo2 = curva([-1.55, BASE + 1.19, z], [-1.3, BASE + 1.3, z], [-0.95, BASE + 1.2, z]);
-            const tramo3 = curva([-0.95, BASE + 1.2, z], [-0.6, BASE + 1.45, z], [-0.05, BASE + 1.38, z]);
-            const tramoM = curva([0.55, BASE + 1.08, z], [0.9, BASE + 1.1, z], [1.4, BASE + 0.9, z], [1.5, BASE + 0.86, z]);
-            for (const c of [tramo1, tramo2, tramo3]) conductores.add(new THREE.Mesh(new THREE.TubeGeometry(c, 40, 0.012, 6, false), M.grafito));
-            conductores.add(new THREE.Mesh(new THREE.TubeGeometry(tramoM, 40, 0.016, 6, false), M.cobre));
-            // para la corriente, cada fase es un solo recorrido (en la corriente común, el segundo cable de un par es el regreso)
-            altas.push(curva(...[tramo1, tramo2, tramo3].flatMap(c => c.points.map(p => p.toArray()))));
-            medias.push(tramoM);
-        });
-        salidas.forEach(c => conductores.add(new THREE.Mesh(new THREE.TubeGeometry(c, 40, 0.012, 6, false), M.grafito)));
-        raiz.add(conductores);
-        // corriente por fase (tres fases, desfasadas un tercio de ciclo): pocos puntos en alta, muchos en media
-        const corrAlta = altas.map(t => crearCorriente({ raiz, escena, curvas: [t], P, radio: 0.02, puntosPorCable: 10 }));
-        const corrMedia = medias.map((t, i) => crearCorriente({ raiz, escena, curvas: [curva(...[t, salidas[i]].flatMap(c => c.points.map(p => p.toArray())))], P, radio: 0.02, puntosPorCable: 26 }));
-
-        piezasS = { navajas, lampara, tablero, corrAlta, corrMedia };
-        return {
-            piezas: { 1: [llegada], 2: [cuchillas], 3: [interruptor], 4: [trafo], 5: [barras], 6: [caseta] },
-            movibles: [
-                { parte: 1, objetos: [torre], hacia: [-0.4, 0, 0] },
-                { parte: 2, objetos: [cuchillas], hacia: [-0.2, 0.5, 0.3] },
-                { parte: 3, objetos: [interruptor], hacia: [0, 0.4, 0.5] },
-                { parte: 4, objetos: [trafo], hacia: [0.1, 0.6, -0.4] },
-                { parte: 5, objetos: [barras], hacia: [0.4, 0, 0.3] },
-                { parte: 6, objetos: [caseta], hacia: [0.2, 0, -0.5] },
-            ],
-            anclas: { 1: [torre, [0, 2.0, 0]], 2: [cuchillas, [-1.75, 1.6, 0.4]], 3: [interruptor, [0, 1.45, 0.3]], 4: [trafo, [0, 1.45, 0]], 5: [barras, [1.9, 1.3, 0.3]], 6: [caseta, [0, 0.8, 0]] },
-        };
-    },
-
-    paso(estado) {
-        const S = piezasS;
-        const { dt, dtSim } = estado;
-        estado.entrada += (estado.entradaObjetivo - estado.entrada) * (1 - Math.exp(-dt / 0.3));
-        carga = estado.entrada;
-        fase += 2 * Math.PI * F * dtSim;
-        // maniobra: abre primero el interruptor y luego las cuchillas; al cerrar, al revés
-        const objetivo = estado.sel.servicio === 'mantenimiento' ? 2 : 0;
-        maniobra += clamp(objetivo - maniobra, -dt * 0.8, dt * 0.8);
-        const abiertoInt = maniobra > 0.5;
-        const abiertoCuch = clamp(maniobra - 1, 0, 1);
-        S.navajas.forEach(n => { n.rotation.z = abiertoCuch * 1.2; });
-        S.lampara.material.color.set(abiertoInt ? estado.P.negativo : estado.P.positivo);
-        const pasa = abiertoInt ? 0 : 1;
-        const mw = carga * pasa;
-        const iA = amperes(mw, V_ALTA);
-        const iM = amperes(mw, V_MEDIA);
-        S.tablero.userData.poner([`${num(V_ALTA)} kV · ${num(iA)} A`, `${num(V_MEDIA, 1)} kV · ${num(iM)} A`, `${num(mw, 1)} MW`]);
-        estado.sub = { mw };
-        const estadoTxt = maniobra < 0.02 ? 'en servicio' : maniobra > 1.98 ? 'abierto y aislado' : abiertoInt ? 'abriendo cuchillas' : 'abriendo interruptor';
-        return {
-            cifras: {
-                mw: `${num(mw, 1)} MW`,
-                hud: maniobra > 0.02 ? (maniobra > 1.98 ? 'Aislada: las cuchillas abiertas dejan ver que no hay conexión' : 'Maniobra: primero el interruptor, después las cuchillas') : `${num(V_ALTA)} kV entran · ${num(V_MEDIA, 1)} kV salen a la ciudad`,
-                ialta: `${num(iA)} A`,
-                imedia: `${num(iM)} A`,
-                uso: `${num((mw / CAPACIDAD) * 100)} %`,
-                estado: estadoTxt,
-            },
-        };
-    },
-
-    despues(estado) {
-        const S = piezasS;
-        const { mw } = estado.sub;
-        const base = { camara: estado.camara, w: estado.w, h: estado.h, dt: estado.dtSim, polos: 0 };
-        const k = mw / CAPACIDAD;
-        [0, 1, 2].forEach(i => {
-            const onda = Math.sin(fase - (i * 2 * Math.PI) / 3);
-            S.corrAlta[i].actualizar({ ...base, avance: 0.02 * 2 * Math.PI * F, corriente: onda * k * 0.12, visible: k > 0.01 ? 1 : 0 });
-            S.corrMedia[i].actualizar({ ...base, avance: 0.02 * 2 * Math.PI * F, corriente: onda * k, visible: k > 0.01 ? 1 : 0 });
-        });
-    },
-});
-
-// tablero de la caseta: tres renglones claros sobre fondo oscuro
-function pantalla(ancho, alto) {
-    const c = document.createElement('canvas');
-    c.width = 320;
-    c.height = Math.round(320 * alto / ancho);
-    const g = c.getContext('2d');
-    const t = new THREE.CanvasTexture(c);
-    t.colorSpace = THREE.SRGBColorSpace;
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(ancho, alto), new THREE.MeshBasicMaterial({ map: t }));
-    m.userData.sinResalte = true;
-    let ultimo = '';
-    m.userData.poner = lineas => {
-        const clave = lineas.join('|');
-        if (clave === ultimo) return;
-        ultimo = clave;
-        g.fillStyle = '#13151f';
-        g.fillRect(0, 0, c.width, c.height);
-        g.textAlign = 'center';
-        g.textBaseline = 'middle';
-        lineas.forEach((l, i) => {
-            g.fillStyle = i === 2 ? '#ffd23f' : '#d9ffe6';
-            g.font = `700 ${Math.round(c.height * (i === 2 ? 0.26 : 0.2))}px Manrope, sans-serif`;
-            g.fillText(l, c.width / 2, c.height * (0.2 + i * 0.3));
-        });
-        t.needsUpdate = true;
-    };
-    return m;
+// ------------------------------------------------------------------ puntos clave
+// En el mismo orden y con el mismo número que las partes de la ficha de Aprende (src/data/como-funciona.js).
+const FICHAS = [
+    { parte: 'lineas', nombre: 'Líneas de 115 kV', modo: 'carga', accion: 'punta', eq: `Llegan de la línea ${SUB.desde}`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M5 21 9 3h6l4 18M7 12h10M3 6h18"/>',
+        texto: 'La energía llega en alta tensión por dos líneas: si una falla, queda la otra. Con más voltaje hace falta menos corriente para la misma potencia, y se pierde menos en el camino. Hasta arriba va el cable de guarda, que recibe los rayos antes que los conductores. El marco de acero las recibe y las baja al patio.' },
+    { parte: 'apartarrayos', nombre: 'Apartarrayos', modo: 'falla', accion: 'rayo', eq: `Dejan pasar hasta ${APARTARRAYOS.descarga} kV; el equipo aguanta ${num(APARTARRAYOS.aguantaAqui)}`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M13 2 5 13h6l-2 9 8-12h-6z"/>',
+        texto: 'Si un rayo pega en la línea, el voltaje se dispara. Estas columnas no hacen nada con el voltaje normal, pero ante un golpe así se vuelven conductoras y mandan el exceso a tierra en un instante. Van a la entrada de cada línea, junto al transformador y en cada circuito. Prueba con el botón.' },
+    { parte: 'cuchillas', nombre: 'Cuchillas', modo: 'maniobra', accion: 'paso', eq: 'Se abren sin corriente: no pueden apagar un arco', recorrido: { noche: false, adentro: false },
+        icono: '<path d="M3 17h5l9-9M16 17h5"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/>',
+        texto: 'Son navajas que se levantan y dejan una abertura que se ve a simple vista. No sirven para cortar la corriente: si se abrieran con carga, se formaría un arco. Por eso primero abre el interruptor y después ellas. Algunas traen una navaja más, que aterriza el equipo para que nadie trabaje con algo energizado.' },
+    { parte: 'interruptor', nombre: 'Interruptor de potencia', modo: 'falla', accion: 'falla', eq: `En 115 kV abre en 3 ciclos: ${INTERRUPTOR.alta.ms} milisegundos`, recorrido: { noche: false, adentro: false },
+        icono: '<rect x="5" y="7" width="14" height="10" rx="2"/><path d="M2 12h3M19 12h3M9 12h6"/>',
+        texto: 'Este sí corta, incluso una falla de miles de amperes. Al separar sus contactos se forma un arco, y un gas, el SF6, lo apaga en milésimas de segundo. Hay uno por línea y uno para el transformador. Ese gas calienta el planeta 23,500 veces más que el CO₂: por eso se cuida que no se escape.' },
+    { parte: 'medicion', nombre: 'Transformadores de medida', modo: 'falla', accion: 'falla', eq: `En cada circuito: ${TC} A se vuelven 5 A`, recorrido: { noche: false, adentro: false },
+        icono: '<circle cx="12" cy="12" r="7"/><path d="M12 12l4-3M5 12h2M17 12h2"/>',
+        texto: 'Los relevadores y los medidores no pueden recibir miles de volts ni cientos de amperes. Estos aparatos les mandan una copia pequeña y fiel: los de corriente, 5 A por cada 600 en un circuito; los de potencial, unos cuantos volts. Con esa copia, la caseta sabe qué pasa y decide cuándo abrir.' },
+    { parte: 'barras', nombre: 'Barras de 115 kV', modo: 'carga', accion: 'punta', eq: 'Unen las dos líneas con el transformador', recorrido: { noche: false, adentro: false },
+        icono: '<path d="M3 6h18M3 12h18M3 18h18"/><path d="M8 3v18M16 3v18"/>',
+        texto: 'Son tubos de aluminio sobre aisladores, uno por fase. A ellas llegan las dos líneas y de ellas sale el transformador. Coatepec tenía además una barra de transferencia, que aquí no se dibuja: con ella y un interruptor de repuesto se puede dar mantenimiento sin desconectar una línea.' },
+    { parte: 'transformador', nombre: 'Transformador de potencia', modo: 'carga', abrir: true, accion: 'vent', eq: `${TRAFO.etapas[0]}, ${TRAFO.etapas[1]} o ${TRAFO.etapas[2]} MVA, según sus ventiladores`, recorrido: { noche: false, adentro: false },
+        icono: '<circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/>',
+        texto: 'Baja de 115 kV a 13.8 kV. Adentro, un núcleo de hierro y tres devanados de cobre van en aceite. Las pérdidas lo calientan: el aceite sube a los radiadores, se enfría y regresa. Con ventiladores aguanta más carga. Arriba está el tanque conservador, con el relevador Buchholz, que detecta el gas de una falla adentro.' },
+    { parte: 'cambiador', nombre: 'Cambiador de derivaciones', modo: 'voltaje', abrir: true, accion: 'masDemanda', eq: `${CAMBIADOR.pasos * 2 + 1} posiciones de 0.625 %: ±10 %`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M12 3v18M7 8l5-5 5 5M7 16l5 5 5-5"/>',
+        texto: 'Cuando sube la carga, el voltaje baja. Este mecanismo cambia cuántas vueltas del devanado se usan, sin cortar la corriente, y sube o baja un poco el voltaje en cada paso. Espera unos segundos antes de moverse, para no reaccionar a cada cambio pequeño. El número del gabinete dice en qué posición va.' },
+    { parte: 'barras13', nombre: 'Barras de 13.8 kV', modo: 'maniobra', accion: 'paso', eq: 'Y una de interconexión, para no apagar', recorrido: { noche: false, adentro: false },
+        icono: '<path d="M4 5v14M20 5v14M4 9h16M4 15h16"/>',
+        texto: 'De estas barras sale cada circuito. Más afuera corre otra, la de interconexión: con sus cuchillas de paso se unen las salidas de dos circuitos, y el interruptor de uno lleva a los dos mientras el otro recibe mantenimiento. Así nadie se queda sin luz.' },
+    { parte: 'alimentadores', nombre: 'Interruptores de 13.8 kV', modo: 'falla', abrir: true, accion: 'falla', eq: `Abren en unos ${INTERRUPTOR.media.ms} milisegundos`, recorrido: { noche: false, adentro: false },
+        icono: '<rect x="4" y="8" width="16" height="9" rx="2"/><path d="M8 8V5M16 8V5M12 12h.01"/>',
+        texto: 'Hay uno para el transformador y uno por circuito. El de cada circuito tiene un relevador que mide la corriente: si pasa de lo normal, cuenta, y entre más grande la falla, menos tarda. Después de abrir, vuelve a cerrar solo, por si la falla ya se fue. Con la ficha abierta se ven sus contactos.' },
+    { parte: 'capacitores', nombre: 'Banco de capacitores', modo: 'voltaje', accion: 'cap', eq: `${num(CAPACITOR.mvar, 1)} MVAr: seis unidades de 200 kVAr`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M10 4v16M14 4v16M3 12h7M14 12h7"/>',
+        texto: 'Los motores y muchos aparatos piden, además de energía, una corriente que va y viene sin hacer trabajo. Estos capacitores la dan aquí mismo, en vez de que viaje desde las centrales. Así baja la corriente que pasa por el transformador y sube un poco el voltaje. Desconéctalos con el botón.' },
+    { parte: 'caseta', nombre: 'Caseta de control', modo: 'falla', abrir: true, accion: 'falla', eq: 'Relevadores, medición, control y baterías', recorrido: { noche: false, adentro: false },
+        icono: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h4M7 13h10M15 9h2"/>',
+        texto: 'Aquí llegan las copias de corriente y voltaje, y aquí están los relevadores que deciden cuándo abrir: el diferencial y el Buchholz cuidan al transformador; los de sobrecorriente, a los circuitos. Sus baterías los mantienen despiertos aunque se vaya la luz. En el tablero, lo de 115 kV va en morado y lo de 13.8 kV en blanco.' },
+    { parte: 'tierras', nombre: 'Red de tierras', modo: 'falla', abrir: true, accion: 'rayo', eq: `${num(TIERRA.metros)} m de cobre: ${f2(TIERRA.ohm)} Ω`, recorrido: { noche: false, adentro: false },
+        icono: '<path d="M12 3v9M5 12h14M8 16h8M10.5 20h3"/>',
+        texto: 'Bajo la grava hay una malla de cable de cobre, con varillas de 3 m. Todo lo metálico, cerca incluida, va unido a ella. Si una falla manda corriente a la tierra, la malla la reparte para que el voltaje entre los pies, o entre la mano y los pies, no lastime a nadie. La grava ayuda: casi no conduce.' },
+    { parte: 'colonia', nombre: 'Circuitos y colonia', modo: 'voltaje', accion: 'largo', eq: 'A la última casa le llega menos voltaje', recorrido: { noche: false, adentro: false },
+        icono: '<path d="M3 21V10l5-4 5 4v11M13 21v-7l4-3 4 3v7M3 21h18"/>',
+        texto: 'Cada circuito sale en postes hacia su barrio, y el voltaje se va perdiendo a lo largo del cable: a la última casa le llega menos que a la primera. Un transformador de poste lo baja otra vez para las casas; eso se ve en la red de distribución. Si la luz de las ventanas baja, es que llega poco voltaje.' },
+];
+const VISTAS = Object.fromEntries(PARTES_M.map(p => [p.id, p.vista]));
+const MODOS = {
+    carga: { nombre: 'Un día de carga', corto: 'Carga', resumen: 'La carga sube de tarde y de noche, y el transformador se calienta con ella. Cuando el aceite pasa de cierta temperatura, se prenden los ventiladores. Cambia la demanda máxima y el calor del día.', aclara: 'El aceite caliente sube a los radiadores y regresa frío. La forma del día es de ejemplo.', mando: { nombre: 'Demanda máxima', campo: 'pico', rango: LIMITES.pico, texto: v => `${num(v)} MW` }, mando2: { nombre: 'Calor del día', campo: 'Tmax', rango: LIMITES.Tmax, texto: v => `${num(v)} °C` }, reloj: { texto: 'el día', avanzar: (p, dt) => { p.hora = (p.hora + (dt * 24) / 36) % 24; return false; } } },
+    voltaje: { nombre: 'El voltaje', corto: 'Voltaje', resumen: 'Con más carga, el voltaje baja en el transformador y a lo largo del circuito. El cambiador de derivaciones lo corrige paso a paso, y los capacitores ayudan. Sube la demanda y mira cómo responde.', aclara: 'Del 115 kV que llega hasta la última casa del circuito 1. La banda y la espera del cambiador son de ejemplo.', mando: { nombre: 'Demanda', campo: 'P', rango: LIMITES.P, texto: v => `${f1(v)} MW` }, mando2: { nombre: 'Largo del circuito', campo: 'km', rango: LIMITES.km, texto: v => `${num(v)} km` } },
+    falla: { nombre: 'Una falla', corto: 'Falla', resumen: 'Una rama cae sobre el circuito 1 y la corriente se dispara. El relevador cuenta, el interruptor abre, y a los segundos vuelve a cerrar por si la falla ya se fue. Mueve la rama y hazla caer.', aclara: 'El circuito 1, de las barras a la rama. Los ajustes del relevador y del recierre son de ejemplo.', mando: { nombre: 'Dónde cae la rama', campo: 'd', rango: LIMITES.d, texto: v => `a ${f1(v)} km` } },
+    maniobra: { nombre: 'Mantenimiento', corto: 'Reparar', resumen: 'Para revisar el interruptor del circuito 2 sin dejar a nadie sin luz, se pasa su carga al interruptor del circuito 1 por la barra de interconexión. El orden importa. Da cada paso con el botón.', aclara: 'Los circuitos 1 y 2, la barra de interconexión y sus cuchillas de paso.', mando: { nombre: 'Demanda', campo: 'P', rango: LIMITES.P, texto: v => `${f1(v)} MW` } },
+};
+let planta = estadoPlanta();
+function avanzarPaso(p, pag) {
+    if (p.paso >= PASOS.length - 1) { p.paso = 0; p.aviso = null; }
+    else {
+        const no = bloqueo(p.paso, p.paso + 1, p.P);
+        p.aviso = no;
+        if (!no) p.paso += 1;
+    }
+    pag?.invalidar();
 }
+const BOTONES = [
+    { id: 'vent', visible: p => p.modo === 'carga', pulsado: p => !p.vent, texto: p => (p.vent ? 'Ventiladores en automático' : 'Ventiladores descompuestos'), alTocar: p => { p.vent = !p.vent; } },
+    { id: 'cap', visible: p => p.modo === 'voltaje', pulsado: p => !p.cap, texto: p => (p.cap ? 'Con capacitores' : 'Sin capacitores'), alTocar: p => { p.cap = !p.cap; } },
+    { id: 'auto', visible: p => p.modo === 'voltaje', pulsado: p => !p.auto, texto: p => (p.auto ? 'Cambiador automático' : 'Cambiador quieto'), alTocar: p => { p.auto = !p.auto; } },
+    { id: 'falla', visible: p => p.modo === 'falla', pulsado: p => p.falla, texto: p => (p.falla ? 'Quitar la falla' : 'Que caiga la rama'), alTocar: p => { p.falla = !p.falla; } },
+    { id: 'tipo', visible: p => p.modo === 'falla', pulsado: p => p.tipo !== DEF.tipo, texto: p => (p.tipo === 'pasajera' ? 'Falla pasajera' : 'Falla que se queda'), alTocar: p => { p.tipo = p.tipo === 'pasajera' ? 'permanente' : 'pasajera'; p.falla = false; } },
+    { id: 'rayo', visible: p => p.modo === 'falla', pulsado: () => false, texto: () => 'Que caiga un rayo', alTocar: p => { p.rayo = true; } },
+    { id: 'paso', visible: p => p.modo === 'maniobra', pulsado: p => p.paso > 0, texto: p => PASOS[p.paso].boton ?? 'Regresar todo', alTocar: (p, pag) => avanzarPaso(p, pag) },
+    { id: 'mal', visible: p => p.modo === 'maniobra', pulsado: () => false, texto: () => 'Abrir una cuchilla con corriente', alTocar: p => { if (p.paso < 3) { p.arco = true; p.aviso = 'Una cuchilla no apaga arcos: el bloqueo no la deja abrir mientras su interruptor esté cerrado.'; } else p.aviso = 'El interruptor 2 ya está abierto: sus cuchillas pueden abrirse sin arco.'; } },
+];
+const ACCIONES = {
+    punta: { texto: () => 'Ir a la hora de más carga', hacer: (p, pag) => { p.hora = 19.5; p.corre = false; pag.ponerMando(); pag.invalidar(); pag.rotular(); } },
+    vent: { texto: p => (p.vent ? 'Descomponer los ventiladores' : 'Arreglar los ventiladores'), hacer: (p, pag) => { p.vent = !p.vent; pag.invalidar(); pag.rotular(); } },
+    masDemanda: { texto: p => (p.P > 20 ? 'Regresar la demanda' : 'Subir la demanda a 22 MW'), hacer: (p, pag) => { p.P = p.P > 20 ? DEF.P : 22; pag.invalidar(); pag.ponerMando(); } },
+    cap: { texto: p => (p.cap ? 'Desconectar los capacitores' : 'Conectar los capacitores'), hacer: (p, pag) => { p.cap = !p.cap; pag.invalidar(); pag.rotular(); } },
+    largo: { texto: p => (p.km > 15 ? 'Acortar el circuito' : 'Alargar el circuito a 20 km'), hacer: (p, pag) => { p.km = p.km > 15 ? DEF.km : 20; pag.invalidar(); pag.ponerMando(); } },
+    falla: { texto: p => (p.falla ? 'Quitar la falla' : 'Que caiga la rama'), hacer: (p, pag) => { p.falla = !p.falla; pag.invalidar(); pag.rotular(); } },
+    rayo: { texto: () => 'Que caiga un rayo', hacer: p => { p.rayo = true; } },
+    paso: { texto: p => PASOS[p.paso].boton ?? 'Regresar todo', hacer: (p, pag) => { avanzarPaso(p, pag); pag.rotular(); } },
+};
+
+// ------------------------------------------------------------------ el tablero
+const secciones = () => `
+    ${seccionDiagrama('El transformador por dentro')}
+    ${seccionGrafica('b')}
+    ${seccionGrafica('c')}
+    ${seccionBarras()}
+    ${seccionTabla('La subestación Coatepec', 'h-coatepec', 'El diseño que hizo el Instituto de Investigaciones Eléctricas para la CFE, según una tesis de la UNAM de 1993. Para una de 30 MVA, el transformador comercial era de 18/24/30 MVA.', 'h-tabla-texto')}
+    ${seccionTabla('Alta, media y baja tensión', 'h-niveles', 'El Reglamento de la Ley del Sector Eléctrico define la alta y la baja tensión; 13.8 kV queda en medio. El Código de Red de 2016 pedía a los centros de carga aguantar esos voltajes.', 'h-tabla-texto')}
+    ${seccionTabla('Qué cuida a cada equipo', 'h-protec', 'Las protecciones del diseño de Coatepec. Los números son los de la lista de equipos de la tesis.', 'h-tabla-texto')}
+    ${seccionTabla('La red de tierras de Coatepec', 'h-tierra', `Con un terreno de dos capas, de ${num(TIERRA.rho1, 1)} y ${num(TIERRA.rho2, 1)} Ω·m, medido en el sitio.`, 'h-tabla-texto')}
+    ${seccionTabla('Lo que dice la ley', 'h-regla', 'Ley del Sector Eléctrico y su Reglamento.')}
+    ${seccionColores(FLUIDOS, 'Tiene el diseño de la subestación Coatepec, pero no es su plano ni un simulador, y nada está a escala. No se dibuja su barra de transferencia de 115 kV. Son de ejemplo: la forma de la carga del día, su reparto entre circuitos, el factor de potencia, la constante de tiempo y el reparto del calor, las temperaturas en que entran los ventiladores, la consigna y las esperas del cambiador, el cable y el largo de los circuitos, y los ajustes del relevador y del recierre.', 'Colores de lo que corre')}
+    ${seccionFuentes(FUENTES, [
+        { para: 'La Red Eléctrica incluye las subestaciones; quién opera la transmisión y la distribución, y con qué reglas', titulo: 'Ley del Sector Eléctrico, arts. 3, 44, 46 y 57', nota: 'Diario Oficial de la Federación, 18 de marzo de 2025. Está en el acervo de este sitio' },
+        { para: 'Qué es alta y baja tensión, la calidad del servicio y los daños por voltaje fuera de tolerancia', titulo: 'Reglamento de la Ley del Sector Eléctrico, arts. 2, 93 y 149', nota: 'Está en el acervo de este sitio' },
+    ])}`;
+
+function alPintarGraficas(L, pag) {
+    const { $, pide, graficas } = pag;
+    const m = pide.modo;
+    graficas.b = null;
+    graficas.c = null;
+    if (m === 'carga') {
+        const D = L.D;
+        const lb = [
+            { clase: 'h-s-actual', nombre: 'Carga', f: h => D.en('S', h) },
+            { clase: 'h-s-norma', nombre: `Sin ventiladores: ${TRAFO.etapas[0]}`, f: () => TRAFO.etapas[0] },
+            { clase: 'h-s-sin', nombre: `Un paso: ${TRAFO.etapas[1]}`, f: () => TRAFO.etapas[1] },
+            { clase: 'h-s-max', nombre: `Dos pasos: ${TRAFO.etapas[2]}`, f: () => TRAFO.etapas[2] },
+        ];
+        $('#h-b-t').textContent = 'La carga del día, contra lo que aguanta';
+        $('#h-b-ley').innerHTML = leyenda(lb);
+        $('#h-b-pie').textContent = `MVA que pasan por el transformador. Con ${num(L.pico)} MW de máximo, llega a ${f1(D.max.S)} MVA a las ${hora(D.h[D.S.indexOf(D.max.S)])}. Los capacitores ya están restados. La forma del día es de ejemplo.`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'La carga del día', xMin: 0, xMax: 24, yMin: 0, yMax: 28, ticksX: [0, 6, 12, 18, 24], ticksY: [0, 7, 14, 21, 28], etX: 'Hora', etY: 'MVA', lineas: lb, fx: x => num(x), fy: y => num(y), punta: x => `${hora(x)} · ${f1(D.en('S', x))} MVA · ${num(D.en('P', x), 1)} MW` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Hora', 'MW', 'MVA', 'Ventiladores'], [0, 4, 8, 12, 16, 19.5, 22].map(h => [hora(h), f1(D.en('P', h)), f1(D.en('S', h)), ['Apagados', 'Un paso', 'Dos pasos'][D.en('etapa', h)]]));
+        const lc = [
+            { clase: 'h-s-actual', nombre: 'Punto más caliente', f: h => D.en('caliente', h) },
+            { clase: 'h-s-max', nombre: 'Aceite de arriba', f: h => D.en('aceite', h) },
+            { clase: 'h-s-sin', nombre: 'Aire', f: h => D.en('aire', h) },
+            { clase: 'h-s-norma', nombre: `Límite: ${LIMITE.caliente} °C`, f: () => LIMITE.caliente },
+        ];
+        $('#h-c-t').textContent = 'Las temperaturas del día';
+        $('#h-c-ley').innerHTML = leyenda(lc);
+        $('#h-c-pie').textContent = `El aceite tarda horas en calentarse: su punta llega después que la de la carga. El punto más caliente del devanado llega a ${num(D.max.caliente)} °C${L.vent ? '' : ', sin ventiladores'}. Arriba de ${LIMITE.referencia} °C el aislamiento envejece más rápido.`;
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'Las temperaturas del día', xMin: 0, xMax: 24, yMin: 0, yMax: 140, ticksX: [0, 6, 12, 18, 24], ticksY: [0, 35, 70, 105, 140], etX: 'Hora', etY: '°C', lineas: lc, fx: x => num(x), fy: y => num(y), punta: x => `${hora(x)} · devanado ${num(D.en('caliente', x))} °C · aceite ${num(D.en('aceite', x))} °C · aire ${num(D.en('aire', x))} °C` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Hora', 'Aire', 'Aceite', 'Devanado'], [0, 4, 8, 12, 16, 19.5, 22].map(h => [hora(h), num(D.en('aire', h)), num(D.en('aceite', h)), num(D.en('caliente', h))]));
+    } else if (m === 'voltaje') {
+        const o = { km: L.km, cap: L.cap };
+        const lb = [
+            { clase: 'h-s-sin', nombre: 'Barras, sin cambiador', f: P => tension({ ...o, P, tap: 0 }).pb * 100 },
+            { clase: 'h-s-max', nombre: 'Barras, con cambiador', f: P => tension({ ...o, P, tap: tapIdeal({ ...o, P }) }).pb * 100 },
+            { clase: 'h-s-actual', nombre: 'Última casa, con cambiador', f: P => tension({ ...o, P, tap: tapIdeal({ ...o, P }) }).pf * 100 },
+            { clase: 'h-s-norma', nombre: '95 %', f: () => 95 },
+        ];
+        $('#h-b-t').textContent = 'El voltaje, según la demanda';
+        $('#h-b-ley').innerHTML = leyenda(lb);
+        $('#h-b-pie').textContent = `Por ciento de 13.8 kV, con un circuito de ${num(L.km)} km. Sin cambiador, el voltaje cae con la carga. Con él, las barras se quedan cerca de ${num(CAMBIADOR.consigna * 100)} %, pero al final del circuito sigue bajando.`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'El voltaje, según la demanda', xMin: 0, xMax: 24, yMin: 86, yMax: 106, ticksX: [0, 6, 12, 18, 24], ticksY: [86, 91, 96, 101, 106], etX: 'Demanda, MW', etY: '% de 13.8 kV', lineas: lb, fx: x => num(x), fy: y => num(y), punta: x => `${f1(x)} MW · ${lb.slice(0, 3).map(l => `${l.nombre}: ${f1(l.f(x))} %`).join(' · ')}` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['MW', 'Sin cambiador', 'Con cambiador', 'Última casa', 'Posición'], [0, 6, 12, 18, 24].map(P => [num(P), f1(lb[0].f(P)), f1(lb[1].f(P)), f1(lb[2].f(P)), num(tapIdeal({ ...o, P }))]));
+        const fpDe = (P, cap) => tension({ km: L.km, cap, P, tap: tapIdeal({ km: L.km, cap, P }) }).fp;
+        const lc = [
+            { clase: 'h-s-sin', nombre: 'Sin capacitores', f: P => fpDe(P, false) },
+            { clase: 'h-s-actual', nombre: 'Con capacitores', f: P => fpDe(P, true) },
+        ];
+        const ahorro = tension({ km: L.km, cap: false, P: L.P, tap: L.tap }).I - tension({ km: L.km, cap: true, P: L.P, tap: L.tap }).I;
+        $('#h-c-t').textContent = 'El factor de potencia, con y sin capacitores';
+        $('#h-c-ley').innerHTML = leyenda(lc);
+        $('#h-c-pie').textContent = `De cada 1 de corriente, cuánto hace trabajo. Los capacitores dan aquí la parte que va y viene: ayudan más con poca carga, porque su tamaño es fijo. Con ${f1(L.P)} MW, ahorran ${num(ahorro)} A en 13.8 kV.`;
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'El factor de potencia', xMin: 1, xMax: 24, yMin: 0.85, yMax: 1, ticksX: [1, 6, 12, 18, 24], ticksY: [0.85, 0.9, 0.95, 1], etX: 'Demanda, MW', etY: 'factor de potencia', lineas: lc, fx: x => num(x), fy: y => f2(y), punta: x => `${f1(x)} MW · ${lc.map(l => `${l.nombre}: ${f2(l.f(x))}`).join(' · ')}` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['MW', 'Sin capacitores', 'Con capacitores'], [2, 6, 12, 18, 24].map(P => [num(P), f2(lc[0].f(P)), f2(lc[1].f(P))]));
+    } else if (m === 'falla') {
+        const tr = I => tRele(I * 1000);
+        $('#h-b-t').textContent = 'El relevador: a más corriente, más rápido';
+        $('#h-b-ley').textContent = '';
+        $('#h-b-pie').textContent = `Segundos que cuenta antes de mandar abrir, con una curva muy inversa. Con la rama a ${f1(L.d)} km pasan ${num(L.F.I)} A y tarda ${f2(L.F.abre - INTERRUPTOR.media.ms / 1000)} s; luego el interruptor abre en ${f2(INTERRUPTOR.media.ms / 1000)} s. Arranca con ${num(480)} A: de ejemplo.`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'El relevador', xMin: 0.4, xMax: 6, yMin: 0, yMax: 5, ticksX: [0.4, 2, 4, 6], ticksY: [0, 1, 2, 3, 4, 5], etX: 'Corriente, miles de A', etY: 'segundos', f: tr, fx: x => f1(x), fy: y => num(y), punta: x => `${num(x * 1000)} A · tarda ${f2(tr(x))} s` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Corriente, A', 'Tarda el relevador, s'], [600, 1000, 2000, 3000, 5000].map(I => [num(I), f2(tRele(I))]));
+        $('#h-c-t').textContent = 'La corriente de la falla, según dónde cae';
+        $('#h-c-ley').textContent = '';
+        $('#h-c-pie').textContent = `Miles de amperes, con una falla entre las tres fases. Entre más lejos, más cable hay de por medio y menos corriente pasa. La red que llega puede dar unos ${num(fallaEn(0) * 1000)} A en las barras de 13.8 kV.`;
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'La corriente de la falla', xMin: 0, xMax: 20, yMin: 0, yMax: 6, ticksX: [0, 5, 10, 15, 20], ticksY: [0, 2, 4, 6], etX: 'Kilómetros del circuito', etY: 'miles de A', f: fallaEn, fx: x => num(x), fy: y => num(y), punta: x => `${f1(x)} km · ${num(fallaEn(x) * 1000)} A · el relevador tarda ${f2(tRele(fallaEn(x) * 1000))} s` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Kilómetros', 'Corriente, A', 'Tarda, s'], [0.2, 1, 4, 10, 20].map(d => [f1(d), num(fallaEn(d) * 1000), f2(tRele(fallaEn(d) * 1000))]));
+    } else {
+        const r2 = REPARTO[0] + REPARTO[1];
+        const lb = [
+            { clase: 'h-s-sin', nombre: 'Solo el circuito 1', f: P => amperes(mvaDe(P), SUB.media) * REPARTO[0] },
+            { clase: 'h-s-actual', nombre: 'Con el circuito 2', f: P => amperes(mvaDe(P), SUB.media) * r2 },
+            { clase: 'h-s-norma', nombre: `TC: ${TC} A`, f: () => TC },
+        ];
+        $('#h-b-t').textContent = 'La corriente del interruptor 1';
+        $('#h-b-ley').innerHTML = leyenda(lb);
+        $('#h-b-pie').textContent = `Amperes por fase. Al llevar los dos circuitos, la suma no debe pasar de los ${TC} A de sus transformadores de corriente: hasta unos ${f1(L.maxMW)} MW de demanda. El reparto entre circuitos es de ejemplo.`;
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'La corriente del interruptor 1', xMin: 0, xMax: 24, yMin: 0, yMax: 900, ticksX: [0, 6, 12, 18, 24], ticksY: [0, 300, 600, 900], etX: 'Demanda, MW', etY: 'A', lineas: lb, fx: x => num(x), fy: y => num(y), punta: x => `${f1(x)} MW · solo: ${num(lb[0].f(x))} A · con el 2: ${num(lb[1].f(x))} A` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['MW', 'Solo el 1', 'Con el 2'], [5, 10, 15, 20, 24].map(P => [num(P), num(lb[0].f(P)), num(lb[1].f(P))]));
+        const lc = [{ clase: 'h-s-actual', nombre: 'Los dos circuitos', f: h => amperes(mvaDe(L.P * formaEn(h)), SUB.media) * r2 }, { clase: 'h-s-norma', nombre: `TC: ${TC} A`, f: () => TC }];
+        $('#h-c-t').textContent = 'A qué hora conviene';
+        $('#h-c-ley').innerHTML = leyenda(lc);
+        $('#h-c-pie').textContent = `Si ${f1(L.P)} MW fuera la demanda más alta del día, así irían los dos circuitos juntos. De madrugada, con menos carga, sobra margen. La forma del día es de ejemplo.`;
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'A qué hora conviene', xMin: 0, xMax: 24, yMin: 0, yMax: 900, ticksX: [0, 6, 12, 18, 24], ticksY: [0, 300, 600, 900], etX: 'Hora', etY: 'A', lineas: lc, fx: x => num(x), fy: y => num(y), punta: x => `${hora(x)} · ${num(lc[0].f(x))} A` });
+        $('#h-tabla-c').innerHTML = tablaHTML(['Hora', 'A, los dos'], [0, 4, 8, 12, 16, 20].map(h => [hora(h), num(lc[0].f(h))]));
+    }
+}
+function pintarBarras(L, pag) {
+    const { $, pide } = pag;
+    let filas;
+    if (pide.modo === 'carga') {
+        const sin = dia({ pico: L.pico, Tmax: L.Tmax, vent: false });
+        const con = dia({ pico: L.pico, Tmax: L.Tmax, vent: true });
+        filas = [{ t: 'Con ventiladores', v: con.dias, activa: L.vent, escala: 2, d: 0 }, { t: 'Sin ventiladores', v: sin.dias, activa: !L.vent, escala: 2 }, { t: `Un día a ${LIMITE.referencia} °C`, v: 1, escala: 2 }];
+        $('#h-d-t').textContent = 'La vida que gasta en un día, contra 100 de un día normal';
+        $('#h-d-pie').textContent = `A ${LIMITE.referencia} °C en el devanado, el aislamiento envejece a su ritmo normal; con 6 °C más, al doble. Por eso un día caliente y sin ventiladores le cuesta ${num(sin.dias / Math.max(con.dias, 0.001), 0)} veces más vida.`;
+    } else if (pide.modo === 'voltaje') {
+        const sin = tension({ P: L.P, km: L.km, cap: L.cap, tap: 0 });
+        const trafo = 1 - sin.pb;
+        filas = [{ t: 'En el transformador', v: Math.max(0, trafo), activa: true, escala: 0.1, d: 1 }, { t: 'En el circuito', v: Math.max(0, L.caida / SUB.media), escala: 0.1, d: 1 }, { t: 'Lo que corrige el cambiador', v: Math.max(0, L.tap * CAMBIADOR.paso), escala: 0.1, d: 1 }];
+        $('#h-d-t').textContent = 'Dónde se pierde el voltaje, en % de 13.8 kV';
+        $('#h-d-pie').textContent = `Con ${f1(L.P)} MW. El cambiador sube ${f1(L.tap * CAMBIADOR.paso * 100)} % en las barras, para que a la última casa le llegue ${f1(L.pf * 100)} %.`;
+    } else if (pide.modo === 'falla') {
+        filas = [{ t: 'Pasajeras, hasta', v: 0.87, activa: L.tipo === 'pasajera' }, { t: 'Las que se quedan', v: 0.13, activa: L.tipo !== 'pasajera' }];
+        $('#h-d-t').textContent = 'Fallas en redes aéreas, de cada 100';
+        $('#h-d-pie').textContent = `Hasta 80 a 87 de cada 100 son pasajeras, como un rayo o una rama que cae al suelo. Por eso el interruptor vuelve a cerrar solo, a los ${RECIERRE.esperas[0]} s y a los ${RECIERRE.esperas[1]} s. Si la falla sigue, se queda abierto.`;
+    } else {
+        filas = [{ t: 'Interruptor 1', v: L.Ibr1 / TC, activa: true, escala: 1.4 }, { t: 'Interruptor 2', v: L.Ibr2 / TC, escala: 1.4 }, { t: 'Cuchillas de paso', v: L.Ipaso / TC, escala: 1.4 }];
+        $('#h-d-t').textContent = `Corriente, de cada 100 de ${TC} A`;
+        $('#h-d-pie').textContent = L.Ipaso > 0 ? `El interruptor 1 lleva a los dos circuitos: ${num(L.Ibr1)} A. El 2 ya no lleva nada.` : 'Cada interruptor lleva su propio circuito.';
+    }
+    $('#h-barras').innerHTML = barrasHTML(filas);
+}
+function alPintarFijas({ $ }) {
+    $('#h-coatepec').innerHTML = tablaHTML(['Qué', 'Cuánto'], [
+        ['Transformador', `${TRAFO.etapas.join('/')} MVA, ${TRAFO.conexion}`],
+        ['Voltajes', `${SUB.alta} kV a ${num(SUB.media, 1)} kV`],
+        ['Impedancia', '8 a 9.5 %'],
+        ['Líneas de 115 kV', `${SUB.lineas}, de ${SUB.desde}`],
+        ['Circuitos de 13.8 kV', `${SUB.circuitos}`],
+        ['Interruptores de 115 kV', `SF6, ${num(INTERRUPTOR.alta.A)} A, ${INTERRUPTOR.alta.kA} kA, 3 ciclos`],
+        ['Interruptores de 13.8 kV', `SF6, ${num(INTERRUPTOR.media.A)} A, ${INTERRUPTOR.media.ms} ms`],
+        ['Capacitores', `${num(CAPACITOR.mvar, 1)} MVAr: ${CAPACITOR.unidades} de 200 kVAr`],
+        ['Apartarrayos de 115 kV', `${APARTARRAYOS.vn} kV, ${APARTARRAYOS.kA} kA`],
+        ['Altura', `${num(SUB.altura)} m sobre el mar`],
+    ]);
+    $('#h-niveles').innerHTML = tablaHTML(['Qué', 'Cuánto', 'Dónde lo dice'], [
+        ['Alta tensión', 'más de 35 kV', 'Reglamento, art. 2, fracc. II'],
+        ['Baja tensión', '1 kV o menos', 'Reglamento, art. 2, fracc. V'],
+        ['Un centro de carga, siempre', 'desde 95 %', 'Código de Red, 2016'],
+        ['Hasta 20 minutos', 'de 90 a 110 %', 'Código de Red, 2016'],
+    ]);
+    $('#h-protec').innerHTML = tablaHTML(['Protección', 'Qué hace'], [
+        ['Diferencial (87T)', 'Compara lo que entra y lo que sale del transformador'],
+        ['Buchholz (63)', 'Detecta el gas de una falla dentro del transformador'],
+        ['Térmica (49T)', 'Prende los ventiladores'],
+        ['Sobrecorriente', 'Abre ante una falla; en 13.8 kV, muy inversa'],
+        ['Recierre (79)', 'Vuelve a cerrar el interruptor'],
+        ['Apartarrayos', 'Mandan a tierra lo que trae un rayo'],
+    ]);
+    $('#h-tierra').innerHTML = tablaHTML(['Qué', 'Cuánto'], [
+        ['Cable de cobre', `${num(TIERRA.metros)} m, calibre ${TIERRA.calibre}`],
+        ['Varillas', `${TIERRA.varilla} m de largo`],
+        ['Resistencia a tierra', `${f2(TIERRA.ohm)} Ω`],
+        ['Grava encima', `${num(TIERRA.grava * 100)} cm`],
+        ['Falla con que se diseñó', `${num(10041)} A durante ${num(TIERRA.segundos, 1)} s`],
+        ['Cuánto sube la malla', `${num(TIERRA.potencial)} V`],
+        ['Voltaje de toque del diseño', `${num(TIERRA.toque)} V`],
+        ['Voltaje de paso del diseño', `${num(TIERRA.paso)} V`],
+    ]);
+    $('#h-regla').innerHTML = tablaHTML(['Qué', 'Dónde lo dice'], [
+        ['La Red Eléctrica incluye subestaciones, transformación, compensación, protección y medición', 'Ley, art. 3, fracc. XL'],
+        ['Transmitir y distribuir es área estratégica del Estado', 'Ley, art. 57'],
+        ['La CFE opera sus redes con instrucciones del CENACE, también para el mantenimiento', 'Ley, art. 44'],
+        ['La CNE fija los voltajes y las interrupciones aceptables', 'Ley, art. 46; Reglamento, art. 93'],
+        ['Si un cambio de voltaje fuera de tolerancia daña aparatos, se reparan o se pagan', 'Reglamento, art. 149'],
+    ]);
+}
+function alActualizar(L, pag) {
+    const { pide, ponerCifra, ponerLecturas, nivel, graficas } = pag;
+    pintarBarras(L, pag);
+    ponerCifra('aT', { carga: 'El transformador por dentro', voltaje: 'El voltaje a lo largo del camino', falla: 'Lo que ve el relevador', maniobra: 'Por dónde pasa la corriente' }[pide.modo]);
+    if (pide.modo === 'carga') {
+        const etapa = ['Apagados', 'Un paso', 'Dos pasos'][L.etapa];
+        const aviso = L.caliente > LIMITE.caliente ? `El devanado pasa de ${LIMITE.caliente} °C: el aislamiento se gasta muy rápido.` : L.S > TRAFO.etapas[2] ? `Pasa de los ${TRAFO.etapas[2]} MVA que aguanta con los ventiladores.` : !L.vent ? `Sin ventiladores aguanta ${TRAFO.etapas[0]} MVA sin calentarse de más.` : null;
+        ponerLecturas([['Hora', hora(L.hora), 'del día'], ['Pasa', `${f1(L.S)} MVA`, `${num(L.uso * 100)} % de ${TRAFO.etapas[2]}`], ['Corriente', `${num(L.Ia)} A`, `en 115 kV; ${num(L.Im)} A en 13.8`], ['Aceite', `${num(L.aceite)} °C`, 'arriba del tanque'], ['Devanado', `${num(L.caliente)} °C`, `su punto más caliente; límite ${LIMITE.caliente}`], ['Ventiladores', etapa, `el aire, a ${num(L.aire)} °C`]], aviso);
+        ponerCifra('hud', `${num(L.caliente)} °C`);
+        ponerCifra('hud2', 'en el punto más caliente');
+        graficas.b?.marcar(L.hora, L.S);
+        graficas.c?.marcar(L.hora, L.caliente);
+        graficas.b?.ahora(L.hora);
+        graficas.c?.ahora(L.hora);
+        nivel(1, 'Carga', clamp01(L.uso), `${num(L.uso * 100)} %`);
+        nivel(2, 'Calor', clamp01(L.caliente / LIMITE.caliente), `${num(L.caliente)} °C`);
+    } else if (pide.modo === 'voltaje') {
+        const aviso = L.pf < 0.95 ? 'A la última casa le llega menos de 95 %: el cambiador ya no alcanza o el circuito es muy largo.' : L.auto && L.espera > 0.2 ? 'El voltaje salió de su banda: el cambiador espera y luego da un paso.' : !L.auto && Math.abs(L.pb - CAMBIADOR.consigna) > CAMBIADOR.banda ? 'Con el cambiador quieto, el voltaje de las barras sigue a la carga.' : null;
+        ponerLecturas([['En las barras', `${f2(L.Vb)} kV`, `${f1(L.pb * 100)} %`], ['Última casa', `${f2(L.Vf)} kV`, `${f1(L.pf * 100)} %, a ${num(L.km)} km`], ['Cambiador', `${L.tap > 0 ? '+' : ''}${L.tap}`, `de ±${CAMBIADOR.pasos}`], ['Corriente', `${num(L.Im)} A`, 'en 13.8 kV'], ['Factor de potencia', f2(L.fp), 'en el transformador'], ['Capacitores', `${f2(L.Qc)} MVAr`, L.cap ? 'conectados' : 'desconectados']], aviso);
+        ponerCifra('hud', `${f1(L.pf * 100)} %`);
+        ponerCifra('hud2', 'le llega a la última casa');
+        graficas.b?.marcar(L.P, L.pf * 100);
+        graficas.c?.marcar(L.P, L.Im);
+        nivel(1, 'Barras', clamp01((L.pb - 0.88) / 0.18), `${f1(L.pb * 100)} %`);
+        nivel(2, 'Última casa', clamp01((L.pf - 0.88) / 0.18), `${f1(L.pf * 100)} %`);
+    } else if (pide.modo === 'falla') {
+        const F = L.F;
+        const e = L.estado;
+        const tr = L.tramo;
+        const msg = { falla: 'La corriente se disparó: el relevador cuenta.', abierto: `Abierto: vuelve a cerrar en ${f1(Math.max(0, tr ? tr.t1 - L.t : 0))} s.`, normal: L.t !== null ? 'Volvió a cerrar y la falla ya no estaba: la luz regresó.' : null, bloqueado: 'La falla siguió en cada intento: se queda abierto hasta que una cuadrilla la quite.' }[e];
+        const aviso = L.rayo > 0.3 ? `Cayó un rayo: los apartarrayos dejaron pasar unos ${APARTARRAYOS.descarga} kV, y el equipo aguanta ${num(APARTARRAYOS.aguantaAqui)} kV a esta altura.` : msg;
+        ponerLecturas([['Rama', `${f1(L.d)} km`, 'sobre el circuito 1'], ['Corriente de falla', `${num(F.I)} A`, `${num(F.I / L.carga1)} veces lo normal`], ['Relevador', `${f2(F.abre - INTERRUPTOR.media.ms / 1000)} s`, 'cuenta antes de mandar abrir'], ['Interruptor', `${f2(INTERRUPTOR.media.ms / 1000)} s`, 'tarda en abrir'], ['Sin luz', L.tipo === 'pasajera' ? `${RECIERRE.esperas[0]} s` : 'hasta reparar', L.tipo === 'pasajera' ? 'si la falla se va sola' : 'si la falla se queda'], ['Estado', { falla: 'En falla', abierto: 'Abierto', normal: 'Con luz', bloqueado: 'Bloqueado' }[e], tr ? `intento ${Math.min(tr.intento + 1, RECIERRE.esperas.length + 1)}` : 'sin falla']], aviso);
+        ponerCifra('hud', L.rayo > 0.3 ? `${APARTARRAYOS.descarga} kV` : `${num(F.I)} A`);
+        ponerCifra('hud2', L.rayo > 0.3 ? 'deja pasar el apartarrayos' : 'si la rama toca el cable');
+        graficas.b?.marcar(F.I / 1000, F.abre - INTERRUPTOR.media.ms / 1000);
+        graficas.c?.marcar(L.d, F.I / 1000);
+        nivel(1, 'Corriente', clamp01(F.I / 6000), `${num(F.I)} A`);
+        nivel(2, 'Tarda', clamp01(F.abre / 4), `${f2(F.abre)} s`);
+    } else {
+        const p = Math.round(L.anim);
+        const aviso = pide.aviso ?? (L.arco > 0.05 ? 'Una cuchilla no apaga arcos.' : L.paso >= 3 && L.Ibr1 > TC ? `El interruptor 1 ya pasa de los ${TC} A de su TC: habría que bajar la carga o regresar el circuito 2.` : null);
+        ponerLecturas([['Paso', `${p} de ${PASOS.length - 1}`, PASOS[Math.min(PASOS.length - 1, p)].texto], ['Interruptor 1', `${num(L.Ibr1)} A`, `de ${TC} de su TC`], ['Interruptor 2', `${num(L.Ibr2)} A`, L.paso >= 3 ? 'abierto' : 'cerrado'], ['Por la interconexión', `${num(L.Ipaso)} A`, 'por las cuchillas de paso'], ['Circuito 2', 'Con luz', 'en todos los pasos'], ['Se puede hasta', `${f1(L.maxMW)} MW`, 'de demanda']], aviso);
+        ponerCifra('hud', `${p} de ${PASOS.length - 1}`);
+        ponerCifra('hud2', 'pasos del mantenimiento');
+        graficas.b?.marcar(L.P, L.Ibr1);
+        nivel(1, 'Interruptor 1', clamp01(L.Ibr1 / TC), `${num(L.Ibr1)} A`);
+        nivel(2, 'Avance', clamp01(L.anim / (PASOS.length - 1)), `${p} de ${PASOS.length - 1}`);
+    }
+}
+
+// ------------------------------------------------------------------ la subestación
+crearPagina({
+    figura: FIGURA,
+    fichas: FICHAS,
+    vistas: VISTAS,
+    modos: MODOS,
+    botones: BOTONES,
+    acciones: ACCIONES,
+    modo0: 'carga',
+    pide: { pico: DEF.pico, Tmax: DEF.Tmax, hora: DEF.hora, vent: DEF.vent, P: DEF.P, km: DEF.km, cap: DEF.cap, auto: DEF.auto, d: DEF.d, tipo: DEF.tipo, paso: 0, falla: false, rayo: false, arco: false, aviso: null, corre: true },
+    general: { Lx: 16.8, Lz: 6, alto: 2.3, mira: [0, 0.55, 0], az: 16, el: 30, azVertical: 14, elVertical: 38 },
+    etiquetas: { lienzo: 'Subestación en 3D: arrastra para girarla, toca un punto para conocerlo', modos: 'Qué ver en la subestación', puntos: 'Puntos clave de la subestación', desarmar: 'Desarmar la subestación', lecturas: 'Lo que mide la subestación' },
+    textoFinal: 'Toca cualquier punto para volver a verlo. Descompón los ventiladores en «Un día de carga», sube la demanda en «El voltaje», deja caer la rama en «Una falla» o cambia un interruptor sin apagar en «Mantenimiento».',
+    colores: { guindaSuave: '#f3d4de', claro: '#ffffff' },
+    crearDiagrama,
+    secciones,
+    escena: (renderer, scene, { movil, oscuro }) => {
+        const M = materiales(P_PLANTA);
+        const est = escenario(renderer, scene, M, { movil, oscuro });
+        return { planta: construir(M, P_PLANTA, { movil, oscuro }), est };
+    },
+    alCambiarModo: (p, m) => {
+        p.corre = m === 'carga';
+        p.falla = false;
+        p.paso = 0;
+        p.aviso = null;
+        p.vent = DEF.vent;
+        p.cap = DEF.cap;
+        p.auto = DEF.auto;
+        planta = { ...planta, paso: 0, anim: 0, ev: null, espera: 0, cambios: 0, tap: m === 'voltaje' ? tapIdeal({ P: p.P, km: p.km, cap: DEF.cap }) : planta.tap };
+    },
+    alCuadro: ({ dt, pide }) => {
+        planta = pasoPlanta(planta, { modo: pide.modo, P: pide.P, km: pide.km, cap: pide.cap, auto: pide.auto, falla: pide.modo === 'falla' && pide.falla, d: pide.d, tipo: pide.tipo, paso: pide.modo === 'maniobra' ? pide.paso : 0, rayo: pide.rayo, arco: pide.arco }, dt);
+        pide.rayo = false;
+        pide.arco = false;
+    },
+    poseDe: ({ pide, ve, encendido, t, dt, camara }) => pose({ modo: pide.modo, planta, pico: pide.pico, Tmax: pide.Tmax, hora: pide.hora, vent: pide.vent, P: pide.P, km: pide.km, cap: pide.cap, auto: pide.auto, d: pide.d, tipo: pide.tipo, noche: ve.noche, adentro: ve.adentro, desarme: ve.desarme, encendido, t, dt, camara }),
+    firma: p => [p.modo, p.modo === 'carga' ? [Math.round(p.pico), Math.round(p.Tmax), p.vent] : 0, p.modo === 'voltaje' ? [Math.round(p.P), Math.round(p.km), p.cap] : 0, p.modo === 'falla' ? [Math.round(p.d * 5), p.tipo] : 0, p.modo === 'maniobra' ? [Math.round(p.P)] : 0],
+    alPintarFijas,
+    alPintarGraficas,
+    alActualizar,
+    prueba: p => ({ pico: +p.pico.toFixed(1), Tmax: +p.Tmax.toFixed(0), hora: +p.hora.toFixed(1), vent: p.vent, P: +p.P.toFixed(1), km: +p.km.toFixed(1), cap: p.cap, auto: p.auto, d: +p.d.toFixed(1), tipo: p.tipo, paso: p.paso, falla: p.falla, tap: planta.tap, ev: planta.ev === null ? null : +planta.ev.toFixed(2), anim: +planta.anim.toFixed(2) }),
+});
