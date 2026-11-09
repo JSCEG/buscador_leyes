@@ -1,7 +1,8 @@
 /**
  * Public copy of the energy calculator: title, foot note and the «Para entender» cards of each tab.
  * Plain Spanish for the general public; every acronym is spelled out the first time in each card;
- * no «error» for official values. Draft until the user approves it (Task 14 of the plan).
+ * no «error» for official values. Approved by the user on 2026-11-09 (docs/calculadora/textos-para-aprobar.md);
+ * any change to public copy goes back to the user before publishing.
  * Facts come from docs/calculadora/informe.md.
  */
 import { LEYENDA_MERCADO } from './mercado.js';
