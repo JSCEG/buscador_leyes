@@ -15,6 +15,7 @@ import { FUENTES as FUENTES_SOLAR } from '../../conceptos-3d/fotovoltaica/fuente
 import { FUENTES as FUENTES_EOLICA } from '../../conceptos-3d/eolica/fuentes.js';
 import { FUENTES as FUENTES_HIDRO } from '../../conceptos-3d/hidroelectrica/fuentes.js';
 import { FUENTES as FUENTES_REFINERIA } from '../../conceptos-3d/refinacion/fuentes.js';
+import { FUENTES as FUENTES_GASODUCTOS } from '../../conceptos-3d/gasoductos/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -170,7 +171,6 @@ const LEPE_PEMEX = { autor: 'Ley de la Empresa Pública del Estado, Petróleos M
 const LASEA = { autor: 'Ley de la Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos', titulo: 'Diario Oficial de la Federación', fecha: '11 de agosto de 2014', acervo: 'LASEA' };
 const CEPAL = { autor: 'Comisión Económica para América Latina y el Caribe (CEPAL)', fecha: '2021', titulo: 'Síntesis de definiciones clave para la transición energética en México', url: 'https://repositorio.cepal.org/bitstream/handle/11362/47656/6/S2100521_Mexico_es.pdf', consulta };
 const CENACE = { autor: 'Centro Nacional de Control de Energía (CENACE)', fecha: '2024', titulo: 'Manual del Mercado del Día en Adelanto y Mercado en Tiempo Real', url: 'https://www.cenace.gob.mx', consulta };
-const CENAGAS = { autor: 'Centro Nacional de Control del Gas Natural (CENAGAS)', fecha: '2024', titulo: 'Términos y Condiciones Generales para el Servicio de Transporte en el SISTRANGAS', url: 'https://www.gob.mx/cenagas', consulta };
 const IEA_OIL = { autor: 'International Energy Agency (IEA)', fecha: '2024', titulo: 'Oil & Gas Supply and Refining', url: 'https://www.iea.org/energy-system/fossil-fuels', consulta };
 
 export const CONCEPTOS = [
@@ -1557,51 +1557,84 @@ export const CONCEPTOS = [
         id: 'gasoductos',
         nivel: 2,
         antes: ['hidrocarburos-moleculas'],
-        titulo: 'Transporte por ducto y gasoductos',
+        titulo: 'Gasoducto',
         sector: 'hidrocarburos',
-        resumen: 'El gas natural y los combustibles líquidos viajan miles de kilómetros por tuberías de acero bajo tierra, impulsados por estaciones de compresión y de bombeo.',
+        resumen: 'Un tubo enterrado que lleva gas natural a cientos de kilómetros. El gas avanza porque va de más presión a menos. La fricción le quita presión, y cada tanto una estación se la regresa. Además, el tubo guarda gas, porque el gas se aprieta.',
         figura: 'gasoductos',
-        definiciones: [
-            { termino: 'Gasoducto', texto: 'Tubería de acero al carbono de alta resistencia diseñada para transportar gas natural comprimido a presiones típicas de 50 a 90 bar.' },
-            { termino: 'Poliducto', texto: 'Tubería que transporta diferentes petrolíferos líquidos en tandas secuenciales (gasolina regular, premium y diésel) sin mezclarse.' },
-            { termino: 'Estación de compresión', texto: 'Instalación con compresores mecánicos colocada cada 100 a 150 km para elevar la presión del gas que se pierde por fricción.' },
-            { termino: 'Acceso abierto no discriminatorio', texto: 'Obligación legal de los permisionarios de transporte por ducto de permitir el uso de capacidad disponible a terceros que cubran la tarifa regulada aprobada por la CNE.' },
-        ],
+        partesTitulo: 'Los puntos clave del gasoducto',
         claves: [
-            'El transporte por ducto es la forma más segura, económica y con menor huella de carbono para mover grandes volúmenes de energía en distancias continentales.',
-            'El gas natural no tiene olor por naturaleza: antes de distribuirse a los hogares se le agrega una sustancia química llamada mercaptano para que cualquier fuga se detecte al instante.',
-            'México cuenta con el SISTRANGAS (Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural), cuya gestión técnica e independiente está a cargo del CENAGAS.',
-            'Gran parte del gas que consume México para generar electricidad y en la industria proviene de producción nacional y de importaciones por gasoducto desde Texas, con coordinación operativa entre CENAGAS y CENACE.',
-            'Para inspeccionar las tuberías sin suspender el servicio, se introducen robots inteligentes llamados «diablos» (scrapers) que revisan espesor de metal y corrosión.',
+            'Alrededor de 75 % del gas de México llega de Estados Unidos, y de él depende de 60 a 62 % de la electricidad. Viaja por gasoductos. La figura usa las cifras de Los Ramones Fase II Norte: 447 km de tubo de 42 pulgadas, con una presión máxima de 1,200 libras, unos 83 bar.',
+            'El gas avanza porque va de más presión a menos. La fricción le quita presión, y cuenta mucho cuánto gas pasa: en los primeros 150 km, con 500 millones de pies cúbicos al día baja 2.4 bar; con 1,000 millones, 10.1 bar.',
+            'Las estaciones de compresión le regresan la presión. Suelen ir cada 80 a 160 km. En este modelo, sin estaciones el tubo deja pasar 832 millones de pies cúbicos al día; con una, 1,021; con las dos, 1,436.',
+            'Comprimir se paga con gas: una turbina quema una pequeña parte del que pasa. Con 1,000 millones al día, cada estación pide unos 5 MW. A toda su capacidad pide unos 17 MW, y el gas sale del compresor a 47 °C. Por eso lleva enfriadores.',
+            'El tubo también guarda. A 1,200 libras, en el mismo espacio cabe 92 veces más gas que a la presión del aire, y este tubo lleno guarda unos 1,240 millones de pies cúbicos. Eso se llama empaque, y ayuda con los cambios de demanda. En este modelo, si se corta el gas a las 6:00, en menos de 3 horas ya no llega con la presión necesaria.',
+            'Si el tubo se rompe, importa qué tan rápido cierran las válvulas y qué tan juntas están. La norma pide como máximo 32 km entre válvulas en el campo, y 8 km donde hay mucha gente. En este modelo, cerrando en 10 minutos se pierden 121 millones de pies cúbicos con 32 km, y 59 con 8 km.',
+            'El gas natural casi no huele. Se le agrega un olor muy fuerte para que una fuga se note: la norma pide que se perciba cuando hay 1 % de gas en el aire, o una quinta parte de lo que haría falta para que explote.',
+            'El tubo se comparte. Quien da el servicio a otros debe aceptar a quien lo pida, si tiene capacidad disponible y le pagan la tarifa autorizada. Y el Centro Nacional de Control del Gas Natural (CENAGAS) es el gestor independiente del sistema nacional integrado.',
+        ],
+        formulas: [
+            { expresion: 'P inicial² − P final² = k × largo × flujo²', lectura: 'la fricción en un tubo de gas. k reúne el diámetro, lo áspero del tubo y el tipo de gas. El flujo va al cuadrado: con el doble de gas, esa resta crece cuatro veces', ejemplo: 'en 150 km, con 1,000 millones al día: 82.7² − 72.6² = cerca de 1,570. Con 500 millones, cerca de 390.' },
+            { expresion: 'Potencia = flujo de gas × trabajo por kilo', lectura: 'lo que pide una estación. El trabajo por kilo crece cuanta más presión le falte regresar', ejemplo: 'a toda su capacidad: 344 kg/s × 49 kJ/kg = cerca de 17 MW.' },
+            { expresion: 'Gas guardado = volumen del tubo × cuánto se aprieta', lectura: 'el empaque. A más presión, más gas cabe en el mismo tubo', ejemplo: 'lleno: 381 mil m³ × 92 = 35 millones de m³, unos 1,240 millones de pies cúbicos.' },
+            { expresion: 'Tiempo de viaje = largo ÷ velocidad', lectura: 'cuánto tarda el gas en cruzar el ducto. Al bajar la presión, el gas se estira y va más rápido', ejemplo: 'a toda su capacidad: 447 km ÷ unos 6.8 m/s = cerca de 18 horas.' },
+            { expresion: 'Espesor = P × D ÷ (2 × S × F)', lectura: 'cuánto acero hace falta para aguantar la presión. D es el diámetro, S la resistencia del acero y F un factor de seguridad', ejemplo: '8.27 MPa × 1,067 mm ÷ (2 × 483 MPa × 0.72) = 12.7 mm, con un acero de ejemplo.' },
+        ],
+        errores: [
+            { idea: 'Si mando el doble de gas, la presión cae el doble.', realidad: 'Cae mucho más. En los primeros 150 km de este modelo, con 500 millones de pies cúbicos al día baja 2.4 bar, y con 1,000 millones baja 10.1 bar.' },
+            { idea: 'El gas viaja solo, sin gastar nada.', realidad: 'Las turbinas de las estaciones queman parte del gas que pasa. A toda su capacidad, en este modelo, cada estación usa cerca de 0.31 % del gas. Parece poco, pero es gas que ya no llega.' },
+            { idea: 'Un gasoducto solo transporta.', realidad: 'También guarda, porque el gas se aprieta. Por eso la demanda puede subir un rato sin que entre más gas. Pero alcanza para horas, no para días.' },
+            { idea: 'Si el tubo se rompe, se pierde todo el gas del ducto.', realidad: 'Las válvulas aíslan un tramo. Se pierde lo que había en ese tramo, y lo que siguió llegando antes de que cerraran. Por eso importa que cierren rápido.' },
+            { idea: 'El gas natural huele feo.', realidad: 'Casi no huele. Lo que se nota en una fuga es un líquido de olor muy fuerte que se le agrega a propósito, casi siempre un mercaptano.' },
+            { idea: 'El CENAGAS es el dueño de todos los gasoductos.', realidad: 'Es el gestor y administrador independiente del sistema nacional integrado, y también tiene tubos propios. Hay otros permisionarios, y para los sistemas privados, integrarse es voluntario.' },
         ],
         partes: [
-            { nombre: 'Tubería enterrada', texto: 'Tubos soldados de hasta 48 pulgadas de diámetro con recubrimiento anticorrosivo.' },
-            { nombre: 'Estación de compresión', texto: 'Compresores centrífugos, movidos por turbinas de gas o motores eléctricos, que restauran la presión del gas natural a lo largo de la ruta.' },
-            { nombre: 'Válvula de seccionamiento', texto: 'Permite aislar tramos del ducto en minutos ante cualquier emergencia o mantenimiento.' },
-            { nombre: 'Trampa de diablos', texto: 'Lugar donde se insertan y extraen herramientas de limpieza e inspección magnética o ultrasónica.' },
-            { nombre: 'Estación de regulación y medición (City Gate)', texto: 'Reduce la presión del gas antes de entregarlo a la red urbana o a la central eléctrica.' },
+            { nombre: 'Gas que llega', texto: 'Viene de Texas, por Los Ramones Fase I. Sube a una caja que mide cuánto entra, y regresa al ducto.' },
+            { nombre: 'Trampa de diablos', texto: 'Por aquí se mete un diablo, un aparato que el gas empuja por el tubo. Unos limpian; otros buscan corrosión.' },
+            { nombre: 'Válvula de seccionamiento', texto: 'Una bola en el tubo que gira y aísla un tramo. Sus dos tubos delgados sirven para vaciarlo sin riesgo.' },
+            { nombre: 'Tubería enterrada', texto: 'Mide 42 pulgadas, y en el campo lleva al menos 60 cm de tierra encima. El color dice la presión.' },
+            { nombre: 'Filtros', texto: 'Lo primero al entrar a la estación. Limpian las gotas y el polvo antes de que lleguen al compresor.' },
+            { nombre: 'Compresor y turbina', texto: 'La turbina quema una pequeña parte del gas y mueve al compresor, que le regresa la presión.' },
+            { nombre: 'Enfriadores', texto: 'Al comprimirse, el gas se calienta. Estas parrillas lo enfrían para no dañar el recubrimiento del tubo.' },
+            { nombre: 'Control', texto: 'Casi todas las estaciones se vigilan desde lejos. El paro de emergencia actúa solo si detecta una fuga.' },
+            { nombre: 'Cruce de río', texto: 'El tubo baja más, porque el agua erosiona. Abajo de un río, la norma pide al menos 180 cm de tierra en suelo normal.' },
+            { nombre: 'Otra estación', texto: 'Después de unos 150 km, otra estación regresa la presión que la fricción quitó.' },
+            { nombre: 'Protección catódica', texto: 'Un rectificador manda una corriente pequeña de unos ánodos enterrados al tubo. Se gasta el ánodo, no el acero.' },
+            { nombre: 'Medición y regulación', texto: 'Aquí se entrega. Se calienta el gas para que no se congele, se mide cuánto sale y se le baja la presión.' },
+            { nombre: 'Odorización', texto: 'Este tanque le agrega un líquido de olor muy fuerte, para que una fuga se note.' },
+            { nombre: 'Central y ciudad', texto: 'Las centrales eléctricas son su mayor cliente: en 2017 usaron 38 % del gas. Sin gas, también falta la luz.' },
         ],
+        dato: 'La figura usa el tamaño de Los Ramones Fase II Norte. No es su plano ni está a escala, y no toma en cuenta que el terreno sube. La fricción se ajustó para dar su capacidad publicada, así que el 1,436 contra 1,430 no comprueba nada; el CENAGAS reporta 1,363. Lo que sí sale de la cuenta se parece a lo medido en Estados Unidos: cada estación sube 326 libras, contra 250 de promedio, y usa unos 16 caballos por millón de pies cúbicos, contra unos 20. Son de ejemplo los kilómetros de las estaciones, los 60 bar de entrega, el acero, la demanda del día y todo el modelo de la fuga.',
         ley: {
-            texto: 'El transporte y la distribución por medio de ductos requieren permiso de la Comisión Nacional de Energía (CNE). La gestión independiente del SISTRANGAS corresponde al CENAGAS.',
+            texto: 'Transportar gas natural por ducto requiere permiso de la Comisión Nacional de Energía (CNE), e importarlo, de la Secretaría de Energía (SENER). Quien da ese servicio a otros debe dar acceso abierto, si tiene capacidad disponible, a quien pague la tarifa autorizada. El CENAGAS es el gestor y administrador independiente del sistema nacional integrado de ductos y almacenes.',
             siglas: ['LSH', 'RLSH', 'LCNE'],
             ficha: {
-                elQue: 'El transporte por ducto de gas natural, petrolíferos y petroquímicos es una actividad regulada sujeta a permiso de la CNE y al principio de acceso abierto no indebidamente discriminatorio.',
-                elComo: 'Los permisionarios asignan capacidad disponible mediante temporadas abiertas supervisadas por la CNE; en el SISTRANGAS, el CENAGAS gestiona la capacidad y coordina con el CENACE el abasto a las centrales eléctricas.',
+                elQue: 'El Transporte es recibir, entregar y, en su caso, conducir Hidrocarburos, Petrolíferos y Petroquímicos de un lugar a otro por ductos u otros medios, sin que eso conlleve venderlos (LSH, art. 5, fracc. XLVIII). El Gas Natural es una mezcla de gases constituida principalmente por metano (LSH, art. 5, fracc. XXIII). El Sistema de Transporte y Almacenamiento Nacional Integrado de Gas Natural, conocido como SISTRANGAS, se puede conformar por ductos, almacenes y equipos de compresión, entre otras instalaciones. Para los sistemas privados, integrarse es voluntario (LSH, art. 99).',
+                elComo: 'El Transporte y la compresión de Gas Natural requieren permiso de la CNE (LSH, art. 76, fracc. II, inciso a), que los otorga, los regula y los supervisa, sin perjuicio de las atribuciones de la Agencia Nacional de Seguridad Industrial y de Protección al Medio Ambiente del Sector Hidrocarburos (LSH, arts. 5, fracc. I, y 116, fracc. I; LCNE, art. 9, fracc. II). La CNE también regula las tarifas (LCNE, art. 9, fracc. I). Importar y exportar Gas Natural requiere permiso de la SENER (LSH, art. 76, fracc. I, inciso b). El permiso de Transporte por Ductos dura hasta treinta años (RLSH, art. 93) y se otorga para un Sistema y un Trayecto específicos y una capacidad determinada (RLSH, art. 126). Quien presta a terceros ese servicio debe dar acceso abierto no indebidamente discriminatorio, sujeto a su capacidad disponible, y publicar en boletines electrónicos la que no esté contratada o no se use, para que otros la aprovechen pagando la tarifa autorizada. Esto no aplica a las Empresas Públicas del Estado ni a sus filiales (LSH, art. 104; RLSH, art. 92). Salvo emergencia, quien está sujeto a acceso abierto no puede comprar ni vender lo que transporta (LSH, art. 105). El Centro Nacional de Control del Gas Natural es el gestor y administrador independiente del SISTRANGAS (LSH, art. 100) y propone a la SENER su plan quinquenal de expansión; entre otros, son estratégicos los proyectos con diseño de al menos treinta pulgadas, 800 libras y 100 kilómetros (LSH, art. 103). Las distancias entre válvulas, la profundidad y el olor del gas de esta figura salen de la NOM-020-ASEA-2024.',
                 articulos: [
-                    { siglas: 'LSH', refs: 'Arts. 76 fr. II, 80, 81 y 83', nota: 'Permisos de transporte y distribución por ducto otorgados por la CNE.' },
-                    { siglas: 'LCNE', refs: 'Arts. 2 y 7', nota: 'Regulación tarifaria y de acceso abierto en transporte y distribución por ducto.' },
+                    { siglas: 'LSH', refs: 'Art. 5, fraccs. I, XXIII y XLVIII', nota: 'Qué son la Agencia, el Gas Natural y el Transporte.' },
+                    { siglas: 'LSH', refs: 'Art. 76, fraccs. I, inciso b), y II, inciso a)', nota: 'Qué permite la SENER y qué permite la CNE.' },
+                    { siglas: 'LSH', refs: 'Art. 99', nota: 'Qué puede integrar el SISTRANGAS. Para los privados, es voluntario.' },
+                    { siglas: 'LSH', refs: 'Arts. 100 y 103', nota: 'El CENAGAS y el plan quinquenal de expansión.' },
+                    { siglas: 'LSH', refs: 'Arts. 104 y 105', nota: 'El acceso abierto, y por qué quien transporta no vende lo que lleva.' },
+                    { siglas: 'LSH', refs: 'Art. 116, fracc. I, incisos a) y d)', nota: 'Atribuciones de la CNE sobre esos permisos.' },
+                    { siglas: 'RLSH', refs: 'Arts. 92 y 93', nota: 'El acceso abierto, y el permiso de Transporte por Ductos: hasta treinta años.' },
+                    { siglas: 'RLSH', refs: 'Art. 126', nota: 'El permiso es para un Sistema, un Trayecto y una capacidad.' },
+                    { siglas: 'LCNE', refs: 'Art. 9, fraccs. I y II', nota: 'La CNE regula las tarifas y otorga los permisos de gas natural.' },
+                    { siglas: 'NOM-020-ASEA-2024', refs: 'Válvulas, profundidad y olor del gas', nota: 'Las reglas de seguridad del transporte de gas por ductos terrestres. No está en el acervo de este sitio: ver Fuentes.' },
                 ],
             },
         },
         tramites: ['gasnatural'],
-        mapa: { texto: 'Ver la red de gasoductos en el mapa de permisos', hash: '#mapa-permisos' },
+        mapa: { texto: 'Ver los permisos de gas natural en el mapa de permisos', hash: '#mapa-permisos' },
         preguntas: [
-            { pregunta: '¿Para qué sirve una estación de compresión en un gasoducto?', opciones: ['Para recuperar la presión perdida por fricción durante el viaje', 'Para quemar el gas sobrante', 'Para enfriar el terreno'], correcta: 0 },
-            { pregunta: '¿Qué es el principio de «acceso abierto» en los ductos?', opciones: ['Cualquiera con permiso puede usar capacidad disponible pagando la tarifa regulada', 'Los ductos están abiertos al aire libre', 'No se cobra por transportar gas'], correcta: 0 },
-            { pregunta: '¿Quién es el gestor independiente del sistema nacional de gas natural (SISTRANGAS)?', opciones: ['El CENAGAS', 'Cada gasolinera', 'Protección Civil'], correcta: 0 },
+            { pregunta: '¿Para qué sirve una estación de compresión?', opciones: ['Para enfriar el terreno', 'Para regresarle al gas la presión que le quitó la fricción', 'Para agregarle olor al gas'], correcta: 1 },
+            { pregunta: 'Si por el mismo tubo pasa el doble de gas, ¿qué pasa con la fricción?', opciones: ['Le quita mucha más presión', 'Le quita la misma presión', 'Le quita menos presión'], correcta: 0 },
+            { pregunta: '¿Qué es el empaque?', opciones: ['El recubrimiento del tubo', 'La caja donde se mide el gas', 'El gas que el tubo guarda porque se aprieta'], correcta: 2 },
+            { pregunta: '¿Por qué se le agrega olor al gas natural?', opciones: ['Porque casi no huele, y así se nota una fuga', 'Para que queme mejor', 'Para poder medirlo'], correcta: 0 },
+            { pregunta: '¿Qué significa acceso abierto?', opciones: ['Que el tubo no lleva tapa', 'Que transportar el gas es gratis', 'Que, si hay capacidad disponible, otros pueden usar el tubo pagando la tarifa autorizada'], correcta: 2 },
         ],
         fuentes: [
-            CENAGAS,
+            ...FUENTES_GASODUCTOS,
             LSH,
             RLSH,
             LCNE,
@@ -1912,7 +1945,7 @@ export const HILO_SECTOR = {
             {
                 num: 'II',
                 titulo: 'Por ducto',
-                desc: 'Cómo viaja el gas a presión por la red nacional de gasoductos, que opera el CENAGAS y que cualquier empresa puede usar pagando una tarifa.',
+                desc: 'Cómo viaja el gas a presión por un gasoducto y por qué hacen falta estaciones. El CENAGAS es el gestor del sistema nacional, y quien da el servicio debe compartir el tubo si tiene capacidad disponible, a la tarifa autorizada.',
                 ids: ['gasoductos'],
             },
             {
@@ -2001,8 +2034,8 @@ export const PUENTE_HILO = {
     },
     gasoductos: {
         eslabon: 'Eslabón 2 · Transporte por ducto a alta presión y CENAGAS',
-        fisica: 'Para mover grandes volúmenes de gas natural por tuberías de acero enterradas, las estaciones de compresión elevan su presión entre 50 y 100 bar.',
-        regulacion: 'Dado que tender ductos paralelos es inviable, la LSH (arts. 76 fr. II y 102–106) exige permiso de la CNE, tarifas reguladas, Acceso Abierto no discriminatorio y seguridad ASEA.',
+        fisica: 'El gas avanza de más presión a menos, y la fricción le quita presión. Las estaciones de compresión se la regresan: en Los Ramones Fase II Norte, hasta 1,200 libras, unos 83 bar.',
+        regulacion: 'Transportar gas natural por ducto requiere permiso de la CNE (LSH, arts. 76, fracc. II, y 116, fracc. I). Quien da el servicio a otros debe dar acceso abierto, si tiene capacidad disponible, a la tarifa autorizada (LSH, art. 104), y el CENAGAS es el gestor independiente del sistema nacional integrado (LSH, art. 100).',
         transicion: 'Mientras el gas viaja por gasoductos, los combustibles líquidos requieren grandes pulmones de resguardo regional antes de repartirse a las ciudades: conoce las Terminales de Almacenamiento (TAR).',
     },
     'almacenamiento-tar': {
