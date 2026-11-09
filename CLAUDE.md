@@ -59,6 +59,7 @@ SPA de una sola página (`index.html`) sin framework. Vite como bundler, Tailwin
 | `src/lib/book-paginate.js`, `src/scripts/book-view.js` | Lectura como libro: paginación que nunca pierde texto y giro 3D |
 | `src/lib/article-picker.js` | Selector de artículos del panel y de la hoja |
 | `src/lib/permit-type.js` | Tipo de permiso por número y mosaico de icono |
+| `src/lib/calc/*` | Motor puro de la calculadora de energía (sin red ni Supabase); entrada en `motor.js` (`calcular`, `normalizarEstado`) y `pestanas.js`; valores con fecha solo en `energeticos.js`, `mercado.js` y `fuentes.js` |
 | `src/lib/supabase.js` | Singleton del cliente Supabase (usa `import.meta.env.VITE_*`) |
 
 ### Base de datos Supabase
@@ -76,7 +77,7 @@ Las vistas son secciones del DOM que se muestran/ocultan con `classList.add/remo
 - `#hero-section` — portada de búsqueda (`#buscar`)
 - `#landing-view` — portada: sin dirección y al tocar el logo. Su primera pantalla viene en `index.html` (un script en `<head>` pone `html.landing-on`) para pintarse sin esperar al JavaScript; `landing-view.js` la conecta y dibuja la galería
 - `#home-view` — estante 3D de documentos (`shelf-view.js`), en `#estante`; también abre las fichas (`#ficha-…`)
-- `#results-container` — resultados de búsqueda y secciones que se pintan ahí; entre ellas `#acervo` (`acervo-view.js`), hileras de portadas con filtros por tipo y dependencia (`acervoReels` en `acervo-model.js`)
+- `#results-container` — resultados de búsqueda y secciones que se pintan ahí; entre ellas `#acervo` (`acervo-view.js`), hileras de portadas con filtros por tipo y dependencia (`acervoReels` en `acervo-model.js`), y `#calculadora` (`calculadora-view.js`, estilos `.ce-*`), la calculadora de energía con enlace completo `#calculadora=<pestaña>&v=…&u=…`
 - `#law-detail-container` — documento: por artículo o como libro (`book-view.js`)
 - `#analisis-container` — Temas Transversales (renderizado por `analisis.js`)
 - `#admin-ingest-container` — panel de ingesta
@@ -114,4 +115,4 @@ En la raíz (no son parte del bundle):
 
 Figuras 3D de «¿Cómo funciona?»: fuentes en `conceptos-3d/<figura>/` (`main.js` con three.js, `style.css` Búho); `node scripts/build-conceptos-3d.mjs [figura]` las arma con la skill teardown (`~/.claude/skills/teardown`) y escribe `public/conceptos/<figura>.html` (oscuro) y `<figura>-light.html` (claro). Hablan con Aprende por `postMessage` (`concepto-height`, `concepto-part`, `concepto-select-part`). Lo que comparten las plantas con física (fichas, puntos clave, vuelo de cámara, gráficas, tablas y estilos) está en `conceptos-3d/planta-comun/`; su `style.css` empieza con la marca `/* usa planta-comun` para que el armado incluya ese estilo. Hoy lo usan ciclo combinado, fotovoltaica, eólica, hidroeléctrica y refinación; hidrógeno, geotérmica y nuclear llevan su propia copia.
 
-En `scripts/`: `audit-tables.mjs` compara texto y celdas de todas las tablas antes y después del formato (`--local` usa `public/data`).
+En `scripts/`: `audit-tables.mjs` compara texto y celdas de todas las tablas antes y después del formato (`--local` usa `public/data`). `audit-calc-fuentes.mjs` lista las fuentes de la calculadora con fecha, revisión y cotejo; con `--strict` falla si alguna está pendiente o lleva más de 14 meses sin revisar. No es parte de `npm test`; se revisa cada febrero, cuando sale la Lista de combustibles.

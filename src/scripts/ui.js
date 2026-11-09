@@ -38,6 +38,7 @@ import { skeleton } from '../lib/skeleton.js';
 import { permitsRoute, permitsHash } from '../lib/cne-api.js';
 import { comoFuncionaRoute } from '../lib/como-funciona-route.js';
 import { polosRoute } from '../lib/polos.js';
+import { calcRoute } from '../lib/calc/ruta.js';
 import { decorateDefinitions } from '../lib/definitions.js';
 import { tramitesForLaw } from '../data/tramites.js';
 import { authError } from '../lib/auth-errors.js';
@@ -123,9 +124,10 @@ export function initUI() {
     const HISTORY_KEY = 'busquedas-recientes';
     let searchHistory = (() => { try { const v = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); return Array.isArray(v) ? v.filter(q => typeof q === 'string').slice(0, 10) : []; } catch { return []; } })();
     let openAuthModal = () => {};
-    // CNE section (permits, resolutions, map) and Polos: declared early so any section change can close them.
+    // CNE section (permits, resolutions, map), Polos and the calculator: declared early so any section change can close them.
     let cneView = null;
     let polosView = null;
+    let calculadoraView = null;
     let closeAuthModal = () => {};
 
     // ── Tema global ────────────────────────────────────────────────────────────
@@ -636,6 +638,12 @@ export function initUI() {
             detailModal.classList.remove('flex');
             releaseReader();
             showPolosView({ ...polosRoute(hash), updateHistory: false });
+        } else if (calcRoute(hash)) {
+            clearTimeout(closeModalTimer);
+            detailModal.classList.add('hidden');
+            detailModal.classList.remove('flex');
+            releaseReader();
+            showCalculadoraView(calcRoute(hash));
         } else if (comoFuncionaRoute(hash)) {
             clearTimeout(closeModalTimer);
             detailModal.classList.add('hidden');
@@ -757,8 +765,8 @@ export function initUI() {
             await handleInitialHash();
         }
     });
-    // El explorador local y Polos no necesitan esperar a que termine la consulta del acervo.
-    if (location.hash === '#estante' || location.hash.startsWith('#ficha-') || explorerRoute(location.hash) || acervoRoute(location.hash) || polosRoute(location.hash)) setTimeout(handleInitialHash, 0);
+    // El explorador local, Polos y la calculadora no necesitan esperar a que termine la consulta del acervo.
+    if (location.hash === '#estante' || location.hash.startsWith('#ficha-') || explorerRoute(location.hash) || acervoRoute(location.hash) || polosRoute(location.hash) || calcRoute(location.hash)) setTimeout(handleInitialHash, 0);
 
     // Toast del sistema: sin emoji, un ícono de trazo según el tono ('!' avisa, lo demás confirma).
     const TOAST_ICONS = {
@@ -930,7 +938,7 @@ export function initUI() {
 
     // ── Nav activo ─────────────────────────────────────────────────────────────
     // ── Nav activo ──
-    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-como-funciona', 'mobile-nav-como-funciona', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-polos', 'mobile-nav-polos', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
+    const NAV_IDS = ['nav-inicio', 'nav-leyes', 'nav-usuarios', 'mobile-nav-usuarios', 'nav-como-funciona', 'mobile-nav-como-funciona', 'nav-cronologia', 'mobile-nav-cronologia', 'nav-permisos', 'mobile-nav-permisos', 'nav-reto', 'mobile-nav-reto', 'nav-polos', 'mobile-nav-polos', 'nav-calculadora', 'mobile-nav-calculadora', 'nav-analisis', 'nav-favorites', 'nav-stats', 'nav-ayuda',
                      'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-ayuda'];
     function setActiveNav(activeId) {
         endRouteWait();
@@ -942,6 +950,7 @@ export function initUI() {
         // Leaving the CNE section closes it (the map's timers, its full-screen state on phones).
         if (activeId !== 'nav-permisos' && cneView) { cneView.destroy(); cneView = null; }
         if (activeId !== 'nav-polos' && polosView) { polosView.destroy(); polosView = null; }
+        if (activeId !== 'nav-calculadora' && calculadoraView) { calculadoraView.destroy(); calculadoraView = null; }
         // Moving to another section fades the page in instead of swapping it at once.
         if (activeNavId && activeId !== activeNavId && mainContainer) {
             mainContainer.classList.remove('view-fade');
@@ -3516,6 +3525,31 @@ export function initUI() {
         });
     }
     document.getElementById('mobile-nav-polos')?.addEventListener('click', () => toggleMobileMenu(false));
+
+    let calculadoraRequest = 0;
+    /** Calculadora de energía (#calculadora, #calculadora=<pestaña>&…). The address has already changed. */
+    function showCalculadoraView(ruta) {
+        if (calculadoraView && activeNavId === 'nav-calculadora' && resultsContainer.querySelector('.ce-view')) {
+            calculadoraView.show(ruta);
+            return;
+        }
+        destroyTOC();
+        hideAllViews();
+        setActiveNav('nav-calculadora');
+        mainContainer.classList.remove('justify-center', 'pt-24');
+        mainContainer.classList.add('pt-8');
+        resultsContainer.classList.remove('hidden', 'opacity-0');
+        resultsContainer.innerHTML = skeleton('list', 'Cargando la calculadora');
+        calculadoraView?.destroy();
+        calculadoraView = null;
+        const request = ++calculadoraRequest;
+        withProgress(import('./calculadora-view.js')).then(({ renderCalculadoraView }) => {
+            if (request !== calculadoraRequest || !calcRoute(location.hash)) return;
+            calculadoraView = renderCalculadoraView(resultsContainer, { ruta, onRoute: next => setHash(next) });
+            window.scrollTo({ top: 0 });
+        });
+    }
+    document.getElementById('mobile-nav-calculadora')?.addEventListener('click', () => toggleMobileMenu(false));
 
     let usersView = null;
     let usersRequest = 0;
