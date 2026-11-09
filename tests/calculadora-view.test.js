@@ -175,11 +175,11 @@ describe('calculator view', () => {
     expect(d.querySelector('[data-ce="cuenta-resultado"]').textContent).toMatch(/intermedio/i);
   });
   it('writes each note of the formula table once, as a sentence', () => {
-    for (const hash of ['#calculadora=gas-lp', '#calculadora=otras&mg=energia&v=1&u=tep', '#calculadora=petroliferos&v=1&u=t&p=diesel']) {
+    for (const hash of ['#calculadora=gas-lp', '#calculadora=otras&mg=energia&v=1&u=tep', '#calculadora=petroliferos&v=1&u=t&p=diesel', '#calculadora=petroliferos&v=1&u=t&p=diesel&d=0.82']) {
       const { host } = montar(hash);
       for (const td of host.querySelectorAll('.ce-rotulo')) {
         expect(td.textContent, hash).not.toMatch(/\.\s[a-záéíóúñ]/);
-        expect(td.textContent, hash).not.toMatch(/las tablas de precios\.\s*las tablas de precios|balances de energía\.\s*balances de energía/);
+        expect(td.textContent, hash).not.toMatch(/las tablas de precios\.\s*las tablas de precios|balances de energía\.\s*balances de energía|densidad que elegiste\.\s*La densidad que elegiste/);
       }
       document.body.innerHTML = '';
     }

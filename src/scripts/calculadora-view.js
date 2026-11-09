@@ -43,7 +43,7 @@ function valorLinea(l) {
 }
 const oracion = s => (s ? `${s[0].toUpperCase()}${s.slice(1)}` : s);
 /** The origin of a figure; its note is added as its own sentence unless the label already holds it. */
-const origenCifra = c => `${rotulo(c)}${c.nota && c.clase !== 'convencion' ? `. ${oracion(c.nota)}` : ''}`;
+const origenCifra = c => `${rotulo(c)}${c.nota && !['convencion', 'calculado'].includes(c.clase) ? `. ${oracion(c.nota)}` : ''}`;
 const lineaFuentes = fuentes => (fuentes.length
     ? `<p class="ce-nota">Fuente: ${fuentes.map(f => `${enlaceFuente(f)}. ${esc(f.emisor)}, ${esc(f.fecha)}`).join('; ')}.</p>` : '');
 const rotuloLinea = l => rotulo({ clase: l.clase, anio: l.anio, emisor: FUENTES[l.fuente]?.emisor, nota: l.clase === 'convencion' ? 'las tablas de precios' : undefined });

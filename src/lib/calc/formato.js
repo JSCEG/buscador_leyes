@@ -7,7 +7,8 @@
 const NB = ' ';
 const MENOS = '−';
 const SUPER = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻' };
-const CIFRAS = { exacto: 7, oficial: 4, tipico: 3, convencion: 3 };
+// `calculado`: a published value combined with a density the person chose (user's call, 2026-11-09).
+const CIFRAS = { exacto: 7, oficial: 4, tipico: 3, convencion: 3, calculado: 3 };
 
 const agrupar = digitos => digitos.replace(/\B(?=(\d{3})+(?!\d))/g, NB);
 
@@ -88,6 +89,7 @@ export function rotulo({ clase, anio, nota, emisor } = {}) {
     if (clase === 'oficial') return `Valor publicado por ${emisor || 'SENER'}${anio ? `, ${anio}` : ''}`;
     if (clase === 'tipico') return 'Valor típico, puede variar';
     if (clase === 'convencion') return nota ? `Convención usada en ${nota}` : 'Convención';
+    if (clase === 'calculado') return nota ? `Calculado con ${nota}` : 'Calculado';
     return '';
 }
 

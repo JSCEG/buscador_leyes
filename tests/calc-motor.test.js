@@ -71,6 +71,23 @@ describe('labels of origin', () => {
     expect(r.principal.clase).toBe('convencion');
     expect(r.avisos.join()).toContain('sin ajuste');
   });
+  // User's call (2026-11-09): energy from kilos with a density the person changed is calculated, not published.
+  const CALCULADO = { clase: 'calculado', fuente: 'lista-2026', anio: 2026, nota: 'la densidad que elegiste' };
+  it('labels diesel energy from kilos with an edited density as calculated', () => {
+    expect(energia(c({ pestana: 'petroliferos', valor: 1, unidad: 't', producto: 'diesel', ajustes: { d: 0.82 } }))).toMatchObject(CALCULADO);
+    expect(energia(c({ pestana: 'petroliferos', valor: 1, unidad: 't', producto: 'diesel' }))).toMatchObject({ clase: 'oficial', fuente: 'lista-2026' });
+  });
+  it('labels gas LP energy from a cylinder with a chosen mixture as calculated', () => {
+    expect(energia(c({ pestana: 'gas-lp', valor: 1, unidad: 'cil20', ajustes: { m: 'propano' } }))).toMatchObject(CALCULADO);
+    expect(energia(c({ pestana: 'gas-lp', valor: 1, unidad: 'cil20' }))).toMatchObject({ clase: 'oficial', fuente: 'lista-2026' });
+  });
+  it('keeps the published value for energy from a volume', () => {
+    expect(energia(c({ pestana: 'petroliferos', valor: 100, unidad: 'l', producto: 'diesel', ajustes: { d: 0.82 } })).clase).toBe('oficial');
+  });
+  it('never labels kilos that come from a density as published', () => {
+    const kilos = todas(c({ pestana: 'petroliferos', valor: 10, unidad: 'gj', producto: 'diesel' })).find(x => x.unidad === 'kg');
+    expect(kilos.clase).not.toBe('oficial');
+  });
   it('says gas LP cubic metres are liquid', () => {
     const r = c({ pestana: 'gas-lp', valor: 1, unidad: 'cil20' });
     expect(todas(r).find(x => x.unidad === 'm3').etiqueta).toContain('líquido');

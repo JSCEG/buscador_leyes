@@ -41,6 +41,8 @@ describe('rotulo', () => {
     expect(rotulo({ clase: 'exacto' })).toBe('Exacto por definición');
     expect(rotulo({ clase: 'tipico' })).toBe('Valor típico, puede variar');
     expect(rotulo({ clase: 'convencion', nota: 'las tablas de precios' })).toBe('Convención usada en las tablas de precios');
+    expect(rotulo({ clase: 'calculado', nota: 'la densidad que elegiste' })).toBe('Calculado con la densidad que elegiste');
+    expect(formatoClase(1031.4, 'calculado')).toBe(`1${NB}030`);
   });
 });
 

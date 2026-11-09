@@ -64,6 +64,22 @@ Lo que sale al frente, con la línea de origen y los avisos de cada caso.
 - 33.7 toneladas de CO₂
 - Origen: «Valor publicado por CONUEE (SENER), 2026»
 
+### 1 t de diésel con densidad 0.82 kg/L
+
+- **1 220 litros**
+- 46.5 gigajoules de energía _(Calculado con la densidad que elegiste)_
+- 3.45 toneladas de CO₂
+- Para darte idea: unos 24 tanques de coche de 50 L. _Ilustrativo_
+- Origen: «Valor típico, puede variar»
+
+### 1 cilindro de 20 kg, mezcla propano
+
+- **39.5 litros**
+- 1.03 gigajoules de energía _(Calculado con la densidad que elegiste)_
+- 65.1 kilos de CO₂
+- Para darte idea: un cilindro de 20 kg. _NOM-213_
+- Origen: «Valor típico, puede variar»
+
 ### 1 MMpc de gas natural
 
 - **1.09 terajoules de energía**

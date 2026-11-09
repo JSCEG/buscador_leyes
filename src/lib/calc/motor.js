@@ -33,6 +33,9 @@ const P = {
     nistLP: { clase: 'tipico', fuente: 'nist-webbook', anio: 2026 },
     vcf: { clase: 'tipico', fuente: 'vcf', anio: 2026, nota: 'orientativo' },
     atmosfera: { clase: 'tipico', fuente: 'nws-altitud', anio: 2026 },
+    // Energy from kilos when the person changed the density in the official base: the list's MJ per
+    // litre stays, so the energy per kilo is theirs, not SENER's (user's call, 2026-11-09).
+    calculado: { clase: 'calculado', fuente: 'lista-2026', anio: 2026, nota: 'la densidad que elegiste' },
 };
 
 const DENSIDAD = {
@@ -244,11 +247,15 @@ function petroliferos(e, s) {
     const litrosC = deUnidad(litros, 'l', procL, op);
     const barrilesC = deUnidad(litros / BARRIL_L, 'bl', procL, op);
     const refC = factor !== 1 ? cifra(refL, 'l', `litros a ${p.tRef} °C${sufijo}`, { ...P.vcf, frente: true, etiquetaUna: `litro a ${p.tRef} °C${sufijo}` }) : null;
-    // Energy typed in MJ is exact; energy from barrels of oil equivalent carries the 2026 list's 6 347 MJ.
-    const procEnergia = mag === 'energia' ? (u === 'bep' ? P.lista : P.exacto) : proc;
+    // Energy typed in MJ is exact; energy from barrels of oil equivalent carries the 2026 list's 6 347 MJ;
+    // energy from kilos with a density the person changed is calculated.
+    const densidadEditada = a.d !== undefined && e.base !== 'fisica';
+    const procEnergia = mag === 'energia' ? (u === 'bep' ? P.lista : P.exacto) : (mag === 'masa' && densidadEditada ? P.calculado : proc);
+    const procBep = procEnergia === P.calculado ? P.calculado : P.lista;
     const energiaC = energiaCombustible(mj, procEnergia, op);
     const co2C = co2(kgCo2, { ...op, frente: true });
-    const kgProc = mag === 'masa' ? P.exacto : (mag === 'energia' ? proc : procKg);
+    // Kilos always come through a density, so they never carry the list's label.
+    const kgProc = mag === 'masa' ? P.exacto : procKg;
 
     if (mag === 'energia') {
         s.principal = litrosC;
@@ -263,7 +270,7 @@ function petroliferos(e, s) {
         deUnidad(litros / 1000, 'm3', procL, op), deUnidad(convertir(litros, 'l', 'gal'), 'gal', procL, op),
         deUnidad(kg, 'kg', kgProc, op), deUnidad(kg / 1000, 't', kgProc, op),
         ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, procEnergia, op)),
-        deUnidad(mj / BEP_MJ, 'bep', P.lista, op),
+        deUnidad(mj / BEP_MJ, 'bep', procBep, op),
     );
     if (CON_TANQUE.includes(e.producto)) s.comparacion = tanques(litros);
     if (e.producto === 'diesel' && a.d === undefined) s.avisos.push('La densidad de 0.84 kg/L no tiene fuente oficial; puedes cambiarla en «Ajustar».');
@@ -366,10 +373,12 @@ function gasLP(e, s) {
     const kgCo2 = co2Kg(mj, 'gas-lp');
     s.pasos.push(`${fmt(mj)} MJ × 63.1 g de CO₂ por MJ = ${fmt(kgCo2)} kg de CO₂`);
 
-    const kgC = deUnidad(kg, 'kg', mag === 'masa' ? P.exacto : (mag === 'energia' ? proc : procKg));
+    // Kilos always come through a density; energy from kilos with a chosen mixture or temperature is calculated.
+    const kgC = deUnidad(kg, 'kg', mag === 'masa' ? P.exacto : procKg);
     const litrosC = deUnidad(litros, 'l', mag === 'volumen' ? P.exacto : procKg);
     const refC = factor !== 1 ? cifra(refL, 'l', 'litros a 15.56 °C', { ...P.nistLP, frente: true, etiquetaUna: 'litro a 15.56 °C' }) : null;
-    const energiaC = energiaCombustible(mj, mag === 'energia' ? P.exacto : proc);
+    const procEnergia = mag === 'energia' ? P.exacto : (mag === 'masa' && e.base !== 'fisica' && usaTabla ? P.calculado : proc);
+    const energiaC = energiaCombustible(mj, procEnergia);
     const co2C = co2(kgCo2, { frente: true });
     if (mag === 'energia') {
         s.principal = kgC;
@@ -384,7 +393,7 @@ function gasLP(e, s) {
         // Liquid, never vapour: one liquid m³ holds about 290 times the energy of one m³ of vapour.
         deUnidad(litros / 1000, 'm3', mag === 'volumen' ? P.exacto : procKg, { extra: ' de gas líquido' }), deUnidad(litros / BARRIL_L, 'bl', mag === 'volumen' ? P.exacto : procKg),
         deUnidad(kg / 1000, 't', mag === 'masa' ? P.exacto : procKg),
-        ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, mag === 'energia' ? P.exacto : proc)),
+        ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, procEnergia)),
     );
     s.comparacion = cilindros(kg / CILINDRO_KG);
     if (e.base !== 'fisica' && !usaTabla) {
