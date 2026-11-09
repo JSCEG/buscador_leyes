@@ -24,6 +24,11 @@ describe('sources', () => {
     expect(auditarFuentes(hoy).find(x => x.id === 'ipcc-2006').problema).toBe('pendiente');
     expect(auditarFuentes(new Date('2028-03-01T12:00:00Z')).every(x => x.problema)).toBe(true);
   });
+  // Read in the Diario Oficial on 2026-11-09: Artículo Único, 13.9 % for 2025 and 2026, published 2026-08-17.
+  it('cites the CEL agreement from the Diario Oficial', () => {
+    expect(FUENTES['acuerdo-cel-2026']).toMatchObject({ url: 'https://sidof.segob.gob.mx/notas/5796405', fecha: '2026-08-17', emisor: 'SENER' });
+    expect(FUENTES['acuerdo-cel-2026'].titulo).not.toMatch(/despacho/i);
+  });
   // The user checked the 8 values against the scan on 2026-11-09 (page 1, signed 2026-02-12).
   it('keeps the 2026 fuel list as checked by a person', () => {
     expect(FUENTES['lista-2026']).toMatchObject({ cotejo: 'humano', revisado: '2026-11-09', fecha: '2026-02-12' });

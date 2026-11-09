@@ -25,7 +25,8 @@ const LISTA = [
     f('cne-precios-lp', 'Precios máximos de gas LP, del 8 al 14 de noviembre de 2026', 'CNE', 'https://www.gob.mx/cms/uploads/attachment/file/1115181/PRECIOS_MAXIMOS_VIGENTES_DEL_8_al_14_de_noviembre_DE_2026.pdf', '2026-11-08'),
     f('cenace-precio-neto-2025', 'Precio Neto de la Potencia en 2025, recálculo', 'CENACE', 'https://www.cenace.gob.mx/Docs/02_MBP/PrecioNetoPotencia/2025/Precio%20Neto%20de%20la%20Potencia%20en%202025%20(v2026%2009%2003)%20Rec%C3%A1lculo.pdf', '2026-09-03'),
     f('acuerdo-cne-2026', 'Acuerdo de tarifas finales de suministro básico 2026', 'CNE', 'https://dof.gob.mx/nota_detalle_popup.php?codigo=5783862', '2026'),
-    f('acuerdo-cel-2026', 'Requisitos de Certificados de Energías Limpias para 2025 y 2026 (leído en despachos; falta el Diario Oficial)', 'SENER', 'https://www.cuatrecasas.com/es/spain/publico/art/sener-cels-requisitos-2025-2026', '2026-08-17'),
+    // Read in the Diario Oficial on 2026-11-09: Artículo Único sets 13.9 % for 2025 and 2026; in force on publication.
+    f('acuerdo-cel-2026', 'Acuerdo por el que se establecen los requisitos para la adquisición de Certificados de Energías Limpias para los años 2025 y 2026', 'SENER', 'https://sidof.segob.gob.mx/notas/5796405', '2026-08-17'),
     f('bme-2015', 'Bases del Mercado Eléctrico', 'SENER', 'http://www.dof.gob.mx/nota_detalle.php?codigo=5407715&fecha=08/09/2015', '2015-09-08'),
     // Article 19 of the LSE on this site (Supabase id; the LSE-Art-019 chunk id does not open).
     f('lse', 'Ley del Sector Eléctrico', 'Congreso de la Unión', '#art-07b3add5-c54c-401a-8332-1941d39b0b70', '2025-03-18'),
