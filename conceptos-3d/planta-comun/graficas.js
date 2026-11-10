@@ -89,8 +89,8 @@ export const seccionTabla = (titulo, id, pie, clase = '') => `<section class="g-
     <div class="h-tabla-suelta ${clase}"><table id="${id}"></table></div>
     <p>${pie}</p>
 </section>`;
-export const seccionColores = (fluidos, nota) => `<section class="g-curva h-colores">
-    <div class="g-curva-cab"><b>Colores de los tubos</b></div>
+export const seccionColores = (fluidos, nota, titulo = 'Colores de los tubos') => `<section class="g-curva h-colores">
+    <div class="g-curva-cab"><b>${titulo}</b></div>
     <ul class="h-tubos">${Object.values(fluidos).map(f => `<li><i style="background:${f.color}"></i>${f.nombre}</li>`).join('')}</ul>
     <p>${nota}</p>
 </section>`;

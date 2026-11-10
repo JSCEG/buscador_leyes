@@ -1,1 +1,6 @@
-/* Lo propio de la Red Nacional de Transmisión. Lo común está en conceptos-3d/comun/estilo.css. */
+/* usa planta-comun. Aquí va solo lo propio de esta figura. */
+.h-tabla-texto td:nth-child(2), .h-tabla-texto th:nth-child(2) { text-align: right; }
+#h-regla td:last-child, #h-regla th:last-child, #h-2020 td:last-child, #h-2020 th:last-child, #h-cuida td:last-child, #h-cuida th:last-child, #h-linea td:last-child, #h-cable td:last-child { text-align: left; }
+.h-barra-f { grid-template-columns: 196px 1fr 34px; }
+.h-s-norma { --c: var(--tinta, #171317); stroke-dasharray: 5 4; }
+@media (max-width: 619px) { .h-barra-f { grid-template-columns: 132px 1fr 30px; } }

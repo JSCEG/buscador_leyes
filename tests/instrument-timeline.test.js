@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import { buildInstrumentTimeline, timelineDate, timelineSource } from '../src/lib/instrument-timeline.js';
 import { renderInstrumentTimeline } from '../src/scripts/instrument-timeline-view.js';
+import { resultPublication } from '../src/lib/related-document.js';
 
 const base = 'revision-acervo/incorporacion-autoconsumo-2026-09-18/despues-verificado/';
 const summaries = JSON.parse(readFileSync(`${base}leyes.json`, 'utf8'));
@@ -13,6 +14,21 @@ const dataFor = siglas => {
 };
 
 describe('instrument chronology', () => {
+    it('opens a results sheet under its own publication date and external source', () => {
+        const law = { id: 'call', fecha_publicacion: '2026-05-11', url_original: 'https://dof.gob.mx/' };
+        const source = 'https://ventanilla.energia.gob.mx/resultados2daConv';
+        const header = `<p data-publicacion="resultados"><time datetime="2026-11-06">6 de noviembre</time> en <a href="${source}">Ventanilla Energía</a>.</p>`;
+        const publication = resultPublication('complementario', header);
+        expect(resultPublication('ordinario', header)).toBeNull();
+        expect(resultPublication('complementario', header.replace('2026-11-06', '2026-02-30'))).toBeNull();
+        const article = { id: 'sheet', tipo_articulo: 'complementario', articulo_label: 'Resultados', resultPublication: publication };
+        const container = document.createElement('div');
+        renderInstrumentTimeline(container, { law, articles: [article] }, {});
+        const event = container.querySelector('[data-timeline-id="sheet"]');
+        expect(event.querySelector('time').dateTime).toBe('2026-11-06');
+        expect(event.querySelector('.it-source').href).toBe(source);
+        expect(event.querySelector('.it-open').hash).toBe('#art-sheet');
+    });
     it.each(['CONV-ESTRATEGICOS', 'CONV-ESTRATEGICOS-M1', 'CONV-ESTRATEGICOS-M2', 'CONV-ESTRATEGICOS-M3'])('shows the same complete chronology from %s', siglas => {
         const data = dataFor(siglas);
         const { entries } = buildInstrumentTimeline(data);
