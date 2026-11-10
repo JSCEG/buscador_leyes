@@ -11,6 +11,8 @@ export const MAX_STREAMED_PDF_BYTES = 96 * 1024 * 1024;
 const IDLE_TIMEOUT = 30000;
 const TOTAL_TIMEOUT = 240000;
 const reviewedDofPdfs = new Set([
+    'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07072026-MAT.pdf&repo=',
+    'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=21072026-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=31072025-VES.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=29082025-MAT.pdf&repo=',
     'https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=10112026-MAT.pdf&repo=',

@@ -1,0 +1,131 @@
+[
+  {
+    "folio": "CFE-0001-CAAAT-0186-2026",
+    "convocatoria": "ce276c7c-2952-558e-89ca-cfc74cfb243a",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=10112026-MAT.pdf&repo=",
+    "pagina": 135,
+    "registro": "(R.- 582121)",
+    "filas": 6,
+    "falloProgramado": "08/01/2027, 14:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0190-2026",
+    "convocatoria": "26ebbff1-49a1-57bb-8314-42864a74c1d3",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=10112026-MAT.pdf&repo=",
+    "pagina": 135,
+    "registro": "(R.- 582045)",
+    "filas": 8,
+    "falloProgramado": "7/1/2027, 14:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0193-2026",
+    "convocatoria": "ac6db93b-c22d-5766-b08d-d046ab3c65db",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=10112026-MAT.pdf&repo=",
+    "pagina": 136,
+    "registro": "(R.- 582096)",
+    "filas": 6,
+    "falloProgramado": "6/01/2027, 14:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0194-2026",
+    "convocatoria": "e94403ee-e95a-5fd7-93fa-011095f87846",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=10112026-MAT.pdf&repo=",
+    "pagina": 137,
+    "registro": "(R.- 582104)",
+    "filas": 8,
+    "falloProgramado": "6/1/2027, 14:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0092-2026",
+    "convocatoria": "48417654-00f6-5dbc-85ce-7c5680c3d499",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07072026-MAT.pdf&repo=",
+    "pagina": 276,
+    "registro": "(R.- 578058)",
+    "filas": 6,
+    "falloProgramado": "31/07/2026, 13:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0093-2026",
+    "convocatoria": "eef5e3e9-aae7-5a74-8b6a-070276bf2104",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07072026-MAT.pdf&repo=",
+    "pagina": 276,
+    "registro": "(R.- 578058)",
+    "filas": 6,
+    "falloProgramado": "31/07/2026, 12:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0096-2026",
+    "convocatoria": "63cf32d2-e33b-5120-bfa0-265c33ba779d",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07072026-MAT.pdf&repo=",
+    "pagina": 278,
+    "registro": "(R.- 578149)",
+    "filas": 6,
+    "falloProgramado": "3/08/2026, 13:30 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0106-2026",
+    "convocatoria": "3c31a9d1-4cb7-5c9e-a469-40429bb1e1f3",
+    "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=21072026-MAT.pdf&repo=",
+    "pagina": 244,
+    "registro": "(R.- 578584)",
+    "filas": 6,
+    "falloProgramado": "14/08/2026, 12:00 hrs",
+    "tablaVerificada": true
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0092-2026",
+    "fallo": "216fbcf8-73d2-50f2-9a36-52f57623ca86",
+    "concurso": "5ef92d52-e3af-5b75-9f1a-93e0a340452f",
+    "convocatoria": "48417654-00f6-5dbc-85ce-7c5680c3d499",
+    "fechaPublicacion": "2026-11-10",
+    "fechaEmision": "4 de agosto de 2026",
+    "paginas": [
+      137
+    ],
+    "registro": "R.- 582122"
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0096-2026",
+    "fallo": "5a000de8-8ec0-5765-ac8c-5ce3722ba1fc",
+    "concurso": "739c6ab8-ab67-5aa8-9ed3-83905deec56a",
+    "convocatoria": "63cf32d2-e33b-5120-bfa0-265c33ba779d",
+    "fechaPublicacion": "2026-11-10",
+    "fechaEmision": "3 de agosto de 2026",
+    "paginas": [
+      137
+    ],
+    "registro": "R.- 582122"
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0106-2026",
+    "fallo": "7a09074c-2505-52a1-b32f-e718986eb04f",
+    "concurso": "caf7ae24-9237-50b2-a3dd-cfd22e7e90c2",
+    "convocatoria": "3c31a9d1-4cb7-5c9e-a469-40429bb1e1f3",
+    "fechaPublicacion": "2026-11-10",
+    "fechaEmision": "28 de agosto de 2026",
+    "paginas": [
+      137,
+      138
+    ],
+    "registro": "R.- 582122"
+  },
+  {
+    "folio": "CFE-0001-CAAAT-0093-2026",
+    "fallo": "b8f37f77-d9b2-5c35-a7cf-060c15b92a72",
+    "concurso": "8da780e7-4111-5e0d-95fb-d9df37de605c",
+    "convocatoria": "eef5e3e9-aae7-5a74-8b6a-070276bf2104",
+    "fechaPublicacion": "2026-11-10",
+    "fechaEmision": null,
+    "paginas": [
+      138
+    ],
+    "registro": "R.- 582122"
+  }
+]
