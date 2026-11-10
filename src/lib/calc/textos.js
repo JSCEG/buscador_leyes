@@ -10,6 +10,7 @@ import { LEYENDA_MERCADO } from './mercado.js';
 export const TITULO = 'Calculadora de energía';
 export const SUBTITULO = 'Escribe un número y te decimos cuánto es y qué significa.';
 export const NOTA_PIE = 'Cálculo orientativo. No sirve para medir ni facturar.';
+export const FUENTES_INTRO = 'Solo como referencia: los documentos de donde salen los valores de esta sección y lo que respalda cada uno.';
 
 // Thousands keep a no-break space so «90 543» never splits across lines.
 const nb = s => s.replace(/(\d) (\d)/g, '$1 $2');

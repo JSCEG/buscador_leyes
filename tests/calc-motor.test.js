@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { calcular, normalizarEstado } from '../src/lib/calc/motor.js';
-import { ATAJOS, unidadesValidas } from '../src/lib/calc/pestanas.js';
+import { calcular, equivalenteOficial, normalizarEstado } from '../src/lib/calc/motor.js';
+import { ATAJOS, UNA, UNIDADES_PESTANA, nombreUnidadEn, unidadesValidas } from '../src/lib/calc/pestanas.js';
 import { rotulo, textoFrente } from '../src/lib/calc/formato.js';
-import { convertir } from '../src/lib/calc/unidades.js';
+import { UNIDADES, convertir } from '../src/lib/calc/unidades.js';
 
 const c = p => calcular(normalizarEstado(p));
 const near = (g, w, t) => expect(Math.abs(g - w)).toBeLessThanOrEqual(t);
@@ -159,5 +159,61 @@ describe('errors and limits', () => {
   it('never returns figures that are not finite', () => {
     const r = c({ pestana: 'gas-natural', valor: '1 000 000 000 000 000 000 000', unidad: 'bcf' });
     for (const x of r.ok ? todas(r) : []) expect(Number.isFinite(x.valor)).toBe(true);
+  });
+});
+
+describe('details from the review', () => {
+  it('ignores crafted names that are not options', () => {
+    for (const ruta of [
+      { pestana: 'gas-natural', valor: 1, unidad: 'm3', ajustes: { c: 'constructor' } },
+      { pestana: 'gas-lp', valor: 1, unidad: 'kg', ajustes: { m: 'constructor' } },
+      { pestana: 'gas-lp', valor: 1, unidad: 'kg', ajustes: { m: 'toString' } },
+    ]) {
+      expect(normalizarEstado(ruta).ajustes).toEqual({});
+      expect(c(ruta).ok).toBe(true);
+    }
+    expect(normalizarEstado({ pestana: 'constructor' }).pestana).toBe('electricidad');
+  });
+  it('lists each figure once', () => {
+    for (const caso of [
+      { pestana: 'petroliferos', valor: 1000, unidad: 'l', producto: 'diesel' },
+      { pestana: 'petroliferos', valor: 100, unidad: 'gj', producto: 'coque' },
+      { pestana: 'petroliferos', valor: 10, unidad: 't', producto: 'coque' },
+      { pestana: 'gas-natural', valor: 1000, unidad: 'm3' },
+      { pestana: 'gas-lp', valor: 100, unidad: 'kg' },
+    ]) {
+      const r = c(caso);
+      const claves = [r.principal, ...r.otras].map(x => `${x.unidad} ${x.valor.toPrecision(9)}`);
+      expect(new Set(claves).size, JSON.stringify(caso)).toBe(claves.length);
+    }
+  });
+  it('names the adjustment that does not read as a number', () => {
+    const error = ruta => c(ruta).errores.map(e => e.mensaje);
+    expect(error({ pestana: 'petroliferos', valor: 1, unidad: 'l', producto: 'diesel', ajustes: { t: 'abc' } })).toEqual(['Escribe la temperatura, como 25']);
+    expect(error({ pestana: 'petroliferos', valor: 1, unidad: 'l', producto: 'diesel', ajustes: { d: 'abc' } })).toEqual(['Escribe la densidad, como 0.84']);
+    expect(error({ pestana: 'gas-natural', valor: 1, unidad: 'm3', ajustes: { pc: 'abc' } })).toEqual(['Escribe el poder calorífico, como 38.64']);
+    expect(error({ pestana: 'otras', magnitud: 'presion', valor: 1, unidad: 'bar', ajustes: { pm: 'man', a: 'abc' } })).toEqual(['Escribe la altitud, como 2 240']);
+  });
+  it('does not compare 20 kg cylinders with 20 kg cylinders', () => {
+    expect(c({ pestana: 'gas-lp', valor: 1, unidad: 'cil20' }).comparacion).toBeNull();
+    expect(c({ pestana: 'gas-lp', valor: 3, unidad: 'cil20' }).comparacion).toBeNull();
+    expect(c({ pestana: 'gas-lp', valor: 1, unidad: 'cil10' }).comparacion.texto).toContain('cilindro de 20 kg');
+  });
+  it('writes the equivalent in the official unit', () => {
+    const eq = (parcial, valor) => equivalenteOficial({ ...normalizarEstado(parcial), valor });
+    expect(eq({ pestana: 'otras', magnitud: 'temperatura', unidad: 'f' }, '212')).toBe('= 100 °C');
+    expect(eq({ pestana: 'otras', magnitud: 'temperatura', unidad: 'f', ajustes: { dt: true } }, '18')).toBe('= 10 °C');
+    expect(eq({ pestana: 'otras', magnitud: 'presion', unidad: 'bar' }, '1')).toBe('= 100 kPa');
+    expect(eq({ pestana: 'otras', magnitud: 'presion', unidad: 'bar' }, '')).toBe('= 100 kPa');
+    expect(eq({ pestana: 'otras', magnitud: 'presion', unidad: 'bar' }, 'abc')).toBe('');
+    expect(eq({ pestana: 'otras', magnitud: 'presion', unidad: 'kpa' }, '1')).toBeNull();
+    expect(eq({ pestana: 'gas-lp', unidad: 'cil20' }, '1')).toBeNull();
+  });
+  it('names one of each unit in the singular', () => {
+    for (const id of [...Object.keys(UNIDADES), ...Object.keys(UNIDADES_PESTANA)]) expect(UNA[id], id).toBeTruthy();
+    expect(nombreUnidadEn('gas-lp', 'cil20', { una: true })).toBe('cilindro de 20 kg');
+    expect(nombreUnidadEn('gas-lp', 'm3', { una: true })).toBe('metro cúbico de gas líquido');
+    expect(nombreUnidadEn('petroliferos', 'mbd', { una: true })).toBe('mil barriles diarios (Mbd)');
+    expect(nombreUnidadEn('gas-lp', 'cil20')).toBe('cilindros de 20 kg');
   });
 });

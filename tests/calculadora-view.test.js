@@ -1,7 +1,9 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { renderCalculadoraView } from '../src/scripts/calculadora-view.js';
 import { calcRoute } from '../src/lib/calc/ruta.js';
 import { idArticulo } from '../src/lib/calc/textos.js';
+import { FUENTES_SECCION } from '../src/lib/calc/fuentes.js';
 
 const montar = (hash = '#calculadora') => {
   const host = document.createElement('div');
@@ -222,5 +224,92 @@ describe('calculator view', () => {
     expect(host.querySelectorAll('.ce-view')).toHaveLength(1);
     view.destroy();
     expect(host.children).toHaveLength(0);
+  });
+});
+
+describe('details from the review, on screen', () => {
+  it('copies one cylinder in the singular', async () => {
+    const writeText = vi.fn().mockResolvedValue();
+    vi.stubGlobal('navigator', { clipboard: { writeText } });
+    const { $ } = montar('#calculadora=gas-lp&v=1&u=cil20');
+    $('copiar').click();
+    await Promise.resolve();
+    expect(writeText.mock.calls[0][0].split('\n')[0]).toBe('1 cilindro de 20 kg');
+  });
+  it('moves through a choice with the arrow keys', () => {
+    const { host } = montar('#calculadora=petroliferos&v=1&u=l&p=diesel');
+    const boton = v => host.querySelector(`[data-ce="base"] [data-valor="${v}"]`);
+    expect(boton('oficial').tabIndex).toBe(0);
+    expect(boton('fisica').tabIndex).toBe(-1);
+    boton('oficial').focus();
+    boton('oficial').dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+    expect(boton('fisica').getAttribute('aria-checked')).toBe('true');
+    expect(document.activeElement).toBe(boton('fisica'));
+    expect(boton('fisica').tabIndex).toBe(0);
+  });
+  it('keeps the hours when the unit goes to energy and back', () => {
+    const { $ } = montar('#calculadora=electricidad&v=1&u=mw&h=8');
+    cambiar($('unidad'), 'mwh');
+    cambiar($('unidad'), 'mw');
+    expect($('horas').value).toBe('8');
+    escribir($('horas'), '');
+    cambiar($('unidad'), 'mwh');
+    cambiar($('unidad'), 'mw');
+    expect($('horas').value).toBe('');
+  });
+  it('shares power without hours as it is', async () => {
+    const writeText = vi.fn().mockResolvedValue();
+    vi.stubGlobal('navigator', { clipboard: { writeText } });
+    const { $ } = montar('#calculadora=electricidad&v=1&u=mw&h=8');
+    escribir($('horas'), '');
+    $('compartir').click();
+    await Promise.resolve();
+    expect(writeText.mock.calls[0][0]).toMatch(/#calculadora=electricidad&v=1&u=mw&h=$/);
+  });
+  it('says when a date is the day a page was consulted', () => {
+    const { $ } = montar('#calculadora=gas-natural');
+    expect($('formula-cuerpo').textContent).toContain('EIA, consultado el 2026-11-08');
+  });
+  it('lists the sources of each section, for reference', () => {
+    for (const p of ['electricidad', 'petroliferos', 'gas-natural', 'gas-lp', 'otras']) {
+      const { host } = montar(`#calculadora=${p}`);
+      const s = host.querySelector('[data-ce="fuentes-seccion"]');
+      expect(s.querySelector('h2').textContent).toBe('Fuentes de esta sección');
+      expect(s.textContent).toContain('Solo como referencia');
+      expect(s.querySelectorAll('li')).toHaveLength(FUENTES_SECCION[p].length);
+      document.body.innerHTML = '';
+    }
+    const { host } = montar('#calculadora=petroliferos');
+    const lista = host.querySelector('[data-ce="fuentes-seccion"]').textContent;
+    expect(lista).toContain('Lista de combustibles y sus poderes caloríficos 2026');
+    expect(lista).toContain(FUENTES_SECCION.petroliferos.find(x => x.id === 'lista-2026').respalda);
+  });
+  it('takes every number from the engine', () => {
+    expect(readFileSync('src/scripts/calculadora-view.js', 'utf8')).not.toMatch(/from '\.\.\/lib\/calc\/(unidades|ajustes|energeticos)\.js'/);
+  });
+  it('sets the clock of the chosen system in «¿En qué periodo estoy?» until the person changes it', () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    try {
+      vi.setSystemTime(new Date('2026-07-15T03:30:00Z'));
+      const { host } = montar();
+      const d = host.querySelector('[data-ce="entender"][data-id="hora-pico"]');
+      const alternar = abierto => { d.open = abierto; d.dispatchEvent(new Event('toggle')); };
+      alternar(true);
+      const sistema = d.querySelector('select[data-cuenta-campo="sistema"]');
+      const hora = () => d.querySelector('input[type="time"]');
+      const fecha = () => d.querySelector('input[type="date"]').value;
+      cambiar(sistema, 'bca');
+      expect([fecha(), hora().value]).toEqual(['2026-07-14', '20:30']);
+      vi.setSystemTime(new Date('2026-07-15T04:45:00Z'));
+      alternar(false);
+      alternar(true);
+      expect(hora().value).toBe('21:45');
+      hora().value = '10:00';
+      hora().dispatchEvent(new Event('input', { bubbles: true }));
+      cambiar(sistema, 'bcs');
+      expect(hora().value).toBe('10:00');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

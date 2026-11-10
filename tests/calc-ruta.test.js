@@ -21,3 +21,14 @@ describe('calculator routes', () => {
   it('uses the short address for electricity alone', () => expect(calcHash({ pestana: 'electricidad' })).toBe('#calculadora'));
   it('leaves out defaults', () => expect(calcHash({ pestana: 'petroliferos', valor: 100, unidad: 'mbd', producto: 'gasolina', base: 'oficial', horas: null, ajustes: {} })).toBe('#calculadora=petroliferos&v=100&u=mbd&p=gasolina'));
 });
+
+describe('links that keep what the person had', () => {
+  it('keep very small and very large numbers', () => {
+    for (const v of [1e-7, 2.5e-9, 1e21]) expect(calcRoute(calcHash({ pestana: 'electricidad', valor: v, unidad: 'mwh' })).valor).toBe(v);
+  });
+  it('keep power without hours', () => {
+    const hash = calcHash({ pestana: 'electricidad', valor: 1, unidad: 'mw', horas: '' });
+    expect(hash).toBe('#calculadora=electricidad&v=1&u=mw&h=');
+    expect(calcRoute(hash).horas).toBe('');
+  });
+});

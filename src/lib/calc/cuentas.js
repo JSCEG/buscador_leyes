@@ -241,7 +241,7 @@ const LISTA = [
     {
         id: 'velocidad-ducto', pestana: 'petroliferos', titulo: 'Velocidad en un ducto',
         nota: 'Usa el diámetro interior. No hay un rango oficial de velocidad recomendada.',
-        campos: [num('mbd', 'Flujo', 100, 'miles de barriles diarios (Mbd)'), num('diametro', 'Diámetro interior', 0.3048, 'm', { positivo: true })],
+        campos: [num('mbd', 'Flujo', 100, 'miles de barriles diarios'), num('diametro', 'Diámetro interior', 0.3048, 'm', { positivo: true })],
         calcular: v => {
             const m3s = v.mbd * 1000 * BARRIL_L / 1000 / 86400;
             return { lineas: [linea('velocidad', 'Velocidad', m3s / (Math.PI / 4 * v.diametro ** 2), 'm-s')] };

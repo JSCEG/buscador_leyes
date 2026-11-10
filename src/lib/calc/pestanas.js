@@ -4,7 +4,11 @@
  * Some units only make sense inside a tab (barrel of oil equivalent, gas LP cylinders, a tank in
  * litres of water, CO₂); they live here, not in unidades.js.
  */
-import { UNIDADES, unidadesDe } from './unidades.js';
+import { MAGNITUDES, UNIDADES, unidadesDe } from './unidades.js';
+import { CIUDADES, CONDICIONES, MEZCLAS_LP } from './ajustes.js';
+import { ENERGETICOS } from './energeticos.js';
+
+export { MAGNITUDES };
 
 export const PRODUCTOS_PETROLIFEROS = Object.freeze([
     { id: 'gasolina', nombre: 'Gasolinas y naftas' },
@@ -29,16 +33,44 @@ export const UNIDADES_PESTANA = Object.freeze({
     tco2: { id: 'tco2', nombre: 'toneladas de CO₂', simbolo: 't de CO₂', magnitud: 'emisiones', oficial: true },
 });
 
-export const infoUnidad = id => UNIDADES[id] ?? UNIDADES_PESTANA[id] ?? null;
+export const infoUnidad = id => (Object.hasOwn(UNIDADES, id) ? UNIDADES[id] : Object.hasOwn(UNIDADES_PESTANA, id) ? UNIDADES_PESTANA[id] : null);
 export const nombreUnidad = id => infoUnidad(id)?.nombre ?? id;
+export const magnitudUnidad = id => infoUnidad(id)?.magnitud ?? null;
+
+/** One of each unit: «1 cilindro de 20 kg», «1 mil barriles diarios (Mbd)». */
+export const UNA = Object.freeze({
+    mj: 'megajoule', kwh: 'kilowatt-hora', j: 'joule', kj: 'kilojoule', gj: 'gigajoule', tj: 'terajoule', pj: 'petajoule', wh: 'watt-hora', mwh: 'megawatt-hora', gwh: 'gigawatt-hora', twh: 'terawatt-hora',
+    cal: 'caloría', kcal: 'kilocaloría', btu: 'unidad térmica británica (Btu)', mmbtu: 'millón de Btu (MMBtu)', therm: 'therm', 'therm-us': 'therm de EE. UU.', tep: 'tonelada equivalente de petróleo',
+    kw: 'kilowatt', hp: 'caballo de fuerza', w: 'watt', mw: 'megawatt', gw: 'gigawatt', tw: 'terawatt', 'hp-e': 'caballo de fuerza eléctrico', cv: 'caballo de vapor', 'kcal-h': 'kilocaloría por hora', 'btu-h': 'Btu por hora', tr: 'tonelada de refrigeración',
+    kpa: 'kilopascal', bar: 'bar', pa: 'pascal', mpa: 'megapascal', atm: 'atmósfera', 'kgf-cm2': 'kilogramo fuerza por centímetro cuadrado', psi: 'libra por pulgada cuadrada', inh2o: 'pulgada de columna de agua', mh2o: 'metro de columna de agua', torr: 'torr',
+    c: 'grado Celsius', f: 'grado Fahrenheit', k: 'kelvin',
+    kg: 'kilo', lb: 'libra', t: 'tonelada', 'ton-corta': 'tonelada corta', 'ton-larga': 'tonelada larga',
+    m3: 'metro cúbico', l: 'litro', gal: 'galón', bl: 'barril', mmb: 'millón de barriles (MMb)', pc: 'pie cúbico', mpc: 'mil pies cúbicos (Mpc)', mmpc: 'millón de pies cúbicos (MMpc)', bcf: 'mil millones de pies cúbicos (Bcf)',
+    'm3-h': 'metro cúbico por hora', 'l-min': 'litro por minuto', gpm: 'galón por minuto', bpd: 'barril diario', mbd: 'mil barriles diarios (Mbd)', mmpcd: 'millón de pies cúbicos diarios (MMpcd)',
+    'm-s': 'metro por segundo', 'km-h': 'kilómetro por hora', mph: 'milla por hora', nudo: 'nudo', 'ft-s': 'pie por segundo',
+    m2: 'metro cuadrado', ha: 'hectárea', km2: 'kilómetro cuadrado', ft2: 'pie cuadrado', acre: 'acre',
+    bep: 'barril equivalente de petróleo', cil10: 'cilindro de 10 kg', cil20: 'cilindro de 20 kg', cil30: 'cilindro de 30 kg', cil45: 'cilindro de 45 kg',
+    'tanque-agua': UNIDADES_PESTANA['tanque-agua'].nombre.replace(/^litros/, 'litro'), kgco2: 'kilo de CO₂', tco2: 'tonelada de CO₂',
+});
 
 // The same unit means something narrower inside a tab: gas LP cubic metres are liquid (a vapour m³
 // holds about 290 times less energy), natural gas cubic metres are at the condition chosen in «Ajustar».
 const NOMBRES_POR_PESTANA = {
-    'gas-lp': { m3: 'metros cúbicos de gas líquido' },
-    'gas-natural': { m3: 'metros cúbicos, en la condición de «Ajustar»' },
+    'gas-lp': { m3: ['metros cúbicos de gas líquido', 'metro cúbico de gas líquido'] },
+    'gas-natural': { m3: ['metros cúbicos, en la condición de «Ajustar»', 'metro cúbico, en la condición de «Ajustar»'] },
 };
-export const nombreUnidadEn = (pestana, id) => NOMBRES_POR_PESTANA[pestana]?.[id] ?? nombreUnidad(id);
+/** The unit's name inside a tab; with `una`, for exactly one. */
+export function nombreUnidadEn(pestana, id, { una = false } = {}) {
+    const propio = NOMBRES_POR_PESTANA[pestana]?.[id];
+    if (propio) return propio[una ? 1 : 0];
+    return (una && Object.hasOwn(UNA, id)) ? UNA[id] : nombreUnidad(id);
+}
+
+// What «Ajustar» offers, as option lists, so the screen never reads the engine's tables.
+export const OPCIONES_MEZCLA = Object.freeze(Object.entries(MEZCLAS_LP).map(([id, m]) => ({ id, nombre: m.nombre })));
+export const OPCIONES_CONDICION = Object.freeze(Object.entries(CONDICIONES).map(([id, c]) => ({ id, nombre: c.nombre })));
+export const ALTITUDES = Object.freeze(Object.values(CIUDADES).map(c => ({ nombre: c.nombre, altitud: c.altitud })));
+export const temperaturaReferencia = producto => (Object.hasOwn(ENERGETICOS, producto) ? ENERGETICOS[producto].tRef : null);
 export const simboloUnidad = id => infoUnidad(id)?.simbolo ?? id;
 
 export const PESTANAS = Object.freeze([
