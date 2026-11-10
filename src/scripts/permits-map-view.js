@@ -188,7 +188,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                 <button type="button" class="pmm-storm" data-storm hidden></button>
                 <p class="pmm-status" data-status-msg hidden role="status"></p>
             </div>
-            <p class="pmm-note">Coordenadas, estatus y ligas: DGMESNIE con el registro público de la CNE (actualización semanal). Los puntos con anillo punteado son ubicaciones aproximadas.</p>
+            <p class="pmm-note">Coordenadas, estatus y ligas: registro público de la CNE (actualización semanal). Los puntos con anillo punteado son ubicaciones aproximadas.</p>
         </div>`;
 
     const $ = sel => container.querySelector(sel);

@@ -34,7 +34,7 @@ const date = v => {
 function areaNote(props, polo) {
     const source = props?.figura === 'PODEBI'
         ? 'Polígono trazado con las coordenadas de la declaratoria'
-        : 'Polígono de la cartografía de la DGMESNIE (julio de 2026)';
+        : 'Polígono de la cartografía de la Secretaría de Energía (julio de 2026)';
     const drawn = Number(props?.superficie_calculada_ha);
     const declared = Number(polo.superficie_ha);
     const off = drawn > 0 && declared > 0 && Math.abs(drawn - declared) / declared > 0.1;

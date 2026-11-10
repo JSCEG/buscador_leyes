@@ -109,7 +109,7 @@ export function renderCneSenerView(host, { catalog = () => [], onOpenLaw = () =>
                 <div data-table><p class="cs-muted">Cargando…</p></div>
                 <nav class="cs-pager" data-pager aria-label="Páginas de la tabla"></nav>
             </section>
-            <p class="cs-foot">Fuente: publicaciones de la Secretaría de Energía, a través de la API de DGMESNIE. El estatus lo calcula la fuente con su fecha de vigencia. Los permisos de la CNE están en las pestañas Permisos y Mapa.</p>
+            <p class="cs-foot">Fuente: publicaciones de la Secretaría de Energía. El estatus lo calcula la fuente con su fecha de vigencia. Los permisos de la CNE están en las pestañas Permisos y Mapa.</p>
         </div>
         <dialog class="cs-detail" data-detail aria-labelledby="cs-detail-title"><div data-detail-body></div></dialog>`;
     const $ = selector => host.querySelector(selector);

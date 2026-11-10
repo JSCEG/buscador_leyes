@@ -407,7 +407,7 @@ export function mountCneTables({ L, map, root, getJson, signal, status }) {
                 </table>
             </div>
             ${result.length > f.shown ? `<button type="button" class="pm-btn pmm-cne-more" data-cne-more>Mostrar ${count(Math.min(PAGE, result.length - f.shown))} más (quedan ${count(result.length - f.shown)})</button>` : ''}
-            <p class="pmm-cne-foot">${esc(updatedText(data[key].updated))} · Fuente: CNE, vía DGMESNIE.</p>`;
+            <p class="pmm-cne-foot">${esc(updatedText(data[key].updated))} · Fuente: registro público de la CNE.</p>`;
         body._result = result;
         if (focused === 'q') { const q = body.querySelector('[data-cne-q]'); q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
         else if (focused) body.querySelector(`[data-cne-filter="${focused}"]`)?.focus();
