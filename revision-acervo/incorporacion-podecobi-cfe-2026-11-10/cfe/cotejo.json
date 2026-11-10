@@ -1,0 +1,46 @@
+{
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=10112026-MAT.pdf&repo=",
+  "sha256": "3c4334072f8b06a886f072cc2684a76e88b25f0f2333c7e72dfba82b7fc9b662",
+  "avisos": [
+    {
+      "folio": "CFE-0900-CASAT-0025-2026",
+      "pagina": 133,
+      "registro": "(R.- 582157)",
+      "filasDeDatos": 8,
+      "falloPrevisto": "04/12/2026, 10:00 hrs",
+      "tablaYTextoCompletos": true
+    },
+    {
+      "folio": "CFE-0900-CAAAT-0053-2026",
+      "pagina": 133,
+      "registro": "(R.- 582113)",
+      "filasDeDatos": 6,
+      "falloPrevisto": "04 de diciembre de 2026 a las 08:30 horas",
+      "tablaYTextoCompletos": true
+    },
+    {
+      "folio": "CFE-0001-CASAT-0070-2026",
+      "pagina": 134,
+      "registro": "(R.- 582062)",
+      "filasDeDatos": 6,
+      "falloPrevisto": "5/1/2027, 14:00 hrs",
+      "tablaYTextoCompletos": true
+    },
+    {
+      "folio": "CFE-0001-CASAT-0075-2026",
+      "pagina": 134,
+      "registro": "(R.- 582198)",
+      "filasDeDatos": 8,
+      "falloPrevisto": "11/1/2027, 14:00 hrs.",
+      "tablaYTextoCompletos": true
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0192-2026",
+      "pagina": 136,
+      "registro": "(R.- 582061)",
+      "filasDeDatos": 8,
+      "falloPrevisto": "7/12/2026, 14:30 hrs",
+      "tablaYTextoCompletos": true
+    }
+  ]
+}

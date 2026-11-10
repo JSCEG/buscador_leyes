@@ -1,0 +1,16 @@
+{
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5764317",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=31072025-VES.pdf&repo=",
+  "sha256": "512835154c2c8d8b834917ce1a1ec91c51929f20ec8c80d84f5fc20d6ff95bfe",
+  "paginas": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "parrafos": 61,
+  "fragmentos": 11,
+  "cotejo": "Texto completo HTML/PDF coincidente al normalizar caracteres alfanuméricos. Anclas de línea consecutivas y exclusivas.",
+  "instrumento_modificado": "ffa0dcbe-6f52-45da-bbbb-65f6410c2c9a"
+}

@@ -1,0 +1,17 @@
+{
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5766905",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=29082025-MAT.pdf&repo=",
+  "sha256": "ea42c89658bd5970e557e08ca80436d49e57360d2a40bd4cf2cd3c3502087b1e",
+  "paginas": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+  ],
+  "parrafos": 129,
+  "fragmentos": 21,
+  "cotejo": "Texto completo HTML/PDF coincidente al normalizar caracteres alfanuméricos. Anclas de línea consecutivas y exclusivas.",
+  "instrumento_modificado": "c05debf0-3748-4dac-9619-f1216a5fbd88"
+}
