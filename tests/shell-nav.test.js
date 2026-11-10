@@ -6,7 +6,8 @@ const KEPT_IDS = ['nav-leyes', 'nav-inicio', 'nav-cronologia', 'nav-permisos', '
   'nav-como-funciona', 'nav-favorites', 'nav-login-btn', 'nav-user-label', 'darkmode-toggle', 'darkmode-icon-moon', 'darkmode-icon-sun', 'keyboard-help-btn',
   'mobile-menu-btn', 'mobile-menu-overlay', 'mobile-menu-drawer', 'close-mobile-menu', 'mobile-nav-inicio', 'mobile-nav-leyes', 'mobile-nav-cronologia',
   'mobile-nav-permisos', 'mobile-nav-polos', 'mobile-nav-analisis', 'mobile-nav-stats', 'mobile-nav-como-funciona', 'mobile-nav-reto', 'mobile-nav-ayuda',
-  'mobile-nav-favorites', 'mobile-nav-desk', 'mobile-nav-login-btn', 'mobile-user-label', 'mobile-nav-admin', 'mobile-nav-usuarios', 'brand-home', 'nav-admin', 'nav-usuarios'];
+  'mobile-nav-favorites', 'mobile-nav-desk', 'mobile-nav-login-btn', 'mobile-user-label', 'mobile-nav-admin', 'mobile-nav-usuarios', 'brand-home', 'nav-admin', 'nav-usuarios',
+  'nav-calculadora', 'mobile-nav-calculadora'];
 
 const loadIndex = () => {
   document.body.innerHTML = new DOMParser().parseFromString(readFileSync('index.html', 'utf8'), 'text/html').body.innerHTML;
@@ -15,9 +16,23 @@ const loadIndex = () => {
 describe('app shell', () => {
   beforeEach(loadIndex);
 
-  it('offers seven destinations and keeps every id', () => {
-    expect(document.querySelectorAll('.bu-riel__nav > [data-nav]')).toHaveLength(7);
+  it('offers eight destinations and keeps every id', () => {
+    expect(document.querySelectorAll('.bu-riel__nav > [data-nav]')).toHaveLength(8);
     for (const id of KEPT_IDS) expect(document.getElementById(id), id).not.toBeNull();
+  });
+
+  it('places Calculadora last in the rail, in the sheet and out of the bottom menu', () => {
+    expect([...document.querySelectorAll('.bu-riel__nav > [data-nav]')].at(-1).dataset.nav).toBe('calculadora');
+    expect(document.getElementById('nav-calculadora').getAttribute('href')).toBe('#calculadora');
+    expect(document.getElementById('mobile-nav-calculadora').getAttribute('href')).toBe('#calculadora');
+    expect(document.querySelector('#bottom-nav a[href^="#calculadora"]')).toBeNull();
+  });
+
+  it('opens Calculadora at start without waiting for the catalogue', () => {
+    const source = readFileSync('src/scripts/ui.js', 'utf8');
+    expect(source).toMatch(/polosRoute\(location\.hash\) \|\| calcRoute\(location\.hash\)\) setTimeout\(handleInitialHash, 0\)/);
+    expect(source).toContain("'nav-calculadora', 'mobile-nav-calculadora'");
+    expect(source).toMatch(/activeId !== 'nav-calculadora' && calculadoraView/);
   });
 
   it('splits Permisos into the CNE and the SENER', () => {
