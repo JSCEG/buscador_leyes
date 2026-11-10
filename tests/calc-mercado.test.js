@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { PRECIO_NETO_2025, celGenerados, celRequeridos, figuraPermiso, kwMes, pagoPotencia, periodoGDMTH, precioNeto, temporadaGDMTH } from '../src/lib/calc/mercado.js';
+import { PRECIO_NETO_2025, ahoraEnSistema, celGenerados, celRequeridos, figuraPermiso, kwMes, pagoPotencia, periodoGDMTH, precioNeto, temporadaGDMTH } from '../src/lib/calc/mercado.js';
 
 const near = (g, w, t) => expect(Math.abs(g - w)).toBeLessThanOrEqual(t);
 
@@ -54,4 +54,17 @@ describe('clean energy certificates and permits', () => {
     expect(figuraPermiso(20, { autoconsumo: true })).toBe('simplificado');
     expect(figuraPermiso(21, { autoconsumo: true })).toBe('permiso');
   });
+});
+
+describe('the clock of each system', () => {
+  // Baja California follows Tijuana (with summer time); Baja California Sur, Mazatlán (UTC−7 all year).
+  it('gives the date and time in Baja California and Baja California Sur', () => {
+    const verano = new Date('2026-07-15T03:30:00Z');
+    const invierno = new Date('2026-01-15T03:30:00Z');
+    expect(ahoraEnSistema('bca', verano)).toEqual({ fecha: '2026-07-14', hora: '20:30' });
+    expect(ahoraEnSistema('bcs', verano)).toEqual({ fecha: '2026-07-14', hora: '20:30' });
+    expect(ahoraEnSistema('bca', invierno)).toEqual({ fecha: '2026-01-14', hora: '19:30' });
+    expect(ahoraEnSistema('bcs', invierno)).toEqual({ fecha: '2026-01-14', hora: '20:30' });
+  });
+  it('writes midnight as 00:00', () => expect(ahoraEnSistema('bcs', new Date('2026-01-15T07:00:00Z')).hora).toBe('00:00'));
 });

@@ -97,4 +97,8 @@ describe('limits', () => {
     expect(cuentasDe('gas-lp').map(c => c.id)).toEqual(['tanque', 'quemador', 'costo-lp', 'emisiones-lp']);
     expect(cuentasDe('otras')).toEqual([]);
   });
+  // The view writes «Etiqueta (unidad)»: a unit with its own parentheses would nest them.
+  it('names field units without parentheses', () => {
+    for (const c of Object.values(CUENTAS)) for (const f of c.campos) if (f.unidad) expect(f.unidad, `${c.id}.${f.id}`).not.toContain('(');
+  });
 });

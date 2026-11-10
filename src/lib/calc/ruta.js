@@ -8,7 +8,8 @@
 const PESTANAS = ['electricidad', 'petroliferos', 'gas-natural', 'gas-lp', 'otras'];
 const PREFIJO = '#calculadora';
 
-const numero = s => (/^-?\d+(\.\d+)?$/.test(s ?? '') ? Number(s) : undefined);
+// String(1e-7) is «1e-7», so a link may carry an exponent.
+const numero = s => (/^-?\d+(\.\d+)?(e[-+]?\d+)?$/i.test(s ?? '') ? Number(s) : undefined);
 const id = s => (/^[a-z0-9-]+$/.test(s ?? '') ? s : undefined);
 const una = opciones => s => (opciones.includes(s) ? s : undefined);
 
@@ -27,6 +28,8 @@ export function calcRoute(hash) {
         const v = leer(params.get(clave));
         if (v !== undefined) ruta[nombre] = v;
     }
+    // «h=» with nothing is power without hours; with no «h» at all the engine uses one hour.
+    if (params.get('h') === '') ruta.horas = '';
     const ajustes = {};
     for (const [clave, leer] of AJUSTES) {
         const v = leer(params.get(clave));
@@ -44,6 +47,7 @@ export function calcHash(estado = {}) {
     const partes = [];
     for (const [clave, nombre] of CAMPOS) {
         const v = estado[nombre];
+        if (clave === 'h' && v === '') { partes.push('h='); continue; }
         if (vacio(v) || (clave === 'b' && v === 'oficial')) continue;
         partes.push(`${clave}=${encodeURIComponent(v)}`);
     }
