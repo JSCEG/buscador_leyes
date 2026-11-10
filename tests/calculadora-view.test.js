@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { renderCalculadoraView } from '../src/scripts/calculadora-view.js';
 import { calcRoute } from '../src/lib/calc/ruta.js';
 import { idArticulo } from '../src/lib/calc/textos.js';
+import { FUENTES_SECCION } from '../src/lib/calc/fuentes.js';
 
 const montar = (hash = '#calculadora') => {
   const host = document.createElement('div');
@@ -268,6 +269,20 @@ describe('details from the review, on screen', () => {
   it('says when a date is the day a page was consulted', () => {
     const { $ } = montar('#calculadora=gas-natural');
     expect($('formula-cuerpo').textContent).toContain('EIA, consultado el 2026-11-08');
+  });
+  it('lists the sources of each section, for reference', () => {
+    for (const p of ['electricidad', 'petroliferos', 'gas-natural', 'gas-lp', 'otras']) {
+      const { host } = montar(`#calculadora=${p}`);
+      const s = host.querySelector('[data-ce="fuentes-seccion"]');
+      expect(s.querySelector('h2').textContent).toBe('Fuentes de esta sección');
+      expect(s.textContent).toContain('Solo como referencia');
+      expect(s.querySelectorAll('li')).toHaveLength(FUENTES_SECCION[p].length);
+      document.body.innerHTML = '';
+    }
+    const { host } = montar('#calculadora=petroliferos');
+    const lista = host.querySelector('[data-ce="fuentes-seccion"]').textContent;
+    expect(lista).toContain('Lista de combustibles y sus poderes caloríficos 2026');
+    expect(lista).toContain(FUENTES_SECCION.petroliferos.find(x => x.id === 'lista-2026').respalda);
   });
   it('takes every number from the engine', () => {
     expect(readFileSync('src/scripts/calculadora-view.js', 'utf8')).not.toMatch(/from '\.\.\/lib\/calc\/(unidades|ajustes|energeticos)\.js'/);

@@ -1,10 +1,10 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { FUENTES, auditarFuentes, fechaFuente } from '../src/lib/calc/fuentes.js';
+import { FUENTES, FUENTES_SECCION, auditarFuentes, fechaFuente } from '../src/lib/calc/fuentes.js';
 import { PARA_ENTENDER } from '../src/lib/calc/textos.js';
 import { calcular, normalizarEstado } from '../src/lib/calc/motor.js';
-import { ATAJOS, PESTANAS, PRODUCTOS_PETROLIFEROS } from '../src/lib/calc/pestanas.js';
-import { CUENTAS, calcularCuenta } from '../src/lib/calc/cuentas.js';
+import { ATAJOS, MAGNITUDES, PESTANAS, PRODUCTOS_PETROLIFEROS, unidadesValidas } from '../src/lib/calc/pestanas.js';
+import { CUENTAS, calcularCuenta, cuentasDe } from '../src/lib/calc/cuentas.js';
 
 describe('sources', () => {
   it('are complete and start pending', () => {
@@ -90,5 +90,48 @@ describe('provenance', () => {
       const v = Object.fromEntries(c.campos.map(f => [f.id, f.porDefecto]));
       for (const l of calcularCuenta(c.id, v).lineas) if (l.clase && l.clase !== 'exacto') expect(FUENTES[l.fuente], `${c.id} ${l.texto}`).toBeTruthy();
     }
+  });
+});
+
+// Every source a tab cites: its figures with any unit, product, base or adjustment, its small
+// calculations and its «Para entender» cards.
+function citadas(pestana) {
+  const ids = new Set();
+  const tab = PESTANAS.find(p => p.id === pestana);
+  const ajustes = [{}, { t: 30 }, { d: 0.82 }, { m: 'propano' }, { c: 'base' }, { pc: 40 }, { k: 'inferior' }, { pm: 'man', a: 2240 }, { dt: true }];
+  for (const producto of tab.productos.length ? tab.productos : [undefined]) {
+    for (const magnitud of pestana === 'otras' ? MAGNITUDES : [undefined]) {
+      for (const base of ['oficial', 'fisica']) for (const a of ajustes) for (const unidad of unidadesValidas({ pestana, magnitud, producto })) {
+        const r = calcular(normalizarEstado({ pestana, producto, magnitud, base, unidad, valor: 10, ajustes: a, horas: 8 }));
+        for (const f of r.ok ? r.fuentes : []) ids.add(f.id);
+      }
+    }
+  }
+  const cuentas = [...cuentasDe(pestana), ...(PARA_ENTENDER[pestana] ?? []).filter(t => t.cuenta).map(t => CUENTAS[t.cuenta])];
+  const prueba = f => f.porDefecto ?? (f.tipo === 'fecha' ? '2026-07-15' : f.tipo === 'hora' ? '20:00' : 1);
+  for (const c of cuentas) {
+    const r = calcularCuenta(c.id, Object.fromEntries(c.campos.map(f => [f.id, prueba(f)])));
+    for (const l of r.lineas ?? []) if (l.fuente) ids.add(l.fuente);
+  }
+  for (const t of PARA_ENTENDER[pestana] ?? []) if (t.fuente) ids.add(t.fuente);
+  return ids;
+}
+
+describe('sources of each section', () => {
+  it('list every source the tab cites, once, with what it backs there', () => {
+    for (const p of PESTANAS) {
+      const lista = FUENTES_SECCION[p.id];
+      const ids = lista.map(x => x.id);
+      expect(new Set(ids).size, p.id).toBe(ids.length);
+      for (const x of lista) {
+        expect(FUENTES[x.id], `${p.id} ${x.id}`).toBeTruthy();
+        expect(x.respalda, `${p.id} ${x.id}`).toMatch(/^[A-ZÁÉÍÓÚ].*[^.]$/);
+      }
+      for (const id of citadas(p.id)) expect(ids, `${p.id} cita ${id}`).toContain(id);
+    }
+  });
+  it('give every source of the calculator a section', () => {
+    const listadas = new Set(Object.values(FUENTES_SECCION).flat().map(x => x.id));
+    for (const id of Object.keys(FUENTES)) expect(listadas.has(id), id).toBe(true);
   });
 });

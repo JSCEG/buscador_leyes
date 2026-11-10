@@ -66,6 +66,8 @@
 .ce-h3 { margin: 16px 0 6px; font: 600 14px/20px var(--font-sans); color: var(--tinta); }
 .ce-fuentes { display: grid; gap: 6px; margin: 0; padding-left: 18px; font: 400 13.5px/20px var(--font-sans); color: var(--tinta-suave); }
 .ce-fuentes a { color: var(--tinta); text-decoration: underline; text-underline-offset: 2px; }
+.ce-fuentes-seccion { gap: 10px; }
+.ce-respalda { display: block; color: var(--tinta); }
 .ce-nota { font: 400 13.5px/20px var(--font-sans); color: var(--tinta-suave); }
 
 /* Actions. */

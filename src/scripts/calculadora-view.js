@@ -12,10 +12,10 @@ import {
 } from '../lib/calc/pestanas.js';
 import { calcHash } from '../lib/calc/ruta.js';
 import { formatoClase, formatoDinero, formatoFijo, leerNumero, rotulo, textoFrente } from '../lib/calc/formato.js';
-import { NOTA_PIE, PARA_ENTENDER, SUBTITULO, TITULO } from '../lib/calc/textos.js';
+import { FUENTES_INTRO, NOTA_PIE, PARA_ENTENDER, SUBTITULO, TITULO } from '../lib/calc/textos.js';
 import { CUENTAS, SIMBOLO_LINEA, calcularCuenta, cuentasDe } from '../lib/calc/cuentas.js';
 import { PUNTAS_DIST_DIT, ahoraEnSistema } from '../lib/calc/mercado.js';
-import { FUENTES, fechaFuente } from '../lib/calc/fuentes.js';
+import { FUENTES, FUENTES_SECCION, fechaFuente } from '../lib/calc/fuentes.js';
 
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const plano = s => String(s).replaceAll(' ', ' ');
@@ -268,13 +268,26 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
             ${entender.length ? `<section class="ce-seccion" aria-labelledby="ce-h-entender"><h2 class="ce-h2" id="ce-h-entender">Para entender</h2><div class="ce-tarjetas">${entender.map(t => tarjeta('entender', t.id, t.titulo)).join('')}</div></section>` : ''}`;
     }
 
+    /** Every source behind the tab's values, at its end, for reference. */
+    function fuentesSeccionHtml() {
+        const lista = FUENTES_SECCION[estado.pestana] ?? [];
+        if (!lista.length) return '';
+        return `<section class="ce-seccion" aria-labelledby="ce-h-fuentes" data-ce="fuentes-seccion"><h2 class="ce-h2" id="ce-h-fuentes">Fuentes de esta sección</h2>
+            <p class="ce-nota">${esc(FUENTES_INTRO)}</p>
+            <ul class="ce-fuentes ce-fuentes-seccion">${lista.map(({ id, respalda }) => {
+                const f = FUENTES[id];
+                return `<li>${enlaceFuente(f)}. ${esc(f.emisor)}, ${esc(fechaFuente(f))}.<span class="ce-respalda">${esc(respalda)}.</span></li>`;
+            }).join('')}</ul></section>`;
+    }
+
     const panelHtml = () => `
         <div class="ce-calculo bu-cristal">${conversorHtml()}<div class="ce-resultado" data-ce="resultado" aria-live="polite">${resultadoHtml()}</div></div>
         ${ajustarHtml()}
         <details class="ce-desplegable" data-ce="formula" data-abre="formula"><summary>Ver fórmula y fuente</summary><div class="ce-formula" data-ce="formula-cuerpo">${formulaHtml()}</div></details>
         <div class="ce-acciones"><button type="button" class="bu-btn bu-btn-contorno bu-btn-sm" data-ce="copiar" data-foco="copiar">Copiar</button><button type="button" class="bu-btn bu-btn-fantasma bu-btn-sm" data-ce="compartir" data-foco="compartir">Compartir</button><span class="ce-estado" role="status" data-ce="estado"></span></div>
         <div data-ce="manual-caja"></div>
-        ${tarjetasHtml()}`;
+        ${tarjetasHtml()}
+        ${fuentesSeccionHtml()}`;
 
     const $ = s => container.querySelector(`[data-ce="${s}"]`);
 

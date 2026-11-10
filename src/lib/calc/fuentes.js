@@ -55,6 +55,72 @@ export const FUENTES = Object.freeze(Object.fromEntries(LISTA.map(x => [x.id, Ob
 /** The date as the page writes it: «consultado el 2026-11-08» for a web page without a publication date. */
 export const fechaFuente = x => (x.consultado ? `consultado el ${x.fecha}` : x.fecha);
 
+const NB = ' ';
+const seccion = filas => Object.freeze(filas.map(([id, respalda]) => Object.freeze({ id, respalda })));
+const UNIDADES_Y_NUMEROS = ['nom-008', 'Unidades oficiales y forma de escribir los números'];
+
+/**
+ * The sources listed at the end of each tab, for reference, with what each one backs in that tab.
+ * tests/calc-fuentes.test.js checks that every source a tab cites is here and that none is left out.
+ */
+export const FUENTES_SECCION = Object.freeze({
+    electricidad: seccion([
+        ['pladese', `Factor de planta de cada tecnología y consumo de un usuario residencial, 1${NB}885 kWh al año`],
+        ['global-solar-atlas', 'Producción de paneles solares en 10 ciudades'],
+        ['aviso-semarnat-2026', 'Emisiones de la red eléctrica, 0.444 t de CO₂e por MWh (dato de 2024)'],
+        ['acuerdo-cne-2026', 'Horarios y temporadas de la tarifa GDMTH, y horas punta de las tarifas DIST y DIT'],
+        ['cenace-precio-neto-2025', 'Precio Neto de la Potencia de 2025 de cada sistema'],
+        ['acuerdo-cel-2026', 'Certificados de Energías Limpias (CEL) que se piden: 13.9 % del consumo en 2025 y 2026'],
+        ['lse', 'Permiso según los MW de la central, con cortes en 0.7 y 20 MW'],
+        ['convocatoria-sae', 'Sistema de Almacenamiento de Energía (SAE) de 30 % de la capacidad y 3 horas'],
+        ['codigo-red', 'Factor de potencia de 0.97 desde el 8 de abril de 2026'],
+        ['acuerdo-shcp-2000', 'Umbral de 90 % de factor de potencia del recibo, una regla heredada'],
+        ['copar-2012', 'Fórmulas de potencia del viento y del agua'],
+        ['bme-2015', 'Explicación de los servicios conexos y del Precio Marginal Local (PML)'],
+        ['nist-811', 'Equivalencias exactas entre watts, watts-hora, joules y caballos de fuerza'],
+        UNIDADES_Y_NUMEROS,
+    ]),
+    petroliferos: seccion([
+        ['lista-2026', `Poder calorífico de gasolinas, diésel, turbosina, combustóleo, coque y crudo, y los 6${NB}347 MJ del barril equivalente de petróleo`],
+        ['acuerdo-rene-2015', 'Emisiones de CO₂ de cada combustible'],
+        ['nom-016', 'Densidad de gasolinas, turbosina y combustóleo. La del diésel, 0.84 kg/L, no tiene fuente oficial'],
+        ['pemex-crudos', 'Grados API de los crudos Maya, Istmo y Olmeca'],
+        ['anexo-21', 'Condiciones de referencia de los petrolíferos y grados API'],
+        ['vcf', 'Corrección del volumen por temperatura, orientativa'],
+        ['ipcc-2006', 'Poder calorífico físico por kilo, para la referencia física'],
+        ['nist-811', 'Equivalencias exactas entre litros, barriles, galones y unidades de energía'],
+        UNIDADES_Y_NUMEROS,
+    ]),
+    'gas-natural': seccion([
+        ['nom-001', 'Condición estándar del gas y rango del poder calorífico, de 37.30 a 43.60 MJ por metro cúbico'],
+        ['eia-gas', 'Poder calorífico típico, 38.64 MJ por metro cúbico, y gas natural licuado'],
+        ['lista-2026', 'Gas seco, para pasar a barriles equivalentes de petróleo'],
+        ['acuerdo-rene-2015', 'Emisiones de CO₂ del gas natural'],
+        ['gpsa', 'Factor de compresibilidad Z, orientativo'],
+        ['nws-altitud', 'Presión de la atmósfera según la altitud'],
+        ['nom-213', 'Cilindro de 20 kg de gas LP, para comparar'],
+        ['nist-811', 'Equivalencias exactas entre pies cúbicos, metros cúbicos y unidades de energía'],
+        UNIDADES_Y_NUMEROS,
+    ]),
+    'gas-lp': seccion([
+        ['lista-2026', 'Poder calorífico del gas licuado'],
+        ['cne-precios-lp', 'Convención de 0.54 kg por litro de las tablas de precios'],
+        ['nist-webbook', 'Densidad del gas LP según la temperatura y la mezcla'],
+        ['nom-009', 'Tanque lleno al 85 %'],
+        ['nom-213', 'Cilindros portátiles de gas LP, como el de 20 kg'],
+        ['acuerdo-rene-2015', 'Emisiones de CO₂ del gas LP'],
+        ['nws-altitud', 'Presión de la atmósfera según la altitud, para el quemador'],
+        ['ipcc-2006', 'Poder calorífico físico por kilo, para la referencia física'],
+        ['nist-811', 'Equivalencias exactas entre litros, kilos y unidades de energía'],
+        UNIDADES_Y_NUMEROS,
+    ]),
+    otras: seccion([
+        ['nist-811', 'Equivalencias exactas entre unidades'],
+        ['nom-008', 'Unidades oficiales, forma de escribir los números y por qué aquí no se usa «billón»'],
+        ['nws-altitud', 'Presión de la atmósfera según la altitud, para pasar de presión manométrica a absoluta'],
+    ]),
+});
+
 const MESES_VIGENCIA = 14;
 
 /** Each source with what is wrong with it today: 'pendiente', 'vencida' or null. */
