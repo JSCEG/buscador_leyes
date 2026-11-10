@@ -1,13 +1,13 @@
 {
- "corte": "2026-10-28",
- "definicion": "Un Polo de Desarrollo para el Bienestar es un terreno de propiedad pública, con límites definidos, que el Gobierno de México prepara para que lleguen empresas e industrias y se generen empleos e inversión en una región. Las empresas que se instalan ahí pueden recibir apoyos fiscales por tiempo limitado y facilidades para hacer trámites, y cada polo nace con una «declaratoria» publicada en el Diario Oficial de la Federación (DOF). La figura nació en el Istmo de Tehuantepec: el artículo 4, fracción VIII, del «Decreto por el que se crea el organismo público descentralizado, con personalidad jurídica y patrimonio propio, no sectorizado, denominado Corredor Interoceánico del Istmo de Tehuantepec» (DOF 14/06/2019, reformado el 14/03/2023) encarga al Corredor emitir las declaratorias. En 2025 se extendió a todo el país con el «Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar» (DOF 22/05/2025) y el «Decreto por el que se otorgan beneficios fiscales en los Polos de Desarrollo de Economía Circular para el Bienestar» (DOF 04/07/2025).",
+ "corte": "2026-11-10",
+ "definicion": "Un Polo de Desarrollo para el Bienestar es un terreno de propiedad pública, con límites definidos, que el Gobierno de México prepara para que lleguen empresas e industrias y se generen empleos e inversión en una región. Las empresas que se instalan ahí pueden recibir apoyos fiscales por tiempo limitado y facilidades para hacer trámites, y cada polo nace con una «declaratoria» publicada en el Diario Oficial de la Federación (DOF). La figura nació en el Istmo de Tehuantepec: el artículo 4, fracción VIII, del «Decreto por el que se crea el organismo público descentralizado, con personalidad jurídica y patrimonio propio, no sectorizado, denominado Corredor Interoceánico del Istmo de Tehuantepec» (DOF 14/06/2019, reformado el 14/03/2023, el 28/05/2025 y el 23/04/2026) encarga al Corredor emitir las declaratorias. En 2025 se extendió a todo el país con el «Decreto por el que se otorgan estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar» (DOF 22/05/2025) y el «Decreto por el que se otorgan beneficios fiscales en los Polos de Desarrollo de Economía Circular para el Bienestar» (DOF 04/07/2025).",
  "figuras": [
   {
    "clave": "PODEBI",
    "nombre": "Polo de Desarrollo para el Bienestar",
    "autoridad": "Corredor Interoceánico del Istmo de Tehuantepec (CIIT), organismo vinculado a la Secretaría de Marina",
-   "fundamento": "Artículos 4, fracción VIII, y 9, fracción V, del «Decreto por el que se crea el organismo público descentralizado, con personalidad jurídica y patrimonio propio, no sectorizado, denominado Corredor Interoceánico del Istmo de Tehuantepec» (DOF 14/06/2019, reformado el 14/03/2023). Estímulos fiscales: decreto publicado en el DOF el 05/06/2023.",
-   "descripcion": "Polos junto a la ruta del Tren Interoceánico, en Oaxaca, Veracruz, Chiapas y Tabasco. El Corredor los declara y luego los entrega en concesión a un desarrollador mediante licitación pública."
+   "fundamento": "Artículos 4, fracción VIII, y 9, fracción V, del «Decreto por el que se crea el organismo público descentralizado, con personalidad jurídica y patrimonio propio, no sectorizado, denominado Corredor Interoceánico del Istmo de Tehuantepec» (DOF 14/06/2019, reformado el 14/03/2023, el 28/05/2025 y el 23/04/2026). Estímulos fiscales: decreto publicado en el DOF el 05/06/2023.",
+   "descripcion": "Polos junto a la ruta del Tren Interoceánico, en Oaxaca, Veracruz, Chiapas y Tabasco. El Corredor los declara y luego los entrega en concesión a un desarrollador mediante licitación pública. Desde mayo de 2025 también puede asignarlos de forma directa en ciertos casos, por ejemplo cuando la licitación no tuvo ganador. Desde abril de 2026 puede además preparar el terreno por su cuenta (agua, luz, drenaje, calles) y vender o rentar los lotes a las empresas."
   },
   {
    "clave": "PODECOBI",
@@ -25,7 +25,7 @@
   }
  ],
  "incentivos": [
-  "PODEBI (Istmo): descuento (crédito fiscal) del 100% del ISR los primeros 3 años y de 50% los 3 siguientes, que puede llegar a 90% si se cumplen metas de empleo; deducción inmediata del 100% de la inversión en activos fijos nuevos; crédito del 100% del IVA por 4 años. Fuente: decreto de estímulos fiscales del Istmo, DOF 05/06/2023; Hacienda (estimulosfiscales.hacienda.gob.mx).",
+  "PODEBI (Istmo): descuento (crédito fiscal) del 100% del ISR los primeros 3 años y de 50% los 3 siguientes, que puede llegar a 90% si se cumplen metas de empleo; deducción inmediata del 100% de la inversión en activos fijos nuevos; crédito del 100% del IVA por 4 años. Desde agosto de 2026, la constancia de Hacienda para recibir estos apoyos dura 6 años, basta con tener en el polo una agencia, sucursal u otro establecimiento (ya no solo el domicilio fiscal) y también se aceptan contratos de compraventa o de renta con el Corredor, además del título de concesión. Fuente: decreto de estímulos fiscales del Istmo, DOF 05/06/2023; acuerdo de Hacienda que reforma sus lineamientos, DOF 19/08/2026; Hacienda (estimulosfiscales.hacienda.gob.mx).",
   "PODECOBI: deducción inmediata del 100% de la inversión en activos fijos nuevos, más una deducción adicional de 25% en gastos de capacitación y otra de 25% en innovación; vigentes hasta 2030. Se requiere domicilio fiscal en el polo y convenio con la Secretaría de Economía. Fuente: decreto DOF 22/05/2025.",
   "PODECIBI: beneficios fiscales para desarrolladores y empresas de economía circular hasta el ejercicio fiscal 2030, calculados solo sobre los ingresos de las actividades realizadas dentro del polo. Fuente: decreto DOF 04/07/2025.",
   "Todas las figuras: terrenos con infraestructura y facilidades administrativas para hacer trámites. Fuente: Plan México, Secretaría de Economía (2025)."
@@ -60,8 +60,16 @@
    "url": "https://dof.gob.mx/nota_detalle.php?codigo=5562774&fecha=14/06/2019"
   },
   {
+   "titulo": "Decreto que modifica el decreto de creación del Corredor Interoceánico del Istmo de Tehuantepec (DOF 23/04/2026)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5785819&fecha=23/04/2026"
+  },
+  {
    "titulo": "Decreto de estímulos fiscales del Istmo de Tehuantepec (DOF 05/06/2023)",
    "url": "https://dof.gob.mx/nota_detalle.php?codigo=5691049&fecha=05/06/2023"
+  },
+  {
+   "titulo": "Acuerdo que reforma los lineamientos de beneficios fiscales en los polos del Istmo de Tehuantepec (DOF 19/08/2026)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5796626&fecha=19/08/2026"
   },
   {
    "titulo": "Decreto de estímulos fiscales en los Polos de Desarrollo Económico para el Bienestar (DOF 22/05/2025)",
@@ -122,8 +130,7 @@
      "titulo": "Fallo de la licitación LPIBI-013AYH-PODEBI-1-2023: el polo se asigna a un desarrollador",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_COATZA_I.pdf"
+   ]
   },
   {
    "id": "podebi-coatzacoalcos-ii",
@@ -170,8 +177,7 @@
      "titulo": "Fallo de la licitación LPIBI-013AYH-PODEBI-2-2023: el polo se asigna a un desarrollador",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_COATZA_II.pdf"
+   ]
   },
   {
    "id": "podebi-salina-cruz",
@@ -218,8 +224,7 @@
      "titulo": "Fallo de la licitación LPIBI-013AYH-PODEBI-3-2023: el polo se asigna a un desarrollador",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_SC.pdf"
+   ]
   },
   {
    "id": "podebi-san-blas-atempa",
@@ -266,8 +271,7 @@
      "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-1-2025 (fallo del 15/07/2025)",
      "url": null
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podebi-san-juan-evangelista",
@@ -326,8 +330,7 @@
      "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-1-2024 (fallo del 20/05/2024)",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_SJE.pdf"
+   ]
   },
   {
    "id": "podebi-texistepec",
@@ -375,8 +378,7 @@
      "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-5-2023 (fallo del 17/11/2023)",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_TEXISTEPEC.pdf"
+   ]
   },
   {
    "id": "podebi-matias-romero",
@@ -423,8 +425,7 @@
      "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-8-2023 (fallo del 12/04/2024)",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_MATIAS_ROMERO.pdf"
+   ]
   },
   {
    "id": "podebi-santa-maria-mixtequilla",
@@ -471,8 +472,7 @@
      "titulo": "Se publica el aviso del fallo de la licitación LPIBI-013AYH-PODEBI-9-2023 (fallo del 12/04/2024)",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_MIXTEQUILLA.pdf"
+   ]
   },
   {
    "id": "podebi-ciudad-ixtepec",
@@ -519,8 +519,7 @@
      "titulo": "Se publica el aviso de cancelación de la licitación LPIBI-013AYH-PODEBI-7-2023",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_CD._IXTEPEC.pdf"
+   ]
   },
   {
    "id": "podebi-asuncion-ixtaltepec",
@@ -573,8 +572,7 @@
      "titulo": "Se publica el aviso del fallo de la nueva licitación LPIBI-013AYH-PODEBI-2-2024 (fallo del 30/08/2024)",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5738700&fecha=10/09/2024"
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_ASUNCIO╠üN_IXTALTEPEC.pdf"
+   ]
   },
   {
    "id": "podebi-tapachula-i",
@@ -621,8 +619,7 @@
      "titulo": "Se publica el aviso que declara desierta la licitación LPIBI-013AYH-PODEBI-2-2025 (no hubo ganador)",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/DECLARATORIA_TAPACHULA I.pdf"
+   ]
   },
   {
    "id": "podebi-tapachula-ii",
@@ -669,8 +666,7 @@
      "titulo": "Se publica el aviso que declara desierta la licitación LPIBI-013AYH-PODEBI-3-2025 (no hubo ganador)",
      "url": null
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/2. Declaratorias/Declaratoria_Tapachula_II.pdf"
+   ]
   },
   {
    "id": "podebi-arriaga",
@@ -697,8 +693,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Arriaga",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5789894&fecha=08/06/2026"
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/7. Polos Arriaga y Teapa/Arriaga/Acuerdo CIIT-26-XXXIII-SE-02 Declaratoria Arriaga.pdf"
+   ]
   },
   {
    "id": "podebi-teapa",
@@ -725,8 +720,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo para el Bienestar Teapa",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5789895&fecha=08/06/2026"
     }
-   ],
-   "fuente_local": "PODEBIS-SEMAR/7. Polos Arriaga y Teapa/Teapa/Acuerdo CIIT-26-XXXIII-SE-04 Declaratoria Teapa.pdf"
+   ]
   },
   {
    "id": "podecobi-seybaplaya-i",
@@ -754,8 +748,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Seybaplaya I",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761459&fecha=30/06/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-san-jeronimo",
@@ -785,8 +778,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar San Jerónimo",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761460&fecha=30/06/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-reserva-zapotlan",
@@ -815,8 +807,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Reserva Zapotlán",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761461&fecha=30/06/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-futura-capital",
@@ -847,8 +838,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Futura Capital de la Tecnología y la Sostenibilidad",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761567&fecha=01/07/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-chetumal",
@@ -880,8 +870,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Chetumal",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5761568&fecha=01/07/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-parque-industrial-bajio",
@@ -910,8 +899,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Parque Industrial Bajío",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5762147&fecha=07/07/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-puerta-logistica-bajio",
@@ -942,8 +930,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Puerta Logística del Bajío",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5763405&fecha=21/07/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-nezahualcoyotl",
@@ -973,8 +960,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Nezahualcóyotl",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5764903&fecha=07/08/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-huamantla",
@@ -1006,8 +992,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Huamantla",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5765468&fecha=14/08/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-durango",
@@ -1039,8 +1024,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Centro Logístico e Industrial de Durango",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5766563&fecha=26/08/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-hermosillo",
@@ -1070,8 +1054,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar e Innovación de Hermosillo",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5766564&fecha=26/08/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-tuxpan",
@@ -1103,8 +1086,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Tuxpan",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5766562&fecha=26/08/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-altamira",
@@ -1136,8 +1118,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Altamira",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5770448&fecha=21/10/2025"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-topolobampo",
@@ -1166,8 +1147,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Topolobampo",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5782770&fecha=20/03/2026"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecobi-cancun",
@@ -1199,8 +1179,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo Económico para el Bienestar Distrito Financiero y Tecnológico de Cancún",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5795731&fecha=07/08/2026"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecibi-puebla",
@@ -1225,8 +1204,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Puebla",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5781224&fecha=02/03/2026"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecibi-tlaxcala",
@@ -1252,8 +1230,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Tlaxcala",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5789881&fecha=08/06/2026"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecibi-quintana-roo",
@@ -1280,8 +1257,7 @@
      "titulo": "Se publica en el DOF la declaratoria del Polo de Desarrollo de Economía Circular para el Bienestar Quintana Roo",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5794759&fecha=27/07/2026"
     }
-   ],
-   "fuente_local": null
+   ]
   },
   {
    "id": "podecibi-parque-hidalgo",
@@ -1321,8 +1297,7 @@
      "titulo": "SEMARNAT publica en el DOF el acuerdo que abroga (deja sin efecto) la declaratoria",
      "url": "https://dof.gob.mx/nota_detalle.php?codigo=5794523&fecha=23/07/2026"
     }
-   ],
-   "fuente_local": null
+   ]
   }
  ]
 }
