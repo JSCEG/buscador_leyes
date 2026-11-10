@@ -1,1 +1,8 @@
-/* Lo propio del generador. Lo común (tablero, pantalla completa, colores, polos) está en conceptos-3d/comun/estilo.css. */
+/* usa planta-comun. Aquí va solo lo propio de esta figura. */
+.h-tabla-texto td:nth-child(2), .h-tabla-texto th:nth-child(2) { text-align: right; }
+#h-regla td:last-child, #h-regla th:last-child { text-align: left; }
+#h-sincro td, #h-sincro th { text-align: right; }
+#h-sincro td:first-child, #h-sincro th:first-child { text-align: left; }
+.h-barra-f { grid-template-columns: 196px 1fr 40px; }
+.h-s-norma { --c: var(--tinta, #171317); stroke-dasharray: 5 4; }
+@media (max-width: 619px) { .h-barra-f { grid-template-columns: 132px 1fr 34px; } }
