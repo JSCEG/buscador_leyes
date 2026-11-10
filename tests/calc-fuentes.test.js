@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { FUENTES, auditarFuentes } from '../src/lib/calc/fuentes.js';
+import { FUENTES, auditarFuentes, fechaFuente } from '../src/lib/calc/fuentes.js';
 import { PARA_ENTENDER } from '../src/lib/calc/textos.js';
 import { calcular, normalizarEstado } from '../src/lib/calc/motor.js';
 import { ATAJOS, PESTANAS, PRODUCTOS_PETROLIFEROS } from '../src/lib/calc/pestanas.js';
@@ -33,6 +33,14 @@ describe('sources', () => {
   it('cites the CEL agreement from the Diario Oficial', () => {
     expect(FUENTES['acuerdo-cel-2026']).toMatchObject({ url: 'https://sidof.segob.gob.mx/notas/5796405', fecha: '2026-08-17', emisor: 'SENER' });
     expect(FUENTES['acuerdo-cel-2026'].titulo).not.toMatch(/despacho/i);
+  });
+  // Web pages without a publication date carry the day they were consulted, and say so.
+  it('says when a date is the day a web page was consulted', () => {
+    const web = ['global-solar-atlas', 'gpsa', 'vcf', 'nist-webbook', 'nws-altitud', 'eia-gas', 'pemex-crudos'];
+    for (const x of Object.values(FUENTES)) expect(Boolean(x.consultado), x.id).toBe(web.includes(x.id));
+    expect(fechaFuente(FUENTES.gpsa)).toBe('consultado el 2026-11-08');
+    expect(fechaFuente(FUENTES['cne-precios-lp'])).toBe('2026-11-08');
+    expect(fechaFuente(FUENTES['lista-2026'])).toBe('2026-02-12');
   });
   // The user checked the 8 values against the scan on 2026-11-09 (page 1, signed 2026-02-12).
   it('keeps the 2026 fuel list as checked by a person', () => {

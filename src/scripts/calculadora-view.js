@@ -5,33 +5,33 @@
  * Changing a select or a segmented control repaints the panel and gives the focus back.
  */
 import '../styles/calculadora.css';
-import { calcular, normalizarEstado } from '../lib/calc/motor.js';
-import { ATAJOS, PESTANA, PESTANAS, PRODUCTOS_PETROLIFEROS, nombreUnidadEn, simboloUnidad, unidadesValidas } from '../lib/calc/pestanas.js';
+import { calcular, equivalenteOficial, normalizarEstado } from '../lib/calc/motor.js';
+import {
+    ALTITUDES, ATAJOS, MAGNITUDES, OPCIONES_CONDICION, OPCIONES_MEZCLA, PESTANA, PESTANAS, PRODUCTOS_PETROLIFEROS,
+    magnitudUnidad, nombreUnidadEn, simboloUnidad, temperaturaReferencia, unidadesValidas,
+} from '../lib/calc/pestanas.js';
 import { calcHash } from '../lib/calc/ruta.js';
 import { formatoClase, formatoDinero, formatoFijo, leerNumero, rotulo, textoFrente } from '../lib/calc/formato.js';
 import { NOTA_PIE, PARA_ENTENDER, SUBTITULO, TITULO } from '../lib/calc/textos.js';
-import { MAGNITUDES, UNIDADES, convertir, convertirTemperatura } from '../lib/calc/unidades.js';
-import { CIUDADES, CONDICIONES, MEZCLAS_LP } from '../lib/calc/ajustes.js';
-import { ENERGETICOS } from '../lib/calc/energeticos.js';
 import { CUENTAS, SIMBOLO_LINEA, calcularCuenta, cuentasDe } from '../lib/calc/cuentas.js';
-import { PUNTAS_DIST_DIT } from '../lib/calc/mercado.js';
-import { FUENTES } from '../lib/calc/fuentes.js';
+import { PUNTAS_DIST_DIT, ahoraEnSistema } from '../lib/calc/mercado.js';
+import { FUENTES, fechaFuente } from '../lib/calc/fuentes.js';
 
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const plano = s => String(s).replaceAll(' ', ' ');
 
 const NOMBRE_MAGNITUD = { energia: 'Energía', potencia: 'Potencia', presion: 'Presión', temperatura: 'Temperatura', masa: 'Masa', volumen: 'Volumen', flujo: 'Flujo', velocidad: 'Velocidad', area: 'Área' };
-const OFICIAL_DE = { energia: 'mj', potencia: 'kw', presion: 'kpa', masa: 'kg', volumen: 'l', flujo: 'm3-h', velocidad: 'm-s', area: 'm2' };
 const BASES = [{ id: 'oficial', nombre: 'Valor publicado' }, { id: 'fisica', nombre: 'Referencia física' }];
 const leer = v => (typeof v === 'number' ? { ok: Number.isFinite(v), valor: v } : leerNumero(v));
 
 const opciones = (lista, actual) => lista.map(o => `<option value="${esc(o.id)}"${o.id === actual ? ' selected' : ''}>${esc(o.nombre)}</option>`).join('');
-const seg = (clave, etiqueta, lista, actual, atributo = `data-seg="${clave}"`) => `<div class="bu-seg ce-seg" role="radiogroup" aria-label="${esc(etiqueta)}" ${atributo}>${lista.map(o => `<button type="button" role="radio" aria-checked="${o.id === actual}" data-valor="${esc(o.id)}" data-foco="${clave}-${esc(o.id)}">${esc(o.nombre)}</button>`).join('')}</div>`;
+// A radio group: only the checked option (or the first, when none is) takes a Tab stop; the arrows move inside.
+function seg(clave, etiqueta, lista, actual, atributo = `data-seg="${clave}"`) {
+    const parada = lista.some(o => o.id === actual) ? actual : lista[0]?.id;
+    return `<div class="bu-seg ce-seg" role="radiogroup" aria-label="${esc(etiqueta)}" ${atributo}>${lista.map(o => `<button type="button" role="radio" aria-checked="${o.id === actual}" tabindex="${o.id === parada ? 0 : -1}" data-valor="${esc(o.id)}" data-foco="${clave}-${esc(o.id)}">${esc(o.nombre)}</button>`).join('')}</div>`;
+}
 const campo = (etiqueta, control, { clase = '', ayuda = '' } = {}) => `<label class="ce-campo ${clase}"><span class="ce-etq">${esc(etiqueta)}</span><span class="bu-campo">${control}</span>${ayuda ? `<span class="ce-ayuda">${esc(ayuda)}</span>` : ''}</label>`;
 const entrada = (atributos, valor, placeholder = '') => `<input type="text" inputmode="decimal" autocomplete="off" ${atributos} value="${esc(valor)}" placeholder="${esc(placeholder)}">`;
-const dos = n => String(n).padStart(2, '0');
-const hoyLocal = () => { const d = new Date(); return `${d.getFullYear()}-${dos(d.getMonth() + 1)}-${dos(d.getDate())}`; };
-const horaLocal = () => { const d = new Date(); return `${dos(d.getHours())}:${dos(d.getMinutes())}`; };
 const enlaceFuente = f => (/^https?:/.test(f.url) ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a>` : `<a href="${esc(f.url)}">${esc(f.titulo)}</a>`);
 
 /** A line of a small calculation: fixed decimals when it says so, pesos with two decimals, the rest by class. */
@@ -45,12 +45,13 @@ const oracion = s => (s ? `${s[0].toUpperCase()}${s.slice(1)}` : s);
 /** The origin of a figure; its note is added as its own sentence unless the label already holds it. */
 const origenCifra = c => `${rotulo(c)}${c.nota && !['convencion', 'calculado'].includes(c.clase) ? `. ${oracion(c.nota)}` : ''}`;
 const lineaFuentes = fuentes => (fuentes.length
-    ? `<p class="ce-nota">Fuente: ${fuentes.map(f => `${enlaceFuente(f)}. ${esc(f.emisor)}, ${esc(f.fecha)}`).join('; ')}.</p>` : '');
+    ? `<p class="ce-nota">Fuente: ${fuentes.map(f => `${enlaceFuente(f)}. ${esc(f.emisor)}, ${esc(fechaFuente(f))}`).join('; ')}.</p>` : '');
 const rotuloLinea = l => rotulo({ clase: l.clase, anio: l.anio, emisor: FUENTES[l.fuente]?.emisor, nota: l.clase === 'convencion' ? 'las tablas de precios' : undefined });
 
+// Date and time fields start on the clock of the chosen system (see ponerReloj).
+const esReloj = f => f.tipo === 'fecha' || f.tipo === 'hora';
 function valorInicial(f) {
-    if (f.tipo === 'fecha') return hoyLocal();
-    if (f.tipo === 'hora') return horaLocal();
+    if (esReloj(f)) return '';
     if (f.tipo === 'casilla') return Boolean(f.porDefecto);
     return f.porDefecto == null ? '' : String(f.porDefecto);
 }
@@ -64,35 +65,39 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
     let estado;
     let resultado;
     let textoValor = '';
-    let textoHoras = '';
+    // null until there are hours to keep: a power unit then starts at one hour. '' is power without hours.
+    // The text stays while the unit is energy, so MW → MWh → MW gives the hours back.
+    let textoHoras = null;
     let textoAjustes = {};
     // What the person typed in each small calculation, kept while they move around the page.
     const valoresCuenta = {};
+    // Date and time fields the person changed; the rest follow the clock of the chosen system.
+    const relojTocado = new Set();
 
     function cargar(r) {
         estado = normalizarEstado(r ?? {});
         textoValor = estado.valor == null ? '' : String(estado.valor);
-        textoHoras = estado.horas == null ? '' : String(estado.horas);
+        textoHoras = estado.horas == null ? null : String(estado.horas);
         textoAjustes = Object.fromEntries(Object.entries(estado.ajustes).map(([k, v]) => [k, typeof v === 'boolean' ? v : String(v)]));
     }
 
-    const esPotencia = u => estado.pestana === 'electricidad' && UNIDADES[u]?.magnitud === 'potencia';
+    const esPotencia = u => estado.pestana === 'electricidad' && magnitudUnidad(u) === 'potencia';
     const ajustesCrudos = () => Object.fromEntries(Object.entries(textoAjustes).filter(([, v]) => v !== '' && v !== false && v != null));
-    const crudo = () => ({ ...estado, valor: textoValor, horas: esPotencia(estado.unidad) ? textoHoras : undefined, ajustes: ajustesCrudos() });
+    const crudo = () => ({ ...estado, valor: textoValor, horas: textoHoras ?? undefined, ajustes: ajustesCrudos() });
 
     function actualizar(cambios = {}) {
-        const antes = esPotencia(estado.unidad);
-        estado = normalizarEstado({ ...crudo(), ...cambios, horas: antes ? textoHoras : undefined });
-        if (!antes) textoHoras = estado.horas == null ? '' : String(estado.horas);
+        estado = normalizarEstado({ ...crudo(), ...cambios });
+        if (estado.horas != null) textoHoras = String(estado.horas);
         resultado = calcular(estado);
     }
 
-    /** The state for a link: only values that read as numbers. */
+    /** The state for a link: only values that read as numbers; cleared hours stay cleared. */
     function estadoEnlace() {
         const v = leer(textoValor);
-        const h = leer(textoHoras);
+        const h = textoHoras == null ? null : leer(textoHoras);
+        const horas = !esPotencia(estado.unidad) ? null : h?.ok ? h.valor : (textoHoras === '' ? '' : null);
         const ajustes = Object.fromEntries(Object.entries(estado.ajustes).filter(([, x]) => typeof x !== 'number' || Number.isFinite(x)));
-        return { ...estado, valor: v.ok ? v.valor : null, horas: esPotencia(estado.unidad) && h.ok ? h.valor : null, ajustes };
+        return { ...estado, valor: v.ok ? v.valor : null, horas, ajustes };
     }
     const enlace = () => `${location.origin}${location.pathname}${calcHash(estadoEnlace())}`;
 
@@ -102,16 +107,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         return `<button type="button" role="tab" class="ce-tab" id="ce-tab-${p.id}" aria-controls="ce-panel" aria-selected="${activa}" tabindex="${activa ? 0 : -1}" data-ce="tab" data-pestana="${p.id}">${esc(p.titulo)}</button>`;
     }).join('');
 
-    function textoOficial() {
-        const info = UNIDADES[estado.unidad];
-        if (!info || info.oficial) return null;
-        const r = leer(textoValor);
-        const v = r.vacio ? PESTANA[estado.pestana].ejemplo.valor : (r.ok ? r.valor : null);
-        if (v == null) return '';
-        if (info.magnitud === 'temperatura') return `= ${formatoClase(convertirTemperatura(v, estado.unidad, 'c', { diferencia: estado.ajustes.dt === true }), 'exacto')} °C`;
-        const meta = OFICIAL_DE[info.magnitud];
-        return `= ${formatoClase(convertir(v, estado.unidad, meta), 'exacto')} ${UNIDADES[meta].simbolo}`;
-    }
+    const textoOficial = () => equivalenteOficial({ ...estado, valor: textoValor });
 
     function conversorHtml() {
         const tab = PESTANA[estado.pestana];
@@ -122,7 +118,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         partes.push(campo('Cantidad', entrada('data-ce="valor" data-foco="valor" aria-describedby="ce-aviso-valor"', textoValor, String(tab.ejemplo.valor)), { clase: 'ce-campo--valor' }));
         partes.push(`<div class="ce-campo ce-campo--unidad"><label class="ce-campo"><span class="ce-etq">Unidad</span><span class="bu-campo"><select data-ce="unidad" data-foco="unidad">${opciones(unidades, estado.unidad)}</select></span></label>${oficial === null ? '' : `<span class="ce-oficial" data-ce="oficial">${esc(oficial)}</span>`}</div>`);
         if (estado.pestana === 'petroliferos') partes.push(campo('Producto', `<select data-ce="producto" data-foco="producto">${opciones(PRODUCTOS_PETROLIFEROS, estado.producto)}</select>`, { clase: 'ce-campo--producto' }));
-        if (esPotencia(estado.unidad)) partes.push(campo('Horas', entrada('data-ce="horas" data-foco="horas"', textoHoras, '1'), { clase: 'ce-campo--horas', ayuda: 'Para pasar de potencia a energía' }));
+        if (esPotencia(estado.unidad)) partes.push(campo('Horas', entrada('data-ce="horas" data-foco="horas"', textoHoras ?? '', '1'), { clase: 'ce-campo--horas', ayuda: 'Para pasar de potencia a energía' }));
         return `<div class="ce-conversor" data-ce="conversor">${partes.join('')}</div><p class="ce-aviso-campo" id="ce-aviso-valor" data-ce="aviso-valor"></p>`;
     }
 
@@ -148,19 +144,19 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         const p = estado.pestana;
         let cuerpo = '';
         if (p === 'petroliferos' && estado.producto !== 'coque') {
-            const e = ENERGETICOS[estado.producto];
-            cuerpo = campo('Temperatura del combustible', entrada('data-ajuste="t" data-foco="aj-t"', a.t ?? '', String(e.tRef)), { ayuda: `En °C. Sin dato se usa la de referencia, ${e.tRef} °C. Válido de −10 a 60 °C.` });
+            const tRef = temperaturaReferencia(estado.producto);
+            cuerpo = campo('Temperatura del combustible', entrada('data-ajuste="t" data-foco="aj-t"', a.t ?? '', String(tRef)), { ayuda: `En °C. Sin dato se usa la de referencia, ${tRef} °C. Válido de −10 a 60 °C.` });
             if (estado.producto === 'diesel') cuerpo += campo('Densidad', entrada('data-ajuste="d" data-foco="aj-d"', a.d ?? '', '0.84'), { ayuda: 'En kg/L. 0.84 no tiene fuente oficial.' });
         } else if (p === 'gas-lp') {
             cuerpo = campo('Temperatura del gas', entrada('data-ajuste="t" data-foco="aj-t"', a.t ?? '', '15.56'), { ayuda: 'En °C, de −10 a 50.' })
-                + campo('Mezcla', `<select data-ajuste="m" data-foco="aj-m">${opciones([{ id: '', nombre: 'Sin ajuste (0.54 kg/L)' }, ...Object.entries(MEZCLAS_LP).map(([id, m]) => ({ id, nombre: m.nombre }))], a.m ?? '')}</select>`);
+                + campo('Mezcla', `<select data-ajuste="m" data-foco="aj-m">${opciones([{ id: '', nombre: 'Sin ajuste (0.54 kg/L)' }, ...OPCIONES_MEZCLA], a.m ?? '')}</select>`);
         } else if (p === 'gas-natural') {
-            cuerpo = campo('Condición de referencia', `<select data-ajuste="c" data-foco="aj-c">${opciones(Object.entries(CONDICIONES).map(([id, c]) => ({ id, nombre: c.nombre })), a.c ?? 'estandar')}</select>`)
+            cuerpo = campo('Condición de referencia', `<select data-ajuste="c" data-foco="aj-c">${opciones(OPCIONES_CONDICION, a.c ?? 'estandar')}</select>`)
                 + campo('Poder calorífico', entrada('data-ajuste="pc" data-foco="aj-pc"', a.pc ?? '', '38.64'), { ayuda: 'MJ por metro cúbico estándar. Rango de la NOM-001: 37.30 a 43.60.' })
                 + `<div class="ce-campo"><span class="ce-etq">Base</span>${seg('k', 'Poder calorífico', [{ id: 'superior', nombre: 'Superior' }, { id: 'inferior', nombre: 'Inferior' }], a.k ?? 'superior')}</div>`;
         } else if (p === 'otras' && estado.magnitud === 'presion') {
             cuerpo = `<div class="ce-campo"><span class="ce-etq">La presión es</span>${seg('pm', 'Tipo de presión', [{ id: 'man', nombre: 'Manométrica' }, { id: 'abs', nombre: 'Absoluta' }], a.pm ?? '')}</div>`;
-            if (a.pm === 'man') cuerpo += campo('Altitud', entrada('data-ajuste="a" data-foco="aj-a"', a.a ?? '', '0'), { ayuda: `En metros. ${Object.values(CIUDADES).map(c => `${c.nombre}: ${c.altitud}`).join('; ')}.` });
+            if (a.pm === 'man') cuerpo += campo('Altitud', entrada('data-ajuste="a" data-foco="aj-a"', a.a ?? '', '0'), { ayuda: `En metros. ${ALTITUDES.map(c => `${c.nombre}: ${c.altitud}`).join('; ')}.` });
         } else if (p === 'otras' && estado.magnitud === 'temperatura') {
             cuerpo = `<div class="ce-campo"><span class="ce-etq">Es</span>${seg('dt', 'Temperatura o diferencia', [{ id: 'no', nombre: 'Una temperatura' }, { id: 'si', nombre: 'Una diferencia' }], a.dt === true ? 'si' : 'no')}</div>`;
         }
@@ -177,7 +173,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         const filas = [r.principal, ...r.otras].map(c => `<tr><td class="ce-num">${esc(formatoClase(c.valor, c.clase))} ${esc(simboloUnidad(c.unidad))}</td><td>${esc(c.etiqueta)}</td><td class="ce-rotulo">${esc(origenCifra(c))}</td></tr>`).join('');
         const fuentes = r.fuentes.map(f => {
             const externo = /^https?:/.test(f.url);
-            return `<li><a href="${esc(f.url)}"${externo ? ' target="_blank" rel="noopener"' : ''}>${esc(f.titulo)}</a>. ${esc(f.emisor)}, ${esc(f.fecha)}.</li>`;
+            return `<li><a href="${esc(f.url)}"${externo ? ' target="_blank" rel="noopener"' : ''}>${esc(f.titulo)}</a>. ${esc(f.emisor)}, ${esc(fechaFuente(f))}.</li>`;
         }).join('');
         return `${base}<ol class="ce-pasos">${r.pasos.map(p => `<li>${esc(p)}</li>`).join('')}</ol>
             <table class="ce-cifras"><caption>Todas las cifras</caption><tbody>${filas}</tbody></table>
@@ -195,8 +191,33 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         return campo(`${f.etiqueta}${f.unidad ? ` (${f.unidad})` : ''}`, entrada(atributos, v), { ayuda: f.sugerencia ? `Sugerencia: ${f.sugerencia}` : '' });
     }
 
+    /**
+     * Date and time on the clock of the chosen system (Baja California is an hour or more behind the
+     * centre), again each time the card opens or the system changes, until the person edits either.
+     */
+    function ponerReloj(c) {
+        const v = valoresCuenta[c.id];
+        const reloj = c.campos.filter(esReloj);
+        if (!reloj.length || reloj.some(f => relojTocado.has(`${c.id}.${f.id}`))) return false;
+        const ahora = ahoraEnSistema(v.sistema);
+        for (const f of reloj) v[f.id] = f.tipo === 'fecha' ? ahora.fecha : ahora.hora;
+        return true;
+    }
+    function refrescarReloj(caja) {
+        const c = CUENTAS[caja.dataset.cuenta];
+        if (!ponerReloj(c)) return;
+        for (const f of c.campos.filter(esReloj)) {
+            const el = caja.querySelector(`[data-cuenta-campo="${f.id}"]`);
+            if (el) el.value = valoresCuenta[c.id][f.id];
+        }
+        pintarCuenta(caja);
+    }
+
     function cuentaHtml(c) {
-        valoresCuenta[c.id] ??= Object.fromEntries(c.campos.map(f => [f.id, valorInicial(f)]));
+        if (!valoresCuenta[c.id]) {
+            valoresCuenta[c.id] = Object.fromEntries(c.campos.map(f => [f.id, valorInicial(f)]));
+            ponerReloj(c);
+        }
         return `<div class="ce-cuenta" data-cuenta="${esc(c.id)}">
             ${c.nota ? `<p class="ce-nota">${esc(c.nota)}</p>` : ''}
             <div class="ce-cuenta-campos">${c.campos.map(f => campoCuenta(c, f)).join('')}</div>
@@ -226,7 +247,7 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
             ${t.id === 'hora-pico' ? tablaPuntas() : ''}
             ${t.cuenta ? cuentaHtml(CUENTAS[t.cuenta]) : ''}
             ${t.articulos.length ? `<ul class="ce-articulos">${t.articulos.map(a => `<li><a href="#art-${esc(a.id)}">${esc(a.texto)}</a></li>`).join('')}</ul>` : ''}
-            ${fuente ? `<p class="ce-nota">Fuente: ${enlaceFuente(fuente)}. ${esc(fuente.emisor)}, ${esc(fuente.fecha)}.</p>` : ''}`;
+            ${fuente ? `<p class="ce-nota">Fuente: ${enlaceFuente(fuente)}. ${esc(fuente.emisor)}, ${esc(fechaFuente(fuente))}.</p>` : ''}`;
     }
 
     function llenarTarjeta(d) {
@@ -309,9 +330,10 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
         if (!r.ok) return enlace();
         const tab = PESTANA[estado.pestana];
         const valor = r.ejemplo ? tab.ejemplo.valor : textoValor.trim();
+        const una = (r.ejemplo ? tab.ejemplo.valor : leer(textoValor).valor) === 1;
         const producto = estado.producto ? ` de ${PRODUCTOS_PETROLIFEROS.find(p => p.id === estado.producto).nombre}` : '';
-        const lineas = [`${valor} ${nombreUnidadEn(estado.pestana, estado.unidad)}${producto}`, `= ${textoCifra(r.principal)}`, ...r.otras.filter(c => c.frente).map(c => `= ${textoCifra(c)}`), r.origen];
-        if (r.fuentes.length) lineas.push(`Fuente: ${r.fuentes.map(f => `${f.titulo} (${f.emisor}, ${f.fecha})`).join('; ')}`);
+        const lineas = [`${valor} ${nombreUnidadEn(estado.pestana, estado.unidad, { una })}${producto}`, `= ${textoCifra(r.principal)}`, ...r.otras.filter(c => c.frente).map(c => `= ${textoCifra(c)}`), r.origen];
+        if (r.fuentes.length) lineas.push(`Fuente: ${r.fuentes.map(f => `${f.titulo} (${f.emisor}, ${fechaFuente(f)})`).join('; ')}`);
         lineas.push(enlace());
         return plano(lineas.join('\n'));
     }
@@ -377,12 +399,17 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
     // Opening a card fills it the first time; toggle does not bubble, so listen while capturing.
     container.addEventListener('toggle', e => {
         const d = e.target;
-        if (d.matches?.('details.ce-tarjeta') && d.open) llenarTarjeta(d);
+        if (!d.matches?.('details.ce-tarjeta') || !d.open) return;
+        llenarTarjeta(d);
+        for (const caja of d.querySelectorAll('[data-cuenta]')) refrescarReloj(caja);
     }, { capture: true, signal: ac.signal });
 
     const campoDeCuenta = t => {
         const caja = t.closest('[data-cuenta]');
-        valoresCuenta[caja.dataset.cuenta][t.dataset.cuentaCampo] = t.type === 'checkbox' ? t.checked : t.value;
+        const campoId = t.dataset.cuentaCampo;
+        valoresCuenta[caja.dataset.cuenta][campoId] = t.type === 'checkbox' ? t.checked : t.value;
+        if (t.type === 'date' || t.type === 'time') relojTocado.add(`${caja.dataset.cuenta}.${campoId}`);
+        if (campoId === 'sistema') refrescarReloj(caja);
         pintarCuenta(caja);
     };
 
@@ -412,6 +439,18 @@ export function renderCalculadoraView(container, { ruta = null, onRoute = () => 
 
     container.addEventListener('keydown', e => {
         const t = e.target;
+        if (t.getAttribute?.('role') === 'radio') {
+            const botones = [...t.closest('[role="radiogroup"]').querySelectorAll('[role="radio"]')];
+            const i = botones.indexOf(t);
+            const paso = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: botones.length - 1 }[e.key];
+            if (paso === undefined) return;
+            e.preventDefault();
+            const destino = botones[(paso + botones.length) % botones.length];
+            // Focus first: the repaint gives the focus back to whatever held it.
+            destino.focus();
+            destino.click();
+            return;
+        }
         if (t.dataset?.ce !== 'tab') return;
         const ids = PESTANAS.map(p => p.id);
         const i = ids.indexOf(t.dataset.pestana);

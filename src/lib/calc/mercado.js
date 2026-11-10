@@ -78,6 +78,18 @@ export function periodoGDMTH({ sistema, fecha, hora, festivo = false }) {
     return { ok: true, periodo, temporada, dia: tipo, errores };
 }
 
+// Local clock of each system: Baja California follows Tijuana (with summer time), Baja California Sur
+// Mazatlán (UTC−7 all year). The SIN spans several zones, so it keeps the visitor's own clock.
+const ZONA_SISTEMA = Object.freeze({ sin: null, bca: 'America/Tijuana', bcs: 'America/Mazatlan' });
+
+/** Today's date (YYYY-MM-DD) and the time (HH:MM) on the clock of a system. */
+export function ahoraEnSistema(sistema, ahora = new Date()) {
+    const zona = Object.hasOwn(ZONA_SISTEMA, sistema) ? ZONA_SISTEMA[sistema] : null;
+    const formato = new Intl.DateTimeFormat('en-CA', { timeZone: zona ?? undefined, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+    const p = Object.fromEntries(formato.formatToParts(ahora).map(x => [x.type, x.value]));
+    return { fecha: `${p.year}-${p.month}-${p.day}`, hora: `${p.hour}:${p.minute}` };
+}
+
 /** Peak hours of DIST and DIT in the SIN (Tables 6 and 7), shown as text. */
 export const PUNTAS_DIST_DIT = Object.freeze([
     { temporada: 'Primavera', dist: '19:00 a 22:00', dit: '19:30 a 22:30', sabado: 'Sin punta' },

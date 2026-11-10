@@ -9,10 +9,19 @@ import { CONDICIONES, MEZCLAS_LP, RANGO_ALTITUD, RANGO_T_LIQUIDOS, RANGO_T_LP, a
 import { formatoClase, formatoComparacion, leerNumero, rotulo } from './formato.js';
 import { FUENTES } from './fuentes.js';
 import { MAGNITUDES, UNIDADES, bajoCeroAbsoluto, convertir, convertirTemperatura, unidadesDe } from './unidades.js';
-import { PESTANA, PESTANAS, UNIDADES_PESTANA, infoUnidad, simboloUnidad, unidadesValidas } from './pestanas.js';
+import { PESTANA, PESTANAS, UNA, UNIDADES_PESTANA, infoUnidad, simboloUnidad, unidadesValidas } from './pestanas.js';
 
 const NB = ' ';
 const MENSAJE_NUMERO = 'Escribe un número, como 1 234.5';
+// An adjustment that does not read says which one it is, with a likely value.
+const MENSAJE_AJUSTE = {
+    t: 'Escribe la temperatura, como 25',
+    d: 'Escribe la densidad, como 0.84',
+    pc: 'Escribe el poder calorífico, como 38.64',
+    a: `Escribe la altitud, como 2${NB}240`,
+};
+const OFICIAL_DE = { energia: 'mj', potencia: 'kw', presion: 'kpa', masa: 'kg', volumen: 'l', flujo: 'm3-h', velocidad: 'm-s', area: 'm2' };
+const pestanaDe = id => (Object.hasOwn(PESTANA, id ?? '') ? PESTANA[id] : PESTANAS[0]);
 const USUARIO_KWH_ANIO = 1885;
 const TANQUE_COCHE_L = 50;
 const CILINDRO_KG = 20;
@@ -48,11 +57,7 @@ const DENSIDAD = {
     olmeca: { clase: 'tipico', fuente: 'pemex-crudos', anio: 2026 },
 };
 
-const SINGULAR = {
-    mj: 'megajoule', gj: 'gigajoule', tj: 'terajoule', pj: 'petajoule', kwh: 'kilowatt-hora', mwh: 'megawatt-hora', gwh: 'gigawatt-hora', twh: 'terawatt-hora',
-    l: 'litro', bl: 'barril', m3: 'metro cúbico', gal: 'galón', kg: 'kilo', t: 'tonelada', pc: 'pie cúbico', w: 'watt', kw: 'kilowatt', mw: 'megawatt', gw: 'gigawatt', tw: 'terawatt',
-    hp: 'caballo de fuerza', kgco2: 'kilo de CO₂', tco2: 'tonelada de CO₂', bep: 'barril equivalente de petróleo', mmbtu: 'millón de Btu (MMBtu)', therm: 'therm', kpa: 'kilopascal', bar: 'bar',
-};
+const SINGULAR = UNA;
 
 const nombre = id => infoUnidad(id)?.nombre ?? id;
 const fmt = v => formatoClase(v, 'exacto');
@@ -115,9 +120,10 @@ function filtrarAjustes(pestana, magnitud, producto, a = {}) {
     const out = {};
     const num = k => { const v = numeroAjuste(a[k]); if (v !== undefined) out[k] = v; };
     if (pestana === 'petroliferos' && producto !== 'coque') { num('t'); if (producto === 'diesel') num('d'); }
-    if (pestana === 'gas-lp') { num('t'); if (MEZCLAS_LP[a.m]) out.m = a.m; }
+    // Own keys only: a crafted link with m=constructor must not find Object's own methods.
+    if (pestana === 'gas-lp') { num('t'); if (Object.hasOwn(MEZCLAS_LP, a.m ?? '')) out.m = a.m; }
     if (pestana === 'gas-natural') {
-        if (CONDICIONES[a.c]) out.c = a.c;
+        if (Object.hasOwn(CONDICIONES, a.c ?? '')) out.c = a.c;
         num('pc');
         if (a.k === 'superior' || a.k === 'inferior') out.k = a.k;
     }
@@ -131,7 +137,7 @@ function filtrarAjustes(pestana, magnitud, producto, a = {}) {
 
 /** A state that only holds what fits the tab. */
 export function normalizarEstado(parcial = {}) {
-    const tab = PESTANA[parcial.pestana] ?? PESTANAS[0];
+    const tab = pestanaDe(parcial.pestana);
     const pestana = tab.id;
     const magnitud = pestana === 'otras' ? (MAGNITUDES.includes(parcial.magnitud) ? parcial.magnitud : tab.ejemplo.magnitud) : null;
     const producto = pestana === 'petroliferos' ? (tab.productos.includes(parcial.producto) ? parcial.producto : tab.ejemplo.producto) : null;
@@ -395,7 +401,8 @@ function gasLP(e, s) {
         deUnidad(kg / 1000, 't', mag === 'masa' ? P.exacto : procKg),
         ...['gj', 'kwh', 'mmbtu'].map(x => deUnidad(convertir(mj, 'mj', x), x, procEnergia)),
     );
-    s.comparacion = cilindros(kg / CILINDRO_KG);
+    // Counting 20 kg cylinders in 20 kg cylinders only repeats the input.
+    s.comparacion = u === 'cil20' ? null : cilindros(kg / CILINDRO_KG);
     if (e.base !== 'fisica' && !usaTabla) {
         s.avisos.push('0.54 kg/L es la convención de las tablas de precios. Con los 26.12 MJ/L de la Lista implica 48.37 MJ/kg; es el valor publicado, y la referencia física está en «Ver fórmula y fuente».');
     }
@@ -459,7 +466,7 @@ function origenDe(s) {
 /** Every figure for one state; see the module comment. */
 export function calcular(estado) {
     const s = { ok: false, principal: null, otras: [], comparacion: null, pasos: [], fuentes: [], avisos: [], errores: [], ejemplo: false, origen: '', avisoValor: null };
-    const tab = PESTANA[estado?.pestana] ?? PESTANAS[0];
+    const tab = pestanaDe(estado?.pestana);
     const e = { ...estado, ajustes: estado?.ajustes ?? {} };
     const fallar = () => { s.principal = null; s.otras = []; s.comparacion = null; s.pasos = []; return s; };
 
@@ -469,7 +476,7 @@ export function calcular(estado) {
     else { e.valor = lectura.valor; s.avisoValor = lectura.aviso; }
 
     for (const [k, v] of Object.entries(e.ajustes)) {
-        if (typeof v === 'number' && !Number.isFinite(v)) s.errores.push({ campo: k, mensaje: MENSAJE_NUMERO });
+        if (typeof v === 'number' && !Number.isFinite(v)) s.errores.push({ campo: k, mensaje: MENSAJE_AJUSTE[k] ?? MENSAJE_NUMERO });
     }
     const negativoPermitido = tab.id === 'otras' && (e.magnitud === 'temperatura' || (e.magnitud === 'presion' && e.ajustes.pm === 'man'));
     if (e.valor < 0 && !negativoPermitido) s.errores.push({ campo: 'valor', mensaje: 'Este valor no puede ser negativo' });
@@ -491,6 +498,14 @@ export function calcular(estado) {
     }
     // A figure that only repeats the input is left out.
     s.otras = s.otras.filter(x => !(x.unidad === e.unidad && Math.abs(x.valor - e.valor) <= 1e-12 * Math.max(1, Math.abs(e.valor))));
+    // A figure already listed (energy that falls in GJ, coke tonnes) is listed once; the first keeps its place in front.
+    const listadas = [s.principal];
+    s.otras = s.otras.filter(x => {
+        const igual = listadas.find(y => y.unidad === x.unidad && Math.abs(y.valor - x.valor) <= 1e-9 * Math.max(1, Math.abs(y.valor)));
+        if (!igual) { listadas.push(x); return true; }
+        if (x.frente && igual !== s.principal) igual.frente = true;
+        return false;
+    });
 
     s.ok = true;
     s.origen = origenDe(s);
@@ -498,6 +513,22 @@ export function calcular(estado) {
     if (s.comparacion?.fuente) ids.add(s.comparacion.fuente);
     s.fuentes = [...ids].map(id => FUENTES[id]).filter(Boolean);
     return s;
+}
+
+/**
+ * What the typed value is in the official unit, «= 100 kPa», shown under the unit. null for a unit
+ * that is already official, '' while the value does not read. An empty field uses the tab's example.
+ */
+export function equivalenteOficial(estado) {
+    const u = estado?.unidad;
+    const info = Object.hasOwn(UNIDADES, u ?? '') ? UNIDADES[u] : null;
+    if (!info || info.oficial) return null;
+    const r = leer(estado.valor ?? '');
+    const v = r.vacio ? pestanaDe(estado.pestana).ejemplo.valor : (r.ok ? r.valor : null);
+    if (v == null) return '';
+    if (info.magnitud === 'temperatura') return `= ${fmt(convertirTemperatura(v, u, 'c', { diferencia: estado.ajustes?.dt === true }))} °C`;
+    const meta = OFICIAL_DE[info.magnitud];
+    return `= ${fmt(convertir(v, u, meta))} ${UNIDADES[meta].simbolo}`;
 }
 
 export { UNIDADES_PESTANA };
