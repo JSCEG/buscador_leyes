@@ -1,1 +1,7 @@
-/* Lo propio del motor. Lo común está en conceptos-3d/comun/estilo.css. */
+/* usa planta-comun. Aquí va solo lo propio de esta figura. */
+.h-tabla-texto td:nth-child(2), .h-tabla-texto th:nth-child(2) { text-align: right; }
+#h-regla td:last-child, #h-regla th:last-child { text-align: left; }
+.h-barra-f { grid-template-columns: 196px 1fr 40px; }
+.h-s-norma { --c: var(--tinta, #171317); stroke-dasharray: 5 4; }
+@media (max-width: 619px) { .h-barra-f { grid-template-columns: 132px 1fr 34px; } }
+.g-curva-cab .h-leyenda i.h-s-punto { width: 9px; height: 9px; border-radius: 50%; background: var(--rojo); }
