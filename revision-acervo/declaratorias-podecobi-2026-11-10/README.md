@@ -1,0 +1,23 @@
+# Declaratorias de los 15 PODECOBI
+
+Cotejo de las declaratorias originales contra el Diario Oficial de la Federación. Cada enlace de la última columna abre la primera página de la declaratoria en la edición matutina correspondiente.
+
+| Polo | Publicación | Fragmentos del original | Tablas | Páginas en el DOF |
+|---|---|---:|---:|---|
+| [Seybaplaya I](https://buscador-juridico.com/#ley-641a8b80-a2d7-52c5-9844-2d83570eaf4d) | [2025-06-30](https://sidof.segob.gob.mx/notas/docFuente/5761459) | 18 | 4 | [38–43](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=30062025-MAT.pdf&repo=#page=38) |
+| [San Jerónimo](https://buscador-juridico.com/#ley-f43be3e3-91e2-52e5-9188-15fbe8698fa2) | [2025-06-30](https://sidof.segob.gob.mx/notas/docFuente/5761460) | 18 | 4 | [44–48](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=30062025-MAT.pdf&repo=#page=44) |
+| [Centro Logístico e Industrial de Durango](https://buscador-juridico.com/#ley-a901cf7c-d8c9-565d-bfff-daac64ba717e) | [2025-08-26](https://sidof.segob.gob.mx/notas/docFuente/5766563) | 18 | 7 | [31–38](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=26082025-MAT.pdf&repo=#page=31) |
+| [Nezahualcóyotl](https://buscador-juridico.com/#ley-071d5a0e-ecee-5b55-b8f1-b179d46c7262) | [2025-08-07](https://sidof.segob.gob.mx/notas/docFuente/5764903) | 18 | 7 | [23–34](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=07082025-MAT.pdf&repo=#page=23) |
+| [Puerta Logística del Bajío](https://buscador-juridico.com/#ley-aff1d832-f7f3-5a06-8226-77f286f328cd) | [2025-07-21](https://sidof.segob.gob.mx/notas/docFuente/5763405) | 18 | 5 | [237–243](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=21072025-MAT.pdf&repo=#page=237) |
+| [Reserva Zapotlán](https://buscador-juridico.com/#ley-edd88cc5-dce7-5c1e-ac34-5d962d68cb10) | [2025-06-30](https://sidof.segob.gob.mx/notas/docFuente/5761461) | 18 | 3 | [49–53](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=30062025-MAT.pdf&repo=#page=49) |
+| [Capital de la Tecnología y la Sostenibilidad](https://buscador-juridico.com/#ley-53c8188a-012f-5cc3-ad7c-78be66708faa) | [2025-07-01](https://sidof.segob.gob.mx/notas/docFuente/5761567) | 18 | 8 | [34–41](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=01072025-MAT.pdf&repo=#page=34) |
+| [Huamantla](https://buscador-juridico.com/#ley-068f6c91-aa4a-51bd-a4c0-4e11c33bd9a0) | [2025-08-14](https://sidof.segob.gob.mx/notas/docFuente/5765468) | 18 | 4 | [60–64](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=14082025-MAT.pdf&repo=#page=60) |
+| [Tuxpan](https://buscador-juridico.com/#ley-7e37f521-2fcf-5e76-9930-c35153a6a4ef) | [2025-08-26](https://sidof.segob.gob.mx/notas/docFuente/5766562) | 18 | 3 | [24–30](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=26082025-MAT.pdf&repo=#page=24) |
+| [Parque Industrial Bajío](https://buscador-juridico.com/#ley-f3dfb87a-d6c1-5cb9-a114-74baa44db85c) | [2025-07-07](https://sidof.segob.gob.mx/notas/docFuente/5762147) | 18 | 7 | [35–43](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=07072025-MAT.pdf&repo=#page=35) |
+| [Chetumal](https://buscador-juridico.com/#ley-3a3de35c-c6ea-56a3-a4bc-2a5c13313704) | [2025-07-01](https://sidof.segob.gob.mx/notas/docFuente/5761568) | 18 | 8 | [42–49](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=01072025-MAT.pdf&repo=#page=42) |
+| [Innovación y Bienestar de Hermosillo](https://buscador-juridico.com/#ley-61004759-e5cc-548a-8dac-0aaeb63da5a3) | [2025-08-26](https://sidof.segob.gob.mx/notas/docFuente/5766564) | 18 | 6 | [39–47](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=26082025-MAT.pdf&repo=#page=39) |
+| [Topolobampo](https://buscador-juridico.com/#ley-0600bc5a-3691-5d6a-aa6d-1fffd931d6eb) | [2026-03-20](https://sidof.segob.gob.mx/notas/docFuente/5782770) | 19 | 5 | [93–98](https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=20032026-MAT.pdf&repo=#page=93) |
+| [Altamira](https://buscador-juridico.com/#ley-31a9e31f-b3e0-5660-a010-008377b91f6d) | [2025-10-21](https://sidof.segob.gob.mx/notas/docFuente/5770448) | 19 | 7 | [76–82](https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=21102025-MAT.pdf&repo=#page=76) |
+| [Distrito Financiero y Tecnológico de Cancún](https://buscador-juridico.com/#ley-172a0b68-5ef3-5a43-841f-eecf288f0894) | [2026-08-07](https://sidof.segob.gob.mx/notas/docFuente/5795731) | 19 | 6 | [74–80](https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07082026-MAT.pdf&repo=#page=74) |
+
+Las fichas de Reserva Zapotlán y Puebla enlazan sus notas aclaratorias del 29 de julio de 2025. La ficha de Topolobampo enlaza el acuerdo modificatorio del 29 de abril de 2026. Estas tres referencias editoriales se cuentan aparte de los 273 fragmentos de las declaratorias.

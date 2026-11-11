@@ -1,0 +1,121 @@
+{
+  "polo": "Seybaplaya I",
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5761459",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=30062025-MAT.pdf&repo=",
+  "sha256": "315de5db1839145b2604f266d7a39555125b32e4580a93d0c3fa19efead27538",
+  "paginas": [
+    38,
+    43
+  ],
+  "croquisPaginas": [
+    40
+  ],
+  "tablas": 4,
+  "celdas": 256,
+  "fragmentos": 18,
+  "modificacionIdentificada": null,
+  "cotejos": [
+    {
+      "label": "Preámbulo y considerandos",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo primero",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo segundo",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · I. Criterio de Macro Localización",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · II. Criterio de Comunicación y Conectividad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · III. Criterio Poblacional",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · IV. Criterio de Factibilidad Social",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · V. Criterio Educativo",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · VI. Criterio Territorial",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · VII. Criterio de Factibilidad Industrial",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · VIII. Criterio de Sostenibilidad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · IX. Criterio de Servicios e Infraestructura",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · X. Criterio de Propiedad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo cuarto",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Transitorio único",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Firma del acuerdo",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    }
+  ]
+}

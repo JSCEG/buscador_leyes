@@ -1,0 +1,127 @@
+{
+  "polo": "Distrito Financiero y Tecnológico de Cancún",
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5795731",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=07082026-MAT.pdf&repo=",
+  "sha256": "e19bedc592a281620e5f3e728fc033ae3d1bcbf179072501f6fa90af0b036d80",
+  "paginas": [
+    74,
+    80
+  ],
+  "croquisPaginas": [
+    75
+  ],
+  "tablas": 6,
+  "celdas": 365,
+  "fragmentos": 19,
+  "modificacionIdentificada": null,
+  "cotejos": [
+    {
+      "label": "Preámbulo y considerandos",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo primero",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo segundo",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · I. Criterio de Macro Localización",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · II. Criterio de Comunicación y Conectividad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · III. Criterio Poblacional",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · IV. Criterio de Factibilidad Social",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · V. Criterio Educativo",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · VI. Criterio Territorial",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · VII. Criterio de Factibilidad Industrial",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · VIII. Criterio de Sostenibilidad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · IX. Criterio de Servicios e Infraestructura",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · X. Criterio de Propiedad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo tercero · XI. Criterio de Habitabilidad",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Artículo cuarto",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Transitorio único",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    },
+    {
+      "label": "Firma del acuerdo",
+      "exact": true,
+      "htmlExtra": "",
+      "pdfExtra": ""
+    }
+  ]
+}
