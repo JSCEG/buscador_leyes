@@ -30,7 +30,7 @@ describe('public copy', () => {
     const sinExplicar = todas.filter(t => !['m-y-mm', 'm-mm-mega'].includes(t.id)).map(textoDe).join(' ');
     expect(sinExplicar).not.toMatch(/(^|\s)M(\s|$)/);
   });
-  it.each([['SAE', 'Sistema de Almacenamiento de Energía'], ['RNT', 'Red Nacional de Transmisión'], ['RGD', 'Redes Generales de Distribución'], ['CEL', 'Certificados de Energías Limpias'], ['PML', 'Precio Marginal Local']])('spells out %s in every card that uses it', (sigla, largo) => {
+  it.each([['SAEE', 'Sistema de Almacenamiento de Energía Eléctrica'], ['RNT', 'Red Nacional de Transmisión'], ['RGD', 'Redes Generales de Distribución'], ['CEL', 'Certificados de Energías Limpias'], ['PML', 'Precio Marginal Local']])('spells out %s in every card that uses it', (sigla, largo) => {
     const piezas = [...todas.map(x => [x.id, textoDe(x)]), ...Object.values(CUENTAS).map(c => [c.id, `${c.titulo} ${c.nota ?? ''}`])];
     for (const [id, texto] of piezas) if (texto.includes(sigla)) expect(texto, id).toContain(largo);
   });

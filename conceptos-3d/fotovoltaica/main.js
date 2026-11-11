@@ -1,6 +1,6 @@
 // «Central fotovoltaica», en 3D y con el formato Búho de «¿Cómo funciona?». Una central de ejemplo con el sol y el clima de Puerto Peñasco, Sonora,
 // y el tamaño que anuncia la CFE para esa central: filas de módulos sobre seguidores, un módulo y una celda de muestra, cajas de conexión, inversor,
-// transformador, clima y limpieza, SAE, subestación, RNT y RGD. Cinco formas de verla: un día, calor y polvo, seguidor o mesa fija, inversor y SAE.
+// transformador, clima y limpieza, SAEE, subestación, RNT y RGD. Cinco formas de verla: un día, calor y polvo, seguidor o mesa fija, inversor y SAEE.
 // Puntos clave con su ficha, ver por dentro, desarmar, día y noche, y gráficas que leen las mismas cifras que mueven la central (modelo.js). Se arma con:
 // node scripts/build-conceptos-3d.mjs fotovoltaica
 //
@@ -50,15 +50,15 @@ const FICHAS = [
     { parte: 'clima', nombre: 'Clima y limpieza', modo: 'calor', accion: 'limpiar', eq: `Polvo: ${num(POLVO_DEF, 1)} % de ejemplo`, recorrido: { noche: false, adentro: false },
         icono: '<path d="M12 21V9"/><path d="M7 9h10"/><circle cx="17" cy="7" r="2"/><path d="M4 7h3M5 4l2 2"/>',
         texto: 'Esta estación mide lo que llega: la cúpula de vidrio es un piranómetro, que mide la luz, y al lado van viento y temperatura. Así se compara lo que da la central con lo que debería dar. El polvo tapa luz: en el mundo quita por lo menos 3 a 4 % al año. El robot guinda recorre la fila y limpia en seco.' },
-    { parte: 'sae', nombre: 'SAE', modo: 'sae', abrir: true, accion: 'nube', eq: `${num(CENTRAL.mwCA * SAE_DEF.pct / 100)} MW por ${SAE_DEF.horas} horas, de ejemplo · regresa ${num(SAE_DEF.ida * 100)} de cada 100`, recorrido: { adentro: false },
+    { parte: 'sae', nombre: 'SAEE', modo: 'sae', abrir: true, accion: 'nube', eq: `${num(CENTRAL.mwCA * SAE_DEF.pct / 100)} MW por ${SAE_DEF.horas} horas, de ejemplo · regresa ${num(SAE_DEF.ida * 100)} de cada 100`, recorrido: { adentro: false },
         icono: '<rect x="4" y="7" width="14" height="10" rx="1.500"/><path d="M20 10v4M8 10v4M11 10v4M14 10v4"/>',
-        texto: 'SAE quiere decir Sistema de Almacenamiento de Energía. Estas baterías guardan parte del mediodía y la entregan al caer el sol. Si pasa una nube, tapan el hueco. Puerto Peñasco lleva de 190 a 246 MW, según la fuente. Hoy, el CENACE analiza cada central y decide si necesita SAE y de qué tamaño.' },
+        texto: 'SAEE quiere decir Sistema de Almacenamiento de Energía Eléctrica. Estas baterías guardan parte del mediodía y la entregan al caer el sol. Si pasa una nube, tapan el hueco. Puerto Peñasco lleva de 190 a 246 MW, según la fuente. Hoy, el CENACE analiza cada central y decide si necesita SAEE y de qué tamaño.' },
     { parte: 'subestacion', nombre: 'Subestación', modo: 'dia', abrir: true, accion: 'desarme', eq: `${num(BASE.red)} MW: ${num(MW_400)} amperes a 400 kV`, recorrido: { noche: false, adentro: false },
         icono: '<path d="M4 20h16"/><path d="M7 20V8l5-4 5 4v12"/><path d="M7 12h10"/>',
         texto: 'Junta lo que llega de todos los transformadores y lo sube a alta tensión; la subestación de Villanueva va de 34.5 a 400 kV. Con más voltaje, la misma potencia viaja con menos corriente y los cables se calientan menos. Sus interruptores y cuchillas aíslan la central si hay una falla.' },
     { parte: 'red', nombre: 'RNT y RGD', modo: 'dia', accion: 'noche', recorrido: { noche: false, adentro: false },
         icono: '<path d="M12 3 6 21M12 3l6 18M8 9h8M7 14h10"/>',
-        texto: 'La electricidad sale por la RNT, la Red Nacional de Transmisión, que la lleva lejos y a grandes usuarios. Las RGD, Redes Generales de Distribución, la reparten al público. El CENACE decide cuándo entra cada central. De noche estas casas siguen encendidas, pero con otras centrales: esta solo da con sol o con su SAE.' },
+        texto: 'La electricidad sale por la RNT, la Red Nacional de Transmisión, que la lleva lejos y a grandes usuarios. Las RGD, Redes Generales de Distribución, la reparten al público. El CENACE decide cuándo entra cada central. De noche estas casas siguen encendidas, pero con otras centrales: esta solo da con sol o con su SAEE.' },
 ];
 const VISTAS = Object.fromEntries(PARTES_M.map(p => [p.id, p.vista]));
 
@@ -73,7 +73,7 @@ const MODOS = {
     calor: { nombre: 'Calor y polvo', corto: 'Calor', resumen: 'Mediodía de junio. A más calor, menos voltaje y menos potencia. El polvo tapa la luz. Prueba con el aire de un día caliente o déjalo que se ensucie, y límpialo.', aclara: 'La luz suelta electrones, la unión los empuja hacia arriba y regresan por el cable. Con calor, la unión empuja con menos voltaje.', mando: { nombre: 'Temperatura del aire', campo: 'tAire', rango: LIMITES.tAire, texto: textoT, pinta: true }, mando2: { nombre: 'Polvo sobre los módulos', campo: 'polvo', rango: LIMITES.polvo, texto: textoPct, pinta: true } },
     seguidor: { nombre: 'Seguidor o mesa fija', corto: 'Seguidor', resumen: 'Con seguidor, las filas miran al sol toda la mañana y toda la tarde. Con mesa fija, se quedan quietas y miran al sur. Compara: la diferencia casi no se ve al mediodía, pero sí a las 8 de la mañana.', aclara: 'La fila vista de frente, de este a oeste. Mientras más de frente le lleguen los rayos, más luz por metro cuadrado.', mando: mandoHora, mando2: { nombre: 'Inclinación de la mesa fija', campo: 'inclinacion', rango: LIMITES.inclinacion, texto: v => `${num(v)}°`, pinta: true }, reloj: relojDia },
     inversor: { nombre: 'Inversor', corto: 'Inversor', resumen: 'Lo común es poner más módulos de los que caben en el inversor. Así da más en la mañana y en la tarde, a cambio de recortar un poco al mediodía. Súbele para ver hasta dónde conviene.', aclara: 'Un inversor toma corriente directa y entrega alterna, sin pasar de su tamaño. Lo que sobra se queda en los módulos: se recorta.', mando: { nombre: 'Módulos por inversor', campo: 'ilr', rango: LIMITES.ilr, texto: v => `${num(v, 2)} veces`, pinta: true }, mando2: mandoHora, reloj: relojDia },
-    sae: { nombre: 'Con SAE', corto: 'SAE', resumen: 'El Sistema de Almacenamiento de Energía (SAE) guarda parte de lo que sobra a mediodía y lo entrega cuando el sol ya no alcanza. Deja correr el día, o deja pasar una nube.', aclara: 'Qué tan lleno está el SAE y hacia dónde va la energía en este momento.', mando: mandoHora, mando2: { nombre: 'Tamaño del SAE', campo: 'sae', rango: LIMITES.sae, texto: v => `${num(v)} % de la central`, pinta: true }, reloj: relojDia },
+    sae: { nombre: 'Con SAEE', corto: 'SAEE', resumen: 'El Sistema de Almacenamiento de Energía Eléctrica (SAEE) guarda parte de lo que sobra a mediodía y lo entrega cuando el sol ya no alcanza. Deja correr el día, o deja pasar una nube.', aclara: 'Qué tan lleno está el SAEE y hacia dónde va la energía en este momento.', mando: mandoHora, mando2: { nombre: 'Tamaño del SAEE', campo: 'sae', rango: LIMITES.sae, texto: v => `${num(v)} % de la central`, pinta: true }, reloj: relojDia },
 };
 const BOTONES = [
     { id: 'nube', visible: p => p.modo === 'dia' || p.modo === 'sae', pulsado: () => false, texto: () => 'Que pase una nube', alTocar: p => { p.pideNube = true; } },
@@ -94,16 +94,16 @@ const secciones = () => `
     ${seccionBarras()}
     ${seccionTabla('Seguidor y mesa fija', 'h-comparar', 'Los datos salen de este modelo, con el cielo promedio de cada mes. PVGIS es otro cálculo, de la Comisión Europea, en el mismo punto, con 14 % de pérdidas y sin recorte.', 'h-tabla-texto')}
     ${seccionTabla('Centrales fotovoltaicas de México', 'h-mexico', 'Las fuentes no dicen qué módulos, seguidores ni inversores usa Puerto Peñasco. Su 1,000 MW se lee en condiciones estándar (AFD); las etapas se cuentan en corriente alterna (Forbes), y las baterías cambian de una fuente a otra.')}
-    ${seccionTabla('¿Cuánto SAE pide México?', 'h-regla', 'Las Disposiciones vigentes no fijan un porcentaje. El «30 % por tres horas» viene de un anuncio de 2025 y de notas de prensa de 2026; no aparece en las Disposiciones ni en la Convocatoria que se leyeron.')}
+    ${seccionTabla('¿Cuánto SAEE pide México?', 'h-regla', 'Las Disposiciones vigentes no fijan un porcentaje. El «30 % por tres horas» viene de un anuncio de 2025 y de notas de prensa de 2026; no aparece en las Disposiciones ni en la Convocatoria que se leyeron.')}
     <section class="g-curva h-media">
         <div class="g-curva-cab"><b>Cuánto pesa en México</b></div>
         <div class="h-barras" id="h-pesa"></div>
         <p>Tiene más capacidad que energía: un MW fotovoltaico trabaja menos horas al año que uno de gas, porque solo da con sol.</p>
     </section>
-    ${seccionColores(FLUIDOS, `Central de ejemplo con el sol de Puerto Peñasco y ${num(CENTRAL.mwMayo)} MW de módulos; no es el plano real ni un simulador. Solo se dibujan unas filas y unos cuantos módulos, y la celda de muestra está muy agrandada. El módulo y el inversor salen de fichas técnicas públicas, porque las fuentes no dicen cuáles usa esa central. Lo que no sale de una fuente (pérdidas en cables, curva del inversor, el tamaño del polvo y del SAE y la manera de cargarlo) es de ejemplo, para ver la tendencia.`)}
+    ${seccionColores(FLUIDOS, `Central de ejemplo con el sol de Puerto Peñasco y ${num(CENTRAL.mwMayo)} MW de módulos; no es el plano real ni un simulador. Solo se dibujan unas filas y unos cuantos módulos, y la celda de muestra está muy agrandada. El módulo y el inversor salen de fichas técnicas públicas, porque las fuentes no dicen cuáles usa esa central. Lo que no sale de una fuente (pérdidas en cables, curva del inversor, el tamaño del polvo y del SAEE y la manera de cargarlo) es de ejemplo, para ver la tendencia.`)}
     ${seccionFuentes(FUENTES, [
         { para: 'Permiso de generación, autoconsumo, Energías Limpias, quién decide el despacho, RNT y RGD', titulo: 'Ley del Sector Eléctrico, arts. 3, 19, 30, 32, 36 a 40, 49, 82 a 85, 114 y 117', nota: 'Diario Oficial de la Federación, 18 de marzo de 2025. Está en el acervo de este sitio' },
-        { para: 'Autoconsumo, respaldo propio y SAE', titulo: 'Reglamento de la Ley del Sector Eléctrico, arts. 58, 59 y 192 a 195', nota: 'Diario Oficial de la Federación, 3 de octubre de 2025. Está en el acervo de este sitio' },
+        { para: 'Autoconsumo, respaldo propio y SAEE', titulo: 'Reglamento de la Ley del Sector Eléctrico, arts. 58, 59 y 192 a 195', nota: 'Diario Oficial de la Federación, 3 de octubre de 2025. Está en el acervo de este sitio' },
     ])}`;
 
 const f1 = x => num(x, 1);
@@ -198,17 +198,17 @@ function alPintarGraficas(L, pag) {
         $('#h-tabla-c').innerHTML = tablaHTML(['Veces', 'GWh al año', 'Factor', 'Recorta'], [1, 1.1, 1.2, 1.25, 1.3, 1.4, 1.5, 1.6].map(x => { const a = anual({ ilr: x, polvo: pide.polvo }); return [num(x, 2), num(a.gwh), `${f1(a.factorCA * 100)} %`, `${f1(a.recorteFrac * 100)} %`]; }));
     } else {
         const S = diaConSAE({ pct: pide.sae, mes, polvo: pide.polvo });
-        const lineas = [{ clase: 'h-s-sin', nombre: 'Solar, sin SAE', f: curvaDia(S.filas, 'red') }, { clase: 'h-s-actual', nombre: 'A la red, con SAE', f: curvaDia(S.filas, 'total') }];
-        $('#h-b-t').textContent = `Un día de ${MESES[mes - 1].toLowerCase()} con SAE`;
+        const lineas = [{ clase: 'h-s-sin', nombre: 'Solar, sin SAEE', f: curvaDia(S.filas, 'red') }, { clase: 'h-s-actual', nombre: 'A la red, con SAEE', f: curvaDia(S.filas, 'total') }];
+        $('#h-b-t').textContent = `Un día de ${MESES[mes - 1].toLowerCase()} con SAEE`;
         $('#h-b-ley').innerHTML = leyenda(lineas);
-        $('#h-b-pie').textContent = S.mw > 0 ? `El SAE de ${num(S.mw)} MW toma ${num(S.cargado)} MWh a media mañana y entrega ${num(S.entregado)} MWh al caer el sol: regresan ${num(SAE_DEF.ida * 100)} de cada 100 (EIA). La energía del día baja un poco, pero llega cuando más falta.` : 'Sin SAE, la central deja de dar en cuanto se va el sol.';
-        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'Un día con SAE', xMin: 0, xMax: 24, yMin: 0, yMax: 1000, ticksX: HORAS, ticksY: TICKS_MW, etX: 'Hora del sol', etY: 'MW', lineas, fx: x => `${num(x)} h`, fy: y => num(y), punta: x => `${textoHora(x)} · solar ${num(lineas[0].f(x))} · con SAE ${num(lineas[1].f(x))} MW` });
-        $('#h-tabla-b').innerHTML = tablaHTML(['Hora', 'Solar, MW', 'Con SAE, MW'], [8, 10, 12, 14, 16, 18, 19, 20, 21].map(h => [`${h} h`, num(lineas[0].f(h)), num(lineas[1].f(h))]));
+        $('#h-b-pie').textContent = S.mw > 0 ? `El SAEE de ${num(S.mw)} MW toma ${num(S.cargado)} MWh a media mañana y entrega ${num(S.entregado)} MWh al caer el sol: regresan ${num(SAE_DEF.ida * 100)} de cada 100 (EIA). La energía del día baja un poco, pero llega cuando más falta.` : 'Sin SAEE, la central deja de dar en cuanto se va el sol.';
+        graficas.b = pintarGrafica($('#h-b-grafica'), { titulo: 'Un día con SAEE', xMin: 0, xMax: 24, yMin: 0, yMax: 1000, ticksX: HORAS, ticksY: TICKS_MW, etX: 'Hora del sol', etY: 'MW', lineas, fx: x => `${num(x)} h`, fy: y => num(y), punta: x => `${textoHora(x)} · solar ${num(lineas[0].f(x))} · con SAEE ${num(lineas[1].f(x))} MW` });
+        $('#h-tabla-b').innerHTML = tablaHTML(['Hora', 'Solar, MW', 'Con SAEE, MW'], [8, 10, 12, 14, 16, 18, 19, 20, 21].map(h => [`${h} h`, num(lineas[0].f(h)), num(lineas[1].f(h))]));
         const soc = x => enHora(S.filas, x, 'soc') * 100;
         $('#h-c-t').textContent = 'Qué tan lleno está';
         $('#h-c-ley').innerHTML = '';
         $('#h-c-pie').textContent = `De ejemplo: se carga desde las 9:30 y entrega en cuanto lo solar ya casi no alcanza. Con ${SAE_DEF.horas} horas o más, las Disposiciones de la CNE le permiten acreditar potencia.`;
-        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'Qué tan lleno está el SAE', xMin: 0, xMax: 24, yMin: 0, yMax: 100, ticksX: HORAS, ticksY: [0, 25, 50, 75, 100], etX: 'Hora del sol', etY: '% de carga', f: soc, fx: x => `${num(x)} h`, fy: y => num(y), punta: x => `${textoHora(x)} · ${num(soc(x))} %` });
+        graficas.c = pintarGrafica($('#h-c-grafica'), { titulo: 'Qué tan lleno está el SAEE', xMin: 0, xMax: 24, yMin: 0, yMax: 100, ticksX: HORAS, ticksY: [0, 25, 50, 75, 100], etX: 'Hora del sol', etY: '% de carga', f: soc, fx: x => `${num(x)} h`, fy: y => num(y), punta: x => `${textoHora(x)} · ${num(soc(x))} %` });
         $('#h-tabla-c').innerHTML = tablaHTML(['Hora', 'Carga'], [8, 10, 12, 14, 16, 18, 19, 20, 21].map(h => [`${h} h`, `${num(soc(h))} %`]));
     }
 }
@@ -238,9 +238,9 @@ function pintarBarras(L, pag) {
     } else if (pide.modo === 'sae') {
         const S = diaConSAE({ pct: pide.sae, mes: mesRedondo(pide), polvo: pide.polvo });
         const base = Math.max(1, S.mwh);
-        filas = [{ t: 'Energía solar del día', v: 1, escala: 1.1 }, { t: 'Pasa por el SAE', v: S.cargado / base, activa: true, escala: 1.1, d: 1 }, { t: 'Regresa a la tarde', v: S.entregado / base, activa: true, escala: 1.1, d: 1 }, { t: 'Se pierde en el SAE', v: (S.cargado - S.entregado) / base, escala: 1.1, d: 1 }];
+        filas = [{ t: 'Energía solar del día', v: 1, escala: 1.1 }, { t: 'Pasa por el SAEE', v: S.cargado / base, activa: true, escala: 1.1, d: 1 }, { t: 'Regresa a la tarde', v: S.entregado / base, activa: true, escala: 1.1, d: 1 }, { t: 'Se pierde en el SAEE', v: (S.cargado - S.entregado) / base, escala: 1.1, d: 1 }];
         $('#h-d-t').textContent = 'De cada 100 del día';
-        $('#h-d-pie').textContent = 'Un SAE no produce energía: la mueve de hora, y pierde un poco en el camino.';
+        $('#h-d-pie').textContent = 'Un SAEE no produce energía: la mueve de hora, y pierde un poco en el camino.';
     } else {
         const R = c.reparto;
         filas = [{ t: 'A la red', v: R.red, activa: true }, { t: 'Se vuelve calor en la celda', v: R.calor }, { t: 'Polvo y reflejo', v: R.polvo + R.reflejo, d: 1 }, { t: 'Cables', v: R.cables, d: 1 }, { t: 'Inversor y recorte', v: R.inversor, d: 1 }, { t: 'Transformadores y línea', v: R.transporte, d: 1 }];
@@ -264,12 +264,12 @@ function alPintarFijas({ $ }) {
     ]);
     $('#h-mexico').innerHTML = `<thead><tr><th scope="col">Central</th><th scope="col">MW</th><th scope="col">Dato</th></tr></thead><tbody>${[
         ['Puerto Peñasco', 'Sonora, CFE. Etapas I y II', '420', 'En operación'],
-        ['Puerto Peñasco', 'Las cuatro etapas, para 2028', '1,000', 'De 190 a 246 MW de SAE'],
+        ['Puerto Peñasco', 'Las cuatro etapas, para 2028', '1,000', 'De 190 a 246 MW de SAEE'],
         ['Villanueva', 'Coahuila', '828', 'Más de 1,700 GWh al año'],
     ].map(([n, d, a, m]) => `<tr><td><b>${n}</b><small>${d}</small></td><td>${a}</td><td>${m}</td></tr>`).join('')}</tbody>`;
     $('#h-regla').innerHTML = tablaHTML(['Dónde', 'Qué dice'], [
-        ['Disposiciones de la CNE, DOF, 16 de abril de 2026', 'El CENACE analiza la variabilidad de la central y puede pedir SAE o concluir que no hace falta'],
-        ['Convocatoria de la SENER, DOF, 15 de mayo de 2026', 'Referencia de 935 MW de SAE no asociados, de tres horas'],
+        ['Disposiciones de la CNE, DOF, 16 de abril de 2026', 'El CENACE analiza la variabilidad de la central y puede pedir SAEE o concluir que no hace falta'],
+        ['Convocatoria de la SENER, DOF, 15 de mayo de 2026', 'Referencia de 935 MW de SAEE no asociados, de tres horas'],
         ['Anuncio del subsecretario, marzo de 2025 (ESS News)', '30 % de la capacidad, tres horas'],
     ]);
 }
@@ -279,7 +279,7 @@ function alActualizar(L, pag) {
     const mes = mesRedondo(pide);
     const n = L.red;
     pintarBarras(L, pag);
-    const tituloDiag = { dia: 'A dónde va la luz', calor: 'La celda por dentro', seguidor: 'Cómo le pega el sol a la fila', inversor: 'De directa a alterna', sae: 'El SAE' }[pide.modo];
+    const tituloDiag = { dia: 'A dónde va la luz', calor: 'La celda por dentro', seguidor: 'Cómo le pega el sol a la fila', inversor: 'De directa a alterna', sae: 'El SAEE' }[pide.modo];
     ponerCifra('aT', tituloDiag);
     const deNoche = c.s.elev < 0;
     const hud2Hora = `${textoHora(pide.hora)}, ${MESES[mes - 1].toLowerCase()}`;
@@ -321,14 +321,14 @@ function alActualizar(L, pag) {
         nivel(1, 'Inversor', clamp01(c.ca / CENTRAL.mwCA), `${num((c.ca / CENTRAL.mwCA) * 100)} %`);
         nivel(2, 'Recorte', clamp01(c.recorte / 200), `${num(c.recorte)} MW`);
     } else {
-        const aviso = L.tapa > 0.1 && L.descarga > 1 ? 'Pasa una nube y el SAE tapa el hueco.' : L.descarga > 1 ? 'El sol ya casi no alcanza: entrega el SAE.' : L.carga > 1 ? 'Sobra a media mañana: el SAE se llena.' : null;
-        ponerLecturas([['A la red', num(n), 'MW'], ['Solar', num(c.red), 'MW'], ['Entra al SAE', num(L.carga), 'MW'], ['Sale del SAE', num(L.descarga), 'MW'], ['Carga', num(L.soc * 100), '%'], ['Guarda', num(L.soc * (L.cap ?? 0)), 'MWh']], aviso);
+        const aviso = L.tapa > 0.1 && L.descarga > 1 ? 'Pasa una nube y el SAEE tapa el hueco.' : L.descarga > 1 ? 'El sol ya casi no alcanza: entrega el SAEE.' : L.carga > 1 ? 'Sobra a media mañana: el SAEE se llena.' : null;
+        ponerLecturas([['A la red', num(n), 'MW'], ['Solar', num(c.red), 'MW'], ['Entra al SAEE', num(L.carga), 'MW'], ['Sale del SAEE', num(L.descarga), 'MW'], ['Carga', num(L.soc * 100), '%'], ['Guarda', num(L.soc * (L.cap ?? 0)), 'MWh']], aviso);
         ponerCifra('hud', `${num(n)} MW`);
-        ponerCifra('hud2', `con SAE, ${textoHora(pide.hora)}`);
+        ponerCifra('hud2', `con SAEE, ${textoHora(pide.hora)}`);
         graficas.b?.ahora(pide.hora);
         graficas.b?.marcar(pide.hora, n);
         graficas.c?.ahora(pide.hora);
-        nivel(1, 'SAE', clamp01(L.soc), `${num(L.soc * 100)} %`);
+        nivel(1, 'SAEE', clamp01(L.soc), `${num(L.soc * 100)} %`);
         nivel(2, 'Potencia', clamp01(Math.max(L.carga, L.descarga) / Math.max(1, L.sae)), `${num(Math.max(L.carga, L.descarga))} MW`);
     }
 }
@@ -349,7 +349,7 @@ crearPagina({
     pide: { hora: DEF.hora, mes: DEF.mes, tAire: 35, polvo: POLVO_DEF, seguidor: true, inclinacion: DEF.inclinacion, ilr: DEF.ilr, sae: DEF.sae, pideNube: false, limpiando: false },
     general: { Lx: 15.2, Lz: 8.6, alto: 5.9, mira: [0.1, 1.75, 0], az: -18, el: 27, azVertical: -12, elVertical: 32 },
     etiquetas: { lienzo: 'Central fotovoltaica en 3D: arrastra para girarla, toca un punto para conocerlo' },
-    textoFinal: 'Toca cualquier punto para volver a verlo. Mueve la hora y mira cómo giran las filas, sube el calor en «Calor», compara con la mesa fija, ponle más módulos al inversor o guarda el mediodía en el SAE.',
+    textoFinal: 'Toca cualquier punto para volver a verlo. Mueve la hora y mira cómo giran las filas, sube el calor en «Calor», compara con la mesa fija, ponle más módulos al inversor o guarda el mediodía en el SAEE.',
     colores: { fondoTinta: '#3a3b40', elec: FLUIDOS.ca.color, cd: FLUIDOS.cd.color, luz: FLUIDOS.luz.color, sae: FLUIDOS.sae.color, caliente: '#e0642f', frio: '#8d939b', panel: '#4b6fb5', panelSuave: 'rgba(224,69,123,.18)', capaN: '#1e3f86', capaP: '#6d7b92', claro: '#ffffff' },
     crearDiagrama,
     secciones,

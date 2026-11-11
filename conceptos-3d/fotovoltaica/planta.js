@@ -1,5 +1,5 @@
 // La central fotovoltaica, hecha con código. Sistema Búho: una franja de desierto cortada de frente con filas de módulos sobre seguidores, un
-// módulo y una celda de muestra, cajas de conexión, inversor, transformador, SAE, subestación y salida a la red. El sol es real: se mueve con la
+// módulo y una celda de muestra, cajas de conexión, inversor, transformador, SAEE, subestación y salida a la red. El sol es real: se mueve con la
 // hora y el mes, y de él salen la luz, las sombras y el giro de las filas. Las cubiertas se vuelven vidrio (adentro = 1) y cada equipo se separa en
 // sus piezas (desarme = 1).
 //
@@ -402,7 +402,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     };
     transformador(raiz, 'trafoMT', 'tanqueMT', 2.8, 0.75, 1);
 
-    // --------- SAE: contenedores de baterías y su convertidor
+    // --------- SAEE: contenedores de baterías y su convertidor
     const contenedor = (id, [x0, x1, , , z0, z1], conLed = true) => {
         const [w, d] = [x1 - x0, z1 - z0];
         const g = unidad('sae', (x0 + x1) / 2, (z0 + z1) / 2);
@@ -432,7 +432,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     contenedor('sae2', EQUIPOS.sae2);
     contenedor('sae3', EQUIPOS.sae3);
     const conv = contenedor('saeConv', EQUIPOS.saeConv, false);
-    rotular(conv, 'SAE', 0, 0.36, (EQUIPOS.saeConv[5] - EQUIPOS.saeConv[4]) / 2 + 0.006, P.tinta, 0.9);
+    rotular(conv, 'SAEE', 0, 0.36, (EQUIPOS.saeConv[5] - EQUIPOS.saeConv[4]) / 2 + 0.006, P.tinta, 0.9);
     brillo(conv, 0, 0.4, 0.5, 0.7, FLUIDOS.sae.color, 'sae', 0.16);
 
     // --------- subestación: sube a 400 kV

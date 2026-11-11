@@ -15,7 +15,7 @@ export function solar({ mwAc, ilr, pvout }) {
     return { mwDc, mwhAnio, factorAc: mwhAnio / (mwAc * HORAS_ANIO), factorDc: mwhAnio / (mwDc * HORAS_ANIO) };
 }
 
-/** Storage (SAE): energy, C-rate and the energy it takes to charge with a round-trip efficiency. */
+/** Storage (SAEE): energy, C-rate and the energy it takes to charge with a round-trip efficiency. */
 export function sae({ mw, horas, eficiencia }) {
     const mwh = mw * horas;
     return { mwh, cRate: 1 / horas, carga: mwh / eficiencia };

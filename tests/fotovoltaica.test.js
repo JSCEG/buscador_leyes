@@ -102,7 +102,7 @@ describe('Central fotovoltaica', () => {
         expect(anual({ ilr: 1.6 }).recorteFrac).toBeGreaterThan(anual({ ilr: 1.25 }).recorteFrac);
     });
 
-    it('el SAE no inventa energía: entrega lo que tomó menos sus pérdidas', () => {
+    it('el SAEE no inventa energía: entrega lo que tomó menos sus pérdidas', () => {
         const S = diaConSAE();
         expect(S.entregado / S.cargado).toBeCloseTo(SAE_DEF.ida, 6);
         expect(S.entregado).toBeCloseTo(S.cap, 3);
@@ -138,7 +138,7 @@ describe('Central fotovoltaica', () => {
         expect(calcular({ modo: 'calor', tAire: 45 }).c.tAire).toBe(45);
         expect(calcular({ modo: 'seguidor', seguidor: false, hora: 8 }).red).toBeLessThan(calcular({ modo: 'seguidor', seguidor: true, hora: 8 }).red);
         expect(calcular({ modo: 'inversor', ilr: 1.6 }).c.mwCD0).toBeCloseTo(CENTRAL.mwCA * 1.6, 6);
-        // de noche no corre nada por los cables, salvo que entregue el SAE
+        // de noche no corre nada por los cables, salvo que entregue el SAEE
         const noche = pose({ modo: 'dia', hora: 23 });
         for (const L of LINEAS) expect(noche.flujos[L.id]).toBe(0);
         const tarde = pose({ modo: 'sae', hora: 20 });
@@ -215,11 +215,12 @@ describe('Central fotovoltaica', () => {
         const texto = JSON.stringify(c);
         expect(texto).toContain('Red Nacional de Transmisión');
         expect(texto).toContain('Redes Generales de Distribución');
-        expect(texto).toContain('Sistema de Almacenamiento de Energía');
+        expect(texto).toContain('Sistema de Almacenamiento de Energía Eléctrica (SAEE)');
         expect(texto).toContain('Puerto Peñasco');
         // lo que decía antes y no aparece en la ley
         expect(texto).not.toContain('ventanilla');
-        expect(texto).not.toContain('SAEE');
+        // la sigla del sitio es SAEE, con doble E
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // las Disposiciones de abril de 2026 no fijan el 30 %: solo se menciona como idea equivocada
         expect(c.errores.some(e => e.idea.includes('30 %'))).toBe(true);
         expect(c.claves.join(' ')).not.toContain('30 %');

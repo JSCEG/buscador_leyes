@@ -91,7 +91,7 @@ const secciones = () => `
     ${seccionBarras()}
     ${seccionTabla('El modelo contra una curva publicada', 'h-curva', 'No hay curva pública abierta de la V136-3.45. Por eso se comprueba con la V126-3.45, una máquina hermana: mismo tamaño y rotor más chico. Con ese rotor, el modelo debe dar lo que dice la curva.', 'h-tabla-texto')}
     ${seccionTabla('Parques eólicos de México', 'h-mexico', 'Reynosa y Eólica del Sur son dos de los más grandes. No encontré cuánta energía dan en un año en una fuente abierta. En Eólica del Sur hubo polémica por la consulta a pueblos indígenas, y la Suprema Corte rechazó la demanda (Energías Renovables, 2019).')}
-    ${seccionTabla('¿Cuánto SAE pide México?', 'h-regla', 'Las Disposiciones vigentes no fijan un porcentaje para las centrales. El Sistema de Almacenamiento de Energía (SAE) no está en esta figura: en la fotovoltaica se ve cómo trabaja.')}
+    ${seccionTabla('¿Cuánto SAEE pide México?', 'h-regla', 'Las Disposiciones vigentes no fijan un porcentaje para las centrales. El Sistema de Almacenamiento de Energía Eléctrica (SAEE) no está en esta figura: en la fotovoltaica se ve cómo trabaja.')}
     <section class="g-curva h-media">
         <div class="g-curva-cab"><b>Cuánto pesa en México</b></div>
         <div class="h-barras" id="h-pesa"></div>
@@ -212,8 +212,8 @@ function alPintarFijas({ $ }) {
         ['Eólica del Sur', 'Oaxaca, Istmo de Tehuantepec', '396', '132'],
     ].map(([n, d, a, m]) => `<tr><td><b>${n}</b><small>${d}</small></td><td>${a}</td><td>${m}</td></tr>`).join('')}</tbody>`;
     $('#h-regla').innerHTML = tablaHTML(['Dónde', 'Qué dice'], [
-        ['Disposiciones de la CNE, DOF, 16 de abril de 2026', 'El CENACE analiza la variabilidad de la central y puede pedir SAE o concluir que no hace falta'],
-        ['Ley del Sector Eléctrico, art. 32', 'En autoconsumo intermitente que vende excedentes, respaldo propio con SAE, o pagarlo'],
+        ['Disposiciones de la CNE, DOF, 16 de abril de 2026', 'El CENACE analiza la variabilidad de la central y puede pedir SAEE o concluir que no hace falta'],
+        ['Ley del Sector Eléctrico, art. 32', 'En autoconsumo intermitente que vende excedentes, respaldo propio con SAEE, o pagarlo'],
     ]);
 }
 function alActualizar(L, pag) {

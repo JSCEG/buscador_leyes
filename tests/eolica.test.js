@@ -216,7 +216,7 @@ describe('Central eólica', () => {
         expect(texto).toContain('Redes Generales de Distribución');
         expect(texto).toContain('Sistema de Almacenamiento de Energía');
         expect(texto).toContain('Reynosa');
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // las Disposiciones de abril de 2026 no fijan el 30 %: solo se menciona como idea equivocada
         expect(c.errores.some(e => e.idea.includes('30 %'))).toBe(true);
         expect(c.claves.join(' ')).not.toContain('30 %');

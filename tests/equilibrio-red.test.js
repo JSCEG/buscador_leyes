@@ -199,7 +199,7 @@ describe('Cómo se equilibra la red', () => {
         expect(c.ley.ficha.elQue).toContain('Comisión Nacional de Energía (CNE)');
         expect(c.claves[0]).toContain('Sistema Interconectado Nacional (SIN)');
         const texto = JSON.stringify(c);
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // la figura anterior hablaba de un sistema de 10,000 MW
         expect(texto).not.toContain('10,000 MW');
     });

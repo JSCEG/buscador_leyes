@@ -29,7 +29,7 @@ crearMaquina({
         { n: 2, nombre: 'Generación estatal (CFE ≥ 54 %)', ancla: [-2.6, 1.3, -0.1], vista: { tx: -2.6, ty: 0.5, tz: 0, az: 18, el: 16, d: 3.0 } },
         { n: 3, nombre: 'Esquemas de Desarrollo Mixto', ancla: [-1.1, 1.5, 0.85], vista: { tx: -1.1, ty: 0.6, tz: 0.85, az: 10, el: 18, d: 2.6 } },
         { n: 4, nombre: 'Generación privada (≤ 46 %)', ancla: [2.2, 1.3, 0.4], vista: { tx: 2.1, ty: 0.5, tz: 0.4, az: -16, el: 18, d: 3.4 } },
-        { n: 5, nombre: 'Almacenamiento en baterías (SAE)', ancla: [0.4, 1.0, 1.05], vista: { tx: 0.4, ty: 0.4, tz: 1.0, az: 0, el: 18, d: 2.4 } },
+        { n: 5, nombre: 'Almacenamiento en baterías (SAEE)', ancla: [0.4, 1.0, 1.05], vista: { tx: 0.4, ty: 0.4, tz: 1.0, az: 0, el: 18, d: 2.4 } },
         { n: 6, nombre: 'RNT y RGD (Exclusivas del Estado)', ancla: [-1.5, 2.2, -1.3], vista: { tx: 0, ty: 1.0, tz: -1.3, az: 6, el: 10, d: 5.0 } },
     ],
     vistas: [
@@ -177,7 +177,7 @@ crearMaquina({
         mixto.add(pastel);
         raiz.add(mixto);
 
-        // 5 · baterías (SAE): dos contenedores con su barra de carga
+        // 5 · baterías (SAEE): dos contenedores con su barra de carga
         const saee = new THREE.Group();
         saee.position.set(0.4, BASE, 1.05);
         const cargas = [];

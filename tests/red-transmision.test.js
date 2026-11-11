@@ -214,7 +214,7 @@ describe('Red Nacional de Transmisión', () => {
         expect(c.ley.texto).toContain('Red Nacional de Transmisión (RNT)');
         expect(c.ley.ficha.elQue).toContain('Redes Generales de Distribución (RGD)');
         const texto = JSON.stringify(c);
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         expect(texto).not.toContain('Regiones de control');
     });
 });

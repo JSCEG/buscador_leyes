@@ -185,7 +185,7 @@ describe('Gasoducto', () => {
         expect(texto).not.toContain('NOM-007-ASEA-2016');
         expect(fuentes.find(f => f.titulo.includes('NOM-020-ASEA-2024')).para).toContain('Cancela a la NOM-007-ASEA-2016');
         expect(texto).not.toContain('Arts. 2 y 7');
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         expect(texto).not.toContain('red de gasoductos en el mapa');
     });
 

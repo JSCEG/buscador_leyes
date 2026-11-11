@@ -1,5 +1,5 @@
 // El diagrama que explica cada modo, dibujado en un lienzo 2D: a dónde va la luz, cómo sale la corriente de la celda, cómo le pega el sol a la
-// fila, qué hace el inversor y cómo se llena el SAE. No es a escala: muestra quién entra, quién sale y qué cifras tiene. Lee las mismas lecturas
+// fila, qué hace el inversor y cómo se llena el SAEE. No es a escala: muestra quién entra, quién sale y qué cifras tiene. Lee las mismas lecturas
 // que el resto.
 const fract = x => x - Math.floor(x);
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -218,7 +218,7 @@ export function crearDiagrama(lienzo) {
         texto(`Rinde ${num(C.rendimientoInv * 100, 1)} de cada 100`, W / 2, H - 10, c.suave, 11, 600);
     }
 
-    // El SAE: su carga y hacia dónde va la energía ahora.
+    // El SAEE: su carga y hacia dónde va la energía ahora.
     function sae(t, L, c) {
         const soc = L.soc ?? 0;
         const xB = W / 2 - 54;
@@ -238,9 +238,9 @@ export function crearDiagrama(lienzo) {
         if (descarga) banda(xB + wB + 3, yF, W - 12, yF, anchoFlecha, c.sae, t);
         texto(carga ? `Entran ${num(L.carga)} MW` : 'Del sol', 12, yF - 20, carga ? c.tinta : c.suave, 11, 650, 'left');
         texto(descarga ? `Salen ${num(L.descarga)} MW` : 'A la red', W - 12, yF - 20, descarga ? c.tinta : c.suave, 11, 650, 'right');
-        const estado = L.sae <= 0 ? 'Sin SAE' : carga ? 'Guarda lo del mediodía' : descarga ? 'Entrega al caer el sol' : soc > 0.97 ? 'Lleno, esperando la tarde' : 'En espera';
+        const estado = L.sae <= 0 ? 'Sin SAEE' : carga ? 'Guarda lo del mediodía' : descarga ? 'Entrega al caer el sol' : soc > 0.97 ? 'Lleno, esperando la tarde' : 'En espera';
         texto(estado, W / 2, H - 27, c.tinta, 11.5, 700);
-        texto(L.sae > 0 ? `${num(L.sae)} MW, ${num(L.cap)} MWh` : 'Mueve el tamaño del SAE', W / 2, H - 10, c.suave, 11, 600);
+        texto(L.sae > 0 ? `${num(L.sae)} MW, ${num(L.cap)} MWh` : 'Mueve el tamaño del SAEE', W / 2, H - 10, c.suave, 11, 600);
     }
 
     function dibujar(modo, t, L, c) {

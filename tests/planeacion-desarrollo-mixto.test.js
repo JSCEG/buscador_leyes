@@ -33,7 +33,7 @@ describe('Planeación vinculante y desarrollo mixto', () => {
         // el 54 % lo mantiene el Estado; no hay un 46 % en la ley ni lo «garantiza» la CFE
         expect(c.ley.ficha.elQue).not.toContain('CFE garantiza');
         expect(c.ley.ficha.elQue).not.toContain('46 %');
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         expect(texto).not.toContain('arts. 1, 6 y 36');
         expect(texto).not.toContain('Ya no existe interconexión libre');
         expect(c.ley.ficha.elComo).toContain('28 de enero de 2026');
@@ -43,7 +43,7 @@ describe('Planeación vinculante y desarrollo mixto', () => {
         const fuente = readFileSync('conceptos-3d/desarrollo-mixto-sen/main.js', 'utf8');
         const enFigura = [...fuente.matchAll(/\{ n: \d+, nombre: '([^']+)'/g)].map(m => m[1]);
         expect(enFigura).toEqual(c.partes.map(p => p.nombre));
-        expect(fuente).not.toContain('SAEE');
-        for (const n of ['desarrollo-mixto-sen', 'desarrollo-mixto-sen-light']) expect(readFileSync(`public/conceptos/${n}.html`, 'utf8')).not.toContain('SAEE');
+        expect(fuente).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
+        for (const n of ['desarrollo-mixto-sen', 'desarrollo-mixto-sen-light']) expect(readFileSync(`public/conceptos/${n}.html`, 'utf8')).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
     });
 });

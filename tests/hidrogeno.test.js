@@ -79,13 +79,13 @@ describe('Planta de hidrógeno', () => {
         expect(CONCEPTO.hidrogeno.fuentes.some(f => f.acervo === 'LSE')).toBe(true);
     });
 
-    it('su ficha de Aprende tiene una parte por cada punto clave y usa SAE, no «pila»', () => {
+    it('su ficha de Aprende tiene una parte por cada punto clave y usa SAEE, no «pila»', () => {
         const c = CONCEPTO.hidrogeno;
         expect(c.figura).toBe('hidrogeno');
         expect(c.partes).toHaveLength(PARTES.length);
         expect(JSON.stringify(c)).not.toMatch(/\bpilas?\b/i);
-        expect(c.partes.map(p => p.nombre)).toContain('SAE de baterías');
-        expect(c.partes.map(p => p.nombre)).toContain('SAE de hidrógeno');
+        expect(c.partes.map(p => p.nombre)).toContain('SAEE de baterías');
+        expect(c.partes.map(p => p.nombre)).toContain('SAEE de hidrógeno');
         expect(c.revisado).toBeNull();
     });
 });

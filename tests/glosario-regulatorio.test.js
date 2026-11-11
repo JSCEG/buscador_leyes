@@ -43,13 +43,13 @@ describe('El glosario regulatorio y los ejes rectores de Aprende', () => {
 
     it('no repiten lo que la ley no dice', () => {
         const todo = JSON.stringify(GLOSARIO_REGULATORIO) + JSON.stringify(EJES_RECTORES);
-        expect(todo).not.toContain('SAEE');
+        expect(todo).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         expect(todo).not.toContain('RENAGAS');
         expect(todo).not.toContain('46 %');
         expect(todo).not.toContain('1.8 Mbd');
         expect(todo).not.toContain('Art. 80 LSH');
         expect(todo).not.toContain('Arts. 45, 46 y 124 LSE');
         expect(termino('Despacho Económico con Restricciones de Seguridad').definicion).not.toContain('prevalencia');
-        expect(termino('Sistema de Almacenamiento de Energía (SAE)')).toBeTruthy();
+        expect(termino('Sistema de Almacenamiento de Energía Eléctrica (SAEE)')).toBeTruthy();
     });
 });

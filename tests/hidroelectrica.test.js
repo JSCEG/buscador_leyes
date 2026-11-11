@@ -260,7 +260,7 @@ describe('Central hidroeléctrica', () => {
         expect(texto).toContain('Red Nacional de Transmisión');
         expect(texto).toContain('Redes Generales de Distribución');
         expect(texto).toContain('La Yesca');
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // la Ley de Aguas no está en el acervo: se avisa, y va en las fuentes con su liga
         const aguas = c.ley.ficha.articulos.find(a => a.siglas === 'Ley de Aguas Nacionales');
         expect(aguas.nota).toContain('No está en el acervo');

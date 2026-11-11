@@ -184,7 +184,7 @@ describe('Red de distribución', () => {
         expect(c.ley.texto).toContain('Comisión Federal de Electricidad (CFE)');
         expect(c.ley.texto).toContain('Centro Nacional de Control de Energía (CENACE)');
         const texto = JSON.stringify(c);
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // la figura anterior hablaba de 13.8 kV y 220/127 V; esta calle es de una fase, a 120/240 V
         expect(texto).not.toContain('220/127');
         expect(texto).not.toContain('Alimentador de 13.8 kV');

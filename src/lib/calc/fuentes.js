@@ -72,7 +72,7 @@ export const FUENTES_SECCION = Object.freeze({
         ['cenace-precio-neto-2025', 'Precio Neto de la Potencia de 2025 de cada sistema'],
         ['acuerdo-cel-2026', 'Certificados de Energías Limpias (CEL) que se piden: 13.9 % del consumo en 2025 y 2026'],
         ['lse', 'Permiso según los MW de la central, con cortes en 0.7 y 20 MW'],
-        ['convocatoria-sae', 'Sistema de Almacenamiento de Energía (SAE) de 30 % de la capacidad y 3 horas'],
+        ['convocatoria-sae', 'Sistema de Almacenamiento de Energía Eléctrica (SAEE) de 30 % de la capacidad y 3 horas'],
         ['codigo-red', 'Factor de potencia de 0.97 desde el 8 de abril de 2026'],
         ['acuerdo-shcp-2000', 'Umbral de 90 % de factor de potencia del recibo, una regla heredada'],
         ['copar-2012', 'Fórmulas de potencia del viento y del agua'],

@@ -13,7 +13,7 @@
 // - Pila de combustible PEM de 2 MW: 4 pilas de 122 celdas. Da V · 26.59 kWh por kilo de H₂: a 0.68 V, 18 kWh/kg.
 //   Eficiencia sobre el poder calorífico inferior (33.3 kWh/kg ≙ 1.25 V): V / 1.25.
 // - Solar 10 MW y viento 3 MW. Tanques: 2,000 kg a 350 bar (≈ 24 kg/m³).
-// - Baterías de 4 MW y 16 MWh (Sistema de Almacenamiento de Energía, SAE): regresan unos 82 de cada 100 kWh, el promedio de
+// - Baterías de 4 MW y 16 MWh (Sistema de Almacenamiento de Energía Eléctrica, SAEE): regresan unos 82 de cada 100 kWh, el promedio de
 //   las baterías de escala de red en EE. UU. en 2019 (EIA). Guardan electricidad, no hidrógeno.
 // - Un día completo (diaCompleto): lo que generan sol y viento va primero a la red, luego a las baterías y lo demás a hacer
 //   hidrógeno. Lo que le falta a la red sale primero de las baterías y después del hidrógeno guardado.

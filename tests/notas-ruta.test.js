@@ -66,9 +66,9 @@ describe('Las notas de la ruta de Aprende', () => {
 
     it('usan los términos que pidió el sitio y no repiten lo que ya se corrigió', () => {
         const todo = JSON.stringify(PUENTE_HILO) + JSON.stringify(HILO_SECTOR);
-        expect(todo).not.toContain('SAEE');
+        expect(todo).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         expect(todo).not.toContain('certificados bajo el Código de Red');
         expect(todo).not.toContain('reduce proporcionalmente la corriente y las pérdidas');
-        expect(PUENTE_HILO['cd-ca'].regulacion).toContain('Sistema de Almacenamiento de Energía (SAE)');
+        expect(PUENTE_HILO['cd-ca'].regulacion).toContain('Sistema de Almacenamiento de Energía Eléctrica (SAEE)');
     });
 });

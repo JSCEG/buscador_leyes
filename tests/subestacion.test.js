@@ -239,6 +239,6 @@ describe('Subestación eléctrica', () => {
         // la RNT y las RGD se escriben completas la primera vez
         expect(c.ley.ficha.elQue).toContain('Red Nacional de Transmisión (RNT)');
         expect(c.ley.ficha.elQue).toContain('Redes Generales de Distribución (RGD)');
-        expect(JSON.stringify(c)).not.toContain('SAEE');
+        expect(JSON.stringify(c)).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
     });
 });

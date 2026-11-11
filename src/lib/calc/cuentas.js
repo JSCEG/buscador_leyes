@@ -98,7 +98,7 @@ const LISTA = [
     },
     {
         id: 'sae', pestana: 'electricidad', titulo: 'Almacenamiento',
-        nota: 'Hoy una convocatoria de SENER pide un Sistema de Almacenamiento de Energía (SAE) de 30 % de la capacidad y 3 horas. No es una regla de la ley para todas las plantas.',
+        nota: 'Hoy una convocatoria de SENER pide un Sistema de Almacenamiento de Energía Eléctrica (SAEE) de 30 % de la capacidad y 3 horas. No es una regla de la ley para todas las plantas.',
         campos: [num('mw', 'Potencia', 30, 'MW', { positivo: true }), num('horas', 'Horas', 3, 'h', { positivo: true }), num('eficiencia', 'Eficiencia de ida y vuelta', 85, '%', { positivo: true, max: 100 })],
         calcular: v => {
             const r = sae({ mw: v.mw, horas: v.horas, eficiencia: v.eficiencia / 100 });

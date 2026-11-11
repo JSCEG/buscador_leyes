@@ -90,7 +90,7 @@ export function materiales(P) {
     M.neonVerde = new THREE.MeshBasicMaterial({ color: FLUIDOS.h2.color, toneMapped: false });
     M.neonNaranja = new THREE.MeshBasicMaterial({ color: FLUIDOS.elec.color, toneMapped: false });
     M.neonBateria = new THREE.MeshBasicMaterial({ color: COLOR_BATERIA, toneMapped: false });
-    M.letrero = new THREE.MeshStandardMaterial({ map: texturaLetrero('SAE', P.guinda), roughness: 0.6, envMapIntensity: 0.4 });
+    M.letrero = new THREE.MeshStandardMaterial({ map: texturaLetrero('SAEE', P.guinda), roughness: 0.6, envMapIntensity: 0.4 });
     return M;
 }
 
@@ -725,7 +725,7 @@ export function construir(M, P) {
         luz(raiz, -4.9, 1.3, 3.6, '#ffb45a', 3, 'pueblo', 5);
     }
 
-    // --------- SAE de baterías: contenedores con estantes de módulos, junto al transformador
+    // --------- SAEE de baterías: contenedores con estantes de módulos, junto al transformador
     const lucesBateria = Array.from({ length: 10 }, () => new THREE.MeshBasicMaterial({ color: COLOR_BATERIA, toneMapped: false }));
     {
         const g = unidad('baterias', 0, 0);

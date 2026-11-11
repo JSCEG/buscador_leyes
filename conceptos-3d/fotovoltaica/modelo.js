@@ -1,5 +1,5 @@
 // La central fotovoltaica como cifras puras: dónde está el sol, cuánta luz llega al módulo, qué tan caliente va la celda, cuánta corriente
-// directa sale, qué hace el inversor, qué entrega a la red y qué guarda el SAE. Sin three.js ni DOM. El tablero, las gráficas y las partículas
+// directa sale, qué hace el inversor, qué entrega a la red y qué guarda el SAEE. Sin three.js ni DOM. El tablero, las gráficas y las partículas
 // leen calcular(), así no pueden contradecirse.
 //
 // Central de ejemplo: el sol y el clima son los de Puerto Peñasco, Sonora (NASA POWER), y el tamaño es el que anuncia la CFE para esa central:
@@ -12,7 +12,7 @@
 // - Temperatura de la celda: aire + (NOCT − 20) ÷ 800 × luz (PVEducation).
 // - Seguidor de un eje norte–sur que regresa al amanecer y al atardecer para no hacerse sombra (fórmula de pvlib).
 // - Inversor central: 1,500 V y cerca de 99 % de rendimiento máximo (ficha de Sungrow). La forma de su curva es de ejemplo.
-// - Lo de ejemplo, para ver la tendencia: pérdidas en cables, reparto de la nube, curva del inversor y la manera de cargar el SAE.
+// - Lo de ejemplo, para ver la tendencia: pérdidas en cables, reparto de la nube, curva del inversor y la manera de cargar el SAEE.
 
 const D2R = Math.PI / 180;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -232,7 +232,7 @@ export function anual(o = {}) {
     return r;
 }
 
-// ------------------------------------------------------------------ el SAE
+// ------------------------------------------------------------------ el SAEE
 /**
  * Un día con Sistema de Almacenamiento de Energía. Se carga con lo solar a media mañana y entrega cuando el sol ya casi no alcanza.
  * pct: su potencia, en % de lo que puede dar la central. horas: cuánto dura a plena potencia.
@@ -295,7 +295,7 @@ export function calcular({ modo = 'dia', planta = null, hora = DEF.hora, mes = D
         const D = memoSAE(sae, mes, polvo);
         const carga = enHora(D.filas, hora, 'carga');
         const descargaPlan = enHora(D.filas, hora, 'descarga');
-        // si pasa una nube, el SAE tapa el hueco con lo que le quede
+        // si pasa una nube, el SAEE tapa el hueco con lo que le quede
         const sinNube = enHora(D.filas, hora, 'red');
         const hueco = Math.max(0, sinNube - c.red);
         const ayuda = Math.min(Math.max(0, D.mw - descargaPlan), hueco) * (enHora(D.filas, hora, 'soc') > 0.02 ? 1 : 0);
@@ -328,7 +328,7 @@ export const FLUIDOS = {
     luz: { nombre: 'Luz del sol', color: '#ffc61a' },
     cd: { nombre: 'Corriente directa', color: '#e0457b' },
     ca: { nombre: 'Corriente alterna', color: '#ffb000' },
-    sae: { nombre: 'Carga y descarga del SAE', color: '#19a974' },
+    sae: { nombre: 'Carga y descarga del SAEE', color: '#19a974' },
 };
 // Cada caja: x0, x1, y0, y1, z0, z1. Las pinta planta.js y con ellas se revisa que cada cable llegue a un equipo.
 export const EQUIPOS = {
@@ -496,9 +496,9 @@ export function revisar() {
     const c45 = central({ hora: 12, tAire: 45 });
     lejos(c45.pm / c25.pm, 0.92, 0.94, 'de 25 a 45 °C (ficha: −0.35 % por grado, −7 %)');
     lejos(central({ hora: 12, polvo: 10 }).pm / central({ hora: 12, polvo: 0 }).pm, 0.895, 0.905, 'con 10 % de polvo');
-    // 7. el SAE: lo que entrega es lo que se cargó menos sus pérdidas
+    // 7. el SAEE: lo que entrega es lo que se cargó menos sus pérdidas
     const S = diaConSAE();
-    lejos(S.entregado / S.cargado, SAE_DEF.ida - 0.02, SAE_DEF.ida + 0.02, 'el SAE regresa lo que dice la EIA (82 %)');
+    lejos(S.entregado / S.cargado, SAE_DEF.ida - 0.02, SAE_DEF.ida + 0.02, 'el SAEE regresa lo que dice la EIA (82 %)');
     lejos(S.entregado, S.cap * 0.95, S.cap * 1.01, 'en un día despejado entrega toda su energía');
     const rj = central({ hora: 12 }).reparto;
     lejos(rj.reflejo + rj.polvo + rj.calor + rj.cables + rj.inversor + rj.transporte + rj.red, 0.999, 1.001, 'el reparto de la luz suma 100');

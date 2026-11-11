@@ -185,7 +185,7 @@ describe('El transformador', () => {
         expect(c.ley.texto).toContain('Centro Nacional de Control de Energía (CENACE)');
         expect(c.resumen).toContain('Comisión Federal de Electricidad (CFE)');
         const texto = JSON.stringify(c);
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // la ficha anterior citaba artículos que no corresponden a un transformador
         expect(texto).not.toContain('Arts. 13, 45, 46, 50, 57 y 160');
     });

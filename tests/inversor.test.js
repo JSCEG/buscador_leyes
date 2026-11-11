@@ -175,6 +175,6 @@ describe('El inversor', () => {
         expect(articulo(LSE, 26)).toContain('Las especificaciones técnicas generales requeridas para la interconexión de nuevas Centrales Eléctricas deben incluir provisiones específicas para la Generación Distribuida');
         expect(c.ley.siglas).toEqual(['LSE']);
         expect(c.resumen).toContain('Instituto de Energías Renovables (IER)');
-        expect(JSON.stringify(c)).not.toContain('SAEE');
+        expect(JSON.stringify(c)).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
     });
 });

@@ -1,7 +1,7 @@
 // «Planta de hidrógeno», en 3D y con el formato Búho de «¿Cómo funciona?». Cuatro formas de verla: hidrógeno verde (agua y
 // electricidad renovable), pirólisis de metano (hidrógeno turquesa, otra ruta), electricidad (el hidrógeno guardado regresa
 // a la red) y un día completo, donde sol y viento alimentan a la red, cargan las baterías y hacen hidrógeno; en la tarde
-// entregan las baterías y de madrugada el hidrógeno. Las baterías y el hidrógeno son el SAE, el Sistema de Almacenamiento de
+// entregan las baterías y de madrugada el hidrógeno. Las baterías y el hidrógeno son el SAEE, el Sistema de Almacenamiento de
 // Energía. Puntos clave con su ficha, ver por dentro, desarmar, día y noche, y gráficas que leen las mismas cifras que mueven
 // la planta (modelo.js). Se arma con: node scripts/build-conceptos-3d.mjs hidrogeno
 //
@@ -70,10 +70,10 @@ const FICHAS = [
     { parte: 'tanques', nombre: 'Tanques', proceso: 'verde', abrir: true, accion: 'desarme',
         icono: '<rect x="3" y="7" width="18" height="10" rx="5"/><path d="M8 7v10M16 7v10"/>',
         texto: `Guardan el hidrógeno para cuando no hay sol: ${num(PLANTA.tanqueKg)} kilos a ${PLANTA.presionBar} bar. A esa presión, un kilo ocupa unos 42 litros y guarda casi tanta energía como 4 litros de gasolina. La tira de luces marca el nivel.` },
-    { parte: 'baterias', nombre: 'SAE de baterías', proceso: 'dia', hora: 18, abrir: true, accion: 'desarme', eq: `${BATERIA.mw} MW · ${BATERIA.mwh} MWh · regresan unos ${REGRESA_BAT} de cada 100 kWh`, recorrido: { adentro: false },
+    { parte: 'baterias', nombre: 'SAEE de baterías', proceso: 'dia', hora: 18, abrir: true, accion: 'desarme', eq: `${BATERIA.mw} MW · ${BATERIA.mwh} MWh · regresan unos ${REGRESA_BAT} de cada 100 kWh`, recorrido: { adentro: false },
         icono: '<rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21.5 10.5v3M7 10v4M11 10v4M15 10v4"/>',
-        texto: 'SAE quiere decir Sistema de Almacenamiento de Energía. Estas baterías no guardan hidrógeno: guardan electricidad. De día se cargan con lo que sobra del sol y, al caer la tarde, la entregan a la red en un instante. Rinden mucho, pero solo alcanzan para unas horas.' },
-    { parte: 'pila', nombre: 'SAE de hidrógeno', proceso: 'pila', abrir: true, accion: 'noche', eq: '2 H₂ + O₂ → 2 H₂O + electricidad + calor', recorrido: { noche: true },
+        texto: 'SAEE quiere decir Sistema de Almacenamiento de Energía Eléctrica. Estas baterías no guardan hidrógeno: guardan electricidad. De día se cargan con lo que sobra del sol y, al caer la tarde, la entregan a la red en un instante. Rinden mucho, pero solo alcanzan para unas horas.' },
+    { parte: 'pila', nombre: 'SAEE de hidrógeno', proceso: 'pila', abrir: true, accion: 'noche', eq: '2 H₂ + O₂ → 2 H₂O + electricidad + calor', recorrido: { noche: true },
         icono: '<rect x="3" y="7" width="15" height="10" rx="2"/><path d="M21 10v4M11 9.5 8.5 12.5H12L9.5 15"/>',
         texto: 'Cuando se agotan las baterías entra el hidrógeno de los tanques. Una celda de combustible hace lo contrario del electrolizador: el hidrógeno suelta electrones, que salen por un cable, y luego se une con el oxígeno del aire. Solo sale agua y calor. El agua no es el combustible: es lo que queda cuando el hidrógeno ya entregó su energía.' },
     { parte: 'red', nombre: 'RNT y RGD', proceso: 'pila', accion: 'noche', recorrido: { noche: true, adentro: false },
@@ -106,7 +106,7 @@ const svgIcono = d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
 const PROCESOS = {
     verde: { nombre: 'Hidrógeno verde', corto: 'Verde', resumen: 'Agua + electricidad renovable → hidrógeno + oxígeno', eq: '2 H₂O + electricidad → 2 H₂ + O₂', mando: 'Corriente al electrolizador' },
     turquesa: { nombre: 'Pirólisis', corto: 'Pirólisis', resumen: 'Metano + calor → hidrógeno + carbono sólido. Da hidrógeno turquesa, no verde.', eq: 'CH₄ + calor → C + 2 H₂', mando: 'Temperatura del reactor' },
-    pila: { nombre: 'Electricidad', corto: 'Electricidad', resumen: 'Hidrógeno + oxígeno del aire → electricidad + agua. El agua es lo que sale, no el combustible.', eq: '2 H₂ + O₂ → 2 H₂O + electricidad + calor', mando: 'Demanda al SAE de hidrógeno' },
+    pila: { nombre: 'Electricidad', corto: 'Electricidad', resumen: 'Hidrógeno + oxígeno del aire → electricidad + agua. El agua es lo que sale, no el combustible.', eq: '2 H₂ + O₂ → 2 H₂O + electricidad + calor', mando: 'Demanda al SAEE de hidrógeno' },
     dia: { nombre: 'Un día', corto: 'Un día', resumen: 'De día, sol y viento alimentan a la red, cargan las baterías y hacen hidrógeno. En la tarde entregan las baterías; de madrugada, el hidrógeno.', eq: '', mando: 'Hora del día' },
 };
 
@@ -696,8 +696,8 @@ const USOS = [
 ];
 const ENTREGAS = [
     { clase: SERIES.directo, nombre: 'Sol y viento', valor: f => f.directo },
-    { clase: SERIES.bateria, nombre: 'SAE de baterías', valor: f => f.descarga },
-    { clase: SERIES.h2, nombre: 'SAE de hidrógeno', valor: f => f.saeH2 },
+    { clase: SERIES.bateria, nombre: 'SAEE de baterías', valor: f => f.descarga },
+    { clase: SERIES.h2, nombre: 'SAEE de hidrógeno', valor: f => f.saeH2 },
 ];
 const GUARDADO = [
     { clase: SERIES.bateria, nombre: 'Baterías', f: x => horaFila(x).soc * 100 },
@@ -725,11 +725,11 @@ function pintarDia() {
 function pintarBarras() {
     const ref = calcular({ proceso: 'verde', carga: 1, sol: 1 }).verde.kwhKg;
     const piro = calcular({ proceso: 'turquesa', temp: pide.temp }).turquesa.kwhKg;
-    const filas = [{ id: 'verde', t: 'Electrólisis usa', v: ref }, { id: 'turquesa', t: 'Pirólisis usa (calor)', v: piro }, { id: 'pila', t: 'SAE de hidrógeno devuelve', v: IDA.sale }];
+    const filas = [{ id: 'verde', t: 'Electrólisis usa', v: ref }, { id: 'turquesa', t: 'Pirólisis usa (calor)', v: piro }, { id: 'pila', t: 'SAEE de hidrógeno devuelve', v: IDA.sale }];
     $('#h-barras').innerHTML = filas.map(f => `<div class="h-barra-f${f.id === pide.proceso ? ' es-activa' : ''}" title="${f.t}: ${num(f.v, 1)} kWh por kilo de hidrógeno"><span>${f.t}</span><i><u style="width:${(f.v / 60) * 100}%"></u></i><b>${num(f.v)} kWh</b></div>`).join('');
     $('#h-c-t').textContent = 'Energía por kilo de hidrógeno';
     $('#h-c-ley').textContent = '';
-    $('#h-c-pie').textContent = `De cada 100 kWh que entran al electrolizador, el SAE de hidrógeno regresa unos ${REGRESA_H2}.`;
+    $('#h-c-pie').textContent = `De cada 100 kWh que entran al electrolizador, el SAEE de hidrógeno regresa unos ${REGRESA_H2}.`;
 }
 function pintarTablero() {
     const P = PROCESOS[pide.proceso];
@@ -801,7 +801,7 @@ function actualizarTablero(L) {
     } else if (L.pila) {
         const c = L.pila;
         ponerCifra('mandoValor', `${num(c.i, 2)} A/cm²`);
-        if (ve.nivel <= 0.002) aviso = 'Los tanques están vacíos: el SAE de hidrógeno se detiene.';
+        if (ve.nivel <= 0.002) aviso = 'Los tanques están vacíos: el SAEE de hidrógeno se detiene.';
         ponerLecturas([['Entrega', num(c.mw, 2), 'MW'], ['Voltaje', num(c.v, 2), 'V por celda'], ['Hidrógeno', num(c.kgH), 'kg/h'], ['Agua que sale', num(c.aguaLH), 'L/h'], ['Calor', num(c.calorMW, 1), 'MW'], ['Rinde', num(c.kwhKg, 1), 'kWh/kg']], aviso);
         ponerCifra('hud', `${num(c.mw, 2)} MW`);
         ponerCifra('hud2', 'a la red, desde el hidrógeno');
@@ -810,7 +810,7 @@ function actualizarTablero(L) {
         const d = L.dia;
         ponerCifra('mandoValor', horaTexto(d.h));
         const bat = d.descarga > 0.01 ? [`${num(d.descarga, 1)}`, 'MW que entregan'] : d.carga > 0.01 ? [`${num(d.carga, 1)}`, 'MW que reciben'] : ['0', 'MW, en reposo'];
-        ponerLecturas([['Sol y viento', num(d.ren, 1), 'MW'], ['A la red', num(d.red, 1), 'MW'], ['Baterías', bat[0], bat[1]], ['Electrolizador', num(d.elec, 1), 'MW'], ['SAE de hidrógeno', num(d.saeH2, 1), 'MW'], ['Hidrógeno', num(d.kgEntra - d.kgSale), 'kg/h netos']], null);
+        ponerLecturas([['Sol y viento', num(d.ren, 1), 'MW'], ['A la red', num(d.red, 1), 'MW'], ['Baterías', bat[0], bat[1]], ['Electrolizador', num(d.elec, 1), 'MW'], ['SAEE de hidrógeno', num(d.saeH2, 1), 'MW'], ['Hidrógeno', num(d.kgEntra - d.kgSale), 'kg/h netos']], null);
         ponerCifra('hud', horaTexto(d.h));
         ponerCifra('hud2', d.descarga > d.saeH2 && d.descarga > 0.05 ? `Entregan las baterías: ${num(d.descarga, 1)} MW` : d.saeH2 > 0.05 ? `Entrega el hidrógeno: ${num(d.saeH2, 1)} MW` : d.carga > 0.05 ? `Se cargan las baterías: ${num(d.carga, 1)} MW` : d.elec > 0.05 ? `Se hace hidrógeno: ${num(d.kgEntra)} kg/h` : `A la red: ${num(d.red, 1)} MW`);
         for (const g of Object.values(graficas)) g?.ahora(d.h);

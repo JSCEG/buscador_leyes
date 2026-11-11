@@ -215,7 +215,7 @@ describe('Refinería de petróleo', () => {
         // ya no dice que la SENER permite procesar gas: eso le toca a la CNE
         const texto = JSON.stringify(c);
         expect(texto).not.toContain('procesamiento de gas');
-        expect(texto).not.toContain('SAEE');
+        expect(texto).not.toMatch(/(?<![-\w])SAE(?![\w-])/);
         // las cifras escritas a mano en la ficha
         const P0 = balance({ plantas: 0 }).productos;
         const P3 = balance().productos;
