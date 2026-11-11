@@ -22,7 +22,7 @@ describe('Las notas de la ruta de Aprende', () => {
     });
 
     it('cada transición habla del tema que sigue', () => {
-        const nombre = { voltaje: 'volt', 'cd-ca': 'alterna', motor: 'motor', generador: 'generador', transformador: 'transformador', inversor: 'inversor', 'ciclo-combinado': 'ciclo combinado', eolica: 'eólica', 'planeacion-desarrollo-mixto': 'planeación', gasoductos: 'gasoductos', 'almacenamiento-tar': 'Almacenamiento', refinacion: 'refinería', 'asignaciones-hidrocarburos': 'Asignaciones', 'mercado-hidrocarburos': 'gasolina' };
+        const nombre = { voltaje: 'volt', 'cd-ca': 'alterna', motor: 'motor', generador: 'generador', transformador: 'transformador', inversor: 'inversor', 'ciclo-combinado': 'ciclo combinado', eolica: 'eólica', 'planeacion-desarrollo-mixto': 'planeación', 'mercado-cenace': 'CENACE', gasoductos: 'gasoductos', 'almacenamiento-tar': 'Almacenamiento', refinacion: 'refinería', 'asignaciones-hidrocarburos': 'Asignaciones', 'mercado-hidrocarburos': 'gasolina' };
         for (const [id, nota] of Object.entries(PUENTE_HILO)) {
             const sig = siguienteConcepto(id);
             if (!sig) continue;

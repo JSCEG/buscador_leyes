@@ -25,6 +25,7 @@ import { FUENTES as FUENTES_GEN } from '../../conceptos-3d/generador/fuentes.js'
 import { FUENTES as FUENTES_TR } from '../../conceptos-3d/transformador/fuentes.js';
 import { FUENTES as FUENTES_INV } from '../../conceptos-3d/inversor/fuentes.js';
 import { FUENTES as FUENTES_MOT } from '../../conceptos-3d/motor/fuentes.js';
+import { FUENTES as FUENTES_SAEE } from '../../conceptos-3d/saee/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -1070,7 +1071,7 @@ export const CONCEPTOS = [
                     { siglas: 'RLSE', refs: 'Arts. 58 y 59', nota: 'Trámite simplificado y qué es el respaldo propio.' },
                     { siglas: 'RLSE', refs: 'Arts. 192 a 195', nota: 'Participación y operación de los Sistemas de Almacenamiento.' },
                     { siglas: 'LCNE', refs: 'Art. 8, fracc. IV', nota: 'La CNE otorga los permisos de generación.' },
-                    { siglas: 'Disposiciones de SAEE', refs: 'Numerales 2.8, 2.11.3 y 2.13.10', nota: 'Análisis de Variabilidad del CENACE; con tres horas o más, el SAEE puede acreditar potencia. No está en el acervo de este sitio: ver Fuentes.' },
+                    { siglas: 'ACUERDO-CNE-16/04/2026-DACG-SAE', refs: 'Numerales 2.8, 2.11.3 y 2.13.10', nota: 'Disposiciones de SAEE: Análisis de Variabilidad del CENACE; con tres horas o más, el SAEE puede acreditar potencia.' },
                 ],
             },
         },
@@ -1239,7 +1240,7 @@ export const CONCEPTOS = [
                     { siglas: 'RLSE', refs: 'Art. 2, fracc. VIII, y art. 54', nota: 'Qué es la Consulta Previa; autoconsumo aislado de hasta 20 MW, exento de la Manifestación.' },
                     { siglas: 'RLSE', refs: 'Arts. 58 y 59', nota: 'Trámite simplificado y qué es el respaldo propio.' },
                     { siglas: 'LCNE', refs: 'Art. 8, fracc. IV', nota: 'La CNE otorga los permisos de generación.' },
-                    { siglas: 'Disposiciones de SAEE', refs: 'Numerales 2.8 y 2.11.3', nota: 'Análisis de Variabilidad del CENACE. No está en el acervo de este sitio: ver Fuentes.' },
+                    { siglas: 'ACUERDO-CNE-16/04/2026-DACG-SAE', refs: 'Numerales 2.8 y 2.11.3', nota: 'Disposiciones de SAEE: Análisis de Variabilidad del CENACE.' },
                 ],
             },
         },
@@ -1560,6 +1561,90 @@ export const CONCEPTOS = [
             { pregunta: '¿Por qué la pirólisis no da hidrógeno verde?', opciones: ['Porque no produce hidrógeno', 'Porque usa agua de mar', 'Porque parte de gas natural'], correcta: 2 },
         ],
         fuentes: [...FUENTES_HIDROGENO, LSE],
+        revisado: null,
+    },
+    {
+        id: 'almacenamiento-energia',
+        nivel: 3,
+        antes: ['fotovoltaica', 'inversor'],
+        titulo: 'Almacenamiento de energía (SAEE)',
+        sector: 'electricidad',
+        resumen: 'Baterías que guardan electricidad cuando sobra y la entregan cuando falta. La figura es un sitio de ejemplo en Chihuahua con las cinco formas que reconoce la Comisión Nacional de Energía (CNE): una batería independiente, una junto a una central solar, una en una fábrica, una de la red y una en una mina sin red; con los precios reales del CENACE y el tolling con la CFE.',
+        figura: 'saee',
+        partesTitulo: 'Los puntos clave del almacenamiento',
+        definiciones: [
+            { termino: 'Sistema de Almacenamiento de Energía Eléctrica (SAEE)', texto: 'Equipos que toman energía de la red o de una fuente, la guardan y la usan o la entregan después (LSE, art. 3, fracc. L). Los más comunes en la red son baterías de litio.' },
+            { termino: 'Almacenadora', texto: 'Quien tiene permiso de almacenamiento de la CNE para operar un SAEE que no es parte de una central ni de un centro de carga (RLSE, art. 2, fracc. I).' },
+            { termino: 'Potencia y capacidad', texto: 'La potencia (MW) es cuánto entrega a la vez; la capacidad (MWh), cuánto guarda. Una batería de 100 MW y 3 horas guarda 300 MWh.' },
+            { termino: 'Ida y vuelta', texto: 'De cada 100 MWh que toma una batería, cuántos regresa. Las baterías de litio de la red regresan unos 85.' },
+            { termino: 'Tolling', texto: 'Contrato en que un comprador, aquí la CFE, paga un monto fijo por tener la batería a su disposición, decide cuándo carga y descarga y se queda con lo que gane en el mercado.' },
+        ],
+        claves: [
+            'Un SAEE no produce energía: la mueve de hora. Guarda cuando sobra o está barata y entrega cuando falta o está cara, y pierde un poco en el camino: las baterías de la red regresan unos 85 de cada 100 MWh.',
+            'Las Disposiciones de la CNE del 16 de abril de 2026 reconocen cinco formas: junto a una central de Energías Renovables, en un centro de carga, en un autoconsumo, como parte de la red, o no asociado, de una Almacenadora. Solo el no asociado de 0.7 MW o más necesita permiso de almacenamiento.',
+            'El de una fábrica no puede inyectar ni vender: solo usa en el sitio lo que guardó. El de una central nunca entrega más que el contrato de interconexión de la central. El de la red solo puede ser de la Transportista o de la Distribuidora, y su energía no se paga ni se cobra.',
+            'En la zona de Chihuahua, de noviembre de 2025 a octubre de 2026, la hora más barata fue de 11 a 12 (186 $/MWh en promedio) y la más cara de 20 a 21 (994). Con un ciclo al día, una batería de 100 MW y 3 horas habría ganado unos 83 millones de pesos, más de la mitad en agosto, septiembre y octubre.',
+            'La SENER busca 935 MW de SAEE no asociados de 3 horas, en asociación con la CFE: 245 en la región Norte. Con 3 horas o más, un SAEE puede acreditar potencia.',
+            'En un tolling, la CFE paga un monto fijo y se queda con el mercado: la Almacenadora no corre riesgo de precio y la CFE sí. En el modelo, con 60 mil pesos por MW al mes, la CFE habría ganado en seis meses y puesto de su bolsa en los otros seis.',
+        ],
+        formulas: [
+            { expresion: 'Capacidad = potencia × horas', lectura: 'cuánta energía guarda la batería', ejemplo: '100 MW × 3 h = 300 MWh.' },
+            { expresion: 'Ganancia = MWh que entrega × precio de venta − (MWh que entrega ÷ ida y vuelta) × precio de compra', lectura: 'lo que gana en un ciclo; compra más de lo que vende porque pierde un poco', ejemplo: 'en el día promedio de septiembre de 2026, en el modelo: 300 MWh × 2,368 $ − (300 ÷ 0.85) MWh × 264 $ ≈ 617 mil pesos.' },
+            { expresion: 'A la CFE en un tolling = lo que da el mercado − el pago fijo', lectura: 'lo que le queda a quien paga y despacha la batería', ejemplo: 'en el modelo, con 60 mil $ por MW al mes: 82.9 − 72 = 10.9 millones al año.' },
+        ],
+        errores: [
+            { idea: 'Una batería produce energía.', realidad: 'La mueve de hora y pierde un poco en el camino: las de la red regresan unos 85 de cada 100 MWh que toman.' },
+            { idea: 'Toda central solar nueva debe llevar baterías.', realidad: 'Las Disposiciones de la CNE de abril de 2026 no fijan un porcentaje: el CENACE analiza cada central y puede pedirle un SAEE o concluir que no hace falta.' },
+            { idea: 'Una fábrica con batería puede vender su energía a la red.', realidad: 'No: el SAEE de un centro de carga solo se carga desde su punto de conexión y usa en el sitio lo que guardó; no puede inyectarlo ni venderlo.' },
+            { idea: 'En un tolling, la empresa de la batería se arriesga con los precios.', realidad: 'Es al revés: cobra un pago fijo. El riesgo de que los precios bajen es de quien paga y decide cuándo carga y descarga la batería, aquí la CFE.' },
+            { idea: 'Las baterías reciben Certificados de Energías Limpias.', realidad: 'No: los certificados vienen de generar y consumir energía, no de almacenarla (RLSE, art. 195).' },
+        ],
+        partes: [
+            { nombre: 'Contenedores de baterías', texto: '100 MW durante 3 horas: 300 MWh.' },
+            { nombre: 'Clima del contenedor', texto: 'Trabaja más al cargar y descargar.' },
+            { nombre: 'Inversores bidireccionales', texto: 'De directa a alterna, en los dos sentidos.' },
+            { nombre: 'Control del SAEE', texto: 'Decide cuándo comprar y cuándo vender.' },
+            { nombre: 'Transformador elevador', texto: 'Sube el voltaje para la subestación.' },
+            { nombre: 'Sistema de medición', texto: 'Lo que entra y lo que sale, hora por hora.' },
+            { nombre: 'Subestación', texto: 'Aquí llega la Red Nacional de Transmisión.' },
+            { nombre: 'CENACE', texto: 'Despacha y estudia cada conexión.' },
+            { nombre: 'Central solar', texto: '240 MW con contrato de 200 MW.' },
+            { nombre: 'SAEE de la central', texto: 'Parte de la central: sin permiso propio.' },
+            { nombre: 'Fábrica con SAEE', texto: 'No inyecta ni vende.' },
+            { nombre: 'SAEE de la red', texto: 'De la Transportista o la Distribuidora.' },
+            { nombre: 'Mina sin red', texto: 'Autoconsumo aislado.' },
+            { nombre: 'Planta diésel', texto: 'Entra cuando no hay sol ni batería.' },
+        ],
+        dato: 'El sitio, la central, la fábrica, la mina, su demanda, los tamaños y el pago fijo del tolling son de ejemplo. Son reales los precios del CENACE en la zona de Chihuahua (noviembre de 2025 a octubre de 2026), la eficiencia y la vida de las baterías (NREL), el sol de Chihuahua (NASA POWER) y las reglas. En el modelo, la batería hace a lo más un ciclo al día y carga antes de descargar; no se cuentan la potencia ni los servicios conexos.',
+        ley: {
+            texto: 'La Ley del Sector Eléctrico define los SAEE y deja a la SENER fijar cómo participan y a la CNE sus contraprestaciones. El Reglamento pide permiso de almacenamiento a los no asociados de 0.7 MW o más, y las Disposiciones de la CNE de abril de 2026 fijan las cinco formas de integrarlos.',
+            siglas: ['LSE', 'RLSE', 'ACUERDO-CNE-16/04/2026-DACG-SAE', 'CONV-ESTRATEGICOS'],
+            ficha: {
+                elQue: 'Un Sistema de Almacenamiento de Energía Eléctrica permite extraer energía de una Red Eléctrica o de una fuente, almacenarla y usarla o inyectarla después (LSE, art. 3, fracc. L), y puede ofrecer energía y Productos Asociados (art. 85). Los no asociados de 0.7 MW o más requieren permiso de almacenamiento de la CNE; los que forman parte de una central con permiso de generación, no (RLSE, art. 193). Los opera una Almacenadora (art. 2, fracc. I) y no reciben Certificados de Energías Limpias (art. 195).',
+                elComo: 'Las Disposiciones de la CNE fijan cinco modalidades: asociado a una central de Energías Renovables, a un centro de carga, a un autoconsumo, a la red de la Transportista o la Distribuidora, o no asociado (numeral 1.4). El de un centro de carga no inyecta ni vende (4.3), el de la red no se paga (6.3) y un SAEE con 3 horas o más puede acreditar Potencia (2.13.10). La SENER convocó SAEE no asociados en asociación con la CFE: 935 MW de 3 horas, con registro hasta el 1 de marzo de 2027. El tolling no está en la ley: es un contrato.',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Art. 3, fracc. L, y arts. 82 a 85', nota: 'Qué es un SAEE, quién fija cómo participa y qué puede ofrecer.' },
+                    { siglas: 'LSE', refs: 'Arts. 31 y 32, fracc. III', nota: 'Autoconsumo aislado, y respaldo propio con SAEE.' },
+                    { siglas: 'RLSE', refs: 'Art. 2, fracc. I, y arts. 192 a 195', nota: 'Almacenadora, modalidades, permiso, contratos con el CENACE y sin certificados.' },
+                    { siglas: 'ACUERDO-CNE-16/04/2026-DACG-SAE', refs: 'Numerales 1.4, 2.13.10, 3.2, 4.3, 6.3 y 7.4', nota: 'Las cinco modalidades y sus reglas.' },
+                    { siglas: 'CONV-ESTRATEGICOS-M2', refs: 'Numeral 18.2', nota: '935 MW de SAEE no asociados de 3 horas, por región.' },
+                    { siglas: 'CONV-ESTRATEGICOS-M4', refs: 'Etapa 2 del numeral 17.1', nota: 'Registro de SAEE hasta el 1 de marzo de 2027.' },
+                ],
+            },
+        },
+        tramites: ['almacenamiento', 'autoconsumo'],
+        preguntas: [
+            { pregunta: '¿Qué hace una batería de la red?', opciones: ['Produce energía con el sol', 'Mueve energía de una hora a otra', 'Sube el voltaje'], correcta: 1 },
+            { pregunta: '¿Cuál de estos SAEE necesita permiso de almacenamiento de la CNE?', opciones: ['El de una fábrica', 'El de una central solar', 'Uno no asociado de 100 MW'], correcta: 2 },
+            { pregunta: '¿Puede el SAEE de una fábrica vender su energía a la red?', opciones: ['Sí, cuando el precio es alto', 'No: solo la usa en el sitio', 'Solo de noche'], correcta: 1 },
+            { pregunta: 'En un tolling, ¿quién corre el riesgo de que los precios bajen?', opciones: ['Quien paga el monto fijo y despacha la batería', 'La empresa dueña de la batería', 'Nadie'], correcta: 0 },
+            { pregunta: '¿Cuántas horas deben guardar los SAEE de la convocatoria de la SENER?', opciones: ['1 hora', '3 horas', '10 horas'], correcta: 1 },
+        ],
+        fuentes: [
+            ...FUENTES_SAEE,
+            LSE,
+            RLSE,
+        ],
         revisado: null,
     },
     {
@@ -2156,7 +2241,7 @@ export const HILO_SECTOR = {
                 num: 'IV',
                 titulo: 'Las centrales',
                 desc: 'Dónde se produce en grande: con el sol, con gas y el calor del escape, con el viento, con el agua de una presa, con el calor de la Tierra y partiendo átomos de uranio. Y cómo se guarda para la noche, con baterías e hidrógeno.',
-                ids: ['fotovoltaica', 'ciclo-combinado', 'eolica', 'hidroelectrica', 'geotermica', 'nuclear', 'hidrogeno'],
+                ids: ['fotovoltaica', 'ciclo-combinado', 'eolica', 'hidroelectrica', 'geotermica', 'nuclear', 'hidrogeno', 'almacenamiento-energia'],
             },
             {
                 num: 'V',
@@ -2247,6 +2332,12 @@ export const PUENTE_HILO = {
         fisica: 'Aprovecha los gases de escape de la turbina de gas, a cerca de 630 °C, en un recuperador de calor que mueve una segunda turbina, de vapor. Con equipo nuevo llega a cerca de 60 de cada 100 de la energía del gas.',
         regulacion: 'Da más de la mitad de la generación nacional: 61 % de enero a septiembre de 2025. Requiere permiso de generación de la CNE y puede desarrollarla el Estado, un particular o un esquema de desarrollo mixto.',
         transicion: 'Una central de ciclo combinado quema gas. La siguiente no quema nada: la eólica, que convierte el viento en electricidad.',
+    },
+    'almacenamiento-energia': {
+        eslabon: 'Eslabón 3 · Almacenamiento y flexibilidad de la red',
+        fisica: 'Una batería no produce energía: guarda la del mediodía, cuando sobra el sol y es barata, y la entrega en la noche, cuando falta y es cara. Regresa unos 85 de cada 100 MWh.',
+        regulacion: 'Los SAEE no asociados de 0.7 MW o más necesitan permiso de almacenamiento de la CNE (RLSE, art. 193); los de una central o de una fábrica, no. Con 3 horas o más pueden acreditar potencia (Disposiciones de SAEE, numeral 2.13.10).',
+        transicion: 'Con centrales, baterías y redes listas, ¿quién decide segundo a segundo cuál entra y a qué precio? Entramos al Nivel 4: el despacho del CENACE.',
     },
     'mercado-cenace': {
         eslabon: 'Eslabón 4 · Despacho económico y Precio Marginal Local (PML)',
