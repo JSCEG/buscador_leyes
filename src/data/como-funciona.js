@@ -2122,7 +2122,7 @@ export const CONCEPTOS = [
 export const HILO_SECTOR = {
     electricidad: {
         subtitulo: 'De la corriente que llega a tu casa a la regla que decide quién la produce',
-        resumen: 'La luz que prendes se está produciendo en ese mismo segundo en alguna central del país: la red no guarda electricidad. En cinco pasos verás qué es la corriente, con qué máquinas se produce, cómo viaja por las redes hasta tu casa, y cómo se reparte quién la genera: por ley, al menos 54 % CFE y hasta 46 % empresas privadas.',
+        resumen: 'La luz que prendes se está produciendo en ese mismo segundo en alguna central del país: la red no guarda electricidad. En cinco pasos verás qué es la corriente, con qué máquinas se produce, cómo viaja por las redes hasta tu casa, y cómo se reparte quién la genera: por ley, el Estado debe aportar al menos 54 % de la energía que entra a la red en un año, y el resto pueden producirlo empresas privadas.',
         etapas: [
             {
                 num: 'I',
@@ -2158,13 +2158,13 @@ export const HILO_SECTOR = {
     },
     hidrocarburos: {
         subtitulo: 'Del petróleo bajo tierra al precio que pagas en la gasolinera',
-        resumen: 'El petróleo y el gas que hay bajo tierra son de la Nación: así lo dice el artículo 27 de la Constitución. En cuatro pasos verás su camino del pozo a la bomba de gasolina y quién decide en cada tramo: la SENER planea, la CNE da los permisos y Hacienda fija los impuestos.',
+        resumen: 'El petróleo y el gas que hay bajo tierra son de la Nación: así lo dice el artículo 27 de la Constitución. En cuatro pasos verás su camino del pozo a la bomba de gasolina y quién decide en cada tramo: la SENER planea, la SENER y la CNE dan los permisos y Hacienda fija los impuestos.',
         etapas: [
             {
                 num: 'I',
                 titulo: 'Bajo tierra',
                 desc: 'Qué hay en un yacimiento, por qué un petróleo es ligero o pesado y de dónde sale el gas natural.',
-                ids: ['hidrocarburos'],
+                ids: ['hidrocarburos-moleculas'],
             },
             {
                 num: 'II',
@@ -2192,20 +2192,20 @@ export const HILO_SECTOR = {
 export const PUENTE_HILO = {
     electricidad: {
         eslabon: 'Eslabón 1 · Fundamento físico del flujo eléctrico',
-        fisica: 'Los electrones se mueven casi al instante al cerrar el circuito, pero las redes de transmisión no almacenan electricidad por sí solas.',
-        regulacion: 'Por esa instantaneidad física, la LSE declara el suministro como servicio de interés social y exige equilibrio continuo entre generación y demanda a 60 Hz.',
+        fisica: 'Al cerrar el circuito, la energía llega casi al instante, aunque cada electrón avanza muy despacio. La red casi no guarda electricidad: lo que se genera se usa en ese mismo momento.',
+        regulacion: 'Por eso alguien tiene que ordenar en cada momento cuánto genera cada central: es el Control Operativo del Sistema Eléctrico Nacional, que la ley da al CENACE (LSE, arts. 3, fracc. XII, y 124). El suministro eléctrico es un servicio de interés público (art. 4).',
         transicion: 'Ya sabes qué es el flujo de electrones (amperes). El siguiente paso es entender qué fuerza los empuja por los cables y por qué las torres de transmisión usan hasta 400,000 volts.',
     },
     voltaje: {
         eslabon: 'Eslabón 1 · Tensión eléctrica y transporte eficiente',
-        fisica: 'Para transportar la misma potencia (P = V × I), elevar el voltaje reduce proporcionalmente la corriente y las pérdidas por calor (I²R) en los cables.',
-        regulacion: 'Por eso la regulación clasifica la red en Alta Tensión (RNT), Media y Baja Tensión (RGD), aplicando tarifas y reglas del Código de Red distintas según el nivel de tensión.',
+        fisica: 'Para llevar la misma potencia (P = V × I), subir el voltaje baja la corriente en la misma proporción, y las pérdidas por calor en los cables (I²R) bajan con el cuadrado: con el doble de voltaje, la cuarta parte.',
+        regulacion: 'Por eso la Red Nacional de Transmisión (RNT) lleva la energía en alta tensión a las regiones y a los grandes usuarios, y las Redes Generales de Distribución (RGD) la reparten al público (LSE, art. 3, fraccs. XLI y XLII). Las tarifas y los requisitos para conectarse cambian según el nivel de tensión.',
         transicion: 'Ahora que conoces la diferencia entre volts y amperes, veamos las dos formas en que viaja la corriente: continua (baterías y paneles) y alterna (la red nacional a 60 Hz).',
     },
     'cd-ca': {
         eslabon: 'Eslabón 1 · Corriente Continua (CD) vs. Corriente Alterna (CA)',
         fisica: 'Los paneles solares y las baterías operan en Corriente Continua (CD), mientras que las turbinas y la red nacional operan en Corriente Alterna (CA) a 60 Hz.',
-        regulacion: 'Cualquier central solar o sistema de baterías (SAEE) necesita inversores electrónicos certificados bajo el Código de Red para sincronizarse a los 60 Hz del SEN.',
+        regulacion: 'Una central solar o un Sistema de Almacenamiento de Energía (SAE) da corriente directa: necesita inversores para entregarla a la red de 60 Hz, y su interconexión debe cumplir el Código de Red.',
         transicion: 'Con las bases de voltaje y corriente alterna listas, entramos a las tres máquinas electromagnéticas que sostienen toda la industria: empezando por el motor eléctrico.',
     },
     motor: {
@@ -2216,15 +2216,15 @@ export const PUENTE_HILO = {
     },
     generador: {
         eslabon: 'Eslabón 2 · Generación síncrona e inercia de la red',
-        fisica: 'Por la ley de Faraday, el rotor magnético girando a velocidad síncrona induce corriente alterna a 60 Hz y aporta inercia física frente a fallas en la red.',
-        regulacion: 'Toda central ≥ 0.7 MW requiere permiso de generación de la CNE (LSE art. 19) y seguir las instrucciones de despacho y control de frecuencia del CENACE.',
+        fisica: 'Por la ley de Faraday, el rotor, un electroimán que gira a velocidad síncrona, induce un voltaje alterno de 60 Hz en las barras del estator; su masa que gira le da inercia a la red frente a fallas.',
+        regulacion: 'Toda central de 0.7 MW o más necesita permiso de generación, que otorga la Comisión Nacional de Energía (CNE) (LSE, arts. 11, fracc. I, y 19), y al vender en el mercado debe operar con las instrucciones del CENACE (art. 22, fracc. II).',
         transicion: 'El generador entrega electricidad a media tensión (13.8–24 kV). Para enviarla a cientos de kilómetros sin perderla en calor, necesitamos el transformador de potencia.',
     },
     transformador: {
         eslabon: 'Eslabón 2 · Subestaciones y redes exclusivas del Estado',
         fisica: 'Sin partes móviles, dos bobinas sobre un núcleo de acero laminado elevan el voltaje de la central a 230–400 kV para la transmisión y lo bajan a 127 V para tu hogar.',
-        regulacion: 'Las subestaciones enlazan las centrales con la Red Nacional de Transmisión (RNT) y las Redes Generales de Distribución (RGD), áreas estratégicas exclusivas del Estado (art. 27 CPEUM y art. 57 LSE).',
-        transicion: 'Ya vimos las piezas electromagnéticas. Ahora entremos a las grandes instalaciones completas de generación: primero una central solar fotovoltaica.',
+        regulacion: 'Las subestaciones con sus transformadores son parte de la Red Nacional de Transmisión (RNT) y de las Redes Generales de Distribución (RGD) (LSE, art. 3, fraccs. XL a XLII). El servicio público de transmisión y distribución es un área estratégica exclusiva del Estado (arts. 2 y 57).',
+        transicion: 'Ya viste las tres máquinas que trabajan con imanes. Falta una que trabaja con transistores: el inversor, que convierte la corriente directa de los módulos solares en la alterna de la red.',
     },
     fotovoltaica: {
         eslabon: 'Eslabón 3 · Generación renovable variable y distribuida',
@@ -2236,24 +2236,24 @@ export const PUENTE_HILO = {
         eslabon: 'Eslabón 3 · Generación térmica firme de alta eficiencia',
         fisica: 'Aprovecha los gases de escape de la turbina de gas, a cerca de 630 °C, en un recuperador de calor que mueve una segunda turbina, de vapor. Con equipo nuevo llega a cerca de 60 de cada 100 de la energía del gas.',
         regulacion: 'Da más de la mitad de la generación nacional: 61 % de enero a septiembre de 2025. Requiere permiso de generación de la CNE y puede desarrollarla el Estado, un particular o un esquema de desarrollo mixto.',
-        transicion: 'Con millones de kilowatts saliendo de centrales solares, hidroeléctricas y de ciclo combinado, ¿quién decide segundo a segundo qué planta entra y a qué precio? Entramos al Nivel 4: el despacho del CENACE.',
+        transicion: 'Una central de ciclo combinado quema gas. La siguiente no quema nada: la eólica, que convierte el viento en electricidad.',
     },
     'mercado-cenace': {
         eslabon: 'Eslabón 4 · Despacho económico y Precio Marginal Local (PML)',
         fisica: 'Cualquier desbalance entre generación y demanda altera los 60 Hz de la red; además, las líneas de transmisión tienen límites térmicos que pueden saturarse (congestión).',
-        regulacion: 'El CENACE (LSE arts. 111–124) despacha las centrales por orden de mérito con restricciones de seguridad y calcula el PML nodal (Energía + Pérdidas + Congestión) en el MEM.',
-        transicion: 'El CENACE opera las centrales existentes cada segundo, pero ¿quién planea qué nuevas plantas se construyen y cómo se cumple el piso constitucional del 54 % estatal? Cierra la ruta con la arquitectura legal del SEN.',
+        regulacion: 'El CENACE opera el Mercado Eléctrico Mayorista (LSE, art. 110) y decide qué centrales entran y cuánto dan, con criterios de Seguridad de Despacho, Confiabilidad y eficiencia económica (art. 117). Por las pérdidas y la congestión, el precio cambia de un nodo a otro: es el Precio Marginal Local.',
+        transicion: 'El CENACE opera las centrales que ya existen, pero ¿quién planea cuáles se construyen y cómo se cumple que el Estado aporte al menos 54 % de la energía? Cierra la ruta con la planeación y el desarrollo mixto.',
     },
     'planeacion-desarrollo-mixto': {
-        eslabon: 'Eslabón 4 · Rectoría SENER (PLADESE), regla 54/46 y Desarrollo Mixto',
+        eslabon: 'Eslabón 4 · Planeación vinculante, el 54 % del Estado y el desarrollo mixto',
         fisica: 'Expandir centrales y líneas de transmisión toma años de ingeniería; construir sin coordinación satura subestaciones o deja regiones sin confiabilidad eléctrica.',
-        regulacion: 'Por eso la Reforma 2025 hace vinculante el PLADESE de SENER, garantiza ≥ 54 % de inyección estatal (CFE) y canaliza la inversión privada en Producción de Largo Plazo (PLP) e Inversión Mixta.',
+        regulacion: 'Por eso la SENER hace la planeación vinculante y el Plan de Desarrollo del Sector Eléctrico (PLADESE). El Estado debe mantener al menos 54 % del promedio de la energía inyectada a la red en un año (LSE, art. 12), y los particulares pueden invertir junto con él en producción de largo plazo o en inversión mixta (art. 38).',
         transicion: '¡Completaste toda la ruta del Mercado Eléctrico! Puedes explorar ahora la ruta del Mercado de Hidrocarburos o consultar directamente las leyes en el acervo.',
     },
-    hidrocarburos: {
+    'hidrocarburos-moleculas': {
         eslabon: 'Eslabón 1 · Química del carbono y reservas del subsuelo',
-        fisica: 'El petróleo crudo y el gas natural son mezclas de cadenas de carbono e hidrógeno formadas bajo presión y temperatura; su densidad (°API) y azufre determinan cómo deben procesarse.',
-        regulacion: 'El artículo 27 constitucional y la LSH establecen que todos los hidrocarburos en el subsuelo son propiedad inalienable de la Nación y sujetan su extracción al PLADESHi de SENER.',
+        fisica: 'El petróleo y el gas natural son mezclas de moléculas de carbono e hidrógeno que se formaron bajo tierra con presión y calor. Qué tan ligero es un crudo (sus grados API) y cuánto azufre trae deciden cómo se refina.',
+        regulacion: 'La Nación tiene la propiedad directa, inalienable e imprescriptible de todos los hidrocarburos del subsuelo (LSH, art. 1), y la SENER planea el sector de forma vinculante con el Plan de Desarrollo del Sector Hidrocarburos (PLADESHi) (art. 8).',
         transicion: 'Una vez extraídos del yacimiento, el gas natural y los líquidos deben viajar cientos de kilómetros hacia industrias, centrales eléctricas y terminales: veamos cómo opera la red de gasoductos.',
     },
     gasoductos: {
@@ -2277,13 +2277,13 @@ export const PUENTE_HILO = {
     'asignaciones-hidrocarburos': {
         eslabon: 'Eslabón 4 · Soberanía del subsuelo y prelación de Asignaciones (LSH 2025)',
         fisica: 'Los yacimientos (reservas 1P, 2P y 3P) son recursos finitos cuya explotación exige inversión intensiva, sísmica avanzada y restitución continua de reservas.',
-        regulacion: 'La LSH 2025 privilegia primero la Asignación para Desarrollo Propio (100 % PEMEX) y en segundo lugar el Desarrollo Mixto (donde PEMEX conserva la Asignación y al menos el 40 % de participación, art. 31).',
+        regulacion: 'La SENER da las Asignaciones a PEMEX en este orden: primero para Desarrollo Propio, que solo opera PEMEX, y después para Desarrollo Mixto (LSH, arts. 11 y 13). En el mixto, PEMEX conserva la Asignación y al menos 40 % del Contrato Mixto (arts. 24 y 31).',
         transicion: 'Del subsuelo y la refinería llegamos al último eslabón de la cadena: ¿cómo se forma el precio del litro de gasolina en la estación de servicio y cómo funciona el estímulo al IEPS?',
     },
     'mercado-hidrocarburos': {
         eslabon: 'Eslabón 4 · Expendio al público y amortiguador fiscal (IEPS)',
         fisica: 'El combustible recorre refinerías, buquetanques, poliductos, terminales TAR y autotanques antes de despacharse litro por litro en los dispensarios de cada estación.',
-        regulacion: 'Cada eslabón suma un costo regulado y se equilibra con el estímulo semanal de Hacienda al IEPS; la estación requiere permiso CNE (art. 80 LSH), controles volumétricos (art. 89) y vigilancia Profeco.',
+        regulacion: 'Vender gasolina al público requiere permiso de la CNE (LSH, art. 76, fracc. II, inciso b), y quien lo tiene debe entregar cada semana la información de sus controles volumétricos (art. 76). El estímulo fiscal al IEPS, que Hacienda publica cada semana, amortigua los cambios del precio internacional.',
         transicion: '¡Completaste toda la ruta del Mercado de Hidrocarburos! Puedes explorar ahora la ruta del Mercado Eléctrico o abrir directamente los artículos de la LSH y RLSH.',
     },
 };
