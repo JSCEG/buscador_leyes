@@ -26,6 +26,7 @@ import { FUENTES as FUENTES_TR } from '../../conceptos-3d/transformador/fuentes.
 import { FUENTES as FUENTES_INV } from '../../conceptos-3d/inversor/fuentes.js';
 import { FUENTES as FUENTES_MOT } from '../../conceptos-3d/motor/fuentes.js';
 import { FUENTES as FUENTES_SAEE } from '../../conceptos-3d/saee/fuentes.js';
+import { FUENTES as FUENTES_TARIFAS } from '../../conceptos-3d/tarifas/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -1706,6 +1707,89 @@ export const CONCEPTOS = [
         revisado: null,
     },
     {
+        id: 'tarifas-recibo',
+        nivel: 4,
+        antes: ['distribucion', 'mercado-cenace'],
+        titulo: 'Tarifas y recibo de luz',
+        sector: 'electricidad',
+        resumen: 'Por qué el recibo de luz cobra lo que cobra. La figura es una calle de ejemplo con las tarifas reales de 2026: los bloques de las tarifas 1 a 1F, lo que cuesta de verdad cada eslabón de la red según la Comisión Nacional de Energía (CNE), la aportación del Gobierno, la tarifa de alto consumo (DAC) y lo que paga una tienda.',
+        figura: 'tarifas',
+        partesTitulo: 'Los puntos clave del recibo',
+        definiciones: [
+            { termino: 'Suministro Básico', texto: 'La electricidad que se vende con tarifa regulada a quien no es Usuario Calificado, como las casas y los comercios (LSE, art. 3, fracc. LVII). La vende la CFE como Suministradora de Servicios Básicos.' },
+            { termino: 'Tarifas domésticas 1 a 1F', texto: 'Las tarifas de las casas. A una localidad le toca de la 1A a la 1F según la temperatura de su verano, de 25 a 33 °C; las más calientes tienen en verano bloques baratos más grandes.' },
+            { termino: 'Bloques', texto: 'Tramos de los kWh del mes, cada uno con su precio: básico, intermedio y excedente. En la tarifa 1, en noviembre de 2026, los primeros 75 kWh cuestan 1.144 $ cada uno y los que pasan de 140, 4.067 $.' },
+            { termino: 'Aportación gubernamental', texto: 'La diferencia entre lo que cuesta llevar la energía a la casa y lo que paga en el recibo. La pone el Gobierno federal: es el subsidio.' },
+            { termino: 'Tarifa DAC', texto: 'Doméstica de Alto Consumo. Se aplica cuando el promedio de los últimos 12 meses pasa el límite de la tarifa de la localidad: de 250 kWh al mes en la 1 a 2,500 en la 1F. No tiene subsidio.' },
+        ],
+        claves: [
+            'El recibo cobra cada kWh al precio de su bloque: los primeros salen baratos y los últimos, caros. En la tarifa 1, en noviembre de 2026, 150 kWh en un mes cuestan 251 pesos con IVA.',
+            'Las tarifas de las casas no las fija la CNE: desde el 31 de diciembre de 2025, un acuerdo presidencial deja que las fije la Secretaría de Hacienda, como permite el art. 159 de la Ley del Sector Eléctrico. Suben cada mes 0.311 %: la inflación de un año, repartida en doce.',
+            'La CNE calcula lo que cuesta cada eslabón: generar (energía y capacidad), transmitir, distribuir, operar el CENACE y cobrar el recibo. En el Valle de México, con los costos de octubre de 2026, llevar 150 kWh a una casa cuesta 391 pesos sin IVA; con la tarifa 1 la casa paga 217 y el Gobierno pone 174.',
+            'El Presupuesto de 2026 trae 87,769 millones de pesos para subsidios a las tarifas eléctricas. Con 100 kWh al mes, una casa del Valle de México con tarifa 1 paga 43 de cada 100 pesos que cuesta su energía; con 150, 55.',
+            'Ojo con el último bloque: el excedente (4.067 $ por kWh) y la DAC (6.869 $ en la región Central) cobran más que el costo de la CNE. Con la tarifa 1, desde unos 232 kWh al mes la casa ya paga más de lo que cuesta su energía.',
+            'Si el promedio de 12 meses pasa el límite, la casa pasa a la DAC: 146.01 $ de cargo fijo al mes y cada kWh a 6.869 $ en la región Central, sin aportación. En la figura, una casa con tarifa 1 que usa un minisplit más de 5.7 horas al día en julio cae en la DAC, y lo que paga en el año sube de unos 8,700 a unos 26,000 pesos.',
+            'Una tienda paga la tarifa PDBT, sin subsidio: 54.05 $ al mes más 3.565 $ por kWh en el Valle de México. En 2025, el precio medio fue de 1.60 $ por kWh en las casas y de 4.12 $ en los comercios.',
+        ],
+        formulas: [
+            { expresion: 'Recibo del mes = Σ (kWh de cada bloque × su precio) + IVA de 16 %', lectura: 'cada kWh paga el precio del bloque en que cae', ejemplo: 'tarifa 1, noviembre de 2026, 150 kWh: 75 × 1.144 + 65 × 1.389 + 10 × 4.067 = 216.76 $; con IVA, 251 $.' },
+            { expresion: 'Costo = suministro + kWh × (energía + capacidad + transmisión + distribución + CENACE + servicios conexos)', lectura: 'lo que cuesta llevar la energía, eslabón por eslabón, según la CNE', ejemplo: 'Valle de México, casa con hasta 150 kWh, octubre de 2026: 54.05 + 150 × 2.2446 = 390.74 $.' },
+            { expresion: 'Aportación gubernamental = costo − lo que pagas sin IVA', lectura: 'lo que pone el Gobierno en tu recibo', ejemplo: '390.74 − 216.76 ≈ 174 $ al mes.' },
+        ],
+        errores: [
+            { idea: 'La CNE fija lo que pago en mi casa.', realidad: 'La CNE calcula el costo y fija las tarifas de los negocios; las de las casas, de la 1 a la 1F, las fija la Secretaría de Hacienda por un acuerdo presidencial de diciembre de 2025.' },
+            { idea: 'Mientras más consumo, más barato me sale cada kWh.', realidad: 'Es al revés: cada bloque es más caro que el anterior. En la tarifa 1, con 150 kWh cada kWh sale en 1.45 $ en promedio, sin IVA; con 400, en 3.08 $.' },
+            { idea: 'Si me paso un mes, caigo en la DAC.', realidad: 'La DAC se decide con el promedio de los últimos 12 meses, no con un mes: un verano con mucho clima puede no bastar si el resto del año la casa usa poco.' },
+            { idea: 'El subsidio llega igual a todos.', realidad: 'Se concentra en los primeros bloques: con poco consumo el Gobierno pone más de la mitad del costo; en el excedente y en la DAC la casa paga más que el costo de la CNE.' },
+            { idea: 'El alumbrado público lo paga la CFE.', realidad: 'Lo paga el municipio, con su propia tarifa. Algunos municipios lo cobran en el recibo de luz como Derecho de Alumbrado Público; la Suprema Corte invalidó el de Oaxaca de Juárez porque se cobraba como un impuesto al consumo de luz.' },
+        ],
+        partes: [
+            { nombre: 'Casa', texto: 'Tarifa doméstica, de la 1 a la 1F.' },
+            { nombre: 'Medidor', texto: 'Cuenta los kWh; mínimo 25 al mes.' },
+            { nombre: 'Aire acondicionado', texto: '1,100 W: lo que más gasta en verano.' },
+            { nombre: 'Aparatos de la casa', texto: '153 kWh al mes sin clima.' },
+            { nombre: 'Transformador de poste', texto: 'Distribución: 0.75 $ por kWh.' },
+            { nombre: 'Alumbrado público', texto: 'Lo paga el municipio.' },
+            { nombre: 'Subestación', texto: 'De transmisión a distribución.' },
+            { nombre: 'Red Nacional de Transmisión', texto: '0.18 $ por kWh en todo el país.' },
+            { nombre: 'Central eléctrica', texto: 'Energía y capacidad: 1.30 $ por kWh.' },
+            { nombre: 'CENACE', texto: 'Menos de 2 centavos por kWh.' },
+            { nombre: 'CFE Suministro Básico', texto: 'Cobra el recibo: 54.05 $ al mes.' },
+            { nombre: 'Gobierno federal', texto: '87,769 millones en 2026.' },
+            { nombre: 'Tienda', texto: 'Tarifa PDBT, sin subsidio.' },
+            { nombre: 'Fábrica', texto: 'GDMTH: el precio cambia con la hora.' },
+        ],
+        dato: 'La calle, la casa, sus aparatos y sus horas de clima, la tienda y la fábrica son de ejemplo. Son reales las tarifas de 2026 de la CFE y la SHCP, los costos de cada eslabón que publica la CNE (Valle de México Centro y Noroeste, octubre de 2026), el subsidio del Presupuesto 2026, los precios medios de 2025 y lo que gastan los aparatos según la CFE. En la figura se cuenta un mes; el recibo suele llegar cada dos.',
+        ley: {
+            texto: 'La Ley del Sector Eléctrico deja a la CNE calcular el costo de cada eslabón y aplicar las tarifas finales del Suministro Básico, y permite que el Ejecutivo fije otras para algunos usuarios si el recibo muestra los componentes de la CNE. Así se fijan hoy las tarifas de las casas.',
+            siglas: ['LSE', 'RLSE'],
+            ficha: {
+                elQue: 'El Suministro Básico es la electricidad sujeta a regulación tarifaria para quien no es Usuario Calificado (LSE, art. 3, fracc. LVII). Lo ofrece de manera exclusiva la CFE como Suministradora de Servicios Básicos (fracc. LIV), a quien lo solicite si es técnicamente factible (art. 63). La CNE expide y aplica la regulación tarifaria de la transmisión, la distribución, la operación de la Suministradora y del CENACE, los Servicios Conexos no incluidos en el mercado y las tarifas finales del Suministro Básico (art. 11, fracc. IV, y arts. 158 y 159).',
+                elComo: 'El Ejecutivo Federal puede fijar por Acuerdo otro mecanismo para algunos grupos de usuarias, y entonces el recibo debe transparentar los componentes de la tarifa final de la CNE (LSE, art. 159). El acuerdo presidencial del 31 de diciembre de 2025 encarga a la SHCP fijar el de las casas: las tarifas 1 a 1F, que suben cada mes con la inflación, y la DAC. Por eso el recibo muestra el costo de cada eslabón y la aportación gubernamental. La SENER puede instrumentar programas de Justicia Energética con apoyos focalizados (art. 132). Mientras la SENER fija el nivel, un centro de carga con 1 MW o más puede registrarse como Usuario Calificado (RLSE, transitorio vigésimo sexto).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Art. 3, fraccs. LIV y LVII, y art. 63', nota: 'Qué es el Suministro Básico y que la CFE lo vende a quien lo pida.' },
+                    { siglas: 'LSE', refs: 'Art. 11, fracc. IV, y arts. 158 y 159', nota: 'La CNE fija la regulación tarifaria y las tarifas finales; el Ejecutivo puede fijar otras si el recibo muestra los componentes.' },
+                    { siglas: 'LSE', refs: 'Art. 132', nota: 'Programas de Justicia Energética con apoyos focalizados.' },
+                    { siglas: 'RLSE', refs: 'Transitorio vigésimo sexto', nota: 'Con 1 MW o más, un centro de carga puede registrarse como Usuario Calificado.' },
+                ],
+            },
+        },
+        tramites: [],
+        preguntas: [
+            { pregunta: '¿Cómo cobra la tarifa 1 los kWh de un mes?', opciones: ['Todos al mismo precio', 'Por bloques: los primeros baratos y los últimos caros', 'Más barato mientras más consumes'], correcta: 1 },
+            { pregunta: '¿Quién fija hoy las tarifas de las casas?', opciones: ['La Secretaría de Hacienda, por un acuerdo presidencial', 'El CENACE', 'Cada municipio'], correcta: 0 },
+            { pregunta: '¿Qué es la aportación gubernamental del recibo?', opciones: ['Un impuesto', 'La diferencia entre lo que cuesta la energía y lo que pagas', 'El pago del alumbrado público'], correcta: 1 },
+            { pregunta: '¿Con qué se decide si una casa pasa a la DAC?', opciones: ['Con el consumo de un solo mes', 'Con el promedio de los últimos 12 meses', 'Con el número de aparatos'], correcta: 1 },
+            { pregunta: '¿Qué tarifa paga una tienda pequeña?', opciones: ['La tarifa 1, con subsidio', 'La tarifa PDBT, sin subsidio', 'Ninguna'], correcta: 1 },
+        ],
+        fuentes: [
+            ...FUENTES_TARIFAS,
+            LSE,
+            RLSE,
+        ],
+        revisado: null,
+    },
+    {
         id: 'planeacion-desarrollo-mixto',
         nivel: 4,
         antes: ['transformador', 'fotovoltaica', 'ciclo-combinado', 'mercado-cenace'],
@@ -2246,8 +2330,8 @@ export const HILO_SECTOR = {
             {
                 num: 'V',
                 titulo: 'El mercado y la ley',
-                desc: 'Cómo el CENACE decide qué centrales operan y a qué precio, y quién vigila que se cumpla la regla 54 / 46: la SENER, la CNE y la CFE.',
-                ids: ['mercado-cenace', 'planeacion-desarrollo-mixto'],
+                desc: 'Cómo el CENACE decide qué centrales operan y a qué precio, cuánto pagas en tu recibo y quién pone la diferencia, y quién vigila que se cumpla la regla 54 / 46: la SENER, la CNE y la CFE.',
+                ids: ['mercado-cenace', 'tarifas-recibo', 'planeacion-desarrollo-mixto'],
             },
         ],
     },
@@ -2343,7 +2427,13 @@ export const PUENTE_HILO = {
         eslabon: 'Eslabón 4 · Despacho económico y Precio Marginal Local (PML)',
         fisica: 'Cualquier desbalance entre generación y demanda altera los 60 Hz de la red; además, las líneas de transmisión tienen límites térmicos que pueden saturarse (congestión).',
         regulacion: 'El CENACE opera el Mercado Eléctrico Mayorista (LSE, art. 110) y decide qué centrales entran y cuánto dan, con criterios de Seguridad de Despacho, Confiabilidad y eficiencia económica (art. 117). Por las pérdidas y la congestión, el precio cambia de un nodo a otro: es el Precio Marginal Local.',
-        transicion: 'El CENACE opera las centrales que ya existen, pero ¿quién planea cuáles se construyen y cómo se cumple que el Estado aporte al menos 54 % de la energía? Cierra la ruta con la planeación y el desarrollo mixto.',
+        transicion: 'El CENACE le pone precio a la energía en el mercado, pero ¿cuánto paga tu casa por ella y quién pone la diferencia? Sigue el recibo de luz y sus tarifas.',
+    },
+    'tarifas-recibo': {
+        eslabon: 'Eslabón 4 · Tarifas, recibo y subsidio',
+        fisica: 'Cada kWh que llega a tu casa pasó por una central, la transmisión, la distribución y la operación del CENACE, y cada eslabón tiene un costo.',
+        regulacion: 'La CNE calcula ese costo con las Tarifas Reguladas (LSE, art. 158) y aplica las tarifas finales del Suministro Básico (art. 159). Para algunos usuarios el Ejecutivo puede fijar otras, y así la SHCP fija hoy las tarifas 1 a 1F de las casas; el recibo debe mostrar los componentes de la CNE.',
+        transicion: 'Ya sabes lo que cuesta y lo que pagas. Falta quién planea las centrales y redes del futuro y cómo se cumple que el Estado aporte al menos 54 % de la energía: cierra la ruta con la planeación y el desarrollo mixto.',
     },
     'planeacion-desarrollo-mixto': {
         eslabon: 'Eslabón 4 · Planeación vinculante, el 54 % del Estado y el desarrollo mixto',
