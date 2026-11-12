@@ -28,6 +28,7 @@ import { FUENTES as FUENTES_MOT } from '../../conceptos-3d/motor/fuentes.js';
 import { FUENTES as FUENTES_SAEE } from '../../conceptos-3d/saee/fuentes.js';
 import { FUENTES as FUENTES_TARIFAS } from '../../conceptos-3d/tarifas/fuentes.js';
 import { FUENTES as FUENTES_COGENERACION } from '../../conceptos-3d/cogeneracion/fuentes.js';
+import { FUENTES as FUENTES_TERMICAS } from '../../conceptos-3d/termicas/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -1265,6 +1266,93 @@ export const CONCEPTOS = [
         revisado: null,
     },
     {
+        id: 'termicas',
+        nivel: 3,
+        antes: ['ciclo-combinado'],
+        titulo: 'Centrales térmicas',
+        sector: 'electricidad',
+        resumen: 'Las centrales que queman combustible sin ser de ciclo combinado: las de vapor con carbón o combustóleo, las turbogás que entran en las horas pico y los motores de combustión interna, que trabajan sobre todo en Baja California Sur. En 2024 dieron 16 de cada 100 MWh del país. La figura muestra cuánto aprovechan del combustible, cuánto CO2 sueltan, cuánto tardan en arrancar y cuánto cuesta cada MWh.',
+        figura: 'termicas',
+        partesTitulo: 'Los puntos clave de las centrales térmicas',
+        definiciones: [
+            { termino: 'Termoeléctrica convencional', texto: 'Quema combustóleo o gas en una caldera. El vapor mueve una turbina y luego se vuelve agua en un condensador, enfriado con agua de mar, de río o con torres.' },
+            { termino: 'Carboeléctrica', texto: 'Una termoeléctrica que quema carbón molido. Lleva patio de carbón, molinos y un filtro para la ceniza. Petacalco, en Guerrero, tiene seis unidades duales de 350 MW, que pueden quemar carbón o combustóleo.' },
+            { termino: 'Turbogás', texto: 'Una turbina de gas sola, sin recuperar el calor de sus gases: la primera mitad de un ciclo combinado. Aprovecha menos el combustible, pero arranca en minutos.' },
+            { termino: 'Combustión interna', texto: 'Motores grandes, como los de un barco, que mueven un generador. Queman combustóleo o diésel.' },
+            { termino: 'Régimen térmico', texto: 'Cuánto combustible gasta una central para hacer un kWh, en BTU. Mientras más bajo, mejor: 3,412 BTU por kWh sería aprovecharlo todo.' },
+            { termino: 'Despacho Económico de Carga', texto: 'El CENACE pone a operar primero las centrales con menor costo variable, con ofertas basadas en sus costos (LSE, art. 3, fracc. XVII, y arts. 117 y 120).' },
+        ],
+        claves: [
+            'En 2024, las carboeléctricas, las termoeléctricas convencionales, las turbogás y los motores dieron 57,060 GWh: 16 de cada 100 MWh del país. El carbón dio 12,968 GWh; en 2010 daba 35,371.',
+            'Una unidad de vapor aprovecha unas 34 de cada 100 partes del combustible a plena carga, según el régimen probado de la EIA; la CFE dice que su vapor convencional ronda 30. Más de la mitad se va al mar por el condensador: una unidad de 350 MW necesita unos 18 m³ de agua de mar por segundo.',
+            'Cada MWh de una central de vapor suelta 0.94 t de CO2 con carbón, 0.77 con combustóleo y 0.54 con gas. El promedio de la red mexicana en 2024 fue de 0.444.',
+            'El combustóleo puede tener hasta 4.4 % de azufre (NOM-016-CRE-2016): sin un equipo que lo quite, cada MWh suelta unos 22 kg de dióxido de azufre. La NOM-085 de la SEMARNAT limita lo que sale por la chimenea según la zona: 550 ppm en el Valle de México, 600 en zonas críticas y 2,200 en el resto del país.',
+            'No todas responden igual de rápido. En el modelo, una unidad de vapor llega a plena carga en 2.7 horas si está caliente y en 7.7 si está fría; una turbogás, en unos 9 minutos, y una planta de motores, en unos 2. Por eso las rápidas cubren las horas pico.',
+            'Combustible por MWh, con los precios que pagó la CFE en 2024 y el gas a 3.52 dólares: vapor con gas, 36 dólares; turbogás con gas, 39; vapor con carbón, 68; vapor con combustóleo, 142; motores, 144, y turbogás con diésel, 480. El impuesto al carbono de 2026 suma unos 19 pesos por MWh con carbón y 60 con combustóleo; el gas natural no tiene cuota.',
+            'Baja California Sur opera aparte del sistema interconectado nacional. Su demanda máxima fue de 689 MW en 2024 y el PLADESE le pide 35 % de reserva, contra 21.3 % del sistema nacional: hacen falta unos 930 MW instalados. Ahí trabajan sobre todo los motores.',
+            'El PLADESE prevé sustituir 1,631 MW de termoeléctricas, 33 de turbogás y 142 de combustión interna, y evalúa 9,935 MW térmicos candidatos a retiro antes de 2039. Ninguna carboeléctrica está en esa lista.',
+        ],
+        formulas: [
+            { expresion: 'Aprovecha = 3,412 ÷ régimen térmico', lectura: 'de cada 100 partes de la energía del combustible, cuántas salen como electricidad; el régimen es cuántos BTU gasta por kWh', ejemplo: 'vapor con carbón, 10,040 BTU por kWh: 3,412 ÷ 10,040 = 34.0 %.' },
+            { expresion: 'CO2 por MWh = régimen térmico × CO2 del combustible', lectura: 'cuánto combustible se quema por MWh, por lo que suelta cada millón de BTU', ejemplo: 'vapor con carbón: 10.04 millones de BTU × 93.24 kg = 0.94 t.' },
+            { expresion: 'Costo de combustible por MWh = régimen térmico × precio', lectura: 'lo que cuesta el combustible de cada MWh, sin mantenimiento ni inversión', ejemplo: 'vapor con combustóleo: 10.32 millones de BTU × 13.73 dólares = 142 dólares.' },
+            { expresion: 'Dióxido de azufre = combustible × azufre × 2 × 0.95', lectura: 'cada kg de azufre se vuelve 2 kg de SO2, y más de 95 de cada 100 salen así', ejemplo: 'combustóleo con 4.4 % de azufre: 257 kg por MWh × 0.044 × 2 × 0.95 = 21.5 kg.' },
+        ],
+        errores: [
+            { idea: 'Una turbogás es lo mismo que un ciclo combinado.', realidad: 'Es solo su primera mitad: tira el calor de sus gases. Con gas aprovecha unas 31 de cada 100 partes del combustible; un ciclo combinado nuevo, cerca de 60.' },
+            { idea: 'Si hace falta más electricidad, cualquier central se prende al momento.', realidad: 'Una unidad de vapor tarda horas en arrancar y no puede bajar de cierta carga sin apagar la caldera. Las horas pico las cubren turbogás y motores, que arrancan en minutos.' },
+            { idea: 'Una central de carbón o combustóleo eficiente cuenta como energía limpia.', realidad: 'La lista de Energías Limpias de la Ley del Sector Eléctrico no las nombra; entre las térmicas, solo incluye las que capturan y almacenan su carbono (art. 3, fracc. XXI).' },
+            { idea: 'Los motores son plantas chicas que casi no trabajan.', realidad: 'En 2024, los motores del país dieron energía como si trabajaran a plena carga 61 % del tiempo: más que el carbón (27 %), el vapor convencional (28 %) o la turbogás (35 %).' },
+            { idea: 'El carbón se va a retirar con las demás térmicas.', realidad: 'En la lista del PLADESE de 86 unidades candidatas a retiro antes de 2039 no hay ninguna carboeléctrica.' },
+        ],
+        partes: [
+            { nombre: 'Patio de carbón', texto: '141 t de carbón por hora por unidad.' },
+            { nombre: 'Tanques de combustóleo', texto: 'Hasta 4.4 % de azufre.' },
+            { nombre: 'Tolvas y molinos', texto: 'Lo muelen como talco.' },
+            { nombre: 'Caldera', texto: 'Hogar de tubos, domo y sobrecalentadores.' },
+            { nombre: 'Filtro de cenizas', texto: 'Atrapa más de 99 de cada 100 partículas.' },
+            { nombre: 'Chimenea', texto: '0.94 t de CO2 por MWh con carbón.' },
+            { nombre: 'Turbina de vapor', texto: 'Alta presión y dos de baja.' },
+            { nombre: 'Generador', texto: 'Plena carga en 2.7 h, en caliente.' },
+            { nombre: 'Condensador y agua de mar', texto: 'Unos 18 m³ de agua por segundo.' },
+            { nombre: 'Transformador elevador', texto: 'Sube el voltaje para la RNT.' },
+            { nombre: 'Turbogás', texto: 'Plena carga en unos 9 minutos.' },
+            { nombre: 'Motores de combustión interna', texto: '717 MW en el país en 2024.' },
+            { nombre: 'Subestación y RNT', texto: 'A la Red Nacional de Transmisión.' },
+            { nombre: 'CENACE', texto: 'Despacha por costo variable.' },
+        ],
+        dato: 'La unidad de vapor es del tamaño de las duales de Petacalco; su eficiencia y su CO2 salen de la EIA, y su carbón es el importado de Petacalco, con 0.5 % de azufre. Los motores son los de la CCI Baja California Sur I. Son de ejemplo la turbogás de 100 MW, la carga mínima de 40 %, lo que sale por la chimenea y la forma del día en Baja California Sur. Los precios son los que pagó la CFE en 2024; el del carbón es cálculo propio con su gasto. No es el plano de ninguna central.',
+        ley: {
+            texto: 'La Ley del Sector Eléctrico no pone al carbón, al combustóleo, al diésel ni a la turbogás en su lista de Energías Limpias. La SENER fija en el PLADESE qué centrales se instalan y cuáles se retiran, y el CENACE las despacha por costo; si una central que se iba a retirar hace falta, puede pedir que siga disponible.',
+            siglas: ['LSE', 'RLSE'],
+            ficha: {
+                elQue: 'Son Centrales Eléctricas que generan con combustibles fósiles. La lista de Energías Limpias no las nombra: entre las térmicas, solo incluye las que tienen procesos de captura y almacenamiento de carbono, además de las tecnologías que se determinen después (LSE, art. 3, fracc. XXI). El Sistema Interconectado de Baja California Sur no se considera un pequeño sistema eléctrico, y las Reglas del Mercado pueden darle esquemas especiales (arts. 79 y 81).',
+                elComo: 'La SENER desarrolla los programas vinculantes de instalación y retiro de Centrales Eléctricas, que se incorporan al PLADESE (LSE, art. 10, fracc. XIII, y art. 12; RLSE, art. 8, fracc. IV). Las Generadoras notifican al CENACE sus retiros programados (LSE, art. 22, fracc. IV). Si una central cuyo retiro está programado hace falta para la Confiabilidad, quien la representa está obligada a ofrecer su potencia, energía y Servicios Conexos en el mecanismo que regule la CNE (art. 155). El CENACE asigna y despacha las centrales con ofertas basadas en sus costos (arts. 117 y 120).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Art. 3, fraccs. XVII y XXI', nota: 'El Despacho Económico de Carga y la lista de Energías Limpias.' },
+                    { siglas: 'LSE', refs: 'Art. 10, fracc. XIII; art. 12, y art. 22, fracc. IV', nota: 'Programas de instalación y retiro, y el aviso de retiro al CENACE.' },
+                    { siglas: 'LSE', refs: 'Arts. 117, 120 y 155', nota: 'Despacho con ofertas basadas en costos, y la central que hace falta para la Confiabilidad.' },
+                    { siglas: 'LSE', refs: 'Arts. 79 y 81', nota: 'El sistema de Baja California Sur y sus esquemas especiales.' },
+                    { siglas: 'RLSE', refs: 'Art. 8, fracc. IV', nota: 'Los programas de retiro van en el PLADESE.' },
+                ],
+            },
+        },
+        tramites: ['generacion'],
+        preguntas: [
+            { pregunta: '¿A dónde se va más de la mitad de la energía del combustible en una central de vapor?', opciones: ['Al mar, por el condensador', 'A la red, como electricidad', 'A unas baterías'], correcta: 0 },
+            { pregunta: '¿Cuáles llegan a plena carga en minutos?', opciones: ['Las unidades de vapor con carbón', 'La turbogás y los motores', 'Todas tardan igual'], correcta: 1 },
+            { pregunta: '¿Con qué combustible suelta menos CO2 cada MWh de una central de vapor?', opciones: ['Carbón', 'Combustóleo', 'Gas natural'], correcta: 2 },
+            { pregunta: '¿Quién decide qué centrales operan cada hora?', opciones: ['La empresa dueña de cada central', 'El CENACE, empezando por las de menor costo', 'La SEMARNAT'], correcta: 1 },
+            { pregunta: '¿Cuánta reserva le pide el PLADESE a Baja California Sur?', opciones: ['21.3 %, como al sistema nacional', '35 %', 'Ninguna'], correcta: 1 },
+        ],
+        fuentes: [
+            ...FUENTES_TERMICAS,
+            LSE,
+            RLSE,
+        ],
+        revisado: null,
+    },
+    {
         id: 'eolica',
         nivel: 3,
         antes: ['generador', 'transformador'],
@@ -2412,8 +2500,8 @@ export const HILO_SECTOR = {
             {
                 num: 'IV',
                 titulo: 'Las centrales',
-                desc: 'Dónde se produce en grande: con el sol, con gas y el calor del escape, con el vapor de una fábrica o el bagazo de un ingenio, con el viento, con el agua de una presa, con el calor de la Tierra y partiendo átomos de uranio. Y cómo se guarda para la noche, con baterías e hidrógeno.',
-                ids: ['fotovoltaica', 'ciclo-combinado', 'cogeneracion', 'eolica', 'hidroelectrica', 'geotermica', 'nuclear', 'hidrogeno', 'almacenamiento-energia'],
+                desc: 'Dónde se produce en grande: con el sol, con gas y el calor del escape, con el vapor de una fábrica o el bagazo de un ingenio, con carbón, combustóleo y motores, con el viento, con el agua de una presa, con el calor de la Tierra y partiendo átomos de uranio. Y cómo se guarda para la noche, con baterías e hidrógeno.',
+                ids: ['fotovoltaica', 'ciclo-combinado', 'cogeneracion', 'termicas', 'eolica', 'hidroelectrica', 'geotermica', 'nuclear', 'hidrogeno', 'almacenamiento-energia'],
             },
             {
                 num: 'V',
@@ -2509,7 +2597,13 @@ export const PUENTE_HILO = {
         eslabon: 'Eslabón 3 · Electricidad y calor con el mismo combustible',
         fisica: 'Una turbina de gas sola aprovecha cerca de un tercio del gas; si sus gases calientes hacen el vapor de un proceso, se aprovechan alrededor de 80 de cada 100. Ahorra solo si el proceso usa ese calor.',
         regulacion: 'El permiso de generación puede tener la modalidad de cogeneración (LSE, art. 41); su capacidad se limita al calor del proceso (art. 42) y la electricidad que sale de ese calor tiene despacho obligado (art. 43). Las Disposiciones de la CNE de abril de 2026 separan la energía obligada de la despachable.',
-        transicion: 'La cogeneración todavía quema gas, salvo en los ingenios. La siguiente no quema nada: la eólica, que convierte el viento en electricidad.',
+        transicion: 'La cogeneración aprovecha el calor del gas. Hay centrales más viejas que queman carbón, combustóleo o diésel y tardan en arrancar: siguen las centrales térmicas.',
+    },
+    termicas: {
+        eslabon: 'Eslabón 3 · Vapor, turbogás y motores: las térmicas que no son de ciclo combinado',
+        fisica: 'Una caldera hace el vapor que mueve una turbina, y más de la mitad de la energía del combustible se va al mar por el condensador. La turbogás y los motores no necesitan caldera y arrancan en minutos.',
+        regulacion: 'No están en la lista de Energías Limpias (LSE, art. 3, fracc. XXI). La SENER programa su retiro en el PLADESE (art. 12), y el CENACE puede pedir que una central que se iba a retirar siga disponible si hace falta para la Confiabilidad (art. 155).',
+        transicion: 'Las térmicas queman combustible. La siguiente no quema nada: la eólica, que convierte el viento en electricidad.',
     },
     'almacenamiento-energia': {
         eslabon: 'Eslabón 3 · Almacenamiento y flexibilidad de la red',

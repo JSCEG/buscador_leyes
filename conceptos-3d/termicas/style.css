@@ -1,0 +1,12 @@
+/* usa planta-comun. Aquí va solo lo propio de esta figura. */
+.h-tabla-texto td:nth-child(2), .h-tabla-texto th:nth-child(2) { text-align: right; }
+#h-regla td:last-child, #h-regla th:last-child { text-align: left; }
+#h-normas td:not(:first-child), #h-normas th:not(:first-child) { text-align: right; }
+.h-barra-f { grid-template-columns: 196px 1fr 40px; }
+@media (max-width: 619px) { .h-barra-f { grid-template-columns: 132px 1fr 34px; } }
+.h-s-norma { --c: var(--tinta, #171317); stroke-dasharray: 5 4; }
+.h-s-verde { --c: #2fb36a; }
+.h-s-rojo { --c: #d64545; }
+.h-s-amarillo { --c: #e0a020; }
+.h-s-azul { --c: #2f7fd1; }
+.h-s-cafe { --c: #8a5a2b; }

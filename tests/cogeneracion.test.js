@@ -142,11 +142,11 @@ describe('La cogeneración', () => {
         expect(c.revisado).toBeNull();
         expect(c.tramites).toEqual(['cogeneracion', 'migracion']);
         expect(siguienteConcepto('ciclo-combinado').id).toBe('cogeneracion');
-        expect(siguienteConcepto('cogeneracion').id).toBe('eolica');
+        expect(siguienteConcepto('cogeneracion').id).toBe('termicas');
         const etapa = HILO_SECTOR.electricidad.etapas.find(e => e.ids.includes('cogeneracion'));
-        expect(etapa.ids.slice(1, 4)).toEqual(['ciclo-combinado', 'cogeneracion', 'eolica']);
+        expect(etapa.ids.slice(1, 4)).toEqual(['ciclo-combinado', 'cogeneracion', 'termicas']);
         expect(PUENTE_HILO['ciclo-combinado'].transicion).toContain('cogeneración');
-        expect(PUENTE_HILO.cogeneracion.transicion).toContain('eólica');
+        expect(PUENTE_HILO.cogeneracion.transicion).toContain('térmicas');
     });
 
     it('la ficha cita artículos que sí dicen eso', () => {
